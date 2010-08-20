@@ -4966,7 +4966,7 @@ msgstr "Leisti šalinti lenteles."
 #: server_privileges.php:35 server_privileges.php:199
 #: server_privileges.php:533
 msgid "Allows to set up events for the event scheduler"
-msgstr "Leisti nustatyti įvykius įvykių planuoklei (scheduler)"
+msgstr "Leisti nustatyti įvykius įvykių planuoklėje (scheduler)"
 
 #: server_privileges.php:36 server_privileges.php:209
 #: server_privileges.php:521
