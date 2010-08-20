@@ -5299,7 +5299,7 @@ msgstr ""
 
 #: server_privileges.php:2029
 msgid "Database for user"
-msgstr ""
+msgstr "Duombazė naudotojui"
 
 #: server_privileges.php:2033
 #, fuzzy
