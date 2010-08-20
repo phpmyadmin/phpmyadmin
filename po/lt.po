@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 18:29+0200\n"
+"PO-Revision-Date: 2010-08-20 18:30+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -518,13 +518,13 @@ msgid "Delete"
 msgstr "Trinti"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Viso:</b> <i>%s</i> atitikmuo(enys)"
-msgstr[1] "<b>Viso:</b> <i>%s</i> atitikmuo(enys)"
-msgstr[2] "<b>Viso:</b> <i>%s</i> atitikmuo(enys)"
+msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
+msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
+msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
 
 #: db_search.php:281
 msgid "Search in database"
