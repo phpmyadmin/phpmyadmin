@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 18:01+0200\n"
+"PO-Revision-Date: 2010-08-20 18:07+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -368,13 +368,13 @@ msgid "Last check"
 msgstr "Paskutinis patikrinimas"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s lentelė(s)"
-msgstr[1] "%s lentelė(s)"
-msgstr[2] "%s lentelė(s)"
+msgstr[0] "%s lentelė"
+msgstr[1] "%s lentelės"
+msgstr[2] "%s lentelių"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
