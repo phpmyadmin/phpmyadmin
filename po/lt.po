@@ -3781,7 +3781,7 @@ msgstr "PDF failo generavimas"
 
 #: libraries/relation.lib.php:115
 msgid "Displaying Column Comments"
-msgstr "Stulpelių komentarų išvedimas"
+msgstr "Išvesti stulpelių komentarus"
 
 #: libraries/relation.lib.php:120
 msgid ""
