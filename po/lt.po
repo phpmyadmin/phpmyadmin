@@ -1044,10 +1044,9 @@ msgstr "Uždaryti"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Praėjęs"
+msgstr "Ankstesnis"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:81 libraries/common.lib.php:2360
