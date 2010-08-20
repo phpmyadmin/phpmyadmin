@@ -989,7 +989,7 @@ msgstr "Vidinis sąryšis įdėtas"
 
 #: js/messages.php:56 pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr "Klaida: Sąrašis neįdėtas."
+msgstr "Klaida: Sąryšis neįdėtas."
 
 #: js/messages.php:57 pmd_relation_new.php:29
 msgid "Error: relation already exists."
