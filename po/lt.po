@@ -6959,7 +6959,7 @@ msgstr "Serverio nustatymai"
 
 #: setup/lib/messages.inc.php:126
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Įvesti serverio ryšio (jungimosi) nustatymus"
 
 #: setup/lib/messages.inc.php:127
 msgid "Enter login options for signon authentication"
