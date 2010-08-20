@@ -7295,7 +7295,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:197
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Prisijungimo slapuko galiojimas"
 
 #: setup/lib/messages.inc.php:198
 msgid "Maximum number of characters used when a SQL query is displayed"
