@@ -4757,7 +4757,7 @@ msgstr "Ištrinti sąryšį"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr "Pasirinkti sąryšį, paspauskite:"
+msgstr "Sąryšio pasirinkimui, paspauskite:"
 
 #: pmd_help.php:28
 msgid ""
