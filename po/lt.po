@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:21+0200\n"
+"PO-Revision-Date: 2010-08-20 10:22+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4242,10 +4242,9 @@ msgid "Add %s column(s)"
 msgstr "Pridėti %s stulpelį(-ius)"
 
 #: libraries/tbl_properties.inc.php:787 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
-msgstr "Pasirinkite bent vieną stulpelį išvedimui"
+msgstr "Jūs turite pridėti bent vieną stulpelį (ar skiltį)."
 
 #: libraries/tbl_properties.inc.php:799
 #, fuzzy
