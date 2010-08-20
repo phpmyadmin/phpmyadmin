@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 07:51+0200\n"
+"PO-Revision-Date: 2010-08-20 07:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -924,7 +924,7 @@ msgstr "Spustelėkite atžymėjimui"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:87
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" komandos įvykdyti negalima."
+msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:186
 msgid "Do you really want to "
