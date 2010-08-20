@@ -2442,9 +2442,8 @@ msgid "Full Texts"
 msgstr "Tekstus rodyti pilnai"
 
 #: libraries/display_tbl.lib.php:585
-#, fuzzy
 msgid "Relational key"
-msgstr "Ryšių schema"
+msgstr "Sąryšių raktas"
 
 #: libraries/display_tbl.lib.php:586
 #, fuzzy
