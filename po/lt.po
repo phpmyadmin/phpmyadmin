@@ -7276,7 +7276,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:194
 msgid "Login cookie store"
-msgstr ""
+msgstr "Prisijungimo slapuko saugojimas"
 
 #: setup/lib/messages.inc.php:195
 msgid "Define how long (in seconds) a login cookie is valid"
