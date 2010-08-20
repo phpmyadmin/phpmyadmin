@@ -4653,10 +4653,10 @@ msgstr ""
 "pašalinti šias nuorodas?"
 
 #: pdf_schema.php:634
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Lentelė \"%s\" neegzistuoja!"
+msgstr "Lentelė %s neegzistuoja!"
 
 #: pdf_schema.php:670
 #, php-format
