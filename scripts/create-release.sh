@@ -232,6 +232,7 @@ if [ $# -gt 0 ] ; then
                         mark_as_release $branch TESTING
                         mark_as_release $branch STABLE
                     fi
+                    git checkout master
                 fi
                 echo "   Dont forget to push tags using: git push --tags"
                 ;;
