@@ -945,7 +945,7 @@ msgstr "Ar tikrai norite išjungti visas BLOB nuorodas duomenų bazei %s?"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
-msgstr "Trūksta reikšmės formoje !"
+msgstr "Trūksta reikšmės formoje!"
 
 #: js/messages.php:39
 msgid "This is not a number!"
