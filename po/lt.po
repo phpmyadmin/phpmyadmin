@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:40+0200\n"
+"PO-Revision-Date: 2010-08-20 19:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6409,6 +6409,9 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Jūs nenaudojate saugaus prisijungimo būdo; visi duomenis (įtraukiant "
+"potencialiai jautrią informaciją, kaip slaptažodžius) yra perduodami "
+"(persiunčiami) nešifruotai!"
 
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
 #: setup/lib/messages.inc.php:217
