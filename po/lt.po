@@ -4491,7 +4491,7 @@ msgstr "Wiki"
 
 #: main.php:205
 msgid "Official Homepage"
-msgstr "Oficialus phpMyAdmin tinklapis"
+msgstr "Oficialus phpMyAdmin tinklalapis"
 
 #: main.php:212
 msgid "Mailing lists"
