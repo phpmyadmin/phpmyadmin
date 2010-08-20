@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:41+0200\n"
+"PO-Revision-Date: 2010-08-20 08:43+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1916,10 +1916,10 @@ msgid "Browse your computer:"
 msgstr "Naršyti savo kompiuteryje:"
 
 #: libraries/common.lib.php:2936
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "web serverio katalogas atsiuntimams"
+msgstr "Pasirinkti iš saityno serverio atsisiuntimų katalogą <b>%s</b>:"
 
 #: libraries/common.lib.php:2948 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
