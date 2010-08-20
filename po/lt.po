@@ -1015,7 +1015,7 @@ msgstr ""
 
 #: js/messages.php:61
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Pasirinkti Foreign Key"
 
 #: js/messages.php:62
 msgid "Please select the primary key or a unique key"
