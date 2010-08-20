@@ -591,4 +591,75 @@ function PMA_setCookie($cookie, $value, $default = null, $validity = null, $http
     // cookie has already $value as value
     return true;
 }
+
+/**
+ * Send HTTP header, taking IIS limits into account (600 seems ok)
+ *
+ * @uses    PMA_IS_IIS
+ * @uses    PMA_COMING_FROM_COOKIE_LOGIN
+ * @uses    PMA_get_arg_separator()
+ * @uses    SID
+ * @uses    strlen()
+ * @uses    strpos()
+ * @uses    header()
+ * @uses    session_write_close()
+ * @uses    headers_sent()
+ * @uses    function_exists()
+ * @uses    debug_print_backtrace()
+ * @uses    trigger_error()
+ * @uses    defined()
+ * @param   string   $uri the header to send
+ * @return  boolean  always true
+ */
+function PMA_sendHeaderLocation($uri)
+{
+    if (PMA_IS_IIS && strlen($uri) > 600) {
+
+        echo '<html><head><title>- - -</title>' . "\n";
+        echo '<meta http-equiv="expires" content="0">' . "\n";
+        echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
+        echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
+        echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
+        echo '<script type="text/javascript">' . "\n";
+        echo '//<![CDATA[' . "\n";
+        echo 'setTimeout("window.location = unescape(\'"' . $uri . '"\')", 2000);' . "\n";
+        echo '//]]>' . "\n";
+        echo '</script>' . "\n";
+        echo '</head>' . "\n";
+        echo '<body>' . "\n";
+        echo '<script type="text/javascript">' . "\n";
+        echo '//<![CDATA[' . "\n";
+        echo 'document.write(\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+        echo '//]]>' . "\n";
+        echo '</script></body></html>' . "\n";
+
+    } else {
+        if (SID) {
+            if (strpos($uri, '?') === false) {
+                header('Location: ' . $uri . '?' . SID);
+            } else {
+                $separator = PMA_get_arg_separator();
+                header('Location: ' . $uri . $separator . SID);
+            }
+        } else {
+            session_write_close();
+            if (headers_sent()) {
+                if (function_exists('debug_print_backtrace')) {
+                    echo '<pre>';
+                    debug_print_backtrace();
+                    echo '</pre>';
+                }
+                trigger_error('PMA_sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
+            }
+            // bug #1523784: IE6 does not like 'Refresh: 0', it
+            // results in a blank page
+            // but we need it when coming from the cookie login panel)
+            if (PMA_IS_IIS && defined('PMA_COMING_FROM_COOKIE_LOGIN')) {
+                header('Refresh: 0; ' . $uri);
+            } else {
+                header('Location: ' . $uri);
+            }
+        }
+    }
+}
 ?>
