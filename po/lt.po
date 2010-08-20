@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:38+0200\n"
+"PO-Revision-Date: 2010-08-20 22:40+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7341,6 +7341,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Skaičius leidžiamų paskirti baitų scenarijui (skriptui), pvz., "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] neriboja)"
 
 #: setup/lib/messages.inc.php:207
 #, fuzzy
