@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:13+0200\n"
+"PO-Revision-Date: 2010-08-20 10:14+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3730,7 +3730,7 @@ msgstr "Graikų"
 
 #: libraries/mysql_charsets.lib.php:384
 msgid "Czech-Slovak"
-msgstr "Čekų-Slovakų"
+msgstr "Čekų-slovakų"
 
 #: libraries/mysql_charsets.lib.php:399 libraries/mysql_charsets.lib.php:406
 msgid "unknown"
