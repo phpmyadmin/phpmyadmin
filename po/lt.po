@@ -4006,7 +4006,7 @@ msgstr "Vykdyti SQL sakinius serveryje %s"
 #: libraries/sql_query_form.lib.php:234 libraries/sql_query_form.lib.php:258
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Vykdyti SQL sakinius duombazėje <strong>%s</strong>"
+msgstr "Vykdyti SQL sakinius duombazėje %s"
 
 #: libraries/sql_query_form.lib.php:294
 #, fuzzy
