@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:12+0200\n"
+"PO-Revision-Date: 2010-08-20 08:14+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1501,7 +1501,7 @@ msgstr "Lentelė %s pervadinta į %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Nerasta tinkamo paveiksliukų kelio temai %s!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
