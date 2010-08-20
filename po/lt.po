@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 18:50+0200\n"
+"PO-Revision-Date: 2010-08-20 18:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4239,7 +4239,7 @@ msgstr "Saugojimo variklis"
 
 #: libraries/tbl_properties.inc.php:758
 msgid "PARTITION definition"
-msgstr ""
+msgstr "SKAIDINIO (PARTITION) apibrėžimas"
 
 #: libraries/tbl_properties.inc.php:779 pdf_pages.php:501
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
