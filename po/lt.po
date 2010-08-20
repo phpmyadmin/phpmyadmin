@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:19+0200\n"
+"PO-Revision-Date: 2010-08-20 09:20+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2409,7 +2409,7 @@ msgstr "išdėstant  %s pakartoti antraštes kas %s įrašų"
 
 #: libraries/display_tbl.lib.php:344
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Operacija gali užtrukti. Tęsti?"
+msgstr "Operacija gali ilgai užtrukti. Tęsti?"
 
 #: libraries/display_tbl.lib.php:510
 msgid "Sort by key"
