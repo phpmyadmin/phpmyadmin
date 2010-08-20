@@ -6497,7 +6497,7 @@ msgstr "Neteisinga reikšmė"
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:326
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Nustatyti reikšmę: %s"
 
 #: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:232
 msgid "Restore default value"
