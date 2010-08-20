@@ -540,7 +540,7 @@ msgstr "Rasti:"
 
 #: db_search.php:293 db_search.php:294
 msgid "Words are separated by a space character (\" \")."
-msgstr "Žodžiai atskirti tarpo simboliu (\" \")."
+msgstr "Žodžiai atskirti tarpo simboliu („ “)."
 
 #: db_search.php:307
 msgid "Inside table(s):"
