@@ -3025,10 +3025,9 @@ msgstr "Įterpti lentelės antraštę"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Transformacijos nustatymai"
+msgstr "Objekto kūrimo nustatymai"
 
 #: libraries/export/latex.php:49 libraries/export/latex.php:73
 msgid "Table caption"
