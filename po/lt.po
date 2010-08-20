@@ -6654,7 +6654,7 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
-"Suspaudimas gzip/bzip2 eksportuojant nereikia daug atminties; Jeigu Jūs "
+"Suspaudimas gzip/bzip2 eksportuojant nereikalauja daug atminties; Jeigu Jūs "
 "patiriate problemų kuriant gzip/bzip2 failus tada išjunkite šią galimybę"
 
 #: setup/lib/messages.inc.php:43
