@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 17:54+0200\n"
+"PO-Revision-Date: 2010-08-20 17:55+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5571,9 +5571,8 @@ msgid "The number of executed FLUSH statements."
 msgstr "Įvykdytų FLUSH užklausų skaičius."
 
 #: server_status.php:48
-#, fuzzy
 msgid "The number of internal COMMIT statements."
-msgstr "Įvykdytų FLUSH užklausų skaičius."
+msgstr "Vidinių COMMIT užklausų skaičius."
 
 #: server_status.php:49
 msgid "The number of times a row was deleted from a table."
