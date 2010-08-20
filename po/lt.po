@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:31+0200\n"
+"PO-Revision-Date: 2010-08-20 08:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1708,8 +1708,7 @@ msgstr "Nepavyko užkrauti numatytų nustatymų failo iš: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr ""
-"Reikia nustatymų faile įrašyti <tt>$cfg['PmaAbsoluteUri']</tt> reikšmę!"
+msgstr "BŪTINA nustatymų faile įrašyti <tt>$cfg['PmaAbsoluteUri']</tt> reikšmę!"
 
 #: libraries/common.inc.php:613
 #, php-format
