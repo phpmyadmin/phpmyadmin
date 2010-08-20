@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:08+0200\n"
+"PO-Revision-Date: 2010-08-20 10:10+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3506,6 +3506,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"XHML failo specifikacija yra neteisinga arba neišbaigta. Prašome pataisyti "
+"klaidas ir bandyti dar kartą."
 
 #: libraries/kanji-encoding.lib.php:142
 #, fuzzy
