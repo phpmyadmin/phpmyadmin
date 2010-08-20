@@ -7373,7 +7373,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:216
 msgid "Default sorting order"
-msgstr ""
+msgstr "Numatytoji rikiavimo tvarka"
 
 #: setup/lib/messages.inc.php:218
 msgid "Use persistent connections to MySQL databases"
