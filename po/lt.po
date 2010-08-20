@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:16+0200\n"
+"PO-Revision-Date: 2010-08-20 08:19+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1578,6 +1578,8 @@ msgstr "phpMyAdmin dokumentacija"
 #: libraries/auth/cookie.auth.lib.php:246
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Jūs galite įvesti serverio vardą(hostname)/IP adresą ir prievadą (portą) "
+"atskirtą tarpu."
 
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "Server:"
