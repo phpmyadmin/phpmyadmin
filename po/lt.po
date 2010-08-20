@@ -5510,7 +5510,7 @@ msgstr "Praleisti toliau"
 
 #: server_replication.php:338
 msgid "errors."
-msgstr ""
+msgstr "klaidos."
 
 #: server_replication.php:353
 #, php-format
