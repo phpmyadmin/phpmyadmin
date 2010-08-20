@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:05+0200\n"
+"PO-Revision-Date: 2010-08-20 09:06+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2275,10 +2275,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Importuojama į duombazę „%s“"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the table \"%s\""
-msgstr "Eiti į duomenų bazę"
+msgstr "Importuojama į lentelę „%s“"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
