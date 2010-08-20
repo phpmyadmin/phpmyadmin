@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:12+0200\n"
+"PO-Revision-Date: 2010-08-20 10:13+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3568,7 +3568,7 @@ msgstr "Tradicinė kinų"
 
 #: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:410
 msgid "case-insensitive"
-msgstr "simbolių dydis nesvarbus"
+msgstr "nesvarbu didžiosios ar mažosios"
 
 #: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:412
 msgid "case-sensitive"
