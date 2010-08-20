@@ -300,6 +300,8 @@ function PMA_DBI_getError($link = null)
         $error_message = PMA_DBI_convert_message($error_message);
     }
 
+    $error_message = htmlspecialchars($error_message);
+
     // Some errors messages cannot be obtained by mysql_error()
     if ($error_number == 2002) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
