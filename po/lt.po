@@ -7440,7 +7440,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:234
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Katalogas kur eksportai gali būti išsaugomi serveryje"
 
 #: setup/lib/messages.inc.php:235
 msgid "Save directory"
