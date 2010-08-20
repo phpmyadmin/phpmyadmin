@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:22+0200\n"
+"PO-Revision-Date: 2010-08-20 08:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1624,7 +1624,7 @@ msgstr "Nepavyksta prisijungti prie MySQL darbinės stoties"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Neteisingas vartotojo vardas arba slaptažodis. Priėjimas uždraustas."
+msgstr "Neteisingas naudotojo vardas arba slaptažodis. Priėjimas uždraustas."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
