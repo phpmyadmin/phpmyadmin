@@ -6910,9 +6910,8 @@ msgid "Customize appearance of the navigation frame"
 msgstr "Adaptuoti navigacijos rėmelio išvaizdą"
 
 #: setup/lib/messages.inc.php:112
-#, fuzzy
 msgid "Servers display options"
-msgstr "Lentelių rodymo nustatymai"
+msgstr "Serverių rodymo nustatymai"
 
 #: setup/lib/messages.inc.php:114
 msgid "Tables display options"
