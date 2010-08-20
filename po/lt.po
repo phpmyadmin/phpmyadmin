@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:11+0200\n"
+"PO-Revision-Date: 2010-08-20 08:12+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1481,9 +1481,8 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
 #: libraries/Table.class.php:1017
-#, fuzzy
 msgid "Invalid database"
-msgstr "Neteisingas lentelės vardas"
+msgstr "Neteisingas duombazės vardas"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
