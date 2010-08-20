@@ -4725,7 +4725,7 @@ msgstr "Pritraukti prie tinklelio"
 
 #: pmd_general.php:94
 msgid "Small/Big All"
-msgstr "Maži/Dideli visi"
+msgstr "Mažinti/didinti visus"
 
 #: pmd_general.php:98
 msgid "Toggle small/big"
