@@ -4020,7 +4020,7 @@ msgstr "Sukurti nuorodą į šią SQL užklausą"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:674
 msgid "Let every user access this bookmark"
-msgstr "Leisti kitiems vartotojams naudotis šia žyme"
+msgstr "Leisti kitiems vartotojams naudotis šia žyme (bookmark)"
 
 #: libraries/sql_query_form.lib.php:342
 msgid "Replace existing bookmark of same name"
