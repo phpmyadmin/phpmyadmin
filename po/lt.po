@@ -7202,9 +7202,8 @@ msgid "String that separates tables into different tree levels"
 msgstr "Simboliai kurie atskiria lenteles į skirtingas medžio šakas"
 
 #: setup/lib/messages.inc.php:179
-#, fuzzy
 msgid "Table tree separator"
-msgstr "Duomenų bazės vardo šablonas"
+msgstr "Lentelės medžio skyriklis"
 
 #: setup/lib/messages.inc.php:180
 msgid "Logo link URL"
