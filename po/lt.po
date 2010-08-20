@@ -5477,9 +5477,8 @@ msgid "SQL Thread %s only"
 msgstr ""
 
 #: server_replication.php:325 server_replication.php:326
-#, fuzzy
 msgid "Start"
-msgstr "Šeštadienis"
+msgstr "Paleisti"
 
 #: server_replication.php:325 server_replication.php:326
 msgid "Stop"
