@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:04+0200\n"
+"PO-Revision-Date: 2010-08-20 11:05+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5051,6 +5051,7 @@ msgstr ""
 
 #: server_privileges.php:50 server_privileges.php:196
 #: server_privileges.php:552
+#, fuzzy
 msgid "Needed for the replication slaves."
 msgstr "Reikalinga atstatyti slave darbinei stočiai"
 
