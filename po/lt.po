@@ -886,7 +886,7 @@ msgstr "Žymė %s sukurta"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Importavimas sėkmingai baigta, įvykdyta %d užklausų(os)."
 
 #: import.php:422
 msgid ""
