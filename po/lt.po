@@ -7330,7 +7330,7 @@ msgstr "Maksimalus skaičius eilučių rodymui"
 
 #: setup/lib/messages.inc.php:204
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Maksimalus skaičius lentelių rodomų lentelių sąraše"
 
 #: setup/lib/messages.inc.php:205
 msgid "Maximum tables"
