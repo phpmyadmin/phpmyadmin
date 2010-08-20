@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:02+0200\n"
+"PO-Revision-Date: 2010-08-20 09:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2261,7 +2261,7 @@ msgstr "Failas apdorojamas, prašome palaukti."
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "Prašome palaukti, failas siunčiamas. Informacijos apie siuntimą nėra."
 
 #: libraries/display_import.lib.php:129
 #, fuzzy
