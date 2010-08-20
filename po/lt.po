@@ -5519,7 +5519,7 @@ msgstr "Sustabdyti"
 #: server_replication.php:326
 #, php-format
 msgid "IO Thread %s only"
-msgstr ""
+msgstr "Tik IO %s gija"
 
 #: server_replication.php:330
 msgid "Error management:"
