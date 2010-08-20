@@ -7096,7 +7096,7 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Leisti sustabdyti importavimą jei skriptas nustato, kad priartėta prie "
+"Leisti pertraukti importavimą jei skriptas nustato, kad priartėta prie "
 "vykdymo laiko ribos. Gali būti naudinga importuojant didelius failus, tačiau "
 "gali sugadinti tranzakcijas."
 
