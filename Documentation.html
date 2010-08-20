@@ -849,7 +849,7 @@ since this link provides funding for phpMyAdmin.
         For example, to hide all databases starting with the letter &#34;a&#34;, use<br />
         <pre>$cfg['Servers'][$i]['hide_db'] = '^a';</pre>
         and to hide both &#34;db1&#34; and &#34;db2&#34; use <br />
-        <pre>$cfg['Servers'][$i]['hide_db'] = '(db1|db2)';</pre>
+        <pre>$cfg['Servers'][$i]['hide_db'] = '^(db1|db2)$';</pre>
         More information on regular expressions can be found in the
         <a href="http://php.net/manual/en/reference.pcre.pattern.syntax.php">
         PCRE pattern syntax</a> portion of the PHP reference manual.
