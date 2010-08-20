@@ -7389,7 +7389,7 @@ msgstr "Piktograminės lentelių operacijos"
 
 #: setup/lib/messages.inc.php:222
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Neleisti redaguoti BLOB ir BINARY stulpelių"
 
 #: setup/lib/messages.inc.php:223
 msgid "Protect binary columns"
