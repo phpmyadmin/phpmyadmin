@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 21:15+0200\n"
+"PO-Revision-Date: 2010-08-20 21:16+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7037,9 +7037,8 @@ msgid "Customize startup page"
 msgstr "Adaptuoti paleidimo (pagrindinį) puslapį"
 
 #: setup/lib/messages.inc.php:144
-#, fuzzy
 msgid "Startup"
-msgstr "Statusas"
+msgstr "Paleidimas (pagrindinis)"
 
 #: setup/lib/messages.inc.php:145
 msgid "Choose how you want tabs to work"
