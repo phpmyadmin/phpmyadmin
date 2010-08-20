@@ -6604,7 +6604,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:32
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Nepavyko įkelti arba išsaugoti konfigūracijos"
 
 #: setup/lib/messages.inc.php:33
 msgid ""
