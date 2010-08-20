@@ -5482,7 +5482,7 @@ msgstr "Paleisti"
 
 #: server_replication.php:325 server_replication.php:326
 msgid "Stop"
-msgstr ""
+msgstr "Sustabdyti"
 
 #: server_replication.php:326
 #, php-format
