@@ -3211,7 +3211,7 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "įtraukti stulpelių vardus kiekviename <code>INSERT</code> sakinyje <br /> "
-"&nbsp; &nbsp; &nbsp; Pavyzdžiui: <code>INSERT INTO tbl_name "
+"&nbsp; &nbsp; &nbsp; Pavyzdžiui: <code>INSERT INTO lenteles_vardas "
 "(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
