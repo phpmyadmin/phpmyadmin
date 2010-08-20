@@ -6895,7 +6895,7 @@ msgstr "Importuoti numatytąsias reikšmes"
 
 #: setup/lib/messages.inc.php:106
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Naudoti importavimo ir eksportavimo katalogus ir suspaudimo nustatymus"
 
 #: setup/lib/messages.inc.php:107
 msgid "Import / export"
