@@ -3057,7 +3057,7 @@ msgstr "Rodyti komentarus"
 #: libraries/export/sql.php:44
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Rodyti MIME-tipai"
+msgstr "Rodyti MIME-tipus"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:281
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
