@@ -5029,7 +5029,7 @@ msgstr "Riboti prisijungimų kiekį per valandą (kartu vykstančių)."
 #: server_privileges.php:46 server_privileges.php:187
 #: server_privileges.php:543
 msgid "Allows viewing processes of all users"
-msgstr ""
+msgstr "Leisti peržiūrėti procesus visiems naudotojams"
 
 #: server_privileges.php:47 server_privileges.php:189
 #: server_privileges.php:447 server_privileges.php:549
