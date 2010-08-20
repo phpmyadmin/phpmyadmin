@@ -6694,9 +6694,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr ""
 
 #: setup/lib/messages.inc.php:54
-#, fuzzy
 msgid "Default table tab"
-msgstr "Pervadinti duombazę į"
+msgstr "Numatytoji lentelės kortelė"
 
 #: setup/lib/messages.inc.php:55
 msgid ""
