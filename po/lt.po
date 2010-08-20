@@ -6480,7 +6480,7 @@ msgstr "Navigacijos rėmelis"
 
 #: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:116
 msgid "Main frame"
-msgstr ""
+msgstr "Pagrindinis rėmelis"
 
 #: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:270
 #, fuzzy
