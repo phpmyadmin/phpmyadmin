@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:42+0200\n"
+"PO-Revision-Date: 2010-08-20 22:44+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7359,6 +7359,7 @@ msgstr "Piktograminė navigacijos juostelė"
 #: setup/lib/messages.inc.php:212
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
+"naudoti GZip išvedimo buferiui tam, kad padidinti greitį HTTP persiuntimų"
 
 #: setup/lib/messages.inc.php:213
 msgid "GZip output buffering"
