@@ -5453,7 +5453,7 @@ msgstr ""
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "Sinchronizuoti duombazes su pagrindiniu serveriu master"
+msgstr "Sinchronizuoti duombazes su pagrindiniu serveriu (master)"
 
 #: server_replication.php:320
 msgid "Control slave:"
