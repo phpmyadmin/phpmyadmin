@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:07+0200\n"
+"PO-Revision-Date: 2010-08-20 08:08+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1363,11 +1363,12 @@ msgid "Unknown error in file upload."
 msgstr "Nežinoma klaida failų įkėlime."
 
 #: libraries/File.class.php:624
-#, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Gali būti apytikslis. Žiūrėkite DUK 3.11"
+msgstr ""
+"Klaida perkeliant įkeltą failą, žiūrėti "
+"[a@./Documentation.html#faq1_11@Documentation]DUK 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
