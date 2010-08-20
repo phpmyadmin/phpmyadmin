@@ -7432,7 +7432,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:231
 msgid "Recoding engine"
-msgstr ""
+msgstr "Įrašymo varikliukas"
 
 #: setup/lib/messages.inc.php:233
 msgid "Try to revert erroneous fields to their default values"
