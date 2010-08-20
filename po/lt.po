@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 17:46+0200\n"
+"PO-Revision-Date: 2010-08-20 17:48+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5496,6 +5496,8 @@ msgstr "Klaidų valdymas:"
 #: server_replication.php:332
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Klaidų praleidinėjimas gali nuvesti iki nesusinchronizavimo tarp pagrindinio "
+"ir jam pavaldžių serverių!"
 
 #: server_replication.php:334
 msgid "Skip current error"
