@@ -4402,7 +4402,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Suformuoti tekstą kaip SQL užklausą su sintaksės paryškinimais."
+msgstr "Suformuoja tekstą kaip SQL užklausą su sintaksės paryškinimais."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
