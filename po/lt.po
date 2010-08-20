@@ -4717,7 +4717,7 @@ msgstr "Kampuotos (angular) nuorodos"
 
 #: pmd_general.php:86
 msgid "Direct links"
-msgstr ""
+msgstr "Tiesioginės nuorodos"
 
 #: pmd_general.php:90
 msgid "Snap to grid"
