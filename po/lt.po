@@ -4767,9 +4767,8 @@ msgid ""
 msgstr ""
 
 #: pmd_pdf.php:60
-#, fuzzy
 msgid "Page has been created"
-msgstr "Duomenų bazė %1$s sukurta."
+msgstr "Puslapis sukurtas"
 
 #: pmd_pdf.php:62
 msgid "Page creation failed"
