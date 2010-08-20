@@ -2082,10 +2082,10 @@ msgid "Exporting databases in the current server"
 msgstr "Leisti užrakinti lenteles procesų metu."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "Sukurti naują lentelę duombazėje %s"
+msgstr "Eksportuojamos lentelės duombazėje „%s“"
 
 #: libraries/display_export.lib.php:91
 #, php-format
