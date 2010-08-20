@@ -2088,10 +2088,10 @@ msgid "Exporting tables in the database \"%s\""
 msgstr "Sukurti naują lentelę duombazėje %s"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
-msgstr "Sukurti naują lentelę duombazėje %s"
+msgstr "Eksportuojamos eilutės lentelėje „%s“"
 
 #: libraries/display_export.lib.php:97
 #| msgid "Export type"
