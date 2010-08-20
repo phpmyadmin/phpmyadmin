@@ -5398,7 +5398,7 @@ msgstr "Nepavyko pakeisti pagrindinio (master) serverio"
 #: server_replication.php:72
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Pagrindinis (master) serveris pakeistas sėkmingai į %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
