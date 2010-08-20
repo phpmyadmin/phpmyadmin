@@ -6683,7 +6683,7 @@ msgstr "Numatyta duombazės kortelė"
 
 #: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Kortelė kuri yra rodoma kai įeinama į serverį"
 
 #: setup/lib/messages.inc.php:52
 #, fuzzy
