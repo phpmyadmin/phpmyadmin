@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:33+0200\n"
+"PO-Revision-Date: 2010-08-20 19:34+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6154,7 +6154,7 @@ msgstr ""
 
 #: server_status.php:394
 msgid "Show slave status"
-msgstr ""
+msgstr "Rodyti pavaldinio būklę"
 
 #: server_status.php:399
 msgid "Flush query cache"
