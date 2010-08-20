@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:59+0200\n"
+"PO-Revision-Date: 2010-08-20 23:01+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7437,6 +7437,7 @@ msgstr ""
 #: setup/lib/messages.inc.php:233
 msgid "Try to revert erroneous fields to their default values"
 msgstr ""
+"Pabandykite sugrąžinti klaidingų laukelių reikšmes sugrąžinti į numatytąsias"
 
 #: setup/lib/messages.inc.php:234
 msgid "Directory where exports can be saved on server"
