@@ -5465,9 +5465,8 @@ msgid "Full start"
 msgstr "Pilnas įjungimas"
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full stop"
-msgstr "Fulltext"
+msgstr "Pilnas išjungimas"
 
 #: server_replication.php:324
 msgid "Reset slave"
