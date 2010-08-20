@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 07:55+0200\n"
+"PO-Revision-Date: 2010-08-20 07:56+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -993,7 +993,7 @@ msgstr "Klaida: Sąrašis neįdėtas."
 
 #: js/messages.php:57 pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Klaida: toks sąryšis jau yra."
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
