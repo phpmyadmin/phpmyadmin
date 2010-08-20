@@ -518,6 +518,7 @@ function get_cfg_val($name, $val) {
                 }
             }
             if ($type == 'string') {
+                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
                 $ret .= get_cfg_val($name . "['$k']", $v);
             } elseif ($type == 'int') {
                 $ret .= '    ' . PMA_var_export($v) . ',' . $crlf;

@@ -602,7 +602,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
        . $spaces . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . htmlspecialchars(isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_hostname">' . "\n"
@@ -650,7 +650,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
        . $spaces . '        <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="hostname" maxlength="' . $hostname_length . '" value="' . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '') . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" name="hostname" maxlength="' . $hostname_length . '" value="' . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '') . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_password">' . "\n"
@@ -757,14 +757,14 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
 
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
-        $message = sprintf($GLOBALS['strUserAlreadyExists'], '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
+        $message = sprintf($GLOBALS['strUserAlreadyExists'], '[i]\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'[/i]');
         $adduser = 1;
     } else {
         PMA_DBI_free_result($res);
 
         if (50002 <= PMA_MYSQL_INT_VERSION) {
             // MySQL 5 requires CREATE USER before any GRANT on this user can done
-            $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+            $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . htmlspecialchars($hostname) . '\'';
         }
 
         $real_sql_query =
@@ -1048,7 +1048,7 @@ if (!empty($update_privs)) {
     $sql_query = (isset($sql_query0) ? $sql_query0 . ' ' : '')
                . (isset($sql_query1) ? $sql_query1 . ' ' : '')
                . $sql_query2;
-    $message = sprintf($GLOBALS['strUpdatePrivMessage'], '\'' . $username . '\'@\'' . $hostname . '\'');
+    $message = sprintf($GLOBALS['strUpdatePrivMessage'], '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
 }
 
 
@@ -1080,7 +1080,7 @@ if (!empty($revokeall)) {
         unset($sql_query1);
     }
     $sql_query = $sql_query0 . (isset($sql_query1) ? ' ' . $sql_query1 : '');
-    $message = sprintf($GLOBALS['strRevokeMessage'], '\'' . $username . '\'@\'' . $hostname . '\'');
+    $message = sprintf($GLOBALS['strRevokeMessage'], '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
     if (! isset($tablename) || ! strlen($tablename)) {
         unset($dbname);
     } else {
@@ -1115,7 +1115,7 @@ if (!empty($change_pw)) {
         $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
         $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
         PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
-        $message = sprintf($GLOBALS['strPasswordChanged'], '\'' . $username . '\'@\'' . $hostname . '\'');
+        $message = sprintf($GLOBALS['strPasswordChanged'], '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
     }
 }
 
@@ -1588,17 +1588,17 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
 
         echo '<h2>' . "\n"
            . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" alt="" />' : '')
-           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
+           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . htmlspecialchars(urlencode($username)) . '&amp;hostname=' . htmlspecialchars(urlencode($hostname)) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
         if (isset($dbname) && strlen($dbname)) {
             if ($dbname_is_wildcard) {
             echo '    - ' . $GLOBALS['strDatabases'];
             } else {
             echo '    - ' . $GLOBALS['strDatabase'];
             }
-            $url_dbname = urlencode(str_replace('\_', '_', $dbname));
+            $url_dbname = htmlspecialchars(urlencode(str_replace('\_', '_', $dbname)));
             echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (isset($tablename) && strlen($tablename)) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
+                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename)) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
             }
             unset($url_dbname);
         }
@@ -1839,16 +1839,16 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                     }
                     echo '</td>' . "\n"
                        . '    <td>';
-                    printf($link_edit, urlencode($username),
-                        urlencode($hostname),
-                        urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname),
+                    printf($link_edit, htmlspecialchars(urlencode($username)),
+                        htmlspecialchars(urlencode($hostname)),
+                        htmlspecialchars(urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname)),
                         urlencode((! isset($dbname) || ! strlen($dbname)) ? '' : $row['Table_name']));
                     echo '</td>' . "\n"
                        . '    <td>';
                     if (! empty($row['can_delete']) || isset($row['Table_name']) && strlen($row['Table_name'])) {
-                        printf($link_revoke, urlencode($username),
-                            urlencode($hostname),
-                            urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname),
+                        printf($link_revoke, htmlspecialchars(urlencode($username)),
+                            htmlspecialchars(urlencode($hostname)),
+                            htmlspecialchars(urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname)),
                             urlencode((! isset($dbname) || ! strlen($dbname)) ? '' : $row['Table_name']));
                     }
                     echo '</td>' . "\n"

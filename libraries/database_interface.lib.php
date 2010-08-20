@@ -208,6 +208,10 @@ function PMA_usort_comparison_callback($a, $b)
     } else {
         $sorter = 'strcasecmp';
     }
+    /* No sorting when key is not present */
+    if (!isset($a[$GLOBALS['callback_sort_by']]) || ! isset($b[$GLOBALS['callback_sort_by']])) {
+        return 0;
+    }
     // produces f.e.:
     // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
     return ($GLOBALS['callback_sort_order'] == 'ASC' ? 1 : -1) * $sorter($a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]);
