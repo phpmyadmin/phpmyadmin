@@ -6996,9 +6996,8 @@ msgid "Customization"
 msgstr "Adaptavimas"
 
 #: setup/lib/messages.inc.php:134
-#, fuzzy
 msgid "Customize export options"
-msgstr "Duombazės eksportavimo parinktys"
+msgstr "Adaptuoti eksportavimo nustatymus"
 
 #: setup/lib/messages.inc.php:136
 #, fuzzy
