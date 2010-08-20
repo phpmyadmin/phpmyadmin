@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:32+0200\n"
+"PO-Revision-Date: 2010-08-20 09:33+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3044,10 +3044,9 @@ msgstr "Pavadinimo raktas"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Atsisakyti išorinių raktų tikrinimo"
+msgstr "Rodyti išorinių raktų sąryšius"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
