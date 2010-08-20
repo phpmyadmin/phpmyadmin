@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:31+0200\n"
+"PO-Revision-Date: 2010-08-20 09:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3034,10 +3034,9 @@ msgid "Table caption"
 msgstr "Lentelės antraštė"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Lentelės antraštė"
+msgstr "Lentelės antraštė (tęsinys)"
 
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
 msgid "Label key"
