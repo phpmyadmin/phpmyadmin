@@ -3415,7 +3415,7 @@ msgstr "Stulpelių vardai:"
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Negalimas parametras CSV importavimui: %s"
 
 #: libraries/import/csv.php:61 libraries/import/ldi.php:40
 #, fuzzy
