@@ -7000,9 +7000,8 @@ msgid "Customize export options"
 msgstr "Adaptuoti eksportavimo nustatymus"
 
 #: setup/lib/messages.inc.php:136
-#, fuzzy
 msgid "Customize import defaults"
-msgstr "Duombazės eksportavimo parinktys"
+msgstr "Adaptuoti importavimo numatytąsias reikšmes"
 
 #: setup/lib/messages.inc.php:137
 msgid "Customize navigation frame"
