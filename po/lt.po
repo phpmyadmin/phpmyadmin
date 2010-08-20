@@ -5491,7 +5491,7 @@ msgstr ""
 
 #: server_replication.php:330
 msgid "Error management:"
-msgstr ""
+msgstr "Klaidų valdymas:"
 
 #: server_replication.php:332
 msgid "Skipping errors might lead into unsynchronized master and slave!"
