@@ -7227,7 +7227,7 @@ msgstr "Paryškinti serverį užvedus pelės žymekliu"
 
 #: setup/lib/messages.inc.php:184
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Įjungti paryškinimą"
 
 #: setup/lib/messages.inc.php:186
 msgid "Use less graphically intense tabs"
