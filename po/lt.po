@@ -5323,7 +5323,7 @@ msgstr "Suteikti visas privilegijas duombazei „%s“"
 #: server_privileges.php:2061
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
-msgstr "Vartotojai turintys priėjimą prie &quot;%s&quot;"
+msgstr "Vartotojai turintys priėjimą prie „%s“"
 
 #: server_privileges.php:2169
 msgid "global"
