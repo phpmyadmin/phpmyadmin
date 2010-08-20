@@ -7354,7 +7354,7 @@ msgstr "Naudoti tik piktogramas (ikonas), tik tekstą arba abu"
 
 #: setup/lib/messages.inc.php:209
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "Piktograminė navigacijos juostelė"
 
 #: setup/lib/messages.inc.php:212
 msgid "use GZip output buffering for increased speed in HTTP transfers"
