@@ -2980,10 +2980,9 @@ msgstr "duomenys"
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:41
 #: libraries/export/odt.php:33 libraries/export/sql.php:79
 #: libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Struktūra ir duomenys"
+msgstr "struktūra ir duomenys"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
