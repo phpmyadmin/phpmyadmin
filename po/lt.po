@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 18:28+0200\n"
+"PO-Revision-Date: 2010-08-20 18:29+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -493,13 +493,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Paieškos rezultatai frazei „<i>%s</i>“ %s:"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s atitikmuo(enys) lentelėje <i>%s</i>"
-msgstr[1] "%s atitikmuo(enys) lentelėje <i>%s</i>"
-msgstr[2] "%s atitikmuo(enys) lentelėje <i>%s</i>"
+msgstr[0] "%s atitikmuo lentelėje <i>%s</i>"
+msgstr[1] "%s atitikmenys lentelėse <i>%s</i>"
+msgstr[2] "%s atitikmenų lentelėse <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:75 db_structure.php:76
 #: db_structure.php:88 db_structure.php:90 db_structure.php:101
