@@ -5444,7 +5444,7 @@ msgstr "Ignoruoti visas duombazes; Padauginti:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr "Prašome pasirinkti duombazę:"
+msgstr "Prašome pasirinkti duombazę(es):"
 
 #: server_replication.php:226
 msgid ""
