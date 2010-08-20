@@ -6372,7 +6372,7 @@ msgstr "Konfigūracija: %s"
 
 #: server_synchronize.php:1165
 msgid "Socket"
-msgstr ""
+msgstr "Prievadas (socket)"
 
 #: server_synchronize.php:1211
 msgid ""
