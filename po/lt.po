@@ -3425,7 +3425,7 @@ msgstr "Laukai baigiasi"
 #: libraries/import/csv.php:73 libraries/import/ldi.php:41
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Laukų reikšmės apskliaustos simboliais"
+msgstr "Laukų reikšmės apskliaustos"
 
 #: libraries/import/csv.php:77 libraries/import/ldi.php:42
 #, fuzzy
