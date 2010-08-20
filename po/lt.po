@@ -1491,7 +1491,7 @@ msgstr "Neteisingas lentelės vardas"
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Klaida pervadinant lentelę iš %1$s į %2$s"
 
 #: libraries/Table.class.php:1129
 #, php-format
