@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:41+0200\n"
+"PO-Revision-Date: 2010-08-20 10:43+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4733,7 +4733,7 @@ msgstr "Suskleisti/Išskleisti"
 
 #: pmd_general.php:103
 msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+msgstr "Importuoti/eksportuoti koordinates PDF schemai"
 
 #: pmd_general.php:107
 msgid "Move Menu"
