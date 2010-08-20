@@ -6907,7 +6907,7 @@ msgstr "Duomenų bazių rodymo nustatymai"
 
 #: setup/lib/messages.inc.php:110
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Adaptuoti navigacijos rėmelio išvaizdą"
 
 #: setup/lib/messages.inc.php:112
 #, fuzzy
