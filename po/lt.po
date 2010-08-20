@@ -2641,7 +2641,7 @@ msgstr "Rašymas laukia %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
-msgstr ""
+msgstr "Duomenų rodyklės dydis"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
