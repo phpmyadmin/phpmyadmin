@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:16+0200\n"
+"PO-Revision-Date: 2010-08-20 10:17+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3963,7 +3963,7 @@ msgstr "Varikliai"
 #: libraries/server_links.inc.php:75 server_binlog.php:96
 #: server_status.php:363 test/theme.php:120
 msgid "Binary log"
-msgstr "Binarinis logas"
+msgstr "Dvejetainis log'as"
 
 #: libraries/server_links.inc.php:79
 msgid "Processes"
