@@ -6284,9 +6284,8 @@ msgid "'%s' database does not exist."
 msgstr "'%s' duomenų bazė neegzistuoja."
 
 #: server_synchronize.php:263
-#, fuzzy
 msgid "Structure Synchronization"
-msgstr "Duomenų sinchronizacija"
+msgstr "Struktūros sinchronizacija"
 
 #: server_synchronize.php:270
 msgid "Data Synchronization"
