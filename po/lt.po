@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:02+0200\n"
+"PO-Revision-Date: 2010-08-20 08:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1332,7 +1332,7 @@ msgstr "Šrifto dydis"
 
 #: libraries/File.class.php:315
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Įkeltas failas viršija upload_max_filesize nurodymą faile php.ini."
 
 #: libraries/File.class.php:318
 msgid ""
