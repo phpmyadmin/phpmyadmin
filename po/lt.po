@@ -4435,7 +4435,7 @@ msgstr "Pagrindiniai nustatymai"
 
 #: main.php:97
 msgid "MySQL connection collation"
-msgstr "MySQL prisijungimo rūšiavimas"
+msgstr "MySQL prisijungimo išdėstymas"
 
 #: main.php:112
 #, fuzzy
