@@ -187,6 +187,11 @@ function clear_fast_filter() {
 $(document).ready(function(){
     /* Display filter */
     $('#NavFilter').css('display', 'inline');
+    $('input[id="fast_filter"]').focus(function() {
+        if($(this).attr("value") === "filter tables by name") {
+            clear_fast_filter();
+        }
+    });
     $('#clear_fast_filter').click(clear_fast_filter);
     $('#fast_filter').focus(function (evt) {evt.target.select();});
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});

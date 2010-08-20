@@ -16,12 +16,14 @@ if (isset($plugin_list)) {
         'extension'     => 'json',
         'mime_type'     => 'text/plain',
         'options'       => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array(
                 'type' => 'hidden',
-                'name' => 'data',
+                'name' => 'structure_or_data',
             ),
+            array('type' => 'end_group')
         ),
-        'options_text'  => 'strOptions',
+        'options_text'  => __('Options'),
     );
 } else {
 

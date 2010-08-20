@@ -83,6 +83,7 @@ $strSetupExport_file_template_database_name = __('Database name template');
 $strSetupExport_file_template_server_name = __('Server name template');
 $strSetupExport_file_template_table_name = __('Table name template');
 $strSetupExport_format_name = __('Format');
+$strSetupExport_method_name = __('Method');
 $strSetupExport_onserver_name = __('Save on server');
 $strSetupExport_onserver_overwrite_name = __('Overwrite existing file(s)');
 $strSetupExport_remember_file_template_name = __('Remember file name template');

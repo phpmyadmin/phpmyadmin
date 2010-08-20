@@ -1741,3 +1741,200 @@ $(document).ready(function(){
     }
 });
 
+/**
+ * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
+ */
+function toggle_enum_notice(selectElement) {
+    var enum_notice_id = selectElement.attr("id").split("_")[1];
+    enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
+    var selectedType = selectElement.attr("value");
+    if(selectedType == "ENUM" || selectedType == "SET") {
+        $("p[id='enum_notice_" + enum_notice_id + "']").show();
+    } else {
+          $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+    }
+}
+
+/**
+ * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
+ * the page loads and when the selected data type changes
+ */
+$(document).ready(function() {
+    $.each($("select[class='column_type']"), function() {
+        toggle_enum_notice($(this));
+    });
+    $("select[class='column_type']").change(function() {
+        toggle_enum_notice($(this));
+    });
+});
+
+/**
+ * Closes the ENUM/SET editor and removes the data in it
+ */
+function disable_popup() {
+    $("#popup_background").fadeOut("fast");
+    $("#enum_editor").fadeOut("fast");
+    // clear the data from the text boxes
+    $("#enum_editor #values input").remove();
+    $("#enum_editor input[type='hidden']").remove();
+}
+
+/**
+ * Opens the ENUM/SET editor and controls its functions
+ */
+$(document).ready(function() {
+    $("a[class='open_enum_editor']").click(function() {
+        // Center the popup
+        var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
+        var popupWidth = windowWidth/2;
+        var popupHeight = windowHeight*0.8;
+        var popupOffsetTop = windowHeight/2 - popupHeight/2;
+        var popupOffsetLeft = windowWidth/2 - popupWidth/2;
+        $("#enum_editor").css({"position":"absolute", "top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
+
+        // Make it appear
+        $("#popup_background").css({"opacity":"0.7"});
+        $("#popup_background").fadeIn("fast");
+        $("#enum_editor").fadeIn("fast");
+
+        // Get the values
+        var values = $(this).parent().prev("input").attr("value").split(",");
+        $.each(values, function(index, val) {
+            if(jQuery.trim(val) != "") {
+                 // enclose the string in single quotes if it's not already
+                 if(val.substr(0, 1) != "'") {
+                      val = "'" + val;
+                 }
+                 if(val.substr(val.length-1, val.length) != "'") {
+                      val = val + "'";
+                 }
+                // escape the single quotes, except the mandatory ones enclosing the entire string
+                val = val.substr(1, val.length-2).replace(/'/g, "&#039;");
+                // escape the greater-than symbol
+                val = val.replace(/>/g, "&gt;");
+                $("#enum_editor #values").append("<input type='text' value=" + val + " />");
+            }
+        });
+        // So we know which column's data is being edited
+        $("#enum_editor").append("<input type='hidden' value='" + $(this).parent().prev("input").attr("id") + "' />");
+        return false;
+    });
+
+    // If the "close" link is clicked, close the enum editor
+    $("a[class='close_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // If the "cancel" link is clicked, close the enum editor
+    $("a[class='cancel_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // When "add a new value" is clicked, append an empty text field
+    $("a[class='add_value']").click(function() {
+        $("#enum_editor #values").append("<input type='text' />");
+    });
+
+    // When the submit button is clicked, put the data back into the original form
+    $("#enum_editor input[type='submit']").click(function() {
+        var value_array = new Array();
+        $.each($("#enum_editor #values input"), function(index, input_element) {
+            val = jQuery.trim(input_element.value);
+            if(val != "") {
+                value_array.push("'" + val + "'");
+            }
+        });
+        // get the Length/Values text field where this value belongs
+        var values_id = $("#enum_editor input[type='hidden']").attr("value");
+        $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+        disable_popup();
+     });
+
+    /**
+     * Hides certain table structure actions, replacing them with the word "More". They are displayed
+     * in a dropdown menu when the user hovers over the word "More."
+     */
+    // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
+    // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
+    if($("input[type='hidden'][name='table_type']").attr("value") == "table") {
+         $("table[id='tablestructure'] td[class='browse']").remove();
+         $("table[id='tablestructure'] td[class='primary']").remove();
+         $("table[id='tablestructure'] td[class='unique']").remove();
+         $("table[id='tablestructure'] td[class='index']").remove();
+         $("table[id='tablestructure'] td[class='fulltext']").remove();
+         $("table[id='tablestructure'] th[class='action']").attr("colspan", 3);
+
+         // Display the "more" text
+         $("table[id='tablestructure'] td[class='more_opts']").show()
+
+         // Position the dropdown
+         $.each($(".structure_actions_dropdown"), function() {
+              // The top offset must be set for IE even if it didn't change
+             var cell_right_edge_offset = $(this).parent().offset().left + $(this).parent().innerWidth();
+             var left_offset = cell_right_edge_offset - $(this).innerWidth();
+             var top_offset = $(this).parent().offset().top + $(this).parent().innerHeight();
+             $(this).offset({ top: top_offset, left: left_offset });
+         });
+
+         // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
+         // positioning an iframe directly on top of it
+         $("iframe[class='IE_hack']").width($("select[name='after_field']").width());
+         $("iframe[class='IE_hack']").height($("select[name='after_field']").height());
+         $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left });
+
+         // When "more" is hovered over, show the hidden actions
+         $("table[id='tablestructure'] td[class='more_opts']").mouseenter(
+             function() {
+                if($.browser.msie && $.browser.version == "6.0") {
+                    $("iframe[class='IE_hack']").show();
+                    $("iframe[class='IE_hack']").width($("select[name='after_field']").width()+4);
+                    $("iframe[class='IE_hack']").height($("select[name='after_field']").height()+4);
+                    $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left});
+                }
+                $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
+                $(this).children(".structure_actions_dropdown").show();
+                // Need to do this again for IE otherwise the offset is wrong
+                if($.browser.msie) {
+                    var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
+                    var top_offset_IE = $(this).offset().top + $(this).innerHeight();
+                    $(this).children(".structure_actions_dropdown").offset({ top: top_offset_IE, left: left_offset_IE });
+                }
+         });
+         $(".structure_actions_dropdown").mouseleave(function() {
+              $(this).hide();
+              if($.browser.msie && $.browser.version == "6.0") {
+                  $("iframe[class='IE_hack']").hide();
+              }
+         });
+    }
+});
+
+/* Displays tooltips */
+$(document).ready(function() {
+    // Hide the footnotes from the footer (which are displayed for
+    // JavaScript-disabled browsers) since the tooltip is sufficient
+    $(".footnotes").hide();
+    $(".footnotes span").each(function() {
+        $(this).children("sup").remove();
+    });
+    // The border and padding must be removed otherwise a thin yellow box remains visible
+    $(".footnotes").css("border", "none");
+    $(".footnotes").css("padding", "0px");
+
+    // Replace the superscripts with the help icon
+    $("sup[class='footnotemarker']").hide();
+    $("img[class='footnotemarker']").show();
+
+    $("img[class='footnotemarker']").each(function() {
+        var span_id = $(this).attr("id");
+        span_id = span_id.split("_")[1];
+        var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
+        $(this).qtip({
+            content: tooltip_text,
+            show: { delay: 0 },
+            hide: { when: 'unfocus', delay: 0 },
+            style: { background: '#ffffcc' }
+        });
+    });
+});

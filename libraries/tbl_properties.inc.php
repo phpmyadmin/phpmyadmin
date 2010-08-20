@@ -277,8 +277,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column type
-    $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']"'
-        .' id="field_' . $i . '_' . ($ci - $ci_offset) . '" >';
+    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
+    $content_cells[$i][$ci] = '<select class="column_type" name="field_type[' . $i . ']"'
+        .' id="' . $select_id . '">';
 
     if (empty($row['Type'])) {
         // creating a column
@@ -365,7 +366,11 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_length[' . $i . ']" size="' . $length_values_input_size . '"'
         . ' value="' . htmlspecialchars($length_to_display) . '"'
-        . ' class="textfield" />';
+        . ' class="textfield" />'
+        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
+    $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
+        . '<a onclick="return false;" href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "") . '" class="open_enum_editor" target="_blank"> '
+        . __('Get more editing space') . '</a></p>';
     $ci++;
 
     // column default
@@ -787,3 +792,14 @@ if ($action == 'tbl_create.php') {
 </form>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
+
+<div id="enum_editor">
+<a class="close_enum_editor">Close</a>
+<h3><?php printf(__('Values for the column "%s"'), isset($row['Field']) ? htmlspecialchars($row['Field']) : ""); ?></h3>
+<p><?php echo __('Enter each value in a separate field. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
+<div id="values"></div>
+<p><a class="add_value">+ Add a new value</a></p>
+<input type="submit" value="Go" /> <a class="cancel_enum_editor">Cancel</a>
+</div>
+
+<div id="popup_background"></div>
