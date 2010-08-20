@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:58+0200\n"
+"PO-Revision-Date: 2010-08-20 09:59+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3407,10 +3407,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Stulpelių vardai"
+msgstr "Stulpelių vardai:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
