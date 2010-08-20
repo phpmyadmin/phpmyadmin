@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:05+0200\n"
+"PO-Revision-Date: 2010-08-20 11:06+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5161,7 +5161,7 @@ msgstr "Jūs sukūrėte naują vartotoją."
 #: server_privileges.php:1184
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Jūs pakeitėte privilegijas  %s."
+msgstr "Jūs pakeitėte privilegijas %s."
 
 #: server_privileges.php:1208
 #, php-format
