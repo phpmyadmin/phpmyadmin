@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:33+0200\n"
+"PO-Revision-Date: 2010-08-20 08:34+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1718,7 +1718,7 @@ msgstr "Blogas serverio žurnalas: %s"
 #: libraries/common.inc.php:620
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "Blogas serverio %1$s hostname. Prašome peržiūrėti nustatymus."
 
 #: libraries/common.inc.php:629 libraries/header.inc.php:95 main.php:157
 #: test/theme.php:56
