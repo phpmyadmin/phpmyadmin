@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:48+0200\n"
+"PO-Revision-Date: 2010-08-20 08:50+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2076,10 +2076,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "Leisti užrakinti lenteles procesų metu."
+msgstr "Eksportuojamos duombazės šiame serveryje"
 
 #: libraries/display_export.lib.php:89
 #, php-format
