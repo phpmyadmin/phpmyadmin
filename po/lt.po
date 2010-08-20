@@ -6813,7 +6813,7 @@ msgstr "Formatas"
 
 #: setup/lib/messages.inc.php:86
 msgid "Method"
-msgstr ""
+msgstr "Metodas"
 
 #: setup/lib/messages.inc.php:87
 msgid "Save on server"
