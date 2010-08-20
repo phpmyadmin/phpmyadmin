@@ -4713,7 +4713,7 @@ msgstr "Pagalba"
 #: pmd_general.php:86
 #, fuzzy
 msgid "Angular links"
-msgstr "Kampuotos nuorodos"
+msgstr "Kampuotos (angular) nuorodos"
 
 #: pmd_general.php:86
 msgid "Direct links"
