@@ -7462,7 +7462,7 @@ msgstr "Jūs turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių
 
 #: setup/lib/messages.inc.php:238
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Jūs leidžiate prisijungti prie serverio be slaptažodžio."
 
 #: setup/lib/messages.inc.php:240
 msgid "Leave blank if not used"
