@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:06+0200\n"
+"PO-Revision-Date: 2010-08-20 11:08+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5261,7 +5261,7 @@ msgstr "Sukurti privilegijas šiai duombazei"
 
 #: server_privileges.php:1939
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr "Norint naudoti _ ir % simblius, juos reikėtų eskeipinti su \\"
+msgstr "Norint naudoti _ ir % simblius, prieš juos prirašykite \\"
 
 #: server_privileges.php:1942
 msgid "Add privileges on the following table"
