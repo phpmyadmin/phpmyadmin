@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:52+0200\n"
+"PO-Revision-Date: 2010-08-20 10:54+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4947,7 +4947,7 @@ msgstr "Leidžia kurti, šalinti ir pervadinti vartotojus."
 #: server_privileges.php:202 server_privileges.php:525
 #: server_privileges.php:529
 msgid "Allows creating new views."
-msgstr "Leidžia sukurti naujus view'us."
+msgstr "Leidžia sukurti naujus rodinius (view)."
 
 #: server_privileges.php:32 server_privileges.php:182
 #: server_privileges.php:505
