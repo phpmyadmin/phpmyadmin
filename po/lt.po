@@ -5040,7 +5040,8 @@ msgstr "Negalioja šioje MySQL versijoje."
 #: server_privileges.php:544
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Leisti perkrauti darbinę stotį, bei išvalyti laikinąją atmintį (cache)."
+"Leisti perkrauti serverio nustatymus, bei išvalyti laikinąją atmintį "
+"(cache)."
 
 #: server_privileges.php:49 server_privileges.php:197
 #: server_privileges.php:551
