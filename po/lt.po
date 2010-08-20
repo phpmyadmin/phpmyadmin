@@ -1028,7 +1028,6 @@ msgid "Choose column to display"
 msgstr "Pasirinkite lauką, kurį norite peržiūrėti"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generuoti Slaiptažodį"
