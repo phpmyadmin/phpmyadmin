@@ -5302,11 +5302,10 @@ msgid "Database for user"
 msgstr "Naudotojo duombazė(s)"
 
 #: server_privileges.php:2033
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "Nėra"
+msgstr "Be"
 
 #: server_privileges.php:2034
 msgid "Create database with same name and grant all privileges"
