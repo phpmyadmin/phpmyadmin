@@ -4463,7 +4463,7 @@ msgstr "Protokolo versija"
 #: server_privileges.php:1646 server_privileges.php:2064
 #: server_processlist.php:53
 msgid "User"
-msgstr "Vartotojas"
+msgstr "Naudotojas"
 
 #: main.php:165
 msgid "MySQL charset"
