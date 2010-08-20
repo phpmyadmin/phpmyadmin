@@ -191,10 +191,10 @@ class PMA_EPS
     {
           $this->stringCommands .= $lineWidth . " setlinewidth  \n";
           $this->stringCommands .= "newpath \n";
-          $this->stringCommands .= $x_from . ' ' . $y_from  . " moveto \n";
-          $this->stringCommands .= $x_to . ' ' . $y_from  . " lineto \n";
-          $this->stringCommands .= $x_to . ' ' . $y_to  . " lineto \n";
-          $this->stringCommands .= $x_from . " " . $y_to  . " lineto \n";
+          $this->stringCommands .= $x_from . " " . $y_from  . " moveto \n";
+          $this->stringCommands .= "0 " . $y_to  . " rlineto \n";
+          $this->stringCommands .= $x_to . " 0 rlineto \n";
+          $this->stringCommands .= "0 -" . $y_to  . " rlineto \n";
           $this->stringCommands .= "closepath \n";
           $this->stringCommands .= "stroke \n";
     }
@@ -488,7 +488,7 @@ class Table_Stats
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $eps->getStringWidth($field,$font,$fontSize));
         }
-        $this->width += $eps->getStringWidth('  ',$font,$fontSize);
+        $this->width += $eps->getStringWidth('      ',$font,$fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
@@ -524,11 +524,11 @@ class Table_Stats
     {
         global $eps;
         //echo $this->_tableName.'<br />';
-        //$eps->rect($this->x,$this->y,
-            //$this->width,$this->heightCell,
-            //2
-           // );
-        $eps->showXY($this->_getTitle(),$this->x + 5,$this->y+ 14);
+        $eps->rect($this->x,$this->y + 12,
+            $this->width,$this->heightCell,
+            1
+            );
+        $eps->showXY($this->_getTitle(),$this->x + 5,$this->y + 14);
         foreach ($this->fields as $field) {
                 $this->currentCell += $this->heightCell;
                 $showColor    = 'none';
@@ -540,8 +540,8 @@ class Table_Stats
                         $showColor = 'none';
                     }
                 }
-                //$eps->rect($this->x,$this->y  + $this->currentCell,
-                    //$this->width, $this->heightCell,2);
+                $eps->rect($this->x,$this->y + 12  + $this->currentCell,
+                    $this->width, $this->heightCell,1);
                 $eps->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
         }
     }
@@ -622,8 +622,8 @@ class Relation_Stats
             $this->xDest   = $dest_pos[1];
             $this->destDir = 1;
         }
-        $this->ySrc   = $src_pos[2];
-        $this->yDest = $dest_pos[2];
+        $this->ySrc   = $src_pos[2] + 10;
+        $this->yDest = $dest_pos[2] + 10;
     }
 
     /**
@@ -669,15 +669,17 @@ class Relation_Stats
         } else {
             $color = 'black';
         }
-
+        // draw a line like -- to foreign field
         $eps->line($this->xSrc,$this->ySrc,
             $this->xSrc + $this->srcDir * $this->wTick,$this->ySrc,
             1
             );
+        // draw a line like -- to master field
         $eps->line($this->xDest + $this->destDir * $this->wTick, $this->yDest,
             $this->xDest, $this->yDest,
             1
             );
+        // draw a line that connects to master field line and foreign field line
         $eps->line($this->xSrc + $this->srcDir * $this->wTick,$this->ySrc,
             $this->xDest + $this->destDir * $this->wTick, $this->yDest,
             1
@@ -769,9 +771,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
             if ($this->sameWide) {
                 $this->tables[$table]->width = $this->_tablewidth;
             }
-           $this->_setMinMax($this->tables[$table]);
         }
-        
+
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
@@ -800,21 +801,6 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     }
 
     /**
-     * Sets X and Y minimum and maximum for a table cell
-     *
-     * @param string table The table name
-     * @return void
-     * @access private
-     */
-    private function _setMinMax($table)
-    {
-        $this->_xMax = max($this->_xMax, $table->x + $table->width);
-        $this->_yMax = max($this->_yMax, $table->y + $table->height);
-        $this->_xMin = min($this->_xMin, $table->x);
-        $this->_yMin = min($this->_yMin, $table->y);
-    }
-
-    /**
      * Defines relation objects
      *
      * @param string masterTable The master table name
@@ -830,11 +816,9 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     {
         if (!isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats($masterTable, $font, $fontSize, $this->pageNumber, $this->_tablewidth, false, $showInfo);
-            $this->_setMinMax($this->tables[$masterTable]);
         }
         if (!isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new Table_Stats($foreignTable,$font,$fontSize,$this->pageNumber, $this->_tablewidth, false, $showInfo);
-            $this->_setMinMax($this->tables[$foreignTable]);
         }
         $this->_relations[] = new Relation_Stats($this->tables[$masterTable], $masterField, $this->tables[$foreignTable], $foreignField);
     }
