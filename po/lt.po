@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 21:28+0200\n"
+"PO-Revision-Date: 2010-08-20 21:29+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7161,7 +7161,7 @@ msgstr "Rodyti logotipą"
 
 #: setup/lib/messages.inc.php:169
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Rodyti serverio pasirinkimus viršuje kairiame rėmelyje"
 
 #: setup/lib/messages.inc.php:170
 msgid "Display servers selection"
