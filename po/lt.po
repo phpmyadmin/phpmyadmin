@@ -6678,9 +6678,8 @@ msgid "Tab that is displayed when entering a database"
 msgstr "Kortelė kuri yra rodoma kai įeinama į duombazę"
 
 #: setup/lib/messages.inc.php:50
-#, fuzzy
 msgid "Default database tab"
-msgstr "Pervadinti duombazę į"
+msgstr "Numatyta duombazės kortelė"
 
 #: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a server"
