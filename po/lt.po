@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:10+0200\n"
+"PO-Revision-Date: 2010-08-20 22:28+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7280,7 +7280,7 @@ msgstr "Prisijungimo slapuko saugojimas"
 
 #: setup/lib/messages.inc.php:195
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Nustatyti prisijungimo slapuko galiojimo laiką (sekundžių tikslumu)"
 
 #: setup/lib/messages.inc.php:196
 msgid ""
