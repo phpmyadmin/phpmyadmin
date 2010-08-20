@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:59+0200\n"
+"PO-Revision-Date: 2010-08-20 10:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3483,7 +3483,7 @@ msgstr ""
 
 #: libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr "Neimportuoti tuščių eilučių (rows)"
+msgstr "Neimportuoti tuščių eilučių (įrašų)"
 
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
