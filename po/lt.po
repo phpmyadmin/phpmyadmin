@@ -6547,7 +6547,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:22
 msgid "Key is too short, it should have at least 8 characters"
-msgstr ""
+msgstr "Raktas per daug trumpas, jis turėtų turėti bent 8 simbolius"
 
 #: setup/lib/messages.inc.php:23
 msgid ""
