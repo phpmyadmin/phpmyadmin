@@ -6443,7 +6443,7 @@ msgstr "Lokali darbinė stotis"
 
 #: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:150
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin tinklapis"
+msgstr "phpMyAdmin tinklalapis"
 
 #: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:61
 msgid "Donate"
