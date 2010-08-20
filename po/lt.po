@@ -5469,7 +5469,7 @@ msgstr "Pilnas išjungimas"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr "paleisti iš naujo pavaldųjį serverį (reset slave)"
+msgstr "Paleisti iš naujo pavaldųjį serverį (reset slave)"
 
 #: server_replication.php:325
 #, php-format
