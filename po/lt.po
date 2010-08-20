@@ -3282,9 +3282,8 @@ msgid "Triggers"
 msgstr ""
 
 #: libraries/export/sql.php:856
-#, fuzzy
 msgid "Structure for view"
-msgstr "Tik struktūra"
+msgstr "Struktūra peržiūrėjimui"
 
 #: libraries/export/sql.php:865
 #, fuzzy
