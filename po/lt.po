@@ -7311,9 +7311,8 @@ msgstr ""
 "Maksimalus skaičius rodomų duombazių kairiame rėmelyje ir duombazių sąraše"
 
 #: setup/lib/messages.inc.php:201
-#, fuzzy
 msgid "Maximum databases"
-msgstr "Nėra duombazių"
+msgstr "Didžiausias skaičius duombazių"
 
 #: setup/lib/messages.inc.php:202
 msgid ""
