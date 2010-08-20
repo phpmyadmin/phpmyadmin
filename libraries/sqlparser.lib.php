@@ -2574,7 +2574,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
             $after                 .= "\n";
 */
-            $str .= $before . ($mode=='color' ? PMA_SQP_formatHTML_colorize($arr[$i]) : $arr[$i]['data']). $after;
+            $str .= $before . ($mode=='color' ? PMA_SQP_formatHTML_colorize($arr[$i]) : htmlspecialchars($arr[$i]['data'])). $after;
         } // end for
         /* End possibly unclosed documentation link */
         if ($close_docu_link) {
