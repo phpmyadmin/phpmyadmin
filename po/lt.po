@@ -1505,7 +1505,7 @@ msgstr "Nerasta tinkamo paveiksliukų kelio temai %s!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "Peržiūra negalima."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
