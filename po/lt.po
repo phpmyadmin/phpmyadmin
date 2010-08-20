@@ -7199,7 +7199,7 @@ msgstr "Maksimalus lentelių medžio gylis"
 
 #: setup/lib/messages.inc.php:178
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Simboliai kurie atskiria lenteles į skirtingas medžio šakas"
 
 #: setup/lib/messages.inc.php:179
 #, fuzzy
