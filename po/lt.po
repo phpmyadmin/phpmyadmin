@@ -6890,9 +6890,8 @@ msgid "Customize default common import options"
 msgstr "Adaptuoti numatytuosius bendrus importavimo nustatymus"
 
 #: setup/lib/messages.inc.php:105
-#, fuzzy
 msgid "Import defaults"
-msgstr "Importuoti failus"
+msgstr "Importuoti numatytąsias reikšmes"
 
 #: setup/lib/messages.inc.php:106
 msgid "Set import and export directories and compression options"
