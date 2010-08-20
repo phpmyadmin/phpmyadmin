@@ -1944,9 +1944,8 @@ msgstr "Pavadinimas"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
-#, fuzzy
 msgid "Database seems to be empty!"
-msgstr "Lentelė atrodo tuščia!"
+msgstr "Duombazė atrodo tuščia!"
 
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
