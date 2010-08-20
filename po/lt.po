@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:46+0200\n"
+"PO-Revision-Date: 2010-08-20 22:47+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7393,7 +7393,7 @@ msgstr "Neleisti redaguoti BLOB ir BINARY stulpelių"
 
 #: setup/lib/messages.inc.php:223
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Apsaugoti dvejetainius stulpelius"
 
 #: setup/lib/messages.inc.php:224
 msgid ""
