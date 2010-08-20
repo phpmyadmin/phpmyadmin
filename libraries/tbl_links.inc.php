@@ -80,7 +80,7 @@ $tabs['export']['args']['single_table'] = 'true';
 $tabs['export']['text'] = __('Export');
 
 /**
- * Don't display "Import", "Operations" and "Empty"
+ * Don't display "Import" and "Operations"
  * for views and information_schema
  */
 if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
