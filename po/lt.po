@@ -2305,7 +2305,7 @@ msgstr "Failų įkeltis neleidžiama šiame serveryje."
 #: libraries/display_import.lib.php:208
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Dalinis įkėlimas:"
+msgstr "Dalinis importavimas:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
