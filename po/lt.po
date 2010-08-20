@@ -7381,7 +7381,7 @@ msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duombazių"
 
 #: setup/lib/messages.inc.php:219
 msgid "Persistent connections"
-msgstr ""
+msgstr "Ilgalaikiai sujungimai"
 
 #: setup/lib/messages.inc.php:221
 msgid "Iconic table operations"
