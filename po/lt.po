@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:13+0200\n"
+"PO-Revision-Date: 2010-08-20 19:15+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5403,6 +5403,8 @@ msgstr "Pagrindinis (master) serveris pakeistas sėkmingai į %s"
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
 msgstr ""
+"Šis serveris sukonfigūruotas kaip pagrindinis (master) daugintuvo "
+"(replication) procese."
 
 #: server_replication.php:182 server_status.php:391
 msgid "Show master status"
