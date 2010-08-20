@@ -7207,7 +7207,7 @@ msgstr "Lentelės medžio skyriklis"
 
 #: setup/lib/messages.inc.php:180
 msgid "Logo link URL"
-msgstr "Logotipo nuoroda"
+msgstr "Logotipo saito nuoroda"
 
 #: setup/lib/messages.inc.php:181
 msgid ""
