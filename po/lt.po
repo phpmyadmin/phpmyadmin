@@ -4903,7 +4903,7 @@ msgstr "Saugojimo varikliai"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Peržiūrėti duombazių išrašą"
+msgstr "Peržiūrėti duombazių išrašą (schemą)"
 
 #: server_privileges.php:23 server_privileges.php:265
 msgid "Includes all privileges except GRANT."
