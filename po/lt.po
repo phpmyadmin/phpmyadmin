@@ -4236,10 +4236,10 @@ msgid "Save"
 msgstr "Išsaugoti"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:633
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Pridėti stulpelį(-ius)"
+msgstr "Pridėti %s stulpelį(-ius)"
 
 #: libraries/tbl_properties.inc.php:787 tbl_structure.php:627
 #, fuzzy
