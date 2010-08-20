@@ -6455,9 +6455,8 @@ msgid "Display"
 msgstr "Rodymas"
 
 #: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:188
-#, fuzzy
 msgid "Load"
-msgstr "Lokali darbinė stotis"
+msgstr "Įkelti"
 
 #: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:150
 msgid "phpMyAdmin homepage"
