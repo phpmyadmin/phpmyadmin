@@ -1030,7 +1030,7 @@ msgstr "Pasirinkite lauką, kurį norite peržiūrėti"
 #: js/messages.php:66
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Generuoti slaiptažodį"
+msgstr "Generuoti slaptažodį"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:365
 msgid "Generate"
