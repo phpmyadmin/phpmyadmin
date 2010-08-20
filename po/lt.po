@@ -5470,7 +5470,7 @@ msgstr "Pavaldžioji (slave) SQL gija neveikia!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Pavaldžioji (slave) IO gija neveikia!"
 
 #: server_replication.php:303
 msgid ""
