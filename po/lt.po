@@ -6919,7 +6919,7 @@ msgstr "Lentelių rodymo nustatymai"
 
 #: setup/lib/messages.inc.php:117
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Kiti nustatymai"
 
 #: setup/lib/messages.inc.php:118
 msgid "Other core settings"
