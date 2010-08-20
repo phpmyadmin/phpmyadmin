@@ -3424,10 +3424,9 @@ msgid "Columns terminated by"
 msgstr "Eilutės pabaigos žymė"
 
 #: libraries/import/csv.php:73 libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Laukų reikšmės apskliaustos  simboliais"
+msgstr "Laukų reikšmės apskliaustos simboliais"
 
 #: libraries/import/csv.php:77 libraries/import/ldi.php:42
 #, fuzzy
