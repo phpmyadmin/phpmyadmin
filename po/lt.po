@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:47+0200\n"
+"PO-Revision-Date: 2010-08-20 10:49+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4851,9 +4851,8 @@ msgstr "Duombazių statistika"
 
 #: server_databases.php:192 server_replication.php:179
 #: server_replication.php:207
-#, fuzzy
 msgid "Master replication"
-msgstr "Serverio nustatymai"
+msgstr "Pagrindinio serverio dauginimas (master replication)"
 
 #: server_databases.php:194 server_replication.php:246
 #, fuzzy
