@@ -1638,7 +1638,7 @@ msgstr "Aparatūros atpažinimas nepavyko."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Prijungtas netinkamas atpažinimo raktas"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
