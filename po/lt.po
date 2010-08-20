@@ -6357,7 +6357,7 @@ msgstr "Sekančios užklausos buvo įvykdytos:"
 
 #: server_synchronize.php:1120
 msgid "Enter manually"
-msgstr ""
+msgstr "Įvesti rakiniu būdu"
 
 #: server_synchronize.php:1121
 #, fuzzy
