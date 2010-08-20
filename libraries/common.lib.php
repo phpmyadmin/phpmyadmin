@@ -327,7 +327,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
             $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
             break;
         case 'text':
-            //$formatted_sql = PMA_SQP_formatText($parsed_sql);
             $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
             break;
         default:

@@ -2662,21 +2662,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function
 
-
-    /**
-     * Gets SQL queries in text format
-     *
-     * @todo WRITE THIS!
-     * @param  array   The SQL queries list
-     *
-     * @return string  The SQL queries in text format
-     *
-     * @access public
-     */
-    function PMA_SQP_formatText($arr)
-    {
-         return PMA_SQP_formatNone($arr);
-    } // end of the "PMA_SQP_formatText()" function
 } // end if: minimal common.lib needed?
 
 ?>
