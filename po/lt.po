@@ -7235,7 +7235,7 @@ msgstr "Naudoti mažiau grafiškas korteles"
 
 #: setup/lib/messages.inc.php:187
 msgid "Light tabs"
-msgstr ""
+msgstr "Lengvos kortelės"
 
 #: setup/lib/messages.inc.php:189
 msgid ""
