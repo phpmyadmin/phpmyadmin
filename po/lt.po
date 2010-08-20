@@ -7172,9 +7172,8 @@ msgid "String that separates databases into different tree levels"
 msgstr "Simboliai kurie atskiria duombazes į atskiras medžio šakas"
 
 #: setup/lib/messages.inc.php:172
-#, fuzzy
 msgid "Database tree separator"
-msgstr "Duomenų bazės vardo šablonas"
+msgstr "Duombazės medžio skyriklis"
 
 #: setup/lib/messages.inc.php:173
 msgid ""
