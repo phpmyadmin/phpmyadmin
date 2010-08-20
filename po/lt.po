@@ -7231,7 +7231,7 @@ msgstr "Įjungti paryškinimą"
 
 #: setup/lib/messages.inc.php:186
 msgid "Use less graphically intense tabs"
-msgstr "Naudoti mažiau grafiškas kerteles"
+msgstr "Naudoti mažiau grafiškas korteles"
 
 #: setup/lib/messages.inc.php:187
 msgid "Light tabs"
