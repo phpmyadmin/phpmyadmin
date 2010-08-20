@@ -4664,10 +4664,10 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Nustatykite lentelės %s koordinates"
 
 #: pdf_schema.php:993
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Duombazės \"%s\" schema - %s puslapis"
+msgstr "Duombazės %s schema - %s puslapis"
 
 #: pdf_schema.php:1011
 msgid "No tables"
