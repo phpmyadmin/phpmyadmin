@@ -6829,7 +6829,7 @@ msgstr "ne"
 
 #: setup/lib/messages.inc.php:91
 msgid "Force secured connection while using phpMyAdmin"
-msgstr "Griežtai naudoti saugų prisijungimą kai naudojamasi phpMyAdmin"
+msgstr "Priverstinai naudoti saugų prisijungimą kai naudojamasi phpMyAdmin"
 
 #: setup/lib/messages.inc.php:92
 msgid ""
