@@ -2281,10 +2281,9 @@ msgid "Importing into the table \"%s\""
 msgstr "Importuojama į lentelę „%s“"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Failas importavimui"
+msgstr "Failas importavimui:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
