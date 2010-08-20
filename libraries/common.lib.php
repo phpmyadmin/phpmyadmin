@@ -575,7 +575,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         $formatted_sql = '';
     } else {
         if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            $formatted_sql = substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+            $formatted_sql = htmlspecialchars(substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
         } else {
             $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }

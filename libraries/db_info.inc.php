@@ -213,7 +213,8 @@ if (! isset($sot_ready)) {
         );
 
         // Make sure the sort type is implemented
-        if ($sort = $sortable_name_mappings[$_REQUEST['sort']]) {
+        if (isset($sortable_name_mappings[$_REQUEST['sort']])) {
+            $sort = $sortable_name_mappings[$_REQUEST['sort']];
             if ($_REQUEST['sort_order'] == 'DESC') {
                 $sort_order = 'DESC';
             }

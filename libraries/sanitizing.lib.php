@@ -9,17 +9,26 @@
 
 /**
  * Sanitizes $message, taking into account our special codes
- * for formatting
+ * for formatting.
+ *
+ * If you want to include result in element attribute, you should escape it.
+ *
+ * Examples:
+ *
+ * <p><?php echo PMA_sanitize($foo); ?></p>
+ *
+ * <a title="<?php echo PMA_sanitize($foo, true); ?>">bar</a>
  *
  * @uses    preg_replace()
  * @uses    strtr()
  * @param   string   the message
+ * @param   boolean  whether to escape html in result
  *
  * @return  string   the sanitized message
  *
  * @access  public
  */
-function PMA_sanitize($message)
+function PMA_sanitize($message, $escape = false)
 {
     $replace_pairs = array(
         '<'         => '&lt;',
@@ -65,6 +74,10 @@ function PMA_sanitize($message)
         }
 
         $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
+    }
+
+    if ($escape) {
+        $message = htmlspecialchars($message);
     }
 
     return $message;
