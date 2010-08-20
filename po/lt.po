@@ -3477,7 +3477,7 @@ msgstr "Naudoti LOCAL raktažodį"
 
 #: libraries/import/ldi.php:56
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Priedas nepalaiko suglaudintų importų!"
 
 #: libraries/import/ods.php:27
 msgid "Do not import empty rows"
