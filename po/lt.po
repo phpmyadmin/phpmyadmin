@@ -6967,7 +6967,7 @@ msgstr "Įvesti prisijungimo nustatymus prisijungimo identifikacijai"
 
 #: setup/lib/messages.inc.php:128
 msgid "Signon login options"
-msgstr ""
+msgstr "Prisijungimo nustatymai"
 
 #: setup/lib/messages.inc.php:129
 msgid ""
