@@ -321,16 +321,16 @@ class Table_Stats
         $dia->writeAttribute('id', ''.$this->tableId.'');
         $dia->writeRaw(
             '<dia:attribute name="obj_pos">
-                <dia:point val="'.($this->x * 0.026458333).','.($this->y * 0.026458333).'"/>
+                <dia:point val="'.($this->x * .05).','.($this->y * .05).'"/>
             </dia:attribute>
             <dia:attribute name="obj_bb">
-                <dia:rectangle val="'.($this->x * 0.026458333).','.($this->y * 0.026458333).';9.97,9.2"/>
+                <dia:rectangle val="'.($this->x * .05).','.($this->y * .05).';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>
             </dia:attribute>
             <dia:attribute name="elem_corner">
-                <dia:point val="'.($this->x * 0.026458333).','.($this->y * 0.026458333).'"/>
+                <dia:point val="'.($this->x * .05).','.($this->y * .05).'"/>
             </dia:attribute>
             <dia:attribute name="elem_width">
                 <dia:real val="5.9199999999999999"/>
