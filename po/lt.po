@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:37+0200\n"
+"PO-Revision-Date: 2010-08-20 09:38+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3133,10 +3133,11 @@ msgstr ""
 "versiją ir serverio versiją)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Įterpti savo komentarą į header sritį (eilučių skirtukas \\n )"
+msgstr ""
+"Įterpti savo komentarą į antraštės sritį (eilutėms atskirti naudokite \n"
+")"
 
 #: libraries/export/sql.php:37
 msgid ""
