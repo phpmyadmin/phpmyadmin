@@ -4784,7 +4784,7 @@ msgstr "rekomenduojame"
 
 #: pmd_pdf.php:91
 msgid "to/from page"
-msgstr ""
+msgstr "į/iš puslapio"
 
 #: querywindow.php:93
 msgid "Import files"
