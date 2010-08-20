@@ -4704,7 +4704,7 @@ msgstr "Sukurti sąryšį"
 
 #: pmd_general.php:79
 msgid "Reload"
-msgstr "Perkrauti"
+msgstr "Įkrauti išnaujo"
 
 #: pmd_general.php:82
 msgid "Help"
