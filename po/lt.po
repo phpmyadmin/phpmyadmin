@@ -4737,7 +4737,7 @@ msgstr "Importuoti/eksportuoti koordinates PDF schemai"
 
 #: pmd_general.php:107
 msgid "Move Menu"
-msgstr ""
+msgstr "Perkelti meniu"
 
 #: pmd_general.php:119
 msgid "Hide/Show all"
