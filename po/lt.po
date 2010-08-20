@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 07:37+0200\n"
+"PO-Revision-Date: 2010-08-20 07:39+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -309,7 +309,7 @@ msgid "Collation"
 msgstr "Palyginimas"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -317,8 +317,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Nėra PMA lentelių, kurios leidžia dirbti su jungtinėmis MySQL lentelėmis. "
-"%sPaaiškinimas%s."
+"phpMyAdmin konfigūracijos talpinimo vieta išjungta. %sIšsiaiškinti kodėl%s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
