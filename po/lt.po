@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:44+0200\n"
+"PO-Revision-Date: 2010-08-20 10:45+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4757,7 +4757,7 @@ msgstr "Ištrinti sąryšį"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr ""
+msgstr "Pasirinkti sąryšį, paspauskite:"
 
 #: pmd_help.php:28
 msgid ""
