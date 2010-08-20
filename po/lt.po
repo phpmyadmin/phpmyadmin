@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:36+0200\n"
+"PO-Revision-Date: 2010-08-20 19:37+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6353,7 +6353,7 @@ msgstr ""
 
 #: server_synchronize.php:1001
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Sekančios užklausos buvo įvykdytos:"
 
 #: server_synchronize.php:1120
 msgid "Enter manually"
