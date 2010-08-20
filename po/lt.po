@@ -4438,10 +4438,9 @@ msgid "MySQL connection collation"
 msgstr "MySQL prisijungimo išdėstymas"
 
 #: main.php:112
-#, fuzzy
 #| msgid "Basic settings"
 msgid "Appearance Settings"
-msgstr "Pagrindiniai nustatymai"
+msgstr "Išvaizdos nustatymai"
 
 #: main.php:132
 msgid "Background color"
