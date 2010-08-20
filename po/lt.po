@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:31+0200\n"
+"PO-Revision-Date: 2010-08-20 22:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7299,7 +7299,7 @@ msgstr "Prisijungimo slapuko galiojimas"
 
 #: setup/lib/messages.inc.php:198
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Didžiausias leistinas simbolių kiekis naudojamas SQL užklausai parodyti"
 
 #: setup/lib/messages.inc.php:199
 msgid "Maximum displayed SQL length"
