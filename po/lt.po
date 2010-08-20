@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:03+0200\n"
+"PO-Revision-Date: 2010-08-20 11:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5034,7 +5034,7 @@ msgstr "Leisti peržiūrėti procesus visiems naudotojams"
 #: server_privileges.php:47 server_privileges.php:189
 #: server_privileges.php:447 server_privileges.php:549
 msgid "Has no effect in this MySQL version."
-msgstr " Negalioja šioje MySQL versijoje."
+msgstr "Negalioja šioje MySQL versijoje."
 
 #: server_privileges.php:48 server_privileges.php:185
 #: server_privileges.php:544
