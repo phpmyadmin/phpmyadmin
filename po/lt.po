@@ -4444,7 +4444,7 @@ msgstr "Išvaizdos nustatymai"
 
 #: main.php:132
 msgid "Background color"
-msgstr ""
+msgstr "Fono spalva"
 
 #: main.php:133
 msgid "Choose..."
