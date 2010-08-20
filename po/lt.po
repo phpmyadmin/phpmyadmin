@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:44+0200\n"
+"PO-Revision-Date: 2010-08-20 22:45+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7377,7 +7377,7 @@ msgstr "Numatytoji rikiavimo tvarka"
 
 #: setup/lib/messages.inc.php:218
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duombazių"
 
 #: setup/lib/messages.inc.php:219
 msgid "Persistent connections"
