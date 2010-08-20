@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 20:08+0200\n"
+"PO-Revision-Date: 2010-08-20 20:09+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6715,6 +6715,7 @@ msgstr "Rodyti duomenų bazes kaip sąrašą"
 #: setup/lib/messages.inc.php:59
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
+"Rodyti serverio sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo sąrašo"
 
 #: setup/lib/messages.inc.php:60
 msgid "Display servers as a list"
