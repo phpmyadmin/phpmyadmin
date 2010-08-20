@@ -7414,7 +7414,7 @@ msgstr "Kiek užklausų laikoma istorijoje"
 
 #: setup/lib/messages.inc.php:227
 msgid "Query history length"
-msgstr ""
+msgstr "Užklausų istorijos ilgis"
 
 #: setup/lib/messages.inc.php:228
 msgid "Tab displayed when opening a new query window"
