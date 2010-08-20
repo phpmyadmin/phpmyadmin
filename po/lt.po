@@ -2057,10 +2057,9 @@ msgid "No Privileges"
 msgstr "Nėra privilegijų"
 
 #: libraries/display_create_table.lib.php:40
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column."
-msgstr "Pasirinkite bent vieną stulpelį išvedimui"
+msgstr "Lentelė turi turėti bent vieną stulpelį."
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
