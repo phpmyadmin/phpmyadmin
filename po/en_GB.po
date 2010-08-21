@@ -1843,7 +1843,7 @@ msgstr "Operations"
 
 #: libraries/common.lib.php:2923
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Browse your computer:"
 
 #: libraries/common.lib.php:2936
 #, fuzzy, php-format
