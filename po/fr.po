@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 19:57+0200\n"
+"PO-Revision-Date: 2010-08-21 19:58+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2130,7 +2130,7 @@ msgid "table name"
 msgstr "nom de table"
 
 #: libraries/display_export.lib.php:240
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -2142,7 +2142,8 @@ msgid ""
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
-"vont se produire: %3$s. Tout autre texte sera conservé tel quel."
+"vont se produire: %3$s. Tout autre texte sera conservé tel quel. Se référer "
+"au %4$sFAQ%5$s pour les détails."
 
 #: libraries/display_export.lib.php:284
 msgid "use this for future exports"
