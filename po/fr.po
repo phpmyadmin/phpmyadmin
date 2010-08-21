@@ -2075,10 +2075,9 @@ msgid "Rows:"
 msgstr "Lignes:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Exporter tous les enregistrements"
+msgstr "Exporter quelques lignes"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
