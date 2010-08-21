@@ -2213,10 +2213,9 @@ msgid "Importing into the table \"%s\""
 msgstr "Importing into the table \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "File to import"
+msgstr "File to Import:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
