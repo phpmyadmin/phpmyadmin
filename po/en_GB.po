@@ -2165,10 +2165,9 @@ msgid "Format-Specific Options:"
 msgstr "Format-Specific Options:"
 
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
-msgstr "Encoding conversion"
+msgstr "Encoding Conversion:"
 
 #: libraries/display_export.lib.php:360
 msgid "SQL compatibility mode"
