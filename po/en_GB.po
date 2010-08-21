@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 19:40+0200\n"
+"PO-Revision-Date: 2010-08-21 19:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -2129,10 +2129,9 @@ msgid "Character set of the file:"
 msgstr "Character set of the file:"
 
 #: libraries/display_export.lib.php:318
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compression"
+msgstr "Compression:"
 
 #: libraries/display_export.lib.php:320 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
