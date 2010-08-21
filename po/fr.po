@@ -2086,7 +2086,7 @@ msgstr "Nombre de lignes"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Ligne de début:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
