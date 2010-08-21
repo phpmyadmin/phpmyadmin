@@ -2055,10 +2055,9 @@ msgid "Dump some row(s)"
 msgstr "Dump some row(s)"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows:"
-msgstr "Number of columns"
+msgstr "Number of rows:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
