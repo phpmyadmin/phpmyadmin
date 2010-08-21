@@ -4442,7 +4442,7 @@ msgstr "Official Homepage"
 
 #: main.php:212
 msgid "Mailing lists"
-msgstr ""
+msgstr "Mailing lists"
 
 #: main.php:238
 msgid ""
