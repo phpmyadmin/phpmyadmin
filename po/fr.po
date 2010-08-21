@@ -2182,10 +2182,9 @@ msgstr " «bzippé »"
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
