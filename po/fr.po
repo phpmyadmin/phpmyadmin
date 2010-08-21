@@ -2166,7 +2166,6 @@ msgid "None"
 msgstr "Aucune"
 
 #: libraries/display_export.lib.php:322
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "«zippé »"
