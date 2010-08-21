@@ -1864,7 +1864,7 @@ msgstr "Opérations"
 
 #: libraries/common.lib.php:2923
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Parcourir :"
 
 #: libraries/common.lib.php:2936
 #, fuzzy, php-format
