@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 19:58+0200\n"
+"PO-Revision-Date: 2010-08-21 19:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2188,7 +2188,7 @@ msgstr "Format:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Options spécifiques au format:"
 
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 #, fuzzy
