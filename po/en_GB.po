@@ -3470,10 +3470,9 @@ msgid "Do not import empty rows"
 msgstr "Do not import empty rows"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Import percentages as proper decimals (12.00% to .12)"
+msgstr "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
