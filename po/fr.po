@@ -2147,7 +2147,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:284
 msgid "use this for future exports"
-msgstr ""
+msgstr "utiliser ceci pour les futures exportations"
 
 #: libraries/display_export.lib.php:290 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
