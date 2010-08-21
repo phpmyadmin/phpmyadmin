@@ -2072,10 +2072,10 @@ msgid "Output:"
 msgstr "Output:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Save on server in %s directory"
+msgstr "Save on server in the directory <b>%s</b>"
 
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 #: setup/lib/messages.inc.php:88
