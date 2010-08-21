@@ -3395,10 +3395,9 @@ msgstr ""
 "separated by commas and not enclosed in quotations."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Column names"
+msgstr "Column names: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
