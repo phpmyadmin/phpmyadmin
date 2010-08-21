@@ -2045,10 +2045,9 @@ msgid "Table(s):"
 msgstr "Table(s):"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Rows"
+msgstr "Rows:"
 
 #: libraries/display_export.lib.php:157
 #, fuzzy
