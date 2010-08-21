@@ -2201,10 +2201,10 @@ msgid "Importing into the current server"
 msgstr "Importing into the current server"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
-msgstr "Jump to database"
+msgstr "Importing into the database \"%s\""
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
