@@ -2905,10 +2905,9 @@ msgid "Replace NULL with:"
 msgstr "Replace NULL with:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Remove CRLF characters within columns"
+msgstr "Remove carriage return/line feed characters within columns"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:71
