@@ -2288,10 +2288,9 @@ msgstr ""
 "volumineux, au détriment du respect des transactions."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Nombre de requêtes à sauter à partir du début"
+msgstr "Nombre de lignes à ignorer à partir de la première ligne:"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
