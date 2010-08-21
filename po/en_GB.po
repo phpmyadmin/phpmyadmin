@@ -4395,7 +4395,7 @@ msgstr "Background color"
 
 #: main.php:133
 msgid "Choose..."
-msgstr ""
+msgstr "Choose..."
 
 #: main.php:137 pdf_pages.php:361 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1071
