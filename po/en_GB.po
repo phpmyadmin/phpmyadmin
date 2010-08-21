@@ -3223,6 +3223,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
