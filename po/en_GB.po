@@ -2922,10 +2922,9 @@ msgid "CSV for MS Excel"
 msgstr "CSV for MS Excel"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel edition"
+msgstr "Excel edition:"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
