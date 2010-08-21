@@ -1,17 +1,16 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Form handling code.
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin
  */
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
  *
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  */
 class Form
 {
@@ -46,21 +45,16 @@ class Form
     private $fieldsTypes;
 
     /**
-     * Cached forms
-     * @var array
-     */
-    private static $_forms;
-
-    /**
      * Constructor, reads default config values
      *
      * @param string  $form_name
+     * @param array   $form
      * @param int     $index      arbitrary index, stored in Form::$index
      */
-    public function __construct($form_name, $index = null)
+    public function __construct($form_name, array $form, $index = null)
     {
         $this->index = $index;
-        $this->loadForm($form_name);
+        $this->loadForm($form_name, $form);
     }
 
     /**
@@ -80,6 +74,8 @@ class Form
     /**
      * Returns allowed values for select fields
      *
+     * @uses ConfigFile::getDbEntry()
+     * @uses ConfigFile::getInstance()
      * @param   string  $option_path
      * @return  array
      */
@@ -94,12 +90,33 @@ class Form
             trigger_error("$option_path - not a static value list", E_USER_ERROR);
             return array();
         }
+        // convert array('#', 'a', 'b') to array('a', 'b')
+        if (isset($value[0]) && $value[0] === '#') {
+            // remove first element ('#')
+            array_shift($value);
+        } else {
+            // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
+            $has_string_keys = false;
+            $keys = array();
+            for ($i = 0; $i < count($value); $i++) {
+                if (!isset($value[$i])) {
+                    $has_string_keys = true;
+                    break;
+                }
+                $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+            }
+            if (!$has_string_keys) {
+                $value = array_combine($keys, $value);
+            }
+        }
+
+        // $value has keys and value names, return it
         return $value;
     }
 
     /**
      * array_walk callback function, reads path of form fields from
-     * array (see file comment in forms.inc.php)
+     * array (see file comment in setup.forms.php or user_preferences.forms.inc)
      *
      * @param   mixed   $value
      * @param   mixed   $key
@@ -108,41 +125,33 @@ class Form
     private function _readFormPathsCallback($value, $key, $prefix)
     {
         if (is_array($value)) {
-            $prefix .= (empty($prefix) ? '' : '/') . $key;
+            $prefix .= $key . '/';
             array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
         } else {
             if (!is_int($key)) {
-                $this->default[$prefix . '/' . $key] = $value;
+                $this->default[$prefix . $key] = $value;
                 $value = $key;
             }
-            $this->fields[] = $prefix . '/' . $value;
+            $this->fields[] = $prefix . $value;
         }
     }
 
     /**
      * Reads form paths to {@link $fields}
+     *
+     * @param array $form
      */
-    protected function readFormPaths()
+    protected function readFormPaths($form)
     {
-        if (is_null(self::$_forms)) {
-            $forms =& self::$_forms;
-            require './setup/lib/forms.inc.php';
-        }
-
-        if (!isset(self::$_forms[$this->name])) {
-            return;
-        }
-
         // flatten form fields' paths and save them to $fields
         $this->fields = array();
-        array_walk(self::$_forms[$this->name], array($this, '_readFormPathsCallback'), '');
+        array_walk($form, array($this, '_readFormPathsCallback'), '');
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
         $paths = $this->fields;
         $this->fields = array();
         foreach ($paths as $path) {
-            $path = ltrim($path, '/');
             $key = ltrim(substr($path, strrpos($path, '/')), '/');
             $this->fields[$key] = $path;
         }
@@ -151,11 +160,19 @@ class Form
 
     /**
      * Reads fields' types to $this->fieldsTypes
+     *
+     * @uses ConfigFile::getDbEntry()
+     * @uses ConfigFile::getDefault()
+     * @uses ConfigFile::getInstance()
      */
     protected function readTypes()
     {
         $cf = ConfigFile::getInstance();
         foreach ($this->fields as $name => $path) {
+            if (strpos($name, ':group:') === 0) {
+                $this->fieldsTypes[$name] = 'group';
+                continue;
+            }
             $v = $cf->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;
@@ -171,11 +188,12 @@ class Form
      * config file
      *
      * @param string $form_name
+     * @param array  $form
      */
-    public function loadForm($form_name)
+    public function loadForm($form_name, $form)
     {
         $this->name = $form_name;
-        $this->readFormPaths();
+        $this->readFormPaths($form);
         $this->readTypes();
     }
 }

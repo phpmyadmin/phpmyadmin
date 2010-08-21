@@ -1576,7 +1576,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
     $defaults = array(
         'text'      => '',
         'class'     => '',
-        'active'    => false,
+        'active'    => null,
         'link'      => '',
         'sep'       => '?',
         'attr'      => '',
@@ -1595,7 +1595,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
         } elseif (! empty($tab['active'])
          || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
             $tab['class'] = 'active';
-        } elseif (empty($GLOBALS['active_page'])
+        } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
           && basename($GLOBALS['PMA_PHP_SELF']) == $tab['link']
           && empty($tab['warning'])) {
             $tab['class'] = 'active';

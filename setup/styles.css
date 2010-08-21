@@ -195,6 +195,11 @@ ul.tabs li a:hover, ul.tabs li a:active {
     margin-bottom: -3px;
 }
 
+.userprefs-comment {
+    cursor: help;
+    float: right;
+}
+
 /* forms */
 
 fieldset {
@@ -253,10 +258,6 @@ fieldset th {
     vertical-align: top;
 }
 
-fieldset th small {
-    display: block;
-}
-
 fieldset .doc {
     margin-left: 1em;
 }
@@ -266,25 +267,48 @@ fieldset td {
     vertical-align: top;
 }
 
+fieldset td.userprefs-allow {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    width: 3em;
+}
+
+fieldset td.userprefs-allow:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+
 fieldset th small {
+    display: block;
     font-weight: normal;
     font-family: sans-serif;
     font-size: x-small;
     color: #666;
 }
 
-fieldset th, fieldset td {
+fieldset th, fieldset td, .form .lastrow {
     border-top: 1px #555 dotted;
+}
+
+fieldset .group-header th {
+    background: #EAEDFF;
+    border: none;
+}
+
+fieldset .group-header + tr th, fieldset .group-header + tr td,
+fieldset p + table tr:first-child td, fieldset p + table tr:first-child th {
+    border-top: none;
+}
+
+fieldset .group-field th {
+    padding-left: 1em;
 }
 
 fieldset .lastrow, .form .lastrow {
     background: #F7FBFF;
     padding: 0.5em;
     text-align: center;
-}
-
-.form .lastrow {
-    border-top: 1px #555 dotted;
 }
 
 fieldset .lastrow input, .form .lastrow input {
@@ -314,16 +338,20 @@ fieldset.simple .lastrow {
 
 span.checkbox {
     padding: 2px;
+    display: inline-block;
 }
 
 .custom { /* customized field */
     background: #FFC;
 }
 
-span.checkbox.custom {
+.checkbox.custom {
     padding: 1px;
     border: 1px #EDEC90 solid;
-    background: #FFC;
+}
+
+.field-error {
+    border-color: #C11 !important;
 }
 
 input[type="text"], select, textarea {
@@ -333,6 +361,22 @@ input[type="text"], select, textarea {
 input[type="text"]:focus, select:focus, textarea:focus {
     border: 1px #6676FF solid;
     background: #F7FBFF;
+}
+
+.field-comment {
+
+    position: relative;
+}
+
+.field-comment-mark {
+    cursor: help;
+    padding: 0 0.2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.field-comment-warning {
+    color: #A00;
 }
 
 .green { /* default form button */

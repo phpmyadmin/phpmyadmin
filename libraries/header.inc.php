@@ -21,6 +21,14 @@ if (empty($GLOBALS['is_header_sent'])) {
     require_once './libraries/ob.lib.php';
     PMA_outBufferPre();
 
+    // if database storage for user preferences is transient, offer to load
+    // exported settings from localStorage (detection will be done in JavaScript)
+    $userprefs_offer_import = $GLOBALS['PMA_Config']->get('user_preferences') == 'session'
+            && !isset($_SESSION['userprefs_autoload']);
+    if ($userprefs_offer_import) {
+        $GLOBALS['js_include'][] = 'config.js';
+    }
+
     // For re-usability, moved http-headers and stylesheets
     // to a seperate file. It can now be included by header.inc.php,
     // querywindow.php.
@@ -56,6 +64,12 @@ if (empty($GLOBALS['is_header_sent'])) {
     // our standard CSS is not operational
     if (empty($_COOKIE)) {
         PMA_Message::notice(__('Cookies must be enabled past this point.'))->display();
+    }
+
+    // offer to load user preferences from localStorage
+    if ($userprefs_offer_import) {
+        require_once './libraries/user_preferences.lib.php';
+        PMA_userprefs_autoload_header();
     }
 
     if (!defined('PMA_DISPLAY_HEADING')) {

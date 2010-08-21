@@ -109,7 +109,7 @@ if (isset($plugin_list)) {
             /* begin CREATE TABLE statements*/
             $plugin_list['sql']['options'][] =
                 array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'bool', 'name' => 'create_table_statements', 'text' => __('<code>CREATE TABLE</code> options:')));
-                $plugin_list['sql']['options'][] =
+            $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'if_not_exists', 'text' => '<code>IF NOT EXISTS</code>');
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'auto_increment', 'text' => '<code>AUTO_INCREMENT</code>');

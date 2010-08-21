@@ -59,7 +59,7 @@ foreach ($GLOBALS['js_include'] as $js_script_file) {
 // Updates the title of the frameset if possible (ns4 does not allow this)
 if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
     && typeof(parent.document.title) == 'string') {
-    parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString($title)); ?>';
+    parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))); ?>';
 }
 
 <?php
