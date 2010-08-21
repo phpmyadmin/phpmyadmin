@@ -2247,7 +2247,6 @@ msgstr ""
 "Previous import timed out, after resubmitting will continue from position %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -2258,8 +2257,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. This might be good way to import large files, "
-"however it can break transactions."
+"to the PHP timeout limit. <i>(This might be good way to import large files, "
+"however it can break transactions.)</i>"
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
