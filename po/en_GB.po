@@ -3178,7 +3178,7 @@ msgstr "Function to use when dumping data:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Syntax to use when inserting data:"
 
 #: libraries/export/sql.php:154
 msgid ""
