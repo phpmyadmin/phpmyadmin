@@ -3162,7 +3162,7 @@ msgstr ""
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Instead of <code>INSERT</code> statements, use:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
