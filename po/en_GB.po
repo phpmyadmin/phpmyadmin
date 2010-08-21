@@ -3145,10 +3145,9 @@ msgid "Add statements:"
 msgstr "Add statements:"
 
 #: libraries/export/sql.php:111
-#, fuzzy
 #| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>@TABLE@</code>"
+msgstr "<code>CREATE TABLE</code> options:"
 
 #: libraries/export/sql.php:123
 #, fuzzy
