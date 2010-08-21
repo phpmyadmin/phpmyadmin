@@ -2060,10 +2060,9 @@ msgid "Custom - display all possible options to configure"
 msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Bases de données"
+msgstr "Base(s) de données"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
