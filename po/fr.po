@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 14:38+0200\n"
+"PO-Revision-Date: 2010-08-21 14:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1867,10 +1867,11 @@ msgid "Browse your computer:"
 msgstr "Parcourir :"
 
 #: libraries/common.lib.php:2936
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "répertoire de transfert du serveur web"
+msgstr ""
+"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> :"
 
 #: libraries/common.lib.php:2948 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
