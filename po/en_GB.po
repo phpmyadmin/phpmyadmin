@@ -3130,6 +3130,7 @@ msgstr "Disable foreign key checks"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Database system or older MySQL server to maximize output compatibility with:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
