@@ -2261,10 +2261,9 @@ msgstr ""
 "however it can break transactions.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Number of queries to skip from start"
+msgstr "Number of rows to skip, starting from the first row:"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
