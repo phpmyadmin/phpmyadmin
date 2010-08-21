@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 19:46+0200\n"
+"PO-Revision-Date: 2010-08-21 19:47+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -3475,10 +3475,9 @@ msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Import currencies ($5.00 to 5.00)"
+msgstr "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
