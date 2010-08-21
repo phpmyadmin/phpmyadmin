@@ -2233,10 +2233,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Importation dans la base de données «%s»"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
-msgstr "Aller à la base de données"
+msgstr "Importation dans la table «%s»"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
