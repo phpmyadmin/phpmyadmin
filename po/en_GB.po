@@ -4171,7 +4171,7 @@ msgstr "ENUM or SET data too long?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Get more editing space"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
