@@ -2057,7 +2057,7 @@ msgstr "Rapide - n'afficher qu'un minimum d'options à configurer"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
