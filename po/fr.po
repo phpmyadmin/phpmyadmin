@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-06 14:16+0200\n"
+"PO-Revision-Date: 2010-08-21 14:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -767,7 +767,7 @@ msgstr "Journal de la base de données"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Valeurs pour la colonne «%s»"
 
 #: enum_editor.php:22
 #, fuzzy
@@ -8916,95 +8916,3 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
-
-#, fuzzy
-#~| msgid "<code>@TABLE@</code>"
-#~ msgid "<code>IF NOT EXISTS</code>"
-#~ msgstr "<code>@TABLE@</code>"
-
-#, fuzzy
-#~| msgid "<code>@DATABASE@</code>"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "<code>@DATABASE@</code>"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Exporter %s ligne(s) à partir du rang n° %s"
-
-#~ msgid "remember template"
-#~ msgstr "se souvenir du modèle"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Ces modes de compression seront détectés automatiquement : %s"
-
-#~ msgid "Continued table caption"
-#~ msgstr "Sous-titre de la table (suite)"
-
-#~ msgid "Database export options"
-#~ msgstr "Options d'exportation"
-
-#~ msgid "Enclose table and column names with backquotes"
-#~ msgstr ""
-#~ "Protéger les noms des tables et des colonnes par des guillemets obliques "
-#~ "(`)"
-
-#~ msgid "Add into comments"
-#~ msgstr "Inclure sous forme de commentaires"
-
-#~ msgid "Creation/Update/Check dates"
-#~ msgstr "Dates de création/modification/vérification"
-
-#~ msgid "Complete inserts"
-#~ msgstr "Insertions complètes"
-
-#~ msgid "Extended inserts"
-#~ msgstr "Insertions étendues"
-
-#~ msgid "Use delayed inserts"
-#~ msgstr "Insertions avec délais (delayed)"
-
-#~ msgid "Use ignore inserts"
-#~ msgstr "Ignorer les erreurs de doublons (insert ignore)"
-
-#~ msgid "Use hexadecimal for BLOB"
-#~ msgstr "Utiliser l'hexadecimal pour les BLOB"
-
-#~ msgid "Export time in UTC"
-#~ msgstr "Exporter l'heure en UTC"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Exporter les schémas de structure (recommandé)"
-
-#~ msgid "Export functions"
-#~ msgstr "Exporter les fonctions"
-
-#~ msgid "Export procedures"
-#~ msgstr "Exporter les procédures"
-
-#~ msgid "Export tables"
-#~ msgstr "Exporter les tables"
-
-#~ msgid "Export triggers"
-#~ msgstr "Exporter les déclencheurs"
-
-#~ msgid "Export views"
-#~ msgstr "Exporter les vues"
-
-#~ msgid "Column names in first row"
-#~ msgstr "La première ligne contient le nom des colonnes"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "La colonne %s est invalide !"
-
-#~ msgid "Actions"
-#~ msgstr "Actions"
-
-#~ msgid "Interface"
-#~ msgstr "Interface"
-
-#~ msgid "Custom color"
-#~ msgstr "Couleur au choix"
