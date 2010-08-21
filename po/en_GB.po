@@ -2887,10 +2887,9 @@ msgid "Columns enclosed with:"
 msgstr "Columns enclosed with:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with:"
-msgstr "Columns escaped by"
+msgstr "Columns escaped with:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
