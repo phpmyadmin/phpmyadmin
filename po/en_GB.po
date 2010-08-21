@@ -3381,6 +3381,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"The first line of the file contains the table column names <i>(if this is "
+"unchecked, the first line will become part of the data)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
