@@ -2083,10 +2083,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Save as file"
+msgstr "Save output to a file"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
