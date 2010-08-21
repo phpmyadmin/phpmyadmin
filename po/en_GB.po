@@ -3020,10 +3020,9 @@ msgid "Display foreign key relationships"
 msgstr "Display foreign key relationships"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Displaying Column Comments"
+msgstr "Display commentss"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
