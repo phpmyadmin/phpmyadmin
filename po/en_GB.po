@@ -1580,10 +1580,9 @@ msgid "PBMS error"
 msgstr "PBMS error"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Page creation failed"
+msgstr "PBMS connection failed:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
