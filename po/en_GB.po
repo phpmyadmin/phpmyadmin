@@ -2005,10 +2005,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Could not load export plug-ins, please check your installation!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "Allows locking tables for the current thread."
+msgstr "Exporting databases in the current server"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
