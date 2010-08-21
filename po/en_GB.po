@@ -3022,7 +3022,7 @@ msgstr "Display foreign key relationships"
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Display commentss"
+msgstr "Display comments"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
