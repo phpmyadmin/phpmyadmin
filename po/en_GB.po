@@ -2162,7 +2162,7 @@ msgstr "Format:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Format-Specific Options:"
 
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 #, fuzzy
