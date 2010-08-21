@@ -2080,10 +2080,9 @@ msgid "Dump some row(s)"
 msgstr "Exporter quelques lignes"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows:"
-msgstr "Nombre de colonnes"
+msgstr "Nombre de lignes"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
