@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-21 19:53+0200\n"
+"PO-Revision-Date: 2010-08-21 19:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2053,7 +2053,7 @@ msgstr "Méthode d'exportation:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Rapide - n'afficher qu'un minimum d'options à configurer"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
