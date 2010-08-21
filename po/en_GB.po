@@ -3015,10 +3015,9 @@ msgstr "Label key"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Disable foreign key checks"
+msgstr "Display foreign key relationships"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
