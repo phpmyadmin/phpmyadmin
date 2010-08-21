@@ -3115,6 +3115,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Include a timestamp of when databases were created, last updated, and last "
+"checked"
 
 #: libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
