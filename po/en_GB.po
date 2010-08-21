@@ -3100,6 +3100,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Display comments <i>(includes info such as export timestamp, PHP version, "
+"and server version)</i>"
 
 #: libraries/export/sql.php:35
 #, fuzzy
