@@ -8787,7 +8787,7 @@ msgstr "Disattiva ora"
 #: tbl_tracking.php:647
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Attiva il tracking per %s.%s"
 
 #: tbl_tracking.php:649
 msgid "Activate now"
