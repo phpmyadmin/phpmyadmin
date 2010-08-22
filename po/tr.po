@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:09+0200\n"
+"PO-Revision-Date: 2010-08-22 20:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2894,10 +2894,9 @@ msgid "Columns separated with:"
 msgstr "Sütunlar şununla ayrılmış:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Columns enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Sütunu kapsayan:"
+msgstr "Sütunlar şununla kapatılmış:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
