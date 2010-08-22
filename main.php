@@ -55,17 +55,16 @@ if ($server > 0) {
 
     // should we add the port info here?
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
-                    ? $GLOBALS['cfg']['Server']['verbose']
-                    : $GLOBALS['cfg']['Server']['host']);
+                ? $GLOBALS['cfg']['Server']['verbose']
+                : $GLOBALS['cfg']['Server']['host']);
 }
 
 echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
-
 if ($server > 0
  || (! $cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1)) {
     echo '<div class="group">';
-    echo '<h2>' . __('Actions') . '</h2>';
+    echo '<h2>' . __('General Settings') . '</h2>';
     echo '<ul>';
 
     /**
@@ -91,52 +90,27 @@ if ($server > 0
                 PMA_printListItem(__('Change password'), 'li_change_password',
                     './user_password.php?' . $common_url_query, null, null, 'change_password_anchor');
             }
-
-            $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                         ? '<a href="./Documentation.html#login_bug" target="documentation">'
-                            . ($cfg['ReplaceHelpImg'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />' : '(*)') . '</a>'
-                         : '';
-            PMA_printListItem('<strong>' . __('Log out') . '</strong> ' . $http_logout,
-                'li_log_out',
-                './index.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER), null, '_parent');
         } // end if
-    } // end of if ($server > 0)
+        echo '    <li id="li_select_mysql_collation">';
+        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+       . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
+       . '            <label for="select_collation_connection">' . "\n"
+       . '                ' . __('MySQL connection collation') . "\n"
+       // put the doc link in the form so that it appears on the same line
+       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
+       . '            </label>' . "\n"
 
+       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
+       . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
+       . '        </form>' . "\n"
+       . '    </li>' . "\n";
+    } // end of if ($server > 0)
     echo '</ul>';
     echo '</div>';
 }
 
-
-if ($server > 0) {
-    echo '<div class="group">';
-    echo '<h2>MySQL ' . $short_server_info . '</h2>';
-    echo '<ul>' . "\n";
-
-    if ($cfg['ShowCreateDb']) {
-        echo '<li id="li_create_database">';
-        require './libraries/display_create_database.lib.php';
-        echo '</li>' . "\n";
-    }
-
-    echo '    <li id="li_select_mysql_collation">';
-    echo '        <form method="post" action="index.php" target="_parent">' . "\n"
-       . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
-       . '            <label for="select_collation_connection">' . "\n"
-       . '                ' . __('MySQL connection collation') . ': ' . "\n"
-       . '            </label>' . "\n"
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
-       . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
-       // put the doc link in the form so that it appears on the same line
-       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
-       . '        </form>' . "\n"
-       . '    </li>' . "\n";
-
-    echo '  </ul>';
-    echo ' </div>';
-}
-
 echo '<div class="group">';
-echo '<h2>' . __('Interface') . '</h2>';
+echo '<h2>' . __('Appearance Settings') . '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
@@ -156,14 +130,13 @@ if ($GLOBALS['cfg']['ThemeManager']) {
 
     // see js/main_custom_color.js
     echo '<li id="li_custom_color" class="hide">';
-    echo PMA_escapeJsString(__('Custom color')) . ': ';
+    echo PMA_escapeJsString(__('Background color')) . ': ';
+    echo '<input type="submit" name="custom_color_choose" value="' . __('Choose...') . '" />';
     echo '<form name="colorform" id="colorform" method="post" action="index.php" target="_parent">';
     echo PMA_generate_common_hidden_inputs();
     echo '<input type="hidden" id="custom_color" name="custom_color" value="" />';
     echo '<input type="submit" name="custom_color_reset" value="' . __('Reset') . '" />';
     echo '</form>';
-    echo '<div id="colorSelector">';
-    echo '</div>';
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
@@ -237,7 +210,7 @@ PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', 'http://www.phpMyA
         [<a href="http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi"
             target="_blank">Git</a>]
         [<a href="http://sourceforge.net/mail/?group_id=23067"
-            target="_blank">Lists</a>]
+            target="_blank"><?php echo __('Mailing lists'); ?></a>]
         </bdo>
     </li>
     </ul>

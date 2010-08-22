@@ -327,7 +327,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
             $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
             break;
         case 'text':
-            //$formatted_sql = PMA_SQP_formatText($parsed_sql);
             $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
             break;
         default:
@@ -489,7 +488,9 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
     }
 
     // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '_' . $instance . '">' . $nr . '</sup>';
+    return '<sup class="footnotemarker">' . $nr . '</sup>' .
+    '<img class="footnotemarker" id="footnote_' . $nr . '_' . $instance . '" src="' .
+    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
 }
 
 /**
@@ -564,7 +565,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         $formatted_sql = '';
     } else {
         if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            $formatted_sql = substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+            $formatted_sql = htmlspecialchars(substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
         } else {
             $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }
@@ -676,77 +677,6 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         echo $error_msg_output;
     }
 } // end of the 'PMA_mysqlDie()' function
-
-/**
- * Send HTTP header, taking IIS limits into account (600 seems ok)
- *
- * @uses    PMA_IS_IIS
- * @uses    PMA_COMING_FROM_COOKIE_LOGIN
- * @uses    PMA_get_arg_separator()
- * @uses    SID
- * @uses    strlen()
- * @uses    strpos()
- * @uses    header()
- * @uses    session_write_close()
- * @uses    headers_sent()
- * @uses    function_exists()
- * @uses    debug_print_backtrace()
- * @uses    trigger_error()
- * @uses    defined()
- * @param   string   $uri the header to send
- * @return  boolean  always true
- */
-function PMA_sendHeaderLocation($uri)
-{
-    if (PMA_IS_IIS && strlen($uri) > 600) {
-
-        echo '<html><head><title>- - -</title>' . "\n";
-        echo '<meta http-equiv="expires" content="0">' . "\n";
-        echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
-        echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
-        echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
-        echo '<script type="text/javascript">' . "\n";
-        echo '//<![CDATA[' . "\n";
-        echo 'setTimeout("window.location = unescape(\'"' . $uri . '"\')", 2000);' . "\n";
-        echo '//]]>' . "\n";
-        echo '</script>' . "\n";
-        echo '</head>' . "\n";
-        echo '<body>' . "\n";
-        echo '<script type="text/javascript">' . "\n";
-        echo '//<![CDATA[' . "\n";
-        echo 'document.write(\'<p><a href="' . $uri . '">' . __('Go') . '</a></p>\');' . "\n";
-        echo '//]]>' . "\n";
-        echo '</script></body></html>' . "\n";
-
-    } else {
-        if (SID) {
-            if (strpos($uri, '?') === false) {
-                header('Location: ' . $uri . '?' . SID);
-            } else {
-                $separator = PMA_get_arg_separator();
-                header('Location: ' . $uri . $separator . SID);
-            }
-        } else {
-            session_write_close();
-            if (headers_sent()) {
-                if (function_exists('debug_print_backtrace')) {
-                    echo '<pre>';
-                    debug_print_backtrace();
-                    echo '</pre>';
-                }
-                trigger_error('PMA_sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
-            }
-            // bug #1523784: IE6 does not like 'Refresh: 0', it
-            // results in a blank page
-            // but we need it when coming from the cookie login panel)
-            if (PMA_IS_IIS && defined('PMA_COMING_FROM_COOKIE_LOGIN')) {
-                header('Refresh: 0; ' . $uri);
-            } else {
-                header('Location: ' . $uri);
-            }
-        }
-    }
-}
 
 /**
  * returns array with tables of given db with extended information and grouped
@@ -2994,4 +2924,47 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     echo json_encode($response);
     exit;
 }
+
+/**
+ * Display the form used to browse anywhere on the local server for the file to import
+ */
+function PMA_browseUploadFile($max_upload_size) {
+    $uid = uniqid("");
+    echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
+    echo '<div id="upload_form_status" style="display: none;"></div>';
+    echo '<div id="upload_form_status_info" style="display: none;"></div>';
+    echo '<input type="file" name="import_file" id="input_import_file" />';
+    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
+    // some browsers should respect this :)
+    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+}
+
+/**
+ * Display the form used to select a file to import from the server upload directory
+ */
+function PMA_selectUploadFile($import_list, $uploaddir) {
+	echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+	$extensions = '';
+    foreach ($import_list as $key => $val) {
+        if (!empty($extensions)) {
+            $extensions .= '|';
+        }
+        $extensions .= $val['extension'];
+    }
+    $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
+
+    $files = PMA_getFileSelectOptions(PMA_userDir($uploaddir), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    if ($files === FALSE) {
+        PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
+    } elseif (!empty($files)) {
+        echo "\n";
+        echo '    <select style="margin: 5px" size="1" name="local_import_file" id="select_local_import_file">' . "\n";
+        echo '        <option value="">&nbsp;</option>' . "\n";
+        echo $files;
+        echo '    </select>' . "\n";
+    } elseif (empty ($files)) {
+        echo '<i>There are no files to upload</i>';
+    }
+}
 ?>
+

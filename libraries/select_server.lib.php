@@ -35,13 +35,13 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         if (! $ommit_fieldset) {
             echo '<fieldset>';
         }
-        echo '<label for="select_server">' . __('Server') . ':</label> ';
+        echo '<label for="select_server">' . __('Current Server') . ':</label> ';
 
         echo '<select name="server" id="select_server"'
             . ' onchange="if (this.value != \'\') this.form.submit();">';
         echo '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        echo __('Server') . ':<br />';
+        echo __('Current Server') . ':<br />';
         echo '<ul id="list_server">';
     }
 
@@ -55,7 +55,6 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         } else {
             $selected = 0;
         }
-
         if (!empty($server['verbose'])) {
             $label = $server['verbose'];
         } else {
@@ -78,7 +77,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
         if ($list) {
             echo '<li>';
-            if ($selected && !$ommit_fieldset) {
+            if ($selected) {
                 echo '<strong>' . htmlspecialchars($label) . '</strong>';
             } else {
 

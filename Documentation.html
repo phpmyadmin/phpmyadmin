@@ -849,7 +849,7 @@ since this link provides funding for phpMyAdmin.
         For example, to hide all databases starting with the letter &#34;a&#34;, use<br />
         <pre>$cfg['Servers'][$i]['hide_db'] = '^a';</pre>
         and to hide both &#34;db1&#34; and &#34;db2&#34; use <br />
-        <pre>$cfg['Servers'][$i]['hide_db'] = '(db1|db2)';</pre>
+        <pre>$cfg['Servers'][$i]['hide_db'] = '^(db1|db2)$';</pre>
         More information on regular expressions can be found in the
         <a href="http://php.net/manual/en/reference.pcre.pattern.syntax.php">
         PCRE pattern syntax</a> portion of the PHP reference manual.
@@ -2019,6 +2019,14 @@ setfacl -d -m "g:www-data:rwx" tmp
         In this array are defined default parameters for export, names of
         items are similar to texts seen on export page, so you can easily
         identify what they mean.
+    </dd>
+
+    <dt id="cfg_Export">$cfg['Export']['method'] string</dt>
+    <dd>
+        Defines how the export form is displayed when it loads. Valid values are:
+        <li><tt>quick</tt> to display the minimum number of options to configure</li>
+        <li><tt>custom</tt> to display every available option to configure</li>
+        <li><tt>custom-no-form</tt> same as <tt>custom</tt> but does not display the option of using quick export</li>
     </dd>
 
     <dt id="cfg_Import">$cfg['Import'] array</dt>

@@ -221,13 +221,18 @@ if [ $# -gt 0 ] ; then
                 tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
-                if echo $version | grep '[a-z_-]' ; then
-                    mark_as_release $branch TESTING
+                if echo $version | grep -q '^2\.11\.' ; then
+                    echo '* 2.11 branch, no STABLE/TESTING update'
                 else
-                    # We update both branches here
-                    # As it does not make sense to have older testing than stable
-                    mark_as_release $branch TESTING
-                    mark_as_release $branch STABLE
+                    if echo $version | grep '[a-z_-]' ; then
+                        mark_as_release $branch TESTING
+                    else
+                        # We update both branches here
+                        # As it does not make sense to have older testing than stable
+                        mark_as_release $branch TESTING
+                        mark_as_release $branch STABLE
+                    fi
+                    git checkout master
                 fi
                 echo "   Dont forget to push tags using: git push --tags"
                 ;;

@@ -1004,7 +1004,7 @@ $cfg['LightTabs'] = false;
  *
  * @global boolean $cfg['PropertiesIconic']
  */
-$cfg['PropertiesIconic'] = true;
+$cfg['PropertiesIconic'] = 'both';
 
 /**
  * How many columns should be used for table display of a database?
@@ -1101,6 +1101,20 @@ $cfg['Export']['onserver_overwrite'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['quick_export_onserver']
+ */
+$cfg['Export']['quick_export_onserver'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['quick_export_onserver_overwrite']
+ */
+$cfg['Export']['quick_export_onserver_overwrite'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['remember_file_template']
  */
 $cfg['Export']['remember_file_template'] = true;
@@ -1129,6 +1143,13 @@ $cfg['Export']['file_template_server'] = '@SERVER@';
 /**
  *
  *
+ * @global string $cfg['Export']['codegen_structure_or_data']
+ */
+$cfg['Export']['codegen_structure_or_data'] = 'data';
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['ods_columns']
  */
 $cfg['Export']['ods_columns'] = false;
@@ -1143,16 +1164,9 @@ $cfg['Export']['ods_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['odt_structure']
+ * @global string $cfg['Export']['odt_structure_or_data']
  */
-$cfg['Export']['odt_structure'] = true;
-
-/**
- *
- *
- * @global boolean $cfg['Export']['odt_data']
- */
-$cfg['Export']['odt_data'] = true;
+$cfg['Export']['odt_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1192,16 +1206,9 @@ $cfg['Export']['odt_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['htmlword_structure']
+ * @global boolean $cfg['Export']['htmlword_structure_or_data']
  */
-$cfg['Export']['htmlword_structure'] = true;
-
-/**
- *
- *
- * @global boolean $cfg['Export']['htmlword_data']
- */
-$cfg['Export']['htmlword_data'] = true;
+$cfg['Export']['htmlword_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1220,16 +1227,9 @@ $cfg['Export']['htmlword_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['texytext_structure']
+ * @global string $cfg['Export']['texytext_structure_or_data']
  */
-$cfg['Export']['texytext_structure'] = TRUE;
-
-/**
- *
- *
- * @global boolean $cfg['Export']['texytext_data']
- */
-$cfg['Export']['texytext_data'] = TRUE;
+$cfg['Export']['texytext_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1255,6 +1255,13 @@ $cfg['Export']['xls_columns'] = false;
 /**
  *
  *
+ * @global string $cfg['Export']['xls_structure_or_data']
+ */
+$cfg['Export']['xls_structure_or_data'] = 'data';
+
+/**
+ *
+ *
  * @global string $cfg['Export']['xls_null']
  */
 $cfg['Export']['xls_null'] = 'NULL';
@@ -1265,6 +1272,13 @@ $cfg['Export']['xls_null'] = 'NULL';
  * @global boolean $cfg['Export']['xlsx_columns']
  */
 $cfg['Export']['xlsx_columns'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['xlsx_structure_or_data']
+ */
+$cfg['Export']['xlsx_structure_or_data'] = 'data';
 
 /**
  *
@@ -1283,6 +1297,13 @@ $cfg['Export']['csv_columns'] = false;
 /**
  *
  *
+ * @global string $cfg['Export']['csv_structure_or_data']
+ */
+$cfg['Export']['csv_structure_or_data'] = 'data';
+
+/**
+ *
+ *
  * @global string $cfg['Export']['csv_null']
  */
 $cfg['Export']['csv_null'] = 'NULL';
@@ -1292,7 +1313,7 @@ $cfg['Export']['csv_null'] = 'NULL';
  *
  * @global string $cfg['Export']['csv_separator']
  */
-$cfg['Export']['csv_separator'] = ';';
+$cfg['Export']['csv_separator'] = ',';
 
 /**
  *
@@ -1339,16 +1360,16 @@ $cfg['Export']['excel_edition'] = 'win';
 /**
  *
  *
- * @global boolean $cfg['Export']['latex_structure']
+ * @global string $cfg['Export']['excel_structure_or_data']
  */
-$cfg['Export']['latex_structure'] = true;
+$cfg['Export']['excel_structure_or_data'] = 'data';
 
 /**
  *
  *
- * @global boolean $cfg['Export']['latex_data']
+ * @global string $cfg['Export']['latex_structure_or_data']
  */
-$cfg['Export']['latex_data'] = true;
+$cfg['Export']['latex_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1437,16 +1458,44 @@ $cfg['Export']['latex_structure_label'] = 'tab:@TABLE@-structure';
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_structure']
+ * @global string $cfg['Export']['mediawiki_structure_or_data']
  */
-$cfg['Export']['sql_structure'] = true;
+$cfg['Export']['mediawiki_structure_or_data'] = 'data';
 
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_data']
+ * @global string $cfg['Export']['ods_structure_or_data']
  */
-$cfg['Export']['sql_data'] = true;
+$cfg['Export']['ods_structure_or_data'] = 'data';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['pdf_structure_or_data']
+ */
+$cfg['Export']['pdf_structure_or_data'] = 'data';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['php_array_structure_or_data']
+ */
+$cfg['Export']['php_array_structure_or_data'] = 'data';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['json_structure_or_data']
+ */
+$cfg['Export']['json_structure_or_data'] = 'data';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['sql_structure_or_data']
+ */
+$cfg['Export']['sql_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1504,7 +1553,7 @@ $cfg['Export']['sql_if_not_exists'] = true;
  *
  * @global boolean $cfg['Export']['sql_procedure_function']
  */
-$cfg['Export']['sql_procedure_function'] = false;
+$cfg['Export']['sql_procedure_function'] = true;
 
 /**
  *
@@ -1533,13 +1582,6 @@ $cfg['Export']['sql_dates'] = false;
  * @global boolean $cfg['Export']['sql_relation']
  */
 $cfg['Export']['sql_relation'] = false;
-
-/**
- *
- *
- * @global boolean $cfg['Export']['sql_columns']
- */
-$cfg['Export']['sql_columns'] = true;
 
 /**
  *
@@ -1579,13 +1621,6 @@ $cfg['Export']['sql_type'] = 'insert';
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_extended']
- */
-$cfg['Export']['sql_extended'] = true;
-
-/**
- *
- *
  * @global integer $cfg['Export']['sql_max_query_size']
  */
 $cfg['Export']['sql_max_query_size'] = 50000;
@@ -1614,16 +1649,16 @@ $cfg['Export']['sql_header_comment'] = '';
 /**
  *
  *
- * @global boolean $cfg['Export']['pdf_structure']
+ * @global boolean $cfg['Export']['sql_create_table_statements']
  */
-$cfg['Export']['pdf_structure'] = false;
+$cfg['Export']['sql_create_table_statements'] = true;
 
 /**
+ * Whether to use complete inserts, extended inserts, both, or neither
  *
- *
- * @global boolean $cfg['Export']['pdf_data']
+ * @global string $cfg['Export']['sql_insert_syntax']
  */
-$cfg['Export']['pdf_data'] = true;
+$cfg['Export']['sql_insert_syntax'] = 'both';
 
 /**
  *
@@ -1632,6 +1667,12 @@ $cfg['Export']['pdf_data'] = true;
  */
 $cfg['Export']['pdf_report_title'] = '';
 
+/**
+ *
+ *
+ *@global string $cfg['Export']['xml_structure_or_data']
+ */
+$cfg['Export']['xml_structure_or_data'] = 'data';
 /**
  * Export schema for each structure
  *
@@ -1681,7 +1722,12 @@ $cfg['Export']['xml_export_views'] = true;
  */
 $cfg['Export']['xml_export_contents'] = true;
 
-
+/**
+ *
+ *
+ * @global string $cfg['Export']['yaml_structure_or_data']
+ */
+$cfg['Export']['yaml_structure_or_data'] = 'data';
 /*******************************************************************************
  * Import defaults
  */
@@ -1741,7 +1787,7 @@ $cfg['Import']['csv_replace'] = false;
  *
  * @global string $cfg['Import']['csv_terminated']
  */
-$cfg['Import']['csv_terminated'] = ';';
+$cfg['Import']['csv_terminated'] = ',';
 
 /**
  *

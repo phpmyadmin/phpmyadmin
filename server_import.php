@@ -10,6 +10,8 @@
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'import.js';
+
 /**
  * Does the common work
  */

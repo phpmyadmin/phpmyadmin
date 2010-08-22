@@ -19,11 +19,15 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/vnd.ms-word',
         'force_file' => true,
         'options' => array(
-            array('type' => 'bool', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data'),
-            array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure'),
-            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            /* what to dump (structure/data/both) */
+            array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table')),
+            array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data'))),
+            array('type' => 'end_group'),
+            /* data options */
+            array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure'),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
             array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-            array('type' => 'egroup'),
+            array('type' => 'end_group'),
             ),
         'options_text' => __('Options'),
         );

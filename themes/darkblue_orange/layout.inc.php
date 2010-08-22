@@ -76,7 +76,7 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#ff9900 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'tbl_th.png) repeat-x top';
+$GLOBALS['cfg']['ThBackground']         = '#ff9900 url("' . $_SESSION['PMA_Theme']->getImgPath() . 'tbl_th.png") repeat-x top';
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000000';
 // table data row background

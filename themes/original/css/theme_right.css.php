@@ -31,6 +31,8 @@ body {
     margin:             0.5em;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;
+    width: 100%;
+    height: 100%;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -52,11 +54,12 @@ h3 {
     font-weight:        bold;
 }
 
-a:link,
+a, a:link,
 a:visited,
 a:active {
     text-decoration:    none;
     color:              #0000FF;
+    cursor: pointer;
 }
 
 a:hover {
@@ -208,7 +211,8 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
-.hover {
+.hover,
+.structure_actions_dropdown {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
@@ -350,11 +354,16 @@ img.lightbulb {
 }
 
 /* leave some space between icons and text */
-.icon {
+.icon, img.footnotemarker {
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
 }
+
+img.footnotemarker {
+    display: none;
+}
+
 /* no extra space in table cells */
 td .icon {
     margin: 0;
@@ -379,7 +388,8 @@ div.error h1 {
 div.success,
 div.notice,
 div.warning,
-div.error {
+div.error,
+div.footnotes {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
@@ -419,12 +429,13 @@ div.success {
     border-color:       #00FF00;
 }
 
-.notice {
+.notice, .footnotes {
     color:              #000000;
     background-color:   #FFFFDD;
 }
 h1.notice,
-div.notice {
+div.notice,
+div.footnotes {
     border-color:       #FFD700;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
@@ -512,6 +523,7 @@ fieldset.confirmation legend {
         <?php } ?>
     <?php } ?>
 }
+
 /* end messageboxes */
 
 
@@ -998,12 +1010,12 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 #maincontainer ul {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    list-style-type: disc;
     vertical-align: middle;
 }
 
 #maincontainer li {
-    margin-bottom:  0.3em;
+    margin:  0.2em 0em;
 }
 /* END main page */
 
@@ -1018,18 +1030,12 @@ li#li_select_lang {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
 }
 
-li#li_select_mysql_collation,
-li#li_select_mysql_charset {
+li#li_select_mysql_collation {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
 }
 
 li#li_select_theme{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
-}
-
-li#li_server_info,
-li#li_server_version{
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
 }
 
 li#li_user_info{
@@ -1078,19 +1084,6 @@ li#li_change_password {
 
 li#li_log_out {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
-}
-
-li#li_pma_docs,
-li#li_pma_wiki {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
-}
-
-li#li_phpinfo {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
-}
-
-li#li_pma_homepage {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
 }
 
 li#li_mysql_privilegs{
@@ -1192,6 +1185,10 @@ label.desc {
     float: <?php echo $left; ?>;
 }
 
+label.desc sup {
+    position: absolute;
+}
+
 code.sql, div.sqlvalidate {
     display:            block;
     padding:            0.3em;
@@ -1223,7 +1220,7 @@ code.sql, div.sqlvalidate {
 }
 
 .group h2 {
-    background-color:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
 }
@@ -1234,9 +1231,11 @@ code.sql, div.sqlvalidate {
 }
 
 #li_select_server {
-    padding-bottom:     0.3em;
-    border-bottom:      0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    margin-bottom:      0.3em;
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+#list_server {
+    list-style-image: none;
 }
 
 /**
@@ -1297,3 +1296,189 @@ table#serverconnection_trg_local  {
     position: relative;
     width: 100%;
  }
+/**
+  * Export and Import styles
+  */
+
+.exportoptions h3, .importoptions h3 {
+    border-bottom: 1px #999999 solid;
+    font-size: 110%;
+}
+
+.exportoptions ul, .importoptions ul, .format_specific_options ul {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.exportoptions li, .importoptions li {
+    margin: 7px;
+}
+.exportoptions label, .importoptions label, .exportoptions p, .importoptions p {
+    margin: 5px;
+    float: none;
+}
+
+#csv_options label.desc, #ldi_options label.desc, #latex_options label.desc, #output label.desc{
+    float: left;
+    width: 15em;
+}
+
+.exportoptions, .importoptions {
+    margin: 20px 30px 30px 10px
+}
+
+.exportoptions #buttonGo, .importoptions #buttonGo {
+    padding: 5px 30px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    border: 1px solid #444444;
+    cursor: pointer;
+}
+
+.format_specific_options h3 {
+    margin: 10px 0px 0px 10px;
+    border: 0px;
+}
+
+.format_specific_options {
+    border: 1px solid #999999;
+    margin: 7px 0px;
+    padding: 3px;
+}
+
+p.desc {
+    margin: 5px;
+}
+
+/**
+  * Export styles only
+  */
+select#db_select, select#table_select {
+    width: 400px;
+}
+
+.export_sub_options {
+    margin: 20px 0px 0px 30px;
+}
+
+.export_sub_options h4 {
+    border-bottom: 1px #999999 solid;
+}
+
+.export_sub_options li.subgroup {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.export_sub_options li {
+	margin-bottom: 0;
+}
+
+#quick_or_custom, #output_quick_export {
+    display: none;
+}
+/**
+ * Import styles only
+ */
+
+.importoptions #import_notification {
+    margin: 10px 0px;
+    font-style: italic;
+}
+
+input#input_import_file {
+    margin: 5px;
+}
+
+.formelementrow {
+    margin: 5px 0px 5px 0px;
+}
+
+/**
+ * ENUM/SET editor styles
+ */
+p.enum_notice {
+    margin: 5px 2px;
+    font-size: 80%;
+}
+
+#enum_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#enum_editor_no_js {
+   margin: auto auto;
+}
+
+#enum_editor, #enum_editor_no_js {
+    background: #D0DCE0;
+    padding: 15px;
+}
+
+#popup_background {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE6 */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 100;
+    overflow: hidden;
+}
+
+a.close_enum_editor {
+    float: right;
+}
+
+#enum_editor #values, #enum_editor_no_js #values {
+    margin: 15px 0px;
+    width: 100%;
+}
+
+#enum_editor #values input, #enum_editor_no_js #values input {
+    margin: 5px 0px;
+    float: top;
+    width: 100%;
+}
+
+#enum_editor input, #enum_editor_no_js input {
+    float: bottom;
+}
+
+#enum_editor_output {
+    margin-top: 50px;
+}
+
+/**
+ * Table structure styles
+ */
+.structure_actions_dropdown {
+    position: absolute;
+    padding: 3px;
+    display: none;
+    z-index: 100;
+}
+
+td.more_opts {
+    display: none;
+    white-space: nowrap;
+}
+
+iframe.IE_hack {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    border: 0;
+    filter: alpha(opacity=0);
+}

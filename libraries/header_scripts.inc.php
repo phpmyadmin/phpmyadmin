@@ -31,17 +31,12 @@ $title = PMA_expandUserString(
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'tooltip.js';
+$GLOBALS['js_include'][] = 'jquery.qtip-1.0.0.min.js';
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
-
-$GLOBALS['js_events'][] = array(
-    'event'     => 'load',
-    'function'  => 'PMA_TT_init',
-);
 
 /**
  * Here we add a timestamp when loading the file, so that users who

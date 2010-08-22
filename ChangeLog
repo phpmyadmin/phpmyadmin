@@ -116,6 +116,11 @@ $Id$
 - bug #3040226 [XHTML] LockFromUpdate checkbox not checked by default
 - bug [doc] Withdraw or edit FAQ entries related to older MySQL or PHP 
 - bug #3042706 [pmadb] Relations, bookmarks, etc deleted after table drop
+- bug #3044189 [doc] Cleared documentation for hide_db.
+- bug #3042495 [core] Move PMA_sendHeaderLocation to core.lib.php.
+
+3.3.5.1 (2010-10-20)
+- [core] Fixed various XSS issues, see PMASA-2010-5 for more details.
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of

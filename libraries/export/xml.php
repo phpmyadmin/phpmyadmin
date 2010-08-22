@@ -18,30 +18,34 @@ if (isset($plugin_list)) {
         'extension' => 'xml',
         'mime_type' => 'text/xml',
         'options' => array(
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'begin_group', 'name' => 'general_opts'),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
+            array('type' => 'end_group')
             ),
         'options_text' => __('Options')
         );
     
     /* Export structure */
     $plugin_list['xml']['options'][] =
-        array('type' => 'bgroup', 'name' => 'export_struc', 'text' => __('Export Structure Schemas (recommended)'));
+        array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options (all are recommended)'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Export functions'));
+        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Functions'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Export procedures'));
+        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Procedures'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Export tables'));
+        array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Tables'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Export triggers'));
+        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Triggers'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Export views'));
-    $plugin_list['xml']['options'][] =
-        array('type' => 'egroup');
+        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Views'));
+    $plugin_list['xml']['options'][] = array('type' => 'end_group');
     
     /* Data */
     $plugin_list['xml']['options'][] =
+        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'));
+    $plugin_list['xml']['options'][] =
         array('type' => 'bool', 'name' => 'export_contents', 'text' => __('Export contents'));
+    $plugin_list['xml']['options'][] = array('type' => 'end_group');
 } else {
 
 /**
