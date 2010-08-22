@@ -4392,10 +4392,9 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP arşivinde hata:"
 
 #: main.php:66
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Genel bağlantı özellikleri"
+msgstr "Genel Ayarlar"
 
 #: main.php:97
 msgid "MySQL connection collation"
