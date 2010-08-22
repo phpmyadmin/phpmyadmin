@@ -1810,6 +1810,8 @@ function PMA_ajaxShowMessage(message, timeout) {
             .html("")
             .hide();
         })
+    }
+}
 
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
