@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 12:52+0200\n"
+"PO-Revision-Date: 2010-08-22 12:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2183,7 +2183,7 @@ msgstr "Biçim"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Biçim-Belirli Seçenekler:"
 
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 #, fuzzy
