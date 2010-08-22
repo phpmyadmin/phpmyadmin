@@ -2065,7 +2065,7 @@ msgstr "Metodo di esportazione:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Rapido - mostra solo le opzioni minime di configurazione"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
