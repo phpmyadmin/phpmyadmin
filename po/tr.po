@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:07+0200\n"
+"PO-Revision-Date: 2010-08-22 20:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2268,10 +2268,9 @@ msgstr ""
 "bir yol olabilir, ancak bu işlemleri bozabilir.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Başlangıçtan atlanacak sorgu sayısı"
+msgstr "İlk satırdan başlayarak atlanacak satır sayısı:"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
