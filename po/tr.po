@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:54+0200\n"
+"PO-Revision-Date: 2010-08-22 19:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2027,10 +2027,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr "\"%s\" tablosunda satırlar dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Dışa aktarma türü"
+msgstr "Dışa Aktarma Yöntemi:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
