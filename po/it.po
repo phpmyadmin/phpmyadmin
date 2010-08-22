@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:29+0200\n"
+"PO-Revision-Date: 2010-08-22 19:30+0200\n"
 "Last-Translator:  <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2021,10 +2021,9 @@ msgid "No Privileges"
 msgstr "Nessun Privilegio"
 
 #: libraries/display_create_table.lib.php:40
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "la tabella deve avere come minimo un dato."
+msgstr "La tabella deve avere come minimo una colonna."
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
