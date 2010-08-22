@@ -310,7 +310,7 @@ msgid "Collation"
 msgstr "Collation"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
