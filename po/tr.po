@@ -2889,10 +2889,9 @@ msgid "CSV"
 msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns separated with:"
-msgstr "Sütunu sonlandıran:"
+msgstr "Sütunlar şununla ayrılmış:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
