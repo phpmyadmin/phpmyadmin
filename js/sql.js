@@ -48,7 +48,8 @@ function appendInlineAnchor(disp_mode) {
 
         $(cloned_row).find('td').addClass('edit_row_anchor')
         .find('a').attr('href', '#')
-        .find('img').attr('title', 'Inline Edit');
+        .find('img').attr('title', 'Inline Edit')
+        .after("Inline");
 
         $(cloned_row).insertBefore($('.where_clause').parent('tr'));
 
@@ -64,7 +65,8 @@ function appendInlineAnchor(disp_mode) {
 
             $(cloned_anchor).addClass('edit_row_anchor')
             .find('a').attr('href', '#')
-            .find('img').attr('title', 'Inline Edit');
+            .find('img').attr('title', 'Inline Edit')
+            .after("Inline");
 
             $(this).siblings('.where_clause')
             .before(cloned_anchor);
