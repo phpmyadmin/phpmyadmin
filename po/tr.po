@@ -2050,10 +2050,9 @@ msgid "Table(s):"
 msgstr "Tablo(lar):"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Satır"
+msgstr "Satırlar:"
 
 #: libraries/display_export.lib.php:157
 #| msgid "Dump all rows"
