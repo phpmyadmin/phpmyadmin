@@ -8773,7 +8773,7 @@ msgstr ""
 
 #: tbl_tracking.php:587
 msgid "Version"
-msgstr "Persiano"
+msgstr "Versione"
 
 #: tbl_tracking.php:634
 #, php-format
