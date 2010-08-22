@@ -3487,10 +3487,9 @@ msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
+msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
