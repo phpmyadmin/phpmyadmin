@@ -2088,10 +2088,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Mevcut dosya(ların)nın üzerine yaz"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Dosya olarak kaydet"
+msgstr "Çıktıyı dosyaya kaydet"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
