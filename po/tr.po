@@ -2974,7 +2974,7 @@ msgstr "yapı ve veri"
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Veri döküm seçenekleri"
+msgstr "Veri dökümü seçenekleri"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:929 libraries/export/texytext.php:123
