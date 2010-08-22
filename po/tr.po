@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 12:56+0200\n"
+"PO-Revision-Date: 2010-08-22 12:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3149,6 +3149,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Yorumları göster <i>(dışa aktarma zaman damgası, PHP sürümü ve sunucu sürümü "
+"gibi bilgileri dahil et)</i>"
 
 #: libraries/export/sql.php:35
 #, fuzzy
