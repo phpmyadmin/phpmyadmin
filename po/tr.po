@@ -2093,10 +2093,9 @@ msgid "Save output to a file"
 msgstr "Çıktıyı dosyaya kaydet"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Dosya adı şablonu"
+msgstr "Dosya adı şablonu:"
 
 #: libraries/display_export.lib.php:230
 msgid "server name"
