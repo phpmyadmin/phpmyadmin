@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:22+0200\n"
+"PO-Revision-Date: 2010-08-22 20:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4401,10 +4401,9 @@ msgid "MySQL connection collation"
 msgstr "MySQL bağlantı karşılaştırması"
 
 #: main.php:112
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Diğer çekirdek ayarlar"
+msgstr "Görünüm Ayarları"
 
 #: main.php:132
 msgid "Background color"
