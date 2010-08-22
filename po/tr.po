@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:00+0200\n"
+"PO-Revision-Date: 2010-08-22 20:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2202,10 +2202,9 @@ msgstr ""
 "mevcut değil."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL sunucusuna oturum açılamıyor"
+msgstr "Şu anki sunucu içine aktarılıyor"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
