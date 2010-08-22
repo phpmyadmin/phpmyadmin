@@ -3196,7 +3196,7 @@ msgstr "İfadeler"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> seçenekleri:"
 
 #: libraries/export/sql.php:123
 msgid ""
