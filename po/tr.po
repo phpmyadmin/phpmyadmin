@@ -4226,7 +4226,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "ENUM ya da SET verisi çok mu uzun?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
