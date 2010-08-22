@@ -2219,10 +2219,9 @@ msgid "Importing into the table \"%s\""
 msgstr "\"%s\" tablosu içine aktarılıyor"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "İçe aktarmak için dosya"
+msgstr "İçe Aktarmak için Dosya:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
