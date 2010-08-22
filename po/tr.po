@@ -2151,10 +2151,9 @@ msgid "zipped"
 msgstr "zip olarak"
 
 #: libraries/display_export.lib.php:324
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip olarak\""
+msgstr "gzip olarak"
 
 #: libraries/display_export.lib.php:326
 #, fuzzy
