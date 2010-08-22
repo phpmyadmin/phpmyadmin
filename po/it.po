@@ -8778,7 +8778,7 @@ msgstr "Versione"
 #: tbl_tracking.php:634
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Disattiva il tracking per %s.%s"
 
 #: tbl_tracking.php:636
 msgid "Deactivate now"
