@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:21+0200\n"
+"PO-Revision-Date: 2010-08-22 19:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3477,6 +3477,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Geçersiz sütun (%s) belirtilmiş! Sütun adlarının doğru olarak hecelenmesini, "
+"virgüllerle ayrılmasını ve tırnaklarla kapanmamasını sağlayın."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
