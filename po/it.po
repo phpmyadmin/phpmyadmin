@@ -1770,7 +1770,7 @@ msgstr "Valida SQL"
 
 #: libraries/common.lib.php:1289
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Modifica inline di questa query"
 
 #: libraries/common.lib.php:1291
 #, fuzzy
