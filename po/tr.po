@@ -3258,8 +3258,8 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"yukarıdakilerin hiçbiri<br /> &nbsp; &nbsp; &nbsp; Örneğin: <code>INSERT "
-"INTO tbl_adı VALUES (1,2,3)</code>"
+"yukarıdakilerin hiçbiri<br /> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT INTO "
+"tbl_adı VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:163
 msgid "Maximal length of created query"
