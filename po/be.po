@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-21 08:14-0400\n"
+"POT-Creation-Date: 2010-08-22 23:05+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -183,7 +183,7 @@ msgstr "Камэнтары"
 #: pdf_schema.php:1342 prefs_manage.php:130 server_privileges.php:1564
 #: server_privileges.php:1575 server_privileges.php:1885
 #: server_privileges.php:1890 server_privileges.php:2183 sql.php:130
-#: sql.php:192 tbl_printview.php:226 tbl_structure.php:371
+#: sql.php:191 tbl_printview.php:226 tbl_structure.php:371
 #: tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Не"
@@ -200,7 +200,7 @@ msgstr "Не"
 #: libraries/user_preferences.lib.php:311 pdf_schema.php:1342
 #: prefs_manage.php:129 server_databases.php:75 server_privileges.php:1561
 #: server_privileges.php:1575 server_privileges.php:1885
-#: server_privileges.php:1888 server_privileges.php:2183 sql.php:191
+#: server_privileges.php:1888 server_privileges.php:2183 sql.php:190
 #: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:371
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -626,11 +626,11 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да %"
-"sдакумэнтацыі%s."
+"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да "
+"%sдакумэнтацыі%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:142
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
@@ -858,8 +858,8 @@ msgstr "Дамп захаваны ў файл %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вы, мусіць, паспрабавалі загрузіць вельмі вялікі файл. Калі ласка, "
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
@@ -878,8 +878,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца (%"
-"s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
+"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца "
+"(%s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
 #: import.php:335
@@ -905,7 +905,7 @@ msgstr "Закладка была выдаленая."
 msgid "Showing bookmark"
 msgstr "Паказваючы закладку"
 
-#: import.php:401 sql.php:623
+#: import.php:401 sql.php:621
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка %s створаная"
@@ -956,7 +956,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Каманды \"DROP DATABASE\" адключаныя."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:186
+#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:185
 msgid "Do you really want to "
 msgstr "Ці сапраўды вы жадаеце "
 
@@ -1590,8 +1590,8 @@ msgstr "Запрашаем у %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Імаверна, прычына гэтага ў тым, што ня створаны канфігурацыйны файл. Каб яго "
 "стварыць, можна выкарыстаць %1$sналадачны скрыпт%2$s."
@@ -4432,8 +4432,8 @@ msgstr "імя табліцы"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Гэтае значэньне інтэрпрэтуецца з выкарыстаньнем %1$sstrftime%2$s, таму можна "
 "выкарыстоўваць радкі фарматаваньня часу. Апроч гэтага, будуць праведзеныя "
@@ -4744,7 +4744,7 @@ msgstr "Паказаныя запісы"
 msgid "total"
 msgstr "усяго"
 
-#: libraries/display_tbl.lib.php:1928 sql.php:522
+#: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Запыт выконваўся %01.4f сэк"
@@ -5527,7 +5527,7 @@ msgstr "SQL-вынік"
 msgid "Generated by"
 msgstr "Створаны"
 
-#: libraries/import.lib.php:151 sql.php:518 tbl_change.php:175
+#: libraries/import.lib.php:151 sql.php:516 tbl_change.php:175
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
@@ -6153,11 +6153,11 @@ msgstr "Выканаць SQL-запыт(ы) на базе дадзеных %s"
 msgid "Columns"
 msgstr "Назвы калёнак"
 
-#: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
+#: libraries/sql_query_form.lib.php:329 sql.php:660 sql.php:661 sql.php:678
 msgid "Bookmark this SQL query"
 msgstr "Дадаць гэты SQL-запыт у закладкі"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:674
+#: libraries/sql_query_form.lib.php:336 sql.php:672
 msgid "Let every user access this bookmark"
 msgstr "Даць кожнаму карыстальніку доступ да гэтай закладкі"
 
@@ -7514,8 +7514,8 @@ msgstr "Выдаліць базы дадзеных, якія маюць такі
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
 "прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
@@ -9024,31 +9024,31 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgstr ""
 
-#: sql.php:494 tbl_replace.php:380
+#: sql.php:492 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID устаўленага радку: %1$d"
 
-#: sql.php:511
+#: sql.php:509
 msgid "Showing as PHP code"
 msgstr "У выглядзе PHP-коду"
 
-#: sql.php:514 tbl_replace.php:354
+#: sql.php:512 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr "У выглядзе SQL-запыту"
 
-#: sql.php:516
+#: sql.php:514
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Праверыць SQL"
 
-#: sql.php:636
+#: sql.php:634
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Праблемы з індэксамі для табліцы `%s`"
 
-#: sql.php:668
+#: sql.php:666
 msgid "Label"
 msgstr "Метка"
 

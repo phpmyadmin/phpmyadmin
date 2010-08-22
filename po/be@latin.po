@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-21 08:14-0400\n"
+"POT-Creation-Date: 2010-08-22 23:05+0200\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
+"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be@latin\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -185,7 +185,7 @@ msgstr "Kamentary"
 #: pdf_schema.php:1342 prefs_manage.php:130 server_privileges.php:1564
 #: server_privileges.php:1575 server_privileges.php:1885
 #: server_privileges.php:1890 server_privileges.php:2183 sql.php:130
-#: sql.php:192 tbl_printview.php:226 tbl_structure.php:371
+#: sql.php:191 tbl_printview.php:226 tbl_structure.php:371
 #: tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Nie"
@@ -202,7 +202,7 @@ msgstr "Nie"
 #: libraries/user_preferences.lib.php:311 pdf_schema.php:1342
 #: prefs_manage.php:129 server_databases.php:75 server_privileges.php:1561
 #: server_privileges.php:1575 server_privileges.php:1885
-#: server_privileges.php:1888 server_privileges.php:2183 sql.php:191
+#: server_privileges.php:1888 server_privileges.php:2183 sql.php:190
 #: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:371
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -632,11 +632,11 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
-"sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
+"%sdakumentacyi%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:142
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
@@ -856,8 +856,8 @@ msgstr "Damp zachavany ŭ fajł %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -876,8 +876,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
-"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
+"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:335
@@ -903,7 +903,7 @@ msgstr "Zakładka była vydalenaja."
 msgid "Showing bookmark"
 msgstr "Pakazvajučy zakładku"
 
-#: import.php:401 sql.php:623
+#: import.php:401 sql.php:621
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Zakładka %s stvoranaja"
@@ -954,7 +954,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Kamandy \"DROP DATABASE\" adklučanyja."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:186
+#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:185
 msgid "Do you really want to "
 msgstr "Ci sapraŭdy vy žadajecie "
 
@@ -1590,8 +1590,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -4395,8 +4395,8 @@ msgstr "imia tablicy"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -4708,7 +4708,7 @@ msgstr "Pakazanyja zapisy"
 msgid "total"
 msgstr "usiaho"
 
-#: libraries/display_tbl.lib.php:1928 sql.php:522
+#: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Zapyt vykonvaŭsia %01.4f sek"
@@ -5493,7 +5493,7 @@ msgstr "SQL-vynik"
 msgid "Generated by"
 msgstr "Stvorany"
 
-#: libraries/import.lib.php:151 sql.php:518 tbl_change.php:175
+#: libraries/import.lib.php:151 sql.php:516 tbl_change.php:175
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL viarnuła pusty vynik (to bok nul radkoŭ)."
@@ -6112,11 +6112,11 @@ msgstr "Vykanać SQL-zapyt(y) na bazie dadzienych %s"
 msgid "Columns"
 msgstr "Nazvy kalonak"
 
-#: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
+#: libraries/sql_query_form.lib.php:329 sql.php:660 sql.php:661 sql.php:678
 msgid "Bookmark this SQL query"
 msgstr "Dadać hety SQL-zapyt u zakładki"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:674
+#: libraries/sql_query_form.lib.php:336 sql.php:672
 msgid "Let every user access this bookmark"
 msgstr "Dać kožnamu karystalniku dostup da hetaj zakładki"
 
@@ -6220,8 +6220,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
-"sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
+"%sdakumentacyi%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6429,8 +6429,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
-"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
+"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -7476,8 +7476,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "
@@ -8973,31 +8973,31 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgstr ""
 
-#: sql.php:494 tbl_replace.php:380
+#: sql.php:492 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID ustaŭlenaha radku: %1$d"
 
-#: sql.php:511
+#: sql.php:509
 msgid "Showing as PHP code"
 msgstr "U vyhladzie PHP-kodu"
 
-#: sql.php:514 tbl_replace.php:354
+#: sql.php:512 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: sql.php:516
+#: sql.php:514
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Pravieryć SQL"
 
-#: sql.php:636
+#: sql.php:634
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Prablemy z indeksami dla tablicy `%s`"
 
-#: sql.php:668
+#: sql.php:666
 msgid "Label"
 msgstr "Mietka"
 

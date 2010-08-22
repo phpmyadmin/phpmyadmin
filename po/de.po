@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-21 08:14-0400\n"
+"POT-Creation-Date: 2010-08-22 23:05+0200\n"
 "PO-Revision-Date: 2010-07-31 21:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -184,7 +184,7 @@ msgstr "Kommentare"
 #: pdf_schema.php:1342 prefs_manage.php:130 server_privileges.php:1564
 #: server_privileges.php:1575 server_privileges.php:1885
 #: server_privileges.php:1890 server_privileges.php:2183 sql.php:130
-#: sql.php:192 tbl_printview.php:226 tbl_structure.php:371
+#: sql.php:191 tbl_printview.php:226 tbl_structure.php:371
 #: tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Nein"
@@ -201,7 +201,7 @@ msgstr "Nein"
 #: libraries/user_preferences.lib.php:311 pdf_schema.php:1342
 #: prefs_manage.php:129 server_databases.php:75 server_privileges.php:1561
 #: server_privileges.php:1575 server_privileges.php:1885
-#: server_privileges.php:1888 server_privileges.php:2183 sql.php:191
+#: server_privileges.php:1888 server_privileges.php:2183 sql.php:190
 #: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:371
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -625,11 +625,11 @@ msgstr "Tracking ist nicht aktiviert."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die %"
-"sDokumentation%s."
+"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die "
+"%sDokumentation%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:142
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
@@ -847,11 +847,11 @@ msgstr "Dump (Schema) wurde in Datei %s gespeichert."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
-"sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
+"%sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -894,7 +894,7 @@ msgstr "SQL-Abfrage wurde gelöscht."
 msgid "Showing bookmark"
 msgstr "Bookmark wird angezeigt"
 
-#: import.php:401 sql.php:623
+#: import.php:401 sql.php:621
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bookmark %s wurde gespeichert"
@@ -946,7 +946,7 @@ msgstr "Zum Abwählen anklicken"
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Die Anweisung \"DROP DATABASE\" wurde deaktiviert."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:186
+#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:185
 msgid "Do you really want to "
 msgstr "Möchten Sie wirklich diese Abfrage ausführen "
 
@@ -1528,8 +1528,8 @@ msgstr "Willkommen bei %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
 "haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
@@ -4541,8 +4541,8 @@ msgstr "Tabellen-Name"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst, Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -4863,7 +4863,7 @@ msgstr "Zeige Datensätze "
 msgid "total"
 msgstr "insgesamt"
 
-#: libraries/display_tbl.lib.php:1928 sql.php:522
+#: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "die Abfrage dauerte %01.4f sek."
@@ -5637,7 +5637,7 @@ msgstr "SQL-Abfrageergebnis"
 msgid "Generated by"
 msgstr "Erstellt von"
 
-#: libraries/import.lib.php:151 sql.php:518 tbl_change.php:175
+#: libraries/import.lib.php:151 sql.php:516 tbl_change.php:175
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
@@ -6279,11 +6279,11 @@ msgstr "SQL-Befehl(e) in Datenbank %s ausführen"
 msgid "Columns"
 msgstr "Spaltennamen"
 
-#: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
+#: libraries/sql_query_form.lib.php:329 sql.php:660 sql.php:661 sql.php:678
 msgid "Bookmark this SQL query"
 msgstr "SQL-Abfrage speichern"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:674
+#: libraries/sql_query_form.lib.php:336 sql.php:672
 msgid "Let every user access this bookmark"
 msgstr "Diese gespeicherte SQL-Abfrage für jeden Benutzer verfügbar machen"
 
@@ -6483,8 +6483,8 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Für diese Umwandlung ist keine Beschreibung verfügbar.<br />Für weitere "
-"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;%"
-"s&quot;."
+"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;"
+"%s&quot;."
 
 #: libraries/tbl_properties.inc.php:729 server_engines.php:56
 #: tbl_operations.php:352
@@ -7663,8 +7663,8 @@ msgstr "Die gleichnamigen Datenbanken löschen."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-"
 "Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, "
@@ -9249,31 +9249,31 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
 
-#: sql.php:494 tbl_replace.php:380
+#: sql.php:492 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID der eingefügten Zeile: %1$d"
 
-#: sql.php:511
+#: sql.php:509
 msgid "Showing as PHP code"
 msgstr "Ansicht als PHP Code"
 
-#: sql.php:514 tbl_replace.php:354
+#: sql.php:512 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr "Ansicht als SQL Abfrage"
 
-#: sql.php:516
+#: sql.php:514
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL validieren"
 
-#: sql.php:636
+#: sql.php:634
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Warnungen bei den Indizes der Tabelle `%s`"
 
-#: sql.php:668
+#: sql.php:666
 msgid "Label"
 msgstr "Titel"
 

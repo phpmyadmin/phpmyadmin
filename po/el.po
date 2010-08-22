@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-21 08:14-0400\n"
+"POT-Creation-Date: 2010-08-22 23:05+0200\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -184,7 +184,7 @@ msgstr "Σχόλια"
 #: pdf_schema.php:1342 prefs_manage.php:130 server_privileges.php:1564
 #: server_privileges.php:1575 server_privileges.php:1885
 #: server_privileges.php:1890 server_privileges.php:2183 sql.php:130
-#: sql.php:192 tbl_printview.php:226 tbl_structure.php:371
+#: sql.php:191 tbl_printview.php:226 tbl_structure.php:371
 #: tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Όχι"
@@ -201,7 +201,7 @@ msgstr "Όχι"
 #: libraries/user_preferences.lib.php:311 pdf_schema.php:1342
 #: prefs_manage.php:129 server_databases.php:75 server_privileges.php:1561
 #: server_privileges.php:1575 server_privileges.php:1885
-#: server_privileges.php:1888 server_privileges.php:2183 sql.php:191
+#: server_privileges.php:1888 server_privileges.php:2183 sql.php:190
 #: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:371
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -628,11 +628,11 @@ msgstr "Η παρακολούθηση δεν έιναι ενεργοποιημέ
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:142
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
@@ -851,11 +851,11 @@ msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -896,7 +896,7 @@ msgstr "Η ετικέτα διεγράφη."
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: import.php:401 sql.php:623
+#: import.php:401 sql.php:621
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Ο σελιδοδείκτης %s δημιουργήθηκε"
@@ -949,7 +949,7 @@ msgstr "Πατήστε για απεπιλογή"
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:186
+#: js/messages.php:30 libraries/mult_submits.inc.php:256 sql.php:185
 msgid "Do you really want to "
 msgstr "Θέλετε να εκτελέσετε την εντολή"
 
@@ -1557,8 +1557,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -4568,8 +4568,8 @@ msgstr "όνομα πίνακα"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -4883,7 +4883,7 @@ msgstr "Εμφάνιση εγγραφής "
 msgid "total"
 msgstr "συνολικά"
 
-#: libraries/display_tbl.lib.php:1928 sql.php:522
+#: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
@@ -5669,7 +5669,7 @@ msgstr "αποτέλεσμα SQL"
 msgid "Generated by"
 msgstr "Δημιουργήθηκε από:"
 
-#: libraries/import.lib.php:151 sql.php:518 tbl_change.php:175
+#: libraries/import.lib.php:151 sql.php:516 tbl_change.php:175
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -6302,11 +6302,11 @@ msgstr "Εκτέλεση εντολής/εντολών SQL στη βάση δε�
 msgid "Columns"
 msgstr "Ονόματα στηλών"
 
-#: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
+#: libraries/sql_query_form.lib.php:329 sql.php:660 sql.php:661 sql.php:678
 msgid "Bookmark this SQL query"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:674
+#: libraries/sql_query_form.lib.php:336 sql.php:672
 msgid "Let every user access this bookmark"
 msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε κάθε χρήστη"
 
@@ -6408,8 +6408,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Ο επικυρωτής SQL δεν μπόρεσε να ενεργοποιηθεί. Παρακαλώ ελέγξτε ότι έχετε "
-"εγκαταστήσει της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %"
-"sτεκμηρίωση%s."
+"εγκαταστήσει της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην "
+"%sτεκμηρίωση%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -7684,8 +7684,8 @@ msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -9244,8 +9244,8 @@ msgid ""
 "to."
 msgstr ""
 "Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
-"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
+"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
 "formset=features#tab_Security]λίστα αξιόπιστων διακομιστών[/a]. Ωστόσο, η "
 "βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν ο πάροχός έχει χιλιάδες "
 "χρήστες που συνδέονται."
@@ -9262,8 +9262,8 @@ msgstr ""
 "Ορίζετε τον τύπο επικύρωσης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:259
 #, php-format
@@ -9307,31 +9307,31 @@ msgstr ""
 "Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "
 "χαρακτήρες"
 
-#: sql.php:494 tbl_replace.php:380
+#: sql.php:492 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 
-#: sql.php:511
+#: sql.php:509
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: sql.php:514 tbl_replace.php:354
+#: sql.php:512 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: sql.php:516
+#: sql.php:514
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Επικύρωση SQL"
 
-#: sql.php:636
+#: sql.php:634
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Προβλήματα με τα ευρετήρια στον πίνακα «%s»"
 
-#: sql.php:668
+#: sql.php:666
 msgid "Label"
 msgstr "Τίτλος"
 
@@ -10059,8 +10059,9 @@ msgstr "Μετονομασία πίνακα σε"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "δεν ήταν δυνατή η φόρτωση της επέκτασης [a@http://php.net/%1"
-#~ "$s@Documentation][em]%1$s[/em][/a], παρακαλώ ελέγξτε τις ρυθμίσεις της PHP"
+#~ "δεν ήταν δυνατή η φόρτωση της επέκτασης [a@http://php.net/"
+#~ "%1$s@Documentation][em]%1$s[/em][/a], παρακαλώ ελέγξτε τις ρυθμίσεις της "
+#~ "PHP"
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
@@ -10237,8 +10238,9 @@ msgstr "Μετονομασία πίνακα σε"
 #~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 #~ "Please check your PHP configuration."
 #~ msgstr ""
-#~ "δεν ήταν δυνατή η φόρτωση της επέκτασης [a@http://php.net/%1"
-#~ "$s@Documentation][em]%1$s[/em][/a], παρακαλώ ελέγξτε τις ρυθμίσεις της PHP"
+#~ "δεν ήταν δυνατή η φόρτωση της επέκτασης [a@http://php.net/"
+#~ "%1$s@Documentation][em]%1$s[/em][/a], παρακαλώ ελέγξτε τις ρυθμίσεις της "
+#~ "PHP"
 
 #~ msgid ""
 #~ "This server is not configured as master in a replication process. Would "
@@ -10301,8 +10303,8 @@ msgstr "Μετονομασία πίνακα σε"
 #~ "The &quot;deleted&quot; users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
-#~ "Οι «διεγραφθέντες» χρήστες θα συνεχίσουν να έχουν πρόσβαση στον διακομιστή "
-#~ "μέχρις ότου να επαναφορτωθούν οι πίνακες δικαιωμάτων."
+#~ "Οι «διεγραφθέντες» χρήστες θα συνεχίσουν να έχουν πρόσβαση στον "
+#~ "διακομιστή μέχρις ότου να επαναφορτωθούν οι πίνακες δικαιωμάτων."
 
 #~ msgid "Just delete the users from the privilege tables."
 #~ msgstr "Απλή διαγραφή των χρηστών από τους πίνακες δικαιωμάτων."
