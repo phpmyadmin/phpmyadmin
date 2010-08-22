@@ -2244,7 +2244,7 @@ msgstr "İçe aktarmak için dosya"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Dosya sıkıştırılmış (%s) ya da sıkıştırılmamış olabilir."
 
 #: libraries/display_import.lib.php:158
 msgid ""
