@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:02+0200\n"
+"PO-Revision-Date: 2010-08-22 20:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2254,7 +2254,6 @@ msgstr ""
 "konumundan devam edecek."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -2265,8 +2264,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Betiğin PHP zaman aşımı sınırına yaklaşıldığını algılaması durumunda içe "
-"aktarımı kesmeye izin verir. Bu büyük dosyaların içe aktarımı için iyi bir "
-"yol olabilir, ancak bu işlemleri bozabilir."
+"aktarımı kesmeye izin verir. <i>(Bu büyük dosyaların içe aktarımı için iyi "
+"bir yol olabilir, ancak bu işlemleri bozabilir.)</i>"
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
