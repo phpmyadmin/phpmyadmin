@@ -1893,7 +1893,7 @@ msgstr "La directory impostata per l'upload non può essere trovata"
 #: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "L'estensione %s è mancante. Controlla la tua configurazione di PHP."
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:463
