@@ -6914,7 +6914,7 @@ msgstr "Biçim"
 
 #: setup/lib/messages.inc.php:86
 msgid "Method"
-msgstr ""
+msgstr "Yöntem"
 
 #: setup/lib/messages.inc.php:87
 msgid "Save on server"
