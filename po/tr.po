@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-08 22:05+0200\n"
+"PO-Revision-Date: 2010-08-22 12:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -764,7 +764,7 @@ msgstr "Veritabanı Günlüğü"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" sütunu için değerler"
 
 #: enum_editor.php:22
 #, fuzzy
@@ -8861,90 +8861,3 @@ msgstr "GÖRÜNÜM adı"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Sütunlardaki CRLF karakterlerini kaldır"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "AUTO_INCREMENT değeri ekle"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "%s satır dökümü, %s. satırdan başlıyor"
-
-#~ msgid "remember template"
-#~ msgstr "şablonu hatırla"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "İçe aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
-#~ "algılanacak: %s"
-
-#~ msgid "Continued table caption"
-#~ msgstr "Devam eden tablo başlığı"
-
-#~ msgid "Database export options"
-#~ msgstr "Veritabanı dışa aktarma seçenekleri"
-
-#~ msgid "Enclose table and column names with backquotes"
-#~ msgstr "Tablo ve sütun adlarını ters tırnak ile kapsa"
-
-#~ msgid "Add into comments"
-#~ msgstr "Yorumların içine ekle"
-
-#~ msgid "Creation/Update/Check dates"
-#~ msgstr "Oluşturma/Güncelleme/Kontrol tarihleri"
-
-#~ msgid "Complete inserts"
-#~ msgstr "Bütün eklemeler"
-
-#~ msgid "Extended inserts"
-#~ msgstr "Genişletilmiş eklemeler"
-
-#~ msgid "Use delayed inserts"
-#~ msgstr "Gecikmiş eklemeleri kullan"
-
-#~ msgid "Use ignore inserts"
-#~ msgstr "Yoksayılan eklemeleri kullan"
-
-#~ msgid "Use hexadecimal for BLOB"
-#~ msgstr "BLOB için onaltılık sistem kullan"
-
-#~ msgid "Export time in UTC"
-#~ msgstr "UTC olarak zamanı dışa aktar"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Yapı Şemalarını dışa aktar (önerilir)"
-
-#~ msgid "Export functions"
-#~ msgstr "İşlevleri dışa aktar"
-
-#~ msgid "Export procedures"
-#~ msgstr "İşlemleri dışa aktar"
-
-#~ msgid "Export tables"
-#~ msgstr "Tabloları dışa aktar"
-
-#~ msgid "Export triggers"
-#~ msgstr "Tetikleyicileri dışa aktar"
-
-#~ msgid "Export views"
-#~ msgstr "Görünümleri dışa aktar"
-
-#~ msgid "Column names in first row"
-#~ msgstr "İlk sıradaki sütun isimleri"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Geçersiz sütun (%s) belirlenmiş!"
-
-#~ msgid "Actions"
-#~ msgstr "Eylemler"
-
-#~ msgid "Interface"
-#~ msgstr "Arabirim"
-
-#~ msgid "Custom color"
-#~ msgstr "Özel renk"
