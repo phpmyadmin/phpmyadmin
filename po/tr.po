@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:57+0200\n"
+"PO-Revision-Date: 2010-08-22 19:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2110,7 +2110,7 @@ msgid "table name"
 msgstr "tablo adı"
 
 #: libraries/display_export.lib.php:240
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -2121,8 +2121,9 @@ msgid ""
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
-"biçimlendirme dizgisi kullanabilirsiniz. İlave olarak yandaki dönüşümler "
-"meydana gelecek: %3$s. Diğer metin olduğu gibi tutulacak."
+"biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
+"meydana gelecektir: %3$s. Diğer metin olduğu gibi tutulacak. Ayrıntılar için "
+"%4$sSSS%5$s'a bakın."
 
 #: libraries/display_export.lib.php:284
 msgid "use this for future exports"
