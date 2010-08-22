@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 13:46+0200\n"
+"PO-Revision-Date: 2010-08-22 13:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -808,7 +808,7 @@ msgstr "Web sunucusu %s dosyasını kaydetmek için izne sahip değil."
 #: export.php:661
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Döküm dosyası %s dosyasına kaydedildi."
+msgstr "Yığın, %s dosyasına kaydedildi."
 
 #: import.php:58
 #, php-format
