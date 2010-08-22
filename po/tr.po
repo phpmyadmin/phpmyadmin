@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:20+0200\n"
+"PO-Revision-Date: 2010-08-22 20:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3937,10 +3937,9 @@ msgid "Unknown language: %1$s."
 msgstr "Bilinmeyen dil: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
-msgstr "Şu anki sunucu"
+msgstr "Şu Anki Sunucu"
 
 #: libraries/select_server.lib.php:42 setup/frames/index.inc.php:97
 #: setup/lib/messages.inc.php:113
