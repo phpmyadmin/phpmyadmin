@@ -3232,7 +3232,7 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "her <code>INSERT</code> ifadesine sütun adlarını dahil et <br /> &nbsp; "
-"&nbsp; &nbsp; Örneğin: <code>INSERT INTO tbl_adı (sütun_A,sütun_B,sütun_C) "
+"&nbsp; &nbsp; Örnek: <code>INSERT INTO tbl_adı (sütun_A,sütun_B,sütun_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
