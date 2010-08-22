@@ -1773,10 +1773,9 @@ msgid "Inline edit of this query"
 msgstr "Modifica inline di questa query"
 
 #: libraries/common.lib.php:1291
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "In linea"
+msgstr "Inline"
 
 #: libraries/common.lib.php:1345 libraries/common.lib.php:1360
 msgid "Profiling"
