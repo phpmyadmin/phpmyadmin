@@ -1847,7 +1847,7 @@ msgstr "İşlemler"
 
 #: libraries/common.lib.php:2923
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Bilgisayarınıza gözat:"
 
 #: libraries/common.lib.php:2936
 #, fuzzy, php-format
