@@ -769,7 +769,6 @@ msgid "Tracking report"
 msgstr "Rapporto tracking"
 
 #: db_tracking.php:118 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
 msgstr "Solo struttura"
 
