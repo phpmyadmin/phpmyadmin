@@ -4506,7 +4506,7 @@ msgstr "Resmî phpMyAdmin Anasayfası"
 
 #: main.php:212
 msgid "Mailing lists"
-msgstr ""
+msgstr "Postalama listesi"
 
 #: main.php:238
 msgid ""
