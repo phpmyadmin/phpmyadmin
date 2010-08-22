@@ -1914,7 +1914,7 @@ msgstr "Il databse sembra essere vuoto!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
 msgid "Tracking"
-msgstr ""
+msgstr "Tracking"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
