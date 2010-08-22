@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-19 11:53+0200\n"
+"PO-Revision-Date: 2010-08-22 23:10+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1038,10 +1038,9 @@ msgid "Generate"
 msgstr "Vytvořit"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "Po"
+msgstr "Více"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:80
@@ -1919,16 +1918,14 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Úplné inserty"
+msgstr "úplné inserty"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Rozšířené inserty"
+msgstr "rozšířené inserty"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
@@ -2258,16 +2255,14 @@ msgid "Edit in window"
 msgstr "Upravit následující řádek"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Zobrazení funkcí"
+msgstr "Zobrazit chyby"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Ignorovat chyby"
+msgstr "Sbírat chyby"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
@@ -2358,10 +2353,9 @@ msgid "Lines terminated by"
 msgstr "Řádky ukončené"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition:"
 msgid "Excel edition"
-msgstr "Verze Excelu:"
+msgstr "Verze Excelu"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
@@ -2541,11 +2535,11 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:155
 msgid "Developer"
-msgstr ""
+msgstr "Vývojář"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Nastavení pro vývojáře phpMyAdmina"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
@@ -2569,14 +2563,13 @@ msgid "Features"
 msgstr "Funkce"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Vytvořit"
+msgstr "Obecné"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Nejčastěji používaná nastavení"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:71 libraries/tbl_links.inc.php:82
@@ -2641,13 +2634,12 @@ msgstr "Hlavní rám"
 
 #: libraries/config/messages.inc.php:181
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Text OpenDocument"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:185
 msgid "Other core settings"
@@ -2923,17 +2915,14 @@ msgid "Do not import empty rows"
 msgstr "Neimportovat prázdné řádky"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importovat měny <i>(např. 5.00 místo $5.00)</i>"
+msgstr "Importovat měny (5.00 místo $5.00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
-"Importovat procenta jako desetinná čísla <i>např. (0.12 místo 12.00%)</i>"
+msgstr "Importovat procenta jako desetinná čísla (0.12 místo 12.00%)"
 
 #: libraries/config/messages.inc.php:253
 msgid "Number of queries to skip from start"
@@ -2944,10 +2933,9 @@ msgid "Partial import: skip queries"
 msgstr "Částečný import: přeskočit dotazy"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Nepoužívat <code>AUTO_INCREMENT</code> pro nulové hodnoty"
+msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
@@ -6517,10 +6505,9 @@ msgid "Choose..."
 msgstr "Zvolte..."
 
 #: main.php:150 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "nastavení"
+msgstr "Více nastavení"
 
 #: main.php:167
 msgid "Protocol version"
