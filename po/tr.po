@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:51+0200\n"
+"PO-Revision-Date: 2010-08-22 19:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1848,10 +1848,10 @@ msgid "Browse your computer:"
 msgstr "Bilgisayarınıza gözat:"
 
 #: libraries/common.lib.php:2936
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "web sunucusu gönderme dizini"
+msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
 #: libraries/common.lib.php:2948 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
