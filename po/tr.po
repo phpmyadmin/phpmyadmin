@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:13+0200\n"
+"PO-Revision-Date: 2010-08-22 20:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2934,10 +2934,9 @@ msgid "CSV for MS Excel"
 msgstr "MS Excel için CSV"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel yapısı"
+msgstr "Excel yapısı:"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
