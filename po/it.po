@@ -444,7 +444,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Aggiungi/Cancella criterio"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Aggiungi/Cancella campo"
