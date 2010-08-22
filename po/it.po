@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:32+0200\n"
+"PO-Revision-Date: 2010-08-22 19:33+0200\n"
 "Last-Translator:  <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2072,7 +2072,6 @@ msgid "Custom - display all possible options to configure"
 msgstr "Personalizzato - mostra tutte le possibili opzioni di configurazione"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
 msgstr "Database"
