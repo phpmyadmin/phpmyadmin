@@ -1737,7 +1737,7 @@ msgstr "Messaggio di MySQL: "
 
 #: libraries/common.lib.php:1131
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Non sono riuscito a connettermi all'SQL Validator!"
 
 #: libraries/common.lib.php:1169 setup/lib/messages.inc.php:351
 msgid "Explain SQL"
