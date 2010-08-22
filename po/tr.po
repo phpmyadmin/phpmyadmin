@@ -3492,10 +3492,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL uyumluluk kipi"
+msgstr "SQL uyumluluk kipi:"
 
 #: libraries/import/sql.php:42
 #, fuzzy
