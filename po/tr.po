@@ -4455,7 +4455,7 @@ msgstr "Diğer çekirdek ayarlar"
 
 #: main.php:132
 msgid "Background color"
-msgstr ""
+msgstr "Arkaplan rengi"
 
 #: main.php:133
 msgid "Choose..."
