@@ -2241,10 +2241,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Bu sunucuda dosya gönderimlerine izin verilmez."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Kısmi içe aktarma"
+msgstr "Kısmi İçe Aktarma:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
