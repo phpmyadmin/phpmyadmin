@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:17+0200\n"
+"PO-Revision-Date: 2010-08-22 20:18+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3153,10 +3153,9 @@ msgid "Add %s statement"
 msgstr "%s ifadesi ekle"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "İfadeler"
+msgstr "İfadeleri ekle:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
