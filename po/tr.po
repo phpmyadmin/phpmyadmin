@@ -3212,7 +3212,7 @@ msgstr "<code>INSERT</code> ifadesinin yerine şunu kullan:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code> ifadeleri"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
