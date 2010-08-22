@@ -3223,7 +3223,7 @@ msgstr "Veri dökümlenirken kullanılacak işlev:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Veri eklenirken kullanılacak sözdizimi:"
 
 #: libraries/export/sql.php:154
 msgid ""
