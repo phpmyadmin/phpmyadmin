@@ -1039,7 +1039,6 @@ msgid "Choose column to display"
 msgstr "Scegli il campo da mostrare"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Genera Password"
