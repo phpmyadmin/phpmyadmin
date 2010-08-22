@@ -773,7 +773,6 @@ msgid "Structure snapshot"
 msgstr "Solo struttura"
 
 #: db_tracking.php:147
-#, fuzzy
 msgid "Untracked tables"
 msgstr "Controlla tabella"
 
