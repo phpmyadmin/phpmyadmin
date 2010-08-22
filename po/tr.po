@@ -2075,7 +2075,7 @@ msgstr "Sütun sayısı"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Başlanacak satır:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
