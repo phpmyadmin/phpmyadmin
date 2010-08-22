@@ -2078,7 +2078,7 @@ msgstr "Başlanacak satır:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr "Tüm satırları yığınla"
+msgstr "Tüm satırları dökümle"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
