@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 19:56+0200\n"
+"PO-Revision-Date: 2010-08-22 19:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2077,10 +2077,10 @@ msgid "Output:"
 msgstr "Çıktı:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Sunucuda %s dizinine kaydet"
+msgstr "Sunucuda <b>%s</b> dizinine kaydet"
 
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 #: setup/lib/messages.inc.php:88
