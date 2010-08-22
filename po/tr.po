@@ -3099,10 +3099,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Tek bir tablonun verisini içeren bir rapor üretir)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Rapor başlığı"
+msgstr "Rapor başlığı:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
