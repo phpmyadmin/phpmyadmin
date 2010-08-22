@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:12+0200\n"
+"PO-Revision-Date: 2010-08-22 20:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2917,10 +2917,9 @@ msgid "Replace NULL with:"
 msgstr "NULL'u şununla değiştir:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Sütunlardaki CRLF karakterlerini kaldır"
+msgstr "Sütunlardaki satır başı/satır atlama karakterlerini kaldır"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:71
