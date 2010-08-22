@@ -3008,10 +3008,9 @@ msgstr "Tablo başlığını dahil et"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Dönüşüm seçenekleri"
+msgstr "Nesne oluşturma seçenekleri"
 
 #: libraries/export/latex.php:49 libraries/export/latex.php:73
 msgid "Table caption"
