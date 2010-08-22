@@ -1077,9 +1077,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // pointer code part
             echo '    <tr class="' . $class . '">' . "\n";
             $class = $data_inline_edit_class;
-            if(is_null($row[$i])) {
-                $class .= 'null';
-            }
         }
 
 
@@ -1207,6 +1204,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $meta    = $fields_meta[$i];
             $pointer = $i;
             $is_field_truncated = false;
+            //If this column's value is null, add the null class to it, needed
+            //for inline editing
+            if(is_null($row[$i])) {
+                $class .= ' null';
+            }
+
             //  See if this column should get highlight because it's used in the
             //  where-query.
             if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
