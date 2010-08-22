@@ -1034,7 +1034,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Seleziona la chiave primaria o una chiave univoca"
 
 #: js/messages.php:63 pmd_general.php:76 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Scegli il campo da mostrare"
