@@ -3017,10 +3017,9 @@ msgid "Table caption"
 msgstr "Tablo başlığı"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Tablo başlığı"
+msgstr "Tablo başlığı (devamı)"
 
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
 msgid "Label key"
