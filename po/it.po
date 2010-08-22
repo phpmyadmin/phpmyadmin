@@ -261,7 +261,7 @@ msgstr "Il Database %s è stato eliminato."
 #: db_operations.php:396
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Vai al database"
+msgstr "Calcella il database (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
