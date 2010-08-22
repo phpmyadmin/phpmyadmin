@@ -8696,7 +8696,7 @@ msgstr "Eğer ihtiyacınız yoksa bu iki satırı yorum dışı bırakın."
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
-"SQL ifadeleri dışa aktarıldı. Lütfen yığını kopyalayın ya da çalıştırın."
+"SQL ifadeleri dışa aktarıldı. Lütfen dökümü kopyalayın ya da çalıştırın."
 
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
