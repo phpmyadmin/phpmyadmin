@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:01+0200\n"
+"PO-Revision-Date: 2010-08-22 20:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2213,10 +2213,10 @@ msgid "Importing into the database \"%s\""
 msgstr "\"%s\" veritabanı içine aktarılıyor"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
-msgstr "Veritabanına git"
+msgstr "\"%s\" tablosu içine aktarılıyor"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
