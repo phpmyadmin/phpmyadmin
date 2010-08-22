@@ -8735,7 +8735,7 @@ msgstr "Veri işleme ifadesi"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr "SQL yığını (dosya indirme)"
+msgstr "SQL dökümü (dosya indirme)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
