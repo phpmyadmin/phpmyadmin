@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-22 20:18+0200\n"
+"PO-Revision-Date: 2010-08-22 20:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3482,10 +3482,9 @@ msgid "Do not import empty rows"
 msgstr "Boş satırları içe aktarma"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Yüzdeleri doğru ondalık olarak içe aktar (%12.00'ı .12'ye)"
+msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
