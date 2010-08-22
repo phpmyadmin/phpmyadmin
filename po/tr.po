@@ -2135,10 +2135,9 @@ msgid "Character set of the file:"
 msgstr "Dosyanın karakter grubu:"
 
 #: libraries/display_export.lib.php:318
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Sıkıştırma"
+msgstr "Sıkıştırma:"
 
 #: libraries/display_export.lib.php:320 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
