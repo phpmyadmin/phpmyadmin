@@ -2075,7 +2075,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Üçüncü parti çerçevelemeye izin ver"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
