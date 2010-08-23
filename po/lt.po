@@ -5424,7 +5424,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1113
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Keisti jo struktūrą spauskite „Struktūra“ nuorodą"
 
 #: libraries/import.lib.php:1116
 msgid "Go to database"
