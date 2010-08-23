@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-20 23:06+0200\n"
+"PO-Revision-Date: 2010-08-23 11:17+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -7521,6 +7521,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Šis serveris nėra sukonfigūruotas kaip pagrindinio serverio dauginimo "
+"procesas. Ar Jūs norėtumėte <a href=\"%s\">sukonfigūruoti</a> jį?"
 
 #: server_replication.php:215
 msgid "Master configuration"
@@ -7534,6 +7536,11 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Šis serveris nesukonfigūruotas kaip pagrindinio serverio dauginimo procesas. "
+"Jūs galite pasirinkti vieną iš dviejų: dauginti visas duombazes ir "
+"ignoruoti kažkurias (naudinga kai Jūs dauginate didžiąją dalį duombazių) "
+"arba Jūs galite pasirinkti ignoruoti visas duombazes ir pasirinkti kažkurias "
+"duombazes dauginimui. Prašome pasirinkti režimą:"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
@@ -7637,9 +7644,8 @@ msgid "Skip current error"
 msgstr "Praleisti šią klaidą"
 
 #: server_replication.php:335
-#, fuzzy
 msgid "Skip next"
-msgstr "Praleisti toliau"
+msgstr "Praleisti sekančius"
 
 #: server_replication.php:338
 msgid "errors."
@@ -7674,9 +7680,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:42
-#, fuzzy
 msgid "How many temporary files mysqld has created."
-msgstr "Kiek daug laikinų failų mysqld sukūrė."
+msgstr "Kiek laikinųjų failų mysqld sukūrė."
 
 #: server_status.php:43
 msgid ""
@@ -8213,11 +8218,11 @@ msgstr "Užklausų saugykla"
 
 #: server_status.php:362
 msgid "Threads"
-msgstr ""
+msgstr "Gijos"
 
 #: server_status.php:364
 msgid "Temporary data"
-msgstr ""
+msgstr "Laikini duomenys"
 
 #: server_status.php:365
 #, fuzzy
@@ -8280,20 +8285,28 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Šis MySQL serveris veikia kaip <b>pagrindinis</b> ir kaip <b>pavaldusis</b> "
+"serveris <b>dauginimo</b> procese."
 
 #: server_status.php:472
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Šis MySQL serveris veikia kaip <b>pagrindinis</b> serveris <b>dauginimo</b> "
+"procese."
 
 #: server_status.php:474
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Šis MySQL serveris veikia kaip <b>pavaldusis</b> serveris <b>dauginimo</b> "
+"procese."
 
 #: server_status.php:476
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"Daugiau informacijos apie dauginimo serverio būseną prašome aplankyti <a "
+"href=#replication>dauginimo skyrelį</a>."
 
 #: server_status.php:493
 msgid ""
@@ -8365,7 +8378,7 @@ msgstr "Užklausos tipas"
 
 #: server_status.php:831
 msgid "Replication status"
-msgstr "Replikacijos būsena"
+msgstr "Dauginimo būsena"
 
 #: server_synchronize.php:92
 #, fuzzy
@@ -8381,7 +8394,7 @@ msgstr "Nepavyko prisijungti prie MySQL serverio"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s' duomenų bazė neegzistuoja."
+msgstr "„%s“ duomenų bazė neegzistuoja."
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
@@ -8617,9 +8630,8 @@ msgid "Ignore errors"
 msgstr "Ignoruoti klaidas"
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "Rodyti spalvą"
+msgstr "Rodyti formą"
 
 #: setup/lib/index.lib.php:118 setup/lib/index.lib.php:125
 #: setup/lib/index.lib.php:142 setup/lib/index.lib.php:149
@@ -8638,14 +8650,16 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Nepavyko nuskaityti versijos. Galbūt Jūs esate atsijungęs arba serveris "
+"neatsako."
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Gautas netinkamas versijos formatas iš serverio"
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Nesuprantama versijos eilutė"
 
 #: setup/lib/index.lib.php:158
 #, php-format
@@ -8653,6 +8667,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Nauja phpMyAdmin versija prieinama ir Jūs turėtumėte apsvarstyti "
+"atnaujinimą. Naujausia versija yra %s, išleista %s."
 
 #: setup/lib/index.lib.php:162
 #, php-format
@@ -8660,10 +8676,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Jūs naudojate Git versiją, paleiskite [kbd]git pull[/kbd] :-)[br]Naujausia "
+"stabili versija yra %s, išleista %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Prieinama naujesnė stabili versija"
 
 #: setup/lib/index.lib.php:250
 msgid ""
@@ -8774,6 +8792,7 @@ msgstr ""
 #: setup/lib/index.lib.php:283
 msgid "You should use SSL connections if your web server supports it"
 msgstr ""
+"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
 
 #: setup/lib/index.lib.php:293
 msgid "You should use mysqli for performance reasons"
@@ -8841,11 +8860,11 @@ msgstr "Ignoruoti"
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Tai yra jo ilgis,<br /> šis laukelis neredaguojamas "
+msgstr "Dėl jo ilgio,<br /> šis laukelis neredaguojamas "
 
 #: tbl_change.php:835
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Panaikinti BLOB saugyklos rodyklę"
 
 #: tbl_change.php:841
 msgid "Binary - do not edit"
@@ -8853,20 +8872,19 @@ msgstr "Dvejetainis - nekeisti"
 
 #: tbl_change.php:889
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Įkelti BLOB saugyklą"
 
 #: tbl_change.php:1026
 msgid "Insert as new row"
-msgstr "Įterpti naują įrašą"
+msgstr "Įterpti kaip naują įrašą"
 
 #: tbl_change.php:1027
 msgid "Insert as new row and ignore errors"
 msgstr "Įterpti kaip naują eilutę ir ignoruoti klaidas"
 
 #: tbl_change.php:1028
-#, fuzzy
 msgid "Show insert query"
-msgstr "Rodoma SQL užklausa"
+msgstr "Rodyti įterptą užklausą"
 
 #: tbl_change.php:1043
 msgid "Go back to previous page"
@@ -8901,9 +8919,9 @@ msgid "Table %s already exists!"
 msgstr "Lentelė %s jau yra!"
 
 #: tbl_create.php:241
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been created."
-msgstr "Duomenų bazė %1$s sukurta."
+msgstr "Sukurta %1$s lentelė."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
@@ -8915,7 +8933,7 @@ msgstr "Pirminio rakto pavadinimas turi būti \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
-msgstr "Indeksą pervadinti PIRMINIU nepavyko!"
+msgstr "Negalima pervadinti indekso į PRIMARY!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
@@ -8949,7 +8967,7 @@ msgstr "Įterpti indeksui papildomus &nbsp;%s&nbsp;stulpelį(ius)"
 
 #: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "Stulpelių skaičius turi būti didesnis negu nulis."
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
@@ -9015,16 +9033,14 @@ msgid "Table %s has been flushed"
 msgstr "Lentelės buferis  %s išvalytas"
 
 #: tbl_operations.php:633
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Išvalyti lentelę (\"FLUSH\")"
+msgstr "Išvalyti ir perkrauti lentelę (FLUSH)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Sukurta duomenų kopija lentelei"
+msgstr "Ištrinti duomenis arba lentelę"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
