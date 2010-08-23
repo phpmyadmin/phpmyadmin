@@ -9364,7 +9364,7 @@ msgstr ""
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
-msgstr "Užkomentuokite šias dvi eilutes jeigu Jums jų nereikia."
+msgstr "Užkomentuokite (panaikinkite) šias dvi eilutes jeigu Jums jų nereikia."
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
