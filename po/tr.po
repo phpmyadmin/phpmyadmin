@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 20:38+0200\n"
+"PO-Revision-Date: 2010-08-23 20:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2483,7 +2483,7 @@ msgstr "Dış anahtar kontrolünü etkisizleştir"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use hexadecimal for BLOB"
-msgstr "BLOB için onaltilik taban kullan"
+msgstr "BLOB için onaltılık düzen kullan"
 
 #: libraries/config/messages.inc.php:126
 #, fuzzy
