@@ -8630,9 +8630,8 @@ msgid "Ignore errors"
 msgstr "Ignoruoti klaidas"
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "Rodyti spalvą"
+msgstr "Rodyti formą"
 
 #: setup/lib/index.lib.php:118 setup/lib/index.lib.php:125
 #: setup/lib/index.lib.php:142 setup/lib/index.lib.php:149
