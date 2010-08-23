@@ -8681,7 +8681,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Prieinama naujesnė stabili versija"
 
 #: setup/lib/index.lib.php:250
 msgid ""
