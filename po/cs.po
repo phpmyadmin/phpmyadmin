@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:27+0200\n"
-"PO-Revision-Date: 2010-08-23 11:36+0200\n"
+"PO-Revision-Date: 2010-08-23 11:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2393,11 +2393,10 @@ msgstr "Vzor pro jméno tabulky"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Dump table"
-msgstr "%s tabulka"
+msgstr "Vypsat tabulku"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
