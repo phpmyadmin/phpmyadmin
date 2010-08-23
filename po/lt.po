@@ -8872,7 +8872,7 @@ msgstr "Dvejetainis - nekeisti"
 
 #: tbl_change.php:889
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Įkelti BLOB saugyklą"
 
 #: tbl_change.php:1026
 msgid "Insert as new row"
