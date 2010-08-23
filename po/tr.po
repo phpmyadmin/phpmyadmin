@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 22:15+0200\n"
+"PO-Revision-Date: 2010-08-23 22:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2661,10 +2661,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Başka hiçbir yere uymayan ayarlar"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page name"
 msgid "Page titles"
-msgstr "Sayfa adı"
+msgstr "Sayfa başlığı"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
