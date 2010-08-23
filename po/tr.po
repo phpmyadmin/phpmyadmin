@@ -2005,10 +2005,9 @@ msgid "SQL Validator is disabled"
 msgstr "SQL Onaylayıcı etkisizleştirildi"
 
 #: libraries/config/FormDisplay.class.php:765
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "Kullanmak için PHP uzantısı"
+msgstr "SOAP uzantısı bulunamadı"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy, php-format
