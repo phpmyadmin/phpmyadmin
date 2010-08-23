@@ -9038,10 +9038,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Išvalyti ir perkrauti lentelę (FLUSH)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Sukurta duomenų kopija lentelei"
+msgstr "Ištrinti duomenis arba lentelę"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
