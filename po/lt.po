@@ -9509,7 +9509,7 @@ msgstr "Profilis papildytas."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "VIEW vardas"
 
 #: view_operations.php:91
 #, fuzzy
