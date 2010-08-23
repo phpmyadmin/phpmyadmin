@@ -1421,7 +1421,7 @@ function getElement(e,f){
 }
 
 /**
-  * Refresh the WYSIWYG-PDF scratchboard after changes have been made
+  * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e) {
     var elm = $('#' + e);
@@ -1431,7 +1431,7 @@ function refreshDragOption(e) {
 }
 
 /**
-  * Refresh/resize the WYSIWYG-PDF scratchboard
+  * Refresh/resize the WYSIWYG scratchboard
   */
 function refreshLayout() {
     var elm = $('#pdflayout')
@@ -1453,7 +1453,7 @@ function refreshLayout() {
 }
 
 /**
-  * Show/hide the WYSIWYG-PDF scratchboard
+  * Show/hide the WYSIWYG scratchboard
   */
 function ToggleDragDrop(e) {
     var elm = $('#' + e);

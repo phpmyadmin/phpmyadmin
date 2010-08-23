@@ -224,15 +224,13 @@ class PMA_User_Schema
                    $array_sh_page[] = $temp_sh_page;
             }
             /*
-             * Display WYSIWYG-PDF parts?
+             * Display WYSIWYG parts
              */
 
-            if ($cfg['WYSIWYG-PDF']) {
-                if (!isset($_POST['with_field_names']) && !isset($_POST['showwysiwyg'])) {
-                    $with_field_names = TRUE;
-                }
-                $this->_displayScratchboardTables($array_sh_page,$draginit,$reset_draginit);
+            if (!isset($_POST['with_field_names']) && !isset($_POST['showwysiwyg'])) {
+                $with_field_names = TRUE;
             }
+            $this->_displayScratchboardTables($array_sh_page,$draginit,$reset_draginit);
             ?>
 
             <form method="post" action="schema_edit.php" name="edcoord">
@@ -280,10 +278,10 @@ class PMA_User_Schema
                          . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . __('Delete');
                     echo "\n" . '        </td>';
                     echo "\n" . '        <td>'
-                         . "\n" . '            <input type="text" ' . ($cfg['WYSIWYG-PDF'] ? 'onchange="dragPlace(' . $i . ', \'x\', this.value)"' : '') . ' name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
+                         . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'x\', this.value)" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
                     echo "\n" . '        </td>';
                     echo "\n" . '        <td>'
-                         . "\n" . '            <input type="text" ' . ($cfg['WYSIWYG-PDF'] ? 'onchange="dragPlace(' . $i . ', \'y\', this.value)"' : '') . ' name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
+                         . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'y\', this.value)" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
                     echo "\n" . '        </td>';
                     echo "\n" . '    </tr>';
                     $i++;
@@ -319,7 +317,7 @@ class PMA_User_Schema
                 echo "\n" . '    </table>' . "\n";
 
                 echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
-                echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
+                echo "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
                 echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
                 echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
                 echo "\n" . '</form>' . "\n\n";

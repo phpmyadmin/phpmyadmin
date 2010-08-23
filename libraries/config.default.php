@@ -2333,14 +2333,6 @@ $cfg['MaxExactCount'] = 20000;
 $cfg['MaxExactCountViews'] = 0;
 
 /**
- * Utilize DHTML/JS capabilities to allow WYSIWYG editing of
- * the PDF page editor. Requires an IE6/Gecko based browser.
- *
- * @global boolean $cfg['WYSIWYG-PDF']
- */
-$cfg['WYSIWYG-PDF'] = true;
-
-/**
  * Sort table and database in natural order
  *
  * @global boolean $cfg['NaturalOrder']

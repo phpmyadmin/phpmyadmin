@@ -105,6 +105,7 @@ $Id$
 - patch #3038312 [export] JSON export, 
   thanks to Hauke Henningsen - blubberkeks152
 - rfe #2973909 Users preferences
+- [relations] Dropped WYSIWYG-PDF configuration variable.
 
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name
