@@ -2702,10 +2702,9 @@ msgid "Basic settings"
 msgstr "Základní nastavení"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Typ autentizace"
+msgstr "Přihlašování"
 
 #: libraries/config/messages.inc.php:195
 #, fuzzy
