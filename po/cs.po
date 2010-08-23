@@ -1621,11 +1621,11 @@ msgstr "Soubor %s neobsahuje ID klíče"
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "Hardwarová autentizace selhala"
+msgstr "Hardwarové přihlašování selhala"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr "Nebyl připojen autentizační klíč"
+msgstr "Nebyl připojen přihlašovací klíč"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
@@ -1714,7 +1714,7 @@ msgstr "Server"
 
 #: libraries/common.inc.php:806
 msgid "Invalid authentication method set in configuration:"
-msgstr "V konfiguraci máte špatnou autentizační metodu:"
+msgstr "V konfiguraci máte špatnou přihlašovací metodu:"
 
 #: libraries/common.inc.php:908
 #, php-format
@@ -2090,7 +2090,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Tajné heslo (fráze) používané pro šifrování cookies při autentizaci pomocí "
+"Tajné heslo (fráze) používané pro šifrování cookies při přihlašování pomocí "
 "[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
@@ -3083,7 +3083,7 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Určuje, zda se má pamatovat předchozí přihlášení, při použití autentizace "
+"Určuje, zda se má pamatovat předchozí přihlášení, při použití přihlašování "
 "pomocí cookies"
 
 #: libraries/config/messages.inc.php:289
@@ -3360,20 +3360,16 @@ msgid "Leave blank if not used"
 msgstr "Pokud tuto volbu nepoužíváte, nechte ji prázdnou"
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Příkaz pro autentizaci serverů"
+msgstr "Pořadí ověřování hostitelů"
 
 #: libraries/config/messages.inc.php:351
 msgid "Leave blank for defaults"
 msgstr "Nechte volbu prázdnou pro výchozí nastavení"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Pravidla autentizace serverů"
+msgstr "Pravidla ověřování hostitelů"
 
 #: libraries/config/messages.inc.php:353
 msgid "Allow logins without a password"
@@ -3385,7 +3381,7 @@ msgstr "Povolit přihlašování uživatele root"
 
 #: libraries/config/messages.inc.php:355
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "Název pro zobrazení při HTTP autentizace"
+msgstr "Název pro zobrazení při HTTP přihlašování"
 
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Realm"
@@ -3397,8 +3393,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"Cesta ke konfiguračnímu souboru pro [a@http://swekey.com]hardwarovou "
-"autentizaci SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři dokumentů; "
+"Cesta ke konfiguračnímu souboru pro [a@http://swekey.com]hardwarové "
+"přihlašování SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři dokumentů; "
 "Doporučení: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:358
@@ -3407,11 +3403,11 @@ msgstr "Konfigurační soubor SweKey"
 
 #: libraries/config/messages.inc.php:359
 msgid "Authentication method to use"
-msgstr "Která autentizační metoda se má použít"
+msgstr "Která přihlašovací metoda se má použít"
 
 #: libraries/config/messages.inc.php:360 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr "Typ autentizace"
+msgstr "Typ přihlašování"
 
 #: libraries/config/messages.inc.php:361
 msgid ""
@@ -3571,11 +3567,11 @@ msgstr "Zobrazit jen vybrané databáze"
 
 #: libraries/config/messages.inc.php:391 libraries/config/messages.inc.php:428
 msgid "Leave empty if not using config auth"
-msgstr "Nechte prázdné, pokud nepoužíváte autentizaci config"
+msgstr "Nechte prázdné, pokud nepoužíváte přihlašování config"
 
 #: libraries/config/messages.inc.php:392
 msgid "Password for config auth"
-msgstr "Heslo pro autentizaci config"
+msgstr "Heslo pro přihlašování config"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
@@ -3775,7 +3771,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid "User for config auth"
-msgstr "Uživatel pro autentizaci config"
+msgstr "Uživatel pro přihlašování config"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
@@ -4095,28 +4091,20 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Příkaz pro autentizaci serverů"
+msgstr "Přihlašování config"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Příkaz pro autentizaci serverů"
+msgstr "Přihlašování přes cookie"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Příkaz pro autentizaci serverů"
+msgstr "Přihlašování přes HTTP"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Příkaz pro autentizaci serverů"
+msgstr "Přihlašování signon"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
@@ -4185,15 +4173,15 @@ msgstr "Nepodařilo se připojit k MySQL serveru"
 #: libraries/config/validate.lib.php:230
 msgid "Empty username while using config authentication method"
 msgstr ""
-"Při použití nastavené autentizační metody nebylo vyplněno uživatelské jméno"
+"Při použití nastavené přihlašovací metody nebylo vyplněno uživatelské jméno"
 
 #: libraries/config/validate.lib.php:234
 msgid "Empty signon session name while using signon authentication method"
-msgstr "Prázdné jméno signon sezení při použití autentizace signon"
+msgstr "Prázdné jméno signon sezení při použití přihlašování signon"
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon URL while using signon authentication method"
-msgstr "Prázdné přihlašovací URL při použití autentizace signon"
+msgstr "Prázdné přihlašovací URL při použití přihlašování signon"
 
 #: libraries/config/validate.lib.php:272
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -8846,7 +8834,7 @@ msgid ""
 "you don't need to remember it."
 msgstr ""
 "Něměl jste nastavený tajný klíč pro šifru blowfish (blowfish_secret) a "
-"povolenou autentizaci pomocí cookie, takže byl Váš tajný klíč vygenerován. "
+"povolené přihlašování pomocí cookie, takže byl Váš tajný klíč vygenerován. "
 "Klíč bude použit pro zašifrování cookies."
 
 #: setup/lib/index.lib.php:252
@@ -8922,11 +8910,11 @@ msgid ""
 "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]"
 "authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd]."
 msgstr ""
-"Nastavil jste typ autentizace [kbd]config[/kbd] a zadal jste uživatelské "
+"Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
 "Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
+"%1$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
 "kbd]."
 
 #: setup/lib/index.lib.php:259
