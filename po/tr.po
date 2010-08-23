@@ -2574,10 +2574,9 @@ msgid "Features"
 msgstr "Özellikler"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Üret"
+msgstr "Genel"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
