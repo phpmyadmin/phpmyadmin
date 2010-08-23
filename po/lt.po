@@ -4757,7 +4757,7 @@ msgstr "Buferio Pool'o naudojimas"
 #: server_databases.php:316 server_status.php:524 server_status.php:585
 #: server_status.php:606 tbl_printview.php:348 tbl_structure.php:788
 msgid "Total"
-msgstr "Viso"
+msgstr "Iš viso"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
