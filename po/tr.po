@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 20:27+0200\n"
+"PO-Revision-Date: 2010-08-23 20:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2188,7 +2188,7 @@ msgstr "DROP sorgularını onayla"
 
 #: libraries/config/messages.inc.php:42
 msgid "Field navigation using Ctrl+Arrows"
-msgstr ""
+msgstr "Ctrl+Okları kullanarak alan rehberliği"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
