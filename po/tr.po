@@ -6539,9 +6539,8 @@ msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
-"Verinin onaltılık düzende gösterimini görüntüler. İsteğe bağlı ilk "
-"parametre, ne sıklıkta boşluk ekleneceğini belirler (varsayılanı 2 yarım "
-"bayttır)."
+"Verinin onaltılık düzen gösterimini görüntüler. İsteğe bağlı ilk parametre, "
+"ne sıklıkta boşluk ekleneceğini belirler (varsayılanı 2 yarım bayttır)."
 
 #: libraries/transformations/image_jpeg__inline.inc.php:9
 #: libraries/transformations/image_png__inline.inc.php:9
