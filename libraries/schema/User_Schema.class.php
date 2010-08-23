@@ -341,7 +341,7 @@ class PMA_User_Schema
     {
         global $cfg,$pmaThemeImage,$db,$test_rs,$chpage;
         ?>
-        <form method="post" action="handle_relation_schema.php">
+        <form method="post" action="schema_export.php">
             <fieldset>
             <legend>
             <?php
