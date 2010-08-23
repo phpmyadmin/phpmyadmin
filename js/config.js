@@ -699,7 +699,7 @@ function savePrefsToLocalStorage(form)
 function updatePrefsDate()
 {
     var d = new Date(window.localStorage['config_mtime_local']);
-    var msg = PMA_messages['strSavedOn'].replace('__DATE__', formatDate(d));
+    var msg = PMA_messages['strSavedOn'].replace('@DATE@', formatDate(d));
     $('#opts_import_local_storage .localStorage-exists').html(msg);
 }
 

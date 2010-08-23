@@ -222,7 +222,7 @@ if ($error) {
 ?>
 <script type="text/javascript">
 <?php
-PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
+PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 ?>
 </script>
 <div id="maincontainer">
@@ -248,7 +248,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
                         <?php echo __('Settings will be imported from your browser\'s local storage.') ?>
                         <br />
                         <span class="localStorage-exists">
-                            <?php echo __('Saved on: __DATE__') ?>
+                            <?php echo __('Saved on: @DATE@') ?>
                         </span>
                         <span class="localStorage-empty">
                             <?php  PMA_Message::notice(__('You have no saved settings!'))->display() ?>

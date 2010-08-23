@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 11:27+0200\n"
+"POT-Creation-Date: 2010-08-23 13:31+0200\n"
 "PO-Revision-Date: 2010-07-22 02:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -7121,7 +7121,7 @@ msgid "Do you want to import remaining settings?"
 msgstr ""
 
 #: prefs_manage.php:225 prefs_manage.php:251
-msgid "Saved on: __DATE__"
+msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239

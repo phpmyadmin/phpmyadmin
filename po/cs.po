@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 11:27+0200\n"
+"POT-Creation-Date: 2010-08-23 13:31+0200\n"
 "PO-Revision-Date: 2010-08-23 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -342,7 +342,6 @@ msgstr ""
 "proč."
 
 #: db_operations.php:531
-#| msgid "Export Relational Schema View"
 msgid "Edit or export relational schema"
 msgstr "Upravit nebo exportovat relační schéma"
 
@@ -1992,7 +1991,6 @@ msgstr "Chybí data v %s"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "nedostupné"
 
@@ -2017,13 +2015,11 @@ msgid "SQL Validator is disabled"
 msgstr "Ověřování SQL je vypnuté"
 
 #: libraries/config/FormDisplay.class.php:765
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "Rozšíření SOAP nebylo nalezeno"
 
 #: libraries/config/FormDisplay.class.php:773
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "maximálně %s"
 
@@ -2357,7 +2353,6 @@ msgid "Replace NULL by"
 msgstr "Nahradit NULL hodnoty"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
-#| msgid "Remove carriage return/line feed characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "Odstranit znaky konců řádek z polí"
 
@@ -2393,8 +2388,6 @@ msgstr "Vzor pro jméno tabulky"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Dump table"
 msgstr "Vypsat tabulku"
 
@@ -2428,7 +2421,6 @@ msgid "Relations"
 msgstr "Relace"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export Method:"
 msgid "Export method"
 msgstr "Způsob exportu"
 
@@ -2483,7 +2475,6 @@ msgid "Maximal length of created query"
 msgstr "Maximální velikost vytvořeného dotazu"
 
 #: libraries/config/messages.inc.php:133
-#| msgid "Export tables"
 msgid "Export type"
 msgstr "Typ exportu"
 
@@ -2536,7 +2527,6 @@ msgstr "Přizpůsobí režim prohlížení"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Přizpůsobí výchozí nastavení"
 
@@ -2663,7 +2653,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Nastavení, která nelze zařadit jinam"
 
 #: libraries/config/messages.inc.php:187
-#| msgid "Page name"
 msgid "Page titles"
 msgstr "Jména stránek"
 
@@ -2702,12 +2691,10 @@ msgid "Basic settings"
 msgstr "Základní nastavení"
 
 #: libraries/config/messages.inc.php:194
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Přihlašování"
 
 #: libraries/config/messages.inc.php:195
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Nastavení přihlašování"
 
@@ -3394,8 +3381,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "Cesta ke konfiguračnímu souboru pro [a@http://swekey.com]hardwarové "
-"přihlašování SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři dokumentů; "
-"Doporučení: /etc/swekey.conf)"
+"přihlašování SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři "
+"dokumentů; Doporučení: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:358
 msgid "SweKey config file"
@@ -6910,7 +6897,7 @@ msgid "Do you want to import remaining settings?"
 msgstr ""
 
 #: prefs_manage.php:225 prefs_manage.php:251
-msgid "Saved on: __DATE__"
+msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239
