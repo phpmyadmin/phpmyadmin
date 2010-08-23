@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 10:37+0200\n"
+"PO-Revision-Date: 2010-08-23 10:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7644,9 +7644,8 @@ msgid "Skip current error"
 msgstr "Praleisti šią klaidą"
 
 #: server_replication.php:335
-#, fuzzy
 msgid "Skip next"
-msgstr "Praleisti toliau"
+msgstr "Praleisti sekantį ėjimą"
 
 #: server_replication.php:338
 msgid "errors."
