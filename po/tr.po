@@ -2022,7 +2022,7 @@ msgstr "En fazla tablo"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır"
 
 #: libraries/config/FormDisplay.tpl.php:249
 #, php-format
