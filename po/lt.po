@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 10:59+0200\n"
+"PO-Revision-Date: 2010-08-23 11:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -8394,7 +8394,7 @@ msgstr "Nepavyko prisijungti prie MySQL serverio"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s' duomenų bazė neegzistuoja."
+msgstr "„%s“ duomenų bazė neegzistuoja."
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
