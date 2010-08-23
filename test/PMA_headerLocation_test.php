@@ -19,6 +19,7 @@ require_once 'PHPUnit/Extensions/OutputTestCase.php';
 require_once './libraries/common.lib.php';
 require_once './libraries/url_generating.lib.php';
 require_once './libraries/core.lib.php';
+require_once './libraries/select_lang.lib.php';
 
 /**
  * Test function sending headers.
@@ -248,6 +249,8 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
         // over 600 chars
         $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test';
+        $testUri_html = htmlspecialchars($testUri);
+        $testUri_js = PMA_escapeJsString($testUri);
 
         $GLOBALS['strGo'] = 'test link';
 
@@ -255,17 +258,17 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
                     "<meta http-equiv=\"expires\" content=\"0\">\n" .
                     "<meta http-equiv=\"Pragma\" content=\"no-cache\">\n" .
                     "<meta http-equiv=\"Cache-Control\" content=\"no-cache\">\n" .
-                    "<meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri . "\">\n" .
+                    "<meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">\n" .
                     "<script type=\"text/javascript\">\n".
                     "//<![CDATA[\n" .
-                    "setTimeout(\"window.location = unescape('\"" . $testUri . "\"')\", 2000);\n" .
+                    "setTimeout(\"window.location = unescape('\"" . $testUri_js . "\"')\", 2000);\n" .
                     "//]]>\n" .
                     "</script>\n" .
                     "</head>\n" .
                     "<body>\n" .
                     "<script type=\"text/javascript\">\n" .
                     "//<![CDATA[\n" .
-                    "document.write('<p><a href=\"" . $testUri . "\">" . $GLOBALS['strGo'] . "</a></p>');\n" .
+                    "document.write('<p><a href=\"" . $testUri_html . "\">" . $GLOBALS['strGo'] . "</a></p>');\n" .
                     "//]]>\n" .
                     "</script></body></html>\n";
 
@@ -284,7 +287,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         $GLOBALS['reload'] = true;
         $GLOBALS['db'] = 'test_db';
 
-        $url = './navigation.php?db='.$GLOBALS['db'];
+        $url = './navigation.php?db='.$GLOBALS['db'] . '&lang=en-utf-8&convcharset=utf-8';
         $write = PHP_EOL . '<script type="text/javascript">' . PHP_EOL .
                     '//<![CDATA[' . PHP_EOL .
                     'if (typeof(window.parent) != \'undefined\'' . PHP_EOL .
