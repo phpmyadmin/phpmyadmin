@@ -8876,7 +8876,7 @@ msgstr "Įkelti BLOB saugyklą"
 
 #: tbl_change.php:1026
 msgid "Insert as new row"
-msgstr "Įterpti naują įrašą"
+msgstr "Įterpti kaip naują įrašą"
 
 #: tbl_change.php:1027
 msgid "Insert as new row and ignore errors"
