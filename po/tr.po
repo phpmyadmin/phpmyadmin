@@ -2469,7 +2469,7 @@ msgstr "Veri eklenirken kullanılacak sözdizimi:"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Oluşturma/Güncelleme/Denetleme tarihleri"
 
 #: libraries/config/messages.inc.php:120
 #, fuzzy
