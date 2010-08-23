@@ -9058,7 +9058,7 @@ msgstr "Skaidinio diagnostika"
 #: tbl_operations.php:706
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Skaidinys %s"
 
 #: tbl_operations.php:709
 msgid "Analyze"
