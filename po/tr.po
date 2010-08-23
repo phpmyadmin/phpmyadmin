@@ -2729,10 +2729,9 @@ msgid "Enter server connection parameters"
 msgstr "Sunucu bağlantı parametrelerini girin"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Yapılandırma: %s"
+msgstr "Yapılandırma depolama"
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
