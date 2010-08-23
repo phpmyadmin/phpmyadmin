@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:27+0200\n"
-"PO-Revision-Date: 2010-08-23 11:30+0200\n"
+"PO-Revision-Date: 2010-08-23 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1992,10 +1992,9 @@ msgstr "Chybí data v %s"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Proměnná"
+msgstr "nedostupné"
 
 #: libraries/config/FormDisplay.class.php:729
 #: libraries/config/FormDisplay.class.php:733
