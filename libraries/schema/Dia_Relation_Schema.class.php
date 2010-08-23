@@ -315,22 +315,24 @@ class Table_Stats
             $this->tableColor = '#000000';
         }
 
+        $factor = 0.1;
+
         $dia->startElement('dia:object');
         $dia->writeAttribute('type', 'Database - Table');
         $dia->writeAttribute('version', '0');
         $dia->writeAttribute('id', ''.$this->tableId.'');
         $dia->writeRaw(
             '<dia:attribute name="obj_pos">
-                <dia:point val="'.($this->x * .05).','.($this->y * .05).'"/>
+                <dia:point val="'.($this->x * $factor).','.($this->y * $factor).'"/>
             </dia:attribute>
             <dia:attribute name="obj_bb">
-                <dia:rectangle val="'.($this->x * .05).','.($this->y * .05).';9.97,9.2"/>
+                <dia:rectangle val="'.($this->x * $factor).','.($this->y * $factor).';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>
             </dia:attribute>
             <dia:attribute name="elem_corner">
-                <dia:point val="'.($this->x * .05).','.($this->y * .05).'"/>
+                <dia:point val="'.($this->x * $factor).','.($this->y * $factor).'"/>
             </dia:attribute>
             <dia:attribute name="elem_width">
                 <dia:real val="5.9199999999999999"/>
