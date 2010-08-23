@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 20:43+0200\n"
+"PO-Revision-Date: 2010-08-23 20:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2601,7 +2601,7 @@ msgstr "Üret"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Bazı çoğunlukla kullanılmış seçenekleri ayarla"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:71 libraries/tbl_links.inc.php:82
