@@ -2274,10 +2274,9 @@ msgid "Display errors"
 msgstr "Hataları göster"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Hataları yoksay"
+msgstr "Hataları toparla"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
