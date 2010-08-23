@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 11:05+0200\n"
+"PO-Revision-Date: 2010-08-23 11:06+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -8792,6 +8792,7 @@ msgstr ""
 #: setup/lib/index.lib.php:283
 msgid "You should use SSL connections if your web server supports it"
 msgstr ""
+"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
 
 #: setup/lib/index.lib.php:293
 msgid "You should use mysqli for performance reasons"
