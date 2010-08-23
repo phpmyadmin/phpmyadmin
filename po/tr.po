@@ -1943,7 +1943,7 @@ msgstr "Gecikmiş eklemeler"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "yukarıdakinin ikisi birden"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
