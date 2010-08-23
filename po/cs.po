@@ -2014,7 +2014,7 @@ msgstr "export nebude fungovat, chybí funkce (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Ověřování SQL je vypnuté"
 
 #: libraries/config/FormDisplay.class.php:765
 #, fuzzy
