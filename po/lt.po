@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:21+0200\n"
-"PO-Revision-Date: 2010-08-23 11:39+0200\n"
+"PO-Revision-Date: 2010-08-23 11:40+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6181,9 +6181,8 @@ msgid "Difference"
 msgstr "Skirtumas"
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1110
-#, fuzzy
 msgid "Target database"
-msgstr "Paieška duombazėje"
+msgstr "Į duombazę"
 
 #: libraries/sql_query_form.lib.php:217
 #, php-format
