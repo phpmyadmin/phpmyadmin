@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 22:06+0200\n"
+"PO-Revision-Date: 2010-08-23 22:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2194,10 +2194,9 @@ msgid "Debug SQL"
 msgstr "SQL Hata Ayıklama"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Veritabanlarının görüntü seçenekleri"
+msgstr "Varsayılan görüntü talimatı"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
