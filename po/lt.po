@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:21+0200\n"
-"PO-Revision-Date: 2010-08-23 11:40+0200\n"
+"PO-Revision-Date: 2010-08-23 11:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -653,7 +653,7 @@ msgstr "Rodinys (View)"
 #: libraries/server_links.inc.php:88 server_replication.php:31
 #: server_replication.php:162 server_status.php:368
 msgid "Replication"
-msgstr "Replikacija"
+msgstr "Dauginimas"
 
 #: db_structure.php:474
 msgid "Sum"
