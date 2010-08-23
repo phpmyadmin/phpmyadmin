@@ -2913,10 +2913,9 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Column names in first row"
-msgstr "İlk satır içine sütun adlarını koy"
+msgstr "İlk satır içindeki sütun adları"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
