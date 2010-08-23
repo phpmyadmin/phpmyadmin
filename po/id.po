@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 11:21+0200\n"
+"POT-Creation-Date: 2010-08-23 11:27+0200\n"
 "PO-Revision-Date: 2010-06-16 01:45+0200\n"
 "Last-Translator:  <jack.hakim@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -350,7 +350,7 @@ msgstr ""
 #: db_operations.php:531
 #, fuzzy
 #| msgid "Relational schema"
-msgid "Export Relational Schema View"
+msgid "Edit or export relational schema"
 msgstr "Skema Relational"
 
 #: db_printview.php:102 db_tracking.php:67 db_tracking.php:152
