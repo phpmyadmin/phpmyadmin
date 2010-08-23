@@ -1934,10 +1934,9 @@ msgid "complete inserts"
 msgstr "tam eklemeler"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "extended inserts"
-msgstr "Gecikmiş eklemeler"
+msgstr "genişletilmiş eklemeler"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
