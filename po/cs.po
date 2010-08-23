@@ -1983,7 +1983,7 @@ msgstr "Nesprávná hodnota"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Hodnota musí být menší nebo rovna %s"
 
 #: libraries/config/FormDisplay.class.php:536
 #, php-format
