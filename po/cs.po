@@ -1956,7 +1956,7 @@ msgstr "oba výše uvedené"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "ani jeden z výše uvedených"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
