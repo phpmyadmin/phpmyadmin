@@ -8659,7 +8659,7 @@ msgstr "Gautas netinkamas versijos formatas iš serverio"
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Neperskaitoma versijos eilutė"
 
 #: setup/lib/index.lib.php:158
 #, php-format
