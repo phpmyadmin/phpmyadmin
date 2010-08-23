@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 11:19+0200\n"
+"PO-Revision-Date: 2010-08-23 11:20+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9052,14 +9052,13 @@ msgid "Delete the table (DROP)"
 msgstr "Ištrinti lentelę (DROP)"
 
 #: tbl_operations.php:698
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Lentelės diagnostika"
+msgstr "Skaidinio diagnostika"
 
 #: tbl_operations.php:706
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Skaidinys %s"
 
 #: tbl_operations.php:709
 msgid "Analyze"
