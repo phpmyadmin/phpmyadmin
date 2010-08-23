@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 11:18+0200\n"
+"PO-Revision-Date: 2010-08-23 11:19+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9035,7 +9035,7 @@ msgstr "Lentelės buferis  %s išvalytas"
 #: tbl_operations.php:633
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Išvalyti ir perkrauti lentelę (FLUSH)"
+msgstr "Išvalyti ir perkrauti lentelės podėlį (FLUSH)"
 
 #: tbl_operations.php:642
 #| msgid "Dumping data for table"
