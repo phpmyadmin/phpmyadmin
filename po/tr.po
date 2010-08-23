@@ -2269,10 +2269,9 @@ msgid "Edit in window"
 msgstr "Pencerede düzenle"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Özellikleri Göster"
+msgstr "Hataları göster"
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
