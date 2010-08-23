@@ -9191,10 +9191,10 @@ msgid "None"
 msgstr "Nėra"
 
 #: tbl_structure.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Lentelė %s panaikinta"
+msgstr "Stulpelis %s panaikintas"
 
 #: tbl_structure.php:407 tbl_structure.php:483
 #, php-format
