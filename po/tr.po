@@ -2268,7 +2268,7 @@ msgstr "Sunucuları liste olarak görüntüle"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Açılır pencere içinde SQL sorgularını düzenle"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
