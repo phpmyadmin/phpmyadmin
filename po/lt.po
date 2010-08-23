@@ -8292,7 +8292,7 @@ msgstr ""
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Šis MySQL serveris veikia kaip <b>pagrindinis</b> serveris <b>dauginimo</b> "
-"procese"
+"procese."
 
 #: server_status.php:474
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
