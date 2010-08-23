@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:21+0200\n"
-"PO-Revision-Date: 2010-08-23 11:37+0200\n"
+"PO-Revision-Date: 2010-08-23 11:43+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -653,7 +653,7 @@ msgstr "Rodinys (View)"
 #: libraries/server_links.inc.php:88 server_replication.php:31
 #: server_replication.php:162 server_status.php:368
 msgid "Replication"
-msgstr "Replikacija"
+msgstr "Dauginimas"
 
 #: db_structure.php:474
 msgid "Sum"
@@ -4680,7 +4680,7 @@ msgstr "Rodomi įrašai"
 
 #: libraries/display_tbl.lib.php:1920
 msgid "total"
-msgstr " iš viso "
+msgstr "iš viso "
 
 #: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
@@ -4757,7 +4757,7 @@ msgstr "Buferio Pool'o naudojimas"
 #: server_databases.php:316 server_status.php:524 server_status.php:585
 #: server_status.php:606 tbl_printview.php:348 tbl_structure.php:788
 msgid "Total"
-msgstr "Viso"
+msgstr "Iš viso"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
@@ -6163,9 +6163,8 @@ msgid "Settings"
 msgstr "nustatymai"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
-#, fuzzy
 msgid "Source database"
-msgstr "Eiti į duomenų bazę"
+msgstr "Iš duombazės"
 
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
@@ -6182,9 +6181,8 @@ msgid "Difference"
 msgstr "Skirtumas"
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1110
-#, fuzzy
 msgid "Target database"
-msgstr "Paieška duombazėje"
+msgstr "Į duombazę"
 
 #: libraries/sql_query_form.lib.php:217
 #, php-format
