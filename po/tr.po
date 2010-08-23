@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 20:35+0200\n"
+"PO-Revision-Date: 2010-08-23 20:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2454,7 +2454,7 @@ msgstr "Dosya adı şablonunu hatırla"
 
 #: libraries/config/messages.inc.php:116
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Tablo ve sütun adlarını ters tırnaklarla kapattır"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:354
