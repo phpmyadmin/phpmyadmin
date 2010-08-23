@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 19:58+0200\n"
+"PO-Revision-Date: 2010-08-23 20:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1927,7 +1927,7 @@ msgstr "Özel - yapılandırmak için tüm olası seçenekleri göster"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Özel - yukarıdaki gibi ancak hızlı/özel seçimsiz"
 
 #: libraries/config.values.php:119
 #, fuzzy
