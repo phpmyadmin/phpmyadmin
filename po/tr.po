@@ -2002,7 +2002,7 @@ msgstr "içe aktarma çalışmayacak, eksik işlev (%s)"
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "dışa aktarma çalışmayacak, eksik işlev (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
 msgid "SQL Validator is disabled"
