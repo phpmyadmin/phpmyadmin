@@ -9065,7 +9065,6 @@ msgid "Analyze"
 msgstr "Analizuoti"
 
 #: tbl_operations.php:710
-#, fuzzy
 msgid "Check"
 msgstr "Pažymėti"
 
