@@ -8860,7 +8860,7 @@ msgstr "Ignoruoti"
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Tai yra jo ilgis,<br /> šis laukelis neredaguojamas "
+msgstr "Dėl jo ilgio,<br /> šis laukelis neredaguojamas "
 
 #: tbl_change.php:835
 msgid "Remove BLOB Repository Reference"
