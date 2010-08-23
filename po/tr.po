@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 22:11+0200\n"
+"PO-Revision-Date: 2010-08-23 22:12+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2421,10 +2421,9 @@ msgid "Relations"
 msgstr "İlişkiler"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export Method:"
 msgid "Export method"
-msgstr "Dışa Aktarma Yöntemi:"
+msgstr "Dışa aktarma yöntemi"
 
 #: libraries/config/messages.inc.php:112
 msgid "Save on server"
