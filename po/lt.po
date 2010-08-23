@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 11:12+0200\n"
+"PO-Revision-Date: 2010-08-23 11:13+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -8967,7 +8967,7 @@ msgstr "Įterpti indeksui papildomus &nbsp;%s&nbsp;stulpelį(ius)"
 
 #: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "Stulpelių skaičius turi būti didesnis negu nulis."
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
