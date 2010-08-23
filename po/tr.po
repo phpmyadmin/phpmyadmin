@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 20:01+0200\n"
+"PO-Revision-Date: 2010-08-23 20:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1992,7 +1992,7 @@ msgstr "Değişken"
 #: libraries/config/FormDisplay.class.php:733
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\", %s uzantısı gerektirir"
 
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
