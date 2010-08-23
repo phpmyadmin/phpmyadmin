@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:21+0200\n"
-"PO-Revision-Date: 2010-08-23 11:20+0200\n"
+"PO-Revision-Date: 2010-08-23 11:22+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9202,7 +9202,7 @@ msgstr "Parametrai"
 
 #: tbl_printview.php:377 tbl_structure.php:832
 msgid "static"
-msgstr ""
+msgstr "pastovus"
 
 #: tbl_printview.php:379 tbl_structure.php:834
 msgid "dynamic"
@@ -9279,10 +9279,10 @@ msgid "None"
 msgstr "Nėra"
 
 #: tbl_structure.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Lentelė %s panaikinta"
+msgstr "Stulpelis %s panaikintas"
 
 #: tbl_structure.php:407 tbl_structure.php:483
 #, php-format
