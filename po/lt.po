@@ -9493,10 +9493,11 @@ msgid "Available transformations"
 msgstr "Galimos transformacijos"
 
 #: transformation_overview.php:47
+#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Aprašas"
+msgstr "Paaiškinimas"
 
 #: user_password.php:49
 msgid "You don't have sufficient privileges to be here right now!"
