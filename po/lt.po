@@ -4680,7 +4680,7 @@ msgstr "Rodomi įrašai"
 
 #: libraries/display_tbl.lib.php:1920
 msgid "total"
-msgstr " iš viso "
+msgstr "iš viso "
 
 #: libraries/display_tbl.lib.php:1928 sql.php:520
 #, php-format
