@@ -2703,10 +2703,9 @@ msgid "Basic settings"
 msgstr "Temel ayarlar"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Kimlik denetimi türü"
+msgstr "Kimlik denetimi"
 
 #: libraries/config/messages.inc.php:195
 #, fuzzy
