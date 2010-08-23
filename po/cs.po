@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:27+0200\n"
-"PO-Revision-Date: 2010-08-23 11:31+0200\n"
+"PO-Revision-Date: 2010-08-23 11:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2005,7 +2005,7 @@ msgstr "\"%s\" vyžaduje rozšíření %s"
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "import nebude fungovat, chybí funkce (%s)"
 
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
