@@ -9422,9 +9422,8 @@ msgid "Export as %s"
 msgstr "Eksportuoti kaip %s"
 
 #: tbl_tracking.php:555
-#, fuzzy
 msgid "Show versions"
-msgstr "Paskutinė versija"
+msgstr "Rodyti versijas"
 
 #: tbl_tracking.php:587
 msgid "Version"
