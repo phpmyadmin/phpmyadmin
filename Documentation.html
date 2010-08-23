@@ -2138,32 +2138,6 @@ setfacl -d -m "g:www-data:rwx" tmp
     any row counting.
     </dd>
 
-    <dt id="wysiwyg">
-        <span id="cfg_WYSIWYG-PDF">$cfg['WYSIWYG-PDF'] </span>boolean</dt>
-    <dd>Utilizes a WYSIWYG editing control to easily place elements of a
-        <abbr title="Portable Document Format">PDF</abbr>
-        page.  By clicking on the button 'toggle scratchboard' on the page
-        where you edit x/y coordinates of those elements you can activate a
-        scratchboard where all your elements are placed. By clicking on an
-        element, you can move them around in the pre-defined area and the x/y
-        coordinates will get updated dynamically. Likewise, when entering a
-        new position directly into the input field, the new position in the
-        scratchboard changes after your cursor leaves the input field.<br />
-        You have to click on the 'OK'-button below the tables to save the new
-        positions.  If you want to place a new element, first add it to the
-        table of elements and then you can drag the new element around.<br />
-        By changing the paper size and the orientation you can change the size
-        of the scratchboard as well. You can do so by just changing the
-        dropdown field below, and the scratchboard will resize automatically,
-        without interfering with the current placement of the elements.<br />
-        If ever an element gets out of range you can either enlarge the paper
-        size or click on the 'reset' button to place all elements below each
-        other.<br />
-        <b>NOTE:</b> You have to use a recent browser like IE6 or Mozilla to
-        get this control to work. The basic Drag&amp;Drop script functionality
-        was kindly borrowed from www.youngpup.net and is underlying so
-        specific license.</dd>
-
     <dt id="cfg_NaturalOrder">$cfg['NaturalOrder'] boolean</dt>
     <dd>Sorts database and table names according to natural order (for example,
         t1, t2, t10). Currently implemented in the left panel (Light mode)
@@ -4362,6 +4336,35 @@ chmod o+rwx tmp
         <dd>phpMyAdmin with version</dd>
 </dl>
 
+<h4 id="wysiwyg">
+    <a href="#wysiwyg">6.28 How can I easily edit relational schema for export?</a></h4>
+
+    <p> 
+        By clicking on the button 'toggle scratchboard' on the page
+        where you edit x/y coordinates of those elements you can activate a
+        scratchboard where all your elements are placed. By clicking on an
+        element, you can move them around in the pre-defined area and the x/y
+        coordinates will get updated dynamically. Likewise, when entering a
+        new position directly into the input field, the new position in the
+        scratchboard changes after your cursor leaves the input field.
+    </p>
+    <p>
+        You have to click on the 'OK'-button below the tables to save the new
+        positions.  If you want to place a new element, first add it to the
+        table of elements and then you can drag the new element around.
+    </p>
+    <p>
+        By changing the paper size and the orientation you can change the size
+        of the scratchboard as well. You can do so by just changing the
+        dropdown field below, and the scratchboard will resize automatically,
+        without interfering with the current placement of the elements.
+    </p>
+    <p>
+        If ever an element gets out of range you can either enlarge the paper
+        size or click on the 'reset' button to place all elements below each
+        other.
+    <p>
+
 <h3 id="faqproject">phpMyAdmin project</h3>
 
 <h4 id="faq7_1">
@@ -4856,6 +4859,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <li>Tom&#225;&#353; Srnka (Google Summer of Code 2009)
 <ul>
   <li>Replication support</li>
+</ul></li>
+
+<li>Muhammad Adnan (Google Summer of Code 2010)
+<ul>
+  <li>Relation schema export to multiple formats</li>
+</ul></li>
+
+<li>Lori Lee (Google Summer of Code 2010)
+<ul>
+  <li>User interface improvements</li>
+  <li>ENUM/SET editor</li>
+  <li>Simplified interface for export/import</li>
 </ul></li>
 
 <li>Barrie Leslie

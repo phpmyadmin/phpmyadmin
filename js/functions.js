@@ -1421,7 +1421,7 @@ function getElement(e,f){
 }
 
 /**
-  * Refresh the WYSIWYG-PDF scratchboard after changes have been made
+  * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e) {
     var elm = $('#' + e);
@@ -1431,13 +1431,16 @@ function refreshDragOption(e) {
 }
 
 /**
-  * Refresh/resize the WYSIWYG-PDF scratchboard
+  * Refresh/resize the WYSIWYG scratchboard
   */
 function refreshLayout() {
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
-    var paper = $('#paper_opt').val();
-
+    if($('#paper_opt').length==1){
+        var paper = $('#paper_opt').val();        
+    }else{
+        var paper = 'A4';
+    }
     if (orientation == 'P') {
         posa = 'x';
         posb = 'y';
@@ -1450,7 +1453,7 @@ function refreshLayout() {
 }
 
 /**
-  * Show/hide the WYSIWYG-PDF scratchboard
+  * Show/hide the WYSIWYG scratchboard
   */
 function ToggleDragDrop(e) {
     var elm = $('#' + e);
@@ -1687,6 +1690,47 @@ $(document).ready(function(){
         insertQuery(evt.target.id);
         return false;
     });
+
+    $("#export_type").change(function(){
+        if($("#export_type").val()=='svg'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#orientation_opt").attr("disabled","disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").removeAttr("disabled");
+            $("#all_table_same_wide").removeAttr("disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            //$(this).css("background-color","yellow");
+        }else if($("#export_type").val()=='dia'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled","disabled");
+        }else if($("#export_type").val()=='eps'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").attr("disabled","disabled");
+            $("#show_color_opt").attr("disabled","disabled");
+            
+        }else if($("#export_type").val()=='pdf'){
+            $("#show_grid_opt").removeAttr("disabled");
+            $("#orientation_opt").removeAttr("disabled");
+            $("#with_doc").removeAttr("disabled","disabled");
+            $("#show_table_dim_opt").removeAttr("disabled","disabled");
+            $("#all_table_same_wide").removeAttr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+        }else{
+            // nothing
+        }
+    });
+
     $('#sqlquery').focus();
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
