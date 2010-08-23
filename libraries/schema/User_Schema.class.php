@@ -89,7 +89,7 @@ class PMA_User_Schema
     public function createPage($db)
     {
         ?>
-        <form method="post" action="export_relation_schema.php" name="frm_create_page">
+        <form method="post" action="schema_edit.php" name="frm_create_page">
         <fieldset>
         <legend>
         <?php echo __('Create a page') . "\n"; ?>
@@ -144,7 +144,7 @@ class PMA_User_Schema
         $page_rs    = PMA_query_as_controluser($page_query, FALSE, $query_default_option);
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
-            <form method="get" action="export_relation_schema.php" name="frm_select_page">
+            <form method="get" action="schema_edit.php" name="frm_select_page">
             <fieldset>
             <legend>
             <?php echo __('Please choose a page to edit') . "\n"; ?>
@@ -235,7 +235,7 @@ class PMA_User_Schema
             }
             ?>
 
-            <form method="post" action="export_relation_schema.php" name="edcoord">
+            <form method="post" action="schema_edit.php" name="edcoord">
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="chpage" value="<?php echo htmlspecialchars($this->choosenPage); ?>" />
             <input type="hidden" name="do" value="edcoord" />
@@ -444,7 +444,7 @@ class PMA_User_Schema
                     }
             }
             if ($shoot) {
-                echo '<form action="export_relation_schema.php" method="post">' . "\n"
+                echo '<form action="schema_edit.php" method="post">' . "\n"
                     . PMA_generate_common_hidden_inputs($db, $table)
                     . '<input type="hidden" name="do" value="deleteCrap" />' . "\n"
                     . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
@@ -472,7 +472,7 @@ class PMA_User_Schema
         global $with_field_names,$cfg,$db;
         ?>
         <script type="text/javascript" src="./js/dom-drag.js"></script>
-        <form method="post" action="export_relation_schema.php" name="dragdrop">
+        <form method="post" action="schema_edit.php" name="dragdrop">
         <input type="button" name="dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" onclick="ToggleDragDrop('pdflayout');" />
         <input type="button" name="dragdropreset" value="<?php echo __('Reset'); ?>" onclick="resetDrag();" />
         </form>

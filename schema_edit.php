@@ -16,7 +16,7 @@ require './libraries/StorageEngine.class.php';
 
 $active_page = 'db_operations.php';
 require_once './libraries/db_common.inc.php';
-$url_query .= '&amp;goto=export_relation_schema.php';
+$url_query .= '&amp;goto=schema_edit.php';
 require_once './libraries/db_info.inc.php';
 
 /**

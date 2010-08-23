@@ -213,7 +213,7 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="export_relation_schema.php?' . PMA_generate_common_url($db).'&do=selectpage&chpage='.$pageNumber.'&action_choose=0'
+        echo '<a href="schema_edit.php?' . PMA_generate_common_url($db).'&do=selectpage&chpage='.$pageNumber.'&action_choose=0'
          . '">' . __('Back') . '</a>';
         echo "\n";
         require_once './libraries/footer.inc.php';

@@ -523,7 +523,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     /*
      * Export Relational Schema View
      */
-    echo '<fieldset><a href="export_relation_schema.php?' . $url_query . '">';
+    echo '<fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
