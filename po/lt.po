@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-22 23:05+0200\n"
-"PO-Revision-Date: 2010-08-23 11:02+0200\n"
+"PO-Revision-Date: 2010-08-23 11:03+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -8655,7 +8655,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Gautas netinkamas versijos formatas iš serverio"
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
