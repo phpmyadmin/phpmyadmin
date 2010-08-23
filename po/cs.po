@@ -2022,10 +2022,10 @@ msgid "SOAP extension not found"
 msgstr "Rozšíření SOAP nebylo nalezeno"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "maximálně %s"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
