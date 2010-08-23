@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 22:05+0200\n"
+"PO-Revision-Date: 2010-08-23 22:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2010,10 +2010,10 @@ msgid "SOAP extension not found"
 msgstr "SOAP uzantısı bulunamadı"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "En fazla tablo"
+msgstr "en fazla %s"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
