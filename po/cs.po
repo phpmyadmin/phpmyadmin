@@ -2663,10 +2663,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Nastavení, která nelze zařadit jinam"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page name"
 msgid "Page titles"
-msgstr "Jméno stránky"
+msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
