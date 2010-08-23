@@ -2787,10 +2787,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "SQL Sorgu kutularında gösterilecek bağlantıları özelleştirir"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL sorguları"
+msgstr "SQL sorguları ayarları"
 
 #: libraries/config/messages.inc.php:215
 #, fuzzy
