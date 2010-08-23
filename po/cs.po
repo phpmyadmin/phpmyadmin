@@ -1940,7 +1940,7 @@ msgstr "Vlastní - zobrazí všechna možná nastavení"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Vlastní - jako výše, ale bez volby rychlý/vlastní"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
