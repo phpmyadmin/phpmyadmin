@@ -2927,10 +2927,9 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)</i>"
+msgstr "Yüzdeleri doğru ondalık olarak içe aktar (%12.00'ı .12'ye)"
 
 #: libraries/config/messages.inc.php:253
 msgid "Number of queries to skip from start"
