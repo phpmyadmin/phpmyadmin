@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:27+0200\n"
-"PO-Revision-Date: 2010-08-23 11:32+0200\n"
+"PO-Revision-Date: 2010-08-23 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2043,7 +2043,7 @@ msgstr "Obnovit výchozí hodnotu"
 
 #: libraries/config/FormDisplay.tpl.php:270
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Povolit uživatelům změnit tuto hodnotu"
 
 #: libraries/config/FormDisplay.tpl.php:337
 #: libraries/schema/User_Schema.class.php:322
