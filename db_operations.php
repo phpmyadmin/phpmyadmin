@@ -528,7 +528,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo __('Export Relational Schema View') . '</a></fieldset>';
+    echo __('Edit or export relational schema') . '</a></fieldset>';
 } // end if
 
 /**
