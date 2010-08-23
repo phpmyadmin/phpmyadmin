@@ -8222,7 +8222,7 @@ msgstr "Gijos"
 
 #: server_status.php:364
 msgid "Temporary data"
-msgstr ""
+msgstr "Laikini duomenys"
 
 #: server_status.php:365
 #, fuzzy
