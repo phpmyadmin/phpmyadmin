@@ -1440,7 +1440,7 @@ msgstr "Panaikintas pirminis raktas"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "Žurnalas %s ištrintas"
+msgstr "Indeksas %s ištrintas"
 
 #: libraries/Index.class.php:574
 #, php-format
