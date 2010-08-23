@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 11:27+0200\n"
-"PO-Revision-Date: 2010-08-23 11:24+0200\n"
-"Last-Translator: Michal <michal@cihar.com>\n"
+"PO-Revision-Date: 2010-08-23 11:29+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -342,10 +342,9 @@ msgstr ""
 "proč."
 
 #: db_operations.php:531
-#, fuzzy
 #| msgid "Export Relational Schema View"
 msgid "Edit or export relational schema"
-msgstr "Exportovat relační schéma"
+msgstr "Upravit nebo exportovat relační schéma"
 
 #: db_printview.php:102 db_tracking.php:67 db_tracking.php:152
 #: libraries/config/messages.inc.php:483 libraries/db_structure.lib.php:37
@@ -9615,238 +9614,3 @@ msgstr "Přejmenovat pohled na"
 
 #~ msgid "yes"
 #~ msgstr "ano"
-
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Odstranit znaky konců řádků z polí:"
-
-#, fuzzy
-#~| msgid "<code>@TABLE@</code>"
-#~ msgid "<code>IF NOT EXISTS</code>"
-#~ msgstr "<code>@TABLE@</code>"
-
-#, fuzzy
-#~| msgid "<code>@DATABASE@</code>"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "<code>@DATABASE@</code>"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Vypsat %s řádků od %s"
-
-#~ msgid "remember template"
-#~ msgstr "zapamatovat si hodnotu"
-
-#~ msgid "\"zipped\""
-#~ msgstr "„zazipováno“"
-
-#~ msgid "\"gzipped\""
-#~ msgstr "„zagzipováno“"
-
-#~ msgid "\"bzipped\""
-#~ msgstr "„zabzipováno“"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "Komprimace importovaného souboru bude automaticky rozpoznána. Podporovány "
-#~ "jsou: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Do komentářů přidat"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Exportovat schéma struktury (doporučené)"
-
-#~ msgid "Export functions"
-#~ msgstr "Exportovat funkce"
-
-#~ msgid "Export procedures"
-#~ msgstr "Exportovat procedury"
-
-#~ msgid "Export triggers"
-#~ msgstr "Exportovat spouště"
-
-#~ msgid "Export views"
-#~ msgstr "Exportovat pohledy"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Byl zadáno chybné pole (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Akce"
-
-#~ msgid "Interface"
-#~ msgstr "Rozhraní"
-
-#~ msgid "Custom color"
-#~ msgstr "Vlastní barva"
-
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Odstranění tabulky"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "Skladiště BLOBů"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Zapnuté"
-
-#~ msgid "Disable"
-#~ msgstr "Vypnout"
-
-#~ msgid "Damaged"
-#~ msgstr "Poškozené"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Opravit"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Vypnuté"
-
-#~ msgid "Enable"
-#~ msgstr "Zapnout"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Nelze nahrát rozšíření [a@http://php.net/%1$s@Documentation][em]%1$s[/em]"
-#~ "[/a], prosím zkontrolujte nastavení PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Nelze nahrát rozšíření iconv ani recode potřebná pro převod znakových "
-#~ "sad. Upravte nastavení PHP tak, aby umožňovalo použít tyto rozšíření nebo "
-#~ "vypněte převod znakových sad v phpMyAdminovi."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Nelze použít funkce iconv ani libiconv ani recode_string, přestože "
-#~ "rozšíření jsou nahrána. Zkontrolujte nastavení PHP."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Povolit převod znakových sad"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Výchozí znaková sada používaná pro převody"
-
-#~ msgid "Default character set"
-#~ msgstr "Výchozí znaková sada"
-
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Přidat pole"
-
-#~ msgid "Field"
-#~ msgstr "Sloupec"
-
-#~ msgid "Records"
-#~ msgstr "Záznamů"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Sloupce oddělené"
-
-#~ msgid "Fields"
-#~ msgstr "Sloupce"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Přidat %s sloupců"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Sloupec %s byl odstraněn"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Viz image/jpeg: inline"
-
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Přidat vlastní komentář do hlavičky (\n"
-#~ "odděluje řádky)"
-
-#~ msgid "and"
-#~ msgstr "a"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Vypnuté"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Zapnuté"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Opravit"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalendář"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "Kompatibilní s MySQL 4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: „%1$s“"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Vytvořit index na %s sloupcích"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Vytvořit tabulku"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Žádná"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Vyprázdnit vyrovnávací paměť pro tabulku („FLUSH“)"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Chybný index serveru: „%s“"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Popis"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Žádná"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Schéma databáze „%s“ - Strana %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Tabulka „%s“ neexistuje!"
-
-#~ msgid ""
-#~ "This MySQL server works as %s in <b>replication</b> process. For further "
-#~ "information about replication status on the server, please visit the <a "
-#~ "href=\"#replication\">replication section</a>."
-#~ msgstr ""
-#~ "Tento MySQL server pracuje jako %s v <b>replikačním</b> procesu. Pro více "
-#~ "informací o stavu replikace se podívejte do <a href=\"#replication"
-#~ "\">sekce replikace</a>."
-
-#~ msgid "running on %s"
-#~ msgstr "na %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Měřítko je příliš malé, aby se schéma vešlo na jednu stránku"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Vytváření sezení selhalo, prosím zkontrolujte chyby v logu PHP a/nebo "
-#~ "webserveru a pečlivě nastavte podporu sezení v PHP."
