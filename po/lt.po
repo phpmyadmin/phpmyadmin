@@ -9417,9 +9417,9 @@ msgid "SQL execution"
 msgstr "SQL vykdymas"
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Eksportuoti lenteles"
+msgstr "Eksportuoti kaip %s"
 
 #: tbl_tracking.php:555
 #, fuzzy
