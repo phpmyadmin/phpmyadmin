@@ -350,7 +350,7 @@ class PMA_User_Schema
                 echo '<img class="icon" src="' . $pmaThemeImage . 'b_view.png"'
                 .' alt="" width="16" height="16" />';
             }
-            echo __('Display Relational Schema');
+            echo __('Display relational schema');
             ?>:
             </legend>
             <select name="export_type" id="export_type">
