@@ -2235,10 +2235,9 @@ msgid "Default table tab"
 msgstr "Varsayılan tablo sekmesi"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Binari içerikleri HEX olarak göster"
+msgstr "Binari içerikleri varsayılandan HEX olarak göster"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
