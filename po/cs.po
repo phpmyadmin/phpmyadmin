@@ -2191,7 +2191,7 @@ msgstr "Potvrzovat DROP dotazy"
 
 #: libraries/config/messages.inc.php:42
 msgid "Field navigation using Ctrl+Arrows"
-msgstr ""
+msgstr "Navigace mezi políčky pomocí Ctrl+šipky"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
