@@ -110,6 +110,8 @@ $Id$
 - [relations] Dropped WYSIWYG-PDF configuration variable.
 - rfe #806035, #686260 [relations] Export relations to Dia, SVG and others
 
+3.3.7.0 (not yet released)
+
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name
 - bug #3031705 [core] Fix generating condition for real numbers by comparing

@@ -317,6 +317,12 @@ function PMA_DBI_get_client_info()
 function PMA_DBI_getError($link = null)
 {
     $GLOBALS['errno'] = 0;
+
+    /* Treat false same as null because of controllink */
+    if ($link === false) {
+        $link = null;
+    }
+
     if (null === $link && isset($GLOBALS['userlink'])) {
         $link =& $GLOBALS['userlink'];
 
