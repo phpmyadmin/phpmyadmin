@@ -6177,10 +6177,9 @@ msgid "Portrait"
 msgstr "Pokončno"
 
 #: libraries/schema/User_Schema.class.php:399
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Ustvarjeno"
+msgstr "Usmerjenost"
 
 #: libraries/schema/User_Schema.class.php:412
 msgid "Paper size"
