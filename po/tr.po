@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 06:52+0200\n"
+"PO-Revision-Date: 2010-08-24 06:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3024,7 +3024,7 @@ msgstr "Tablo ağacı ayıracı"
 
 #: libraries/config/messages.inc.php:276
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "Rehber çerçevedeki logoyu işaret eden URL"
 
 #: libraries/config/messages.inc.php:277
 msgid "Logo link URL"
