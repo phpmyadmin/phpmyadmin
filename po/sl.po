@@ -5251,10 +5251,9 @@ msgid "Display foreign key relationships"
 msgstr "Prikaži razmerja tujih ključev"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Prikazovanje komentarjev stolpcev"
+msgstr "Prikaži pripombe"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
