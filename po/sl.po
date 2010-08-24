@@ -1067,10 +1067,9 @@ msgid "Generate"
 msgstr "Ustvari"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "po"
+msgstr "Več"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:80
