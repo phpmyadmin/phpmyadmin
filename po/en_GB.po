@@ -3989,7 +3989,7 @@ msgstr "A warning is displayed on the main page if Suhosin is detected"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin warning"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
