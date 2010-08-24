@@ -2384,7 +2384,6 @@ msgid "Lines terminated by"
 msgstr "Vrstice zaključene z"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Izdaja za Excel"
