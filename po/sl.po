@@ -1956,10 +1956,9 @@ msgid "complete inserts"
 msgstr "popolne poizvedbe insert"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Razširjene poizvedbe insert"
+msgstr "razširjene poizvedbe insert"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
