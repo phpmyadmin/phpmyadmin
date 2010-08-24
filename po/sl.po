@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:18+0200\n"
+"PO-Revision-Date: 2010-08-24 20:19+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5165,10 +5165,9 @@ msgstr ""
 "bo naslednja najvišja številka."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns separated with:"
-msgstr "Stolpci zaključeni z"
+msgstr "Stolpci so ločeni z:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
