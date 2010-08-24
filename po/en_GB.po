@@ -2729,10 +2729,9 @@ msgid "Enter server connection parameters"
 msgstr "Enter server connection parameters"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Configuration: %s"
+msgstr "Configuration storage"
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
