@@ -2274,10 +2274,9 @@ msgid "Display errors"
 msgstr "Display errors"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Ignore errors"
+msgstr "Gather errors"
 
 #: libraries/config/messages.inc.php:64
 #, fuzzy
