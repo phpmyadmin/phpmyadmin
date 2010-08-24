@@ -4034,7 +4034,7 @@ msgstr "Naslov okna brskalnika, ko je izbrana zbirka podatkov"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Naslov okna brskalnika, ko je ni izbrano nič"
 
 #: libraries/config/messages.inc.php:479
 #, fuzzy
