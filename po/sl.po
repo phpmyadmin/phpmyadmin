@@ -2288,10 +2288,9 @@ msgid "Edit in window"
 msgstr "Uredi v oknu"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Prikaži lastnosti"
+msgstr "Prikaži napake"
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
