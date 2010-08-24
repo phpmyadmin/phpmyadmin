@@ -1962,7 +1962,7 @@ msgstr "razširjene poizvedbe insert"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "oboje zgoraj"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
