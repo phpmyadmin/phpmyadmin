@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 08:37+0200\n"
+"PO-Revision-Date: 2010-08-24 08:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3346,6 +3346,7 @@ msgstr "Kaydetme motoru"
 #: libraries/config/messages.inc.php:342
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Her X hücrede başlığı tekrarla, [kbd]0[/kbd] bu özelliği devre dışı bırakır"
 
 #: libraries/config/messages.inc.php:343
 #, fuzzy
