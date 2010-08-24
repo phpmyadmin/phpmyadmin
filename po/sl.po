@@ -3915,7 +3915,7 @@ msgstr "Prikaži pripombo tabele namesto njenega imena"
 
 #: libraries/config/messages.inc.php:454
 msgid "Display table comments in tooltips"
-msgstr "Prikaži komentarje tabel v zaslonskih namigih"
+msgstr "Prikaži pripombe tabel v zaslonskih namigih"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
