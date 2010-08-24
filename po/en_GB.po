@@ -6992,7 +6992,7 @@ msgstr "Settings will be saved in your browser's local storage."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Existing settings will be overwritten!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values"
