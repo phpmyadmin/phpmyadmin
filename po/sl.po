@@ -2716,10 +2716,9 @@ msgid "Basic settings"
 msgstr "Osnovne nastavitve"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Vrsta overovitve"
+msgstr "Overovitev"
 
 #: libraries/config/messages.inc.php:195
 #, fuzzy
