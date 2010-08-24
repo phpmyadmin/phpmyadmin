@@ -3218,7 +3218,7 @@ msgstr "Pokaži desno povezavo za izbris"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Uporabi naravni vrstni red za razvrščanje tabel in imen zbirk podatkov"
 
 #: libraries/config/messages.inc.php:314
 #, fuzzy
