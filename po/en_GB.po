@@ -2825,10 +2825,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Choose how you want tabs to work"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Use text field"
+msgstr "Text fields"
 
 #: libraries/config/messages.inc.php:222
 #, fuzzy
