@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:55+0200\n"
+"PO-Revision-Date: 2010-08-24 20:56+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -812,7 +812,7 @@ msgstr "Dnevnik zbirke podatkov"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Vrednosti za stolpec »%s«"
+msgstr "Vrednosti za stolpec \"%s\""
 
 #: enum_editor.php:22
 #, fuzzy
