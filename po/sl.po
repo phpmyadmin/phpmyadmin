@@ -2210,7 +2210,7 @@ msgstr "Usmerjanje po poljih s ctrl+puščice"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
-msgstr ""
+msgstr "Odkrivaj napake PHP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
