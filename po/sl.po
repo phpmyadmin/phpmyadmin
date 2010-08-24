@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:15+0200\n"
+"PO-Revision-Date: 2010-08-24 21:16+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2093,7 +2093,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Dovoli uokvirjanje tretjim osebam"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
