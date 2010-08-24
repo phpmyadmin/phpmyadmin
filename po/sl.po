@@ -7006,10 +7006,9 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "Nastavitve bodo uvožene iz brskalnikove lokalne hrambe."
 
 #: prefs_manage.php:254
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Druge nastavitve"
+msgstr "Nimate shranjenih nastavitev!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
