@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:18+0200\n"
+"PO-Revision-Date: 2010-08-24 21:19+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3073,11 +3073,12 @@ msgid "Light tabs"
 msgstr "Lahki zavihki"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Največje število znakov pri prikazu poizvedbe SQL"
+msgstr ""
+"Največje število znakov prikazanih v katerem koli neštevilčnem stolpcu v "
+"načinu brskanja"
 
 #: libraries/config/messages.inc.php:285
 msgid "Limit column characters"
