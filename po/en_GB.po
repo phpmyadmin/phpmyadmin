@@ -2802,6 +2802,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"If you wish to use the SQL Validator service, you should be aware that "
+"[strong]all SQL statements are stored anonymously for statistical "
+"purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
