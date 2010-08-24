@@ -4527,10 +4527,9 @@ msgstr ""
 "niso na voljo."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Ne morem se prijaviti v strežnik MySQL"
+msgstr "Uvažanje v trenutni strežnik"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
