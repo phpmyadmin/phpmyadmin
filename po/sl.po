@@ -5010,7 +5010,7 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
-"Seznam glav metapodatkov, ločenih z »:«, ki bo uporabljen za pripravo tabele "
+"Seznam glav metapodatkov, ločenih z \":\", ki bo uporabljen za pripravo tabele "
 "pbms_metadata_header, ko je ustvarjena zbirka podatkov."
 
 #: libraries/engines/pbxt.lib.php:22
