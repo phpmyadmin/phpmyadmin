@@ -2056,7 +2056,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Allow login to any MySQL server"
 
 #: libraries/config/messages.inc.php:19
-#, fuzzy
 #| msgid ""
 #| "Setting this to <tt>true</tt> allows a page located on a different domain "
 #| "to call phpMyAdmin inside a frame, and is a potential security hole "
@@ -2066,9 +2065,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"Setting this to <tt>true</tt> allows a page located on a different domain to "
-"call phpMyAdmin inside a frame, and is a potential security hole allowing "
-"cross-frame scripting attacks."
+"Enabling this allows a page located on a different domain to call phpMyAdmin "
+"inside a frame, and is a potential [strong]security hole[/strong] allowing "
+"cross-frame scripting attacks"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
