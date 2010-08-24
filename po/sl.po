@@ -3345,10 +3345,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Ponovi glave vsakih X celic, [kbd]0[/kbd] dezaktivira to funkcijo"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Niti popravljanja"
+msgstr "Ponovi glave"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
