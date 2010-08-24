@@ -3214,7 +3214,7 @@ msgstr "Show right delete link"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Use natural order for sorting table and database names"
 
 #: libraries/config/messages.inc.php:314
 #, fuzzy
