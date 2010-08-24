@@ -4417,10 +4417,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Shrani na strežnik v imenik <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Shrani kot datoteko"
+msgstr "Shrani izhod v datoteko"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
