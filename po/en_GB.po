@@ -1923,7 +1923,7 @@ msgstr "Custom - display all possible options to configure"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Custom - like above, but without the quick/custom choice"
 
 #: libraries/config.values.php:119
 #, fuzzy
