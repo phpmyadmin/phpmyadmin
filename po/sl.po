@@ -2805,10 +2805,9 @@ msgid "SQL queries settings"
 msgstr "Nastavitve poizvedb SQL"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Zgodovina SQL"
+msgstr "Preverjalnik SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
