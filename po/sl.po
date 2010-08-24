@@ -6694,7 +6694,7 @@ msgstr "Prikazne nastavitve"
 
 #: main.php:132
 msgid "Background color"
-msgstr ""
+msgstr "Barva ozadja"
 
 #: main.php:133
 msgid "Choose..."
