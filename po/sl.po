@@ -4123,10 +4123,9 @@ msgid "HTTP authentication"
 msgstr "Overitev preko HTTP"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Zaporedje overovitve gostitelja"
+msgstr "Overitev preko signon"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
