@@ -6134,7 +6134,7 @@ msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "DIA"
-msgstr ""
+msgstr "DIA"
 
 #: libraries/schema/User_Schema.class.php:358
 msgid "VISIO"
