@@ -4023,7 +4023,7 @@ msgstr "Title of browser window when a database is selected"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Title of browser window when nothing is selected"
 
 #: libraries/config/messages.inc.php:479
 #, fuzzy
