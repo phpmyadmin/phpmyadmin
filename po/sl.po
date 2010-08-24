@@ -4370,10 +4370,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr "Izvažanje vrstic v tabeli \"%s\""
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Vrsta izvoza"
+msgstr "Način izvoza:"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
