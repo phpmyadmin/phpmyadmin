@@ -2279,10 +2279,9 @@ msgid "Gather errors"
 msgstr "Gather errors"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Uses icons for warnings, errors and informations."
 msgid "Show icons for warning, error and information messages"
-msgstr "Uses icons for warnings, errors and informations."
+msgstr "Show icons for warning, error and information messages"
 
 #: libraries/config/messages.inc.php:65
 #, fuzzy
