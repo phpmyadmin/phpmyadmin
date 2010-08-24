@@ -2926,10 +2926,9 @@ msgid "Do not import empty rows"
 msgstr "Do not import empty rows"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Import currencies <i>(ex. $5.00 to 5.00)</i>"
+msgstr "Import currencies (£5.00 to 5.00)"
 
 #: libraries/config/messages.inc.php:252
 #, fuzzy
