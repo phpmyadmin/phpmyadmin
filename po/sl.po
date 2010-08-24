@@ -4422,10 +4422,9 @@ msgid "Save output to a file"
 msgstr "Shrani izhod v datoteko"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Predloga datoteke"
+msgstr "Predloga imena datoteke:"
 
 #: libraries/display_export.lib.php:230
 msgid "server name"
