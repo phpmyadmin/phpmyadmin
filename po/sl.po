@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:44+0200\n"
+"PO-Revision-Date: 2010-08-24 20:46+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6653,6 +6653,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Vaše nstavitve bodo shranjene samo za trenutno sejo. Njihova trajna hramba "
+"zahteva %shrambo konfiguracije phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
 #, fuzzy
