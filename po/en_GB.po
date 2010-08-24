@@ -2008,10 +2008,10 @@ msgid "SOAP extension not found"
 msgstr "SOAP extension not found"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Maximum tables"
+msgstr "maximum %s"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
