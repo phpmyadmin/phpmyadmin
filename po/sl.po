@@ -3890,8 +3890,8 @@ msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
-"Če so zaslonski namigi omogočeni in ima zbirka podatkov določen komentar, bo "
-"to zamenjalo komentar in pravo ime"
+"Če so zaslonski namigi omogočeni in ima zbirka podatkov določeno pripombo, "
+"bo to zamenjalo komentar in pravo ime"
 
 #: libraries/config/messages.inc.php:451
 msgid "Display database comment instead of its name"
