@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:04+0200\n"
+"PO-Revision-Date: 2010-08-24 20:05+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3607,10 +3607,9 @@ msgstr ""
 "Pustite prazno, če ne želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "ime zbirke podatkov"
+msgstr "Ime zbirke podatkov"
 
 #: libraries/config/messages.inc.php:397
 msgid "Port on which MySQL server is listening, leave empty for default"
