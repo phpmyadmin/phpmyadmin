@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:54+0200\n"
+"PO-Revision-Date: 2010-08-24 19:55+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2748,7 +2748,6 @@ msgid "Configuration storage"
 msgstr "Konfiguracija: %s"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
@@ -2759,7 +2758,7 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Konfigurira zbirko podatkov phpMyAdmin za pridobitev dostopa do dodatnih "
-"funkcij, glej [a@../Documentation.html#linked-tables]hrambo konfiguracije "
+"funkcij, glej [a@Documentation.html#linked-tables]hrambo konfiguracije "
 "phpMyAdmin[/a] v dokumentaciji"
 
 #: libraries/config/messages.inc.php:201
