@@ -3136,7 +3136,7 @@ msgstr "Večje besedilno polje za LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Uporabi ikone na glavni strani"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of characters used when a SQL query is displayed"
