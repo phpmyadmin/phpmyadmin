@@ -3210,7 +3210,7 @@ msgstr "Sol silme bağlantısını göster"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
-msgstr ""
+msgstr "Sağ silme bağlantısını göster"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
