@@ -1985,7 +1985,7 @@ msgstr "unavailable"
 #: libraries/config/FormDisplay.class.php:733
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requires %s extension"
 
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
