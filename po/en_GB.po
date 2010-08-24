@@ -2029,7 +2029,7 @@ msgstr "Restore default value"
 
 #: libraries/config/FormDisplay.tpl.php:270
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Allow users to customise this value"
 
 #: libraries/config/FormDisplay.tpl.php:337
 #: libraries/schema/User_Schema.class.php:322
