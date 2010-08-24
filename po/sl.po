@@ -4075,7 +4075,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Omogoči zavihek Razvijalec v nastavitvah"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
