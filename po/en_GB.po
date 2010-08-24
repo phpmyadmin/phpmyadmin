@@ -4080,7 +4080,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Enable the Developer tab in settings"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
