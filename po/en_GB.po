@@ -6082,10 +6082,9 @@ msgid "Select Tables"
 msgstr "Select Tables"
 
 #: libraries/schema/User_Schema.class.php:351
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relational schema"
+msgstr "Display relational schema"
 
 #: libraries/schema/User_Schema.class.php:356
 #, fuzzy
