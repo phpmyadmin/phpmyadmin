@@ -2448,10 +2448,9 @@ msgid "SQL compatibility mode"
 msgstr "SQL compatibility mode"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Syntax to use when inserting data:"
 msgid "Syntax to use when inserting data"
-msgstr "Syntax to use when inserting data:"
+msgstr "Syntax to use when inserting data"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
