@@ -5598,10 +5598,9 @@ msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v ,12)"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Uvozi denarne enote ($5.00 v 5.00)"
+msgstr "Uvozi denarne enote <i>(npr. $5.00 v 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #| msgid "SQL compatibility mode"
