@@ -2854,7 +2854,7 @@ msgstr "Opozorila"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Onemogoči nekatera opozorila, ki jih prikazuje phpMyAdmin"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
