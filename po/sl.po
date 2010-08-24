@@ -186,7 +186,7 @@ msgstr "Povezave z"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1274
 #: libraries/tbl_properties.inc.php:128 tbl_printview.php:149
 msgid "Comments"
-msgstr "Komentarji"
+msgstr "Pripombe"
 
 #: db_datadict.php:266 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:205
