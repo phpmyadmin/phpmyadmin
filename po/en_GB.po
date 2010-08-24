@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 14:09+0200\n"
+"PO-Revision-Date: 2010-08-24 14:10+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -6594,10 +6594,9 @@ msgstr ""
 "(Default: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Other core settings"
+msgstr "Manage your settings"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
