@@ -4390,10 +4390,9 @@ msgid "Rows:"
 msgstr "Vrstice:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Odloži vse vrstice"
+msgstr "Odloži nekaj vrstic"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
