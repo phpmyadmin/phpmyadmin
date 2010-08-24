@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:43+0200\n"
+"PO-Revision-Date: 2010-08-24 19:44+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2202,7 +2202,7 @@ msgstr "Potrjevanje poizvedb DROP"
 
 #: libraries/config/messages.inc.php:42
 msgid "Field navigation using Ctrl+Arrows"
-msgstr ""
+msgstr "Usmerjanje po poljih s ctrl+puščice"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
