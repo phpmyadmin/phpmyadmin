@@ -4464,10 +4464,9 @@ msgid "Character set of the file:"
 msgstr "Nabor znakov datoteke:"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Stiskanje"
+msgstr "Stiskanje:"
 
 #: libraries/display_export.lib.php:314 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
