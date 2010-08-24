@@ -4475,10 +4475,9 @@ msgid "None"
 msgstr "Brez"
 
 #: libraries/display_export.lib.php:316
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zipano\""
+msgstr "zipano"
 
 #: libraries/display_export.lib.php:318
 #, fuzzy
