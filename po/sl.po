@@ -4024,10 +4024,9 @@ msgstr ""
 "za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "Vrstic polja CHAR"
+msgstr "Vrstic besedilnega polja"
 
 #: libraries/config/messages.inc.php:476
 msgid "Title of browser window when a database is selected"
