@@ -7060,10 +7060,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Tabele <b>%s</b> ni mogoče najti ali pa ni v %s"
 
 #: schema_export.php:46
-#, fuzzy
 #| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Tabela %s ne obstaja!"
+msgstr "Datoteka ne obstaja"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
