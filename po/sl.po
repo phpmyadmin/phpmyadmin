@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:09+0200\n"
+"PO-Revision-Date: 2010-08-24 20:10+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3982,7 +3982,7 @@ msgstr "Predlagaj novo ime zbirke podatkov"
 
 #: libraries/config/messages.inc.php:470
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Na glavni strani se prikaže opozorilo, če je zaznan Suhosin"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
