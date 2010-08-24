@@ -5350,7 +5350,7 @@ msgstr "Dodaj izjave:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Možnosti <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
 msgid ""
