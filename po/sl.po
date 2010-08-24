@@ -4394,10 +4394,9 @@ msgid "Dump some row(s)"
 msgstr "Odloži nekaj vrstic"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows:"
-msgstr "Število stolpcev"
+msgstr "Število vrstic:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
