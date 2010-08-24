@@ -2917,10 +2917,9 @@ msgstr "Use LOCAL keyword"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Column names in first row"
-msgstr "Put columns names in the first row"
+msgstr "Column names in first row"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
