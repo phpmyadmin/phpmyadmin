@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:06+0200\n"
+"PO-Revision-Date: 2010-08-24 20:07+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3838,7 +3838,7 @@ msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "Določa ali se naj v načinu urejanja/vstavljanja prikažejo vrste polj"
+msgstr "Določa ali naj bodo v načinu urejanja/vstavljanja prikazane vrste polj"
 
 #: libraries/config/messages.inc.php:440
 #, fuzzy
