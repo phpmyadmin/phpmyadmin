@@ -1990,7 +1990,7 @@ msgstr "\"%s\" requires %s extension"
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "import will not work, missing function (%s)"
 
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
