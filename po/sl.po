@@ -2405,11 +2405,10 @@ msgstr "Predloga imena tabele"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Dump table"
-msgstr "%s tabela"
+msgstr "Odloži tabelo"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
