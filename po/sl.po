@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-10 10:16+0200\n"
+"PO-Revision-Date: 2010-08-24 19:37+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -340,10 +340,9 @@ msgstr ""
 "zakaj, kliknite %stukaj%s."
 
 #: db_operations.php:531
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relacijska shema"
+msgstr "Uredi ali izvozi relacijsko shemo"
 
 #: db_printview.php:102 db_tracking.php:67 db_tracking.php:152
 #: libraries/config/messages.inc.php:483 libraries/db_structure.lib.php:37
@@ -9773,52 +9772,3 @@ msgstr "Preimenuj pogled v"
 
 #~ msgid "yes"
 #~ msgstr "da"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Odstrani znake CRLF znotraj stolpcev"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Dodaj vrednost AUTO_INCREMENT"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Odloži %s vrstic, začni pri vrstici # %s"
-
-#~ msgid "remember template"
-#~ msgstr "shrani predlogo"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Stiskanje uvožene datoteke bo samodejno zaznano iz: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Dodaj med komentarje"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Izvozi sheme struktur (priporočeno)"
-
-#~ msgid "Export functions"
-#~ msgstr "Izvozi funkcije"
-
-#~ msgid "Export procedures"
-#~ msgstr "Izvozi procedure"
-
-#~ msgid "Export triggers"
-#~ msgstr "Izvozi sprožilce"
-
-#~ msgid "Export views"
-#~ msgstr "Izvozi poglede"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Določen neveljavni stolpec (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Dejanja"
-
-#~ msgid "Interface"
-#~ msgstr "Vmesnik"
-
-#~ msgid "Custom color"
-#~ msgstr "Barva po meri"
