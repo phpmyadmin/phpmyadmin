@@ -3057,15 +3057,13 @@ msgid "Light tabs"
 msgstr "Light tabs"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric field on browse "
 #| "view.  Can be turned off by a toggle button on the browse page."
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Maximum number of characters shown in any non-numeric field on browse view. "
-"Can be turned off by a toggle button on the browse page."
+"Maximum number of characters shown in any non-numeric column on browse view"
 
 #: libraries/config/messages.inc.php:285
 msgid "Limit column characters"
