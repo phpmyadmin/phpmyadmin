@@ -6688,10 +6688,9 @@ msgid "MySQL connection collation"
 msgstr "Razvrščanje znakov povezave MySQL"
 
 #: main.php:112
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Druge nastavitve"
+msgstr "Prikazne nastavitve"
 
 #: main.php:132
 msgid "Background color"
