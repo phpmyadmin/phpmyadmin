@@ -4497,7 +4497,7 @@ msgstr "Oblika:"
 
 #: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Možnosti odvisne od oblike:"
 
 #: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
 #, fuzzy
