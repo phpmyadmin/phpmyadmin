@@ -1905,7 +1905,7 @@ msgstr "Operacije"
 
 #: libraries/common.lib.php:2851
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Prebrskajte svoj računalnik:"
 
 #: libraries/common.lib.php:2864
 #, fuzzy, php-format
