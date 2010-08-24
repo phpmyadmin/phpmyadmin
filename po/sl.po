@@ -4538,10 +4538,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Uvažanje v zbirko podatkov \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
-msgstr "Pojdi v zbirko podatkov"
+msgstr "Uvažanje v tabelo \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
