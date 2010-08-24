@@ -1,12 +1,13 @@
 # Automatically generated <>, 2010.
 # Michal <michal@cihar.com>, 2010.
+# Michal Čihař <michal@cihar.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-23 11:38+0200\n"
+"PO-Revision-Date: 2010-08-24 15:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -814,7 +815,6 @@ msgid "Values for the column \"%s\""
 msgstr "Hodnoty pro pole \"%s\""
 
 #: enum_editor.php:22
-#, fuzzy
 #| msgid ""
 #| "Please enter the values for transformation options using this format: "
 #| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
@@ -825,10 +825,6 @@ msgid ""
 "need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
 "values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'...<br /"
-">Pokud potřebujete použít zpětné lomítko („\\“) nebo jednoduché uvozovky "
-"(„'“) mezi těmito hodnotami, vložte před ně zpětné lomítko (například '\\"
-"\\xyz' nebo 'a\\'b')."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -2025,7 +2021,7 @@ msgstr "maximálně %s"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních"
 
 #: libraries/config/FormDisplay.tpl.php:249
 #, php-format
@@ -2075,7 +2071,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Povolit začlenění do cizího rámu"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -2191,27 +2187,28 @@ msgstr "Navigace mezi políčky pomocí Ctrl+šipky"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
-msgstr ""
+msgstr "Ladit PHP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Ladit SQL"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Nastavení zobrazení databází"
+msgstr "Výchozí směr zobrazování"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] nebo číslo udávající pro jaký "
+"maximální počet bude použito vertikální zobrazení"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Směr zobrazení pro měnění a vytváření polí"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
@@ -2238,10 +2235,9 @@ msgid "Default table tab"
 msgstr "Výchozí panel tabulky"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Zobrazit binární obsah šestnáctkově (HEX)"
+msgstr "Zobrazení binárního obsah šestnáctkově (HEX) jako výchozí"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
@@ -2265,13 +2261,12 @@ msgstr "Zobrazit servery jako seznam"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Upravovat SQL dotazy v samostatném okně"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Upravit následující řádek"
+msgstr "Upravovat v okně"
 
 #: libraries/config/messages.inc.php:62
 msgid "Display errors"
@@ -2283,13 +2278,12 @@ msgstr "Sbírat chyby"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Zobrazit ikony pro varování, chyby a informační zprávy"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Ignorovat chyby"
+msgstr "Chyby s ikonami"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
@@ -2448,7 +2442,7 @@ msgstr "Režim kompatibility SQL"
 
 #: libraries/config/messages.inc.php:118
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Jakou syntaxi použít pro vkládání dat"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
@@ -2714,10 +2708,9 @@ msgid "Enter server connection parameters"
 msgstr "Vložte parametry připojení k serveru"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Konfigurace: %s"
+msgstr "Úložiště konfigurace"
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
@@ -2773,16 +2766,14 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Přizpůsobení odkazů zobrazených v políčcích pro SQL dotazy"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL dotazy"
+msgstr "Nastavení SQL dotazů"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL historie"
+msgstr "Ověřování SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
@@ -2809,30 +2800,27 @@ msgid "Choose how you want tabs to work"
 msgstr "Nastaví, jak mají fungovat panely"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Použít textové pole"
+msgstr "Textová pole"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Přizpůsobení exportu"
+msgstr "Přizpůsobení textových polí"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
 msgstr "Texy! text"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
 msgstr "Varování"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Vypnout některá varování zobrazovaná phpMyAdminem"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
@@ -2933,7 +2921,7 @@ msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Počáteční stav pro rozbalovací pole"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
@@ -3040,15 +3028,14 @@ msgid "Light tabs"
 msgstr "Odlehčené panely"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Nejvyšší počet znaků SQL dotazu, které se ještě zobrazí"
+msgstr "Nejvyšší počet znaků zobrazeních v nečíselných polích při procházení"
 
 #: libraries/config/messages.inc.php:285
 msgid "Limit column characters"
-msgstr ""
+msgstr "Omezení počtu znaků"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
@@ -3165,7 +3152,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "mcrypt warning"
-msgstr ""
+msgstr "Varování o mcrypt"
 
 #: libraries/config/messages.inc.php:309
 msgid ""
@@ -3180,14 +3167,13 @@ msgid "Memory limit"
 msgstr "Omezení paměti"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Zobrazit/Skrýt levé menu"
+msgstr "Zobrazit odkaz pro mazání nalevo"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
-msgstr ""
+msgstr "Zobrazit odkaz pro mazání napravo"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
@@ -3297,16 +3283,14 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:337
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Okno dotazů"
+msgstr "Výška okna dotazů"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Okno dotazů"
+msgstr "Šířka okna dotazů"
 
 #: libraries/config/messages.inc.php:340
 msgid "Select which functions will be used for character set conversion"
@@ -3318,13 +3302,12 @@ msgstr "Nástroje pro konverzi znakových sad"
 
 #: libraries/config/messages.inc.php:342
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Zopakovat záhlaví každých X buněk, [kbd]0[/kbd] vypne tuto funknci"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Vláken pro opravování"
+msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
@@ -3583,10 +3566,9 @@ msgstr ""
 "phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "jméno databáze"
+msgstr "Jméno databáze"
 
 #: libraries/config/messages.inc.php:397
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -3741,7 +3723,6 @@ msgid "Automatically create versions"
 msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -3749,12 +3730,12 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, výchozí "
-"nastavení: [kbd]pma_tracking[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
+"výchozí nastavení: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabulka pro uživatelská nastavení"
 
 #: libraries/config/messages.inc.php:429
 msgid "User for config auth"
@@ -3817,10 +3798,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Zobrazit otevřené tabulky"
+msgstr "Zobrazit typy polí"
 
 #: libraries/config/messages.inc.php:441
 msgid "Display the function fields in edit/insert mode"
@@ -3957,7 +3937,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Varování o Suhosinu"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
@@ -3966,10 +3946,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "Sloupce pro textové oblasti typu CHAR"
+msgstr ""
 
 #: libraries/config/messages.inc.php:474
 msgid ""
@@ -6015,45 +5994,42 @@ msgstr "Interní relace"
 
 #: libraries/schema/User_Schema.class.php:118
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:150
 msgid "Please choose a page to edit"
 msgstr "Zvolte stránku, kterou chcete změnit"
 
 #: libraries/schema/User_Schema.class.php:155
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Vybrat tabulky"
+msgstr "Zvolte stránku"
 
 #: libraries/schema/User_Schema.class.php:213
 msgid "Select Tables"
 msgstr "Vybrat tabulky"
 
 #: libraries/schema/User_Schema.class.php:351
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relační schéma"
+msgstr "Zobrazit relační schéma"
 
 #: libraries/schema/User_Schema.class.php:356
-#, fuzzy
 #| msgid "CSV"
 msgid "SVG"
-msgstr "CSV"
+msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "DIA"
-msgstr ""
+msgstr "DIA"
 
 #: libraries/schema/User_Schema.class.php:358
 msgid "VISIO"
-msgstr ""
+msgstr "VISIO"
 
 #: libraries/schema/User_Schema.class.php:359
 msgid "EPS"
-msgstr ""
+msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:361
 msgid "Select Export Relational Type"
@@ -6088,10 +6064,9 @@ msgid "Portrait"
 msgstr "Na výšku"
 
 #: libraries/schema/User_Schema.class.php:399
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Vytvoření"
+msgstr "Orientace"
 
 #: libraries/schema/User_Schema.class.php:412
 msgid "Paper size"
@@ -6152,10 +6127,9 @@ msgid "Synchronize"
 msgstr "Synchronizace"
 
 #: libraries/server_links.inc.php:97
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "nastavení"
+msgstr "Nastavení"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
@@ -6898,13 +6872,12 @@ msgstr ""
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Uloženo: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importovat soubory"
+msgstr "Importovat ze souboru"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
