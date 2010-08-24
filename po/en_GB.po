@@ -2703,10 +2703,9 @@ msgid "Basic settings"
 msgstr "Basic settings"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Authentication type"
+msgstr "Authentication"
 
 #: libraries/config/messages.inc.php:195
 #, fuzzy
