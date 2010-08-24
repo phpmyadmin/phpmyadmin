@@ -3121,7 +3121,7 @@ msgstr "Login cookie validity"
 
 #: libraries/config/messages.inc.php:294
 msgid "Double size of textarea for LONGTEXT fields"
-msgstr ""
+msgstr "Double size of textarea for LONGTEXT fields"
 
 #: libraries/config/messages.inc.php:295
 msgid "Bigger textarea for LONGTEXT"
