@@ -1052,7 +1052,7 @@ msgstr "Generate"
 
 #: js/messages.php:70
 msgid "More"
-msgstr ""
+msgstr "More"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:80
