@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 11:17+0200\n"
+"PO-Revision-Date: 2010-08-24 11:18+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -2421,10 +2421,9 @@ msgid "Relations"
 msgstr "Relations"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export Method:"
 msgid "Export method"
-msgstr "Export Method:"
+msgstr "Export method"
 
 #: libraries/config/messages.inc.php:112
 msgid "Save on server"
