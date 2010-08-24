@@ -3841,10 +3841,9 @@ msgid ""
 msgstr "Določa ali naj bodo v načinu urejanja/vstavljanja prikazane vrste polj"
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Pokaži odprte tabele"
+msgstr "Pokaži vrste polj"
 
 #: libraries/config/messages.inc.php:441
 msgid "Display the function fields in edit/insert mode"
