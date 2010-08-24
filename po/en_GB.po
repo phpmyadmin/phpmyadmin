@@ -2734,7 +2734,6 @@ msgid "Configuration storage"
 msgstr "Configuration storage"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
@@ -2744,9 +2743,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] "
-"in documentation"
+"Configure phpMyAdmin configuration storage to gain access to additional "
+"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
+"storage[/a] in documentation"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
