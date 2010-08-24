@@ -2566,7 +2566,7 @@ msgstr "Razvijalec"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Nastavitve za razvijalce phpMyAdmin"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
