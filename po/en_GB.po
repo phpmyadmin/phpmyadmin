@@ -2183,7 +2183,7 @@ msgstr "Confirm DROP queries"
 
 #: libraries/config/messages.inc.php:42
 msgid "Field navigation using Ctrl+Arrows"
-msgstr ""
+msgstr "Field navigation using Ctrl+Arrows"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
