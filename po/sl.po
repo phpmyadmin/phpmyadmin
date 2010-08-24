@@ -3838,7 +3838,7 @@ msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr ""
+msgstr "Določa ali se naj v načinu urejanja/vstavljanja prikažejo vrste polj"
 
 #: libraries/config/messages.inc.php:440
 #, fuzzy
