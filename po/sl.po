@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:24+0200\n"
+"PO-Revision-Date: 2010-08-24 20:25+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5317,10 +5317,11 @@ msgstr ""
 "različica PHP in različica strežnika)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Dodaj prilagojen komentar v glavo (\\n prelomi vrstice)"
+msgstr ""
+"Dodatna prilagojena pripomba v glavi (\n"
+" prelomi vrstice):"
 
 #: libraries/export/sql.php:37
 msgid ""
