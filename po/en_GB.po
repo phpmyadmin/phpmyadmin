@@ -3067,7 +3067,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Limit column characters"
-msgstr ""
+msgstr "Limit column characters"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
