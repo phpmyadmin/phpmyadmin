@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:15+0200\n"
+"PO-Revision-Date: 2010-08-24 20:16+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4439,7 +4439,7 @@ msgid "table name"
 msgstr "ime tabele"
 
 #: libraries/display_export.lib.php:240
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4451,7 +4451,8 @@ msgid ""
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
-"Ostalo besedilo bo ostalo takšno, kot je."
+"Ostalo besedilo bo ostalo takšno, kot je. Oglejte si %4$sFAQ%5$s za "
+"podrobnosti."
 
 #: libraries/display_export.lib.php:278
 msgid "use this for future exports"
