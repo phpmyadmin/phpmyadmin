@@ -4007,8 +4007,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
-"Velikost besedilnega polja (v stolpcih) v načinu urejanja; vrednost bo "
-"povečana za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
+"Velikost besedilnega polja (stolpci) v načinu urejanja; vrednost bo povečana "
+"za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
 #: libraries/config/messages.inc.php:473
 #| msgid "CHAR textarea columns"
