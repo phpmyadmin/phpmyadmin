@@ -4358,10 +4358,10 @@ msgid "Exporting databases in the current server"
 msgstr "Izvažanje zbirk podatkov na trenutnem strežniku"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "Ustvari novo tabelo v podatkovni zbirki %s"
+msgstr "Izvažanje tabel v zbirki podatkov \"%s\""
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
