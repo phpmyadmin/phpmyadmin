@@ -6105,7 +6105,7 @@ msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:361
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Select Export Relational Type"
 
 #: libraries/schema/User_Schema.class.php:382
 msgid "Show grid"
