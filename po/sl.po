@@ -5604,10 +5604,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Združljivostni način SQL"
+msgstr "Združljivostni način SQL:"
 
 #: libraries/import/sql.php:42
 #, fuzzy
