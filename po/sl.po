@@ -2293,10 +2293,9 @@ msgid "Display errors"
 msgstr "Prikaži napake"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Prezri napake"
+msgstr "Zberi napake"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
