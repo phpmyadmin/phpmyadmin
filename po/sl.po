@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:30+0200\n"
+"PO-Revision-Date: 2010-08-24 20:35+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5374,7 +5374,7 @@ msgstr "Izjave <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Funkcija, ki se naj uporabi pri odlaganju podatkov:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
