@@ -3282,7 +3282,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:324
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic table operations"
