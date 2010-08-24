@@ -3349,11 +3349,10 @@ msgid "Repeat headers"
 msgstr "Repeat headers"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid ""
 #| "Shows a help button instead of the &quot;Documentation&quot; message."
 msgid "Show help button instead of Documentation text"
-msgstr "Shows a help button instead of the &quot;Documentation&quot; message."
+msgstr "Show help button instead of Documentation text"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button"
