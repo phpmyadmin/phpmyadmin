@@ -3263,6 +3263,9 @@ msgid ""
 "Structure page if any of the required tables for the relation features could "
 "not be found"
 msgstr ""
+"Disable the default warning that is displayed on the database details "
+"Structure page if any of the required tables for the relation features could "
+"not be found"
 
 #: libraries/config/messages.inc.php:324
 #, fuzzy
