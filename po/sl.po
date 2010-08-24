@@ -1387,7 +1387,7 @@ msgstr "Kardinalnost"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:273 tbl_tracking.php:322
 msgid "Comment"
-msgstr "Komentar"
+msgstr "Pripomba"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1121 libraries/config/messages.inc.php:457
