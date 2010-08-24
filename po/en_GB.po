@@ -6925,10 +6925,9 @@ msgid "to/from page"
 msgstr "to/from page"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Submitted form contains errors"
+msgstr "Cannot save settings, submitted form contains errors"
 
 #: prefs_manage.php:80
 #, fuzzy
