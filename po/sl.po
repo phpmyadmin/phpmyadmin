@@ -3911,7 +3911,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid "Display table comment instead of its name"
-msgstr "Prikaži komentar tabele namesto njenega imena"
+msgstr "Prikaži pripombo tabele namesto njenega imena"
 
 #: libraries/config/messages.inc.php:454
 msgid "Display table comments in tooltips"
