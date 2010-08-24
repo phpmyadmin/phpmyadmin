@@ -6066,7 +6066,7 @@ msgstr "Internal relations"
 
 #: libraries/schema/User_Schema.class.php:118
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:150
 msgid "Please choose a page to edit"
