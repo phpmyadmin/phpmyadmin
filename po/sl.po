@@ -3208,10 +3208,9 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Pokaži/Skrij levi meni"
+msgstr "Pokaži levo povezavo za izbris"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
