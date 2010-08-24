@@ -6701,10 +6701,9 @@ msgid "Choose..."
 msgstr "Izberite ..."
 
 #: main.php:150 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "nastavitve"
+msgstr "Več nastavitev"
 
 #: main.php:167
 msgid "Protocol version"
