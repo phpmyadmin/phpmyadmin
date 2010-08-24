@@ -6613,10 +6613,9 @@ msgstr ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Cannot load or save configuration"
+msgstr "Could not save configuration"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
