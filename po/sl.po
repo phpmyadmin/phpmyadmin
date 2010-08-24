@@ -3437,7 +3437,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite komentarjev/vrst mime stolpcev; predlagano: "
+"Pustite prazno, če ne želite pripomb/vrst mime stolpcev; predlagano: "
 "[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:364
