@@ -6599,10 +6599,9 @@ msgid "Manage your settings"
 msgstr "Manage your settings"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Modifications have been saved"
+msgstr "Configuration has been saved"
 
 #: libraries/user_preferences.inc.php:69
 #, php-format
