@@ -4480,10 +4480,9 @@ msgid "zipped"
 msgstr "zipano"
 
 #: libraries/display_export.lib.php:318
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzipano\""
+msgstr "gzipano"
 
 #: libraries/display_export.lib.php:320
 #, fuzzy
