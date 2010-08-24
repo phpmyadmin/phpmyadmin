@@ -3351,7 +3351,7 @@ msgstr "Ponovi glave"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Prikaži gumb za pomoč namesto besedila dokumentacije"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button"
