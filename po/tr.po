@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 08:09+0200\n"
+"PO-Revision-Date: 2010-08-24 08:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3264,6 +3264,9 @@ msgid ""
 "Structure page if any of the required tables for the relation features could "
 "not be found"
 msgstr ""
+"Eğer ilişkilendirme için gerekli tabloların herhangi biri  bulunamazsa, "
+"veritabanı ayrıntıları Yapı sayfasında gösterilen varsayılan uyarıyı "
+"etkisizleştir"
 
 #: libraries/config/messages.inc.php:324
 #, fuzzy
