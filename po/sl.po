@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:43+0200\n"
+"PO-Revision-Date: 2010-08-24 20:44+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6643,10 +6643,9 @@ msgid "Manage your settings"
 msgstr "Upravljajte svoje nastavitve"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Spremembe so shranjene"
+msgstr "Konfiguracija je shranjena"
 
 #: libraries/user_preferences.inc.php:69
 #, php-format
