@@ -8680,7 +8680,6 @@ msgid "Cannot load or save configuration"
 msgstr "Cannot load or save configuration"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -8692,8 +8691,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@../Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in "
+"[a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be "
+"only able to download or display it."
 
 #: setup/frames/index.inc.php:57
 msgid ""
