@@ -6452,7 +6452,7 @@ msgstr "Podatki ENUM ali SET predolgi?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Pridobi več prostora za urejanje"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
