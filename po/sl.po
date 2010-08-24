@@ -7015,10 +7015,9 @@ msgid "This feature is not supported by your web browser"
 msgstr "Te funkcije vaš spletni brskalnik ne podpira"
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Konfiguracija strežnika"
+msgstr "Združi s trenutno konfiguracijo"
 
 #: prefs_manage.php:277
 #, php-format
