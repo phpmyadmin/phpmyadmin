@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:02+0200\n"
+"PO-Revision-Date: 2010-08-24 20:03+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3320,7 +3320,7 @@ msgstr "Privzet zavihek okna za poizvedbe"
 
 #: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Višina okna poizvedb (v slikovnih pikah)"
 
 #: libraries/config/messages.inc.php:337
 #, fuzzy
