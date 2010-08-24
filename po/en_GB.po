@@ -2467,7 +2467,7 @@ msgstr "Disable foreign key checks"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Use hexadecimal for BLOB"
 
 #: libraries/config/messages.inc.php:126
 #, fuzzy
