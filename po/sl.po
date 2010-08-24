@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:42+0200\n"
+"PO-Revision-Date: 2010-08-24 19:43+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2053,7 +2053,7 @@ msgstr "Povrni privzeto vrednost"
 
 #: libraries/config/FormDisplay.tpl.php:270
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Dovoli uporabnikom prilagajati to vrednost"
 
 #: libraries/config/FormDisplay.tpl.php:337
 #: libraries/schema/User_Schema.class.php:322
