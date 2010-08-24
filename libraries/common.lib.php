@@ -2967,4 +2967,3 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
     }
 }
 ?>
-
