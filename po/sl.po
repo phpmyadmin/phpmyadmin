@@ -2254,10 +2254,9 @@ msgid "Default table tab"
 msgstr "Privzet zavihek tabele"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Prikaži dvojiške vsebine kot HEX"
+msgstr "Privzeto prikaži dvojiške vsebine kot HEX"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
