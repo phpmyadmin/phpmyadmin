@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:38+0200\n"
+"PO-Revision-Date: 2010-08-24 19:39+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1951,10 +1951,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Popolne poizvedbe insert"
+msgstr "popolne poizvedbe insert"
 
 #: libraries/config.values.php:120
 #, fuzzy
