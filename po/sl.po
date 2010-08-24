@@ -7003,7 +7003,7 @@ msgstr "Uvozi iz hrambe brskalnika"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Nastavitve bodo uvožene iz brskalnikove lokalne hrambe."
 
 #: prefs_manage.php:254
 #, fuzzy
