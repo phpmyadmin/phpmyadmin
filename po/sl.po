@@ -5438,6 +5438,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer, \"abc\" postane "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
