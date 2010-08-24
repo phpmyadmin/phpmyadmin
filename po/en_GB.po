@@ -3996,6 +3996,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
+"query textareas (*2) and for query window (*1.25)"
 
 #: libraries/config/messages.inc.php:473
 #, fuzzy
