@@ -4037,10 +4037,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Naslov okna brskalnika, ko je ni izbrano nič"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Privzet zavihek tabele"
+msgstr "Privzeti naslov"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a server is selected"
