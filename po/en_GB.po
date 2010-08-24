@@ -2366,10 +2366,9 @@ msgid "Lines terminated by"
 msgstr "Lines terminated by"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition:"
 msgid "Excel edition"
-msgstr "Excel edition:"
+msgstr "Excel edition"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
