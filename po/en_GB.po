@@ -3318,7 +3318,7 @@ msgstr "Default query window tab"
 
 #: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Query window height (in pixels)"
 
 #: libraries/config/messages.inc.php:337
 #, fuzzy
