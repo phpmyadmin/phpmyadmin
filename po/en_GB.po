@@ -4128,10 +4128,9 @@ msgid "HTTP authentication"
 msgstr "HTTP authentication"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "'signon' authentication mode"
 msgid "Signon authentication"
-msgstr "'signon' authentication mode"
+msgstr "Signon authentication"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
