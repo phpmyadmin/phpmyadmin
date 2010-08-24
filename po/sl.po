@@ -4020,6 +4020,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Velikost besedilnega polja (vrstice) v načinu urejanja; vrednost bo povečana "
+"za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
 #: libraries/config/messages.inc.php:475
 #, fuzzy
