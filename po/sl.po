@@ -5180,10 +5180,9 @@ msgid "Columns escaped with:"
 msgstr "Stolpci so izognjeni z:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Vrstice zaključene z"
+msgstr "Vrstice so zaključene z:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
