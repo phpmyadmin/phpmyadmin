@@ -4375,10 +4375,9 @@ msgid "Export Method:"
 msgstr "Način izvoza:"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Zbirke podatkov"
+msgstr "Zbirke podatkov:"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
