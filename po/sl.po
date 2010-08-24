@@ -2010,7 +2010,7 @@ msgstr "ni na voljo"
 #: libraries/config/FormDisplay.class.php:733
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" potrebuje razširitev %s"
 
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
