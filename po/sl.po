@@ -6679,10 +6679,9 @@ msgid "Error in ZIP archive:"
 msgstr "Napaka v arhivu ZIP:"
 
 #: main.php:66
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Splošne lastnosti relacij"
+msgstr "Splošne nastavitve"
 
 #: main.php:97
 msgid "MySQL connection collation"
