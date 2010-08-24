@@ -3128,10 +3128,9 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "Bigger textarea for LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Uses icons on main page in lists and menu tabs."
 msgid "Use icons on main page"
-msgstr "Uses icons on main page in lists and menu tabs."
+msgstr "Use icons on main page"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of characters used when a SQL query is displayed"
