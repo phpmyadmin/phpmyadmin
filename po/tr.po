@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 08:02+0200\n"
+"PO-Revision-Date: 2010-08-24 08:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3204,10 +3204,9 @@ msgid "Memory limit"
 msgstr "Bellek sınırı"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Sol menüyü Göster/Gizle"
+msgstr "Sol silme bağlantısını göster"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
