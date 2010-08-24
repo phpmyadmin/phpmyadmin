@@ -2800,10 +2800,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Prilagodi povezave prikazane v poljih poizvedbe SQL"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "Poizvedbe SQL"
+msgstr "Nastavitve poizvedb SQL"
 
 #: libraries/config/messages.inc.php:215
 #, fuzzy
