@@ -2496,10 +2496,9 @@ msgid "Maximal length of created query"
 msgstr "Največja dolžina ustvarjene poizvedbe"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Izvozi tabele"
+msgstr "Vrsta izvoza"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
