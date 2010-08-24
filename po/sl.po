@@ -4011,10 +4011,9 @@ msgstr ""
 "povečana za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "Stolpcev polja CHAR"
+msgstr "Stolpcev besedilnega polja"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
