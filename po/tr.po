@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 08:01+0200\n"
+"PO-Revision-Date: 2010-08-24 08:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3189,7 +3189,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt uyarısı"
 
 #: libraries/config/messages.inc.php:309
 msgid ""
