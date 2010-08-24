@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:45+0200\n"
+"PO-Revision-Date: 2010-08-24 19:46+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2225,7 +2225,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Smer prikaza za spreminjanje/ustvarjanje stolpcev"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
