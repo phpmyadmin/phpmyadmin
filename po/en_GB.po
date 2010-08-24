@@ -1926,10 +1926,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Custom - like above, but without the quick/custom choice"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "complete inserts"
-msgstr "Delayed inserts"
+msgstr "complete inserts"
 
 #: libraries/config.values.php:120
 #, fuzzy
