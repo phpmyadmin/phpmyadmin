@@ -2070,10 +2070,9 @@ msgstr ""
 "cross-frame scripting attacks"
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 #| msgid "$cfg['AllowThirdPartyFraming'] boolean"
 msgid "Allow third party framing"
-msgstr "$cfg['AllowThirdPartyFraming'] boolean"
+msgstr "Allow third party framing"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
