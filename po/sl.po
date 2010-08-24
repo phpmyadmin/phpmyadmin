@@ -2742,10 +2742,9 @@ msgid "Enter server connection parameters"
 msgstr "Vnesite parametre povezave s strežnikom"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Konfiguracija: %s"
+msgstr "Hramba konfiguracije"
 
 #: libraries/config/messages.inc.php:200
 #| msgid ""
