@@ -3931,7 +3931,7 @@ msgstr "Preskoči zaklenjene tabele"
 
 #: libraries/config/messages.inc.php:461
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Potrebuje omogočen Preverjalnik SQL"
 
 #: libraries/config/messages.inc.php:463
 #: libraries/display_change_password.lib.php:40
