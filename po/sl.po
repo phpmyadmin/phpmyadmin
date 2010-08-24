@@ -3342,7 +3342,7 @@ msgstr "Pogon rekodiranja"
 
 #: libraries/config/messages.inc.php:342
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Ponovi glave vsakih X celic, [kbd]0[/kbd] dezaktivira to funkcijo"
 
 #: libraries/config/messages.inc.php:343
 #, fuzzy
