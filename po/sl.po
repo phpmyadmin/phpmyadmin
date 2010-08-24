@@ -2721,10 +2721,9 @@ msgid "Authentication"
 msgstr "Overovitev"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Vrsta overovitve"
+msgstr "Nastavitve overovitve"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
