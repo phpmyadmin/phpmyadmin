@@ -2590,10 +2590,9 @@ msgid "Features"
 msgstr "Lastnosti"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Ustvari"
+msgstr "Splošno"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
