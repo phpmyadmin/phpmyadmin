@@ -3960,6 +3960,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Če imate uporabniško ime po meri, ga določite tukaj (privzeto "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:467 tbl_tracking.php:405
 #: tbl_tracking.php:456
