@@ -4000,10 +4000,9 @@ msgstr ""
 "query textareas (*2) and for query window (*1.25)"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR textarea columns"
+msgstr "Textarea columns"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
