@@ -3371,10 +3371,9 @@ msgid "Leave blank if not used"
 msgstr "Leave blank if not used"
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Host authentication order"
+msgstr "Host authorisation order"
 
 #: libraries/config/messages.inc.php:351
 msgid "Leave blank for defaults"
