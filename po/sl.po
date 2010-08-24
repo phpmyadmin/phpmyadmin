@@ -3379,7 +3379,6 @@ msgid "Leave blank for defaults"
 msgstr "Pustite prazno za privzeto"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Pravila overovitve gostitelja"
