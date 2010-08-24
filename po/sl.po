@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:49+0200\n"
+"PO-Revision-Date: 2010-08-24 20:50+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6999,7 +6999,7 @@ msgstr "Uvozi iz datoteke"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Uvozi iz hrambe brskalnika"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
