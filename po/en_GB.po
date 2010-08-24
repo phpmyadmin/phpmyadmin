@@ -3268,9 +3268,8 @@ msgstr ""
 "not be found"
 
 #: libraries/config/messages.inc.php:324
-#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "phpMyAdmin documentation"
+msgstr "Missing phpMyAdmin configuration storage tables"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic table operations"
