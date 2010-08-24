@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 11:51+0200\n"
+"PO-Revision-Date: 2010-08-24 11:52+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -2488,10 +2488,9 @@ msgid "Enclose export in a transaction"
 msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Export contents"
+msgstr "Export time in UTC"
 
 #: libraries/config/messages.inc.php:143
 msgid "Force secured connection while using phpMyAdmin"
