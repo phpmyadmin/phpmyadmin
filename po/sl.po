@@ -1947,7 +1947,7 @@ msgstr "Po meri - prikaži vse mogoče možnosti za konfiguriranje"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Po meri - kot zgoraj, vendar brez izbire hitro/po meri"
 
 #: libraries/config.values.php:119
 #| msgid "Complete inserts"
