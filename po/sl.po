@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:10+0200\n"
+"PO-Revision-Date: 2010-08-24 21:11+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2039,6 +2039,7 @@ msgstr "največ %s"
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Ta nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
 
 #: libraries/config/FormDisplay.tpl.php:249
 #, php-format
