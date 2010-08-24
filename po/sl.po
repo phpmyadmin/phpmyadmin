@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:21+0200\n"
+"PO-Revision-Date: 2010-08-24 20:22+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5246,10 +5246,9 @@ msgstr "Naslov tabele (nadaljevanje)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Onemogoči preverjanja tujih ključev"
+msgstr "Prikaži razmerja tujih ključev"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
