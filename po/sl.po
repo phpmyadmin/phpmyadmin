@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:36+0200\n"
+"PO-Revision-Date: 2010-08-24 21:37+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5598,6 +5598,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Naveden je neveljavni stolpec (%s)! Prepričajte se, da so imena stolpcev "
+"pravilno črkovana, ločena z vejicami in ne obdana z narekovaji."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
