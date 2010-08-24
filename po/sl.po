@@ -2024,7 +2024,7 @@ msgstr "izvoz ne bo deloval, manjka funkcija (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Preverjalnik SQL je onemogočen"
 
 #: libraries/config/FormDisplay.class.php:765
 #, fuzzy
