@@ -7038,7 +7038,7 @@ msgstr "Nastavitve bodo shranjene v lokalno hrambo vašega brskalnika."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Obstoječe nastavitve bodo prepisane!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values"
