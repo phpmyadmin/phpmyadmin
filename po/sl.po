@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:08+0200\n"
+"PO-Revision-Date: 2010-08-24 21:09+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1939,7 +1939,7 @@ msgstr "struktura in podatki"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Hitro - prikaži kar najmanj možnosti za konfiguriranje"
 
 #: libraries/config.values.php:100 libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
