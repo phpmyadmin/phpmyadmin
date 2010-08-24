@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:48+0200\n"
+"PO-Revision-Date: 2010-08-24 19:49+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2280,7 +2280,7 @@ msgstr "Prikaži strežnike kot seznam"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Uredi poizvedbe SQL v pojavnem oknu"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
