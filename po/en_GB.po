@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 11:14+0200\n"
+"PO-Revision-Date: 2010-08-24 11:15+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1998,10 +1998,9 @@ msgid "export will not work, missing function (%s)"
 msgstr "export will not work, missing function (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
-#, fuzzy
 #| msgid "$cfg['SQLValidator'] boolean"
 msgid "SQL Validator is disabled"
-msgstr "$cfg['SQLValidator'] boolean"
+msgstr "SQL Validator is disabled"
 
 #: libraries/config/FormDisplay.class.php:765
 #, fuzzy
