@@ -4047,7 +4047,7 @@ msgstr "Naslov okna brskalnika, ko je izbran strežnik"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Naslov okna brskalnika, ko je izbrana tabela"
 
 #: libraries/config/messages.inc.php:484
 msgid ""
