@@ -1931,10 +1931,9 @@ msgid "complete inserts"
 msgstr "complete inserts"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "extended inserts"
-msgstr "Delayed inserts"
+msgstr "extended inserts"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
