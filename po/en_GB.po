@@ -1941,7 +1941,7 @@ msgstr "both of the above"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "neither of the above"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
