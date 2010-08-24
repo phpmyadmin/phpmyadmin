@@ -8747,7 +8747,6 @@ msgid "Cannot load or save configuration"
 msgstr "Ne morem naložiti ali shraniti konfiguracije"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -8759,9 +8758,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosimo, na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] v "
-"najvišjem nivoju mape phpMyAdmina, kot opisuje [a@../Documentation."
-"html#setup_script]dokumentacija[/a]. V naprotnem primeru jo boste lahko samo "
-"prenesli ali jo prikazali."
+"najvišjem nivoju mape phpMyAdmina, kot opisuje "
+"[a@Documentation.html#setup_script]dokumentacija[/a]. V naprotnem primeru jo "
+"boste lahko samo prenesli ali jo prikazali."
 
 #: setup/frames/index.inc.php:57
 msgid ""
