@@ -6657,10 +6657,9 @@ msgstr ""
 "zahteva %shrambo konfiguracije phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Ne morem naložiti ali shraniti konfiguracije"
+msgstr "Ne morem shraniti konfiguracije"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
