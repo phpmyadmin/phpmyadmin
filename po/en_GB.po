@@ -3326,10 +3326,9 @@ msgid "Query window height"
 msgstr "Query window height"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Query window"
+msgstr "Query window width"
 
 #: libraries/config/messages.inc.php:340
 msgid "Select which functions will be used for character set conversion"
