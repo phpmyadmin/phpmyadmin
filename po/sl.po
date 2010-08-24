@@ -3766,7 +3766,6 @@ msgid "Automatically create versions"
 msgstr "Samodejno ustvari različice"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -3774,8 +3773,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
-"pma_tracking[/kbd]"
+"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
+"podatkov; predlagano: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 msgid "User preferences storage table"
