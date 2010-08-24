@@ -2303,10 +2303,9 @@ msgstr ""
 "Prikaži ikone za opozorilna sporočila, sporočila o napakah in informacijah"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Prezri napake"
+msgstr "Napake z ikonami"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
