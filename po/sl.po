@@ -6745,7 +6745,7 @@ msgstr "Uradna domača stran phpMyAdmin"
 
 #: main.php:220
 msgid "Mailing lists"
-msgstr ""
+msgstr "Poštni seznami"
 
 #: main.php:246
 msgid ""
