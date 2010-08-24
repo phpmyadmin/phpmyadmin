@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 11:22+0200\n"
+"PO-Revision-Date: 2010-08-24 11:51+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -2470,10 +2470,9 @@ msgid "Use hexadecimal for BLOB"
 msgstr "Use hexadecimal for BLOB"
 
 #: libraries/config/messages.inc.php:126
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "Use ignore inserts"
-msgstr "Delayed inserts"
+msgstr "Use ignore inserts"
 
 #: libraries/config/messages.inc.php:128 libraries/export/sql.php:163
 msgid "Maximal length of created query"
