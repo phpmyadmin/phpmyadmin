@@ -3370,7 +3370,6 @@ msgid "Leave blank if not used"
 msgstr "Pustite prazno, če se ne uporablja"
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Zaporedje overovitve gostitelja"
