@@ -1937,7 +1937,7 @@ msgstr "extended inserts"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "both of the above"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
