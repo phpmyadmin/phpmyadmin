@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 14:05+0200\n"
+"PO-Revision-Date: 2010-08-24 14:06+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -3559,7 +3559,6 @@ msgid "Connect without password"
 msgstr "Connect without password"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3571,7 +3570,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+"use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
+"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
+"alphabetical order."
 
 #: libraries/config/messages.inc.php:390
 msgid "Show only listed databases"
