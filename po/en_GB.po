@@ -4160,10 +4160,9 @@ msgstr "Open Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:280
 #: libraries/config/user_preferences.forms.php:180
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Database export options"
-msgstr "Databases display options"
+msgstr "Database export options"
 
 #: libraries/config/setup.forms.php:293 libraries/config/setup.forms.php:329
 #: libraries/config/setup.forms.php:360 libraries/config/setup.forms.php:365
