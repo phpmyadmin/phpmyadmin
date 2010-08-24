@@ -5589,7 +5589,7 @@ msgstr "Imena stolpcev"
 
 #: libraries/import/ldi.php:56
 msgid "This plugin does not support compressed imports!"
-msgstr "Ta vtičnik ne podpira kompresiranih uvozov!"
+msgstr "Ta vtičnik ne podpira stisnjenih uvozov!"
 
 #: libraries/import/ods.php:28
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
