@@ -3328,10 +3328,9 @@ msgid "Query window height"
 msgstr "Višina okna poizvedb"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Okno za poizvedbe"
+msgstr "Širina okna poizvedb"
 
 #: libraries/config/messages.inc.php:340
 msgid "Select which functions will be used for character set conversion"
