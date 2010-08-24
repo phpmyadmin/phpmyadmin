@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:58+0200\n"
+"PO-Revision-Date: 2010-08-24 20:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1725,7 +1725,7 @@ msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
 #: libraries/common.inc.php:908
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "%s bi morali nadgraditi v verzijo %s ali novejšo."
+msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
 #: libraries/common.lib.php:145
 #, php-format
