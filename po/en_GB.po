@@ -3022,7 +3022,7 @@ msgstr "Table tree separator"
 
 #: libraries/config/messages.inc.php:276
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL where logo in the navigation frame will point to"
 
 #: libraries/config/messages.inc.php:277
 msgid "Logo link URL"
