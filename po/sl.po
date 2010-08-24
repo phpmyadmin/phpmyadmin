@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:22+0200\n"
+"PO-Revision-Date: 2010-08-24 21:24+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3571,7 +3571,6 @@ msgid "Connect without password"
 msgstr "Poveži se brez gesla"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3583,7 +3582,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Uporabite lahko nadomestne znake MySQL (% in _); ubežite jih, če jih želite "
-"uporabiti dobesedno, npr. uporabite 'my\\_db' in ne 'my_db'"
+"uporabiti dobesedno, npr. uporabite 'my\\_db' in ne 'my_db'. Z uporabo te "
+"možnosti lahko razvrstite seznam zbirk podatkov; samo vnesite njihova imena "
+"v vrstnem redu in na koncu uporabite [kbd]*[/kbd] za prikaz preostalih v "
+"abecednem vrstnem redu."
 
 #: libraries/config/messages.inc.php:390
 msgid "Show only listed databases"
