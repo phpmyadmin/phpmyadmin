@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:55+0200\n"
+"PO-Revision-Date: 2010-08-24 19:56+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2834,10 +2834,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Določite, kako želite, da zavihki delujejo"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Uporabi besedilno polje"
+msgstr "Besedilna polja"
 
 #: libraries/config/messages.inc.php:222
 #, fuzzy
