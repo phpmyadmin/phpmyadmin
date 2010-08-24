@@ -2002,10 +2002,9 @@ msgstr "Manjkajoči podatki za %s"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Spremenljivka"
+msgstr "ni na voljo"
 
 #: libraries/config/FormDisplay.class.php:729
 #: libraries/config/FormDisplay.class.php:733
