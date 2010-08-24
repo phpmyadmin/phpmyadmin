@@ -4113,10 +4113,9 @@ msgid "Config authentication"
 msgstr "Overitev preko konfiguracije"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Zaporedje overovitve gostitelja"
+msgstr "Overitev preko piškotka"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
