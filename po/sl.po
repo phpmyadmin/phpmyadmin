@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:56+0200\n"
+"PO-Revision-Date: 2010-08-24 20:58+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1908,10 +1908,10 @@ msgid "Browse your computer:"
 msgstr "Prebrskajte svoj računalnik:"
 
 #: libraries/common.lib.php:2864
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "imenik za nalaganje datotek"
+msgstr "Izberite iz mape za nalaganje na spletnem strežniku <b>%s</b>:"
 
 #: libraries/common.lib.php:2876 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
