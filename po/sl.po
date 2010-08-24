@@ -3986,7 +3986,7 @@ msgstr "Na glavni strani se prikaže opozorilo, če je zaznan Suhosin"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Opozorilo Suhosin"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
