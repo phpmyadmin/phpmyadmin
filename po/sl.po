@@ -114,7 +114,7 @@ msgstr "Podatkovna zbirka %1$s je ustvarjena."
 
 #: db_datadict.php:48 db_operations.php:313
 msgid "Database comment: "
-msgstr "Komentar zbirke podatkov: "
+msgstr "Pripomba zbirke podatkov: "
 
 #: db_datadict.php:164 libraries/schema/Pdf_Relation_Schema.class.php:1220
 #: libraries/tbl_properties.inc.php:727 tbl_operations.php:344
