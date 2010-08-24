@@ -5886,7 +5886,7 @@ msgstr "Ustvarjanje datotek PDF"
 
 #: libraries/relation.lib.php:115
 msgid "Displaying Column Comments"
-msgstr "Prikazovanje komentarjev stolpcev"
+msgstr "Prikazovanje pripomb stolpcev"
 
 #: libraries/relation.lib.php:120
 msgid ""
