@@ -6990,7 +6990,7 @@ msgstr "Ali želite uvoziti preostale nastavitve?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Shranjeno: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
