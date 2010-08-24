@@ -3284,7 +3284,6 @@ msgid "Protect binary columns"
 msgstr "Protect binary columns"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3293,8 +3292,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilises JS-routines to display query history (lost by window close)."
+"Enable if you want DB-based query history (requires phpMyAdmin configuration "
+"storage). If disabled, this utilises JS-routines to display query history "
+"(lost by window close)."
 
 #: libraries/config/messages.inc.php:330
 msgid "Permanent query history"
