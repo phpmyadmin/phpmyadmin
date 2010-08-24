@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 19:41+0200\n"
+"PO-Revision-Date: 2010-08-24 19:42+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2020,7 +2020,7 @@ msgstr "uvoz ne bo deloval, manjka funkcija (%s)"
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "izvoz ne bo deloval, manjka funkcija (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
 msgid "SQL Validator is disabled"
