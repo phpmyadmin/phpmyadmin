@@ -3344,10 +3344,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Metadata Headers"
 msgid "Repeat headers"
-msgstr "Metadata Headers"
+msgstr "Repeat headers"
 
 #: libraries/config/messages.inc.php:344
 #, fuzzy
