@@ -6136,10 +6136,9 @@ msgid "Portrait"
 msgstr "Portrait"
 
 #: libraries/schema/User_Schema.class.php:399
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Creation"
+msgstr "Orientation"
 
 #: libraries/schema/User_Schema.class.php:412
 msgid "Paper size"
