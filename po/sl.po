@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:00+0200\n"
+"PO-Revision-Date: 2010-08-24 20:01+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3214,7 +3214,7 @@ msgstr "Pokaži levo povezavo za izbris"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
-msgstr ""
+msgstr "Pokaži desno povezavo za izbris"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
