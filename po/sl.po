@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 20:01+0200\n"
+"PO-Revision-Date: 2010-08-24 20:02+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3285,7 +3285,6 @@ msgid "Protect binary columns"
 msgstr "Zaščiti dvojiške stolpce"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3295,8 +3294,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Omogočite, če želite zgodovino poizvedb temelječo na zbirki podatkov "
-"(potrebuje pmadb). Če je onemogočeno, se za prikaz zgodovine poizvedb "
-"uporabi rutina JavaScript (ki se izgubi ob zaprtju okna)."
+"(potrebuje hrambo konfiguracije phpMyAdmin). Če je onemogočeno, se za prikaz "
+"zgodovine poizvedb uporabi rutina JavaScript (ki se izgubi ob zaprtju "
+"okna)."
 
 #: libraries/config/messages.inc.php:330
 msgid "Permanent query history"
