@@ -4579,7 +4579,6 @@ msgstr ""
 "položaja %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4590,8 +4589,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Dovoli prekinitev uvoza v primeru, ko skript zazna, da je blizu časovne "
-"omejitve PHP. To je morda dober način za uvoz velikih datotek, čeprav lahko "
-"prekine transakcije."
+"omejitve PHP. <i>(To je morda dober način za uvoz velikih datotek, čeprav "
+"lahko prekine transakcije.)</i>"
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
