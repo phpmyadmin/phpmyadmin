@@ -5175,10 +5175,9 @@ msgid "Columns enclosed with:"
 msgstr "Stolpci so obdani z:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with:"
-msgstr "Stolpci izognjeni z"
+msgstr "Stolpci so izognjeni z:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
