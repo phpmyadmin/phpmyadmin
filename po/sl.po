@@ -6065,7 +6065,7 @@ msgstr "Ni tabel"
 
 #: libraries/schema/Export_Relation_Schema.class.php:209
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "NAPAKA SHEME: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:896
 #: libraries/schema/Pdf_Relation_Schema.class.php:1124
