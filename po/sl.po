@@ -2677,10 +2677,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Nastavitve, ki se ne uvrščajo nikamor drugam"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page name"
 msgid "Page titles"
-msgstr "Ime strani"
+msgstr "Naslovi strani"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
