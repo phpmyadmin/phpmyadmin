@@ -4036,7 +4036,7 @@ msgstr "Title of browser window when a server is selected"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Title of browser window when a table is selected"
 
 #: libraries/config/messages.inc.php:484
 msgid ""
