@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 21:26+0200\n"
+"PO-Revision-Date: 2010-08-24 21:27+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4030,7 +4030,7 @@ msgstr "Vrstic besedilnega polja"
 
 #: libraries/config/messages.inc.php:476
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Naslov okna brskalnika, ko je izbrana zbirka podatkov"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
