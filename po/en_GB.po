@@ -2284,10 +2284,9 @@ msgid "Show icons for warning, error and information messages"
 msgstr "Show icons for warning, error and information messages"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Ignore errors"
+msgstr "Iconic errors"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
