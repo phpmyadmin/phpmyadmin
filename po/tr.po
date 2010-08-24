@@ -3128,7 +3128,7 @@ msgstr "LONGTEXT alanları için metin alanın iki katı boyutu"
 
 #: libraries/config/messages.inc.php:295
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "LONGTEXT için en büyük metin alanı"
 
 #: libraries/config/messages.inc.php:296
 msgid "Use icons on main page"
