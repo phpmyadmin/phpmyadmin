@@ -4544,10 +4544,9 @@ msgid "Importing into the table \"%s\""
 msgstr "Uvažanje v tabelo \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Datoteka za uvoz"
+msgstr "Datoteka za uvoz:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
