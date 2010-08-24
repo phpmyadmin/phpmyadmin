@@ -3125,7 +3125,7 @@ msgstr "Double size of textarea for LONGTEXT fields"
 
 #: libraries/config/messages.inc.php:295
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Bigger textarea for LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 #, fuzzy
