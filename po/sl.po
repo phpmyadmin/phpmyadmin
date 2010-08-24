@@ -2839,10 +2839,9 @@ msgid "Text fields"
 msgstr "Besedilna polja"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Prilagodi možnosti izvoza"
+msgstr "Prilagodi polja za vnos besedila"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
