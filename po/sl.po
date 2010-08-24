@@ -6976,10 +6976,9 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr "Ne morem shraniti nastavitev, poslan obrazec vsebuje napake"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "Ne morem naložiti privzete konfiguracije iz: %1$s"
+msgstr "Ne morem uvoziti konfiguracije"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
