@@ -3608,10 +3608,9 @@ msgstr ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "database name"
+msgstr "Database name"
 
 #: libraries/config/messages.inc.php:397
 msgid "Port on which MySQL server is listening, leave empty for default"
