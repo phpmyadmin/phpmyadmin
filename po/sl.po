@@ -4456,7 +4456,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:278
 msgid "use this for future exports"
-msgstr ""
+msgstr "uporabi to za prihodnje izvoze"
 
 #: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
