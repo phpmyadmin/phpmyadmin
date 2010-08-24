@@ -3128,7 +3128,7 @@ msgstr "Veljavnost prijavnega piškotka"
 
 #: libraries/config/messages.inc.php:294
 msgid "Double size of textarea for LONGTEXT fields"
-msgstr ""
+msgstr "Dvojna velikost besedilnega polja za polja LONGTEXT"
 
 #: libraries/config/messages.inc.php:295
 msgid "Bigger textarea for LONGTEXT"
