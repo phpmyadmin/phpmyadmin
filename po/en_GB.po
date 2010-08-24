@@ -3834,7 +3834,6 @@ msgid "Show create database form"
 msgstr "Show create database form"
 
 #: libraries/config/messages.inc.php:439
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
 #| "insert mode. The user can toggle this setting from the interface."
@@ -3842,8 +3841,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Defines whether or not type fields should be initially displayed in edit/"
-"insert mode. The user can toggle this setting from the interface."
+"Defines whether or not type fields should be initially displayed in "
+"edit/insert mode"
 
 #: libraries/config/messages.inc.php:440
 #, fuzzy
