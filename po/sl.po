@@ -3895,7 +3895,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:451
 msgid "Display database comment instead of its name"
-msgstr "Prikaži komentar zbirke podatkov namesto njenega imena"
+msgstr "Prikaži pripombo zbirke podatkov namesto njenega imena"
 
 #: libraries/config/messages.inc.php:452
 msgid ""
