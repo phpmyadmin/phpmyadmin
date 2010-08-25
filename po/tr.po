@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:32+0200\n"
 "PO-Revision-Date: 2010-08-24 08:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -340,7 +340,6 @@ msgstr ""
 "için %sburaya%s tıklayın."
 
 #: db_operations.php:531
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "İlişkisel şemayı dışa aktar veya düzenle"
 
@@ -1929,12 +1928,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Özel - yukarıdaki gibi ancak hızlı/özel seçimsiz"
 
 #: libraries/config.values.php:119
-#| msgid "Delayed inserts"
 msgid "complete inserts"
 msgstr "tam eklemeler"
 
 #: libraries/config.values.php:120
-#| msgid "Delayed inserts"
 msgid "extended inserts"
 msgstr "genişletilmiş eklemeler"
 
@@ -1980,7 +1977,6 @@ msgstr "%s için kayıp veri"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "kullanılamaz"
 
@@ -2005,13 +2001,11 @@ msgid "SQL Validator is disabled"
 msgstr "SQL Onaylayıcı etkisizleştirildi"
 
 #: libraries/config/FormDisplay.class.php:765
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "SOAP uzantısı bulunamadı"
 
 #: libraries/config/FormDisplay.class.php:773
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "en fazla %s"
 
@@ -2194,7 +2188,6 @@ msgid "Debug SQL"
 msgstr "SQL Hata Ayıklama"
 
 #: libraries/config/messages.inc.php:45
-#| msgid "Databases display options"
 msgid "Default display direction"
 msgstr "Varsayılan görüntü talimatı"
 
@@ -2235,7 +2228,6 @@ msgid "Default table tab"
 msgstr "Varsayılan tablo sekmesi"
 
 #: libraries/config/messages.inc.php:54
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
 msgstr "Binari içerikleri varsayılandan HEX olarak göster"
 
@@ -2264,17 +2256,14 @@ msgid "Edit SQL queries in popup window"
 msgstr "Açılır pencere içinde SQL sorgularını düzenle"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Pencerede düzenle"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Hataları göster"
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "Hataları toparla"
 
@@ -2350,7 +2339,6 @@ msgid "Replace NULL by"
 msgstr "NULL'u bunla değiştir:"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
-#| msgid "Remove carriage return/line feed characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
@@ -2366,7 +2354,6 @@ msgid "Lines terminated by"
 msgstr "Satırı sonlandıran:"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition:"
 msgid "Excel edition"
 msgstr "Excel yapısı"
 
@@ -2400,7 +2387,6 @@ msgid "Table caption"
 msgstr "Tablo başlığı"
 
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:100
-#| msgid "Include table caption"
 msgid "Continued table caption"
 msgstr "Devam eden tablo başlığı"
 
@@ -2421,7 +2407,6 @@ msgid "Relations"
 msgstr "İlişkiler"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export Method:"
 msgid "Export method"
 msgstr "Dışa aktarma yöntemi"
 
@@ -2448,7 +2433,6 @@ msgid "SQL compatibility mode"
 msgstr "SQL uyumluluk kipi"
 
 #: libraries/config/messages.inc.php:118
-#| msgid "Syntax to use when inserting data:"
 msgid "Syntax to use when inserting data"
 msgstr "Veri eklenirken kullanılacak sözdizimi"
 
@@ -2457,7 +2441,6 @@ msgid "Creation/Update/Check dates"
 msgstr "Oluşturma/Güncelleme/Denetleme tarihleri"
 
 #: libraries/config/messages.inc.php:120
-#| msgid "Delayed inserts"
 msgid "Use delayed inserts"
 msgstr "Gecikmiş eklemeleri kullan"
 
@@ -2470,7 +2453,6 @@ msgid "Use hexadecimal for BLOB"
 msgstr "BLOB için onaltılık düzen kullan"
 
 #: libraries/config/messages.inc.php:126
-#| msgid "Delayed inserts"
 msgid "Use ignore inserts"
 msgstr "Yoksayılan eklemeleri kullan"
 
@@ -2479,7 +2461,6 @@ msgid "Maximal length of created query"
 msgstr "Oluşturulan sorgunun azami uzunluğu"
 
 #: libraries/config/messages.inc.php:133
-#| msgid "Export"
 msgid "Export type"
 msgstr "Dışa aktarma türü"
 
@@ -2488,7 +2469,6 @@ msgid "Enclose export in a transaction"
 msgstr "İşlem içinde dışa aktarmayı kapsa"
 
 #: libraries/config/messages.inc.php:135
-#| msgid "Export contents"
 msgid "Export time in UTC"
 msgstr "UTC olarak dışa aktarma zamanı"
 
@@ -2532,7 +2512,6 @@ msgstr "Gözatma modunu özelleştirir"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Varsayılan seçenekleri özelleştirir"
 
@@ -2574,7 +2553,6 @@ msgid "Features"
 msgstr "Özellikler"
 
 #: libraries/config/messages.inc.php:163
-#| msgid "Generate"
 msgid "General"
 msgstr "Genel"
 
@@ -2648,7 +2626,6 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Open Belgesi"
 
@@ -2661,7 +2638,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Başka hiçbir yere uymayan ayarlar"
 
 #: libraries/config/messages.inc.php:187
-#| msgid "Page name"
 msgid "Page titles"
 msgstr "Sayfa başlığı"
 
@@ -2672,8 +2648,8 @@ msgid ""
 "get special values."
 msgstr ""
 "Tarayıcının başlık çubuğu metnini belirler. Özel değerleri almak için "
-"kullanılabilecek sihirli dizgiler için  "
-"[a@Documentation.html#cfg_TitleTable]belgelerden[/a] yararlanın."
+"kullanılabilecek sihirli dizgiler için  [a@Documentation.html#cfg_TitleTable]"
+"belgelerden[/a] yararlanın."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
@@ -2703,12 +2679,10 @@ msgid "Basic settings"
 msgstr "Temel ayarlar"
 
 #: libraries/config/messages.inc.php:194
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Kimlik denetimi"
 
 #: libraries/config/messages.inc.php:195
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Kimlik denetimi ayarları"
 
@@ -2729,15 +2703,10 @@ msgid "Enter server connection parameters"
 msgstr "Sunucu bağlantı parametrelerini girin"
 
 #: libraries/config/messages.inc.php:199
-#| msgid "Configuration: %s"
 msgid "Configuration storage"
 msgstr "Yapılandırma depolama"
 
 #: libraries/config/messages.inc.php:200
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
-#| "a] in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
@@ -2787,12 +2756,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "SQL Sorgu kutularında gösterilecek bağlantıları özelleştirir"
 
 #: libraries/config/messages.inc.php:214
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL sorguları ayarları"
 
 #: libraries/config/messages.inc.php:215
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL Onaylayıcı"
 
@@ -2826,12 +2793,10 @@ msgid "Choose how you want tabs to work"
 msgstr "Sekmelerin nasıl çalışmasını istiyorsanız seçin"
 
 #: libraries/config/messages.inc.php:221
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Metin alanları"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Metin giriş alanlarını özelleştirir"
 
@@ -2840,7 +2805,6 @@ msgid "Texy! text"
 msgstr "Texy! metni"
 
 #: libraries/config/messages.inc.php:225
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Uyarılar"
 
@@ -2918,7 +2882,6 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#| msgid "Put columns names in the first row"
 msgid "Column names in first row"
 msgstr "İlk satır içindeki sütun adları"
 
@@ -2927,12 +2890,10 @@ msgid "Do not import empty rows"
 msgstr "Boş satırları içe aktarma"
 
 #: libraries/config/messages.inc.php:251
-#| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
 
 #: libraries/config/messages.inc.php:252
-#| msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Yüzdeleri doğru ondalık olarak içe aktar (%12.00'ı .12'ye)"
 
@@ -2945,7 +2906,6 @@ msgid "Partial import: skip queries"
 msgstr "Kısmi içe aktarma: sorguları atla"
 
 #: libraries/config/messages.inc.php:256
-#| msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Sıfır değerleri için AUTO_INCREMENT değeri kullanma"
 
@@ -3204,7 +3164,6 @@ msgid "Memory limit"
 msgstr "Bellek sınırı"
 
 #: libraries/config/messages.inc.php:311
-#| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "Sol silme bağlantısını göster"
 
@@ -3217,7 +3176,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullan"
 
 #: libraries/config/messages.inc.php:314
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Doğal sıra"
 
@@ -3319,7 +3277,7 @@ msgstr "Yeni sorgu penceresi açıldığında görüntülenen sekme"
 msgid "Default query window tab"
 msgstr "Varsayılan sorgu penceresi sekmesi"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr "Sorgu penceresi yüksekliği (piksel olarak)"
 
@@ -3328,6 +3286,12 @@ msgstr "Sorgu penceresi yüksekliği (piksel olarak)"
 #| msgid "Query window"
 msgid "Query window height"
 msgstr "Sorgu penceresi"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window height (in pixels)"
+msgid "Query window width (in pixels)"
+msgstr "Sorgu penceresi yüksekliği (piksel olarak)"
 
 #: libraries/config/messages.inc.php:339
 #, fuzzy
@@ -4304,16 +4268,16 @@ msgstr ""
 "Yapılandırmanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
 "başarısız."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "Sunucu yanıt vermiyor"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(ya da yerel MySQL sunucusunun soketi doğru olarak yapılandırılmadı)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "Ayrıntılar..."
 

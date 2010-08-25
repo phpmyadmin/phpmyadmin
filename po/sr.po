@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:32+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -3370,7 +3370,7 @@ msgstr ""
 msgid "Default query window tab"
 msgstr ""
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr ""
 
@@ -3378,6 +3378,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
+msgstr "Прозор за упите"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window"
+msgid "Query window width (in pixels)"
 msgstr "Прозор за упите"
 
 #: libraries/config/messages.inc.php:339
@@ -4264,16 +4270,16 @@ msgstr ""
 "Конекција за controluser-а, онако како је дефинисана у вашој конфигурацији, "
 "није успела."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "Сервер не одговара"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(или прикључак локалног MySQL сервера није исправно подешен)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr ""
 

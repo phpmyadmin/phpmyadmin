@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:32+0200\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -3479,7 +3479,7 @@ msgstr "Yangi so‘rovlar oynasi ochilganda ko‘rsatiladigan yorliq"
 msgid "Default query window tab"
 msgstr "So‘rovlar oynasining yorlig‘i"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr ""
 
@@ -3487,6 +3487,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
+msgstr "So‘rovlar oynasi"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window"
+msgid "Query window width (in pixels)"
 msgstr "So‘rovlar oynasi"
 
 #: libraries/config/messages.inc.php:339
@@ -4489,16 +4495,16 @@ msgstr ""
 "\"config.inc.php\" konfiguratsion faylining \"controluser\" direktivasida "
 "ko‘rsatilgan foydalanuvchi yordamida ulanib bo‘lmadi."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "Server javob bermayapti"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(yoki lokal MySQL serverning soketi noto‘g‘ri sozlangan)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "Tafsilotlar..."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:32+0200\n"
 "PO-Revision-Date: 2010-08-24 14:12+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -340,7 +340,6 @@ msgstr ""
 "click %shere%s."
 
 #: db_operations.php:531
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "Edit or export relational schema"
 
@@ -1926,12 +1925,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Custom - like above, but without the quick/custom choice"
 
 #: libraries/config.values.php:119
-#| msgid "Delayed inserts"
 msgid "complete inserts"
 msgstr "complete inserts"
 
 #: libraries/config.values.php:120
-#| msgid "Delayed inserts"
 msgid "extended inserts"
 msgstr "extended inserts"
 
@@ -1977,7 +1974,6 @@ msgstr "Missing data for %s"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "unavailable"
 
@@ -1998,18 +1994,15 @@ msgid "export will not work, missing function (%s)"
 msgstr "export will not work, missing function (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
-#| msgid "$cfg['SQLValidator'] boolean"
 msgid "SQL Validator is disabled"
 msgstr "SQL Validator is disabled"
 
 #: libraries/config/FormDisplay.class.php:765
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "SOAP extension not found"
 
 #: libraries/config/FormDisplay.class.php:773
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "maximum %s"
 
@@ -2056,10 +2049,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Allow login to any MySQL server"
 
 #: libraries/config/messages.inc.php:19
-#| msgid ""
-#| "Setting this to <tt>true</tt> allows a page located on a different domain "
-#| "to call phpMyAdmin inside a frame, and is a potential security hole "
-#| "allowing cross-frame scripting attacks."
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -2070,7 +2059,6 @@ msgstr ""
 "cross-frame scripting attacks"
 
 #: libraries/config/messages.inc.php:20
-#| msgid "$cfg['AllowThirdPartyFraming'] boolean"
 msgid "Allow third party framing"
 msgstr "Allow third party framing"
 
@@ -2194,7 +2182,6 @@ msgid "Debug SQL"
 msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:45
-#| msgid "Databases display options"
 msgid "Default display direction"
 msgstr "Default display direction"
 
@@ -2235,7 +2222,6 @@ msgid "Default table tab"
 msgstr "Default table tab"
 
 #: libraries/config/messages.inc.php:54
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
 msgstr "Show binary contents as HEX by default"
 
@@ -2264,27 +2250,22 @@ msgid "Edit SQL queries in popup window"
 msgstr "Edit SQL queries in popup window"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Edit in window"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Display errors"
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "Gather errors"
 
 #: libraries/config/messages.inc.php:64
-#| msgid "Uses icons for warnings, errors and informations."
 msgid "Show icons for warning, error and information messages"
 msgstr "Show icons for warning, error and information messages"
 
 #: libraries/config/messages.inc.php:65
-#| msgid "Ignore errors"
 msgid "Iconic errors"
 msgstr "Iconic errors"
 
@@ -2350,7 +2331,6 @@ msgid "Replace NULL by"
 msgstr "Replace NULL by"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
-#| msgid "Remove carriage return/line feed characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "Remove CRLF characters within columns"
 
@@ -2366,7 +2346,6 @@ msgid "Lines terminated by"
 msgstr "Lines terminated by"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition:"
 msgid "Excel edition"
 msgstr "Excel edition"
 
@@ -2400,7 +2379,6 @@ msgid "Table caption"
 msgstr "Table caption"
 
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:100
-#| msgid "Include table caption"
 msgid "Continued table caption"
 msgstr "Continued table caption"
 
@@ -2421,7 +2399,6 @@ msgid "Relations"
 msgstr "Relations"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export Method:"
 msgid "Export method"
 msgstr "Export method"
 
@@ -2448,7 +2425,6 @@ msgid "SQL compatibility mode"
 msgstr "SQL compatibility mode"
 
 #: libraries/config/messages.inc.php:118
-#| msgid "Syntax to use when inserting data:"
 msgid "Syntax to use when inserting data"
 msgstr "Syntax to use when inserting data"
 
@@ -2457,7 +2433,6 @@ msgid "Creation/Update/Check dates"
 msgstr "Creation/Update/Check dates"
 
 #: libraries/config/messages.inc.php:120
-#| msgid "Delayed inserts"
 msgid "Use delayed inserts"
 msgstr "Use delayed inserts"
 
@@ -2470,7 +2445,6 @@ msgid "Use hexadecimal for BLOB"
 msgstr "Use hexadecimal for BLOB"
 
 #: libraries/config/messages.inc.php:126
-#| msgid "Delayed inserts"
 msgid "Use ignore inserts"
 msgstr "Use ignore inserts"
 
@@ -2479,7 +2453,6 @@ msgid "Maximal length of created query"
 msgstr "Maximal length of created query"
 
 #: libraries/config/messages.inc.php:133
-#| msgid "Export"
 msgid "Export type"
 msgstr "Export type"
 
@@ -2488,7 +2461,6 @@ msgid "Enclose export in a transaction"
 msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:135
-#| msgid "Export contents"
 msgid "Export time in UTC"
 msgstr "Export time in UTC"
 
@@ -2532,7 +2504,6 @@ msgstr "Customise browse mode"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Customise default options"
 
@@ -2574,7 +2545,6 @@ msgid "Features"
 msgstr "Features"
 
 #: libraries/config/messages.inc.php:163
-#| msgid "Generate"
 msgid "General"
 msgstr "General"
 
@@ -2648,7 +2618,6 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Open Document"
 
@@ -2661,7 +2630,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Settings that didn't fit enywhere else"
 
 #: libraries/config/messages.inc.php:187
-#| msgid "Page name"
 msgid "Page titles"
 msgstr "Page titles"
 
@@ -2671,9 +2639,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"Specify browser's title bar text. Refer to "
-"[a@Documentation.html#cfg_TitleTable]documentation[/a] for magic strings "
-"that can be used to get special values."
+"Specify browser's title bar text. Refer to [a@Documentation."
+"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
+"get special values."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
@@ -2703,12 +2671,10 @@ msgid "Basic settings"
 msgstr "Basic settings"
 
 #: libraries/config/messages.inc.php:194
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Authentication"
 
 #: libraries/config/messages.inc.php:195
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Authentication settings"
 
@@ -2729,15 +2695,10 @@ msgid "Enter server connection parameters"
 msgstr "Enter server connection parameters"
 
 #: libraries/config/messages.inc.php:199
-#| msgid "Configuration: %s"
 msgid "Configuration storage"
 msgstr "Configuration storage"
 
 #: libraries/config/messages.inc.php:200
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
-#| "a] in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
@@ -2786,12 +2747,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Customise links shown in SQL Query boxes"
 
 #: libraries/config/messages.inc.php:214
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL queries settings"
 
 #: libraries/config/messages.inc.php:215
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL Validator"
 
@@ -2803,10 +2762,9 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "If you wish to use the SQL Validator service, you should be aware that "
-"[strong]all SQL statements are stored anonymously for statistical "
-"purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-"reserved.[/em]"
+"[strong]all SQL statements are stored anonymously for statistical purposes[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
@@ -2825,12 +2783,10 @@ msgid "Choose how you want tabs to work"
 msgstr "Choose how you want tabs to work"
 
 #: libraries/config/messages.inc.php:221
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Text fields"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Customise text input fields"
 
@@ -2839,7 +2795,6 @@ msgid "Texy! text"
 msgstr "Texy! text"
 
 #: libraries/config/messages.inc.php:225
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Warnings"
 
@@ -2917,7 +2872,6 @@ msgstr "Use LOCAL keyword"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#| msgid "Put columns names in the first row"
 msgid "Column names in first row"
 msgstr "Column names in first row"
 
@@ -2926,12 +2880,10 @@ msgid "Do not import empty rows"
 msgstr "Do not import empty rows"
 
 #: libraries/config/messages.inc.php:251
-#| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Import currencies (£5.00 to 5.00)"
 
 #: libraries/config/messages.inc.php:252
-#| msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Import percentages as proper decimals (12.00% to .12)"
 
@@ -2944,7 +2896,6 @@ msgid "Partial import: skip queries"
 msgstr "Partial import: skip queries"
 
 #: libraries/config/messages.inc.php:256
-#| msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Do not use AUTO_INCREMENT for zero values"
 
@@ -3057,9 +3008,6 @@ msgid "Light tabs"
 msgstr "Light tabs"
 
 #: libraries/config/messages.inc.php:284
-#| msgid ""
-#| "Maximum number of characters shown in any non-numeric field on browse "
-#| "view.  Can be turned off by a toggle button on the browse page."
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
@@ -3128,7 +3076,6 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "Bigger textarea for LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
-#| msgid "Uses icons on main page in lists and menu tabs."
 msgid "Use icons on main page"
 msgstr "Use icons on main page"
 
@@ -3176,10 +3123,6 @@ msgid "Maximum tables"
 msgstr "Maximum tables"
 
 #: libraries/config/messages.inc.php:307
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication.  You can set this parameter to <tt>TRUE</tt> to "
-#| "stop this message from appearing."
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
@@ -3204,7 +3147,6 @@ msgid "Memory limit"
 msgstr "Memory limit"
 
 #: libraries/config/messages.inc.php:311
-#| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "Show left delete link"
 
@@ -3217,7 +3159,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Use natural order for sorting table and database names"
 
 #: libraries/config/messages.inc.php:314
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Natural order"
 
@@ -3284,9 +3225,6 @@ msgid "Protect binary columns"
 msgstr "Protect binary columns"
 
 #: libraries/config/messages.inc.php:329
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3316,17 +3254,21 @@ msgstr "Tab displayed when opening a new query window"
 msgid "Default query window tab"
 msgstr "Default query window tab"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr "Query window height (in pixels)"
 
 #: libraries/config/messages.inc.php:337
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Query window height"
 
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window height (in pixels)"
+msgid "Query window width (in pixels)"
+msgstr "Query window height (in pixels)"
+
 #: libraries/config/messages.inc.php:339
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Query window width"
 
@@ -3339,18 +3281,15 @@ msgid "Recoding engine"
 msgstr "Recoding engine"
 
 #: libraries/config/messages.inc.php:342
-#| msgid "Repeat the headers every X cells, or 0 to deactivate."
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
+msgstr ""
+"Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 
 #: libraries/config/messages.inc.php:343
-#| msgid "Metadata Headers"
 msgid "Repeat headers"
 msgstr "Repeat headers"
 
 #: libraries/config/messages.inc.php:344
-#| msgid ""
-#| "Shows a help button instead of the &quot;Documentation&quot; message."
 msgid "Show help button instead of Documentation text"
 msgstr "Show help button instead of Documentation text"
 
@@ -3371,7 +3310,6 @@ msgid "Leave blank if not used"
 msgstr "Leave blank if not used"
 
 #: libraries/config/messages.inc.php:350
-#| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Host authorisation order"
 
@@ -3380,7 +3318,6 @@ msgid "Leave blank for defaults"
 msgstr "Leave blank for defaults"
 
 #: libraries/config/messages.inc.php:352
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Host authorisation rules"
 
@@ -3559,9 +3496,6 @@ msgid "Connect without password"
 msgstr "Connect without password"
 
 #: libraries/config/messages.inc.php:389
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -3608,7 +3542,6 @@ msgstr ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:396
-#| msgid "database name"
 msgid "Database name"
 msgstr "Database name"
 
@@ -3764,15 +3697,12 @@ msgid "Automatically create versions"
 msgstr "Automatically create versions"
 
 #: libraries/config/messages.inc.php:426
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma_config[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 msgid "User preferences storage table"
@@ -3834,18 +3764,14 @@ msgid "Show create database form"
 msgstr "Show create database form"
 
 #: libraries/config/messages.inc.php:439
-#| msgid ""
-#| "Defines whether or not type fields should be initially displayed in edit/"
-#| "insert mode. The user can toggle this setting from the interface."
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Defines whether or not type fields should be initially displayed in "
-"edit/insert mode"
+"Defines whether or not type fields should be initially displayed in edit/"
+"insert mode"
 
 #: libraries/config/messages.inc.php:440
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Show field types"
 
@@ -3963,8 +3889,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"If you have a custom username, specify it here (defaults to "
-"[kbd]anonymous[/kbd])"
+"If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
+"kbd])"
 
 #: libraries/config/messages.inc.php:467 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4000,7 +3926,6 @@ msgstr ""
 "query textareas (*2) and for query window (*1.25)"
 
 #: libraries/config/messages.inc.php:473
-#| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "Textarea columns"
 
@@ -4013,7 +3938,6 @@ msgstr ""
 "query textareas (*2) and for query window (*1.25)"
 
 #: libraries/config/messages.inc.php:475
-#| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "Textarea rows"
 
@@ -4026,7 +3950,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Title of browser window when nothing is selected"
 
 #: libraries/config/messages.inc.php:479
-#| msgid "Default table tab"
 msgid "Default title"
 msgstr "Default title"
 
@@ -4113,22 +4036,18 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#| msgid "'config' authentication mode"
 msgid "Config authentication"
 msgstr "Config authentication"
 
 #: libraries/config/setup.forms.php:45
-#| msgid "the Cookie authentication mode"
 msgid "Cookie authentication"
 msgstr "Cookie authentication"
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Swekey authentication"
 msgid "HTTP authentication"
 msgstr "HTTP authentication"
 
 #: libraries/config/setup.forms.php:51
-#| msgid "'signon' authentication mode"
 msgid "Signon authentication"
 msgstr "Signon authentication"
 
@@ -4160,7 +4079,6 @@ msgstr "Open Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:280
 #: libraries/config/user_preferences.forms.php:180
-#| msgid "Databases display options"
 msgid "Database export options"
 msgstr "Database export options"
 
@@ -4287,16 +4205,16 @@ msgstr "Overhead"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Connection for controluser as defined in your configuration failed."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "The server is not responding"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(or the local MySQL server's socket is not correctly configured)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "Details..."
 
@@ -6073,7 +5991,6 @@ msgid "Please choose a page to edit"
 msgstr "Please choose a page to edit"
 
 #: libraries/schema/User_Schema.class.php:155
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Select page"
 
@@ -6082,12 +5999,10 @@ msgid "Select Tables"
 msgstr "Select Tables"
 
 #: libraries/schema/User_Schema.class.php:351
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Display relational schema"
 
 #: libraries/schema/User_Schema.class.php:356
-#| msgid "CSV"
 msgid "SVG"
 msgstr "SVG"
 
@@ -6136,7 +6051,6 @@ msgid "Portrait"
 msgstr "Portrait"
 
 #: libraries/schema/User_Schema.class.php:399
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Orientation"
 
@@ -6199,7 +6113,6 @@ msgid "Synchronize"
 msgstr "Synchronise"
 
 #: libraries/server_links.inc.php:97
-#| msgid "settings"
 msgid "Settings"
 msgstr "Settings"
 
@@ -6594,12 +6507,10 @@ msgstr ""
 "(Default: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "Other core settings"
 msgid "Manage your settings"
 msgstr "Manage your settings"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Configuration has been saved"
 
@@ -6613,7 +6524,6 @@ msgstr ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 
 #: libraries/user_preferences.lib.php:141
-#| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
 msgstr "Could not save configuration"
 
@@ -6655,7 +6565,6 @@ msgid "Choose..."
 msgstr "Choose..."
 
 #: main.php:150 prefs_manage.php:274
-#| msgid "settings"
 msgid "More settings"
 msgstr "More settings"
 
@@ -6925,12 +6834,10 @@ msgid "to/from page"
 msgstr "to/from page"
 
 #: prefs_forms.php:78
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
 msgstr "Cannot save settings, submitted form contains errors"
 
 #: prefs_manage.php:80
-#| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
 msgstr "Could not import configuration"
 
@@ -6947,7 +6854,6 @@ msgid "Saved on: @DATE@"
 msgstr "Saved on: @DATE@"
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "Import from file"
 
@@ -6960,7 +6866,6 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "Settings will be imported from your browser's local storage."
 
 #: prefs_manage.php:254
-#| msgid "Other core settings"
 msgid "You have no saved settings!"
 msgstr "You have no saved settings!"
 
@@ -6969,7 +6874,6 @@ msgid "This feature is not supported by your web browser"
 msgstr "This feature is not supported by your web browser"
 
 #: prefs_manage.php:263
-#| msgid "Server configuration"
 msgid "Merge with current configuration"
 msgstr "Merge with current configuration"
 
@@ -7012,7 +6916,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> table not found or not set in %s"
 
 #: schema_export.php:46
-#| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "File doesn't exist"
 
@@ -8680,20 +8583,14 @@ msgid "Cannot load or save configuration"
 msgstr "Cannot load or save configuration"
 
 #: setup/frames/index.inc.php:50
-#| msgid ""
-#| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
-#| "top level directory as described in [a@../Documentation.html#setup_script]"
-#| "documentation[/a]. Otherwise you will be only able to download or display "
-#| "it."
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in "
-"[a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be "
-"only able to download or display it."
+"level directory as described in [a@Documentation.html#setup_script]"
+"documentation[/a]. Otherwise you will be only able to download or display it."
 
 #: setup/frames/index.inc.php:57
 msgid ""
