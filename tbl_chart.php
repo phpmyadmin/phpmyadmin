@@ -85,47 +85,47 @@ $url_params['reload'] = 1;
         <?php echo $chart; ?>
     </div>
 
-    <input type="hidden" name="sql_query" id="sql_query" value="<?php echo $sql_query; ?>" />
+    <input type="hidden" name="sql_query" id="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 
     <table>
     <tr><td><label for="width"><?php echo __("Width"); ?></label></td>
-        <td><input type="text" name="chartSettings[width]" id="width" value="<?php echo (isset($chartSettings['width']) ? $chartSettings['width'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[width]" id="width" value="<?php echo (isset($chartSettings['width']) ? htmlspecialchars($chartSettings['width']) : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="height"><?php echo __("Height"); ?></label></td>
-        <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo (isset($chartSettings['height']) ? $chartSettings['height'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo (isset($chartSettings['height']) ? htmlspecialchars($chartSettings['height']) : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="titleText"><?php echo __("Title"); ?></label></td>
-        <td><input type="text" name="chartSettings[titleText]" id="titleText" value="<?php echo (isset($chartSettings['titleText']) ? $chartSettings['titleText'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[titleText]" id="titleText" value="<?php echo (isset($chartSettings['titleText']) ? htmlspecialchars($chartSettings['titleText']) : ''); ?>" /></td>
     </tr>
 
     <?php if ($chartSettings['type'] != 'pie' && $chartSettings['type'] != 'radar') { ?>
     <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo (isset($chartSettings['xLabel']) ? $chartSettings['xLabel'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo (isset($chartSettings['xLabel']) ? htmlspecialchars($chartSettings['xLabel']) : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo (isset($chartSettings['yLabel']) ? $chartSettings['yLabel'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo (isset($chartSettings['yLabel']) ? htmlspecialchars($chartSettings['yLabel']) : ''); ?>" /></td>
     </tr>
     <?php } ?>
 
     <tr><td><label for="areaMargins"><?php echo __("Area margins"); ?></label></td>
         <td>
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][0]) ? $chartSettings['areaMargins'][0] : ''); ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][1]) ? $chartSettings['areaMargins'][1] : ''); ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][2]) ? $chartSettings['areaMargins'][2] : ''); ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][3]) ? $chartSettings['areaMargins'][3] : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][0]) ? htmlspecialchars($chartSettings['areaMargins'][0]) : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][1]) ? htmlspecialchars($chartSettings['areaMargins'][1]) : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][2]) ? htmlspecialchars($chartSettings['areaMargins'][2]) : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][3]) ? htmlspecialchars($chartSettings['areaMargins'][3]) : ''); ?>" />
         </td>
     </tr>
 
     <?php if ($chartSettings['legend'] == true) { ?>
     <tr><td><label for="legendMargins"><?php echo __("Legend margins"); ?></label></td>
         <td>
-            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][0]; ?>" />
-            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][1]; ?>" />
-            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][2]; ?>" />
-            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][3]; ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo htmlspecialchars($chartSettings['legendMargins'][0]); ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo htmlspecialchars($chartSettings['legendMargins'][1]); ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo htmlspecialchars($chartSettings['legendMargins'][2]); ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo htmlspecialchars($chartSettings['legendMargins'][3]); ?>" />
         </td>
     </tr>
     <?php } ?>
@@ -158,7 +158,7 @@ $url_params['reload'] = 1;
     </tr>
 
     <tr><td><label for="fontSize"><?php echo __("Font size"); ?></label></td>
-        <td><input type="text" name="chartSettings[fontSize]" id="fontSize" value="<?php echo (isset($chartSettings['fontSize']) ? $chartSettings['fontSize'] : ''); ?>" /></td>
+        <td><input type="text" name="chartSettings[fontSize]" id="fontSize" value="<?php echo (isset($chartSettings['fontSize']) ? htmlspecialchars($chartSettings['fontSize']) : ''); ?>" /></td>
     </tr>
 
     <?php if ($chartSettings['type'] == 'radar') { ?>
