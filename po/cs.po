@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-23 13:31+0200\n"
-"PO-Revision-Date: 2010-08-24 15:19+0200\n"
+"PO-Revision-Date: 2010-08-25 09:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2534,7 +2534,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:155
 msgid "Developer"
-msgstr "Vývojář"
+msgstr "Pro vývojáře"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
@@ -2993,7 +2993,7 @@ msgstr "Oddělovač tabulkovýho stromu"
 
 #: libraries/config/messages.inc.php:276
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL na které bude odkazovat logo v navigačním rámu"
 
 #: libraries/config/messages.inc.php:277
 msgid "Logo link URL"
@@ -3177,13 +3177,12 @@ msgstr "Zobrazit odkaz pro mazání napravo"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Použít přirozené řazení pro jména tabulek a databází"
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Změnit pořadí tabulky podle"
+msgstr "Přirozené pořadí"
 
 #: libraries/config/messages.inc.php:315 libraries/config/messages.inc.php:325
 msgid "Use only icons, only text or both"
@@ -3311,11 +3310,11 @@ msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Zobrazit ikonu pro nápovědu místo textu Dokumentace"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button"
-msgstr ""
+msgstr "Zobrazit ikonu pro nápovědu"
 
 #: libraries/config/messages.inc.php:347
 msgid "Directory where exports can be saved on server"
@@ -3517,7 +3516,6 @@ msgid "Connect without password"
 msgstr "Připojit bez hesla"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3529,7 +3527,9 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Můžete použít žolíky MySQL (% a _), escapujte je, pokud je chcete použít "
-"jako znaky, např. použijte 'moje\\_db' a ne 'moje_db'"
+"jako znaky, např. použijte 'moje\\_db' a ne 'moje_db'. Použitím této volby "
+"můžete také změnit pořadí databází, stačí na konci seznamu uvést [kbd]*[/"
+"kbd] pro zobrazní ostatních v abecedním pořadí."
 
 #: libraries/config/messages.inc.php:390
 msgid "Show only listed databases"
@@ -3964,25 +3964,24 @@ msgstr "Řádky pro textové oblasti CHAR"
 
 #: libraries/config/messages.inc.php:476
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titulek prohlížeče pokud je vybraná databáze"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Titulek prohlížeče pokud není nic vybráno"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Výchozí panel tabulky"
+msgstr "Výchozí titulek"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Titulek prohlížeče pokud je vybraný server"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Titulek prohlížeče pokud je vybraná tabulka"
 
 #: libraries/config/messages.inc.php:484
 msgid ""
@@ -4024,7 +4023,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Povolit záložku Pro vývojáře v nastaveních"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
