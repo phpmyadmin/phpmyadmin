@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:32+0200\n"
-"PO-Revision-Date: 2010-08-25 09:41+0200\n"
+"PO-Revision-Date: 2010-08-25 09:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2703,7 +2703,6 @@ msgid "Configuration storage"
 msgstr "Úložiště konfigurace"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
@@ -2713,9 +2712,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Nastavení databáze phpMyAdmina tak, aby získal přístup k dodatečným funkcím, "
-"viz sekce [a@../Documentation.html#linked-tables]úložiště nastavení "
-"phpMyAdmina[/a] v dokumentaci"
+"Nastavení úložiště nastavení phpMyAdmina tak, aby získal přístup k "
+"dodatečným funkcím, viz sekce [a@Documentation.html#linked-tables]úložiště "
+"nastavení phpMyAdmina[/a] v dokumentaci"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
@@ -3211,7 +3210,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:324
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic table operations"
@@ -4301,10 +4300,9 @@ msgid "Rows:"
 msgstr "Řádky:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Všechny řádky"
+msgstr "Vypsat některé řádky"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
@@ -4348,7 +4346,7 @@ msgid "table name"
 msgstr "jméno tabulky"
 
 #: libraries/display_export.lib.php:240
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4360,11 +4358,12 @@ msgid ""
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
-"následující nahrazení: %3$s. Jakýkoliv jiný text zůstane zachován beze změny."
+"následující nahrazení: %3$s. Jakýkoliv jiný text zůstane zachován beze "
+"změny. Více podrobností je ve %4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:278
 msgid "use this for future exports"
-msgstr ""
+msgstr "použít i pro budoucí exporty"
 
 #: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
@@ -4474,7 +4473,6 @@ msgstr ""
 "pokračovat od pozice %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4485,8 +4483,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Povolit přerušení importu v případě že skript pozná, že se blíží časový "
-"limit nastavený v PHP. Tímto způsobem můžete importovat i velké soubory, ale "
-"může to způsobit problémy s transakcemi."
+"limit nastavený v PHP. <i>(Tímto způsobem můžete importovat i velké soubory, "
+"ale může to způsobit problémy s transakcemi.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -5087,10 +5085,9 @@ msgstr "Verze Excelu:"
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Nastavení zobrazení databází"
+msgstr "Nastavení výpisu dat"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:929 libraries/export/texytext.php:123
@@ -5116,10 +5113,9 @@ msgstr "Struktura tabulky @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Parametry transformace"
+msgstr "Nastavení vytváření objektů"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 msgid "Table caption (continued)"
@@ -5190,12 +5186,13 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Zobrazit komentáře <i>(ty obsahují informace jako čas exportu, verzi PHP "
+"nebo MySQL serveru)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Přidat vlastní komentář do hlavičky (\\n odděluje řádky)"
+msgstr "Přidat vlastní komentář do hlavičky (\\n odděluje řádky):"
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5329,7 +5326,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:30
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Nastavení vytváření objektů (všechna jsou doporučena)"
 
 #: libraries/export/xml.php:40
 msgid "Views"
@@ -6003,7 +6000,7 @@ msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:361
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Zvolte typ výstupu relací"
 
 #: libraries/schema/User_Schema.class.php:382
 msgid "Show grid"
@@ -6302,11 +6299,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Příliš mnoho dat ENUM nebo SET?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Získejte více místa pro editaci"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
@@ -6345,7 +6342,6 @@ msgid "You have to add at least one column."
 msgstr "Musíte přidat alespoň jedno pole."
 
 #: libraries/tbl_properties.inc.php:799
-#, fuzzy
 #| msgid ""
 #| "Please enter the values for transformation options using this format: "
 #| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
@@ -6356,10 +6352,9 @@ msgid ""
 "(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
 "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'...<br /"
-">Pokud potřebujete použít zpětné lomítko („\\“) nebo jednoduché uvozovky "
-"(„'“) mezi těmito hodnotami, vložte před ně zpětné lomítko (například '\\"
-"\\xyz' nebo 'a\\'b')."
+"Zadejte každou hodnotu to samostatného políčka. Pokud potřebujete použít "
+"zpětné lomítko („\\“) nebo jednoduché uvozovky („'“) mezi těmito hodnotami, "
+"vložte před ně zpětné lomítko (například '\\\\xyz' nebo 'a\\'b')."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -6831,11 +6826,11 @@ msgstr "Nepodařilo se nahrát konfiguraci"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Nastavení obsahuje neplatné data pro některé položky"
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Přejete si načíst zbývající nastavení?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
@@ -6873,22 +6868,24 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Uložit do úložiště prohlížeče"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Nastavení bude uloženo do lokálního úložiště prohlížeče."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Již uložené nastavení bude přepsáno!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values"
-msgstr ""
+msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám"
 
 #: querywindow.php:93
 msgid "Import files"
