@@ -316,7 +316,9 @@ abstract class PMA_pChart_chart extends PMA_chart
         if (function_exists('json_encode')) {
             $returnData .= '
                 <script type="text/javascript">
-                imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
+                //<![CDATA[
+                    imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
+                //]]>
                 </script>
             ';
         }
