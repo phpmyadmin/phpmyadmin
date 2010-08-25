@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-25 09:50+0200\n"
+"PO-Revision-Date: 2010-08-25 09:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6855,10 +6855,9 @@ msgid "Existing settings will be overwritten!"
 msgstr "Již uložené nastavení bude přepsáno!"
 
 #: prefs_manage.php:323
-#, fuzzy
 #| msgid "You can reset all your settings and restore them to default values"
 msgid "You can reset all your settings and restore them to default values."
-msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám"
+msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám."
 
 #: querywindow.php:93
 msgid "Import files"
