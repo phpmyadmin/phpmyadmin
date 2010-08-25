@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:32+0200\n"
-"PO-Revision-Date: 2010-08-25 09:29+0200\n"
+"PO-Revision-Date: 2010-08-25 09:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3261,17 +3261,16 @@ msgstr "Výchozí panel okna dotazů"
 
 #: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Výška okna dotazů (v pixelech)"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height"
 msgstr "Výška okna dotazů"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window width"
 msgid "Query window width (in pixels)"
-msgstr "Šířka okna dotazů"
+msgstr "Šířka okna dotazů (v pixelech)"
 
 #: libraries/config/messages.inc.php:339
 msgid "Query window width"
@@ -4401,7 +4400,7 @@ msgstr "Formát:"
 
 #: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Parametry pro výstupní formát:"
 
 #: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
@@ -5231,15 +5230,15 @@ msgstr ""
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Namísto příkazů <code>INSERT</code> použít:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "příkazy <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "příkazy <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
@@ -5762,7 +5761,7 @@ msgstr "SQL historie"
 
 #: libraries/relation.lib.php:141
 msgid "User preferences"
-msgstr ""
+msgstr "Uživatelská nastavení"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
@@ -5926,7 +5925,7 @@ msgstr "žádné tabulky"
 
 #: libraries/schema/Export_Relation_Schema.class.php:209
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "Chyba při vytváření schéma:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:896
 #: libraries/schema/Pdf_Relation_Schema.class.php:1124
@@ -6494,16 +6493,14 @@ msgstr ""
 "zkrácený text (výchozí je ...)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Jiná důležitá nastavení"
+msgstr "Spravujte svoje nastavení"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Změny byly uloženy"
+msgstr "Nastavení bylo uloženo"
 
 #: libraries/user_preferences.inc.php:69
 #, php-format
@@ -6511,18 +6508,21 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Vaše nastavení bude uchováno jen pro toto sezení. Pro trvalá nastavení "
+"musíte nastavit %súložiště nastavení phpMyAdmina%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Nelze načíst nebo uložit nastavení"
+msgstr "Nepodařilo se uložit nastavení"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Ve vašem prohlížeči je uloženo nastavení phpMyAdmina pro tuto doménu. "
+"Přejete si ho importovat do tohoto sezení?"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -6597,7 +6597,7 @@ msgstr "Oficiální stránka phpMyAdmina"
 
 #: main.php:220
 msgid "Mailing lists"
-msgstr ""
+msgstr "Mailové konference"
 
 #: main.php:246
 msgid ""
@@ -6820,16 +6820,14 @@ msgid "to/from page"
 msgstr "do/ze stránky"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Odeslaný formulář obsahuje chyby"
+msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
+msgstr "Nepodařilo se nahrát konfiguraci"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
@@ -6849,27 +6847,25 @@ msgstr "Importovat ze souboru"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Načíst z úložiště v prohlížeči"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Nastavení bude načteno z lokálního úložiště ve vašem prohlížeči"
 
 #: prefs_manage.php:254
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Jiná důležitá nastavení"
+msgstr "Nemáte žádná uložená nastavení!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Tato funkce není vaším prohlížečem podporována"
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Nastavení serveru"
+msgstr "Sloučit se současným nastavením"
 
 #: prefs_manage.php:277
 #, php-format
@@ -6908,10 +6904,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabulka nenalezena nebo není nastavena v %s"
 
 #: schema_export.php:46
-#, fuzzy
 #| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Tabulka %s neexistuje!"
+msgstr "Soubor neexistuje"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
@@ -8570,7 +8565,6 @@ msgid "Cannot load or save configuration"
 msgstr "Nelze načíst nebo uložit nastavení"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -8582,7 +8576,7 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosím, vytvořte adresář [em]config[/em] zapisovatelný pro web server v "
-"kořenovém adresáři phpMyAdmin, jak je popsáno v [a@../Documentation."
+"kořenovém adresáři phpMyAdmina, jak je popsáno v [a@Documentation."
 "html#setup_script]dokumentaci[/a]. Jinak budete moci nastavení pouze "
 "stáhnout nebo zobrazit."
 
