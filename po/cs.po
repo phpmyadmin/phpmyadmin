@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-25 09:32+0200\n"
+"POT-Creation-Date: 2010-08-25 09:51+0200\n"
 "PO-Revision-Date: 2010-08-25 09:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -2703,10 +2703,6 @@ msgid "Configuration storage"
 msgstr "Úložiště konfigurace"
 
 #: libraries/config/messages.inc.php:200
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/"
-#| "a] in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
@@ -3267,7 +3263,6 @@ msgid "Query window height"
 msgstr "Výška okna dotazů"
 
 #: libraries/config/messages.inc.php:338
-#| msgid "Query window width"
 msgid "Query window width (in pixels)"
 msgstr "Šířka okna dotazů (v pixelech)"
 
@@ -4300,7 +4295,6 @@ msgid "Rows:"
 msgstr "Řádky:"
 
 #: libraries/display_export.lib.php:157
-#| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Vypsat některé řádky"
 
@@ -4347,10 +4341,6 @@ msgstr "jméno tabulky"
 
 #: libraries/display_export.lib.php:240
 #, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -4473,10 +4463,6 @@ msgstr ""
 "pokračovat od pozice %d."
 
 #: libraries/display_import.lib.php:221
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -5085,7 +5071,6 @@ msgstr "Verze Excelu:"
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#| msgid "Databases display options"
 msgid "Data dump options"
 msgstr "Nastavení výpisu dat"
 
@@ -5113,7 +5098,6 @@ msgstr "Struktura tabulky @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Nastavení vytváření objektů"
 
@@ -5190,7 +5174,6 @@ msgstr ""
 "nebo MySQL serveru)</i>"
 
 #: libraries/export/sql.php:35
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Přidat vlastní komentář do hlavičky (\\n odděluje řádky):"
 
@@ -6342,11 +6325,6 @@ msgid "You have to add at least one column."
 msgstr "Musíte přidat alespoň jedno pole."
 
 #: libraries/tbl_properties.inc.php:799
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Enter each value in a separate field. If you ever need to put a backslash "
 "(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
@@ -6488,12 +6466,10 @@ msgstr ""
 "zkrácený text (výchozí je ...)."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "Other core settings"
 msgid "Manage your settings"
 msgstr "Spravujte svoje nastavení"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Nastavení bylo uloženo"
 
@@ -6507,7 +6483,6 @@ msgstr ""
 "musíte nastavit %súložiště nastavení phpMyAdmina%s."
 
 #: libraries/user_preferences.lib.php:141
-#| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
 msgstr "Nepodařilo se uložit nastavení"
 
@@ -6815,12 +6790,10 @@ msgid "to/from page"
 msgstr "do/ze stránky"
 
 #: prefs_forms.php:78
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
 msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby"
 
 #: prefs_manage.php:80
-#| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
 msgstr "Nepodařilo se nahrát konfiguraci"
 
@@ -6849,7 +6822,6 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "Nastavení bude načteno z lokálního úložiště ve vašem prohlížeči"
 
 #: prefs_manage.php:254
-#| msgid "Other core settings"
 msgid "You have no saved settings!"
 msgstr "Nemáte žádná uložená nastavení!"
 
@@ -6858,7 +6830,6 @@ msgid "This feature is not supported by your web browser"
 msgstr "Tato funkce není vaším prohlížečem podporována"
 
 #: prefs_manage.php:263
-#| msgid "Server configuration"
 msgid "Merge with current configuration"
 msgstr "Sloučit se současným nastavením"
 
@@ -6884,7 +6855,9 @@ msgid "Existing settings will be overwritten!"
 msgstr "Již uložené nastavení bude přepsáno!"
 
 #: prefs_manage.php:323
-msgid "You can reset all your settings and restore them to default values"
+#, fuzzy
+#| msgid "You can reset all your settings and restore them to default values"
+msgid "You can reset all your settings and restore them to default values."
 msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám"
 
 #: querywindow.php:93
@@ -6901,7 +6874,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabulka nenalezena nebo není nastavena v %s"
 
 #: schema_export.php:46
-#| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "Soubor neexistuje"
 
@@ -8562,11 +8534,6 @@ msgid "Cannot load or save configuration"
 msgstr "Nelze načíst nebo uložit nastavení"
 
 #: setup/frames/index.inc.php:50
-#| msgid ""
-#| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
-#| "top level directory as described in [a@../Documentation.html#setup_script]"
-#| "documentation[/a]. Otherwise you will be only able to download or display "
-#| "it."
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"

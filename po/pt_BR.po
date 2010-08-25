@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-25 09:32+0200\n"
+"POT-Creation-Date: 2010-08-25 09:51+0200\n"
 "PO-Revision-Date: 2010-07-13 23:58+0200\n"
 "Last-Translator: William  Bachion <william@bachiondesign.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -7082,7 +7082,7 @@ msgid "Existing settings will be overwritten!"
 msgstr ""
 
 #: prefs_manage.php:323
-msgid "You can reset all your settings and restore them to default values"
+msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: querywindow.php:93
