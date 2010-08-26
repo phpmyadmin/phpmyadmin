@@ -479,8 +479,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
                 <?php
                 if(isset($primary_enabled)) {
                      if($primary_enabled) { ?>
-                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
-                          onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
+                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Primary']; ?>
                          </a>
                      <?php

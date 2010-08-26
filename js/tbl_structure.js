@@ -17,7 +17,7 @@
  *
  */
 $(document).ready(function() {
-    //Drop Column
+    
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -60,14 +60,13 @@ $(document).ready(function() {
         }); // end $.PMA_confirm()
     }) ; //end of Drop Column Anchor action
 
-    //Add Primary Key
     /**
      * Ajax Event handler for 'Add Primary Key'
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
      */
-    $(".add_primary_key_anchor").live('click', function(event) {
+    $(".action_primary a").live('click', function(event) {
         event.preventDefault();
 
         /**
