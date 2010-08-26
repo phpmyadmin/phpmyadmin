@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-26 11:52+0200\n"
+"PO-Revision-Date: 2010-08-26 11:53+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -242,7 +242,7 @@ msgstr "ھەممىنى تاللاش"
 
 #: db_export.php:46 db_search.php:329 server_export.php:28
 msgid "Unselect All"
-msgstr "ھەممە تاللاشنى قالدۇرۇش"
+msgstr "تاللاشنى قالدۇرۇش"
 
 #: db_operations.php:33 tbl_create.php:47
 msgid "The database name is empty!"
