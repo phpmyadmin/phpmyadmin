@@ -15,7 +15,7 @@ require_once 'PHPUnit/Framework.php';
 /**
  * Include to test.
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 /**
  * Test whichCrlf function.

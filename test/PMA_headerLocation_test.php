@@ -53,7 +53,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         if (function_exists("rename_function"))
             $this->apdExt = true;
 
-        
+
         if ($this->apdExt && !$GLOBALS['test_header']) {
 
             // using apd extension to overriding header and headers_sent functions for test purposes
@@ -84,7 +84,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
         }
     }
-    
+
     public function __destruct()
     {
         // rename_function may causes CLI error report in Windows XP, but nothing more happen
@@ -106,7 +106,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         if ($this->runkitExt) {
 
             $this->oldIISvalue = 'non-defined';
-            
+
             if (defined('PMA_IS_IIS')) {
                 $this->oldIISvalue = PMA_IS_IIS;
                 runkit_constant_redefine('PMA_IS_IIS', NULL);
@@ -114,10 +114,10 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
             else {
                 runkit_constant_add('PMA_IS_IIS', NULL);
             }
-            
+
 
             $this->oldSIDvalue = 'non-defined';
-            
+
             if (defined('SID')) {
                 $this->oldSIDvalue = SID;
                 runkit_constant_redefine('SID', NULL);
@@ -125,7 +125,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
             else {
                 runkit_constant_add('SID', NULL);
             }
-            
+
         }
     }
 
@@ -145,7 +145,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
                 runkit_constant_redefine('SID', $this->oldSIDvalue);
             elseif (defined('SID')) {
                 runkit_constant_remove('SID');
-            }            
+            }
         }
 
         if ($this->apdExt)
@@ -153,7 +153,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
     }
 
-    
+
     public function testSendHeaderLocationWithSidUrlWithQuestionMark()
     {
         if ($this->runkitExt && $this->apdExt) {
@@ -162,7 +162,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             $testUri = 'http://testurl.com/test.php?test=test';
             $separator = PMA_get_arg_separator();
-            
+
             $header = 'Location: ' . $testUri . $separator . SID;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -182,7 +182,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             $testUri = 'http://testurl.com/test.php';
             $separator = PMA_get_arg_separator();
-            
+
             $header = 'Location: ' . $testUri . '?' . SID;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -203,7 +203,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             $testUri = 'http://testurl.com/test.php';
             $separator = PMA_get_arg_separator();
-            
+
             $header = 'Refresh: 0; ' . $testUri;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -223,7 +223,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
     {
         if ($this->apdExt) {
 
-            $testUri = 'http://testurl.com/test.php';            
+            $testUri = 'http://testurl.com/test.php';
             $header = 'Location: ' . $testUri;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -243,7 +243,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
             define('PMA_IS_IIS', true);
         else
             $this->markTestSkipped('Cannot redefine constant/function - missing APD or/and runkit extension');
-    
+
 
         // over 600 chars
         $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test';

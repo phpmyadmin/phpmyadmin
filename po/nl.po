@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:51+0200\n"
 "PO-Revision-Date: 2010-05-31 01:06+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -3426,7 +3426,7 @@ msgstr "Tabblad dat wordt getoond bij het openen van een nieuw query-venster"
 msgid "Default query window tab"
 msgstr "Standaard query-venster tabblad"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr ""
 
@@ -3434,6 +3434,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
+msgstr "Query-venster"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window"
+msgid "Query window width (in pixels)"
 msgstr "Query-venster"
 
 #: libraries/config/messages.inc.php:339
@@ -4429,16 +4435,16 @@ msgstr ""
 "Connectie voor de controle gebruiker zoals in de configuratie is opgegeven "
 "is mislukt."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "De server reageert niet"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(of de MySQL-server heeft het socket niet juist ingesteld)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "Details..."
 
@@ -7324,7 +7330,7 @@ msgid "Existing settings will be overwritten!"
 msgstr ""
 
 #: prefs_manage.php:323
-msgid "You can reset all your settings and restore them to default values"
+msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: querywindow.php:93

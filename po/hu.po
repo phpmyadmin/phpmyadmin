@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:51+0200\n"
 "PO-Revision-Date: 2010-07-22 02:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -3461,7 +3461,7 @@ msgstr "Új lekérdezési ablak megnyitásakor fül megjelenítése"
 msgid "Default query window tab"
 msgstr "Alapértelmezett lekérdezési ablak fül"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr ""
 
@@ -3469,6 +3469,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
+msgstr "Lekérdezés ablak"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window"
+msgid "Query window width (in pixels)"
 msgstr "Lekérdezés ablak"
 
 #: libraries/config/messages.inc.php:339
@@ -4461,18 +4467,18 @@ msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "A szerver nem válaszol"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 "(vagy nem megfelelően állították be a helyi MySQL szerver "
 "szoftvercsatornáját)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "Részletek..."
 
@@ -7337,7 +7343,7 @@ msgid "Existing settings will be overwritten!"
 msgstr ""
 
 #: prefs_manage.php:323
-msgid "You can reset all your settings and restore them to default values"
+msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: querywindow.php:93

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-23 13:31+0200\n"
+"POT-Creation-Date: 2010-08-25 09:51+0200\n"
 "PO-Revision-Date: 2010-08-10 08:13+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -3272,7 +3272,7 @@ msgstr "打开一个新查询窗口时默认显示的页面"
 msgid "Default query window tab"
 msgstr "默认查询窗口标签"
 
-#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:336
 msgid "Query window height (in pixels)"
 msgstr ""
 
@@ -3280,6 +3280,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
+msgstr "查询窗口"
+
+#: libraries/config/messages.inc.php:338
+#, fuzzy
+#| msgid "Query window"
+msgid "Query window width (in pixels)"
 msgstr "查询窗口"
 
 #: libraries/config/messages.inc.php:339
@@ -4198,16 +4204,16 @@ msgstr "多余"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
+#: libraries/dbi/mysqli.dbi.lib.php:411
 msgid "The server is not responding"
 msgstr "服务器没有响应"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:406
+#: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(或者本地 MySQL 服务器的套接字没有正确配置)"
 
-#: libraries/dbi/mysql.dbi.lib.php:360 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
 msgid "Details..."
 msgstr "详细..."
 
@@ -6910,7 +6916,7 @@ msgid "Existing settings will be overwritten!"
 msgstr ""
 
 #: prefs_manage.php:323
-msgid "You can reset all your settings and restore them to default values"
+msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: querywindow.php:93

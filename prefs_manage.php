@@ -320,7 +320,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('Reset') ?></h2>
             <form class="group-cnt prefs-form" name="prefs_reset" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
-                <?php echo __('You can reset all your settings and restore them to default values') ?>
+                <?php echo __('You can reset all your settings and restore them to default values.') ?>
                 <br /><br />
                 <input type="submit" name="submit_clear" value="<?php echo __('Reset') ?>" />
             </form>
