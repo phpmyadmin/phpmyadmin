@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-26 11:58+0200\n"
+"PO-Revision-Date: 2010-08-26 11:59+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1612,7 +1612,7 @@ msgstr "PBMS خاتالىقى"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr ""
+msgstr "PBMS ئۇلىنالمىدى:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
