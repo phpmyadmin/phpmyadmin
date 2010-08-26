@@ -6935,12 +6935,11 @@ msgid "Existing settings will be overwritten!"
 msgstr "Obstoječe nastavitve bodo prepisane!"
 
 #: prefs_manage.php:323
-#, fuzzy
 #| msgid "You can reset all your settings and restore them to default values"
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 "Ponastavite lahko vse svoje nastavitve in jih obnovite na njihove privzete "
-"vrednosti"
+"vrednosti."
 
 #: querywindow.php:93
 msgid "Import files"
