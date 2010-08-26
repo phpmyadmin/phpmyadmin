@@ -36,6 +36,10 @@ $(document).ready(function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = 'TRUNCATE ' + curr_table_name;
+        /**
+         * @var this_anchor Object  referring to the anchor clicked
+         */
+        var this_anchor = $(this);
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -44,8 +48,11 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    //need to find a better solution here.  The icon should be replaced
-                    $(this).remove();
+                    //Remove the action's href and class, so as to disable further attempts to truncate the table
+                    // @todo: How to replace the icon with the disabled version?
+                    $(this_anchor)
+                    .removeAttr('href')
+                    .removeClass('.truncate_table_anchor');
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
