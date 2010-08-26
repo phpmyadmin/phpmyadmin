@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-26 11:54+0200\n"
+"PO-Revision-Date: 2010-08-26 11:57+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1048,10 +1048,9 @@ msgid "Generate"
 msgstr "ھاسىللاش"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "دۈشەنبە"
+msgstr "تېخىمۇ كۆپ"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:80
