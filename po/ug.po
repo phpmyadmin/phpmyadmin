@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-07-30 11:41+0200\n"
+"PO-Revision-Date: 2010-08-26 11:47+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -9033,38 +9033,3 @@ msgstr ""
 
 #~ msgid "Data Dictionary Format"
 #~ msgstr "سانلىق مەلۇمات لوغەت شەكلى"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "AUTO_INCREMENT قوشۇش"
-
-#~ msgid "remember template"
-#~ msgstr "ئەستە ساقلاش قېلىپى"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "ئاپتۇماتىك پەرىق ئىتەلەيدىغان پىرىس ھۆججەت تىپلىرى: %s"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB ئامبىرى"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "ئېچىلدى"
-
-#~ msgid "Disable"
-#~ msgstr "تاقاش"
-
-#~ msgid "Damaged"
-#~ msgstr "بۇزۇلغان"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "ئوڭشاش"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "تاقالدى"
-
-#~ msgid "Enable"
-#~ msgstr "ئېچىش"
