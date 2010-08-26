@@ -675,7 +675,9 @@ if (0 == $num_rows || $is_affected) {
             }
         }
 
-        $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+        if(isset($GLOBALS['display_query'])) {
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+        }
 
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     }
