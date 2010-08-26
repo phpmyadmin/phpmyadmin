@@ -105,7 +105,7 @@ if (!$GLOBALS['is_ajax_request']) {
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabDatabase'],
                         PMA_generate_common_url($GLOBALS['db']),
-                        __('New table'),
+                        $GLOBALS['db'],
                         '',
                         's_tbl.png');
                 // if the table is being dropped, $_REQUEST['purge'] is set
