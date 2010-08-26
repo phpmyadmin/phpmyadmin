@@ -31,8 +31,8 @@ class PMA_pChart_multi_line extends PMA_pChart_multi
         parent::drawChart();
 
         // Draw the bar chart
-        $this->chart->drawLineGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription());
-        $this->chart->drawPlotGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),3,1,-1,-1,-1,TRUE);
+        $this->chart->drawLineGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription());
+        $this->chart->drawPlotGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 3, 1, -1, -1, -1, TRUE);
     }
 }
 

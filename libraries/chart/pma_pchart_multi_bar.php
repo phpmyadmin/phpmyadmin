@@ -31,7 +31,7 @@ class PMA_pChart_multi_bar extends PMA_pChart_multi
         parent::drawChart();
 
         // Draw the bar chart
-        $this->chart->drawBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
+        $this->chart->drawBarGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 70);
     }
 }
 

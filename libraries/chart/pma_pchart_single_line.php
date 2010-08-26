@@ -27,8 +27,8 @@ class PMA_pChart_single_line extends PMA_pChart_single
     protected function drawChart()
     {
         // Draw the line chart
-        $this->chart->drawLineGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription());
-        $this->chart->drawPlotGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),3,1,-1,-1,-1,TRUE);
+        $this->chart->drawLineGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription());
+        $this->chart->drawPlotGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 3, 1, -1, -1, -1, TRUE);
     }
 }
 

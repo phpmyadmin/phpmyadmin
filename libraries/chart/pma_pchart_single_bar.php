@@ -28,7 +28,7 @@ class PMA_pChart_single_bar extends PMA_pChart_single
     {
         // Draw the bar chart
         // use stacked bar graph function, because it gives bars with alpha
-        $this->chart->drawStackedBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
+        $this->chart->drawStackedBarGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 70);
     }
 }
 

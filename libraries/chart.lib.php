@@ -54,7 +54,7 @@ function PMA_chart_profiling($data)
 {
     $chartData = array();
     foreach($data as $dataValue) {
-        $value = (int)($dataValue['Duration']*1000000);
+        $value = (int)($dataValue['Duration'] * 1000000);
         $key = ucwords($dataValue['Status']);
         $chartData[$key] = $value;
     }
@@ -247,10 +247,10 @@ function PMA_chart_results($data, &$chartSettings)
 function PMA_handle_chart_err($errors)
 {
     if (in_array(ERR_NO_GD, $errors)) {
-        PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
+        PMA_warnMissingExtension('GD', false, __('GD extension is needed for charts.'));
     }
     else if (in_array(ERR_NO_JSON, $errors)) {
-        PMA_warnMissingExtension('JSON', false, 'JSON encoder is needed for chart tooltips.');
+        PMA_warnMissingExtension('JSON', false, __('JSON encoder is needed for chart tooltips.'));
     }
 }
 

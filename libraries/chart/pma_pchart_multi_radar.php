@@ -91,8 +91,9 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
         $borderOffset += 40;
 
         // Draw the radar chart
-        $this->chart->drawRadarAxis($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),TRUE,$borderOffset,120,120,120,230,230,230,-1,2);
-        $this->chart->drawFilledRadar($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),50,$borderOffset);
+        $this->chart->drawRadarAxis($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), TRUE, $borderOffset, 
+            120, 120, 120, 230, 230, 230, -1, 2);
+        $this->chart->drawFilledRadar($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 50, $borderOffset);
     }
 }
 

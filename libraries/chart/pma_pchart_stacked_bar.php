@@ -29,7 +29,7 @@ class PMA_pChart_stacked_bar extends PMA_pChart_multi
         parent::drawChart();
         
         // Draw the bar chart
-        $this->chart->drawStackedBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
+        $this->chart->drawStackedBarGraph($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 70);
     }
 }
 
