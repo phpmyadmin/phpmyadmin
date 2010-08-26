@@ -46,10 +46,13 @@ function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
         var cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
 
+        var img_object = $(cloned_row).find('img:first').attr('title', PMA_messages['strInlineEdit']);
+
         $(cloned_row).find('td').addClass('edit_row_anchor')
         .find('a').attr('href', '#')
-        .find('img').attr('title', 'Inline Edit')
-        .after("Inline");
+        .find('div')
+        .text(PMA_messages['strInlineEdit'])
+        .prepend(img_object);
 
         $(cloned_row).insertBefore($('.where_clause').parent('tr'));
 
@@ -63,10 +66,13 @@ function appendInlineAnchor(disp_mode) {
 
             var cloned_anchor = $(this).clone();
 
+            var img_object = $(cloned_anchor).find('img').attr('title', PMA_messages['strInlineEdit']);
+
             $(cloned_anchor).addClass('edit_row_anchor')
             .find('a').attr('href', '#')
-            .find('img').attr('title', 'Inline Edit')
-            .after("Inline");
+            .find('div')
+            .text(PMA_messages['strInlineEdit'])
+            .prepend(img_object);
 
             $(this).siblings('.where_clause')
             .before(cloned_anchor);
