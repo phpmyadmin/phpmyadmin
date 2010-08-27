@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:04+0200\n"
+"PO-Revision-Date: 2010-08-27 22:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4143,10 +4143,9 @@ msgstr "Açık Kaynaklı Tablolama Belgesi"
 
 #: libraries/config/setup.forms.php:280
 #: libraries/config/user_preferences.forms.php:180
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Database export options"
-msgstr "Veritabanlarının görüntü seçenekleri"
+msgstr "Veritabanı dışa aktarma seçenekleri"
 
 #: libraries/config/setup.forms.php:293 libraries/config/setup.forms.php:329
 #: libraries/config/setup.forms.php:360 libraries/config/setup.forms.php:365
