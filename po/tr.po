@@ -9172,7 +9172,7 @@ msgstr "Çubuk"
 
 #: tbl_chart.php:136
 msgid "Line"
-msgstr ""
+msgstr "Satır"
 
 #: tbl_chart.php:137
 msgid "Radar"
