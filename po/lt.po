@@ -3383,10 +3383,9 @@ msgid "Query window height"
 msgstr "Užklausos lango aukštis"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Užklausų langas"
+msgstr "Užklausos lango plotis (taškais)"
 
 #: libraries/config/messages.inc.php:339
 #, fuzzy
