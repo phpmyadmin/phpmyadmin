@@ -3324,9 +3324,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:324
-#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "phpMyAdmin'o dokumentacija"
+msgstr "Trūksta phpMyAdmin konfigūracijos saugojimo lentelės"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic table operations"
