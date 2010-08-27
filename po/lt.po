@@ -2068,7 +2068,7 @@ msgstr "importavimas neveiks, nerasta funkcija (%s)"
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "eksportavimas neveiks, nerasta funkcija (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
 msgid "SQL Validator is disabled"
