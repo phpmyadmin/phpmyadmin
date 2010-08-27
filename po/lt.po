@@ -3274,7 +3274,7 @@ msgstr "Rodyti dešinėje pusėje esančių šalinimo nuorodą"
 
 #: libraries/config/messages.inc.php:313
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Naudoti natūralią tvarką rikiuojant lentelių ir duombazių pavadinimus"
 
 #: libraries/config/messages.inc.php:314
 #, fuzzy
