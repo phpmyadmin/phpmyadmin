@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:42+0200\n"
+"PO-Revision-Date: 2010-08-27 21:43+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6980,10 +6980,9 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "Nustatymai bus importuoti iš Jūsų naršyklės vietinės atminties."
 
 #: prefs_manage.php:254
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Kiti branduolio nustatymai"
+msgstr "Jūs neturite išsaugotų nustatymų!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
