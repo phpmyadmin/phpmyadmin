@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:33+0200\n"
+"PO-Revision-Date: 2010-08-27 21:34+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6073,10 +6073,9 @@ msgid "Display relational schema"
 msgstr "Ryšių schema"
 
 #: libraries/schema/User_Schema.class.php:356
-#, fuzzy
 #| msgid "CSV"
 msgid "SVG"
-msgstr "CSV"
+msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "DIA"
