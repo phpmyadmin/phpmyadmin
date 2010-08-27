@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 11:23+0200\n"
+"PO-Revision-Date: 2010-08-27 11:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3342,10 +3342,9 @@ msgid "Leave blank for defaults"
 msgstr "Varsayılan için boş bırakın"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Anamakine kimlik denetimi kuralları"
+msgstr "Anamakine izin kuralları"
 
 #: libraries/config/messages.inc.php:353
 msgid "Allow logins without a password"
