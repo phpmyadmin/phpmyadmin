@@ -2058,7 +2058,7 @@ msgstr "neprieinamas"
 #: libraries/config/FormDisplay.class.php:733
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "„%s“ reikalauja %s praplėtimo"
 
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
