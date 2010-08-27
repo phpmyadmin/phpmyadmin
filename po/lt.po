@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:49+0200\n"
+"PO-Revision-Date: 2010-08-27 22:50+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3929,9 +3929,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 msgid "Skip locked tables"
-msgstr "Rodyti lentelės"
+msgstr "Praleisti užrakintas lenteles"
 
 #: libraries/config/messages.inc.php:461
 msgid "Requires SQL Validator to be enabled"
