@@ -9084,7 +9084,7 @@ msgstr "Linijų"
 
 #: tbl_chart.php:137
 msgid "Radar"
-msgstr ""
+msgstr "Spindulinė"
 
 #: tbl_chart.php:139
 #| msgid "PiB"
