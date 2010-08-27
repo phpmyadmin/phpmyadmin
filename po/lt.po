@@ -7006,7 +7006,7 @@ msgstr "Išsaugoti į naršyklės atmintinę"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Nustatymai bus išsaugoti Jūsų naršyklės vietinėje atmintyje."
+msgstr "Nustatymai bus išsaugoti Jūsų naršyklės vidinėje atmintyje."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
