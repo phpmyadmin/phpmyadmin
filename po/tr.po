@@ -6606,10 +6606,9 @@ msgid "Manage your settings"
 msgstr "Ayarlarınızı yönetin"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Değişiklikler kaydedildi"
+msgstr "Yapılandırma kaydedildi"
 
 #: libraries/user_preferences.inc.php:69
 #, php-format
