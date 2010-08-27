@@ -2338,10 +2338,9 @@ msgid "Edit in window"
 msgstr "Redaguoti lange"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Išvedimo sąvybės"
+msgstr "Rodyti klaidas"
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
