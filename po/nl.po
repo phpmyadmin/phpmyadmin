@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:03+0200\n"
+"PO-Revision-Date: 2010-08-27 12:34+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6153,14 +6153,15 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Schakel geavanceerde functionaliteit in het configuratiebestand "
-"(<code>config.inc.php</code>) in, bijvoorbeeld door gebruik te maken van "
+"Schakel geavanceerde functionaliteit in, in het configuratie bestand "
+"(<code>config.inc.php</code>), als voorbeeld kunt u gebruik maken van "
 "<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:150
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te laden."
+"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te "
+"laden."
 
 #: libraries/relation.lib.php:1164
 msgid "no description"
@@ -7131,7 +7132,7 @@ msgid ""
 msgstr ""
 "Javascript wordt niet door uw browser ondersteund of de ondersteuning ervoor "
 "is uitgeschakeld. Bepaalde functionaliteit van phpMyAdmin zal niet "
-"beschikbaar zijn. Zo zal bijvoorbeeld het navigatievenster zich niet "
+"beschikbaar zijn. Zo zal bijvoorbeeld het navigatieframe zich niet "
 "automatisch vernieuwen."
 
 #: main.php:325
@@ -7267,7 +7268,6 @@ msgstr ""
 # Verleden tijd: "is aangemaakt" => "werd aangemaakt", ookal bestaat het nog steeds.
 # Wat doet "%1$s" hier?
 #: pmd_pdf.php:60
-#, fuzzy
 msgid "Page has been created"
 msgstr "De pagina werd aangemaakt."
 
@@ -8084,7 +8084,7 @@ msgstr "Stop volledig"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Reset slave"
 
 #: server_replication.php:325
 #, php-format
@@ -9501,7 +9501,7 @@ msgstr "Voeg toe als nieuwe rij"
 
 #: tbl_change.php:1027
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Voeg toe als nieuwe rij en negeer foutmeldingen"
 
 #: tbl_change.php:1028
 #, fuzzy
