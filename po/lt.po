@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:37+0200\n"
+"PO-Revision-Date: 2010-08-27 22:38+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3684,7 +3684,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:404
 msgid "Signon session name"
-msgstr ""
+msgstr "Prisijungimo sesijos vardas"
 
 #: libraries/config/messages.inc.php:405
 msgid "Signon URL"
