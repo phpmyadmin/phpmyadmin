@@ -4402,7 +4402,7 @@ msgstr "Failo pavadinimo šablonas:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ taps serverio pavadinimu"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
