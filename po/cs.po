@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:02+0200\n"
+"PO-Revision-Date: 2010-08-27 13:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3248,7 +3248,6 @@ msgid "Protect binary columns"
 msgstr "Chránit binární pole"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3257,9 +3256,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Povolte pokud chcete histori dotazů založenou na databázi (vyžaduje pmadb). "
-"Pokud toto zakážete, využijí se k zobrazení historie Java Scriptové rutiny "
-"(se zavřením okna ztratíte předchozí historii)."
+"Povolte pokud chcete histori dotazů založenou na databázi (vyžaduje úložiště "
+"nastavení phpMyAdmina). Pokud toto zakážete, využijí se k zobrazení "
+"historie Java Scriptové rutiny (se zavřením okna ztratíte předchozí "
+"historii)."
 
 #: libraries/config/messages.inc.php:330
 msgid "Permanent query history"
@@ -3794,6 +3794,7 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Určiuje jestli mají být zobrazeny typy polí při úpravě a vkládání záznamů"
 
 #: libraries/config/messages.inc.php:440
 msgid "Show field types"
@@ -3900,6 +3901,7 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
+"[strong]Varování:[/strong] vyžaduje rozšíření PHP SOAP nebo PEAR modul SOAP"
 
 #: libraries/config/messages.inc.php:465
 msgid "Enable SQL Validator"
@@ -3931,6 +3933,8 @@ msgstr "Navrhnout jméno nové databáze"
 #: libraries/config/messages.inc.php:470
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Na hlavní stránce je zobrazeno varování pokud je detekování rozšíření "
+"Suhosin"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
@@ -4471,6 +4475,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Jméno komprimovaného souboru musí končit na <b>.[formát].[komprese]</b>. "
+"Například: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -8971,13 +8977,11 @@ msgid "Restart insertion with %s rows"
 msgstr "Začít znovu vkládání s %s řádky"
 
 #: tbl_chart.php:57
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Oprávnění byla načtena úspěšně."
+msgstr "Graf byl úspěšně vytvořen"
 
 #: tbl_chart.php:60
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -8985,8 +8989,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Počet nemusí být přesný, viz [a@./Documentation.html#faq3_11@Documentation]"
-"FAQ 3.11[/a]"
+"Výsledek tohoto dotazu nelze použít pro graf. Více informací nalezne ve "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:91
 msgid "Width"
