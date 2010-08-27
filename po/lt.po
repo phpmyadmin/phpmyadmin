@@ -3894,9 +3894,8 @@ msgstr ""
 "Leisti rodyti duombazių ir lentelių statistiką (pavyzdžiui vietos naudojimą)"
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 msgid "Show statistics"
-msgstr "Eilučių statistika"
+msgstr "Rodyti statistika"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
