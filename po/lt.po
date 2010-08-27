@@ -3530,7 +3530,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "Control user"
-msgstr ""
+msgstr "Kontroliuoti naudotoją"
 
 #: libraries/config/messages.inc.php:372
 msgid "Count tables when showing database list"
