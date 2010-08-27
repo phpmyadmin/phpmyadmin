@@ -6081,7 +6081,7 @@ msgstr "DIA"
 
 #: libraries/schema/User_Schema.class.php:358
 msgid "VISIO"
-msgstr ""
+msgstr "VISIO"
 
 #: libraries/schema/User_Schema.class.php:359
 msgid "EPS"
