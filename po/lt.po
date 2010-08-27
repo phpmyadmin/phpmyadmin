@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:49+0200\n"
+"PO-Revision-Date: 2010-08-27 21:50+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7032,10 +7032,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Lentelė <b>%s</b> nerasta arba nenurodyta %s faile"
 
 #: schema_export.php:46
-#, fuzzy
 #| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Lentelė %s neegzistuoja!"
+msgstr "Failo nėra"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
