@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:27+0200\n"
+"PO-Revision-Date: 2010-08-27 22:28+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3264,10 +3264,9 @@ msgid "Memory limit"
 msgstr "Atminties apribojimai"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Rodyti/slėpti kairį meniu"
+msgstr "Rodyti kairėje pusėje esančią šalinimo nuorodą"
 
 #: libraries/config/messages.inc.php:312
 msgid "Show right delete link"
