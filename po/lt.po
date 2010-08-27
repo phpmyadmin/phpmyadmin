@@ -2101,7 +2101,7 @@ msgstr "Atstatyti numatytąsias reikšmes"
 
 #: libraries/config/FormDisplay.tpl.php:270
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Leisti naudotojams adaptuoti šią reikšmę"
 
 #: libraries/config/FormDisplay.tpl.php:337
 #: libraries/schema/User_Schema.class.php:322
