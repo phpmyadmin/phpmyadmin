@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:43+0200\n"
+"PO-Revision-Date: 2010-08-27 22:44+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3855,7 +3855,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Rodyti atidarytas lenteles"
+msgstr "Rodyti laukelių tipus"
 
 #: libraries/config/messages.inc.php:441
 msgid "Display the function fields in edit/insert mode"
