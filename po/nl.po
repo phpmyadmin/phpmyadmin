@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:01+0200\n"
+"PO-Revision-Date: 2010-08-27 12:02+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4812,10 +4812,9 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rij-nummer."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "rijen beginnend bij"
+msgstr "rij(en) beginnend bij"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
