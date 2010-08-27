@@ -3858,7 +3858,7 @@ msgstr "Rodyti laukelių tipus"
 
 #: libraries/config/messages.inc.php:441
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "Rodyti funkcijų laukelius redagavimo/įterpimo režime"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show function fields"
