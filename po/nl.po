@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 11:17+0200\n"
+"PO-Revision-Date: 2010-08-27 12:03+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -405,12 +405,12 @@ msgid "Last check"
 msgstr "Laatst gecontroleerd"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabel(len)"
-msgstr[1] "%s tabel(len)"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabellen"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
@@ -480,10 +480,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Toevoegen/Verwijderen Criteria Rij"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Toevoegen/Verwijderen Veld Kolommen"
+msgstr "Toevoegen/Verwijderen kolommen"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
@@ -1472,28 +1471,28 @@ msgid "Error"
 msgstr "Fout"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rij(en) bijgewerkt."
+msgstr[0] "%1$d rij bijgewerkt."
 msgstr[1] "%1$d rij(en) bijgewerkt."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rij(en) verwijderd."
+msgstr[0] "%1$d rij verwijderd."
 msgstr[1] "%1$d rij(en) verwijderd."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rij(en) toegevoegd."
-msgstr[1] "%1$d rij(en) toegevoegd."
+msgstr[0] "%1$d rij toegevoegd."
+msgstr[1] "%1$d rijen toegevoegd."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -4517,10 +4516,9 @@ msgid "No Privileges"
 msgstr "Geen rechten"
 
 #: libraries/display_create_table.lib.php:40
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabel moet minimaal een veld hebben."
+msgstr "Tabel moet minimaal één veld hebben."
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
@@ -4814,10 +4812,9 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rij-nummer."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "rijen beginnend bij"
+msgstr "rij(en) beginnend bij"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
@@ -5374,7 +5371,7 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Dit is het aantal transcatie logbestanden (pbxt/system/xlog*.xt) welke het "
+"Dit is het aantal transactie logbestanden (pbxt/system/xlog*.xt) welke het "
 "systeem zal bijhouden. Wanneer het aantal logbestanden hier overheenkomt "
 "zullen oude bestanden worden verwijderd, anders worden oude logbestanden "
 "hernoemd met een opgehoogd volgnummer"
@@ -6138,7 +6135,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
-msgstr "Snelle stappen om geavanceerde functies in te stellen:"
+msgstr "Snelle stappen voor het instellen van geavanceerde functies:"
 
 #: libraries/relation.lib.php:147
 msgid ""
