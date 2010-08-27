@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:40+0200\n"
+"PO-Revision-Date: 2010-08-27 21:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6964,7 +6964,7 @@ msgstr ""
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Išsaugota: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
