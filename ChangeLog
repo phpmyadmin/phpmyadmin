@@ -110,6 +110,7 @@ $Id$
 - [relations] Dropped WYSIWYG-PDF configuration variable.
 - rfe #806035, #686260 [relations] Export relations to Dia, SVG and others
 + [interface] Added charts to status tab, profiling page and query results
++ [interface] AJAXification on various pages 
 
 3.3.7.0 (not yet released)
 
