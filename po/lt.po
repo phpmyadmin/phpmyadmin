@@ -1210,7 +1210,6 @@ msgid "Dec"
 msgstr "gruodžio"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Sekmadienis"
