@@ -2558,10 +2558,9 @@ msgid "Enclose export in a transaction"
 msgstr "Naudoti transakciją visam eksportui"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Eksportuoti turinį"
+msgstr "Eksportavimo laikas UTC"
 
 #: libraries/config/messages.inc.php:143
 msgid "Force secured connection while using phpMyAdmin"
