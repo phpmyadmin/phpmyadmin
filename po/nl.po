@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 11:54+0200\n"
+"PO-Revision-Date: 2010-08-27 11:55+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1471,11 +1471,11 @@ msgid "Error"
 msgstr "Fout"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rij(en) bijgewerkt."
+msgstr[0] "%1$d rij bijgewerkt."
 msgstr[1] "%1$d rij(en) bijgewerkt."
 
 #: libraries/Message.class.php:300
