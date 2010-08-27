@@ -8930,7 +8930,7 @@ msgstr "Raktas turi turėti raidžių, skaičių [em]ir[/em] specialiųjų ženk
 #: sql.php:493 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Įterpto įrašo id: %1$d"
 
 #: sql.php:510
 msgid "Showing as PHP code"
