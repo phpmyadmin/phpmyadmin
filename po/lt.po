@@ -3388,10 +3388,9 @@ msgid "Query window width (in pixels)"
 msgstr "Užklausos lango plotis (taškais)"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Užklausų langas"
+msgstr "Užklausos lango plotis"
 
 #: libraries/config/messages.inc.php:340
 msgid "Select which functions will be used for character set conversion"
