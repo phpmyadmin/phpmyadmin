@@ -3972,7 +3972,7 @@ msgstr "Eğer Suhosin algılanırsa, ana sayfada uyarı gösterilir"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin uyarısı"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
