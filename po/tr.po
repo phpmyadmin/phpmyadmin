@@ -3992,6 +3992,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Düzenle kipinde metin alanı boyutu (satırlar), bu değer SQL sorgu metni "
+"alanları (*2) ve sorgu penceresi (*1.25) için önemi belirtecektir"
 
 #: libraries/config/messages.inc.php:475
 #, fuzzy
