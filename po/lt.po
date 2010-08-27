@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:28+0200\n"
+"PO-Revision-Date: 2010-08-27 22:29+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3277,10 +3277,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Naudoti natūralią tvarką rikiuojant lentelių ir duombazių pavadinimus"
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Pakeisti lentelės rikiavimą pagal:"
+msgstr "Natūrali tvarka"
 
 #: libraries/config/messages.inc.php:315 libraries/config/messages.inc.php:325
 msgid "Use only icons, only text or both"
