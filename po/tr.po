@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 07:05+0200\n"
+"PO-Revision-Date: 2010-08-27 07:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4015,7 +4015,7 @@ msgstr "Varsayılan başlık"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Sunucu seçildiğinde tarayıcı penceresi başlığı"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when a table is selected"
