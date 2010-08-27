@@ -2006,9 +2006,8 @@ msgid "complete inserts"
 msgstr "Naudoti užlaikytus įterpimus"
 
 #: libraries/config.values.php:120
-#, fuzzy
 msgid "extended inserts"
-msgstr "Naudoti užlaikytus įterpimus"
+msgstr "Praplėsti įterpimai"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
