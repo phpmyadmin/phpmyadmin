@@ -4101,10 +4101,9 @@ msgid "Config authentication"
 msgstr "Yapılandırma kimlik denetimi"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Anamakine kimlik denetimi düzeni"
+msgstr "Tanımlama bilgisi kimlik denetimi"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
