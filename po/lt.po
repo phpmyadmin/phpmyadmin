@@ -3537,9 +3537,8 @@ msgid "Count tables when showing database list"
 msgstr "Suskaičiuoti lenteles kai rodomas duombazių sąrašas"
 
 #: libraries/config/messages.inc.php:373
-#, fuzzy
 msgid "Count tables"
-msgstr "No tables"
+msgstr "Suskaičiuoti lenteles"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
