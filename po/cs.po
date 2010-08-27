@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 10:28+0200\n"
+"PO-Revision-Date: 2010-08-27 10:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3090,7 +3090,7 @@ msgstr "Nejvyšší délka zobrazeného SQL dotazu"
 #: libraries/config/messages.inc.php:299 libraries/config/messages.inc.php:304
 #: libraries/config/messages.inc.php:331
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Uživatelé nemohou nastavit větší hodnotu"
 
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of databases displayed in left frame and database list"
