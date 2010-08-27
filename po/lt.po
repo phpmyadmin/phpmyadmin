@@ -3852,7 +3852,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Rodyti laukelių tipus"
