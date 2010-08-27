@@ -3994,10 +3994,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Textarea columns"
-msgstr "Įterpti/trinti stulpelius"
+msgstr "Textarea laukeliai"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
