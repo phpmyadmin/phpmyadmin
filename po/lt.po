@@ -9067,7 +9067,7 @@ msgstr "Y ašies etiketė"
 
 #: tbl_chart.php:113
 msgid "Area margins"
-msgstr ""
+msgstr "Srities (ploto) paraštės"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
