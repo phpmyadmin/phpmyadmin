@@ -2041,7 +2041,7 @@ msgstr "Neteisinga reikšmė"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Reikšmė turi būti tokia pati kaip arba mažesnė negu %s"
 
 #: libraries/config/FormDisplay.class.php:536
 #, php-format
