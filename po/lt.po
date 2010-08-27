@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:38+0200\n"
+"PO-Revision-Date: 2010-08-27 22:39+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3699,9 +3699,8 @@ msgid "Server socket"
 msgstr "Serverio prievadas (socket)"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Įjungti SSL susijungimams prie MySQL serverio"
 
 #: libraries/config/messages.inc.php:409
 msgid "Use SSL"
