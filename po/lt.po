@@ -2770,10 +2770,9 @@ msgid "Basic settings"
 msgstr "Pagrindiniai nustatymai"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr "Tapatumo nustatymas"
 
 #: libraries/config/messages.inc.php:195
 #| msgid "Authenticating..."
