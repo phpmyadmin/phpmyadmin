@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:10+0200\n"
+"PO-Revision-Date: 2010-08-27 22:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8706,7 +8706,6 @@ msgid "Cannot load or save configuration"
 msgstr "Yapılandırma yüklenemiyor veya kaydedilemiyor"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -8718,8 +8717,8 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Lütfen [a@../Documentation.html#setup_script]belge[/a] içinde açıklandığı "
-"gibi phpMyAdmin en yüksek düzey dizininde web sunucusu yazılabilir klasörü "
-"olarak [em]config[/em] oluşturun. Yoksa sadece indirmenize veya "
+"gibi phpMyAdmin en yüksek düzey dizininde web sunucusu yazılabilir "
+"[em]yapılandırma[/em] klasörü oluşturun. Yoksa sadece indirmenize veya "
 "görüntülemenize izin verecektir."
 
 #: setup/frames/index.inc.php:57
