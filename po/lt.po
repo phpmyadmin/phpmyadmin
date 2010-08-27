@@ -2343,10 +2343,9 @@ msgid "Display errors"
 msgstr "Rodyti klaidas"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Ignoruoti klaidas"
+msgstr "Rinkti klaidas"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
