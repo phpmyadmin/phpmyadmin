@@ -2648,7 +2648,7 @@ msgstr "Bendrinis"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Nustatyti keletą dažniausiai naudojamų nustatymų"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:71 libraries/tbl_links.inc.php:82
