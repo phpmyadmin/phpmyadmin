@@ -3573,9 +3573,8 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 msgid "Hide databases"
-msgstr "Nėra duombazių"
+msgstr "Slėpti duombazes"
 
 #: libraries/config/messages.inc.php:382
 msgid ""
