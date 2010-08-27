@@ -2435,10 +2435,9 @@ msgid "Lines terminated by"
 msgstr "Eilutės (įrašai) baigiasi"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition:"
 msgid "Excel edition"
-msgstr "Excel variantas:"
+msgstr "Excel variantas"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
