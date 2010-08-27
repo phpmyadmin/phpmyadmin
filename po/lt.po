@@ -2777,7 +2777,7 @@ msgstr "Atpažinimas"
 #: libraries/config/messages.inc.php:195
 #| msgid "Authenticating..."
 msgid "Authentication settings"
-msgstr "Tapatumo nustatymo nustatymai"
+msgstr "Atpažinimo nustatymai"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
