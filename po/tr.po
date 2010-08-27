@@ -3589,10 +3589,9 @@ msgstr ""
 "Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "veritabanı adı"
+msgstr "Veritabanı adı"
 
 #: libraries/config/messages.inc.php:397
 msgid "Port on which MySQL server is listening, leave empty for default"
