@@ -6057,10 +6057,9 @@ msgid "Please choose a page to edit"
 msgstr "Pasirinkite puslapį redagavimui"
 
 #: libraries/schema/User_Schema.class.php:155
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Pasirinkite lenteles"
+msgstr "Pasirinkite puslapį"
 
 #: libraries/schema/User_Schema.class.php:213
 msgid "Select Tables"
