@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 20:59+0200\n"
+"PO-Revision-Date: 2010-08-27 21:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2012,7 +2012,7 @@ msgstr "Naudoti užlaikytus įterpimus"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "abu iš paminėtų"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
