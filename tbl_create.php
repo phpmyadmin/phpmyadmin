@@ -241,6 +241,102 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been created.'));
         $message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
 
+        if($GLOBALS['is_ajax_request'] == true) {
+
+            /**
+             * construct the html for the newly created table's row to be appended
+             * to the list of tables.
+             *
+             * Logic taken from db_structure.php
+             */
+
+            $tbl_url_params = array();
+            $tbl_url_params['db'] = $db;
+            $tbl_url_params['table'] = $table;
+            $is_show_stats = $cfg['ShowStats'];
+
+            $tbl_stats_result = PMA_DBI_query('SHOW TABLE STATUS FROM '
+                    . PMA_backquote($db) . ' LIKE \'' . addslashes($table) . '\';');
+            $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
+            PMA_DBI_free_result($tbl_stats_result);
+            unset($tbl_stats_result);
+
+            if ($is_show_stats) {
+                $sum_size       = (double) 0;
+                $overhead_size  = (double) 0;
+                $overhead_check = '';
+
+                $tblsize                    =  doubleval($tbl_stats['Data_length']) + doubleval($tbl_stats['Index_length']);
+                $sum_size                   += $tblsize;
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
+                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($tbl_stats['Data_free'], 3, ($tbl_stats['Data_free'] > 0) ? 1 : 0);
+                    $overhead_size           += $tbl_stats['Data_free'];
+                }
+
+                if (isset($formatted_overhead)) {
+                        $overhead = $formatted_overhead . ' ' . $overhead_unit;
+                        unset($formatted_overhead);
+                    } else {
+                        $overhead = '-';
+                }
+           }
+
+            $new_table_string = '<tr>' . "\n";
+            $new_table_string .= '<td align="center"> <input type="checkbox" id="checkbox_tbl_" name="selected_tbl[]" value="'.htmlspecialchars($table).'" /> </td>' . "\n";
+
+            $new_table_string .= '<th>';
+            $new_table_string .= '<a href="sql.php' . PMA_generate_common_url($tbl_url_params) . '">'. $table . '</a>';
+            
+            if (PMA_Tracker::isActive()) {
+                $truename = str_replace(' ', '&nbsp;', htmlspecialchars($table));
+                if (PMA_Tracker::isTracked($db, $truename)) {
+                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye.png" alt="' . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
+                } elseif (PMA_Tracker::getVersion($db, $truename) > 0) {
+                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye_grey.png" alt="' . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
+                }
+                unset($truename);
+            }
+            $new_table_string .= '</th>' . "\n";
+
+            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_browse.png" alt="' . __('Browse') . '" title="' . __('Browse') . '" /> </td>' . "\n";
+
+            $new_table_string .= '<td> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '"> ';
+            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . __('Structure') . '" title="' . __('Structure') . '" />';
+            $new_table_string .= '</a> </td>' . "\n";
+
+            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_select.png" alt="' . __('Search') . '" title="' . __('Search') . '" /> </td>' . "\n";
+
+            $new_table_string .= '<td> <a href="tbl_change.php' . PMA_generate_common_url($tbl_url_params) . '"> ';
+            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . __('Insert') . '" title="' . __('Insert') . '" />';
+            $new_table_string .= '</a> </td>' . "\n";
+
+            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_empty.png" alt="' . __('Empty') . '" title="' . __('Empty') . '" /> </td>' . "\n";
+
+            $new_table_string .= '<td> <a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
+            $new_table_string .= urlencode('DROP TABLE ' . PMA_backquote($table));
+            $new_table_string .= '">';
+            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . __('Drop') . '" title="' . __('Drop') . '" />';
+            $new_table_string .= '</a> </td>' . "\n";
+
+            $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
+
+            $new_table_string .= '<td nowrap="nowrap">' . $tbl_stats['Engine'] . '</td>' . "\n";
+
+            $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
+
+            if($is_show_stats) {
+                $new_table_string .= '<td class="value"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" >' . $formatted_size . ' ' . $unit . '</a> </td>' . "\n" ;
+                $new_table_string .= '<td class="value">' . $overhead . '</td>' . "\n" ;
+            }
+
+            $new_table_string .= '</tr>' . "\n";
+
+            $extra_data['new_table_string'] = $new_table_string;
+
+            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        }
+
         $display_query = $sql_query;
         $sql_query = '';
 

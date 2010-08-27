@@ -662,11 +662,16 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '</fieldset>' . "\n\n";
        }
 
-       echo $error_msg_output;
-       /**
-        * display footer and exit
-        */
-
+        /**
+         * If in an Ajax request, don't just echo and exit.  Use PMA_ajaxResponse()
+         */
+        if($GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($error_msg_output, false);
+        }
+        echo $error_msg_output;
+        /**
+         * display footer and exit
+         */
        require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
@@ -937,6 +942,15 @@ if (!$jsonly)
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
+    /*
+     * PMA_ajaxResponse uses this function to collect the string of HTML generated
+     * for showing the message.  Use output buffering to collect it and return it
+     * in a string.  In some special cases on sql.php, buffering has to be disabled
+     * and hence we check with $GLOBALS['buffer_message']
+     */
+    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
+        ob_start();
+    }
     global $cfg;
 
     if (null === $sql_query) {
@@ -975,7 +989,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     unset($tbl_status);
 
-    echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
+    // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
+    // check for it's presence before using it
+    echo '<div align="' . ( isset($GLOBALS['cell_align_left']) ? $GLOBALS['cell_align_left'] : '' ) . '">' . "\n";
 
     if ($message instanceof PMA_Message) {
         if (isset($GLOBALS['special_message'])) {
@@ -1211,9 +1227,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         }
 
         // see in js/functions.js the jQuery code attached to id inline_edit
+        // document.write conflicts with jQuery, hence used $().append()
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
-            "document.write('[<a href=\"#\" title=\"" .
+            "$('.tools').append('[<a href=\"#\" title=\"" .
             PMA_escapeJsString(__('Inline edit of this query')) .
             "\" id=\"inline_edit\">" .
             PMA_escapeJsString(__('Inline')) .
@@ -1224,6 +1241,15 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         echo '</div>';
     }
     echo '</div><br />' . "\n";
+
+    // If we are in an Ajax request, we have most probably been called in 
+    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it 
+    // to PMA_ajaxResponse(), which will encode it for JSON.
+    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
+        $buffer_contents =  ob_get_contents();
+        ob_end_clean();
+        return $buffer_contents;
+    }
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -1595,6 +1621,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
         'args'      => '',
         'warning'   => '',
         'fragment'  => '',
+        'id'        => '',
     );
 
     $tab = array_merge($defaults, $tab);
@@ -1657,14 +1684,17 @@ function PMA_generate_html_tab($tab, $url_params = array())
             E_USER_NOTICE);
     }
 
+    //Set the id for the tab, if set in the params
+    $id_string = ( empty($tab['id']) ? '' : ' id="'.$tab['id'].'" ' );
     $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
 
     if (!empty($tab['link'])) {
         $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
+            .$id_string
             .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
             . $tab['text'] . '</a>';
     } else {
-        $out .= '<span class="tab' . htmlentities($tab['class']) . '">'
+        $out .= '<span class="tab' . htmlentities($tab['class']) . '"'.$id_string.'>'
             . $tab['text'] . '</span>';
     }
 
@@ -2170,8 +2200,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $pageNowPlusRange = ($pageNow + $range);
 
     $gotopage = $prompt
-              . ' <select name="pos" onchange="goToUrl(this, \''
-              . $url . '\');">' . "\n";
+              . ' <select id="pageselector" name="pos" >' . "\n";
     if ($nbTotalPage < $showAll) {
         $pages = range(1, $nbTotalPage);
     } else {
@@ -2483,10 +2512,17 @@ function PMA_generate_slider_effect($id, $message)
         echo '<div id="' . $id . '">';
         return;
     }
+    /**
+     * Bad hack on the next line. document.write() conflicts with jQuery, hence,
+     * opening the <div> with PHP itself instead of JavaScript.
+     *
+     * @todo find a better solution that uses $.append(), the recommended method
+     * maybe by using an additional param, the id of the div to append to
+     */
     ?>
+<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>
     <script type="text/javascript">
 // <![CDATA[
-    document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>');
 
     function PMA_set_status_label_<?php echo $id; ?>() {
         if ($('#<?php echo $id; ?>').css('display') == 'none') {
@@ -2853,6 +2889,52 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
 
     /* Do the replacement */
     return str_replace(array_keys($replace), array_values($replace), strftime($string));
+}
+
+/**
+ * function that generates a json output for an ajax request and ends script
+ * execution
+ *
+ * @param   boolean success whether the ajax request was successfull
+ * @param   string  message string containing the html of the message
+ * @param   array   extra_data  optional - any other data as part of the json request
+ *
+ * @uses    header()
+ * @uses    json_encode()
+ */
+function PMA_ajaxResponse($message, $success = true, $extra_data = array())
+{
+    $response = array();
+    if( $success == true ) {
+        $response['success'] = true;
+        if ($message instanceof PMA_Message) {
+            $response['message'] = $message->getDisplay();
+        }
+        else {
+            $response['message'] = $message;
+        }
+    }
+    else {
+        $response['success'] = false;
+        if($message instanceof PMA_Message) {
+            $response['error'] = $message->getDisplay();
+        }
+        else {
+            $response['error'] = $message;
+        }
+    }
+
+    // If extra_data has been provided, append it to the response array
+    if( count($extra_data) > 0 ) {
+        $response = array_merge($response, $extra_data);
+    }
+
+    // Set the Content-Type header to JSON so that jQuery parses the response correctly
+    if(!isset($GLOBALS['is_header_sent'])) {
+        header("Content-Type: application/json");
+    }
+    echo json_encode($response);
+    exit;
 }
 
 /**

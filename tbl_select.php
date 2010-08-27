@@ -16,7 +16,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 
-$GLOBALS['js_include'][] = 'tbl_change.js';
+$GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
@@ -118,7 +118,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 }
 // ]]>
 </script>
-<form method="post" action="tbl_select.php" name="insertForm">
+<form method="post" action="tbl_select.php" name="insertForm" id="tbl_search_form">
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_select.php" />
@@ -323,6 +323,7 @@ $(function() {
     <input type="submit" name="submit" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
+<div id="searchresults"></div>
     <?php
     require './libraries/footer.inc.php';
 }

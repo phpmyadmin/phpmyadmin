@@ -13,6 +13,7 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'colorpicker/js/colorpicker.js';
 $GLOBALS['js_include'][] = 'main_custom_color.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 // Handles some variables that may have been sent by the calling script
 $GLOBALS['db'] = '';
@@ -87,7 +88,7 @@ if ($server > 0
         if ($cfg['Server']['auth_type'] != 'config') {
             if ($cfg['ShowChgPassword']) {
                 PMA_printListItem(__('Change password'), 'li_change_password',
-                    './user_password.php?' . $common_url_query);
+                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor');
             }
         } // end if
         echo '    <li id="li_select_mysql_collation">';
@@ -345,14 +346,18 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
  * @param   string  $url    make item as link with $url as target
  * @param   string  $mysql_help_page  display a link to MySQL's manual
  * @param   string  $target special target for $url
+ * @param   string  $a_id   id for the anchor, used for jQuery to hook in functions
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null)
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null)
 {
     echo '<li id="' . $id . '">';
     if (null !== $url) {
         echo '<a href="' . $url . '"';
         if (null !== $target) {
            echo ' target="' . $target . '"';
+        }
+        if (null != $a_id) {
+            echo ' id="' . $a_id .'"';
         }
         echo '>';
     }

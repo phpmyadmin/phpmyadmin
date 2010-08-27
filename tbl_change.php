@@ -107,6 +107,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * used in ./libraries/header.inc.php to load JavaScript library file
  */
+$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
@@ -238,7 +239,7 @@ if (isset($clause_is_unique)) {
 ?>
 
 <!-- Insert/Edit form -->
-<form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
+<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
 <?php
 echo PMA_generate_common_hidden_inputs($_form_params);
 
@@ -295,7 +296,7 @@ foreach ($rows as $row_id => $vrow) {
         echo '<label for="insert_ignore_check_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
     }
 ?>
-    <table>
+    <table class="insertRowTable">
     <thead>
         <tr>
             <th><?php echo __('Column'); ?></th>
@@ -1081,7 +1082,7 @@ if (isset($where_clause)) {
 if ($insert_mode) {
 ?>
 <!-- Restart insertion form -->
-<form method="post" action="tbl_replace.php" name="restartForm" >
+<form id="restartForm" method="post" action="tbl_replace.php" name="restartForm" >
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
@@ -1092,7 +1093,7 @@ if ($insert_mode) {
             echo '<input type="hidden" name="where_clause[' . $key_id . ']" value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
         }
     }
-    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" >' . "\n";
+    $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
     $option_values = array(1,2,5,10,15,20,30,40);
     foreach ($option_values as $value) {
         $tmp .= '<option value="' . $value . '"';

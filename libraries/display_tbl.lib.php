@@ -339,9 +339,9 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 
         // prepare some options for the End button
         if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
-            $input_for_real_end = '<input type="hidden" name="find_real_end" value="1" />';
+            $input_for_real_end = '<input id="real_end_input" type="hidden" name="find_real_end" value="1" />';
             // no backquote around this message
-            $onclick = ' onclick="return confirmAction(\'' . PMA_jsFormat(__('This operation could take a long time. Proceed anyway?'), false) . '\')"';
+            $onclick = '';
         } else {
             $input_for_real_end = $onclick = '';
         }
@@ -1031,6 +1031,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
+    // name of the class added to all inline editable elements
+    $data_inline_edit_class = 'data_inline_edit';
 
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
@@ -1074,7 +1076,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
             // pointer code part
             echo '    <tr class="' . $class . '">' . "\n";
-            $class = '';
+            $class = $data_inline_edit_class;
         }
 
 
@@ -1113,6 +1115,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params);
 
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
+
+                // Class definitions required for inline editing jQuery scripts
+                $edit_anchor_class = "edit_row_anchor";
+                if( $clause_is_unique == 0) {
+                    $edit_anchor_class .= ' nonunique';
+                }
             } // end if (1.2.1)
 
             if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
@@ -1195,6 +1203,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $meta    = $fields_meta[$i];
             $pointer = $i;
+            $is_field_truncated = false;
+            //If this column's value is null, add the null class to it, needed
+            //for inline editing
+            if(is_null($row[$i])) {
+                $class .= ' null';
+            }
+
             //  See if this column should get highlight because it's used in the
             //  where-query.
             if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
@@ -1268,7 +1283,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $nowrap = ' nowrap';
                     $where_comparison = ' = ' . $row[$i];
 
-                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options);
+                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                 }
@@ -1279,6 +1294,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
+
+                // reset $class from $data_inline_edit_class to '' as we can't edit binary data
+                $class = '';
+                
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -1302,6 +1321,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         // if a transform function for blob is set, none of these replacements will be made
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
                             $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                            $is_field_truncated = true;
                         }
                         // displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
@@ -1324,6 +1344,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     // (unless it's a link-type transformation)
                     if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P' && !strpos($transform_function, 'link') === true) {
                         $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                        $is_field_truncated = true;
                     }
 
                     // displays special characters from binaries
@@ -1356,7 +1377,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     // do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
                     $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
-                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options);
+                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
@@ -1397,6 +1418,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $vertical_display['edit'][$row_no]       = '';
             $vertical_display['delete'][$row_no]     = '';
             $vertical_display['row_delete'][$row_no] = '';
+            $vertical_display['where_clause'][$row_no] = '';
         }
 
         $column_style_vertical = '';
@@ -1420,7 +1442,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
+            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, array(), false)
                                                  . $bookmark_go
                                                  .  '    </td>' . "\n";
@@ -1434,6 +1456,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['delete'][$row_no]);
+        }
+
+        if( !empty($where_clause) ) {
+            $vertical_display['where_clause'][$row_no] = '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+        }
+        else {
+            unset($vertical_display['where_clause'][$row_no]);
         }
 
         echo (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal' || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') ? "\n" : '');
@@ -1505,6 +1534,22 @@ function PMA_displayVerticalTable()
         }
         $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
+            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th></th>' . "\n";
+            }
+
+            echo $val;
+            $foo_counter++;
+        } // end while
+        echo '</tr>' . "\n";
+    } // end if
+
+    // Generates the 'where_clause' hidden input field for inline ajax edit if required
+    if ( is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 ) ) {
+        echo '<tr>' . "\n";
+
+        $foo_counter = 0;
+        foreach ($vertical_display['where_clause'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th></th>' . "\n";
             }
@@ -2288,12 +2333,28 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @param   string  $default_function
  * @param   string  $nowrap
  * @param   string  $where_comparison
+ * @param   bool    $is_field_truncated
  * @return  string  formatted data
  */
-function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options) {
+function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
+
+    // Define classes to be added to this data field based on the type of data
+    $enum_class = '';
+    if(strpos($meta->flags, 'enum') !== false) {
+        $enum_class = ' enum';
+    }
+
+    $mime_type_class = '';
+    if(isset($meta->mimetype)) {
+        $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
+    }
 
     // continue the <td> tag started before calling this function:
-    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap . '">';
+    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap 
+    . ' ' . ($is_field_truncated ? ' truncated' : '')
+    . ($transform_function != $default_function ? ' transformed' : '')
+    . (isset($map[$meta->name]) ? ' relation' : '')
+    . $enum_class . $mime_type_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {

@@ -36,8 +36,7 @@ require_once './libraries/check_user_privileges.lib.php';
 $is_create_table_priv = true;
 
 ?>
-<form method="post" action="tbl_create.php"
-    onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('Table must have at least one column.')); ?>', 1))">
+<form id="create_table_form_minimal" method="post" action="tbl_create.php">
 <fieldset>
     <legend>
 <?php

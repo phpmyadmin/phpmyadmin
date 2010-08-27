@@ -18,6 +18,14 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 
+// add blobstreaming library functions
+require_once "./libraries/blobstreaming.lib.php";
+
+// add a javascript file for jQuery functions to handle Ajax actions
+// also add jQueryUI
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'db_operations.js';
+
 /**
  * Rename/move or copy database
  */
@@ -254,6 +262,16 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $message = PMA_Message::error();
         }
     }
+
+    /**
+     * Database has been successfully renamed/moved.  If in an Ajax request, 
+     * generate the output with {@link PMA_ajaxResponse} and exit
+     */
+    if( $GLOBALS['is_ajax_request'] == true) {
+        $extra_data['newname'] = $newname;
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    };
 }
 
 
@@ -326,7 +344,7 @@ if (!$is_information_schema) {
      * rename database
      */
     ?>
-    <form method="post" action="db_operations.php"
+    <form id="rename_db_form" method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
         <?php
     if (isset($db_collation)) {
@@ -361,7 +379,7 @@ if (!$is_information_schema) {
     echo ')'; ?>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Go'); ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo __('and then'); ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
+        <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
 <?php
@@ -404,7 +422,7 @@ echo __('Remove database');
      * Copy database
      */
     ?>
-    <form method="post" action="db_operations.php"
+    <form id="copy_db_form" method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
     <?php
     if (isset($db_collation)) {
@@ -474,7 +492,7 @@ echo __('Remove database');
     /**
      * Change database charset
      */
-    echo '<form method="post" action="./db_operations.php">' . "\n"
+    echo '<form id="change_db_charset_form" method="post" action="./db_operations.php">' . "\n"
        . PMA_generate_common_hidden_inputs($db, $table)
        . '<fieldset>' . "\n"
        . '    <legend>';

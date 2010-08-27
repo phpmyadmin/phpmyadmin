@@ -19,7 +19,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 
 // Displays the form
 ?>
-<form method="post" action="<?php echo $GLOBALS['PMA_PHP_SELF']; ?>" name="chgPassword" onsubmit="return checkPassword(this)">
+<form method="post" id="change_password_form" action="<?php echo $GLOBALS['PMA_PHP_SELF']; ?>" name="chgPassword" onsubmit="return checkPassword(this)">
     <?php   echo PMA_generate_common_hidden_inputs();
             if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
                 echo '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"

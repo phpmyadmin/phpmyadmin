@@ -29,6 +29,12 @@ $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled
 /* For confirmations */
 $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
+$js_messages['strDroppingEvent'] = __('Dropping Event');
+$js_messages['strDroppingProcedure'] = __('Dropping Procedure');
+$js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
+$js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
+$js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
+$js_messages['strOperationTakesLongTime'] = __('This operation could take a long time. Proceed anyway?');
 
 /* For blobstreaming */
 $js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!');
@@ -43,10 +49,43 @@ $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
 $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
+$js_messages['strAddNewUser'] = __('Add a New User');
+$js_messages['strCreateUser'] = __('Create User');
+$js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
+$js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
+$js_messages['strClose'] = __('Close');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
+
+/* For Ajax Notifications */
+$js_messages['strLoading'] = __('Loading');
+$js_messages['strProcessingRequest'] = __('Processing Request');
+$js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
+$js_messages['strDroppingColumn'] = __('Dropping Column');
+$js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
+$js_messages['strOK'] = __('OK');
+
+/* For db_operations.js */
+$js_messages['strRenamingDatabases'] = __('Renaming Databases');
+$js_messages['strReloadDatabase'] = __('Reload Database');
+$js_messages['strCopyingDatabase'] = __('Copying Database');
+$js_messages['strChangingCharset'] = __('Changing Charset');
+$js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have atleast 1 column');
+$js_messages['strCreateTable'] = __('Create Table');
+$js_messages['strYes'] = __('Yes');
+$js_messages['strNo'] = __('No');
+
+/* For db_search.js */
+$js_messages['strSearching'] = __('Searching');
+
+/* For sql.js */
+$js_messages['strToggleQueryBox'] = __('Toggle Query Box Visibility');
+$js_messages['strInlineEdit'] = __('Inline Edit');
+
+/* For tbl_change.js */
+$js_messages['strIgnore'] = __('Ignore');
 
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');
@@ -65,6 +104,7 @@ $js_messages['strChangeDisplay'] = __('Choose column to display');
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');
+$js_messages['strChangePassword'] = __('Change Password');
 
 /* navigation tabs */
 $js_messages['strMore'] = __('More');

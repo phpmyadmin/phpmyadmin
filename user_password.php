@@ -71,6 +71,13 @@ if (isset($_REQUEST['nopass'])) {
         $password = $_REQUEST['pma_pw'];
     }
 
+    if($GLOBALS['is_ajax_request'] == true && $_error == true) {
+        /**
+         * If in an Ajax request, we don't need to show the rest of the page
+         */
+        PMA_ajaxResponse($message, false);
+    }
+
     if (! $_error) {
 
         // Defines the url to return to in case of error in the sql statement
@@ -101,10 +108,17 @@ if (isset($_REQUEST['nopass'])) {
             $_url_params['old_usr'] = 'relog';
         }
 
+        $message = PMA_Message::success(__('The profile has been updated.'));
+
+        if($GLOBALS['is_ajax_request'] == true) {
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query, 'success');
+            PMA_ajaxResponse($message, true, $extra_data);
+        }
+
         // Displays the page
         require_once './libraries/header.inc.php';
         echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-        PMA_showMessage(__('The profile has been updated.'), $sql_query, 'success');
+        PMA_showMessage($message, $sql_query, 'success');
         ?>
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
             <strong><?php echo __('Back'); ?></strong></a>

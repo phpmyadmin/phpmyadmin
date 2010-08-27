@@ -415,6 +415,12 @@ if (! empty($error_messages)) {
 }
 unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
 
+if($GLOBALS['is_ajax_request'] == true) {
+
+    $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+}
+
 if (isset($return_to_sql_query)) {
     $disp_query = $GLOBALS['sql_query'];
     $disp_message = $message;
