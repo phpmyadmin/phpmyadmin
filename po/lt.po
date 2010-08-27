@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:53+0200\n"
+"PO-Revision-Date: 2010-08-27 22:54+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4014,7 +4014,7 @@ msgstr "Pavadinimas naršyklės lango kai duombazė yra pasirinkta"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Naršyklės lango pavadinimas kai niekas nepasirinkta"
 
 #: libraries/config/messages.inc.php:479
 #| msgid "Default table tab"
