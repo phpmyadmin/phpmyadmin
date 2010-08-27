@@ -4051,7 +4051,7 @@ msgstr "Įkelties katalogas"
 
 #: libraries/config/messages.inc.php:488
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "Leisti paiešką visoje vidinėje duombazėje"
 
 #: libraries/config/messages.inc.php:489
 msgid "Use database search"
