@@ -3445,7 +3445,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:353
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Leisti prisijungti be slaptažodžio"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow root login"
