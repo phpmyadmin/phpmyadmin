@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 10:29+0200\n"
+"PO-Revision-Date: 2010-08-27 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1660,32 +1660,30 @@ msgid "Could not open file: %s"
 msgstr "Chyba při otevírání souboru: %s"
 
 #: libraries/chart.lib.php:41
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Zobrazit statistiky"
+msgstr "Statistika dotazu"
 
 #: libraries/chart.lib.php:64
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Porovnání běhu dotazu (v mikrosekundách)"
 
 #: libraries/chart.lib.php:84
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operace s výsledky dotazu"
+msgstr "Výsledky dotazu"
 
 #: libraries/chart.lib.php:110
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Nebyla nalezena žádná data pro graf."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Pro grafy je potřebné rozšíření GD."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Enkodér pro JSON je potřeba pro tooltipy grafu."
 
 #: libraries/common.inc.php:567
 msgid ""
@@ -3885,7 +3883,7 @@ msgstr "Přeskočit zamčené tabulky"
 
 #: libraries/config/messages.inc.php:461
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Vyžaduje povolené ověřování SQL"
 
 #: libraries/config/messages.inc.php:463
 #: libraries/display_change_password.lib.php:40
@@ -3905,7 +3903,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:465
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Povolit ověřování SQL"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
@@ -3946,7 +3944,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:473
 msgid "Textarea columns"
-msgstr ""
+msgstr "Sloupců v textové oblasti"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
@@ -3955,10 +3953,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "Řádky pro textové oblasti CHAR"
+msgstr "Řádků v textové oblasti"
 
 #: libraries/config/messages.inc.php:476
 msgid "Title of browser window when a database is selected"
@@ -4642,10 +4639,9 @@ msgid "Print view (with full texts)"
 msgstr "Náhled pro tisk (s kompletními texty)"
 
 #: libraries/display_tbl.lib.php:2189 tbl_chart.php:82
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Zobrazit jako schéma v PDF"
+msgstr "Zobrazit graf"
 
 #: libraries/display_tbl.lib.php:2324
 msgid "Link not found"
@@ -8994,71 +8990,67 @@ msgstr ""
 
 #: tbl_chart.php:91
 msgid "Width"
-msgstr ""
+msgstr "Šířka"
 
 #: tbl_chart.php:95
 msgid "Height"
-msgstr ""
+msgstr "Výška"
 
 #: tbl_chart.php:99
 msgid "Title"
-msgstr ""
+msgstr "Název"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
-msgstr ""
+msgstr "Popis osy X"
 
 #: tbl_chart.php:108
 msgid "Y Axis label"
-msgstr ""
+msgstr "Popis osy Y"
 
 #: tbl_chart.php:113
 msgid "Area margins"
-msgstr ""
+msgstr "Okraje oblasti"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "Okraje popisu"
 
 #: tbl_chart.php:135
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "bře"
+msgstr "Sloupec"
 
 #: tbl_chart.php:136
 msgid "Line"
-msgstr ""
+msgstr "Čára"
 
 #: tbl_chart.php:137
 msgid "Radar"
-msgstr ""
+msgstr "Síť"
 
 #: tbl_chart.php:139
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PiB"
+msgstr "Koláč"
 
 #: tbl_chart.php:145
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Typ dotazu"
+msgstr "Typ sloupců"
 
 #: tbl_chart.php:147
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Zabaleno"
+msgstr "Skládané"
 
 #: tbl_chart.php:148
 msgid "Multi"
-msgstr ""
+msgstr "Vícenásobné"
 
 #: tbl_chart.php:153
 msgid "Continuous image"
-msgstr ""
+msgstr "Souvislý obrázek"
 
 #: tbl_chart.php:156
 msgid ""
@@ -9079,7 +9071,7 @@ msgstr ""
 
 #: tbl_chart.php:182
 msgid "Redraw"
-msgstr ""
+msgstr "Znovu vykreslit"
 
 #: tbl_create.php:55
 #, php-format
