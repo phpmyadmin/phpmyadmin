@@ -1715,7 +1715,7 @@ msgstr "Užklausos rezultatai"
 
 #: libraries/chart.lib.php:110
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Nerasta duomenų diagramos braižymui."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
