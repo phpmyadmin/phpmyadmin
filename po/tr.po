@@ -3983,10 +3983,9 @@ msgstr ""
 "alanları (*2) ve sorgu penceresi (*1.25) için önemi belirtecektir"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR metin alanı sütunları"
+msgstr "Metin alanı sütunları"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
