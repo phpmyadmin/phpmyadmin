@@ -6638,10 +6638,9 @@ msgstr ""
 "reikia %sphpMyAdmin konfigūracijos talpinimo%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Nepavyko įkelti arba išsaugoti konfigūracijos"
+msgstr "Nepavyko išsaugoti konfigūracijos"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
