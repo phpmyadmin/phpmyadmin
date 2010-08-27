@@ -3862,7 +3862,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:442
 msgid "Show function fields"
-msgstr ""
+msgstr "Rodyti funkcijų laukelius"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
