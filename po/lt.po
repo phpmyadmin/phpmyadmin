@@ -1220,7 +1220,6 @@ msgid "Monday"
 msgstr "Pirmadienis"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Antradienis"
