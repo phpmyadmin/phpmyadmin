@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 11:20+0200\n"
+"PO-Revision-Date: 2010-08-27 11:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3308,10 +3308,9 @@ msgstr ""
 "Her X hücrede başlığı tekrarla, [kbd]0[/kbd] bu özelliği devre dışı bırakır"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Metadata Headers"
 msgid "Repeat headers"
-msgstr "Üstveri Üstbilgileri"
+msgstr "Başlıkları tekrarla"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
