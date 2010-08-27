@@ -3597,7 +3597,7 @@ msgstr "Serverio adresas"
 
 #: libraries/config/messages.inc.php:386
 msgid "Logout URL"
-msgstr ""
+msgstr "Atsijungimo nuoroda"
 
 #: libraries/config/messages.inc.php:387
 msgid "Try to connect without password"
