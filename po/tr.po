@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:05+0200\n"
+"PO-Revision-Date: 2010-08-27 22:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6204,10 +6204,9 @@ msgid "Synchronize"
 msgstr "Eşitle"
 
 #: libraries/server_links.inc.php:97
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "ayarlar"
+msgstr "Ayarlar"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
