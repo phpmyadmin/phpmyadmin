@@ -3534,7 +3534,7 @@ msgstr "Kontroliuoti naudotoją"
 
 #: libraries/config/messages.inc.php:372
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Suskaičiuoti lenteles kai rodomas duombazių sąrašas"
 
 #: libraries/config/messages.inc.php:373
 #, fuzzy
