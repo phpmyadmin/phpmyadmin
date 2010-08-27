@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:55+0200\n"
+"PO-Revision-Date: 2010-08-27 21:56+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9035,14 +9035,15 @@ msgid "Chart generated successfully."
 msgstr "Diagrama sėkmingai sukurta."
 
 #: tbl_chart.php:60
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
-msgstr "Gali būti apytikslis. Žiūrėkite DUK 3.11"
+msgstr ""
+"Užklausos rezultatas negali būti naudojamas diagramai braižyti. Žiūrėti "
+"[a@./Documentation.html#faq6_29@Documentation]DUK 6.29[/a]"
 
 #: tbl_chart.php:91
 msgid "Width"
