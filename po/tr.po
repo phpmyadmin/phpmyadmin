@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 06:52+0200\n"
+"PO-Revision-Date: 2010-08-27 06:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3917,7 +3917,7 @@ msgstr "Kilitli tabloları atla"
 
 #: libraries/config/messages.inc.php:461
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "SQL Onaylayıcının etkinleştirilmesini gerektirir"
 
 #: libraries/config/messages.inc.php:463
 #: libraries/display_change_password.lib.php:40
