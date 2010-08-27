@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:30+0200\n"
+"PO-Revision-Date: 2010-08-27 22:31+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3404,7 +3404,7 @@ msgstr "Įrašymo varikliukas"
 
 #: libraries/config/messages.inc.php:342
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Pakartoti antraštes kas X langelių, [kbd]0[/kbd] išjungia šią galimybę"
 
 #: libraries/config/messages.inc.php:343
 msgid "Repeat headers"
