@@ -2182,6 +2182,12 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             'tbl_export.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_tblexport.png', __('Export'), false, true),
             '', true, true, '') . "\n";
+
+        // show chart
+        echo PMA_linkOrButton(
+            'tbl_chart.php' . PMA_generate_common_url($_url_params),
+            PMA_getIcon('b_chart.png', __('Display chart'), false, true),
+            '', true, true, '') . "\n";
     }
 
     // CREATE VIEW

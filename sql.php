@@ -14,6 +14,7 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'pMap.js';
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -602,7 +603,7 @@ else {
     }
 
     if (isset($profiling_results)) {
-        PMA_profilingResults($profiling_results);
+        PMA_profilingResults($profiling_results, true);
     }
 
     // Displays the results in a table
