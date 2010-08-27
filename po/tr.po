@@ -6601,10 +6601,9 @@ msgstr ""
 "dizgidir (Varsayılan: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Diğer çekirdek ayarlar"
+msgstr "Ayarlarınızı yönetin"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
