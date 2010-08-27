@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:03+0200\n"
+"PO-Revision-Date: 2010-08-27 21:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2050,10 +2050,9 @@ msgstr "Trūksta duomenų %s"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Kintamasis"
+msgstr "neprieinamas"
 
 #: libraries/config/FormDisplay.class.php:729
 #: libraries/config/FormDisplay.class.php:733
