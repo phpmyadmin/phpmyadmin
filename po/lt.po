@@ -9076,7 +9076,7 @@ msgstr ""
 #: tbl_chart.php:135
 #| msgid "Mar"
 msgid "Bar"
-msgstr "Juostinis"
+msgstr "Juostelių"
 
 #: tbl_chart.php:136
 msgid "Line"
