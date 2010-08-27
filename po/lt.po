@@ -4406,7 +4406,7 @@ msgstr "@SERVER@ taps serverio pavadinimu"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ taps duombazės pavadinimu"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
