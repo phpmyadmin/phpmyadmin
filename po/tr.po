@@ -3232,7 +3232,7 @@ msgstr "Eksik phpMyAdmin yapılandırma depolama tabloları"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic table operations"
-msgstr "Simgesel tablo işlemleri"
+msgstr "Sembolik tablo işlemleri"
 
 #: libraries/config/messages.inc.php:327
 msgid "Disallow BLOB and BINARY columns from editing"
