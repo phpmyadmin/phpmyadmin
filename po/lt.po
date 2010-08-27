@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:39+0200\n"
+"PO-Revision-Date: 2010-08-27 21:40+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6678,10 +6678,9 @@ msgid "Choose..."
 msgstr "Pasirinkti..."
 
 #: main.php:150 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "nustatymai"
+msgstr "Daugiau nustatymų"
 
 #: main.php:167
 msgid "Protocol version"
