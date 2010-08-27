@@ -2080,10 +2080,10 @@ msgid "SOAP extension not found"
 msgstr "SOAP plėtinys nerastas"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Didžiausias skaičius lentelių"
+msgstr "didžiausias %s"
 
 #: libraries/config/FormDisplay.tpl.php:174
 msgid "This setting is disabled, it will not be applied to your configuration"
