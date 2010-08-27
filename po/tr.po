@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 11:24+0200\n"
+"PO-Revision-Date: 2010-08-27 11:56+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3520,7 +3520,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid "SQL query history table"
-msgstr "SQL sorgu geçmişi tablosu"
+msgstr ""
+"MySQL joker karakterleri (% ve _) kullanabilirsiniz, eğer bunların aslına "
+"uygun örneklerini kullanmak istiyorsanız bundan kaçının, örn. "
+"[kbd]'my\\_db'[/kbd] kullanın ve [kbd]'my_db'[/kbd] kullanmayın. Bu seçeneği "
+"kullanarak veritabanı listesini sıralayabilirsiniz, sadece adlarını sıralı "
+"girin ve geri kalanını alfabetik sırada göstermek için sonunda [kbd]*[/kbd] "
+"kullanın."
 
 #: libraries/config/messages.inc.php:384
 msgid "Hostname where MySQL server is running"
