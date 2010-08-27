@@ -2006,7 +2006,7 @@ msgstr "užbaigti įterpimus"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
-msgstr "Praplėsti įterpimai"
+msgstr "praplėsti įterpimus"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
