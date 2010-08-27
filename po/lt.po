@@ -1169,7 +1169,6 @@ msgstr "balandžio"
 
 #. l10n: Short month name
 #: js/messages.php:112 libraries/common.lib.php:1516
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
