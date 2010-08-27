@@ -3563,6 +3563,7 @@ msgstr "Neleisti matyti INFORMATION_SCHEMA"
 #: libraries/config/messages.inc.php:378
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
+"Kokius PHP plėtinius naudoti; Jūs turėtumėte naudoti mysqli jei palaikoma"
 
 #: libraries/config/messages.inc.php:379
 msgid "PHP extension to use"
