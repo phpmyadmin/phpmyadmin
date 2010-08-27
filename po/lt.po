@@ -2349,7 +2349,7 @@ msgstr "Rinkti klaidas"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Rodyti piktogramas įspėjimams, klaidoms ir informaciniams pranešimams"
 
 #: libraries/config/messages.inc.php:65
 #| msgid "Ignore errors"
