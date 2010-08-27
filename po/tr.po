@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:58+0200\n"
+"PO-Revision-Date: 2010-08-27 22:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3749,7 +3749,6 @@ msgid "Automatically create versions"
 msgstr "Otomatik olarak sürümleri oluştur"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -3757,8 +3756,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"SQL sorgu izleme desteği istenmiyorsa boş bırakın, önerilen: [kbd]"
-"pma_tracking[/kbd]"
+"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
+"önerilen: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 msgid "User preferences storage table"
