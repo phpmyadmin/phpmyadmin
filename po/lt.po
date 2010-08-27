@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:22+0200\n"
+"PO-Revision-Date: 2010-08-27 22:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3089,7 +3089,7 @@ msgstr "Lentelės medžio skyriklis"
 
 #: libraries/config/messages.inc.php:276
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "Adresas kur nuves logotipas esantis navigacijos rėmelyje"
 
 #: libraries/config/messages.inc.php:277
 msgid "Logo link URL"
