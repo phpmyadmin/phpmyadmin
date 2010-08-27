@@ -9259,7 +9259,7 @@ msgstr "Indeksi değiştir"
 
 #: tbl_indexes.php:166
 msgid "Index name:"
-msgstr "İndeks ismi:"
+msgstr "İndeks adı:"
 
 #: tbl_indexes.php:172
 msgid "Index type:"
