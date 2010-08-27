@@ -115,7 +115,15 @@ if (window.parent.refreshNavigation) {
     window.parent.refreshNavigation();
 }
         <?php
+    } else if (isset($_GET['reload_left_frame']) && $_GET['reload_left_frame'] == '1') {
+        // reload left frame (used by user preferences)
+        ?>
+        if (window.parent && window.parent.frame_navigation) {
+            window.parent.frame_navigation.location.reload();
+        }
+        <?php
     }
+
     ?>
 // set current db, table and sql query in the querywindow
 if (window.parent.reload_querywindow) {

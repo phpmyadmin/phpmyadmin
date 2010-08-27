@@ -24,6 +24,11 @@ class PMA_Config
     var $default_source = './libraries/config.default.php';
 
     /**
+     * @var array   default configuration settings
+     */
+    var $default = array();
+
+    /**
      * @var array   configuration settings
      */
     var $settings = array();
@@ -320,6 +325,7 @@ class PMA_Config
         $this->default_server = $cfg['Servers'][1];
         unset($cfg['Servers']);
 
+        $this->default = $cfg;
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
@@ -406,6 +412,176 @@ class PMA_Config
         $this->checkCollationConnection();
 
         return true;
+    }
+
+    /**
+     * Loads user preferences and merges them with current config
+     * must be called after control connection has been estabilished
+     *
+     * @uses $GLOBALS['cfg']
+     * @uses $GLOBALS['collation_connection']
+     * @uses $GLOBALS['lang']
+     * @uses $_SESSION['cache']['server_$server']['config_mtime']
+     * @uses $_SESSION['cache']['server_$server']['userprefs']
+     * @uses $_SESSION['cache']['server_$server']['userprefs_mtime']
+     * @uses $_SESSION['PMA_Theme_Manager']
+     * @uses PMA_apply_userprefs()
+     * @uses PMA_array_merge_recursive()
+     * @uses PMA_load_userprefs()
+     * @return boolean
+     */
+    function loadUserPreferences()
+    {
+        // index.php should load these settings, so that phpmyadmin.css.php
+        // will have everything avaiable in session cache
+        $server = isset($GLOBALS['server'])
+            ? $GLOBALS['server']
+            : (!empty($GLOBALS['cfg']['ServerDefault']) ? $GLOBALS['cfg']['ServerDefault'] : 0);
+        $cache_key = 'server_' . $server;
+        if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
+            $config_mtime = max($this->default_source_mtime, $this->source_mtime);
+            // cache user preferences, use database only when needed
+            if (!isset($_SESSION['cache'][$cache_key]['userprefs'])
+                    || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime) {
+                // load required libraries
+                require_once './libraries/user_preferences.lib.php';
+                $prefs = PMA_load_userprefs();
+                $_SESSION['cache'][$cache_key]['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
+                $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
+                $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
+                $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
+            }
+        } else if ($server == 0 || !isset($_SESSION['cache'][$cache_key]['userprefs'])) {
+            $this->set('user_preferences', false);
+            return;
+        }
+        $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
+        // type is 'db' or 'session'
+        $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
+        $this->set('user_preferences_mtime', $_SESSION['cache'][$cache_key]['userprefs_mtime']);
+
+        // backup some settings
+        $org_fontsize = $this->settings['fontsize'];
+        // load config array
+        $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
+        if (defined('PMA_MINIMUM_COMMON')) {
+            return;
+        }
+
+        // settings below start really working on next page load, but
+        // changes are made only in index.php so everything is set when
+        // in frames
+
+        // save theme
+        $tmanager = $_SESSION['PMA_Theme_Manager'];
+        if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
+            if ((!isset($config_data['ThemeDefault']) && $tmanager->theme->getId() != 'original')
+                    || isset($config_data['ThemeDefault']) && $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
+                // new theme was set in common.inc.php
+                $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->getId(), 'original');
+            }
+        } else {
+            // no cookie - read default from settings
+            if ($this->settings['ThemeDefault'] != $tmanager->theme->getId()
+                    && $tmanager->checkTheme($this->settings['ThemeDefault'])) {
+                $tmanager->setActiveTheme($this->settings['ThemeDefault']);
+                $tmanager->setThemeCookie();
+            }
+        }
+
+        // save font size
+        if ((!isset($config_data['fontsize']) && $org_fontsize != '82%')
+                || isset($config_data['fontsize']) && $org_fontsize != $config_data['fontsize']) {
+            $this->setUserValue(null, 'fontsize', $org_fontsize, '82%');
+        }
+
+        // save language
+        if (isset($_COOKIE['pma_lang']) || isset($_POST['lang'])) {
+            if ((!isset($config_data['lang']) && $GLOBALS['lang'] != 'en')
+                    || isset($config_data['lang']) && $GLOBALS['lang'] != $config_data['lang']) {
+                $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+            }
+        } else {
+            // read language from settings
+            if (isset($config_data['lang']) && PMA_langSet($config_data['lang'])) {
+                $this->setCookie('pma_lang', $GLOBALS['lang']);
+            }
+        }
+
+        // save connection collation
+        if (isset($_COOKIE['pma_collation_connection']) || isset($_POST['collation_connection'])) {
+            if ((!isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != 'utf8_general_ci')
+                    || isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != $config_data['collation_connection']) {
+                $this->setUserValue(null, 'collation_connection', $GLOBALS['collation_connection'], 'utf8_general_ci');
+            }
+        } else {
+            // read collation from settings
+            if (isset($config_data['collation_connection'])) {
+                $GLOBALS['collation_connection'] = $config_data['collation_connection'];
+                $this->setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
+            }
+        }
+    }
+
+    /**
+     * Sets config value which is stored in user preferences (if available) or in a cookie.
+     *
+     * If user preferences are not yet initialized, option is applied to global config and
+     * added to a update queue, which is processed by {@link loadUserPreferences()}
+     *
+     * @uses $GLOBALS['cfg']
+     * @uses PMA_array_read()
+     * @uses PMA_array_write()
+     * @uses PMA_persist_option()
+     * @param string $cookie_name can be null
+     * @param string $cfg_path
+     * @param mixed  $new_cfg_value
+     * @param mixed  $default_value
+     */
+    function setUserValue($cookie_name, $cfg_path, $new_cfg_value, $default_value = null)
+    {
+        // use permanent user preferences if possible
+        $prefs_type = $this->get('user_preferences');
+        if ($prefs_type) {
+            require_once './libraries/user_preferences.lib.php';
+            if ($default_value === null) {
+                $default_value = PMA_array_read($cfg_path, $this->default);
+            }
+            PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
+        }
+        if ($prefs_type != 'db' && $cookie_name) {
+            // fall back to cookies
+            if ($default_value === null) {
+                $default_value = PMA_array_read($cfg_path, $this->settings);
+            }
+            $this->setCookie($cookie_name, $new_cfg_value, $default_value);
+        }
+        PMA_array_write($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
+        PMA_array_write($cfg_path, $this->settings, $new_cfg_value);
+    }
+
+    /**
+     * Reads value stored by {@link setUserValue()}
+     *
+     * @param string $cookie_name
+     * @param mixed $cfg_value
+     * @return mixed
+     */
+    function getUserValue($cookie_name, $cfg_value)
+    {
+        $cookie_exists = isset($_COOKIE) && !empty($_COOKIE[$cookie_name]);
+        $prefs_type = $this->get('user_preferences');
+        if ($prefs_type == 'db') {
+            // permanent user preferences value exists, remove cookie
+            if ($cookie_exists) {
+                $this->removeCookie($cookie_name);
+            }
+        } else if ($cookie_exists) {
+            return $_COOKIE[$cookie_name];
+        }
+        // return value from $cfg array
+        return $cfg_value;
     }
 
     /**
@@ -537,6 +713,7 @@ class PMA_Config
             $fontsize +
             $this->source_mtime +
             $this->default_source_mtime +
+            $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info)
             . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
@@ -726,10 +903,10 @@ class PMA_Config
     {
         $new_fontsize = '';
 
-        if (isset($_GET['fontsize'])) {
-            $new_fontsize = $_GET['fontsize'];
-        } elseif (isset($_POST['fontsize'])) {
-            $new_fontsize = $_POST['fontsize'];
+        if (isset($_GET['set_fontsize'])) {
+            $new_fontsize = $_GET['set_fontsize'];
+        } elseif (isset($_POST['set_fontsize'])) {
+            $new_fontsize = $_POST['set_fontsize'];
         } elseif (isset($_COOKIE['pma_fontsize'])) {
             $new_fontsize = $_COOKIE['pma_fontsize'];
         }
@@ -1011,7 +1188,7 @@ class PMA_Config
         $options = PMA_Config::_getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
-        $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
+        $return .= '<select name="set_fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
             if ($option == $current_size) {

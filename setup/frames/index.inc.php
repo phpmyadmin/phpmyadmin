@@ -2,9 +2,7 @@
 /**
  * Overview (main page)
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {
@@ -15,7 +13,7 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './libraries/display_select_lang.lib.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
 
 // prepare unfiltered language list
@@ -48,7 +46,8 @@ $config_writable = false;
 $config_exists = false;
 check_config_rw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
-    messages_set('error', 'config_rw', 'CannotLoadConfig', PMA_lang('CannotLoadConfigMsg'));
+    messages_set('error', 'config_rw', __('Cannot load or save configuration'),
+        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.')));
 }
 //
 // Check https connection
@@ -56,11 +55,13 @@ if (!$config_writable || !$config_readable) {
 $is_https = !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on';
 if (!$is_https) {
     $text = __('You are not using a secure connection; all data (including potentially sensitive information, like passwords) is transferred unencrypted!');
+
     if (!empty($_SERVER['REQUEST_URI']) && !empty($_SERVER['HTTP_HOST'])) {
-        $text .= ' ' . PMA_lang('InsecureConnectionMsg2',
+        $strInsecureConnectionMsg2 = __('If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.');
+        $text .= ' ' . PMA_lang($strInsecureConnectionMsg2,
             'https://' . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']));
     }
-    messages_set('warning', 'no_https', 'InsecureConnection', $text);
+    messages_set('warning', 'no_https', __('Insecure connection'), $text);
 }
 ?>
 
@@ -110,10 +111,10 @@ display_form_top('index.php', 'get', array(
 <tr>
     <th>#</th>
     <th><?php echo __('Name') ?></th>
-    <th>Authentication type</th>
+    <th><?php echo __('Authentication type') ?></th>
     <th colspan="2">DSN</th>
 </tr>
-<?php foreach ($_SESSION['ConfigFile']['Servers'] as $id => $server): ?>
+<?php foreach ($cf->getServers() as $id => $server): ?>
 <tr>
     <td><?php echo $id ?></td>
     <td><?php echo $cf->getServerName($id) ?></td>
@@ -186,7 +187,7 @@ if ($cf->getServerCount() > 0) {
     }
     $opts['values_disabled'][] = '-';
 
-    foreach ($_SESSION['ConfigFile']['Servers'] as $id => $server) {
+    foreach ($cf->getServers() as $id => $server) {
         $opts['values'][(string)$id] = $cf->getServerName($id) . " [$id]";
     }
 } else {

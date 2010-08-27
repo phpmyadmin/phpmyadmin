@@ -16,6 +16,8 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'pMap.js';
+
 /**
  * Does the common work
  */
@@ -32,6 +34,11 @@ require './libraries/server_links.inc.php';
  */
 require './libraries/replication.inc.php';
 require_once './libraries/replication_gui.lib.php';
+
+/**
+ * Chart generation
+ */
+require_once './libraries/chart.lib.php';
 
 /**
  * Messages are built using the message name 
@@ -692,6 +699,13 @@ foreach ($used_queries as $name => $value) {
 ?>
     </tbody>
     </table>
+    <div class="clearfloat"></div>
+</div>
+
+<div>    
+    <?php
+    echo PMA_chart_status($used_queries);
+    ?>
 </div>
 
 <div id="serverstatussection">

@@ -102,19 +102,21 @@ $tabs = array();
 $tabs[] =& $tab_structure;
 $tabs[] =& $tab_sql;
 $tabs[] =& $tab_search;
-if (PMA_Tracker::isActive()) {
-    $tabs[] =& $tab_tracking;
-}
 $tabs[] =& $tab_qbe;
 $tabs[] =& $tab_export;
 if (! $db_is_information_schema) {
     $tabs[] =& $tab_import;
-    if ($cfgRelation['designerwork']) {
-        $tabs[] =& $tab_designer;
-    }
     $tabs[] =& $tab_operation;
     if ($is_superuser) {
         $tabs[] =& $tab_privileges;
+    }
+}
+if (PMA_Tracker::isActive()) {
+    $tabs[] =& $tab_tracking;
+}
+if (! $db_is_information_schema) {
+    if ($cfgRelation['designerwork']) {
+        $tabs[] =& $tab_designer;
     }
 }
 

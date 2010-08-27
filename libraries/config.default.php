@@ -341,6 +341,15 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 $cfg['Servers'][$i]['tracking'] = '';
 
 /**
+ * table to store user preferences
+ *   - leave blank to disable server storage
+ *     SUGGESTED: 'pma_userconfig'
+ *
+ * @global string $cfg['Servers'][$i]['userconfig']
+ */
+$cfg['Servers'][$i]['userconfig'] = '';
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *
@@ -1064,6 +1073,13 @@ $cfg['Export'] = array();
 $cfg['Export']['format'] = 'sql';
 
 /**
+ * quick/custom/custom-no-form
+ *
+ * @global string $cfg['Export']['format']
+ */
+$cfg['Export']['method'] = 'quick';
+
+/**
  * none/zip/gzip/bzip2
  *
  * @global string $cfg['Export']['compression']
@@ -1146,6 +1162,13 @@ $cfg['Export']['file_template_server'] = '@SERVER@';
  * @global string $cfg['Export']['codegen_structure_or_data']
  */
 $cfg['Export']['codegen_structure_or_data'] = 'data';
+
+/**
+ * 
+ *
+ * @global $cfg['Export']['codegen_format']
+ */
+$cfg['Export']['codegen_format'] = 0;
 
 /**
  *
@@ -1339,6 +1362,13 @@ $cfg['Export']['csv_terminated'] = 'AUTO';
 /**
  *
  *
+ * @global string $cfg['Export']['csv_removeCRLF']
+ */
+$cfg['Export']['csv_removeCRLF'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['excel_columns']
  */
 $cfg['Export']['excel_columns'] = false;
@@ -1356,6 +1386,13 @@ $cfg['Export']['excel_null'] = 'NULL';
  * @global string $cfg['Export']['excel_edition']
  */
 $cfg['Export']['excel_edition'] = 'win';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['excel_removeCRLF']
+ */
+$cfg['Export']['excel_removeCRLF'] = false;
 
 /**
  *
@@ -1616,7 +1653,7 @@ $cfg['Export']['sql_hex_for_blob'] = true;
  *
  * @global string $cfg['Export']['sql_type']
  */
-$cfg['Export']['sql_type'] = 'insert';
+$cfg['Export']['sql_type'] = 'INSERT';
 
 /**
  *
@@ -1673,6 +1710,7 @@ $cfg['Export']['pdf_report_title'] = '';
  *@global string $cfg['Export']['xml_structure_or_data']
  */
 $cfg['Export']['xml_structure_or_data'] = 'data';
+
 /**
  * Export schema for each structure
  *
@@ -1728,6 +1766,7 @@ $cfg['Export']['xml_export_contents'] = true;
  * @global string $cfg['Export']['yaml_structure_or_data']
  */
 $cfg['Export']['yaml_structure_or_data'] = 'data';
+
 /*******************************************************************************
  * Import defaults
  */
@@ -1759,7 +1798,7 @@ $cfg['Import']['allow_interrupt'] = true;
  *
  * @global integer $cfg['Import']['skip_queries']
  */
-$cfg['Import']['skip_queries'] = '0';
+$cfg['Import']['skip_queries'] = 0;
 
 /**
  *
@@ -1781,6 +1820,13 @@ $cfg['Import']['sql_no_auto_value_on_zero'] = true;
  * @global boolean $cfg['Import']['csv_replace']
  */
 $cfg['Import']['csv_replace'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Import']['csv_ignore']
+ */
+$cfg['Import']['csv_ignore'] = false;
 
 /**
  *
@@ -1830,6 +1876,13 @@ $cfg['Import']['csv_col_names'] = false;
  * @global boolean $cfg['Import']['ldi_replace']
  */
 $cfg['Import']['ldi_replace'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Import']['ldi_ignore']
+ */
+$cfg['Import']['ldi_ignore'] = false;
 
 /**
  *
@@ -1914,6 +1967,13 @@ $cfg['Import']['xls_col_names'] = false;
  * @global string $cfg['Import']['xml_empty_rows']
  */
 $cfg['Import']['xls_empty_rows'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['xlsx_col_names']
+ */
+$cfg['Import']['xlsx_col_names'] = false;
 
 /**
  * Link to the official MySQL documentation.
@@ -2171,7 +2231,7 @@ $cfg['DefaultDisplay'] = 'horizontal';
 /**
  * default display direction for altering/creating columns (tbl_properties)
  * (horizontal|vertical|<number>)
- * number indicates maximal number for which vertical model is used
+ * number indicates maximum number for which vertical model is used
  *
  * @global integer $cfg['DefaultPropDisplay']
  */
@@ -2273,14 +2333,6 @@ $cfg['MaxExactCount'] = 20000;
 $cfg['MaxExactCountViews'] = 0;
 
 /**
- * Utilize DHTML/JS capabilities to allow WYSIWYG editing of
- * the PDF page editor. Requires an IE6/Gecko based browser.
- *
- * @global boolean $cfg['WYSIWYG-PDF']
- */
-$cfg['WYSIWYG-PDF'] = true;
-
-/**
  * Sort table and database in natural order
  *
  * @global boolean $cfg['NaturalOrder']
@@ -2295,7 +2347,18 @@ $cfg['NaturalOrder'] = true;
  */
 $cfg['InitialSlidersState'] = 'closed';
 
+/**
+ * User preferences: disallow these settings
+ * For possible setting names look in libraries/config/user_preferences.forms.php
+ *
+ * @global array $cfg['UserprefsDisallow']
+ */
+$cfg['UserprefsDisallow'] = array();
 
+/**
+ * User preferences: enable the Developer tab
+ */
+$cfg['UserprefsDeveloperTab'] = false;
 
 /*******************************************************************************
  * Window title settings

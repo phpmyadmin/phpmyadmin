@@ -16,7 +16,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /* general tags */
 html {
     font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : (
-        isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '84%'));?>;
+        isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '82%'));?>;
 }
 
 input, select, textarea {
@@ -59,7 +59,7 @@ a:visited,
 a:active {
     text-decoration:    none;
     color:              #0000FF;
-    cursor: pointer;
+    cursor:             pointer;
 }
 
 a:hover {
@@ -523,7 +523,6 @@ fieldset.confirmation legend {
         <?php } ?>
     <?php } ?>
 }
-
 /* end messageboxes */
 
 
@@ -625,48 +624,88 @@ form.login label {
 /* specific elements */
 
 /* topmenu */
-ul#topmenu {
+ul#topmenu, ul#topmenu2, ul.tabs {
     font-weight:        bold;
     list-style-type:    none;
     margin:             0;
     padding:            0;
 }
 
-ul#topmenu li {
+ul#topmenu2 {
+    margin: 0.25em 0.5em 0;
+    height: 2em;
+    clear: both;
+}
+
+ul#topmenu li, ul#topmenu2 li {
     float:              <?php echo $left; ?>;
     margin:             0;
     padding:            0;
     vertical-align:     middle;
 }
 
-#topmenu img {
+#topmenu img, #topmenu2 img {
     vertical-align:     middle;
     margin-<?php echo $right; ?>:       0.1em;
 }
 
 /* default tab styles */
-.tab, .tabcaution, .tabactive {
+ul#topmenu a, ul#topmenu span {
     display:            block;
     margin:             0.2em 0.2em 0 0.2em;
     padding:            0.2em 0.2em 0 0.2em;
     white-space:        nowrap;
 }
 
+ul#topmenu ul a {
+    margin:             0;
+    padding-bottom:     0.2em;
+}
+
+ul#topmenu .submenu {
+    position:           relative;
+}
+
+ul#topmenu ul {
+    margin:             0;
+    padding:            0;
+    position:           absolute;
+    right:              0;
+    list-style-type:    none;
+    display:            none;
+    border:             1px #666 solid;
+}
+
+ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
+    display:            block;
+}
+
+ul#topmenu ul li {
+    width:              100%;
+}
+
+ul#topmenu2 a {
+    display:            block;
+    margin:             0.1em;
+    padding:            0.2em;
+    white-space:        nowrap;
+}
+
 /* disabled tabs */
-span.tab {
+ul#topmenu span.tab {
     color:              #666666;
 }
 
 /* disabled drop/empty tabs */
-span.tabcaution {
+ul#topmenu span.tabcaution {
     color:              #ff6666;
 }
 
 /* enabled drop/empty tabs */
-a.tabcaution {
+ul#topmenu a.tabcaution {
     color:              #FF0000;
 }
-a.tabcaution:hover {
+ul#topmenu a.tabcaution:hover {
     color: #FFFFFF;
     background-color:   #FF0000;
 }
@@ -680,8 +719,12 @@ fieldset.caution a:hover {
 
 <?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
-a.tabactive {
+ul#topmenu a.tabactive, ul#topmenu2 a.tabactive {
     color:              black;
+}
+
+ul#topmenu ul {
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 <?php } else { ?>
 #topmenu {
@@ -689,43 +732,70 @@ a.tabactive {
     padding:            0.1em 0.3em 0.1em 0.3em;
 }
 
-ul#topmenu li {
+ul#topmenu ul {
+    -moz-box-shadow:    2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow:         2px 2px 3px #666;
+}
+
+ul#topmenu > li {
     border-bottom:      1pt solid black;
 }
 
 /* default tab styles */
-.tab, .tabcaution, .tabactive {
+ul#topmenu a, ul#topmenu span {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    border:             1pt solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-bottom:      0;
+    border:             0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-width:       1pt 1pt 0 1pt;
     -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;
 }
 
+ul#topmenu ul a {
+    border-width:       1pt 0 0 0;
+    -moz-border-radius: 0;
+    border-radius:      0;
+}
+
+ul#topmenu ul li:first-child a {
+    border-width:       0;
+}
+
 /* enabled hover/active tabs */
-a.tab:hover,
-a.tabcaution:hover,
-.tabactive,
-.tabactive:hover {
+ul#topmenu > li > a:hover,
+ul#topmenu > li > .tabactive {
     margin:             0;
     padding:            0.2em 0.4em 0.2em 0.4em;
     text-decoration:    none;
 }
 
-a.tab:hover,
-.tabactive {
+ul#topmenu ul a:hover,
+ul#topmenu ul .tabactive {
+    text-decoration:    none;
+}
+
+ul#topmenu a.tab:hover,
+ul#topmenu .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
+ul#topmenu2 a.tab:hover,
+ul#topmenu2 a.tabactive {
+    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    -moz-border-radius: 0.3em;
+    border-radius:      0.3em;
+    text-decoration:    none;
+}
+
 /* to be able to cancel the bottom border, use <li class="active"> */
-ul#topmenu li.active {
+ul#topmenu > li.active {
      border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 /* disabled drop/empty tabs */
-span.tab,
+ul#topmenu span.tab,
 a.warning,
-span.tabcaution {
+ul#topmenu span.tabcaution {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
@@ -1097,6 +1167,10 @@ li#li_switch_dbstats {
 li#li_flush_privileges {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
 }
+
+li#li_user_preferences {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
+}
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
@@ -1220,9 +1294,15 @@ code.sql, div.sqlvalidate {
 }
 
 .group h2 {
-    background:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
+}
+
+.group-cnt {
+    padding: 0 0 0 0.5em;
+    display: inline-block;
+    width: 98%;
 }
 
 /* for elements that should be revealed only via js */
@@ -1452,8 +1532,6 @@ a.close_enum_editor {
     width: 100%;
 }
 
-#enum_editor input, #enum_editor_no_js input {
-    float: bottom;
 }
 
 #enum_editor_output {
@@ -1481,4 +1559,211 @@ iframe.IE_hack {
     display: none;
     border: 0;
     filter: alpha(opacity=0);
+}
+
+/* config forms */
+.config-form ul.tabs {
+    margin:      1.1em 0.2em 0;
+    padding:     0 0 0.3em 0;
+    list-style:  none;
+    font-weight: bold;
+}
+
+.config-form ul.tabs li {
+    float: <?php echo $left; ?>;
+}
+
+.config-form ul.tabs li a {
+    display:          block;
+    margin:           0.1em 0.2em 0;
+    padding:          0.1em 0.4em;
+    white-space:      nowrap;
+    text-decoration:  none;
+    border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-bottom:    none;
+}
+
+.config-form ul.tabs li a:hover,
+.config-form ul.tabs li a:active,
+.config-form ul.tabs li a.active {
+    margin:           0;
+    padding:          0.1em 0.6em 0.2em;
+}
+
+.config-form ul.tabs li a.active {
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+}
+
+.config-form fieldset {
+    margin-top:   0;
+    padding:      0;
+    clear:        both;
+    /*border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;*/
+}
+
+.config-form legend {
+    display: none;
+}
+
+.config-form fieldset p {
+    margin:  0;
+    padding: 0.5em;
+}
+
+.config-form fieldset .errors { /* form error list */
+    margin:       0 -2px 1em -2px;
+    padding:      0.5em 1.5em;
+    background:   #FBEAD9;
+    border:       0 #C83838 solid;
+    border-width: 1px 0;
+    list-style:   none;
+    font-family:  sans-serif;
+    font-size:    small;
+}
+
+.config-form fieldset .inline_errors { /* field error list */
+    margin:     0.3em 0.3em 0.3em 0;
+    padding:    0;
+    list-style: none;
+    color:      #9A0000;
+	font-size:  small;
+}
+
+.config-form fieldset th {
+    padding:        0.3em 0.3em 0.3em 0.5em;
+    text-align:     left;
+    vertical-align: top;
+    width:          40%;
+    background:     transparent;
+}
+
+.config-form fieldset .doc, .config-form fieldset .disabled-notice {
+    margin-left: 1em;
+}
+
+.config-form fieldset .disabled-notice {
+    font-size: 80%;
+    text-transform: uppercase;
+    color: #E00;
+    cursor: help;
+}
+
+.config-form fieldset td {
+    padding-top:    0.3em;
+    padding-bottom: 0.3em;
+    vertical-align: top;
+}
+
+.config-form fieldset th small {
+    display:     block;
+    font-weight: normal;
+    font-family: sans-serif;
+    font-size:   x-small;
+    color:       #444;
+}
+
+.config-form fieldset th, .config-form fieldset td {
+    border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
+}
+
+fieldset .group-header th {
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
+fieldset .group-header + tr th {
+    padding-top: 0.6em;
+}
+
+fieldset .group-field th {
+    padding-left: 1.5em;
+}
+
+fieldset .disabled-field th,
+fieldset .disabled-field th small,
+fieldset .disabled-field td {
+    color: #666;
+    background-color: #ddd;
+}
+
+.config-form .lastrow {
+    border-top: 1px #000 solid;
+}
+
+.config-form .lastrow {
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
+    padding:    0.5em;
+    text-align: center;
+}
+
+.config-form .lastrow input {
+    font-weight: bold;
+}
+
+/* form elements */
+
+.config-form span.checkbox {
+    padding: 2px;
+    display: inline-block;
+}
+
+.config-form .custom { /* customized field */
+    background: #FFC;
+}
+
+.config-form span.checkbox.custom {
+    padding:    1px;
+    border:     1px #EDEC90 solid;
+    background: #FFC;
+}
+
+.config-form .field-error {
+    border-color: #A11 !important;
+}
+
+.config-form input[type="text"],
+.config-form select,
+.config-form textarea {
+    border: 1px #A7A6AA solid;
+    height: auto;
+}
+
+.config-form input[type="text"]:focus,
+.config-form select:focus,
+.config-form textarea:focus {
+    border:     1px #6676FF solid;
+    background: #F7FBFF;
+}
+
+.config-form .field-comment-mark {
+    font-family: serif;
+    color: #007;
+    cursor: help;
+    padding: 0 0.2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.config-form .field-comment-warning {
+    color: #A00;
+}
+
+/* error list */
+.config-form dd {
+    margin-left: 0.5em;
+}
+
+.config-form dd:before {
+    content: "\25B8  ";
+}
+
+.click-hide-message {
+    cursor: pointer;
+}
+
+.prefsmanage_opts {
+    margin-<?php echo $left; ?>: 2em;
+}
+
+#prefs_autoload {
+    margin-bottom: 0.5em;
 }

@@ -1400,7 +1400,7 @@ function getElement(e,f){
 }
 
 /**
-  * Refresh the WYSIWYG-PDF scratchboard after changes have been made
+  * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e) {
     var elm = $('#' + e);
@@ -1410,13 +1410,16 @@ function refreshDragOption(e) {
 }
 
 /**
-  * Refresh/resize the WYSIWYG-PDF scratchboard
+  * Refresh/resize the WYSIWYG scratchboard
   */
 function refreshLayout() {
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
-    var paper = $('#paper_opt').val();
-
+    if($('#paper_opt').length==1){
+        var paper = $('#paper_opt').val();        
+    }else{
+        var paper = 'A4';
+    }
     if (orientation == 'P') {
         posa = 'x';
         posb = 'y';
@@ -1429,7 +1432,7 @@ function refreshLayout() {
 }
 
 /**
-  * Show/hide the WYSIWYG-PDF scratchboard
+  * Show/hide the WYSIWYG scratchboard
   */
 function ToggleDragDrop(e) {
     var elm = $('#' + e);
@@ -1706,6 +1709,47 @@ $(document).ready(function(){
         insertQuery(evt.target.id);
         return false;
     });
+
+    $("#export_type").change(function(){
+        if($("#export_type").val()=='svg'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#orientation_opt").attr("disabled","disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").removeAttr("disabled");
+            $("#all_table_same_wide").removeAttr("disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            //$(this).css("background-color","yellow");
+        }else if($("#export_type").val()=='dia'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled","disabled");
+        }else if($("#export_type").val()=='eps'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").attr("disabled","disabled");
+            $("#show_color_opt").attr("disabled","disabled");
+            
+        }else if($("#export_type").val()=='pdf'){
+            $("#show_grid_opt").removeAttr("disabled");
+            $("#orientation_opt").removeAttr("disabled");
+            $("#with_doc").removeAttr("disabled","disabled");
+            $("#show_table_dim_opt").removeAttr("disabled","disabled");
+            $("#all_table_same_wide").removeAttr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+        }else{
+            // nothing
+        }
+    });
+
     $('#sqlquery').focus();
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
@@ -2454,4 +2498,100 @@ $(document).ready(function() {
             style: { background: '#ffffcc' }
         });
     });
+});
+
+function menuResize()
+{
+    var cnt = $('#topmenu');
+    var wmax = cnt.width() - 5; // 5 px margin for jumping menu in Chrome
+    var submenu = cnt.find('.submenu');
+    var submenu_w = submenu.outerWidth(true);
+    var submenu_ul = submenu.find('ul');
+    var li = cnt.find('> li');
+    var li2 = submenu_ul.find('li');
+    var more_shown = li2.length > 0;
+    var w = more_shown ? submenu_w : 0;
+
+    // hide menu items
+    var hide_start = 0;
+    for (var i = 0; i < li.length-1; i++) { // li.length-1: skip .submenu element
+        var el = $(li[i]);
+        var el_width = el.outerWidth(true);
+        el.data('width', el_width);
+        w += el_width;
+        if (w > wmax) {
+            w -= el_width;
+            if (w + submenu_w < wmax) {
+                hide_start = i;
+            } else {
+                hide_start = i-1;
+                w -= $(li[i-1]).data('width');
+            }
+            break;
+        }
+    }
+
+    if (hide_start > 0) {
+        for (var i = hide_start; i < li.length-1; i++) {
+            $(li[i])[more_shown ? 'prependTo' : 'appendTo'](submenu_ul);
+        }
+        submenu.show();
+    } else if (more_shown) {
+        w -= submenu_w;
+        // nothing hidden, maybe something can be restored
+        for (var i = 0; i < li2.length; i++) {
+            //console.log(li2[i], submenu_w);
+            w += $(li2[i]).data('width');
+            // item fits or (it is the last item and it would fit if More got removed)
+            if (w+submenu_w < wmax || (i == li2.length-1 && w < wmax)) {
+                $(li2[i]).insertBefore(submenu);
+                if (i == li2.length-1) {
+                    submenu.hide();
+                }
+                continue;
+            }
+            break;
+        }
+    }
+    if (submenu.find('.tabactive').length) {
+        submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
+    } else {
+        submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
+    }
+}
+
+$(function() {
+    var topmenu = $('#topmenu');
+    if (topmenu.length == 0) {
+        return;
+    }
+    // create submenu container
+    var link = $('<a />', {href: '#', 'class': 'tab'})
+        .text(PMA_messages['strMore'])
+        .click(function(e) {
+            e.preventDefault();
+        });
+    var img = topmenu.find('li:first-child img');
+    if (img.length) {
+        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+    }
+    var submenu = $('<li />', {'class': 'submenu'})
+        .append(link)
+        .append($('<ul />'))
+        .mouseenter(function() {
+            if ($(this).find('ul .tabactive').length == 0) {
+                $(this).addClass('submenuhover').find('> a').addClass('tabactive');
+            }
+        })
+        .mouseleave(function() {
+            if ($(this).find('ul .tabactive').length == 0) {
+                $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
+            }
+        })
+        .hide();
+    topmenu.append(submenu);
+
+    // populate submenu and register resize event
+    $(window).resize(menuResize);
+    menuResize();
 });

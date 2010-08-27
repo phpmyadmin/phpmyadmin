@@ -256,15 +256,18 @@ if ($asfile) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if ($export_type == 'server') {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setCookie('pma_server_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue('pma_server_filename_template',
+                'Export/file_template_server', $filename_template);
         }
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setCookie('pma_db_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue('pma_db_filename_template',
+                'Export/file_template_database', $filename_template);
         }
     } else {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setCookie('pma_table_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue('pma_table_filename_template',
+                'Export/file_template_table', $filename_template);
         }
     }
     $filename = PMA_expandUserString($filename_template);

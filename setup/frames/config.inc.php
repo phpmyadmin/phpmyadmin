@@ -1,10 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Config file view and save screen
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {
@@ -14,8 +13,9 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
+require_once './setup/lib/ConfigGenerator.class.php';
 
 $config_readable = false;
 $config_writable = false;
@@ -29,7 +29,7 @@ check_config_rw($config_readable, $config_writable, $config_exists);
 <tr>
     <td>
         <textarea cols="50" rows="20" name="textconfig" id="textconfig" spellcheck="false"><?php
-            echo htmlspecialchars(ConfigFile::getInstance()->getConfigFile())
+            echo htmlspecialchars(ConfigGenerator::getConfigFile())
         ?></textarea>
     </td>
 </tr>

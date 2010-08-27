@@ -104,6 +104,14 @@ $Id$
   thanks to Isaac Bennetch - ibennetch
 - patch #3038312 [export] JSON export, 
   thanks to Hauke Henningsen - blubberkeks152
+- rfe #1494550 [interface] Editor for SET/ENUM fields.
+- rfe #2649375 [interface] Simplified interface to backup/restore.
+- rfe #2973909 Users preferences
+- [relations] Dropped WYSIWYG-PDF configuration variable.
+- rfe #806035, #686260 [relations] Export relations to Dia, SVG and others
++ [interface] Added charts to status tab, profiling page and query results
+
+3.3.7.0 (not yet released)
 
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name

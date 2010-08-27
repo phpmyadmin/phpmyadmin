@@ -192,3 +192,18 @@ CREATE TABLE IF NOT EXISTS `pma_tracking` (
   `tracking_active` int(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma_userconfig`
+--
+
+CREATE TABLE IF NOT EXISTS `pma_userconfig` (
+  `username` varchar(64) NOT NULL,
+  `timevalue` timestamp NOT NULL,
+  `config_data` text NOT NULL,
+  PRIMARY KEY  (`username`)
+)
+  ENGINE=MyISAM COMMENT='User preferences storage for phpMyAdmin'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

@@ -29,22 +29,26 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
             .'alt="' . $logo . '" id="imgpmalogo" />';
     }
 
-    echo '<div id="pmalogo">' . "\n"
-        .'<a href="' . $GLOBALS['cfg']['LeftLogoLink'];
-    switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
-        case 'new':
-            echo '" target="_blank"';
-            break;
-        case 'main':
-            // do not add our parameters for an external link
-            if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== 'http') {
-                echo '?' . $query_url . '" target="frame_content"';
-            } else {
-                echo '"';
-            }
+    echo '<div id="pmalogo">' . "\n";
+    if ($GLOBALS['cfg']['LeftLogoLink']) {
+        echo '<a href="' . htmlspecialchars($GLOBALS['cfg']['LeftLogoLink']);
+        switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
+            case 'new':
+                echo '" target="_blank"';
+                break;
+            case 'main':
+                // do not add our parameters for an external link
+                if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== '://') {
+                    echo '?' . $query_url . '" target="frame_content"';
+                } else {
+                    echo '" target="_blank"';
+                }
+        }
+        echo '>' . $logo . '</a>' . "\n";
+    } else {
+        echo $logo . "\n";
     }
-    echo '>' . $logo . '</a>' . "\n"
-        .'</div>' . "\n";
+    echo '</div>' . "\n";
 } // end of display logo
 ?>
 <div id="leftframelinks">

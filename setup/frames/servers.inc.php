@@ -2,9 +2,7 @@
 /**
  * Server create and edit view
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {
@@ -14,9 +12,11 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './setup/lib/Form.class.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/Form.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
+
+require './libraries/config/setup.forms.php';
 
 $mode = filter_input(INPUT_GET, 'mode');
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -41,10 +41,8 @@ if (isset($page_title)) {
     echo '<h2>' . $page_title . '</h2>';
 }
 $form_display = new FormDisplay();
-$form_display->registerForm('Server', $id);
-$form_display->registerForm('Server_login_options', $id);
-$form_display->registerForm('Server_config', $id);
-$form_display->registerForm('Server_pmadb', $id);
-$form_display->registerForm('Server_tracking', $id);
+foreach ($forms['Servers'] as $form_name => $form) {
+    $form_display->registerForm($form_name, $form, $id);
+}
 process_formset($form_display);
 ?>

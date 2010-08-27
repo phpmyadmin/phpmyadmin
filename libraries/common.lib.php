@@ -1306,12 +1306,14 @@ function PMA_profilingCheckbox($sql_query)
  * Displays the results of SHOW PROFILE
  *
  * @param    array   the results
+ * @param    boolean show chart
  * @access  public
  *
  */
-function PMA_profilingResults($profiling_results)
+function PMA_profilingResults($profiling_results, $show_chart = false)
 {
     echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
+    echo '<div style="float: left;">';
     echo '<table>' . "\n";
     echo ' <tr>' .  "\n";
     echo '  <th>' . __('Status') . '</th>' . "\n";
@@ -1323,7 +1325,17 @@ function PMA_profilingResults($profiling_results)
         echo '<td>' . $one_result['Status'] . '</td>' .  "\n";
         echo '<td>' . $one_result['Duration'] . '</td>' .  "\n";
     }
+
     echo '</table>' . "\n";
+    echo '</div>';
+
+    if ($show_chart) {
+        require_once './libraries/chart.lib.php';
+        echo '<div style="float: left;">';
+        PMA_chart_profiling($profiling_results);
+        echo '</div>';
+    }
+
     echo '</fieldset>' . "\n";
 }
 
@@ -1602,7 +1614,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
     $defaults = array(
         'text'      => '',
         'class'     => '',
-        'active'    => false,
+        'active'    => null,
         'link'      => '',
         'sep'       => '?',
         'attr'      => '',
@@ -1622,7 +1634,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
         } elseif (! empty($tab['active'])
          || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
             $tab['class'] = 'active';
-        } elseif (empty($GLOBALS['active_page'])
+        } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
           && basename($GLOBALS['PMA_PHP_SELF']) == $tab['link']
           && empty($tab['warning'])) {
             $tab['class'] = 'active';

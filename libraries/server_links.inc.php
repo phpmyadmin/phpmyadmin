@@ -49,6 +49,29 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['status']['link'] = 'server_status.php';
     $tabs['status']['text'] = __('Status');
 
+    if (! empty($binary_logs)) {
+        $tabs['binlog']['icon'] = 's_tbl.png';
+        $tabs['binlog']['link'] = 'server_binlog.php';
+        $tabs['binlog']['text'] = __('Binary log');
+    }
+    $tabs['process']['icon'] = 's_process.png';
+    $tabs['process']['link'] = 'server_processlist.php';
+    $tabs['process']['text'] = __('Processes');
+
+    if ($is_superuser) {
+        $tabs['rights']['icon'] = 's_rights.png';
+        $tabs['rights']['link'] = 'server_privileges.php';
+        $tabs['rights']['text'] = __('Privileges');
+    }
+
+    $tabs['export']['icon'] = 'b_export.png';
+    $tabs['export']['link'] = 'server_export.php';
+    $tabs['export']['text'] = __('Export');
+
+    $tabs['import']['icon'] = 'b_import.png';
+    $tabs['import']['link'] = 'server_import.php';
+    $tabs['import']['text'] = __('Import');
+
     $tabs['vars']['icon'] = 's_vars.png';
     $tabs['vars']['link'] = 'server_variables.php';
     $tabs['vars']['text'] = __('Variables');
@@ -62,46 +85,32 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['engine']['text'] = __('Engines');
 
     if ($is_superuser) {
-        $tabs['rights']['icon'] = 's_rights.png';
-        $tabs['rights']['link'] = 'server_privileges.php';
-        $tabs['rights']['text'] = __('Privileges');
-
         $tabs['replication']['icon'] = 's_replication.png';
         $tabs['replication']['link'] = 'server_replication.php';
         $tabs['replication']['text'] = __('Replication');
     }
 
-    if (! empty($binary_logs)) {
-        $tabs['binlog']['icon'] = 's_tbl.png';
-        $tabs['binlog']['link'] = 'server_binlog.php';
-        $tabs['binlog']['text'] = __('Binary log');
-    }
-    $tabs['process']['icon'] = 's_process.png';
-    $tabs['process']['link'] = 'server_processlist.php';
-    $tabs['process']['text'] = __('Processes');
-
-    $tabs['export']['icon'] = 'b_export.png';
-    $tabs['export']['link'] = 'server_export.php';
-    $tabs['export']['text'] = __('Export');
-
-    $tabs['import']['icon'] = 'b_import.png';
-    $tabs['import']['link'] = 'server_import.php';
-    $tabs['import']['text'] = __('Import');
-
     $tabs['synchronize']['icon'] = 's_sync.png';
     $tabs['synchronize']['link'] = 'server_synchronize.php';
     $tabs['synchronize']['text'] = __('Synchronize');
 
+    $tabs['settings']['icon'] = 'b_tblops.png';
+    $tabs['settings']['link'] = 'prefs_manage.php';
+    $tabs['settings']['text'] = __('Settings');
+    $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']),
+        array('prefs_forms.php', 'prefs_manage.php'));
+
     echo PMA_generate_html_tabs($tabs, array());
     unset($tabs);
-} //end if(!$GLOBALS['is_ajax_request'])
 
-/**
- * Displays a message
- */
-if (!empty($message)) {
-    PMA_showMessage($message);
-    unset($message);
-}
 
+
+    /**
+     * Displays a message
+     */
+    if (!empty($message)) {
+        PMA_showMessage($message);
+        unset($message);
+    }
+}// end if($GLOBALS['is_ajax_request'] == true)
 ?>

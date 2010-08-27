@@ -2980,6 +2980,7 @@ if(!class_exists('TCPDF', false)) {
 					if(ob_get_contents()) {
 						$this->Error('Some data has already been output, can\'t send PDF file');
 					}
+					
 					if(php_sapi_name()!='cli') {
 						//We send to a browser
 						header('Content-Type: application/pdf');
@@ -2997,6 +2998,7 @@ if(!class_exists('TCPDF', false)) {
 					if(ob_get_contents()) {
 						$this->Error('Some data has already been output, can\'t send PDF file');
 					}
+					
 					if(isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'],'MSIE')) {
 						header('Content-Type: application/force-download');
 					} else {
@@ -3005,6 +3007,7 @@ if(!class_exists('TCPDF', false)) {
 					if(headers_sent()) {
 						$this->Error('Some data has already been output to browser, can\'t send PDF file');
 					}
+					header('Content-Type: application/pdf');
 					header('Content-Length: '.strlen($this->buffer));
 					header('Content-disposition: attachment; filename="'.$name.'"');
 					echo $this->buffer;

@@ -960,6 +960,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 } // end if !defined('PMA_MINIMUM_COMMON')
 
+// load user preferences
+$GLOBALS['PMA_Config']->loadUserPreferences();
+
 // remove sensitive values from session
 $GLOBALS['PMA_Config']->set('blowfish_secret', '');
 $GLOBALS['PMA_Config']->set('Servers', '');

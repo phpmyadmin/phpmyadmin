@@ -29,7 +29,7 @@ echo
 echo Not used messages present in messages file:
 echo
 
-diff $tmp1 $tmp2 | awk '/^</ {print $2}' | grep -Ev '(strSetup.*_(desc|name)|strSetupForm_|strSetupFormset_)'
+diff $tmp1 $tmp2 | awk '/^</ {print $2}' | grep -Ev '(strConfig.*_(desc|name)|strConfigForm_|strConfigFormset_)'
 
 
 rm -f $tmp1 $tmp2

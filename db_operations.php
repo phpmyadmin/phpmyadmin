@@ -538,15 +538,15 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
           WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
     $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
 
-    if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
-        include('./libraries/display_pdf_schema.lib.php');
-    }   // end if
-    echo '<fieldset><a href="pdf_pages.php?' . $url_query . '">';
+    /*
+     * Export Relational Schema View
+     */
+    echo '<fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo __('Edit PDF Pages') . '</a></fieldset>';
+    echo __('Edit or export relational schema') . '</a></fieldset>';
 } // end if
 
 /**

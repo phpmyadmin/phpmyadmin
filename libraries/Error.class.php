@@ -318,7 +318,7 @@ class PMA_Error extends PMA_Message
         if (in_array($function, $include_functions)) {
             echo PMA_Error::relPath($arg);
         } elseif (is_scalar($arg)) {
-            echo gettype($arg) . ' ' . $arg;
+            echo gettype($arg) . ' ' . htmlspecialchars($arg);
         } else {
             echo gettype($arg);
         }

@@ -19,6 +19,7 @@ phpmyadmin.wpj
 .settings
 .buildpath
 .cache
+.idea
 *.sw[op]
 # Locales
 locale

@@ -15,6 +15,7 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'pMap.js';
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -246,8 +247,7 @@ if ($do_confirm) {
     <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back, true) : ''; ?>" />
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload, true) : 0; ?>" />
     <input type="hidden" name="purge" value="<?php echo isset($purge) ? PMA_sanitize($purge, true) : ''; ?>" />
-    <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? PMA_sanitize($cpurge, true) : ''; ?>" />
-    <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? PMA_sanitize($purgekey, true) : ''; ?>" />
+    <input type="hidden" name="dropped_column" value="<?php echo isset($dropped_column) ? PMA_sanitize($dropped_column, true) : ''; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query, true) : ''; ?>" />
     <?php
     echo '<fieldset class="confirmation">' . "\n"
@@ -541,12 +541,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     } // end if ($purge)
 
     // If a column gets dropped, do relation magic.
-    if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
-     && strlen($db) && strlen($table) && !empty($purgekey)) {
+    if (isset($dropped_column) && strlen($db) && strlen($table) && !empty($dropped_column)) {
         require_once './libraries/relation_cleanup.lib.php';
-        PMA_relationsCleanupColumn($db, $table, $purgekey);
+        PMA_relationsCleanupColumn($db, $table, $dropped_column);
 
-    } // end if column PMA_* purge
+    } // end if column was dropped 
 } // end else "didn't ask to see php code"
 
 // No rows returned -> move back to the calling page
@@ -786,7 +785,7 @@ else {
     }
     
     if (isset($profiling_results)) {
-        PMA_profilingResults($profiling_results);
+        PMA_profilingResults($profiling_results, true);
     }
 
     // Displays the results in a table

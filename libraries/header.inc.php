@@ -13,10 +13,12 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/common.inc.php';
 
+
 /**
  * If this is an Ajax request, we do not need to generate all this output.
  */
 if (!$GLOBALS['is_ajax_request']) {
+
     if (empty($GLOBALS['is_header_sent'])) {
 
         /**
@@ -24,6 +26,14 @@ if (!$GLOBALS['is_ajax_request']) {
          */
         require_once './libraries/ob.lib.php';
         PMA_outBufferPre();
+
+        // if database storage for user preferences is transient, offer to load
+        // exported settings from localStorage (detection will be done in JavaScript)
+        $userprefs_offer_import = $GLOBALS['PMA_Config']->get('user_preferences') == 'session'
+                && !isset($_SESSION['userprefs_autoload']);
+        if ($userprefs_offer_import) {
+            $GLOBALS['js_include'][] = 'config.js';
+        }
 
         // For re-usability, moved http-headers and stylesheets
         // to a seperate file. It can now be included by header.inc.php,
@@ -62,6 +72,12 @@ if (!$GLOBALS['is_ajax_request']) {
             PMA_Message::notice(__('Cookies must be enabled past this point.'))->display();
         }
 
+        // offer to load user preferences from localStorage
+        if ($userprefs_offer_import) {
+            require_once './libraries/user_preferences.lib.php';
+            PMA_userprefs_autoload_header();
+        }
+
         if (!defined('PMA_DISPLAY_HEADING')) {
             define('PMA_DISPLAY_HEADING', 1);
         }
@@ -86,81 +102,80 @@ if (!$GLOBALS['is_ajax_request']) {
                 $separator = '        <span class="separator"> - </span>' . "\n";
             }
 
-            if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-                $item .= '%4$s: ';
-            }
-            $item .= '%3$s</a>' . "\n";
+                if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+                    $item .= '%4$s: ';
+                }
+                $item .= '%3$s</a>' . "\n";
 
-            echo '<div id="serverinfo">' . "\n";
-            printf($item,
-                    $GLOBALS['cfg']['DefaultTabServer'],
-                    PMA_generate_common_url(),
-                    htmlspecialchars($server_info),
-                    __('Server'),
-                    's_host.png');
-
-            if (strlen($GLOBALS['db'])) {
-
-                echo $separator;
+                echo '<div id="serverinfo">' . "\n";
                 printf($item,
-                        $GLOBALS['cfg']['DefaultTabDatabase'],
-                        PMA_generate_common_url($GLOBALS['db']),
-                        $GLOBALS['db'],
-                        '',
-                        's_tbl.png');
-                // if the table is being dropped, $_REQUEST['purge'] is set
-                // (it always contains "1")
-                // so do not display the table name in upper div
-            } elseif (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
-                require_once './libraries/tbl_info.inc.php';
+                        $GLOBALS['cfg']['DefaultTabServer'],
+                        PMA_generate_common_url(),
+                        htmlspecialchars($server_info),
+                        __('Server'),
+                        's_host.png');
 
-                echo $separator;
-                printf($item,
-                        $GLOBALS['cfg']['DefaultTabTable'],
-                        PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
-                        str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
-                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
-                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
+                if (strlen($GLOBALS['db'])) {
 
-                /**
-                 * Displays table comment
-                 * @uses $show_comment from libraries/tbl_info.inc.php
-                 * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
-                 */
-                if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
-                    if (strstr($show_comment, '; InnoDB free')) {
-                        $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
-                    }
-                    echo '<span class="table_comment" id="span_table_comment">'
-                        .'&quot;' . htmlspecialchars($show_comment)
-                        .'&quot;</span>' . "\n";
-                } // end if
-            } else {
-                // no table selected, display database comment if present
-                /**
-                 * Settings for relations stuff
-                 */
-                require_once './libraries/relation.lib.php';
-                $cfgRelation = PMA_getRelationsParam();
+                    echo $separator;
+                    printf($item,
+                            $GLOBALS['cfg']['DefaultTabDatabase'],
+                            PMA_generate_common_url($GLOBALS['db']),
+                            $GLOBALS['db'],
+                            '',
+                            's_tbl.png');
+                    // if the table is being dropped, $_REQUEST['purge'] is set
+                    // (it always contains "1")
+                    // so do not display the table name in upper div
+                } elseif (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
+                    require_once './libraries/tbl_info.inc.php';
 
-                // Get additional information about tables for tooltip is done
-                // in libraries/db_info.inc.php only once
-                if ($cfgRelation['commwork']) {
-                    $comment = PMA_getDbComment($GLOBALS['db']);
+                    echo $separator;
+                    printf($item,
+                            $GLOBALS['cfg']['DefaultTabTable'],
+                            PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
+                            str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
+                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
+                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
+
                     /**
                      * Displays table comment
+                     * @uses $show_comment from libraries/tbl_info.inc.php
+                     * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                      */
-                    if (! empty($comment)) {
-                        echo '<span class="table_comment"'
-                           . ' id="span_table_comment">&quot;'
-                           . htmlspecialchars($comment)
-                           . '&quot;</span>' . "\n";
+                    if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                        if (strstr($show_comment, '; InnoDB free')) {
+                            $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
+                        }
+                        echo '<span class="table_comment" id="span_table_comment">'
+                            .'&quot;' . htmlspecialchars($show_comment)
+                            .'&quot;</span>' . "\n";
                     } // end if
+                } else {
+                    // no table selected, display database comment if present
+                    /**
+                     * Settings for relations stuff
+                     */
+                    require_once './libraries/relation.lib.php';
+                    $cfgRelation = PMA_getRelationsParam();
+
+                    // Get additional information about tables for tooltip is done
+                    // in libraries/db_info.inc.php only once
+                    if ($cfgRelation['commwork']) {
+                        $comment = PMA_getDbComment($GLOBALS['db']);
+                        /**
+                         * Displays table comment
+                         */
+                        if (! empty($comment)) {
+                            echo '<span class="table_comment"'
+                               . ' id="span_table_comment">&quot;'
+                               . htmlspecialchars($comment)
+                               . '&quot;</span>' . "\n";
+                        } // end if
+                    }
                 }
             }
-            }
             echo '</div>';
-
         }
         /**
          * Sets a variable to remember headers have been sent

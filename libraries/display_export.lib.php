@@ -69,7 +69,7 @@ if(isset($_GET['export_method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)
-echo '<input type="hidden" name="export_method" value="' . $cfg['Export']['method'] . '" />';
+echo '<input type="hidden" name="export_method" value="' . htmlspecialchars($cfg['Export']['method']) . '" />';
 
 
 if(isset($_GET['sql_query'])) {
@@ -226,14 +226,11 @@ if(isset($_GET['sql_query'])) {
                     <?php
                     echo __('File name template:');
                     $trans = new PMA_Message;
-                    $trans->addMessage('@SERVER@ will become the');
-                    $trans->addString(__('server name'));
+                    $trans->addMessage(__('@SERVER@ will become the server name'));
                     if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage(', @DB@ will become the');
-                        $trans->addString(__('database name'));
+                        $trans->addMessage(__(', @DATABASE@ will become the database name'));
                         if ($export_type == 'table') {
-                            $trans->addMessage(', @TABLE@ will become the');
-                            $trans->addString(__('table name'));
+                            $trans->addMessage(__(', @TABLE@ will become the table name'));
                         }
                     }
 
@@ -255,23 +252,17 @@ if(isset($_GET['sql_query'])) {
                             echo $_GET['filename_template'];
                         } else {
                             if ($export_type == 'database') {
-                                if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
-                                    echo htmlspecialchars($_COOKIE['pma_db_filename_template']);
-                                } else {
-                                    echo $GLOBALS['cfg']['Export']['file_template_database'];
-                                }
+                                echo htmlspecialchars($GLOBALS['PMA_Config']->getUserValue(
+                                    'pma_db_filename_template',
+                                    $GLOBALS['cfg']['Export']['file_template_database']));
                             } elseif ($export_type == 'table') {
-                                if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
-                                    echo htmlspecialchars($_COOKIE['pma_table_filename_template']);
-                                } else {
-                                    echo $GLOBALS['cfg']['Export']['file_template_table'];
-                                }
+                                echo htmlspecialchars($GLOBALS['PMA_Config']->getUserValue(
+                                    'pma_table_filename_template',
+                                    $GLOBALS['cfg']['Export']['file_template_table']));
                             } else {
-                                if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
-                                    echo htmlspecialchars($_COOKIE['pma_server_filename_template']);
-                                } else {
-                                    echo $GLOBALS['cfg']['Export']['file_template_server'];
-                                }
+                                echo htmlspecialchars($GLOBALS['PMA_Config']->getUserValue(
+                                    'pma_server_filename_template',
+                                    $GLOBALS['cfg']['Export']['file_template_server']));
                             }
                     }
                         echo '"';

@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Various validation functions
  *
@@ -9,12 +10,47 @@
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.
  *
- * Valdiation functions are assigned in $cfg_db['_validators'] (config_info.inc.php).
+ * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin
  */
+
+/**
+ * Returns validator list
+ *
+ * @uses ConfigFile::getDbEntry()
+ * @uses ConfigFile::getInstance()
+ * @return array
+ */
+function PMA_config_get_validators()
+{
+    static $validators = null;
+
+    if ($validators === null) {
+        $cf = ConfigFile::getInstance();
+        $validators = $cf->getDbEntry('_validators', array());
+        if (!defined('PMA_SETUP') || !PMA_SETUP) {
+            $uvs = $cf->getDbEntry('_userValidators', array());
+            foreach ($uvs as $field => $uv_list) {
+                $uv_list = (array)$uv_list;
+                foreach ($uv_list as &$uv) {
+                    if (!is_array($uv)) {
+                        continue;
+                    }
+                    for ($i = 1; $i < count($uv); $i++) {
+                        if (substr($uv[$i], 0, 6) == 'value:') {
+                            $uv[$i] = PMA_array_read(substr($uv[$i], 6), $GLOBALS['cfg']);
+                        }
+                    }
+                }
+                $validators[$field] = isset($validators[$field])
+                    ? array_merge((array)$validators[$field], $uv_list)
+                    : $uv_list;
+            }
+        }
+    }
+    return $validators;
+}
 
 /**
  * Runs validation $validator_id on values $values and returns error list.
@@ -25,18 +61,21 @@
  *   cleanup in HTML documen
  * o false - when no validators match name(s) given by $validator_id
  *
+ * @uses ConfigFile::getCanonicalPath()
+ * @uses ConfigFile::getInstance()
+ * @uses PMA_config_get_validators()
  * @param string|array  $validator_id
  * @param array         $values
  * @param bool          $isPostSource  tells whether $values are directly from POST request
  * @return bool|array
  */
-function validate($validator_id, &$values, $isPostSource)
+function PMA_config_validate($validator_id, &$values, $isPostSource)
 {
     // find validators
-    $cf = ConfigFile::getInstance();
     $validator_id = (array) $validator_id;
-    $validators = $cf->getDbEntry('_validators');
+    $validators = PMA_config_get_validators();
     $vids = array();
+    $cf = ConfigFile::getInstance();
     foreach ($validator_id as &$vid) {
         $vid = $cf->getCanonicalPath($vid);
         if (isset($validators[$vid])) {
@@ -60,18 +99,25 @@ function validate($validator_id, &$values, $isPostSource)
     // validate
     $result = array();
     foreach ($vids as $vid) {
-        $r = call_user_func($validators[$vid], $vid, $arguments);
-        // merge results
-        if (is_array($r)) {
-            foreach ($r as $key => $error_list) {
-                // skip empty values if $isPostSource is false
-                if (!$isPostSource && empty($error_list)) {
-                    continue;
+        // call appropriate validation functions
+        foreach ((array)$validators[$vid] as $validator) {
+            $vdef = (array) $validator;
+            $vname = array_shift($vdef);
+            $args = array_merge(array($vid, &$arguments), $vdef);
+            $r = call_user_func_array($vname, $args);
+
+            // merge results
+            if (is_array($r)) {
+                foreach ($r as $key => $error_list) {
+                    // skip empty values if $isPostSource is false
+                    if (!$isPostSource && empty($error_list)) {
+                        continue;
+                    }
+                    if (!isset($result[$key])) {
+                        $result[$key] = array();
+                    }
+                    $result[$key] = array_merge($result[$key], (array)$error_list);
                 }
-                if (!isset($result[$key])) {
-                    $result[$key] = array();
-                }
-                $result[$key] = array_merge($result[$key], (array)$error_list);
             }
         }
     }
@@ -86,6 +132,16 @@ function validate($validator_id, &$values, $isPostSource)
 }
 
 /**
+ * Empty error handler, used to temporarily restore PHP internal error handler
+ * 
+ * @return bool
+ */
+function PMA_null_error_handler()
+{
+    return false;
+}
+
+/**
  * Ensures that $php_errormsg variable will be registered in case of an error
  * and enables output buffering (when $start = true).
  * Called with $start = false disables output buffering end restores
@@ -95,17 +151,25 @@ function validate($validator_id, &$values, $isPostSource)
  */
 function test_php_errormsg($start = true)
 {
-    static $old_html_errors, $old_track_errors;
+    static $old_html_errors, $old_track_errors, $old_error_reporting;
+    static $old_display_errors;
     if ($start) {
         $old_html_errors = ini_get('html_errors');
         $old_track_errors = ini_get('track_errors');
+        $old_display_errors = ini_get('display_errors');
+        $old_error_reporting = error_reporting(E_ALL);
         ini_set('html_errors', false);
         ini_set('track_errors', true);
+        ini_set('display_errors', true);
+        set_error_handler("PMA_null_error_handler");
         ob_start();
     } else {
         ob_end_clean();
+        restore_error_handler();
+        error_reporting($old_error_reporting);
         ini_set('html_errors', $old_html_errors);
         ini_set('track_errors', $old_track_errors);
+        ini_set('display_errors', $old_display_errors);
     }
 }
 
@@ -131,14 +195,14 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
     if ($extension == 'mysql') {
         $conn = @mysql_connect($host . $socket . $port, $user, $pass);
         if (!$conn) {
-            $error = PMA_lang('error_connection');
+            $error = __('Could not connect to MySQL server');
         } else {
             mysql_close($conn);
         }
     } else {
         $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
         if (!$conn) {
-            $error = PMA_lang('error_connection');
+            $error = __('Could not connect to MySQL server');
         } else {
             mysqli_close($conn);
         }
@@ -153,6 +217,7 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
 /**
  * Validate server config
  *
+ * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
@@ -162,15 +227,15 @@ function validate_server($path, $values)
     $result = array('Server' => '', 'Servers/1/user' => '', 'Servers/1/SignonSession' => '', 'Servers/1/SignonURL' => '');
     $error = false;
     if ($values['Servers/1/auth_type'] == 'config' && empty($values['Servers/1/user'])) {
-        $result['Servers/1/user'] = PMA_lang('error_empty_user_for_config_auth');
+        $result['Servers/1/user'] = __('Empty username while using config authentication method');
         $error = true;
     }
     if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonSession'])) {
-        $result['Servers/1/SignonSession'] = PMA_lang('error_empty_signon_session');
+        $result['Servers/1/SignonSession'] = __('Empty signon session name while using signon authentication method');
         $error = true;
     }
     if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonURL'])) {
-        $result['Servers/1/SignonURL'] = PMA_lang('error_empty_signon_url');
+        $result['Servers/1/SignonURL'] = __('Empty signon URL while using signon authentication method');
         $error = true;
     }
 
@@ -187,13 +252,14 @@ function validate_server($path, $values)
 /**
  * Validate pmadb config
  *
+ * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
  */
 function validate_pmadb($path, $values)
 {
-    $tables = array('Servers/1/bookmarktable', 'Servers/1/relation', 'Servers/1/table_info', 'Servers/1/table_coords', 'Servers/1/pdf_pages', 'Servers/1/column_info', 'Servers/1/history', 'Servers/1/designer_coords');
+    //$tables = array('Servers/1/bookmarktable', 'Servers/1/relation', 'Servers/1/table_info', 'Servers/1/table_coords', 'Servers/1/pdf_pages', 'Servers/1/column_info', 'Servers/1/history', 'Servers/1/designer_coords');
     $result = array('Server_pmadb' => '', 'Servers/1/controluser' => '', 'Servers/1/controlpass' => '');
     $error = false;
 
@@ -203,15 +269,17 @@ function validate_pmadb($path, $values)
 
     $result = array();
     if ($values['Servers/1/controluser'] == '') {
-        $result['Servers/1/controluser'] = PMA_lang('error_empty_pmadb_user');
+        $result['Servers/1/controluser'] = __('Empty phpMyAdmin control user while using pmadb');
         $error = true;
     }
     if ($values['Servers/1/controlpass'] == '') {
-        $result['Servers/1/controlpass'] = PMA_lang('error_empty_pmadb_password');
+        $result['Servers/1/controlpass'] = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
     }
     if (!$error) {
-        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'], $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'], $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb');
+        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'],
+            $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'],
+            $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb');
         if ($test !== true) {
             $result = array_merge($result, $test);
         }
@@ -223,6 +291,7 @@ function validate_pmadb($path, $values)
 /**
  * Validates regular expression
  *
+ * @uses test_php_errormsg()
  * @param string $path
  * @param array  $values
  * @return array
@@ -239,7 +308,6 @@ function validate_regex($path, $values)
 
     $matches = array();
     preg_match($values[$path], '', $matches);
-    ob_end_clean();
 
     test_php_errormsg(false);
 
@@ -283,21 +351,20 @@ function validate_trusted_proxies($path, $values)
         $matches = array();
         // we catch anything that may (or may not) be an IP
         if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-            $result[$path][] = PMA_lang('error_incorrect_value') . ': ' . $line;
+            $result[$path][] = __('Incorrect value') . ': ' . $line;
             continue;
         }
         // now let's check whether we really have an IP address
         if (filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
             && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
             $ip = htmlspecialchars(trim($matches[1]));
-            $result[$path][] = PMA_lang('error_incorrect_ip_address', $ip);
+            $result[$path][] = sprintf(__('Incorrect IP address: %s'), $ip);
             continue;
         }
     }
 
     return $result;
 }
-
 
 /**
  * Tests integer value
@@ -307,17 +374,17 @@ function validate_trusted_proxies($path, $values)
  * @param bool   $allow_neg       allow negative values
  * @param bool   $allow_zero      allow zero
  * @param int    $max_value       max allowed value
- * @param string $error_lang_key  error message key: $GLOBALS["strSetup$error_lang_key"]
+ * @param string $error_string    error message key: $GLOBALS["strConfig$error_lang_key"]
  * @return string  empty string if test is successful
  */
-function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_lang_key)
+function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_string)
 {
     if ($values[$path] === '') {
         return '';
     }
 
     if (intval($values[$path]) != $values[$path] || (!$allow_neg && $values[$path] < 0) || (!$allow_zero && $values[$path] == 0) || $values[$path] > $max_value) {
-        return PMA_lang($error_lang_key);
+        return $error_string;
     }
 
     return '';
@@ -326,36 +393,68 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
 /**
  * Validates port number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
  */
 function validate_port_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, 65536, 'error_incorrect_port'));
+    return array($path => test_number($path, $values, false, false, 65535, __('Not a valid port number')));
 }
 
 /**
  * Validates positive number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
  */
 function validate_positive_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, PHP_INT_MAX, 'error_nan_p'));
+    return array($path => test_number($path, $values, false, false, PHP_INT_MAX, __('Not a positive number')));
 }
 
 /**
  * Validates non-negative number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
  */
 function validate_non_negative_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, true, PHP_INT_MAX, 'error_nan_nneg'));
+    return array($path => test_number($path, $values, false, true, PHP_INT_MAX, __('Not a non-negative number')));
+}
+
+/**
+ * Validates value according to given regular expression
+ * Pattern and modifiers must be a valid for PCRE <b>and</b> JavaScript RegExp
+ *
+ * @param string $path
+ * @param array  $values
+ * @param string $regex
+ * @return void
+ */
+function validate_by_regex($path, $values, $regex)
+{
+    $result = preg_match($regex, $values[$path]);
+    return array($path => ($result ? '' : __('Incorrect value')));
+}
+
+/**
+ * Validates upper bound for numeric inputs
+ * 
+ * @param string $path
+ * @param array  $values
+ * @param int    $max_value
+ * @return array
+ */
+function validate_upper_bound($path, $values, $max_value)
+{
+    $result = $values[$path] <= $max_value;
+    return array($path => ($result ? '' : sprintf(__('Value must be equal or lower than %s'), $max_value)));
 }
 ?>

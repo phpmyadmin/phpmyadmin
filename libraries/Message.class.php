@@ -721,7 +721,7 @@ class PMA_Message
     static public function format()
     {
         $params = func_get_args();
-        if (is_array($params[1])) {
+        if (isset($params[1]) && is_array($params[1])) {
             array_unshift($params[1], $params[0]);
             $params = $params[1];
         }

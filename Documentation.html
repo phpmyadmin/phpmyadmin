@@ -1139,6 +1139,27 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         <br/><br/>
     </dd>
 
+    <dt id="userconfig">
+        <span id="cfg_Servers_userconfig">$cfg['Servers'][$i]['userconfig']</span> string
+    </dt>
+    <dd>
+        Since release 3.4.x phpMyAdmin allows users to set most preferences by themselves
+        and store them in the database.
+        <br /><br />
+
+        If you don't allow for storing preferences in <a href="#pmadb">pmadb</a>, users can
+        still personalize phpMyAdmin, but settings will be saved in browser's local storage,
+        or, it is is unavailable, until the end of session.
+        <br /><br />
+
+        To allow the usage of this functionality:
+
+        <ul>
+            <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin
+            configuration storage</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['userconfig']</tt></li>
+        </ul>
+    </dd>
 
     <dt id="designer_coords">
         <span id="cfg_Servers_designer_coords">$cfg['Servers'][$i]['designer_coords']</span> string
@@ -1183,7 +1204,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         <span id="cfg_Servers_AllowDeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</span> string
     </dt>
     <dd>If your rule order is empty, then <abbr title="Internet Protocol">IP</abbr>
-        authentication is disabled.<br /><br />
+        authorization is disabled.<br /><br />
 
         If your rule order is set to <tt>'deny,allow'</tt> then the system applies
         all deny rules followed by allow rules. Access is allowed by default. Any
@@ -1195,7 +1216,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         default.  Any client which does not match an Allow directive or does
         match a Deny directive will be denied access to the server.<br /><br />
 
-        If your rule order is set to 'explicit', the authentication is
+        If your rule order is set to 'explicit', authorization is
         performed in a similar fashion to rule order 'deny,allow', with the
         added restriction that your host/username combination <b>must</b> be
         listed in the <i>allow</i> rules, and not listed in the <i>deny</i>
@@ -2021,12 +2042,14 @@ setfacl -d -m "g:www-data:rwx" tmp
         identify what they mean.
     </dd>
 
-    <dt id="cfg_Export">$cfg['Export']['method'] string</dt>
+    <dt id="cfg_Export_method">$cfg['Export']['method'] string</dt>
     <dd>
         Defines how the export form is displayed when it loads. Valid values are:
+        <ul>
         <li><tt>quick</tt> to display the minimum number of options to configure</li>
         <li><tt>custom</tt> to display every available option to configure</li>
         <li><tt>custom-no-form</tt> same as <tt>custom</tt> but does not display the option of using quick export</li>
+        </ul>
     </dd>
 
     <dt id="cfg_Import">$cfg['Import'] array</dt>
@@ -2117,32 +2140,6 @@ setfacl -d -m "g:www-data:rwx" tmp
     any row counting.
     </dd>
 
-    <dt id="wysiwyg">
-        <span id="cfg_WYSIWYG-PDF">$cfg['WYSIWYG-PDF'] </span>boolean</dt>
-    <dd>Utilizes a WYSIWYG editing control to easily place elements of a
-        <abbr title="Portable Document Format">PDF</abbr>
-        page.  By clicking on the button 'toggle scratchboard' on the page
-        where you edit x/y coordinates of those elements you can activate a
-        scratchboard where all your elements are placed. By clicking on an
-        element, you can move them around in the pre-defined area and the x/y
-        coordinates will get updated dynamically. Likewise, when entering a
-        new position directly into the input field, the new position in the
-        scratchboard changes after your cursor leaves the input field.<br />
-        You have to click on the 'OK'-button below the tables to save the new
-        positions.  If you want to place a new element, first add it to the
-        table of elements and then you can drag the new element around.<br />
-        By changing the paper size and the orientation you can change the size
-        of the scratchboard as well. You can do so by just changing the
-        dropdown field below, and the scratchboard will resize automatically,
-        without interfering with the current placement of the elements.<br />
-        If ever an element gets out of range you can either enlarge the paper
-        size or click on the 'reset' button to place all elements below each
-        other.<br />
-        <b>NOTE:</b> You have to use a recent browser like IE6 or Mozilla to
-        get this control to work. The basic Drag&amp;Drop script functionality
-        was kindly borrowed from www.youngpup.net and is underlying so
-        specific license.</dd>
-
     <dt id="cfg_NaturalOrder">$cfg['NaturalOrder'] boolean</dt>
     <dd>Sorts database and table names according to natural order (for example,
         t1, t2, t10). Currently implemented in the left panel (Light mode)
@@ -2152,6 +2149,11 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dd>If set to <tt>'closed'</tt>, the visual sliders are initially in a
     closed state. A value of <tt>'open'</tt> does the reverse. To completely 
     disable all visual sliders, use <tt>'disabled'</tt>.</dd>
+
+    <dt id="cfg_UserprefsDisallow">$cfg['UserprefsDisallow'] array</dt>
+    <dd>Contains names of configuration options (keys in <tt>$cfg</tt> array)
+        that users can't set through user preferences. For possible values, refer
+        to <tt>libraries/config/user_preferences.forms.php</tt>.</dd>
 
     <dt id="cfg_TitleTable">$cfg['TitleTable'] string</dt>
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
@@ -2627,8 +2629,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a href="#faq1_5">1.5 Using phpMyAdmin on
     <abbr title="Internet Information Services">IIS</abbr>, I'm facing crashes
     and/or many error messages with the
-    <abbr title="HyperText Transfer Protocol">HTTP</abbr> or advanced authentication
-    mode.</a></h4>
+    <abbr title="HyperText Transfer Protocol">HTTP</abbr>.</a></h4>
 
 <p> This is a known problem with the PHP
     <abbr title="Internet Server Application Programming Interface">ISAPI</abbr>
@@ -2673,23 +2674,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 </ul>
 
 <h4 id="faq1_9">
-    <a href="#faq1_9">1.9 I'm having troubles when uploading files. In
-    general file uploads don't work on my system and uploaded files have a
-    <tt>Content-Type:</tt> header in the first line.</a></h4>
-
-<p> It's not really phpMyAdmin related but RedHat 7.0. You have a RedHat 7.0
-    and you updated your PHP RPM to php-4.0.4pl1-3.i386.rpm, didn't you?<br />
-    So the problem is that this package has a serious bug that was corrected
-    ages ago in PHP (2001-01-28: see
-    <a href="http://www.php.net/bugs.php?id=8966">PHP's bug tracking system</a>
-    for more details). The problem is that the bugged package is still
-    available though it was corrected (see
-    <a href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933">RedHat's BugZilla</a>
-    for more details).<br />
-    So please download
-    <a href="http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html">the fixed package (4.0.4pl1-9)</a>
-    and the problem should go away.<br />
-    And that fixes the \r\n problem with file uploads!</p>
+    <a href="#faq1_9">1.9 (withdrawn).</a></h4>
 
 <h4 id="faq1_10">
     <a href="#faq1_10">1.10 I'm having troubles when uploading files with
@@ -2721,20 +2706,10 @@ setfacl -d -m "g:www-data:rwx" tmp
     reset the permissions</a>.</p>
 
 <h4 id="faq1_13">
-    <a href="#faq1_13">1.13 I get an error 'No
-    <abbr title="structured query language">SQL</abbr> query' when trying to
-    execute a bookmark.</a></h4>
-
-<p> If PHP does not have read/write access to its <tt>upload_tmp_dir</tt>, it
-    cannot access the uploaded query.</p>
+    <a href="#faq1_13">1.13 (withdrawn).</a></h4>
 
 <h4 id="faq1_14">
-    <a href="#faq1_14">1.14 I get an error 'No
-    <abbr title="structured query language">SQL</abbr> query' when trying to
-    submit a query from the convenient text area.</a></h4>
-
-<p> Check the <tt>post_max_size</tt> directive from your PHP configuration file
-    and try to increase it.</p>
+    <a href="#faq1_14">1.14 (withdrawn).</a></h4>
 
 <h4 id="faq1_15">
     <a href="#faq1_15">1.15 I have problems with <i>mysql.user</i> column names.</a>
@@ -3483,7 +3458,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <h4 id="faq3_15">
     <a href="#faq3_15">3.15 When I import an Excel spreadsheet, some cells with calculations do not display correctly.</a></h4>
 <p>
-    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/" target="_blank">PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
+    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/">PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
     Therefore, any limitations that are listed on their page regarding Excel calculations will also apply here.
     <br /><br />
     PHPExcel will be kept up to date so as to make all improvements available to phpMyAdmin users.
@@ -4336,6 +4311,40 @@ chmod o+rwx tmp
         <dd>phpMyAdmin with version</dd>
 </dl>
 
+<h4 id="wysiwyg">
+    <a href="#wysiwyg">6.28 How can I easily edit relational schema for export?</a></h4>
+
+    <p> 
+        By clicking on the button 'toggle scratchboard' on the page
+        where you edit x/y coordinates of those elements you can activate a
+        scratchboard where all your elements are placed. By clicking on an
+        element, you can move them around in the pre-defined area and the x/y
+        coordinates will get updated dynamically. Likewise, when entering a
+        new position directly into the input field, the new position in the
+        scratchboard changes after your cursor leaves the input field.
+    </p>
+    <p>
+        You have to click on the 'OK'-button below the tables to save the new
+        positions.  If you want to place a new element, first add it to the
+        table of elements and then you can drag the new element around.
+    </p>
+    <p>
+        By changing the paper size and the orientation you can change the size
+        of the scratchboard as well. You can do so by just changing the
+        dropdown field below, and the scratchboard will resize automatically,
+        without interfering with the current placement of the elements.
+    </p>
+    <p>
+        If ever an element gets out of range you can either enlarge the paper
+        size or click on the 'reset' button to place all elements below each
+        other.
+    </p>
+
+<h4 id="faq6_29">
+    <a href="#faq6_29">6.28 Why can't I get a chart from my query result table?</a></h4>
+
+<p> Not every table can be put to the chart. Only tables with one, two or three columns can be visualised as a chart. Moreover the table must be in a special format for chart script to understand it. Currently supported formats can be found in the <a href="http://wiki.phpmyadmin.net/pma/Devel:Charts#Data_formats_for_query_results_chart">wiki</a>.</p>
+
 <h3 id="faqproject">phpMyAdmin project</h3>
 
 <h4 id="faq7_1">
@@ -4806,9 +4815,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   <li>BLOBstreaming support</li>
 </ul></li>
 
-<li>Piotr Przybylski (Google Summer of Code 2008)
+<li>Piotr Przybylski (Google Summer of Code 2008 and 2010)
 <ul>
   <li>improved setup script</li>
+  <li>user preferences</li>
 </ul></li>
 
 <li>Derek Schaefer (Google Summer of Code 2009)
@@ -4829,6 +4839,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <li>Tom&#225;&#353; Srnka (Google Summer of Code 2009)
 <ul>
   <li>Replication support</li>
+</ul></li>
+
+<li>Muhammad Adnan (Google Summer of Code 2010)
+<ul>
+  <li>Relation schema export to multiple formats</li>
+</ul></li>
+
+<li>Lori Lee (Google Summer of Code 2010)
+<ul>
+  <li>User interface improvements</li>
+  <li>ENUM/SET editor</li>
+  <li>Simplified interface for export/import</li>
 </ul></li>
 
 <li>Barrie Leslie
