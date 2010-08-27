@@ -2260,7 +2260,7 @@ msgstr "Derinti (debug) PHP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Derinti (debug) SQL"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
