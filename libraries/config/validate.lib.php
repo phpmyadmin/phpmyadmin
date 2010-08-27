@@ -29,7 +29,7 @@ function PMA_config_get_validators()
     if ($validators === null) {
         $cf = ConfigFile::getInstance();
         $validators = $cf->getDbEntry('_validators', array());
-        if (!defined('PMA_SETUP') || !PMA_SETUP) {
+        if (!defined('PMA_SETUP')) {
             $uvs = $cf->getDbEntry('_userValidators', array());
             foreach ($uvs as $field => $uv_list) {
                 $uv_list = (array)$uv_list;

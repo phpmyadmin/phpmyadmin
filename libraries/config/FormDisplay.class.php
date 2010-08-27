@@ -498,7 +498,7 @@ class FormDisplay
 
         $values = array();
         $to_save = array();
-        $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
+        $is_setup_script = defined('PMA_SETUP');
         if ($is_setup_script) {
             $this->_loadUserprefsInfo();
         }
@@ -706,7 +706,7 @@ class FormDisplay
         if ($this->userprefs_keys === null) {
             $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
             // read real config for user preferences display
-            $userprefs_disallow = defined('PMA_SETUP') && PMA_SETUP
+            $userprefs_disallow = defined('PMA_SETUP')
                 ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
                 : $GLOBALS['cfg']['UserprefsDisallow'];
             $this->userprefs_disallow = array_flip($userprefs_disallow);
@@ -767,7 +767,7 @@ class FormDisplay
                 }
             }
         }
-        if (!defined('PMA_SETUP') || !PMA_SETUP) {
+        if (!defined('PMA_SETUP')) {
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
                     || $system_path == 'QueryHistoryMax')) {
                 $opts['comment'] = sprintf(__('maximum %s'), $GLOBALS['cfg'][$system_path]);
