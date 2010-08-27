@@ -1126,7 +1126,6 @@ msgid "July"
 msgstr "liepos"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "rugpjūčio"
