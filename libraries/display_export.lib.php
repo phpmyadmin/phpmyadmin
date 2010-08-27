@@ -229,7 +229,7 @@ if(isset($_GET['sql_query'])) {
                     $trans->addMessage('@SERVER@ will become the');
                     $trans->addString(__('server name'));
                     if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage(', @DB@ will become the');
+                        $trans->addMessage(', @DATABASE@ will become the');
                         $trans->addString(__('database name'));
                         if ($export_type == 'table') {
                             $trans->addMessage(', @TABLE@ will become the');
