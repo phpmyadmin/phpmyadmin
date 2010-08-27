@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 06:59+0200\n"
+"PO-Revision-Date: 2010-08-27 07:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3979,6 +3979,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Düzenle kipinde metin alanı boyutu (sütunlar), bu değer  SQL sorgu metni "
+"alanları (*2) ve sorgu penceresi (*1.25) için önemi belirtecektir"
 
 #: libraries/config/messages.inc.php:473
 #, fuzzy
