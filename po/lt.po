@@ -3905,7 +3905,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:451
 msgid "Display database comment instead of its name"
-msgstr "Rodyti duombazės komentarą vietoje jos pavadinimo"
+msgstr "Rodyti duombazės komentarą vietoje jos užvardinimo"
 
 #: libraries/config/messages.inc.php:452
 msgid ""
