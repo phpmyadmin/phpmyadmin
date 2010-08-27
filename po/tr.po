@@ -3828,10 +3828,9 @@ msgstr ""
 "gösterilmesini tanımlar"
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Açık tabloları göster"
+msgstr "Alan türlerini göster"
 
 #: libraries/config/messages.inc.php:441
 msgid "Display the function fields in edit/insert mode"
