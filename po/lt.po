@@ -6989,10 +6989,9 @@ msgid "This feature is not supported by your web browser"
 msgstr "Šios galimybės Jūsų interneto naršyklė nepalaiko!"
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Serverio nustatymai"
+msgstr "Sulieti su dabartiniais nustatymais"
 
 #: prefs_manage.php:277
 #, php-format
