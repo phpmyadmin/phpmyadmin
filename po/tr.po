@@ -7023,10 +7023,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tablosu bulunamadı veya %s içinde ayarlanmadı"
 
 #: schema_export.php:46
-#, fuzzy
 #| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "%s tablosu yok!"
+msgstr "Dosya mevcut değil"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
