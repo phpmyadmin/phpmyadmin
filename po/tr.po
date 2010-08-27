@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:14+0200\n"
+"PO-Revision-Date: 2010-08-27 22:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9166,10 +9166,9 @@ msgid "Legend margins"
 msgstr ""
 
 #: tbl_chart.php:135
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "Mar"
+msgstr "Çubuk"
 
 #: tbl_chart.php:136
 msgid "Line"
