@@ -4111,10 +4111,9 @@ msgid "HTTP authentication"
 msgstr "HTTP kimlik denetimi"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Anamakine kimlik denetimi düzeni"
+msgstr "Oturum açma kimlik denetimi"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
