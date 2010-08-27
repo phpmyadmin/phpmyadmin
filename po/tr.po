@@ -1662,10 +1662,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:84
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Sorgu sonuçları işlemleri"
+msgstr "Sorgu sonuçları"
 
 #: libraries/chart.lib.php:110
 msgid "No data found for the chart."
