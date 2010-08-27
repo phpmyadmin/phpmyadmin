@@ -3917,7 +3917,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid "Display table comment instead of its name"
-msgstr ""
+msgstr "Rodyti lentelės komentarą vietoj jos pavadinimo"
 
 #: libraries/config/messages.inc.php:454
 msgid "Display table comments in tooltips"
