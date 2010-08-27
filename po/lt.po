@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:31+0200\n"
+"PO-Revision-Date: 2010-08-27 22:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3412,7 +3412,7 @@ msgstr "Pakartoti antraštes"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Rodyti pagalbos mygtuką vietoje dokumentacijos teksto"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button"
