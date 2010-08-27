@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:15+0200\n"
+"PO-Revision-Date: 2010-08-27 12:26+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7268,7 +7268,6 @@ msgstr ""
 # Verleden tijd: "is aangemaakt" => "werd aangemaakt", ookal bestaat het nog steeds.
 # Wat doet "%1$s" hier?
 #: pmd_pdf.php:60
-#, fuzzy
 msgid "Page has been created"
 msgstr "De pagina werd aangemaakt."
 
