@@ -1520,7 +1520,7 @@ msgid ""
 "%1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
-"tane oluşturmak için %1$skurulum programcığı%2$s kullanmak isteyebilirsiniz."
+"tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
