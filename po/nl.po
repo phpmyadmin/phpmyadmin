@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 11:17+0200\n"
+"PO-Revision-Date: 2010-08-27 11:48+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -480,10 +480,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Toevoegen/Verwijderen Criteria Rij"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Toevoegen/Verwijderen Veld Kolommen"
+msgstr "Toevoegen/Verwijderen kolommen"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
