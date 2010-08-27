@@ -3722,10 +3722,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Stulpelių komentarų išvedimas"
+msgstr "Rodyti lentelės stulpelius"
 
 #: libraries/config/messages.inc.php:414
 msgid ""
