@@ -3416,7 +3416,7 @@ msgstr "Rodyti pagalbos mygtuką vietoje dokumentacijos teksto"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button"
-msgstr ""
+msgstr "Rodyti pagalbos mygtuką"
 
 #: libraries/config/messages.inc.php:347
 msgid "Directory where exports can be saved on server"
