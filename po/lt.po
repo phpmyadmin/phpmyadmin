@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:15+0200\n"
+"PO-Revision-Date: 2010-08-27 21:16+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2252,7 +2252,7 @@ msgstr "Patvirtinti DROP užklausas"
 
 #: libraries/config/messages.inc.php:42
 msgid "Field navigation using Ctrl+Arrows"
-msgstr ""
+msgstr "Pereiti į kitus laukelius galite naudojant Ctrl+rodyklių klavišus"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug PHP"
