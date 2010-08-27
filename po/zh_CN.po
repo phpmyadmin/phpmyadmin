@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-27 11:35+0200\n"
+"POT-Creation-Date: 2010-08-27 16:16+0200\n"
 "PO-Revision-Date: 2010-08-10 08:13+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "搜索"
 #: libraries/common.lib.php:2236 libraries/core.lib.php:544
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:355 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:530 libraries/display_tbl.lib.php:612
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:126
@@ -1736,7 +1736,7 @@ msgstr "zh"
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
 #: libraries/common.lib.php:446 libraries/config/FormDisplay.tpl.php:169
-#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:242
+#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:239
 #: libraries/engines/pbms.lib.php:72 libraries/engines/pbxt.lib.php:106
 #: libraries/relation.lib.php:79 libraries/sql_query_form.lib.php:421
 #: libraries/sql_query_form.lib.php:424 main.php:209
@@ -2453,7 +2453,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "给数据表名及字段名加上反引号"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
-#: libraries/display_export.lib.php:354
+#: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
 msgstr "SQL 兼容模式"
 
@@ -4385,19 +4385,19 @@ msgstr "另存为文件"
 msgid "File name template:"
 msgstr "文件名模板"
 
-#: libraries/display_export.lib.php:230
-msgid "server name"
-msgstr "服务器名"
+#: libraries/display_export.lib.php:229
+msgid "@SERVER@ will become the server name"
+msgstr ""
+
+#: libraries/display_export.lib.php:231
+msgid ", @DATABASE@ will become the database name"
+msgstr ""
 
 #: libraries/display_export.lib.php:233
-msgid "database name"
-msgstr "数据库名"
+msgid ", @TABLE@ will become the table name"
+msgstr ""
 
-#: libraries/display_export.lib.php:236
-msgid "table name"
-msgstr "数据表名"
-
-#: libraries/display_export.lib.php:240
+#: libraries/display_export.lib.php:237
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -4411,57 +4411,57 @@ msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。"
 
-#: libraries/display_export.lib.php:278
+#: libraries/display_export.lib.php:275
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
+#: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "文件的字符集："
 
-#: libraries/display_export.lib.php:312
+#: libraries/display_export.lib.php:309
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "压缩"
 
-#: libraries/display_export.lib.php:314 libraries/display_tbl.lib.php:528
+#: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
 msgstr "无"
 
-#: libraries/display_export.lib.php:316
+#: libraries/display_export.lib.php:313
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zip 压缩"
 
-#: libraries/display_export.lib.php:318
+#: libraries/display_export.lib.php:315
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzip 压缩"
 
-#: libraries/display_export.lib.php:320
+#: libraries/display_export.lib.php:317
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
 
-#: libraries/display_export.lib.php:334 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "格式"
 
-#: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
@@ -9554,6 +9554,15 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid "server name"
+#~ msgstr "服务器名"
+
+#~ msgid "database name"
+#~ msgstr "数据库名"
+
+#~ msgid "table name"
+#~ msgstr "数据表名"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "编辑 PDF 页"
