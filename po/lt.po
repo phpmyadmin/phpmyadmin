@@ -2893,10 +2893,9 @@ msgid "Text fields"
 msgstr "Naudokite teksto įvedimo lauką"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Adaptuoti eksportavimo nustatymus"
+msgstr "Adaptuoti teksto įvedimo laukelius"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
