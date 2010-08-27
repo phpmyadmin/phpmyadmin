@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:55+0200\n"
+"PO-Revision-Date: 2010-08-27 22:56+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4144,10 +4144,9 @@ msgstr "Open Document skaičiuoklė"
 
 #: libraries/config/setup.forms.php:280
 #: libraries/config/user_preferences.forms.php:180
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Database export options"
-msgstr "Duomenų bazių rodymo nustatymai"
+msgstr "Duombazės eksportavimo nustatymai"
 
 #: libraries/config/setup.forms.php:293 libraries/config/setup.forms.php:329
 #: libraries/config/setup.forms.php:360 libraries/config/setup.forms.php:365
