@@ -3674,7 +3674,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:402
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES komanda"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
