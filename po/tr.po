@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 09:39+0200\n"
+"PO-Revision-Date: 2010-08-27 10:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3243,7 +3243,6 @@ msgid "Protect binary columns"
 msgstr "Binari sütunlarını koru"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3252,9 +3251,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Eğer VT-tabanlı sorgu geçmişi isterseniz etkinleştirin (pmadb gerektirir). "
+"Eğer VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (pmadb gerektirir). "
 "Eğer etkisizleştirilirse, sorgu geçmişini görüntülemek için bu JS-"
-"programından yararlanır (pencere kapatıldığında bilgi kaybolur)."
+"programlarından yararlanır (pencere kapatıldığında bilgi kaybolur)."
 
 #: libraries/config/messages.inc.php:330
 msgid "Permanent query history"
