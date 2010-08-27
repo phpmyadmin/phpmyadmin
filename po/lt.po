@@ -1116,7 +1116,6 @@ msgid "May"
 msgstr "gegužės"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "birželio"
