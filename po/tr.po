@@ -3543,7 +3543,6 @@ msgid "Connect without password"
 msgstr "Parolasız bağlan"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3555,8 +3554,11 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "MySQL joker karakterleri (% ve _) kullanabilirsiniz, eğer bunların aslına "
-"uygun örneklerini kullanmak istiyorsanız bundan kaçının, örn. 'my\\_db' "
-"kullanın ve 'my_db' kullanmayın"
+"uygun örneklerini kullanmak istiyorsanız bundan kaçının, örn. "
+"[kbd]'my\\_db'[/kbd] kullanın ve [kbd]'my_db'[/kbd] kullanmayın. Bu seçeneği "
+"kullanarak veritabanı listesini sıralayabilirsiniz, sadece adlarını sıralı "
+"girin ve geri kalanını alfabetik sırada göstermek için sonunda [kbd]*[/kbd] "
+"kullanın."
 
 #: libraries/config/messages.inc.php:390
 msgid "Show only listed databases"
