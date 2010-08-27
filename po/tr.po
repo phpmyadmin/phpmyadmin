@@ -9147,7 +9147,7 @@ msgstr "Yükseklik"
 
 #: tbl_chart.php:99
 msgid "Title"
-msgstr ""
+msgstr "Başlık"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
