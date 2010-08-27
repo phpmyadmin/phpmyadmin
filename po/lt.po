@@ -9080,7 +9080,7 @@ msgstr "Juostelių"
 
 #: tbl_chart.php:136
 msgid "Line"
-msgstr "Linijų"
+msgstr "Linijinė"
 
 #: tbl_chart.php:137
 msgid "Radar"
