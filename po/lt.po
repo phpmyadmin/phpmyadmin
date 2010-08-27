@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:00+0200\n"
+"PO-Revision-Date: 2010-08-27 22:01+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9071,7 +9071,7 @@ msgstr ""
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "Legendos paraštės"
 
 #: tbl_chart.php:135
 #| msgid "Mar"
