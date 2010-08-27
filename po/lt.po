@@ -9092,10 +9092,9 @@ msgid "Pie"
 msgstr "Skritulinė"
 
 #: tbl_chart.php:145
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Užklausos tipas"
+msgstr "Juostinės diagramos tipas"
 
 #: tbl_chart.php:147
 #, fuzzy
