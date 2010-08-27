@@ -2549,10 +2549,9 @@ msgid "Maximal length of created query"
 msgstr "Didžiausias sukurtos užklausos ilgis"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "Eksportuoti"
+msgstr "Eksportavimo tipas"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
