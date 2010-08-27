@@ -9143,7 +9143,7 @@ msgstr "Genişlik"
 
 #: tbl_chart.php:95
 msgid "Height"
-msgstr ""
+msgstr "Yükseklik"
 
 #: tbl_chart.php:99
 msgid "Title"
