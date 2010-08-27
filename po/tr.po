@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 08:32+0200\n"
+"PO-Revision-Date: 2010-08-27 08:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6974,7 +6974,7 @@ msgstr "Tarayıcının depolamasından içe aktar"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Ayarlar tarayıcınızın yerel depolamasından içe aktarılacaktır."
 
 #: prefs_manage.php:254
 #, fuzzy
