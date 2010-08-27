@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:13+0200\n"
+"PO-Revision-Date: 2010-08-27 22:14+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2518,10 +2518,9 @@ msgid "SQL compatibility mode"
 msgstr "SQL suderinamumo režimas"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Syntax to use when inserting data:"
 msgid "Syntax to use when inserting data"
-msgstr "Naudoti sintaksę kai įterpiami duomenys:"
+msgstr "Tikrinti sintaksę kai įterpiami duomenys"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
