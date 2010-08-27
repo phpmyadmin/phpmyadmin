@@ -9255,7 +9255,7 @@ msgstr "Yeni bir indeks oluştur"
 
 #: tbl_indexes.php:160
 msgid "Modify an index"
-msgstr "Indeksi değiştir"
+msgstr "İndeksi değiştir"
 
 #: tbl_indexes.php:166
 msgid "Index name:"
