@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 20:57+0200\n"
+"PO-Revision-Date: 2010-08-27 20:58+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1719,7 +1719,7 @@ msgstr "Nerasta duomenų diagramos braižymui."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "GD plėtinys reikalingas diagramoms braižyti."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
