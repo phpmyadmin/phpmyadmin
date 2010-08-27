@@ -9080,7 +9080,7 @@ msgstr "Juostinis"
 
 #: tbl_chart.php:136
 msgid "Line"
-msgstr ""
+msgstr "Linijų"
 
 #: tbl_chart.php:137
 msgid "Radar"
