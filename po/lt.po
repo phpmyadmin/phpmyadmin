@@ -9055,7 +9055,7 @@ msgstr "Aukštis"
 
 #: tbl_chart.php:99
 msgid "Title"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
