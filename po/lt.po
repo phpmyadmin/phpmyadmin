@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:25+0200\n"
+"PO-Revision-Date: 2010-08-27 22:26+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3194,7 +3194,7 @@ msgstr "Didesnis textarea LONGTEXT'ui"
 
 #: libraries/config/messages.inc.php:296
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Naudoti piktogramas pagrindiniame puslapyje"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of characters used when a SQL query is displayed"
