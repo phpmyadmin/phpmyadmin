@@ -1701,9 +1701,8 @@ msgid "Could not open file: %s"
 msgstr "Nepavyko atidaryti failo: %s"
 
 #: libraries/chart.lib.php:41
-#, fuzzy
 msgid "Query statistics"
-msgstr "Eilučių statistika"
+msgstr "Užklausų statistika"
 
 #: libraries/chart.lib.php:64
 msgid "Query execution time comparison (in microseconds)"
