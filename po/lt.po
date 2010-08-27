@@ -3704,7 +3704,7 @@ msgstr "Įjungti SSL susijungimams prie MySQL serverio"
 
 #: libraries/config/messages.inc.php:409
 msgid "Use SSL"
-msgstr ""
+msgstr "Naudoti SSL"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
