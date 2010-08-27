@@ -3695,9 +3695,8 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 msgid "Server socket"
-msgstr "Serverio jungtis"
+msgstr "Serverio prievadas (socket)"
 
 #: libraries/config/messages.inc.php:408
 #, fuzzy
