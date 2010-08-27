@@ -2907,7 +2907,7 @@ msgstr "Perspėjimai"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Išjungti keletą perspėjimų kuriuos rodo phpMyAdmin"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
