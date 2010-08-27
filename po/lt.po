@@ -2713,7 +2713,7 @@ msgstr "Pagrindinis rėmelis"
 
 #: libraries/config/messages.inc.php:181
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
 #, fuzzy
