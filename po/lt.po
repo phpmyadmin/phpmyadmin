@@ -2265,7 +2265,7 @@ msgstr "Derinti (debug) SQL"
 #: libraries/config/messages.inc.php:45
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Numatyta rodymo kryptis"
+msgstr "Numatytoji rodymo kryptis"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
