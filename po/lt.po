@@ -1225,6 +1225,7 @@ msgid "Tuesday"
 msgstr "Antradienis"
 
 #: js/messages.php:132
+#, fuzzy
 msgid "Wednesday"
 msgstr "Trečiadienis"
 
