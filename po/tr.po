@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 13:11+0200\n"
+"PO-Revision-Date: 2010-08-27 21:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1653,10 +1653,9 @@ msgid "Could not open file: %s"
 msgstr "Açılamayan dosya: %s"
 
 #: libraries/chart.lib.php:41
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "İstatistikleri göster"
+msgstr "Sorgu istatistikleri"
 
 #: libraries/chart.lib.php:64
 msgid "Query execution time comparison (in microseconds)"
