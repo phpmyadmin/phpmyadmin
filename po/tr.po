@@ -7011,7 +7011,7 @@ msgstr "Ayarlar tarayıcının yerel depolamasına kaydedilecektir."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Mevcut ayarlar üzerine yazılacak!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
