@@ -4027,7 +4027,7 @@ msgstr "Naršyklės lango pavadinimas kai serveris yra pasirinktas"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Naršyklės lango pavadinimas kai lentelė yra pasirinkta"
 
 #: libraries/config/messages.inc.php:484
 msgid ""
