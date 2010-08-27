@@ -3185,7 +3185,7 @@ msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullanır"
 
 #: libraries/config/messages.inc.php:316
 msgid "Iconic navigation bar"
-msgstr "Simgesel rehber çubuğu"
+msgstr "Sembolik rehber çubuğu"
 
 #: libraries/config/messages.inc.php:317
 msgid "use GZip output buffering for increased speed in HTTP transfers"
