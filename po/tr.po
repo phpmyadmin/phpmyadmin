@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:17+0200\n"
+"PO-Revision-Date: 2010-08-27 22:18+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9139,7 +9139,7 @@ msgstr ""
 
 #: tbl_chart.php:91
 msgid "Width"
-msgstr ""
+msgstr "Genişlik"
 
 #: tbl_chart.php:95
 msgid "Height"
