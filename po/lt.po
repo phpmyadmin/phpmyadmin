@@ -3688,7 +3688,7 @@ msgstr "Prisijungimo sesijos vardas"
 
 #: libraries/config/messages.inc.php:405
 msgid "Signon URL"
-msgstr ""
+msgstr "Prisijungimo adresas"
 
 #: libraries/config/messages.inc.php:406
 msgid "Socket on which MySQL server is listening, leave empty for default"
