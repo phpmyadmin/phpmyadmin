@@ -3605,7 +3605,7 @@ msgstr "Bandyti prisijungti be slaptažodžio"
 
 #: libraries/config/messages.inc.php:388
 msgid "Connect without password"
-msgstr ""
+msgstr "Prisijungti be slaptažodžio"
 
 #: libraries/config/messages.inc.php:389
 msgid ""
