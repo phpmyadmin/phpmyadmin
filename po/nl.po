@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:00+0200\n"
+"PO-Revision-Date: 2010-08-27 12:01+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4516,10 +4516,9 @@ msgid "No Privileges"
 msgstr "Geen rechten"
 
 #: libraries/display_create_table.lib.php:40
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabel moet minimaal een veld hebben."
+msgstr "Tabel moet minimaal één veld hebben."
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
