@@ -3431,10 +3431,9 @@ msgid "Leave blank if not used"
 msgstr "Palikite tuščią, jei nenaudojamas"
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Host authorization order"
-msgstr "Numatytoji rikiavimo tvarka"
+msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Leave blank for defaults"
