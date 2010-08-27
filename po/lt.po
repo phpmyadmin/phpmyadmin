@@ -2421,7 +2421,7 @@ msgstr "Pakeisti NULL į"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr "Pašalinti CRLF simbolius laukeliuose"
+msgstr "Pašalinti CRLF simbolius (stulpelio) laukeliuose"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
