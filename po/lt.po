@@ -1135,7 +1135,6 @@ msgid "September"
 msgstr "rugsėjo"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "spalio"
