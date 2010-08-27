@@ -3186,7 +3186,7 @@ msgstr "Prisijungimo slapuko galiojimas"
 
 #: libraries/config/messages.inc.php:294
 msgid "Double size of textarea for LONGTEXT fields"
-msgstr ""
+msgstr "Padvigubinti dydį LONGTEXT'o textarea laukelių"
 
 #: libraries/config/messages.inc.php:295
 msgid "Bigger textarea for LONGTEXT"
