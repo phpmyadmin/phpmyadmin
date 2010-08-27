@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 11:22+0200\n"
+"PO-Revision-Date: 2010-08-27 11:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3335,7 +3335,7 @@ msgstr "Eğer kullanılmayacaksa boş bırakın"
 #: libraries/config/messages.inc.php:350
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Anamakine kimlik denetimi sırası"
+msgstr "Anamakine izin düzeni"
 
 #: libraries/config/messages.inc.php:351
 msgid "Leave blank for defaults"
