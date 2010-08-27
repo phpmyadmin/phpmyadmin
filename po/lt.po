@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 21:19+0200\n"
+"PO-Revision-Date: 2010-08-27 21:20+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2295,7 +2295,7 @@ msgstr "Įprastinė serverio kortelė"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Kortelė kuri rodoma kai įeinama į lentelę"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
