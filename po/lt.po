@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:10+0200\n"
+"PO-Revision-Date: 2010-08-27 22:11+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2352,10 +2352,9 @@ msgid "Show icons for warning, error and information messages"
 msgstr ""
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Ignoruoti klaidas"
+msgstr "Piktograminės klaidos"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
