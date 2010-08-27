@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:19+0200\n"
+"PO-Revision-Date: 2010-08-27 22:20+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2796,10 +2796,9 @@ msgid "Enter server connection parameters"
 msgstr "Įvesti serverio ryšio (jungimosi) nustatymus"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Konfigūracija: %s"
+msgstr "Konfigūracijos laikmena"
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
