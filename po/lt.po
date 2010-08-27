@@ -3408,7 +3408,7 @@ msgstr "Pakartoti antraštes kas X langelių, [kbd]0[/kbd] išjungia šią galim
 
 #: libraries/config/messages.inc.php:343
 msgid "Repeat headers"
-msgstr ""
+msgstr "Pakartoti antraštes"
 
 #: libraries/config/messages.inc.php:344
 msgid "Show help button instead of Documentation text"
