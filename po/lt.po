@@ -2333,10 +2333,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Redaguoti SQL užklausas iškylančiame lange"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Redaguoti kitą įrašą"
+msgstr "Redaguoti lange"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
