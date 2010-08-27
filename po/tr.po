@@ -4002,7 +4002,7 @@ msgstr "Metin alanı satırları"
 
 #: libraries/config/messages.inc.php:476
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Veritabanı seçildiğinde tarayıcı penceresi başlığı"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when nothing is selected"
