@@ -1706,7 +1706,7 @@ msgstr "Užklausų statistika"
 
 #: libraries/chart.lib.php:64
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Užklausų vykdymo laiko palyginimas (milisekundėmis)"
 
 #: libraries/chart.lib.php:84
 #, fuzzy
