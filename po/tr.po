@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 06:54+0200\n"
+"PO-Revision-Date: 2010-08-27 06:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3939,7 +3939,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:465
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "SQL Onaylayıcı etkin"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
