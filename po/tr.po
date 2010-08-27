@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-25 09:51+0200\n"
-"PO-Revision-Date: 2010-08-27 06:57+0200\n"
+"PO-Revision-Date: 2010-08-27 06:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3968,7 +3968,7 @@ msgstr "Yeni veritabanı adı öner"
 
 #: libraries/config/messages.inc.php:470
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Eğer Suhosin algılanırsa, ana sayfada uyarı gösterilir"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
