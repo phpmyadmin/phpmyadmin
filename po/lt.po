@@ -3843,7 +3843,7 @@ msgstr "Rodyti slaptažodžio keitimo formą"
 
 #: libraries/config/messages.inc.php:438
 msgid "Show create database form"
-msgstr ""
+msgstr "Rodyti duombazės sukūrimo formą"
 
 #: libraries/config/messages.inc.php:439
 msgid ""
