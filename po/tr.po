@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:03+0200\n"
+"PO-Revision-Date: 2010-08-27 22:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4106,10 +4106,9 @@ msgid "Cookie authentication"
 msgstr "Tanımlama bilgisi kimlik denetimi"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Anamakine kimlik denetimi düzeni"
+msgstr "HTTP kimlik denetimi"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
