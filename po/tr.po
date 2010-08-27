@@ -6086,10 +6086,9 @@ msgid "Select Tables"
 msgstr "Tabloları seç"
 
 #: libraries/schema/User_Schema.class.php:351
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "İlişkisel şema"
+msgstr "İlişkisel şema göster"
 
 #: libraries/schema/User_Schema.class.php:356
 #, fuzzy
