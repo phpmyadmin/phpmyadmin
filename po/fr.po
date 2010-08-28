@@ -2054,10 +2054,9 @@ msgid "SQL Validator is disabled"
 msgstr "Le validateur SQL est désactivé"
 
 #: libraries/config/FormDisplay.class.php:765
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "Extension PHP"
+msgstr "Extension SOAP absente"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy, php-format
