@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:15+0200\n"
+"PO-Revision-Date: 2010-08-28 14:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1672,7 +1672,7 @@ msgstr "Çizelge için bulunan veri yok."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Çizelgeler için GD uzantısı gerekli."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
