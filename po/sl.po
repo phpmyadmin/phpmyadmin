@@ -9079,10 +9079,9 @@ msgid "Restart insertion with %s rows"
 msgstr "Ponovno začni vstavljanje z %s vrsticami"
 
 #: tbl_chart.php:57
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Uspešno sem osvežil privilegije."
+msgstr "Grafikon je uspešno ustvarjen."
 
 #: tbl_chart.php:60
 #, fuzzy
