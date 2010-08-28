@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 18:55+0200\n"
+"PO-Revision-Date: 2010-08-28 18:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9152,7 +9152,7 @@ msgstr "Zloženi"
 
 #: tbl_chart.php:148
 msgid "Multi"
-msgstr ""
+msgstr "Več skupaj"
 
 #: tbl_chart.php:153
 msgid "Continuous image"
