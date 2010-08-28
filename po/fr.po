@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 18:02+0200\n"
+"PO-Revision-Date: 2010-08-28 18:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2108,7 +2108,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Permettre de tenter une connexion à tout serveur MySQL"
 
 #: libraries/config/messages.inc.php:19
-#, fuzzy
 #| msgid ""
 #| "Setting this to <tt>true</tt> allows a page located on a different domain "
 #| "to call phpMyAdmin inside a frame, and is a potential security hole "
@@ -2118,10 +2117,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"En définissant ceci à <tt>true</tt>, cela permet à une page située dans un "
-"domaine différent d'appeler phpMyAdmin à l'intérieur d'un cadre, et cela "
-"représente un trou potentiel de sécurité pour les attaques de script inter-"
-"cadre (cross-frame)."
+"Activer ceci permet à une page située dans un domaine différent d'appeler "
+"phpMyAdmin à l'intérieur d'un cadre et représente un trou potentiel de "
+"sécurité pour les attaques de script inter-cadre (cross-frame)."
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
