@@ -9189,10 +9189,9 @@ msgid "Bar type"
 msgstr "Çubuk türü"
 
 #: tbl_chart.php:147
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Paketlendi"
+msgstr "İstiflendi"
 
 #: tbl_chart.php:148
 msgid "Multi"
