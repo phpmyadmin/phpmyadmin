@@ -9129,7 +9129,7 @@ msgstr "Stolpični"
 
 #: tbl_chart.php:136
 msgid "Line"
-msgstr "Črta"
+msgstr "Črtni"
 
 #: tbl_chart.php:137
 msgid "Radar"
