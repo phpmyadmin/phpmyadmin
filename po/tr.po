@@ -9163,7 +9163,7 @@ msgstr "Alan kenarlıkları"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "Yazıt kenarları"
 
 #: tbl_chart.php:135
 #| msgid "Mar"
