@@ -9123,10 +9123,9 @@ msgid "Legend margins"
 msgstr "Robovi legende"
 
 #: tbl_chart.php:135
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "mar"
+msgstr "Stolpec"
 
 #: tbl_chart.php:136
 msgid "Line"
