@@ -174,6 +174,8 @@ class ConfigFile
     /**
      * Sets config value
      *
+     * @uses $GLOBALS['cfg']
+     * @uses PMA_array_read()
      * @uses PMA_array_remove()
      * @uses PMA_array_write()
      * @param string $path
@@ -190,13 +192,17 @@ class ConfigFile
             return;
         }
         // remove if the path isn't protected and it's empty or has a default value
-        $default_value = $this->getDefault($canonical_path);
-        if (!isset($this->persistKeys[$canonical_path])
-                && (($value === $default_value) || (empty($value) && empty($default_value)))) {
-            PMA_array_remove($path, $_SESSION[$this->id]);
-        } else {
-            PMA_array_write($path, $_SESSION[$this->id], $value);
+        if (!isset($this->persistKeys[$canonical_path])) {
+            $default_value = $this->getDefault($canonical_path);
+            // check $GLOBALS['cfg'] to allow overwriting options set in config.inc.php with default value
+            $current_global = PMA_array_read($canonical_path, $GLOBALS['cfg']);
+            if (($value === $default_value && (defined('PMA_SETUP') || $current_global === $default_value))
+                    || (empty($value) && empty($default_value) && (defined('PMA_SETUP') || empty($current_global)))) {
+                PMA_array_remove($path, $_SESSION[$this->id]);
+                return;
+            }
         }
+        PMA_array_write($path, $_SESSION[$this->id], $value);
     }
 
     /**

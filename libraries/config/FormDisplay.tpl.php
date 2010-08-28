@@ -132,7 +132,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     global $_FormDisplayGroup;
     static $base_dir, $img_path;
 
-    $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
+    $is_setup_script = defined('PMA_SETUP');
     if ($base_dir === null) {
         $base_dir = $is_setup_script ? '../' : '';
         $img_path = $is_setup_script
@@ -298,7 +298,7 @@ function display_group_header($header_text)
         return;
     }
     $colspan = 2;
-    if (defined('PMA_SETUP') && PMA_SETUP) {
+    if (defined('PMA_SETUP')) {
         $colspan++;
     }
 ?>
@@ -328,7 +328,7 @@ function display_group_footer()
 function display_fieldset_bottom()
 {
     $colspan = 2;
-    if (defined('PMA_SETUP') && PMA_SETUP) {
+    if (defined('PMA_SETUP')) {
         $colspan++;
     }
 ?>
