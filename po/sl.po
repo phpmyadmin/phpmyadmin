@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 18:48+0200\n"
+"PO-Revision-Date: 2010-08-28 18:49+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9108,7 +9108,7 @@ msgstr "Naslov"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
-msgstr ""
+msgstr "Oznaka osi X"
 
 #: tbl_chart.php:108
 msgid "Y Axis label"
