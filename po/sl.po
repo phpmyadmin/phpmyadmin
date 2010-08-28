@@ -9104,7 +9104,7 @@ msgstr "Višina"
 
 #: tbl_chart.php:99
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
