@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 17:51+0200\n"
+"PO-Revision-Date: 2010-08-28 17:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1677,7 +1677,7 @@ msgstr "Statistiques sur les requêtes"
 
 #: libraries/chart.lib.php:64
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Comparaison du temps d'exécution des requêtes (en microsecondes)"
 
 #: libraries/chart.lib.php:84
 #, fuzzy
