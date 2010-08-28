@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 11:17+0200\n"
+"POT-Creation-Date: 2010-08-27 16:16+0200\n"
+"PO-Revision-Date: 2010-08-27 12:34+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -53,7 +53,7 @@ msgstr "Zoeken"
 #: libraries/common.lib.php:2236 libraries/core.lib.php:544
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:355 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:530 libraries/display_tbl.lib.php:612
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:126
@@ -405,12 +405,11 @@ msgid "Last check"
 msgstr "Laatst gecontroleerd"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabel(len)"
-msgstr[1] "%s tabel(len)"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabellen"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
@@ -480,10 +479,8 @@ msgid "Add/Delete criteria rows"
 msgstr "Toevoegen/Verwijderen Criteria Rij"
 
 #: db_qbe.php:592
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Toevoegen/Verwijderen Veld Kolommen"
+msgstr "Toevoegen/Verwijderen kolommen"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
@@ -1472,28 +1469,25 @@ msgid "Error"
 msgstr "Fout"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rij(en) bijgewerkt."
+msgstr[0] "%1$d rij bijgewerkt."
 msgstr[1] "%1$d rij(en) bijgewerkt."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rij(en) verwijderd."
+msgstr[0] "%1$d rij verwijderd."
 msgstr[1] "%1$d rij(en) verwijderd."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
-#| msgid "%1$d row(s) inserted."
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rij(en) toegevoegd."
-msgstr[1] "%1$d rij(en) toegevoegd."
+msgstr[0] "%1$d rij toegevoegd."
+msgstr[1] "%1$d rijen toegevoegd."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1822,7 +1816,7 @@ msgstr "en"
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
 #: libraries/common.lib.php:446 libraries/config/FormDisplay.tpl.php:169
-#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:242
+#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:239
 #: libraries/engines/pbms.lib.php:72 libraries/engines/pbxt.lib.php:106
 #: libraries/relation.lib.php:79 libraries/sql_query_form.lib.php:421
 #: libraries/sql_query_form.lib.php:424 main.php:209
@@ -2570,7 +2564,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Gebruik backticks (`) bij tabellen- en veldnamen"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
-#: libraries/display_export.lib.php:354
+#: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
 msgstr "SQL-compatibiliteits mode"
 
@@ -4517,10 +4511,8 @@ msgid "No Privileges"
 msgstr "Geen rechten"
 
 #: libraries/display_create_table.lib.php:40
-#, fuzzy
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabel moet minimaal een veld hebben."
+msgstr "Tabel moet minimaal één veld hebben."
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
@@ -4623,19 +4615,19 @@ msgstr "Opslaan als bestand"
 msgid "File name template:"
 msgstr "Bestandsnaam template"
 
-#: libraries/display_export.lib.php:230
-msgid "server name"
-msgstr "servernaam"
+#: libraries/display_export.lib.php:229
+msgid "@SERVER@ will become the server name"
+msgstr ""
+
+#: libraries/display_export.lib.php:231
+msgid ", @DATABASE@ will become the database name"
+msgstr ""
 
 #: libraries/display_export.lib.php:233
-msgid "database name"
-msgstr "databasenaam"
+msgid ", @TABLE@ will become the table name"
+msgstr ""
 
-#: libraries/display_export.lib.php:236
-msgid "table name"
-msgstr "tabelnaam"
-
-#: libraries/display_export.lib.php:240
+#: libraries/display_export.lib.php:237
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -4650,58 +4642,58 @@ msgstr ""
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
 "vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven."
 
-#: libraries/display_export.lib.php:278
+#: libraries/display_export.lib.php:275
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
+#: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Karakter set van het bestand:"
 
-#: libraries/display_export.lib.php:312
+#: libraries/display_export.lib.php:309
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Compressie"
 
-#: libraries/display_export.lib.php:314 libraries/display_tbl.lib.php:528
+#: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
 msgstr "Geen"
 
-#: libraries/display_export.lib.php:316
+#: libraries/display_export.lib.php:313
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "\"Gezipt\""
 
-#: libraries/display_export.lib.php:318
+#: libraries/display_export.lib.php:315
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "\"ge-gzipt\""
 
-#: libraries/display_export.lib.php:320
+#: libraries/display_export.lib.php:317
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "\"ge-bzipt\""
 
-#: libraries/display_export.lib.php:334 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Opmaak"
 
-#: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
 # Is er een betere vertaling voor 'encoding' ?
-#: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
@@ -4814,10 +4806,8 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rij-nummer."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "rijen beginnend bij"
+msgstr "rij(en) beginnend bij"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
@@ -5374,7 +5364,7 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Dit is het aantal transcatie logbestanden (pbxt/system/xlog*.xt) welke het "
+"Dit is het aantal transactie logbestanden (pbxt/system/xlog*.xt) welke het "
 "systeem zal bijhouden. Wanneer het aantal logbestanden hier overheenkomt "
 "zullen oude bestanden worden verwijderd, anders worden oude logbestanden "
 "hernoemd met een opgehoogd volgnummer"
@@ -6138,7 +6128,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
-msgstr "Snelle stappen om geavanceerde functies in te stellen:"
+msgstr "Snelle stappen voor het instellen van geavanceerde functies:"
 
 #: libraries/relation.lib.php:147
 msgid ""
@@ -6156,8 +6146,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Schakel geavanceerde functionaliteit in het configuratiebestand "
-"(<code>config.inc.php</code>) in, bijvoorbeeld door gebruik te maken van "
+"Schakel geavanceerde functionaliteit in, in het configuratie bestand "
+"(<code>config.inc.php</code>), als voorbeeld kunt u gebruik maken van "
 "<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:150
@@ -7134,7 +7124,7 @@ msgid ""
 msgstr ""
 "Javascript wordt niet door uw browser ondersteund of de ondersteuning ervoor "
 "is uitgeschakeld. Bepaalde functionaliteit van phpMyAdmin zal niet "
-"beschikbaar zijn. Zo zal bijvoorbeeld het navigatievenster zich niet "
+"beschikbaar zijn. Zo zal bijvoorbeeld het navigatieframe zich niet "
 "automatisch vernieuwen."
 
 #: main.php:325
@@ -7270,7 +7260,6 @@ msgstr ""
 # Verleden tijd: "is aangemaakt" => "werd aangemaakt", ookal bestaat het nog steeds.
 # Wat doet "%1$s" hier?
 #: pmd_pdf.php:60
-#, fuzzy
 msgid "Page has been created"
 msgstr "De pagina werd aangemaakt."
 
@@ -8087,7 +8076,7 @@ msgstr "Stop volledig"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Reset slave"
 
 #: server_replication.php:325
 #, php-format
@@ -9504,7 +9493,7 @@ msgstr "Voeg toe als nieuwe rij"
 
 #: tbl_change.php:1027
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Voeg toe als nieuwe rij en negeer foutmeldingen"
 
 #: tbl_change.php:1028
 #, fuzzy
@@ -10173,6 +10162,15 @@ msgstr "VIEW-naam"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Hernoem view naar"
+
+#~ msgid "server name"
+#~ msgstr "servernaam"
+
+#~ msgid "database name"
+#~ msgstr "databasenaam"
+
+#~ msgid "table name"
+#~ msgstr "tabelnaam"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "PDF Pagina's aanpassen"

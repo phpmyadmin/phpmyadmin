@@ -11,6 +11,7 @@
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'db_structure.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -294,13 +295,12 @@ foreach ($tables as $keyname => $each_table) {
 
     if (! $db_is_information_schema) {
         if (! empty($each_table['TABLE_ROWS'])) {
-            $empty_table = '<a href="sql.php?' . $tbl_url_query
+            $empty_table = '<a class="truncate_table_anchor" href="sql.php?' . $tbl_url_query
                  . '&amp;sql_query=';
             $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
                  . '&amp;zero_rows='
                  . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
-                 . '" onclick="return confirmLink(this, \'TRUNCATE ';
-            $empty_table .= PMA_jsFormat($each_table['TABLE_NAME']) . '\')">' . $titles['Empty'] . '</a>';
+                 .'">' . $titles['Empty'] . '</a>';
         } else {
             $empty_table = $titles['NoEmpty'];
         }
@@ -384,11 +384,10 @@ foreach ($tables as $keyname => $each_table) {
             <?php echo $titles['Insert']; ?></a></td>
     <td align="center"><?php echo $empty_table; ?></td>
     <td align="center">
-        <a href="sql.php?<?php echo $tbl_url_query;
+        <a class="drop_table_anchor" href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;zero_rows=<?php
-            echo urlencode($drop_message); ?>"
-            onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, false); ?>')">
+            echo urlencode($drop_message); ?>" >
             <?php echo $titles['Drop']; ?></a></td>
     <?php } // end if (! $db_is_information_schema)
 
@@ -453,7 +452,7 @@ if ($is_show_stats) {
 }
 ?>
 </tbody>
-<tbody>
+<tbody id="tbl_summary_row">
 <tr><th></th>
     <th align="center" nowrap="nowrap">
         <?php

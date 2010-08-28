@@ -226,14 +226,11 @@ if(isset($_GET['sql_query'])) {
                     <?php
                     echo __('File name template:');
                     $trans = new PMA_Message;
-                    $trans->addMessage('@SERVER@ will become the');
-                    $trans->addString(__('server name'));
+                    $trans->addMessage(__('@SERVER@ will become the server name'));
                     if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage(', @DB@ will become the');
-                        $trans->addString(__('database name'));
+                        $trans->addMessage(__(', @DATABASE@ will become the database name'));
                         if ($export_type == 'table') {
-                            $trans->addMessage(', @TABLE@ will become the');
-                            $trans->addString(__('table name'));
+                            $trans->addMessage(__(', @TABLE@ will become the table name'));
                         }
                     }
 

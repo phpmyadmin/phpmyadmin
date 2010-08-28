@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-27 11:35+0200\n"
-"PO-Revision-Date: 2010-08-27 12:02+0200\n"
+"POT-Creation-Date: 2010-08-27 16:16+0200\n"
+"PO-Revision-Date: 2010-08-27 13:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -57,7 +57,7 @@ msgstr "Vyhledávání"
 #: libraries/common.lib.php:2236 libraries/core.lib.php:544
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:355 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:530 libraries/display_tbl.lib.php:612
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:126
@@ -1660,7 +1660,6 @@ msgid "Could not open file: %s"
 msgstr "Chyba při otevírání souboru: %s"
 
 #: libraries/chart.lib.php:41
-#| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Statistika dotazu"
 
@@ -1669,7 +1668,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Porovnání běhu dotazu (v mikrosekundách)"
 
 #: libraries/chart.lib.php:84
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Výsledky dotazu"
 
@@ -1758,7 +1756,7 @@ msgstr "en"
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
 #: libraries/common.lib.php:446 libraries/config/FormDisplay.tpl.php:169
-#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:242
+#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:239
 #: libraries/engines/pbms.lib.php:72 libraries/engines/pbxt.lib.php:106
 #: libraries/relation.lib.php:79 libraries/sql_query_form.lib.php:421
 #: libraries/sql_query_form.lib.php:424 main.php:209
@@ -2454,7 +2452,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Použít zpětné uvozovky u jmen tabulek a polí"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
-#: libraries/display_export.lib.php:354
+#: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
 msgstr "Režim kompatibility SQL"
 
@@ -3248,18 +3246,14 @@ msgid "Protect binary columns"
 msgstr "Chránit binární pole"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Povolte pokud chcete histori dotazů založenou na databázi (vyžaduje pmadb). "
-"Pokud toto zakážete, využijí se k zobrazení historie Java Scriptové rutiny "
-"(se zavřením okna ztratíte předchozí historii)."
+"Povolte pokud chcete histori dotazů založenou na databázi (vyžaduje úložiště "
+"nastavení phpMyAdmina). Pokud toto zakážete, využijí se k zobrazení historie "
+"Java Scriptové rutiny (se zavřením okna ztratíte předchozí historii)."
 
 #: libraries/config/messages.inc.php:330
 msgid "Permanent query history"
@@ -3794,6 +3788,7 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Určiuje jestli mají být zobrazeny typy polí při úpravě a vkládání záznamů"
 
 #: libraries/config/messages.inc.php:440
 msgid "Show field types"
@@ -3900,6 +3895,7 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
+"[strong]Varování:[/strong] vyžaduje rozšíření PHP SOAP nebo PEAR modul SOAP"
 
 #: libraries/config/messages.inc.php:465
 msgid "Enable SQL Validator"
@@ -3931,6 +3927,7 @@ msgstr "Navrhnout jméno nové databáze"
 #: libraries/config/messages.inc.php:470
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Na hlavní stránce je zobrazeno varování pokud je detekování rozšíření Suhosin"
 
 #: libraries/config/messages.inc.php:471
 msgid "Suhosin warning"
@@ -3953,7 +3950,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:475
-#| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "Řádků v textové oblasti"
 
@@ -4353,19 +4349,19 @@ msgstr "Uložit do souboru"
 msgid "File name template:"
 msgstr "Šablona pro jméno souboru:"
 
-#: libraries/display_export.lib.php:230
-msgid "server name"
-msgstr "jméno serveru"
+#: libraries/display_export.lib.php:229
+msgid "@SERVER@ will become the server name"
+msgstr ""
+
+#: libraries/display_export.lib.php:231
+msgid ", @DATABASE@ will become the database name"
+msgstr ""
 
 #: libraries/display_export.lib.php:233
-msgid "database name"
-msgstr "jméno databáze"
+msgid ", @TABLE@ will become the table name"
+msgstr ""
 
-#: libraries/display_export.lib.php:236
-msgid "table name"
-msgstr "jméno tabulky"
-
-#: libraries/display_export.lib.php:240
+#: libraries/display_export.lib.php:237
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -4377,47 +4373,47 @@ msgstr ""
 "následující nahrazení: %3$s. Jakýkoliv jiný text zůstane zachován beze "
 "změny. Více podrobností je ve %4$sFAQ%5$s."
 
-#: libraries/display_export.lib.php:278
+#: libraries/display_export.lib.php:275
 msgid "use this for future exports"
 msgstr "použít i pro budoucí exporty"
 
-#: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
+#: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Znaková sada souboru:"
 
-#: libraries/display_export.lib.php:312
+#: libraries/display_export.lib.php:309
 msgid "Compression:"
 msgstr "Komprese:"
 
-#: libraries/display_export.lib.php:314 libraries/display_tbl.lib.php:528
+#: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
 msgstr "Žádná"
 
-#: libraries/display_export.lib.php:316
+#: libraries/display_export.lib.php:313
 msgid "zipped"
 msgstr "„zazipováno“"
 
-#: libraries/display_export.lib.php:318
+#: libraries/display_export.lib.php:315
 msgid "gzipped"
 msgstr "„zagzipováno“"
 
-#: libraries/display_export.lib.php:320
+#: libraries/display_export.lib.php:317
 msgid "bzipped"
 msgstr "„zabzipováno“"
 
-#: libraries/display_export.lib.php:334 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 msgid "Format:"
 msgstr "Formát:"
 
-#: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr "Parametry pro výstupní formát:"
 
-#: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
 msgstr "Převod znakové sady:"
 
@@ -4471,6 +4467,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Jméno komprimovaného souboru musí končit na <b>.[formát].[komprese]</b>. "
+"Například: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -4639,7 +4637,6 @@ msgid "Print view (with full texts)"
 msgstr "Náhled pro tisk (s kompletními texty)"
 
 #: libraries/display_tbl.lib.php:2189 tbl_chart.php:82
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Zobrazit graf"
 
@@ -8971,22 +8968,16 @@ msgid "Restart insertion with %s rows"
 msgstr "Začít znovu vkládání s %s řádky"
 
 #: tbl_chart.php:57
-#, fuzzy
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Oprávnění byla načtena úspěšně."
+msgstr "Graf byl úspěšně vytvořen"
 
 #: tbl_chart.php:60
-#, fuzzy
-#| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Počet nemusí být přesný, viz [a@./Documentation.html#faq3_11@Documentation]"
-"FAQ 3.11[/a]"
+"Výsledek tohoto dotazu nelze použít pro graf. Více informací nalezne ve [a@./"
+"Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:91
 msgid "Width"
@@ -9017,7 +9008,6 @@ msgid "Legend margins"
 msgstr "Okraje popisu"
 
 #: tbl_chart.php:135
-#| msgid "Mar"
 msgid "Bar"
 msgstr "Sloupec"
 
@@ -9030,17 +9020,14 @@ msgid "Radar"
 msgstr "Síť"
 
 #: tbl_chart.php:139
-#| msgid "PiB"
 msgid "Pie"
 msgstr "Koláč"
 
 #: tbl_chart.php:145
-#| msgid "Query type"
 msgid "Bar type"
 msgstr "Typ sloupců"
 
 #: tbl_chart.php:147
-#| msgid "Packed"
 msgid "Stacked"
 msgstr "Skládané"
 
@@ -9572,6 +9559,15 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid "server name"
+#~ msgstr "jméno serveru"
+
+#~ msgid "database name"
+#~ msgstr "jméno databáze"
+
+#~ msgid "table name"
+#~ msgstr "jméno tabulky"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "Upravit PDF stránky"

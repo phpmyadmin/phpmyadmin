@@ -477,10 +477,12 @@ class PMA_Index
                 }
 
                 $r .= '<td ' . $row_span . '>'
-                   . '    <a href="sql.php' . PMA_generate_common_url($this_params)
-                   . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">'
+                   . '    <a class="drop_primary_key_index_anchor" href="sql.php' . PMA_generate_common_url($this_params)
+                   . '" >'
                    . PMA_getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
+
+                $r .= '<input type="hidden" class="drop_primary_key_index_msg" value="' . $js_msg . '" />';
             }
 
             $r .= '<th ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</th>';

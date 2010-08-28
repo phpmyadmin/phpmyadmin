@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-27 11:35+0200\n"
+"POT-Creation-Date: 2010-08-27 16:16+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "Hľadať"
 #: libraries/common.lib.php:2236 libraries/core.lib.php:544
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:355 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:530 libraries/display_tbl.lib.php:612
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:126
@@ -1845,7 +1845,7 @@ msgstr "en"
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
 #: libraries/common.lib.php:446 libraries/config/FormDisplay.tpl.php:169
-#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:242
+#: libraries/dbg/setup.php:24 libraries/display_export.lib.php:239
 #: libraries/engines/pbms.lib.php:72 libraries/engines/pbxt.lib.php:106
 #: libraries/relation.lib.php:79 libraries/sql_query_form.lib.php:421
 #: libraries/sql_query_form.lib.php:424 main.php:209
@@ -2568,7 +2568,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr " Použiť opačný apostrof pri názvoch tabuliek a polí "
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
-#: libraries/display_export.lib.php:354
+#: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
 msgstr "Režim kompatibility SQL"
 
@@ -4448,19 +4448,19 @@ msgstr "Pošli"
 msgid "File name template:"
 msgstr "Vzor pre názov súboru"
 
-#: libraries/display_export.lib.php:230
-msgid "server name"
-msgstr "meno servera"
+#: libraries/display_export.lib.php:229
+msgid "@SERVER@ will become the server name"
+msgstr ""
+
+#: libraries/display_export.lib.php:231
+msgid ", @DATABASE@ will become the database name"
+msgstr ""
 
 #: libraries/display_export.lib.php:233
-msgid "database name"
-msgstr "meno databázy"
+msgid ", @TABLE@ will become the table name"
+msgstr ""
 
-#: libraries/display_export.lib.php:236
-msgid "table name"
-msgstr "meno tabuľky"
-
-#: libraries/display_export.lib.php:240
+#: libraries/display_export.lib.php:237
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -4475,57 +4475,57 @@ msgstr ""
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
 "nahradenia: %3$s. Ostatný text bude zachovaný."
 
-#: libraries/display_export.lib.php:278
+#: libraries/display_export.lib.php:275
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:284 libraries/display_import.lib.php:188
+#: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Znaková sada súboru:"
 
-#: libraries/display_export.lib.php:312
+#: libraries/display_export.lib.php:309
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Kompresia"
 
-#: libraries/display_export.lib.php:314 libraries/display_tbl.lib.php:528
+#: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
 msgstr "Žiadny"
 
-#: libraries/display_export.lib.php:316
+#: libraries/display_export.lib.php:313
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "\"zozipované\""
 
-#: libraries/display_export.lib.php:318
+#: libraries/display_export.lib.php:315
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "\"gzip-ované\""
 
-#: libraries/display_export.lib.php:320
+#: libraries/display_export.lib.php:317
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "\"bzipped\""
 
-#: libraries/display_export.lib.php:334 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Formát"
 
-#: libraries/display_export.lib.php:339 libraries/display_import.lib.php:250
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:348 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
 msgid "Encoding Conversion:"
 msgstr "Verzia MySQL klienta"
@@ -9786,6 +9786,15 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Premenovať tabuľku na"
+
+#~ msgid "server name"
+#~ msgstr "meno servera"
+
+#~ msgid "database name"
+#~ msgstr "meno databázy"
+
+#~ msgid "table name"
+#~ msgstr "meno tabuľky"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "Upraviť PDF Stránky"

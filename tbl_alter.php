@@ -131,6 +131,10 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
+        if( $GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($message, $message->isSuccess());
+        }
+
         $active_page = 'tbl_structure.php';
         require './tbl_structure.php';
     } else {

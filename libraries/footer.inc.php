@@ -229,10 +229,16 @@ if (! empty($GLOBALS['cfg']['DBG']['php'])
     */
 }
 
+/**
+ * If we are in an AJAX request, we do not need to generate the closing tags for
+ * body and html.
+ */
+if (! $GLOBALS['is_ajax_request']) {
 ?>
 </body>
 </html>
 <?php
+}
 /**
  * Stops the script execution
  */

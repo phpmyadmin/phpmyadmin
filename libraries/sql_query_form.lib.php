@@ -171,6 +171,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         </script>
         <?php
     }
+
+    // print an empty div, which will be later filled with the sql query results by ajax
+    echo '<div id="sqlqueryresults"></div>';
 }
 
 /**

@@ -14,6 +14,9 @@ require_once './libraries/common.inc.php';
  * Does the common work
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
+$GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+
 $GLOBALS['js_include'][] = 'password_generation.js';
 require './libraries/server_common.inc.php';
 
@@ -564,10 +567,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
                     ? __('Database-specific privileges')
                     : __('Table-specific privileges'))) . "\n"
            . '        (<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">'
+            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm\', true); return false;">'
             . __('Check All') . '</a> /' . "\n"
            . '        <a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'usersForm\', false); return false;">'
+            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
            . '    </legend>' . "\n"
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n"
@@ -971,10 +974,17 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                         break;
                     }
-                    // this is needed in case tracking is on:
-                    $GLOBALS['db'] = $username;
-                    $GLOBALS['reload'] = TRUE;
-                    PMA_reloadNavigation();
+
+
+                    /**
+                     * If we are not in an Ajax request, we can't reload navigation now
+                     */
+                    if($GLOBALS['is_ajax_request'] != true) {
+                        // this is needed in case tracking is on:
+                        $GLOBALS['db'] = $username;
+                        $GLOBALS['reload'] = TRUE;
+                        PMA_reloadNavigation();
+                    }
 
                     $q = 'GRANT ALL PRIVILEGES ON '
                         . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \''
@@ -1267,7 +1277,10 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = TRUE;
-            PMA_reloadNavigation();
+            
+            if($GLOBALS['is_ajax_request'] != true) {
+                PMA_reloadNavigation();
+            }
         }
     }
     if (empty($_REQUEST['change_copy'])) {
@@ -1331,6 +1344,100 @@ if (isset($_REQUEST['flush_privileges'])) {
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
 }
 
+/**
+ * defines some standard links
+ */
+$link_edit = '<a class="edit_user_anchor" href="server_privileges.php?' . $GLOBALS['url_query']
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;dbname=%s'
+    . '&amp;tablename=%s">'
+    . PMA_getIcon('b_usredit.png', __('Edit Privileges'))
+    . '</a>';
+
+$link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;dbname=%s'
+    . '&amp;tablename=%s'
+    . '&amp;revokeall=1">'
+    . PMA_getIcon('b_usrdrop.png', __('Revoke'))
+    . '</a>';
+
+$link_export = '<a class="export_user_anchor" href="server_privileges.php?' . $GLOBALS['url_query']
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;initial=%s'
+    . '&amp;export=1">'
+    . PMA_getIcon('b_tblexport.png', __('Export'))
+    . '</a>';
+
+/**
+ * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
+ * show $message and exit.
+ */
+if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
+
+    if(isset($sql_query)) {
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+    }
+
+    if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+        /**
+         * generate html on the fly for the new user that was just created.
+         */
+        $new_user_string = '<tr>'."\n"
+                           .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>'."\n"
+                           .'<td><label for="checkbox_sel_users_">' . (empty($username) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($username) ) . '</label></td>' . "\n"
+                           .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
+        $new_user_string .= '<td>';
+
+        if(!empty($password) || isset($pma_pw)) {
+            $new_user_string .= __('Yes');
+        }
+        else {
+            $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
+        };
+
+        $new_user_string .= '</td>'."\n";
+        $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo('', true)) . '</tt></td>'; //Fill in privileges here
+        $new_user_string .= '<td>';
+
+        if((isset($Grant_priv) && $Grant_priv == 'Y')) {
+            $new_user_string .= __('Yes');
+        }
+        else {
+            $new_user_string .= __('No');
+        }
+
+        $new_user_string .='</td>';
+
+        $new_user_string .= '<td>'.sprintf($link_edit, urlencode($username), urlencode($host), '', '' ).'</td>'."\n";
+        $new_user_string .= '<td>'.sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')).'</td>'."\n";
+
+        $new_user_string .= '</tr>';
+
+        $extra_data['new_user_string'] = $new_user_string;
+
+        /**
+         * Generate the string for this alphabet's initial, to update the user
+         * pagination
+         */
+        $new_user_initial = strtoupper(substr($username, 0, 1));
+        $new_user_initial_string = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&initial=' . $new_user_initial
+            .'>' . $new_user_initial . '</a>';
+        $extra_data['new_user_initial'] = $new_user_initial;
+        $extra_data['new_user_initial_string'] = $new_user_initial_string;
+    }
+
+    if(isset($update_privs)) {
+        $new_privileges = join(', ', PMA_extractPrivInfo('', true));
+
+        $extra_data['new_privileges'] = $new_privileges;
+    }
+
+    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+}
 
 /**
  * Displays the links
@@ -1349,34 +1456,6 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
 
 /**
- * defines some standard links
- */
-$link_edit = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;dbname=%s'
-    . '&amp;tablename=%s">'
-    . PMA_getIcon('b_usredit.png', __('Edit Privileges'))
-    . '</a>';
-
-$link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;dbname=%s'
-    . '&amp;tablename=%s'
-    . '&amp;revokeall=1">'
-    . PMA_getIcon('b_usrdrop.png', __('Revoke'))
-    . '</a>';
-
-$link_export = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;initial=%s'
-    . '&amp;export=1">'
-    . PMA_getIcon('b_tblexport.png', __('Export'))
-    . '</a>';
-
-/**
  * Displays the page
  */
 
@@ -1390,6 +1469,9 @@ if (isset($_REQUEST['export'])) {
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
+    if( $GLOBALS['is_ajax_request']) {
+        exit;
+    }
 }
 
 if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs))) {
@@ -1479,36 +1561,40 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             /**
              * Displays the initials
+             * In an Ajax request, we don't need to show this
              */
 
-            // initialize to FALSE the letters A-Z
-            for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-                if (! isset($array_initials[chr($letter_counter + 64)])) {
-                    $array_initials[chr($letter_counter + 64)] = FALSE;
+            if( $GLOBALS['is_ajax_request'] != true ) {
+
+                // initialize to FALSE the letters A-Z
+                for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
+                    if (! isset($array_initials[chr($letter_counter + 64)])) {
+                        $array_initials[chr($letter_counter + 64)] = FALSE;
+                    }
                 }
-            }
 
-            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
-            while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
-                $array_initials[$tmp_initial] = TRUE;
-            }
-
-            // Display the initials, which can be any characters, not
-            // just letters. For letters A-Z, we add the non-used letters
-            // as greyed out.
-
-            uksort($array_initials, "strnatcasecmp");
-
-            echo '<table cellspacing="5"><tr>';
-            foreach ($array_initials as $tmp_initial => $initial_was_found) {
-                if ($initial_was_found) {
-                    echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
-                } else {
-                    echo '<td>' . $tmp_initial . '</td>';
+                $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
+                while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+                    $array_initials[$tmp_initial] = TRUE;
                 }
+
+                // Display the initials, which can be any characters, not
+                // just letters. For letters A-Z, we add the non-used letters
+                // as greyed out.
+
+                uksort($array_initials, "strnatcasecmp");
+
+                echo '<table id="initials_table" cellspacing="5"><tr>';
+                foreach ($array_initials as $tmp_initial => $initial_was_found) {
+                    if ($initial_was_found) {
+                        echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
+                    } else {
+                        echo '<td>' . $tmp_initial . '</td>';
+                    }
+                }
+                echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . __('Show all') . ']</a></td>' . "\n";
+                echo '</tr></table>';
             }
-            echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . __('Show all') . ']</a></td>' . "\n";
-            echo '</tr></table>';
 
             /**
             * Display the user overview
@@ -1629,8 +1715,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . __('Add a new User') . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
+
+            if( $GLOBALS['is_ajax_request'] ) {
+                exit;
+            }
+
             $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
-            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', false);
+            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor">', false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
          }
@@ -1682,7 +1773,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             //require './libraries/footer.inc.php';
         }
 
-        echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n";
+        echo '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
         $_params = array(
             'username' => $username,
             'hostname' => $hostname,
@@ -2017,12 +2108,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
+    
     // Add a new user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usradd.png') . __('Add a new User') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
+       . '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n"
        . PMA_generate_common_hidden_inputs('', '');
     PMA_displayLoginInformationFields('new');
     echo '<fieldset id="fieldset_add_user_database">' . "\n"

@@ -63,6 +63,15 @@ if (isset($submitcollation) && !empty($db_collation)) {
     $result           = PMA_DBI_query($sql_query);
     $message          = PMA_Message::success();
     unset($db_charset, $db_collation);
+
+    /**
+     * If we are in an Ajax request, let us stop the execution here. Necessary for
+     * db charset change action on db_operations.php.  If this causes a bug on
+     * other pages, we might have to move this to a different location.
+     */
+    if( $GLOBALS['is_ajax_request'] == true) {
+        PMA_ajaxResponse($message, $message->isSuccess());
+    };
 }
 
 require_once './libraries/header.inc.php';

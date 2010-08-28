@@ -16,6 +16,12 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
+ * @var ajax_message_init   boolean boolean that stores status of
+ *      notification for PMA_ajaxShowNotification
+ */
+var ajax_message_init = false;
+
+/**
  * selects the content of a given object, f.e. a textarea
  *
  * @param   object  element     element of which the content will be selected
@@ -99,6 +105,9 @@ function confirmLink(theLink, theSqlQuery)
  * @param   object   the message to display
  *
  * @return  boolean  whether to run the query or not
+ *
+ * @todo used only by libraries/display_tbl.lib.php. figure out how it is used
+ *       and replace with a jQuery equivalent
  */
 function confirmAction(theMessage)
 {
@@ -876,7 +885,7 @@ function PMA_markRowsInit() {
                     }
 
                     if (event.shiftKey == true && table.lastClicked != undefined) {
-                        if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
+                        if (event.preventDefault) {event.preventDefault();} else {event.returnValue = false;}
                         i = table.lastClicked;
 
                         if (i < this.rowIndex) {
@@ -926,26 +935,9 @@ $(document).ready(PMA_markRowsInit);
  * @param    container    DOM element
  */
 function markAllRows( container_id ) {
-    var rows = document.getElementById(container_id).getElementsByTagName('tr');
-    var unique_id;
-    var checkbox;
-
-    for ( var i = 0; i < rows.length; i++ ) {
-
-        checkbox = rows[i].getElementsByTagName( 'input' )[0];
-
-        if ( checkbox && checkbox.type == 'checkbox' ) {
-            unique_id = checkbox.name + checkbox.value;
-            if ( checkbox.disabled == false ) {
-                checkbox.checked = true;
-                if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
-                    rows[i].className += ' marked';
-                    marked_row[unique_id] = true;
-                }
-            }
-        }
-    }
-
+    
+    $("#"+container_id).find("input:checkbox:enabled").attr('checked', 'checked')
+    .parents("tr").addClass("marked");
     return true;
 }
 
@@ -956,22 +948,9 @@ function markAllRows( container_id ) {
  * @param    container    DOM element
  */
 function unMarkAllRows( container_id ) {
-    var rows = document.getElementById(container_id).getElementsByTagName('tr');
-    var unique_id;
-    var checkbox;
-
-    for ( var i = 0; i < rows.length; i++ ) {
-
-        checkbox = rows[i].getElementsByTagName( 'input' )[0];
-
-        if ( checkbox && checkbox.type == 'checkbox' ) {
-            unique_id = checkbox.name + checkbox.value;
-            checkbox.checked = false;
-            rows[i].className = rows[i].className.replace(' marked', '');
-            marked_row[unique_id] = false;
-        }
-    }
-
+    
+    $("#"+container_id).find("input:checkbox:enabled").removeAttr('checked')
+    .parents("tr").removeClass("marked");
     return true;
 }
 
@@ -1231,12 +1210,12 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultClass1, theD
  * @return  boolean  always true
  */
 function setCheckboxes( container_id, state ) {
-    var checkboxes = document.getElementById(container_id).getElementsByTagName('input');
 
-    for ( var i = 0; i < checkboxes.length; i++ ) {
-        if ( checkboxes[i].type == 'checkbox' ) {
-            checkboxes[i].checked = state;
-        }
+    if(state) {
+        $("#"+container_id).find("input:checkbox").attr('checked', 'checked');
+    }
+    else {
+        $("#"+container_id).find("input:checkbox").removeAttr('checked');
     }
 
     return true;
@@ -1297,13 +1276,13 @@ function setCheckboxColumn(theCheckbox){
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
-    var selectObject = document.forms[the_form].elements[the_select];
-    var selectCount  = selectObject.length;
 
-    for (var i = 0; i < selectCount; i++) {
-        selectObject.options[i].selected = do_check;
-    } // end for
-
+    if( do_check ) {
+        $("form[name='"+ the_form +"']").find("select[name='"+the_select+"']").find("option").attr('selected', 'selected');
+    }
+    else {
+        $("form[name='"+ the_form +"']").find("select[name="+the_select+"]").find("option").removeAttr('selected');
+    }
     return true;
 } // end of the 'setSelectOptions()' function
 
@@ -1664,6 +1643,46 @@ function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_heigh
 }
 
 /**
+ * popups a request for changing MIME types for files in the BLOB repository
+ *
+ * @param   var     db                      database name
+ * @param   var     table                   table name
+ * @param   var     reference               BLOB repository reference
+ * @param   var     current_mime_type       current MIME type associated with BLOB repository reference
+ */
+function requestMIMETypeChange(db, table, reference, current_mime_type)
+{
+    // no mime type specified, set to default (nothing)
+    if (undefined == current_mime_type)
+        current_mime_type = "";
+
+    // prompt user for new mime type
+    var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
+
+    // if new mime_type is specified and is not the same as the previous type, request for mime type change
+    if (new_mime_type && new_mime_type != current_mime_type)
+        changeMIMEType(db, table, reference, new_mime_type);
+}
+
+/**
+ * changes MIME types for files in the BLOB repository
+ *
+ * @param   var     db              database name
+ * @param   var     table           table name
+ * @param   var     reference       BLOB repository reference
+ * @param   var     mime_type       new MIME type to be associated with BLOB repository reference
+ */
+function changeMIMEType(db, table, reference, mime_type)
+{
+    // specify url and parameters for jQuery POST
+    var mime_chg_url = 'bs_change_mime_type.php';
+    var params = {bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type};
+
+    // jQuery POST
+    jQuery.post(mime_chg_url, params);
+}
+
+/**
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
@@ -1742,6 +1761,103 @@ $(document).ready(function(){
 });
 
 /**
+ * Function to process the plain HTML response from an Ajax request.  Inserts
+ * the various HTML divisions from the response at the proper locations.  The 
+ * array relates the divisions to be inserted to their placeholders.
+ *
+ * @param   var divisions_map   an associative array of id names
+ *
+ * <code>
+ * PMA_ajaxInsertResponse({'resultsTable':'resultsTable_response',
+ *                         'profilingData':'profilingData_response'});
+ * </code>
+ *
+ */
+
+function PMA_ajaxInsertResponse(divisions_map) {
+    $.each(divisions_map, function(key, value) {
+        var content_div = '#'+value;
+        var target_div = '#'+key;
+        var content = $(content_div).html();
+
+        //replace content of target_div with that from the response
+        $(target_div).html(content);
+    });
+};
+
+/**
+ * Show a message on the top of the page for an Ajax request
+ *
+ * @param   var     message     string containing the message to be shown.
+ *                              optional, defaults to 'Loading...'
+ * @param   var     timeout     number of milliseconds for the message to be visible
+ *                              optional, defaults to 5000
+ */
+
+function PMA_ajaxShowMessage(message, timeout) {
+    
+    //Handle the case when a empty data.message is passed.  We don't want the empty message
+    if(message == '') {
+        return true;
+    }
+
+    /**
+     * @var msg String containing the message that has to be displayed
+     * @default PMA_messages['strLoading']
+     */
+    if(!message) {
+        var msg = PMA_messages['strLoading'];
+    }
+    else {
+        var msg = message;
+    }
+
+    /**
+     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @default 5000 ms
+     */
+    if(!timeout) {
+        var to = 5000;
+    }
+    else {
+        var to = timeout;
+    }
+
+    if( !ajax_message_init) {
+        //For the first time this function is called, append a new div
+        $(function(){
+            $('<div id="loading_parent"></div>')
+            .insertBefore("#serverinfo");
+
+            $('<span id="loading" class="ajax_notification"></span>')
+            .appendTo("#loading_parent")
+            .html(msg)
+            .slideDown('medium')
+            .delay(to)
+            .slideUp('medium', function(){
+                $(this)
+                .html("") //Clear the message
+                .hide();
+            });
+        }, 'top.frame_content');
+        ajax_message_init = true;
+    }
+    else {
+        //Otherwise, just show the div again after inserting the message
+        $("#loading")
+        .clearQueue()
+        .html(msg)
+        .slideDown('medium')
+        .delay(to)
+        .slideUp('medium', function() {
+            $(this)
+            .html("")
+            .hide();
+        })
+    }
+}
+
+/**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
 function toggle_enum_notice(selectElement) {
@@ -1754,6 +1870,451 @@ function toggle_enum_notice(selectElement) {
           $("p[id='enum_notice_" + enum_notice_id + "']").hide();
     }
 }
+
+/**
+ * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
+ *  return a jQuery object yet and hence cannot be chained
+ *
+ * @param   string      question
+ * @param   string      url         URL to be passed to the callbackFn to make
+ *                                  an Ajax call to
+ * @param   function    callbackFn  callback to execute after user clicks on OK
+ */
+
+jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
+    if (PMA_messages['strDoYouReally'] == '') {
+        return true;
+    }
+
+    /**
+     *  @var    button_options  Object that stores the options passed to jQueryUI
+     *                          dialog
+     */
+    var button_options = {};
+    button_options[PMA_messages['strOK']] = function(){
+                                                $(this).dialog("close").remove();
+
+                                                if($.isFunction(callbackFn)) {
+                                                    callbackFn.call(this, url);
+                                                }
+                                            };
+    button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
+
+    $('<div id="confirm_dialog"></div>')
+    .prepend(question)
+    .dialog({buttons: button_options});
+};
+
+/**
+ * jQuery function to sort a table's body after a new row has been appended to it.
+ * Also fixes the even/odd classes of the table rows at the end.
+ *
+ * @param   string      text_selector   string to select the sortKey's text
+ *
+ * @return  jQuery Object for chaining purposes
+ */
+jQuery.fn.PMA_sort_table = function(text_selector) {
+    return this.each(function() {
+
+        /**
+         * @var table_body  Object referring to the table's <tbody> element
+         */
+        var table_body = $(this);
+        /**
+         * @var rows    Object referring to the collection of rows in {@link table_body}
+         */
+        var rows = $(this).find('tr').get();
+
+        //get the text of the field that we will sort by
+        $.each(rows, function(index, row) {
+            row.sortKey = $.trim($(row).find(text_selector).text().toLowerCase());
+        })
+
+        //get the sorted order
+        rows.sort(function(a,b) {
+            if(a.sortKey < b.sortKey) {
+                return -1;
+            }
+            if(a.sortKey > b.sortKey) {
+                return 1;
+            }
+            return 0;
+        })
+
+        //pull out each row from the table and then append it according to it's order
+        $.each(rows, function(index, row) {
+            $(table_body).append(row);
+            row.sortKey = null;
+        })
+
+        //Re-check the classes of each row
+        $(this).find('tr:odd')
+        .removeClass('even').addClass('odd')
+        .end()
+        .find('tr:even')
+        .removeClass('odd').addClass('even');
+    })
+}
+
+/**
+ * jQuery coding for 'Create Table'.  Used on db_operations.php,
+ * db_structure.php and db_tracking.php (i.e., wherever
+ * libraries/display_create_table.lib.php is used)
+ * 
+ * Attach Ajax Event handlers for Create Table
+ */
+$(document).ready(function() {
+
+    /**
+     * Attach event handler to the submit action of the create table minimal form
+     * and retrieve the full table form and display it in a dialog
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
+    $("#create_table_form_minimal").live('submit', function(event) {
+        event.preventDefault();
+
+        /* @todo Validate this form! */
+
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
+        var button_options = {};
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+
+        PMA_ajaxShowMessage();
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+            $('<div id="create_table_dialog"></div>')
+            .append(data)
+            .dialog({
+                title: top.frame_content.PMA_messages['strCreateTable'],
+                width: 900,
+                buttons : button_options
+            }); // end dialog options
+        }) // end $.get()
+        
+    });
+
+    /**
+     * Attach event handler for submission of create table form
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_sort_table()
+     * @uses    window.parent.refreshNavigation()
+     */
+    $("#create_table_form").find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         *  @var    the_form    object referring to the create table form
+         */
+        var the_form = $("#create_table_form");
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        if($(this).attr('name') == 'submit_num_fields') {
+            //User wants to add more fields to the table
+            $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
+                $("#create_table_dialog").html(data);
+            }) //end $.post()
+        }
+        else if($(this).attr('name') == 'do_save_data') {
+            //User wants to submit the form
+            $.post($(the_form).attr('action'), $(the_form).serialize() + "&do_save_data=" + $(this).val(), function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#create_table_dialog").dialog("close").remove();
+
+                    /**
+                     * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                     */
+                    var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+
+                    /**
+                     * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                     */
+                    var curr_last_row = $(tables_table).find('tr:last');
+                    /**
+                     * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                     */
+                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    /**
+                     * @var curr_last_row_index Index of {@link curr_last_row}
+                     */
+                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                    /**
+                     * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                     */
+                    var new_last_row_index = curr_last_row_index + 1;
+                    /**
+                     * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                     */
+                    var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                    //append to table
+                    $(data.new_table_string)
+                    .find('input:checkbox')
+                    .val(new_last_row_id)
+                    .end()
+                    .appendTo(tables_table);
+
+                    //Sort the table
+                    $(tables_table).PMA_sort_table('th');
+
+                    //Refresh navigation frame as a new table has been added
+                    window.parent.refreshNavigation();
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.post()
+        } // end elseif()
+    }) // end create table form submit button actions
+
+}, 'top.frame_content'); //end $(document).ready for 'Create Table'
+
+/**
+ * Attach event handlers for Empty Table and Drop Table.  Used wherever libraries/
+ * tbl_links.inc.php is used.
+ */
+$(document).ready(function() {
+
+    /**
+     * Attach Ajax event handlers for Empty Table
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_confirm()
+     */
+    $("#empty_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = 'TRUNCATE TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.get
+        }) // end $.PMA_confirm()
+    }) // end Empty Table
+
+    /**
+     * Attach Ajax event handler for Drop Table
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_confirm()
+     * @uses    window.parent.refreshNavigation()
+     */
+    $("#drop_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = 'DROP TABLE/VIEW ' + window.parent.table;
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                    window.parent.table = '';
+                    window.parent.refreshNavigation();
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.get
+        }) // end $.PMA_confirm()
+    }) // end $().live()
+}, 'top.frame_content'); //end $(document).ready() for libraries/tbl_links.inc.php
+
+/**
+ * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
+ */
+$(document).ready(function() {
+
+    $(".drop_trigger_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var curr_row    Object reference to the current trigger's <tr>
+         */
+        var curr_row = $(this).parents('tr');
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = 'DROP TRIGGER IF EXISTS `' + $(curr_row).children('td:first').text() + '`';
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                    $(curr_row).hide("medium").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.get()
+        }) // end $.PMA_confirm()
+    }) // end $().live()
+}, 'top.frame_content'); //end $(document).ready() for Drop Trigger
+
+/**
+ * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js 
+ * as it was also required on db_create.php
+ * 
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
+ */
+$(document).ready(function() {
+    $("#drop_db_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + window.parent.db;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            }) // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end of Drop Database Ajax action
+}) // end of $(document).ready() for Drop Database
+
+/**
+ * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
+ * display_create_database.lib.php is used, ie main.php and server_databases.php
+ *
+ * @uses    PMA_ajaxShowMessage()
+ */
+$(document).ready(function() {
+
+    $('#create_database_form').live('submit', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+
+                //Append database's row to table
+                $("#tabledatabases")
+                .find('tbody')
+                .append(data.new_db_string)
+                .PMA_sort_table('.name')
+                .find('#db_summary_row')
+                .appendTo('#tabledatabases tbody')
+                .removeClass('odd even');
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.post()
+    }) // end $().live()
+})  // end $(document).ready() for Create Database
+
+/**
+ * Attach Ajax event handlers for 'Change Password' on main.php
+ */
+$(document).ready(function() {
+
+    /**
+     * Attach Ajax event handler on the change password anchor
+     */
+    $('#change_password_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var button_options  Object containing options to be passed to jQueryUI's dialog
+         */
+        var button_options = {};
+
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            $('<div id="change_password_dialog></div>')
+            .dialog({
+                title: top.frame_content.PMA_messages['strChangePassword'],
+                width: 600,
+                buttons : button_options
+            })
+            .append(data);
+        }) // end $.get()
+    }) // end handler for change password anchor
+
+    /**
+     * Attach Ajax event handler for Change Password form submission
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
+    $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var the_form    Object referring to the change password form
+         */
+        var the_form = $("#change_password_form");
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+            if(data.success == true) {
+
+                PMA_ajaxShowMessage(data.message);
+                
+                $("#topmenucontainer").after(data.sql_query);
+
+                $("#change_password_dialog").hide().remove();
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.post()
+    }) // end handler for Change Password form submission
+}) // end $(document).ready() for Change Password
 
 /**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when

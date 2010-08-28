@@ -1,6 +1,10 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used in table data manipulation pages
+ * @fileoverview    function used in table data manipulation pages
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
  *
  * @version $Id$
  */
@@ -247,3 +251,151 @@ function unNullify(urlField, multi_edit)
 
     return true;
 } // end of the 'unNullify()' function
+
+/**
+ * Ajax handlers for Change Table page
+ *
+ * Actions Ajaxified here:
+ * Submit Data to be inserted into the table
+ * Restart insertion with 'N' rows.
+ */
+$(document).ready(function() {
+
+    /**
+     * Submission of data to be inserted into table
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
+    $("#insertForm").live('submit', function(event) {
+
+        /**
+         * @var the_form    Object referring to the insertion form
+         */
+        var the_form = $(this);
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+
+                $("#topmenucontainer")
+                .next('div')
+                .remove()
+                .end()
+                .after(data.sql_query);
+
+                //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                if($(notice_class).text() == '') {
+                    $(notice_class).remove();
+                }
+
+                //Clear the data in the forms
+                $(the_form).find('input:reset').trigger('click');
+            }
+            else {
+                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+            }
+        })
+    }) // end submission of data to be inserted into table
+
+    /**
+     * Restart Insertion form
+     */
+    $("#insert_rows").live('change', function(event) {
+        event.preventDefault();
+
+        /**
+         * @var curr_rows   Number of current insert rows already on page
+         */
+        var curr_rows = $(".insertRowTable").length;
+        /**
+         * @var target_rows Number of rows the user wants
+         */
+        var target_rows = $("#insert_rows").val();
+
+        if(curr_rows < target_rows ) {
+            while( curr_rows < target_rows ) {
+
+                /**
+                 * @var last_row    Object referring to the last row
+                 */
+                var last_row = $("#insertForm").find(".insertRowTable:last");
+
+                //Clone the insert tables
+                $(last_row)
+                .clone()
+                .insertBefore("#insertForm > fieldset")
+                .find('input[name*=multi_edit],select[name*=multi_edit]')
+                .each(function() {
+
+                    /**
+                     * Extract the index from the name attribute for all input/select fields and increment it
+                     * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
+                     */
+
+                    /**
+                     * @var this_name   String containing name of the input/select elements
+                     */
+                    var this_name = $(this).attr('name');
+                    /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
+                    var name_parts = this_name.split(/\[\d+\]/);
+                    /** extract the [10] from  {@link name_parts} */
+                    var old_row_index_string = this_name.match(/\[\d+\]/)[0];
+                    /** extract 10 - had to split into two steps to accomodate double digits */
+                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0]);
+
+                    /** calculate next index i.e. 11 */
+                    var new_row_index = old_row_index + 1;
+                    /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
+                    var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
+
+                    $(this).attr('name', new_name);
+                });
+
+                //Insert/Clone the ignore checkboxes
+                if(curr_rows == 1 ) {
+                    $('<input id="insert_ignore_check_1" type="checkbox" name="insert_ignore_check_1" checked="checked" />')
+                    .insertBefore(".insertRowTable:last")
+                    .after('<label for="insert_ignore_check_1">' + PMA_messages['strIgnore'] + '</label>');
+                }
+                else {
+
+                    /**
+                     * @var last_checkbox   Object reference to the last checkbox in #insertForm
+                     */
+                    var last_checkbox = $("#insertForm").children('input:checkbox:last');
+
+                    /** name of {@link last_checkbox} */
+                    var last_checkbox_name = $(last_checkbox).attr('name');
+                    /** index of {@link last_checkbox} */
+                    var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/));
+                    /** name of new {@link last_checkbox} */
+                    var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
+
+                    $(last_checkbox)
+                    .clone()
+                    .attr({'id':new_name, 'name': new_name})
+                    .add('label[for^=insert_ignore_check]:last')
+                    .clone()
+                    .attr('for', new_name)
+                    .before('<br />')
+                    .insertBefore(".insertRowTable:last");
+                }
+                curr_rows++;
+            }
+        }
+        else if( curr_rows > target_rows) {
+            while(curr_rows > target_rows) {
+                $("input[id^=insert_ignore_check]:last")
+                .nextUntil("fieldset")
+                .andSelf()
+                .remove();
+                curr_rows--;
+            }
+        }
+    })
+}, 'top.frame_content'); //end $(document).ready()
