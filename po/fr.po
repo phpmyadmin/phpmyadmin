@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 17:52+0200\n"
+"PO-Revision-Date: 2010-08-28 17:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1686,7 +1686,7 @@ msgstr "Résultats de la requête"
 
 #: libraries/chart.lib.php:110
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Données non disponibles pour le graphique."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
