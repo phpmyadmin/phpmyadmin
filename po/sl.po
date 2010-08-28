@@ -9120,7 +9120,7 @@ msgstr "Robovi področja"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "Robovi legende"
 
 #: tbl_chart.php:135
 #, fuzzy
