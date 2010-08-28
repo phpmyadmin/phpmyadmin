@@ -1988,7 +1988,7 @@ msgstr "Insertions étendues"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "tous les choix ci-haut"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
