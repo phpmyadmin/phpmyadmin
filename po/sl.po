@@ -4396,7 +4396,7 @@ msgstr "@SERVER@ bo postalo ime strežnika"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ bo postalo ime zbirke podatkov"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
