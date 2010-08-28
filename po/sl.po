@@ -1689,7 +1689,7 @@ msgstr "Za grafikone je potrebna razširitev GD."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Za zaslonske namige grafikonov je potreben kodirnik JSON."
 
 #: libraries/common.inc.php:567
 msgid ""
