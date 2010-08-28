@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 18:51+0200\n"
+"PO-Revision-Date: 2010-08-28 18:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9141,10 +9141,9 @@ msgid "Pie"
 msgstr "Tortni"
 
 #: tbl_chart.php:145
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Vrsta poizvedbe"
+msgstr "Vrsta stolpcev"
 
 #: tbl_chart.php:147
 #, fuzzy
