@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-21 20:02+0200\n"
+"PO-Revision-Date: 2010-08-28 17:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -341,10 +341,9 @@ msgstr ""
 "du problème, cliquez %sici%s."
 
 #: db_operations.php:531
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Schéma relationnel"
+msgstr "Éditer ou exporter un schéma relationnel"
 
 #: db_printview.php:102 db_tracking.php:67 db_tracking.php:152
 #: libraries/config/messages.inc.php:483 libraries/db_structure.lib.php:37
