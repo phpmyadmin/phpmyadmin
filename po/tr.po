@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:38+0200\n"
+"PO-Revision-Date: 2010-08-28 14:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6930,10 +6930,9 @@ msgid "to/from page"
 msgstr "sayfadan/sayfaya"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Gönderilmiş form hatalar içeriyor"
+msgstr "Ayarlar kaydedilemiyor, gönderilmiş form hatalar içeriyor"
 
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: %1$s"
