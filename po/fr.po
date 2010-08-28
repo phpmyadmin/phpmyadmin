@@ -1690,7 +1690,7 @@ msgstr "Données non disponibles pour le graphique."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "L'extension GD est requise pour les graphiques."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
