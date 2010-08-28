@@ -9155,7 +9155,7 @@ msgstr "X Ekseni etiketi"
 
 #: tbl_chart.php:108
 msgid "Y Axis label"
-msgstr ""
+msgstr "Y Ekseni etiketi"
 
 #: tbl_chart.php:113
 msgid "Area margins"
