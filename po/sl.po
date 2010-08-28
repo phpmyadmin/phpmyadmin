@@ -9116,7 +9116,7 @@ msgstr "Oznaka osi Y"
 
 #: tbl_chart.php:113
 msgid "Area margins"
-msgstr ""
+msgstr "Robovi področja"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
