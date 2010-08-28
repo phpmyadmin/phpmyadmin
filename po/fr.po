@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 17:58+0200\n"
+"PO-Revision-Date: 2010-08-28 17:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2041,7 +2041,7 @@ msgstr "«%s» requiert l'extension %s"
 #: libraries/config/FormDisplay.class.php:747
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "importation impossible, fonction manquante (%s)"
 
 #: libraries/config/FormDisplay.class.php:751
 #, php-format
