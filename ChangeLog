@@ -116,7 +116,7 @@ $Id$
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
   a page size increase, thanks to Martin Schönberger - mad05
 
-3.3.6.0 (not yet released)
+3.3.6.0 (2010-08-28)
 - bug #3033063 [core] Navi gets wrong db name
 - bug #3031705 [core] Fix generating condition for real numbers by comparing
   them to string.
@@ -130,7 +130,7 @@ $Id$
 - bug #3044189 [doc] Cleared documentation for hide_db.
 - bug #3042495 [core] Move PMA_sendHeaderLocation to core.lib.php.
 
-3.3.5.1 (2010-10-20)
+3.3.5.1 (2010-08-20)
 - [core] Fixed various XSS issues, see PMASA-2010-5 for more details.
 
 3.3.5.0 (2010-07-26)
