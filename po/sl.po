@@ -4400,7 +4400,7 @@ msgstr ", @DATABASE@ bo postalo ime zbirke podatkov"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ bo postalo ime tabele"
 
 #: libraries/display_export.lib.php:237
 #, php-format
