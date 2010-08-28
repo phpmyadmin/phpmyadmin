@@ -850,7 +850,7 @@ msgid ""
 "%s for ways to workaround this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınıra çözüm yolu "
-"bulmak için %sbelgelerden%s yararlanın."
+"bulmak için %sbelgeden%s yararlanın."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
