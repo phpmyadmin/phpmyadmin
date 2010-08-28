@@ -72,7 +72,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
 {
     global $_FormDisplayGroup;
 
-    $_FormDisplayGroup = false;
+    $_FormDisplayGroup = 0;
 
     $attributes = array_merge(array('class' => 'optbox'), $attributes);
     foreach ($attributes as $k => &$attr) {
@@ -147,14 +147,13 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
     }
     $field_class = $field_class ? ' class="' . $field_class . '"' : '';
-    $tr_class = $_FormDisplayGroup ? 'group-field' : '';
+    $tr_class = $_FormDisplayGroup > 0
+        ? 'group-field group-field-' . $_FormDisplayGroup
+        : '';
     if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
         unset($opts['setvalue']);
-        $tr_class = 'group-header-field';
-        if ($_FormDisplayGroup) {
-            display_group_footer();
-        }
-        $_FormDisplayGroup = true;
+        $_FormDisplayGroup++;
+        $tr_class = 'group-header-field group-header-' . $_FormDisplayGroup;
     }
     if ($option_is_disabled) {
         $tr_class .= ($tr_class ? ' ' : '') . 'disabled-field';
@@ -290,19 +289,15 @@ function display_group_header($header_text)
 {
     global $_FormDisplayGroup;
 
-    if ($_FormDisplayGroup) {
-        display_group_footer();
-    }
-    $_FormDisplayGroup = true;
+    $_FormDisplayGroup++;
     if (!$header_text) {
         return;
     }
-    $colspan = 2;
-    if (defined('PMA_SETUP')) {
-        $colspan++;
-    }
+    $colspan = defined('PMA_SETUP')
+        ? 3
+        : 2;
 ?>
-<tr class="group-header">
+<tr class="group-header group-header-<?php echo $_FormDisplayGroup ?>">
     <th colspan="<?php echo $colspan ?>">
         <?php echo $header_text ?>
     </th>
@@ -319,7 +314,7 @@ function display_group_footer()
 {
     global $_FormDisplayGroup;
 
-    $_FormDisplayGroup = false;
+    $_FormDisplayGroup--;
 }
 
 /**

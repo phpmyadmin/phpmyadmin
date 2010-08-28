@@ -1674,8 +1674,16 @@ fieldset .group-header + tr th {
     padding-top: 0.6em;
 }
 
-fieldset .group-field th {
+fieldset .group-field-1 th, fieldset .group-header-2 th {
     padding-left: 1.5em;
+}
+
+fieldset .group-field-2 th, fieldset .group-header-3 th {
+    padding-left: 3em;
+}
+
+fieldset .group-field-3 th {
+    padding-left: 4.5em;
 }
 
 fieldset .disabled-field th,

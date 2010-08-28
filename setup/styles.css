@@ -301,8 +301,16 @@ fieldset p + table tr:first-child td, fieldset p + table tr:first-child th {
     border-top: none;
 }
 
-fieldset .group-field th {
+fieldset .group-field-1 th, fieldset .group-header-2 th {
     padding-left: 1em;
+}
+
+fieldset .group-field-2 th, fieldset .group-header-3 th {
+    padding-left: 2em;
+}
+
+fieldset .group-field-3 th {
+    padding-left: 3em;
 }
 
 fieldset .lastrow, .form .lastrow {
