@@ -9159,7 +9159,7 @@ msgstr "Y Ekseni etiketi"
 
 #: tbl_chart.php:113
 msgid "Area margins"
-msgstr "Alan kenarlıkları"
+msgstr "Alan kenarları"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
