@@ -1668,7 +1668,7 @@ msgstr "Sorgu sonuçları"
 
 #: libraries/chart.lib.php:110
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Çizelge için bulunan veri yok."
 
 #: libraries/chart.lib.php:250
 msgid "GD extension is needed for charts."
