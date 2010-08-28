@@ -1385,6 +1385,7 @@ function refreshDragOption(e) {
     myid = getElement(e);
     if (myid.style.visibility == 'visible') {
         refreshLayout();
+        TableDragInit();
     }
 }
 
