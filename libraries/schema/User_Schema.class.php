@@ -481,7 +481,7 @@ class PMA_User_Schema
                 $drag_x = $temp_sh_page['x'];
                 $drag_y = $temp_sh_page['y'];
 
-                $draginit       .= '    Drag.init(getElement("table_' . $i . '"), null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
+                $draginit2 = ' Drag.init(getElement("table_' . $i . '"), null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
                 $draginit       .= '    getElement("table_' . $i . '").onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
                 $draginit       .= '    getElement("table_' . $i . '").style.left = "' . $drag_x . 'px";' . "\n";
                 $draginit       .= '    getElement("table_' . $i . '").style.top  = "' . $drag_y . 'px";' . "\n";
@@ -516,6 +516,12 @@ class PMA_User_Schema
             refreshLayout();
             myid = getElement('pdflayout');
             <?php echo $draginit; ?>
+            TableDragInit();
+        }
+
+        function TableDragInit() {
+            myid = getElement('pdflayout');
+            <?php echo $draginit2; ?>
         }
 
         function resetDrag() {

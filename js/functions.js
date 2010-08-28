@@ -1406,6 +1406,7 @@ function refreshDragOption(e) {
     var elm = $('#' + e);
     if (elm.css('visibility') == 'visible') {
         refreshLayout();
+        TableDragInit();
     }
 }
 
