@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:27+0200\n"
+"PO-Revision-Date: 2010-08-28 14:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -635,8 +635,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sdocumentation%s "
-"belgesinden yararlanın."
+"Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:142
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
