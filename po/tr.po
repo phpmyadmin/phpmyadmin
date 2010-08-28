@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:40+0200\n"
+"PO-Revision-Date: 2010-08-28 14:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -255,7 +255,7 @@ msgstr "%s veritabanı %s olarak yeniden adlandırıldı"
 #: db_operations.php:235
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s veritabanı %s'e kopyalandı"
+msgstr "%s veritabanı %s veritabanına kopyalandı"
 
 #: db_operations.php:347
 msgid "Rename database to"
