@@ -9084,7 +9084,6 @@ msgid "Chart generated successfully."
 msgstr "Grafikon je uspešno ustvarjen."
 
 #: tbl_chart.php:60
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -9092,8 +9091,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Morda je približno. Glej [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+"Rezultat te poizvedbe ni mogoče uporabiti za grafikon. Oglejte si "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:91
 msgid "Width"
