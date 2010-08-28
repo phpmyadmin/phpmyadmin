@@ -9112,7 +9112,7 @@ msgstr "Oznaka osi X"
 
 #: tbl_chart.php:108
 msgid "Y Axis label"
-msgstr ""
+msgstr "Oznaka osi Y"
 
 #: tbl_chart.php:113
 msgid "Area margins"
