@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:35+0200\n"
+"PO-Revision-Date: 2010-08-28 14:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4692,10 +4692,9 @@ msgid "Print view (with full texts)"
 msgstr "Baskı görünümü (tüm metinler ile)"
 
 #: libraries/display_tbl.lib.php:2189 tbl_chart.php:82
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "PDF şemasını göster"
+msgstr "Çizelge göster"
 
 #: libraries/display_tbl.lib.php:2324
 msgid "Link not found"
