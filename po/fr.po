@@ -2049,10 +2049,9 @@ msgid "export will not work, missing function (%s)"
 msgstr "exportation impossible, fonction manquante (%s)"
 
 #: libraries/config/FormDisplay.class.php:758
-#, fuzzy
 #| msgid "$cfg['SQLValidator'] boolean"
 msgid "SQL Validator is disabled"
-msgstr "$cfg['SQLValidator'] bool&eacute;ean"
+msgstr "Le validateur SQL est désactivé"
 
 #: libraries/config/FormDisplay.class.php:765
 #, fuzzy
