@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-28 14:37+0200\n"
+"PO-Revision-Date: 2010-08-28 14:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6138,10 +6138,9 @@ msgid "Portrait"
 msgstr "Portre"
 
 #: libraries/schema/User_Schema.class.php:399
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Oluşturma"
+msgstr "Yönlendirme"
 
 #: libraries/schema/User_Schema.class.php:412
 msgid "Paper size"
