@@ -6348,8 +6348,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL onaylayıcısı başlatılamadı. %sBelgelerde%s anlatıldığı gibi lütfen "
-"gerekli PHP uzantılarının kurulu olduğunu kontrol edin."
+"SQL onaylayıcısı başlatılamadı. %sBelgede%s anlatıldığı gibi lütfen gerekli "
+"PHP uzantılarının kurulu olduğunu kontrol edin."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
