@@ -2080,7 +2080,7 @@ msgstr "Ramener la valeur par défaut"
 
 #: libraries/config/FormDisplay.tpl.php:270
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permettre aux utilisateurs de personnaliser cette valeur"
 
 #: libraries/config/FormDisplay.tpl.php:337
 #: libraries/schema/User_Schema.class.php:322
