@@ -1977,10 +1977,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Personnalisée - comme ci-haut mais sans les choix rapide/personnalisée"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "complete inserts"
-msgstr "Insertions avec délais"
+msgstr "Insertions complètes"
 
 #: libraries/config.values.php:120
 #, fuzzy
