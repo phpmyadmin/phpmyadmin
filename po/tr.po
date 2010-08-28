@@ -1676,7 +1676,7 @@ msgstr "Çizelgeler için GD uzantısı gerekli."
 
 #: libraries/chart.lib.php:253
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Çizelge araç ipuçları için JSON kodlayıcısı gerekli."
 
 #: libraries/common.inc.php:567
 msgid ""
