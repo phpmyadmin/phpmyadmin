@@ -9133,7 +9133,7 @@ msgstr "Črta"
 
 #: tbl_chart.php:137
 msgid "Radar"
-msgstr ""
+msgstr "Polarni"
 
 #: tbl_chart.php:139
 #, fuzzy
