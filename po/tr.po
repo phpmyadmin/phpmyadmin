@@ -9199,7 +9199,7 @@ msgstr "Çoklu"
 
 #: tbl_chart.php:153
 msgid "Continuous image"
-msgstr "Sürekli resim"
+msgstr "Sürekli imaj"
 
 #: tbl_chart.php:156
 msgid ""
