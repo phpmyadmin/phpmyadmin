@@ -144,6 +144,7 @@ rm -rf scripts/google-javascript-compiler/
 
 # Remove git metadata
 rm -rf .git
+find . -name .gitignore -print0 | xargs -0 -r rm -f
 
 cd ..
 
