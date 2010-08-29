@@ -13,7 +13,6 @@ include_once("Export_Relation_Schema.class.php");
  * helps in developing structure of EPS Schema Export
  *
  * @name PMA_EPS
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @access public
@@ -352,7 +351,6 @@ class PMA_EPS
  * and helps in drawing/generating the Tables in EPS.
  *
  * @name Table_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_EPS
@@ -556,7 +554,6 @@ class Table_Stats
  * in EPS document.
  *
  * @name Relation_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_EPS
@@ -722,7 +719,6 @@ class Relation_Stats
  * to this class
  * 
  * @name Eps_Relation_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

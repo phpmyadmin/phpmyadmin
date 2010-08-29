@@ -3,7 +3,6 @@
 /**
  * Holds the base class that all charts inherit from and some widely used
  * constants.
- * @author Martynas Mickevicius <mmartynas@gmail.com>
  * @package phpMyAdmin
  */
 

@@ -13,7 +13,6 @@ include_once("Export_Relation_Schema.class.php");
  * helps in developing structure of SVG Schema Export
  *
  * @name PMA_SVG
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @access public
@@ -322,7 +321,6 @@ class PMA_SVG extends XMLWriter
  * and helps in drawing/generating the Tables in SVG XML document.
  *
  * @name Table_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_SVG
@@ -533,7 +531,6 @@ class Table_Stats
  * in SVG XML document.
  *
  * @name Relation_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_SVG::printElementLine
@@ -698,7 +695,6 @@ class Relation_Stats
  * to this class
  *
  * @name Svg_Relation_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Chart functions used to generate various types of charts.
- * @author Martynas Mickevicius <mmartynas@gmail.com>
  * @package phpMyAdmin
  */
 

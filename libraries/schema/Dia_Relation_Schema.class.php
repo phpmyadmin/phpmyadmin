@@ -13,7 +13,6 @@ include_once("Export_Relation_Schema.class.php");
  * helps in developing structure of DIA Schema Export
  *
  * @name PMA_DIA
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @access public
@@ -189,7 +188,6 @@ class PMA_DIA extends XMLWriter
  * and helps in drawing/generating the Tables in dia XML document.
  *
  * @name Table_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_DIA
@@ -441,7 +439,6 @@ class Table_Stats
  * in dia XML document.
  *
  * @name Relation_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_DIA
@@ -643,7 +640,6 @@ class Relation_Stats
  * to this class
  *
  * @name Dia_Relation_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

@@ -12,7 +12,6 @@
  * it works like factory pattern
  *
  * @name Export Relation Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

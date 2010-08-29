@@ -12,7 +12,6 @@
  * export options are shown to user from they can choose
  *
  * @name User_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

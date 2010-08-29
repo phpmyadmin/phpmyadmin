@@ -21,7 +21,6 @@ require_once './libraries/tcpdf/tcpdf.php';
  * in developing the structure of PDF Schema Export
  * 
  * @name PMA_PDF
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @access public
@@ -459,7 +458,6 @@ class PMA_PDF extends TCPDF
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name Table_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_PDF
@@ -673,7 +671,6 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
@@ -819,7 +816,6 @@ class Relation_Stats
  * to this class
  *
  * @name Pdf_Relation_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */

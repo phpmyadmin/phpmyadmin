@@ -13,7 +13,6 @@ include_once("Export_Relation_Schema.class.php");
  * helps in developing structure of MS Visio Schema Export
  *
  * @name PMA_VISIO
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  * @access public
@@ -474,7 +473,6 @@ class Relation_Stats
  * to this class
  * 
  * @name Visio_Relation_Schema
- * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
  */
