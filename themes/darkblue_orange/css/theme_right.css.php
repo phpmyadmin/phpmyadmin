@@ -1653,8 +1653,9 @@ td.more_opts {
 }
 
 .config-form fieldset p {
-    margin:  0;
-    padding: 0.5em;
+    margin:    0;
+    padding:   0.5em;
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
 .config-form fieldset .errors { /* form error list */
