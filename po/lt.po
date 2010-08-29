@@ -6967,7 +6967,7 @@ msgid ""
 "script%s."
 msgstr ""
 "Jūs galite nustatyti daugiau nuostatų modifikuojant config.inc.php, "
-"pavyzdžiui naudojantis %Diegimo scenarijumi%s."
+"pavyzdžiui naudojantis %sDiegimo scenarijumi%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
