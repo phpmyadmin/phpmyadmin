@@ -1076,7 +1076,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
             // pointer code part
             echo '    <tr class="' . $class . '">' . "\n";
-            $class = $data_inline_edit_class;
         }
 
 
@@ -1204,6 +1203,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $meta    = $fields_meta[$i];
             $pointer = $i;
             $is_field_truncated = false;
+            //If the previous column had blob data, we need to reset the class
+            // to $data_inline_edit_class
+            $class = $data_inline_edit_class;
             //If this column's value is null, add the null class to it, needed
             //for inline editing
             if(is_null($row[$i])) {
