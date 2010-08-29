@@ -124,6 +124,8 @@ class Form
      */
     private function _readFormPathsCallback($value, $key, $prefix)
     {
+        static $group_counter = 0;
+
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
@@ -131,6 +133,10 @@ class Form
             if (!is_int($key)) {
                 $this->default[$prefix . $key] = $value;
                 $value = $key;
+            }
+            // add unique id to group ends
+            if ($value == ':group:end') {
+                $value .= ':' . $group_counter++;
             }
             $this->fields[] = $prefix . $value;
         }

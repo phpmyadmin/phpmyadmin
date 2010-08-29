@@ -354,9 +354,8 @@ class FormDisplay
                 $value_default = (array) $value_default;
                 break;
             case 'group':
-                $text = substr($field, 7);
-                if ($text != 'end') {
-                    display_group_header($text);
+                if (substr($field, 7, 4) != 'end:') { // :group:end is changed to :group:end:{unique id} in Form class
+                    display_group_header(substr($field, 7));
                 } else {
                     display_group_footer();
                 }
