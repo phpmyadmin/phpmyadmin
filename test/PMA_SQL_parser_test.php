@@ -149,12 +149,13 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
     public function testParse_4()
     {
         $this->assertParser('SELECT * from `aaa;', array (
-          'raw' => 'SELECT * from `aaa;',
+          'raw' => 'SELECT * from `aaa`;',
           0 =>
           array (
-            'type' => 'alpha',
+            'type' => 'alpha_reservedWord',
             'data' => 'SELECT',
             'pos' => 6,
+            'forbidden' => true,
           ),
           1 =>
           array (
@@ -164,18 +165,99 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
           ),
           2 =>
           array (
-            'type' => 'alpha',
+            'type' => 'alpha_reservedWord',
             'data' => 'from',
             'pos' => 13,
+            'forbidden' => true,
           ),
-        ),
-'<p>There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem</p>
-<pre>
-ERROR: Unclosed quote @ 14
-STR: `
-SQL: SELECT * from `aaa;
-</pre>
-');
+          3 =>
+          array (
+            'type' => 'quote_backtick',
+            'data' => '`aaa`',
+            'pos' => 0,
+          ),
+          4 =>
+          array (
+            'type' => 'punct_queryend',
+            'data' => ';',
+            'pos' => 0,
+          ),
+          'len' => 5,
+        ));
+    }
+
+    public function testParse_5()
+    {
+        $this->assertParser('SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;', array (
+          'raw' => 'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',
+          0 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'SELECT',
+            'pos' => 6,
+            'forbidden' => true,
+          ),
+          1 =>
+          array (
+            'type' => 'punct',
+            'data' => '*',
+            'pos' => 0,
+          ),
+          2 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'FROM',
+            'pos' => 13,
+            'forbidden' => true,
+          ),
+          3 =>
+          array (
+            'type' => 'quote_backtick',
+            'data' => '`a_table`',
+            'pos' => 0,
+          ),
+          4 =>
+          array (
+            'type' => 'alpha_identifier',
+            'data' => 'tbla',
+            'pos' => 28,
+            'forbidden' => false,
+          ),
+          5 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'INNER',
+            'pos' => 34,
+            'forbidden' => true,
+          ),
+          6 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'JOIN',
+            'pos' => 39,
+            'forbidden' => true,
+          ),
+          7 =>
+          array (
+            'type' => 'alpha_identifier',
+            'data' => 'b_table',
+            'pos' => 47,
+            'forbidden' => false,
+          ),
+          8 =>
+          array (
+            'type' => 'quote_backtick',
+            'data' => '` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`',
+            'pos' => 0,
+          ),
+          9 =>
+          array (
+            'type' => 'punct_queryend',
+            'data' => ';',
+            'pos' => 0,
+          ),
+          'len' => 10,
+        ));
     }
 }
 ?>
