@@ -90,7 +90,7 @@ $rows = array();
 
 /* Iterate over tables */
 foreach ($sheets as $sheet) {
-    $col_names_in_first_row = $_REQUEST['ods_col_names'];
+    $col_names_in_first_row = isset($_REQUEST['ods_col_names']);
 
     /* Iterate over rows */
     foreach ($sheet as $row) {
