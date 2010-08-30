@@ -337,7 +337,7 @@ $PMA_SQPdata_function_name = array (
  *
  * @global integer MySQL attributes count
  */
-$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
+$PMA_SQPdata_function_name_cnt = 299;
 
 /*
  * DEBUG
@@ -390,7 +390,7 @@ $PMA_SQPdata_column_attrib = array (
  *
  * @global integer MySQL attributes count
  */
-$PMA_SQPdata_column_attrib_cnt = count($PMA_SQPdata_column_attrib);
+$PMA_SQPdata_column_attrib_cnt = 30;
 
 /**
  * words that are reserved by MySQL and may not be used as identifiers without quotes
@@ -697,7 +697,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
+$PMA_SQPdata_reserved_word_cnt = 289;
 /**
  * The previous array must be sorted so that the binary search work.
  * Sometimes a word is not added in the correct order, so
@@ -1212,7 +1212,7 @@ $PMA_SQPdata_forbidden_word = array (
  *
  * @global integer MySQL forbidden words count
  */
-$PMA_SQPdata_forbidden_word_cnt = count($PMA_SQPdata_forbidden_word);
+$PMA_SQPdata_forbidden_word_cnt = 483;
 
 /**
  * the MySQL column/data types
@@ -1283,7 +1283,7 @@ $PMA_SQPdata_column_type = array (
  *
  * @global integer MySQL column types count
  */
-$PMA_SQPdata_column_type_cnt = count($PMA_SQPdata_column_type);
+$PMA_SQPdata_column_type_cnt = 54;
 
 /*
  * check counts
