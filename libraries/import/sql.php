@@ -168,8 +168,20 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             while (!$endq) {
                 // Find next quote
                 $pos = strpos($buffer, $quote, $i + 1);
+                /*
+                 * Behave same as MySQL and accept end of query as end of backtick.
+                 * I know this is sick, but MySQL behaves like this:
+                 *
+                 * SELECT * FROM `table
+                 *
+                 * is treated like
+                 *
+                 * SELECT * FROM `table`
+                 */
+                if ($pos === FALSE && $quote == '`' && $found_delimiter) {
+                    $pos = $first_sql_delimiter - 1;
                 // No quote? Too short string
-                if ($pos === FALSE) {
+                } elseif ($pos === FALSE) {
                     // We hit end of string => unclosed quote, but we handle it as end of query
                     if ($GLOBALS['finished']) {
                         $endq = TRUE;

@@ -341,10 +341,38 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $pos    = $GLOBALS['PMA_strpos'](' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
                     if ($pos < 0) {
-                        $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
-                                  . 'STR: ' . htmlspecialchars($quotetype);
-                        PMA_SQP_throwError($debugstr, $sql);
-                        return $sql_array;
+                        if ($c == '`') {
+                            /*
+                             * Behave same as MySQL and accept end of query as end of backtick.
+                             * I know this is sick, but MySQL behaves like this:
+                             *
+                             * SELECT * FROM `table
+                             *
+                             * is treated like
+                             *
+                             * SELECT * FROM `table`
+                             */
+                            $pos_quote_separator = $GLOBALS['PMA_strpos'](' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1) - 1;
+                            if ($pos_quote_separator < 0) {
+                                $len += 1;
+                                $sql .= '`';
+                                $sql_array['raw'] .= '`';
+                                $pos = $len;
+                            } else {
+                                $len += 1;
+                                $sql = $GLOBALS['PMA_substr']($sql, 0, $pos_quote_separator) . '`' . $GLOBALS['PMA_substr']($sql, $pos_quote_separator);
+                                $sql_array['raw'] = $sql;
+                                $pos = $pos_quote_separator;
+                            }
+                            if (class_exists('PMA_Message')) {
+                                PMA_Message::warning(__('Automatically appended backtick to the end of query!'))->display();
+                            }
+                        }  else {
+                            $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
+                                      . 'STR: ' . htmlspecialchars($quotetype);
+                            PMA_SQP_throwError($debugstr, $sql);
+                            return $sql_array;
+                        }
                     }
 
                     // If the quote is the first character, it can't be
