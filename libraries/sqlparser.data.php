@@ -698,7 +698,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 291;
+$PMA_SQPdata_reserved_word_cnt = 289;
 /**
  * The previous array must be sorted so that the binary search work.
  * Sometimes a word is not added in the correct order, so
