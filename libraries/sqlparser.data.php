@@ -17,7 +17,7 @@
  * (It's slower to have PHP do the count).
  *
  * It's easier to use only uppercase for proper sorting. In case of
- * doubt, use the DEBUG code after this function's definition.
+ * doubt, use the test case to verify.
  *
  * @package phpMyAdmin
  */
@@ -338,17 +338,6 @@ $PMA_SQPdata_function_name = array (
  * @global integer MySQL attributes count
  */
 $PMA_SQPdata_function_name_cnt = 298;
-
-/*
- * DEBUG
-$test_PMA_SQPdata_function_name = $PMA_SQPdata_function_name;
-sort($PMA_SQPdata_function_name);
-if ($PMA_SQPdata_function_name != $test_PMA_SQPdata_function_name) {
-    echo 'sort properly like this<pre>';
-    print_r($PMA_SQPdata_function_name);
-    echo '</pre>';
-}
- */
 
 /**
  * @global array MySQL attributes
@@ -698,23 +687,6 @@ $PMA_SQPdata_reserved_word = array (
  * @global integer MySQL reserved words count
  */
 $PMA_SQPdata_reserved_word_cnt = 289;
-/**
- * The previous array must be sorted so that the binary search work.
- * Sometimes a word is not added in the correct order, so
- * this debugging code shows the problem. The same should be
- * done for all arrays.
- */
-/*
-$original = $PMA_SQPdata_reserved_word;
-sort($PMA_SQPdata_reserved_word);
-$difference = array_diff_assoc($original, $PMA_SQPdata_reserved_word);
-echo '<pre>';
-print_r($difference);
-echo '</pre>';
-echo '<pre>';
-print_r($PMA_SQPdata_reserved_word);
-echo '</pre>';
-*/
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
@@ -1285,10 +1257,4 @@ $PMA_SQPdata_column_type = array (
  */
 $PMA_SQPdata_column_type_cnt = 54;
 
-/*
- * check counts
-foreach ($GLOBALS as $n => $a) {
-    echo is_array($a) ? $n . ': ' . count($a) . '<br />' : '';
-}
- */
 ?>
