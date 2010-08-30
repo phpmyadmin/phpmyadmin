@@ -186,14 +186,6 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
 
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
         . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-    /*
-    echo '<a href="index.php?target=' . basename(PMA_getenv('SCRIPT_NAME'));
-    $url = PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
-    if (!empty($url)) {
-        echo '&amp;' . $url;
-    }
-    echo '" target="_blank">';
-    */
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'window-new.png"'
             . ' alt="' . __('Open new phpMyAdmin window') . '" />';
