@@ -117,7 +117,7 @@ display_form_top('index.php', 'get', array(
 <?php foreach ($cf->getServers() as $id => $server): ?>
 <tr>
     <td><?php echo $id ?></td>
-    <td><?php echo $cf->getServerName($id) ?></td>
+    <td><?php echo htmlspecialchars($cf->getServerName($id)) ?></td>
     <td><?php echo htmlspecialchars($cf->getValue("Servers/$id/auth_type")) ?></td>
     <td><?php echo htmlspecialchars($cf->getServerDSN($id)) ?></td>
     <td style="white-space: nowrap">
