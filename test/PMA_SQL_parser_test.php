@@ -60,5 +60,45 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
         ));
     }
 
+    public function testParse_2()
+    {
+        $this->assertParser('SELECT * from aaa;', array (
+          'raw' => 'SELECT * from aaa;',
+          0 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'SELECT',
+            'pos' => 6,
+            'forbidden' => true,
+          ),
+          1 =>
+          array (
+            'type' => 'punct',
+            'data' => '*',
+            'pos' => 0,
+          ),
+          2 =>
+          array (
+            'type' => 'alpha_reservedWord',
+            'data' => 'from',
+            'pos' => 13,
+            'forbidden' => true,
+          ),
+          3 =>
+          array (
+            'type' => 'alpha_identifier',
+            'data' => 'aaa',
+            'pos' => 17,
+            'forbidden' => false,
+          ),
+          4 =>
+          array (
+            'type' => 'punct_queryend',
+            'data' => ';',
+            'pos' => 0,
+          ),
+          'len' => 5,
+        ));
+    }
 }
 ?>
