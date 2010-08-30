@@ -1046,9 +1046,9 @@ $PMA_SQPdata_forbidden_word = array (
     'RAID_TYPE',
     'RANGE',                // 5.1
     'READ',
+    'READS',
     'READ_ONLY',            // 5.1
     'READ_WRITE',           // 5.1
-    'READS',
     'REAL',
     'RECOVER',
     'REDUNDANT',
