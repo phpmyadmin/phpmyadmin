@@ -43,7 +43,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Include data for the SQL Parser
      */
     require_once './libraries/sqlparser.data.php';
-    require_once './libraries/mysql_charsets.lib.php';
+    if (!defined('TESTSUITE')) {
+        require_once './libraries/mysql_charsets.lib.php';
+    }
     if (!isset($mysql_charsets)) {
         $mysql_charsets = array();
         $mysql_charsets_count = 0;
@@ -2091,8 +2093,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $docu                               = TRUE;
                 break;
         } // end switch
-        // inner_sql is a span that exists for all cases 
-        // of $cfg['SQP']['fmtType'] to make possible a replacement 
+        // inner_sql is a span that exists for all cases
+        // of $cfg['SQP']['fmtType'] to make possible a replacement
         // for inline editing
         $str .= '<span class="inner_sql">';
         $close_docu_link = false;
