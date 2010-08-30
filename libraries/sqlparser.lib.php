@@ -211,7 +211,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_parse($sql)
     {
-        global $cfg;
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
                $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
         global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
