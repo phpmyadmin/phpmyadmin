@@ -1080,6 +1080,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
         // Basic url query part
         $url_params = array();
+        if (! isset($GLOBALS['db'])) {
+            $GLOBALS['db'] = '';
+        }
         if (strlen($GLOBALS['db'])) {
             $url_params['db'] = $GLOBALS['db'];
             if (strlen($GLOBALS['table'])) {
