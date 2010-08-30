@@ -805,7 +805,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_analyze($arr)
     {
-        if ($arr == array()) {
+        if ($arr == array() || !isset($arr['len'])) {
             return array();
         }
         $result          = array();
