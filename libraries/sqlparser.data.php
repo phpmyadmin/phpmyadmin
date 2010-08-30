@@ -211,7 +211,6 @@ $PMA_SQPdata_function_name = array (
     'MOD',
     'MONTH',
     'MONTHNAME',
-    'NOW',
     'MPOINTFROMTEXT',           // MPointFromText()
     'MPOINTFROMWKB',            // MPointFromWKB()
     'MPOLYFROMTEXT',            // MPolyFromText()
@@ -339,7 +338,7 @@ $PMA_SQPdata_function_name = array (
  *
  * @global integer MySQL attributes count
  */
-$PMA_SQPdata_function_name_cnt = 299;
+$PMA_SQPdata_function_name_cnt = 298;
 
 /*
  * DEBUG
@@ -1047,9 +1046,9 @@ $PMA_SQPdata_forbidden_word = array (
     'RAID_TYPE',
     'RANGE',                // 5.1
     'READ',
+    'READS',
     'READ_ONLY',            // 5.1
     'READ_WRITE',           // 5.1
-    'READS',
     'REAL',
     'RECOVER',
     'REDUNDANT',
