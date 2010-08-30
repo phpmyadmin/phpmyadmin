@@ -33,29 +33,35 @@ class PMA_SQL_parser_data_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($difference, array());
     }
 
+    private function assertParserData($name)
+    {
+        $this->assertSorted($GLOBALS[$name]);
+        $this->assertEquals(count($GLOBALS[$name]), $GLOBALS[$name . '_cnt']);
+    }
+
     public function testPMA_SQPdata_function_name()
     {
-        $this->assertSorted($GLOBALS['PMA_SQPdata_function_name']);
+        $this->assertParserData('PMA_SQPdata_function_name');
     }
 
     public function testPMA_SQPdata_column_attrib()
     {
-        $this->assertSorted($GLOBALS['PMA_SQPdata_column_attrib']);
+        $this->assertParserData('PMA_SQPdata_column_attrib');
     }
 
     public function testPMA_SQPdata_reserved_word()
     {
-        $this->assertSorted($GLOBALS['PMA_SQPdata_reserved_word']);
+        $this->assertParserData('PMA_SQPdata_reserved_word');
     }
 
     public function testPMA_SQPdata_forbidden_word()
     {
-        $this->assertSorted($GLOBALS['PMA_SQPdata_forbidden_word']);
+        $this->assertParserData('PMA_SQPdata_forbidden_word');
     }
 
     public function testPMA_SQPdata_column_type()
     {
-        $this->assertSorted($GLOBALS['PMA_SQPdata_column_type']);
+        $this->assertParserData('PMA_SQPdata_column_type');
     }
 
 }
