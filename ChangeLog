@@ -116,6 +116,7 @@ $Id$
 3.3.7.0 (not yet released)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
   a page size increase, thanks to Martin Schönberger - mad05
+- bug #3054458 [core] Fixed displaying number of rows.
 
 3.3.6.0 (2010-08-28)
 - bug #3033063 [core] Navi gets wrong db name
