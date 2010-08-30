@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 22:59+0200\n"
-"Last-Translator: Kęstutis <forkik@gmail.com>\n"
+"PO-Revision-Date: 2010-08-30 15:22+0200\n"
+"Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr "Duomenų bazė %1$s sukurta."
 
 #: db_datadict.php:48 db_operations.php:313
 msgid "Database comment: "
-msgstr "Duombazės komantaras: "
+msgstr "Duomenų bazės komentaras: "
 
 #: db_datadict.php:164 libraries/schema/Pdf_Relation_Schema.class.php:1220
 #: libraries/tbl_properties.inc.php:727 tbl_operations.php:344
@@ -131,10 +131,9 @@ msgstr "Lentelės komentarai"
 #: tbl_change.php:301 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:196
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Stulpelių vardai"
+msgstr "Stulpelis"
 
 #: db_datadict.php:174 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
