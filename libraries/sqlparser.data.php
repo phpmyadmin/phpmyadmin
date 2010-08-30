@@ -337,7 +337,7 @@ $PMA_SQPdata_function_name = array (
  *
  * @global integer MySQL attributes count
  */
-$PMA_SQPdata_function_name_cnt = 299;
+$PMA_SQPdata_function_name_cnt = 298;
 
 /*
  * DEBUG
