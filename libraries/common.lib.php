@@ -1039,6 +1039,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         } else {
             // Parse SQL if needed
             $parsed_sql = PMA_SQP_parse($query_base);
+            if (PMA_SQP_isError()) {
+                unset($parsed_sql);
+            }
         }
 
         // Analyze it
@@ -1242,8 +1245,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     echo '</div><br />' . "\n";
 
-    // If we are in an Ajax request, we have most probably been called in 
-    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it 
+    // If we are in an Ajax request, we have most probably been called in
+    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
     // to PMA_ajaxResponse(), which will encode it for JSON.
     if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
