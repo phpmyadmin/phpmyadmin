@@ -210,7 +210,6 @@ $PMA_SQPdata_function_name = array (
     'MOD',
     'MONTH',
     'MONTHNAME',
-    'NOW',
     'MPOINTFROMTEXT',           // MPointFromText()
     'MPOINTFROMWKB',            // MPointFromWKB()
     'MPOLYFROMTEXT',            // MPolyFromText()
