@@ -2090,7 +2090,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             'submit_mult_change', __('Change'), 'b_edit.png');
         PMA_buttonOrImage('submit_mult', 'mult_submit',
             'submit_mult_delete', $delete_text, 'b_drop.png');
-        if ($analyzed_sql[0]['querytype'] == 'SELECT') {
+        if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT') {
             PMA_buttonOrImage('submit_mult', 'mult_submit',
                 'submit_mult_export', __('Export'),
                 'b_tblexport.png');
