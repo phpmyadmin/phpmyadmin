@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-08-30 19:29+0200\n"
+"PO-Revision-Date: 2010-08-30 19:31+0200\n"
 "Last-Translator: Vladimir Tošić <vtosic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
 "Language: sr@latin\n"
@@ -287,9 +287,8 @@ msgid "Database %s has been dropped."
 msgstr "Baza %s je odbačena."
 
 #: db_operations.php:414
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Baza ne postoji"
+msgstr "Ukloni bazu i njen sadržaj"
 
 #: db_operations.php:442
 msgid "Copy database to"
