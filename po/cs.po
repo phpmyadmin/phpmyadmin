@@ -5384,7 +5384,7 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 #: libraries/import.lib.php:1110
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "Následující tabulkybyly vytvořeny nebo změněny. Teď můžete:"
+msgstr "Následující tabulky byly vytvořeny nebo změněny. Teď můžete:"
 
 #: libraries/import.lib.php:1111
 msgid "View a structure`s contents by clicking on its name"
