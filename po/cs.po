@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-27 16:16+0200\n"
-"PO-Revision-Date: 2010-08-27 13:41+0200\n"
+"PO-Revision-Date: 2010-08-30 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2088,6 +2088,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Toto nastavení umožňuje stránkám na jiných doménách začlenit phpMyAdmina do "
+"rámce, toto je potenciální [strong]bezpečnostní problém[/strong] a může "
+"umožnit XFS (Cross Frame Scripting)."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -2672,6 +2675,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Zadejte titulek který zobrazí prohlížeč. V [a@Documentation."
+"html#cfg_TitleTable]dokumentaci[/a] naleznete jaké proměnné můžete použít."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
@@ -3153,6 +3158,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Vypne varování o chybějícím rozšíření mcrypt při použití přihlašování přes "
+"cookies"
 
 #: libraries/config/messages.inc.php:308
 msgid "mcrypt warning"
@@ -3227,7 +3234,7 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the relation features could "
 "not be found"
-msgstr ""
+msgstr "Vypne varování o nekompletních relacích na stránce s detaily databáze"
 
 #: libraries/config/messages.inc.php:324
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -3906,6 +3913,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije [kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:467 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4010,6 +4019,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
+"Pokud je vypnuto, uživatelé nemůžou změnit žádná z níže uvedených nastavení, "
+"bez ohledu na zaškrtávátko napravo"
 
 #: libraries/config/messages.inc.php:491
 msgid "Enable the Developer tab in settings"
@@ -4351,15 +4362,15 @@ msgstr "Šablona pro jméno souboru:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ bude nahrazen jménem server"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ bude nahrazen jménem databáze"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 
 #: libraries/display_export.lib.php:237
 #, php-format
@@ -5215,6 +5226,7 @@ msgstr ""
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Datázový systém nebo starší verze MySQL se kterým má být výstup kompatibilní:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
@@ -9049,12 +9061,17 @@ msgstr ""
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Při kreslení síťového grafu jsou všechny hodnoty normalizovány do rozsahu "
+"[0..10]."
 
 #: tbl_chart.php:174
 msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Ne každý výsledek SQL dotazu je možné zobrazit v grafu. Ve <a href=\"./"
+"Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a> naleznete "
+"více podrobností."
 
 #: tbl_chart.php:182
 msgid "Redraw"
