@@ -717,10 +717,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
     }
 
-    if ($is_display['sort_lnk'] == '1') {
-        $select_expr = $analyzed_sql[0]['select_expr_clause'];
-    }
-
     // See if we have to highlight any header fields of a WHERE query.
     // Uses SQL-Parser results.
     $highlight_columns = array();
@@ -1299,7 +1295,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 // reset $class from $data_inline_edit_class to '' as we can't edit binary data
                 $class = '';
-                
+
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -2352,7 +2348,7 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
     }
 
     // continue the <td> tag started before calling this function:
-    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap 
+    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
     . (isset($map[$meta->name]) ? ' relation' : '')
