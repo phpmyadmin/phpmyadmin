@@ -40,7 +40,6 @@ $strConfigConfigurationFile = __('Configuration file');
 $strConfigConfirm_desc = __('Whether a warning (&quot;Are your really sure...&quot;) should be displayed when you\'re about to lose data');
 $strConfigConfirm_name = __('Confirm DROP queries');
 $strConfigCtrlArrowsMoving_name = __('Field navigation using Ctrl+Arrows');
-$strConfigDBG_php_name = __('Debug PHP');
 $strConfigDBG_sql_name = __('Debug SQL');
 $strConfigDefaultDisplay_name = __('Default display direction');
 $strConfigDefaultPropDisplay_desc = __('[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates maximum number for which vertical model is used');

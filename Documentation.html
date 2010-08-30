@@ -2274,30 +2274,6 @@ setfacl -d -m "g:www-data:rwx" tmp
         Enable logging queries and execution times to be displayed in the bottom
         of main page (right frame).</dd>
 
-    <dt id="cfg_DBG_enable_php">$cfg['DBG']['php'] boolean</dt>
-    <dd><b>DEVELOPERS ONLY!</b><br />
-        Enable the DBG extension for debugging phpMyAdmin. Required for profiling
-        the code.<br />
-        For help in setting up your system to this, see the
-        <a href="#developersdbg">Developers</a> section.</dd>
-
-    <dt id="cfg_DBG_profile_enable">$cfg['DBG']['profile']['enable'] boolean</dt>
-    <dd><b>DEVELOPERS ONLY!</b><br />
-        Enable profiling support for phpMyAdmin. This will append a chunk of data
-        to the end of every page displayed in the main window with profiling
-        statistics for that page.<br />
-        You may need to increase the maximum execution time for this to
-        complete successfully.<i>Profiling was removed from the code for
-        version 2.9.0 due to licensing issues.</i></dd>
-
-    <dt id="cfg_DBG_profile_threshold">$cfg['DBG']['profile']['threshold'] float (units in milliseconds)</dt>
-    <dd><b>DEVELOPERS ONLY!</b><br />
-        When profiling data is displayed, this variable controls the threshold of
-        display for any profiling data, based on the average time each time has
-        taken. If it is over the threshold it is displayed, otherwise it is not
-        displayed. This takes a value in milliseconds. In most cases you don't need
-        to edit this.</dd>
-
     <dt id="cfg_ColumnTypes">$cfg['ColumnTypes'] array</dt>
     <dd>All possible types of a MySQL column. In most cases you don't need to
         edit this.</dd>

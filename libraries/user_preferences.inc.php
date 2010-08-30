@@ -48,21 +48,6 @@ if (!empty($_GET['saved'])) {
     $message->display();
 }
 
-// debug info
-if ($cfg['DBG']['php']) {
-    $arr = ConfigFile::getInstance()->getConfigArray();
-    $arr2 = array();
-    foreach ($arr as $k => $v) {
-        $arr2[] = "<b>$k</b> " . var_export($v, true);
-    }
-    $arr2 = implode(', ', $arr2);
-    $arr2 .= '<br />Blacklist: ' . (empty($cfg['UserprefsDisallow'])
-            ? '<i>empty</i>'
-            : implode(', ', $cfg['UserprefsDisallow']));
-    $msg = PMA_Message::notice('Settings: ' . $arr2);
-    $msg->display();
-}
-
 // warn about using session storage for settings
 $cfgRelation = PMA_getRelationsParam();
 if (!$cfgRelation['userconfigwork']) {

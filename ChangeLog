@@ -111,6 +111,7 @@ $Id$
 - rfe #806035, #686260 [relations] Export relations to Dia, SVG and others
 + [interface] Added charts to status tab, profiling page and query results
 + [interface] AJAXification on various pages 
+- [core] Remove last remaining parts of profiling code which was removed in 2006.
 
 3.3.7.0 (not yet released)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after

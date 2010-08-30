@@ -29,8 +29,6 @@
  * @uses    $GLOBALS['userlink'] to close it
  * @uses    $cfg['Server']['user']
  * @uses    $cfg['NavigationBarIconic']
- * @uses    $cfg['DBG']['enable']
- * @uses    $cfg['DBG']['profile']['enable']
  * @uses    $cfg['MaxCharactersInDisplayedSQL']
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()
@@ -200,25 +198,6 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
 // Include possible custom footers
 if (! $GLOBALS['is_ajax_request'] && file_exists(CUSTOM_FOOTER_FILE)) {
     require CUSTOM_FOOTER_FILE;
-}
-
-
-/**
- * Generates profiling data if requested
- */
-
-// profiling deactivated due to licensing issues
-if (! empty($GLOBALS['cfg']['DBG']['php'])
- && ! empty($GLOBALS['cfg']['DBG']['profile']['enable'])) {
-    //run the basic setup code first
-    require_once './libraries/dbg/setup.php';
-    //if the setup ran fine, then do the profiling
-    /*
-    if (! empty($GLOBALS['DBG'])) {
-        require_once './libraries/dbg/profiling.php';
-        dbg_dump_profiling_results();
-    }
-    */
 }
 
 /**

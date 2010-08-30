@@ -2653,29 +2653,6 @@ $cfg['DBG'] = array();
  */
 $cfg['DBG']['sql'] = false;
 
-/**
- * Make the DBG stuff available
- * To use the following, please install the DBG extension from http://dd.cron.ru/dbg/
- *
- * @global boolean $cfg['DBG']['php']
- */
-$cfg['DBG']['php'] = false;
-
-/**
- * Produce profiling results of PHP
- *
- * @global boolean $cfg['DBG']['profile']['enable']
- */
-$cfg['DBG']['profile']['enable'] = false;
-
-/**
- * Threshold of long running code to display
- * Anything below the threshold is not displayed
- *
- * @global float $cfg['DBG']['profile']['threshold']
- */
-$cfg['DBG']['profile']['threshold'] = 0.5;
-
 
 /*******************************************************************************
  * MySQL settings

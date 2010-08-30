@@ -51,8 +51,7 @@ $forms['Features']['Warnings'] = array(
 $forms['Features']['Developer'] = array(
     'Error_Handler/display',
     'Error_Handler/gather',
-    'DBG/sql',
-    'DBG/php');
+    'DBG/sql');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
