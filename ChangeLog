@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   a page size increase, thanks to Martin Schönberger - mad05
 - bug #3054458 [core] Fixed displaying number of rows.
 - bug #3035300 [parser] Fixed wrong definition of keywords.
+- [setup] Fixed escaping of server name.
 
 3.3.6.0 (2010-08-28)
 - bug #3033063 [core] Navi gets wrong db name
