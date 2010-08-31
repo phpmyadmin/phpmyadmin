@@ -9143,10 +9143,9 @@ msgid "Restart insertion with %s rows"
 msgstr "Restart insertion with %s rows"
 
 #: tbl_chart.php:57
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr "Chart generated successfully."
 
 #: tbl_chart.php:60
 #, fuzzy
