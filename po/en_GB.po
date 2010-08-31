@@ -6393,7 +6393,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Automatically appended backtick to the end of query!"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
