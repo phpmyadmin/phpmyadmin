@@ -4506,7 +4506,7 @@ msgstr ", @DATABASE@ will become the database name"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ will become the table name"
 
 #: libraries/display_export.lib.php:237
 #, php-format
