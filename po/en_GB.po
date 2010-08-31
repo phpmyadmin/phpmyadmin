@@ -9184,7 +9184,7 @@ msgstr "Area margins"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "Legend margins"
 
 #: tbl_chart.php:135
 #, fuzzy
