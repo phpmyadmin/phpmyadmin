@@ -14,6 +14,16 @@
 $(document).ready(function() {
 
     /**
+     * Set a parameter for all Ajax queries made on this page.  Append a random
+     * number to tell server that each Ajax request is a new one
+     */
+    $.ajaxSetup({
+        data: {'random': function() {
+                return Math.random();
+        }}
+    });
+
+    /**
      * Ajax event handler for Table Search
      * 
      * @uses    PMA_ajaxShowMessage()
