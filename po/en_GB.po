@@ -1789,7 +1789,7 @@ msgstr "Query statistics"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Query execution time comparison (in microseconds)"
 
 #: libraries/chart.lib.php:83
 #, fuzzy
