@@ -1105,10 +1105,9 @@ msgid "Toggle Query Box Visibility"
 msgstr "Toggle Query Box Visibility"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr "Inline"
+msgstr "Inline Edit"
 
 #: js/messages.php:88 tbl_change.php:296 tbl_indexes.php:198
 #: tbl_indexes.php:223
