@@ -1102,7 +1102,7 @@ msgstr "Searching"
 
 #: js/messages.php:84
 msgid "Toggle Query Box Visibility"
-msgstr ""
+msgstr "Toggle Query Box Visibility"
 
 #: js/messages.php:85
 #, fuzzy
