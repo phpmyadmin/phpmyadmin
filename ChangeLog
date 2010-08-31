@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.12.0 (not yet released)
+
 2.11.11.0 (not yet released)
 - [core] Fix broken cleanup of $_GET
 - bug #3054458 [core] Fixed displaying number of rows.
