@@ -107,6 +107,15 @@ function appendInlineAnchor(disp_mode) {
  */
 $(document).ready(function() {
 
+    /**
+     * Set a parameter for all Ajax queries made on this page.  Append a random
+     * number to tell server that each Ajax request is a new one
+     */
+    $.ajaxSetup({
+        data: {'random': function() {
+                return Math.random();
+        }}
+    });
 
     /**
      * current value of the direction in which the table is displayed

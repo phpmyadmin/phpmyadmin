@@ -159,7 +159,19 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
 
 $(document).ready(function() {
     /** @lends jQuery */
-    
+
+    /**
+     * Set a parameter for all Ajax queries made on this page.  Some queries
+     * are affected by cache settings on the server side, and hence, show stale
+     * data.  Append a random number to tell server that each Ajax request is a
+     * new one
+     */
+    $.ajaxSetup({
+        data: {'random': function() {
+                return Math.random();
+        }}
+    });
+
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -445,7 +457,7 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
-        $.get($(this).attr('href'), {'ajax_request' : true, 'random': Math.random()}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
             $("#usersForm")
             .hide("medium")
             .siblings("#initials_table")
