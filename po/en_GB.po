@@ -4502,7 +4502,7 @@ msgstr "@SERVER@ will become the server name"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ will become the database name"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
