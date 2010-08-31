@@ -9172,7 +9172,7 @@ msgstr "Title"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
-msgstr ""
+msgstr "X Axis label"
 
 #: tbl_chart.php:108
 msgid "Y Axis label"
