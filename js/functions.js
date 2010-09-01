@@ -2298,10 +2298,17 @@ $(document).ready(function() {
          */
         var the_form = $("#change_password_form");
 
+        /**
+         * @var this_value  String containing the value of the submit button.
+         * Need to append this for the change password form on Server Privileges
+         * page to work
+         */
+        var this_value = $(this).val();
+
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
 
-        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+        $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
             if(data.success == true) {
 
                 PMA_ajaxShowMessage(data.message);
@@ -2309,6 +2316,7 @@ $(document).ready(function() {
                 $("#topmenucontainer").after(data.sql_query);
 
                 $("#change_password_dialog").hide().remove();
+                $("#edit_user_dialog").dialog("close").remove();
             }
             else {
                 PMA_ajaxShowMessage(data.error);
