@@ -1731,6 +1731,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
         // A user was selected -> display the user's properties
 
+        // In an Ajax request, prevent cached values from showing
+        if($GLOBALS['is_ajax_request'] == true) {
+            header('Cache-Control: no-cache');
+        }
+
         echo '<h2>' . "\n"
            . PMA_getIcon('b_usredit.png')
            . __('Edit Privileges') . ': '

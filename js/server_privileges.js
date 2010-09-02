@@ -163,13 +163,10 @@ $(document).ready(function() {
     /**
      * Set a parameter for all Ajax queries made on this page.  Some queries
      * are affected by cache settings on the server side, and hence, show stale
-     * data.  Append a random number to tell server that each Ajax request is a
-     * new one
+     * data.  Don't let the web server serve cached pages
      */
     $.ajaxSetup({
-        data: {'random': function() {
-                return Math.random();
-        }}
+        cache: 'false'
     });
 
     /**

@@ -2937,6 +2937,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 
     // Set the Content-Type header to JSON so that jQuery parses the response correctly
     if(!isset($GLOBALS['is_header_sent'])) {
+        header('Cache-Control: no-cache');
         header("Content-Type: application/json");
     }
     echo json_encode($response);
