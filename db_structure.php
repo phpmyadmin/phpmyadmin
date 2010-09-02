@@ -524,22 +524,25 @@ $checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
 <?php
 echo '    <option value="' . __('With selected:') . '" selected="selected">'
      . __('With selected:') . '</option>' . "\n";
-echo '    <option value="' . __('Empty') . '" >'
-     . __('Empty') . '</option>' . "\n";
-echo '    <option value="' . __('Drop') . '" >'
-     . __('Drop') . '</option>' . "\n";
-echo '    <option value="' . __('Print view') . '" >'
-     . __('Print view') . '</option>' . "\n";
-echo '    <option value="' . __('Check table') . '" >'
-     . __('Check table') . '</option>' . "\n";
-echo '    <option value="' . __('Optimize table') . '" >'
-     . __('Optimize table') . '</option>' . "\n";
-echo '    <option value="' . __('Repair table') . '" >'
-     . __('Repair table') . '</option>' . "\n";
-echo '    <option value="' . __('Analyze table') . '" >'
-     . __('Analyze table') . '</option>' . "\n";
 echo '    <option value="' . __('Export') . '" >'
      . __('Export') . '</option>' . "\n";
+echo '    <option value="' . __('Print view') . '" >'
+    . __('Print view') . '</option>' . "\n";
+
+if (!$db_is_information_schema) {
+    echo '    <option value="' . __('Empty') . '" >'
+         . __('Empty') . '</option>' . "\n";
+    echo '    <option value="' . __('Drop') . '" >'
+         . __('Drop') . '</option>' . "\n";
+    echo '    <option value="' . __('Check table') . '" >'
+         . __('Check table') . '</option>' . "\n";
+    echo '    <option value="' . __('Optimize table') . '" >'
+         . __('Optimize table') . '</option>' . "\n";
+    echo '    <option value="' . __('Repair table') . '" >'
+         . __('Repair table') . '</option>' . "\n";
+    echo '    <option value="' . __('Analyze table') . '" >'
+         . __('Analyze table') . '</option>' . "\n";
+}
 ?>
 </select>
 <script type="text/javascript">
