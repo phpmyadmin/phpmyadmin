@@ -774,6 +774,13 @@ $cfg['LeftLogoLink'] = 'main.php';
 $cfg['LeftLogoLinkWindow'] = 'main';
 
 /**
+ * display a JavaScript table filter in the left frame
+ *
+ * @global boolean $cfg['LeftDisplayTableFilter']
+ */
+$cfg['LeftDisplayTableFilter'] = true;
+
+/**
  * display server choice at top of left frame
  *
  * @global boolean $cfg['LeftDisplayServers']

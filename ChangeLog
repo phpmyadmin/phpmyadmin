@@ -114,6 +114,7 @@ $Id$
 - [core] Remove last remaining parts of profiling code which was removed in 2006.
 - bug #3042665 [parser] Add workaround for MySQL way of handling backtick.
 - bug #3056610 [interface] Removed modification options for information_schema 
++ patch #3055886 [config] Add Left frame table filter visibility config option, thanks to eesau
 
 3.3.7.0 (not yet released)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
