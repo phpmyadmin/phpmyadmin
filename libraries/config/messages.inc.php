@@ -265,6 +265,7 @@ $strConfigLeftDisplayLogo_desc = __('Show logo in left frame');
 $strConfigLeftDisplayLogo_name = __('Display logo');
 $strConfigLeftDisplayServers_desc = __('Display server choice at the top of the left frame');
 $strConfigLeftDisplayServers_name = __('Display servers selection');
+$strConfigLeftDisplayTableFilter_name = __('Display table filter');
 $strConfigLeftFrameDBSeparator_desc = __('String that separates databases into different tree levels');
 $strConfigLeftFrameDBSeparator_name = __('Database tree separator');
 $strConfigLeftFrameDBTree_desc = __('Only light version; display databases in a tree (determined by the separator defined below)');

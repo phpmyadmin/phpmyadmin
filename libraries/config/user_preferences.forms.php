@@ -81,6 +81,7 @@ $forms['Left_frame']['Left_databases'] = array(
     'LeftFrameDBSeparator',
     'ShowTooltipAliasDB');
 $forms['Left_frame']['Left_tables'] = array(
+    'LeftDisplayTableFilter',
     'LeftDefaultTabTable',
     'LeftFrameTableSeparator',
     'LeftFrameTableLevel',
