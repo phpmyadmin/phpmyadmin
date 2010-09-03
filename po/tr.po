@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 09:43+0200\n"
+"PO-Revision-Date: 2010-09-03 09:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6450,7 +6450,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Otomatik olarak sorgunun sonuna ters işaret ekle"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
