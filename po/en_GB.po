@@ -9241,6 +9241,8 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Note that not every result table can be put to the chart. See <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 
 #: tbl_chart.php:182
 msgid "Redraw"
