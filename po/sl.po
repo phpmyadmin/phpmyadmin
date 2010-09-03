@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 01:56+0200\n"
+"PO-Revision-Date: 2010-09-04 01:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1065,7 +1065,7 @@ msgstr "Napaka v obdelovanju zahteve"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Brisanje stolpca"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
