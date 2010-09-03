@@ -1061,7 +1061,7 @@ msgstr "Obdelovanje zahteve"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Napaka v obdelovanju zahteve"
 
 #: js/messages.php:66
 msgid "Dropping Column"
