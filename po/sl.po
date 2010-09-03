@@ -1086,10 +1086,9 @@ msgid "Reload Database"
 msgstr "Ponovno nalaganje zbirk podatkov"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopiraj zbirko podatkov v"
+msgstr "Kopiranje zbirke podatkov"
 
 #: js/messages.php:74
 #, fuzzy
