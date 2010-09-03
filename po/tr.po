@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-08-28 14:44+0200\n"
+"PO-Revision-Date: 2010-09-03 09:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -957,7 +957,7 @@ msgstr "Bütün bir veritabanını YOK ETMEK üzeresiniz!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Kaldırma Olayı"
 
 #: js/messages.php:33
 #, fuzzy
