@@ -9197,7 +9197,7 @@ msgstr "Line"
 
 #: tbl_chart.php:137
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 #: tbl_chart.php:139
 #, fuzzy
