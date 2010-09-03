@@ -1096,10 +1096,9 @@ msgid "Changing Charset"
 msgstr "Spreminjanje nabora znakov"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have atleast 1 column"
-msgstr "Tabele morajo imeti vsaj en stolpec."
+msgstr "Tabela mora imeti vsaj en stolpec"
 
 #: js/messages.php:76
 #, fuzzy
