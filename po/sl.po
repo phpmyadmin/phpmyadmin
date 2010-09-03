@@ -1101,7 +1101,6 @@ msgid "Table must have atleast 1 column"
 msgstr "Tabela mora imeti vsaj en stolpec"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Ustvari tabelo"
