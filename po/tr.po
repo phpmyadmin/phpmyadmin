@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 09:33+0200\n"
+"PO-Revision-Date: 2010-09-03 09:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1058,7 +1058,7 @@ msgstr "İşlemler"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "İşleme İsteğinde Hata"
 
 #: js/messages.php:66
 msgid "Dropping Column"
