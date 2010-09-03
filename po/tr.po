@@ -1077,10 +1077,9 @@ msgid "Reload Database"
 msgstr "Veritabanını Yeniden Yükle"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Veritabanını şuraya kopyala:"
+msgstr "Veritabanı Kopyalanıyor"
 
 #: js/messages.php:74
 #, fuzzy
