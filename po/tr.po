@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 09:49+0200\n"
+"PO-Revision-Date: 2010-09-03 09:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1015,7 +1015,7 @@ msgstr "Parolalar birbiriyle aynı değil!"
 #: js/messages.php:52
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Yeni Kullanıcı ekle"
+msgstr "Yeni Kullanıcı Ekle"
 
 #: js/messages.php:53
 #| msgid "Create version"
