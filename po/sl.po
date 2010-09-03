@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 01:57+0200\n"
+"PO-Revision-Date: 2010-09-04 01:58+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1091,10 +1091,9 @@ msgid "Copying Database"
 msgstr "Kopiranje zbirke podatkov"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Nabor znakov"
+msgstr "Spreminjanje nabora znakov"
 
 #: js/messages.php:75
 #, fuzzy
