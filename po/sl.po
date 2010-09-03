@@ -1112,7 +1112,7 @@ msgstr "Iskanje"
 
 #: js/messages.php:84
 msgid "Toggle Query Box Visibility"
-msgstr ""
+msgstr "Preklopi vidnost polja za poizvedbe"
 
 #: js/messages.php:85
 #, fuzzy
