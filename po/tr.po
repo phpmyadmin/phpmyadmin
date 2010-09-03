@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 09:38+0200\n"
+"PO-Revision-Date: 2010-09-03 09:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1116,7 +1116,7 @@ msgstr "Ara"
 
 #: js/messages.php:84
 msgid "Toggle Query Box Visibility"
-msgstr ""
+msgstr "Sorgu Kutusu Görünürlüğünü Değiştir"
 
 #: js/messages.php:85
 #, fuzzy
