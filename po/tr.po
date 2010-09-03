@@ -1025,7 +1025,7 @@ msgstr "Kullanıcı Oluştur"
 #: js/messages.php:54
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Yetkiler yeniden yükleniyor"
+msgstr "Yetkiler Yeniden Yükleniyor"
 
 #: js/messages.php:55
 #, fuzzy
