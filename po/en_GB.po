@@ -9216,7 +9216,7 @@ msgstr "Stacked"
 
 #: tbl_chart.php:148
 msgid "Multi"
-msgstr ""
+msgstr "Multi"
 
 #: tbl_chart.php:153
 msgid "Continuous image"
