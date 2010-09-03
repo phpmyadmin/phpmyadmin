@@ -1028,10 +1028,9 @@ msgid "Reloading Privileges"
 msgstr "Yetkiler Yeniden Yükleniyor"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Seçili kullanıcıları kaldır"
+msgstr "Seçili Kullanıcılar Kaldırılıyor"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
