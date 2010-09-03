@@ -1020,7 +1020,7 @@ msgstr "Yeni Kullanıcı Ekle"
 #: js/messages.php:53
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Kullanıcı oluştur"
+msgstr "Kullanıcı Oluştur"
 
 #: js/messages.php:54
 #| msgid "Reloading the privileges"
