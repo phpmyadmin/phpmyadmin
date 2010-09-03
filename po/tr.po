@@ -1067,10 +1067,9 @@ msgid "OK"
 msgstr "TAMAM"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Veritabanını şuna yeniden adlandır"
+msgstr "Veritabanı Yeniden Adlandırılıyor"
 
 #: js/messages.php:72
 #, fuzzy
