@@ -1087,10 +1087,9 @@ msgid "Changing Charset"
 msgstr "Karakter Grubu Değiştiriliyor"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have atleast 1 column"
-msgstr "Tablonun en az bir sütunu olmalı."
+msgstr "Tablonun en az bir sütunu olmalı"
 
 #: js/messages.php:76
 #, fuzzy
