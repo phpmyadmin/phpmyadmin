@@ -1037,10 +1037,9 @@ msgid "Reloading Privileges"
 msgstr "Ponovno nalaganje privilegijev"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Izbriši izbrane uporabnike"
+msgstr "Odstranjevanje izbranih uporabnikov"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
