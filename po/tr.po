@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 10:23+0200\n"
+"PO-Revision-Date: 2010-09-03 10:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1072,10 +1072,9 @@ msgid "Renaming Databases"
 msgstr "Veritabanı Yeniden Adlandırılıyor"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Veritabanını kaldır"
+msgstr "Veritabanını Yeniden Yükle"
 
 #: js/messages.php:73
 #, fuzzy
