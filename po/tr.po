@@ -965,10 +965,9 @@ msgid "Dropping Procedure"
 msgstr "İşlem Kaldırılıyor"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Bu tabloyu izleme verisini sil"
+msgstr "İzleme verisi siliniyor"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
