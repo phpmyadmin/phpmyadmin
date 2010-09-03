@@ -1083,7 +1083,7 @@ msgstr "Preimenovanje zbirk podatkov"
 #: js/messages.php:72
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Ponovno nalaganje zbirk podatkov"
+msgstr "Ponovno nalaganje zbirke podatkov"
 
 #: js/messages.php:73
 #| msgid "Copy database to"
