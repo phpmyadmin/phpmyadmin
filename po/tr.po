@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-03 09:39+0200\n"
+"PO-Revision-Date: 2010-09-03 09:42+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -971,7 +971,7 @@ msgstr "İzleme verisi siliniyor"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "Primary Key/İndeks Kaldırılıyor"
+msgstr "Birincil Anaktar/İndeks Kaldırılıyor"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
