@@ -4263,10 +4263,9 @@ msgstr "Hızlı"
 
 #: libraries/config/setup.forms.php:263
 #: libraries/config/user_preferences.forms.php:166
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Özelleştirme"
+msgstr "Özel"
 
 #: libraries/config/setup.forms.php:284
 #: libraries/config/user_preferences.forms.php:186
