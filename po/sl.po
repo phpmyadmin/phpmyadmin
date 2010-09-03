@@ -974,10 +974,9 @@ msgid "Dropping Procedure"
 msgstr "Brisanje procedure"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Brisanje podatkov sledenja"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
