@@ -1050,10 +1050,9 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Naloži"
+msgstr "Nalaganje"
 
 #: js/messages.php:64
 #, fuzzy
