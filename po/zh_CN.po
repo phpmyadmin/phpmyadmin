@@ -4255,7 +4255,7 @@ msgstr "OpenOffice 表格"
 #: libraries/config/setup.forms.php:259
 #: libraries/config/user_preferences.forms.php:162
 msgid "Quick"
-msgstr ""
+msgstr "快速"
 
 #: libraries/config/setup.forms.php:263
 #: libraries/config/user_preferences.forms.php:166
