@@ -4130,7 +4130,7 @@ msgstr "选中一个服务器时浏览器窗口的标题"
 
 #: libraries/config/messages.inc.php:483
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "选中一张数据表时浏览器窗口的标题"
 
 #: libraries/config/messages.inc.php:485
 msgid ""
