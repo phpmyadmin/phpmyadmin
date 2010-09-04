@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:20+0200\n"
+"PO-Revision-Date: 2010-09-04 09:22+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2932,10 +2932,9 @@ msgid "Text fields"
 msgstr "文本字段"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "自定义导出选项"
+msgstr "自定义文本输入框"
 
 #: libraries/config/messages.inc.php:224 libraries/export/texytext.php:17
 msgid "Texy! text"
