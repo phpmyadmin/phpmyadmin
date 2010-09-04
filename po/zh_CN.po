@@ -2899,10 +2899,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "自定义显示在 SQL 查询框中的链接"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL 查询"
+msgstr "SQL 查询设置"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
