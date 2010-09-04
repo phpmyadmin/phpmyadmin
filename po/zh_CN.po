@@ -4394,10 +4394,10 @@ msgid "Exporting databases in the current server"
 msgstr "导出当前服务器中的数据库"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "在数据库 %s 中新建一张数据表"
+msgstr "导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
