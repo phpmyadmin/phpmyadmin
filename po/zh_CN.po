@@ -4535,10 +4535,9 @@ msgid "Format-Specific Options:"
 msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
-msgstr "编码转换"
+msgstr "编码转换："
 
 #: libraries/display_import.lib.php:66
 msgid ""
