@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:29+0200\n"
+"PO-Revision-Date: 2010-09-04 07:31+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6451,7 +6451,6 @@ msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
 #: libraries/tbl_properties.inc.php:799
-#, fuzzy
 #| msgid ""
 #| "Please enter the values for transformation options using this format: "
 #| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
@@ -6461,9 +6460,7 @@ msgid ""
 "Enter each value in a separate field. If you ever need to put a backslash "
 "(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
 "backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"请使用此格式输入转换选项的值：'a',100,b,'c'...<br />如果您需要在值中输入反斜"
-"杠 (“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
+msgstr "请将值分别输入。如果需要输入反斜杠 (“\\”) 或单引号 (“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
