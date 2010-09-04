@@ -2339,7 +2339,7 @@ msgstr "使用 Ctrl + 方向键 进行字段浏览"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug SQL"
-msgstr ""
+msgstr "调试 SQL"
 
 #: libraries/config/messages.inc.php:44
 #, fuzzy
