@@ -4526,10 +4526,9 @@ msgstr "bzip 压缩"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "格式"
+msgstr "格式："
 
 #: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
