@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:52+0200\n"
+"PO-Revision-Date: 2010-09-04 04:54+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4035,7 +4035,7 @@ msgstr "跳过锁定的表"
 
 #: libraries/config/messages.inc.php:462
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "需要启用 SQL 校验器"
 
 #: libraries/config/messages.inc.php:464
 #: libraries/display_change_password.lib.php:40
