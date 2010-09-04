@@ -678,7 +678,7 @@ if (0 == $num_rows || $is_affected) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
         }
 
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : ''));
     }
 
     if ($is_gotofile) {
