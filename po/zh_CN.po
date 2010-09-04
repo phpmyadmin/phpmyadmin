@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:20+0200\n"
+"PO-Revision-Date: 2010-09-04 07:21+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5161,10 +5161,9 @@ msgid "Columns separated with:"
 msgstr "字段分隔符："
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Columns enclosed by"
 msgid "Columns enclosed with:"
-msgstr "内容分隔符"
+msgstr "内容分隔符："
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
