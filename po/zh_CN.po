@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:26+0200\n"
+"PO-Revision-Date: 2010-09-04 07:27+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5577,10 +5577,9 @@ msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "转换百分数 (如: 12.00% 将被转换为 .12)"
+msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
