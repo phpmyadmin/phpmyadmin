@@ -2733,7 +2733,7 @@ msgstr "生成"
 
 #: libraries/config/messages.inc.php:165
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "设置某些常用选项"
 
 #: libraries/config/messages.inc.php:166 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
