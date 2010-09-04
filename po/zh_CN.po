@@ -6226,7 +6226,7 @@ msgstr "VISIO"
 
 #: libraries/schema/User_Schema.class.php:355
 msgid "EPS"
-msgstr ""
+msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
