@@ -2652,10 +2652,9 @@ msgstr "自定义浏览模式"
 #: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:213
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
-msgstr "自定义导出选项的默认值"
+msgstr "自定义默认选项"
 
 #: libraries/config/messages.inc.php:154 libraries/config/setup.forms.php:229
 #: libraries/config/setup.forms.php:308
