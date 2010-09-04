@@ -2021,7 +2021,7 @@ msgstr "操作"
 
 #: libraries/common.lib.php:2948
 msgid "Browse your computer:"
-msgstr ""
+msgstr "从计算机中上传："
 
 #: libraries/common.lib.php:2961
 #, php-format
