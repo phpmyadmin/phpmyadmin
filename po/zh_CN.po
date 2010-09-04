@@ -1774,10 +1774,9 @@ msgid "Could not open file: %s"
 msgstr "无法打开文件：%s"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "显示统计"
+msgstr "查询统计"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
