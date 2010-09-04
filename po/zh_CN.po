@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:00+0200\n"
+"PO-Revision-Date: 2010-09-04 09:16+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -99,10 +99,9 @@ msgid "No blob streaming server configured!"
 msgstr "尚未配置二进制大对象 (BLOB) 流服务器！"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "将文件写入磁盘失败。"
+msgstr "获取头失败"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
