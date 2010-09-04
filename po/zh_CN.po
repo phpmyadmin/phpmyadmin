@@ -4499,10 +4499,9 @@ msgid "Character set of the file:"
 msgstr "文件的字符集："
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "压缩"
+msgstr "压缩："
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
