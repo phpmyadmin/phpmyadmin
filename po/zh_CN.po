@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:55+0200\n"
+"PO-Revision-Date: 2010-09-04 06:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3032,10 +3032,9 @@ msgid "Do not import empty rows"
 msgstr "不导入空行"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
+msgstr "导入货币 ($5.00 将被导入为 5.00)"
 
 #: libraries/config/messages.inc.php:253
 #, fuzzy
