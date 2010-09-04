@@ -358,9 +358,9 @@ $(document).ready(function() {
 
                 //Insert/Clone the ignore checkboxes
                 if(curr_rows == 1 ) {
-                    $('<input id="insert_ignore_check_1" type="checkbox" name="insert_ignore_check_1" checked="checked" />')
+                    $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
                     .insertBefore(".insertRowTable:last")
-                    .after('<label for="insert_ignore_check_1">' + PMA_messages['strIgnore'] + '</label>');
+                    .after('<label for="insert_ignore_1">' + PMA_messages['strIgnore'] + '</label>');
                 }
                 else {
 
@@ -379,7 +379,7 @@ $(document).ready(function() {
                     $(last_checkbox)
                     .clone()
                     .attr({'id':new_name, 'name': new_name})
-                    .add('label[for^=insert_ignore_check]:last')
+                    .add('label[for^=insert_ignore]:last')
                     .clone()
                     .attr('for', new_name)
                     .before('<br />')
@@ -390,7 +390,7 @@ $(document).ready(function() {
         }
         else if( curr_rows > target_rows) {
             while(curr_rows > target_rows) {
-                $("input[id^=insert_ignore_check]:last")
+                $("input[id^=insert_ignore]:last")
                 .nextUntil("fieldset")
                 .andSelf()
                 .remove();
