@@ -5184,7 +5184,6 @@ msgid "Replace NULL with:"
 msgstr "将 NULL 替换为："
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "删除字段中的回车换行符"
