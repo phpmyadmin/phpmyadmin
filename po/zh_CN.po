@@ -5531,10 +5531,9 @@ msgid ""
 msgstr "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半角逗号分隔且不能用引号括起。"
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "字段名"
+msgstr "字段名："
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
