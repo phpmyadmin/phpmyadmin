@@ -3302,10 +3302,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "为数据库和数据表名使用自然排序"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "更改表的排序，根据"
+msgstr "自然排序"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
