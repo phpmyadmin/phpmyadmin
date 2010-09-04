@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:51+0200\n"
+"PO-Revision-Date: 2010-09-04 06:52+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2849,7 +2849,6 @@ msgid "Configuration storage"
 msgstr "高级功能"
 
 #: libraries/config/messages.inc.php:201
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -2859,8 +2858,8 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"配置 phpMyAdmin 数据库获得更多功能，参见文档[a@../Documentation.html#linked-"
-"tables]phpMyAdmin 高级功能[/a]"
+"配置 phpMyAdmin 高级功能，参见文档[a@Documentation.html#linked-tables]phpMyAdmin "
+"高级功能[/a]"
 
 #: libraries/config/messages.inc.php:202
 msgid "Changes tracking"
