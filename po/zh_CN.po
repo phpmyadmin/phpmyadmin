@@ -6230,7 +6230,7 @@ msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "选择导出关系类型"
 
 #: libraries/schema/User_Schema.class.php:378
 msgid "Show grid"
