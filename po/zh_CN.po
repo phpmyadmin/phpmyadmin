@@ -6647,10 +6647,9 @@ msgid "Choose..."
 msgstr "选择 ..."
 
 #: main.php:151 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "设置"
+msgstr "更多设置"
 
 #: main.php:168
 msgid "Protocol version"
