@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:04+0200\n"
+"PO-Revision-Date: 2010-09-04 04:05+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -814,7 +814,7 @@ msgstr "数据库日志"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "字段“%s”的值"
 
 #: enum_editor.php:22
 #, fuzzy
