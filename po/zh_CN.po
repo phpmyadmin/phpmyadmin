@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:35+0200\n"
+"PO-Revision-Date: 2010-09-04 04:39+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2826,6 +2826,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"设置浏览器标题栏所显示的文字。参见[a@Documentation.html#cfg_TitleTable]文档[/a]中关于可以取得特殊值的魔术字符串"
+"。"
 
 #: libraries/config/messages.inc.php:190
 #: libraries/navigation_header.inc.php:83
