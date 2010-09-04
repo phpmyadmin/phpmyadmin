@@ -4080,7 +4080,7 @@ msgstr "建议新数据库名"
 
 #: libraries/config/messages.inc.php:471
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "若检测到 Suhosin 将在主页显示一个警告"
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
