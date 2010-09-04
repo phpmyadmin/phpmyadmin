@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:44+0200\n"
+"PO-Revision-Date: 2010-09-04 07:45+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8974,10 +8974,9 @@ msgid "Restart insertion with %s rows"
 msgstr "重新进行插入操作，共 %s 行"
 
 #: tbl_chart.php:57
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "已成功重新载入权限。"
+msgstr "生成图表成功。"
 
 #: tbl_chart.php:60
 #, fuzzy
