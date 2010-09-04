@@ -9132,7 +9132,7 @@ msgstr "高"
 
 #: tbl_chart.php:99
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: tbl_chart.php:104
 msgid "X Axis label"
