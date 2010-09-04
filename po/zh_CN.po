@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 05:45+0200\n"
+"PO-Revision-Date: 2010-09-04 05:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9207,7 +9207,7 @@ msgstr ""
 
 #: tbl_chart.php:182
 msgid "Redraw"
-msgstr ""
+msgstr "重绘"
 
 #: tbl_create.php:55
 #, php-format
