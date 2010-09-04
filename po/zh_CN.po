@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:47+0200\n"
+"PO-Revision-Date: 2010-09-04 04:48+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3347,7 +3347,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "为数据库和数据表名使用自然排序"
 
 #: libraries/config/messages.inc.php:315
 #, fuzzy
