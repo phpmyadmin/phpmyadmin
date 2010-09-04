@@ -2394,10 +2394,9 @@ msgid "Edit in window"
 msgstr "在窗口中编辑"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "显示功能"
+msgstr "显示错误"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
