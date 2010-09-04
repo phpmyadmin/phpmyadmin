@@ -9042,7 +9042,7 @@ msgstr "堆叠"
 
 #: tbl_chart.php:148
 msgid "Multi"
-msgstr ""
+msgstr "并列"
 
 #: tbl_chart.php:153
 msgid "Continuous image"
