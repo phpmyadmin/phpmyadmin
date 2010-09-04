@@ -4564,10 +4564,10 @@ msgid "Importing into the current server"
 msgstr "导入到当前服务器"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
-msgstr "转到数据库"
+msgstr "导入到数据库“%s”"
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
