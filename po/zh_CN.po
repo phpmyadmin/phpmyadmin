@@ -5179,10 +5179,9 @@ msgstr "换行符："
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "将 NULL 替换为"
+msgstr "将 NULL 替换为："
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
