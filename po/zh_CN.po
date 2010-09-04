@@ -6100,10 +6100,9 @@ msgid "Display relational schema"
 msgstr "显示关系大纲"
 
 #: libraries/schema/User_Schema.class.php:352
-#, fuzzy
 #| msgid "CSV"
 msgid "SVG"
-msgstr "CSV"
+msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:353
 msgid "DIA"
