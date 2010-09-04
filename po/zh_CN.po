@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:43+0200\n"
+"PO-Revision-Date: 2010-09-04 07:44+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8582,7 +8582,6 @@ msgid "Cannot load or save configuration"
 msgstr "无法加载或保存配置"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -8593,8 +8592,9 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"请在 phpMyAdmin 的根文件夹下创建可以写入的 [em]config[/em] 文件夹，[a@../"
-"Documentation.html#setup_script]文档[/a]中有说明。否则你只能下载或显示配置。"
+"请在 phpMyAdmin "
+"的根文件夹下创建[a@../Documentation.html#setup_script]文档[/a]中所述的网站服务器可以写入的 "
+"[em]config[/em] 文件夹。否则你只能下载或显示配置。"
 
 #: setup/frames/index.inc.php:57
 msgid ""
