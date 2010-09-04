@@ -5008,7 +5008,7 @@ msgstr "keep-alive 标记所设置的不活动连接超时时间。在此时间�
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
-msgstr ""
+msgstr "元数据头"
 
 #: libraries/engines/pbms.lib.php:62
 msgid ""
