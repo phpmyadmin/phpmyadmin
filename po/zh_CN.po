@@ -5453,7 +5453,7 @@ msgstr "代替 <code>INSERT (插入)</code> 语句，使用："
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> 语句"
+msgstr "<code>INSERT DELAYED (延迟插入)</code> 语句"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
