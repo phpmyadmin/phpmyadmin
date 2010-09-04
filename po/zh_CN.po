@@ -3289,10 +3289,9 @@ msgid "Memory limit"
 msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "显示/隐藏左侧菜单"
+msgstr "显示左侧删除链接"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
