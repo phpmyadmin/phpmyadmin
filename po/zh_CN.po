@@ -1091,7 +1091,6 @@ msgid "Table must have atleast 1 column"
 msgstr "数据表至少要有一个字段"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "新建数据表"
