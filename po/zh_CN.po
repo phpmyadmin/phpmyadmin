@@ -5587,10 +5587,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL 兼容模式"
+msgstr "SQL 兼容模式："
 
 #: libraries/import/sql.php:42
 #, fuzzy
