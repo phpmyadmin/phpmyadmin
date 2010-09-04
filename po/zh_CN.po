@@ -2409,7 +2409,7 @@ msgstr "显示服务器为列表"
 
 #: libraries/config/messages.inc.php:59
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "在新窗口中编辑 SQL 查询"
 
 #: libraries/config/messages.inc.php:60
 #, fuzzy
