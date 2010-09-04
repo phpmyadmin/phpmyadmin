@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:18+0200\n"
+"PO-Revision-Date: 2010-09-04 04:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2195,7 +2195,7 @@ msgstr "还原默认值"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:318
