@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:24+0200\n"
+"PO-Revision-Date: 2010-09-04 09:26+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6075,10 +6075,9 @@ msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
 #: libraries/schema/User_Schema.class.php:154
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "选择表"
+msgstr "选择页"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
