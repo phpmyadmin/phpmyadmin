@@ -4426,10 +4426,9 @@ msgid "Rows:"
 msgstr "记录："
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "转储所有行"
+msgstr "转储部分记录"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
