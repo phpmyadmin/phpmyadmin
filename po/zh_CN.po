@@ -2489,7 +2489,6 @@ msgid "Lines terminated by"
 msgstr "换行符"
 
 #: libraries/config/messages.inc.php:79
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel 版本"
