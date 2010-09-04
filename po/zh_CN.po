@@ -5247,10 +5247,9 @@ msgstr "显示注释"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "可用的 MIME 类型"
+msgstr "显示 MIME 类型"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:281
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
