@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:41+0200\n"
+"PO-Revision-Date: 2010-09-04 04:42+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3213,7 +3213,7 @@ msgstr "显示 SQL 语句时可以使用的最多字符数"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
-msgstr ""
+msgstr "限制字段字符数"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
