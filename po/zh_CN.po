@@ -4025,10 +4025,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR 文本框列"
+msgstr "文本框列"
 
 #: libraries/config/messages.inc.php:475
 msgid ""
