@@ -7094,7 +7094,7 @@ msgstr "你可以通过修改 config.inc.php 文件进行更多设置，如：�
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "保存到浏览器存储"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
