@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 01:59+0200\n"
+"PO-Revision-Date: 2010-09-04 02:00+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6429,7 +6429,7 @@ msgstr "KONEC NAVADNO"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Samodejno sem dodal levo črtico na konec poizvedbe!"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
