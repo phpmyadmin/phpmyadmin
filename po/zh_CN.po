@@ -2140,7 +2140,7 @@ msgstr "缺少函数 (%s)，导出功能无效"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL 校验器已禁用"
 
 #: libraries/config/FormDisplay.class.php:764
 #| msgid "PHP extension to use"
