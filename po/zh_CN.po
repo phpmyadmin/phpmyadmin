@@ -6188,7 +6188,7 @@ msgstr "内联"
 
 #: libraries/schema/User_Schema.class.php:117
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "外键"
 
 #: libraries/schema/User_Schema.class.php:149
 msgid "Please choose a page to edit"
