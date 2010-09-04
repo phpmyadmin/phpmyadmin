@@ -8976,7 +8976,7 @@ msgstr "重新进行插入操作，共 %s 行"
 #: tbl_chart.php:57
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "生成图表成功。"
+msgstr "图表生成成功。"
 
 #: tbl_chart.php:60
 #, fuzzy
