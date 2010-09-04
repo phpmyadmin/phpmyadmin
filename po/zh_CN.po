@@ -4545,7 +4545,7 @@ msgstr "@SERVER@ 将变成服务器名称"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr "，@DATABASE@ 将变成数据库名"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
