@@ -1037,10 +1037,9 @@ msgid "Cancel"
 msgstr "取消"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "加载"
+msgstr "正在加载"
 
 #: js/messages.php:64
 #, fuzzy
