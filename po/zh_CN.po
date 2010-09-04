@@ -4058,10 +4058,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "未选择时浏览器窗口的标题"
 
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "默认数据表标签"
+msgstr "默认标题"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a server is selected"
