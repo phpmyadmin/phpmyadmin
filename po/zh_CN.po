@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:38+0200\n"
+"PO-Revision-Date: 2010-09-04 09:39+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4998,7 +4998,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:56
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "最大保持连接"
 
 #: libraries/engines/pbms.lib.php:57
 msgid ""
