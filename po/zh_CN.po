@@ -5592,10 +5592,9 @@ msgid "SQL compatibility mode:"
 msgstr "SQL 兼容模式："
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
+msgstr "不要给零值使用自增 (<code>AUTO_INCREMENT</code>)"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
