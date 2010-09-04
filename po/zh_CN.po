@@ -3427,10 +3427,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "修复线程"
+msgstr "重复表头"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
