@@ -4416,10 +4416,9 @@ msgid "Database(s):"
 msgstr "数据库："
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "数据表"
+msgstr "数据表："
 
 #: libraries/display_export.lib.php:149
 #, fuzzy
