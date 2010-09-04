@@ -4151,10 +4151,9 @@ msgid "Cookie authentication"
 msgstr "Cookie 认证"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "主机认证"
+msgstr "HTTP 认证"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
