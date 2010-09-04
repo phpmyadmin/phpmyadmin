@@ -5224,10 +5224,9 @@ msgstr "@TABLE@ 表的结构"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "转换选项"
+msgstr "对象创建选项"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #, fuzzy
