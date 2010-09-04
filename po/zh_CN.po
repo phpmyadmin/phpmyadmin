@@ -7053,7 +7053,7 @@ msgstr "是否导入其余的设置？"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "保存于：@DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
