@@ -4411,10 +4411,9 @@ msgid "Export Method:"
 msgstr "导出方式"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "数据库"
+msgstr "数据库："
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
