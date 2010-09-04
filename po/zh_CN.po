@@ -5166,10 +5166,9 @@ msgid "Columns enclosed with:"
 msgstr "内容分隔符："
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with:"
-msgstr "内容转义符"
+msgstr "内容转义符："
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
