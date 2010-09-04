@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:16+0200\n"
+"PO-Revision-Date: 2010-09-04 07:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4559,10 +4559,9 @@ msgid ""
 msgstr "正在上传，没有详细信息，请稍候。"
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "无法登录 MySQL 服务器"
+msgstr "导入到当前服务器"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
