@@ -1042,10 +1042,9 @@ msgid "Loading"
 msgstr "正在加载"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "进程"
+msgstr "正在处理请求"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
