@@ -4549,7 +4549,7 @@ msgstr "，@DATABASE@ 将变成数据库名"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr "，@TABLE@ 将变成数据表名"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
