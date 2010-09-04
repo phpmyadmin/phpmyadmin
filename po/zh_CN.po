@@ -1066,7 +1066,7 @@ msgstr "正在删除字段"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "正在添加主键"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
 msgid "OK"
