@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:03+0200\n"
+"PO-Revision-Date: 2010-09-04 07:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3634,7 +3634,6 @@ msgid "Connect without password"
 msgstr "用空密码连接"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3645,8 +3644,9 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"可以使用 MySQL 通配符 (% 和 _)，若要用它们的实例，请转义，例：用 'my\\_db' 而"
-"不是 'my_db'"
+"可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my\\_db'[/kbd] 而不是 "
+"[kbd]'my_db'[/kbd]。通过该选项你可以对数据库列表排序，只需按顺序输入它们的名称并加上 "
+"[kbd]*[/kbd]，剩下的数据库将按字母顺序排在最后。"
 
 #: libraries/config/messages.inc.php:391
 msgid "Show only listed databases"
