@@ -22,7 +22,7 @@ $cfgRelation = PMA_getRelationsParam();
  */
 if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
     $goto      = 'db_sql.php';
-    $zero_rows = htmlspecialchars(__('Your SQL query has been executed successfully'));
+    $message_to_show = htmlspecialchars(__('Your SQL query has been executed successfully'));
     require './sql.php';
     exit;
 } else {

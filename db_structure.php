@@ -298,7 +298,7 @@ foreach ($tables as $keyname => $each_table) {
             $empty_table = '<a class="truncate_table_anchor" href="sql.php?' . $tbl_url_query
                  . '&amp;sql_query=';
             $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-                 . '&amp;zero_rows='
+                 . '&amp;message_to_show='
                  . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
                  .'">' . $titles['Empty'] . '</a>';
         } else {
@@ -386,7 +386,7 @@ foreach ($tables as $keyname => $each_table) {
     <td align="center">
         <a class="drop_table_anchor" href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
-            echo urlencode($drop_query); ?>&amp;zero_rows=<?php
+            echo urlencode($drop_query); ?>&amp;message_to_show=<?php
             echo urlencode($drop_message); ?>" >
             <?php echo $titles['Drop']; ?></a></td>
     <?php } // end if (! $db_is_information_schema)

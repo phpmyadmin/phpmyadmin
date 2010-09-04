@@ -406,7 +406,7 @@ echo __('Remove database');
             'goto' => 'main.php',
             'reload' => '1',
             'purge' => '1',
-            'zero_rows' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
+            'message_to_show' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
             'db' => NULL,
         );
     ?>

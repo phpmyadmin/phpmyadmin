@@ -202,7 +202,7 @@ unset($reread_info);
  */
 require_once './libraries/tbl_links.inc.php';
 
-if (isset($result) && empty($zero_rows)) {
+if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
     $_type = 'success';
@@ -624,7 +624,7 @@ if ($is_myisam_or_maria || $is_innodb || $is_berkeleydb) {
 $this_url_params = array_merge($url_params,
     array(
         'sql_query' => 'FLUSH TABLE ' . PMA_backquote($GLOBALS['table']),
-        'zero_rows' => sprintf(__('Table %s has been flushed'),
+        'message_to_show' => sprintf(__('Table %s has been flushed'),
             htmlspecialchars($GLOBALS['table'])),
         'reload'    => 1,
         ));
@@ -650,7 +650,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
             'sql_query' => $this_sql_query,
             'goto' => 'tbl_structure.php',
             'reload' => '1',
-            'zero_rows' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
+            'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
         ));
     ?>
     <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
@@ -667,7 +667,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             'goto' => 'db_operations.php',
             'reload' => '1',
             'purge' => '1',
-            'zero_rows' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
+            'message_to_show' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
             // table name is needed to avoid running 
             // PMA_relationsCleanupDatabase() on the whole db later
             'table' => $GLOBALS['table'],

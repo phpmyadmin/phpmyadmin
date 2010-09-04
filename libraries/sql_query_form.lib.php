@@ -132,7 +132,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         .'<input type="hidden" name="pos" value="0" />' . "\n"
         .'<input type="hidden" name="goto" value="'
         .htmlspecialchars($goto) . '" />' . "\n"
-        .'<input type="hidden" name="zero_rows" value="'
+        .'<input type="hidden" name="message_to_show" value="'
         . htmlspecialchars(__('Your SQL query has been executed successfully')) . '" />' . "\n"
         .'<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
