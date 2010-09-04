@@ -5465,7 +5465,7 @@ msgstr "转储数据时所使用的函数："
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "插入数据时所使用的语法："
 
 #: libraries/export/sql.php:154
 msgid ""
