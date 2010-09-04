@@ -1024,10 +1024,9 @@ msgid "Reloading Privileges"
 msgstr "重新载入权限"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "删除选中的用户"
+msgstr "正在删除选中的用户"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
