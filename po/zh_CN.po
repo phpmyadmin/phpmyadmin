@@ -6769,7 +6769,7 @@ msgstr "背景色"
 
 #: main.php:134
 msgid "Choose..."
-msgstr ""
+msgstr "选择 ..."
 
 #: main.php:151 prefs_manage.php:274
 #, fuzzy
