@@ -6588,10 +6588,9 @@ msgstr ""
 "后的输出 (默认为：“...”)。"
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "其他核心设置"
+msgstr "管理我的设置"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
