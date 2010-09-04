@@ -3461,7 +3461,6 @@ msgid "Leave blank for defaults"
 msgstr "默认请留空"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "主机认证规则"
