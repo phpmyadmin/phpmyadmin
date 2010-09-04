@@ -4431,10 +4431,9 @@ msgid "Dump some row(s)"
 msgstr "转储部分记录"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows:"
-msgstr "字段数"
+msgstr "记录数："
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
