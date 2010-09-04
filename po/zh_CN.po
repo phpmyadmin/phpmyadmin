@@ -4515,7 +4515,6 @@ msgid "zipped"
 msgstr "zip 压缩"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzip 压缩"
