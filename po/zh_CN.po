@@ -973,7 +973,7 @@ msgstr "删除追踪数据"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "正在删除主键"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
