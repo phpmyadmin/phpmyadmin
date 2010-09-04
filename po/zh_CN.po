@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:09+0200\n"
+"PO-Revision-Date: 2010-09-04 07:10+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4389,10 +4389,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "允许锁定当前线程的表。"
+msgstr "导出当前服务器中的数据库"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
