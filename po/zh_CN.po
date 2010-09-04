@@ -2844,10 +2844,9 @@ msgid "Enter server connection parameters"
 msgstr "服务器连接参数"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "配置: %s"
+msgstr "高级功能"
 
 #: libraries/config/messages.inc.php:201
 #, fuzzy
