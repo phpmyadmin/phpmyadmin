@@ -6627,7 +6627,7 @@ msgstr "ZIP 包中有错误:"
 #: main.php:67
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "基本设置"
+msgstr "常规设置"
 
 #: main.php:98
 msgid "MySQL connection collation"
