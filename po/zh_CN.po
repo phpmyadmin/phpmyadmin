@@ -2029,10 +2029,10 @@ msgid "Browse your computer:"
 msgstr ""
 
 #: libraries/common.lib.php:2961
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "网站服务器上传文件夹"
+msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
 #: libraries/common.lib.php:2973 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:923
