@@ -5290,10 +5290,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(根据一张表的数据生成报告)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "报告标题"
+msgstr "报告标题："
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
