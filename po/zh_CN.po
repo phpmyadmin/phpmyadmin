@@ -1058,7 +1058,7 @@ msgstr "进程"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "执行请求时发生错误"
 
 #: js/messages.php:66
 msgid "Dropping Column"
