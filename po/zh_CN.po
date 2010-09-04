@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 05:09+0200\n"
+"PO-Revision-Date: 2010-09-04 05:10+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5405,7 +5405,7 @@ msgstr "PHP 数组"
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
-msgstr ""
+msgstr "显示注释 <i>(包括导出时间、PHP 版本和服务器版本等信息)</i>"
 
 #: libraries/export/sql.php:35
 #, fuzzy
