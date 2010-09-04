@@ -963,10 +963,9 @@ msgid "Dropping Procedure"
 msgstr "正在删除存储过程"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "删除追踪数据"
+msgstr "正在删除追踪数据"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
