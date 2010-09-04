@@ -3831,7 +3831,7 @@ msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
-msgstr ""
+msgstr "用户偏好表"
 
 #: libraries/config/messages.inc.php:430
 msgid "User for config auth"
