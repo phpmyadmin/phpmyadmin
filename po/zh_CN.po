@@ -2078,7 +2078,7 @@ msgstr "结构和数据"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr "快速 - 仅显示必须配置选项"
+msgstr "快速 - 仅显示必须的设置项"
 
 #: libraries/config.values.php:100 libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
