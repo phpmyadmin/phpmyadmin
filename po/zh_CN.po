@@ -6222,7 +6222,7 @@ msgstr "DIA"
 
 #: libraries/schema/User_Schema.class.php:354
 msgid "VISIO"
-msgstr ""
+msgstr "VISIO"
 
 #: libraries/schema/User_Schema.class.php:355
 msgid "EPS"
