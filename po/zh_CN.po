@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:34+0200\n"
+"PO-Revision-Date: 2010-09-04 06:35+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1783,10 +1783,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "查询执行时间对比 (单位：微秒)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "查询结果选项"
+msgstr "查询结果"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
