@@ -9164,10 +9164,9 @@ msgid "Radar"
 msgstr "雷达图 (戴布拉图、螂蛛网图)"
 
 #: tbl_chart.php:139
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PB"
+msgstr "饼图"
 
 #: tbl_chart.php:145
 #, fuzzy
