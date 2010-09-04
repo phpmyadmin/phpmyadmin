@@ -4055,7 +4055,7 @@ msgstr "[strong]警告：[/strong]需要安装 PHP SOAP 扩展或 PEAR SOAP"
 
 #: libraries/config/messages.inc.php:466
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "启用 SQL 校验器"
 
 #: libraries/config/messages.inc.php:467
 msgid ""
