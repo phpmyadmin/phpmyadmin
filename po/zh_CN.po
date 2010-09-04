@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-08-10 08:13+0200\n"
+"PO-Revision-Date: 2010-09-04 04:04+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -96,7 +96,7 @@ msgstr "使用此值"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "尚未配置二进制大对象 (BLOB) 流服务器！"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -9734,49 +9734,3 @@ msgstr "将视图改名为"
 
 #~ msgid "yes"
 #~ msgstr "是"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "删除字段中的回车换行符"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "添加自增 (AUTO_INCREMENT) 值"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "从 # %2$s 行开始转储 %1$s 行"
-
-#~ msgid "remember template"
-#~ msgstr "记住模板"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "可自动识别以下压缩格式的文件: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "添加进注释"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "导出结构大纲 (推荐)"
-
-#~ msgid "Export functions"
-#~ msgstr "导出函数"
-
-#~ msgid "Export procedures"
-#~ msgstr "导出存储过程"
-
-#~ msgid "Export triggers"
-#~ msgstr "导出触发器"
-
-#~ msgid "Export views"
-#~ msgstr "导出视图"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "无效的字段 (%s) 。"
-
-#~ msgid "Actions"
-#~ msgstr "操作"
-
-#~ msgid "Interface"
-#~ msgstr "界面"
