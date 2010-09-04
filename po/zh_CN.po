@@ -2603,7 +2603,7 @@ msgstr "SQL 兼容模式"
 
 #: libraries/config/messages.inc.php:119
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "在插入数据时使用的语法"
 
 #: libraries/config/messages.inc.php:120
 msgid "Creation/Update/Check dates"
