@@ -7063,7 +7063,7 @@ msgstr "导入文件"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "从浏览器存储中导入"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
