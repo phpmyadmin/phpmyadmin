@@ -3405,10 +3405,9 @@ msgid "Query window height"
 msgstr "查询窗口高度"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "查询窗口"
+msgstr "查询窗口宽度 (单位：像素)"
 
 #: libraries/config/messages.inc.php:340
 #, fuzzy
