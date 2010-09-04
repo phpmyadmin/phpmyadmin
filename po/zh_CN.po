@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:44+0200\n"
+"PO-Revision-Date: 2010-09-04 04:45+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3284,7 +3284,7 @@ msgstr "显示 SQL 语句的最大长度"
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "用户不能设置更大的值"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
