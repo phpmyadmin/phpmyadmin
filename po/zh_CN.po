@@ -2077,7 +2077,6 @@ msgid "complete inserts"
 msgstr "完整插入"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "扩展插入"
