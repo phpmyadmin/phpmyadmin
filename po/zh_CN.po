@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:13+0200\n"
+"PO-Revision-Date: 2010-09-04 07:14+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4454,10 +4454,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "保存到务器上的 <b>%s</b> 文件夹中"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "另存为文件"
+msgstr "保存为文件"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
