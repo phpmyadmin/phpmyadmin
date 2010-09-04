@@ -6095,10 +6095,9 @@ msgid "Select Tables"
 msgstr "选择表"
 
 #: libraries/schema/User_Schema.class.php:347
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "关系大纲"
+msgstr "显示关系大纲"
 
 #: libraries/schema/User_Schema.class.php:352
 #, fuzzy
