@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:10+0200\n"
+"PO-Revision-Date: 2010-09-04 07:11+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4400,10 +4400,10 @@ msgid "Exporting tables in the database \"%s\""
 msgstr "导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
-msgstr "在数据库 %s 中新建一张数据表"
+msgstr "导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
