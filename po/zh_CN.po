@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 05:55+0200\n"
+"PO-Revision-Date: 2010-09-04 06:01+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1069,10 +1069,9 @@ msgid "Renaming Databases"
 msgstr "将数据库改名为"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "删除数据库"
+msgstr "重新载入数据库"
 
 #: js/messages.php:73
 #, fuzzy
