@@ -6149,10 +6149,9 @@ msgid "Portrait"
 msgstr "纵向"
 
 #: libraries/schema/User_Schema.class.php:395
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "创建时间"
+msgstr "方向"
 
 #: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
