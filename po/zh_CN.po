@@ -1809,7 +1809,7 @@ msgstr "未找到图表所需数据。"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "绘制图表需要 GD 扩展。"
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
