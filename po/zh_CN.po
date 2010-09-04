@@ -6906,10 +6906,9 @@ msgid "to/from page"
 msgstr "到/从 页"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "提交的表单中有错误"
+msgstr "无法保存设置，提交的表单中有错误"
 
 #: prefs_manage.php:80
 #, fuzzy
