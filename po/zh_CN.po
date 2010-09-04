@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:59+0200\n"
+"PO-Revision-Date: 2010-09-04 07:01+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3366,7 +3366,6 @@ msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3374,9 +3373,7 @@ msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
-msgstr ""
-"允许使用基于数据库的查询历史 (需要 PMA 数据库)。如果禁用，将使用 JavaScript "
-"来显示查询历史 (JS-routines，关闭窗口后当前显示的历史会丢失)。"
+msgstr "允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 JS 程序来显示查询历史 (关闭窗口即丢失)。"
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
