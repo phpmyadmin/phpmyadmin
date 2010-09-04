@@ -3493,7 +3493,7 @@ msgstr "显示帮助按钮代替文档文本"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
-msgstr ""
+msgstr "显示帮助按钮"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
