@@ -6765,7 +6765,7 @@ msgstr "其他核心设置"
 
 #: main.php:133
 msgid "Background color"
-msgstr ""
+msgstr "背景色"
 
 #: main.php:134
 msgid "Choose..."
