@@ -4511,7 +4511,7 @@ msgstr "字段数"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "起始行数："
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
