@@ -7067,7 +7067,7 @@ msgstr "从浏览器存储中导入"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "设置将从浏览器的本地存储中导入。"
 
 #: prefs_manage.php:254
 #, fuzzy
