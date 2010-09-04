@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:18+0200\n"
+"PO-Revision-Date: 2010-09-04 07:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4618,10 +4618,9 @@ msgid ""
 msgstr "在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "跳过查询的数量"
+msgstr "从首行起要跳过的行数："
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
