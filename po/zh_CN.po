@@ -5449,7 +5449,7 @@ msgstr "给表名和字段名加上反引号 <i>(保护表名和字段名中的�
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "代替 <code>INSERT</code> 语句，使用："
+msgstr "代替 <code>INSERT (插入)</code> 语句，使用："
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
