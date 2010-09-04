@@ -2600,10 +2600,9 @@ msgid "Maximal length of created query"
 msgstr "创建查询的最大长度"
 
 #: libraries/config/messages.inc.php:134
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "导出数据表"
+msgstr "导出类型"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
