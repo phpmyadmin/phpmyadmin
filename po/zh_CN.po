@@ -2321,10 +2321,9 @@ msgid "Debug SQL"
 msgstr "调试 SQL"
 
 #: libraries/config/messages.inc.php:44
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "数据库显示选项"
+msgstr "默认显示模式"
 
 #: libraries/config/messages.inc.php:45
 msgid ""
