@@ -1177,10 +1177,9 @@ msgid "Change Password"
 msgstr "修改密码"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "一"
+msgstr "更多"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:120
