@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:26+0200\n"
+"PO-Revision-Date: 2010-09-04 09:27+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3049,7 +3049,7 @@ msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "滑块初始状态"
 
 #: libraries/config/messages.inc.php:261
 msgid "How many rows can be inserted at one time"
