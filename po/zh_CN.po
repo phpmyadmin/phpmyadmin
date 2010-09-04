@@ -346,10 +346,9 @@ msgid ""
 msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此处%s。"
 
 #: db_operations.php:549
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "关系大纲"
+msgstr "编辑或导出关系大纲"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
