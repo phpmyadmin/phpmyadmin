@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 08:54+0200\n"
+"PO-Revision-Date: 2010-09-04 08:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9057,7 +9057,7 @@ msgstr "因为兼容性原因，图表图片默认分块生成，选中此项即
 #: tbl_chart.php:167
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-msgstr ""
+msgstr "绘制雷达图时所有数据将被规格化到 [0..10] 的范围中。"
 
 #: tbl_chart.php:174
 msgid ""
