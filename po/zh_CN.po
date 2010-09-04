@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:57+0200\n"
+"PO-Revision-Date: 2010-09-04 06:58+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3159,11 +3159,10 @@ msgid "Light tabs"
 msgstr "简化标签"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "显示 SQL 语句时可以使用的最多字符数"
+msgstr "浏览非数字字段时所显示的最大字符数"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
