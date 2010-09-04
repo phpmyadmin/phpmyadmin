@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:15+0200\n"
+"PO-Revision-Date: 2010-09-04 07:16+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4520,7 +4520,6 @@ msgid "gzipped"
 msgstr "gzip 压缩"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
