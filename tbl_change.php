@@ -292,8 +292,8 @@ foreach ($rows as $row_id => $vrow) {
 
     $vresult = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
     if ($insert_mode && $row_id > 0) {
-        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_check_' . $row_id . '" />';
-        echo '<label for="insert_ignore_check_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
+        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_' . $row_id . '" />';
+        echo '<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
     }
 ?>
     <table class="insertRowTable">

@@ -1143,7 +1143,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     'db'        => $db,
                     'table'     => $table,
                     'sql_query' => $url_sql_query,
-                    'zero_rows' => __('The row has been deleted'),
+                    'message_to_show' => __('The row has been deleted'),
                     'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
                 );
                 $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
@@ -1155,7 +1155,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     'db'        => $db,
                     'table'     => $table,
                     'sql_query' => $del_query,
-                    'zero_rows' => __('The row has been deleted'),
+                    'message_to_show' => __('The row has been deleted'),
                     'goto'      => $lnk_goto,
                 );
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);

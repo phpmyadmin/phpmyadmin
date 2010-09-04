@@ -468,11 +468,11 @@ class PMA_Index
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
                     $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY';
-                    $this_params['zero_rows'] = __('The primary key has been dropped');
+                    $this_params['message_to_show'] = __('The primary key has been dropped');
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP PRIMARY KEY');
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index->getName());
-                    $this_params['zero_rows'] = sprintf(__('Index %s has been dropped'), $index->getName());
+                    $this_params['message_to_show'] = sprintf(__('Index %s has been dropped'), $index->getName());
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP INDEX ' . $index->getName());
                 }
 
