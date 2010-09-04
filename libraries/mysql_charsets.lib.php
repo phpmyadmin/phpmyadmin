@@ -413,7 +413,6 @@ function PMA_getCollationDescr($collation) {
         }
     }
 
-    $collation_cache[$collation] = $descr;
     return $descr;
 }
 ?>
