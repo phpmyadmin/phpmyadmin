@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 05:24+0200\n"
+"PO-Revision-Date: 2010-09-04 05:26+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5632,7 +5632,7 @@ msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
-msgstr ""
+msgstr "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半角逗号分隔且不能用引号括起。"
 
 #: libraries/import/csv.php:41
 #, fuzzy
