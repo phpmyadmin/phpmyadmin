@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:39+0200\n"
+"PO-Revision-Date: 2010-09-04 07:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6911,10 +6911,9 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr "无法保存设置，提交的表单中有错误"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "无法加载默认配置: %1$s"
+msgstr "无法导入设置"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
