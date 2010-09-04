@@ -1063,10 +1063,9 @@ msgid "OK"
 msgstr "确定"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "将数据库改名为"
+msgstr "正在重命名数据库"
 
 #: js/messages.php:72
 #| msgid "Remove database"
