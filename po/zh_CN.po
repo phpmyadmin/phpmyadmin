@@ -4510,7 +4510,6 @@ msgid "None"
 msgstr "无"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zip 压缩"
