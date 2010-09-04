@@ -6605,10 +6605,9 @@ msgid ""
 msgstr "你的偏好将仅作用于本次会话。要想永久保存需要 %sphpMyAdmin 配置存储%s。"
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "无法加载或保存配置"
+msgstr "无法保存设置"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
