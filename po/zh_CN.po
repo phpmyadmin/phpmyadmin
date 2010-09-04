@@ -3489,7 +3489,7 @@ msgstr "修复线程"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "显示帮助按钮代替文档文本"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
