@@ -1078,10 +1078,9 @@ msgid "Copying Database"
 msgstr "正在复制数据库"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "字符集"
+msgstr "正在修改字符集"
 
 #: js/messages.php:75
 #| msgid "Table must have at least one column."
