@@ -4755,10 +4755,9 @@ msgid "Print view (with full texts)"
 msgstr "打印预览 (全文显示)"
 
 #: libraries/display_tbl.lib.php:2232 tbl_chart.php:82
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "显示 PDF 大纲"
+msgstr "显示图表"
 
 #: libraries/display_tbl.lib.php:2383
 msgid "Link not found"
