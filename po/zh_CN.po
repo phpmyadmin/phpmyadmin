@@ -6817,7 +6817,7 @@ msgstr "官方主页 (外链，英文)"
 
 #: main.php:221
 msgid "Mailing lists"
-msgstr ""
+msgstr "邮件列表"
 
 #: main.php:247
 msgid ""
