@@ -4193,10 +4193,9 @@ msgstr "快速"
 
 #: libraries/config/setup.forms.php:263
 #: libraries/config/user_preferences.forms.php:166
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "自定义颜色"
+msgstr "自定义"
 
 #: libraries/config/setup.forms.php:284
 #: libraries/config/user_preferences.forms.php:186
