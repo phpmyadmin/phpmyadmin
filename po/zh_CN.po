@@ -4156,10 +4156,9 @@ msgid "HTTP authentication"
 msgstr "HTTP 认证"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "主机认证"
+msgstr "Signon 认证"
 
 #: libraries/config/setup.forms.php:237
 #: libraries/config/user_preferences.forms.php:141 libraries/import/ldi.php:34
