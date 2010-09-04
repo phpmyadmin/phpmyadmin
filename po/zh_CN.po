@@ -9144,7 +9144,7 @@ msgstr "竖直轴标签"
 
 #: tbl_chart.php:113
 msgid "Area margins"
-msgstr ""
+msgstr "区域边距"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
