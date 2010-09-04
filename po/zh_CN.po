@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:39+0200\n"
+"PO-Revision-Date: 2010-09-04 06:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2510,11 +2510,10 @@ msgstr "数据表名模板"
 #: libraries/config/messages.inc.php:139 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Dump table"
-msgstr "%s 张表"
+msgstr "转储数据表"
 
 #: libraries/config/messages.inc.php:89 libraries/export/latex.php:31
 msgid "Include table caption"
