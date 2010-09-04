@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 04:50+0200\n"
+"PO-Revision-Date: 2010-09-04 04:52+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3479,7 +3479,7 @@ msgstr "记录引擎"
 
 #: libraries/config/messages.inc.php:343
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]"
 
 #: libraries/config/messages.inc.php:344
 #, fuzzy
