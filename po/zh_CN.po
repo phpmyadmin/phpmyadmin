@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:01+0200\n"
+"PO-Revision-Date: 2010-09-04 07:02+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3410,10 +3410,9 @@ msgid "Query window width (in pixels)"
 msgstr "查询窗口宽度 (单位：像素)"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "查询窗口"
+msgstr "查询窗口宽度"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
