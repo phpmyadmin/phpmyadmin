@@ -9148,7 +9148,7 @@ msgstr "区域边距"
 
 #: tbl_chart.php:123
 msgid "Legend margins"
-msgstr ""
+msgstr "图例边距"
 
 #: tbl_chart.php:135
 #, fuzzy
