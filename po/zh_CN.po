@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 06:52+0200\n"
+"PO-Revision-Date: 2010-09-04 06:53+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2933,10 +2933,9 @@ msgid "Choose how you want tabs to work"
 msgstr "选择你想让标签怎样工作"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "使用文本域"
+msgstr "文本字段"
 
 #: libraries/config/messages.inc.php:223
 #, fuzzy
