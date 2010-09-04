@@ -5582,10 +5582,9 @@ msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
+msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
