@@ -5189,7 +5189,6 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr "删除字段中的回车换行符"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Excel 版本"
