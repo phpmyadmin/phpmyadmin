@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 07:14+0200\n"
+"PO-Revision-Date: 2010-09-04 07:15+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4476,7 +4476,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr "，@TABLE@ 将变成数据表名"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4486,8 +4486,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
-"列内容也将被转换：%3$s。其他文本将保持原样。"
+"这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下列内容也将被转换：%3$s。其他文本将保持原样。参见%"
+"4$s常见问题 (FAQ)%5$s。"
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
