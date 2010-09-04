@@ -2825,10 +2825,9 @@ msgid "Authentication"
 msgstr "认证"
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "认证方式"
+msgstr "认证设置"
 
 #: libraries/config/messages.inc.php:197
 msgid "Server configuration"
