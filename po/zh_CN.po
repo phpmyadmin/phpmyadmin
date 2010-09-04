@@ -4576,10 +4576,9 @@ msgid "Importing into the table \"%s\""
 msgstr "导入到数据表“%s”"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "要导入的文件"
+msgstr "要导入的文件："
 
 #: libraries/display_import.lib.php:156
 #, php-format
