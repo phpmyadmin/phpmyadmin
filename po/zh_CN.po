@@ -9151,10 +9151,9 @@ msgid "Legend margins"
 msgstr "图例边距"
 
 #: tbl_chart.php:135
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "三月"
+msgstr "柱状图"
 
 #: tbl_chart.php:136
 msgid "Line"
