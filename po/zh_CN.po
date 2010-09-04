@@ -3323,7 +3323,7 @@ msgstr "禁止显示在使用 cookie 认证时缺少 mcrypt 的默认警告"
 
 #: libraries/config/messages.inc.php:309
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt 警告"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
