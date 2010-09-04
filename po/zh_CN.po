@@ -4596,10 +4596,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "部分导入"
+msgstr "部分导入："
 
 #: libraries/display_import.lib.php:214
 #, php-format
