@@ -4406,10 +4406,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr "导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "导出类型"
+msgstr "导出方式"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
