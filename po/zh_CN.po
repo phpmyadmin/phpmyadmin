@@ -2229,7 +2229,7 @@ msgstr "开启这个功能将允许其它域的页面通过框架调用 phpMyAdm
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "允许第三方框架"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
