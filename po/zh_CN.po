@@ -2473,7 +2473,6 @@ msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "删除字段中的回车换行符"
