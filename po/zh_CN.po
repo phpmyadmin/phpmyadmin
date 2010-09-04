@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-04 09:46+0200\n"
+"PO-Revision-Date: 2010-09-04 09:49+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6325,7 +6325,7 @@ msgstr "结束原文"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "自动在查询结尾闭合了引号！"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
