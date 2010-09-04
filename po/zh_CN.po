@@ -3679,7 +3679,6 @@ msgstr ""
 "pmadb]pmadb (外链，英文)[/a]。不使用请留空。默认： [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "数据库名"
