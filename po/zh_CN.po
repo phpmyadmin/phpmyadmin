@@ -5241,10 +5241,9 @@ msgid "Display foreign key relationships"
 msgstr "显示外键的关系"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "显示字段注释"
+msgstr "显示注释"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
