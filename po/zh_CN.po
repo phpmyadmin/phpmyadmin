@@ -5324,10 +5324,10 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "说明"
+msgstr "添加 %s 语句"
 
 #: libraries/export/sql.php:91
 #, fuzzy
