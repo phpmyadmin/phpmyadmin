@@ -2171,7 +2171,7 @@ $cfg['TextareaCols'] = 40;
 $cfg['TextareaRows'] = 15;
 
 /**
- * double size of textarea size for LONGTEXT fields
+ * double size of textarea size for LONGTEXT columns 
  *
  * @global boolean $cfg['LongtextDoubleTextarea']
  */

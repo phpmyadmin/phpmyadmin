@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 08:07-0400\n"
+"POT-Creation-Date: 2010-09-05 08:56-0400\n"
 "PO-Revision-Date: 2010-08-27 12:34+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -3400,7 +3400,7 @@ msgid "Login cookie validity"
 msgstr "Inlog cookie geldigheid"
 
 #: libraries/config/messages.inc.php:296
-msgid "Double size of textarea for LONGTEXT fields"
+msgid "Double size of textarea for LONGTEXT columns"
 msgstr ""
 
 #: libraries/config/messages.inc.php:297
