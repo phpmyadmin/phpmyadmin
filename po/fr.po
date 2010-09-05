@@ -4194,6 +4194,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Taille des zones de texte (lignes) en mode édition, cette valeur sera "
+"augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
 
 #: libraries/config/messages.inc.php:476
 #, fuzzy
