@@ -2658,10 +2658,9 @@ msgid "Enclose export in a transaction"
 msgstr "Utiliser le mode transactionnel"
 
 #: libraries/config/messages.inc.php:136
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Exporter le contenu"
+msgstr "Exporter l'heure en format UTC"
 
 #: libraries/config/messages.inc.php:144
 msgid "Force secured connection while using phpMyAdmin"
