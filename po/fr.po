@@ -2961,10 +2961,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Personnaliser les liens affichés dans les boîtes de requêtes SQL"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "Requêtes SQL"
+msgstr "Réglages des requêtes SQL"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
