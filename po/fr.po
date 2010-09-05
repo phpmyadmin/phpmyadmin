@@ -3020,7 +3020,7 @@ msgstr "Avertissements"
 
 #: libraries/config/messages.inc.php:227
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Désactiver certains avertissements affichés"
 
 #: libraries/config/messages.inc.php:228
 msgid ""
