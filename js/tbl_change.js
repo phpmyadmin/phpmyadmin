@@ -354,6 +354,7 @@ $(document).ready(function() {
                     var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
 
                     $(this).attr('name', new_name);
+                    $(this).attr('value', '');
                 });
 
                 //Insert/Clone the ignore checkboxes
