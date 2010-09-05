@@ -3394,10 +3394,9 @@ msgstr ""
 "données"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "<b>Ordonner</b> la table par"
+msgstr "Ordre naturel"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
