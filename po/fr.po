@@ -2704,10 +2704,9 @@ msgstr "Personnaliser le mode affichage"
 #: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:213
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
-msgstr "Personnaliser les valeurs utilisées habituellement"
+msgstr "Personnaliser les options par défaut"
 
 #: libraries/config/messages.inc.php:154 libraries/config/setup.forms.php:229
 #: libraries/config/setup.forms.php:308
