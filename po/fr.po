@@ -1104,7 +1104,6 @@ msgid "Table must have atleast 1 column"
 msgstr "La table doit comporter au moins une colonne."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Nouvelle table"
