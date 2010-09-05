@@ -2637,7 +2637,7 @@ msgstr "Désactiver la vérification des clés étrangères"
 
 #: libraries/config/messages.inc.php:125
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Utiliser l'hexadécimal pour un BLOB"
 
 #: libraries/config/messages.inc.php:127
 #, fuzzy
