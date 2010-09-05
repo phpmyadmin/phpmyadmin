@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:02+0200\n"
+"PO-Revision-Date: 2010-09-05 14:03+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1058,10 +1058,9 @@ msgid "Loading"
 msgstr "Chargement"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Processus"
+msgstr "Requête en traitement"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
