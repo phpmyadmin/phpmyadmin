@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:27+0200\n"
+"PO-Revision-Date: 2010-09-05 15:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4211,10 +4211,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Titre de la fenêtre de navigateur quand rien n'est choisi"
 
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Onglet par défaut pour tables"
+msgstr "Titre par défaut"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a server is selected"
