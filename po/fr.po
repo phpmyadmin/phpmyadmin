@@ -4348,7 +4348,7 @@ msgstr "Open Document Spreadsheet"
 #: libraries/config/setup.forms.php:259
 #: libraries/config/user_preferences.forms.php:162
 msgid "Quick"
-msgstr ""
+msgstr "Rapide"
 
 #: libraries/config/setup.forms.php:263
 #: libraries/config/user_preferences.forms.php:166
