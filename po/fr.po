@@ -2519,7 +2519,6 @@ msgid "Replace NULL by"
 msgstr "Remplacer NULL par"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
