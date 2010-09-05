@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:18+0200\n"
+"PO-Revision-Date: 2010-09-05 15:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4118,7 +4118,7 @@ msgstr "Saute les tables verrouillées"
 
 #: libraries/config/messages.inc.php:462
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Requiert que le validateur SQL soit activé"
 
 #: libraries/config/messages.inc.php:464
 #: libraries/display_change_password.lib.php:40
