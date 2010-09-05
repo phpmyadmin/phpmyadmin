@@ -3119,7 +3119,6 @@ msgid "Partial import: skip queries"
 msgstr "Nombre de requêtes à ignorer"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ne pas utiliser AUTO_INCREMENT pour la valeur zéro"
