@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:12+0200\n"
+"PO-Revision-Date: 2010-09-05 15:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3531,13 +3531,10 @@ msgid "Repeat headers"
 msgstr "Répéter les en-têtes"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
 #| msgid ""
 #| "Shows a help button instead of the &quot;Documentation&quot; message."
 msgid "Show help button instead of Documentation text"
-msgstr ""
-"Affiche un bouton d'aide plut&ocirc;t que le message &laquo;&nbsp;"
-"Documentation&nbsp;&raquo;."
+msgstr "Affiche un bouton d'aide au lieu du message Documentation"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
