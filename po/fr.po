@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:24+0200\n"
+"PO-Revision-Date: 2010-09-05 15:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4198,10 +4198,9 @@ msgstr ""
 "augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "Taille verticale pour un textarea"
+msgstr "Taille verticale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
