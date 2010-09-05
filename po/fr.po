@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:59+0200\n"
+"PO-Revision-Date: 2010-09-05 15:00+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3390,6 +3390,8 @@ msgstr "Montrer à droite le lien d'effacement"
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
 msgstr ""
+"Utiliser l'ordre naturel pour trier les noms de tables et de bases de "
+"données"
 
 #: libraries/config/messages.inc.php:315
 #, fuzzy
