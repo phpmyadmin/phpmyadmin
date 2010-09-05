@@ -2436,10 +2436,9 @@ msgid "Edit in window"
 msgstr "Édition dans la fenêtre"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Affichage infobulle"
+msgstr "Affichage des erreurs"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
