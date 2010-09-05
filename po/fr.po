@@ -1068,7 +1068,7 @@ msgstr "Erreur dans le traitement de la requête"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Suppression de la colonne"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
