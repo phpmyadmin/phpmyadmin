@@ -4204,7 +4204,7 @@ msgstr "Taille verticale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titre de la fenêtre de navigateur quand une base de données est choisie"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
