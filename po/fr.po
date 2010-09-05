@@ -1072,7 +1072,7 @@ msgstr "Suppression de la colonne"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Ajout de clé primaire"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
 msgid "OK"
