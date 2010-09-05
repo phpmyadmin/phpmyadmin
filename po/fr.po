@@ -4305,7 +4305,6 @@ msgid "Config authentication"
 msgstr "Mode d'authentification « config »"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "the Cookie authentication mode"
 msgid "Cookie authentication"
 msgstr "Mode d'authentification « cookie »"
