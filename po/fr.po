@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:51+0200\n"
+"PO-Revision-Date: 2010-09-05 14:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3232,13 +3232,11 @@ msgid "Light tabs"
 msgstr "Onglets légers"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Nombre maximum affich&eacute; de caract&egrave;res dans tout champ non "
-"num&eacute;rique en mode Afficher. Peut &ecirc;tre d&eacute;sactiv&eacute; "
-"par un bouton radio dans la page en cours."
+"Nombre maximum de caractères affichés dans toute colonne non numérique en "
+"mode Afficher"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
