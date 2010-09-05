@@ -4626,7 +4626,7 @@ msgstr ", @DATABASE@ sera remplacé par le nom de la base de données"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ sera remplacé par le nom de la table"
 
 #: libraries/display_export.lib.php:237
 #, php-format
