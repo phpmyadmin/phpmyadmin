@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:16+0200\n"
+"PO-Revision-Date: 2010-09-05 14:17+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2431,10 +2431,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Éditer les requêtes SQL dans une fenêtre popup"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Modifier l'enregistrement suivant"
+msgstr "Édition dans la fenêtre"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
