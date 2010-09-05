@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:23+0200\n"
+"PO-Revision-Date: 2010-09-05 14:24+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2627,10 +2627,9 @@ msgid "Creation/Update/Check dates"
 msgstr "Dates de création/mise à jour/vérification"
 
 #: libraries/config/messages.inc.php:121
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "Use delayed inserts"
-msgstr "Insertions avec délais"
+msgstr "Insertions avec délai"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
