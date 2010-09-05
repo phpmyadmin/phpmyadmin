@@ -2594,7 +2594,7 @@ msgstr "Relations"
 #: libraries/config/messages.inc.php:102
 #| msgid "Export Method:"
 msgid "Export method"
-msgstr "Méthode d'exportation:"
+msgstr "Méthode d'exportation"
 
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:113
 msgid "Save on server"
