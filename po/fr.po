@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:48+0200\n"
+"PO-Revision-Date: 2010-09-05 14:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3092,10 +3092,9 @@ msgstr "Utiliser l'option LOCAL"
 
 #: libraries/config/messages.inc.php:250 libraries/config/messages.inc.php:258
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Column names in first row"
-msgstr "Afficher les noms de colonnes en première ligne"
+msgstr "Noms de colonnes en première ligne"
 
 #: libraries/config/messages.inc.php:251 libraries/import/ods.php:27
 msgid "Do not import empty rows"
