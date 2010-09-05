@@ -3101,7 +3101,6 @@ msgid "Do not import empty rows"
 msgstr "Ne pas importer les lignes vides"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer les valeurs de monnaie ($5.00 devient 5.00)"
