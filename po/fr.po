@@ -2819,7 +2819,7 @@ msgstr "Panneau principal"
 
 #: libraries/config/messages.inc.php:182
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:184
 #, fuzzy
