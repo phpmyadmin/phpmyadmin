@@ -3792,10 +3792,9 @@ msgstr ""
 "désactiver. Suggéré : [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "nom de base de données"
+msgstr "Nom de base de données"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
