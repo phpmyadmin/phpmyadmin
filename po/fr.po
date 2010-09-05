@@ -4358,10 +4358,9 @@ msgstr "Personnalisé"
 
 #: libraries/config/setup.forms.php:284
 #: libraries/config/user_preferences.forms.php:186
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Database export options"
-msgstr "Options d'affichage des bases de données"
+msgstr "Options d'exportation des bases de données"
 
 #: libraries/config/setup.forms.php:297 libraries/config/setup.forms.php:333
 #: libraries/config/setup.forms.php:364 libraries/config/setup.forms.php:369
