@@ -3964,7 +3964,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Table de stockage des préférences utilisateur"
 
 #: libraries/config/messages.inc.php:430
 msgid "User for config auth"
