@@ -2358,7 +2358,7 @@ msgstr "Navigation des champs au moyen de Ctrl+flèches"
 
 #: libraries/config/messages.inc.php:43
 msgid "Debug SQL"
-msgstr ""
+msgstr "Déboguer SQL"
 
 #: libraries/config/messages.inc.php:44
 #, fuzzy
