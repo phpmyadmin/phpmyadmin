@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:31+0200\n"
+"PO-Revision-Date: 2010-09-05 15:32+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4310,10 +4310,9 @@ msgid "Cookie authentication"
 msgstr "Mode d'authentification « cookie »"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Swekey authentication"
 msgid "HTTP authentication"
-msgstr "Authentification Swekey"
+msgstr "Mode d'authentification « HTTP »"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
