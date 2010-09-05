@@ -4300,7 +4300,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "'config' authentication mode"
 msgid "Config authentication"
 msgstr "Mode d'authentification 'config'"
