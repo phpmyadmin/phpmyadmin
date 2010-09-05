@@ -3197,7 +3197,7 @@ msgstr "Séparateur pour l'arborescence des noms de tables"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "L'URL vers lequel le logo dans le panneau de navigation pointera"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
