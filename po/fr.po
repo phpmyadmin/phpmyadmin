@@ -3351,7 +3351,6 @@ msgid "Maximum tables"
 msgstr "Nombre maximum de tables"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication.  You can set this parameter to <tt>TRUE</tt> to "
@@ -3361,8 +3360,7 @@ msgid ""
 "cookie authentication"
 msgstr ""
 "Désactive l'avertissement par défaut qui est affiché si mcrypt est manquant "
-"pour l'authentification par cookie.  Vous pouvez définir ce paramètre à "
-"<tt>TRUE</tt> pour empêcher l'affichage de ce message."
+"pour l'authentification par cookie."
 
 #: libraries/config/messages.inc.php:309
 msgid "mcrypt warning"
