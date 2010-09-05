@@ -40,7 +40,7 @@ $cfg['PmaAbsoluteUri'] = '';
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if
- * any of the required Tables for the relation features could not be found
+ * any of the required Tables for the configuration storage could not be found
  *
  * @global boolean $cfg['PmaNoRelation_DisableWarning']
  */
