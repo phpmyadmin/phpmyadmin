@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:10+0200\n"
+"PO-Revision-Date: 2010-09-05 15:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3522,12 +3522,9 @@ msgid "Recoding engine"
 msgstr "Moteur de conversion"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Repeat the headers every X cells, or 0 to deactivate."
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
-"R&eacute;p&egrave;te les en-t&ecirc;tes toutes les X cellules, ou 0 pour "
-"d&eacute;sactiver."
+msgstr "Répète les en-têtes toutes les X cellules, [kbd]0[/kbd] désactive ceci"
 
 #: libraries/config/messages.inc.php:344
 msgid "Repeat headers"
