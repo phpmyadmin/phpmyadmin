@@ -2571,7 +2571,6 @@ msgid "Table caption"
 msgstr "Sous-titre de la table"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
-#, fuzzy
 #| msgid "Include table caption"
 msgid "Continued table caption"
 msgstr "Inclure les sous-titres"
