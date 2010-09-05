@@ -2722,7 +2722,7 @@ msgstr "Dévelopeur"
 
 #: libraries/config/messages.inc.php:157
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Réglages pour les développeurs phpMyAdmin"
 
 #: libraries/config/messages.inc.php:158
 msgid "Edit mode"
