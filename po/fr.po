@@ -4185,10 +4185,9 @@ msgstr ""
 "augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "Taille horizontale pour un textarea"
+msgstr "Taille horizontale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:475
 msgid ""
