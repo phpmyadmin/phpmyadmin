@@ -3444,9 +3444,8 @@ msgstr ""
 "si l'une des tables du stockage de configuration phpMyAdmin est manquante"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Documentation de phpMyAdmin"
+msgstr "Tables manquantes pour le stockage de configuration phpMyAdmin"
 
 #: libraries/config/messages.inc.php:327
 msgid "Iconic table operations"
