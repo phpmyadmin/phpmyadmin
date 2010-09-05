@@ -1089,10 +1089,9 @@ msgid "Reload Database"
 msgstr "Rafraîchir la base de données"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Copier la base de données vers"
+msgstr "Copie de la base de données"
 
 #: js/messages.php:74
 #, fuzzy
