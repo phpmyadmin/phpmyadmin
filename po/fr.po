@@ -2624,7 +2624,7 @@ msgstr "Syntaxe à utiliser lors de l'insertion de données"
 
 #: libraries/config/messages.inc.php:120
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Dates de création/mise à jour/vérification"
 
 #: libraries/config/messages.inc.php:121
 #, fuzzy
