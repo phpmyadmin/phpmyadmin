@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:17+0200\n"
+"PO-Revision-Date: 2010-09-05 15:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4021,15 +4021,12 @@ msgid "Show create database form"
 msgstr "Afficher le formulaire de création de base de données"
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"D&eacute;finit si les champs des fonctions MySQL doivent &ecirc;tre "
-"affich&eacute;s en mode modification/insertion. Depuis la version 2.10, "
-"l'utilisateur peut changer ce param&egrave;tre &agrave; partir de "
-"l'interface."
+"Définit si les champs des types de données MySQL doivent être affichés en "
+"mode modification/insertion."
 
 #: libraries/config/messages.inc.php:441
 #, fuzzy
