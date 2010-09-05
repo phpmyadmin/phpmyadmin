@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 14:19+0200\n"
+"PO-Revision-Date: 2010-09-05 14:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2611,7 +2611,7 @@ msgstr "Se souvenir du modèle de nom de fichier"
 
 #: libraries/config/messages.inc.php:117
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Entourer les noms de tables et colonnes de guillemets obliques"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:256
 #: libraries/display_export.lib.php:351
