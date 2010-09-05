@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-30 17:37+0200\n"
-"PO-Revision-Date: 2010-09-05 15:09+0200\n"
+"PO-Revision-Date: 2010-09-05 15:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3494,7 +3494,7 @@ msgstr "Onglet par défaut pour fenêtre de requêtes"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Hauteur de la fenêtre de requêtes (en pixels)"
 
 #: libraries/config/messages.inc.php:338
 #, fuzzy
