@@ -3297,7 +3297,7 @@ msgstr "Doubler la taille de la zone de texte pour les colonnes LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Zone de texte plus grande pour LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 #, fuzzy
