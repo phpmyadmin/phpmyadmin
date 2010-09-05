@@ -1084,10 +1084,9 @@ msgid "Renaming Databases"
 msgstr "Changement de nom de la base de données"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Supprimer la base de données"
+msgstr "Rafraîchir la base de données"
 
 #: js/messages.php:73
 #, fuzzy
