@@ -2592,7 +2592,6 @@ msgid "Relations"
 msgstr "Relations"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Export Method:"
 msgid "Export method"
 msgstr "Méthode d'exportation:"
