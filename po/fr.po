@@ -2453,10 +2453,9 @@ msgstr ""
 "informations."
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Ignorer les erreurs"
+msgstr "Icônes pour les erreurs"
 
 #: libraries/config/messages.inc.php:65
 msgid ""
