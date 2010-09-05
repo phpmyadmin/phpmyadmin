@@ -3497,10 +3497,9 @@ msgid "Query window height (in pixels)"
 msgstr "Hauteur de la fenêtre de requêtes (en pixels)"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Fenêtre de requête"
+msgstr "Hauteur de la fenêtre de requêtes"
 
 #: libraries/config/messages.inc.php:339
 #, fuzzy
