@@ -2402,10 +2402,9 @@ msgid "Default table tab"
 msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:53
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Montrer le contenu binaire en hexadécimal"
+msgstr "Montrer par défaut le contenu binaire en hexadécimal"
 
 #: libraries/config/messages.inc.php:54 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
