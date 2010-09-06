@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-06 11:45+0200\n"
+"PO-Revision-Date: 2010-09-06 11:51+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -405,12 +405,12 @@ msgid "Last check"
 msgstr "τελευταίος έλεγχος"
 
 #: db_printview.php:220 db_structure.php:464
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s Πίνακας/Πίνακες"
-msgstr[1] "%s Πίνακας/Πίνακες"
+msgstr[0] "%s Πίνακας"
+msgstr[1] "%s Πίνακες"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1982 libraries/sql_query_form.lib.php:136
@@ -474,20 +474,18 @@ msgid "Modify"
 msgstr "Τροποποίηση"
 
 #: db_qbe.php:580
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Προσθήκη/Αφαίρεση Στήλης Πεδίου"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
-msgstr "Ενημέρωση της εντολής"
+msgstr "Ενημέρωση Ερωτήματος"
 
 #: db_qbe.php:613
 msgid "Use Tables"
@@ -496,7 +494,7 @@ msgstr "Χρήση Πινάκων"
 #: db_qbe.php:636
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Εντολή SQL στη βάση <b>%s</b>:"
+msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
 #: db_qbe.php:930 libraries/common.lib.php:1167
 msgid "Submit Query"
@@ -531,11 +529,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Αποτελέσματα αναζήτησης για «<i>%s</i>» %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s αποτελέσματα στον πίνακα <i>%s</i>"
+msgstr[0] "%s απατέλεσμα στον πίνακα <i>%s</i>"
 msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
 #: db_search.php:255 db_structure.php:76 db_structure.php:77
@@ -560,16 +558,16 @@ msgid "Delete"
 msgstr "Διαγραφή"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
+msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτέλεσμα"
 msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
 #: db_search.php:296
 msgid "Search in database"
-msgstr "Αναζήτηση στη βάση"
+msgstr "Αναζήτηση στη βάση δεδπμένων"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
@@ -588,7 +586,6 @@ msgid "Inside table(s):"
 msgstr "Μέσα στους πίνακες:"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Εσωτερικό πεδίο:"
