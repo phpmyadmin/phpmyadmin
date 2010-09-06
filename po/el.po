@@ -494,7 +494,7 @@ msgstr "Χρήση Πινάκων"
 #: db_qbe.php:636
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Εντολή SQL στη βάση <b>%s</b>:"
+msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
 #: db_qbe.php:930 libraries/common.lib.php:1167
 msgid "Submit Query"
