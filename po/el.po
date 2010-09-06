@@ -352,10 +352,9 @@ msgstr ""
 "απενεργοποιηθεί. Για να μάθετε γιατί, πατήστε %sεδώ%s."
 
 #: db_operations.php:549
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Σχεσιακό σχήμα"
+msgstr "Επεξεργασία ή εξαγωγή σχεσιακού σχήματος"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:485 libraries/db_structure.lib.php:37
@@ -365,7 +364,7 @@ msgstr "Σχεσιακό σχήμα"
 #: server_synchronize.php:421 server_synchronize.php:864 tbl_tracking.php:586
 #: test/theme.php:74
 msgid "Table"
-msgstr "Πίνακας "
+msgstr "Πίνακας"
 
 #: db_printview.php:103 libraries/db_structure.lib.php:47
 #: libraries/header_printview.inc.php:62 libraries/import.lib.php:145
