@@ -1041,7 +1041,6 @@ msgid "Reloading Privileges"
 msgstr "Oppfrisker privilegiene"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Fjern valgte brukere"
