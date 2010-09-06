@@ -979,10 +979,9 @@ msgid "Dropping Procedure"
 msgstr "Slipper prosedyre"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slett overvåkningsdata"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
