@@ -349,10 +349,9 @@ msgstr ""
 "s."
 
 #: db_operations.php:549
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relasjonsskjema"
+msgstr "Rediger eller eksporter relasjonsskjema"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:485 libraries/db_structure.lib.php:37
