@@ -974,10 +974,9 @@ msgid "Dropping Event"
 msgstr "Slipper hendelse"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Prosedyrer"
+msgstr "Slipper prosedyre"
 
 #: js/messages.php:35
 #, fuzzy
