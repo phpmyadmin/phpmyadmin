@@ -405,12 +405,12 @@ msgid "Last check"
 msgstr "τελευταίος έλεγχος"
 
 #: db_printview.php:220 db_structure.php:464
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s Πίνακας/Πίνακες"
-msgstr[1] "%s Πίνακας/Πίνακες"
+msgstr[0] "%s Πίνακας"
+msgstr[1] "%s Πίνακες"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1982 libraries/sql_query_form.lib.php:136
