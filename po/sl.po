@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-08-28 19:02+0200\n"
+"PO-Revision-Date: 2010-09-04 02:00+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -966,23 +966,21 @@ msgstr "S tem dejanjem boste UNIČILI celotno zbirko podatkov!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Brisanje dogodka"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedure"
+msgstr "Brisanje procedure"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Brisanje podatkov sledenja"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Brisanje primarnega ključa/indeksa"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1024,28 +1022,24 @@ msgid "The passwords aren't the same!"
 msgstr "Gesli se ne ujemata!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Dodaj novega uporabnika"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Ustvari različico"
+msgstr "Ustvari uporabnika"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Osvežujem privilegije"
+msgstr "Ponovno nalaganje privilegijev"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Izbriši izbrane uporabnike"
+msgstr "Odstranjevanje izbranih uporabnikov"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
@@ -1056,84 +1050,74 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Naloži"
+msgstr "Nalaganje"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Procesi"
+msgstr "Obdelovanje zahteve"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Napaka v obdelovanju zahteve"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Brisanje stolpca"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Dodajanje primarnega ključa"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
 msgid "OK"
 msgstr "V redu"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Preimenuj zbirko podatkov v"
+msgstr "Preimenovanje zbirk podatkov"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Odstrani zbirko podatkov"
+msgstr "Ponovno nalaganje zbirke podatkov"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopiraj zbirko podatkov v"
+msgstr "Kopiranje zbirke podatkov"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Nabor znakov"
+msgstr "Spreminjanje nabora znakov"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "Tabele morajo imeti vsaj en stolpec."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Ustvari tabelo"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Iskanje"
 
 #: js/messages.php:84
 msgid "Toggle Query Box Visibility"
-msgstr ""
+msgstr "Preklopi vidnost polja za poizvedbe"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr "V vrstici"
+msgstr "Urejanje v vrstici"
 
 #: js/messages.php:88 tbl_change.php:296 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1203,7 +1187,6 @@ msgid "Generate"
 msgstr "Ustvari"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Spremeni geslo"
@@ -4286,14 +4269,13 @@ msgstr "Preglednica Open Document"
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
-msgstr ""
+msgstr "Hitro"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Prilagoditev"
+msgstr "Po meri"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
@@ -6460,7 +6442,7 @@ msgstr "KONEC NAVADNO"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Samodejno sem dodal levo črtico na konec poizvedbe!"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
