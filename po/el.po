@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-06 11:42+0200\n"
+"PO-Revision-Date: 2010-09-06 11:45+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -251,7 +251,7 @@ msgstr "Επιλογή όλων"
 
 #: db_export.php:46 db_search.php:344 server_export.php:28
 msgid "Unselect All"
-msgstr "Απεπιλογή όλων"
+msgstr "Αποπεπιλογή όλων"
 
 #: db_operations.php:41 tbl_create.php:47
 msgid "The database name is empty!"
@@ -276,10 +276,9 @@ msgid "Command"
 msgstr "Εντολή"
 
 #: db_operations.php:397
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Μετακίνηση βάσης δεδομένων σε"
 
 #: db_operations.php:409
 #, php-format
@@ -287,10 +286,9 @@ msgid "Database %s has been dropped."
 msgstr "Η βάση δεδομένων %s διεγράφη."
 
 #: db_operations.php:414
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Διαγραφή της βάση δεδομένων (DROP)"
 
 #: db_operations.php:442
 msgid "Copy database to"
