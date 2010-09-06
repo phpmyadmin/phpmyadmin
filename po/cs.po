@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-08-30 11:22+0200\n"
+"PO-Revision-Date: 2010-09-06 11:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -646,8 +646,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -857,8 +857,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -963,23 +963,21 @@ msgstr "Chystáte se ZRUŠIT celou databázi!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Odstraňuji událost"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedury"
+msgstr "Odstraňuji proceduru"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Odstranit všechny informace o sledování této tabulky"
+msgstr "Odstraňuji sledovací data"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Odstraňuji (primární) klíč"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1019,28 +1017,24 @@ msgid "The passwords aren't the same!"
 msgstr "Hesla nejsou stejná!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Přidat nového uživatele"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Vytvořit verzi"
+msgstr "Vytvořit uživatele"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Načítám oprávnění"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Odstranit vybrané uživatele"
+msgstr "Odstraňuji vybrané uživatele"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
@@ -1051,81 +1045,71 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Nahrát"
+msgstr "Nahrávám"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Procesy"
+msgstr "Probíhá zpracování požadavku"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Chyba při zpracování požadavku"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Odstraňuji sloupec"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Přidávám primární klíč"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
 msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Přejmenovat databázi na"
+msgstr "Přejmenovávám databáze"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Odstranit databázi"
+msgstr "Znovu načítám databázi"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Zkopírovat databázi na"
+msgstr "Kopíruji databázi"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Znaková sada"
+msgstr "Měním znakovou sadu"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "Tabulka musí mít alespoň jedno pole."
+msgstr "Tabulka musí mít alespoň jedno pole"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Vytvořit tabulku"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Vyhledávání"
+msgstr "Vyhledávám"
 
 #: js/messages.php:84
 msgid "Toggle Query Box Visibility"
-msgstr ""
+msgstr "Přepnout zobrazení pole pro zadání dotazu"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
 msgstr "Upravit zde"
@@ -1198,7 +1182,6 @@ msgid "Generate"
 msgstr "Vytvořit"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Změnit heslo"
@@ -1674,8 +1657,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -3106,10 +3089,9 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Stromový pohled na databáze"
+msgstr "Zobrazit rychlé vyhledávání tabulek"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
@@ -3248,10 +3230,9 @@ msgid "Login cookie validity"
 msgstr "Platnost přihlašovací cookie"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Zdvojnásobit velikost editačního pole pro typ LONGTEXT"
+msgstr "Zdvojnásobit velikost editačního pole pro sloupec typu LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
@@ -4258,14 +4239,13 @@ msgstr "Sešit OpenDocument"
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
-msgstr ""
+msgstr "Rychlý"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Přizpůsobení"
+msgstr "Vlastní"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
@@ -4541,8 +4521,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6396,7 +6376,7 @@ msgstr "KONEC VÝPISU"
 
 #: libraries/sqlparser.lib.php:368
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Na konec dotazu byly automaticky přidány zpětné uvozovky!"
 
 #: libraries/sqlparser.lib.php:371
 msgid "Unclosed quote"
@@ -6458,8 +6438,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6500,8 +6480,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:729 server_engines.php:56
 #: tbl_operations.php:352
@@ -7036,8 +7016,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7506,8 +7486,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -8991,8 +8971,9 @@ msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
+"kbd]."
 
 #: setup/lib/index.lib.php:259
 #, php-format
