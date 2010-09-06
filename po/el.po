@@ -480,7 +480,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Προσθήκη/Αφαίρεση Στήλης Πεδίου"
