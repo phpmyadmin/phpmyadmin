@@ -485,7 +485,7 @@ msgstr "Προσθήκη/Αφαίρεση Στήλης Πεδίου"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
-msgstr "Ενημέρωση της εντολής"
+msgstr "Ενημέρωση Ερωτήματος"
 
 #: db_qbe.php:613
 msgid "Use Tables"
