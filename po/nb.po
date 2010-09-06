@@ -337,7 +337,7 @@ msgid "Collation"
 msgstr "Sammenligning"
 
 #: db_operations.php:516
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -345,8 +345,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Tilleggsfunksjonene for å kunne jobbe med koblede tabeller er deaktivert. "
-"For å finne ut hvorfor, klikk %sher%s."
+"phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%"
+"s."
 
 #: db_operations.php:549
 #, fuzzy
