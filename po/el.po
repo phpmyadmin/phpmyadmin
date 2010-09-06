@@ -558,11 +558,11 @@ msgid "Delete"
 msgstr "Διαγραφή"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
+msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτέλεσμα"
 msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
 #: db_search.php:296
