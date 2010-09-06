@@ -276,10 +276,9 @@ msgid "Command"
 msgstr "Εντολή"
 
 #: db_operations.php:397
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Μετακίνηση βάσης δεδομένων σε"
 
 #: db_operations.php:409
 #, php-format
