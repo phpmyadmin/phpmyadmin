@@ -529,11 +529,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Αποτελέσματα αναζήτησης για «<i>%s</i>» %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s αποτελέσματα στον πίνακα <i>%s</i>"
+msgstr[0] "%s απατέλεσμα στον πίνακα <i>%s</i>"
 msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
 #: db_search.php:255 db_structure.php:76 db_structure.php:77
