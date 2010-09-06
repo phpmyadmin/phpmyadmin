@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-06 13:34+0200\n"
+"PO-Revision-Date: 2010-09-06 13:35+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -971,7 +971,7 @@ msgstr "Du er i ferd med å SLETTE en komplett database!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Slipper hendelse"
 
 #: js/messages.php:33
 #, fuzzy
