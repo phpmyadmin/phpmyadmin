@@ -1054,10 +1054,9 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Last"
+msgstr "Laster"
 
 #: js/messages.php:64
 #, fuzzy
