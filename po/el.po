@@ -176,7 +176,7 @@ msgstr "Κενό"
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:202 tbl_tracking.php:271
 msgid "Default"
-msgstr "Προκαθορισμένο"
+msgstr "Προεπιλογή"
 
 #: db_datadict.php:181 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
