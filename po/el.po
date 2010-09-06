@@ -107,7 +107,7 @@ msgstr "Αποτυχία εγγραφής του αρχείου στο δίσκ�
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Αποτυχία ανοίγματος απομακρυσμένου URL"
 
 #: db_create.php:55
 #, php-format
