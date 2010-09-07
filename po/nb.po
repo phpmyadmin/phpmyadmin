@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-07 14:06+0200\n"
+"PO-Revision-Date: 2010-09-07 14:07+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1800,10 +1800,9 @@ msgid "Could not open file: %s"
 msgstr "Kunne ikke åpne fil: %s"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Vis statistikk"
+msgstr "Spørringsstatistikk"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
