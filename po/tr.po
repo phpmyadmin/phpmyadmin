@@ -3221,10 +3221,9 @@ msgid "Login cookie validity"
 msgstr "Oturum açma tanımlama bilgisi geçerliliği"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "LONGTEXT alanları için metin alanın iki katı boyutu"
+msgstr "LONGTEXT sütunları için metin alanın iki katı boyutu"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
