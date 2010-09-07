@@ -1101,10 +1101,9 @@ msgid "Changing Charset"
 msgstr "Endrer tegnsett"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "Tabellen må ha minst en kolonne."
+msgstr "Tabellen må ha minst en kolonne"
 
 #: js/messages.php:76
 #, fuzzy
