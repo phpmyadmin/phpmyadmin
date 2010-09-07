@@ -8,17 +8,18 @@ Version 3.4.0-dev
 
 http://www.phpmyadmin.net/
 
-Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-
-Copyright (C) 2001-2010 Marc Delisle <marc_at_infomarc.info>
-                        Olivier Müller <om_at_omnis.ch>
-                        Robin Johnson <robbat2_at_users.sourceforge.net>
-                        Alexander M. Turek <me_at_derrabus.de>
-                        Michal Čihař <michal_at_cihar.com>
-                        Garvin Hicking <me_at_supergarv.de>
-                        Michael Keck <mkkeck_at_users.sourceforge.net>
-                        Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
-                        [check Documentation.txt/.html file for more details]
+Copyright (C) 1998-2000 
+    Tobias Ratschiller <tobias_at_ratschiller.com>
+Copyright (C) 2001-2010 
+    Marc Delisle <marc_at_infomarc.info>
+    Olivier Müller <om_at_omnis.ch>
+    Robin Johnson <robbat2_at_users.sourceforge.net>
+    Alexander M. Turek <me_at_derrabus.de>
+    Michal Čihař <michal_at_cihar.com>
+    Garvin Hicking <me_at_supergarv.de>
+    Michael Keck <mkkeck_at_users.sourceforge.net>
+    Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
+    [check Documentation.txt/.html file for more details]
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2,
@@ -36,7 +37,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 Requirements
 ~~~~~~~~~~~~
 
-* php 5.2 or later
+* PHP 5.2 or later
 * MySQL 5.0 or later
 * a web-browser (doh!)
 
@@ -62,9 +63,10 @@ Support
 See reference about support forums under http://www.phpmyadmin.net/
 
 
-    Enjoy!
+Enjoy!
+~~~~~~
 
-    -- The phpMyAdmin Devel team
+The phpMyAdmin Devel team
 
 
 PS: 
