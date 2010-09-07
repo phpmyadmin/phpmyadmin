@@ -3335,7 +3335,6 @@ msgid "Persistent connections"
 msgstr "Persistent connections"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the relation features "
@@ -3346,8 +3345,8 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Disable the default warning that is displayed on the database details "
-"Structure page if any of the required tables for the relation features could "
-"not be found"
+"Structure page if any of the required tables for the phpMyAdmin "
+"configuration storage could not be found"
 
 #: libraries/config/messages.inc.php:326
 msgid "Missing phpMyAdmin configuration storage tables"
