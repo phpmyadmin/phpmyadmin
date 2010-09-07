@@ -1,72 +1,77 @@
 phpMyAdmin - Readme
 ===================
 
-  A set of PHP-scripts to manage MySQL over the web.
+A set of PHP-scripts to manage MySQL over the web.
 
-  Version 3.4.0-dev
-  -----------------
-  http://www.phpmyadmin.net/
+Version 3.4.0-dev
+-----------------
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-    Copyright (C) 2001-2010 Marc Delisle <marc_at_infomarc.info>
-                            Olivier Müller <om_at_omnis.ch>
-                            Robin Johnson <robbat2_at_users.sourceforge.net>
-                            Alexander M. Turek <me_at_derrabus.de>
-                            Michal Čihař <michal_at_cihar.com>
-                            Garvin Hicking <me_at_supergarv.de>
-                            Michael Keck <mkkeck_at_users.sourceforge.net>
-                            Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
-                            [check Documentation.txt/.html file for more details]
+http://www.phpmyadmin.net/
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License version 2,
-    as published by the Free Software Foundation.
+Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Copyright (C) 2001-2010 Marc Delisle <marc_at_infomarc.info>
+                        Olivier Müller <om_at_omnis.ch>
+                        Robin Johnson <robbat2_at_users.sourceforge.net>
+                        Alexander M. Turek <me_at_derrabus.de>
+                        Michal Čihař <michal_at_cihar.com>
+                        Garvin Hicking <me_at_supergarv.de>
+                        Michael Keck <mkkeck_at_users.sourceforge.net>
+                        Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
+                        [check Documentation.txt/.html file for more details]
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2,
+as published by the Free Software Foundation.
 
-  Requirements:
-    php 5.2 or later
-    MySQL 5.0 or later
-    a web-browser (doh!)
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-  Summary:
-    phpMyAdmin is intended to handle the administration of MySQL over the web.
-    For a summary of features, please see the Documentation.txt/.html file.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  Download:
-    You can get the newest version at http://www.phpmyadmin.net/.
+Requirements
+~~~~~~~~~~~~
 
-  Credits:
-    Please see the Documentation.txt/.html file.
+* php 5.2 or later
+* MySQL 5.0 or later
+* a web-browser (doh!)
 
-  Installation:
-    Please see the Documentation.txt/.html file.
+Summary
+~~~~~~~
 
-  ChangeLog:
-    Now in ChangeLog
+phpMyAdmin is intended to handle the administration of MySQL over the web.
+For a summary of features, please see the Documentation.txt/.html file.
 
-  Documentation:
-    Basic documentation available in Documentation.txt/.html
+Download
+~~~~~~~~
 
-  Support:
-    See reference about support forums under http://www.phpmyadmin.net/
+You can get the newest version at http://www.phpmyadmin.net/.
+
+More Information
+~~~~~~~~~~~~~~~~
+
+Please see the Documentation.txt/.html file.
+
+Support
+~~~~~~~
+
+See reference about support forums under http://www.phpmyadmin.net/
 
 
     Enjoy!
-        The phpMyAdmin Devel team
+
+    -- The phpMyAdmin Devel team
 
 
-  PS: Please, don't send us emails with question like "How do I compile
-      PHP with MySQL-support". We just don't have the time to be your
-      free helpdesk.
-      Please send your questions to the appropriate mailinglists / forums.
-      Before contacting us, please read the Documentation.html (esp. the
-      FAQ part).
+PS: 
+    Please, don't send us emails with question like "How do I compile
+    PHP with MySQL-support". We just don't have the time to be your
+    free helpdesk.
+    Please send your questions to the appropriate mailinglists / forums.
+    Before contacting us, please read the Documentation.html (esp. the
+    FAQ part).
 

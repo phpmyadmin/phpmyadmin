@@ -24,11 +24,16 @@ one we ship.
 
 Currently known list of external libraries:
 
-js/jquery - jQuery js framework
-js/colorpicker - jQuery based color picker
+js/jquery 
+    jQuery js framework
+js/colorpicker 
+    jQuery based color picker
 
-libarries/PHPExcel - PHPExcel library for handling Excel files
-libraries/php-gettext - php-gettext library
-libraries/tcpdf - tcpdf library, modified for our needs!
+libarries/PHPExcel 
+    PHPExcel library for handling Excel files
+libraries/php-gettext 
+    php-gettext library
+libraries/tcpdf 
+    tcpdf library, modified for our needs!
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
