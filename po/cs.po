@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-06 11:56+0200\n"
+"PO-Revision-Date: 2010-09-07 10:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1905,7 +1905,7 @@ msgstr "MySQL hlásí: "
 
 #: libraries/common.lib.php:1078
 msgid "Failed to connect to SQL validator!"
-msgstr "Nepodařilo se připojit k serveru ověřujícím SQL!"
+msgstr "Nepodařilo se připojit k serveru kontrolujícímu SQL!"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:460
 msgid "Explain SQL"
@@ -1930,11 +1930,11 @@ msgstr "Obnovit"
 
 #: libraries/common.lib.php:1186
 msgid "Skip Validate SQL"
-msgstr "Bez ověření SQL"
+msgstr "Bez kontroly SQL"
 
 #: libraries/common.lib.php:1189 libraries/config/messages.inc.php:464
 msgid "Validate SQL"
-msgstr "Ověřit SQL"
+msgstr "Zkontrolovat SQL"
 
 #: libraries/common.lib.php:1240
 msgid "Inline edit of this query"
@@ -2159,7 +2159,7 @@ msgstr "export nebude fungovat, chybí funkce (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr "Ověřování SQL je vypnuté"
+msgstr "Kontrolování SQL je vypnuté"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
@@ -2913,7 +2913,7 @@ msgstr "Nastavení SQL dotazů"
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL Validator"
-msgstr "Ověřování SQL"
+msgstr "Kontrolování SQL"
 
 #: libraries/config/messages.inc.php:217
 msgid ""
@@ -2922,6 +2922,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Pokud chcete použít službu kontrolování SQL, je potřeba si uvědomit, že "
+"[strong]všechny SQL dotazy jsou anonymně ukládány pro statistické účely[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. Všechna práva vyhrazena.[/em]"
 
 #: libraries/config/messages.inc.php:218
 msgid "Startup"
@@ -4023,7 +4027,7 @@ msgstr "Přeskočit zamčené tabulky"
 
 #: libraries/config/messages.inc.php:463
 msgid "Requires SQL Validator to be enabled"
-msgstr "Vyžaduje povolené ověřování SQL"
+msgstr "Vyžaduje povolené kontrolování SQL"
 
 #: libraries/config/messages.inc.php:465
 #: libraries/display_change_password.lib.php:40
@@ -4044,7 +4048,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:467
 msgid "Enable SQL Validator"
-msgstr "Povolit ověřování SQL"
+msgstr "Povolit kontrolování SQL"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -6396,8 +6400,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL validátor nemohl být inicializován. Prosím zkontrolujte, jestli máte "
-"požadovaná rozšíření PHP, která jsou uvedena v %sdokumentaci%s."
+"Kontrolování SQL nemohlo být spušteno. Prosím ověřte, jestli máte požadovaná "
+"rozšíření PHP, jak je popsáno v %sdokumentaci%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -9028,7 +9032,7 @@ msgstr "Zobrazuji SQL dotaz"
 
 #: sql.php:591
 msgid "Validated SQL"
-msgstr "Proběhlo ověření SQL"
+msgstr "Proběhlo zkontrolování SQL"
 
 #: sql.php:817
 #, php-format
