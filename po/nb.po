@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 10:53+0200\n"
-"PO-Revision-Date: 2010-09-07 09:16+0200\n"
+"PO-Revision-Date: 2010-09-07 14:07+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1056,10 +1056,9 @@ msgid "Renaming Databases"
 msgstr "Endrer databasenes navn"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Endre databasens navn til"
+msgstr "Gjennlast database"
 
 #: js/messages.php:73
 msgid "Copying Database"
@@ -1159,16 +1158,14 @@ msgid "Generate"
 msgstr "Generer"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Endre passord"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "Man"
+msgstr "Mer"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:120
@@ -1732,13 +1729,12 @@ msgstr "Autentiserer..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS feil"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Sideopprettelsen feilet"
+msgstr "PBMS tilkoblingen feilet:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
@@ -1767,23 +1763,21 @@ msgstr "Last ned fil"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Kunne ikke åpne fil: %s"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Vis statistikk"
+msgstr "Spørringsstatistikk"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Spørringsresultatshandlinger"
+msgstr "Spørringsresultater"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
