@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-07 09:45+0200\n"
+"PO-Revision-Date: 2010-09-07 09:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3075,10 +3075,9 @@ msgid "Display servers selection"
 msgstr "Sunucu seçimlerini görüntüle"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Veritabanlarını ağaç içinde görüntüle"
+msgstr "Tablo süzgeci göster"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
