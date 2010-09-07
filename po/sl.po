@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-07 18:43+0200\n"
+"PO-Revision-Date: 2010-09-07 18:44+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3358,7 +3358,6 @@ msgid "Persistent connections"
 msgstr "Vztrajne povezave"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the relation features "
@@ -3369,8 +3368,8 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Onemogoči privzeto opozorilo, ki se prikaže na strani o podrobnostih zbirke "
-"podatkov Struktura, če katera od potrebnih tabel za funkcije relacij ni bila "
-"najdena"
+"podatkov Struktura, če katera od tabel, potrebnih za hrambo konfiguracije "
+"phpMyAdmin, ni bila najdena"
 
 #: libraries/config/messages.inc.php:326
 msgid "Missing phpMyAdmin configuration storage tables"
