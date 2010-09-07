@@ -935,7 +935,7 @@ $(document).ready(PMA_markRowsInit);
  * @param    container    DOM element
  */
 function markAllRows( container_id ) {
-    
+
     $("#"+container_id).find("input:checkbox:enabled").attr('checked', 'checked')
     .parents("tr").addClass("marked");
     return true;
@@ -948,7 +948,7 @@ function markAllRows( container_id ) {
  * @param    container    DOM element
  */
 function unMarkAllRows( container_id ) {
-    
+
     $("#"+container_id).find("input:checkbox:enabled").removeAttr('checked')
     .parents("tr").removeClass("marked");
     return true;
@@ -1417,7 +1417,7 @@ function refreshLayout() {
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
     if($('#paper_opt').length==1){
-        var paper = $('#paper_opt').val();        
+        var paper = $('#paper_opt').val();
     }else{
         var paper = 'A4';
     }
@@ -1737,7 +1737,7 @@ $(document).ready(function(){
             $("#all_table_same_wide").attr("disabled","disabled");
             $("#paper_opt").attr("disabled","disabled");
             $("#show_color_opt").attr("disabled","disabled");
-            
+
         }else if($("#export_type").val()=='pdf'){
             $("#show_grid_opt").removeAttr("disabled");
             $("#orientation_opt").removeAttr("disabled");
@@ -1763,7 +1763,7 @@ $(document).ready(function(){
 
 /**
  * Function to process the plain HTML response from an Ajax request.  Inserts
- * the various HTML divisions from the response at the proper locations.  The 
+ * the various HTML divisions from the response at the proper locations.  The
  * array relates the divisions to be inserted to their placeholders.
  *
  * @param   var divisions_map   an associative array of id names
@@ -1796,7 +1796,7 @@ function PMA_ajaxInsertResponse(divisions_map) {
  */
 
 function PMA_ajaxShowMessage(message, timeout) {
-    
+
     //Handle the case when a empty data.message is passed.  We don't want the empty message
     if(message == '') {
         return true;
@@ -1961,7 +1961,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
  * db_structure.php and db_tracking.php (i.e., wherever
  * libraries/display_create_table.lib.php is used)
- * 
+ *
  * Attach Ajax Event handlers for Create Table
  */
 $(document).ready(function() {
@@ -1969,7 +1969,7 @@ $(document).ready(function() {
     /**
      * Attach event handler to the submit action of the create table minimal form
      * and retrieve the full table form and display it in a dialog
-     * 
+     *
      * @uses    PMA_ajaxShowMessage()
      */
     $("#create_table_form_minimal").live('submit', function(event) {
@@ -1996,12 +1996,12 @@ $(document).ready(function() {
                 buttons : button_options
             }); // end dialog options
         }) // end $.get()
-        
+
     });
 
     /**
      * Attach event handler for submission of create table form
-     * 
+     *
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_sort_table()
      * @uses    window.parent.refreshNavigation()
@@ -2086,7 +2086,7 @@ $(document).ready(function() {
 
     /**
      * Attach Ajax event handlers for Empty Table
-     * 
+     *
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_confirm()
      */
@@ -2119,7 +2119,7 @@ $(document).ready(function() {
 
     /**
      * Attach Ajax event handler for Drop Table
-     * 
+     *
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_confirm()
      * @uses    window.parent.refreshNavigation()
@@ -2192,9 +2192,9 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready() for Drop Trigger
 
 /**
- * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js 
+ * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
- * 
+ *
  * @uses    $.PMA_confirm()
  * @uses    PMA_ajaxShowMessage()
  * @uses    window.parent.refreshNavigation()
@@ -2287,7 +2287,7 @@ $(document).ready(function() {
 
     /**
      * Attach Ajax event handler for Change Password form submission
-     * 
+     *
      * @uses    PMA_ajaxShowMessage()
      */
     $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
@@ -2312,7 +2312,7 @@ $(document).ready(function() {
             if(data.success == true) {
 
                 PMA_ajaxShowMessage(data.message);
-                
+
                 $("#topmenucontainer").after(data.sql_query);
 
                 $("#change_password_dialog").hide().remove();
@@ -2380,7 +2380,7 @@ $(document).ready(function() {
                       val = val + "'";
                  }
                 // escape the single quotes, except the mandatory ones enclosing the entire string
-                val = val.substr(1, val.length-2).replace(/'/g, "&#039;");
+                val = val.substr(1, val.length-2).replace(/''/g, "'").replace(/\\\\/g, '\\').replace(/\\'/g, "'").replace(/'/g, "&#039;");
                 // escape the greater-than symbol
                 val = val.replace(/>/g, "&gt;");
                 $("#enum_editor #values").append("<input type='text' value=" + val + " />");
@@ -2412,7 +2412,7 @@ $(document).ready(function() {
         $.each($("#enum_editor #values input"), function(index, input_element) {
             val = jQuery.trim(input_element.value);
             if(val != "") {
-                value_array.push("'" + val + "'");
+                value_array.push("'" + val.replace(/\\/g, '\\\\').replace(/'/g, "''") + "'");
             }
         });
         // get the Length/Values text field where this value belongs
