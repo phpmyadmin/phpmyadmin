@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Id$
 #
 # Shell script that adds a new function file using a template. Should not be called directly
 # but instead by template_Generator.sh and template_generator_mimetype.sh

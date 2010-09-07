@@ -2,7 +2,6 @@
 /**
  * general function, usally for data manipulation pages
  *
- * @version $Id$
  */
 
 /**

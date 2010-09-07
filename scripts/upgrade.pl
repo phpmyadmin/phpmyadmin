@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 #
-# $Id$
 #
 # upgrade.pl - automatic phpmyadmin upgrader
 #

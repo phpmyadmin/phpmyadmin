@@ -2,7 +2,6 @@
 /**
  * function used for index manipulation pages
  *
- * @version $Id$
  */
 
 /**

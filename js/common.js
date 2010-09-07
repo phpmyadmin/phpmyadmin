@@ -2,7 +2,6 @@
 /**
  * common functions used for communicating between main, navigation and querywindow
  *
- * @version $Id$
  */
 
 /**

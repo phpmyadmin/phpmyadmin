@@ -2,7 +2,6 @@
 /**
  * Functions used in the import tab
  *
- * @version $Id$
  */
 
 

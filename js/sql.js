@@ -5,7 +5,6 @@
  * @requires    jQuery
  * @requires    js/functions.js
  *
- * @version $Id$
  */
 
 /**

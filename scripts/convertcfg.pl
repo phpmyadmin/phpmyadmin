@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 #
-# $Id$
 #
 # Configuration converter
 # Converts from old-style (Pre-2.3) configuration files to new format found in PMA-2.3

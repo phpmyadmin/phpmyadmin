@@ -4,7 +4,6 @@
 /**
  * Interface for the zip extension
  * @package    phpMyAdmin
- * @version    $Id$
  */
 
 /**

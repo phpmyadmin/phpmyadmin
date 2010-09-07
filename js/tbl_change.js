@@ -6,7 +6,6 @@
  * @requires    jQueryUI
  * @requires    js/functions.js
  *
- * @version $Id$
  */
 
 /**

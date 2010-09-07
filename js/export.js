@@ -2,7 +2,6 @@
 /**
  * Functions used in the export tab
  *
- * @version $Id$
  */
  
  /**

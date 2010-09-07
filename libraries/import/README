@@ -4,7 +4,6 @@ messages with their definition in language files, if you build some
 plugins for your use, you can use directly texts in plugin.
 
 <?php
-/* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4 ft=php:
 
 /* Demo import plugin for phpMyAdmin */

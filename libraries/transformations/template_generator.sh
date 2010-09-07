@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Id$
 #
 # Shell script that adds a new mimetype with transform function.
 #

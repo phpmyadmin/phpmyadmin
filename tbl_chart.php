@@ -3,7 +3,6 @@
 /**
  * handles creation of the chart
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

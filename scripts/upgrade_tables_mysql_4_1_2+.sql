@@ -10,7 +10,6 @@
 --
 -- Please don't forget to set up the tablenames in config.inc.php
 --
--- $Id$
 
 -- --------------------------------------------------------
 

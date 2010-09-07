@@ -2,7 +2,6 @@
 /**
  * function used in server privilege pages
  *
- * @version $Id$
  */
 
 /**

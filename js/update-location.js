@@ -3,7 +3,6 @@
  * Scripts to update location to allow bookmarking of frameset
  * and restoring the bookmark once the page is loaded.
  *
- * @version $Id$
  */
 
 var hash_to_set = "";
