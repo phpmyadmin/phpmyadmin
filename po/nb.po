@@ -1065,7 +1065,7 @@ msgstr "Prosessforespørsel"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr "Feil i prosseseringsforespørsel"
+msgstr "Feil i prosesseringsforespørsel"
 
 #: js/messages.php:66
 msgid "Dropping Column"
