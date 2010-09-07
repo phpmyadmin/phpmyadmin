@@ -1096,10 +1096,9 @@ msgid "Copying Database"
 msgstr "Kopierer database"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Tegnsett"
+msgstr "Endrer tegnsett"
 
 #: js/messages.php:75
 #, fuzzy
