@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 10:53+0200\n"
-"PO-Revision-Date: 2010-09-07 10:17+0200\n"
+"PO-Revision-Date: 2010-09-07 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -822,7 +822,7 @@ msgstr "Hodnoty pro pole \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Zadejte každou hodnotu do samostatného políčka."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -3345,7 +3345,6 @@ msgid "Persistent connections"
 msgstr "Trvalé připojení"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the relation features "
@@ -3354,7 +3353,9 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
-msgstr "Vypne varování o nekompletních relacích na stránce s detaily databáze"
+msgstr ""
+"Vypne varování o nekompletních relacích na stránce s detaily databáze pokud "
+"chybí jakákoliv tabulka z úložiště nastavení phpMyAdmina"
 
 #: libraries/config/messages.inc.php:326
 msgid "Missing phpMyAdmin configuration storage tables"
