@@ -1797,7 +1797,7 @@ msgstr "Last ned fil"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Kunne ikke åpne fil: %s"
 
 #: libraries/chart.lib.php:40
 #, fuzzy
