@@ -796,7 +796,7 @@ if ($action == 'tbl_create.php') {
 <div id="enum_editor">
 <a class="close_enum_editor">Close</a>
 <h3><?php printf(__('Values for the column "%s"'), isset($row['Field']) ? htmlspecialchars($row['Field']) : ""); ?></h3>
-<p><?php echo __('Enter each value in a separate field. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
+<p><?php echo __('Enter each value in a separate field.'); ?></p>
 <div id="values"></div>
 <p><a class="add_value">+ Add a new value</a></p>
 <input type="submit" value="Go" /> <a class="cancel_enum_editor">Cancel</a>
