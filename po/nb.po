@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-07 09:16+0200\n"
+"PO-Revision-Date: 2010-09-07 14:05+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1085,10 +1085,9 @@ msgid "Renaming Databases"
 msgstr "Endrer databasenes navn"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Endre databasens navn til"
+msgstr "Gjennlast database"
 
 #: js/messages.php:73
 #| msgid "Copy database to"
