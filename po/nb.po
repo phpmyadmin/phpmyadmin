@@ -1763,7 +1763,7 @@ msgstr "Autentiserer..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS feil"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
