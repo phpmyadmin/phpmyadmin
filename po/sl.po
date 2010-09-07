@@ -1078,7 +1078,7 @@ msgstr "Spreminjanje nabora znakov"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
-msgstr "Tabele morajo imeti vsaj en stolpec."
+msgstr "Tabele morajo imeti vsaj en stolpec"
 
 #: js/messages.php:76
 msgid "Create Table"
