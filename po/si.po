@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: sinhala <si@li.org>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -659,8 +659,8 @@ msgstr ""
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -840,22 +840,9 @@ msgstr "දත්තගබඩාව"
 msgid "Values for the column \"%s\""
 msgstr ""
 
-#: enum_editor.php:22
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
-"Please enter the values for transformation options using this format: "
-"'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -886,11 +873,11 @@ msgstr "%s ගොනුවට නික්ෂේප දත්ත සේව් �
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1748,8 +1735,8 @@ msgstr "%s වෙත ආයුබෝවන්"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Probably reason of this is that you did not create configuration file. You "
 "might want to use %1$ssetup script%2$s to create one."
@@ -4611,12 +4598,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -6643,23 +6630,6 @@ msgstr "%s ක්ෂේත්‍ර(යක්) එක් කරන්න"
 msgid "You have to add at least one column."
 msgstr "ඔබ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් එක් කල යුතුයි."
 
-#: libraries/tbl_properties.inc.php:799
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Please enter the values for transformation options using this format: "
-"'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-
 #: libraries/tbl_triggers.lib.php:28
 #, fuzzy
 msgid "Event"
@@ -7673,13 +7643,13 @@ msgstr "භාවිතා කරන්නන් හා සමාන නම් �
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1776
 msgid "The selected user was not found in the privilege table."
@@ -9879,6 +9849,39 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "වගුව බවට නම වෙනස් කරන්න"
+
+#, fuzzy
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field, enclosed in single quotes. If you "
+#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
+#~ msgstr ""
+#~ "Please enter the values for transformation options using this format: "
+#~ "'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#~ "single quote (\"'\") amongst those values, precede it with a backslash "
+#~ "(for example '\\\\xyz' or 'a\\'b')."
+
+#, fuzzy
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Please enter the values for transformation options using this format: "
+#~ "'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#~ "single quote (\"'\") amongst those values, precede it with a backslash "
+#~ "(for example '\\\\xyz' or 'a\\'b')."
 
 #, fuzzy
 #~ msgid "New table"

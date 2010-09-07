@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: 2010-09-06 11:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -99,7 +99,6 @@ msgid "No blob streaming server configured!"
 msgstr "尚未配置二进制大对象 (BLOB) 流服务器！"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "获取头失败"
 
@@ -336,16 +335,12 @@ msgstr "整理"
 
 #: db_operations.php:516
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此处%s。"
 
 #: db_operations.php:549
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "编辑或导出关系大纲"
 
@@ -465,7 +460,6 @@ msgid "Modify"
 msgstr "修改"
 
 #: db_qbe.php:580
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "添加/删除标准行"
 
@@ -640,8 +634,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -813,19 +807,9 @@ msgstr "数据库日志"
 msgid "Values for the column \"%s\""
 msgstr "字段“%s”的值"
 
-#: enum_editor.php:22
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
-"请在不同区域中分别输入每个值，并用单引号括起。如果需要在值中输入反斜杠 (“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 "
-"'a\\'b')。"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -855,8 +839,8 @@ msgstr "转存已经保存到文件 %s 中。"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -956,12 +940,10 @@ msgid "Dropping Event"
 msgstr "正在删除事件"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "正在删除存储过程"
 
 #: js/messages.php:35
-#| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "正在删除追踪数据"
 
@@ -1007,22 +989,18 @@ msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "添加新用户"
 
 #: js/messages.php:53
-#| msgid "Create version"
 msgid "Create User"
 msgstr "新建用户"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "重新载入权限"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "正在删除选中的用户"
 
@@ -1035,12 +1013,10 @@ msgid "Cancel"
 msgstr "取消"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "正在加载"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "正在处理请求"
 
@@ -1061,37 +1037,30 @@ msgid "OK"
 msgstr "确定"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "正在重命名数据库"
 
 #: js/messages.php:72
-#| msgid "Remove database"
 msgid "Reload Database"
 msgstr "重新载入数据库"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "正在复制数据库"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "正在修改字符集"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "数据表至少要有一个字段。"
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "新建数据表"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "正在搜索"
 
@@ -1100,7 +1069,6 @@ msgid "Toggle Query Box Visibility"
 msgstr "显示/隐藏查询输入框"
 
 #: js/messages.php:85
-#| msgid "Inline"
 msgid "Inline Edit"
 msgstr "快速编辑"
 
@@ -1172,12 +1140,10 @@ msgid "Generate"
 msgstr "生成"
 
 #: js/messages.php:107
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "修改密码"
 
 #: js/messages.php:110
-#| msgid "Mo"
 msgid "More"
 msgstr "更多"
 
@@ -1637,8 +1603,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -1766,7 +1732,6 @@ msgid "Could not open file: %s"
 msgstr "无法打开文件：%s"
 
 #: libraries/chart.lib.php:40
-#| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "查询统计"
 
@@ -1775,7 +1740,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "查询执行时间对比 (单位：微秒)"
 
 #: libraries/chart.lib.php:83
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "查询结果"
 
@@ -2022,7 +1986,6 @@ msgstr "从计算机中上传："
 
 #: libraries/common.lib.php:2965
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
@@ -2047,7 +2010,6 @@ msgstr "数据"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "结构和数据"
 
@@ -2064,12 +2026,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "自定义 - 不显示 快速/自定义 选择"
 
 #: libraries/config.values.php:119
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "完整插入"
 
 #: libraries/config.values.php:120
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "扩展插入"
 
@@ -2115,7 +2075,6 @@ msgstr "在 %s 中丢失数据"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "不可用"
 
@@ -2140,13 +2099,11 @@ msgid "SQL Validator is disabled"
 msgstr "SQL 校验器已禁用"
 
 #: libraries/config/FormDisplay.class.php:764
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "未找到 SOAP 扩展"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "最大 %s"
 
@@ -2196,7 +2153,9 @@ msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
-msgstr "开启这个功能将允许其它域的页面通过框架调用 phpMyAdmin，这将允许潜在的跨框架脚本攻击[strong]安全漏洞[/strong]"
+msgstr ""
+"开启这个功能将允许其它域的页面通过框架调用 phpMyAdmin，这将允许潜在的跨框架脚"
+"本攻击[strong]安全漏洞[/strong]"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -2313,7 +2272,6 @@ msgid "Debug SQL"
 msgstr "调试 SQL"
 
 #: libraries/config/messages.inc.php:44
-#| msgid "Databases display options"
 msgid "Default display direction"
 msgstr "默认显示模式"
 
@@ -2321,7 +2279,9 @@ msgstr "默认显示模式"
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
-msgstr "[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模式的最大数值"
+msgstr ""
+"[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模式的"
+"最大数值"
 
 #: libraries/config/messages.inc.php:46
 msgid "Display direction for altering/creating columns"
@@ -2352,7 +2312,6 @@ msgid "Default table tab"
 msgstr "默认数据表标签"
 
 #: libraries/config/messages.inc.php:53
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
 msgstr "默认以十六进制显示二进制内容"
 
@@ -2381,17 +2340,14 @@ msgid "Edit SQL queries in popup window"
 msgstr "在新窗口中编辑 SQL 查询"
 
 #: libraries/config/messages.inc.php:60
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "在窗口中编辑"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "显示错误"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "收集错误"
 
@@ -2400,7 +2356,6 @@ msgid "Show icons for warning, error and information messages"
 msgstr "在警告、错误和信息上显示图标"
 
 #: libraries/config/messages.inc.php:64
-#| msgid "Ignore errors"
 msgid "Iconic errors"
 msgstr "错误图标"
 
@@ -2464,7 +2419,6 @@ msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
-#| msgid "Remove CRLF characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "删除字段中的回车换行符"
 
@@ -2480,7 +2434,6 @@ msgid "Lines terminated by"
 msgstr "换行符"
 
 #: libraries/config/messages.inc.php:79
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel 版本"
 
@@ -2501,8 +2454,6 @@ msgstr "数据表名模板"
 #: libraries/config/messages.inc.php:139 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Dump table"
 msgstr "转储数据表"
 
@@ -2536,7 +2487,6 @@ msgid "Relations"
 msgstr "关系"
 
 #: libraries/config/messages.inc.php:102
-#| msgid "Export type"
 msgid "Export method"
 msgstr "导出方式"
 
@@ -2591,7 +2541,6 @@ msgid "Maximal length of created query"
 msgstr "创建查询的最大长度"
 
 #: libraries/config/messages.inc.php:134
-#| msgid "Export tables"
 msgid "Export type"
 msgstr "导出类型"
 
@@ -2643,7 +2592,6 @@ msgstr "自定义浏览模式"
 #: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:213
 #: libraries/config/messages.inc.php:225
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "自定义默认选项"
 
@@ -2685,7 +2633,6 @@ msgid "Features"
 msgstr "功能"
 
 #: libraries/config/messages.inc.php:164
-#| msgid "Generate"
 msgid "General"
 msgstr "常规"
 
@@ -2759,7 +2706,6 @@ msgid "Microsoft Office"
 msgstr "微软 Office"
 
 #: libraries/config/messages.inc.php:184
-#| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "开放文档"
 
@@ -2772,7 +2718,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "其他设置"
 
 #: libraries/config/messages.inc.php:188
-#| msgid "Page name"
 msgid "Page titles"
 msgstr "页面标题"
 
@@ -2782,8 +2727,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"设置浏览器标题栏所显示的文字。参见[a@Documentation.html#cfg_TitleTable]文档[/a]中关于可以取得特殊值的魔术字符串"
-"。"
+"设置浏览器标题栏所显示的文字。参见[a@Documentation.html#cfg_TitleTable]文档[/"
+"a]中关于可以取得特殊值的魔术字符串。"
 
 #: libraries/config/messages.inc.php:190
 #: libraries/navigation_header.inc.php:83
@@ -2811,12 +2756,10 @@ msgid "Basic settings"
 msgstr "基本设置"
 
 #: libraries/config/messages.inc.php:195
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "认证"
 
 #: libraries/config/messages.inc.php:196
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "认证设置"
 
@@ -2835,22 +2778,17 @@ msgid "Enter server connection parameters"
 msgstr "服务器连接参数"
 
 #: libraries/config/messages.inc.php:200
-#| msgid "Configuration: %s"
 msgid "Configuration storage"
 msgstr "高级功能"
 
 #: libraries/config/messages.inc.php:201
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"配置 phpMyAdmin 高级功能，参见文档[a@Documentation.html#linked-tables]phpMyAdmin "
-"高级功能[/a]"
+"配置 phpMyAdmin 高级功能，参见文档[a@Documentation.html#linked-tables]"
+"phpMyAdmin 高级功能[/a]"
 
 #: libraries/config/messages.inc.php:202
 msgid "Changes tracking"
@@ -2890,12 +2828,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "自定义显示在 SQL 查询框中的链接"
 
 #: libraries/config/messages.inc.php:215
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL 查询设置"
 
 #: libraries/config/messages.inc.php:216
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL 校验器"
 
@@ -2906,9 +2842,9 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"若要使用 SQL 校验服务，请注意[strong]所有 SQL "
-"语句将出于统计目的而被匿名存储[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"校验器[/a]，版权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
+"若要使用 SQL 校验服务，请注意[strong]所有 SQL 语句将出于统计目的而被匿名存储"
+"[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL 校验器[/a]，版"
+"权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
 
 #: libraries/config/messages.inc.php:218
 msgid "Startup"
@@ -2927,12 +2863,10 @@ msgid "Choose how you want tabs to work"
 msgstr "选择你想让标签怎样工作"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "文本字段"
 
 #: libraries/config/messages.inc.php:223
-#| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "自定义文本输入框"
 
@@ -2941,7 +2875,6 @@ msgid "Texy! text"
 msgstr "Texy! 文本"
 
 #: libraries/config/messages.inc.php:226
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "警告"
 
@@ -3025,12 +2958,10 @@ msgid "Do not import empty rows"
 msgstr "不导入空行"
 
 #: libraries/config/messages.inc.php:252
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "导入货币 ($5.00 将被导入为 5.00)"
 
 #: libraries/config/messages.inc.php:253
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "导入百分数为小数 (12.00% 将被导入为 .12)"
 
@@ -3043,7 +2974,6 @@ msgid "Partial import: skip queries"
 msgstr "部分导入：跳过查询"
 
 #: libraries/config/messages.inc.php:257
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
 
@@ -3158,7 +3088,6 @@ msgid "Light tabs"
 msgstr "简化标签"
 
 #: libraries/config/messages.inc.php:286
-#| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr "浏览非数字字段时所显示的最大字符数"
@@ -3289,7 +3218,6 @@ msgid "Memory limit"
 msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:313
-#| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "显示左侧删除链接"
 
@@ -3302,7 +3230,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "为数据库和数据表名使用自然排序"
 
 #: libraries/config/messages.inc.php:316
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "自然排序"
 
@@ -3367,14 +3294,13 @@ msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
 #: libraries/config/messages.inc.php:331
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
-msgstr "允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 JS 程序来显示查询历史 (关闭窗口即丢失)。"
+msgstr ""
+"允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 "
+"JS 程序来显示查询历史 (关闭窗口即丢失)。"
 
 #: libraries/config/messages.inc.php:332
 msgid "Permanent query history"
@@ -3401,17 +3327,14 @@ msgid "Query window height (in pixels)"
 msgstr "查询窗口高度 (单位：像素)"
 
 #: libraries/config/messages.inc.php:339
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "查询窗口高度"
 
 #: libraries/config/messages.inc.php:340
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "查询窗口宽度 (单位：像素)"
 
 #: libraries/config/messages.inc.php:341
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "查询窗口宽度"
 
@@ -3428,7 +3351,6 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]"
 
 #: libraries/config/messages.inc.php:345
-#| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "重复表头"
 
@@ -3453,7 +3375,6 @@ msgid "Leave blank if not used"
 msgstr "不使用请留空"
 
 #: libraries/config/messages.inc.php:352
-#| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "主机认证模式"
 
@@ -3462,7 +3383,6 @@ msgid "Leave blank for defaults"
 msgstr "默认请留空"
 
 #: libraries/config/messages.inc.php:354
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "主机认证规则"
 
@@ -3635,9 +3555,6 @@ msgid "Connect without password"
 msgstr "用空密码连接"
 
 #: libraries/config/messages.inc.php:391
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -3645,9 +3562,9 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my\\_db'[/kbd] 而不是 "
-"[kbd]'my_db'[/kbd]。通过该选项你可以对数据库列表排序，只需按顺序输入它们的名称并加上 "
-"[kbd]*[/kbd]，剩下的数据库将按字母顺序排在最后。"
+"可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my"
+"\\_db'[/kbd] 而不是 [kbd]'my_db'[/kbd]。通过该选项你可以对数据库列表排序，只"
+"需按顺序输入它们的名称并加上 [kbd]*[/kbd]，剩下的数据库将按字母顺序排在最后。"
 
 #: libraries/config/messages.inc.php:392
 msgid "Show only listed databases"
@@ -3680,7 +3597,6 @@ msgstr ""
 "pmadb]pmadb (外链，英文)[/a]。不使用请留空。默认： [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:398
-#| msgid "database name"
 msgid "Database name"
 msgstr "数据库名"
 
@@ -3822,9 +3738,6 @@ msgid "Automatically create versions"
 msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:428
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
@@ -3890,7 +3803,6 @@ msgid ""
 msgstr "定义在编辑/插入模式中是否显示字段类型一列"
 
 #: libraries/config/messages.inc.php:442
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "显示字段类型"
 
@@ -4001,7 +3913,8 @@ msgstr "启用 SQL 校验器"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
-msgstr "如果你有自己的用户名，请在这里输入 (默认为 [kbd]anonymous (匿名)[/kbd])"
+msgstr ""
+"如果你有自己的用户名，请在这里输入 (默认为 [kbd]anonymous (匿名)[/kbd])"
 
 #: libraries/config/messages.inc.php:469 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4030,10 +3943,11 @@ msgstr "Suhosin 警告"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr "编辑模式的文本框大小 (列数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 (*1.25)"
+msgstr ""
+"编辑模式的文本框大小 (列数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
+"(*1.25)"
 
 #: libraries/config/messages.inc.php:475
-#| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "文本框列"
 
@@ -4041,10 +3955,11 @@ msgstr "文本框列"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr "编辑模式的文本框大小 (行数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 (*1.25)"
+msgstr ""
+"编辑模式的文本框大小 (行数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
+"(*1.25)"
 
 #: libraries/config/messages.inc.php:477
-#| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "文本框行"
 
@@ -4057,7 +3972,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr "未选择时浏览器窗口的标题"
 
 #: libraries/config/messages.inc.php:481
-#| msgid "Default table tab"
 msgid "Default title"
 msgstr "默认标题"
 
@@ -4140,22 +4054,18 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#| msgid "Host authentication order"
 msgid "Config authentication"
 msgstr "Config 认证"
 
 #: libraries/config/setup.forms.php:45
-#| msgid "Host authentication order"
 msgid "Cookie authentication"
 msgstr "Cookie 认证"
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Host authentication order"
 msgid "HTTP authentication"
 msgstr "HTTP 认证"
 
 #: libraries/config/setup.forms.php:51
-#| msgid "Host authentication order"
 msgid "Signon authentication"
 msgstr "Signon 认证"
 
@@ -4192,7 +4102,6 @@ msgstr "快速"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#| msgid "Custom color"
 msgid "Custom"
 msgstr "自定义"
 
@@ -4388,49 +4297,40 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:87
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
 msgstr "导出当前服务器中的数据库"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
 msgstr "导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
 msgstr "导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:97
-#| msgid "Export type"
 msgid "Export Method:"
 msgstr "导出方式"
 
 #: libraries/display_export.lib.php:137
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "数据库："
 
 #: libraries/display_export.lib.php:139
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "数据表："
 
 #: libraries/display_export.lib.php:149
-#| msgid "Rows"
 msgid "Rows:"
 msgstr "记录："
 
 #: libraries/display_export.lib.php:157
-#| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "转储部分记录"
 
 #: libraries/display_export.lib.php:159
-#| msgid "Number of columns"
 msgid "Number of rows:"
 msgstr "记录数："
 
@@ -4448,17 +4348,14 @@ msgstr "输出："
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, php-format
-#| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "保存到务器上的 <b>%s</b> 文件夹中"
 
 #: libraries/display_export.lib.php:206
-#| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "保存为文件"
 
 #: libraries/display_export.lib.php:227
-#| msgid "File name template"
 msgid "File name template:"
 msgstr "文件名模板："
 
@@ -4476,17 +4373,13 @@ msgstr "，@TABLE@ 将变成数据表名"
 
 #: libraries/display_export.lib.php:237
 #, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下列内容也将被转换：%3$s。其他文本将保持原样。参见%"
-"4$s常见问题 (FAQ)%5$s。"
+"这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
+"列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -4498,7 +4391,6 @@ msgid "Character set of the file:"
 msgstr "文件的字符集："
 
 #: libraries/display_export.lib.php:309
-#| msgid "Compression"
 msgid "Compression:"
 msgstr "压缩："
 
@@ -4509,23 +4401,19 @@ msgid "None"
 msgstr "无"
 
 #: libraries/display_export.lib.php:313
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zip 压缩"
 
 #: libraries/display_export.lib.php:315
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzip 压缩"
 
 #: libraries/display_export.lib.php:317
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#| msgid "Format"
 msgid "Format:"
 msgstr "格式："
 
@@ -4534,7 +4422,6 @@ msgid "Format-Specific Options:"
 msgstr "格式特定选项："
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
 msgstr "编码转换："
 
@@ -4558,24 +4445,20 @@ msgid ""
 msgstr "正在上传，没有详细信息，请稍候。"
 
 #: libraries/display_import.lib.php:129
-#| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "导入到当前服务器"
 
 #: libraries/display_import.lib.php:131
 #, php-format
-#| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
 msgstr "导入到数据库“%s”"
 
 #: libraries/display_import.lib.php:133
 #, php-format
-#| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
 msgstr "导入到数据表“%s”"
 
 #: libraries/display_import.lib.php:139
-#| msgid "File to import"
 msgid "File to Import:"
 msgstr "要导入的文件："
 
@@ -4595,7 +4478,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "部分导入："
 
@@ -4606,18 +4488,15 @@ msgid ""
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
 #: libraries/display_import.lib.php:221
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
-msgstr "在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
+msgstr ""
+"在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但"
+"在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:228
-#| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "从首行起要跳过的行数："
 
@@ -4754,7 +4633,6 @@ msgid "Print view (with full texts)"
 msgstr "打印预览 (全文显示)"
 
 #: libraries/display_tbl.lib.php:2232 tbl_chart.php:82
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "显示图表"
 
@@ -4946,14 +4824,10 @@ msgstr ""
 "INDEX) 和修改表 (ALTER TABLE) 创建索引时所要分配的缓存大小。"
 
 #: libraries/engines/pbms.lib.php:31
-#| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "垃圾阈值"
 
 #: libraries/engines/pbms.lib.php:32
-#| msgid ""
-#| "The percentage of garbage in a data log file before it is compacted. This "
-#| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr "在库文件被压缩之前垃圾数据所占的比率。"
 
@@ -4977,7 +4851,9 @@ msgid ""
 "The maximum size of a BLOB repository file. You may use Kb, MB or GB to "
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
-msgstr "一个 BLOB 库文件的最大大小。可以使用 Kb、MB 或 GB 来表示单位。不指定则使用默认单位：字节。"
+msgstr ""
+"一个 BLOB 库文件的最大大小。可以使用 Kb、MB 或 GB 来表示单位。不指定则使用默"
+"认单位：字节。"
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
@@ -4987,7 +4863,9 @@ msgstr "临时 Blob 超时"
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
-msgstr "临时 BLOB 的超时时间 (单位：秒)。上传的 BLOB 数据将在此时间后删除，除非其被数据库中的记录所引用。"
+msgstr ""
+"临时 BLOB 的超时时间 (单位：秒)。上传的 BLOB 数据将在此时间后删除，除非其被数"
+"据库中的记录所引用。"
 
 #: libraries/engines/pbms.lib.php:51
 msgid "Temp Log Threshold"
@@ -5010,7 +4888,9 @@ msgstr "最大保持连接"
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
-msgstr "keep-alive 标记所设置的不活动连接超时时间。在此时间后连接将被关闭。单位：毫秒。"
+msgstr ""
+"keep-alive 标记所设置的不活动连接超时时间。在此时间后连接将被关闭。单位：毫"
+"秒。"
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
@@ -5020,7 +4900,8 @@ msgstr "元数据头"
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
-msgstr "创建数据库时用来初始化 pbms_metadata_header 表的用“:”分隔的元数据头列表。"
+msgstr ""
+"创建数据库时用来初始化 pbms_metadata_header 表的用“:”分隔的元数据头列表。"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -5153,22 +5034,18 @@ msgstr ""
 "被删除，或者被以升序数字序列重命名。"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#| msgid "Columns terminated by"
 msgid "Columns separated with:"
 msgstr "字段分隔符："
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#| msgid "Columns enclosed by"
 msgid "Columns enclosed with:"
 msgstr "内容分隔符："
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#| msgid "Columns escaped by"
 msgid "Columns escaped with:"
 msgstr "内容转义符："
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "换行符："
 
@@ -5176,24 +5053,20 @@ msgstr "换行符："
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "将 NULL 替换为："
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "删除字段中的回车换行符"
 
 #: libraries/export/excel.php:32
-#| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Excel 版本"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#| msgid "Databases display options"
 msgid "Data dump options"
 msgstr "数据转储选项"
 
@@ -5221,29 +5094,24 @@ msgstr "@TABLE@ 表的结构"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "对象创建选项"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#| msgid "Table caption"
 msgid "Table caption (continued)"
 msgstr "表的副标题"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "显示外键的关系"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "显示注释"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "显示 MIME 类型"
 
@@ -5286,7 +5154,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(根据一张表的数据生成报告)"
 
 #: libraries/export/pdf.php:24
-#| msgid "Report title"
 msgid "Report title:"
 msgstr "报告标题："
 
@@ -5301,11 +5168,8 @@ msgid ""
 msgstr "显示注释 <i>(包括导出时间、PHP 版本和服务器版本等信息)</i>"
 
 #: libraries/export/sql.php:35
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"在文件头添加自定义注释 (\\n"
-" 为换行)："
+msgstr "在文件头添加自定义注释 (\\n 为换行)："
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5321,12 +5185,10 @@ msgstr "最大程度兼容数据库系统或旧版本的 MySQL 服务器："
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
 #, php-format
-#| msgid "Statements"
 msgid "Add %s statement"
 msgstr "添加 %s 语句"
 
 #: libraries/export/sql.php:91
-#| msgid "Statements"
 msgid "Add statements:"
 msgstr "添加语句："
 
@@ -5383,8 +5245,8 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"以上兼有<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,col_B) "
-"VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"以上兼有<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,"
+"col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
@@ -5404,7 +5266,9 @@ msgstr "转储二进制字段时用十六进制标记 <i>(例如，“abc”将�
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
-msgstr "转储 TIMESTAMP 字段时用 UTC 时区 <i>(允许在不同时区的服务器间转储和重新载入 TIMESTAMP 字段)</i>"
+msgstr ""
+"转储 TIMESTAMP 字段时用 UTC 时区 <i>(允许在不同时区的服务器间转储和重新载入 "
+"TIMESTAMP 字段)</i>"
 
 #: libraries/export/sql.php:435 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5452,7 +5316,6 @@ msgid "Object creation options (all are recommended)"
 msgstr "对象创建选项 (推荐全选)"
 
 #: libraries/export/xml.php:40
-#| msgid "View"
 msgid "Views"
 msgstr "视图"
 
@@ -5524,10 +5387,11 @@ msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
-msgstr "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半角逗号分隔且不能用引号括起。"
+msgstr ""
+"若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半"
+"角逗号分隔且不能用引号括起。"
 
 #: libraries/import/csv.php:41
-#| msgid "Column names"
 msgid "Column names: "
 msgstr "字段名："
 
@@ -5542,7 +5406,9 @@ msgstr "导入 CSV 文件 %s 时有无效参数"
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr "无效字段 (%s)！请检查字段名是否拼写正确，使用半角逗号分隔，并且不要用引号括起。"
+msgstr ""
+"无效字段 (%s)！请检查字段名是否拼写正确，使用半角逗号分隔，并且不要用引号括"
+"起。"
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
@@ -5573,22 +5439,18 @@ msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
 
 #: libraries/import/ods.php:28
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
 #: libraries/import/ods.php:29
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "SQL 兼容模式："
 
 #: libraries/import/sql.php:42
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "不要给零值使用自增 (<code>AUTO_INCREMENT</code>)"
 
@@ -5836,7 +5698,6 @@ msgid "Log out"
 msgstr "退出"
 
 #: libraries/plugin_interface.lib.php:336
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "该格式没有选项"
 
@@ -6081,7 +5942,6 @@ msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
 #: libraries/schema/User_Schema.class.php:154
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "选择页"
 
@@ -6090,12 +5950,10 @@ msgid "Select Tables"
 msgstr "选择表"
 
 #: libraries/schema/User_Schema.class.php:347
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "显示关系大纲"
 
 #: libraries/schema/User_Schema.class.php:352
-#| msgid "CSV"
 msgid "SVG"
 msgstr "SVG"
 
@@ -6144,7 +6002,6 @@ msgid "Portrait"
 msgstr "纵向"
 
 #: libraries/schema/User_Schema.class.php:395
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "方向"
 
@@ -6174,7 +6031,6 @@ msgid "Unknown language: %1$s."
 msgstr "未知的语言：%1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#| msgid "Current server"
 msgid "Current Server"
 msgstr "当前服务器"
 
@@ -6206,7 +6062,6 @@ msgid "Synchronize"
 msgstr "同步"
 
 #: libraries/server_links.inc.php:99
-#| msgid "settings"
 msgid "Settings"
 msgstr "设置"
 
@@ -6445,18 +6300,6 @@ msgstr "添加 %s 个字段"
 msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
-#: libraries/tbl_properties.inc.php:799
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr "请将值分别输入。如果需要输入反斜杠 (“\\”) 或单引号 (“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
-
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
 msgstr "事件"
@@ -6490,15 +6333,6 @@ msgid "Displays a link to download this image."
 msgstr "显示下载此图像的链接。"
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
-#| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -6509,10 +6343,11 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"将一个 TIME、TIMESTAMP、DATETIME 或数字 UNIX 时间戳字段格式化显示为日期。第一个选项是小时偏移量，该值将加到时间戳中 "
-"(默认：0)。第二个选项用于指定时间格式字符串。第三个选项决定显示本地时间还是 UTC 时间 "
-"(填入“local”或“utc”)，所以填“local”(参见 PHP 的 strftime() 函数文档)和“utc”(参见 PHP 的 "
-"gmdate() 函数文档)所到的结果是不一样的。"
+"将一个 TIME、TIMESTAMP、DATETIME 或数字 UNIX 时间戳字段格式化显示为日期。第一"
+"个选项是小时偏移量，该值将加到时间戳中 (默认：0)。第二个选项用于指定时间格式"
+"字符串。第三个选项决定显示本地时间还是 UTC 时间 (填入“local”或“utc”)，所以"
+"填“local”(参见 PHP 的 strftime() 函数文档)和“utc”(参见 PHP 的 gmdate() 函数文"
+"档)所到的结果是不一样的。"
 
 #: libraries/transformations/text_plain__external.inc.php:9
 msgid ""
@@ -6583,12 +6418,10 @@ msgstr ""
 "后的输出 (默认为：“...”)。"
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "Other core settings"
 msgid "Manage your settings"
 msgstr "管理我的设置"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "设置已保存"
 
@@ -6600,7 +6433,6 @@ msgid ""
 msgstr "你的偏好将仅作用于本次会话。要想永久保存需要 %sphpMyAdmin 高级功能%s。"
 
 #: libraries/user_preferences.lib.php:141
-#| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
 msgstr "无法保存设置"
 
@@ -6620,7 +6452,6 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有错误:"
 
 #: main.php:67
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "常规设置"
 
@@ -6629,7 +6460,6 @@ msgid "MySQL connection collation"
 msgstr "MySQL 连接校对"
 
 #: main.php:113
-#| msgid "Other core settings"
 msgid "Appearance Settings"
 msgstr "外观设置"
 
@@ -6642,7 +6472,6 @@ msgid "Choose..."
 msgstr "选择 ..."
 
 #: main.php:151 prefs_manage.php:274
-#| msgid "settings"
 msgid "More settings"
 msgstr "更多设置"
 
@@ -6901,12 +6730,10 @@ msgid "to/from page"
 msgstr "到/从 页"
 
 #: prefs_forms.php:78
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
 msgstr "无法保存设置，提交的表单中有错误"
 
 #: prefs_manage.php:80
-#| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
 msgstr "无法导入设置"
 
@@ -6923,7 +6750,6 @@ msgid "Saved on: @DATE@"
 msgstr "保存于：@DATE@"
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "从文件导入"
 
@@ -6936,7 +6762,6 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "设置将从浏览器的本地存储中导入。"
 
 #: prefs_manage.php:254
-#| msgid "Other core settings"
 msgid "You have no saved settings!"
 msgstr "你没有已保存的设置！"
 
@@ -6945,7 +6770,6 @@ msgid "This feature is not supported by your web browser"
 msgstr "你所使用的浏览器不支持此功能"
 
 #: prefs_manage.php:263
-#| msgid "Server configuration"
 msgid "Merge with current configuration"
 msgstr "与当前设置合并"
 
@@ -6954,7 +6778,8 @@ msgstr "与当前设置合并"
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
-msgstr "你可以通过修改 config.inc.php 文件进行更多设置，如通过使用%s安装脚本%s。"
+msgstr ""
+"你可以通过修改 config.inc.php 文件进行更多设置，如通过使用%s安装脚本%s。"
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -6986,7 +6811,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "找不到 <b>%s</b> 表或还未在 %s 设置"
 
 #: schema_export.php:46
-#| msgid "The %s table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "文件不存在"
 
@@ -7415,12 +7239,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: server_privileges.php:1776
 msgid "The selected user was not found in the privilege table."
@@ -8577,19 +8401,14 @@ msgid "Cannot load or save configuration"
 msgstr "无法加载或保存配置"
 
 #: setup/frames/index.inc.php:50
-#| msgid ""
-#| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
-#| "top level directory as described in [a@../Documentation.html#setup_script]"
-#| "documentation[/a]. Otherwise you will be only able to download or display "
-#| "it."
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"请在 phpMyAdmin "
-"的根文件夹下创建[a@../Documentation.html#setup_script]文档[/a]中所述的网站服务器可以写入的 "
-"[em]config[/em] 文件夹。否则你只能下载或显示配置。"
+"请在 phpMyAdmin 的根文件夹下创建[a@../Documentation.html#setup_script]文档[/"
+"a]中所述的网站服务器可以写入的 [em]config[/em] 文件夹。否则你只能下载或显示配"
+"置。"
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -8828,9 +8647,9 @@ msgid ""
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
-"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认证"
-"[/kbd]。"
+"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认"
+"证[/kbd]。"
 
 #: setup/lib/index.lib.php:259
 #, php-format
@@ -8969,20 +8788,16 @@ msgid "Restart insertion with %s rows"
 msgstr "重新进行插入操作，共 %s 行"
 
 #: tbl_chart.php:57
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "图表生成成功。"
 
 #: tbl_chart.php:60
-#| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"该查询的结果不能用于图表。参见[a@./Documentation.html#faq6_29@Documentation]常见问题 (FAQ) "
-"6.29[/a]"
+"该查询的结果不能用于图表。参见[a@./Documentation.html#faq6_29@Documentation]"
+"常见问题 (FAQ) 6.29[/a]"
 
 #: tbl_chart.php:91
 msgid "Width"
@@ -9013,7 +8828,6 @@ msgid "Legend margins"
 msgstr "图例边距"
 
 #: tbl_chart.php:135
-#| msgid "Mar"
 msgid "Bar"
 msgstr "柱状图"
 
@@ -9026,17 +8840,14 @@ msgid "Radar"
 msgstr "雷达图 (戴布拉图、螂蛛网图)"
 
 #: tbl_chart.php:139
-#| msgid "PiB"
 msgid "Pie"
 msgstr "饼图"
 
 #: tbl_chart.php:145
-#| msgid "Query type"
 msgid "Bar type"
 msgstr "柱状图类型"
 
 #: tbl_chart.php:147
-#| msgid "Packed"
 msgid "Stacked"
 msgstr "堆叠"
 
@@ -9561,6 +9372,33 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field, enclosed in single quotes. If you "
+#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
+#~ msgstr ""
+#~ "请在不同区域中分别输入每个值，并用单引号括起。如果需要在值中输入反斜杠 "
+#~ "(“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
+
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "请将值分别输入。如果需要输入反斜杠 (“\\”) 或单引号 (“'”)，请在前面加上反斜"
+#~ "杠 (如 '\\\\xyz' 或 'a\\'b')。"
 
 #~ msgid "New table"
 #~ msgstr "新数据表"

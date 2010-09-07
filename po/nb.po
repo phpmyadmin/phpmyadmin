@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: 2010-09-07 09:16+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -99,7 +99,6 @@ msgid "No blob streaming server configured!"
 msgstr "Ingen blob streaming tjener er konfigurert!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Klarte ikke å hente headers"
 
@@ -273,7 +272,6 @@ msgid "Command"
 msgstr "Kommando"
 
 #: db_operations.php:397
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Fjern database"
 
@@ -283,7 +281,6 @@ msgid "Database %s has been dropped."
 msgstr "Databasen %s har blitt slettet"
 
 #: db_operations.php:414
-#| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Drop databasen (DROP)"
 
@@ -338,18 +335,13 @@ msgstr "Sammenligning"
 
 #: db_operations.php:516
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%"
-"s."
+"phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%s."
 
 #: db_operations.php:549
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "Rediger eller eksporter relasjonsskjema"
 
@@ -646,8 +638,8 @@ msgstr "Overvåkning er ikke aktiv."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -819,21 +811,9 @@ msgstr "Databaselogg"
 msgid "Values for the column \"%s\""
 msgstr "Verdier for kolonnen \"%s\""
 
-#: enum_editor.php:22
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
-"Skriv hver enkelt verdi i et separat felt, innelukket i enkle apostrofer. "
-"Hvis du trenger å skrive en bakoverskråstrek(\"\\\") eller en enkel apostrof "
-"(\"'\") blant disse verdiene, så skriv en bakoverskråstrek foran (eks. "
-"'\\\\\\xyz' eller 'a\\'b')."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -865,8 +845,8 @@ msgstr "Dump har blitt lagret til fila %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Du forsøkte sansynligvis å laste opp en for stor fil. Sjekk %sdokumentasjonen"
 "%s for måter å omgå denne begrensningen."
@@ -974,12 +954,10 @@ msgid "Dropping Event"
 msgstr "Slipper hendelse"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Slipper prosedyre"
 
 #: js/messages.php:35
-#| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Slett overvåkningsdata"
 
@@ -1026,22 +1004,18 @@ msgid "The passwords aren't the same!"
 msgstr "Passordene er ikke like!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Legg til en ny bruker"
 
 #: js/messages.php:53
-#| msgid "Create version"
 msgid "Create User"
 msgstr "Opprett bruker"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Oppfrisker privilegiene"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Fjern valgte brukere"
 
@@ -1054,12 +1028,10 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "Laster"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Prosessforespørsel"
 
@@ -1080,7 +1052,6 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Endrer databasenes navn"
 
@@ -1091,27 +1062,22 @@ msgid "Reload Database"
 msgstr "Endre databasens navn til"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kopierer database"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Endrer tegnsett"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "Tabellen må ha minst en kolonne"
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Opprett tabell"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "Søker"
 
@@ -1669,8 +1635,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -4643,8 +4609,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -6639,8 +6605,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-"stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på "
+"%stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6701,23 +6667,6 @@ msgstr "Legg til %s kolonne(r)"
 #: libraries/tbl_properties.inc.php:787 tbl_structure.php:625
 msgid "You have to add at least one column."
 msgstr "Du må sette inn minst en kolonne."
-
-#: libraries/tbl_properties.inc.php:799
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Skriv inn verdiene for transformasjon med dette formatet: 'a', 100, b,'c'..."
-"<br />Hvis du trenger å bruke en skråstrek (\"\\\") eller en enkel apostrof "
-"(\"'\") blant disse verdiene så sett en skråstrek foran (eks. '\\\\xyz' "
-"eller 'a\\'b')."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -7717,8 +7666,8 @@ msgstr "Slett databasene som har det samme navnet som brukerne."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -9213,8 +9162,8 @@ msgid ""
 "to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -9983,6 +9932,38 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
+
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field, enclosed in single quotes. If you "
+#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
+#~ msgstr ""
+#~ "Skriv hver enkelt verdi i et separat felt, innelukket i enkle apostrofer. "
+#~ "Hvis du trenger å skrive en bakoverskråstrek(\"\\\") eller en enkel "
+#~ "apostrof (\"'\") blant disse verdiene, så skriv en bakoverskråstrek foran "
+#~ "(eks. '\\\\\\xyz' eller 'a\\'b')."
+
+#, fuzzy
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Skriv inn verdiene for transformasjon med dette formatet: 'a', 100, "
+#~ "b,'c'...<br />Hvis du trenger å bruke en skråstrek (\"\\\") eller en "
+#~ "enkel apostrof (\"'\") blant disse verdiene så sett en skråstrek foran "
+#~ "(eks. '\\\\xyz' eller 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Ny tabell"

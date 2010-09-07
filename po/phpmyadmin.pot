@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -638,8 +639,8 @@ msgstr ""
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, possible-php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -811,11 +812,8 @@ msgstr ""
 msgid "Values for the column \"%s\""
 msgstr ""
 
-#: enum_editor.php:22
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
 
 #: export.php:73
@@ -846,8 +844,8 @@ msgstr ""
 #: import.php:58
 #, possible-php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1606,8 +1604,8 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:106
 #, possible-php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -4291,8 +4289,8 @@ msgstr ""
 #, possible-php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -6151,13 +6149,6 @@ msgstr ""
 msgid "You have to add at least one column."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:799
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
 msgstr ""
@@ -7051,8 +7042,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1776

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: 2010-09-05 15:34+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -640,11 +640,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à "
+"%sdocumentation%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -815,16 +815,9 @@ msgstr "Journal de la base de données"
 msgid "Values for the column \"%s\""
 msgstr "Valeurs pour la colonne «%s»"
 
-#: enum_editor.php:22
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
-"Veuillez entrer les valeurs dans des champs séparés et les entourer "
-"d'apostrophes. Si vous devez entrer un caractère (\"\\\") ou une apostrophe "
-"(\"'\") parmi ces valeurs, faites-le précéder du caractère d'échappement, "
-"par exemple '\\\\xyz' or 'a\\'b')."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -858,8 +851,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -972,12 +965,10 @@ msgid "Dropping Event"
 msgstr "Destruction d'évènement"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Destruction de procédure"
 
 #: js/messages.php:35
-#| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Suppression des données de suivi"
 
@@ -1025,22 +1016,18 @@ msgid "The passwords aren't the same!"
 msgstr "Les mots de passe doivent être identiques !"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Ajouter un utilisateur"
 
 #: js/messages.php:53
-#| msgid "Create version"
 msgid "Create User"
 msgstr "Créer un compte d'utilisateur"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Chargement des privilèges en cours"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Effacement des utilisateurs sélectionnés"
 
@@ -1053,12 +1040,10 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "Chargement"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Requête en traitement"
 
@@ -1079,37 +1064,30 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Changement de nom de la base de données"
 
 #: js/messages.php:72
-#| msgid "Remove database"
 msgid "Reload Database"
 msgstr "Rafraîchir la base de données"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Copie de la base de données"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Changement du jeu de caractères"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "La table doit comporter au moins une colonne."
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Nouvelle table"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "En recherche"
 
@@ -1118,7 +1096,6 @@ msgid "Toggle Query Box Visibility"
 msgstr "Basculer la visibilité de la boîte de requêtes"
 
 #: js/messages.php:85
-#| msgid "Inline"
 msgid "Inline Edit"
 msgstr "Éditiion sur place"
 
@@ -1190,7 +1167,6 @@ msgid "Generate"
 msgstr "Générer"
 
 #: js/messages.php:107
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Modifier le mot de passe"
 
@@ -1665,8 +1641,8 @@ msgstr "Bienvenue sur %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2240,7 +2216,6 @@ msgstr ""
 "sécurité pour les attaques de script inter-cadre (cross-frame)."
 
 #: libraries/config/messages.inc.php:20
-#| msgid "$cfg['AllowThirdPartyFraming'] boolean"
 msgid "Allow third party framing"
 msgstr "Permettre les cadres tierce partie"
 
@@ -2361,7 +2336,6 @@ msgid "Debug SQL"
 msgstr "Déboguer SQL"
 
 #: libraries/config/messages.inc.php:44
-#| msgid "Databases display options"
 msgid "Default display direction"
 msgstr "Valeur par défaut de la direction de l'affichage"
 
@@ -2402,7 +2376,6 @@ msgid "Default table tab"
 msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:53
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
 msgstr "Montrer par défaut le contenu binaire en hexadécimal"
 
@@ -2431,29 +2404,23 @@ msgid "Edit SQL queries in popup window"
 msgstr "Éditer les requêtes SQL dans une fenêtre popup"
 
 #: libraries/config/messages.inc.php:60
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Édition dans la fenêtre"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Affichage des erreurs"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "Collecter les erreurs"
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Uses icons for warnings, errors and informations."
 msgid "Show icons for warning, error and information messages"
 msgstr ""
-"Utiliser des icônes pour les avertissements, les erreurs et les "
-"informations."
+"Utiliser des icônes pour les avertissements, les erreurs et les informations."
 
 #: libraries/config/messages.inc.php:64
-#| msgid "Ignore errors"
 msgid "Iconic errors"
 msgstr "Icônes pour les erreurs"
 
@@ -2519,7 +2486,6 @@ msgid "Replace NULL by"
 msgstr "Remplacer NULL par"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
-#| msgid "Remove CRLF characters within columns"
 msgid "Remove CRLF characters within columns"
 msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
 
@@ -2535,7 +2501,6 @@ msgid "Lines terminated by"
 msgstr "Lignes terminées par"
 
 #: libraries/config/messages.inc.php:79
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel en version"
 
@@ -2556,8 +2521,6 @@ msgstr "Modèle de nom de table"
 #: libraries/config/messages.inc.php:139 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Dump table"
 msgstr "Exporter la table"
 
@@ -2571,7 +2534,6 @@ msgid "Table caption"
 msgstr "Sous-titre de la table"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
-#| msgid "Include table caption"
 msgid "Continued table caption"
 msgstr "Inclure les sous-titres"
 
@@ -2592,7 +2554,6 @@ msgid "Relations"
 msgstr "Relations"
 
 #: libraries/config/messages.inc.php:102
-#| msgid "Export Method:"
 msgid "Export method"
 msgstr "Méthode d'exportation"
 
@@ -2627,7 +2588,6 @@ msgid "Creation/Update/Check dates"
 msgstr "Dates de création/mise à jour/vérification"
 
 #: libraries/config/messages.inc.php:121
-#| msgid "Delayed inserts"
 msgid "Use delayed inserts"
 msgstr "Insertions avec délai"
 
@@ -2640,7 +2600,6 @@ msgid "Use hexadecimal for BLOB"
 msgstr "Utiliser l'hexadécimal pour un BLOB"
 
 #: libraries/config/messages.inc.php:127
-#| msgid "Delayed inserts"
 msgid "Use ignore inserts"
 msgstr "Ne pas insérer une ligne faisant doublon avec une clé unique"
 
@@ -2649,7 +2608,6 @@ msgid "Maximal length of created query"
 msgstr "Taille maximum de la requête générée"
 
 #: libraries/config/messages.inc.php:134
-#| msgid "Export"
 msgid "Export type"
 msgstr "Type d'exportation"
 
@@ -2658,7 +2616,6 @@ msgid "Enclose export in a transaction"
 msgstr "Utiliser le mode transactionnel"
 
 #: libraries/config/messages.inc.php:136
-#| msgid "Export contents"
 msgid "Export time in UTC"
 msgstr "Exporter l'heure en format UTC"
 
@@ -2704,7 +2661,6 @@ msgstr "Personnaliser le mode affichage"
 #: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:213
 #: libraries/config/messages.inc.php:225
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Personnaliser les options par défaut"
 
@@ -2746,7 +2702,6 @@ msgid "Features"
 msgstr "Fonctionnalités"
 
 #: libraries/config/messages.inc.php:164
-#| msgid "Generate"
 msgid "General"
 msgstr "Général"
 
@@ -2822,7 +2777,6 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:184
-#| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Texte Open Document"
 
@@ -2835,7 +2789,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Réglages divers"
 
 #: libraries/config/messages.inc.php:188
-#| msgid "Page name"
 msgid "Page titles"
 msgstr "Titres de page"
 
@@ -2877,12 +2830,10 @@ msgid "Basic settings"
 msgstr "Configuration de base"
 
 #: libraries/config/messages.inc.php:195
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Type d'authentification"
 
 #: libraries/config/messages.inc.php:196
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Réglages d'authentification"
 
@@ -2903,23 +2854,18 @@ msgid "Enter server connection parameters"
 msgstr "Entrez les paramètres de connexion au serveur"
 
 #: libraries/config/messages.inc.php:200
-#| msgid "Configuration: %s"
 msgid "Configuration storage"
 msgstr "Stockage de configuration"
 
 #: libraries/config/messages.inc.php:201
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
 "Configurez le stockage de configuration phpMyAdmin pour activer des "
-"fonctionnalités additionnelles, voir [a@../Documentation.html#linked-"
-"tables]phpMyAdmin configuration storage[/a] dans la documentation"
+"fonctionnalités additionnelles, voir [a@../Documentation.html#linked-tables]"
+"phpMyAdmin configuration storage[/a] dans la documentation"
 
 #: libraries/config/messages.inc.php:202
 msgid "Changes tracking"
@@ -2961,12 +2907,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Personnaliser les liens affichés dans les boîtes de requêtes SQL"
 
 #: libraries/config/messages.inc.php:215
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "Réglages des requêtes SQL"
 
 #: libraries/config/messages.inc.php:216
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "Validateur SQL"
 
@@ -2978,10 +2922,9 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "Si vous utilisez le service SQL Validator, veuillez noter que [strong]les "
-"énoncés SQL sont conservés de façon anonyme pour fins de "
-"statistiques[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-"reserved.[/em]"
+"énoncés SQL sont conservés de façon anonyme pour fins de statistiques[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:218
 msgid "Startup"
@@ -3000,12 +2943,10 @@ msgid "Choose how you want tabs to work"
 msgstr "Personnaliser les onglets"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Champs texte"
 
 #: libraries/config/messages.inc.php:223
-#| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Personnaliser les champs de saisie"
 
@@ -3014,7 +2955,6 @@ msgid "Texy! text"
 msgstr "Texte Texy!"
 
 #: libraries/config/messages.inc.php:226
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Avertissements"
 
@@ -3092,7 +3032,6 @@ msgstr "Utiliser l'option LOCAL"
 
 #: libraries/config/messages.inc.php:250 libraries/config/messages.inc.php:258
 #: libraries/config/messages.inc.php:259
-#| msgid "Put columns names in the first row"
 msgid "Column names in first row"
 msgstr "Noms de colonnes en première ligne"
 
@@ -3101,12 +3040,10 @@ msgid "Do not import empty rows"
 msgstr "Ne pas importer les lignes vides"
 
 #: libraries/config/messages.inc.php:252
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer les valeurs de monnaie ($5.00 devient 5.00)"
 
 #: libraries/config/messages.inc.php:253
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importer les pourcentages en tant que décimales (12.00% devient .12)"
 
@@ -3119,7 +3056,6 @@ msgid "Partial import: skip queries"
 msgstr "Nombre de requêtes à ignorer"
 
 #: libraries/config/messages.inc.php:257
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ne pas utiliser AUTO_INCREMENT pour la valeur zéro"
 
@@ -3298,15 +3234,16 @@ msgid "Login cookie validity"
 msgstr "Durée de validité de la connexion (mode cookie)"
 
 #: libraries/config/messages.inc.php:296
-msgid "Double size of textarea for LONGTEXT fields"
+#, fuzzy
+#| msgid "Double size of textarea for LONGTEXT fields"
+msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Doubler la taille de la zone de texte pour les colonnes LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Zone de texte plus grande pour LONGTEXT"
 
-#: libraries/config/messages.inc.php:297
-#| msgid "Uses icons on main page in lists and menu tabs."
+#: libraries/config/messages.inc.php:298
 msgid "Use icons on main page"
 msgstr "Utiliser des icônes sur la page principale"
 
@@ -3381,7 +3318,6 @@ msgid "Memory limit"
 msgstr "Limite mémoire"
 
 #: libraries/config/messages.inc.php:313
-#| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "Montrer à gauche le lien d'effacement"
 
@@ -3392,11 +3328,9 @@ msgstr "Montrer à droite le lien d'effacement"
 #: libraries/config/messages.inc.php:315
 msgid "Use natural order for sorting table and database names"
 msgstr ""
-"Utiliser l'ordre naturel pour trier les noms de tables et de bases de "
-"données"
+"Utiliser l'ordre naturel pour trier les noms de tables et de bases de données"
 
 #: libraries/config/messages.inc.php:316
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Ordre naturel"
 
@@ -3462,9 +3396,6 @@ msgid "Protect binary columns"
 msgstr "Protéger les colonnes avec contenu binaire"
 
 #: libraries/config/messages.inc.php:331
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3499,17 +3430,14 @@ msgid "Query window height (in pixels)"
 msgstr "Hauteur de la fenêtre de requêtes (en pixels)"
 
 #: libraries/config/messages.inc.php:339
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Hauteur de la fenêtre de requêtes"
 
 #: libraries/config/messages.inc.php:340
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Largeur de la fenêtre de requêtes (en pixels)"
 
 #: libraries/config/messages.inc.php:341
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Largeur de la fenêtre de requêtes"
 
@@ -3524,7 +3452,6 @@ msgid "Recoding engine"
 msgstr "Moteur de conversion"
 
 #: libraries/config/messages.inc.php:344
-#| msgid "Repeat the headers every X cells, or 0 to deactivate."
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Répète les en-têtes toutes les X cellules, [kbd]0[/kbd] désactive ceci"
 
@@ -3533,8 +3460,6 @@ msgid "Repeat headers"
 msgstr "Répéter les en-têtes"
 
 #: libraries/config/messages.inc.php:346
-#| msgid ""
-#| "Shows a help button instead of the &quot;Documentation&quot; message."
 msgid "Show help button instead of Documentation text"
 msgstr "Affiche un bouton d'aide au lieu du message Documentation"
 
@@ -3556,7 +3481,6 @@ msgid "Leave blank if not used"
 msgstr "Laisser vide si non utilisé"
 
 #: libraries/config/messages.inc.php:352
-#| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Ordre d'autorisation des serveurs"
 
@@ -3565,7 +3489,6 @@ msgid "Leave blank for defaults"
 msgstr "Laisser vide pour la valeur par défaut"
 
 #: libraries/config/messages.inc.php:354
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Règles d'autorisation des serveurs"
 
@@ -3745,9 +3668,6 @@ msgid "Connect without password"
 msgstr "Connexion sans mot de passe"
 
 #: libraries/config/messages.inc.php:391
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -3756,8 +3676,8 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Vous pouvez utiliser ces caractères passepartout MySQL (% et _), avec un "
-"caractère d'échappement si vous les employez de manière littérale "
-"(«ma\\_base» et non «ma_base»). Ainsi vous pouvez trier la liste des bases de "
+"caractère d'échappement si vous les employez de manière littérale («ma"
+"\\_base» et non «ma_base»). Ainsi vous pouvez trier la liste des bases de "
 "données en entrant leurs noms et en utilisant [kbd]*[/kbd] en fin de liste "
 "pour montrer le reste des noms de base de données en ordre alphabétique."
 
@@ -3794,7 +3714,6 @@ msgstr ""
 "désactiver. Suggéré : [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:398
-#| msgid "database name"
 msgid "Database name"
 msgstr "Nom de base de données"
 
@@ -3954,9 +3873,6 @@ msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:428
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
@@ -4031,7 +3947,6 @@ msgstr ""
 "mode modification/insertion."
 
 #: libraries/config/messages.inc.php:442
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Montrer les champs de type de données"
 
@@ -4187,7 +4102,6 @@ msgstr ""
 "augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
 
 #: libraries/config/messages.inc.php:475
-#| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "Taille horizontale pour une zone de texte"
 
@@ -4200,20 +4114,19 @@ msgstr ""
 "augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
 
 #: libraries/config/messages.inc.php:477
-#| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "Taille verticale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:478
 msgid "Title of browser window when a database is selected"
-msgstr "Titre de la fenêtre de navigateur quand une base de données est choisie"
+msgstr ""
+"Titre de la fenêtre de navigateur quand une base de données est choisie"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when nothing is selected"
 msgstr "Titre de la fenêtre de navigateur quand rien n'est choisi"
 
 #: libraries/config/messages.inc.php:481
-#| msgid "Default table tab"
 msgid "Default title"
 msgstr "Titre par défaut"
 
@@ -4302,22 +4215,18 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#| msgid "'config' authentication mode"
 msgid "Config authentication"
 msgstr "Mode d'authentification « config »"
 
 #: libraries/config/setup.forms.php:45
-#| msgid "the Cookie authentication mode"
 msgid "Cookie authentication"
 msgstr "Mode d'authentification « cookie »"
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Swekey authentication"
 msgid "HTTP authentication"
 msgstr "Mode d'authentification « HTTP »"
 
 #: libraries/config/setup.forms.php:51
-#| msgid "'signon' authentication mode"
 msgid "Signon authentication"
 msgstr "Mode d'authentification « signon »"
 
@@ -4354,13 +4263,11 @@ msgstr "Rapide"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#| msgid "Customization"
 msgid "Custom"
 msgstr "Personnalisé"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
-#| msgid "Databases display options"
 msgid "Database export options"
 msgstr "Options d'exportation des bases de données"
 
@@ -4634,8 +4541,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -4902,7 +4809,6 @@ msgid "Print view (with full texts)"
 msgstr "Version imprimable (avec textes complets)"
 
 #: libraries/display_tbl.lib.php:2232 tbl_chart.php:82
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Afficher le graphique"
 
@@ -6683,23 +6589,6 @@ msgstr "Ajouter %s colonne(s)"
 msgid "You have to add at least one column."
 msgstr "Vous devez ajouter au moins une colonne."
 
-#: libraries/tbl_properties.inc.php:799
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
-"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
-"d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
-
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
 msgstr "Événement"
@@ -7719,8 +7608,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -9242,9 +9131,9 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
-"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/"
-"kbd]."
+"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http"
+"[/kbd]."
 
 #: setup/lib/index.lib.php:259
 #, php-format
@@ -10001,6 +9890,33 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
+
+#~ msgid ""
+#~ "Enter each value in a separate field, enclosed in single quotes. If you "
+#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
+#~ msgstr ""
+#~ "Veuillez entrer les valeurs dans des champs séparés et les entourer "
+#~ "d'apostrophes. Si vous devez entrer un caractère (\"\\\") ou une "
+#~ "apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+#~ "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
+
+#, fuzzy
+#~| msgid ""
+#~| "Please enter the values for transformation options using this format: "
+#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
+#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~| "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Veuillez entrer les valeurs des options de transformation en suivant ce "
+#~ "format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\"
+#~ "\") ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du "
+#~ "caractère d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Nouvelle table"

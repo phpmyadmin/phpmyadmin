@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-05 09:06-0400\n"
+"POT-Creation-Date: 2010-09-07 10:53+0200\n"
 "PO-Revision-Date: 2010-09-07 10:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -820,11 +820,8 @@ msgstr "Historie databáze"
 msgid "Values for the column \"%s\""
 msgstr "Hodnoty pro pole \"%s\""
 
-#: enum_editor.php:22
-msgid ""
-"Enter each value in a separate field, enclosed in single quotes. If you ever "
-"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
-"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:799
+msgid "Enter each value in a separate field."
 msgstr ""
 
 #: export.php:73
@@ -966,12 +963,10 @@ msgid "Dropping Event"
 msgstr "Odstraňuji událost"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Odstraňuji proceduru"
 
 #: js/messages.php:35
-#| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Odstraňuji sledovací data"
 
@@ -1017,22 +1012,18 @@ msgid "The passwords aren't the same!"
 msgstr "Hesla nejsou stejná!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Přidat nového uživatele"
 
 #: js/messages.php:53
-#| msgid "Create version"
 msgid "Create User"
 msgstr "Vytvořit uživatele"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Načítám oprávnění"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Odstraňuji vybrané uživatele"
 
@@ -1045,12 +1036,10 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "Nahrávám"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Probíhá zpracování požadavku"
 
@@ -1071,37 +1060,30 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Přejmenovávám databáze"
 
 #: js/messages.php:72
-#| msgid "Remove database"
 msgid "Reload Database"
 msgstr "Znovu načítám databázi"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kopíruji databázi"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Měním znakovou sadu"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "Tabulka musí mít alespoň jedno pole"
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Vytvořit tabulku"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "Vyhledávám"
 
@@ -1110,7 +1092,6 @@ msgid "Toggle Query Box Visibility"
 msgstr "Přepnout zobrazení pole pro zadání dotazu"
 
 #: js/messages.php:85
-#| msgid "Inline"
 msgid "Inline Edit"
 msgstr "Upravit zde"
 
@@ -1182,7 +1163,6 @@ msgid "Generate"
 msgstr "Vytvořit"
 
 #: js/messages.php:107
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Změnit heslo"
 
@@ -3093,7 +3073,6 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:268
-#| msgid "Display databases in a tree"
 msgid "Display table filter"
 msgstr "Zobrazit rychlé vyhledávání tabulek"
 
@@ -3234,7 +3213,6 @@ msgid "Login cookie validity"
 msgstr "Platnost přihlašovací cookie"
 
 #: libraries/config/messages.inc.php:296
-#| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Zdvojnásobit velikost editačního pole pro sloupec typu LONGTEXT"
 
@@ -4247,7 +4225,6 @@ msgstr "Rychlý"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#| msgid "Customization"
 msgid "Custom"
 msgstr "Vlastní"
 
@@ -6504,16 +6481,6 @@ msgstr "Přidat %s polí"
 #: libraries/tbl_properties.inc.php:787 tbl_structure.php:625
 msgid "You have to add at least one column."
 msgstr "Musíte přidat alespoň jedno pole."
-
-#: libraries/tbl_properties.inc.php:799
-msgid ""
-"Enter each value in a separate field. If you ever need to put a backslash "
-"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
-"backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Zadejte každou hodnotu to samostatného políčka. Pokud potřebujete použít "
-"zpětné lomítko („\\“) nebo jednoduché uvozovky („'“) mezi těmito hodnotami, "
-"vložte před ně zpětné lomítko (například '\\\\xyz' nebo 'a\\'b')."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -9710,6 +9677,16 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Zadejte každou hodnotu to samostatného políčka. Pokud potřebujete použít "
+#~ "zpětné lomítko („\\“) nebo jednoduché uvozovky („'“) mezi těmito "
+#~ "hodnotami, vložte před ně zpětné lomítko (například '\\\\xyz' nebo 'a"
+#~ "\\'b')."
 
 #~ msgid "Debug PHP"
 #~ msgstr "Ladit PHP"
