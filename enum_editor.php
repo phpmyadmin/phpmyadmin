@@ -22,22 +22,20 @@ require_once './libraries/header_meta_style.inc.php';
             <p><?php echo __('Enter each value in a separate field, enclosed in single quotes. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
             <div id="values">
             <?php
-                $values = '';
+                $values = array();
                 if (isset($_GET['values'])) { // This page was displayed when the "add a new value" link or the link in tbl_alter.php was clicked
-                    $values = urldecode($_GET['values']);
+                    $values = split(',', urldecode($_GET['values']));
                 } elseif (isset($_GET['num_fields'])) { // This page was displayed from submitting this form
                     for($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
-                        $values .= $_GET['field' . $field_num] . ",";
+                        $values[] = "'" . str_replace(array("'", '\\'), array("''", '\\\\'), $_GET['field' . $field_num]) . "'";
                     }
                 }
                 // Display the values in text fields, excluding empty strings
                 $field_counter = 0;
-                $stripped_values = array(); // The values to display in the output
-                foreach(split(",", $values) as $value) {
+                foreach($values as $value) {
                     if(trim($value) != "") {
                         $field_counter++;
-                        echo sprintf('<input type="text" size="30" value="%s" name="field' . $field_counter . '" />', htmlspecialchars($value));
-                        $stripped_values[] = htmlspecialchars($value);
+                        echo sprintf('<input type="text" size="30" value="%s" name="field' . $field_counter . '" />', htmlspecialchars(str_replace(array("''", '\\\\', "\\'"), array("'", '\\', "'"), substr($value, 1, -1))));
                     }
                 }
 
@@ -55,7 +53,7 @@ require_once './libraries/header_meta_style.inc.php';
             ?>
             </div>
             <p>
-               <a href="enum_editor.php?token=<?php echo urlencode($_GET['token']); ?>&field=<?php echo urlencode($_GET['field']); ?>&extra_fields=<?php echo $_GET['extra_fields'] + 1; ?>&values=<?php echo $values; ?>">
+               <a href="enum_editor.php?token=<?php echo urlencode($_GET['token']); ?>&field=<?php echo urlencode($_GET['field']); ?>&extra_fields=<?php echo $_GET['extra_fields'] + 1; ?>&values=<?php echo urlencode(join(",", $values)); ?>">
                    + Restart insertion and add a new value
                </a>
             </p>
@@ -68,7 +66,7 @@ require_once './libraries/header_meta_style.inc.php';
         <div id="enum_editor_output">
             <h3>Output</h3>
             <p>Copy and paste the joined values into the "Length/Values" field</p>
-            <textarea id="joined_values" cols="95" rows="5"><?php echo join(",", $stripped_values); ?></textarea>
+            <textarea id="joined_values" cols="95" rows="5"><?php echo join(",", $values); ?></textarea>
         </div>
     </div>
 </body>
