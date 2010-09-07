@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-05 09:06-0400\n"
-"PO-Revision-Date: 2010-09-07 09:14+0200\n"
+"PO-Revision-Date: 2010-09-07 09:15+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1069,7 +1069,7 @@ msgstr "Feil i prosesseringsforespørsel"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Dropper kolonne"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
