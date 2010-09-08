@@ -2105,7 +2105,7 @@ msgstr "Ugyldig verdi"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Verdien må være lik eller mindre enn %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
