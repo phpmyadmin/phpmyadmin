@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-08 13:10+0200\n"
+"PO-Revision-Date: 2010-09-08 13:11+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -2078,7 +2078,7 @@ msgstr "begge ovenforstående"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "ingen av de overstående"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
