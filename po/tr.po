@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-08 22:05+0200\n"
+"PO-Revision-Date: 2010-09-08 22:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4279,7 +4279,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:260 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr "Açık Belge Metini"
+msgstr "Açık Belge Metni"
 
 #: libraries/config/validate.lib.php:198 libraries/config/validate.lib.php:205
 msgid "Could not connect to MySQL server"
