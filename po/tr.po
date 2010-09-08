@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-08 22:08+0200\n"
+"PO-Revision-Date: 2010-09-08 22:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5991,7 +5991,7 @@ msgstr "Slave yapılandırması"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:345
 msgid "Change or reconfigure master server"
-msgstr "Asıl sunucuyu değiştir veya yeniden yapılandır"
+msgstr "Master sunucuyu değiştir veya yeniden yapılandır"
 
 #: libraries/replication_gui.lib.php:54
 msgid ""
