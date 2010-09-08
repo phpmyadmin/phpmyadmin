@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-07 14:07+0200\n"
+"PO-Revision-Date: 2010-09-08 09:08+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -813,7 +813,7 @@ msgstr "Verdier for kolonnen \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Skriv inn hver verdi i separate felter."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -9920,79 +9920,3 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
-
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Skriv hver enkelt verdi i et separat felt, innelukket i enkle apostrofer. "
-#~ "Hvis du trenger å skrive en bakoverskråstrek(\"\\\") eller en enkel "
-#~ "apostrof (\"'\") blant disse verdiene, så skriv en bakoverskråstrek foran "
-#~ "(eks. '\\\\\\xyz' eller 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Skriv inn verdiene for transformasjon med dette formatet: 'a', 100, "
-#~ "b,'c'...<br />Hvis du trenger å bruke en skråstrek (\"\\\") eller en "
-#~ "enkel apostrof (\"'\") blant disse verdiene så sett en skråstrek foran "
-#~ "(eks. '\\\\xyz' eller 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Ny tabell"
-
-#~ msgid "server name"
-#~ msgstr "tjenernavn"
-
-#~ msgid "database name"
-#~ msgstr "databasenavn"
-
-#~ msgid "table name"
-#~ msgstr "tabellnavn"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Rediger PDF-sider"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Data Ordbok Format"
-
-#~ msgid "no"
-#~ msgstr "nei"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Skriv innloggingsinnstillinger for signon autentiseringsmetode"
-
-#~ msgid "Signon login options"
-#~ msgstr "Signon innloggingsinnstillinger"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA database"
-
-#~ msgid "Customization"
-#~ msgstr "Tilpasning"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Innstillinger for SQL spørringer, for SQL spørringsboksinnstillinger se "
-#~ "[a@?page=form&amp;formset=main_frame#tab_Sql_box]navigasjonsramme[/a]"
-#~ "innstillingene"
-
-#~ msgid "yes"
-#~ msgstr "ja"
