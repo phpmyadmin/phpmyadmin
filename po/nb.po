@@ -2136,7 +2136,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL Validator er avslått"
 
 #: libraries/config/FormDisplay.class.php:764
 #, fuzzy
