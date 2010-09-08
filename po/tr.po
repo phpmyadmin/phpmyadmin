@@ -7730,7 +7730,7 @@ msgid ""
 "master"
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
-"tıklayın. Ondan sonra bu sunucunun asıl olarak <b>yapılandırıldığını</b> "
+"tıklayın. Ondan sonra bu sunucunun master olarak <b>yapılandırıldığını</b> "
 "gösteren, sizi uyaran bir mesaj görmelisiniz"
 
 #: server_replication.php:291
