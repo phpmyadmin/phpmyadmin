@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-03 14:27+0200\n"
+"PO-Revision-Date: 2010-09-07 19:46+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -817,7 +817,7 @@ msgstr "Values for the column \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Enter each value in a separate field."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -1068,10 +1068,9 @@ msgid "Changing Charset"
 msgstr "Changing Charset"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have atleast 1 column"
 msgid "Table must have at least one column"
-msgstr "Table must have at-least 1 column"
+msgstr "Table must have at least one column"
 
 #: js/messages.php:76
 msgid "Create Table"
@@ -3063,10 +3062,9 @@ msgid "Display servers selection"
 msgstr "Display servers selection"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Display databases in a tree"
+msgstr "Display table filter"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
@@ -3205,10 +3203,9 @@ msgid "Login cookie validity"
 msgstr "Login cookie validity"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Double size of textarea for LONGTEXT fields"
+msgstr "Double size of textarea for LONGTEXT columns"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
@@ -3338,7 +3335,6 @@ msgid "Persistent connections"
 msgstr "Persistent connections"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the relation features "
@@ -3349,8 +3345,8 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Disable the default warning that is displayed on the database details "
-"Structure page if any of the required tables for the relation features could "
-"not be found"
+"Structure page if any of the required tables for the phpMyAdmin "
+"configuration storage could not be found"
 
 #: libraries/config/messages.inc.php:326
 msgid "Missing phpMyAdmin configuration storage tables"
