@@ -1,0 +1,6 @@
+
+The tahoma.ttf file which is bundled with pChart 1.27d was replaced due to uncertainty with it's licence.
+
+As a replacement the DejaVuSans.ttf font file was extracted from the DejaVu fonts 2.32 package available from dejavu-fonts.org
+
+For license information see LICENSE. 
