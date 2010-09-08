@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-08 22:34+0200\n"
+"PO-Revision-Date: 2010-09-08 22:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7665,7 +7665,7 @@ msgstr "Master sunucu %s'na başarılı olarak değiştirildi"
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
 msgstr ""
-"Bu sunucu kopya etme işlemi sırasında asıl sunucu olarak yapılandırıldı."
+"Bu sunucu kopya etme işlemi sırasında master sunucu olarak yapılandırıldı."
 
 #: server_replication.php:182 server_status.php:398
 msgid "Show master status"
