@@ -2166,7 +2166,7 @@ msgstr "Gjennopprett standard verdi"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Tillat brukere å endre denne verdien"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
