@@ -7149,7 +7149,7 @@ msgstr "Veritabanı istatistikleri"
 #: server_databases.php:206 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr "Asılı kopya etme"
+msgstr "Master kopya etme"
 
 #: server_databases.php:208 server_replication.php:246
 msgid "Slave replication"
