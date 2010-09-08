@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-08 22:37+0200\n"
+"PO-Revision-Date: 2010-09-08 22:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7754,7 +7754,7 @@ msgstr "Slave durum tablosuna bak"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "Asılı ile veritabanlarını eşitle"
+msgstr "Veritabanlarını master ile eşitle"
 
 #: server_replication.php:320
 msgid "Control slave:"
