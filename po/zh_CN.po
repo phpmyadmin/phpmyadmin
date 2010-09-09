@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-09 14:10+0200\n"
+"PO-Revision-Date: 2010-09-09 14:26+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3010,10 +3010,9 @@ msgid "Display servers selection"
 msgstr "显示服务器选择"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "以树形显示数据库"
+msgstr "显示数据表快速搜索框"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
