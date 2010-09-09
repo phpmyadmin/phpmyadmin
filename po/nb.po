@@ -2126,7 +2126,7 @@ msgstr "\"%s\" trenger %s tillegget"
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "import vil ikke fungere, mangler funksjon (%s)"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
