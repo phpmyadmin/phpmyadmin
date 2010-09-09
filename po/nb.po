@@ -2151,6 +2151,7 @@ msgstr "maksimum %s"
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Denne innstillingen er avslått, den vil ikke bli lagt til din konfigurasjon"
 
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
