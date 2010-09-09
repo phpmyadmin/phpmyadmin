@@ -3147,7 +3147,7 @@ msgstr "放大一倍 LONGTEXT 字段的输入框"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
-msgstr "放大 LONGTEXT 字段的文本输入框"
+msgstr "放大 LONGTEXT 字段的输入框"
 
 #: libraries/config/messages.inc.php:298
 msgid "Use icons on main page"
