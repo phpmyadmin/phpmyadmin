@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-07 15:21+0200\n"
-"PO-Revision-Date: 2010-09-09 14:26+0200\n"
+"PO-Revision-Date: 2010-09-09 14:27+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3142,9 +3142,8 @@ msgid "Login cookie validity"
 msgstr "登录 cookie 有效期"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "放大一倍 LONGTEXT 字段的文本输入框"
+msgstr "放大一倍 LONGTEXT 字段的输入框"
 
 #: libraries/config/messages.inc.php:297
 msgid "Bigger textarea for LONGTEXT"
