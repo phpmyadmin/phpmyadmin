@@ -408,6 +408,7 @@ define("NONE",      0);
 define("VARCHAR",   1);
 define("INT",       2);
 define("DECIMAL",   3);
+define("BIGINT",    4);
 
 /* Decimal size defs */
 define("M",         0);
@@ -489,6 +490,7 @@ function PMA_getDecimalSize(&$cell) {
  * @uses    FULL
  * @uses    VARCHAR
  * @uses    DECIMAL
+ * @uses    BIGINT
  * @uses    INT
  * @uses    NONE
  * @uses    strcmp()
@@ -497,8 +499,8 @@ function PMA_getDecimalSize(&$cell) {
  * @uses    PMA_getD()
  * @uses    PMA_getDecimalSize()
  * @param   string $last_cumulative_size    Last cumulative column size
- * @param   int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT)
- * @param   int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT)
+ * @param   int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+ * @param   int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
  * @param   string &$cell                   The current cell
  * @return  string                          Size of the given cell in the type-appropriate format
  */
@@ -516,7 +518,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
      */
 	elseif ($curr_type == VARCHAR) {
         /**
-         * The last cumlative type was VARCHAR
+         * The last cumulative type was VARCHAR
          */
 		if ($last_cumulative_type == VARCHAR) {
 			if ($curr_size >= $last_cumulative_size) {
@@ -526,7 +528,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 		}
         /**
-         * The last cumlative type was DECIMAL
+         * The last cumulative type was DECIMAL
          */
         elseif ($last_cumulative_type == DECIMAL) {
             $oldM = PMA_getM($last_cumulative_size);
@@ -538,9 +540,9 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 		}
         /**
-         * The last cumlative type was INT
+         * The last cumulative type was BIGINT or INT
          */
-        elseif ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
             if ($curr_size >= $last_cumulative_size) {
                 return $curr_size;
             } else {
@@ -569,7 +571,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
      */
     elseif ($curr_type == DECIMAL) {
         /**
-         * The last cumlative type was VARCHAR
+         * The last cumulative type was VARCHAR
          */
 		if ($last_cumulative_type == VARCHAR) {
             /* Convert $last_cumulative_size from varchar to decimal format */
@@ -582,7 +584,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 		}
         /**
-         * The last cumlative type was DECIMAL
+         * The last cumulative type was DECIMAL
          */
         elseif ($last_cumulative_type == DECIMAL) {
 		    $size = PMA_getDecimalSize($cell);
@@ -599,9 +601,9 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 		}
         /**
-         * The last cumlative type was INT
+         * The last cumulative type was BIGINT or INT
          */
-        elseif ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
 		    /* Convert $last_cumulative_size from int to decimal format */
 		    $size = PMA_getDecimalSize($cell);
 		    
@@ -632,11 +634,11 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         }
 	}
     /**
-     * What to do if the current cell is of type INT
+     * What to do if the current cell is of type BIGINT or INT
      */
-    elseif ($curr_type == INT) {
+    elseif ($curr_type == BIGINT || $curr_type == INT) {
         /**
-         * The last cumlative type was VARCHAR
+         * The last cumulative type was VARCHAR
          */
 		if ($last_cumulative_type == VARCHAR) {
 		    if ($curr_size >= $last_cumulative_size) {
@@ -646,7 +648,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 		}
         /**
-         * The last cumlative type was DECIMAL
+         * The last cumulative type was DECIMAL
          */
         elseif ($last_cumulative_type == DECIMAL) {
             $oldM = PMA_getM($last_cumulative_size);
@@ -664,9 +666,9 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             }
 	    }
         /**
-         * The last cumlative type was INT
+         * The last cumulative type was BIGINT or INT
          */
-        elseif ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
 		    if ($curr_size >= $last_cumulative_size) {
 		        return $curr_size;
             } else {
@@ -709,6 +711,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  * @access  public
  *
  * @uses    DECIMAL
+ * @uses    BIGINT
  * @uses    INT
  * @uses    VARCHAR
  * @uses    NONE
@@ -716,13 +719,13 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  * @uses    strcmp()
  * @uses    strpos()
  * @uses    substr_count()
- * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or DECIMAL or NONE)
+ * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  * @param   string &$cell                 String representation of the cell for which a best-fit type is to be determined
- * @return  int                           The MySQL type representation (VARCHAR or INT or DECIMAL or NONE)
+ * @return  int                           The MySQL type representation (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  */
 function PMA_detectType($last_cumulative_type, &$cell) {
     /**
-     * If numeric, determine if decimal or int
+     * If numeric, determine if decimal, int or bigint
      * Else, we call it varchar for simplicity
      */
     
@@ -736,7 +739,11 @@ function PMA_detectType($last_cumulative_type, &$cell) {
         if ($cell == (string)(float)$cell && strpos($cell, ".") !== false && substr_count($cell, ".") == 1) {
             return DECIMAL;
         } else {
-            return INT;
+		if ($cell > 2147483647) {
+			return BIGINT;
+		} else {
+			return INT;
+		}
         }
     } else {
         return VARCHAR;
@@ -758,6 +765,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  * @uses    ROWS
  * @uses    VARCHAR
  * @uses    DECIMAL
+ * @uses    BIGINT
  * @uses    INT
  * @uses    NONE
  * @uses    count()
@@ -802,21 +810,25 @@ function PMA_analyzeTable(&$table) {
 				$sizes[$i] = PMA_detectSize($sizes[$i], $types[$i], $curr_type, $table[ROWS][$j][$i]);
 				
 				/**
-                 * If a type for this column has alreday been delcared,
+				 * If a type for this column has already been declared,
 				 * only alter it if it was a number and a varchar was found
-                 */
-                if ($curr_type != NONE) {
+				 */
+				if ($curr_type != NONE) {
 					if ($curr_type == VARCHAR) {
 						$types[$i] = VARCHAR;
 					} else if ($curr_type == DECIMAL) {
 						if ($types[$i] != VARCHAR) {
 							$types[$i] = DECIMAL;
 						}
+					} else if ($curr_type == BIGINT) {
+						if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
+							$types[$i] = BIGINT;
+						}
 					} else if ($curr_type == INT) {
-                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
-                            $types[$i] = INT;
-                        }
-                    }
+						if ($types[$i] != VARCHAR && $types[$i] != DECIMAL && $types[$i] != BIGINT) {
+							$types[$i] = INT;
+						}
+					}
 				}
 			}
 		}
@@ -945,7 +957,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     }
 
     if ($analyses != NULL) {
-        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal");
+        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint");
         
         /* TODO: Do more checking here to make sure they really are matched */
         if (count($tables) != count($analyses)) {
