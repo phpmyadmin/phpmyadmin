@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.3.8.0 (not yet released)
+- bug #3059311 [import] BIGINT field type added to table analysis
 
 3.3.7.0 (2010-09-07)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
