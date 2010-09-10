@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-09-07 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -597,7 +597,7 @@ msgstr "Vložit"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -646,8 +646,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -854,8 +854,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1491,8 +1491,8 @@ msgstr "Komentář"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "Upravit"
@@ -1637,8 +1637,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2040,7 +2040,7 @@ msgstr "Adresář určený pro upload souborů nemohl být otevřen"
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 msgid "structure"
 msgstr "struktura"
 
@@ -4499,8 +4499,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -4678,7 +4678,7 @@ msgstr "Setřídit podle klíče"
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5496,37 +5496,37 @@ msgstr "Vygeneroval"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Následující tabulky byly vytvořeny nebo změněny. Teď můžete:"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr "Zobrazit obsah tabulky kliknutím na její jméno"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz \"Nastavení\""
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Upravit strukturu kliknutím na odkaz \"Struktura\""
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 msgid "Go to database"
 msgstr "Přejít na databázi"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr "nastavení"
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 msgid "Go to table"
 msgstr "Přejít na tabulku"
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr "Přejít na podhled"
 
@@ -6416,8 +6416,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6458,8 +6458,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:729 server_engines.php:56
 #: tbl_operations.php:352
@@ -6984,8 +6984,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7454,8 +7454,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -8939,9 +8939,8 @@ msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
-"kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:259
 #, php-format
@@ -9077,8 +9076,9 @@ msgstr ""
 "směry"
 
 #: tbl_change.php:1106
-#, php-format
-msgid "Restart insertion with %s rows"
+#, fuzzy, php-format
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr "Začít znovu vkládání s %s řádky"
 
 #: tbl_chart.php:56

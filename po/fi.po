@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -613,7 +613,7 @@ msgstr "Lisää rivi"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -662,11 +662,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
-"%sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
+"sohjeista%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -871,8 +871,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -1597,8 +1597,8 @@ msgstr "Kommentti"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "Muokkaa"
@@ -1744,11 +1744,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
-"%1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
+"$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2162,7 +2162,7 @@ msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 msgid "structure"
 msgstr "rakenne"
 
@@ -4789,8 +4789,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -4994,7 +4994,7 @@ msgstr "Lajittele avaimen mukaan"
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5849,38 +5849,38 @@ msgstr "Luontiympäristö"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän vastauksen, toisin sanoen nolla riviä."
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Seuraavat rakenteet on joko luotu tai niitä on muutettu. Voit:"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr "näyttää rakenteen sisällön painamalla sen nimeä"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "muuttaa mitä tahansa sen asetuksia painamalla vastaavaa \"Valinnat\"-linkkiä"
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Muokkaa sen rakennetta seuraamalla \"Rakenne\"-linkkiä"
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 msgid "Go to database"
 msgstr "Siirry tietokantaan"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr "asetukset"
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 msgid "Go to table"
 msgstr "Siirry tauluun"
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr "Siirry näkymään"
 
@@ -7926,8 +7926,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -9628,8 +9628,9 @@ msgstr ""
 "siirtyä mihin tahansa kohtaan."
 
 #: tbl_change.php:1106
-#, php-format
-msgid "Restart insertion with %s rows"
+#, fuzzy, php-format
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr "Aloita lisäys alusta %s rivillä"
 
 #: tbl_chart.php:56

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -347,8 +347,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
-"%s여기를 클릭%s하십시오."
+"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %"
+"s여기를 클릭%s하십시오."
 
 #: db_operations.php:549
 msgid "Edit or export relational schema"
@@ -597,7 +597,7 @@ msgstr "삽입"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -646,8 +646,8 @@ msgstr "트래킹이 활성화되어 있지 않습니다."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -858,8 +858,8 @@ msgstr ""
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1520,8 +1520,8 @@ msgstr "설명(코멘트)"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "수정"
@@ -1661,8 +1661,8 @@ msgstr "%s에 오셨습니다"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
 "일을 생성할 수 있습니다."
@@ -2060,7 +2060,7 @@ msgstr "업로드 디렉토리에 접근할 수 없습니다"
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 #, fuzzy
 msgid "structure"
 msgstr "구조"
@@ -4483,8 +4483,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -4662,7 +4662,7 @@ msgstr ""
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5449,38 +5449,38 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴.)"
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 #, fuzzy
 msgid "Go to database"
 msgstr "데이터베이스가 없습니다"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr ""
 
@@ -6685,8 +6685,8 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
-"%s여기를 클릭%s하십시오."
+"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %"
+"s여기를 클릭%s하십시오."
 
 #: main.php:311
 msgid ""
@@ -7365,8 +7365,8 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1776
@@ -8832,7 +8832,7 @@ msgstr ""
 
 #: tbl_change.php:1106
 #, php-format
-msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56

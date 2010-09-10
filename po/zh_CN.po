@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-09-09 14:28+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -585,7 +585,7 @@ msgstr "插入"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -634,8 +634,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -839,8 +839,8 @@ msgstr "转存已经保存到文件 %s 中。"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1465,8 +1465,8 @@ msgstr "注释"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "编辑"
@@ -1603,8 +1603,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -1997,7 +1997,7 @@ msgstr "用于上传的文件夹出错，无法使用"
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 msgid "structure"
 msgstr "结构"
 
@@ -3010,7 +3010,6 @@ msgid "Display servers selection"
 msgstr "显示服务器选择"
 
 #: libraries/config/messages.inc.php:268
-#| msgid "Display databases in a tree"
 msgid "Display table filter"
 msgstr "显示数据表快速搜索框"
 
@@ -4372,8 +4371,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -4541,7 +4540,7 @@ msgstr "主键排序"
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5338,37 +5337,37 @@ msgstr "生成者"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "下列结构被创建或修改。你可以:"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr "点击它的名字查看内容"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "点击相应的“选项”链接修改它的设置"
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "点击“结构”链接编辑它的结构"
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 msgid "Go to database"
 msgstr "转到数据库"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr "设置"
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 msgid "Go to table"
 msgstr "转到数据表"
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr "转到视图"
 
@@ -7236,12 +7235,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
+"s。"
 
 #: server_privileges.php:1776
 msgid "The selected user was not found in the privilege table."
@@ -8644,9 +8643,9 @@ msgid ""
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
-"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认"
-"证[/kbd]。"
+"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认证"
+"[/kbd]。"
 
 #: setup/lib/index.lib.php:259
 #, php-format
@@ -8780,8 +8779,9 @@ msgid ""
 msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动"
 
 #: tbl_change.php:1106
-#, php-format
-msgid "Restart insertion with %s rows"
+#, fuzzy, php-format
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr "重新进行插入操作，共 %s 行"
 
 #: tbl_chart.php:56

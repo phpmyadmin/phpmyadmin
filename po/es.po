@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-03-12 11:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -612,7 +612,7 @@ msgstr "Insertar"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -661,11 +661,11 @@ msgstr ""
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista tiene al menos este número de filas.  Por favor, refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas.  Por favor, refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -879,8 +879,8 @@ msgstr "Su archivo (MySQL dump) ha sido guardado con el nombre %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande.  Por favor, "
 "refiérase a %sdocumentation%s para hallar modos de superar esta limitante."
@@ -1608,8 +1608,8 @@ msgstr "Comentario"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "Editar"
@@ -1738,8 +1738,8 @@ msgstr "¡No se halló la plantilla de interfaz (theme) %s!"
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
-"¡No se halló la ruta de la plantilla de interfaz (theme) para la plantilla "
-"%s!"
+"¡No se halló la ruta de la plantilla de interfaz (theme) para la plantilla %"
+"s!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
@@ -1760,8 +1760,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no creó un archivo de configuración. "
 "Utilice %1$ssetup script%2$s para crear una."
@@ -2182,7 +2182,7 @@ msgstr ""
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 #, fuzzy
 msgid "structure"
 msgstr "Estructura"
@@ -4767,8 +4767,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s; así, usted puede usar "
 "cadenas de caracteres para formatear el tiempo. De manera adicional, "
@@ -4967,7 +4967,7 @@ msgstr "Organizar según la clave"
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5837,39 +5837,39 @@ msgstr "Generado por"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha devuelto un valor vacío (i.e., cero columnas)."
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 #, fuzzy
 msgid "Go to database"
 msgstr "No hay bases de datos"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 #, fuzzy
 msgid "Go to table"
 msgstr "No hay bases de datos"
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr ""
 
@@ -7234,8 +7234,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"El servidor está utilizando Suhosin. Por favor, refiérase a %sdocumentation"
-"%s para posibles ajustes."
+"El servidor está utilizando Suhosin. Por favor, refiérase a %sdocumentation%"
+"s para posibles ajustes."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 #, fuzzy
@@ -7925,8 +7925,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -9612,8 +9612,9 @@ msgstr ""
 "a cualquier parte"
 
 #: tbl_change.php:1106
-#, php-format
-msgid "Restart insertion with %s rows"
+#, fuzzy, php-format
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr "Reinicie la inserción con %s filas"
 
 #: tbl_chart.php:56

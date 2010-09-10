@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-07 15:21+0200\n"
+"POT-Creation-Date: 2010-09-10 12:46-0400\n"
 "PO-Revision-Date: 2010-09-09 10:40+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -589,7 +589,7 @@ msgstr "Sett inn"
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: libraries/import.lib.php:1148 libraries/tbl_links.inc.php:54
 #: pmd_general.php:133 server_privileges.php:595 server_replication.php:313
 #: tbl_create.php:305 tbl_tracking.php:263
 msgid "Structure"
@@ -638,8 +638,8 @@ msgstr "Overvåkning er ikke aktiv."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -845,8 +845,8 @@ msgstr "Dump har blitt lagret til fila %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Du forsøkte sansynligvis å laste opp en for stor fil. Sjekk %sdokumentasjonen"
 "%s for måter å omgå denne begrensningen."
@@ -1485,8 +1485,8 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:459
-#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1119
-#: libraries/import.lib.php:1143 libraries/schema/User_Schema.class.php:168
+#: libraries/display_tbl.lib.php:1112 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1155 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
 msgstr "Rediger"
@@ -1629,8 +1629,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -2031,7 +2031,7 @@ msgstr "Katalogen du anga for opplasting kan ikke nåes"
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1153
 msgid "structure"
 msgstr "struktur"
 
@@ -2044,7 +2044,6 @@ msgstr "data"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "struktur og data"
 
@@ -2067,7 +2066,6 @@ msgid "complete inserts"
 msgstr "Komplette innlegg"
 
 #: libraries/config.values.php:120
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Utvidete innlegg"
 
@@ -2113,7 +2111,6 @@ msgstr "Mangler data for %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "ikke tilgjengelig"
 
@@ -2138,13 +2135,11 @@ msgid "SQL Validator is disabled"
 msgstr "SQL Validator er avslått"
 
 #: libraries/config/FormDisplay.class.php:764
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "SOAP tillegg ble ikke funnet"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "maksimum %s"
 
@@ -4594,8 +4589,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -4796,7 +4791,7 @@ msgstr "Sorter etter nøkkel"
 #: libraries/export/sql.php:55 libraries/export/texytext.php:30
 #: libraries/export/xls.php:28 libraries/export/xlsx.php:28
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
-#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import.lib.php:1126 libraries/import.lib.php:1148
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
@@ -5646,40 +5641,40 @@ msgstr "Generert av"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte ett tomt resultat (m.a.o. ingen rader)."
 
-#: libraries/import.lib.php:1110
+#: libraries/import.lib.php:1122
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Følgende strukturer har enten blitt opprettet eller endret. Her kan du:"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1123
 msgid "View a structure`s contents by clicking on its name"
 msgstr "Vis en strukturs innhold ved å klikke på dens navn"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1124
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Endre noen av dens innstillinger ved å klikke på den tilhørende "
 "\"Innstillinger\" link"
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1125
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Endre dens struktur ved å følge \"Struktur\" linken"
 
-#: libraries/import.lib.php:1116
+#: libraries/import.lib.php:1128
 msgid "Go to database"
 msgstr "Gå til database"
 
-#: libraries/import.lib.php:1119 libraries/import.lib.php:1143
+#: libraries/import.lib.php:1131 libraries/import.lib.php:1155
 msgid "settings"
 msgstr "innstillinger"
 
-#: libraries/import.lib.php:1138
+#: libraries/import.lib.php:1150
 msgid "Go to table"
 msgstr "Gå til tabell"
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1159
 msgid "Go to view"
 msgstr "Gå til visning"
 
@@ -6590,8 +6585,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på "
-"%stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
+"stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -7651,8 +7646,8 @@ msgstr "Slett databasene som har det samme navnet som brukerne."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -9147,8 +9142,8 @@ msgid ""
 "to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -9304,8 +9299,9 @@ msgstr ""
 "å bevege deg hvor som helst"
 
 #: tbl_change.php:1106
-#, php-format
-msgid "Restart insertion with %s rows"
+#, fuzzy, php-format
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
 msgstr "Restarte innsettinga med %s rader"
 
 #: tbl_chart.php:56
