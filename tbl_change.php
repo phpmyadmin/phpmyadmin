@@ -1081,8 +1081,8 @@ if (isset($where_clause)) {
 <?php
 if ($insert_mode) {
 ?>
-<!-- Restart insertion form -->
-<form id="restartForm" method="post" action="tbl_replace.php" name="restartForm" >
+<!-- Continue insertion form -->
+<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
@@ -1103,7 +1103,7 @@ if ($insert_mode) {
         $tmp .= '>' . $value . '</option>' . "\n";
     }
     $tmp .= '</select>' . "\n";
-    echo "\n" . sprintf(__('Restart insertion with %s rows'), $tmp);
+    echo "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
     unset($tmp);
     echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n";
     echo '</form>' . "\n";
