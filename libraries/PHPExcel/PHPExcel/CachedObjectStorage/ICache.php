@@ -22,7 +22,7 @@
  * @package    PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -93,5 +93,12 @@ interface PHPExcel_CachedObjectStorage_ICache
 	 *	@return	void
 	 */
 	public function getSortedCellList();
+
+	/**
+	 *	Clone the cell collection
+	 *
+	 *	@return	void
+	 */
+	public function copyCellCollection(PHPExcel_Worksheet $parent);
 
 }

@@ -22,7 +22,7 @@
  * @package		PHPExcel_Calculation
  * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version		1.7.3c, 2010-06-01
+ * @version		1.7.4, 2010-08-26
  */
 
 
@@ -1885,7 +1885,7 @@ class PHPExcel_Calculation_Functions {
 			}
 
 			// Return
-			if (($aCount > 0) && ($returnValue > 0)) {
+			if (($aCount > 0) && ($returnValue >= 0)) {
 				return sqrt($returnValue / $aCount);
 			}
 		}
@@ -1937,7 +1937,7 @@ class PHPExcel_Calculation_Functions {
 			}
 
 			// Return
-			if (($aCount > 0) && ($returnValue > 0)) {
+			if (($aCount > 0) && ($returnValue >= 0)) {
 				return sqrt($returnValue / $aCount);
 			}
 		}
@@ -1984,7 +1984,7 @@ class PHPExcel_Calculation_Functions {
 			}
 
 			// Return
-			if (($aCount > 0) && ($returnValue > 0)) {
+			if (($aCount > 0) && ($returnValue >= 0)) {
 				return sqrt($returnValue / $aCount);
 			}
 		}
@@ -2036,7 +2036,7 @@ class PHPExcel_Calculation_Functions {
 			}
 
 			// Return
-			if (($aCount > 0) && ($returnValue > 0)) {
+			if (($aCount > 0) && ($returnValue >= 0)) {
 				return sqrt($returnValue / $aCount);
 			}
 		}
@@ -5691,7 +5691,7 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	string	Version information
 	 */
 	public static function VERSION() {
-		return 'PHPExcel 1.7.3c, 2010-06-01';
+		return 'PHPExcel 1.7.4, 2010-08-26';
 	}	//	function VERSION()
 
 
@@ -11139,112 +11139,101 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	integer			The relative position of the found item
 	 */
 	public static function MATCH($lookup_value, $lookup_array, $match_type=1) {
-
-		// flatten the lookup_array
 		$lookup_array = self::flattenArray($lookup_array);
-
-		// flatten lookup_value since it may be a cell reference to a value or the value itself
 		$lookup_value = self::flattenSingleValue($lookup_value);
-
-		// MATCH is not case sensitive
+		$match_type	= (is_null($match_type)) ? 1 : (int) self::flattenSingleValue($match_type);
+		//	MATCH is not case sensitive
 		$lookup_value = strtolower($lookup_value);
 
-		/*
-		echo "--------------------<br>looking for $lookup_value in <br>";
-		print_r($lookup_array);
-		echo "<br>";
-		//return 1;
-		/**/
-
-		// **
-		// check inputs
-		// **
-		// lookup_value type has to be number, text, or logical values
-		if (!is_numeric($lookup_value) && !is_string($lookup_value) && !is_bool($lookup_value)){
-			// error: lookup_array should contain only number, text, or logical values
-			//echo "error: lookup_array should contain only number, text, or logical values<br>";
+		//	lookup_value type has to be number, text, or logical values
+		if ((!is_numeric($lookup_value)) && (!is_string($lookup_value)) && (!is_bool($lookup_value))) {
 			return self::$_errorCodes['na'];
 		}
 
-		// match_type is 0, 1 or -1
-		if ($match_type!==0 && $match_type!==-1 && $match_type!==1){
-			// error: wrong value for match_type
-			//echo "error: wrong value for match_type<br>";
+		//	match_type is 0, 1 or -1
+		if (($match_type !== 0) && ($match_type !== -1) && ($match_type !== 1)) {
 			return self::$_errorCodes['na'];
 		}
 
-		// lookup_array should not be empty
-		if (sizeof($lookup_array)<=0){
-			// error: empty range
-			//echo "error: empty range ".sizeof($lookup_array)."<br>";
+		//	lookup_array should not be empty
+		$lookupArraySize = count($lookup_array);
+		if ($lookupArraySize <= 0) {
 			return self::$_errorCodes['na'];
 		}
 
-		// lookup_array should contain only number, text, or logical values
-		for ($i=0;$i<sizeof($lookup_array);++$i){
-			// check the type of the value
-			if (!is_numeric($lookup_array[$i]) && !is_string($lookup_array[$i]) && !is_bool($lookup_array[$i])){
-				// error: lookup_array should contain only number, text, or logical values
-				//echo "error: lookup_array should contain only number, text, or logical values<br>";
+		//	lookup_array should contain only number, text, or logical values, or empty (null) cells
+		foreach($lookup_array as $i => $lookupArrayValue) {
+			//	check the type of the value
+			if ((!is_numeric($lookupArrayValue)) && (!is_string($lookupArrayValue)) &&
+				(!is_bool($lookupArrayValue)) && (!is_null($lookupArrayValue))) {
 				return self::$_errorCodes['na'];
 			}
-			// convert tpo lowercase
-			if (is_string($lookup_array[$i]))
-				$lookup_array[$i] = strtolower($lookup_array[$i]);
+			//	convert strings to lowercase for case-insensitive testing
+			if (is_string($lookupArrayValue)) {
+				$lookup_array[$i] = strtolower($lookupArrayValue);
+			}
+			if ((is_null($lookupArrayValue)) && (($match_type == 1) || ($match_type == -1))) {
+				$lookup_array = array_slice($lookup_array,0,$i-1);
+			}
 		}
 
 		// if match_type is 1 or -1, the list has to be ordered
-		if($match_type==1 || $match_type==-1){
-			// **
-			// iniitialization
-			// store the last value
-			$iLastValue=$lookup_array[0];
-			// **
-			// loop on the cells
-			for ($i=0;$i<sizeof($lookup_array);++$i){
-				// check ascending order
-				if(($match_type==1 && $lookup_array[$i]<$iLastValue)
-					// OR check descending order
-					|| ($match_type==-1 && $lookup_array[$i]>$iLastValue)){
-					// error: list is not ordered correctly
-					//echo "error: list is not ordered correctly<br>";
-					return self::$_errorCodes['na'];
-				}
-			}
+		if ($match_type == 1) {
+			asort($lookup_array);
+			$keySet = array_keys($lookup_array);
+		} elseif($match_type == -1) {
+			arsort($lookup_array);
+			$keySet = array_keys($lookup_array);
 		}
+
 		// **
 		// find the match
 		// **
 		// loop on the cells
-		for ($i=0; $i < sizeof($lookup_array); ++$i){
-			// if match_type is 0 <=> find the first value that is exactly equal to lookup_value
-			if ($match_type==0 && $lookup_array[$i]==$lookup_value){
-				// this is the exact match
-				return $i+1;
-			}
-			// if match_type is -1 <=> find the smallest value that is greater than or equal to lookup_value
-			if ($match_type==-1 && $lookup_array[$i] < $lookup_value){
-				if ($i<1){
+//		var_dump($lookup_array);
+//		echo '<br />';
+		foreach($lookup_array as $i => $lookupArrayValue) {
+			if (($match_type == 0) && ($lookupArrayValue == $lookup_value)) {
+				//	exact match
+				return ++$i;
+			} elseif (($match_type == -1) && ($lookupArrayValue <= $lookup_value)) {
+//				echo '$i = '.$i.' => ';
+//				var_dump($lookupArrayValue);
+//				echo '<br />';
+//				echo 'Keyset = ';
+//				var_dump($keySet);
+//				echo '<br />';
+				$i = array_search($i,$keySet);
+//				echo '$i='.$i.'<br />';
+				// if match_type is -1 <=> find the smallest value that is greater than or equal to lookup_value
+				if ($i < 1){
 					// 1st cell was allready smaller than the lookup_value
 					break;
-				}
-				else
+				} else {
 					// the previous cell was the match
-					return $i;
-			}
-			// if match_type is 1 <=> find the largest value that is less than or equal to lookup_value
-			if ($match_type==1 && $lookup_array[$i] > $lookup_value){
-				if ($i<1){
+					return $keySet[$i-1]+1;
+				}
+			} elseif (($match_type == 1) && ($lookupArrayValue >= $lookup_value)) {
+//				echo '$i = '.$i.' => ';
+//				var_dump($lookupArrayValue);
+//				echo '<br />';
+//				echo 'Keyset = ';
+//				var_dump($keySet);
+//				echo '<br />';
+				$i = array_search($i,$keySet);
+//				echo '$i='.$i.'<br />';
+				// if match_type is 1 <=> find the largest value that is less than or equal to lookup_value
+				if ($i < 1){
 					// 1st cell was allready bigger than the lookup_value
 					break;
-				}
-				else
+				} else {
 					// the previous cell was the match
-					return $i;
+					return $keySet[$i-1]+1;
+				}
 			}
 		}
-		// unsuccessful in finding a match, return #N/A error value
-		//echo "unsuccessful in finding a match<br>";
+
+		//	unsuccessful in finding a match, return #N/A error value
 		return self::$_errorCodes['na'];
 	}	//	function MATCH()
 
@@ -11378,25 +11367,19 @@ class PHPExcel_Calculation_Functions {
 		}
 		$value	= self::flattenSingleValue($value);
 
-		switch (gettype($value)) {
-			case 'double'	:
-			case 'float'	:
-			case 'integer'	:
+		if ((is_float($value)) || (is_int($value))) {
 				return 1;
-				break;
-			case 'boolean'	:
+		} elseif(is_bool($value)) {
 				return 4;
-				break;
-			case 'array'	:
+		} elseif(is_array($value)) {
 				return 64;
 				break;
-			case 'string'	:
-				//	Errors
-				if ((strlen($value) > 0) && ($value{0} == '#')) {
-					return 16;
-				}
-				return 2;
-				break;
+		} elseif(is_string($value)) {
+			//	Errors
+			if ((strlen($value) > 0) && ($value{0} == '#')) {
+				return 16;
+			}
+			return 2;
 		}
 		return 0;
 	}	//	function TYPE()
