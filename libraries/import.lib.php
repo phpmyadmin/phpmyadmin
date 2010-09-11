@@ -739,7 +739,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
         if ($cell == (string)(float)$cell && strpos($cell, ".") !== false && substr_count($cell, ".") == 1) {
             return DECIMAL;
         } else {
-		if ($cell > 2147483647) {
+		if (abs($cell) > 2147483647) {
 			return BIGINT;
 		} else {
 			return INT;
