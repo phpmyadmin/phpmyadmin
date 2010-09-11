@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-10 12:46-0400\n"
-"PO-Revision-Date: 2010-09-11 11:40+0200\n"
+"PO-Revision-Date: 2010-09-11 12:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4409,7 +4409,7 @@ msgstr "Yeniden gir"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Parola Hesaplanıyor"
+msgstr "Parola Adreslemesi"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
