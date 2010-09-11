@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -152,6 +152,8 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 		// garbage collect
 		$this->_phpExcel->garbageCollect();
 
+		$saveDebugLog = PHPExcel_Calculation::getInstance()->writeDebugLog;
+		PHPExcel_Calculation::getInstance()->writeDebugLog = false;
 		$saveArrayReturnType = PHPExcel_Calculation::getArrayReturnType();
 		PHPExcel_Calculation::setArrayReturnType(PHPExcel_Calculation::RETURN_ARRAY_AS_VALUE);
 
@@ -182,6 +184,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 		fclose($fileHandle);
 
 		PHPExcel_Calculation::setArrayReturnType($saveArrayReturnType);
+		PHPExcel_Calculation::getInstance()->writeDebugLog = $saveDebugLog;
 	}
 
 	/**
@@ -330,7 +333,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	    	// row min,max
 			$rowMin = $dimension[0][1];
 			$rowMax = $dimension[1][1];
-			
+
 			// calculate start of <tbody>, <thead>
 			$tbodyStart = $rowMin;
 	    	$tbodyEnd   = $rowMax;
@@ -338,7 +341,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 			$theadEnd   = 0; // default: no </thead>
 			if ($sheet->getPageSetup()->isRowsToRepeatAtTopSet()) {
 				$rowsToRepeatAtTop = $sheet->getPageSetup()->getRowsToRepeatAtTop();
-				
+
 				// we can only support repeating rows that start at top row
 				if ($rowsToRepeatAtTop[0] == 1) {
 					$theadStart = $rowsToRepeatAtTop[0];
@@ -346,7 +349,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 					$tbodyStart = $rowsToRepeatAtTop[1] + 1;
 				}
 			}
-			
+
 			// Loop through cells
 	    	$rowData = null;
 	    	for ($row = $rowMin; $row <= $rowMax; ++$row) {

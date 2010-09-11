@@ -22,7 +22,7 @@
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -2180,9 +2180,8 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		$highestRow    = 1;
 
     	// Find cells that can be cleaned
-    	foreach ($this->_cellCollection->getCellList() as $coordinate) {
-			preg_match('/^(\w+)(\d+)$/U',$coordinate,$matches);
-			list(,$col,$row) = $matches;
+    	foreach ($this->_cellCollection->getCellList() as $coord) {
+			list($col,$row) = sscanf($coord,'%[A-Z]%d');
 			$column = PHPExcel_Cell::columnIndexFromString($col);
 
 			// Determine highest column and row
@@ -2468,7 +2467,13 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			}
 
 			if (is_object($val) || (is_array($val))) {
-				$this->{$key} = unserialize(serialize($val));
+				if ($key == '_cellCollection') {
+					$newCollection = clone $this->_cellCollection;
+					$newCollection->copyCellCollection($this);
+					$this->_cellCollection = $newCollection;
+				} else {
+					$this->{$key} = unserialize(serialize($val));
+				}
 			}
 		}
 	}

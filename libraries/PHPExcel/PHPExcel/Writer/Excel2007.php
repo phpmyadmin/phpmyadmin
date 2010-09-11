@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel2007
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -201,6 +201,8 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 				}
 			}
 
+			$saveDebugLog = PHPExcel_Calculation::getInstance()->writeDebugLog;
+			PHPExcel_Calculation::getInstance()->writeDebugLog = false;
 			$saveDateReturnType = PHPExcel_Calculation_Functions::getReturnDateType();
 			PHPExcel_Calculation_Functions::setReturnDateType(PHPExcel_Calculation_Functions::RETURNDATE_EXCEL);
 
@@ -331,6 +333,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 			}
 
 			PHPExcel_Calculation_Functions::setReturnDateType($saveDateReturnType);
+			PHPExcel_Calculation::getInstance()->writeDebugLog = $saveDebugLog;
 
 			// Close file
 			if ($objZip->close() === false) {

@@ -22,7 +22,7 @@
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -179,6 +179,11 @@ class PHPExcel_Worksheet_PageSetup
 	const ORIENTATION_LANDSCAPE	= 'landscape';
 	const ORIENTATION_PORTRAIT	= 'portrait';
 
+	/* Print Range Set Method */
+	const SETPRINTRANGE_OVERWRITE	= 'O';
+	const SETPRINTRANGE_INSERT		= 'I';
+
+
 	/**
 	 * Paper size
 	 *
@@ -261,7 +266,7 @@ class PHPExcel_Worksheet_PageSetup
 	 * @var string
 	 */
 	private $_printArea = null;
-	
+
 	/**
 	 * First page number
 	 *
@@ -570,55 +575,197 @@ class PHPExcel_Worksheet_PageSetup
 	}
 
 	/**
-	 * Get print area
+	 *	Get print area
 	 *
-	 * @return string
+	 *	@param	int		$index	Identifier for a specific print area range if several ranges have been set
+	 *							Default behaviour, or a index value of 0, will return all ranges as a comma-separated string
+	 *							Otherwise, the specific range identified by the value of $index will be returned
+	 *							Print areas are numbered from 1
+	 *	@throws	Exception
+	 *	@return	string
 	 */
-	public function getPrintArea() {
-		return $this->_printArea;
+	public function getPrintArea($index = 0) {
+		if ($index == 0) {
+			return $this->_printArea;
+		}
+		$printAreas = explode(',',$this->_printArea);
+		if (isset($printAreas[$index-1])) {
+			return $printAreas[$index-1];
+		}
+		throw new Exception("Requested Print Area does not exist");
 	}
 
 	/**
-	 * Is print area set?
+	 *	Is print area set?
 	 *
-	 * @return boolean
+	 *	@param	int		$index	Identifier for a specific print area range if several ranges have been set
+	 *							Default behaviour, or an index value of 0, will identify whether any print range is set
+	 *							Otherwise, existence of the range identified by the value of $index will be returned
+	 *							Print areas are numbered from 1
+	 *	@return	boolean
 	 */
-	public function isPrintAreaSet() {
-		return !is_null($this->_printArea);
+	public function isPrintAreaSet($index = 0) {
+		if ($index == 0) {
+			return !is_null($this->_printArea);
+		}
+		$printAreas = explode(',',$this->_printArea);
+		return isset($printAreas[$index-1]);
 	}
 
 	/**
-	 * Set print area. E.g. 'A1:D10' or 'A1:D10,G5:M20'
+	 *	Clear a print area
 	 *
-	 * @param string $value
-	 * @throws Exception
-	 * @return PHPExcel_Worksheet_PageSetup
+	 *	@param	int		$index	Identifier for a specific print area range if several ranges have been set
+	 *							Default behaviour, or an index value of 0, will clear all print ranges that are set
+	 *							Otherwise, the range identified by the value of $index will be removed from the series
+	 *							Print areas are numbered from 1
+	 *	@return	PHPExcel_Worksheet_PageSetup
 	 */
-	public function setPrintArea($value) {
-    	if (strpos($value,':') === false) {
-    		throw new Exception('Cell coordinate must be a range of cells.');
-    	} elseif (strpos($value,'$') !== false) {
-    		throw new Exception('Cell coordinate must not be absolute.');
-    	} else {
-			$this->_printArea = strtoupper($value);
-    	}
+	public function clearPrintArea($index = 0) {
+		if ($index == 0) {
+			$this->_printArea = NULL;
+		} else {
+			$printAreas = explode(',',$this->_printArea);
+			if (isset($printAreas[$index-1])) {
+				unset($printAreas[$index-1]);
+				$this->_printArea = implode(',',$printAreas);
+			}
+		}
+
     	return $this;
 	}
 
 	/**
-	 * Set print area
+	 *	Set print area. e.g. 'A1:D10' or 'A1:D10,G5:M20'
 	 *
-	 * @param int $column1		Column 1
-	 * @param int $row1			Row 1
-	 * @param int $column2		Column 2
-	 * @param int $row2			Row 2
-	 * @return PHPExcel_Worksheet_PageSetup
+	 *	@param	string	$value
+	 *	@param	int		$index	Identifier for a specific print area range allowing several ranges to be set
+	 *							When the method is "O"verwrite, then a positive integer index will overwrite that indexed
+	 *								entry in the print areas list; a negative index value will identify which entry to
+	 *								overwrite working bacward through the print area to the list, with the last entry as -1.
+	 *								Specifying an index value of 0, will overwrite <b>all</b> existing print ranges.
+	 *							When the method is "I"nsert, then a positive index will insert after that indexed entry in
+	 *								the print areas list, while a negative index will insert before the indexed entry.
+	 *								Specifying an index value of 0, will always append the new print range at the end of the
+	 *								list.
+	 *							Print areas are numbered from 1
+	 *	@param	string	$method	Determines the method used when setting multiple print areas
+	 *							Default behaviour, or the "O" method, overwrites existing print area
+	 *							The "I" method, inserts the new print area before any specified index, or at the end of the list
+	 *	@throws	Exception
+	 *	@return	PHPExcel_Worksheet_PageSetup
 	 */
-    public function setPrintAreaByColumnAndRow($column1, $row1, $column2, $row2)
+	public function setPrintArea($value, $index = 0, $method = self::SETPRINTRANGE_OVERWRITE) {
+		if (strpos($value,'!') !== false) {
+			throw new Exception('Cell coordinate must not specify a worksheet.');
+		} elseif (strpos($value,':') === false) {
+			throw new Exception('Cell coordinate must be a range of cells.');
+		} elseif (strpos($value,'$') !== false) {
+			throw new Exception('Cell coordinate must not be absolute.');
+		}
+		$value = strtoupper($value);
+
+		if ($method == self::SETPRINTRANGE_OVERWRITE) {
+			if ($index == 0) {
+				$this->_printArea = $value;
+			} else {
+				$printAreas = explode(',',$this->_printArea);
+				if($index < 0) {
+					$index = count($printAreas) - abs($index) + 1;
+				}
+				if (($index <= 0) || ($index > count($printAreas))) {
+		    		throw new Exception('Invalid index for setting print range.');
+				}
+				$printAreas[$index-1] = $value;
+				$this->_printArea = implode(',',$printAreas);
+			}
+		} elseif($method == self::SETPRINTRANGE_INSERT) {
+			if ($index == 0) {
+				$this->_printArea .= ($this->_printArea == '') ? $value : ','.$value;
+			} else {
+				$printAreas = explode(',',$this->_printArea);
+				if($index < 0) {
+					$index = abs($index) - 1;
+				}
+				if ($index > count($printAreas)) {
+		    		throw new Exception('Invalid index for setting print range.');
+				}
+				$printAreas = array_merge(array_slice($printAreas,0,$index),array($value),array_slice($printAreas,$index));
+				$this->_printArea = implode(',',$printAreas);
+			}
+		} else {
+    		throw new Exception('Invalid method for setting print range.');
+		}
+
+    	return $this;
+	}
+
+	/**
+	 *	Add a new print area (e.g. 'A1:D10' or 'A1:D10,G5:M20') to the list of print areas
+	 *
+	 *	@param	string	$value
+	 *	@param	int		$index	Identifier for a specific print area range allowing several ranges to be set
+	 *							A positive index will insert after that indexed entry in the print areas list, while a
+	 *								negative index will insert before the indexed entry.
+	 *								Specifying an index value of 0, will always append the new print range at the end of the
+	 *								list.
+	 *							Print areas are numbered from 1
+	 *	@throws	Exception
+	 *	@return	PHPExcel_Worksheet_PageSetup
+	 */
+	public function addPrintArea($value, $index = -1) {
+		return $this->setPrintArea($value, $index, self::SETPRINTRANGE_INSERT);
+	}
+
+	/**
+	 *	Set print area
+	 *
+	 *	@param	int		$column1	Column 1
+	 *	@param	int		$row1		Row 1
+	 *	@param	int		$column2	Column 2
+	 *	@param	int		$row2		Row 2
+	 *	@param	int		$index	Identifier for a specific print area range allowing several ranges to be set
+	 *							When the method is "O"verwrite, then a positive integer index will overwrite that indexed
+	 *								entry in the print areas list; a negative index value will identify which entry to
+	 *								overwrite working bacward through the print area to the list, with the last entry as -1.
+	 *								Specifying an index value of 0, will overwrite <b>all</b> existing print ranges.
+	 *							When the method is "I"nsert, then a positive index will insert after that indexed entry in
+	 *								the print areas list, while a negative index will insert before the indexed entry.
+	 *								Specifying an index value of 0, will always append the new print range at the end of the
+	 *								list.
+	 *							Print areas are numbered from 1
+	 *	@param	string	$method	Determines the method used when setting multiple print areas
+	 *							Default behaviour, or the "O" method, overwrites existing print area
+	 *							The "I" method, inserts the new print area before any specified index, or at the end of the list
+	 *	@throws	Exception
+	 *	@return	PHPExcel_Worksheet_PageSetup
+	 */
+    public function setPrintAreaByColumnAndRow($column1, $row1, $column2, $row2, $index = 0, $method = self::SETPRINTRANGE_OVERWRITE)
     {
-    	return $this->setPrintArea(PHPExcel_Cell::stringFromColumnIndex($column1) . $row1 . ':' . PHPExcel_Cell::stringFromColumnIndex($column2) . $row2);
+    	return $this->setPrintArea(PHPExcel_Cell::stringFromColumnIndex($column1) . $row1 . ':' . PHPExcel_Cell::stringFromColumnIndex($column2) . $row2, $index, $method);
     }
-    
+
+	/**
+	 *	Add a new print area to the list of print areas
+	 *
+	 *	@param	int		$column1	Column 1
+	 *	@param	int		$row1		Row 1
+	 *	@param	int		$column2	Column 2
+	 *	@param	int		$row2		Row 2
+	 *	@param	int		$index		Identifier for a specific print area range allowing several ranges to be set
+	 *								A positive index will insert after that indexed entry in the print areas list, while a
+	 *									negative index will insert before the indexed entry.
+	 *									Specifying an index value of 0, will always append the new print range at the end of the
+	 *									list.
+	 *								Print areas are numbered from 1
+	 *	@throws	Exception
+	 *	@return	PHPExcel_Worksheet_PageSetup
+	 */
+    public function addPrintAreaByColumnAndRow($column1, $row1, $column2, $row2, $index = -1)
+    {
+    	return $this->setPrintArea(PHPExcel_Cell::stringFromColumnIndex($column1) . $row1 . ':' . PHPExcel_Cell::stringFromColumnIndex($column2) . $row2, $index, self::SETPRINTRANGE_INSERT);
+	}
+
 	/**
 	 * Get first page number
 	 *
@@ -627,7 +774,7 @@ class PHPExcel_Worksheet_PageSetup
     public function getFirstPageNumber() {
 		return $this->_firstPageNumber;
     }
-    
+
     /**
      * Set first page number
      *
@@ -638,7 +785,7 @@ class PHPExcel_Worksheet_PageSetup
 		$this->_firstPageNumber = $value;
 		return $this;
     }
-    
+
     /**
      * Reset first page number
      *

@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Parser (used as the base for this class):
@@ -1148,6 +1148,9 @@ class PHPExcel_Writer_Excel5_Parser
 			case "<>":
 				return $token;
 				break;
+			case "^":
+				return $token;
+				break;
 			default:
 				// if it's a reference A1 or $A$1 or $A1 or A$1
 				if (preg_match('/^\$?[A-Ia-i]?[A-Za-z]\$?[0-9]+$/',$token) and
@@ -1288,19 +1291,30 @@ class PHPExcel_Writer_Excel5_Parser
 			$result2 = $this->_expression();
 			$result = $this->_createTree('ptgUminus', $result2, '');
 			return $result;
+		} elseif ($this->_current_token == "+") {
+			// catch "+" Term
+			$this->_advance();
+			$result2 = $this->_expression();
+			$result = $this->_createTree('ptgUplus', $result2, '');
+			return $result;
 		}
 		$result = $this->_term();
 		while (($this->_current_token == "+") or
-			   ($this->_current_token == "-")) {
+			   ($this->_current_token == "-") or
+			   ($this->_current_token == "^")) {
 		/**/
 			if ($this->_current_token == "+") {
 				$this->_advance();
 				$result2 = $this->_term();
 				$result = $this->_createTree('ptgAdd', $result, $result2);
-			} else {
+			} elseif ($this->_current_token == "-") {
 				$this->_advance();
 				$result2 = $this->_term();
 				$result = $this->_createTree('ptgSub', $result, $result2);
+			} else {
+				$this->_advance();
+				$result2 = $this->_term();
+				$result = $this->_createTree('ptgPower', $result, $result2);
 			}
 		}
 		return $result;

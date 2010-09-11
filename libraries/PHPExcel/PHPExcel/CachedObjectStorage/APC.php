@@ -22,7 +22,7 @@
  * @package    PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -45,7 +45,7 @@ class PHPExcel_CachedObjectStorage_APC extends PHPExcel_CachedObjectStorage_Cach
 
 		if (!apc_store($this->_cachePrefix.$this->_currentObjectID.'.cache',serialize($this->_currentObject),$this->_cacheTime)) {
 			$this->__destruct();
-			throw new Exception('Failed to store cell in APC');
+			throw new Exception('Failed to store cell '.$cellID.' in APC');
 		}
 		$this->_currentObjectID = $this->_currentObject = null;
 	}	//	function _storeData()
@@ -90,7 +90,7 @@ class PHPExcel_CachedObjectStorage_APC extends PHPExcel_CachedObjectStorage_Cach
 			if ($success === false) {
 				//	Entry no longer exists in APC, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry no longer exists in APC');
+				throw new Exception('Cell entry '.$cellID.' no longer exists in APC');
 			}
 			return true;
 		}
@@ -117,7 +117,7 @@ class PHPExcel_CachedObjectStorage_APC extends PHPExcel_CachedObjectStorage_Cach
 			if ($obj === false) {
 				//	Entry no longer exists in APC, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry no longer exists in APC');
+				throw new Exception('Cell entry '.$cellID.' no longer exists in APC');
 			}
 		} else {
 			//	Return null if requested entry doesn't exist in cache
@@ -150,6 +150,35 @@ class PHPExcel_CachedObjectStorage_APC extends PHPExcel_CachedObjectStorage_Cach
 	}	//	function deleteCacheData()
 
 
+	/**
+	 *	Clone the cell collection
+	 *
+	 *	@return	void
+	 */
+	public function copyCellCollection(PHPExcel_Worksheet $parent) {
+		parent::copyCellCollection($parent);
+		//	Get a new id for the new file name
+		$baseUnique = $this->_getUniqueID();
+		$newCachePrefix = substr(md5($baseUnique),0,8).'.';
+		$cacheList = $this->getCellList();
+		foreach($cacheList as $cellID) {
+			if ($cellID != $this->_currentObjectID) {
+				$obj = apc_fetch($this->_cachePrefix.$cellID.'.cache');
+				if ($obj === false) {
+					//	Entry no longer exists in APC, so clear it from the cache array
+					parent::deleteCacheData($cellID);
+					throw new Exception('Cell entry '.$cellID.' no longer exists in APC');
+				}
+				if (!apc_store($newCachePrefix.$cellID.'.cache',$obj,$this->_cacheTime)) {
+					$this->__destruct();
+					throw new Exception('Failed to store cell '.$cellID.' in APC');
+				}
+			}
+		}
+		$this->_cachePrefix = $newCachePrefix;
+	}	//	function copyCellCollection()
+
+
 	public function unsetWorksheetCells() {
 		if(!is_null($this->_currentObject)) {
 			$this->_currentObject->detach();
@@ -170,12 +199,8 @@ class PHPExcel_CachedObjectStorage_APC extends PHPExcel_CachedObjectStorage_Cach
 		$cacheTime	= (isset($arguments['cacheTime']))	? $arguments['cacheTime']	: 600;
 
 		if (is_null($this->_cachePrefix)) {
-			if (function_exists('posix_getpid')) {
-				$baseUnique = posix_getpid();
-			} else {
-				$baseUnique = mt_rand();
-			}
-			$this->_cachePrefix = substr(md5(uniqid($baseUnique,true)),0,8).'.';
+			$baseUnique = $this->_getUniqueID();
+			$this->_cachePrefix = substr(md5($baseUnique),0,8).'.';
 			$this->_cacheTime = $cacheTime;
 
 			parent::__construct($parent);

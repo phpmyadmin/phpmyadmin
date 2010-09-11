@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -242,6 +242,9 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
+		$timezoneObj = new DateTimeZone('Europe/London');
+		$GMT = new DateTimeZone('UTC');
+
 		$zip = new ZipArchive;
 		if ($zip->open($pFilename) === true) {
 //			echo '<h1>Meta Information</h1>';
@@ -338,6 +341,11 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 					foreach($worksheetData as $key => $rowData) {
 //						echo '<b>'.$key.'</b><br />';
 						switch ($key) {
+							case 'table-header-rows':
+								foreach ($rowData as $key=>$cellData) {
+									$rowData = $cellData;
+									break;
+								}
 							case 'table-row' :
 								$columnID = 'A';
 								foreach($rowData as $key => $cellData) {
@@ -387,7 +395,8 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 													break;
 											case 'date' :
 													$type = PHPExcel_Cell_DataType::TYPE_NUMERIC;
-													$dateObj = date_create($cellDataOfficeAttributes['date-value']);
+												    $dateObj = new DateTime($cellDataOfficeAttributes['date-value'], $GMT);
+													$dateObj->setTimeZone($timezoneObj);
 													list($year,$month,$day,$hour,$minute,$second) = explode(' ',$dateObj->format('Y m d H i s'));
 													$dataValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year,$month,$day,$hour,$minute,$second);
 													if ($dataValue != floor($dataValue)) {
@@ -418,7 +427,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 											if (($key % 2) == 0) {
 												$value = preg_replace('/\[\.(.*):\.(.*)\]/Ui','$1:$2',$value);
 												$value = preg_replace('/\[\.(.*)\]/Ui','$1',$value);
-												$value = PHPExcel_Calculation::_translateSeparator(';',',',$value);
+												$value = PHPExcel_Calculation::_translateSeparator(';',',',$value,$inBraces);
 											}
 										}
 										unset($value);

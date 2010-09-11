@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Workbook (used as the base for this class):
@@ -181,6 +181,13 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	 * Color cache
 	 */
 	private $_colors;
+
+	/**
+	 * Escher object corresponding to MSODRAWINGGROUP
+	 *
+	 * @var PHPExcel_Shared_Escher
+	 */
+	private $_escher;
 
 
 	/**
@@ -1400,143 +1407,9 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	 */
 	private function _writeMsoDrawingGroup()
 	{
-		// any drawings in this workbook?
-		$found = false;
-		foreach ($this->_phpExcel->getAllSheets() as $sheet) {
-			if (count($sheet->getDrawingCollection()) > 0) {
-				$found = true;
-			}
-		}
-
-		// if there are drawings, then we need to write MSODRAWINGGROUP record
-		if ($found) {
-
-			// create intermediate Escher object
-			$escher = new PHPExcel_Shared_Escher();
-
-			// dggContainer
-			$dggContainer = new PHPExcel_Shared_Escher_DggContainer();
-			$escher->setDggContainer($dggContainer);
-
-			// this loop is for determining maximum shape identifier of all drawing
-			$spIdMax = 0;
-			$totalCountShapes = 0;
-			$countDrawings = 0;
-
-			foreach ($this->_phpExcel->getAllsheets() as $sheet) {
-				$sheetCountShapes = 0; // count number of shapes (minus group shape), in sheet
-
-				if (count($sheet->getDrawingCollection()) > 0) {
-					++$countDrawings;
-
-					foreach ($sheet->getDrawingCollection() as $drawing) {
-						++$sheetCountShapes;
-						++$totalCountShapes;
-
-						$spId = $sheetCountShapes
-							| ($this->_phpExcel->getIndex($sheet) + 1) << 10;
-						$spIdMax = max($spId, $spIdMax);
-					}
-				}
-			}
-
-			$dggContainer->setSpIdMax($spIdMax + 1);
-			$dggContainer->setCDgSaved($countDrawings);
-			$dggContainer->setCSpSaved($totalCountShapes + $countDrawings); // total number of shapes incl. one group shapes per drawing
-
-			// bstoreContainer
-			$bstoreContainer = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer();
-			$dggContainer->setBstoreContainer($bstoreContainer);
-
-			// the BSE's (all the images)
-			foreach ($this->_phpExcel->getAllsheets() as $sheet) {
-				foreach ($sheet->getDrawingCollection() as $drawing) {
-					if ($drawing instanceof PHPExcel_Worksheet_Drawing) {
-
-						$filename = $drawing->getPath();
-
-						list($imagesx, $imagesy, $imageFormat) = getimagesize($filename);
-
-						switch ($imageFormat) {
-
-						case 1: // GIF, not supported by BIFF8, we convert to PNG
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-							$imageResource = imagecreatefromgif($filename);
-							ob_start();
-							imagepng($imageResource);
-							$blipData = ob_get_contents();
-							ob_end_clean();
-							break;
-
-						case 2: // JPEG
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_JPEG;
-							$blipData = file_get_contents($filename);
-							break;
-
-						case 3: // PNG
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-							$blipData = file_get_contents($filename);
-							break;
-
-						case 6: // Windows DIB (BMP), we convert to PNG
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-							$imageResource = PHPExcel_Shared_Drawing::imagecreatefrombmp($filename);
-							ob_start();
-							imagepng($imageResource);
-							$blipData = ob_get_contents();
-							ob_end_clean();
-							break;
-
-						default: continue 2;
-
-						}
-
-						$blip = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE_Blip();
-						$blip->setData($blipData);
-
-						$BSE = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE();
-						$BSE->setBlipType($blipType);
-						$BSE->setBlip($blip);
-
-						$bstoreContainer->addBSE($BSE);
-
-					} else if ($drawing instanceof PHPExcel_Worksheet_MemoryDrawing) {
-
-						switch ($drawing->getRenderingFunction()) {
-
-						case PHPExcel_Worksheet_MemoryDrawing::RENDERING_JPEG:
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_JPEG;
-							$renderingFunction = 'imagejpeg';
-							break;
-
-						case PHPExcel_Worksheet_MemoryDrawing::RENDERING_GIF:
-						case PHPExcel_Worksheet_MemoryDrawing::RENDERING_PNG:
-						case PHPExcel_Worksheet_MemoryDrawing::RENDERING_DEFAULT:
-							$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-							$renderingFunction = 'imagepng';
-							break;
-
-						}
-
-						ob_start();
-						call_user_func($renderingFunction, $drawing->getImageResource());
-						$blipData = ob_get_contents();
-						ob_end_clean();
-
-						$blip = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE_Blip();
-						$blip->setData($blipData);
-
-						$BSE = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE();
-						$BSE->setBlipType($blipType);
-						$BSE->setBlip($blip);
-
-						$bstoreContainer->addBSE($BSE);
-					}
-				}
-			}
-
-			// write the Escher stream from the intermediate Escher object
-			$writer = new PHPExcel_Writer_Excel5_Escher($escher);
+		// write the Escher stream if necessary
+		if (isset($this->_escher)) {
+			$writer = new PHPExcel_Writer_Excel5_Escher($this->_escher);
 			$data = $writer->close();
 
 			$record = 0x00EB;
@@ -1544,7 +1417,30 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 			$header = pack("vv",  $record, $length);
 
 			return $this->writeData($header . $data);
+
+		} else {
+			return '';
 		}
+	}
+
+	/**
+	 * Get Escher object
+	 *
+	 * @return PHPExcel_Shared_Escher
+	 */
+	public function getEscher()
+	{
+		return $this->_escher;
+	}
+
+	/**
+	 * Set Escher object
+	 *
+	 * @param PHPExcel_Shared_Escher $pValue
+	 */
+	public function setEscher(PHPExcel_Shared_Escher $pValue = null)
+	{
+		$this->_escher = $pValue;
 	}
 
 }

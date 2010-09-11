@@ -22,7 +22,7 @@
  * @package    PHPExcel
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -434,7 +434,7 @@ class PHPExcel
 
 		// update the cellXfs
 		foreach ($pSheet->getCellCollection(false) as $cellID) {
-			$cell = $sheet->getCell($cellID);
+			$cell = $pSheet->getCell($cellID);
 			$cell->setXfIndex( $cell->getXfIndex() + $countCellXfs );
 		}
 

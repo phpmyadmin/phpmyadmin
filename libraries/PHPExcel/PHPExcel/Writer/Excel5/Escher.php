@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
  
@@ -106,9 +106,12 @@ class PHPExcel_Writer_Excel5_Escher
 					, $this->_object->getCSpSaved()
 					, $this->_object->getCDgSaved() // count total number of drawings saved
 				);
+
 			// add file identifier clusters (one per drawing)
-			for ($i = 0; $i < $this->_object->getCDgSaved(); ++$i) {
-				$dggData .= pack('VV', 0, 0);
+			$IDCLs = $this->_object->getIDCLs();
+
+			foreach ($IDCLs as $dgId => $maxReducedSpId) {
+				$dggData .= pack('VV', $dgId, $maxReducedSpId + 1);
 			}
 
 			$header = pack('vvV', $recVerInstance, $recType, strlen($dggData));
