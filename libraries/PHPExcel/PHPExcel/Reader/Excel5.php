@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 // Original file header of ParseXL (used as the base for this class):
@@ -834,7 +834,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 						//		Foo!$C$7:$J$66
 						//		Bar!$A$1:$IV$2
 
-						$explodes = explode('!', $range);
+						$explodes = explode('!', $range);	// FIXME: what if sheetname contains exclamation mark?
 						$sheetName = $explodes[0];
 
 						if (count($explodes) == 2) {
@@ -4202,22 +4202,22 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			// 1. BITMAPCOREHEADER
 			// offset: 0; size: 4; bcSize, Specifies the number of bytes required by the structure
 			$bcSize = $this->_GetInt4d($iData, 0);
-			var_dump($bcSize);
+//			var_dump($bcSize);
 
 			// offset: 4; size: 2; bcWidth, specifies the width of the bitmap, in pixels
 			$bcWidth = $this->_GetInt2d($iData, 4);
-			var_dump($bcWidth);
+//			var_dump($bcWidth);
 
 			// offset: 6; size: 2; bcHeight, specifies the height of the bitmap, in pixels.
 			$bcHeight = $this->_GetInt2d($iData, 6);
-			var_dump($bcHeight);
+//			var_dump($bcHeight);
 			$ih = imagecreatetruecolor($bcWidth, $bcHeight);
 
 			// offset: 8; size: 2; bcPlanes, specifies the number of planes for the target device. This value must be 1
 
 			// offset: 10; size: 2; bcBitCount specifies the number of bits-per-pixel. This value must be 1, 4, 8, or 24
 			$bcBitCount = $this->_GetInt2d($iData, 10);
-			var_dump($bcBitCount);
+//			var_dump($bcBitCount);
 
 			$rgbString = substr($iData, 12);
 			$rgbTriples = array();
@@ -4602,24 +4602,24 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 		case 0x12: $name = 'tUplus';	$size = 1;	$data = '+';	break;
 		case 0x13: $name = 'tUminus';	$size = 1;	$data = '-';	break;
 		case 0x14: $name = 'tPercent';	$size = 1;	$data = '%';	break;
-		case 0x15: // parenthesis
+		case 0x15:	//	parenthesis
 			$name  = 'tParen';
 			$size  = 1;
 			$data = null;
 			break;
-		case 0x16: // missing argument
+		case 0x16:	//	missing argument
 			$name = 'tMissArg';
 			$size = 1;
 			$data = '';
 			break;
-		case 0x17: // string
+		case 0x17:	//	string
 			$name = 'tStr';
 			// offset: 1; size: var; Unicode string, 8-bit string length
 			$string = $this->_readUnicodeStringShort(substr($formulaData, 1));
 			$size = 1 + $string['size'];
 			$data = $this->_UTF8toExcelDoubleQuoted($string['value']);
 			break;
-		case 0x19: // Special attribute
+		case 0x19:	//	Special attribute
 			// offset: 1; size: 1; attribute type flags:
 			switch (ord($formulaData[1])) {
 			case 0x01:
@@ -4689,39 +4689,42 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				break;
 			}
 			break;
-		case 0x1C: // error code
+		case 0x1C:	//	error code
 			// offset: 1; size: 1; error code
 			$name = 'tErr';
 			$size = 2;
 			$data = $this->_mapErrorCode(ord($formulaData[1]));
 			break;
-		case 0x1D: // boolean
+		case 0x1D:	//	boolean
 			// offset: 1; size: 1; 0 = false, 1 = true;
 			$name = 'tBool';
 			$size = 2;
 			$data = ord($formulaData[1]) ? 'TRUE' : 'FALSE';
 			break;
-		case 0x1E: // integer
+		case 0x1E:	//	integer
 			// offset: 1; size: 2; unsigned 16-bit integer
 			$name = 'tInt';
 			$size = 3;
 			$data = $this->_GetInt2d($formulaData, 1);
 			break;
-		case 0x1F: // number
+		case 0x1F:	//	number
 			// offset: 1; size: 8;
 			$name = 'tNum';
 			$size = 9;
 			$data = $this->_extractNumber(substr($formulaData, 1));
 			$data = str_replace(',', '.', (string)$data); // in case non-English locale
 			break;
-		case 0x40: // array constant
-		case 0x60: // array constant
+		case 0x20:	//	array constant
+		case 0x40:
+		case 0x60:
 			// offset: 1; size: 7; not used
 			$name = 'tArray';
 			$size = 8;
 			$data = null;
 			break;
-		case 0x41: // function with fixed number of arguments
+		case 0x21:	//	function with fixed number of arguments
+		case 0x41:
+		case 0x61:
 			$name = 'tFunc';
 			$size = 3;
 			// offset: 1; size: 2; index to built-in sheet function
@@ -4891,9 +4894,9 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			}
 			$data = array('function' => $function, 'args' => $args);
 			break;
-		case 0x22: // function with variable number of arguments
-		case 0x42: // function with variable number of arguments
-		case 0x62: // function with variable number of arguments
+		case 0x22:	//	function with variable number of arguments
+		case 0x42:
+		case 0x62:
 			$name = 'tFuncV';
 			$size = 4;
 			// offset: 1; size: 1; number of arguments
@@ -4995,8 +4998,9 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			}
 			$data = array('function' => $function, 'args' => $args);
 			break;
-		case 0x23: // index to defined name
+		case 0x23:	//	index to defined name
 		case 0x43:
+		case 0x63:
 			$name = 'tName';
 			$size = 5;
 			// offset: 1; size: 2; one-based index to definedname record
@@ -5004,22 +5008,23 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			// offset: 2; size: 2; not used
 			$data = $this->_definedname[$definedNameIndex]['name'];
 			break;
-		case 0x24: // single cell reference e.g. A5
+		case 0x24:	//	single cell reference e.g. A5
 		case 0x44:
 		case 0x64:
 			$name = 'tRef';
 			$size = 5;
 			$data = $this->_readBIFF8CellAddress(substr($formulaData, 1, 4));
 			break;
-		case 0x25: // cell range reference to cells in the same sheet
+		case 0x25:	//	cell range reference to cells in the same sheet (2d)
 		case 0x45:
 		case 0x65:
 			$name = 'tArea';
 			$size = 9;
 			$data = $this->_readBIFF8CellRangeAddress(substr($formulaData, 1, 8));
 			break;
-		case 0x26:
+		case 0x26:	//	Constant reference sub-expression
 		case 0x46:
+		case 0x66:
 			$name = 'tMemArea';
 			// offset: 1; size: 4; not used
 			// offset: 5; size: 2; size of the following subexpression
@@ -5027,7 +5032,9 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			$size = 7 + $subSize;
 			$data = $this->_getFormulaFromData(substr($formulaData, 7, $subSize));
 			break;
+		case 0x27:	//	Deleted constant reference sub-expression
 		case 0x47:
+		case 0x67:
 			$name = 'tMemErr';
 			// offset: 1; size: 4; not used
 			// offset: 5; size: 2; size of the following subexpression
@@ -5035,16 +5042,17 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			$size = 7 + $subSize;
 			$data = $this->_getFormulaFromData(substr($formulaData, 7, $subSize));
 			break;
-		case 0x29:
+		case 0x29:	//	Variable reference sub-expression
 		case 0x49:
+		case 0x69:
 			$name = 'tMemFunc';
-			// offset: 1; size: 2; size of the following subexpression
+			// offset: 1; size: 2; size of the following sub-expression
 			$subSize = $this->_GetInt2d($formulaData, 1);
 			$size = 3 + $subSize;
 			$data = $this->_getFormulaFromData(substr($formulaData, 3, $subSize));
 			break;
 
-		case 0x2C: // Relative reference, used in shared formulas and some other places
+		case 0x2C: // Relative 2d cell reference reference, used in shared formulas and some other places
 		case 0x4C:
 		case 0x6C:
 			$name = 'tRefN';
@@ -5052,7 +5060,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			$data = $this->_readBIFF8CellAddressB(substr($formulaData, 1, 4), $baseCell);
 			break;
 
-		case 0x2D:
+		case 0x2D:	//	Relative 2d range reference
 		case 0x4D:
 		case 0x6D:
 			$name = 'tAreaN';
@@ -5060,7 +5068,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			$data = $this->_readBIFF8CellRangeAddressB(substr($formulaData, 1, 8), $baseCell);
 			break;
 
-		case 0x39:
+		case 0x39:	//	External name
 		case 0x59:
 		case 0x79:
 			$name = 'tNameX';
@@ -5073,8 +5081,9 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			// offset: 5; size: 2; not used
 			break;
 
-		case 0x3A: // 3d reference to cell
+		case 0x3A:	//	3d reference to cell
 		case 0x5A:
+		case 0x7A:
 			$name = 'tRef3d';
 			$size = 7;
 
@@ -5085,15 +5094,15 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				$cellAddress = $this->_readBIFF8CellAddress(substr($formulaData, 3, 4));
 
 				$data = "$sheetRange!$cellAddress";
-
 			} catch (Exception $e) {
 				// deleted sheet reference
 				$data = '#REF!';
 			}
 
 			break;
-		case 0x3B: // 3d reference to cell range
+		case 0x3B:	//	3d reference to cell range
 		case 0x5B:
+		case 0x7B:
 			$name = 'tArea3d';
 			$size = 11;
 
@@ -5104,15 +5113,13 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				$cellRangeAddress = $this->_readBIFF8CellRangeAddress(substr($formulaData, 3, 8));
 
 				$data = "$sheetRange!$cellRangeAddress";
-
 			} catch (Exception $e) {
 				// deleted sheet reference
 				$data = '#REF!';
-
 			}
 
 			break;
-		// case 0x39: // don't know how to deal with
+		// Unknown cases	// don't know how to deal with
 		default:
 			throw new Exception('Unrecognized token ' . sprintf('%02X', $id) . ' in formula');
 			break;

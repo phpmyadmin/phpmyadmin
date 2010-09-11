@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -70,6 +70,9 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	 * @var PHPExcel_Reader_IReadFilter
 	 */
 	private $_readFilter = null;
+
+
+	private $_referenceHelper = null;
 
 	/**
 	 * Read data only?
@@ -150,6 +153,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	 */
 	public function __construct() {
 		$this->_readFilter = new PHPExcel_Reader_DefaultReadFilter();
+		$this->_referenceHelper = PHPExcel_ReferenceHelper::getInstance();
 	}
 
 	/**
@@ -245,12 +249,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 				$difference[0] = PHPExcel_Cell::columnIndexFromString($current[0]) - PHPExcel_Cell::columnIndexFromString($master[0]);
 				$difference[1] = $current[1] - $master[1];
 
-				$helper = PHPExcel_ReferenceHelper::getInstance();
-				$value = $helper->updateFormulaReferences(	$sharedFormulas[$instance]['formula'],
-															'A1',
-															$difference[0],
-															$difference[1]
-														 );
+				$value = $this->_referenceHelper->updateFormulaReferences(	$sharedFormulas[$instance]['formula'],
+																			'A1',
+																			$difference[0],
+																			$difference[1]
+																		 );
 //				echo 'Adjusted Formula is '.$value.'<br />';
 			}
 		}
@@ -311,7 +314,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 			switch ($rel["Type"]) {
 				case "http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties":
 					$xmlCore = simplexml_load_string($this->_getFromZipArchive($zip, "{$rel['Target']}"));
-					if ($xmlCore) {
+					if (is_object($xmlCore)) {
 						$xmlCore->registerXPathNamespace("dc", "http://purl.org/dc/elements/1.1/");
 						$xmlCore->registerXPathNamespace("dcterms", "http://purl.org/dc/terms/");
 						$xmlCore->registerXPathNamespace("cp", "http://schemas.openxmlformats.org/package/2006/metadata/core-properties");
@@ -325,6 +328,25 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 						$docProps->setSubject((string) self::array_item($xmlCore->xpath("dc:subject")));
 						$docProps->setKeywords((string) self::array_item($xmlCore->xpath("cp:keywords")));
 						$docProps->setCategory((string) self::array_item($xmlCore->xpath("cp:category")));
+					}
+				break;
+
+				case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties":
+					$xmlCore = simplexml_load_string($this->_getFromZipArchive($zip, "{$rel['Target']}"));
+					if (is_object($xmlCore)) {
+						$docProps = $excel->getProperties();
+						if (isset($xmlCore->Company))
+							$docProps->setCompany((string) $xmlCore->Company);
+						if (isset($xmlCore->Manager))
+							$docProps->setManager((string) $xmlCore->Manager);
+					}
+				break;
+
+				case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/custom-properties":
+					$xmlCore = simplexml_load_string($this->_getFromZipArchive($zip, "{$rel['Target']}"));
+					if (is_object($xmlCore)) {
+						$xmlCore->registerXPathNamespace("vt", "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes");
+						$docProps = $excel->getProperties();
 					}
 				break;
 
@@ -692,6 +714,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 												} else {
 													// Formula
 													$this->_castToFormula($c,$r,$cellDataType,$value,$calculatedValue,$sharedFormulas,'_castToBool');
+													if (isset($c->f['t'])) {
+														$att = array();
+														$att = $c->f;
+														$docSheet->getCell($r)->setFormulaAttributes($att);
+													}
 	//												echo '$calculatedValue = '.$calculatedValue.'<br />';
 												}
 												break;
@@ -1276,10 +1303,14 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 												break;
 
 											case '_xlnm.Print_Area':
-												$range = explode('!', $extractedRange);
-												$extractedRange = isset($range[1]) ? $range[1] : $range[0];
-
-												$docSheet->getPageSetup()->setPrintArea($extractedRange);
+												$rangeSets = explode(',', $extractedRange);		// FIXME: what if sheetname contains comma?
+												$newRangeSets = array();
+												foreach($rangeSets as $rangeSet) {
+													$range = explode('!', $rangeSet);	// FIXME: what if sheetname contains exclamation mark?
+													$rangeSet = isset($range[1]) ? $range[1] : $range[0];
+													$newRangeSets[] = str_replace('$', '', $rangeSet);
+												}
+												$docSheet->getPageSetup()->setPrintArea(implode(',',$newRangeSets));
 												break;
 
 											default:

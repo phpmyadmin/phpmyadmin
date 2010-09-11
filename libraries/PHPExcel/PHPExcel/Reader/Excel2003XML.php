@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -557,6 +557,11 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 					$cellDataFormula = '';
 					if (isset($cell_ss['Formula'])) {
 						$cellDataFormula = $cell_ss['Formula'];
+						// added this as a check for array formulas
+						if (isset($cell_ss['ArrayRange'])) {
+							$cellDataCSEFormula = $cell_ss['ArrayRange'];
+//							echo "found an array formula at ".$columnID.$rowID."<br />";
+						}
 						$hasCalculatedValue = true;
 					}
 					if (isset($cell->Data)) {

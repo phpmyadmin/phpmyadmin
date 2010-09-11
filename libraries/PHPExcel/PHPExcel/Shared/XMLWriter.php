@@ -22,12 +22,17 @@
  * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 if (!defined('DATE_W3C')) {
   define('DATE_W3C', 'Y-m-d\TH:i:sP');
 }
+
+if (!defined('DEBUGMODE_ENABLED')) {
+  define('DEBUGMODE_ENABLED', false);
+}
+
 
 /**
  * PHPExcel_Shared_XMLWriter
@@ -80,7 +85,9 @@ class PHPExcel_Shared_XMLWriter {
     	}
 
     	// Set default values
-    	$this->_xmlWriter->setIndent(true);
+		if (DEBUGMODE_ENABLED) {
+	    	$this->_xmlWriter->setIndent(true);
+	    }
     }
 
     /**

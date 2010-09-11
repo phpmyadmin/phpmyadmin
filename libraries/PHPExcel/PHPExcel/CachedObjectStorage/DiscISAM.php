@@ -22,7 +22,7 @@
  * @package    PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -103,6 +103,24 @@ class PHPExcel_CachedObjectStorage_DiscISAM extends PHPExcel_CachedObjectStorage
 	}	//	function getCacheData()
 
 
+	/**
+	 *	Clone the cell collection
+	 *
+	 *	@return	void
+	 */
+	public function copyCellCollection(PHPExcel_Worksheet $parent) {
+		parent::copyCellCollection($parent);
+		//	Get a new id for the new file name
+		$baseUnique = $this->_getUniqueID();
+		$newFileName = sys_get_temp_dir().'/PHPExcel.'.$baseUnique.'.cache';
+		//	Copy the existing cell cache file
+		copy ($this->_fileName,$newFileName);
+		$this->_fileName = $newFileName;
+		//	Open the copied cell cache file
+		$this->_fileHandle = fopen($this->_fileName,'a+');
+	}	//	function copyCellCollection()
+
+
 	public function unsetWorksheetCells() {
 		if(!is_null($this->_currentObject)) {
 			$this->_currentObject->detach();
@@ -121,12 +139,8 @@ class PHPExcel_CachedObjectStorage_DiscISAM extends PHPExcel_CachedObjectStorage
 	public function __construct(PHPExcel_Worksheet $parent) {
 		parent::__construct($parent);
 		if (is_null($this->_fileHandle)) {
-			if (function_exists('posix_getpid')) {
-				$baseUnique = posix_getpid();
-			} else {
-				$baseUnique = mt_rand();
-			}
-			$this->_fileName = sys_get_temp_dir().'/PHPExcel.'.uniqid($baseUnique,true).'.cache';
+			$baseUnique = $this->_getUniqueID();
+			$this->_fileName = sys_get_temp_dir().'/PHPExcel.'.$baseUnique.'.cache';
 			$this->_fileHandle = fopen($this->_fileName,'a+');
 		}
 	}	//	function __construct()

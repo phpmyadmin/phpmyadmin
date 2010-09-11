@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,7 +22,7 @@
  * @package    PHPExcel
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -41,70 +41,70 @@ class PHPExcel_DocumentProperties
 	 * @var string
 	 */
 	private $_creator;
-	
+
 	/**
 	 * LastModifiedBy
 	 *
 	 * @var string
 	 */
 	private $_lastModifiedBy;
-	
+
 	/**
 	 * Created
 	 *
 	 * @var datetime
 	 */
 	private $_created;
-	
+
 	/**
 	 * Modified
 	 *
 	 * @var datetime
 	 */
 	private $_modified;
-	
+
 	/**
 	 * Title
 	 *
 	 * @var string
 	 */
 	private $_title;
-	
+
 	/**
 	 * Description
 	 *
 	 * @var string
 	 */
 	private $_description;
-	
+
 	/**
 	 * Subject
 	 *
 	 * @var string
 	 */
 	private $_subject;
-	
+
 	/**
 	 * Keywords
 	 *
 	 * @var string
 	 */
 	private $_keywords;
-	
+
 	/**
 	 * Category
 	 *
 	 * @var string
 	 */
 	private $_category;
-	
+
 	/**
 	 * Company
-	 * 
+	 *
 	 * @var string
 	 */
 	private $_company;
-	
+
     /**
      * Create a new PHPExcel_DocumentProperties
      */
@@ -120,9 +120,10 @@ class PHPExcel_DocumentProperties
     	$this->_description		= '';
     	$this->_keywords		= '';
     	$this->_category		= '';
+    	$this->_manager			= '';
     	$this->_company 		= 'Microsoft Corporation';
     }
-    
+
     /**
      * Get Creator
      *
@@ -131,7 +132,7 @@ class PHPExcel_DocumentProperties
     public function getCreator() {
     	return $this->_creator;
     }
-    
+
     /**
      * Set Creator
      *
@@ -142,7 +143,7 @@ class PHPExcel_DocumentProperties
     	$this->_creator = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Last Modified By
      *
@@ -151,7 +152,7 @@ class PHPExcel_DocumentProperties
     public function getLastModifiedBy() {
     	return $this->_lastModifiedBy;
     }
-    
+
     /**
      * Set Last Modified By
      *
@@ -162,7 +163,7 @@ class PHPExcel_DocumentProperties
     	$this->_lastModifiedBy = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Created
      *
@@ -171,7 +172,7 @@ class PHPExcel_DocumentProperties
     public function getCreated() {
     	return $this->_created;
     }
-    
+
     /**
      * Set Created
      *
@@ -185,7 +186,7 @@ class PHPExcel_DocumentProperties
     	$this->_created = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Modified
      *
@@ -194,7 +195,7 @@ class PHPExcel_DocumentProperties
     public function getModified() {
     	return $this->_modified;
     }
-    
+
     /**
      * Set Modified
      *
@@ -208,7 +209,7 @@ class PHPExcel_DocumentProperties
     	$this->_modified = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Title
      *
@@ -217,7 +218,7 @@ class PHPExcel_DocumentProperties
     public function getTitle() {
     	return $this->_title;
     }
-    
+
     /**
      * Set Title
      *
@@ -228,7 +229,7 @@ class PHPExcel_DocumentProperties
     	$this->_title = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Description
      *
@@ -237,7 +238,7 @@ class PHPExcel_DocumentProperties
     public function getDescription() {
     	return $this->_description;
     }
-    
+
     /**
      * Set Description
      *
@@ -248,7 +249,7 @@ class PHPExcel_DocumentProperties
     	$this->_description = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Subject
      *
@@ -257,7 +258,7 @@ class PHPExcel_DocumentProperties
     public function getSubject() {
     	return $this->_subject;
     }
-    
+
     /**
      * Set Subject
      *
@@ -268,7 +269,7 @@ class PHPExcel_DocumentProperties
     	$this->_subject = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Keywords
      *
@@ -277,7 +278,7 @@ class PHPExcel_DocumentProperties
     public function getKeywords() {
     	return $this->_keywords;
     }
-    
+
     /**
      * Set Keywords
      *
@@ -288,7 +289,7 @@ class PHPExcel_DocumentProperties
     	$this->_keywords = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Category
      *
@@ -297,7 +298,7 @@ class PHPExcel_DocumentProperties
     public function getCategory() {
     	return $this->_category;
     }
-    
+
     /**
      * Set Category
      *
@@ -308,7 +309,7 @@ class PHPExcel_DocumentProperties
     	$this->_category = $pValue;
     	return $this;
     }
-    
+
     /**
      * Get Company
      *
@@ -317,18 +318,38 @@ class PHPExcel_DocumentProperties
     public function getCompany() {
     	return $this->_company;
     }
-    
+
     /**
      * Set Company
      *
      * @param string $pValue
-     * @return PHPPowerPoint_DocumentProperties
+     * @return PHPExcel_DocumentProperties
      */
     public function setCompany($pValue = '') {
     	$this->_company = $pValue;
     	return $this;
     }
-        
+
+    /**
+     * Get Manager
+     *
+     * @return string
+     */
+    public function getManager() {
+    	return $this->_manager;
+    }
+
+    /**
+     * Set Manager
+     *
+     * @param string $pValue
+     * @return PHPExcel_DocumentProperties
+     */
+    public function setManager($pValue = '') {
+    	$this->_manager = $pValue;
+    	return $this;
+    }
+
 	/**
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
 	 */

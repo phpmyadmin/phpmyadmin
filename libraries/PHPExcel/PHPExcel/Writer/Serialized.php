@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -163,10 +163,10 @@ class PHPExcel_Writer_Serialized implements PHPExcel_Writer_IWriter
 
 		// PHPExcel
 		$objWriter->startElement('PHPExcel');
-		$objWriter->writeAttribute('version', '1.7.3c');
+		$objWriter->writeAttribute('version', '1.7.4');
 
 			// Comment
-			$objWriter->writeComment('This file has been generated using PHPExcel v1.7.3c (http://www.codeplex.com/PHPExcel). It contains a base64 encoded serialized version of the PHPExcel internal object.');
+			$objWriter->writeComment('This file has been generated using PHPExcel v1.7.4 (http://www.codeplex.com/PHPExcel). It contains a base64 encoded serialized version of the PHPExcel internal object.');
 
 			// Data
 			$objWriter->startElement('data');

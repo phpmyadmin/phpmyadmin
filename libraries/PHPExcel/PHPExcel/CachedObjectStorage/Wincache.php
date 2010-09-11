@@ -22,7 +22,7 @@
  * @package	PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.3c, 2010-06-01
+ * @version	1.7.4, 2010-08-26
  */
 
 
@@ -45,9 +45,15 @@ class PHPExcel_CachedObjectStorage_Wincache extends PHPExcel_CachedObjectStorage
 
 		$obj = serialize($this->_currentObject);
 		if (wincache_ucache_exists($this->_cachePrefix.$this->_currentObjectID.'.cache')) {
-			wincache_ucache_set($this->_cachePrefix.$this->_currentObjectID.'.cache', $obj, $this->_cacheTime);
+			if (!wincache_ucache_set($this->_cachePrefix.$this->_currentObjectID.'.cache', $obj, $this->_cacheTime)) {
+				$this->__destruct();
+				throw new Exception('Failed to store cell '.$cellID.' in WinCache');
+			}
 		} else {
-			wincache_ucache_add($this->_cachePrefix.$this->_currentObjectID.'.cache', $obj, $this->_cacheTime);
+			if (!wincache_ucache_add($this->_cachePrefix.$this->_currentObjectID.'.cache', $obj, $this->_cacheTime)) {
+				$this->__destruct();
+				throw new Exception('Failed to store cell '.$cellID.' in WinCache');
+			}
 		}
 
 		$this->_currentObjectID = $this->_currentObject = null;
@@ -93,7 +99,7 @@ class PHPExcel_CachedObjectStorage_Wincache extends PHPExcel_CachedObjectStorage
 			if ($success === false) {
 				//	Entry no longer exists in Wincache, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry no longer exists in Wincache');
+				throw new Exception('Cell entry '.$cellID.' no longer exists in WinCache');
 			}
 			return true;
 		}
@@ -120,9 +126,9 @@ class PHPExcel_CachedObjectStorage_Wincache extends PHPExcel_CachedObjectStorage
 			$success = false;
 			$obj = wincache_ucache_get($this->_cachePrefix.$pCoord.'.cache', $success);
 			if ($success === false) {
-				//	Entry no longer exists in Wincache, so clear it from the cache array
+				//	Entry no longer exists in WinCache, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry no longer exists in Wincache');
+				throw new Exception('Cell entry '.$cellID.' no longer exists in WinCache');
 			}
 		} else {
 			//	Return null if requested entry doesn't exist in cache
@@ -155,13 +161,43 @@ class PHPExcel_CachedObjectStorage_Wincache extends PHPExcel_CachedObjectStorage
 	}	//	function deleteCacheData()
 
 
+	/**
+	 *	Clone the cell collection
+	 *
+	 *	@return	void
+	 */
+	public function copyCellCollection(PHPExcel_Worksheet $parent) {
+		parent::copyCellCollection($parent);
+		//	Get a new id for the new file name
+		$baseUnique = $this->_getUniqueID();
+		$newCachePrefix = substr(md5($baseUnique),0,8).'.';
+		$cacheList = $this->getCellList();
+		foreach($cacheList as $cellID) {
+			if ($cellID != $this->_currentObjectID) {
+				$success = false;
+				$obj = wincache_ucache_get($this->_cachePrefix.$cellID.'.cache', $success);
+				if ($success === false) {
+					//	Entry no longer exists in WinCache, so clear it from the cache array
+					parent::deleteCacheData($cellID);
+					throw new Exception('Cell entry '.$cellID.' no longer exists in Wincache');
+				}
+				if (!wincache_ucache_add($newCachePrefix.$cellID.'.cache', $obj, $this->_cacheTime)) {
+					$this->__destruct();
+					throw new Exception('Failed to store cell '.$cellID.' in Wincache');
+				}
+			}
+		}
+		$this->_cachePrefix = $newCachePrefix;
+	}	//	function copyCellCollection()
+
+
 	public function unsetWorksheetCells() {
 		if(!is_null($this->_currentObject)) {
 			$this->_currentObject->detach();
 			$this->_currentObject = $this->_currentObjectID = null;
 		}
 
-		//	Flush the Wincache cache
+		//	Flush the WinCache cache
 		$this->__destruct();
 
 		$this->_cellCache = array();
@@ -175,12 +211,8 @@ class PHPExcel_CachedObjectStorage_Wincache extends PHPExcel_CachedObjectStorage
 		$cacheTime	= (isset($arguments['cacheTime']))	? $arguments['cacheTime']	: 600;
 
 		if (is_null($this->_cachePrefix)) {
-			if (function_exists('posix_getpid')) {
-				$baseUnique = posix_getpid();
-			} else {
-				$baseUnique = mt_rand();
-			}
-			$this->_cachePrefix = substr(md5(uniqid($baseUnique,true)),0,8).'.';
+			$baseUnique = $this->_getUniqueID();
+			$this->_cachePrefix = substr(md5($baseUnique),0,8).'.';
 			$this->_cacheTime = $cacheTime;
 
 			parent::__construct($parent);

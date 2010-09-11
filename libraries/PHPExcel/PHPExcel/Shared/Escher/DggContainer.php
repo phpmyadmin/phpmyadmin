@@ -22,7 +22,7 @@
  * @package    PHPExcel_Shared_Escher
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 /**
@@ -68,6 +68,13 @@ class PHPExcel_Shared_Escher_DggContainer
 	 * @var array
 	 */
 	private $_OPT = array();
+
+	/**
+	 * Array of identifier clusters containg information about the maximum shape identifiers
+	 *
+	 * @var array
+	 */
+	private $_IDCLs = array();
 
 	/**
 	 * Get maximum shape index of all shapes in all drawings (plus one)
@@ -174,4 +181,23 @@ class PHPExcel_Shared_Escher_DggContainer
 		return null;
 	}
 
+	/**
+	 * Get identifier clusters
+	 *
+	 * @return array
+	 */
+	public function getIDCLs()
+	{
+		return $this->_IDCLs;
+	}
+
+	/**
+	 * Set identifier clusters. array(<drawingId> => <max shape id>, ...)
+	 *
+	 * @param array $pValue
+	 */
+	public function setIDCLs($pValue)
+	{
+		$this->_IDCLs = $pValue;
+	}
 }

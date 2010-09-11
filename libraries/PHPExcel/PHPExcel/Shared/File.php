@@ -22,7 +22,7 @@
  * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3c, 2010-06-01
+ * @version    1.7.4, 2010-08-26
  */
 
 
@@ -75,7 +75,9 @@ class PHPExcel_Shared_File
 		$returnValue = '';
 
 		// Try using realpath()
-		$returnValue = realpath($pFilename);
+		if (file_exists($pFilename)) {
+			$returnValue = realpath($pFilename);
+		}
 
 		// Found something?
 		if ($returnValue == '' || is_null($returnValue)) {
@@ -107,14 +109,14 @@ class PHPExcel_Shared_File
 		// http://php.net/manual/en/function.sys-get-temp-dir.php#94119
 
 		if ( !function_exists('sys_get_temp_dir')) {
-			if( $temp = getenv('TMP') ) {
-				return realpath($temp);
+			if ($temp = getenv('TMP') ) {
+				if (file_exists($temp)) { return realpath($temp); }
 			}
-			if( $temp = getenv('TEMP') ) {
-				return realpath($temp);
+			if ($temp = getenv('TEMP') ) {
+				if (file_exists($temp)) { return realpath($temp); }
 			}
-			if( $temp = getenv('TMPDIR') ) {
-				return realpath($temp);
+			if ($temp = getenv('TMPDIR') ) {
+				if (file_exists($temp)) { return realpath($temp); }
 			}
 
 			// trick for creating a file in system's temporary dir
@@ -126,10 +128,11 @@ class PHPExcel_Shared_File
 			}
 
 			return null;
-
 		}
 
 		// use ordinary built-in PHP function
+		//	There should be no problem with the 5.2.4 Suhosin realpath() bug, because this line should only
+		//		be called if we're running 5.2.1 or earlier
 		return realpath(sys_get_temp_dir());
 	}
 

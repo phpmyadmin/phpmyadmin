@@ -22,7 +22,7 @@
  * @package	PHPExcel_Writer_Excel2007
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.3c, 2010-06-01
+ * @version	1.7.4, 2010-08-26
  */
 
 
@@ -1002,7 +1002,18 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 
 						break;
 					case 'f':			// Formula
-						$objWriter->writeElement('f', substr($pCell->getValue(), 1));
+						$attributes = $pCell->getFormulaAttributes();
+						if($attributes['t'] == 'array') {
+							$objWriter->startElement('f');
+							$objWriter->writeAttribute('t', 'array');
+							$objWriter->writeAttribute('ref', $pCell->getCoordinate());
+							$objWriter->writeAttribute('aca', '1');
+							$objWriter->writeAttribute('ca', '1');
+							$objWriter->text(substr($pCell->getValue(), 1));
+							$objWriter->endElement();
+						} else {
+							$objWriter->writeElement('f', substr($pCell->getValue(), 1));
+						}
 						if ($this->getParentWriter()->getOffice2003Compatibility() === false) {
 							if ($this->getParentWriter()->getPreCalculateFormulas()) {
 								$calculatedValue = $pCell->getCalculatedValue();
