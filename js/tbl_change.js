@@ -222,8 +222,6 @@ function Validator(urlField, multi_edit,theType){
             }
         }
     }
-
-    dt.className="";
  }
  /* End of datetime validation*/
 
@@ -259,6 +257,20 @@ function unNullify(urlField, multi_edit)
  * Restart insertion with 'N' rows.
  */
 $(document).ready(function() {
+
+    /**
+     * Handles all current checkboxes for Null 
+     * 
+     */
+    $('.checkbox_null').bind('click', function(e) {
+            nullify(
+                // use hidden fields populated by tbl_change.php
+                $(this).siblings('.nullify_code').val(),
+                $(this).closest('tr').find('input:hidden').first().val(), 
+                $(this).siblings('.hashed_field').val(),
+                $(this).siblings('.multi_edit').val()
+            );
+    });
 
     /**
      * Submission of data to be inserted into table
@@ -302,7 +314,7 @@ $(document).ready(function() {
     }) // end submission of data to be inserted into table
 
     /**
-     * Restart Insertion form
+     * Continue Insertion form
      */
     $("#insert_rows").live('change', function(event) {
         event.preventDefault();
@@ -352,8 +364,33 @@ $(document).ready(function() {
                     /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
                     var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
 
+                    var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
                     $(this).attr('name', new_name);
-                    $(this).attr('value', '');
+
+                    $(this).filter('.textfield')
+                        .attr('value', '')
+                        .unbind('change')
+                        .attr('onchange', null)
+                        .bind('change', function(e) {
+                            Validator(
+                                hashed_field, 
+                                new_row_index, 
+                                $(this).closest('tr').find('span.column_type').html()
+                                );
+                        })
+                        .end();
+
+                    $(this).filter('.checkbox_null')
+                        .bind('click', function(e) {
+                                nullify(
+                                    $(this).siblings('.nullify_code').val(),
+                                    $(this).closest('tr').find('input:hidden').first().val(), 
+                                    hashed_field, 
+                                    '[multi_edit][' + new_row_index + ']'
+                                    );
+                        }) 
+                        .end();
+
                 });
 
                 //Insert/Clone the ignore checkboxes
@@ -378,7 +415,7 @@ $(document).ready(function() {
 
                     $(last_checkbox)
                     .clone()
-                    .attr({'id':new_name, 'name': new_name})
+                    .attr({'id':new_name, 'name': new_name, 'checked': true})
                     .add('label[for^=insert_ignore]:last')
                     .clone()
                     .attr('for', new_name)
