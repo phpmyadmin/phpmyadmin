@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-10 12:46-0400\n"
-"PO-Revision-Date: 2010-09-12 16:03+0200\n"
+"PO-Revision-Date: 2010-09-12 16:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5956,7 +5956,7 @@ msgstr "Kullanıcı tercihleri"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
-msgstr "Gelişmiş özellikleri kurmak için hızlı adımlar:"
+msgstr "Gelişmiş özellikleri ayarlamak için hızlı adımlar:"
 
 #: libraries/relation.lib.php:147
 msgid ""
