@@ -5973,7 +5973,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "(<code>config.inc.php</code>) yapılandırma dosyasında gelişmiş özellikler "
-"etkin, örneğin <code>config.sample.inc.php</code> dosyasından başlayarak."
+"etkinleştirin, örneğin <code>config.sample.inc.php</code> dosyasından "
+"başlayarak."
 
 #: libraries/relation.lib.php:150
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
