@@ -431,8 +431,8 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
 <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td align="center"<?php echo $field['wrap']; ?>>
-                 <?php echo $field['pma_type']; ?>
+             <td align="center"<?php echo $field['wrap']; ?>><span class="column_type">
+                 <?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -614,32 +614,35 @@ foreach ($rows as $row_id => $vrow) {
             }
             echo ' />' . "\n";
 
-            echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
+            echo '            <input type="checkbox" class="checkbox_null" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
                  . ' name="fields_null' . $field_name_appendix . '"';
             if ($real_null_value && !$field['first_timestamp']) {
                 echo ' checked="checked"';
             }
-            echo ' id="field_' . ($idindex) . '_2"';
-            $onclick         = ' onclick="if (this.checked) {nullify(';
+            echo ' id="field_' . ($idindex) . '_2" />';
+            
+            // nullify_code is needed by the js nullify() function
             if (strstr($field['True_Type'], 'enum')) {
                 if (strlen($field['Type']) > 20) {
-                    $onclick .= '1, ';
+                    $nullify_code = '1';
                 } else {
-                    $onclick .= '2, ';
+                    $nullify_code = '2';
                 }
             } elseif (strstr($field['True_Type'], 'set')) {
-                $onclick     .= '3, ';
+                $nullify_code = '3';
             } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
                 // foreign key in a drop-down
-                $onclick     .= '4, ';
+                $nullify_code = '4';
             } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
                 // foreign key with a browsing icon
-                $onclick     .= '6, ';
+                $nullify_code = '6';
             } else {
-                $onclick     .= '5, ';
+                $nullify_code = '5';
             }
-            $onclick         .= '\'' . PMA_escapeJsString($field['Field_html']) . '\', \'' . $field['Field_md5'] . '\', \'' . PMA_escapeJsString($vkey) . '\'); this.checked = true}; return true" />' . "\n";
-            echo $onclick;
+            // to be able to generate calls to nullify() in jQuery 
+            echo '<input type="hidden" class="nullify_code" name="nullify_code' . $field_name_appendix . '" value="' . $nullify_code . '" />';
+            echo '<input type="hidden" class="hashed_field" name="hashed_field' . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
+            echo '<input type="hidden" class="multi_edit" name="multi_edit' . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
         }
         echo '        </td>' . "\n";
 
