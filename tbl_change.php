@@ -497,7 +497,7 @@ foreach ($rows as $row_id => $vrow) {
         }
 
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
-        $tabindex = (($idindex - 1) * 3) + 1;
+        $tabindex = $idindex;
 
         // The function column
         // -------------------
@@ -1019,7 +1019,7 @@ $(function() {
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
-            <select name="submit_type" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
+            <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
 <?php
 if (isset($where_clause)) {
     ?>
@@ -1071,8 +1071,8 @@ if (isset($where_clause)) {
 <?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
         </td>
         <td colspan="3" align="right" valign="middle">
-            <input type="submit" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
-            <input type="reset" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
+            <input type="submit" class="control_at_footer" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
+            <input type="reset" class="control_at_footer" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
         </td>
     </tr>
     </table>

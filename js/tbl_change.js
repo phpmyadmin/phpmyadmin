@@ -424,6 +424,20 @@ $(document).ready(function() {
                 }
                 curr_rows++;
             }
+        // recompute tabindex for text fields and other controls at footer;
+        // IMO it's not really important to handle the tabindex for
+        // function and Null
+        var tabindex = 0;
+        $('.textfield') 
+        .each(function() {
+                tabindex++;
+                $(this).attr('tabindex', tabindex);
+            });
+        $('.control_at_footer')
+        .each(function() {
+                tabindex++;
+                $(this).attr('tabindex', tabindex);
+            });
         }
         else if( curr_rows > target_rows) {
             while(curr_rows > target_rows) {
