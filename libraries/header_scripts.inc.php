@@ -31,7 +31,7 @@ $title = PMA_expandUserString(
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'jquery.qtip-1.0.0.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.qtip-1.0.0.min.js';
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
