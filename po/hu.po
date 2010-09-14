@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-10 12:46-0400\n"
-"PO-Revision-Date: 2010-09-14 20:43+0200\n"
+"PO-Revision-Date: 2010-09-14 20:44+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -10165,7 +10165,7 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL végrehajtás"
 
 #: tbl_tracking.php:515
 #, fuzzy, php-format
