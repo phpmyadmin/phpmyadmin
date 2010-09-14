@@ -10262,6 +10262,5 @@ msgid "VIEW name"
 msgstr "NÉZET neve"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Tábla átnevezése"
+msgstr "Nézet átnevezése"
