@@ -10187,7 +10187,7 @@ msgstr ""
 
 #: tbl_tracking.php:636
 msgid "Deactivate now"
-msgstr ""
+msgstr "Inaktiválás"
 
 #: tbl_tracking.php:647
 #, php-format
