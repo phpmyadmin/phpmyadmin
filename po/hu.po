@@ -10174,7 +10174,7 @@ msgstr "Exportálás: %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Verziók megjelenítése"
 
 #: tbl_tracking.php:587
 msgid "Version"
