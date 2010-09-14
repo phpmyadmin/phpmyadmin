@@ -10212,9 +10212,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: tbl_tracking.php:682
-#, fuzzy
 msgid "Create version"
-msgstr "Kapcsolat létrehozása"
+msgstr "Verzió létrehozása"
 
 #: themes.php:31
 #, php-format
