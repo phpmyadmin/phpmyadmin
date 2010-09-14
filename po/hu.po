@@ -10168,9 +10168,9 @@ msgid "SQL execution"
 msgstr "SQL végrehajtás"
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Exportálás alapértelmezései"
+msgstr "Exportálás: %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
