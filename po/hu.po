@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-10 12:46-0400\n"
-"PO-Revision-Date: 2010-07-22 02:22+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-09-14 20:42+0200\n"
+"Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1595
@@ -10244,7 +10244,6 @@ msgid "Available transformations"
 msgstr "Létező átalakítások"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -10266,192 +10265,3 @@ msgstr "NÉZET neve"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Tábla átnevezése"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Írja be az átalakítási beállítások értékeit a következő formátumban: 'a', "
-#~ "100, b,'c'...<br />Ha fordított perjelet (\"\\\") vagy idézőjelet (\"'\") "
-#~ "akar beszúrni az értékekbe, akkor kezdje fordított perjellel (például: '\\"
-#~ "\\xyz' vagy 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Írja be az átalakítási beállítások értékeit a következő formátumban: 'a', "
-#~ "100, b,'c'...<br />Ha fordított perjelet (\"\\\") vagy idézőjelet (\"'\") "
-#~ "akar beszúrni az értékekbe, akkor kezdje fordított perjellel (például: '\\"
-#~ "\\xyz' vagy 'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Nincs tábla"
-
-#~ msgid "server name"
-#~ msgstr "szerver neve"
-
-#~ msgid "database name"
-#~ msgstr "adatbázis neve"
-
-#~ msgid "table name"
-#~ msgstr "tábla neve"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "PDF oldalak szerkesztése"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Adatkönyvtár formátum"
-
-#~ msgid "no"
-#~ msgstr "nem"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr ""
-#~ "Írja be az egyszeri bejelentkezés hitelesítéséhez szükséges "
-#~ "bejelentkezési beállításokat"
-
-#~ msgid "Signon login options"
-#~ msgstr "Egyszeri bejelentkezés beállításai"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA adatbázis"
-
-#~ msgid "Customization"
-#~ msgstr "Testreszabás"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Az SQL-lekérdezések beállításai, az SQL-lekérdezési panel beállításait "
-#~ "lásd a [a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigációs keret[/"
-#~ "a] beállításaiban"
-
-#~ msgid "yes"
-#~ msgstr "igen"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within fields"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "AUTO_INCREMENT érték hozzáadása"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "%s sor kiírása a(z) %s. rekorddal kezdődően"
-
-#~ msgid "remember template"
-#~ msgstr "a sablon megjegyzése"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "Az importált fájl tömörítése automatikusan felismerésre kerül a "
-#~ "következőből: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Hozzáadás a megjegyzéshez"
-
-#, fuzzy
-#~ msgid "Export triggers"
-#~ msgstr "Exportálás típusa"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "A megadott oszlop (%s) érvénytelen!"
-
-#~ msgid "Actions"
-#~ msgstr "Műveletek"
-
-#~ msgid "Interface"
-#~ msgstr "Kezelőfelület"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Tábla neve"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB-ratár"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Engedélyezett"
-
-#~ msgid "Disable"
-#~ msgstr "Letiltás"
-
-#~ msgid "Damaged"
-#~ msgstr "Sérült"
-
-#, fuzzy
-#~| msgid "Repair"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Javítás"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Letiltott"
-
-#~ msgid "Enable"
-#~ msgstr "Engedélyezés"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Nem tölthető be a [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "kiterjesztés. Ellenőrizze a PHP beállításait."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Nem lehetett betölteni az iconv vagy a recode kiterjesztést a "
-#~ "karakterkészlet-átalakításhoz. Állítsa be úgy a PHP-t, hogy engedélyezze "
-#~ "ezeket a kiterjesztéseket vagy tiltsa le a karakterkészlet-átalakítást a "
-#~ "phpMyAdminban."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Nem lehetett használni az iconv, libiconv, sem a recode_string funkciót, "
-#~ "bár úgy tűnik, hogy a szükséges kiterjesztések betöltése megtörtént. "
-#~ "Ellenőrizze a PHP beállításokat."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Karakterkészlet-konvertálás engedélyezése"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "A konvertálások alapértelmezett karakterkészlete"
-
-#~ msgid "Default character set"
-#~ msgstr "Alapértelmezett karakterkészlet"
