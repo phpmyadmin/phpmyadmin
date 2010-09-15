@@ -1087,7 +1087,7 @@ msgstr "Slå av/på visning av spørreboks"
 #, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr "Inline"
+msgstr "Inline Edit"
 
 #: js/messages.php:88 tbl_change.php:296 tbl_indexes.php:198
 #: tbl_indexes.php:223
