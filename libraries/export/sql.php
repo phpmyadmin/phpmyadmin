@@ -120,7 +120,7 @@ if (isset($plugin_list)) {
             /* end SQL statements */
 
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'backquotes', 'text' => __('Enclose table and field names with backquotes <i>(Protects field and table names formed with special characters)</i>'));
+                array('type' => 'bool', 'name' => 'backquotes', 'text' => __('Enclose table and field names with backquotes <i>(Protects field and table names formed with special characters or keywords)</i>'));
 
             $plugin_list['sql']['options'][] =
                 array('type' => 'end_group');
