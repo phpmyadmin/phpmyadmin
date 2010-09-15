@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-10 12:46-0400\n"
+"POT-Creation-Date: 2010-09-15 15:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,8 +70,8 @@ msgstr ""
 #: server_privileges.php:2063 server_privileges.php:2110
 #: server_privileges.php:2150 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1071
-#: tbl_change.php:1108 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1074
+#: tbl_change.php:1111 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
 #: tbl_operations.php:728 tbl_select.php:323 tbl_structure.php:651
 #: tbl_structure.php:687 tbl_tracking.php:389 tbl_tracking.php:506
@@ -453,7 +454,7 @@ msgstr ""
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:782 server_privileges.php:299
-#: tbl_change.php:926 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:929 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr ""
 
@@ -638,8 +639,8 @@ msgstr ""
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, possible-php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -843,8 +844,8 @@ msgstr ""
 #: import.php:58
 #, possible-php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1492,7 +1493,7 @@ msgstr ""
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:922
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:925
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr ""
@@ -1603,8 +1604,8 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:106
 #, possible-php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -1983,7 +1984,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:923
+#: tbl_change.php:926
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 
@@ -2121,14 +2122,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:779 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1023 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:138
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1072
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr ""
 
@@ -4288,8 +4289,8 @@ msgstr ""
 #, possible-php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -5078,7 +5079,7 @@ msgstr ""
 #: libraries/export/sql.php:123
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters)</i>"
+"names formed with special characters or keywords)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:136
@@ -5998,7 +5999,7 @@ msgstr ""
 msgid "Location of the text file"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:926
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:929
 msgid "web server upload directory"
 msgstr ""
 
@@ -7041,8 +7042,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1776
@@ -8425,60 +8426,60 @@ msgstr ""
 msgid "Function"
 msgstr ""
 
-#: tbl_change.php:721
+#: tbl_change.php:724
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 
-#: tbl_change.php:836
+#: tbl_change.php:839
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:842
+#: tbl_change.php:845
 msgid "Binary - do not edit"
 msgstr ""
 
-#: tbl_change.php:890
+#: tbl_change.php:893
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1027
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr ""
 
-#: tbl_change.php:1028
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1029
+#: tbl_change.php:1032
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1040
+#: tbl_change.php:1043
 msgid "and then"
 msgstr ""
 
-#: tbl_change.php:1044
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr ""
 
-#: tbl_change.php:1045
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr ""
 
-#: tbl_change.php:1049
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr ""
 
-#: tbl_change.php:1057
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr ""
 
-#: tbl_change.php:1068
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: tbl_change.php:1106
+#: tbl_change.php:1109
 #, possible-php-format
 msgid "Continue insertion with %s rows"
 msgstr ""

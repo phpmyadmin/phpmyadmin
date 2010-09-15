@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-10 12:46-0400\n"
+"POT-Creation-Date: 2010-09-15 15:08+0200\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -70,8 +70,8 @@ msgstr "Procurar"
 #: server_privileges.php:2063 server_privileges.php:2110
 #: server_privileges.php:2150 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1071
-#: tbl_change.php:1108 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1074
+#: tbl_change.php:1111 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
 #: tbl_operations.php:728 tbl_select.php:323 tbl_structure.php:651
 #: tbl_structure.php:687 tbl_tracking.php:389 tbl_tracking.php:506
@@ -470,7 +470,7 @@ msgstr "Eliminar"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:782 server_privileges.php:299
-#: tbl_change.php:926 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:929 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "ou"
 
@@ -663,11 +663,11 @@ msgstr "O seguemento non está activado."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation%"
-"s."
+"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation"
+"%s."
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -872,11 +872,11 @@ msgstr "Gardouse o volcado no ficheiro %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
-"sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
+"%sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1631,7 +1631,7 @@ msgstr "Bases de datos"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:922
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:925
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Houbo un erro"
@@ -1747,8 +1747,8 @@ msgstr "Reciba a benvida a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Isto débese, posibelmente, a que non se creou un ficheiro de configuración. "
 "Tal vez queira utilizar %1$ssetup script%2$s para crear un."
@@ -2162,7 +2162,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "directorio de recepción do servidor web"
 
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:923
+#: tbl_change.php:926
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Non se pode acceder ao directorio que designou para os envíos"
 
@@ -2311,14 +2311,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:779 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1023 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Gardar"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:138
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1072
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -4827,8 +4827,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
 "utilizar cadeas de formato de hora. Produciranse transformacións en "
@@ -5757,7 +5757,7 @@ msgstr ""
 #: libraries/export/sql.php:123
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters)</i>"
+"names formed with special characters or keywords)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:136
@@ -6727,7 +6727,7 @@ msgstr "Só visualizar"
 msgid "Location of the text file"
 msgstr "Localización do arquivo de texto"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:926
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:929
 msgid "web server upload directory"
 msgstr "directorio de recepción do servidor web"
 
@@ -7294,8 +7294,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na %"
-"sdocumentation%s."
+"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na "
+"%sdocumentation%s."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 #, fuzzy
@@ -7971,8 +7971,8 @@ msgstr "Eliminar as bases de datos que teñan os mesmos nomes que os usuarios."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das táboas "
 "de privilexios do MySQL. O contido destas táboas pode diferir dos "
@@ -9611,65 +9611,65 @@ msgstr "Visualizar valores alleos"
 msgid "Function"
 msgstr "Función"
 
-#: tbl_change.php:721
+#: tbl_change.php:724
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Por causa da sua lonxitude,<br /> este campo pode non ser editábel "
 
-#: tbl_change.php:836
+#: tbl_change.php:839
 msgid "Remove BLOB Repository Reference"
 msgstr "Eliminar a referencia ao repositorio BLOB"
 
-#: tbl_change.php:842
+#: tbl_change.php:845
 msgid "Binary - do not edit"
 msgstr " Binario - non editar "
 
-#: tbl_change.php:890
+#: tbl_change.php:893
 msgid "Upload to BLOB repository"
 msgstr "Enviar ao repositorio de BLOB"
 
-#: tbl_change.php:1027
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr "Inserir unha columna nova"
 
-#: tbl_change.php:1028
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1029
+#: tbl_change.php:1032
 #, fuzzy
 msgid "Show insert query"
 msgstr "Mostrar procura SQL"
 
-#: tbl_change.php:1040
+#: tbl_change.php:1043
 msgid "and then"
 msgstr "e despois"
 
-#: tbl_change.php:1044
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr "Voltar"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr "Inserir un rexistro novo"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr "Voltar para esta páxina"
 
-#: tbl_change.php:1057
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr "Modificar a fileira seguinte"
 
-#: tbl_change.php:1068
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Use a tecla do tabulador para moverse de valor en valor ou a tecla CONTROL "
 "combinada cunha flecha para moverse a calquera sitio"
 
-#: tbl_change.php:1106
+#: tbl_change.php:1109
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"

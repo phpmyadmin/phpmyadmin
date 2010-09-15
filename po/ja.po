@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-10 12:46-0400\n"
+"POT-Creation-Date: 2010-09-15 15:08+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -69,8 +69,8 @@ msgstr "検索"
 #: server_privileges.php:2063 server_privileges.php:2110
 #: server_privileges.php:2150 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1071
-#: tbl_change.php:1108 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1074
+#: tbl_change.php:1111 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
 #: tbl_operations.php:728 tbl_select.php:323 tbl_structure.php:651
 #: tbl_structure.php:687 tbl_tracking.php:389 tbl_tracking.php:506
@@ -468,7 +468,7 @@ msgstr "削除"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:782 server_privileges.php:299
-#: tbl_change.php:926 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:929 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "または"
 
@@ -659,8 +659,8 @@ msgstr ""
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:418 db_structure.php:432 libraries/header.inc.php:138
@@ -866,8 +866,8 @@ msgstr "ダンプをファイル %s に保存しました"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1619,7 +1619,7 @@ msgstr "データベース"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:922
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:925
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "エラー"
@@ -1730,11 +1730,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2133,7 +2133,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ウェブサーバ上のアップロードディレクトリ"
 
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:923
+#: tbl_change.php:926
 msgid "The directory you set for upload work cannot be reached"
 msgstr "指定したアップロードディレクトリが利用できません"
 
@@ -2281,14 +2281,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:779 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1023 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "保存する"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:138
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1072
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "リセット"
 
@@ -4569,8 +4569,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "このテンプレートは %1$sstrftime%2$s を使って解釈されます。そのため、時間の書"
 "式文字列を利用できます。また、次の変換も行われます。%3$s それ以外のテキストは"
@@ -5488,7 +5488,7 @@ msgstr "<code>, 変数 as myname</code>"
 #, fuzzy
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters)</i>"
+"names formed with special characters or keywords)</i>"
 msgstr ""
 "「逆クオートでテーブル名やフィールド名を囲む（Enclose table and field names "
 "with backquotes）」は、特殊文字を含むフィールド名やテーブル名を保護します。"
@@ -6443,7 +6443,7 @@ msgstr "表示のみ"
 msgid "Location of the text file"
 msgstr "テキストファイルの位置"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:926
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:929
 msgid "web server upload directory"
 msgstr "ウェブサーバ上のアップロードディレクトリ"
 
@@ -7658,8 +7658,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -9150,64 +9150,64 @@ msgstr "参照されている値を表示する"
 msgid "Function"
 msgstr "関数"
 
-#: tbl_change.php:721
+#: tbl_change.php:724
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " 長さによってはこのフィールドを<br /> 修正できなくなる場合もあります"
 
-#: tbl_change.php:836
+#: tbl_change.php:839
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:842
+#: tbl_change.php:845
 msgid "Binary - do not edit"
 msgstr " バイナリ - 編集不可"
 
-#: tbl_change.php:890
+#: tbl_change.php:893
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1027
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr "新しい行として挿入する"
 
-#: tbl_change.php:1028
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1029
+#: tbl_change.php:1032
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1040
+#: tbl_change.php:1043
 msgid "and then"
 msgstr "続いて"
 
-#: tbl_change.php:1044
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr "前のページに戻る"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr "新しいレコードを追加する"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr "このページに戻る"
 
-#: tbl_change.php:1057
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr "次の行を編集する"
 
-#: tbl_change.php:1068
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
 "由に移動できます"
 
-#: tbl_change.php:1106
+#: tbl_change.php:1109
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"

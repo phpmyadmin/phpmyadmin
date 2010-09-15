@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-09-10 12:46-0400\n"
+"POT-Creation-Date: 2010-09-15 15:08+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
+"Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -68,8 +68,8 @@ msgstr "Қидириш"
 #: server_privileges.php:2063 server_privileges.php:2110
 #: server_privileges.php:2150 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1071
-#: tbl_change.php:1108 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:324 tbl_change.php:1074
+#: tbl_change.php:1111 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
 #: tbl_operations.php:728 tbl_select.php:323 tbl_structure.php:651
 #: tbl_structure.php:687 tbl_tracking.php:389 tbl_tracking.php:506
@@ -468,7 +468,7 @@ msgstr "Ўчириш"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:782 server_privileges.php:299
-#: tbl_change.php:926 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:929 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "Ёки"
 
@@ -661,8 +661,8 @@ msgstr "Кузатиш фаол эмас."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
@@ -870,11 +870,11 @@ msgstr "Дамп \"%s\" файлида сақланди."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
-"sдокументацияда%s келтирилган."
+"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари "
+"%sдокументацияда%s келтирилган."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1635,7 +1635,7 @@ msgstr "Маълумотлар базалари"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:922
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 tbl_change.php:925
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Хатолик"
@@ -1749,8 +1749,8 @@ msgstr "\"%s\" дастурига хуш келибсиз"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Эҳтимол, конфигурация файли тузилмаган. Уни тузиш учун %1$ssўрнатиш "
 "сценарийсидан%2$s фойдаланишингиз мумкин."
@@ -2165,7 +2165,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Юклаш каталогидан"
 
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:923
+#: tbl_change.php:926
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Кўрсатилган каталокка юклаб бўлмади"
 
@@ -2314,14 +2314,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:779 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1023 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Сақлаш"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:138
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1072
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "Тозалаш"
 
@@ -3922,8 +3922,8 @@ msgstr "\"config\" аутентификация усули пароли"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_pdf_pages\"[/kbd]"
+"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/config/messages.inc.php:396
 msgid "PDF schema: pages table"
@@ -4013,8 +4013,8 @@ msgstr "SSL уланишдан фойдаланиш"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_table_coords\"[/kbd]"
+"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_table_coords\"[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: table coordinates"
@@ -4827,12 +4827,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Қиймат %1$sstrftime%2$s функцияси билан қайта ишланган, шунинг учун ҳозирги "
-"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: %"
-"3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
+"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: "
+"%3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -5753,7 +5753,7 @@ msgstr ""
 #: libraries/export/sql.php:123
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters)</i>"
+"names formed with special characters or keywords)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:136
@@ -6733,7 +6733,7 @@ msgstr "Фақат кўриш"
 msgid "Location of the text file"
 msgstr "Файлни танлаш"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:926
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:929
 msgid "web server upload directory"
 msgstr "Юклаш каталогидан"
 
@@ -7992,8 +7992,8 @@ msgstr "Фойдаланувчилар номлари билан аталган 
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "ИЗОҲ: phpMyAdmin фойдаланувчилар привилегиялари ҳақидаги маълумотларни "
 "тўғридан-тўғри MySQL привилегиялари жадвалидан олади. Ушбу жадвалдаги "
@@ -8747,8 +8747,8 @@ msgstr "Очиқ файллар сони."
 #: server_status.php:121
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"Очиқ оқимлар сони (журнал файлларида кўлланилади). <b>Оқим</b> деб \"fopen()"
-"\" функцияси ёрдамида очилган файлга айтилади."
+"Очиқ оқимлар сони (журнал файлларида кўлланилади). <b>Оқим</b> деб \"fopen"
+"()\" функцияси ёрдамида очилган файлга айтилади."
 
 #: server_status.php:122
 msgid "The number of tables that are open."
@@ -9630,63 +9630,63 @@ msgstr "Ташқи қийматларни кўриб чиқиш"
 msgid "Function"
 msgstr "Функция"
 
-#: tbl_change.php:721
+#: tbl_change.php:724
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr "Маълумотлар кўплиги сабали<br />ўзгартириш қийишлашиши мумкин"
 
-#: tbl_change.php:836
+#: tbl_change.php:839
 msgid "Remove BLOB Repository Reference"
 msgstr "BLOB омбори мурожаатларини ўчириш"
 
-#: tbl_change.php:842
+#: tbl_change.php:845
 msgid "Binary - do not edit"
 msgstr "Иккилик маълумот - таҳрирлаш мумкин эмас"
 
-#: tbl_change.php:890
+#: tbl_change.php:893
 msgid "Upload to BLOB repository"
 msgstr "BLOB омборига юклаш"
 
-#: tbl_change.php:1027
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr "Ёзув киритиш"
 
-#: tbl_change.php:1028
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr "Янги қатор сифатида қўшиш ва хатоликларга эътибор бермаслик"
 
-#: tbl_change.php:1029
+#: tbl_change.php:1032
 msgid "Show insert query"
 msgstr "Киритилган сўровни кўрсатиш"
 
-#: tbl_change.php:1040
+#: tbl_change.php:1043
 msgid "and then"
 msgstr "ва сўнг"
 
-#: tbl_change.php:1044
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr "Олдинги саҳифага ўтиш"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr "Янги ёзув киритиш"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr "Ушбу саҳифага қайтиш"
 
-#: tbl_change.php:1057
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr "Кейинги қаторни таҳрирлаш"
 
-#: tbl_change.php:1068
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Майдонлараро ўтиш учун TAB тугмаси ёки CTRL+стрелка тугмаларидан фойдаланинг"
 
-#: tbl_change.php:1106
+#: tbl_change.php:1109
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
