@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-15 15:07+0200\n"
+"PO-Revision-Date: 2010-09-15 15:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -5367,7 +5367,6 @@ msgid "<code>CREATE TABLE</code> options:"
 msgstr "Parametry <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters)</i>"
@@ -5404,6 +5403,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"přidat názvy sloupců v každém příkazu <code>INSERT</code> <br /> &nbsp; "
+"&nbsp; &nbsp; Příklad: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5411,30 +5413,41 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"vložit více záznamů každým příkazem <code>INSERT</code><br /> &nbsp; &nbsp; "
+"&nbsp; Příklad: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
+"code>"
 
 #: libraries/export/sql.php:156
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"obě výše uvedené možnosti<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
+"INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"ani jedno z výše uvedených<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Vypisovat binární pole šestnáctkově <i>(například, \"abc\" becomes 0x616263)"
+"</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Vypisovat pole TIMESTAMP v UTC <i>(usnadní přenost polí TIMESTAMP mezi "
+"servery v různých časových pásmech)</i>"
 
 #: libraries/export/sql.php:435 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5547,6 +5560,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"První řádka souboru obsahuje jména polí <i>(pokud toto nezaškrtnete, první "
+"řádka bude součástí dat)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5554,6 +5569,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Pokud pořadí polí v souboru není stejné jako pořadí v databázi, zadejte zde "
+"odpovídající jména polí. Jména musí být oddělena čárkami a nesmí být "
+"uzavřena do uvozovek."
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
