@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 12:09+0200\n"
+"PO-Revision-Date: 2010-09-16 12:10+0200\n"
 "Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1071,7 +1071,7 @@ msgstr "Bearbeite Anfrage"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Fehler beim Bearbeiten der Anfrage"
 
 #: js/messages.php:66
 msgid "Dropping Column"
