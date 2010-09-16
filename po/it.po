@@ -2629,7 +2629,7 @@ msgstr "Sintassi da utilizzare nell'inserimento dei dati"
 
 #: libraries/config/messages.inc.php:120
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Creazione/Aggiornamento/Controllo dati"
 
 #: libraries/config/messages.inc.php:121
 #, fuzzy
