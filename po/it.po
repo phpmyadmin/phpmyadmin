@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:32+0200\n"
+"PO-Revision-Date: 2010-09-16 15:34+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3162,10 +3162,9 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display table filter"
-msgstr "Visualizzazione commenti delle colonne"
+msgstr "Visualizza filtri colonne"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
