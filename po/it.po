@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 14:00+0200\n"
+"PO-Revision-Date: 2010-09-16 14:07+0200\n"
 "Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -980,7 +980,7 @@ msgstr "Cancella dati di tracciamento per questa tabella"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Cancellazione Chiave primaria/index"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
