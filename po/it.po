@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 14:18+0200\n"
+"PO-Revision-Date: 2010-09-16 14:23+0200\n"
 "Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1798,9 +1798,8 @@ msgid "Could not open file: %s"
 msgstr "Non riesco ad aprire il file: %s"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 msgid "Query statistics"
-msgstr "Statistiche righe"
+msgstr "Statistiche query"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
