@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 12:04+0200\n"
+"PO-Revision-Date: 2010-09-16 12:05+0200\n"
 "Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -340,7 +340,7 @@ msgid "Collation"
 msgstr "Kollation"
 
 #: db_operations.php:516
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -348,8 +348,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch "
-"deaktiviert. Klicken Sie %shier%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
+"%s um herauszufinden warum."
 
 #: db_operations.php:549
 #, fuzzy
