@@ -2994,9 +2994,8 @@ msgid "Customize startup page"
 msgstr "Personalizza la pagina di avvio"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 msgid "Tabs"
-msgstr "tabelle"
+msgstr "Schede"
 
 #: libraries/config/messages.inc.php:221
 msgid "Choose how you want tabs to work"
