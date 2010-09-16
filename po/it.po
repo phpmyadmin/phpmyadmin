@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:24+0200\n"
+"PO-Revision-Date: 2010-09-16 15:25+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2797,9 +2797,8 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:174
-#, fuzzy
 msgid "Databases display options"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Opzioni di visualizzazione dei Database"
 
 #: libraries/config/messages.inc.php:175 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
