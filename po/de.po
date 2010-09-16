@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 12:02+0200\n"
+"PO-Revision-Date: 2010-09-16 12:03+0200\n"
 "Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -138,10 +138,9 @@ msgstr "Tabellen-Kommentar"
 #: tbl_change.php:302 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Spaltennamen"
+msgstr "Spalte"
 
 #: db_datadict.php:174 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
