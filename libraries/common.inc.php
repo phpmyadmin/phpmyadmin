@@ -814,6 +814,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
         if (!PMA_auth_check()) {
+            /* Force generating of new session on login */
+            PMA_secureSession();
             PMA_auth();
         } else {
             PMA_auth_set_user();
@@ -975,7 +977,7 @@ PMA_Tracker::enable();
  * @global boolean $GLOBALS['is_ajax_request']
  * @todo should this be moved to the variables init section above?
  *
- * Check if the current request is an AJAX request, and set is_ajax_request 
+ * Check if the current request is an AJAX request, and set is_ajax_request
  * accordingly.  Suppress headers, footers and unnecessary output if set to
  * true
  */
