@@ -24,7 +24,7 @@ class PMA_User_Schema
     public $pageNumber;
     public $c_table_rows;
     public $action;
-    
+
     public function setAction($value)
     {
         $this->action = $value;
@@ -34,7 +34,7 @@ class PMA_User_Schema
      * and tables which will be exported as Relational schema
      * you can set the table positions on the paper via scratchboard
      * for table positions, put the x,y co-ordinates
-     * 
+     *
      * @param string $this->action It tells what the Schema is supposed to do
      *                       create and select a page, generate schema etc
      * @access public
@@ -78,7 +78,7 @@ class PMA_User_Schema
     }
 
     /**
-     * shows/displays the HTML FORM to create the page 
+     * shows/displays the HTML FORM to create the page
      *
      * @param string db name of the selected database
      * @return void
@@ -108,7 +108,7 @@ class PMA_User_Schema
         /*
          * Check to see whether INNODB and PBXT storage engines are Available in MYSQL PACKAGE
          * If available, then provide AutoLayout for Foreign Keys in Schema View
-         */ 
+         */
 
         if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
             ?>
@@ -181,10 +181,10 @@ class PMA_User_Schema
         echo "\n";
     } // end function
 
-    /** 
+    /**
      * A dashboard is displayed to AutoLayout the position of tables
      * users can drag n drop the tables and change their positions
-     * 
+     *
      * @return void
      * @access public
      */
@@ -201,9 +201,9 @@ class PMA_User_Schema
         }
 
         /*
-         * Now if we already have chosen a page number then we should 
+         * Now if we already have chosen a page number then we should
          * show the tables involved
-         */ 
+         */
 
         if (isset($this->choosenPage) && $this->choosenPage > 0) {
             echo "\n";
@@ -249,7 +249,7 @@ class PMA_User_Schema
             foreach ($array_sh_page as $dummy_sh_page => $sh_page) {
                     $_mtab            =  $sh_page['table_name'];
                     $tabExist[$_mtab] =  FALSE;
-                    echo "\n" . '    <tr class="';
+                    echo "\n" . '    <tr class="noclick ';
                     if ($odd_row) {
                         echo 'odd';
                     } else {
@@ -284,7 +284,7 @@ class PMA_User_Schema
                 /*
                  * Add one more empty row
                  */
-                echo "\n" . '    <tr class="';
+                echo "\n" . '    <tr class="noclick ';
                 if ($odd_row) {
                     echo 'odd';
                 } else {
@@ -321,11 +321,11 @@ class PMA_User_Schema
         $this->_deleteTables($db, $this->choosenPage, isset($tabExist));
     }
 
-    /** 
+    /**
      * show Export relational schema generation options
      * user can select export type of his own choice
      * and the attributes related to it
-     * 
+     *
      * @return void
      * @access public
      */
@@ -419,7 +419,7 @@ class PMA_User_Schema
     *
     * @param string db name of database selected
     * @param integer chpage selected page
-    * @param array tabExist 
+    * @param array tabExist
     * @return void
     * @access private
     */
@@ -450,7 +450,7 @@ class PMA_User_Schema
                     . '</form>';
             }
         }
-            
+
     }
 
     /**
@@ -487,14 +487,14 @@ class PMA_User_Schema
                 $reset_draginit .= '    getElement("table_' . $i . '").style.top  = "' . (15 * $i) . 'px";' . "\n";
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
-    
+
                 $local_query = 'SHOW FIELDS FROM '
                              .  PMA_backquote($temp_sh_page['table_name'])
                              . ' FROM ' . PMA_backquote($db);
                 $fields_rs = PMA_DBI_query($local_query);
                 unset($local_query);
                 $fields_cnt = PMA_DBI_num_rows($fields_rs);
-    
+
                 echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
                 if (isset($with_field_names)) {
                     while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
@@ -555,7 +555,7 @@ class PMA_User_Schema
     /**
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
-     *  
+     *
      * @return void
      * @access private
      */
@@ -568,7 +568,7 @@ class PMA_User_Schema
         require_once './libraries/Index.class.php';
         /**
          * default is PDF
-         */ 
+         */
         global  $db,$export_type;
         $export_type            = isset($export_type) ? $export_type : 'pdf';
         PMA_DBI_select_db($db);
@@ -659,7 +659,7 @@ class PMA_User_Schema
         if (isset($this->autoLayoutInternal)) {
             /*
              * get the tables list who support Internal Relations;
-             * This type of relations will be created when 
+             * This type of relations will be created when
              * you setup the PMA tables correctly
              */
             $master_tables = 'SELECT COUNT(master_table), master_table'
@@ -694,8 +694,8 @@ class PMA_User_Schema
                 }
 
                 /*
-                 * Now merge the master and foreign arrays/tables 
-                 */ 
+                 * Now merge the master and foreign arrays/tables
+                 */
                 foreach ($foreign_tables as $foreign_table) {
                         if (!in_array($foreign_table, $all_tables)) {
                             $all_tables[] = $foreign_table;
