@@ -984,7 +984,7 @@ msgstr "Prozedur wird gelöscht"
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Lösche die Verlaufsdaten für diese Tabelle"
+msgstr "Lösche die Verlaufsdaten"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
