@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 14:29+0200\n"
+"PO-Revision-Date: 2010-09-16 14:32+0200\n"
 "Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2102,10 +2102,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "complete inserts"
-msgstr "Inserimento ritardato"
+msgstr "Inserimenti completi"
 
 #: libraries/config.values.php:120
 #, fuzzy
