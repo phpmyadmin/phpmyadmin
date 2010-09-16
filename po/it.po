@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:22+0200\n"
+"PO-Revision-Date: 2010-09-16 15:24+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2789,6 +2789,8 @@ msgstr "Importa / esporta"
 #: libraries/config/messages.inc.php:170
 msgid "Set import and export directories and compression options"
 msgstr ""
+"Imposta le opzioni di compressione e cartelle per l'esportazione e "
+"l'importazione"
 
 #: libraries/config/messages.inc.php:171 libraries/export/latex.php:26
 msgid "LaTeX"
