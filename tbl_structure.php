@@ -245,7 +245,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
 
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
-        $type         = $extracted_fieldspec['type'] . '(' . $extracted_fieldspec['spec_in_brackets'] . ')';
+        $type         = $extracted_fieldspec['type'] . '(' .
+            str_replace("','", "', '", $extracted_fieldspec['spec_in_brackets']) . ')';
 
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
