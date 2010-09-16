@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 22:54+0200\n"
+"PO-Revision-Date: 2010-09-16 22:55+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2160,7 +2160,7 @@ msgstr "non disponibile"
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" richiede l'estensione %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
