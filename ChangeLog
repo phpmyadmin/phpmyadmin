@@ -113,6 +113,8 @@
 - bug #3056610 [interface] Removed modification options for information_schema 
 + patch #3055886 [config] Add Left frame table filter visibility config option, thanks to eesau
 - [core] Force generating of new session on login
+- rfe #1105678 [interface] Drop page-break-before as it is useless for smaller
+  tables.
 
 3.3.8.0 (not yet released)
 - bug #3059311 [import] BIGINT field type added to table analysis

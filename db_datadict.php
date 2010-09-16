@@ -63,11 +63,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $table        = $row[$myfieldname];
     $comments = PMA_getComments($db, $table);
 
-    if ($count != 0) {
-        echo '<div style="page-break-before: always;">' . "\n";
-    } else {
-        echo '<div>' . "\n";
-    }
+    echo '<div>' . "\n";
 
     echo '<h2>' . $table . '</h2>' . "\n";
 
