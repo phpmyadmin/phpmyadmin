@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-07-31 21:09+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-09-16 12:02+0200\n"
+"Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1595
@@ -107,7 +107,7 @@ msgstr "Datei konnte gespeichert werden."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Die entfernte URL konnte nicht geöffnet werden."
 
 #: db_create.php:55
 #, php-format
@@ -10218,128 +10218,3 @@ msgstr "VIEW Name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "View umbenennen in"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Bitte die Werte für die Umwandlungsoptionen in folgendem Format angeben: "
-#~ "'a', 100, b,'c',... Wann immer Sie ein Backslash (\"\\\") oder ein "
-#~ "einfaches Anführungszeichen (\"'\") verwenden, setzen Sie bitte ein "
-#~ "Backslash vor das Zeichen. (z. B.: '\\\\xyz' oder 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Bitte die Werte für die Umwandlungsoptionen in folgendem Format angeben: "
-#~ "'a', 100, b,'c',... Wann immer Sie ein Backslash (\"\\\") oder ein "
-#~ "einfaches Anführungszeichen (\"'\") verwenden, setzen Sie bitte ein "
-#~ "Backslash vor das Zeichen. (z. B.: '\\\\xyz' oder 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Neue Tabelle"
-
-#~ msgid "server name"
-#~ msgstr "Server-Name"
-
-#~ msgid "database name"
-#~ msgstr "Datenbank-Name"
-
-#~ msgid "table name"
-#~ msgstr "Tabellen-Name"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "PDF-Seiten bearbeiten"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Format des Strukturverzeichnisses"
-
-#~ msgid "no"
-#~ msgstr "nein"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Geben Sie die Login-Optionen für signon-Authentisierung an"
-
-#~ msgid "Signon login options"
-#~ msgstr "Optionen für Signon-Login"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA-Datenbank"
-
-#~ msgid "Customization"
-#~ msgstr "Anpassung"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "SQL-Queryeinstellungen, für die SQL-Queryboxeinstellungen siehe [a@?"
-#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigationsframe[/a]"
-#~ "einstellungen"
-
-#~ msgid "yes"
-#~ msgstr "Ja"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within columns"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "CRLF-Zeichen aus den Feldern entfernen"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "AUTO_INCREMENT-Wert hinzufügen"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Exportiere %s Datensätze ab Zeile %s."
-
-#~ msgid "remember template"
-#~ msgstr "Konvention merken"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Dateikomprimierung wird automatisch erkannt bei: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "In Kommentarbereich einbeziehen"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Export Struktur Schemata (empfohlen)"
-
-#~ msgid "Export functions"
-#~ msgstr "Voreinstellung für Export"
-
-#~ msgid "Export procedures"
-#~ msgstr "Export Proceduren"
-
-#~ msgid "Export triggers"
-#~ msgstr "Export-Auslöser"
-
-#~ msgid "Export views"
-#~ msgstr "Export-Ansichten"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Ungültige Spalte angegeben (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Aktionen"
-
-#~ msgid "Interface"
-#~ msgstr "Oberfläche"
