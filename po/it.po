@@ -3007,10 +3007,9 @@ msgid "Text fields"
 msgstr "Campi di testo"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Personalizza le opzioni di esportazione"
+msgstr "Personalizza le opzioni dei campi di input"
 
 #: libraries/config/messages.inc.php:224 libraries/export/texytext.php:17
 msgid "Texy! text"
