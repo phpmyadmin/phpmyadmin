@@ -286,10 +286,9 @@ msgid "Database %s has been dropped."
 msgstr "Datenbank %s wurde gelöscht."
 
 #: db_operations.php:414
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Gehe zur Datenbank"
+msgstr "Lösche die Datenbank (DROP)"
 
 #: db_operations.php:442
 msgid "Copy database to"
