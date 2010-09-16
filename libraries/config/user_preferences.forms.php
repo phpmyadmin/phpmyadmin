@@ -25,6 +25,7 @@ $forms['Features']['General'] = array(
     'NaturalOrder',
     'InitialSlidersState',
     'ErrorIconic',
+    'LoginCookieValidity',
     'ReplaceHelpImg',
     'Servers/1/only_db', // saves to Server/only_db
     'Servers/1/hide_db', // saves to Server/hide_db
@@ -124,7 +125,7 @@ $forms['Main_frame']['Tabs'] = array(
     'DefaultTabTable');
 $forms['Import']['Import_defaults'] = array(
     'Import/format',
-    'Import/charset',    
+    'Import/charset',
     'Import/allow_interrupt',
     'Import/skip_queries');
 $forms['Import']['Sql'] = array(
