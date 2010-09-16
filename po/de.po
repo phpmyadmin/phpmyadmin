@@ -278,7 +278,7 @@ msgstr "Befehl"
 #: db_operations.php:397
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Datenbank löschen"
+msgstr "Datenbank entfernen"
 
 #: db_operations.php:409
 #, php-format
