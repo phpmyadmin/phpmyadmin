@@ -270,7 +270,7 @@ class PMA_User_Schema
                     echo "\n" . '            </select>'
                          . "\n" . '        </td>';
                     echo "\n" . '        <td>'
-                         . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . __('Delete');
+                         . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
                     echo "\n" . '        </td>';
                     echo "\n" . '        <td>'
                          . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'x\', this.value)" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
@@ -300,7 +300,7 @@ class PMA_User_Schema
                 echo "\n" . '            </select>'
                      . "\n" . '        </td>';
                 echo "\n" . '        <td>'
-                     . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . __('Delete');
+                     . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
                 echo "\n" . '        </td>';
                 echo "\n" . '        <td>'
                      . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
