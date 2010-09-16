@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:25+0200\n"
+"PO-Revision-Date: 2010-09-16 15:26+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2814,9 +2814,8 @@ msgid "Servers"
 msgstr "Servers"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 msgid "Servers display options"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Opzioni di visualizzazione dei server"
 
 #: libraries/config/messages.inc.php:179 libraries/export/xml.php:36
 #: server_databases.php:128 server_status.php:377
