@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 04:44+0200\n"
+"PO-Revision-Date: 2010-09-16 05:35+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -9368,9 +9368,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:713
-#, fuzzy
 msgid "Repair"
-msgstr "Perbaiki tabel"
+msgstr "Perbaiki"
 
 #: tbl_operations.php:725
 msgid "Remove partitioning"
