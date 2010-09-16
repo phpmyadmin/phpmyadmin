@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-08-22 19:39+0200\n"
-"Last-Translator:  <rebeluca@gmail.com>\n"
+"PO-Revision-Date: 2010-09-16 13:58+0200\n"
+"Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -345,10 +345,9 @@ msgstr ""
 "tabelle linkate. Per scoprire perché clicca %squi%s."
 
 #: db_operations.php:549
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Schema relazionale"
+msgstr "Modifica o esporta schema relazionale"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:485 libraries/db_structure.lib.php:37
@@ -9966,71 +9965,3 @@ msgstr "Nome VISTA"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Rinomina la tabella in"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Prego, immettere i valori per le opzioni di trasformazioneutilizzando "
-#~ "questo formato: 'a', 100, b,'c'...<br />Se c'è la necessità di immettere "
-#~ "un backslash (\"\\\") o un apostrofo (\"'\") tra questi valori, essi "
-#~ "vanno backslashati (per es. '\\\\xyz' or 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Prego, immettere i valori per le opzioni di trasformazioneutilizzando "
-#~ "questo formato: 'a', 100, b,'c'...<br />Se c'è la necessità di immettere "
-#~ "un backslash (\"\\\") o un apostrofo (\"'\") tra questi valori, essi "
-#~ "vanno backslashati (per es. '\\\\xyz' or 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Nuova tabella"
-
-#~ msgid "server name"
-#~ msgstr "nome server"
-
-#~ msgid "database name"
-#~ msgstr "nome database"
-
-#~ msgid "table name"
-#~ msgstr "nome tabella"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Modifica pagine PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Formato del Data Dictionary"
-
-#~ msgid "no"
-#~ msgstr "no"
-
-#~ msgid "PMA database"
-#~ msgstr "Database di PMA"
-
-#~ msgid "yes"
-#~ msgstr "sì"
-
-#, fuzzy
-#~ msgid "<code>IF NOT EXISTS</code>"
-#~ msgstr "<code>, VARIABLE as myname</code>"
-
-#, fuzzy
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "<code>, VARIABLE as myname</code>"
