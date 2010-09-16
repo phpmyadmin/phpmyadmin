@@ -1062,7 +1062,7 @@ msgstr "Abbrechen"
 #, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Laden"
+msgstr "Lade"
 
 #: js/messages.php:64
 #, fuzzy
