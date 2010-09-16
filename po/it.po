@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 14:11+0200\n"
+"PO-Revision-Date: 2010-09-16 14:15+0200\n"
 "Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1100,10 +1100,9 @@ msgid "Changing Charset"
 msgstr "Set di caratteri"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "La tabella deve avere come minimo una colonna."
+msgstr "La tabella deve avere come minimo una colonna"
 
 #: js/messages.php:76
 #, fuzzy
