@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 13:58+0200\n"
-"Last-Translator:  <giovanni.uccio@gmail.com>\n"
+"PO-Revision-Date: 2010-09-16 15:50+0200\n"
+"Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -818,11 +818,11 @@ msgstr "Log database"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Valore per la colonna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Inserisci ogni valore in un campo separato"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -980,7 +980,7 @@ msgstr "Cancella dati di tracciamento per questa tabella"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Cancellazione Chiave primaria/index"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1027,22 +1027,19 @@ msgid "Add a New User"
 msgstr "Aggiungi un nuovo utente"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Crea versione"
+msgstr "Crea utente"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Caricamento dei privilegi in corso"
+msgstr "Ricaricamento privilegi"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Rimuove gli utenti selezionati"
+msgstr "Rimozione Utenti Selezionati"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
@@ -1053,20 +1050,18 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Carica"
+msgstr "Caricamento"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Processi"
+msgstr "Elaborazione Richiesta"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Errore nel processare la richiesta"
 
 #: js/messages.php:66
 msgid "Dropping Column"
@@ -1105,16 +1100,14 @@ msgid "Changing Charset"
 msgstr "Set di caratteri"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "La tabella deve avere come minimo una colonna."
+msgstr "La tabella deve avere come minimo una colonna"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
-msgstr "Crea tabelle"
+msgstr "Crea tabella"
 
 #: js/messages.php:81
 #, fuzzy
@@ -1805,13 +1798,12 @@ msgid "Could not open file: %s"
 msgstr "Non riesco ad aprire il file: %s"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 msgid "Query statistics"
-msgstr "Statistiche righe"
+msgstr "Statistiche query"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Rapporto tempo esecuzione query (in microsecondi)"
 
 #: libraries/chart.lib.php:83
 #, fuzzy
@@ -2087,7 +2079,7 @@ msgstr "struttura"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "dati"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2110,10 +2102,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "complete inserts"
-msgstr "Inserimento ritardato"
+msgstr "Inserimenti completi"
 
 #: libraries/config.values.php:120
 #, fuzzy
@@ -2142,7 +2133,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:403
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Numero della porta non valido"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:565
@@ -2154,7 +2145,7 @@ msgstr "Valore non corretto"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Il valore deve essere uguale o minore di %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
@@ -2450,7 +2441,7 @@ msgstr "Ignora errori"
 
 #: libraries/config/messages.inc.php:63
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Mostra le icone per messaggi di informazone, errore ed avviso"
 
 #: libraries/config/messages.inc.php:64
 #, fuzzy
@@ -2634,11 +2625,11 @@ msgstr "Modo di compatibilità SQL"
 
 #: libraries/config/messages.inc.php:119
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintassi da utilizzare nell'inserimento dei dati"
 
 #: libraries/config/messages.inc.php:120
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Creazione/Aggiornamento/Controllo dati"
 
 #: libraries/config/messages.inc.php:121
 #, fuzzy
@@ -2798,15 +2789,16 @@ msgstr "Importa / esporta"
 #: libraries/config/messages.inc.php:170
 msgid "Set import and export directories and compression options"
 msgstr ""
+"Imposta le opzioni di compressione e cartelle per l'esportazione e "
+"l'importazione"
 
 #: libraries/config/messages.inc.php:171 libraries/export/latex.php:26
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:174
-#, fuzzy
 msgid "Databases display options"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Opzioni di visualizzazione dei Database"
 
 #: libraries/config/messages.inc.php:175 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
@@ -2814,7 +2806,7 @@ msgstr "Frame di navigazione"
 
 #: libraries/config/messages.inc.php:176
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personalizza l'aspetto del frame di navigazione"
 
 #: libraries/config/messages.inc.php:177 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2822,9 +2814,8 @@ msgid "Servers"
 msgstr "Servers"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 msgid "Servers display options"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Opzioni di visualizzazione dei server"
 
 #: libraries/config/messages.inc.php:179 libraries/export/xml.php:36
 #: server_databases.php:128 server_status.php:377
@@ -2841,7 +2832,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:182
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:184
 #, fuzzy
@@ -3000,32 +2991,30 @@ msgstr "Avvio"
 
 #: libraries/config/messages.inc.php:219
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personalizza la pagina di avvio"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 msgid "Tabs"
-msgstr "tabelle"
+msgstr "Schede"
 
 #: libraries/config/messages.inc.php:221
 msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Utilizza campo text"
+msgstr "Campi di testo"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Personalizza le opzioni di esportazione"
+msgstr "Personalizza le opzioni dei campi di input"
 
+# I think "Texy" is a mistake because on KB "y" is close to "t"
 #: libraries/config/messages.inc.php:224 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr "Testo \"Texy!\""
+msgstr "Testo! testo"
 
 #: libraries/config/messages.inc.php:226
 #, fuzzy
@@ -3173,14 +3162,13 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display table filter"
-msgstr "Visualizzazione commenti delle colonne"
+msgstr "Visualizza filtri colonne"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "Stringa che separa i database in livelli dell'albero differenti"
 
 #: libraries/config/messages.inc.php:270
 #, fuzzy
@@ -3195,7 +3183,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:272
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Visualizza i database in un albero"
 
 #: libraries/config/messages.inc.php:273
 msgid "Disable this if you want to see all databases at once"
@@ -3493,25 +3481,22 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:338
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Altezza finestra query (in pixels)"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Finestra della Query"
+msgstr "Altezza finestra query"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Finestra della Query"
+msgstr "Larghezza finestra query (in pixel)"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Finestra della Query"
+msgstr "Larghezza finestra query"
 
 #: libraries/config/messages.inc.php:342
 msgid "Select which functions will be used for character set conversion"
