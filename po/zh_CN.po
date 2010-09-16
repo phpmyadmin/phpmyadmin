@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 11:54+0200\n"
+"PO-Revision-Date: 2010-09-16 11:55+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8782,10 +8782,10 @@ msgid ""
 msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动"
 
 #: tbl_change.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "重新进行插入操作，共 %s 行"
+msgstr "继续插入 %s 行"
 
 #: tbl_chart.php:56
 msgid "Chart generated successfully."
