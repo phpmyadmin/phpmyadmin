@@ -2806,7 +2806,7 @@ msgstr "Frame di navigazione"
 
 #: libraries/config/messages.inc.php:176
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personalizza l'aspetto del frame di navigazione"
 
 #: libraries/config/messages.inc.php:177 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
