@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:48+0200\n"
+"PO-Revision-Date: 2010-09-16 15:49+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3484,10 +3484,9 @@ msgid "Query window height (in pixels)"
 msgstr "Altezza finestra query (in pixels)"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Finestra della Query"
+msgstr "Altezza finestra query"
 
 #: libraries/config/messages.inc.php:340
 #, fuzzy
