@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-14 20:22+0200\n"
+"PO-Revision-Date: 2010-09-16 18:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5397,7 +5397,6 @@ msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> seçenekleri:"
 
 #: libraries/export/sql.php:123
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters)</i>"
@@ -5405,8 +5404,8 @@ msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Tablo ve alan adlarını tırnak içine al <i>(Özel karakterlerle "
-"şekillendirilmiş alan ve tablo adlarını korur)</i>"
+"Tablo ve alan adlarını tırnak içine al <i>(Özel karakterlerle ya da anahtar "
+"kelimelerle şekillendirilmiş alan ve tablo adlarını korur)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
