@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 15:49+0200\n"
+"PO-Revision-Date: 2010-09-16 15:50+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3494,10 +3494,9 @@ msgid "Query window width (in pixels)"
 msgstr "Larghezza finestra query (in pixel)"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Finestra della Query"
+msgstr "Larghezza finestra query"
 
 #: libraries/config/messages.inc.php:342
 msgid "Select which functions will be used for character set conversion"
