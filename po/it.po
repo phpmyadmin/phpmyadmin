@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-16 13:59+0200\n"
+"PO-Revision-Date: 2010-09-16 14:00+0200\n"
 "Last-Translator:  <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -822,7 +822,7 @@ msgstr "Valore per la colonna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Inserisci ogni valore in un campo separato"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
