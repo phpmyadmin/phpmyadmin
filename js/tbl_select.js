@@ -31,7 +31,10 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+	// add this hidden field just once 
+	if (! $(this).find('input:hidden').is('#ajax_request_hidden')) {
+        	$(this).append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+	}
 
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             $("#searchresults").html(data);
