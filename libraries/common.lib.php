@@ -2931,7 +2931,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
 
     // If extra_data has been provided, append it to the response array
-    if( count($extra_data) > 0 ) {
+    if( ! empty($extra_data) && count($extra_data) > 0 ) {
         $response = array_merge($response, $extra_data);
     }
 
