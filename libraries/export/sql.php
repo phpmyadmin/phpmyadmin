@@ -411,7 +411,7 @@ function PMA_exportDBFooter($db)
         unset($GLOBALS['sql_constraints']);
     }
 
-    if (isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
+    if (($GLOBALS['sql_structure_or_data'] == 'structure' || $GLOBALS['sql_structure_or_data'] == 'structure_and_data') && isset($GLOBALS['sql_procedure_function'])) {
         $text = '';
         $delimiter = '$$';
 
