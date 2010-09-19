@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview JavaScript functions used on tbl_select.php
  *
@@ -27,17 +28,25 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      */
     $("#tbl_search_form").live('submit', function(event) {
+        // jQuery object to reuse
+        $search_form = $(this);
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
-	// add this hidden field just once 
-	if (! $(this).find('input:hidden').is('#ajax_request_hidden')) {
-        	$(this).append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-	}
+	    // add this hidden field just once 
+	    if (! $search_form.find('input:hidden').is('#ajax_request_hidden')) {
+        	$search_form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+	    }
 
-        $.post($(this).attr('action'), $(this).serialize(), function(data) {
-            $("#searchresults").html(data);
+        $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
+            if (typeof response == 'string') {
+                // found results
+                $("#searchresults").html(response);
+            } else {
+                // error message (zero rows)
+                $("#searchresults").html(response['message']);
+            }
         })
     })
 }, 'top.frame_content'); // end $(document).ready()
