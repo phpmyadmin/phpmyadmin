@@ -5280,7 +5280,6 @@ msgid "Replace NULL with:"
 msgstr "Remplacer NULL par :"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
