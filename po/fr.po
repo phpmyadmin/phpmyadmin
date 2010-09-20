@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-20 21:55+0200\n"
+"PO-Revision-Date: 2010-09-20 21:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6791,10 +6791,9 @@ msgid "MySQL connection collation"
 msgstr "Interclassement pour la connexion MySQL"
 
 #: main.php:113
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Autres réglages de base"
+msgstr "Paramètres d'affichage"
 
 #: main.php:133
 msgid "Background color"
