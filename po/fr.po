@@ -3233,7 +3233,6 @@ msgid "Login cookie validity"
 msgstr "Durée de validité de la connexion (mode cookie)"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Doubler la taille de la zone de texte pour les colonnes LONGTEXT"
