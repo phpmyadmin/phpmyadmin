@@ -6230,10 +6230,9 @@ msgid "Select Tables"
 msgstr "Choisissez les tables"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Schéma relationnel"
+msgstr "Afficher le schéma relationnel"
 
 #: libraries/schema/User_Schema.class.php:351
 #, fuzzy
