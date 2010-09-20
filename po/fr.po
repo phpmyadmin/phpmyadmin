@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-20 16:11+0200\n"
+"PO-Revision-Date: 2010-09-20 16:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5402,10 +5402,11 @@ msgstr ""
 "l'horodatage d'exportation, la version de PHP et la version du serveur)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Commentaires mis en en-tête (\\n sépare les lignes)"
+msgstr ""
+"Commentaires mis en en-tête (\n"
+" sépare les lignes) :"
 
 #: libraries/export/sql.php:37
 msgid ""
