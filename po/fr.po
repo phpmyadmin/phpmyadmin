@@ -5075,7 +5075,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Durée de vie maximum"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
