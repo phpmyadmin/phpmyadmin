@@ -5706,10 +5706,9 @@ msgstr ""
 "Importer les pourcentages en tant que décimales <i>(12.00% devient .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importer les valeurs de monnaie ($5.00 devient 5.00)"
+msgstr "Importer les valeurs de monnaie <i>($5.00 devient 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
