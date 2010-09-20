@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-20 21:56+0200\n"
+"PO-Revision-Date: 2010-09-20 21:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7076,10 +7076,11 @@ msgid "to/from page"
 msgstr "de/vers la page"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Le formulaire soumis contient des erreurs"
+msgstr ""
+"Le formulaire soumis contient des erreurs, impossible de sauvegarder les "
+"paramètres"
 
 #: prefs_manage.php:80
 #, fuzzy
