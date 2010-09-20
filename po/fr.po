@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-05 15:34+0200\n"
+"PO-Revision-Date: 2010-09-20 14:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -817,7 +817,7 @@ msgstr "Valeurs pour la colonne «%s»"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Saisir chaque valeur dans un champ séparé."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -9902,59 +9902,3 @@ msgstr "Changer le nom de la vue pour"
 #~ "d'apostrophes. Si vous devez entrer un caractère (\"\\\") ou une "
 #~ "apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 #~ "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Veuillez entrer les valeurs des options de transformation en suivant ce "
-#~ "format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\"
-#~ "\") ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du "
-#~ "caractère d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Nouvelle table"
-
-#~ msgid "server name"
-#~ msgstr "nom de serveur"
-
-#~ msgid "database name"
-#~ msgstr "nom de base de données"
-
-#~ msgid "table name"
-#~ msgstr "nom de table"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Préparer le schéma en PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Orientation du dictionnaire"
-
-#~ msgid "no"
-#~ msgstr "non"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Entrez les options pour l'authentification signon"
-
-#~ msgid "Signon login options"
-#~ msgstr "Option de connexion signon"
-
-#~ msgid "PMA database"
-#~ msgstr "Base de données PMA"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Réglages pour requêtes SQL, voir [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a]"
-
-#~ msgid "yes"
-#~ msgstr "oui"
