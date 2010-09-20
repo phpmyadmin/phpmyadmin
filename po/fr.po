@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-20 16:09+0200\n"
+"PO-Revision-Date: 2010-09-20 16:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5331,10 +5331,9 @@ msgstr "Sous-titre de la table (suite)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Désactiver la vérification des clés étrangères"
+msgstr "Afficher les relations de clés étrangères"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
