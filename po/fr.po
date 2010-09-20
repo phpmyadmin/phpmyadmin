@@ -6801,7 +6801,7 @@ msgstr "Couleur d'arrière-plan"
 
 #: main.php:134
 msgid "Choose..."
-msgstr ""
+msgstr "Choisissez..."
 
 #: main.php:151 prefs_manage.php:274
 #, fuzzy
