@@ -5475,9 +5475,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inclure les noms de colonnes dans chaque énoncé <code>INSERT</code> "
-"statement <br /> &nbsp; &nbsp; &nbsp; Par exemple: <code>INSERT INTO "
-"tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"inclure les noms de colonnes dans chaque énoncé <code>INSERT</code><br /> "
+"&nbsp; &nbsp; &nbsp; Par exemple: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
