@@ -5059,10 +5059,9 @@ msgstr ""
 "référencées par un enregistrement de la base de données."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Seuil du fichier journal"
+msgstr "Seuil du journal temporaire"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
