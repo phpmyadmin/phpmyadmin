@@ -6745,10 +6745,9 @@ msgid "Manage your settings"
 msgstr "Gérer vos paramètres"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Les modifications ont été sauvegardées"
+msgstr "La configuration a été sauvegardée"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
