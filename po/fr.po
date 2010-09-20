@@ -7106,7 +7106,7 @@ msgstr "Importer depuis le fichier"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importer depuis le stockage du navigateur"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
