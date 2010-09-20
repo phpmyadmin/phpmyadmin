@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-20 16:39+0200\n"
+"PO-Revision-Date: 2010-09-20 16:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5667,6 +5667,9 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Colonne %s invalide! Assurez-vous que les noms de colonnes sont "
+"orthographiés correctement, séparés par des virgules et non entourés de "
+"guillemets. "
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
