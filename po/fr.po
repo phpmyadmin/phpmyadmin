@@ -6797,7 +6797,7 @@ msgstr "Paramètres d'affichage"
 
 #: main.php:133
 msgid "Background color"
-msgstr ""
+msgstr "Couleur d'arrière-plan"
 
 #: main.php:134
 msgid "Choose..."
