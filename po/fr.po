@@ -5252,10 +5252,9 @@ msgstr ""
 "plus anciens sont détruits, sinon ils sont renommés."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns separated with:"
-msgstr "Colonnes terminées par"
+msgstr "Colonnes séparées par :"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
