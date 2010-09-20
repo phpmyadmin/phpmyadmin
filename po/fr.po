@@ -6740,10 +6740,9 @@ msgstr ""
 "du texte (par défaut: «...»)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Autres réglages de base"
+msgstr "Gérer vos paramètres"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
