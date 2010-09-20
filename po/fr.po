@@ -5455,7 +5455,7 @@ msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser :"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "Énoncés <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
