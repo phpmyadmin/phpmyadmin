@@ -5413,6 +5413,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Inclut un horodatage de création, mise à jour et dernière vérification des "
+"bases de données"
 
 #: libraries/export/sql.php:65
 msgid ""
