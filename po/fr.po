@@ -6235,10 +6235,9 @@ msgid "Display relational schema"
 msgstr "Afficher le schéma relationnel"
 
 #: libraries/schema/User_Schema.class.php:351
-#, fuzzy
 #| msgid "CSV"
 msgid "SVG"
-msgstr "CSV"
+msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:352
 msgid "DIA"
