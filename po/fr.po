@@ -6221,10 +6221,9 @@ msgid "Please choose a page to edit"
 msgstr "Page à éditer"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Choisissez les tables"
+msgstr "Choisissez la page"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
