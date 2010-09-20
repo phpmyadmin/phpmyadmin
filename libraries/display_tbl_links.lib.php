@@ -58,6 +58,6 @@ if ($doWriteModifyAt == 'left') {
     }
 }
 if( !empty($where_clause)) {
-    echo '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+    echo '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
 }
 ?>
