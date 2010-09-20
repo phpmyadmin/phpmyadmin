@@ -5431,10 +5431,9 @@ msgid "Add %s statement"
 msgstr "Ajouter un énoncé %s"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Information"
+msgstr "Ajouter les énoncés :"
 
 #: libraries/export/sql.php:111
 #, fuzzy
