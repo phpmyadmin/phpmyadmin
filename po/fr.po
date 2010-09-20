@@ -5425,10 +5425,10 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Information"
+msgstr "Ajouter un énoncé %s"
 
 #: libraries/export/sql.php:91
 #, fuzzy
