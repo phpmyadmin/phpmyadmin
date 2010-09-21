@@ -8989,7 +8989,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -8998,10 +8998,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Veljavnost prijavnega piškotka[/"
-"a] naj bo nastavljena na največ 1800 sekund (30 minut). Vrednosti večje od "
-"1800 lahko predstavljajo varnostno tveganje, kot je pretvarjanje za drugo "
-"osebo."
+"%sVeljavnost prijavnega piškotka%s naj bo nastavljena na največ 1800 sekund "
+"(30 minut). Vrednosti večje od 1800 lahko predstavljajo varnostno tveganje, "
+"kot je pretvarjanje za drugo osebo."
 
 #: setup/lib/index.lib.php:264
 #, php-format
