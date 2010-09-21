@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-15 15:12+0200\n"
+"PO-Revision-Date: 2010-09-21 14:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -646,8 +646,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:404 libraries/display_tbl.lib.php:1945
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -854,8 +854,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1637,8 +1637,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -4503,8 +4503,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6428,8 +6428,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6470,8 +6470,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:729 server_engines.php:56
 #: tbl_operations.php:352
@@ -6996,8 +6996,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7466,8 +7466,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -8849,7 +8849,7 @@ msgid "No newer stable version is available"
 msgstr "Není dostupná žádná novější verze"
 
 #: setup/lib/index.lib.php:250
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #| "disabled as it allows attackers to bruteforce login to any MySQL server. "
@@ -8863,13 +8863,12 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Tato [a@?page=form&amp;formset=features#tab_Security]volba[/a] by měla být "
-"zakázána, protože umožňuje útočníkům prolomit přihlašování k libovolnému "
-"MySQL serveru útokem hrobou silou. V případě nutnosti použijte [a@?"
-"page=form&amp;formset=features#tab_Security]seznam důvěryhodných proxy[/a]. "
-"Nicméně ochrana založená na kotrole IP adres, nemusí být spolehlivá, pokud "
-"Vaše IP adresa patří poskytovateli internetových služeb, ke kterému jsou "
-"připojeny tisíce uživatelů."
+"Tato %svolba%s by měla být zakázána, protože umožňuje útočníkům prolomit "
+"přihlašování k libovolnému MySQL serveru útokem hrobou silou. V případě "
+"nutnosti použijte %sseznam důvěryhodných proxy%s. Nicméně ochrana založená "
+"na kotrole IP adres, nemusí být spolehlivá, pokud Vaše IP adresa patří "
+"poskytovateli internetových služeb, ke kterému jsou připojeny tisíce "
+"uživatelů."
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -8882,7 +8881,7 @@ msgstr ""
 "Klíč bude použit pro zašifrování cookies."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -8891,8 +8890,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Komprese a dekomprese "
-"bzip2[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
+"%sKomprese a dekomprese bzip2%s vyžaduje funkce (%s) které nejsou dostupné "
+"na tomto systému."
 
 #: setup/lib/index.lib.php:255
 msgid ""
@@ -8904,13 +8903,13 @@ msgstr ""
 "ostatní uživatele na Vašem serveru."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Měli byste použít SSL připojení pokud to váš webserver podporuje"
+msgstr "Měli byste použít %sSSL připojení%s pokud to váš webserver podporuje"
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -8919,8 +8918,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip komprese a "
-"dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
+"%sGZip komprese a dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na "
+"tomto systému."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -8929,9 +8928,12 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sPlatnost přihlašovací cookie%s větší než 1440 sekund může způsobit náhodné "
+"ukončení sezení pokud je %ssession.gc_maxlifetime%s nižší než tato hodnota "
+"(v současné době %d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -8940,9 +8942,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Platnost přihlašovací cookie[/a] "
-"by měla být nastavena nejvýše na 1800 sekund (30 minut). Hodnoty vyšší než "
-"1800 mohou znamenat bezpečnostní riziko; hrozí například podvržení identity."
+"%sPlatnost přihlašovací cookie%s by měla být nastavena nejvýše na 1800 "
+"sekund (30 minut). Hodnoty vyšší než 1800 mohou znamenat bezpečnostní "
+"riziko; hrozí například podvržení identity."
 
 #: setup/lib/index.lib.php:264
 #, php-format
@@ -8950,9 +8952,11 @@ msgid ""
 "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 "cookie store%s."
 msgstr ""
+"%sPlatnost přihlašovací cookie%s musí být nastavena nejvýše na hodnotu "
+"%sUkldádání přihlašovaci cookie%s."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -8966,22 +8970,20 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]omezení počítačů[/"
-"a] a [a@?page=form&amp;formset=features#tab_Security]seznam důvěryhodných "
-"proxy[/a]. Nicméně zabezpečení založené na IP adresách nemusí být "
-"spolehlivé, pokud je vaše IP adresa dynamicky přidělována poskytovatelem "
-"spolu s mnoha dalšími uživateli."
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
+"dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -8992,11 +8994,11 @@ msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]typ přihlašování[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte %styp přihlašování%s na [kbd]cookie[/kbd] "
+"nebo [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9004,11 +9006,10 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip komprese[/a] "
-"vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
+"%sZip komprese%s vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
@@ -9016,36 +9017,33 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip dekomprese[/a] "
-"vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
+"%sZip dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na tomto "
+"systému."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
-msgstr "Měli byste použít SSL připojení pokud to váš webserver podporuje"
+msgstr "Měli byste použít SSL připojení pokud to váš webserver podporuje."
 
 #: setup/lib/index.lib.php:306
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Měl byste použít mysqli z výkonostních důvodů"
+msgstr "Měli byste použít mysqli z výkonostních důvodů."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
 msgstr "Dovolujete připojit se k serveru bez hesla."
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Tajný klíč je příliš krátký, měl by obsahovat alespoň 8 znaků"
+msgstr "Tajný klíč je příliš krátký, měl by obsahovat alespoň 8 znaků."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky"
+msgstr ""
+"Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky."
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
