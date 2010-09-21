@@ -9011,6 +9011,8 @@ msgid ""
 "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 "cookie store%s."
 msgstr ""
+"%sVeljavnost prijavnega piškotka%s mora biti določena na vrednost manjšo ali "
+"enako %sShrambi prijavnih piškotkov%s."
 
 #: setup/lib/index.lib.php:266
 #, php-format
