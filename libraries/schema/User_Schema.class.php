@@ -347,11 +347,11 @@ class PMA_User_Schema
             ?>:
             </legend>
             <select name="export_type" id="export_type">
-                <option value="pdf" selected="selected"><?php echo __('PDF');?></option>
-                <option value="svg"><?php echo __('SVG');?></option>
-                <option value="dia"><?php echo __('DIA');?></option>
-                <option value="visio"><?php echo __('VISIO');?></option>
-                <option value="eps"><?php echo __('EPS');?></option>
+                <option value="pdf" selected="selected">PDF</option>
+                <option value="svg">SVG</option>
+                <option value="dia">DIA</option>
+                <option value="visio">Visio</option>
+                <option value="eps">EPS</option>
             </select>
             <label><?php echo __('Select Export Relational Type');?></label><br />
             <?php
