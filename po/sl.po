@@ -9030,7 +9030,7 @@ msgstr ""
 "katerega je povezanih tisoče uporabnikov, vključno z vami."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9048,9 +9048,8 @@ msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
 "aktivnih strani. Vsakdo, ki ve ali ugane vaš URL phpMyAdmina, lahko "
-"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server]vrsto overovitve[/a] na [kbd]cookie[/kbd] "
-"ali [kbd]http[/kbd]."
+"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite %svrsto overovitve%s "
+"na [kbd]cookie[/kbd] ali [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
