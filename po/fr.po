@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-15 15:08+0200\n"
-"PO-Revision-Date: 2010-09-05 15:34+0200\n"
+"PO-Revision-Date: 2010-09-20 22:00+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -817,7 +817,7 @@ msgstr "Valeurs pour la colonne «%s»"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:799
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Saisir chaque valeur dans un champ séparé."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -3092,10 +3092,9 @@ msgid "Display servers selection"
 msgstr "Affiche la liste des serveurs"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Montre les bases de données dans une arborescence"
+msgstr "Montrer le filtre de table"
 
 #: libraries/config/messages.inc.php:269
 msgid "String that separates databases into different tree levels"
@@ -3234,7 +3233,6 @@ msgid "Login cookie validity"
 msgstr "Durée de validité de la connexion (mode cookie)"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Doubler la taille de la zone de texte pour les colonnes LONGTEXT"
@@ -5056,12 +5054,14 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Le délai d'expiration, en secondes, pour les BLOBs temporaires. Les données "
+"du BLOB téléversé sont effacées après ce délai, à moins qu'elles ne soient "
+"référencées par un enregistrement de la base de données."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Seuil du fichier journal"
+msgstr "Seuil du journal temporaire"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -5069,26 +5069,35 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"La taille maximum d'un fichier journal BLOB temporaire. Vous pouvez utiliser "
+"Kb, MB ou GB pour indiquer l'unité de valeur. Une valeur en octets est "
+"assumée si aucune unité n'est spécifiée."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Durée de vie maximum"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Le délai d'expiration pour une connexion inactive comportant le réglage "
+"keep-alive actif. Après ce délai la connexion sera fermée. Le délai est en "
+"millisecondes (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "En-têtes de méta-données"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Une liste d'en-têtes de méta-données délimitée par des «.», qui servira à "
+"initialiser la table pbms_metadata_header quand une base de données est "
+"créée."
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -5243,57 +5252,49 @@ msgstr ""
 "plus anciens sont détruits, sinon ils sont renommés."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns separated with:"
-msgstr "Colonnes terminées par"
+msgstr "Colonnes séparées par :"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Columns enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Colonnes entourées par"
+msgstr "Colonnes entourées par :"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with:"
-msgstr "Caractère d'échappement"
+msgstr "Caractère d'échappement :"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Lignes terminées par"
+msgstr "Lignes terminées par :"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Remplacer NULL par"
+msgstr "Remplacer NULL par :"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel en version"
+msgstr "Version d'Excel :"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Options d'affichage des bases de données"
+msgstr "Options d'exportation"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:929 libraries/export/texytext.php:123
@@ -5319,36 +5320,31 @@ msgstr "Structure de la table @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Options de transformation"
+msgstr "Options de création d'objets"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Sous-titre de la table"
+msgstr "Sous-titre de la table (suite)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Désactiver la vérification des clés étrangères"
+msgstr "Afficher les relations de clés étrangères"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Commentaires de colonnes"
+msgstr "Afficher les commentaires"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Types MIME disponibles"
+msgstr "Afficher les types MIME"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:281
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
@@ -5389,10 +5385,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Génère un rapport contenant les données d'une seule table)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Titre du rapport"
+msgstr "Titre du rapport :"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -5403,72 +5398,76 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Afficher les commentaires <i>(incluant les informations telles que "
+"l'horodatage d'exportation, la version de PHP et la version du serveur)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Commentaires mis en en-tête (\\n sépare les lignes)"
+msgstr ""
+"Commentaires mis en en-tête (\n"
+" sépare les lignes) :"
 
 #: libraries/export/sql.php:37
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Inclut un horodatage de création, mise à jour et dernière vérification des "
+"bases de données"
 
 #: libraries/export/sql.php:65
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Maximiser la compatibilité avec un système de base de données ou un ancien "
+"serveur MySQL:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Information"
+msgstr "Ajouter un énoncé %s"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Information"
+msgstr "Ajouter les énoncés :"
 
 #: libraries/export/sql.php:111
-#, fuzzy
 #| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>@TABLE@</code>"
+msgstr "Options pour <code>CREATE TABLE</code> :"
 
 #: libraries/export/sql.php:123
-#, fuzzy
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"&laquo;&nbsp;Prot&eacute;ger les noms des tables et des champs par des&nbsp;"
-"\"`\"&nbsp;&raquo; assure que les noms de champ et de table contenant des "
-"caract&egrave;res sp&eacute;ciaux sont prot&eacute;g&eacute;s."
+"Entourer les noms des tables et des colonnes par des guillemets obliques "
+"<i>(Protège les noms de tables et de colonnes comportant des caractères "
+"spéciaux ou des mots réservés)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser :"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "Énoncés <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "Énoncés <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Fonction à utiliser lors de l'exportation des données :"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Syntaxe à utiliser lors de l'insertion de données :"
 
 #: libraries/export/sql.php:154
 msgid ""
@@ -5476,6 +5475,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"inclure les noms de colonnes dans chaque énoncé <code>INSERT</code><br /> "
+"&nbsp; &nbsp; &nbsp; Par exemple: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5483,30 +5485,43 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"insérer des lignes multiples avec chaque énoncé <code>INSERT</code><br /> "
+"&nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name VALUES "
+"(1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"les deux modes ci-dessus<br /> &nbsp; &nbsp; &nbsp; Par exemple : "
+"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"aucun des modes ci-dessus <br /> &nbsp; &nbsp; &nbsp; Par exemple : "
+"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Exporter les colonnes binaires en format hexadécimal <i>(par exemple, «abc» "
+"devient 0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Exporter les colonnes TIMESTAMP en UTC <i>(permet les colonnes TIMESTAMP "
+"d'être exportées et importées entre des serveurs de zones horaires "
+"différentes)</i>"
 
 #: libraries/export/sql.php:435 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5551,13 +5566,12 @@ msgstr "XML"
 
 #: libraries/export/xml.php:30
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Options de création d'objets (toutes sont recommandées)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Vue"
+msgstr "Vues"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -5622,6 +5636,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"La première ligne du fichier contient le nom des colonnes de la table <i>(si "
+"ceci n'est pas coché, la première ligne fait partie des données)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5629,12 +5645,15 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Si les données de chaque ligne du fichier ne sont pas dans le même ordre que "
+"dans la base de données, listez ici les noms de colonnes correspondantes. "
+"Les noms de colonnes doivent être séparées par une virgule et non entourées "
+"de guillemets."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Nom des colonnes"
+msgstr "Nom des colonnes :"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -5648,6 +5667,9 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Colonne %s invalide! Assurez-vous que les noms de colonnes sont "
+"orthographiés correctement, séparés par des virgules et non entourés de "
+"guillemets. "
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
@@ -5678,28 +5700,25 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Ce greffon ne supporte pas les importations en format comprimé !"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importer les pourcentages en tant que décimales (12.00% devient .12)"
+msgstr ""
+"Importer les pourcentages en tant que décimales <i>(12.00% devient .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importer les valeurs de monnaie ($5.00 devient 5.00)"
+msgstr "Importer les valeurs de monnaie <i>($5.00 devient 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Mode de compatibilité SQL"
+msgstr "Mode de compatibilité SQL :"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Ne pas utiliser AUTO_INCREMENT pour la valeur zéro"
+msgstr "Ne pas utiliser <code>AUTO_INCREMENT</code> pour la valeur zéro"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
@@ -5947,7 +5966,6 @@ msgid "Log out"
 msgstr "Quitter"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Ce format ne comporte pas d'options"
@@ -5988,7 +6006,7 @@ msgstr "Historique SQL"
 
 #: libraries/relation.lib.php:141
 msgid "User preferences"
-msgstr ""
+msgstr "Préférences de l'utilisateur"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
@@ -6154,7 +6172,7 @@ msgstr "Pas de table"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "Erreur de schéma : "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
@@ -6196,49 +6214,46 @@ msgstr "Relations internes"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
 msgstr "Page à éditer"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Choisissez les tables"
+msgstr "Choisissez la page"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
 msgstr "Choisissez les tables"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Schéma relationnel"
+msgstr "Afficher le schéma relationnel"
 
 #: libraries/schema/User_Schema.class.php:351
-#, fuzzy
 #| msgid "CSV"
 msgid "SVG"
-msgstr "CSV"
+msgstr "SVG"
 
 #: libraries/schema/User_Schema.class.php:352
 msgid "DIA"
-msgstr ""
+msgstr "DIA"
 
 #: libraries/schema/User_Schema.class.php:353
 msgid "VISIO"
-msgstr ""
+msgstr "VISIO"
 
 #: libraries/schema/User_Schema.class.php:354
 msgid "EPS"
-msgstr ""
+msgstr "EPS"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Choisissez le type d'exportation des relations"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
@@ -6269,10 +6284,9 @@ msgid "Portrait"
 msgstr "Portrait"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Création"
+msgstr "Orientation"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
@@ -6302,7 +6316,6 @@ msgid "Unknown language: %1$s."
 msgstr "Langue inconnue: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
 msgstr "Serveur actuel"
@@ -6335,10 +6348,9 @@ msgid "Synchronize"
 msgstr "Synchroniser"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "réglages"
+msgstr "Réglages"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
@@ -6464,7 +6476,7 @@ msgstr "Fin des informations sur l'anomalie"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Un guillemet oblique a été ajouté à la fin de la requête!"
 
 #: libraries/sqlparser.lib.php:370
 msgid "Unclosed quote"
@@ -6547,11 +6559,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Données trop longues pour ENUM ou SET?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Obtenir plus d'espace d'édition"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
@@ -6728,16 +6740,14 @@ msgstr ""
 "du texte (par défaut: «...»)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Autres réglages de base"
+msgstr "Gérer vos paramètres"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Les modifications ont été sauvegardées"
+msgstr "La configuration a été sauvegardée"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -6745,18 +6755,22 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Vos préférences seront sauvegardées pour la session courante seulement. Un "
+"stockage permanent requiert l'installation de  %sstockage de configuration "
+"phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Impossible de charger ou sauvegarder la configuration"
+msgstr "Impossible de sauvegarder la configuration"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Votre navigateur contient une configuration phpMyAdmin pour ce domaine. "
+"Voulez-vous l'importer dans la session courante?"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -6768,34 +6782,31 @@ msgid "Error in ZIP archive:"
 msgstr "Erreur rencontrée dans l'archive ZIP :"
 
 #: main.php:67
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Fonctions relationnelles"
+msgstr "Paramètres généraux"
 
 #: main.php:98
 msgid "MySQL connection collation"
 msgstr "Interclassement pour la connexion MySQL"
 
 #: main.php:113
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Autres réglages de base"
+msgstr "Paramètres d'affichage"
 
 #: main.php:133
 msgid "Background color"
-msgstr ""
+msgstr "Couleur d'arrière-plan"
 
 #: main.php:134
 msgid "Choose..."
-msgstr ""
+msgstr "Choisissez..."
 
 #: main.php:151 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "réglages"
+msgstr "Plus de paramètres"
 
 #: main.php:168
 msgid "Protocol version"
@@ -6837,7 +6848,7 @@ msgstr "Site officiel"
 
 #: main.php:221
 msgid "Mailing lists"
-msgstr ""
+msgstr "Listes de courriel"
 
 #: main.php:247
 msgid ""
@@ -7065,42 +7076,42 @@ msgid "to/from page"
 msgstr "de/vers la page"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Le formulaire soumis contient des erreurs"
+msgstr ""
+"Le formulaire soumis contient des erreurs, impossible de sauvegarder les "
+"paramètres"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
+msgstr "Erreur d'importation de la configuration"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "La configuration contient des valeurs incorrectes pour certains champs."
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Voulez-vous importer les autres paramètres?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Sauvegardé le : @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importe les fichiers"
+msgstr "Importer depuis le fichier"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importer depuis le stockage du navigateur"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Les paramètres seront importés depuis le stockage local de votre navigateur."
 
 #: prefs_manage.php:254
 #, fuzzy
@@ -9902,59 +9913,3 @@ msgstr "Changer le nom de la vue pour"
 #~ "d'apostrophes. Si vous devez entrer un caractère (\"\\\") ou une "
 #~ "apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 #~ "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Veuillez entrer les valeurs des options de transformation en suivant ce "
-#~ "format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\"
-#~ "\") ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du "
-#~ "caractère d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Nouvelle table"
-
-#~ msgid "server name"
-#~ msgstr "nom de serveur"
-
-#~ msgid "database name"
-#~ msgstr "nom de base de données"
-
-#~ msgid "table name"
-#~ msgstr "nom de table"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Préparer le schéma en PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Orientation du dictionnaire"
-
-#~ msgid "no"
-#~ msgstr "non"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Entrez les options pour l'authentification signon"
-
-#~ msgid "Signon login options"
-#~ msgstr "Option de connexion signon"
-
-#~ msgid "PMA database"
-#~ msgstr "Base de données PMA"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Réglages pour requêtes SQL, voir [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a]"
-
-#~ msgid "yes"
-#~ msgstr "oui"
