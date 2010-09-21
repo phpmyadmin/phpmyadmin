@@ -258,9 +258,11 @@ function perform_config_checks()
     $strGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
     $strGZipDumpWarning = sprintf($strGZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
     $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than 1440 seconds may cause random session invalidation if %ssession.gc_maxlifetime%s is lower than its value (currently %d).');
-    $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&smp;formset=Features#tab_Security]', '[/a]', '[a@http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime]', '[/a]', ini_get('session.gc_maxlifetime'));
+    $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime]', '[/a]', ini_get('session.gc_maxlifetime'));
     $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
     $strLoginCookieValidityWarning2 = sprintf($strLoginCookieValidityWarning2, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strLoginCookieValidityWarning3 = __('%sLogin cookie validity%s must be set to a value less or equal to %sLogin cookie store%s.');
+    $strLoginCookieValidityWarning3 = sprintf($strLoginCookieValidityWarning3, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
     $strSecurityInfoMsg = sprintf($strSecurityInfoMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '%s');
     $strServerAuthConfigMsg = __('You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]http[/kbd].');
@@ -405,6 +407,17 @@ function perform_config_checks()
         messages_set('warning', 'LoginCookieValidity',
             PMA_lang(PMA_lang_name('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning2));
+    }
+
+    //
+    // $cfg['LoginCookieValidity']
+    // $cfg['LoginCookieStore']
+    // LoginCookieValidity must be less or equal to LoginCookieStore
+    //
+    if ($cf->getValue('LoginCookieStore') != 0 && $cf->getValue('LoginCookieValidity') > $cf->getValue('LoginCookieStore')) {
+       messages_set('error', 'LoginCookieValidity',
+            PMA_lang(PMA_lang_name('LoginCookieValidity')),
+            PMA_lang($strLoginCookieValidityWarning3));
     }
 
     //
