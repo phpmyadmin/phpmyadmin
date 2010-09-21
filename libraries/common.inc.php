@@ -801,7 +801,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         require_once './libraries/logging.lib.php';
 
-       // Gets the authentication library that fits the $cfg['Server'] settings
+        // get LoginCookieValidity from preferences cache
+        // no generic solution for loading preferences from cache as some settings need to be kept
+        // for processing in PMA_Config::loadUserPreferences()
+        $cache_key = 'server_' . $GLOBALS['server'];
+        if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])) {
+            $value = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
+            $GLOBALS['PMA_Config']->set('LoginCookieValidity', $value);
+            $GLOBALS['cfg']['LoginCookieValidity'] = $value;
+            unset($value);
+        }
+        unset($cache_key);
+
+        // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
         // to allow HTTP or http
