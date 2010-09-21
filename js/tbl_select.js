@@ -32,6 +32,8 @@ $(document).ready(function() {
         $search_form = $(this);
         event.preventDefault();
 
+        // empty previous search results while we are waiting for new results
+        $("#searchresults").empty();
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
 	    // add this hidden field just once 
