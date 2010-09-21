@@ -9093,10 +9093,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Ključ je prekratek, ima naj vsaj 8 znakov."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake"
+msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
