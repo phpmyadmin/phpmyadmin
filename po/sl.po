@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-21 20:08+0200\n"
+"PO-Revision-Date: 2010-09-21 20:09+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -8940,7 +8940,7 @@ msgstr ""
 "šifriranju piškotkov; ne rabite si ga zapomniti."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -8949,9 +8949,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Stiskanje in "
-"razpenjanje Bzip2[/a] potrebuje funkcije (%s), ki na tem sistemu niso na "
-"voljo."
+"%sStiskanje in razširjanje Bzip2%s potrebuje funkcije (%s), ki na tem "
+"sistemu niso na voljo."
 
 #: setup/lib/index.lib.php:255
 msgid ""
