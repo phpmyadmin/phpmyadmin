@@ -247,17 +247,28 @@ function perform_config_checks()
     $blowfish_secret_set = false;
     $cookie_auth_used = false;
 
-    $strAllowArbitraryServerWarning = __('This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+    $strAllowArbitraryServerWarning = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+    $strAllowArbitraryServerWarning = sprintf($strAllowArbitraryServerWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
-    $strBZipDumpWarning = __('[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and decompression[/a] requires functions (%s) which are unavailable on this system.');
+    $strBZipDumpWarning = __('%sBzip2 compression and decompression%s requires functions (%s) which are unavailable on this system.');
+    $strBZipDumpWarning = sprintf($strBZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
     $strDirectoryNotice = __('This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.');
-    $strForceSSLNotice = __('This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it');
-    $strGZipDumpWarning = __('[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and decompression[/a] requires functions (%s) which are unavailable on this system.');
-    $strLoginCookieValidityWarning = __('[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
-    $strSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
-    $strServerAuthConfigMsg = __('You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].');
-    $strZipDumpExportWarning = __('[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.');
-    $strZipDumpImportWarning = __('[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.');
+    $strForceSSLNotice = __('This %soption%s should be enabled if your web server supports it.');
+    $strForceSSLNotice = sprintf($strForceSSLNotice, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
+    $strGZipDumpWarning = sprintf($strGZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than 1440 seconds may cause random session invalidation if %ssession.gc_maxlifetime%s is lower than its value (currently %d).');
+    $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&smp;formset=Features#tab_Security]', '[/a]', '[a@http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime]', '[/a]', ini_get('session.gc_maxlifetime'));
+    $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
+    $strLoginCookieValidityWarning2 = sprintf($strLoginCookieValidityWarning2, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+    $strSecurityInfoMsg = sprintf($strSecurityInfoMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '%s');
+    $strServerAuthConfigMsg = __('You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]http[/kbd].');
+    $strServerAuthConfigMsg = sprintf($strServerAuthConfigMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]', '[/a]');
+    $strZipDumpExportWarning = __('%sZip compression%s requires functions (%s) which are unavailable on this system.');
+    $strZipDumpExportWarning = sprintf($strZipDumpExportWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strZipDumpImportWarning = __('%sZip decompression%s requires functions (%s) which are unavailable on this system.');
+    $strZipDumpImportWarning = sprintf($strZipDumpImportWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
 
     for ($i = 1, $server_cnt = $cf->getServerCount(); $i <= $server_cnt; $i++) {
         $cookie_auth_server = ($cf->getValue("Servers/$i/auth_type") == 'cookie');
@@ -280,7 +291,7 @@ function perform_config_checks()
         if (!$cf->getValue("Servers/$i/ssl")) {
             $title = PMA_lang(PMA_lang_name('Servers/1/ssl')) . " ($server_name)";
             messages_set('notice', "Servers/$i/ssl", $title,
-                __('You should use SSL connections if your web server supports it'));
+                __('You should use SSL connections if your web server supports it.'));
         }
 
         //
@@ -290,7 +301,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
             $title = PMA_lang(PMA_lang_name('Servers/1/extension')) . " ($server_name)";
             messages_set('notice', "Servers/$i/extension", $title,
-                __('You should use mysqli for performance reasons'));
+                __('You should use mysqli for performance reasons.'));
         }
 
         //
@@ -335,19 +346,19 @@ function perform_config_checks()
             // check length
             if (strlen($blowfish_secret) < 8) {
                 // too short key
-                $blowfish_warnings[] = __('Key is too short, it should have at least 8 characters');
+                $blowfish_warnings[] = __('Key is too short, it should have at least 8 characters.');
             }
             // check used characters
             $has_digits = (bool) preg_match('/\d/', $blowfish_secret);
             $has_chars = (bool) preg_match('/\S/', $blowfish_secret);
             $has_nonword = (bool) preg_match('/\W/', $blowfish_secret);
             if (!$has_digits || !$has_chars || !$has_nonword) {
-                $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters'));
+                $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters.'));
             }
             if (!empty($blowfish_warnings)) {
                 messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
                     PMA_lang(PMA_lang_name('blowfish_secret')),
-                    implode("<br />", $blowfish_warnings));
+                    implode('<br />', $blowfish_warnings));
             }
         }
     }
@@ -374,12 +385,26 @@ function perform_config_checks()
 
     //
     // $cfg['LoginCookieValidity']
+    // value greater than session.gc_maxlifetime will cause random session invalidation after that time
+    //
+    if ($cf->getValue('LoginCookieValidity') > 1440
+            || $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
+        $message_type = $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
+            ? 'error'
+            : 'warning';
+        messages_set($message_type, 'LoginCookieValidity',
+            PMA_lang(PMA_lang_name('LoginCookieValidity')),
+            PMA_lang($strLoginCookieValidityWarning));
+    }
+
+    //
+    // $cfg['LoginCookieValidity']
     // should be at most 1800 (30 min)
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
         messages_set('warning', 'LoginCookieValidity',
             PMA_lang(PMA_lang_name('LoginCookieValidity')),
-            PMA_lang($strLoginCookieValidityWarning));
+            PMA_lang($strLoginCookieValidityWarning2));
     }
 
     //
