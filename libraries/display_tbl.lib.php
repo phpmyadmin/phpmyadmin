@@ -1457,7 +1457,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if( !empty($where_clause) ) {
-            $vertical_display['where_clause'][$row_no] = '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+            $vertical_display['where_clause'][$row_no] = '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
         }
         else {
             unset($vertical_display['where_clause'][$row_no]);

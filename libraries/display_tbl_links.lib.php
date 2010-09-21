@@ -61,6 +61,6 @@ if ($doWriteModifyAt == 'left') {
  * Used by jQuery scripts for handling inline editing
  */
 if( !empty($where_clause)) {
-    echo '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+    echo '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
 }
 ?>
