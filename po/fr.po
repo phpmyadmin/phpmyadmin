@@ -7065,10 +7065,9 @@ msgid "This feature is not supported by your web browser"
 msgstr "Cette fonction n'est pas supportée par votre navigateur"
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Configuration du serveur"
+msgstr "Fusionner avec la configuration courante"
 
 #: prefs_manage.php:277
 #, php-format
