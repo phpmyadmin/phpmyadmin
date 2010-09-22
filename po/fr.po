@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-22 21:47+0200\n"
+"PO-Revision-Date: 2010-09-22 21:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9016,7 +9016,7 @@ msgstr ""
 "encrypter les cookies, vous n'avez pas à vous en souvenir."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9025,9 +9025,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]La compression et "
-"décompression Bzip2[/a] requièrent des fonctions (%s) non disponibles sur ce "
-"serveur."
+"La %scompression et décompression Bzip2%s requièrent des fonctions (%s) non "
+"disponibles sur ce serveur."
 
 #: setup/lib/index.lib.php:255
 msgid ""
