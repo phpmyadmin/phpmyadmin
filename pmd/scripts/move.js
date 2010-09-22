@@ -566,7 +566,7 @@ function New_relation()
 
 function Start_table_new()
 {
-    window.location.href = 'db_operations.php?server=' + server + '&db=' + db + '&token=' + token;
+    window.location.href = 'tbl_create.php?server=' + server + '&db=' + db + '&token=' + token;
 }
 
 function Start_tab_upd(table)
