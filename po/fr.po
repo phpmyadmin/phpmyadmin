@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-20 22:00+0200\n"
+"PO-Revision-Date: 2010-09-22 21:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -7056,10 +7056,9 @@ msgstr ""
 "Les paramètres seront importés depuis le stockage local de votre navigateur."
 
 #: prefs_manage.php:254
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Autres réglages de base"
+msgstr "Vous n'avez pas sauvegardé les paramètres!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -9899,34 +9898,3 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
-
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "SVG"
-
-#~ msgid "DIA"
-#~ msgstr "DIA"
-
-#~ msgid "VISIO"
-#~ msgstr "VISIO"
-
-#~ msgid "EPS"
-#~ msgstr "EPS"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Cette [a@?page=form&amp;formset=features#tab_Security]option[/a] doit "
-#~ "être activée si votre serveur la supporte."
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Veuillez entrer les valeurs dans des champs séparés et les entourer "
-#~ "d'apostrophes. Si vous devez entrer un caractère (\"\\\") ou une "
-#~ "apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
-#~ "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
