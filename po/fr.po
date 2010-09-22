@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-22 21:54+0200\n"
+"PO-Revision-Date: 2010-09-22 22:04+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9091,7 +9091,7 @@ msgstr ""
 "égale au paramètre %sLogin cookie store%s."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9105,10 +9105,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des réglages de protection - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]authentification du "
-"serveur[/a] et [a@?page=form&amp;formset=features#tab_Security]serveurs "
-"mandataires de confiance[/a]."
+"Si vous l'estimez nécessaire, utilisez des réglages de protection - %"
+"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
+"appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
+"compris, sont connectés."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
