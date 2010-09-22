@@ -921,19 +921,19 @@ function Start_display_field()
 }
 //------------------------------------------------------------------------------
 var TargetColors = new Array();
-function getColorByTarget( target ) 
-{ 
+function getColorByTarget( target )
+{
   var color = '';  //"rgba(0,100,150,1)";
 
   for (i in TargetColors)
    if (TargetColors[i][0]==target) {
     color = TargetColors[i][1];
-    break; 
-   } 
+    break;
+   }
 
 
   if (color.length==0)
-  {  
+  {
    var i = TargetColors.length+1;
    var d = i % 6;
    var j = (i - d) / 6;
@@ -951,7 +951,7 @@ function getColorByTarget( target )
     var b = color_case[d][1];
     var c = color_case[d][2];
     e = (1 - (j - 1) / 6);
-                    
+
     var r = Math.round(a * 200 * e);
     var g = Math.round(b * 200 * e);
     var b = Math.round(c * 200 * e);
@@ -959,8 +959,8 @@ function getColorByTarget( target )
 
     TargetColors.push( new Array(target, color) );
 
-    
+
   }
 
-  return color;    
+  return color;
 }
