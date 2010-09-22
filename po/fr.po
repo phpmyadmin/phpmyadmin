@@ -9043,7 +9043,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "Cette %soption%s devrait être activée si votre serveur web le permet."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9052,9 +9052,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]La compression et "
-"décompression GZip[/a] requièrent des fonctions (%s) non disponibles sur ce "
-"serveur."
+"La %scompression et décompression GZip%s requièrent des fonctions (%s) non "
+"disponibles sur ce serveur."
 
 #: setup/lib/index.lib.php:260
 #, php-format
