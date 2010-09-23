@@ -9324,7 +9324,7 @@ msgstr "Étiquette pour l'axe des Y"
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr "Marge pour la zone"
+msgstr "Marges pour la zone"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
