@@ -9526,10 +9526,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Vider la table (TRUNCATE)"
 
 #: tbl_operations.php:677
-#, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
-msgstr "Aller à la base de données"
+msgstr "Supprimer la table (DROP)"
 
 #: tbl_operations.php:698
 msgid "Partition maintenance"
