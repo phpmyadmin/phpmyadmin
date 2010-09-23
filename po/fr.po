@@ -9157,7 +9157,6 @@ msgstr ""
 "serveur."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
 msgstr "Vous devriez utiliser des connexions SSL si votre serveur le permet."
