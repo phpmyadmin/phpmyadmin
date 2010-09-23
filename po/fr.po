@@ -9391,7 +9391,7 @@ msgstr ""
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "Dessiner à nouveau"
 
 #: tbl_create.php:55
 #, php-format
