@@ -9320,7 +9320,7 @@ msgstr "Étiquette pour l'axe des X"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Étiquette pour l'axe des Y"
 
 #: tbl_chart.php:112
 msgid "Area margins"
