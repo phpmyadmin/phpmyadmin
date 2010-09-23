@@ -8930,7 +8930,7 @@ msgstr ""
 "(currently %d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -8939,9 +8939,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
-"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
-"pose a security risk such as impersonation."
+"%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
+"most. Values larger than 1800 may pose a security risk such as "
+"impersonation."
 
 #: setup/lib/index.lib.php:264
 #, php-format
