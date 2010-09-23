@@ -9354,10 +9354,9 @@ msgid "Bar type"
 msgstr "Type de barre"
 
 #: tbl_chart.php:146
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Compressé"
+msgstr "En piles"
 
 #: tbl_chart.php:147
 msgid "Multi"
