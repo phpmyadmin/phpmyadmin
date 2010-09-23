@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-23 18:00+0200\n"
+"PO-Revision-Date: 2010-09-23 18:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9287,10 +9287,9 @@ msgid "Continue insertion with %s rows"
 msgstr "Continuer l'insertion avec %s lignes"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Les privilèges ont été rechargés."
+msgstr "Le graphique a été généré."
 
 #: tbl_chart.php:59
 #, fuzzy
