@@ -9196,10 +9196,9 @@ msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
 #: sql.php:591
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Valider SQL"
+msgstr "SQL validé"
 
 #: sql.php:817
 #, php-format
