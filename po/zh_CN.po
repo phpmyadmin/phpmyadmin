@@ -8680,10 +8680,9 @@ msgid ""
 msgstr "此系统目前不支持 %sZip 解压缩%s所必须的 (%s) 函数。"
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
-msgstr "如果浏览器支持，建议使用 SSL 连接。"
+msgstr "如果浏览器支持，你应该使用 SSL 连接。"
 
 #: setup/lib/index.lib.php:306
 #, fuzzy
