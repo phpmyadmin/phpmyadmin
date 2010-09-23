@@ -9171,10 +9171,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Vous permettez les connexions au serveur sans mot de passe."
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "La clé doit avoir un minimum de 8 caractères"
+msgstr "La clé doit avoir un minimum de 8 caractères."
 
 #: setup/lib/index.lib.php:358
 #, fuzzy
