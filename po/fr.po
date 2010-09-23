@@ -9364,7 +9364,7 @@ msgstr "Multi"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Image continue"
 
 #: tbl_chart.php:155
 msgid ""
