@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-23 18:11+0200\n"
+"PO-Revision-Date: 2010-09-23 18:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -9038,10 +9038,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Key is too short, it should have at least 8 characters."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr "Key should contain letters, numbers [em]and[/em] special characters."
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
