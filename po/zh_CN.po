@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-23 06:00+0200\n"
+"PO-Revision-Date: 2010-09-23 06:01+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8624,7 +8624,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -8637,11 +8637,7 @@ msgid ""
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
-msgstr ""
-"如果您认为有必要，可以使用额外的保护设置 - [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server_config]主机认证[/a]和 [a@?page=form&amp;"
-"formset=features#tab_Security]可信代理表[/a]。但如果您和许多人使用同一个IP地"
-"址，该措施的安全性将下降。"
+msgstr "如果有必要，您可以使用额外的保护设置 - %s主机认证%s和%s可信代理表%s。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
