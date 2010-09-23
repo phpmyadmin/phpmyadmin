@@ -8953,7 +8953,7 @@ msgstr ""
 "cookie store%s."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -8967,12 +8967,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"If you feel this is necessary, use additional protection settings - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
-"[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted "
-"proxies list[/a]. However, IP-based protection may not be reliable if your "
-"IP belongs to an ISP where thousands of users, including you, are connected "
-"to."
+"If you feel this is necessary, use additional protection settings - %shost "
+"authentication%s settings and %strusted proxies list%s. However, IP-based "
+"protection may not be reliable if your IP belongs to an ISP where thousands "
+"of users, including you, are connected to."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
