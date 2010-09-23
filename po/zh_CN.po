@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-16 11:55+0200\n"
+"PO-Revision-Date: 2010-09-23 05:57+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -8535,7 +8535,7 @@ msgid "No newer stable version is available"
 msgstr "没有更新的可用版本"
 
 #: setup/lib/index.lib.php:250
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #| "disabled as it allows attackers to bruteforce login to any MySQL server. "
@@ -8549,10 +8549,8 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"该[a@?page=form&amp;formset=features#tab_Security]选项[/a]应该被关闭以防止尝"
-"试暴力破解 MySQL 服务器。如果您认为有必要，可以使用[a@?page=form&amp;"
-"formset=features#tab_Security]可信代理表[/a]。但如果您和许多人使用同一个IP地"
-"址，该措施的安全性将下降。"
+"该%s选项%s应该被关闭以防止有人尝试暴力破解 MySQL 服务器。如果有必要，您可以使用%s可信代理表%s。但如果您和许多人共用一个 IP "
+"地址，该措施的安全性将下降。"
 
 #: setup/lib/index.lib.php:252
 msgid ""
