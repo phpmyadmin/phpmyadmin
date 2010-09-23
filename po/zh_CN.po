@@ -8587,7 +8587,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "如果浏览器支持，建议启用该%s选项%s。"
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -8595,9 +8595,7 @@ msgstr "如果浏览器支持，建议启用该%s选项%s。"
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
-msgstr ""
-"此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]GZip 压"
-"缩和解压缩[/a]所必须的 (%s) 函数。"
+msgstr "此系统目前不支持 %sGZip 压缩和解压缩%s所必须的 (%s) 函数。"
 
 #: setup/lib/index.lib.php:260
 #, php-format
