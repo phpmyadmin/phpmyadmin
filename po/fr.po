@@ -9281,10 +9281,10 @@ msgstr ""
 "pour aller n'importe où"
 
 #: tbl_change.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Recommencer l'insertion avec %s lignes"
+msgstr "Continuer l'insertion avec %s lignes"
 
 #: tbl_chart.php:56
 #, fuzzy
