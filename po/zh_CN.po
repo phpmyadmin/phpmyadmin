@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-23 06:05+0200\n"
+"PO-Revision-Date: 2010-09-23 06:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8694,10 +8694,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "该服务器现在允许空密码登录。"
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "短语密码太短，至少应含有8个字符"
+msgstr "短语密码太短，至少应有 8 个字符。"
 
 #: setup/lib/index.lib.php:358
 #, fuzzy
