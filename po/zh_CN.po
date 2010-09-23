@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-23 05:57+0200\n"
+"PO-Revision-Date: 2010-09-23 05:58+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -8562,7 +8562,7 @@ msgstr ""
 "码，该密语用于加密 Cookies。您不需要记住这个短语密码。"
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -8570,9 +8570,7 @@ msgstr ""
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
-msgstr ""
-"此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]Bzip2 "
-"压缩和解压缩[/a]所必须的 (%s) 函数。"
+msgstr "此系统目前不支持 %sBzip2 压缩和解压缩%s所必须的 (%s) 函数。"
 
 #: setup/lib/index.lib.php:255
 msgid ""
