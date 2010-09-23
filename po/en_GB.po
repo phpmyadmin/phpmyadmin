@@ -8879,7 +8879,7 @@ msgstr ""
 "you don't need to remember it."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -8888,9 +8888,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
-"decompression[/a] requires functions (%s) which are unavailable on this "
-"system."
+"%sBzip2 compression and decompression%s requires functions (%s) which are "
+"unavailable on this system."
 
 #: setup/lib/index.lib.php:255
 msgid ""
