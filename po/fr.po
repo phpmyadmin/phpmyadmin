@@ -9341,7 +9341,7 @@ msgstr "Ligne"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 #: tbl_chart.php:138
 #, fuzzy
