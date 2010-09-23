@@ -9523,7 +9523,7 @@ msgstr "Supprimer les données ou la table"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Vider la table (TRUNCATE)"
 
 #: tbl_operations.php:677
 #, fuzzy
