@@ -8699,10 +8699,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "短语密码太短，至少应有 8 个字符。"
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符"
+msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
