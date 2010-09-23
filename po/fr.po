@@ -9337,7 +9337,7 @@ msgstr "Barre"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
 #: tbl_chart.php:136
 msgid "Radar"
