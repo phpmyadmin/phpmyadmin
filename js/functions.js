@@ -21,6 +21,42 @@ var only_once_elements = new Array();
 var ajax_message_init = false;
 
 /**
+ * Generate a new password and copy it to the password input areas
+ *
+ * @param   object   the form that holds the password fields
+ *
+ * @return  boolean  always true
+ */
+function suggestPassword(passwd_form) {
+    // restrict the password to just letters and numbers to avoid problems:
+    // "editors and viewers regard the password as multiple words and
+    // things like double click no longer work"
+    var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ";
+    var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
+    var passwd = passwd_form.generated_pw;
+    passwd.value = '';
+
+    for ( i = 0; i < passwordlength; i++ ) {
+        passwd.value += pwchars.charAt( Math.floor( Math.random() * pwchars.length ) )
+    }
+    passwd_form.text_pma_pw.value = passwd.value;
+    passwd_form.text_pma_pw2.value = passwd.value;
+    return true;
+}
+
+/**
+ * for libraries/display_change_password.lib.php 
+ *     libraries/user_password.php
+ *
+ */
+
+function displayPasswordGenerateButton() {
+    $('#tr_element_before_generate_password').parent().append('<tr><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
+    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
+}
+
+
+/**
  * selects the content of a given object, f.e. a textarea
  *
  * @param   object  element     element of which the content will be selected
@@ -2281,6 +2317,7 @@ $(document).ready(function() {
                 buttons : button_options
             })
             .append(data);
+            displayPasswordGenerateButton();
         }) // end $.get()
     }) // end handler for change password anchor
 
