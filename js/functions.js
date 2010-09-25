@@ -2040,8 +2040,12 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_sort_table()
      * @uses    window.parent.refreshNavigation()
+     *
+     * The create_table_form whose action is tbl_create.php is the
+     * one which is ajaxified; in this form the action could be 
+     * tbl_addfield.php but it's not ajaxified yet.
      */
-    $("#create_table_form").find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
+    $("#create_table_form").attr('action').is('tbl_create.php').find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
 
         /**
