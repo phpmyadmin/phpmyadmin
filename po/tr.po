@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 22:43+0200\n"
+"PO-Revision-Date: 2010-09-26 22:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9021,6 +9021,8 @@ msgid ""
 "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 "cookie store%s."
 msgstr ""
+"%sOturum açma tanımlama bilgisi geçerliliği%s, %sOturum açma tanımlama "
+"bilgisi depolama%s değerine eşit ya da daha az değere ayarlanmak zorundadır."
 
 #: setup/lib/index.lib.php:266
 #, fuzzy, php-format
