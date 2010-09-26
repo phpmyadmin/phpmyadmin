@@ -9105,10 +9105,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır"
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Anahtar harf, numara [em]ve[/em] özel karakterler içermelidir"
+msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
