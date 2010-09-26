@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 12:23+0200\n"
+"PO-Revision-Date: 2010-09-26 12:25+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <dellpardus@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8999,7 +8999,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9008,9 +9008,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Oturum açma tanımlama bilgisi "
-"geçerliliği[/a] en fazla 1800 saniyeye (30 dakika) ayarlanmalıdır. 1800'den "
-"büyük değerler taklit edilme gibi güvenlik riski yaratabilir."
+"Oturum açma tanımlama bilgisi geçerliliği en fazla 1800 saniyeye (30 dakika) "
+"ayarlanmalıdır. 1800'den büyük değerler taklit edilme gibi güvenlik riski "
+"yaratabilir."
 
 #: setup/lib/index.lib.php:264
 #, php-format
