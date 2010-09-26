@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 22:56+0200\n"
+"PO-Revision-Date: 2010-09-26 22:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4325,7 +4325,7 @@ msgstr "Olaylar"
 #: libraries/display_create_table.lib.php:51 libraries/tbl_triggers.lib.php:26
 #: setup/frames/index.inc.php:113
 msgid "Name"
-msgstr "İsim"
+msgstr "Adı"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
