@@ -2035,17 +2035,85 @@ $(document).ready(function() {
     });
 
     /**
-     * Attach event handler for submission of create table form
+     * Attach event handler for submission of create table form (save)
      *
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_sort_table()
      * @uses    window.parent.refreshNavigation()
      *
-     * The create_table_form whose action is tbl_create.php is the
-     * one which is ajaxified; in this form the action could be 
-     * tbl_addfield.php but it's not ajaxified yet.
      */
-    $("#create_table_form").attr('action').is('tbl_create.php').find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
+    // .live() must be called after a selector, see http://api.jquery.com/live
+    $("#create_table_form input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+
+        /**
+         *  @var    the_form    object referring to the create table form
+         */
+        var the_form = $("#create_table_form");
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        //User wants to submit the form
+        $.post($(the_form).attr('action'), $(the_form).serialize() + "&do_save_data=" + $(this).val(), function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("#create_table_dialog").dialog("close").remove();
+
+                /**
+                 * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                 */
+                var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+
+                /**
+                 * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                 */
+                var curr_last_row = $(tables_table).find('tr:last');
+                /**
+                 * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                 */
+                var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                /**
+                 * @var curr_last_row_index Index of {@link curr_last_row}
+                 */
+                var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                /**
+                 * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                 */
+                var new_last_row_index = curr_last_row_index + 1;
+                /**
+                 * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                 */
+                var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                //append to table
+                $(data.new_table_string)
+                .find('input:checkbox')
+                .val(new_last_row_id)
+                .end()
+                .appendTo(tables_table);
+
+                //Sort the table
+                $(tables_table).PMA_sort_table('th');
+
+                //Refresh navigation frame as a new table has been added
+                window.parent.refreshNavigation();
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.post()
+    }) // end create table form (save) 
+
+    /**
+     * Attach event handler for create table form (add fields)
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_sort_table()
+     * @uses    window.parent.refreshNavigation()
+     *
+     */
+    // .live() must be called after a selector, see http://api.jquery.com/live
+    $("#create_table_form input[name=submit_num_fields]").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -2056,64 +2124,12 @@ $(document).ready(function() {
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
 
-        if($(this).attr('name') == 'submit_num_fields') {
-            //User wants to add more fields to the table
-            $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
-                $("#create_table_dialog").html(data);
-            }) //end $.post()
-        }
-        else if($(this).attr('name') == 'do_save_data') {
-            //User wants to submit the form
-            $.post($(the_form).attr('action'), $(the_form).serialize() + "&do_save_data=" + $(this).val(), function(data) {
-                if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("#create_table_dialog").dialog("close").remove();
+        //User wants to add more fields to the table
+        $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
+            $("#create_table_dialog").html(data);
+        }) //end $.post()
 
-                    /**
-                     * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                     */
-                    var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
-
-                    /**
-                     * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                     */
-                    var curr_last_row = $(tables_table).find('tr:last');
-                    /**
-                     * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                     */
-                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                    /**
-                     * @var curr_last_row_index Index of {@link curr_last_row}
-                     */
-                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                    /**
-                     * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                     */
-                    var new_last_row_index = curr_last_row_index + 1;
-                    /**
-                     * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                     */
-                    var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
-
-                    //append to table
-                    $(data.new_table_string)
-                    .find('input:checkbox')
-                    .val(new_last_row_id)
-                    .end()
-                    .appendTo(tables_table);
-
-                    //Sort the table
-                    $(tables_table).PMA_sort_table('th');
-
-                    //Refresh navigation frame as a new table has been added
-                    window.parent.refreshNavigation();
-                }
-                else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-            }) // end $.post()
-        } // end elseif()
-    }) // end create table form submit button actions
+    }) // end create table form (add fields) 
 
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 

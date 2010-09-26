@@ -610,7 +610,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 }
 ?>
 
-<form id="create_table_form" method="post" action="<?php echo $action; ?>">
+<form id="<?php echo ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form" method="post" action="<?php echo $action; ?>">
 <?php
 echo PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
