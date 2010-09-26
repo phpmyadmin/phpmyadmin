@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 12:27+0200\n"
+"PO-Revision-Date: 2010-09-26 12:28+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <dellpardus@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9076,16 +9076,14 @@ msgstr ""
 "%sZip sıkıştırması%s bu sistemde mevcut olmayan işlevleri (%s) gerektirir."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip açması[/a] bu "
-"sistemde mevcut olmayan işlevleri (%s) gerektirir."
+msgstr "%sZip açması%s bu sistemde mevcut olmayan işlevleri (%s) gerektirir."
 
 #: setup/lib/index.lib.php:296
 #, fuzzy
