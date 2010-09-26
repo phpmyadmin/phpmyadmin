@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 12:14+0200\n"
+"PO-Revision-Date: 2010-09-26 12:15+0200\n"
 "Last-Translator:  <dellpardus@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -399,7 +399,7 @@ msgstr "Son kontrol"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tablo%tablolar"
+msgstr[0] "%s tablo"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1982 libraries/sql_query_form.lib.php:136
