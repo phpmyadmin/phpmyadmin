@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 22:52+0200\n"
+"PO-Revision-Date: 2010-09-26 22:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9042,7 +9042,7 @@ msgstr ""
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9060,9 +9060,9 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik denetimi türünü ayarladınız ve buna otomatik "
 "oturum açma için kullanıcı adı ve parola dahildir, canlı anamakineler için "
 "istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya tahmin eden "
-"herhangi biri doğrudan phpMyAdmin panelinize erişebilir. [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]Kimlik denetimi türünü[/a] "
-"[kbd]tanımlama bilgisine[/kbd] ya da [kbd]http[/kbd] olarak ayarlayın."
+"herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %sKimlik denetimi "
+"türünü%s [kbd]tanımlama bilgisine[/kbd] ya da [kbd]http[/kbd] olarak "
+"ayarlayın."
 
 #: setup/lib/index.lib.php:270
 #, php-format
