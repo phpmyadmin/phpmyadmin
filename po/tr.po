@@ -9091,10 +9091,9 @@ msgid "You should use SSL connections if your web server supports it."
 msgstr "Eğer web sunucunuz destekliyorsa, SSL bağlantı kullanmalısınız."
 
 #: setup/lib/index.lib.php:306
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Verim almak için mysqli kullanmalısınız"
+msgstr "Verim almak için mysqli kullanmalısınız."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
