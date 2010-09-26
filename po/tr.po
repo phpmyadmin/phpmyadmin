@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 12:21+0200\n"
+"PO-Revision-Date: 2010-09-26 12:23+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <dellpardus@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8950,7 +8950,7 @@ msgstr ""
 "bunu hatırlamanıza gerek yoktur."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -8959,8 +8959,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 sıkıştırması ve "
-"açması[/a] bu sistemde mevcut olmayan işlevleri (%s) gerektirir."
+"%sBzip2 sıkıştırması ve açması bu sistemde mevcut olmayan işlevleri (%s) "
+"gerektiriyor."
 
 #: setup/lib/index.lib.php:255
 msgid ""
