@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-26 12:10+0200\n"
+"PO-Revision-Date: 2010-09-26 12:11+0200\n"
 "Last-Translator:  <dellpardus@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -310,7 +310,7 @@ msgstr "Kopyalamadan önce VERİTABANI OLUŞTUR"
 #: libraries/config/messages.inc.php:131 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
-msgstr "%s komutu ekle"
+msgstr "%s ekle"
 
 #: db_operations.php:466 libraries/config/messages.inc.php:116
 #: tbl_operations.php:296 tbl_operations.php:535
