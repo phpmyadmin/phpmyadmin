@@ -363,7 +363,7 @@ msgstr "Tablo"
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:868
 msgid "Rows"
-msgstr "Satır"
+msgstr "Satırlar"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
