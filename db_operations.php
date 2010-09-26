@@ -343,6 +343,7 @@ if (!$is_information_schema) {
     /**
      * rename database
      */
+if ($db != 'mysql') {
     ?>
     <form id="rename_db_form" method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
@@ -383,9 +384,11 @@ if (!$is_information_schema) {
     </fieldset>
     </form>
 <?php
+} // end if
+
 // Drop link if allowed
 // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
-// Don't allow to easilly drop mysql database, RFE #1327514.
+// Don't allow to easily drop mysql database, RFE #1327514.
 if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
 ?>
 <fieldset class="caution">
