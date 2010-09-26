@@ -369,7 +369,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
     $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
-        . '<a onclick="return false;" href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "") . '" class="open_enum_editor" target="_blank"> '
+        . '<a onclick="return false;" href="enum_editor.php?' . PMA_generate_common_url() . '&amp;values=' . urlencode($length_to_display) . '&amp;field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "") . '" class="open_enum_editor" target="_blank"> '
         . __('Get more editing space') . '</a></p>';
     $ci++;
 
