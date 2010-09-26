@@ -533,7 +533,6 @@ if (PMA_MYSQL_INT_VERSION > 50100) {
 
 /**
  * Work on the database
- * redesigned 2004-05-08 by mkkeck
  */
 /* DATABASE WORK */
 /* Printable view of a table */
