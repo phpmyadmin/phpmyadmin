@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-27 23:52+0200\n"
+"PO-Revision-Date: 2010-09-27 23:53+0200\n"
 "Last-Translator: Jarosław Głowacki <glowacki@europa.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -374,7 +374,7 @@ msgstr "Tabela"
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:868
 msgid "Rows"
-msgstr "Rekordów"
+msgstr "Rekordy"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
