@@ -2032,6 +2032,8 @@ $(document).ready(function() {
             }); // end dialog options
         }) // end $.get()
 
+        // empty table name and number of columns from the minimal form 
+        $(this).find('input[name=table],input[name=num_fields]').val('');
     });
 
     /**
