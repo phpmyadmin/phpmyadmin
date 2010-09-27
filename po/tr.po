@@ -9598,7 +9598,7 @@ msgstr "%s üzerinde bir indeks eklendi"
 
 #: tbl_structure.php:596 tbl_structure.php:598
 msgid "Relation view"
-msgstr "İlişki görünümü"
+msgstr "Bağlantı görünümü"
 
 #: tbl_structure.php:605 tbl_structure.php:607
 msgid "Propose table structure"
