@@ -6900,7 +6900,7 @@ msgstr "Tablo oluştur"
 
 #: pmd_general.php:73 pmd_general.php:305
 msgid "Create relation"
-msgstr "İlişki oluştur"
+msgstr "Bağlantı oluştur"
 
 #: pmd_general.php:79
 msgid "Reload"
