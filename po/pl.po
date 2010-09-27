@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-09-27 23:51+0200\n"
+"PO-Revision-Date: 2010-09-27 23:52+0200\n"
 "Last-Translator: Jarosław Głowacki <glowacki@europa.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -288,9 +288,8 @@ msgid "Database %s has been dropped."
 msgstr "Baza danych %s została usunięta."
 
 #: db_operations.php:414
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Brak baz danych"
+msgstr "Usuń bazę danych (DROP)"
 
 #: db_operations.php:442
 msgid "Copy database to"
