@@ -6174,7 +6174,7 @@ msgstr "Tabloları seç"
 
 #: libraries/schema/User_Schema.class.php:346
 msgid "Display relational schema"
-msgstr "Bağlantılı şema göster"
+msgstr "Bağlantılı şemayı göster"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
