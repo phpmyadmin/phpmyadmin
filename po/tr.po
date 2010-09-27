@@ -5364,8 +5364,8 @@ msgstr ""
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"İlave özel başlık yorumu (\n"
-"satırları böler):"
+"İlave özel başlık yorumu (\\\n"
+" satırları böler):"
 
 #: libraries/export/sql.php:37
 msgid ""
