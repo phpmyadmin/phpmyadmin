@@ -3689,7 +3689,7 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"İlişkiler, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
+"Bağlantılar, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
 "bilgi için [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
 "Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]"
 
