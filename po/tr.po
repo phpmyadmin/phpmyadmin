@@ -6952,7 +6952,7 @@ msgstr "Tablo sayısı"
 
 #: pmd_general.php:371
 msgid "Delete relation"
-msgstr "İlişkiyi sil"
+msgstr "Bağlantıyı sil"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
