@@ -6178,7 +6178,7 @@ msgstr "Bağlantısal şema göster"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr "Dışa Aktarma İlişkisel Türü Seç"
+msgstr "Dışa Aktarma Bağlantısal Türü Seç"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
