@@ -6121,7 +6121,7 @@ msgstr "ŞEMA HATASI: "
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
 msgid "Relational schema"
-msgstr "Bağlantılsal şema"
+msgstr "Bağlantısal şema"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1094
 msgid "Table of contents"
