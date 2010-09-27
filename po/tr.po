@@ -9529,7 +9529,7 @@ msgstr ""
 
 #: tbl_relation.php:402
 msgid "Internal relation"
-msgstr "Dahili bağlantılı"
+msgstr "Dahili bağlantı"
 
 #: tbl_relation.php:404
 msgid ""
