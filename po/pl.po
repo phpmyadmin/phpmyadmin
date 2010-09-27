@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-09-21 08:04-0400\n"
-"PO-Revision-Date: 2010-07-22 02:29+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-09-27 23:51+0200\n"
+"Last-Translator: Jarosław Głowacki <glowacki@europa.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1595
@@ -278,10 +278,9 @@ msgid "Command"
 msgstr "Polecenie"
 
 #: db_operations.php:397
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Zmień nazwę bazy danych na"
+msgstr "Usuń bazę danych"
 
 #: db_operations.php:409
 #, php-format
@@ -10178,163 +10177,3 @@ msgstr "Nazwa perspektywy"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Zmień nazwę tabeli na"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Ta [a@?page=form&amp;formset=features#tab_Security]opcja[/a] powinna być "
-#~ "włączona, jeśli serwer WWW ją obsługuje."
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Proszę wprowadzić wartości dla transformacji w następującym formacie: "
-#~ "'a', 100, b,'c'…<br />Jeżeli potrzeba wprowadzić odwrotny ukośnik (\"\\"
-#~ "\") lub apostrof (\"'\"), należy je poprzedzić odwrotnym ukośnikiem (np.: "
-#~ "'\\\\xyz' lub 'a\\'b')."
-
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Proszę wprowadzić wartości dla transformacji w następującym formacie: "
-#~ "'a', 100, b,'c'…<br />Jeżeli potrzeba wprowadzić odwrotny ukośnik (\"\\"
-#~ "\") lub apostrof (\"'\"), należy je poprzedzić odwrotnym ukośnikiem (np.: "
-#~ "'\\\\xyz' lub 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Brak tabel"
-
-#~ msgid "server name"
-#~ msgstr "nazwa serwera"
-
-#~ msgid "database name"
-#~ msgstr "nazwa bazy danych"
-
-#~ msgid "table name"
-#~ msgstr "nazwa tabeli"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Edytuj strony PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Format słownika danych"
-
-#~ msgid "no"
-#~ msgstr "nie"
-
-#~ msgid "PMA database"
-#~ msgstr "Baza danych PMA"
-
-#~ msgid "Customization"
-#~ msgstr "Indywidualizacja"
-
-#~ msgid "yes"
-#~ msgstr "tak"
-
-#~ msgid "<code>IF NOT EXISTS</code>"
-#~ msgstr "<code>, ZMIENNA as mojanazwa</code>"
-
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "<code>, ZMIENNA as mojanazwa</code>"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Zrzuć %s rekordów zaczynając od rekordu %s."
-
-#~ msgid "remember template"
-#~ msgstr "pamiętaj szablon"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "Rodzaj kompresji importowanych plików zostanie automatycznie rozpoznany "
-#~ "jako jeden z: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Dodaj w komentarzach:"
-
-#~ msgid "Export functions"
-#~ msgstr "Domyślne opcje eksportu"
-
-#~ msgid "Export triggers"
-#~ msgstr "Rodzaj eksportu"
-
-#~ msgid "Export views"
-#~ msgstr "Domyślne opcje eksportu"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Podano błędną kolumnę (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Działania"
-
-#~ msgid "Interface"
-#~ msgstr "Interfejs"
-
-#~ msgid "Table removal"
-#~ msgstr "Nazwa tabeli"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "Repozytorium BLOBów"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "włączone"
-
-#~ msgid "Disable"
-#~ msgstr "Wyłącz"
-
-#~ msgid "Damaged"
-#~ msgstr "Uszkodzone"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Napraw"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "wyłączone"
-
-#~ msgid "Enable"
-#~ msgstr "Włącz"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "nie udało się załadować modułu %s,<br />proszę sprawdzić konfigurację PHP"
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Nie udało się załadować rozszerzeń iconv lub recode, które są niezbędne "
-#~ "do konwersji kodowania napisów, skonfiguruj PHP tak, by mógł używać tych "
-#~ "rozszerzeń albo zablokuj konwersję kodowania napisów w phpMyAdminie."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Nie udało się użyć ani funkcji iconv, ani libiconv, mimo że rozszerzenia "
-#~ "zgłaszają się jako załadowane. Proszę sprawdzić swoją konfigurację PHP."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Pozwalaj na konwersję kodowania napisów"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Domyślne kodowanie napisów używane przy konwersjach"
-
-#~ msgid "Default character set"
-#~ msgstr "Domyślne kodowanie napisów"
