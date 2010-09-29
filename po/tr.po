@@ -8954,7 +8954,7 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sBzip2 sıkıştırması ve açması bu sistemde mevcut olmayan işlevleri (%s) "
+"%sBzip2 sıkıştırması ve açması%s bu sistemde mevcut olmayan işlevleri (%s) "
 "gerektiriyor."
 
 #: setup/lib/index.lib.php:255
@@ -8982,7 +8982,7 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sGZip sıkıştırması ve açması[/a] bu sistemde mevcut olmayan işlevleri (%s) "
+"%sGZip sıkıştırması ve açması%s bu sistemde mevcut olmayan işlevleri (%s) "
 "gerektiriyor."
 
 #: setup/lib/index.lib.php:260
@@ -8997,7 +8997,7 @@ msgstr ""
 "gelişi güzel oturum geçersizliklerine sebep olabilir."
 
 #: setup/lib/index.lib.php:262
-#, php-format
+#, php-format, fuzzy
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9006,7 +9006,7 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"Oturum açma tanımlama bilgisi geçerliliği en fazla 1800 saniyeye (30 dakika) "
+"%sOturum açma tanımlama%s bilgisi geçerliliği en fazla 1800 saniyeye (30 dakika) "
 "ayarlanmalıdır. 1800'den büyük değerler taklit edilme gibi güvenlik riski "
 "yaratabilir."
 
