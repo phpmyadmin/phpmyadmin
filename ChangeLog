@@ -123,6 +123,7 @@
 - [core] Update library PHPExcel to version 1.7.4
 - bug #3062455 [core] copy procedures and routines before tables
 - bug #3062455 [export] with SQL, export procedures and routines before tables
+- bug #3056023 [import] USE query not working
 
 3.3.7.0 (2010-09-07)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
