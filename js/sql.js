@@ -155,14 +155,17 @@ $(document).ready(function() {
      * @memberOf jQuery
      * @name    appendToggleSpan
      */
-    $('<span id="togglequerybox"></span>')
-    .html(PMA_messages['strToggleQueryBox'])
-    .appendTo("#sqlqueryform");
+    // do not add this span more than once
+    if (! $('#sqlqueryform').find('span').is('#togglequerybox')) {
+        $('<span id="togglequerybox"></span>')
+        .html(PMA_messages['strToggleQueryBox'])
+        .appendTo("#sqlqueryform");
 
-    // Attach the toggling of the query box visibility to a click
-    $("#togglequerybox").live('click', function() {
-        $(this).siblings().slideToggle("medium");
-    })
+        // Attach the toggling of the query box visibility to a click
+        $("#togglequerybox").bind('click', function() {
+            $(this).siblings().slideToggle("medium");
+        })
+    }
     
     /**
      * Ajax Event handler for 'SQL Query Submit'
@@ -173,17 +176,29 @@ $(document).ready(function() {
      */
     $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
-
+        $form = $(this);
         PMA_ajaxShowMessage();
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+	    if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+        	$form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+	    }
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
+                // this happens if a USE command was typed
+                if (typeof data.reload != 'undefined') {
+                    $form.find('input[name=db]').val(data.db);
+                    // need to regenerate the whole upper part
+                    $form.find('input[name=ajax_request]').remove();
+                    $form.append('<input type="hidden" name="reload" value="true" />');
+                    $.post('db_sql.php', $form.serialize(), function(data) {
+                        $('body').html(data);
+                    }); // end inner post
+                }
             }
             else if (data.success == false ) {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, 50000);
             }
             else {
                 $("#sqlqueryresults").html(data);
