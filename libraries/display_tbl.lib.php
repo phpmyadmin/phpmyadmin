@@ -1330,7 +1330,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                     }
                 }
-            // n o t   n u m e r i c   a n d   n o t   B L O B
+            // g e o m e t r y
+            } elseif ($meta->type == 'geometry') {
+                $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $geometry_text . '</td>';
+                unset($geometry_text);
+
+            // n o t   n u m e r i c   a n d   n o t   B L O B 
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -2266,7 +2272,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * @uses    PMA_formatByteDown()
  * @uses    strpos()
  * @uses    str_replace()
- * @param   string  $category BLOB|BINARY
+ * @param   string  $category BLOB|BINARY|GEOMETRY
  * @param   string  $content  the binary content
  * @param   string  $transform_function
  * @param   string  $transform_options
