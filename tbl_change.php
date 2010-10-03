@@ -497,7 +497,7 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
              || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo '        <td align="center">' . $strBinary . '</td>' . "\n";
-            } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set')) {
+            } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set') || 'geometry' == $field['pma_type']) {
                 echo '        <td align="center">--</td>' . "\n";
             } else {
                 ?>
@@ -1027,6 +1027,10 @@ foreach ($rows as $row_id => $vrow) {
                 }
             } // end if (web-server upload directory)
         } // end elseif (binary or blob)
+
+        elseif ('geometry' == $field['pma_type']) {
+            // ignore this column to avoid changing it
+        }
         else {
             // field size should be at least 4 and max 40
             $fieldsize = min(max($field['len'], 4), 40);
