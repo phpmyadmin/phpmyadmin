@@ -597,7 +597,6 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 } // end for
 
-if ($cfg['CtrlArrowsMoving']) {
     ?>
 <script src="./js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -606,9 +605,6 @@ var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
 document.onkeydown = onKeyDownArrowsHandler;
 // ]]>
 </script>
-    <?php
-}
-?>
 
 <form id="<?php echo ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form" method="post" action="<?php echo $action; ?>">
 <?php

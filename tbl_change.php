@@ -207,7 +207,6 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 &&
 // Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
 
-if ($cfg['CtrlArrowsMoving']) {
     ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
 <script src="./js/keyhandler.js" type="text/javascript"></script>
@@ -218,7 +217,6 @@ document.onkeydown = onKeyDownArrowsHandler;
 //]]>
 </script>
     <?php
-}
 
 $_form_params = array(
     'db'        => $db,

@@ -2199,13 +2199,6 @@ $cfg['CharTextareaCols'] = 40;
 $cfg['CharTextareaRows'] = 2;
 
 /**
- * Enable Ctrl+Arrows moving between fields when editing?
- *
- * @global boolean $cfg['CtrlArrowsMoving']
- */
-$cfg['CtrlArrowsMoving'] = true;
-
-/**
  * Max field data length in browse mode for all non-numeric fields
  *
  * @global integer $cfg['LimitChars']
