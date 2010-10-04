@@ -1076,10 +1076,9 @@ msgid "Hide query box"
 msgstr "Sorgu kutusunu gizle"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL Sorgu kutusu"
+msgstr "Sorgu kutusunu göster"
 
 #: js/messages.php:86
 msgid "Inline Edit"
