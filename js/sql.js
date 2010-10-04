@@ -150,20 +150,28 @@ $(document).ready(function() {
     $("#sqlqueryresults").trigger('appendAnchor');
 
     /**
-     * Append the Toggle Query Box message to the query input form
+     * Append the "Show/Hide query box" message to the query input form
      *
      * @memberOf jQuery
      * @name    appendToggleSpan
      */
-    // do not add this span more than once
-    if (! $('#sqlqueryform').find('span').is('#togglequerybox')) {
-        $('<span id="togglequerybox"></span>')
-        .html(PMA_messages['strToggleQueryBox'])
+    // do not add this link more than once
+    if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
+        $('<a id="togglequerybox"></a>')
+        .html(PMA_messages['strHideQueryBox'])
         .appendTo("#sqlqueryform");
 
         // Attach the toggling of the query box visibility to a click
         $("#togglequerybox").bind('click', function() {
-            $(this).siblings().slideToggle("medium");
+            var $link = $(this)
+            $link.siblings().slideToggle("medium");
+            if ($link.text() == PMA_messages['strHideQueryBox']) {
+                $link.text(PMA_messages['strShowQueryBox']);
+            } else {
+                $link.text(PMA_messages['strHideQueryBox']);
+            }
+            // avoid default click action
+            return false;
         })
     }
     

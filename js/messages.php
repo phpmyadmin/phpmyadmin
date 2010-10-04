@@ -81,7 +81,8 @@ $js_messages['strNo'] = __('No');
 $js_messages['strSearching'] = __('Searching');
 
 /* For sql.js */
-$js_messages['strToggleQueryBox'] = __('Toggle Query Box Visibility');
+$js_messages['strHideQueryBox'] = __('Hide query box');
+$js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strInlineEdit'] = __('Inline Edit');
 
 /* For tbl_change.js */
