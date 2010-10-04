@@ -1118,25 +1118,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             } // end if (1.2.1)
 
-            if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
-                $_url_params = array(
-                    'db'                    => $row[1],
-                    'id_bookmark'           => $row[0],
-                    'action_bookmark'       => '0',
-                    'action_bookmark_all'   => '1',
-                    'SQL'       => __('Execute bookmarked query'),
-                );
-                $bookmark_go = '<a href="import.php'
-                                . PMA_generate_common_url($_url_params)
-                                .' " title="' . __('Execute bookmarked query') . '">';
-
-                $bookmark_go .= PMA_getIcon('b_bookmark.png', __('Execute bookmarked query'), true);
-
-                $bookmark_go .= '</a>';
-            } else {
-                $bookmark_go = '';
-            }
-
             // 1.2.2 Delete/Kill link(s)
             if ($is_display['del_lnk'] == 'dr') { // delete row case
                 $_url_params = array(
@@ -1448,7 +1429,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         if (isset($edit_url)) {
             $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, array(), false)
-                                                 . $bookmark_go
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['edit'][$row_no]);

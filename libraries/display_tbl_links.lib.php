@@ -28,7 +28,6 @@ if ($doWriteModifyAt == 'left') {
     if (!empty($edit_url)) {
         echo '    <td class="' . $edit_anchor_class . '" align="center">' . "\n"
            . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
-           . $bookmark_go
            . '    </td>' . "\n";
     }
     if (!empty($del_url)) {
@@ -45,7 +44,6 @@ if ($doWriteModifyAt == 'left') {
     if (!empty($edit_url)) {
         echo '    <td class="' . $edit_anchor_class . '" align="center">' . "\n"
            . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
-           . $bookmark_go
            . '    </td>' . "\n";
     }
     if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
