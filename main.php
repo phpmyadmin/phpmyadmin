@@ -271,6 +271,13 @@ if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
 }
 
 /**
+ * Check whether LoginCookieValidity is limited by LoginCookieStore.
+ */
+if ($GLOBALS['cfg']['LoginCookieStore'] != 0 && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']) {
+    trigger_error(PMA_Message::decodeBB(__('Login cookie store is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.')), E_USER_WARNING);
+}
+
+/**
  * Check if user does not have defined blowfish secret and it is being used.
  */
 if (!empty($_SESSION['auto_blowfish_secret']) &&
