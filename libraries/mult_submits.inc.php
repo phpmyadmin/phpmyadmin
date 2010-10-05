@@ -245,7 +245,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     if ($what == 'row_delete') {
         $_url_params['original_sql_query'] = $original_sql_query;
-        $_url_params['original_url_query'] = $original_url_query;
+        if (! empty($original_url_query)) {
+            $_url_params['original_url_query'] = $original_url_query;
+        }
     }
     ?>
 <form action="<?php echo $action; ?>" method="post">

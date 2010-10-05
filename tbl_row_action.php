@@ -113,7 +113,9 @@ if (!empty($submit_mult)) {
             $err_url = 'tbl_row_action.php' . PMA_generate_common_url($GLOBALS['url_params']);
             if (! isset($_REQUEST['mult_btn'])) {
                 $original_sql_query = $sql_query;
-                $original_url_query = $url_query;
+                if (! empty($url_query)) {
+                    $original_url_query = $url_query;
+                }
             }
             require './libraries/mult_submits.inc.php';
             $_url_params = $GLOBALS['url_params'];

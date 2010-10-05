@@ -2085,8 +2085,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         echo '<input type="hidden" name="sql_query"'
             .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
-        echo '<input type="hidden" name="url_query"'
-            .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
+
+        if (! empty($GLOBALS['url_query'])) {
+            echo '<input type="hidden" name="url_query"'
+                .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
+        }
 
         echo '<input type="hidden" name="clause_is_unique"'
             .' value="' . $clause_is_unique . '" />' . "\n";
