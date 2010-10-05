@@ -261,7 +261,7 @@ function perform_config_checks()
     $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime]', '[/a]', ini_get('session.gc_maxlifetime'));
     $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
     $strLoginCookieValidityWarning2 = sprintf($strLoginCookieValidityWarning2, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
-    $strLoginCookieValidityWarning3 = __('%sLogin cookie validity%s must be set to a value less or equal to %sLogin cookie store%s.');
+    $strLoginCookieValidityWarning3 = __('If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin cookie validity%s must be set to a value less or equal to it.');
     $strLoginCookieValidityWarning3 = sprintf($strLoginCookieValidityWarning3, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
     $strSecurityInfoMsg = sprintf($strSecurityInfoMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '%s');
