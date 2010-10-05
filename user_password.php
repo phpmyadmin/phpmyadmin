@@ -35,7 +35,6 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'password_generation.js';
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this

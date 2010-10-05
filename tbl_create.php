@@ -38,6 +38,7 @@ require_once './libraries/common.inc.php';
 $action = 'tbl_create.php';
 
 require_once './libraries/header.inc.php';
+require_once './libraries/build_action_titles.inc.php';
 
 // Check parameters
 PMA_checkParameters(array('db'));
@@ -299,25 +300,21 @@ if (isset($_REQUEST['do_save_data'])) {
             }
             $new_table_string .= '</th>' . "\n";
 
-            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_browse.png" alt="' . __('Browse') . '" title="' . __('Browse') . '" /> </td>' . "\n";
+            $new_table_string .= '<td>' . $titles['NoBrowse'] . '</td>' . "\n";
 
-            $new_table_string .= '<td> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '"> ';
-            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . __('Structure') . '" title="' . __('Structure') . '" />';
-            $new_table_string .= '</a> </td>' . "\n";
+            $new_table_string .= '<td><a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '">' . $titles['Structure'] . '</a></td>' . "\n";
 
-            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_select.png" alt="' . __('Search') . '" title="' . __('Search') . '" /> </td>' . "\n";
+            $new_table_string .= '<td>' . $titles['NoSearch'] . '</td>' . "\n";
 
-            $new_table_string .= '<td> <a href="tbl_change.php' . PMA_generate_common_url($tbl_url_params) . '"> ';
-            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . __('Insert') . '" title="' . __('Insert') . '" />';
-            $new_table_string .= '</a> </td>' . "\n";
+            $new_table_string .= '<td><a href="tbl_change.php' . PMA_generate_common_url($tbl_url_params) . '">' . $titles['Insert'] . '</a></td>' . "\n";
 
-            $new_table_string .= '<td> <img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'bd_empty.png" alt="' . __('Empty') . '" title="' . __('Empty') . '" /> </td>' . "\n";
+            $new_table_string .= '<td>' . $titles['NoEmpty'] . '</td>' . "\n";
 
-            $new_table_string .= '<td> <a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
+            $new_table_string .= '<td><a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
             $new_table_string .= urlencode('DROP TABLE ' . PMA_backquote($table));
             $new_table_string .= '">';
-            $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . __('Drop') . '" title="' . __('Drop') . '" />';
-            $new_table_string .= '</a> </td>' . "\n";
+            $new_table_string .= $titles['Drop']; 
+            $new_table_string .= '</a></td>' . "\n";
 
             $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
 

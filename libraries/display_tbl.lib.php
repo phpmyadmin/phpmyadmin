@@ -1118,25 +1118,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             } // end if (1.2.1)
 
-            if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
-                $_url_params = array(
-                    'db'                    => $row[1],
-                    'id_bookmark'           => $row[0],
-                    'action_bookmark'       => '0',
-                    'action_bookmark_all'   => '1',
-                    'SQL'       => __('Execute bookmarked query'),
-                );
-                $bookmark_go = '<a href="import.php'
-                                . PMA_generate_common_url($_url_params)
-                                .' " title="' . __('Execute bookmarked query') . '">';
-
-                $bookmark_go .= PMA_getIcon('b_bookmark.png', __('Execute bookmarked query'), true);
-
-                $bookmark_go .= '</a>';
-            } else {
-                $bookmark_go = '';
-            }
-
             // 1.2.2 Delete/Kill link(s)
             if ($is_display['del_lnk'] == 'dr') { // delete row case
                 $_url_params = array(
@@ -1330,7 +1311,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                     }
                 }
-            // n o t   n u m e r i c   a n d   n o t   B L O B
+            // g e o m e t r y
+            } elseif ($meta->type == 'geometry') {
+                $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $geometry_text . '</td>';
+                unset($geometry_text);
+
+            // n o t   n u m e r i c   a n d   n o t   B L O B 
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -1442,7 +1429,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         if (isset($edit_url)) {
             $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, array(), false)
-                                                 . $bookmark_go
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['edit'][$row_no]);
@@ -2266,7 +2252,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * @uses    PMA_formatByteDown()
  * @uses    strpos()
  * @uses    str_replace()
- * @param   string  $category BLOB|BINARY
+ * @param   string  $category BLOB|BINARY|GEOMETRY
  * @param   string  $content  the binary content
  * @param   string  $transform_function
  * @param   string  $transform_options

@@ -115,7 +115,6 @@ $forms['Main_frame']['Edit'] = array(
     'InsertRows',
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit',
-    'CtrlArrowsMoving',
     'DefaultPropDisplay');
 $forms['Main_frame']['Tabs'] = array(
     'LightTabs',

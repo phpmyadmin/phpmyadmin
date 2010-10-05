@@ -117,6 +117,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $display_query = '';
                         }
                         $sql_query = $import_run_buffer['sql'];
+                        // If a 'USE <db>' SQL-clause was found, set our current $db to the new one
+                        list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
                     } elseif ($run_query) {
                         if ($controluser) {
                             $result = PMA_query_as_controluser($import_run_buffer['sql']);
@@ -156,10 +158,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         }
                         
                         // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                        if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match)) {
-                            $db = trim($match[1]);
-                            $db = trim($db,';'); // for example, USE abc;
-                            $reload = TRUE;
+                        if ($result != FALSE) {
+                            list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
                         }
                         
                         if ($result != FALSE && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
@@ -203,6 +203,25 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
     } else {
         unset($GLOBALS['import_run_buffer']);
     }
+}
+
+/**
+ * Looks for the presence of USE to possibly change current db  
+ *
+ * @param  string buffer to examine 
+ * @param  string current db 
+ * @param  boolean reload 
+ * @return array (current or new db, whether to reload) 
+ * @access public
+ */
+function PMA_lookForUse($buffer, $db, $reload)
+{ 
+    if (preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $buffer, $match)) {
+        $db = trim($match[1]);
+        $db = trim($db,';'); // for example, USE abc;
+        $reload = TRUE;
+    }
+    return(array($db, $reload));
 }
 
 

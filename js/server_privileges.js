@@ -73,31 +73,6 @@ function checkAddUser(the_form)
     return checkPassword(the_form);
 } // end of the 'checkAddUser()' function
 
-
-/**
- * Generate a new password and copy it to the password input areas
- *
- * @param   object   the form that holds the password fields
- *
- * @return  boolean  always true
- */
-function suggestPassword(passwd_form) {
-    // restrict the password to just letters and numbers to avoid problems:
-    // "editors and viewers regard the password as multiple words and
-    // things like double click no longer work"
-    var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ";
-    var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
-    var passwd = passwd_form.generated_pw;
-    passwd.value = '';
-
-    for ( i = 0; i < passwordlength; i++ ) {
-        passwd.value += pwchars.charAt( Math.floor( Math.random() * pwchars.length ) )
-    }
-    passwd_form.text_pma_pw.value = passwd.value;
-    passwd_form.text_pma_pw2.value = passwd.value;
-    return true;
-}
-
 /**
  * When a new user is created and retrieved over Ajax, append the user's row to
  * the user's table
@@ -238,6 +213,7 @@ $(document).ready(function() {
                 modal: true,
                 buttons: button_options
             }); //dialog options end
+            displayPasswordGenerateButton();
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -339,7 +315,8 @@ $(document).ready(function() {
             .dialog({
                 width: 900,
                 buttons: button_options
-            })
+            }); //dialog options end
+            displayPasswordGenerateButton();
         }) // end $.get()
     })
 

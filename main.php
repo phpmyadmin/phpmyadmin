@@ -239,7 +239,6 @@ PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', 'http://www.phpMyA
 <?php
 /**
  * Warning if using the default MySQL privileged account
- * modified: 2004-05-05 mkkeck
  */
 if ($server != 0
  && $cfg['Server']['user'] == 'root'

@@ -677,7 +677,10 @@ if (0 == $num_rows || $is_affected) {
         if(isset($GLOBALS['display_query'])) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
         }
-
+        if ($GLOBALS['reload'] == 1) {
+            $extra_data['reload'] = 1;
+            $extra_data['db'] = $GLOBALS['db'];
+        } 
         PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : ''));
     }
 
