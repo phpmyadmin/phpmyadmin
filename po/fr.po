@@ -1087,10 +1087,9 @@ msgid "Hide query box"
 msgstr "Cacher zone SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Boîte de requêtes SQL"
+msgstr "Montrer zone SQL"
 
 #: js/messages.php:86
 msgid "Inline Edit"
