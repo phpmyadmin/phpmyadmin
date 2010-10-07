@@ -49,7 +49,7 @@ if ($events) {
                      </tr>',
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $event['EVENT_NAME'],
-                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
+                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
                      '<a class="drop_event_anchor" href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
                      $event['EVENT_TYPE']);
         $ct++;

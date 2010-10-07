@@ -45,24 +45,6 @@ if (empty($is_info)) {
     require_once './libraries/replication.inc.php';
 }
 
-// 1. No tables
-if ($num_tables == 0) {
-    echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
-
-    if (empty($db_is_information_schema)) {
-        require './libraries/display_create_table.lib.php';
-    } // end if (Create Table dialog)
-
-    /**
-     * Displays the footer
-     */
-    require './libraries/footer.inc.php';
-    exit;
-}
-
-// else
-// 2. Shows table informations
-
 require_once './libraries/bookmark.lib.php';
 
 require_once './libraries/mysql_charsets.lib.php';
@@ -71,6 +53,32 @@ $db_collation = PMA_getDbCollation($db);
 // in a separate file to avoid redeclaration of functions in some code paths
 require_once './libraries/db_structure.lib.php';
 require_once './libraries/build_action_titles.inc.php';
+
+// 1. No tables
+if ($num_tables == 0) {
+	echo '<p>' . $strNoTablesFound . '</p>' . "\n";
+
+	// Routines
+	require './libraries/db_routines.inc.php';
+
+	// Events
+	if (PMA_MYSQL_INT_VERSION > 50100) {
+	    require './libraries/db_events.inc.php';
+	}
+
+	if (empty($db_is_information_schema)) {
+		require './libraries/display_create_table.lib.php';
+	} // end if (Create Table dialog)
+
+	/**
+	 * Displays the footer
+	 */
+	require_once './libraries/footer.inc.php';
+	exit;
+}
+
+// else
+// 2. Shows table informations
 
 /**
  * Displays the tables list
