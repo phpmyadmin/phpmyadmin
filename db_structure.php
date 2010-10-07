@@ -46,24 +46,6 @@ if (empty($is_info)) {
     require_once './libraries/replication.inc.php';
 }
 
-// 1. No tables
-if ($num_tables == 0) {
-    echo '<p>' . $strNoTablesFound . '</p>' . "\n";
-
-    if (empty($db_is_information_schema)) {
-        require './libraries/display_create_table.lib.php';
-    } // end if (Create Table dialog)
-
-    /**
-     * Displays the footer
-     */
-    require_once './libraries/footer.inc.php';
-    exit;
-}
-
-// else
-// 2. Shows table informations - staybyte - 11 June 2001
-
 require_once './libraries/bookmark.lib.php';
 
 require_once './libraries/mysql_charsets.lib.php';
@@ -112,6 +94,32 @@ if (true == $cfg['PropertiesIconic']) {
     $titles['Empty']      = $strEmpty;
     $titles['NoEmpty']    = $strEmpty;
 }
+
+// 1. No tables
+if ($num_tables == 0) {
+	echo '<p>' . $strNoTablesFound . '</p>' . "\n";
+
+	// Routines
+	require './libraries/db_routines.inc.php';
+
+	// Events
+	if (PMA_MYSQL_INT_VERSION > 50100) {
+	    require './libraries/db_events.inc.php';
+	}
+
+	if (empty($db_is_information_schema)) {
+		require './libraries/display_create_table.lib.php';
+	} // end if (Create Table dialog)
+
+	/**
+	 * Displays the footer
+	 */
+	require_once './libraries/footer.inc.php';
+	exit;
+}
+
+// else
+// 2. Shows table informations
 
 /**
  * Displays the tables list
