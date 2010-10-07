@@ -9,11 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Append goto to ulr_query.
- */
-$url_query .= '&amp;goto=db_structure.php';
-
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($events) {
