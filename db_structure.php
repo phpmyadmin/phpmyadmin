@@ -56,7 +56,7 @@ require_once './libraries/build_action_titles.inc.php';
 
 // 1. No tables
 if ($num_tables == 0) {
-	echo '<p>' . $strNoTablesFound . '</p>' . "\n";
+	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
 	// Routines
 	require './libraries/db_routines.inc.php';
