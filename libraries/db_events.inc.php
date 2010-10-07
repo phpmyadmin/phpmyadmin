@@ -8,11 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Append goto to ulr_query.
- */
-$url_query .= '&amp;goto=db_structure.php';
-
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($events) {
@@ -49,7 +44,7 @@ if ($events) {
                      </tr>',
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $event['EVENT_NAME'],
-                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
+                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
                      '<a class="drop_event_anchor" href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
                      $event['EVENT_TYPE']);
         $ct++;

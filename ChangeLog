@@ -125,6 +125,7 @@
 - bug #3062455 [export] with SQL, export procedures and routines before tables
 - bug #3056023 [import] USE query not working
 - bug #3038193 [display] Error when editing row with GEOMETRY column
+- bug #3062454 [interface] Display routines/events also when no tables are defined
 
 3.3.7.0 (2010-09-07)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
