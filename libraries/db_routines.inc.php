@@ -18,11 +18,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Append goto to ulr_query.
- */
-$url_query .= '&amp;goto=db_structure.php';
-
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($routines) {
