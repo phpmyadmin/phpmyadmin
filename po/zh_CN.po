@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-08 07:01+0200\n"
+"PO-Revision-Date: 2010-10-08 07:02+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1060,10 +1060,9 @@ msgid "Hide query box"
 msgstr "隐藏查询框"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL 查询框"
+msgstr "显示查询框"
 
 #: js/messages.php:86
 msgid "Inline Edit"
