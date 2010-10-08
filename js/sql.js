@@ -184,6 +184,9 @@ $(document).ready(function() {
      */
     $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
+        // remove any div containing a previous error message
+        $('.error').remove();
+
         $form = $(this);
         PMA_ajaxShowMessage();
 
@@ -206,7 +209,8 @@ $(document).ready(function() {
                 }
             }
             else if (data.success == false ) {
-                PMA_ajaxShowMessage(data.error, 50000);
+                // show an error message that stays on screen 
+                $('#sqlqueryform').before(data.error);
             }
             else {
                 $("#sqlqueryresults").html(data);
