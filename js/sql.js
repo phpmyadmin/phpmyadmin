@@ -197,6 +197,7 @@ $(document).ready(function() {
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
+                $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     $form.find('input[name=db]').val(data.db);
@@ -211,8 +212,10 @@ $(document).ready(function() {
             else if (data.success == false ) {
                 // show an error message that stays on screen 
                 $('#sqlqueryform').before(data.error);
+                $('#sqlqueryresults').hide();
             }
             else {
+                $('#sqlqueryresults').show();
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 if($("#togglequerybox").siblings(":visible").length > 0) {
