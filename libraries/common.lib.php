@@ -1232,18 +1232,23 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             echo '</form>';
         }
 
+        // in the tools div, only display the Inline link when not in ajax
+        // mode because 1) it currently does not work and 2) we would
+        // have two similar mechanisms on the page for the same goal
+        if ($GLOBALS['is_ajax_request'] === false) {
         // see in js/functions.js the jQuery code attached to id inline_edit
         // document.write conflicts with jQuery, hence used $().append()
-        $inline_edit = "<script type=\"text/javascript\">\n" .
-            "//<![CDATA[\n" .
-            "$('.tools').append('[<a href=\"#\" title=\"" .
-            PMA_escapeJsString(__('Inline edit of this query')) .
-            "\" id=\"inline_edit\">" .
-            PMA_escapeJsString(__('Inline')) .
-            "</a>]');\n" .
-            "//]]>\n" .
-            "</script>";
-        echo $inline_edit . $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
+            echo "<script type=\"text/javascript\">\n" .
+                "//<![CDATA[\n" .
+                "$('.tools').append('[<a href=\"#\" title=\"" .
+                PMA_escapeJsString(__('Inline edit of this query')) .
+                "\" id=\"inline_edit\">" .
+                PMA_escapeJsString(__('Inline')) .
+                "</a>]');\n" .
+                "//]]>\n" .
+                "</script>";
+        }
+        echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
         echo '</div>';
     }
     echo '</div><br />' . "\n";
