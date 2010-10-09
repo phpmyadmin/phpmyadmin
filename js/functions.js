@@ -2041,7 +2041,6 @@ $(document).ready(function() {
      *
      * @uses    PMA_ajaxShowMessage()
      * @uses    $.PMA_sort_table()
-     * @uses    window.parent.refreshNavigation()
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
@@ -2098,7 +2097,9 @@ $(document).ready(function() {
                 $(tables_table).PMA_sort_table('th');
 
                 //Refresh navigation frame as a new table has been added
-                window.parent.refreshNavigation();
+                if (window.parent && window.parent.frame_navigation) {
+                    window.parent.frame_navigation.location.reload();
+                }
             }
             else {
                 PMA_ajaxShowMessage(data.error);
@@ -2200,7 +2201,9 @@ $(document).ready(function() {
                     .end()
                     .after(data.sql_query);
                     window.parent.table = '';
-                    window.parent.refreshNavigation();
+                    if (window.parent && window.parent.frame_navigation) {
+                        window.parent.frame_navigation.location.reload();
+                    }
                 }
                 else {
                     PMA_ajaxShowMessage(data.error);

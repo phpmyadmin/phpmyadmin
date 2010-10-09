@@ -93,6 +93,10 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     //need to find a better solution here.  The icon should be replaced
                     $(curr_row).hide("medium").remove();
+
+                    if (window.parent && window.parent.frame_navigation) {
+                        window.parent.frame_navigation.location.reload();
+                    }
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
