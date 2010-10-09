@@ -2563,7 +2563,7 @@ function PMA_generate_slider_effect($id, $message)
     //]]>
     </script>
     <noscript>
-    <div id="<?php echo $id; ?>">
+    <div id="<?php echo $id; ?>"></div>
     </noscript>
     <?php
 }
