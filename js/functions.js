@@ -2064,37 +2064,43 @@ $(document).ready(function() {
                  * @var tables_table    Object referring to the <tbody> element that holds the list of tables
                  */
                 var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+                // this is the first table created in this db
+                if (tables_table.length == 0) {
+                    if (window.parent && window.parent.frame_content) {
+                        window.parent.frame_content.location.reload();
+                    }
+                } else {
+                    /**
+                     * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                     */
+                    var curr_last_row = $(tables_table).find('tr:last');
+                    /**
+                     * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                     */
+                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    /**
+                     * @var curr_last_row_index Index of {@link curr_last_row}
+                     */
+                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                    /**
+                     * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                     */
+                    var new_last_row_index = curr_last_row_index + 1;
+                    /**
+                     * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                     */
+                    var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
 
-                /**
-                 * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                 */
-                var curr_last_row = $(tables_table).find('tr:last');
-                /**
-                 * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                 */
-                var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                /**
-                 * @var curr_last_row_index Index of {@link curr_last_row}
-                 */
-                var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                /**
-                 * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                 */
-                var new_last_row_index = curr_last_row_index + 1;
-                /**
-                 * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                 */
-                var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+                    //append to table
+                    $(data.new_table_string)
+                     .find('input:checkbox')
+                     .val(new_last_row_id)
+                     .end()
+                     .appendTo(tables_table);
 
-                //append to table
-                $(data.new_table_string)
-                .find('input:checkbox')
-                .val(new_last_row_id)
-                .end()
-                .appendTo(tables_table);
-
-                //Sort the table
-                $(tables_table).PMA_sort_table('th');
+                    //Sort the table
+                    $(tables_table).PMA_sort_table('th');
+                }
 
                 //Refresh navigation frame as a new table has been added
                 if (window.parent && window.parent.frame_navigation) {
