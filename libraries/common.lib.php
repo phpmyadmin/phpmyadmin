@@ -102,7 +102,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     }
 
     if ($include_box) {
-        $button .= '<div class="nowrap">';
+        $button .= '<span class="nowrap">';
     }
 
     if ($include_icon) {
@@ -120,7 +120,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     }
 
     if ($include_box) {
-        $button .= '</div>';
+        $button .= '</span>';
     }
 
     return $button;

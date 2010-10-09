@@ -610,6 +610,10 @@ td.disabled {
     background-color:   #cccccc;
 }
 
+.nowrap {
+    white-space:        nowrap;
+}
+
 /**
  * login form
  */
