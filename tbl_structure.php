@@ -405,7 +405,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         ?>
     </td>
     <?php
-        if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'MARIA')
+        if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')
             // FULLTEXT is possible on TEXT, CHAR and VARCHAR
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
@@ -460,7 +460,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
     }
-    if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'MARIA')) {
+    if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
     }
 }
@@ -688,7 +688,7 @@ if ($cfg['ShowStats']) {
             <?php
         }
         // Optimize link if overhead
-        if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
+        if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" align="center">
