@@ -150,7 +150,7 @@ echo '</ul>';
 echo '<ul>';
 echo PMA_printListItem(__('More settings'), 'li_user_preferences',
                     './prefs_manage.php?' . $common_url_query);
-echo '<ul>';
+echo '</ul>';
 
 echo '</div>';
 
