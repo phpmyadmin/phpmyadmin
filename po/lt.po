@@ -724,9 +724,8 @@ msgid "Data Dictionary"
 msgstr "Duomenų žodynas"
 
 #: db_tracking.php:78
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Patikrinti lentelę"
+msgstr "Sekamos lentelės"
 
 #: db_tracking.php:83 libraries/config/messages.inc.php:478
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
