@@ -618,7 +618,7 @@ msgstr ""
 #: db_structure.php:378 db_structure.php:392 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
-msgstr "Rodinys (View)"
+msgstr "Rodinys"
 
 #: db_structure.php:429 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
