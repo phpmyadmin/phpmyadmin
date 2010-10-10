@@ -810,7 +810,7 @@ msgstr "Stulpelio „%s“ reikšmės"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
