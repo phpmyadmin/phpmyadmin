@@ -3926,9 +3926,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Lütfen not edin bunu etkinleştirmek kimlik denetimi modu [kbd]"
-"yapılandırmasını[/kbd] etkilemez çünkü parola yapılandırma dosyasında sıkı "
-"kodlanmıştır; bu, doğrudan aynı komutun yürütme kabiliyetini sınırlandırmaz"
+"Lütfen unutmayın, bunu etkinleştirmek kimlik denetimi modu "
+"[kbd]yapılandırmasını[/kbd] etkilemez çünkü parola yapılandırma dosyasında "
+"sıkı kodlanmıştır; bu, doğrudan aynı komutun yürütme kabiliyetini "
+"sınırlandırmaz"
 
 #: libraries/config/messages.inc.php:438
 msgid "Show password change form"
