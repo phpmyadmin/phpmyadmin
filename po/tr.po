@@ -1347,7 +1347,7 @@ msgstr "Per"
 #. l10n: Short week day name
 #: js/messages.php:190 libraries/common.lib.php:1575
 msgid "Fri"
-msgstr "Cu"
+msgstr "Cum"
 
 #. l10n: Short week day name
 #: js/messages.php:192 libraries/common.lib.php:1577
