@@ -3198,7 +3198,7 @@ msgid ""
 "authentication mode"
 msgstr ""
 "Önceki kullanıcı adının hatırlanıp hatırlanmayacağını veya tanımlama "
-"bilgisiyle kimlik denetimi modunda olmamasını tanımlar"
+"bilgisiyle kimlik denetimi kipinde olmamasını tanımlar"
 
 #: libraries/config/messages.inc.php:290
 msgid "Recall user name"
