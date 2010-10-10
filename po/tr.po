@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-10 04:46+0200\n"
+"PO-Revision-Date: 2010-10-10 04:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1332,7 +1332,7 @@ msgstr "Ptesi"
 #. l10n: Short week day name
 #: js/messages.php:184 libraries/common.lib.php:1569
 msgid "Tue"
-msgstr "Salı"
+msgstr "Sal"
 
 #. l10n: Short week day name
 #: js/messages.php:186 libraries/common.lib.php:1571
