@@ -346,10 +346,9 @@ msgstr ""
 "phpMyAdmin konfigūracijos talpinimo vieta išjungta. %sIšsiaiškinti kodėl%s."
 
 #: db_operations.php:552
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Ryšių schema"
+msgstr "Keisti arba eksportuoti ryšių schemą"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
