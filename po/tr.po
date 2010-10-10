@@ -1387,7 +1387,7 @@ msgstr "Cu"
 #. l10n: Minimal week day name
 #: js/messages.php:208
 msgid "Sa"
-msgstr "Ctesi"
+msgstr "Ct"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:210
