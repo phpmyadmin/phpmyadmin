@@ -2646,7 +2646,7 @@ msgstr "Dış anahtar sınırı"
 
 #: libraries/config/messages.inc.php:149
 msgid "Browse mode"
-msgstr "Gözatma modu"
+msgstr "Gözatma kipi"
 
 #: libraries/config/messages.inc.php:150
 msgid "Customize browse mode"
