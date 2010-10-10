@@ -959,6 +959,47 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 } // end of the 'PMA_displayTableHeaders()' function
 
 
+/**
+ * Prepares the display for a value 
+ *
+ * @param   string  $mouse_events 
+ * @param   string  $class
+ * @param   string  $condition_field
+ * @param   string  $value
+ *
+ * @return  string  the td 
+ */
+function PMA_buildValueDisplay($mouse_events, $class, $condition_field, $value) {
+    return '<td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
+}
+
+/**
+ * Prepares the display for a null value 
+ *
+ * @param   string  $mouse_events 
+ * @param   string  $class
+ * @param   string  $condition_field
+ *
+ * @return  string  the td 
+ */
+function PMA_buildNullDisplay($mouse_events, $class, $condition_field) {
+    // the null class is needed for inline editing
+    return '<td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
+}
+
+/**
+ * Prepares the display for an empty value 
+ *
+ * @param   string  $mouse_events 
+ * @param   string  $class
+ * @param   string  $condition_field
+ * @param   string  $align
+ *
+ * @return  string  the td 
+ */
+function PMA_buildEmptyDisplay($mouse_events, $class, $condition_field, $align = '') {
+    return '<td ' . $align . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>';
+}
 
 /**
  * Displays the body of the results table
@@ -1066,13 +1107,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             echo '</tr>' . "\n";
         } // end if
 
-        $class = $odd_row ? 'odd' : 'even';
-        $odd_row = ! $odd_row;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
             // pointer code part
-            echo '    <tr class="' . $class . '">' . "\n";
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
         }
+        $odd_row = ! $odd_row;
 
 
         // 1. Prepares the row
@@ -1183,11 +1223,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             //If the previous column had blob data, we need to reset the class
             // to $data_inline_edit_class
             $class = $data_inline_edit_class;
-            //If this column's value is null, add the null class to it, needed
-            //for inline editing
-            if(is_null($row[$i])) {
-                $class .= ' null';
-            }
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1256,7 +1291,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       so use the $pointer
 
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
                 } elseif ($row[$i] != '') {
 
                     $nowrap = ' nowrap';
@@ -1264,7 +1299,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field, 'align="right"');
                 }
 
             //  b l o b
@@ -1279,7 +1314,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
                     } else {
                         // for blobstreaming
                         // if valid BS reference exists
@@ -1289,13 +1324,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
                         }
 
-                        $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $blobtext);
                         unset($blobtext);
                     }
                 // not binary:
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
                     } elseif ($row[$i] != '') {
                         // if a transform function for blob is set, none of these replacements will be made
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
@@ -1306,21 +1341,23 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         // characters for tabulations and <cr>/<lf>
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
-                        $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $row[$i] . '</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $row[$i]);
                     } else {
-                        $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field);
                     }
                 }
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
                 $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
-                $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $geometry_text . '</td>';
+                // reset $class from $data_inline_edit_class to '' as we can't edit geometry data
+                $class = '';
+                $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $geometry_text);
                 unset($geometry_text);
 
             // n o t   n u m e r i c   a n d   n o t   B L O B 
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
                 } elseif ($row[$i] != '') {
                     // support blanks in the key
                     $relation_id = $row[$i];
@@ -1365,7 +1402,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field);
                 }
             }
 
