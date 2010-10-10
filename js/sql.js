@@ -49,7 +49,7 @@ function appendInlineAnchor(disp_mode) {
 
         $(cloned_row).find('td').addClass('edit_row_anchor')
         .find('a').attr('href', '#')
-        .find('div')
+        .find('span')
         .text(PMA_messages['strInlineEdit'])
         .prepend(img_object);
 
@@ -69,7 +69,7 @@ function appendInlineAnchor(disp_mode) {
 
             $(cloned_anchor).addClass('edit_row_anchor')
             .find('a').attr('href', '#')
-            .find('div')
+            .find('span')
             .text(PMA_messages['strInlineEdit'])
             .prepend(img_object);
 
