@@ -3953,7 +3953,7 @@ msgstr "Alan türlerini göster"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
-msgstr "İşlev alanlarını düzenle/ekle modunda görüntüler"
+msgstr "İşlev alanlarını düzenle/ekle kipinde görüntüler"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show function fields"
