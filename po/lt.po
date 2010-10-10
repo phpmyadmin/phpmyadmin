@@ -796,9 +796,8 @@ msgstr "Nesekamos lentelės"
 
 #: db_tracking.php:184 db_tracking.php:186 tbl_structure.php:618
 #: tbl_structure.php:620
-#, fuzzy
 msgid "Track table"
-msgstr "Patikrinti lentelę"
+msgstr "Sekti lentelę"
 
 #: db_tracking.php:212
 msgid "Database Log"
