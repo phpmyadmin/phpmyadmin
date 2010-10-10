@@ -2650,7 +2650,7 @@ msgstr "Gözatma kipi"
 
 #: libraries/config/messages.inc.php:150
 msgid "Customize browse mode"
-msgstr "Gözatma modunu özelleştirir"
+msgstr "Gözatma kipini özelleştirir"
 
 #: libraries/config/messages.inc.php:152 libraries/config/messages.inc.php:154
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
