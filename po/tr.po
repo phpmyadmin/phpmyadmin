@@ -1362,7 +1362,7 @@ msgstr "Pz"
 #. l10n: Minimal week day name
 #: js/messages.php:198
 msgid "Mo"
-msgstr "Ptesi"
+msgstr "Pt"
 
 #. l10n: Minimal week day name
 #: js/messages.php:200
