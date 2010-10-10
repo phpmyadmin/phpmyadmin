@@ -2681,7 +2681,7 @@ msgstr "Düzenleme kipi"
 
 #: libraries/config/messages.inc.php:158
 msgid "Customize edit mode"
-msgstr "Düzenleme modunu özelleştirir"
+msgstr "Düzenleme kipini özelleştirir"
 
 #: libraries/config/messages.inc.php:160
 msgid "Export defaults"
