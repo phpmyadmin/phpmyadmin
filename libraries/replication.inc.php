@@ -90,25 +90,46 @@ $slave_variables_oks = array(
 );
 
 // check which replication is available and set $server_{master/slave}_status and assign values
+
+// replication info is more easily passed to functions
+/*
+ * @todo use $replication_info everywhere instead of the generated variable names
+ */
+$replication_info = array();
+
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
         ${"server_{$type}_status"} = true;
+        $replication_info[$type]['status'] = true;
     } else {
         ${"server_{$type}_status"} = false;
+        $replication_info[$type]['status'] = false;
     }
     if (${"server_{$type}_status"}) {
         if ($type == "master") {
             ${"server_{$type}_Do_DB"} = explode(",", $server_master_replication[0]["Binlog_Do_DB"]);
+            $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"}; 
+
             ${"server_{$type}_Ignore_DB"} = explode(",", $server_master_replication[0]["Binlog_Ignore_DB"]);
+            $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"}; 
         } elseif ($type == "slave") {
             ${"server_{$type}_Do_DB"} = explode(",", $server_slave_replication[0]["Replicate_Do_DB"]);
+            $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"}; 
+
             ${"server_{$type}_Ignore_DB"} = explode(",", $server_slave_replication[0]["Replicate_Ignore_DB"]);
+            $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"}; 
 
             ${"server_{$type}_Do_Table"} = explode(",", $server_slave_replication[0]["Replicate_Do_Table"]);
+            $replication_info[$type]['Do_Table'] = ${"server_{$type}_Do_Table"}; 
+
             ${"server_{$type}_Ignore_Table"} = explode(",", $server_slave_replication[0]["Replicate_Ignore_Table"]);
+            $replication_info[$type]['Ignore_Table'] = ${"server_{$type}_Ignore_Table"}; 
 
             ${"server_{$type}_Wild_Do_Table"} = explode(",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]);
+            $replication_info[$type]['Wild_Do_Table'] = ${"server_{$type}_Wild_Do_Table"}; 
+
             ${"server_{$type}_Wild_Ignore_Table"} = explode(",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]);
+            $replication_info[$type]['Wild_Ignore_Table'] = ${"server_{$type}_Wild_Ignore_Table"}; 
         }
     }
 }

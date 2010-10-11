@@ -12,6 +12,7 @@ require_once './libraries/common.inc.php';
 
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
+require './libraries/build_html_for_db.lib.php';
 
 /**
  * avoids 'undefined index' errors
@@ -118,42 +119,7 @@ if ($databases_count > 0) {
     reset($databases);
     $first_database = current($databases);
     // table col order
-    $column_order['DEFAULT_COLLATION_NAME'] = array(
-            'disp_name' => __('Collation'),
-            'description_function' => 'PMA_getCollationDescr',
-            'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
-        );
-    $column_order['SCHEMA_TABLES'] = array(
-        'disp_name' => __('Tables'),
-        'format'    => 'number',
-        'footer'    => 0,
-    );
-    $column_order['SCHEMA_TABLE_ROWS'] = array(
-        'disp_name' => __('Rows'),
-        'format'    => 'number',
-        'footer'    => 0,
-    );
-    $column_order['SCHEMA_DATA_LENGTH'] = array(
-        'disp_name' => __('Data'),
-        'format'    => 'byte',
-        'footer'    => 0,
-    );
-    $column_order['SCHEMA_INDEX_LENGTH'] = array(
-        'disp_name' => __('Indexes'),
-        'format'    => 'byte',
-        'footer'    => 0,
-    );
-    $column_order['SCHEMA_LENGTH'] = array(
-        'disp_name' => __('Total'),
-        'format'    => 'byte',
-        'footer'    => 0,
-    );
-    $column_order['SCHEMA_DATA_FREE'] = array(
-        'disp_name' => __('Overhead'),
-        'format'    => 'byte',
-        'footer'    => 0,
-    );
+    $column_order = PMA_getColumnOrder();
 
     $_url_params = array(
         'pos' => $pos,
@@ -223,88 +189,10 @@ if ($databases_count > 0) {
         echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
         $odd_row = ! $odd_row;
 
-        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-            echo '    <td class="tool">' . "\n";
-            if ($current['SCHEMA_NAME'] != 'mysql'
-             && $current['SCHEMA_NAME'] != 'information_schema') {
-                echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
-            } else {
-                echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" disabled="disabled"/>' . "\n";
-            }
-            echo '    </td>' . "\n";
-        }
-        echo '    <td class="name">' . "\n"
-           . '        <a onclick="'
-           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
-           . '" href="index.php?' . $url_query . '&amp;db='
-           . urlencode($current['SCHEMA_NAME']) . '" title="'
-           . sprintf(__('Jump to database'), htmlspecialchars($current['SCHEMA_NAME']))
-           . '" target="_parent">' . "\n"
-           . '            ' . htmlspecialchars($current['SCHEMA_NAME']) . "\n"
-           . '        </a>' . "\n"
-           . '    </td>' . "\n";
+        list($column_order, $generated_html) = PMA_buildHtmlForDb($current, $is_superuser, (isset($checkall) ? $checkall : ''), $url_query, $column_order, $replication_types, $replication_info);
 
-        foreach ($column_order as $stat_name => $stat) {
-            if (array_key_exists($stat_name, $current)) {
-                if (is_numeric($stat['footer'])) {
-                    $column_order[$stat_name]['footer'] += $current[$stat_name];
-                }
-                if ($stat['format'] === 'byte') {
-                    list($value, $unit) = PMA_formatByteDown($current[$stat_name], 3, 1);
-                } elseif ($stat['format'] === 'number') {
-                    $value = PMA_formatNumber($current[$stat_name], 0);
-                } else {
-                    $value = htmlentities($current[$stat_name], 0);
-                }
-                echo '    <td class="value">';
-                if (isset($stat['description_function'])) {
-                    echo '<dfn title="' . $stat['description_function']($current[$stat_name]) . '">';
-                }
-                echo $value;
-                if (isset($stat['description_function'])) {
-                    echo '</dfn>';
-                }
-                echo '</td>' . "\n";
-                if ($stat['format'] === 'byte') {
-                    echo '    <td class="unit">' . $unit . '</td>' . "\n";
-                }
-            }
-        }
-        foreach ($replication_types as $type) {
-            if (${"server_{$type}_status"}) {
-                echo '<td class="tool" style="text-align: center;">' . "\n";
+        echo $generated_html;
 
-                if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="' . __('Not replicated') . '" />' . "\n";
-                } else {
-                    $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
-
-                    if (strlen($key) > 0 || (${"server_{$type}_Do_DB"}[0] == "" && count(${"server_{$type}_Do_DB"}) == 1)) {
-                        // if ($key != null) did not work for index "0"
-                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="' . __('Replicated') . '" />' . "\n";
-                    } else {
-                        echo '';
-                    }
-                }
-
-                echo '</td>';
-            }
-        }
-
-        if ($is_superuser) {
-            echo '    <td class="tool">' . "\n"
-               . '        <a onclick="'
-               . 'if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
-               . '" href="./server_privileges.php?' . $url_query
-               . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])
-               . '" title="' . sprintf(__('Check privileges for database &quot;%s&quot;.'), htmlspecialchars($current['SCHEMA_NAME']))
-               . '">'. "\n"
-               . '            '
-               . ($cfg['PropertiesIconic']
-                 ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' . __('Check Privileges') . '" /> '
-                 : __('Check Privileges')) . "\n"
-               . '        </a></td>' . "\n";
-        }
         echo '</tr>' . "\n";
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
@@ -313,7 +201,7 @@ if ($databases_count > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '    <th></th>' . "\n";
     }
-    echo '    <th>' . __('Total') . ': ' . $databases_count . '</th>' . "\n";
+    echo '    <th>' . __('Total') . ': <span id="databases_count">' . $databases_count . '</span></th>' . "\n";
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {

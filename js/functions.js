@@ -2299,10 +2299,15 @@ $(document).ready(function() {
     $('#create_database_form').live('submit', function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        $form = $(this);
 
-        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
 
@@ -2314,6 +2319,10 @@ $(document).ready(function() {
                 .find('#db_summary_row')
                 .appendTo('#tabledatabases tbody')
                 .removeClass('odd even');
+
+                var $databases_count_object = $('#databases_count');
+                var databases_count = parseInt($databases_count_object.text()); 
+                $databases_count_object.text(++databases_count);
             }
             else {
                 PMA_ajaxShowMessage(data.error);
