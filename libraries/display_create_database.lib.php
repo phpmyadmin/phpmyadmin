@@ -25,6 +25,10 @@ if ($is_create_db_priv) {
     <?php
     require_once './libraries/mysql_charsets.lib.php';
     echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, TRUE, 5);
+
+    if (! empty($dbstats)) {
+        echo '<input type="hidden" name="dbstats" value="1" />';
+    }
     ?>
             <input type="submit" value="<?php echo __('Create'); ?>" id="buttonGo" />
         </form>

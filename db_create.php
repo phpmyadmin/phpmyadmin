@@ -13,6 +13,8 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 require_once './libraries/mysql_charsets.lib.php';
+require './libraries/replication.inc.php';
+require './libraries/build_html_for_db.lib.php';
 
 PMA_checkParameters(array('new_db'));
 
@@ -30,6 +32,7 @@ if (!empty($db_collation)) {
     if (in_array($db_charset, $mysql_charsets) && in_array($db_collation, $mysql_collations[$db_charset])) {
         $sql_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     }
+    $db_collation_for_ajax = $db_collation;
     unset($db_charset, $db_collation);
 }
 $sql_query .= ';';
@@ -78,6 +81,8 @@ if (! $result) {
         $db_url_params['db'] = $new_db;
 
         $is_superuser = PMA_isSuperuser();
+        $column_order = PMA_getColumnOrder();
+        $url_query = PMA_generate_common_url($new_db);
 
         /**
          * String that will contain the output HTML
@@ -85,41 +90,33 @@ if (! $result) {
          */
         $new_db_string = '<tr>';
 
-        /**
-         * Is user allowed to drop the database?
-         */
-        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-            $new_db_string .= '<td class="tool">';
-            $new_db_string .= '<input type="checkbox" title="'. $new_db .'" value="' . $new_db . '" name="selected_dbs[]" />';
-            $new_db_string .='</td>';
+        if (empty($db_collation_for_ajax)) {
+            $db_collation_for_ajax = PMA_getServerCollation();
         }
 
-        /**
-         * Link to the database's page
-         */
-        $new_db_string .= '<td class="name">';
-        $new_db_string .= '<a target="_parent" title="Jump to database" href="index.php' . PMA_generate_common_url($db_url_params) . '">';
-        $new_db_string .= $new_db . '</a>';
-        $new_db_string .= '</td>';
-
-        /**
-         * If the user has privileges, let him check privileges for the DB
-         */
-        if($is_superuser) {
-            
-            $db_url_params['checkprivs'] = $new_db;
-
-            $new_db_string .= '<td class="tool">';
-            $new_db_string .= '<a title="Check privileges for database" href="server_privileges.php' . PMA_generate_common_url($db_url_params) . '">';
-            $new_db_string .= ($cfg['PropertiesIconic']
-                                 ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' . __('Check Privileges') . '" /> '
-                                 : __('Check Privileges'))  . '</a>';
-            $new_db_string .= '</td>';
+        // $dbstats comes from the create table dialog
+        if (! empty($dbstats)) {
+            $current = array(
+                'SCHEMA_NAME' => $new_db,
+                'DEFAULT_COLLATION_NAME' => $db_collation_for_ajax,
+                'SCHEMA_TABLES' => '0',
+                'SCHEMA_TABLE_ROWS' => '0',
+                'SCHEMA_DATA_LENGTH' => '0',
+                'SCHEMA_MAX_DATA_LENGTH' => '0',
+                'SCHEMA_INDEX_LENGTH' => '0',
+                'SCHEMA_LENGTH' => '0',
+                'SCHEMA_DATA_FREE' => '0'
+            );
+        } else {
+            $current = array(
+                'SCHEMA_NAME' => $new_db
+            );
         }
+
+        list($column_order, $generated_html) = PMA_buildHtmlForDb($current, $is_superuser, (isset($checkall) ? $checkall : ''), $url_query, $column_order, $replication_types, $replication_info);
+        $new_db_string .= $generated_html;
 
         $new_db_string .= '</tr>';
-
-        /** @todo Statistics for newly created DB! */
 
         $extra_data['new_db_string'] = $new_db_string;
 
