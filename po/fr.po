@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-07 21:14+0200\n"
+"PO-Revision-Date: 2010-10-13 18:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1093,7 +1093,7 @@ msgstr "Montrer zone SQL"
 
 #: js/messages.php:86
 msgid "Inline Edit"
-msgstr "Éditiion sur place"
+msgstr "Édition en place"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
