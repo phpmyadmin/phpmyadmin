@@ -43,17 +43,17 @@ function getFieldName(this_field_obj, disp_mode) {
  */
 function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
-        var cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
+        var $cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
 
-        var img_object = $(cloned_row).find('img:first').attr('title', PMA_messages['strInlineEdit']);
+        var $img_object = $cloned_row.find('img:first').attr('title', PMA_messages['strInlineEdit']);
 
-        $(cloned_row).find('td').addClass('edit_row_anchor')
+        $cloned_row.find('td').addClass('edit_row_anchor')
         .find('a').attr('href', '#')
         .find('span')
         .text(PMA_messages['strInlineEdit'])
-        .prepend(img_object);
+        .prepend($img_object);
 
-        $(cloned_row).insertBefore($('.where_clause').parent('tr'));
+        $cloned_row.insertBefore($('.where_clause').parent('tr'));
 
         $("#table_results").find('tr:first').find('th')
         .attr('rowspan', '4');
@@ -63,18 +63,18 @@ function appendInlineAnchor(disp_mode) {
 
             $(this).removeClass('edit_row_anchor');
 
-            var cloned_anchor = $(this).clone();
+            var $cloned_anchor = $(this).clone();
 
-            var img_object = $(cloned_anchor).find('img').attr('title', PMA_messages['strInlineEdit']);
+            var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
 
-            $(cloned_anchor).addClass('edit_row_anchor')
+            $cloned_anchor.addClass('edit_row_anchor')
             .find('a').attr('href', '#')
             .find('span')
             .text(PMA_messages['strInlineEdit'])
-            .prepend(img_object);
+            .prepend($img_object);
 
             $(this).siblings('.where_clause')
-            .before(cloned_anchor);
+            .before($cloned_anchor);
         });
 
         $('#rowsDeleteForm').find('thead').find('th').each(function() {
