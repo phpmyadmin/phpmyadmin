@@ -1950,7 +1950,7 @@ msgstr "Valider SQL"
 
 #: libraries/common.lib.php:1240
 msgid "Inline edit of this query"
-msgstr "Éditer cette requête en ligne"
+msgstr "Éditer cette requête en place"
 
 #: libraries/common.lib.php:1242
 msgid "Inline"
