@@ -8,6 +8,16 @@
  */
 
 /**
+ * decode a string URL_encoded
+ *
+ * @param string str
+ * @return string the URL-decoded string
+ */
+function PMA_urldecode(str) {
+    return decodeURIComponent(str.replace(/\+/g, '%20'));
+}
+
+/**
  * Get the field name for the current field.  Required to construct the query
  * for inline editing
  *
@@ -576,7 +586,7 @@ $(document).ready(function() {
         })
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
-        sql_query += ' WHERE ' + where_clause;
+        sql_query += ' WHERE ' + PMA_urldecode(where_clause);
 
         /**
          * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
