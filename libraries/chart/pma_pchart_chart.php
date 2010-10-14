@@ -97,7 +97,7 @@ abstract class PMA_pChart_chart extends PMA_chart
         $this->dataSet = new pData;
 
         $this->chart->reportWarnings('GD');
-        $this->chart->ErrorFontName = $this->getFontPath().'tahoma.ttf';
+        $this->chart->ErrorFontName = $this->getFontPath().'DejaVuSans.ttf';
 
         // initialize colors
         foreach ($this->getColors() as $key => $color) {
@@ -109,7 +109,7 @@ abstract class PMA_pChart_chart extends PMA_chart
             );
         }
 
-        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', $this->getFontSize());
+        $this->chart->setFontProperties($this->getFontPath().'DejaVuSans.ttf', $this->getFontSize());
 
         $this->chart->setImageMap(true, 'mapid');
     }
