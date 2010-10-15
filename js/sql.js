@@ -83,7 +83,7 @@ function appendInlineAnchor(disp_mode) {
             .text(PMA_messages['strInlineEdit'])
             .prepend($img_object);
 
-            $(this).siblings('.where_clause')
+            $(this).nextAll('.where_clause:eq(0)')
             .before($cloned_anchor);
         });
 
