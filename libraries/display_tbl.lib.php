@@ -1107,12 +1107,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             echo '</tr>' . "\n";
         } // end if
 
+        $alternating_color_class = ($odd_row ? 'odd' : 'even');
+        $odd_row = ! $odd_row;
+
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
             // pointer code part
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+            echo '<tr class="' . $alternating_color_class . '">';
         }
-        $odd_row = ! $odd_row;
 
 
         // 1. Prepares the row
@@ -1222,7 +1224,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $data_inline_edit_class
-            $class = $data_inline_edit_class;
+            $class = $data_inline_edit_class . ' ' . $alternating_color_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1454,7 +1456,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
-            $vertical_display['row_delete'][$row_no] .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
+            $vertical_display['row_delete'][$row_no] .= '    <td align="center" class="' . $alternating_color_class . '" ' . $column_style_vertical . '>' . "\n"
                                                      .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $where_clause_html . ']"'
                                                      .  ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
                                                      .  ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
@@ -1464,7 +1466,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
+            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $alternating_color_class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, array(), false)
                                                  .  '    </td>' . "\n";
         } else {
@@ -1472,7 +1474,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($del_url)) {
-            $vertical_display['delete'][$row_no] .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
+            $vertical_display['delete'][$row_no] .= '    <td align="center" class="' . $alternating_color_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), false)
                                                  .  '    </td>' . "\n";
         } else {
