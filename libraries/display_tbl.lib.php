@@ -1442,7 +1442,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $vertical_display['edit'][$row_no]       = '';
             $vertical_display['delete'][$row_no]     = '';
             $vertical_display['row_delete'][$row_no] = '';
-            $vertical_display['where_clause'][$row_no] = '';
         }
 
         $column_style_vertical = '';
@@ -1466,9 +1465,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $alternating_color_class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
-                                                 . PMA_linkOrButton($edit_url, $edit_str, array(), false)
-                                                 .  '    </td>' . "\n";
+            $vertical_display['edit'][$row_no]   .= '<td align="center" class="' . $alternating_color_class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
+                . PMA_linkOrButton($edit_url, $edit_str, array(), false);
+            // Generates the 'where_clause' hidden input field 
+            // for inline ajax edit if required
+            if(! empty($where_clause) ) {
+                $vertical_display['edit'][$row_no] .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+            }
+            $vertical_display['edit'][$row_no]   .= '</td>';
         } else {
             unset($vertical_display['edit'][$row_no]);
         }
@@ -1479,13 +1483,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['delete'][$row_no]);
-        }
-
-        if( !empty($where_clause) ) {
-            $vertical_display['where_clause'][$row_no] = '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
-        }
-        else {
-            unset($vertical_display['where_clause'][$row_no]);
         }
 
         echo (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal' || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') ? "\n" : '');
@@ -1500,7 +1497,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
 /**
  * Do display the result table with the vertical direction mode.
- * Credits for this feature goes to Garvin Hicking <hicking@faktor-e.de>.
  *
  * @return  boolean  always true
  *
@@ -1557,22 +1553,6 @@ function PMA_displayVerticalTable()
         }
         $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
-            echo $val;
-            $foo_counter++;
-        } // end while
-        echo '</tr>' . "\n";
-    } // end if
-
-    // Generates the 'where_clause' hidden input field for inline ajax edit if required
-    if ( is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 ) ) {
-        echo '<tr>' . "\n";
-
-        $foo_counter = 0;
-        foreach ($vertical_display['where_clause'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th></th>' . "\n";
             }

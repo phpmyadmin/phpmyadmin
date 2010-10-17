@@ -32,8 +32,8 @@ function getFieldName(this_field_obj, disp_mode) {
     else {
         var this_field_index = $(this_field_obj).index();
         if(window.parent.text_dir == 'ltr') {
-            // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-4 )+') a').text();
+            // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors but index is zero-based so substract 3
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
         }
         else {
             var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
@@ -53,27 +53,33 @@ function getFieldName(this_field_obj, disp_mode) {
  */
 function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
-        var $cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
+        // there can be one or two tr containing this class, depending
+        // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters 
+        $('#table_results tr').find('.edit_row_anchor').parent().each(function() {
+            var $this_tr = $(this);
+            var $cloned_tr = $this_tr.clone();
 
-        var $img_object = $cloned_row.find('img:first').attr('title', PMA_messages['strInlineEdit']);
+            var $img_object = $cloned_tr.find('img:first').attr('title', PMA_messages['strInlineEdit']);
 
-        $cloned_row.find('td').addClass('edit_row_anchor')
-        .find('a').attr('href', '#')
-        .find('span')
-        .text(PMA_messages['strInlineEdit'])
-        .prepend($img_object);
+            $cloned_tr.find('td')
+             .find('a').attr('href', '#')
+             .find('span')
+             .text(PMA_messages['strInlineEdit'])
+             .prepend($img_object);
 
-        $cloned_row.insertBefore($('.where_clause').parent('tr'));
+            $cloned_tr.insertAfter($this_tr);
+        });
 
-        $("#table_results").find('tr:first').find('th')
-        .attr('rowspan', '4');
+        $("#table_results").find('tr').find(':checkbox').closest('tr').find('th')
+         .attr('rowspan', '4');
     }
     else {
         $('.edit_row_anchor').each(function() {
 
-            $(this).removeClass('edit_row_anchor');
+            $this_td = $(this)
+            $this_td.removeClass('edit_row_anchor');
 
-            var $cloned_anchor = $(this).clone();
+            var $cloned_anchor = $this_td.clone();
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
 
@@ -83,8 +89,7 @@ function appendInlineAnchor(disp_mode) {
             .text(PMA_messages['strInlineEdit'])
             .prepend($img_object);
 
-            $(this).nextAll('.where_clause:eq(0)')
-            .before($cloned_anchor);
+            $this_td.after($cloned_anchor);
         });
 
         $('#rowsDeleteForm').find('thead').find('th').each(function() {
@@ -316,7 +321,7 @@ $(document).ready(function() {
      */
 
     /**
-     * On click, replace the current field with an input/textarea
+     * On click, replace the fields of current row with an input/textarea
      * @memberOf    jQuery
      * @name        inline_edit_start
      * @see         PMA_ajaxShowMessage()
@@ -482,35 +487,38 @@ $(document).ready(function() {
         event.preventDefault();
 
         /**
-         * @var this_row    Object referring to current row that is being edited
+         * @var $this_td    Object referring to the td containing the 
+         * "Inline Edit" link that was clicked to save the row that is 
+         * being edited
+         *
          */
-        var this_row = $(this);
+        var $this_td = $(this);
 
         // Initialize variables
         if(disp_mode == 'vertical') {
             /**
-             * @var this_row_index  Index of the current <td> in the parent <tr>
+             * @var this_td_index  Index of the current <td> in the parent <tr>
              *                      Current <td> is the inline edit anchor.
              */
-            var this_row_index = $(this).index();
+            var this_td_index = $this_td.index();
             /**
              * @var input_siblings  Object referring to all inline editable events from same row
              */
-            var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            var input_siblings = $this_td.parents('tbody').find('tr').find('.data_inline_edit:nth('+this_td_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
-            var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
+            var where_clause = $this_td.parents('tbody').find('tr').find('.where_clause:nth('+this_td_index+')').val();
         }
         else {
-            var input_siblings = $(this).parent('tr').find('.data_inline_edit');
-            var where_clause = $(this).parent('tr').find('.where_clause').val();
+            var input_siblings = $this_td.parent('tr').find('.data_inline_edit');
+            var where_clause = $this_td.parent('tr').find('.where_clause').val();
         }
 
         /**
          * @var nonunique   Boolean, whether this row is unique or not
          */
-        if($(this).is('.nonunique')) {
+        if($this_td.is('.nonunique')) {
             var nonunique = 0;
         }
         else {
@@ -540,32 +548,32 @@ $(document).ready(function() {
             /**
              * @var this_field  Object referring to this field (<td>)
              */
-            var this_field = $(this);
+            var $this_field = $(this);
             /**
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
              */
-            var field_name = getFieldName($(this), disp_mode);
+            var field_name = getFieldName($this_field, disp_mode);
 
             /**
              * @var this_field_params   Array temporary storage for the name/value of current field
              */
             var this_field_params = {};
 
-            if($(this).is('.transformed')) {
+            if($this_field.is('.transformed')) {
                 transformation_fields =  true;
             }
 
-            if($(this).is(":not(.relation, .enum)")) {
-                this_field_params[field_name] = $(this).find('textarea').val();
-                if($(this).is('.transformed')) {
+            if($this_field.is(":not(.relation, .enum)")) {
+                this_field_params[field_name] = $this_field.find('textarea').val();
+                if($this_field.is('.transformed')) {
                     $.extend(transform_fields, this_field_params);
                 }
             }
             else {
-                this_field_params[field_name] = $(this).find('select').val();
+                this_field_params[field_name] = $this_field.find('select').val();
 
-                if($(this).is('.relation')) {
+                if($this_field.is('.relation')) {
                     $.extend(relation_fields, this_field_params);
                 }
             }
@@ -619,7 +627,7 @@ $(document).ready(function() {
         $.post('tbl_replace.php', post_params, function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $(this_row).removeClass('edit_row_anchor_active').addClass('edit_row_anchor');
+                $this_td.removeClass('edit_row_anchor_active').addClass('edit_row_anchor');
 
                 $(input_siblings).each(function() {
                     // Inline edit post has been successful.

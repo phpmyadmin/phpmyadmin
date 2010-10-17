@@ -26,9 +26,16 @@ if ($doWriteModifyAt == 'left') {
            . '    </td>' . "\n";
     }
     if (!empty($edit_url)) {
-        echo '    <td class="' . $edit_anchor_class . '" align="center">' . "\n"
-           . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
-           . '    </td>' . "\n";
+        echo '<td class="' . $edit_anchor_class . '" align="center">'
+           . PMA_linkOrButton($edit_url, $edit_str, '', FALSE);
+        /*
+         * Where clause for selecting this row uniquely is provided as 
+         * a hidden input. Used by jQuery scripts for handling inline editing
+         */
+        if(! empty($where_clause)) {
+            echo '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+        }
+        echo '</td>';
     }
     if (!empty($del_url)) {
         echo '    <td align="center">' . "\n"
@@ -42,9 +49,16 @@ if ($doWriteModifyAt == 'left') {
            . '    </td>' . "\n";
     }
     if (!empty($edit_url)) {
-        echo '    <td class="' . $edit_anchor_class . '" align="center">' . "\n"
-           . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
-           . '    </td>' . "\n";
+        echo '<td class="' . $edit_anchor_class . '" align="center">'
+           . PMA_linkOrButton($edit_url, $edit_str, '', FALSE);
+        /*
+         * Where clause for selecting this row uniquely is provided as 
+         * a hidden input. Used by jQuery scripts for handling inline editing
+         */
+        if(! empty($where_clause)) {
+            echo '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+        }
+        echo '    </td>';
     }
     if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
         echo '    <td align="center">' . "\n"
@@ -53,12 +67,5 @@ if ($doWriteModifyAt == 'left') {
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
            . '    </td>' . "\n";
     }
-}
-/*
- * Where clause for selecting this row uniquely is provided as a hidden input.
- * Used by jQuery scripts for handling inline editing
- */
-if( !empty($where_clause)) {
-    echo '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
 }
 ?>
