@@ -118,6 +118,8 @@
 - rfe #2956556 [interface] Allow to wrap enum values.
 - bug #1669459 [interface] Do not automatically mark PDF schema rows to delete
 
+3.3.9.0 (not yet released)
+
 3.3.8.0 (not yet released)
 - bug #3059311 [import] BIGINT field type added to table analysis
 - [core] Update library PHPExcel to version 1.7.4
