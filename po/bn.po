@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 01:28+0200\n"
+"PO-Revision-Date: 2010-10-21 01:30+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -262,7 +262,7 @@ msgstr "ডাটাবেজ এর নাম দেওয়া হয়নি"
 #: db_operations.php:239
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Database %s has been renamed to %s"
+msgstr "%s ডাটাবেজটির নাম পরিবর্তন করে %s নাম দেওয়া হয়েছে"
 
 #: db_operations.php:243
 #, php-format
