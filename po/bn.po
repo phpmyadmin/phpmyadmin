@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 01:32+0200\n"
+"PO-Revision-Date: 2010-10-21 01:33+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -299,7 +299,7 @@ msgstr "ডাটাবেজ কপি করঃ"
 
 #: db_operations.php:452 tbl_operations.php:525 tbl_tracking.php:382
 msgid "Structure only"
-msgstr "Structure only"
+msgstr "শুধুই গঠনপ্রণালী"
 
 #: db_operations.php:453 tbl_operations.php:526 tbl_tracking.php:384
 msgid "Structure and data"
