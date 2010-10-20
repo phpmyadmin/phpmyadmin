@@ -17,7 +17,7 @@ msgstr ""
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
 msgid "Show all"
-msgstr "Show all"
+msgstr "সবগুলো দেখাও"
 
 #: browse_foreigners.php:80 libraries/common.lib.php:2295
 #: libraries/display_tbl.lib.php:392 libraries/export/pdf.php:137
