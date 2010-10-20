@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 01:30+0200\n"
+"PO-Revision-Date: 2010-10-21 01:32+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -240,7 +240,7 @@ msgstr "প্রিন্ট কর"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "View dump (schema) of database"
+msgstr "ডাটাবেজ ওর (schema) ভান্ডারটি দেখা হোক"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_structure.php:50
 #: db_tracking.php:47 export.php:371 navigation.php:320
