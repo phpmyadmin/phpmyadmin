@@ -327,7 +327,7 @@ msgstr "AUTO_INCREMENT এর মান সংযুক্ত করুন"
 
 #: db_operations.php:473 tbl_operations.php:542
 msgid "Add constraints"
-msgstr "Add constraints"
+msgstr "constraints সংযুক্ত করুন"
 
 #: db_operations.php:486
 msgid "Switch to copied database"
