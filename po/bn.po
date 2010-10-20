@@ -128,7 +128,7 @@ msgstr "ডাটাবেজ মন্তব্যসমূহঃ"
 #: libraries/tbl_properties.inc.php:723 tbl_operations.php:344
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr "Table comments"
+msgstr "টেবিলের মন্তব্য সমূহ"
 
 #: db_datadict.php:169 db_qbe.php:170 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
