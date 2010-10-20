@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 01:23+0200\n"
+"PO-Revision-Date: 2010-10-21 01:24+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -157,7 +157,7 @@ msgstr "কলামের নাম"
 #: tbl_structure.php:198 tbl_structure.php:750 tbl_tracking.php:268
 #: tbl_tracking.php:315
 msgid "Type"
-msgstr "Type"
+msgstr "ধরন"
 
 #: db_datadict.php:172 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:374
