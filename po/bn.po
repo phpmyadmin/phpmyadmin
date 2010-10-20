@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 01:10+0200\n"
+"PO-Revision-Date: 2010-10-21 01:11+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -79,7 +79,7 @@ msgstr "খুঁজুন"
 #: tbl_structure.php:688 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "Go"
+msgstr "যাও"
 
 #: browse_foreigners.php:166 browse_foreigners.php:170
 #: libraries/Index.class.php:441 tbl_tracking.php:314
