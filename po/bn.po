@@ -303,7 +303,7 @@ msgstr "শুধুই গঠনপ্রণালী"
 
 #: db_operations.php:453 tbl_operations.php:526 tbl_tracking.php:384
 msgid "Structure and data"
-msgstr "Structure and data"
+msgstr "গঠনপ্রণালী এবং তথ্য"
 
 #: db_operations.php:454 tbl_operations.php:527 tbl_tracking.php:383
 msgid "Data only"
