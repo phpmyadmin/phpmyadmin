@@ -318,7 +318,7 @@ msgstr "কপি করার আগে ডাটাবেজ় তৈরী �
 #: libraries/config/messages.inc.php:130 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
-msgstr "Add %s"
+msgstr "সংযুক্ত %s"
 
 #: db_operations.php:469 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:535
