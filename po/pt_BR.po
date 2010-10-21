@@ -536,12 +536,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar resultados por \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s resultado(s) dentro da tabela <i>%s</i>"
-msgstr[1] "%s resultado(s) dentro da tabela <i>%s</i>"
+msgstr[0] "%s resultado dentro da tabela <i>%s</i>"
+msgstr[1] "%s resultados dentro da tabela <i>%s</i>"
 
 #: db_search.php:255 libraries/build_action_titles.inc.php:13
 #: libraries/build_action_titles.inc.php:14
