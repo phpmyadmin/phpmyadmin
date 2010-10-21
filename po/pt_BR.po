@@ -1026,10 +1026,9 @@ msgid "The passwords aren't the same!"
 msgstr "As senhas não são iguais!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Adicionar novo usuário"
+msgstr "Adicionar usuário"
 
 #: js/messages.php:53
 #, fuzzy
