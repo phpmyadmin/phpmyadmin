@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * GLOBAL Plugin function (Garvin Hicking).
+ * GLOBAL Plugin function.
  * ---------------
  *
  * THIS FILE PROVIDES BASIC FUNCTIONS TO USE IN OTHER PLUGINS!

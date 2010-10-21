@@ -1073,7 +1073,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
         else if (theAction == 'click' && theMarkColor != '') {
             newColor              = theMarkColor;
             marked_row[theRowNum] = true;
-            // Garvin: deactivated onclick marking of the checkbox because it's also executed
+            // Deactivated onclick marking of the checkbox because it's also executed
             // when an action (like edit/delete) on a single item is performed. Then the checkbox
             // would get deactived, even though we need it activated. Maybe there is a way
             // to detect if the row was clicked, and not an item therein...
@@ -1257,7 +1257,6 @@ function setCheckboxes( container_id, state ) {
 } // end of the 'setCheckboxes()' function
 
 
-// added 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
 //   copy the checked from left to right or from right to left
 //   so it's easier for users to see, if $cfg['ModifyAtRight']=true, what they've checked ;)
 function copyCheckboxesRange(the_form, the_name, the_clicked)
@@ -1280,7 +1279,6 @@ function copyCheckboxesRange(the_form, the_name, the_clicked)
 }
 
 
-// added 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
 //  - this was directly written to each td, so why not a function ;)
 //  setCheckboxColumn(\'id_rows_to_delete' . $row_no . ''\');
 function setCheckboxColumn(theCheckbox){
