@@ -620,7 +620,7 @@ msgstr "Rastreamento está ativo."
 
 #: db_structure.php:280 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Rastreamento não está ativo."
 
 #: db_structure.php:364 libraries/display_tbl.lib.php:1951
 #, php-format
