@@ -955,12 +955,14 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (PMA_cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define('PMA_MYSQL_INT_VERSION', PMA_cacheGet('PMA_MYSQL_INT_VERSION', true));
+            define('PMA_MYSQL_MAJOR_VERSION', PMA_cacheGet('PMA_MYSQL_MAJOR_VERSION', true));
             define('PMA_MYSQL_STR_VERSION', PMA_cacheGet('PMA_MYSQL_STR_VERSION', true));
         } else {
             $mysql_version = PMA_DBI_fetch_value(
                 'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
             if ($mysql_version) {
                 $match = explode('.', $mysql_version);
+                define('PMA_MYSQL_MAJOR_VERSION', (int)$match[0]);
                 define('PMA_MYSQL_INT_VERSION',
                     (int) sprintf('%d%02d%02d', $match[0], $match[1],
                             intval($match[2])));
@@ -968,19 +970,24 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 unset($mysql_version, $match);
             } else {
                 define('PMA_MYSQL_INT_VERSION', 50015);
+                define('PMA_MYSQL_MAJOR_VERSION', 5);
                 define('PMA_MYSQL_STR_VERSION', '5.00.15');
             }
             PMA_cacheSet('PMA_MYSQL_INT_VERSION', PMA_MYSQL_INT_VERSION, true);
+            PMA_cacheSet('PMA_MYSQL_MAJOR_VERSION', PMA_MYSQL_MAJOR_VERSION, true);
             PMA_cacheSet('PMA_MYSQL_STR_VERSION', PMA_MYSQL_STR_VERSION, true);
         }
     }
 
-    if (! empty($GLOBALS['collation_connection'])) {
-    	PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
-        $mysql_charset = explode('_', $GLOBALS['collation_connection']);
-        PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
-    } else {
-        PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
+    /* Skip charsets for Drizzle */
+    if (PMA_MYSQL_MAJOR_VERSION < 2009) {
+        if (! empty($GLOBALS['collation_connection'])) {
+            PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
+            $mysql_charset = explode('_', $GLOBALS['collation_connection']);
+            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
+        } else {
+            PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
+        }
     }
 }
 

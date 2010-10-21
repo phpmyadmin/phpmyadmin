@@ -11,8 +11,18 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-
-if (! PMA_cacheExists('mysql_charsets_count', true)) {
+if (PMA_MYSQL_MAJOR_VERSION > 2009) {
+    /* There are no charsets in Drizzle */
+    $GLOBALS['mysql_charsets']                  = array();
+    $GLOBALS['mysql_charsets_descriptions']     = array();
+    $GLOBALS['mysql_charsets_count']            = 0;
+    $GLOBALS['mysql_charsets_available']        = array();
+    $GLOBALS['mysql_collations']                = array();
+    $GLOBALS['mysql_default_collations']        = array();
+    $GLOBALS['mysql_collations_flat']           = array();
+    $GLOBALS['mysql_collations_count']          = 0;
+    $GLOBALS['mysql_collations_available']      = array();
+} elseif (! PMA_cacheExists('mysql_charsets_count', true)) {
     $res = PMA_DBI_query('SHOW CHARACTER SET;');
 
     $mysql_charsets = array();
