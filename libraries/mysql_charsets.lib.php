@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 if (PMA_MYSQL_MAJOR_VERSION > 2009) {
     /* There are no charsets in Drizzle */
     $GLOBALS['mysql_charsets']                  = array();
-    $GLOBALS['mysql_charsets_descriptions']     = array();
+    $GLOBALS['mysql_charsets_descriptions']     = array('utf8' => 'UTF-8 Unicode');
     $GLOBALS['mysql_charsets_count']            = 0;
     $GLOBALS['mysql_charsets_available']        = array();
     $GLOBALS['mysql_collations']                = array();
