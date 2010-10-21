@@ -788,7 +788,7 @@ msgstr ""
 #: db_tracking.php:118 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr "Ativo"
+msgstr "ativo"
 
 #: db_tracking.php:120 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
