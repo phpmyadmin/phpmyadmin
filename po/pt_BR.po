@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 04:08+0200\n"
+"PO-Revision-Date: 2010-10-21 04:09+0200\n"
 "Last-Translator:  <fabiobucior@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -788,7 +788,7 @@ msgstr ""
 #: db_tracking.php:118 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr ""
+msgstr "Ativo"
 
 #: db_tracking.php:120 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
