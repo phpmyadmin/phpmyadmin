@@ -766,7 +766,7 @@ msgstr "Criado"
 
 #: db_tracking.php:87 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "Atualizado"
 
 #: db_tracking.php:88 libraries/common.lib.php:1325
 #: libraries/server_links.inc.php:50 server_processlist.php:58
