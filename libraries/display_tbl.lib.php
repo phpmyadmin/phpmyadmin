@@ -1212,8 +1212,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
              && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
               || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
-                $doWriteModifyAt = 'left';
-                require './libraries/display_tbl_links.lib.php';
+                if (! isset($js_conf)) {
+                    $js_conf = '';
+                }
+                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $edit_anchor_class, $edit_str, $del_str, $js_conf);
             } // end if (1.3)
         } // end if (1)
 
@@ -1425,8 +1427,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         if ($GLOBALS['cfg']['ModifyDeleteAtRight']
          && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
           || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
-                $doWriteModifyAt = 'right';
-                require './libraries/display_tbl_links.lib.php';
+                if (! isset($js_conf)) {
+                    $js_conf = '';
+                }
+                echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $edit_anchor_class, $edit_str, $del_str, $js_conf);
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -2441,5 +2445,118 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
     $result .= '</td>' . "\n";
 
     return $result;
+}
+
+/**
+ * Generates a checkbox for multi-row submits
+ *
+ * @uses    htmlspecialchars 
+ * @param   string  $del_url
+ * @param   array   $is_display
+ * @param   string  $row_no
+ * @param   string  $where_clause_html
+ * @param   string  $del_query
+ * @param   string  $id_suffix
+ * @return  string  the generated HTML
+ */
+
+function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix) {
+    $ret = '';
+    if (! empty($del_url) && $is_display['del_lnk'] != 'kp') {
+        $ret .= '<td align="center">'
+           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . '_' . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
+           . ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'' . $id_suffix . '\');"'
+           . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
+           . '    </td>';
+    }
+    return $ret;
+}
+
+/**
+ * Generates an Edit link 
+ *
+ * @uses    PMA_linkOrButton() 
+ * @param   string  $edit_url
+ * @param   string  $edit_anchor_class
+ * @param   string  $edit_str
+ * @param   string  $where_clause
+ * @param   string  $where_clause_html
+ * @return  string  the generated HTML
+ */
+function PMA_generateEditLink($edit_url, $edit_anchor_class, $edit_str, $where_clause, $where_clause_html) {
+    $ret = '';
+    if (! empty($edit_url)) {
+        $ret .= '<td class="' . $edit_anchor_class . '" align="center">'
+           . PMA_linkOrButton($edit_url, $edit_str, '', FALSE);
+        /*
+         * Where clause for selecting this row uniquely is provided as 
+         * a hidden input. Used by jQuery scripts for handling inline editing
+         */
+        if(! empty($where_clause)) {
+            $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+        }
+        $ret .= '</td>';
+    }
+    return $ret;
+}
+
+/**
+ * Generates a Delete link 
+ *
+ * @uses    PMA_linkOrButton() 
+ * @param   string  $del_url
+ * @param   string  $del_str
+ * @param   string  $js_conf
+ * @return  string  the generated HTML
+ */
+function PMA_generateDeleteLink($del_url, $del_str, $js_conf) {
+    $ret = '';
+    if (! empty($del_url)) {
+        $ret .= '    <td align="center">'
+           . PMA_linkOrButton($del_url, $del_str, $js_conf, FALSE)
+           . '    </td>';
+    }
+    return $ret;
+}
+
+/**
+ * Generates checkbox and links at some position (left or right) 
+ *
+ * @uses    PMA_generateCheckboxForMulti() 
+ * @uses    PMA_generateEditLink()
+ * @uses    PMA_generateDeleteLink()
+ * @param   string  $position
+ * @param   string  $del_url
+ * @param   array   $is_display
+ * @param   string  $row_no
+ * @param   string  $where_clause
+ * @param   string  $where_clause_html
+ * @param   string  $del_query
+ * @param   string  $id_suffix
+ * @param   string  $edit_url
+ * @param   string  $edit_anchor_class
+ * @param   string  $edit_str
+ * @param   string  $del_str
+ * @param   string  $js_conf
+ * @return  string  the generated HTML
+ */
+function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $edit_anchor_class, $edit_str, $del_str, $js_conf) {
+    $ret = '';
+
+    if ($position == 'left') {
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='l');
+
+        $ret .= PMA_generateEditLink($edit_url, $edit_anchor_class, $edit_str, $where_clause, $where_clause_html);
+
+        $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf);
+
+    } elseif ($position == 'right') {
+        $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf);
+
+        $ret .= PMA_generateEditLink($edit_url, $edit_anchor_class, $edit_str, $where_clause, $where_clause_html);
+
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='r');
+    }
+    return $ret;
 }
 ?>
