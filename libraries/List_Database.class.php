@@ -308,7 +308,7 @@ require_once './libraries/List.class.php';
                 // have the db name, the separator, then the rest which
                 // might contain a separator
                 // like dbname_the_rest
-                $pos = strpos($db, $separator);
+                $pos = strpos($db, $separator, 1);
 
                 if ($pos !== false) {
                     break;
