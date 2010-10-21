@@ -950,7 +950,7 @@ msgstr ""
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr ""
+msgstr "Clique para selecionar"
 
 #: js/messages.php:26
 msgid "Click to unselect"
