@@ -91,19 +91,21 @@ if ($server > 0
                     './user_password.php?' . $common_url_query, null, null, 'change_password_anchor');
             }
         } // end if
-        echo '    <li id="li_select_mysql_collation">';
-        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
-       . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
-       . '            <label for="select_collation_connection">' . "\n"
-       . '                ' . __('MySQL connection collation') . "\n"
-       // put the doc link in the form so that it appears on the same line
-       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
-       . '            </label>' . "\n"
+        if (PMA_MYSQL_MAJOR_VERSION < 2009) {
+            echo '    <li id="li_select_mysql_collation">';
+            echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+           . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
+           . '            <label for="select_collation_connection">' . "\n"
+           . '                ' . __('MySQL connection collation') . "\n"
+           // put the doc link in the form so that it appears on the same line
+           . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
+           . '            </label>' . "\n"
 
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
-       . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
-       . '        </form>' . "\n"
-       . '    </li>' . "\n";
+           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
+           . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
+           . '        </form>' . "\n"
+           . '    </li>' . "\n";
+        } // not Drizzle
     } // end of if ($server > 0)
     echo '</ul>';
     echo '</div>';
