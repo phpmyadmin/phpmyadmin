@@ -979,12 +979,15 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         }
     }
 
-    if (! empty($GLOBALS['collation_connection'])) {
-    	PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
-        $mysql_charset = explode('_', $GLOBALS['collation_connection']);
-        PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
-    } else {
-        PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
+    /* Skip charsets for Drizzle */
+    if (PMA_MYSQL_MAJOR_VERSION < 2009) {
+        if (! empty($GLOBALS['collation_connection'])) {
+            PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
+            $mysql_charset = explode('_', $GLOBALS['collation_connection']);
+            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
+        } else {
+            PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
+        }
     }
 }
 
