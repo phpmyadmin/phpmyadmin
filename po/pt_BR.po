@@ -793,7 +793,7 @@ msgstr "ativo"
 #: db_tracking.php:120 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr "Inativo"
+msgstr "inativo"
 
 #: db_tracking.php:133
 #, fuzzy
