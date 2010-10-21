@@ -1019,7 +1019,7 @@ msgstr "O nome do usuário está em branco!"
 
 #: js/messages.php:50 server_privileges.php:1238 user_password.php:64
 msgid "The password is empty!"
-msgstr "A senhas está em branco!"
+msgstr "A senha está em branco!"
 
 #: js/messages.php:51 server_privileges.php:1236 user_password.php:67
 msgid "The passwords aren't the same!"
