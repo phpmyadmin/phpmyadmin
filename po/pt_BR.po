@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 04:29+0200\n"
+"PO-Revision-Date: 2010-10-21 04:30+0200\n"
 "Last-Translator:  <fabiobucior@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -898,7 +898,7 @@ msgstr ""
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Não foi possível importar plugins, verifique sua instalação!"
+msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
