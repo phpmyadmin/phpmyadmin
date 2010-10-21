@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-10-04 08:08-0400\n"
-"PO-Revision-Date: 2010-10-21 04:02+0200\n"
+"PO-Revision-Date: 2010-10-21 04:05+0200\n"
 "Last-Translator:  <fabiobucior@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -616,7 +616,7 @@ msgstr "Tabela %s foi eliminada"
 
 #: db_structure.php:278 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Rastreamento está ativo."
 
 #: db_structure.php:280 tbl_create.php:297
 msgid "Tracking is not active."
