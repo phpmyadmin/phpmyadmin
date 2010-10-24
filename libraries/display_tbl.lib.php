@@ -1515,7 +1515,7 @@ function PMA_displayVerticalTable()
                 echo '<th></th>' . "\n";
             }
 
-            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_l', $val);
+            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
             $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
@@ -1586,7 +1586,7 @@ function PMA_displayVerticalTable()
                 echo '<th></th>' . "\n";
             }
 
-            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_r', $val);
+            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
             $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
@@ -2463,7 +2463,8 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
         $ret .= $column_style_vertical;
         $ret .= ' align="center">'
            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
-           . ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'' . $id_suffix . '\');"'
+           . ' onclick="' . $column_marker_vertical  . '"'
+           . ' class="verify_other_checkbox"'
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
            . '    </td>';
     }
@@ -2549,7 +2550,7 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
     $ret = '';
 
     if ($position == 'left') {
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_l', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
@@ -2560,7 +2561,7 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_r', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_right', '', '', '');
     }
     return $ret;
 }

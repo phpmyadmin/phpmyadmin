@@ -1256,29 +1256,6 @@ function setCheckboxes( container_id, state ) {
     return true;
 } // end of the 'setCheckboxes()' function
 
-
-//   copy the checked from left to right or from right to left
-//   so it's easier for users to see, if $cfg['ModifyAtRight']=true, what they've checked ;)
-function copyCheckboxesRange(the_form, the_name, the_clicked)
-{
-    if (typeof(document.forms[the_form].elements[the_name]) != 'undefined' && typeof(document.forms[the_form].elements[the_name + 'r']) != 'undefined') {
-        if (the_clicked !== 'r') {
-            if (document.forms[the_form].elements[the_name].checked == true) {
-                document.forms[the_form].elements[the_name + 'r'].checked = true;
-            }else {
-                document.forms[the_form].elements[the_name + 'r'].checked = false;
-            }
-        } else if (the_clicked == 'r') {
-            if (document.forms[the_form].elements[the_name + 'r'].checked == true) {
-                document.forms[the_form].elements[the_name].checked = true;
-            }else {
-                document.forms[the_form].elements[the_name].checked = false;
-            }
-       }
-    }
-}
-
-
 //  - this was directly written to each td, so why not a function ;)
 //  setCheckboxColumn(\'id_rows_to_delete' . $row_no . ''\');
 function setCheckboxColumn(theCheckbox){
@@ -2678,3 +2655,29 @@ $(function() {
     $(window).resize(menuResize);
     menuResize();
 });
+
+/**
+ * When there is a checkbox on both ends of the row, propagate the click on
+ * one of them to the other one
+ */
+$(document).ready(function() {
+    $('.verify_other_checkbox').live('click',function() {
+        var current_checkbox_id = this.id;
+        var left_checkbox_id = current_checkbox_id.replace('_right', '_left');
+        var right_checkbox_id = current_checkbox_id.replace('_left', '_right');
+        var other_checkbox_id = '';
+        if (current_checkbox_id == left_checkbox_id) {
+            other_checkbox_id = right_checkbox_id; 
+        } else {
+            other_checkbox_id = left_checkbox_id;
+        }
+
+        // the default action has not been prevented so if we have
+        // just clicked this "if" is true
+        if ($('#' + current_checkbox_id).is(':checked')) {
+            $('#' + other_checkbox_id).attr('checked', true);
+        } else {
+            $('#' + other_checkbox_id).attr('checked', false);
+        } 
+    });
+}) // end of $(document).ready() for verify other checkbox
