@@ -846,6 +846,16 @@ function checkTransmitDump(theForm, theAction)
     return true;
 } // end of the 'checkTransmitDump()' function
 
+/**
+ * For row marking in horizontal mode (use "live" so that it works also for 
+ * next pages reached via AJAX); a tr may have the class noclick to remove
+ * this behavior.
+ */
+$(document).ready(function() {
+    $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function() {
+        $(this).toggleClass('marked');
+    });
+})
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -901,12 +911,6 @@ function PMA_markRowsInit() {
                 marked_row[unique_id] = true;
             } else {
                 marked_row[unique_id] = false;
-            }
-
-            if ( marked_row[unique_id] ) {
-                this.className += ' marked';
-            } else {
-                this.className = this.className.replace(' marked', '');
             }
 
             if ( checkbox && checkbox.disabled == false ) {
