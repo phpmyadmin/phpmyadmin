@@ -2298,6 +2298,10 @@ $(document).ready(function() {
                 var $databases_count_object = $('#databases_count');
                 var databases_count = parseInt($databases_count_object.text()); 
                 $databases_count_object.text(++databases_count);
+                //Refresh navigation frame as a new database has been added
+                if (window.parent && window.parent.frame_navigation) {
+                    window.parent.frame_navigation.location.reload();
+                }
             }
             else {
                 PMA_ajaxShowMessage(data.error);
