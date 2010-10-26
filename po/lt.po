@@ -7139,7 +7139,7 @@ msgstr "Patikrinti duombazės „%s“ privilegijas."
 
 #: server_databases.php:369 server_databases.php:370
 msgid "Enable Statistics"
-msgstr "Neleisti statistikos"
+msgstr "Leisti statistiką"
 
 #: server_databases.php:373 server_databases.php:374
 msgid "Disable Statistics"
