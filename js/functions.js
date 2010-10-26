@@ -858,6 +858,16 @@ $(document).ready(function() {
 })
 
 /**
+ * For row highlighting in horizontal mode (necessary for IE 6; use "live"
+ * so that it works also for pages reached via AJAX)
+ */
+$(document).ready(function() {
+    $('tr.odd, tr.even').live('hover',function() {
+        $(this).toggleClass('hover');
+    });
+})
+
+/**
  * This array is used to remember mark status of rows in browse mode
  */
 var marked_row = new Array;
@@ -875,16 +885,6 @@ function PMA_markRowsInit() {
             continue;
         }
         // ... add event listeners ...
-        // ... to highlight the row on mouseover ...
-        if ( navigator.appName == 'Microsoft Internet Explorer' ) {
-            // but only for IE, other browsers are handled by :hover in css
-            rows[i].onmouseover = function() {
-                this.className += ' hover';
-            }
-            rows[i].onmouseout = function() {
-                this.className = this.className.replace( ' hover', '' );
-            }
-        }
         // Do not set click events if not wanted
         if (rows[i].className.search(/noclick/) != -1) {
             continue;
