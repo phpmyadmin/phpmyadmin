@@ -1004,10 +1004,9 @@ msgid "The passwords aren't the same!"
 msgstr "Slaptažodžiai nesutampa!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Sukurti naują vartotoją"
+msgstr "Sukurti naują naudotoją"
 
 #: js/messages.php:53
 #, fuzzy
