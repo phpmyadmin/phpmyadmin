@@ -11,8 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -256,7 +255,7 @@ msgstr "Zaznacz wszystkie"
 
 #: db_export.php:46 db_search.php:344 server_export.php:28
 msgid "Unselect All"
-msgstr "Odznacz wszystkie"
+msgstr "Usuń zaznaczenie"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
@@ -270,7 +269,7 @@ msgstr "Baza danych %s ma nazwę zmienioną na %s"
 #: db_operations.php:243
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Baza danych %s została skopiowana do %s"
+msgstr "Baza danych %s została przekopiowana do %s"
 
 #: db_operations.php:366
 msgid "Rename database to"
@@ -311,7 +310,7 @@ msgstr "Tylko dane"
 
 #: db_operations.php:462
 msgid "CREATE DATABASE before copying"
-msgstr "CREATE DATABASE przed skopiowaniem"
+msgstr "CREATE DATABASE przed przekopiowaniem"
 
 #: db_operations.php:465 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
@@ -331,7 +330,7 @@ msgstr "Dodaj ograniczenia"
 
 #: db_operations.php:486
 msgid "Switch to copied database"
-msgstr "Przełącz do skopiowanej bazy danych"
+msgstr "Przełącz do przekopiowanej bazy danych"
 
 #: db_operations.php:506 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
@@ -376,7 +375,7 @@ msgstr "Tabela"
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:868
 msgid "Rows"
-msgstr "Rekordy"
+msgstr "Rekordów"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
@@ -607,7 +606,7 @@ msgstr "Tabela %s została opróżniona"
 #: db_structure.php:271 tbl_operations.php:670
 #, php-format
 msgid "View %s has been dropped"
-msgstr "Perspektywa %s została usunięta"
+msgstr "Widok %s został usunięty"
 
 #: db_structure.php:271 tbl_operations.php:670
 #, php-format
@@ -634,7 +633,7 @@ msgstr ""
 #: db_structure.php:378 db_structure.php:392 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
-msgstr "Perspektywa"
+msgstr "Widok"
 
 #: db_structure.php:429 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
@@ -669,7 +668,7 @@ msgstr "Zaznacz wszystkie"
 #: libraries/replication_gui.lib.php:35 server_databases.php:361
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
-msgstr "Odznacz wszystkie"
+msgstr "Usuń zaznaczenie"
 
 #: db_structure.php:480
 msgid "Check tables having overhead"
@@ -1162,15 +1161,15 @@ msgstr "Dodano wewnętrzne powiązanie"
 
 #: js/messages.php:96 pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr "Błąd: nie dodano związku."
+msgstr "Błąd: relacja nie została dodana."
 
 #: js/messages.php:97 pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr "Błąd: związek już istnieje."
+msgstr "Błąd: relacja już istnieje."
 
 #: js/messages.php:98
 msgid "Error saving coordinates for Designer."
-msgstr "Błąd podczas zapisywania współrzędnych dla Projektanta."
+msgstr "Błąd podczas zapisywania współrzędnych w widoku projektu."
 
 #: js/messages.php:99 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:101
@@ -1180,7 +1179,7 @@ msgstr "Ogólne funkcje relacyjne"
 #: js/messages.php:99 libraries/config/FormDisplay.tpl.php:173
 #: libraries/relation.lib.php:83 libraries/relation.lib.php:90
 msgid "Disabled"
-msgstr "wyłączone"
+msgstr "Wyłączone"
 
 #: js/messages.php:100
 msgid "Select referenced key"
@@ -1539,7 +1538,7 @@ msgstr ""
 
 #: libraries/File.class.php:321
 msgid "The uploaded file was only partially uploaded."
-msgstr "Plik został wrzucony jedynie częściowo."
+msgstr "Plik został przesłany jedynie częściowo."
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
@@ -1551,17 +1550,17 @@ msgstr "Nie udało się zapisać pliku na dysk."
 
 #: libraries/File.class.php:330
 msgid "File upload stopped by extension."
-msgstr "Wrzucanie pliku zostało zatrzymane przez rozszerzenie."
+msgstr "Przesłanie pliku zostało zatrzymane przez rozszerzenie."
 
 #: libraries/File.class.php:333
 msgid "Unknown error in file upload."
-msgstr "Nieznany błąd wrzucania plików."
+msgstr "Nieznany błąd przesyłania pliku."
 
 #: libraries/File.class.php:624
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Błąd podczas przesuwania wrzuconego pliku, zobacz FAQ 1.11"
+msgstr "Błąd podczas przenoszenia przesłanego pliku. Zobacz [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
@@ -1981,21 +1980,23 @@ msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 #: libraries/common.inc.php:926
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "Poleca się aktualizację do %s w wersji %s lub późniejszej."
+msgstr "Zaleca się aktualizację do %s w wersji %s lub nowszej."
 
 #: libraries/common.lib.php:145
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maksymalny rozmiar: %s%s"
 
-#. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
+#. l10n: Language to use for MySQL 5.1 documentation, please use only
+#. languages which do exist in official documentation.
 #: libraries/common.lib.php:407
 #, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Wysłane"
 
-#. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
+#. l10n: Language to use for MySQL 5.0 documentation, please use only
+#. languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 #, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
@@ -2037,7 +2038,7 @@ msgstr "Pomiń wyjaśnienie SQL"
 
 #: libraries/common.lib.php:1156
 msgid "Without PHP Code"
-msgstr "bez kodu PHP"
+msgstr "Bez kodu PHP"
 
 #: libraries/common.lib.php:1159 libraries/config/messages.inc.php:461
 msgid "Create PHP Code"
@@ -2114,7 +2115,8 @@ msgstr " "
 msgid "."
 msgstr ","
 
-#. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
+#. l10n: See http://www.php.net/manual/en/function.strftime.php to define the
+#. format string
 #: libraries/common.lib.php:1581
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -2144,7 +2146,7 @@ msgstr "Koniec"
 #: libraries/common.lib.php:2411
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Skok do bazy danych &quot;%s&quot;."
+msgstr "Przejście do bazy danych &quot;%s&quot;."
 
 #: libraries/common.lib.php:2430
 #, php-format
@@ -2178,7 +2180,7 @@ msgstr "katalog serwera WWW dla uploadu"
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:924
 msgid "The directory you set for upload work cannot be reached"
-msgstr "Katalog ustalony dla uploadu jest nieosiągalny"
+msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2246,7 +2248,7 @@ msgstr "Liczba nie jest nieujemna"
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:403
 msgid "Not a valid port number"
-msgstr "Nieprawdiłowy numer portu"
+msgstr "Nieprawidłowy numer portu"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:565
@@ -3033,19 +3035,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
-msgstr "Indywidualizacja opcji eksportu"
+msgstr "Dostosowanie opcji eksportu"
 
 #: libraries/config/messages.inc.php:205
 msgid "Customize import defaults"
-msgstr "Indywidualizacja opcji importu"
+msgstr "Dostosowanie opcji importu"
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize navigation frame"
-msgstr "Indywidualizacja ramki nawigacyjnej"
+msgstr "Dostosowanie ramki nawigacyjnej"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize main frame"
-msgstr "Indywidualizacja głównej ramkj"
+msgstr "Dostosowanie ramki głównej"
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:213
 #: setup/frames/menu.inc.php:17
@@ -3609,7 +3611,7 @@ msgstr "Okienko zapytania"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
-msgstr "Które funckje będą użyte do konwersji kodowania napisów"
+msgstr "Wybierz funckje, które będą użyte do konwersji kodowania napisów"
 
 #: libraries/config/messages.inc.php:342
 msgid "Recoding engine"
@@ -3914,7 +3916,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:401
 msgid "Relation table"
-msgstr "Tabela związków"
+msgstr "Tabela relacji"
 
 #: libraries/config/messages.inc.php:402
 msgid "SQL command to fetch available databases"
@@ -4422,7 +4424,7 @@ msgstr "Skoroszyt Excel 2007 XLSX"
 #: libraries/config/user_preferences.forms.php:256 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr "Arkusz kalkulacyjny w formacie Open Document"
+msgstr "Arkusz kalkulacyjny OpenDocument"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
@@ -4538,7 +4540,7 @@ msgstr "Zapytanie przez przykład"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
-msgstr "Projektant"
+msgstr "Widok projektu"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:64
 #: server_privileges.php:112 server_privileges.php:1813
@@ -4558,7 +4560,7 @@ msgstr "Zwracany typ"
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr "Być może w przybliżeniu. Zobacz FAQ 3.11"
+msgstr "Może być w przybliżeniu. Zobacz [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/db_structure.lib.php:60 server_databases.php:153
 #: tbl_printview.php:333 tbl_structure.php:773
@@ -4862,7 +4864,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr "Serwer nie pozwala na upload plików."
+msgstr "Serwer nie pozwala na przesyłanie plików."
 
 #: libraries/display_import.lib.php:208
 #, fuzzy
@@ -6173,7 +6175,7 @@ msgstr "błąd"
 
 #: libraries/relation.lib.php:82
 msgid "Enabled"
-msgstr "włączone"
+msgstr "Włączone"
 
 #: libraries/relation.lib.php:105
 msgid "Display Features"
@@ -6451,7 +6453,7 @@ msgstr "Pokaż wymiary tabel"
 
 #: libraries/schema/User_Schema.class.php:384
 msgid "Display all tables with the same width"
-msgstr "wyświetlić wszystkie tabele z taką samą szerokością?"
+msgstr "Wyświetl wszystkie tabele z taką samą szerokością"
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
@@ -6613,7 +6615,7 @@ msgstr "Lokalizacja pliku tekstowego"
 
 #: libraries/sql_query_form.lib.php:499 tbl_change.php:927
 msgid "web server upload directory"
-msgstr "katalog serwera WWW dla uploadu"
+msgstr "katalog serwera WWW do przesyłania plików"
 
 #: libraries/sqlparser.lib.php:138
 msgid ""
@@ -6841,7 +6843,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Wyświetla link do tego obrazu (bezpośrednie ściągnięcie bloba)."
+msgstr "Wyświetla odnośnik do tego obrazu (bezpośrednie ściągnięcie BLOBa)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 #, fuzzy
@@ -7221,7 +7223,7 @@ msgstr "Utwórz tabelę"
 
 #: pmd_general.php:73 pmd_general.php:305
 msgid "Create relation"
-msgstr "Utwórz związek"
+msgstr "Utwórz relację"
 
 #: pmd_general.php:79
 msgid "Reload"
@@ -7265,7 +7267,7 @@ msgstr "Ukryj/pokaż wszystko"
 
 #: pmd_general.php:123
 msgid "Hide/Show Tables with no relation"
-msgstr "Ukryj/pokaż tabele bez związków"
+msgstr "Ukryj/pokaż tabele bez relacji"
 
 #: pmd_general.php:163
 msgid "Number of tables"
@@ -7273,7 +7275,7 @@ msgstr "Liczba tabel"
 
 #: pmd_general.php:371
 msgid "Delete relation"
-msgstr "Usuń związek"
+msgstr "Usuń relację"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -7554,7 +7556,7 @@ msgstr "Pozwól tworzyć, usuwać i zmieniać nazwy kont użytkowników."
 #: server_privileges.php:204 server_privileges.php:527
 #: server_privileges.php:531
 msgid "Allows creating new views."
-msgstr "Pozwól tworzyć perspektywy."
+msgstr "Pozwól tworzyć widoki."
 
 #: server_privileges.php:34 server_privileges.php:184
 #: server_privileges.php:507
@@ -7636,7 +7638,7 @@ msgstr "Ogranicz liczbę jednoczesnych połączeń, które może użytkownik."
 #: server_privileges.php:48 server_privileges.php:189
 #: server_privileges.php:545
 msgid "Allows viewing processes of all users"
-msgstr "Pozwól oglądać procesy wszystkich użytkowyników"
+msgstr "Pozwól oglądać procesy wszystkich użytkowników"
 
 #: server_privileges.php:49 server_privileges.php:191
 #: server_privileges.php:449 server_privileges.php:551
@@ -7879,7 +7881,7 @@ msgstr "Dodaj uprawnienia dla następującej tabeli"
 
 #: server_privileges.php:2094
 msgid "Change Login Information / Copy User"
-msgstr "Zmień dane użytkownika / Skopiuj użytkownika"
+msgstr "Zmień dane użytkownika / Kopiuj użytkownika"
 
 #: server_privileges.php:2097
 msgid "Create a new user with the same privileges and ..."
@@ -8209,7 +8211,7 @@ msgstr "Liczba wykonanych instrukcji FLUSH."
 
 #: server_status.php:55
 msgid "The number of internal COMMIT statements."
-msgstr "Liczba wewnętrznych intrukcji COMMIT."
+msgstr "Liczba wewnętrznych instrukcji COMMIT."
 
 #: server_status.php:56
 msgid "The number of times a row was deleted from a table."
@@ -9524,7 +9526,7 @@ msgstr " Binarne - nie do edycji "
 
 #: tbl_change.php:891
 msgid "Upload to BLOB repository"
-msgstr "Wrzuć do repozytorium BLOBów"
+msgstr "Prześlij do repozytorium BLOBów"
 
 #: tbl_change.php:1032
 msgid "Insert as new row"
@@ -9740,7 +9742,7 @@ msgstr "Nie można przenieść tabeli do niej samej!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Nie można skopiować tabeli do niej samej!"
+msgstr "Nie można przekopiować tabeli do niej samej!"
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -9750,7 +9752,7 @@ msgstr "Tabela %s została przeniesiona do %s."
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "Tabela %s została skopiowana do %s."
+msgstr "Tabela %s została przekopiowana do %s."
 
 #: tbl_move_copy.php:80
 msgid "The table name is empty!"
@@ -9778,11 +9780,11 @@ msgstr "Zmień nazwę tabeli na"
 
 #: tbl_operations.php:508
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Skopiuj tabelę do (bazadanych<b>.</b>tabela):"
+msgstr "Kopiuj tabelę do (bazadanych<b>.</b>tabela):"
 
 #: tbl_operations.php:555
 msgid "Switch to copied table"
-msgstr "Przełącz na skopiowaną tabelę"
+msgstr "Przełącz na przekopiowaną tabelę"
 
 #: tbl_operations.php:567
 msgid "Table maintenance"
@@ -9939,7 +9941,7 @@ msgstr "Wybór pól (co najmniej jedno):"
 
 #: tbl_select.php:284
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Dodaj warunki przeszukiwania (warunek dla \"where\"):"
+msgstr "Dodaj warunki przeszukiwania (warunek dla \"WHERE\"):"
 
 #: tbl_select.php:291
 msgid "Number of rows per page"
@@ -10189,7 +10191,7 @@ msgstr "Profil został uaktualniony."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr "Nazwa perspektywy"
+msgstr "Nazwa widoku"
 
 #: view_operations.php:91
 #, fuzzy
