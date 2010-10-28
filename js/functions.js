@@ -873,101 +873,6 @@ $(document).ready(function() {
 var marked_row = new Array;
 
 /**
- * enables highlight and marking of rows in data tables
- *
- */
-function PMA_markRowsInit() {
-    // for every table row ...
-    var rows = document.getElementsByTagName('tr');
-    for ( var i = 0; i < rows.length; i++ ) {
-        // ... with the class 'odd' or 'even' ...
-        if ( 'odd' != rows[i].className.substr(0,3) && 'even' != rows[i].className.substr(0,4) ) {
-            continue;
-        }
-        // ... add event listeners ...
-        // Do not set click events if not wanted
-        if (rows[i].className.search(/noclick/) != -1) {
-            continue;
-        }
-        // ... and to mark the row on click ...
-        $(rows[i]).bind('mousedown', function(event) {
-            var unique_id;
-            var checkbox;
-            var table;
-
-            // Somehow IE8 has this not set
-            if (!event) var event = window.event
-
-            checkbox = this.getElementsByTagName( 'input' )[0];
-            if ( checkbox && checkbox.type == 'checkbox' ) {
-                unique_id = checkbox.name + checkbox.value;
-            } else if ( this.id.length > 0 ) {
-                unique_id = this.id;
-            } else {
-                return;
-            }
-
-            if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
-                marked_row[unique_id] = true;
-            } else {
-                marked_row[unique_id] = false;
-            }
-
-            if ( checkbox && checkbox.disabled == false ) {
-                checkbox.checked = marked_row[unique_id];
-                if (typeof(event) == 'object') {
-                    table = this.parentNode;
-                    parentTableLimit = 0;
-                    while (table.tagName.toLowerCase() != 'table' && parentTableLimit < 20) {
-                        parentTableLimit++;
-                        table = table.parentNode;
-                    }
-
-                    if (event.shiftKey == true && table.lastClicked != undefined) {
-                        if (event.preventDefault) {event.preventDefault();} else {event.returnValue = false;}
-                        i = table.lastClicked;
-
-                        if (i < this.rowIndex) {
-                            i++;
-                        } else {
-                            i--;
-                        }
-
-                        while (i != this.rowIndex) {
-                            $(table.rows[i]).mousedown();
-                            if (i < this.rowIndex) {
-                                i++;
-                            } else {
-                                i--;
-                            }
-                        }
-                    }
-
-                    table.lastClicked = this.rowIndex;
-                }
-            }
-        });
-
-        // ... and disable label ...
-        var labeltag = rows[i].getElementsByTagName('label')[0];
-        if ( labeltag ) {
-            labeltag.onclick = function() {
-                return false;
-            }
-        }
-        // .. and checkbox clicks
-        var checkbox = rows[i].getElementsByTagName('input')[0];
-        if ( checkbox ) {
-            checkbox.onclick = function() {
-                // opera does not recognize return false;
-                this.checked = ! this.checked;
-            }
-        }
-    }
-}
-$(document).ready(PMA_markRowsInit);
-
-/**
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usaly a table or a div containing the table or tables
  *
@@ -2665,11 +2570,12 @@ $(function() {
 });
 
 /**
- * When there is a checkbox on both ends of the row, propagate the click on
- * one of them to the other one
+ * For the checkboxes in browse mode, handles the shift/click (only works
+ * in horizontal mode) and propagates the click to the "companion" checkbox
+ * (in both horizontal and vertical). Works also for pages reached via AJAX.
  */
 $(document).ready(function() {
-    $('.verify_other_checkbox').live('click',function() {
+    $('.multi_checkbox').live('click',function(e) {
         var current_checkbox_id = this.id;
         var left_checkbox_id = current_checkbox_id.replace('_right', '_left');
         var right_checkbox_id = current_checkbox_id.replace('_left', '_right');
@@ -2680,12 +2586,41 @@ $(document).ready(function() {
             other_checkbox_id = left_checkbox_id;
         }
 
-        // the default action has not been prevented so if we have
-        // just clicked this "if" is true
-        if ($('#' + current_checkbox_id).is(':checked')) {
-            $('#' + other_checkbox_id).attr('checked', true);
+        var $current_checkbox = $('#' + current_checkbox_id);
+        var $other_checkbox = $('#' + other_checkbox_id);
+
+        if (e.shiftKey) {
+            var index_of_current_checkbox = $('.multi_checkbox').index($current_checkbox);
+            var $last_checkbox = $('.multi_checkbox').filter('.last_clicked');
+            var index_of_last_click = $('.multi_checkbox').index($last_checkbox);
+            $('.multi_checkbox')
+                .filter(function(index) {
+                    // the first clicked row can be on a row above or below the
+                    // shift-clicked row
+                    return (index_of_current_checkbox > index_of_last_click && index > index_of_last_click && index < index_of_current_checkbox) 
+                     || (index_of_last_click > index_of_current_checkbox && index < index_of_last_click && index > index_of_current_checkbox);
+                })
+                .each(function(index) {
+                    var $intermediate_checkbox = $(this);
+                    if ($current_checkbox.is(':checked')) {
+                        $intermediate_checkbox.attr('checked', true);
+                    } else {
+                        $intermediate_checkbox.attr('checked', false);
+                    }
+                });
+        }
+
+        $('.multi_checkbox').removeClass('last_clicked');
+        $current_checkbox.addClass('last_clicked');
+        
+        // When there is a checkbox on both ends of the row, propagate the 
+        // click on one of them to the other one.
+        // (the default action has not been prevented so if we have
+        // just clicked, this "if" is true)
+        if ($current_checkbox.is(':checked')) {
+            $other_checkbox.attr('checked', true);
         } else {
-            $('#' + other_checkbox_id).attr('checked', false);
-        } 
+            $other_checkbox.attr('checked', false);
+        }
     });
-}) // end of $(document).ready() for verify other checkbox
+}) // end of $(document).ready() for multi checkbox
