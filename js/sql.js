@@ -55,13 +55,17 @@ function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
         // there can be one or two tr containing this class, depending
         // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters 
-        $('#table_results tr').find('.edit_row_anchor').parent().each(function() {
+        $('#table_results tr')
+            .find('.edit_row_anchor')
+            .removeClass('.edit_row_anchor')
+            .parent().each(function() {
             var $this_tr = $(this);
             var $cloned_tr = $this_tr.clone();
 
             var $img_object = $cloned_tr.find('img:first').attr('title', PMA_messages['strInlineEdit']);
 
             $cloned_tr.find('td')
+             .addClass('inline_edit_anchor')
              .find('a').attr('href', '#')
              .find('span')
              .text(PMA_messages['strInlineEdit'])
@@ -83,7 +87,7 @@ function appendInlineAnchor(disp_mode) {
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
 
-            $cloned_anchor.addClass('edit_row_anchor')
+            $cloned_anchor.addClass('inline_edit_anchor')
             .find('a').attr('href', '#')
             .find('span')
             .text(PMA_messages['strInlineEdit'])
@@ -327,11 +331,11 @@ $(document).ready(function() {
      * @see         PMA_ajaxShowMessage()
      * @see         getFieldName()
      */
-    $(".edit_row_anchor").live('click', function(event) {
+    $(".inline_edit_anchor").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
-        $(this).removeClass('edit_row_anchor').addClass('edit_row_anchor_active');
+        $(this).removeClass('inline_edit_anchor').addClass('inline_edit_active');
 
         // Initialize some variables
         if(disp_mode == 'vertical') {
@@ -482,7 +486,7 @@ $(document).ready(function() {
      * @see         PMA_ajaxShowMessage()
      * @see         getFieldName()
      */
-    $(".edit_row_anchor_active").live('click', function(event) {
+    $(".inline_edit_active").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -627,7 +631,7 @@ $(document).ready(function() {
         $.post('tbl_replace.php', post_params, function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $this_td.removeClass('edit_row_anchor_active').addClass('edit_row_anchor');
+                $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
 
                 $(input_siblings).each(function() {
                     // Inline edit post has been successful.
