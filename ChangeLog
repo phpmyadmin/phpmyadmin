@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.3.9.0 (not yet released)
+- bug [doc] Fix references to MySQL doc
 
 3.3.8.0 (2010-10-25)
 - bug #3059311 [import] BIGINT field type added to table analysis

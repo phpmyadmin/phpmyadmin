@@ -2701,7 +2701,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a href="#faq1_12">1.12 I have lost my MySQL root password, what can I do?</a></h4>
 
 <p> The MySQL manual explains how to
-    <a href="http://www.mysql.com/doc/R/e/Resetting_permissions.html">
+    <a href="http://dev.mysql.com/doc/mysql/en/resetting-permissions.html">
     reset the permissions</a>.</p>
 
 <h4 id="faq1_13">
@@ -2767,7 +2767,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     support?</a></h4>
 
 <p> Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For 
-    older MySQL versions, you need to use 2.8.x branch. phpMyAdmin can 
+    older MySQL versions, you need to use the latest 2.x branch. phpMyAdmin can 
     connect to your MySQL server using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
@@ -2777,12 +2777,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     extension of your choice to a MySQL client library of at least the same
     minor version since the one that is bundled with some PHP distributions is
     rather old and might cause problems <a href="#faq1_17a">
-       (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.
-    If your webserver is running on a windows system, you might want to try
-    MySQL's
-    <a href="http://dev.mysql.com/downloads/connector/php/">Connector/PHP</a>
-    instead of the MySQL / MySQLi extensions that are bundled with the official
-    php Win32 builds.</p>
+       (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.</p>
 
 <h5 id="faq1_17a">
     <a href="#faq1_17a">1.17a I cannot connect to the MySQL server. It always returns the error
@@ -3175,7 +3170,7 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
 </ul>
 
 <p> Have also a look at the
-    <a href="http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html">
+    <a href="http://dev.mysql.com/doc/en/can-not-connect-to-server.html">
          corresponding section of the MySQL documentation</a>.</p>
 
 <h4 id="faq2_4">
@@ -3409,8 +3404,8 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 
 <p> When MySQL is running in ANSI-compatibility mode, there are some major
     differences in how <abbr title="structured query language">SQL</abbr> is
-    structured (see <a href="http://dev.mysql.com/doc/mysql/en/ANSI_mode.html">
-    http://dev.mysql.com/doc/mysql/en/ANSI_mode.html</a>). Most important of all,
+    structured (see <a href="http://dev.mysql.com/doc/mysql/en/ansi-mode.html">
+    http://dev.mysql.com/doc/mysql/en/ansi-mode.html</a>). Most important of all,
     the quote-character (") is interpreted as an identifier quote character and
     not as a string quote character, which makes many internal phpMyAdmin
     operations into invalid <abbr title="structured query language">SQL</abbr>
@@ -3995,7 +3990,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     columns!</a></h4>
 
 <p> No, it's MySQL that is doing
-    <a href="http://www.mysql.com/doc/S/i/Silent_column_changes.html">silent
+    <a href="http://dev.mysql.com/doc/en/silent-column-changes.html">silent
     column type changing</a>.</p>
 
 <h4 id="underscore">
@@ -4912,7 +4907,7 @@ Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, &quot;Manuzhai&quot;.
     <li><a href="http://www.wikipedia.org/wiki/Server_%28computing%29">Server</a>
          - a computer system that provides services to other computing
          systems over a network.</li>
-    <li><a id="glossar_storage_engine" href="http://dev.mysql.com/doc/refman/5.0/en/storage-engines.html">Storage Engines</a>
+    <li><a id="glossar_storage_engine" href="http://dev.mysql.com/doc/en/storage-engines.html">Storage Engines</a>
         - handlers for different table types</li>
     <li><a href="http://www.wikipedia.org/wiki/Socket#Computer_sockets">socket</a>
          - a form of inter-process communication.</li>
