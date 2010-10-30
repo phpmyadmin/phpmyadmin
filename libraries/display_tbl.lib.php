@@ -962,43 +962,40 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 /**
  * Prepares the display for a value 
  *
- * @param   string  $mouse_events 
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $value
  *
  * @return  string  the td 
  */
-function PMA_buildValueDisplay($mouse_events, $class, $condition_field, $value) {
-    return '<td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
+function PMA_buildValueDisplay($class, $condition_field, $value) {
+    return '<td align="left"' . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
 }
 
 /**
  * Prepares the display for a null value 
  *
- * @param   string  $mouse_events 
  * @param   string  $class
  * @param   string  $condition_field
  *
  * @return  string  the td 
  */
-function PMA_buildNullDisplay($mouse_events, $class, $condition_field) {
+function PMA_buildNullDisplay($class, $condition_field) {
     // the null class is needed for inline editing
-    return '<td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
+    return '<td align="right"' . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
 }
 
 /**
  * Prepares the display for an empty value 
  *
- * @param   string  $mouse_events 
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $align
  *
  * @return  string  the td 
  */
-function PMA_buildEmptyDisplay($mouse_events, $class, $condition_field, $align = '') {
-    return '<td ' . $align . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>';
+function PMA_buildEmptyDisplay($class, $condition_field, $align = '') {
+    return '<td ' . $align . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>';
 }
 
 /**
@@ -1236,16 +1233,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $condition_field = false;
             }
 
-            $mouse_events = '';
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical' && (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1'))) {
+                // the row number corresponds to a data row, not HTML table row
+                $class .= ' row_' . $row_no;
                 if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-                    $mouse_events .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'odd\', \'even\', \'hover\', \'marked\');"'
-                              . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'odd\', \'even\', \'hover\', \'marked\');" ';
+                    $class .= ' vpointer';
                 }
                 if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-                    $mouse_events .= ' onmousedown="setVerticalPointer(this, ' . $row_no . ', \'click\', \'odd\', \'even\', \'hover\', \'marked\'); setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');" ';
-                } else {
-                    $mouse_events .= ' onmousedown="setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');" ';
+                    $class .= ' vmarker';
                 }
             }// end if
 
@@ -1295,15 +1290,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       so use the $pointer
 
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                 } elseif ($row[$i] != '') {
 
                     $nowrap = ' nowrap';
                     $where_comparison = ' = ' . $row[$i];
 
-                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
+                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field, 'align="right"');
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, 'align="right"');
                 }
 
             //  b l o b
@@ -1318,7 +1313,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } else {
                         // for blobstreaming
                         // if valid BS reference exists
@@ -1328,13 +1323,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
                         }
 
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $blobtext);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $blobtext);
                         unset($blobtext);
                     }
                 // not binary:
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } elseif ($row[$i] != '') {
                         // if a transform function for blob is set, none of these replacements will be made
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
@@ -1345,9 +1340,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         // characters for tabulations and <cr>/<lf>
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $row[$i]);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $row[$i]);
                     } else {
-                        $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field);
                     }
                 }
             // g e o m e t r y
@@ -1355,13 +1350,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
                 // reset $class from $data_inline_edit_class to '' as we can't edit geometry data
                 $class = '';
-                $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($mouse_events, $class, $condition_field, $geometry_text);
+                $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);
                 unset($geometry_text);
 
             // n o t   n u m e r i c   a n d   n o t   B L O B 
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($mouse_events, $class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                 } elseif ($row[$i] != '') {
                     // support blanks in the key
                     $relation_id = $row[$i];
@@ -1403,10 +1398,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     // do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
                     $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
-                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
+                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($mouse_events, $class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field);
                 }
             }
 
@@ -1447,25 +1442,22 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $vertical_display['delete'][$row_no]     = '';
             $vertical_display['row_delete'][$row_no] = '';
         }
-
-        $column_style_vertical = '';
+        $vertical_class = ' row_' . $row_no;
         if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-            $column_style_vertical .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'odd\', \'even\', \'hover\', \'marked\');"'
-                         . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'odd\', \'even\', \'hover\', \'marked\');"';
+            $vertical_class .= ' vpointer';
         }
-        $column_marker_vertical = '';
         if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-            $column_marker_vertical .= 'setVerticalPointer(this, ' . $row_no . ', \'click\', \'odd\', \'even\', \'hover\', \'marked\');';
+            $vertical_class .= ' vmarker';
         }
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
-            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class, $column_style_vertical, $column_marker_vertical);
+            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class . $vertical_class);
         } else {
             unset($vertical_display['row_delete'][$row_no]);
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= PMA_generateEditLink($edit_url, $alternating_color_class . ' ' . $edit_anchor_class, $edit_str, $where_clause, $where_clause_html, $column_style_vertical);
+            $vertical_display['edit'][$row_no]   .= PMA_generateEditLink($edit_url, $alternating_color_class . ' ' . $edit_anchor_class . $vertical_class, $edit_str, $where_clause, $where_clause_html);
         } else {
             unset($vertical_display['edit'][$row_no]);
         }
@@ -1474,7 +1466,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if (! isset($js_conf)) {
                 $js_conf = '';
             }
-            $vertical_display['delete'][$row_no] .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, $alternating_color_class, $column_style_vertical);
+            $vertical_display['delete'][$row_no] .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, $alternating_color_class . $vertical_class);
         } else {
             unset($vertical_display['delete'][$row_no]);
         }
@@ -2322,7 +2314,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @uses    $GLOBALS['printview']
  * @uses    htmlspecialchars()
  * @uses    PMA_generate_common_url()
- * @param   string  $mouse_events
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $analyzed_sql
@@ -2336,7 +2327,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @param   bool    $is_field_truncated
  * @return  string  formatted data
  */
-function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
+function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
 
     // Define classes to be added to this data field based on the type of data
     $enum_class = '';
@@ -2350,7 +2341,7 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
     }
 
     // continue the <td> tag started before calling this function:
-    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
+    $result = ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
     . (isset($map[$meta->name]) ? ' relation' : '')
@@ -2448,22 +2439,18 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
  * @param   string  $del_query
  * @param   string  $id_suffix
  * @param   string  $class
- * @param   string  $column_style_vertical
- * @param   string  $column_marker_vertical
  * @return  string  the generated HTML
  */
 
-function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class, $column_style_vertical, $column_marker_vertical) {
+function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class) {
     $ret = '';
     if (! empty($del_url) && $is_display['del_lnk'] != 'kp') {
         $ret .= '<td ';
         if (! empty($class)) {
             $ret .= 'class="' . $class . '"';
         }
-        $ret .= $column_style_vertical;
         $ret .= ' align="center">'
            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
-           . ' onclick="' . $column_marker_vertical  . '"'
            . ' class="multi_checkbox"'
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
            . '    </td>';
@@ -2480,13 +2467,12 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
  * @param   string  $edit_str
  * @param   string  $where_clause
  * @param   string  $where_clause_html
- * @param   string  $column_style_vertical
  * @return  string  the generated HTML
  */
-function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, $column_style_vertical) {
+function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html) {
     $ret = '';
     if (! empty($edit_url)) {
-        $ret .= '<td class="' . $class . '" align="center" ' . $column_style_vertical . ' >'
+        $ret .= '<td class="' . $class . '" align="center" ' . ' >'
            . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE);
         /*
          * Where clause for selecting this row uniquely is provided as 
@@ -2508,17 +2494,16 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
  * @param   string  $del_str
  * @param   string  $js_conf
  * @param   string  $class
- * @param   string  $column_style_vertical
  * @return  string  the generated HTML
  */
-function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class, $column_style_vertical) {
+function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
     $ret = '';
     if (! empty($del_url)) {
         $ret .= '<td ';
         if (! empty($class)) {
             $ret .= 'class="' . $class . '" ';
         }
-        $ret .= 'align="center" ' . $column_style_vertical . ' >'
+        $ret .= 'align="center" ' . ' >'
            . PMA_linkOrButton($del_url, $del_str, $js_conf, FALSE)
            . '</td>';
     }

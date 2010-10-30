@@ -898,118 +898,6 @@ function unMarkAllRows( container_id ) {
     return true;
 }
 
-/*
- * Sets/unsets the pointer and marker in vertical browse mode
- *
- * @param   object    the table row
- * @param   integer   the column number
- * @param   string    the action calling this script (over, out or click)
- * @param   string    the default background Class
- * @param   string    the Class to use for mouseover
- * @param   string    the Class to use for marking a row
- *
- * @return  boolean  whether pointer is set or not
- *
- */
-function setVerticalPointer(theRow, theColNum, theAction, theDefaultClass1, theDefaultClass2, thePointerClass, theMarkClass) {
-    // 1. Pointer and mark feature are disabled or the browser can't get the
-    //    row -> exits
-    if ((thePointerClass == '' && theMarkClass == '')
-        || typeof(theRow.style) == 'undefined') {
-        return false;
-    }
-
-    var tagSwitch = null;
-
-    // 2. Gets the current row and exits if the browser can't get it
-    if (typeof(document.getElementsByTagName) != 'undefined') {
-        tagSwitch = 'tag';
-    } else if (typeof(document.getElementById('table_results')) != 'undefined') {
-        tagSwitch = 'cells';
-    } else {
-        return false;
-    }
-
-    var theCells = null;
-
-    if (tagSwitch == 'tag') {
-        theRows     = document.getElementById('table_results').getElementsByTagName('tr');
-        theCells    = theRows[1].getElementsByTagName('td');
-    } else if (tagSwitch == 'cells') {
-        theRows     = document.getElementById('table_results').rows;
-        theCells    = theRows[1].cells;
-    }
-
-    // 3. Gets the current Class...
-    var currentClass   = null;
-    var newClass       = null;
-
-    // 3.1 ... with DOM compatible browsers except Opera that does not return
-    //         valid values with "getAttribute"
-    if (typeof(window.opera) == 'undefined'
-        && typeof(theCells[theColNum].getAttribute) != 'undefined') {
-        currentClass = theCells[theColNum].className;
-    } // end 3
-
-    // 4. Defines the new Class
-    // 4.1 Current Class is the default one
-    if (currentClass == ''
-        || currentClass.toLowerCase() == theDefaultClass1.toLowerCase()
-        || currentClass.toLowerCase() == theDefaultClass2.toLowerCase()) {
-        if (theAction == 'over' && thePointerClass != '') {
-            newClass              = thePointerClass;
-        } else if (theAction == 'click' && theMarkClass != '') {
-            newClass              = theMarkClass;
-            marked_row[theColNum] = true;
-        }
-    }
-    // 4.1.2 Current Class is the pointer one
-    else if (currentClass.toLowerCase() == thePointerClass.toLowerCase() &&
-             (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum]) || marked_row[theColNum] == false) {
-            if (theAction == 'out') {
-                if (theColNum % 2) {
-                    newClass              = theDefaultClass1;
-                } else {
-                    newClass              = theDefaultClass2;
-                }
-            }
-            else if (theAction == 'click' && theMarkClass != '') {
-                newClass              = theMarkClass;
-                marked_row[theColNum] = true;
-            }
-    }
-    // 4.1.3 Current Class is the marker one
-    else if (currentClass.toLowerCase() == theMarkClass.toLowerCase()) {
-        if (theAction == 'click') {
-            newClass              = (thePointerClass != '')
-                                  ? thePointerClass
-                                  : ((theColNum % 2) ? theDefaultClass2 : theDefaultClass1);
-            marked_row[theColNum] = false;
-        }
-    } // end 4
-
-    // 5 ... with DOM compatible browsers except Opera
-
-    if (newClass) {
-        var c = null;
-        var rowCnt = theRows.length;
-        for (c = 0; c < rowCnt; c++) {
-            if (tagSwitch == 'tag') {
-                Cells = theRows[c].getElementsByTagName('td');
-            } else if (tagSwitch == 'cells') {
-                Cells = theRows[c].cells;
-            }
-
-            Cell  = Cells[theColNum];
-
-            // 5.1 Sets the new Class...
-            Cell.className = Cell.className.replace(currentClass, newClass);
-        } // end for
-    } // end 5
-
-     return true;
- } // end of the 'setVerticalPointer()' function
-
 /**
  * Checks/unchecks all checkbox in given conainer (f.e. a form, fieldset or div)
  *
@@ -1028,25 +916,6 @@ function setCheckboxes( container_id, state ) {
 
     return true;
 } // end of the 'setCheckboxes()' function
-
-//  - this was directly written to each td, so why not a function ;)
-//  setCheckboxColumn(\'id_rows_to_delete' . $row_no . ''\');
-function setCheckboxColumn(theCheckbox){
-    if (document.getElementById(theCheckbox)) {
-        document.getElementById(theCheckbox).checked = (document.getElementById(theCheckbox).checked ? false : true);
-        if (document.getElementById(theCheckbox + 'r')) {
-            document.getElementById(theCheckbox + 'r').checked = document.getElementById(theCheckbox).checked;
-        }
-    } else {
-        if (document.getElementById(theCheckbox + 'r')) {
-            document.getElementById(theCheckbox + 'r').checked = (document.getElementById(theCheckbox +'r').checked ? false : true);
-            if (document.getElementById(theCheckbox)) {
-                document.getElementById(theCheckbox).checked = document.getElementById(theCheckbox + 'r').checked;
-            }
-        }
-    }
-}
-
 
 /**
   * Checks/unchecks all options of a <select> element
@@ -2488,3 +2357,38 @@ $(document).ready(function() {
         }
     });
 }) // end of $(document).ready() for multi checkbox
+
+/**
+ * Get the row number from the classlist (for example, row_1)
+ */
+function PMA_getRowNumber(classlist) {
+    return parseInt(classlist.split(/row_/)[1]);
+}
+
+/**
+ * Vertical pointer
+ */
+$(document).ready(function() {
+    $('.vpointer').live('hover',
+        //handlerInOut
+        function(e) {
+        var $this_td = $(this);
+        var row_num = PMA_getRowNumber($this_td.attr('class'));
+        // for all td of the same vertical row, toggle hover
+        $('.vpointer').filter('.row_' + row_num).toggleClass('hover'); 
+        }
+        );
+}) // end of $(document).ready() for vertical pointer
+
+/**
+ * Vertical marker 
+ */
+$(document).ready(function() {
+    $('.vmarker').live('click', function(e) {
+        var $this_td = $(this);
+        var row_num = PMA_getRowNumber($this_td.attr('class'));
+        // for all td of the same vertical row, toggle the marked class 
+        $('.vmarker').filter('.row_' + row_num).toggleClass('marked'); 
+        });
+}) // end of $(document).ready() for vertical marker 
+

@@ -222,6 +222,7 @@ table tr.even {
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
 /* marked table rows */
+td.marked,
 table tr.marked th,
 table tr.marked {
     background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
