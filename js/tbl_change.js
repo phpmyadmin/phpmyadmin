@@ -282,15 +282,15 @@ $(document).ready(function() {
         /**
          * @var the_form    Object referring to the insertion form
          */
-        var the_form = $(this);
+        var $form = $(this);
         event.preventDefault();
 
         PMA_ajaxShowMessage();
-        if (! the_form.find('input:hidden').is('#ajax_request_hidden')) {
-            the_form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
         }
 
-        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+        $.post($form.attr('action'), $form.serialize(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
 
@@ -306,10 +306,10 @@ $(document).ready(function() {
                     $(notice_class).remove();
                 }
 
-                var submit_type = the_form.find("select[name='submit_type']").val();
+                var submit_type = $form.find("select[name='submit_type']").val();
                 if ('insert' == submit_type || 'insertignore' == submit_type) {
                     //Clear the data in the forms
-                    $(the_form).find('input:reset').trigger('click');
+                    $form.find('input:reset').trigger('click');
                 }
             }
             else {
