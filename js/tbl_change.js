@@ -286,7 +286,9 @@ $(document).ready(function() {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
-        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        if (! the_form.find('input:hidden').is('#ajax_request_hidden')) {
+            the_form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
         $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
             if(data.success == true) {
