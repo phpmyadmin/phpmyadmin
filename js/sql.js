@@ -625,7 +625,8 @@ $(document).ready(function() {
                             'rel_fields_list' : rel_fields_list,
                             'do_transformations' : transformation_fields,
                             'transform_fields_list' : transform_fields_list,
-                            'goto' : 'sql.php'
+                            'goto' : 'sql.php',
+                            'submit_type' : 'save'
                           };
 
         $.post('tbl_replace.php', post_params, function(data) {
