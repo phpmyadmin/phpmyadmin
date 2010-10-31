@@ -164,40 +164,39 @@ $(document).ready(function() {
         var button_options = {};
         button_options[PMA_messages['strCreateUser']] = function() {
 
-                                                        /**
-                                                         * @var the_form    stores reference to current form
-                                                         */
-                                                        var the_form = $(this).find("#addUsersForm");
+            /**
+             * @var the_form    stores reference to current form
+             */
+            var the_form = $(this).find("#addUsersForm");
 
-                                                        if( ! checkAddUser($(the_form).get(0)) ) {
-                                                            PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
-                                                            return false;
-                                                        }
+            if( ! checkAddUser($(the_form).get(0)) ) {
+                PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
+                return false;
+            }
 
-                                                        //We also need to post the value of the submit button in order to get this to work correctly
-                                                        $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
-                                                            if(data.success == true) {
-                                                                $("#add_user_dialog").dialog("close").remove();
-                                                                PMA_ajaxShowMessage(data.message);
-                                                                $("#topmenucontainer")
-                                                                .next('div')
-                                                                .remove()
-                                                                .end()
-                                                                .after(data.sql_query);
+            //We also need to post the value of the submit button in order to get this to work correctly
+            $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+                if(data.success == true) {
+                    $("#add_user_dialog").dialog("close").remove();
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                     .next('div')
+                     .remove()
+                     .end()
+                     .after(data.sql_query);
                                                                 
-                                                                //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                                                                var notice_class = $("#topmenucontainer").next("div").find('.notice');
-                                                                if($(notice_class).text() == '') {
-                                                                    $(notice_class).remove();
-                                                                }
+                     //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                     var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                     if($(notice_class).text() == '') {
+                        $(notice_class).remove();
+                     }
 
-                                                                appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
-                                                            }
-                                                            else {
-                                                                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
-                                                            }
-                                                        })
-                                                    };
+                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
+                } else {
+                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                }
+            })
+        };
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
