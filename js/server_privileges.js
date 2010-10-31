@@ -165,17 +165,17 @@ $(document).ready(function() {
         button_options[PMA_messages['strCreateUser']] = function() {
 
             /**
-             * @var the_form    stores reference to current form
+             * @var $form    stores reference to current form
              */
-            var the_form = $(this).find("#addUsersForm");
+            var $form = $(this).find("#addUsersForm");
 
-            if( ! checkAddUser($(the_form).get(0)) ) {
+            if( ! checkAddUser($form.get(0)) ) {
                 PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
                 return false;
             }
 
             //We also need to post the value of the submit button in order to get this to work correctly
-            $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
                 if(data.success == true) {
                     $("#add_user_dialog").dialog("close").remove();
                     PMA_ajaxShowMessage(data.message);
