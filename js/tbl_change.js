@@ -273,7 +273,7 @@ $(document).ready(function() {
     });
 
     /**
-     * Submission of data to be inserted into table
+     * Submission of data to be inserted or updated 
      * 
      * @uses    PMA_ajaxShowMessage()
      */
@@ -304,8 +304,11 @@ $(document).ready(function() {
                     $(notice_class).remove();
                 }
 
-                //Clear the data in the forms
-                $(the_form).find('input:reset').trigger('click');
+                var submit_type = the_form.find("select[name='submit_type']").val();
+                if ('insert' == submit_type || 'insertignore' == submit_type) {
+                    //Clear the data in the forms
+                    $(the_form).find('input:reset').trigger('click');
+                }
             }
             else {
                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
