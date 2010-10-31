@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used on the table structure page
  * @name            Table Structure
@@ -90,6 +91,9 @@ $(document).ready(function() {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     $(this).remove();
+                    if (typeof data.reload != 'undefined') {
+                        window.parent.frame_content.location.reload();
+                    }
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
