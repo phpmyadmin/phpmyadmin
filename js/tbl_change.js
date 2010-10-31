@@ -291,29 +291,35 @@ $(document).ready(function() {
         }
 
         $.post($form.attr('action'), $form.serialize(), function(data) {
-            if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+            if (typeof data.success != 'undefined') {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
 
-                $("#topmenucontainer")
-                .next('div')
-                .remove()
-                .end()
-                .after(data.sql_query);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
 
-                //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                var notice_class = $("#topmenucontainer").next("div").find('.notice');
-                if($(notice_class).text() == '') {
-                    $(notice_class).remove();
+                    //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                    var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    if($(notice_class).text() == '') {
+                        $(notice_class).remove();
+                    }
+
+                    var submit_type = $form.find("select[name='submit_type']").val();
+                    if ('insert' == submit_type || 'insertignore' == submit_type) {
+                        //Clear the data in the forms
+                        $form.find('input:reset').trigger('click');
+                    }
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
                 }
-
-                var submit_type = $form.find("select[name='submit_type']").val();
-                if ('insert' == submit_type || 'insertignore' == submit_type) {
-                    //Clear the data in the forms
-                    $form.find('input:reset').trigger('click');
-                }
-            }
-            else {
-                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+            } else {
+                //happens for example when no change was done while editing
+                $('#insertForm').remove();
+                $('#topmenucontainer').after('<div id="sqlqueryresults"></div>');
+                $('#sqlqueryresults').html(data);
             }
         })
     }) // end submission of data to be inserted into table
