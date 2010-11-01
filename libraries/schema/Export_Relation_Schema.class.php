@@ -171,7 +171,7 @@ class PMA_Export_Relation_Schema
 
         $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
-            $this->dieSchema('',__('No tables'));
+            $this->dieSchema('',__('This page does not contain any tables!'));
         }
         while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
