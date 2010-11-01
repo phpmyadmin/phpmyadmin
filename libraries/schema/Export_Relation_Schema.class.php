@@ -103,7 +103,7 @@ class PMA_Export_Relation_Schema
     public function setShowKeys($value)
     {
         $this->showKeys = (isset($value) && $value == 'on') ? 1 : 0;
-    }    
+    }
 
     /**
      * Set Orientation
@@ -154,7 +154,7 @@ class PMA_Export_Relation_Schema
     }
 
     /**
-     * get all tables involved or included in page 
+     * get all tables involved or included in page
      *
      * @param string db name of the database
      * @param integer pageNumber page number whose tables will be fetched in an array
@@ -171,7 +171,7 @@ class PMA_Export_Relation_Schema
 
         $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
-            $this->_die('',__('No tables'));
+            $this->dieSchema('',__('No tables'));
         }
         while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
