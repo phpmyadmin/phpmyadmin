@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-10-13 09:05+0200\n"
+"PO-Revision-Date: 2010-11-01 15:00+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6781,7 +6781,6 @@ msgstr ""
 "přilášení neplatné dříve, než je nastaveno v phpMyAdminovi."
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -6791,10 +6790,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Vaše nastavení PHP ([a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a]) je menší než "
-"platnost cookies nastavená v phpMyAdminovi. Z tohoto důvodu bude vaše "
-"přilášení neplatné dříve, než je nastaveno v phpMyAdminovi."
+"Doba uložení cookie je menší než platnost přihlášení nastavená v "
+"phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
+"v phpMyAdminovi."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -8939,7 +8937,7 @@ msgstr ""
 "riziko; hrozí například podvržení identity."
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
@@ -8947,8 +8945,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"%sPlatnost přihlašovací cookie%s musí být nastavena nejvýše na hodnotu "
-"%sUkldádání přihlašovaci cookie%s."
+"Při použití přihlašování přes cookies a při  %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"hodnotu než je tato."
 
 #: setup/lib/index.lib.php:266
 #, php-format
