@@ -575,10 +575,8 @@ msgid "Inside column:"
 msgstr "Uvnitř pole:"
 
 #: db_structure.php:59
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "V databázi nebyla nalezena žádná tabulka."
+msgstr "V databázi nebyly nalezeny žádné tabulky"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
@@ -6094,10 +6092,8 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma databáze %s - Strana %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Soubor %s neobsahuje ID klíče"
+msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
