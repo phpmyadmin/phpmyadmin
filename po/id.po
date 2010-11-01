@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-01 14:47+0100\n"
+"POT-Creation-Date: 2010-11-01 14:56+0100\n"
 "PO-Revision-Date: 2010-09-16 05:35+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -6898,7 +6898,7 @@ msgstr ""
 
 #: main.php:279
 msgid ""
-"Login cookie store is lower that cookie validity configured in phpMyAdmin, "
+"Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
