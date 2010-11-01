@@ -73,7 +73,7 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT') && ! defined('TABLE_MAY_BE_A
             }
 
             if (! $is_table) {
-                require 'db_sql.php';
+                require './db_sql.php';
                 exit;
             }
         }
