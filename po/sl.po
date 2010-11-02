@@ -317,7 +317,7 @@ msgstr "Dodaj omejitve"
 
 #: db_operations.php:486
 msgid "Switch to copied database"
-msgstr "Preklopi na kopirano podatkovno zbirko"
+msgstr "Preklopi na kopirano zbirko podatkov"
 
 #: db_operations.php:506 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
