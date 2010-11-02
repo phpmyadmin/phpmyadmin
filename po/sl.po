@@ -234,7 +234,7 @@ msgstr "Preglej povzetek stanja zbirke podatkov"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:320
 msgid "No tables found in database."
-msgstr "V podatkovni zbirki ni mogoče najti tabel."
+msgstr "V zbirki podatkov ni mogoče najti tabel."
 
 #: db_export.php:44 db_search.php:341 server_export.php:26
 msgid "Select All"
