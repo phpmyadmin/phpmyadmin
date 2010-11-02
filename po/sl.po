@@ -577,7 +577,7 @@ msgstr "V stolpcu:"
 #: db_structure.php:59
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "V podatkovni zbirki ni mogoče najti tabel"
+msgstr "V zbirki podatkov ni mogoče najti tabel"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
