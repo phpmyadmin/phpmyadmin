@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-11-03 01:20+0200\n"
+"PO-Revision-Date: 2010-11-03 01:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -109,7 +109,7 @@ msgstr "Oddaljenega URL ni bilo mogoče doseči"
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Podatkovna zbirka %1$s je ustvarjena."
+msgstr "Zbirka podatkov %1$s je ustvarjena."
 
 #: db_datadict.php:48 db_operations.php:331
 msgid "Database comment: "
