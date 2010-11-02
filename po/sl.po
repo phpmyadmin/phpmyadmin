@@ -2776,7 +2776,7 @@ msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:173
 msgid "Databases display options"
-msgstr "Možnosti prikaza podatkovnih zbirk"
+msgstr "Možnosti prikaza zbirk podatkov"
 
 #: libraries/config/messages.inc.php:174 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
