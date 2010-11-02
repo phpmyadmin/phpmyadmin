@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-10-10 05:01+0200\n"
+"PO-Revision-Date: 2010-11-02 23:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -566,10 +566,9 @@ msgid "Inside column:"
 msgstr "İç sütun:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Veritabanında tablo bulunamadı."
+msgstr "Veritabanında tablolar bulunamadı"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
