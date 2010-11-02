@@ -2057,7 +2057,7 @@ msgstr "Konec"
 #: libraries/common.lib.php:2416
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Preskoči na podatkovno zbirko &quot;%s&quot;."
+msgstr "Preskoči na zbirko podatkov &quot;%s&quot;."
 
 #: libraries/common.lib.php:2435
 #, php-format
