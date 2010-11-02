@@ -723,7 +723,7 @@ msgstr "Sledene tabele"
 #: server_synchronize.php:1177 server_synchronize.php:1181
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
-msgstr "Podatkovna zbirka"
+msgstr "Zbirka podatkov"
 
 #: db_tracking.php:85
 msgid "Last version"
