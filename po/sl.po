@@ -552,7 +552,7 @@ msgstr[3] "<b>Skupaj:</b> <i>%s</i> zadetkov"
 
 #: db_search.php:296
 msgid "Search in database"
-msgstr "Išči v podatkovni zbirki"
+msgstr "Išči v zbirki podatkov"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
