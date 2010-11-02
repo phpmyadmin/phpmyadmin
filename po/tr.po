@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-11-02 23:38+0200\n"
+"PO-Revision-Date: 2010-11-02 23:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6123,10 +6123,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "%s veritabanının şeması - Sayfa %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "%s dosyası herhangi bir anahtar kimliği içermiyor"
+msgstr "Bu sayfa herhangi bir tablo içermiyor!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
