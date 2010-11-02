@@ -6119,10 +6119,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Shema zbirke podatkov %s - Stran %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Datoteka %s ne vsebuje nobenega identifikacijskega ključa"
+msgstr "Ta stran ne vsebuje nobenih tabel!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
