@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-11-03 01:22+0200\n"
+"PO-Revision-Date: 2010-11-03 01:24+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -8997,7 +8997,7 @@ msgstr ""
 "kot je pretvarjanje za drugo osebo."
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
@@ -9005,8 +9005,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"%sVeljavnost prijavnega piškotka%s mora biti določena na vrednost manjšo ali "
-"enako %sShrambi prijavnih piškotkov%s."
+"Če uporabljate overovitev piškotkov in %sShranjevanje prijavnih piškotkov%s "
+"ni 0, mora biti %sVeljavnost prijavnega piškotka%s določena na manjšo ali "
+"enako vrednost."
 
 #: setup/lib/index.lib.php:266
 #, php-format
