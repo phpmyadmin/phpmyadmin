@@ -2906,7 +2906,7 @@ msgstr "Sledenje spremembam"
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
 "Sledenje spremembam narejenih v zbirki podatkov. Potrebuje konfigurirano "
-"podatkovno zbirko PMA."
+"zbirko podatkov PMA."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
