@@ -273,7 +273,7 @@ msgstr "Odstrani zbirko podatkov"
 #: db_operations.php:412
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Podatkovna zbirka %s je zavržena."
+msgstr "Zbirka podatkov %s je zavržena."
 
 #: db_operations.php:417
 msgid "Drop the database (DROP)"
