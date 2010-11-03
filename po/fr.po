@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-11-03 14:00+0200\n"
+"PO-Revision-Date: 2010-11-03 14:05+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9065,7 +9065,7 @@ msgstr ""
 "risque."
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
@@ -9073,8 +9073,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Le paramètre %sLogin cookie validity%s doit avoir une valeur plus petite ou "
-"égale au paramètre %sLogin cookie store%s."
+"Si vous utilisez l'authentification cookie et que le paramètre %Login cookie "
+"store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%s "
+"doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:266
 #, php-format
