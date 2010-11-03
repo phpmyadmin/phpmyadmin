@@ -555,8 +555,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         echo '<div class="formelement">';
         $choices = array(
-            'P'   => __('Partial Texts'),
-            'F'   => __('Full Texts')
+            'P'   => __('Partial texts'),
+            'F'   => __('Full texts')
         );
         PMA_display_html_radio('display_text', $choices, $_SESSION['tmp_user_values']['display_text']);
         echo '</div>';
@@ -565,11 +565,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($_SESSION['tmp_user_values']['display_text']=='F') {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
-            $tmp_txt = __('Partial Texts');
+            $tmp_txt = __('Partial texts');
             $url_params['display_text'] = 'P';
         } else {
             $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_fulltext.png';
-            $tmp_txt = __('Full Texts');
+            $tmp_txt = __('Full texts');
             $url_params['display_text'] = 'F';
         }
 
