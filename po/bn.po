@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-01 14:56+0100\n"
+"POT-Creation-Date: 2010-11-03 12:13-0400\n"
 "PO-Revision-Date: 2010-10-21 01:36+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
-"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -619,8 +619,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -849,11 +849,11 @@ msgstr "ডাম্প  %s ফাইল এ সেভ করা হয়েছে
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1718,8 +1718,8 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "সম্ভবত আপনি কনফিগারেশন ফাইল তৈরী করেননি। আপনি  %1$ssetup script%2$s ব্যাবহার "
 "করে একটি তৈরী করতে পারেন "
@@ -4632,12 +4632,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -4839,11 +4839,15 @@ msgid "Options"
 msgstr "Operations"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-msgid "Partial Texts"
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Partial texts"
 msgstr "Partial Texts"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-msgid "Full Texts"
+#, fuzzy
+#| msgid "Full Texts"
+msgid "Full texts"
 msgstr "Full Texts"
 
 #: libraries/display_tbl.lib.php:585
@@ -7655,13 +7659,13 @@ msgstr "ব্যাবহারকারীর নামে নাম এমন
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 
 #: server_privileges.php:1775
 msgid "The selected user was not found in the privilege table."

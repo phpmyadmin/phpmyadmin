@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-01 14:56+0100\n"
+"POT-Creation-Date: 2010-11-03 12:13-0400\n"
 "PO-Revision-Date: 2010-11-03 00:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -566,7 +566,6 @@ msgid "Inside column:"
 msgstr "İç sütun:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Veritabanında tablolar bulunamadı"
 
@@ -596,8 +595,8 @@ msgstr "İzleme aktif değil."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -820,8 +819,8 @@ msgstr "Döküm, %s dosyasına kaydedildi."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınıra çözüm yolu "
 "bulmak için %sbelgeden%s yararlanın."
@@ -1604,8 +1603,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -4547,8 +4546,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -4736,11 +4735,15 @@ msgid "Options"
 msgstr "Seçenekler"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-msgid "Partial Texts"
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Partial texts"
 msgstr "Kısmi Metinler"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-msgid "Full Texts"
+#, fuzzy
+#| msgid "Full Texts"
+msgid "Full texts"
 msgstr "Tam Metinler"
 
 #: libraries/display_tbl.lib.php:585
@@ -6123,7 +6126,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "%s veritabanının şeması - Sayfa %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Bu sayfa herhangi bir tablo içermiyor!"
 
@@ -6822,11 +6824,6 @@ msgstr ""
 "oturum açmanızın süresi phpMyAdmin içinde yapılandırılmadıkça dolacaktır."
 
 #: main.php:279
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7523,8 +7520,8 @@ msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -8908,8 +8905,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
-"%s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
+"s, %s tarihinde yayınlandı."
 
 #: setup/lib/index.lib.php:162
 #, php-format
@@ -9004,9 +9001,6 @@ msgstr ""
 
 #: setup/lib/index.lib.php:264
 #, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
-#| "cookie store%s."
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
@@ -9023,8 +9017,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
-"%sanamakine kimlik denetimi%s ayarları ve %sgüvenilir proksiler listesi%s. "
+"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- %"
+"sanamakine kimlik denetimi%s ayarları ve %sgüvenilir proksiler listesi%s. "
 "Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 

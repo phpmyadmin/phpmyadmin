@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-01 14:56+0100\n"
+"POT-Creation-Date: 2010-11-03 12:13-0400\n"
 "PO-Revision-Date: 2010-11-03 01:25+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -575,7 +575,6 @@ msgid "Inside column:"
 msgstr "V stolpcu:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "V zbirki podatkov ni mogoče najti tabel"
 
@@ -605,8 +604,8 @@ msgstr "Sledenje ni aktivno."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -828,8 +827,8 @@ msgstr "Dump je shranjen v datoteko %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, oglejte si "
 "%sdokumentacijo%s za načine, kako obiti to omejitev."
@@ -1621,8 +1620,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -4542,8 +4541,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -4731,11 +4730,15 @@ msgid "Options"
 msgstr "Možnosti"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-msgid "Partial Texts"
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Partial texts"
 msgstr "Delna besedila"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-msgid "Full Texts"
+#, fuzzy
+#| msgid "Full Texts"
+msgid "Full texts"
 msgstr "Polna besedila"
 
 #: libraries/display_tbl.lib.php:585
@@ -6119,7 +6122,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Shema zbirke podatkov %s - Stran %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Ta stran ne vsebuje nobenih tabel!"
 
@@ -6812,11 +6814,6 @@ msgstr ""
 "prej, kot je določeno v phpMyAdminu."
 
 #: main.php:279
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7512,8 +7509,8 @@ msgstr "Izbriši zbirke podatkov, ki imajo enako ime kot uporabniki."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -8996,9 +8993,6 @@ msgstr ""
 
 #: setup/lib/index.lib.php:264
 #, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
-#| "cookie store%s."
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."

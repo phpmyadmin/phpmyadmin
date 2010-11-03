@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-01 14:56+0100\n"
+"POT-Creation-Date: 2010-11-03 12:13-0400\n"
 "PO-Revision-Date: 2010-07-21 14:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -622,8 +622,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -845,11 +845,11 @@ msgstr "Dump er blevet gemt i filen %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst "
-"%sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
+"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
 "begrænsning."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1721,8 +1721,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -4597,8 +4597,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -4805,11 +4805,15 @@ msgid "Options"
 msgstr "Indstillinger"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-msgid "Partial Texts"
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Partial texts"
 msgstr "Delvise tekster"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-msgid "Full Texts"
+#, fuzzy
+#| msgid "Full Texts"
+msgid "Full texts"
 msgstr "Komplette tekster"
 
 #: libraries/display_tbl.lib.php:585
@@ -7609,14 +7613,14 @@ msgstr "Drop databaser der har samme navne som brugernes."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: server_privileges.php:1775
 msgid "The selected user was not found in the privilege table."
