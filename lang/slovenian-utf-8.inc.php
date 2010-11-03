@@ -8,7 +8,7 @@ $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('bajtov', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
+$byteUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
 
 $day_of_week = array('Ned', 'Pon', 'Tor', 'Sre', 'Čet', 'Pet', 'Sob');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec');
