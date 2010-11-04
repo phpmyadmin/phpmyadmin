@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-10-08 07:02+0200\n"
+"PO-Revision-Date: 2010-11-04 05:16+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -563,10 +563,9 @@ msgid "Inside column:"
 msgstr "包含字段："
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "数据库中没有表。"
+msgstr "没有在数据库中找到表"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
@@ -5904,10 +5903,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "数据库 %s 的大纲 - 第 %s 页"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "文件 %s 未包含任何密钥"
+msgstr "此页没有包含任何表！"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
@@ -8621,14 +8619,14 @@ msgstr ""
 "会增加安全风险。"
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
-msgstr "%s登录 cookie 有效期%s不能超过%s登录 cookie 保存时间%s。"
+msgstr "如果使用 cookie 认证且%s登录 cookie 保存时间%s不为 0，%s登录 cookie 有效期%s的值不能超过前者。"
 
 #: setup/lib/index.lib.php:266
 #, php-format

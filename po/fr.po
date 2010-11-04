@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-10-13 18:50+0200\n"
+"PO-Revision-Date: 2010-11-03 14:05+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -569,7 +569,6 @@ msgid "Inside column:"
 msgstr "Dans la colonne: "
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Aucune table n'a été trouvée dans cette base."
@@ -6158,10 +6157,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma de la base %s - Page %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Le fichier %s ne contient pas d'identifiant de clé"
+msgstr "Cette page ne contient aucune table!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
@@ -6861,7 +6859,6 @@ msgstr ""
 "travail expirera plus tôt."
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -6871,10 +6868,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La valeur du paramètre PHP [a@http://php.net/manual/fr/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] est plus petite "
-"que la durée du cookie configurée dans phpMyAdmin; donc, votre session de "
-"travail expirera plus tôt."
+"La durée du stockage du cookie sur le serveur est plus petite que la durée "
+"du cookie configurée dans phpMyAdmin; donc, votre session de travail "
+"expirera plus tôt."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -9073,7 +9069,7 @@ msgstr ""
 "risque."
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
@@ -9081,8 +9077,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Le paramètre %sLogin cookie validity%s doit avoir une valeur plus petite ou "
-"égale au paramètre %sLogin cookie store%s."
+"Si vous utilisez l'authentification cookie et que le paramètre %Login cookie "
+"store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%s "
+"doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:266
 #, php-format
