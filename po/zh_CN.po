@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-01 14:56+0100\n"
-"PO-Revision-Date: 2010-10-08 07:02+0200\n"
+"PO-Revision-Date: 2010-11-04 05:05+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -563,10 +563,9 @@ msgid "Inside column:"
 msgstr "包含字段："
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "数据库中没有表。"
+msgstr "没有在数据库中找到表"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
