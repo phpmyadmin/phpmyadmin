@@ -9077,7 +9077,7 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si vous utilisez l'authentification cookie et que le paramètre %Login cookie "
+"Si vous utilisez l'authentification cookie et que le paramètre %sLogin cookie "
 "store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%s "
 "doit avoir une valeur plus petite ou égale à celui-ci."
 
