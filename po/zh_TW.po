@@ -9538,7 +9538,7 @@ msgstr "停用對 %s.%s 的追蹤"
 
 #: tbl_tracking.php:636
 msgid "Deactivate now"
-msgstr ""
+msgstr "現在停用"
 
 #: tbl_tracking.php:647
 #, php-format
