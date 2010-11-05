@@ -758,7 +758,7 @@ msgstr "執行"
 
 #: db_tracking.php:100 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "刪除此資料表的追蹤資料"
 
 #: db_tracking.php:118 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
