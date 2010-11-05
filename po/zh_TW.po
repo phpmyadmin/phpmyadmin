@@ -784,7 +784,7 @@ msgstr "結構快照"
 
 #: db_tracking.php:164
 msgid "Untracked tables"
-msgstr "未追蹤資料表"
+msgstr "未追蹤的資料表"
 
 #: db_tracking.php:184 db_tracking.php:186 tbl_structure.php:619
 #: tbl_structure.php:621
