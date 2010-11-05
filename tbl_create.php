@@ -38,7 +38,7 @@ require_once './libraries/common.inc.php';
 $action = 'tbl_create.php';
 
 require_once './libraries/header.inc.php';
-require_once './libraries/build_action_titles.inc.php';
+$titles = PMA_buildActionTitles();
 
 // Check parameters
 PMA_checkParameters(array('db'));

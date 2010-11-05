@@ -52,7 +52,7 @@ $db_collation = PMA_getDbCollation($db);
 
 // in a separate file to avoid redeclaration of functions in some code paths
 require_once './libraries/db_structure.lib.php';
-require_once './libraries/build_action_titles.inc.php';
+$titles = PMA_buildActionTitles();
 
 // 1. No tables
 if ($num_tables == 0) {
