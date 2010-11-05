@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-11-05 13:46+0200\n"
+"PO-Revision-Date: 2010-11-05 13:48+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -344,10 +344,9 @@ msgid ""
 msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
 #: db_operations.php:552
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "關聯概要"
+msgstr "編輯或匯出關連表"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
