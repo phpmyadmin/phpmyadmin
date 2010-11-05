@@ -1643,7 +1643,7 @@ $(document).ready(function() {
             $('<div id="create_table_dialog"></div>')
             .append(data)
             .dialog({
-                title: top.frame_content.PMA_messages['strCreateTable'],
+                title: PMA_messages['strCreateTable'],
                 width: 900,
                 buttons : button_options
             }); // end dialog options
@@ -1973,7 +1973,7 @@ $(document).ready(function() {
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             $('<div id="change_password_dialog></div>')
             .dialog({
-                title: top.frame_content.PMA_messages['strChangePassword'],
+                title: PMA_messages['strChangePassword'],
                 width: 600,
                 buttons : button_options
             })

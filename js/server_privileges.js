@@ -207,7 +207,7 @@ $(document).ready(function() {
             .find("#addUsersForm").append('<input type="hidden" name="ajax_request" value="true" />')
             .end()
             .dialog({
-                title: top.frame_content.PMA_messages['strAddNewUser'],
+                title: PMA_messages['strAddNewUser'],
                 width: 800,
                 modal: true,
                 buttons: button_options
