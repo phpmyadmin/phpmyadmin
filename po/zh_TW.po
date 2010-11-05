@@ -733,7 +733,7 @@ msgstr "資料庫"
 
 #: db_tracking.php:85
 msgid "Last version"
-msgstr ""
+msgstr "上一個版本"
 
 #: db_tracking.php:86 tbl_tracking.php:588
 #, fuzzy
