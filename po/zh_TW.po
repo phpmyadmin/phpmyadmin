@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-11-05 14:06+0200\n"
+"PO-Revision-Date: 2010-11-05 14:07+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -464,10 +464,9 @@ msgid "Modify"
 msgstr "修改"
 
 #: db_qbe.php:580
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "新增/減少 篩選列"
+msgstr "新增/刪除篩選列"
 
 #: db_qbe.php:592
 #, fuzzy
