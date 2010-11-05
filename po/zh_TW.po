@@ -9482,7 +9482,7 @@ msgstr ""
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
-msgstr ""
+msgstr "追蹤語句"
 
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
