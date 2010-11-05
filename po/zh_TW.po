@@ -9500,7 +9500,7 @@ msgstr ""
 
 #: tbl_tracking.php:457
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "資料模擬語句"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
