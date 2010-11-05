@@ -9547,7 +9547,7 @@ msgstr "啟用對 %s.%s 的追蹤"
 
 #: tbl_tracking.php:649
 msgid "Activate now"
-msgstr ""
+msgstr "現在啟用 "
 
 #: tbl_tracking.php:662
 #, php-format
