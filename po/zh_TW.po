@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-11-05 13:51+0200\n"
+"PO-Revision-Date: 2010-11-05 13:52+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -9543,7 +9543,7 @@ msgstr "現在停用"
 #: tbl_tracking.php:647
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "啟用對 %s.%s 的追蹤"
 
 #: tbl_tracking.php:649
 msgid "Activate now"
