@@ -9563,9 +9563,8 @@ msgid "Track these data manipulation statements:"
 msgstr "追蹤這些資料模擬的語句:"
 
 #: tbl_tracking.php:682
-#, fuzzy
 msgid "Create version"
-msgstr "伺服器版本"
+msgstr "建立版本"
 
 #: themes.php:31
 #, php-format
