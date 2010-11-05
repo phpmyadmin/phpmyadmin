@@ -4740,10 +4740,9 @@ msgid "Partial texts"
 msgstr "Kısmi metinler"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Tam Metinler"
+msgstr "Tam metinler"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
