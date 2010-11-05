@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-11-05 14:03+0200\n"
+"PO-Revision-Date: 2010-11-05 14:06+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -278,9 +278,8 @@ msgid "Database %s has been dropped."
 msgstr "資料庫 %s 已被刪除"
 
 #: db_operations.php:417
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "沒有資料庫"
+msgstr "清除資料庫 (DROP)"
 
 #: db_operations.php:445
 msgid "Copy database to"
