@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-03 12:13-0400\n"
-"PO-Revision-Date: 2010-11-05 14:10+0200\n"
+"PO-Revision-Date: 2010-11-05 14:11+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -741,7 +741,7 @@ msgstr "已建立"
 
 #: db_tracking.php:87 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "已更新"
 
 #: db_tracking.php:88 libraries/common.lib.php:1330
 #: libraries/server_links.inc.php:50 server_processlist.php:58
