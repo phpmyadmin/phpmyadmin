@@ -771,9 +771,8 @@ msgid "not active"
 msgstr ""
 
 #: db_tracking.php:133
-#, fuzzy
 msgid "Versions"
-msgstr "波斯語"
+msgstr "版本"
 
 #: db_tracking.php:134 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
