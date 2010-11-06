@@ -21,6 +21,8 @@ $type_T1 = strtoupper($tables[$T1]['ENGINE']);
 $tables = PMA_DBI_get_tables_full($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
+$try_to_delete_internal_relation = false;
+
 if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && $type_T1 == $type_T2) {
     // InnoDB
     $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
@@ -30,8 +32,14 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
                   . ' DROP FOREIGN KEY '
                   . PMA_backquote($existrel_foreign[$F2]['constraint']);
         $upd_rs     = PMA_DBI_query($upd_query);
+    } else {
+        // there can be an internal relation even if InnoDB
+        $try_to_delete_internal_relation = true;
     }
 } else {
+    $try_to_delete_internal_relation = true;
+}
+if ($try_to_delete_internal_relation) {
     // internal relations
     PMA_query_as_controluser('DELETE FROM '
               . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
