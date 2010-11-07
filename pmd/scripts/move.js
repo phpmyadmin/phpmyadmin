@@ -517,7 +517,7 @@ function Click_field(T, f, PK) // table field
             }
             var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth>>1);
             document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight - 10;
+            var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight + 40;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
             document.getElementById('layer_new_relation').style.visibility = "visible";
             link_relation += '&T2=' + T + '&F2=' + f;
