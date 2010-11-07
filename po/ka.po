@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-03 12:13-0400\n"
+"POT-Creation-Date: 2010-11-07 07:20-0500\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -37,9 +37,9 @@ msgstr ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 
-#: browse_foreigners.php:148 libraries/build_action_titles.inc.php:15
-#: libraries/build_action_titles.inc.php:16 libraries/common.lib.php:2823
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:60
+#: browse_foreigners.php:148 libraries/common.lib.php:2823
+#: libraries/common.lib.php:2830 libraries/common.lib.php:3005
+#: libraries/common.lib.php:3006 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "ძებნა"
@@ -67,8 +67,8 @@ msgstr "ძებნა"
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1076
-#: tbl_change.php:1113 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
+#: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
 #: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
@@ -462,7 +462,7 @@ msgstr "Del"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:927 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "ან"
 
@@ -535,8 +535,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s match(es) inside table <i>%s</i>"
 msgstr[1] "%s match(es) inside table <i>%s</i>"
 
-#: db_search.php:255 libraries/build_action_titles.inc.php:13
-#: libraries/build_action_titles.inc.php:14 libraries/common.lib.php:2825
+#: db_search.php:255 libraries/common.lib.php:2825
+#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -548,7 +548,7 @@ msgstr "არჩევა"
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:376
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -686,16 +686,15 @@ msgstr "ექსპორტი"
 msgid "Print view"
 msgstr "ხედის ამობეჭდვა"
 
-#: db_structure.php:501 db_structure.php:502
-#: libraries/build_action_titles.inc.php:22
-#: libraries/build_action_titles.inc.php:23 libraries/common.lib.php:1642
+#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1642
+#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "ცარიელი"
 
 #: db_structure.php:503 db_structure.php:504 db_tracking.php:103
-#: libraries/Index.class.php:482 libraries/build_action_titles.inc.php:20
-#: libraries/build_action_titles.inc.php:21 libraries/common.lib.php:1643
+#: libraries/Index.class.php:482 libraries/common.lib.php:1643
+#: libraries/common.lib.php:3010 libraries/common.lib.php:3011
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:251 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -1038,7 +1037,7 @@ msgstr "Remove selected users"
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:60 pmd_general.php:341 pmd_general.php:378
+#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -1066,7 +1065,7 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
 msgid "OK"
 msgstr "OK"
 
@@ -1135,100 +1134,62 @@ msgstr "ძრავები"
 msgid "Ignore"
 msgstr "იგნორირება"
 
-#: js/messages.php:92 pmd_save_pos.php:52
-msgid "Modifications have been saved"
-msgstr "ცვლილებები შენახულია"
-
-#: js/messages.php:93 pmd_relation_upd.php:47
-msgid "Relation deleted"
-msgstr "Relation deleted"
-
-#: js/messages.php:94 pmd_relation_new.php:62
-msgid "FOREIGN KEY relation added"
-msgstr "FOREIGN KEY relation added"
-
-#: js/messages.php:95 pmd_relation_new.php:84
-msgid "Internal relation added"
-msgstr "Internal relation added"
-
-#: js/messages.php:96 pmd_relation_new.php:61 pmd_relation_new.php:86
-msgid "Error: Relation not added."
-msgstr "Error: Relation not added."
-
-#: js/messages.php:97 pmd_relation_new.php:29
-msgid "Error: relation already exists."
-msgstr "Error: relation already exists."
-
-#: js/messages.php:98
-msgid "Error saving coordinates for Designer."
-msgstr "Error saving coordinates for Designer."
-
-#: js/messages.php:99 libraries/relation.lib.php:89
-#: libraries/relation.lib.php:101
-msgid "General relation features"
-msgstr "General relation features"
-
-#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:173
-#: libraries/relation.lib.php:83 libraries/relation.lib.php:90
-msgid "Disabled"
-msgstr "გათიშულია"
-
-#: js/messages.php:100
+#: js/messages.php:92
 msgid "Select referenced key"
 msgstr "Select referenced key"
 
-#: js/messages.php:101
+#: js/messages.php:93
 msgid "Select Foreign Key"
 msgstr "Select Foreign Key"
 
-#: js/messages.php:102
+#: js/messages.php:94
 msgid "Please select the primary key or a unique key"
 msgstr "Please select the primary key or a unique key"
 
-#: js/messages.php:103 pmd_general.php:76 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "აირჩიეთ საჩვენებელი ველი"
 
-#: js/messages.php:106
+#: js/messages.php:98
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "პაროლის დაგენერირება"
 
-#: js/messages.php:107 libraries/replication_gui.lib.php:365
+#: js/messages.php:99 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "დაგენერირება"
 
-#: js/messages.php:108
+#: js/messages.php:100
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "პაროლის შეცვლა"
 
-#: js/messages.php:111
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "ორშ"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:121
+#: js/messages.php:113
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "შემოწირულობა"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:123
+#: js/messages.php:115
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "წინა"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:125 libraries/common.lib.php:2340
+#: js/messages.php:117 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1236,96 +1197,96 @@ msgid "Next"
 msgstr "შემდეგი"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:127
+#: js/messages.php:119
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "სულ"
 
-#: js/messages.php:130
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "ბინარული"
 
-#: js/messages.php:131
+#: js/messages.php:123
 msgid "February"
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "მარ"
 
-#: js/messages.php:133
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "აპრ"
 
-#: js/messages.php:134
+#: js/messages.php:126
 msgid "May"
 msgstr "მაი"
 
-#: js/messages.php:135
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "ივნ"
 
-#: js/messages.php:136
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "ივლ"
 
-#: js/messages.php:137
+#: js/messages.php:129
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "აგვ"
 
-#: js/messages.php:138
+#: js/messages.php:130
 msgid "September"
 msgstr ""
 
-#: js/messages.php:139
+#: js/messages.php:131
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "ოქტ"
 
-#: js/messages.php:140
+#: js/messages.php:132
 msgid "November"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:133
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1545
+#: js/messages.php:137 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "იან"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1547
+#: js/messages.php:139 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "თებ"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1549
+#: js/messages.php:141 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "მარ"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1551
+#: js/messages.php:143 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "აპრ"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1553
+#: js/messages.php:145 libraries/common.lib.php:1553
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1333,178 +1294,178 @@ msgid "May"
 msgstr "მაი"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1555
+#: js/messages.php:147 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "ივნ"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1557
+#: js/messages.php:149 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "ივლ"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1559
+#: js/messages.php:151 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "აგვ"
 
 #. l10n: Short month name
-#: js/messages.php:161 libraries/common.lib.php:1561
+#: js/messages.php:153 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "სექ"
 
 #. l10n: Short month name
-#: js/messages.php:163 libraries/common.lib.php:1563
+#: js/messages.php:155 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "ოქტ"
 
 #. l10n: Short month name
-#: js/messages.php:165 libraries/common.lib.php:1565
+#: js/messages.php:157 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "ნოე"
 
 #. l10n: Short month name
-#: js/messages.php:167 libraries/common.lib.php:1567
+#: js/messages.php:159 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "დეკ"
 
-#: js/messages.php:170
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "კვი"
 
-#: js/messages.php:171
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "ორშ"
 
-#: js/messages.php:172
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "სამ"
 
-#: js/messages.php:173
+#: js/messages.php:165
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:174
+#: js/messages.php:166
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:167
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "პარ"
 
-#: js/messages.php:176
+#: js/messages.php:168
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1570
+#: js/messages.php:172 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "კვი"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1572
+#: js/messages.php:174 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "ორშ"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1574
+#: js/messages.php:176 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "სამ"
 
 #. l10n: Short week day name
-#: js/messages.php:186 libraries/common.lib.php:1576
+#: js/messages.php:178 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "ოთხ"
 
 #. l10n: Short week day name
-#: js/messages.php:188 libraries/common.lib.php:1578
+#: js/messages.php:180 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "ხუთ"
 
 #. l10n: Short week day name
-#: js/messages.php:190 libraries/common.lib.php:1580
+#: js/messages.php:182 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "პარ"
 
 #. l10n: Short week day name
-#: js/messages.php:192 libraries/common.lib.php:1582
+#: js/messages.php:184 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "შაბ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "კვი"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "ორშ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "სამ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:202
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "ოთხ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:204
+#: js/messages.php:196
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "ხუთ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:206
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "პარ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:208
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "შაბ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:210
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "ვიკი"
 
-#: js/messages.php:212
+#: js/messages.php:204
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:213
+#: js/messages.php:205
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in use"
 
-#: js/messages.php:214
+#: js/messages.php:206
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1617,7 +1578,7 @@ msgstr "მონაცემთა ბაზები"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:923
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "შეცდომა"
@@ -1864,26 +1825,6 @@ msgstr "ფაილის ჩამოტვირთვა"
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
-
-#: libraries/build_action_titles.inc.php:17
-#: libraries/build_action_titles.inc.php:18 libraries/common.lib.php:2824
-#: libraries/sql_query_form.lib.php:314 libraries/sql_query_form.lib.php:317
-#: libraries/tbl_links.inc.php:67
-msgid "Insert"
-msgstr "ჩასმა"
-
-#: libraries/build_action_titles.inc.php:19 libraries/common.lib.php:2821
-#: libraries/common.lib.php:2828 libraries/config/setup.forms.php:289
-#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:191
-#: libraries/config/user_preferences.forms.php:228
-#: libraries/config/user_preferences.forms.php:262
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:133 server_privileges.php:594 server_replication.php:313
-#: tbl_tracking.php:263
-msgid "Structure"
-msgstr "სტრუქტურა"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -2190,6 +2131,19 @@ msgstr "Jump to database &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "The %s functionality is affected by a known bug, see %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:3009 libraries/config/setup.forms.php:289
+#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/user_preferences.forms.php:228
+#: libraries/config/user_preferences.forms.php:262
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
+#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: tbl_tracking.php:263
+msgid "Structure"
+msgstr "სტრუქტურა"
+
 #: libraries/common.lib.php:2822 libraries/common.lib.php:2829
 #: libraries/config/messages.inc.php:209 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
@@ -2197,6 +2151,12 @@ msgstr "The %s functionality is affected by a known bug, see %s"
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
+
+#: libraries/common.lib.php:2824 libraries/common.lib.php:3007
+#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:314
+#: libraries/sql_query_form.lib.php:317 libraries/tbl_links.inc.php:67
+msgid "Insert"
+msgstr "ჩასმა"
 
 #: libraries/common.lib.php:2831 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
@@ -2215,7 +2175,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web server upload directory"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:924
+#: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr "The directory you set for upload work cannot be reached"
 
@@ -2348,6 +2308,11 @@ msgstr "Maximum tables"
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 
+#: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
+#: libraries/relation.lib.php:90 pmd_relation_new.php:68
+msgid "Disabled"
+msgstr "გათიშულია"
+
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
@@ -2365,14 +2330,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1028 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1029 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "შენახვა"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1077
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1078
 msgid "Reset"
 msgstr "დაბრუნება"
 
@@ -5041,7 +5006,7 @@ msgstr "ორობითი შიგთავსის ჩვენება"
 msgid "Show BLOB contents"
 msgstr "Show BLOB contents"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:140 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "დამალვა"
@@ -6226,6 +6191,11 @@ msgstr "not OK"
 msgid "Enabled"
 msgstr "ჩართულია"
 
+#: libraries/relation.lib.php:89 libraries/relation.lib.php:101
+#: pmd_relation_new.php:68
+msgid "General relation features"
+msgstr "General relation features"
+
 #: libraries/relation.lib.php:105
 msgid "Display Features"
 msgstr "Display Features"
@@ -6663,7 +6633,7 @@ msgstr "View only"
 msgid "Location of the text file"
 msgstr "Location of the text file"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:927
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
 msgstr "web server upload directory"
 
@@ -7274,71 +7244,71 @@ msgstr "ცხრილის შექმნა"
 msgid "Please select a database"
 msgstr "გთხოვთ აირჩიოთ მონაცემთა ბაზა"
 
-#: pmd_general.php:63
+#: pmd_general.php:64
 msgid "Show/Hide left menu"
 msgstr "Show/Hide left menu"
 
-#: pmd_general.php:67
+#: pmd_general.php:68
 msgid "Save position"
 msgstr "მდებარეობის შენახვა"
 
-#: pmd_general.php:70 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "ცხრილის შექმნა"
 
-#: pmd_general.php:73 pmd_general.php:305
+#: pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
 msgstr "Create relation"
 
-#: pmd_general.php:79
+#: pmd_general.php:80
 msgid "Reload"
 msgstr "გადატვირთვა"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Help"
 msgstr "დახმარება"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Angular links"
 msgstr "Angular links"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Direct links"
 msgstr "პირდაპირი ბმულები"
 
-#: pmd_general.php:90
+#: pmd_general.php:91
 msgid "Snap to grid"
 msgstr "Snap to grid"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Small/Big All"
 msgstr "Small/Big All"
 
-#: pmd_general.php:98
+#: pmd_general.php:99
 msgid "Toggle small/big"
 msgstr "Toggle small/big"
 
-#: pmd_general.php:103
+#: pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export coordinates for PDF schema"
 
-#: pmd_general.php:107
+#: pmd_general.php:108
 msgid "Move Menu"
 msgstr "მენიუს გადატანა"
 
-#: pmd_general.php:119
+#: pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "ყველას დამალვა/ჩვენება"
 
-#: pmd_general.php:123
+#: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
 msgstr "Hide/Show Tables with no relation"
 
-#: pmd_general.php:163
+#: pmd_general.php:164
 msgid "Number of tables"
 msgstr "ცხრილების რაოდენობა"
 
-#: pmd_general.php:371
+#: pmd_general.php:372
 msgid "Delete relation"
 msgstr "Delete relation"
 
@@ -7381,6 +7351,34 @@ msgstr "რეკომენდებული"
 #: pmd_pdf.php:91
 msgid "to/from page"
 msgstr "to/from page"
+
+#: pmd_relation_new.php:29
+msgid "Error: relation already exists."
+msgstr "Error: relation already exists."
+
+#: pmd_relation_new.php:61 pmd_relation_new.php:86
+msgid "Error: Relation not added."
+msgstr "Error: Relation not added."
+
+#: pmd_relation_new.php:62
+msgid "FOREIGN KEY relation added"
+msgstr "FOREIGN KEY relation added"
+
+#: pmd_relation_new.php:84
+msgid "Internal relation added"
+msgstr "Internal relation added"
+
+#: pmd_relation_upd.php:55
+msgid "Relation deleted"
+msgstr "Relation deleted"
+
+#: pmd_save_pos.php:44
+msgid "Error saving coordinates for Designer."
+msgstr "Error saving coordinates for Designer."
+
+#: pmd_save_pos.php:52
+msgid "Modifications have been saved"
+msgstr "ცვლილებები შენახულია"
 
 #: prefs_forms.php:78
 #, fuzzy
@@ -9536,64 +9534,64 @@ msgstr "Browse foreign values"
 msgid "Function"
 msgstr "ფუნქცია"
 
-#: tbl_change.php:722
+#: tbl_change.php:723
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Because of its length,<br /> this field might not be editable "
 
-#: tbl_change.php:837
+#: tbl_change.php:838
 msgid "Remove BLOB Repository Reference"
 msgstr "Remove BLOB Repository Reference"
 
-#: tbl_change.php:843
+#: tbl_change.php:844
 msgid "Binary - do not edit"
 msgstr "Binary - do not edit"
 
-#: tbl_change.php:891
+#: tbl_change.php:892
 msgid "Upload to BLOB repository"
 msgstr "Upload to BLOB repository"
 
-#: tbl_change.php:1032
+#: tbl_change.php:1033
 msgid "Insert as new row"
 msgstr "ახალი სტრიქონის ჩამატება"
 
-#: tbl_change.php:1033
+#: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1034
+#: tbl_change.php:1035
 #, fuzzy
 msgid "Show insert query"
 msgstr "Showing SQL query"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1046
 msgid "and then"
 msgstr "და შემდეგ"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1050
 msgid "Go back to previous page"
 msgstr "წინა გვერდზე დაბრუნება"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1051
 msgid "Insert another new row"
 msgstr "სხვა ახალი სტრიქონის დამატება"
 
-#: tbl_change.php:1054
+#: tbl_change.php:1055
 msgid "Go back to this page"
 msgstr "ამ გვერდზე დაბრუნება"
 
-#: tbl_change.php:1062
+#: tbl_change.php:1063
 msgid "Edit next row"
 msgstr "შემდეგი სტრიქონის რედაქტირება"
 
-#: tbl_change.php:1073
+#: tbl_change.php:1074
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 
-#: tbl_change.php:1111
+#: tbl_change.php:1112
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"

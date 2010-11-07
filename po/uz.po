@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-03 12:13-0400\n"
+"POT-Creation-Date: 2010-11-07 07:20-0500\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -37,9 +37,9 @@ msgstr ""
 "Браузернинг нишондаги ойнасини янгилаб бўлмади. Эҳтимол, бош ойна ёпилган "
 "ёки браузер хавфсизлик юзасидан ойналараро янгилашни блокировка қилмоқда"
 
-#: browse_foreigners.php:148 libraries/build_action_titles.inc.php:15
-#: libraries/build_action_titles.inc.php:16 libraries/common.lib.php:2823
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:60
+#: browse_foreigners.php:148 libraries/common.lib.php:2823
+#: libraries/common.lib.php:2830 libraries/common.lib.php:3005
+#: libraries/common.lib.php:3006 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Қидириш"
@@ -67,8 +67,8 @@ msgstr "Қидириш"
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1076
-#: tbl_change.php:1113 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
+#: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
 #: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
@@ -463,7 +463,7 @@ msgstr "Ўчириш"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:927 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "Ёки"
 
@@ -536,8 +536,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 msgstr[1] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 
-#: db_search.php:255 libraries/build_action_titles.inc.php:13
-#: libraries/build_action_titles.inc.php:14 libraries/common.lib.php:2825
+#: db_search.php:255 libraries/common.lib.php:2825
+#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -549,7 +549,7 @@ msgstr "Кўриб чиқиш"
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:376
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -687,16 +687,15 @@ msgstr "Экспорт"
 msgid "Print view"
 msgstr "Чоп этиш версияси"
 
-#: db_structure.php:501 db_structure.php:502
-#: libraries/build_action_titles.inc.php:22
-#: libraries/build_action_titles.inc.php:23 libraries/common.lib.php:1642
+#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1642
+#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Тозалаш"
 
 #: db_structure.php:503 db_structure.php:504 db_tracking.php:103
-#: libraries/Index.class.php:482 libraries/build_action_titles.inc.php:20
-#: libraries/build_action_titles.inc.php:21 libraries/common.lib.php:1643
+#: libraries/Index.class.php:482 libraries/common.lib.php:1643
+#: libraries/common.lib.php:3010 libraries/common.lib.php:3011
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:251 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -1042,7 +1041,7 @@ msgstr "Белгиланган фойдаланувчиларни ўчириш"
 msgid "Close"
 msgstr "Ёпиш"
 
-#: js/messages.php:60 pmd_general.php:341 pmd_general.php:378
+#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
 msgstr "Бекор қилиш"
 
@@ -1070,7 +1069,7 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
 msgid "OK"
 msgstr "OK"
 
@@ -1139,100 +1138,62 @@ msgstr "Жадвал турлари"
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
-#: js/messages.php:92 pmd_save_pos.php:52
-msgid "Modifications have been saved"
-msgstr "Ўзгариришлар сақланди"
-
-#: js/messages.php:93 pmd_relation_upd.php:47
-msgid "Relation deleted"
-msgstr "Алоқа ўчирилди"
-
-#: js/messages.php:94 pmd_relation_new.php:62
-msgid "FOREIGN KEY relation added"
-msgstr "Ташқи калитга (FOREIGN KEY) алоқа ўрнатилди"
-
-#: js/messages.php:95 pmd_relation_new.php:84
-msgid "Internal relation added"
-msgstr "Ички алоқа ўрнатилди"
-
-#: js/messages.php:96 pmd_relation_new.php:61 pmd_relation_new.php:86
-msgid "Error: Relation not added."
-msgstr "Хатолик: Боғлиқлик ўрнатилмади."
-
-#: js/messages.php:97 pmd_relation_new.php:29
-msgid "Error: relation already exists."
-msgstr "Хатолик: Боғлиқлик аллақачон мавжуд."
-
-#: js/messages.php:98
-msgid "Error saving coordinates for Designer."
-msgstr "Координаталарни сақлашда хатолик."
-
-#: js/messages.php:99 libraries/relation.lib.php:89
-#: libraries/relation.lib.php:101
-msgid "General relation features"
-msgstr "Алоқаларнинг асосий имкониятлари"
-
-#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:173
-#: libraries/relation.lib.php:83 libraries/relation.lib.php:90
-msgid "Disabled"
-msgstr "Фаолсизлантирилган"
-
-#: js/messages.php:100
+#: js/messages.php:92
 msgid "Select referenced key"
 msgstr "Боғлиқ калитни танланг"
 
-#: js/messages.php:101
+#: js/messages.php:93
 msgid "Select Foreign Key"
 msgstr "Ташқи калитни танланг"
 
-#: js/messages.php:102
+#: js/messages.php:94
 msgid "Please select the primary key or a unique key"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: js/messages.php:103 pmd_general.php:76 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Кўрсатиладиган майдонни танлаш"
 
-#: js/messages.php:106
+#: js/messages.php:98
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Парол ўрнатиш"
 
-#: js/messages.php:107 libraries/replication_gui.lib.php:365
+#: js/messages.php:99 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Генерация қилиш"
 
-#: js/messages.php:108
+#: js/messages.php:100
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Паролни ўзгартириш"
 
-#: js/messages.php:111
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Душ"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:121
+#: js/messages.php:113
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Садақа"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:123
+#: js/messages.php:115
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Орқага"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:125 libraries/common.lib.php:2340
+#: js/messages.php:117 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1240,96 +1201,96 @@ msgid "Next"
 msgstr "Кейинги"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:127
+#: js/messages.php:119
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Жами"
 
-#: js/messages.php:130
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Иккилик"
 
-#: js/messages.php:131
+#: js/messages.php:123
 msgid "February"
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:133
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:134
+#: js/messages.php:126
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:135
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:136
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:137
+#: js/messages.php:129
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:138
+#: js/messages.php:130
 msgid "September"
 msgstr ""
 
-#: js/messages.php:139
+#: js/messages.php:131
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:140
+#: js/messages.php:132
 msgid "November"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:133
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1545
+#: js/messages.php:137 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1547
+#: js/messages.php:139 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1549
+#: js/messages.php:141 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1551
+#: js/messages.php:143 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1553
+#: js/messages.php:145 libraries/common.lib.php:1553
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1337,178 +1298,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1555
+#: js/messages.php:147 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1557
+#: js/messages.php:149 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1559
+#: js/messages.php:151 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:161 libraries/common.lib.php:1561
+#: js/messages.php:153 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:163 libraries/common.lib.php:1563
+#: js/messages.php:155 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:165 libraries/common.lib.php:1565
+#: js/messages.php:157 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:167 libraries/common.lib.php:1567
+#: js/messages.php:159 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:170
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Якш"
 
-#: js/messages.php:171
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Душ"
 
-#: js/messages.php:172
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Сеш"
 
-#: js/messages.php:173
+#: js/messages.php:165
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:174
+#: js/messages.php:166
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:167
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Жум"
 
-#: js/messages.php:176
+#: js/messages.php:168
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1570
+#: js/messages.php:172 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "Якш"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1572
+#: js/messages.php:174 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "Душ"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1574
+#: js/messages.php:176 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "Сеш"
 
 #. l10n: Short week day name
-#: js/messages.php:186 libraries/common.lib.php:1576
+#: js/messages.php:178 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "Чор"
 
 #. l10n: Short week day name
-#: js/messages.php:188 libraries/common.lib.php:1578
+#: js/messages.php:180 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "Пай"
 
 #. l10n: Short week day name
-#: js/messages.php:190 libraries/common.lib.php:1580
+#: js/messages.php:182 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "Жум"
 
 #. l10n: Short week day name
-#: js/messages.php:192 libraries/common.lib.php:1582
+#: js/messages.php:184 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "Шан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Якш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Душ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Сеш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:202
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Чор"
 
 #. l10n: Minimal week day name
-#: js/messages.php:204
+#: js/messages.php:196
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пай"
 
 #. l10n: Minimal week day name
-#: js/messages.php:206
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Жум"
 
 #. l10n: Minimal week day name
-#: js/messages.php:208
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Шан"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:210
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:212
+#: js/messages.php:204
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:213
+#: js/messages.php:205
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "ишлатилмоқда"
 
-#: js/messages.php:214
+#: js/messages.php:206
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1620,7 +1581,7 @@ msgstr "Маълумотлар базалари"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:923
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Хатолик"
@@ -1869,26 +1830,6 @@ msgstr "Файлни юклаб олиш"
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
-
-#: libraries/build_action_titles.inc.php:17
-#: libraries/build_action_titles.inc.php:18 libraries/common.lib.php:2824
-#: libraries/sql_query_form.lib.php:314 libraries/sql_query_form.lib.php:317
-#: libraries/tbl_links.inc.php:67
-msgid "Insert"
-msgstr "Қўйиш"
-
-#: libraries/build_action_titles.inc.php:19 libraries/common.lib.php:2821
-#: libraries/common.lib.php:2828 libraries/config/setup.forms.php:289
-#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:191
-#: libraries/config/user_preferences.forms.php:228
-#: libraries/config/user_preferences.forms.php:262
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:133 server_privileges.php:594 server_replication.php:313
-#: tbl_tracking.php:263
-msgid "Structure"
-msgstr "Тузилиши"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -2202,6 +2143,19 @@ msgstr ""
 " \"%s\" параметрининг иши маълум хатоликка олиб келиши мумкин, батафсил "
 "маълумот учун қаранг \"%s\""
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:3009 libraries/config/setup.forms.php:289
+#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/user_preferences.forms.php:228
+#: libraries/config/user_preferences.forms.php:262
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
+#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: tbl_tracking.php:263
+msgid "Structure"
+msgstr "Тузилиши"
+
 #: libraries/common.lib.php:2822 libraries/common.lib.php:2829
 #: libraries/config/messages.inc.php:209 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
@@ -2209,6 +2163,12 @@ msgstr ""
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
+
+#: libraries/common.lib.php:2824 libraries/common.lib.php:3007
+#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:314
+#: libraries/sql_query_form.lib.php:317 libraries/tbl_links.inc.php:67
+msgid "Insert"
+msgstr "Қўйиш"
 
 #: libraries/common.lib.php:2831 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
@@ -2227,7 +2187,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Юклаш каталогидан"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:924
+#: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Кўрсатилган каталокка юклаб бўлмади"
 
@@ -2359,6 +2319,11 @@ msgstr "Максимал жадваллар сони"
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 
+#: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
+#: libraries/relation.lib.php:90 pmd_relation_new.php:68
+msgid "Disabled"
+msgstr "Фаолсизлантирилган"
+
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
@@ -2376,14 +2341,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1028 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1029 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Сақлаш"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1077
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1078
 msgid "Reset"
 msgstr "Тозалаш"
 
@@ -5107,7 +5072,7 @@ msgstr "Иккилик маълумотларни кўрсатиш"
 msgid "Show BLOB contents"
 msgstr "BLOB туридаги маълумотларни кўрсатиш"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:140 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Яшириш"
@@ -6302,6 +6267,11 @@ msgstr "Тайёр эмас"
 msgid "Enabled"
 msgstr "Фаоллаштирилган"
 
+#: libraries/relation.lib.php:89 libraries/relation.lib.php:101
+#: pmd_relation_new.php:68
+msgid "General relation features"
+msgstr "Алоқаларнинг асосий имкониятлари"
+
 #: libraries/relation.lib.php:105
 msgid "Display Features"
 msgstr "Имкониятларни кўрсатиш"
@@ -6746,7 +6716,7 @@ msgstr "Фақат кўриш"
 msgid "Location of the text file"
 msgstr "Файлни танлаш"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:927
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
 msgstr "Юклаш каталогидан"
 
@@ -7366,71 +7336,71 @@ msgstr "Жадвал тузиш"
 msgid "Please select a database"
 msgstr "Маълумотлар базасини танланг"
 
-#: pmd_general.php:63
+#: pmd_general.php:64
 msgid "Show/Hide left menu"
 msgstr "Чап менюни кўрсатиш/яшириш"
 
-#: pmd_general.php:67
+#: pmd_general.php:68
 msgid "Save position"
 msgstr "Жадваллар жойлашишини сақлаш"
 
-#: pmd_general.php:70 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Жадвал тузиш"
 
-#: pmd_general.php:73 pmd_general.php:305
+#: pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
 msgstr "Боғлиқлик ўрнатиш"
 
-#: pmd_general.php:79
+#: pmd_general.php:80
 msgid "Reload"
 msgstr "Қайта юклаш"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Help"
 msgstr "Ёрдам"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Angular links"
 msgstr "Бурчакли боғланишлар"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Direct links"
 msgstr "Тўғридан-тўғри боғланишлар"
 
-#: pmd_general.php:90
+#: pmd_general.php:91
 msgid "Snap to grid"
 msgstr "Тўрга боғлаб қўйиш"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Small/Big All"
 msgstr "Барча жадваллар кўрсатилишини Тахлаш/Тиклаш"
 
-#: pmd_general.php:98
+#: pmd_general.php:99
 msgid "Toggle small/big"
 msgstr "Тескари кўрсатиш"
 
-#: pmd_general.php:103
+#: pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF-схемага/схемадан жадвал координаталарини импорт/экспорт қилиш"
 
-#: pmd_general.php:107
+#: pmd_general.php:108
 msgid "Move Menu"
 msgstr "Менюни кўчириш"
 
-#: pmd_general.php:119
+#: pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Барча жадвалларни яшириш/кўрсатиш"
 
-#: pmd_general.php:123
+#: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
 msgstr "Алоқа мавжуд бўлмаган жадвалларни яшириш/кўрсатиш"
 
-#: pmd_general.php:163
+#: pmd_general.php:164
 msgid "Number of tables"
 msgstr "Жадваллар сони "
 
-#: pmd_general.php:371
+#: pmd_general.php:372
 msgid "Delete relation"
 msgstr "Боғлиқликни ўчириш"
 
@@ -7471,6 +7441,34 @@ msgstr "тавсия этилган"
 #: pmd_pdf.php:91
 msgid "to/from page"
 msgstr "Саҳифа"
+
+#: pmd_relation_new.php:29
+msgid "Error: relation already exists."
+msgstr "Хатолик: Боғлиқлик аллақачон мавжуд."
+
+#: pmd_relation_new.php:61 pmd_relation_new.php:86
+msgid "Error: Relation not added."
+msgstr "Хатолик: Боғлиқлик ўрнатилмади."
+
+#: pmd_relation_new.php:62
+msgid "FOREIGN KEY relation added"
+msgstr "Ташқи калитга (FOREIGN KEY) алоқа ўрнатилди"
+
+#: pmd_relation_new.php:84
+msgid "Internal relation added"
+msgstr "Ички алоқа ўрнатилди"
+
+#: pmd_relation_upd.php:55
+msgid "Relation deleted"
+msgstr "Алоқа ўчирилди"
+
+#: pmd_save_pos.php:44
+msgid "Error saving coordinates for Designer."
+msgstr "Координаталарни сақлашда хатолик."
+
+#: pmd_save_pos.php:52
+msgid "Modifications have been saved"
+msgstr "Ўзгариришлар сақланди"
 
 #: prefs_forms.php:78
 #, fuzzy
@@ -9692,63 +9690,63 @@ msgstr "Ташқи қийматларни кўриб чиқиш"
 msgid "Function"
 msgstr "Функция"
 
-#: tbl_change.php:722
+#: tbl_change.php:723
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr "Маълумотлар кўплиги сабали<br />ўзгартириш қийишлашиши мумкин"
 
-#: tbl_change.php:837
+#: tbl_change.php:838
 msgid "Remove BLOB Repository Reference"
 msgstr "BLOB омбори мурожаатларини ўчириш"
 
-#: tbl_change.php:843
+#: tbl_change.php:844
 msgid "Binary - do not edit"
 msgstr "Иккилик маълумот - таҳрирлаш мумкин эмас"
 
-#: tbl_change.php:891
+#: tbl_change.php:892
 msgid "Upload to BLOB repository"
 msgstr "BLOB омборига юклаш"
 
-#: tbl_change.php:1032
+#: tbl_change.php:1033
 msgid "Insert as new row"
 msgstr "Ёзув киритиш"
 
-#: tbl_change.php:1033
+#: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
 msgstr "Янги қатор сифатида қўшиш ва хатоликларга эътибор бермаслик"
 
-#: tbl_change.php:1034
+#: tbl_change.php:1035
 msgid "Show insert query"
 msgstr "Киритилган сўровни кўрсатиш"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1046
 msgid "and then"
 msgstr "ва сўнг"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1050
 msgid "Go back to previous page"
 msgstr "Олдинги саҳифага ўтиш"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1051
 msgid "Insert another new row"
 msgstr "Янги ёзув киритиш"
 
-#: tbl_change.php:1054
+#: tbl_change.php:1055
 msgid "Go back to this page"
 msgstr "Ушбу саҳифага қайтиш"
 
-#: tbl_change.php:1062
+#: tbl_change.php:1063
 msgid "Edit next row"
 msgstr "Кейинги қаторни таҳрирлаш"
 
-#: tbl_change.php:1073
+#: tbl_change.php:1074
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Майдонлараро ўтиш учун TAB тугмаси ёки CTRL+стрелка тугмаларидан фойдаланинг"
 
-#: tbl_change.php:1111
+#: tbl_change.php:1112
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"

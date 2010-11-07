@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-03 12:13-0400\n"
+"POT-Creation-Date: 2010-11-07 07:20-0500\n"
 "PO-Revision-Date: 2010-11-04 18:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -38,9 +38,9 @@ msgstr ""
 "l'ayiez fermée, ou encore que votre navigateur bloque les mises à jour inter-"
 "fenêtres pour des raisons de sécurité."
 
-#: browse_foreigners.php:148 libraries/build_action_titles.inc.php:15
-#: libraries/build_action_titles.inc.php:16 libraries/common.lib.php:2823
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:60
+#: browse_foreigners.php:148 libraries/common.lib.php:2823
+#: libraries/common.lib.php:2830 libraries/common.lib.php:3005
+#: libraries/common.lib.php:3006 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Rechercher"
@@ -68,8 +68,8 @@ msgstr "Rechercher"
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1076
-#: tbl_change.php:1113 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
+#: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
 #: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
@@ -450,7 +450,7 @@ msgstr "Effacer"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:927 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "Ou"
 
@@ -518,8 +518,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s occurence dans la table <i>%s</i>"
 msgstr[1] "%s occurences dans la table <i>%s</i>"
 
-#: db_search.php:255 libraries/build_action_titles.inc.php:13
-#: libraries/build_action_titles.inc.php:14 libraries/common.lib.php:2825
+#: db_search.php:255 libraries/common.lib.php:2825
+#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -531,7 +531,7 @@ msgstr "Afficher"
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:376
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -569,7 +569,6 @@ msgid "Inside column:"
 msgstr "Dans la colonne: "
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Aucune table n'a été trouvée dans cette base."
 
@@ -665,16 +664,15 @@ msgstr "Exporter"
 msgid "Print view"
 msgstr "Version imprimable"
 
-#: db_structure.php:501 db_structure.php:502
-#: libraries/build_action_titles.inc.php:22
-#: libraries/build_action_titles.inc.php:23 libraries/common.lib.php:1642
+#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1642
+#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Vider"
 
 #: db_structure.php:503 db_structure.php:504 db_tracking.php:103
-#: libraries/Index.class.php:482 libraries/build_action_titles.inc.php:20
-#: libraries/build_action_titles.inc.php:21 libraries/common.lib.php:1643
+#: libraries/Index.class.php:482 libraries/common.lib.php:1643
+#: libraries/common.lib.php:3010 libraries/common.lib.php:3011
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:251 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -1010,7 +1008,7 @@ msgstr "Effacement des utilisateurs sélectionnés"
 msgid "Close"
 msgstr "Fermer"
 
-#: js/messages.php:60 pmd_general.php:341 pmd_general.php:378
+#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1034,7 +1032,7 @@ msgstr "Suppression de la colonne"
 msgid "Adding Primary Key"
 msgstr "Ajout de clé primaire"
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
 msgid "OK"
 msgstr "OK"
 
@@ -1083,88 +1081,50 @@ msgstr "Édition en place"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:92 pmd_save_pos.php:52
-msgid "Modifications have been saved"
-msgstr "Les modifications ont été sauvegardées"
-
-#: js/messages.php:93 pmd_relation_upd.php:47
-msgid "Relation deleted"
-msgstr "Relation supprimée"
-
-#: js/messages.php:94 pmd_relation_new.php:62
-msgid "FOREIGN KEY relation added"
-msgstr "Relation de type FOREIGN KEY ajoutée"
-
-#: js/messages.php:95 pmd_relation_new.php:84
-msgid "Internal relation added"
-msgstr "Relation interne ajoutée"
-
-#: js/messages.php:96 pmd_relation_new.php:61 pmd_relation_new.php:86
-msgid "Error: Relation not added."
-msgstr "Erreur: relation non ajoutée."
-
-#: js/messages.php:97 pmd_relation_new.php:29
-msgid "Error: relation already exists."
-msgstr "Erreur: relation déjà existante."
-
-#: js/messages.php:98
-msgid "Error saving coordinates for Designer."
-msgstr "Erreur lors de la sauvegarde des coordonnées Concepteur."
-
-#: js/messages.php:99 libraries/relation.lib.php:89
-#: libraries/relation.lib.php:101
-msgid "General relation features"
-msgstr "Fonctions relationnelles"
-
-#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:173
-#: libraries/relation.lib.php:83 libraries/relation.lib.php:90
-msgid "Disabled"
-msgstr "Désactivé"
-
-#: js/messages.php:100
+#: js/messages.php:92
 msgid "Select referenced key"
 msgstr "Sélectionnez la clé référencée"
 
-#: js/messages.php:101
+#: js/messages.php:93
 msgid "Select Foreign Key"
 msgstr "Choisissez la clé étrangère"
 
-#: js/messages.php:102
+#: js/messages.php:94
 msgid "Please select the primary key or a unique key"
 msgstr "Veuillez choisir la clé primaire ou un index unique"
 
-#: js/messages.php:103 pmd_general.php:76 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Colonne descriptive"
 
-#: js/messages.php:106
+#: js/messages.php:98
 msgid "Generate password"
 msgstr "Générer un mot de passe"
 
-#: js/messages.php:107 libraries/replication_gui.lib.php:365
+#: js/messages.php:99 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Générer"
 
-#: js/messages.php:108
+#: js/messages.php:100
 msgid "Change Password"
 msgstr "Modifier le mot de passe"
 
-#: js/messages.php:111
+#: js/messages.php:103
 msgid "More"
 msgstr "plus"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:121
+#: js/messages.php:113
 msgid "Done"
 msgstr "Fermer"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:123
+#: js/messages.php:115
 msgid "Prev"
 msgstr "Précédent"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:125 libraries/common.lib.php:2340
+#: js/messages.php:117 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1172,231 +1132,231 @@ msgid "Next"
 msgstr "Suivant"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:127
+#: js/messages.php:119
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: js/messages.php:130
+#: js/messages.php:122
 msgid "January"
 msgstr "Janvier"
 
-#: js/messages.php:131
+#: js/messages.php:123
 msgid "February"
 msgstr "Février"
 
-#: js/messages.php:132
+#: js/messages.php:124
 msgid "March"
 msgstr "Mars"
 
-#: js/messages.php:133
+#: js/messages.php:125
 msgid "April"
 msgstr "Avril"
 
-#: js/messages.php:134
+#: js/messages.php:126
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:135
+#: js/messages.php:127
 msgid "June"
 msgstr "Juin"
 
-#: js/messages.php:136
+#: js/messages.php:128
 msgid "July"
 msgstr "Juillet"
 
-#: js/messages.php:137
+#: js/messages.php:129
 msgid "August"
 msgstr "Août"
 
-#: js/messages.php:138
+#: js/messages.php:130
 msgid "September"
 msgstr "Septembre"
 
-#: js/messages.php:139
+#: js/messages.php:131
 msgid "October"
 msgstr "Octobre"
 
-#: js/messages.php:140
+#: js/messages.php:132
 msgid "November"
 msgstr "Novembre"
 
-#: js/messages.php:141
+#: js/messages.php:133
 msgid "December"
 msgstr "Décembre"
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1545
+#: js/messages.php:137 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "Janvier"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1547
+#: js/messages.php:139 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "Février"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1549
+#: js/messages.php:141 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "Mars"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1551
+#: js/messages.php:143 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "Avril"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1553
+#: js/messages.php:145 libraries/common.lib.php:1553
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1555
+#: js/messages.php:147 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "Juin"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1557
+#: js/messages.php:149 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "Juillet"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1559
+#: js/messages.php:151 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "Août"
 
 #. l10n: Short month name
-#: js/messages.php:161 libraries/common.lib.php:1561
+#: js/messages.php:153 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "Septembre"
 
 #. l10n: Short month name
-#: js/messages.php:163 libraries/common.lib.php:1563
+#: js/messages.php:155 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "Octobre"
 
 #. l10n: Short month name
-#: js/messages.php:165 libraries/common.lib.php:1565
+#: js/messages.php:157 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "Novembre"
 
 #. l10n: Short month name
-#: js/messages.php:167 libraries/common.lib.php:1567
+#: js/messages.php:159 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "Décembre"
 
-#: js/messages.php:170
+#: js/messages.php:162
 msgid "Sunday"
 msgstr "Dimanche"
 
-#: js/messages.php:171
+#: js/messages.php:163
 msgid "Monday"
 msgstr "Lundi"
 
-#: js/messages.php:172
+#: js/messages.php:164
 msgid "Tuesday"
 msgstr "Mardi"
 
-#: js/messages.php:173
+#: js/messages.php:165
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: js/messages.php:174
+#: js/messages.php:166
 msgid "Thursday"
 msgstr "Jeudi"
 
-#: js/messages.php:175
+#: js/messages.php:167
 msgid "Friday"
 msgstr "Vendredi"
 
-#: js/messages.php:176
+#: js/messages.php:168
 msgid "Saturday"
 msgstr "Samedi"
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1570
+#: js/messages.php:172 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "Dim"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1572
+#: js/messages.php:174 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1574
+#: js/messages.php:176 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:186 libraries/common.lib.php:1576
+#: js/messages.php:178 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:188 libraries/common.lib.php:1578
+#: js/messages.php:180 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "Jeu"
 
 #. l10n: Short week day name
-#: js/messages.php:190 libraries/common.lib.php:1580
+#: js/messages.php:182 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:192 libraries/common.lib.php:1582
+#: js/messages.php:184 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "Sam"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:188
 msgid "Su"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:190
 msgid "Mo"
 msgstr "Lu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:192
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:202
+#: js/messages.php:194
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:204
+#: js/messages.php:196
 msgid "Th"
 msgstr "Je"
 
 #. l10n: Minimal week day name
-#: js/messages.php:206
+#: js/messages.php:198
 msgid "Fr"
 msgstr "Ve"
 
 #. l10n: Minimal week day name
-#: js/messages.php:208
+#: js/messages.php:200
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:210
+#: js/messages.php:202
 msgid "Wk"
 msgstr "Sem"
 
-#: js/messages.php:212
+#: js/messages.php:204
 msgid "Hour"
 msgstr "Heure"
 
-#: js/messages.php:213
+#: js/messages.php:205
 msgid "Minute"
 msgstr "Minute"
 
-#: js/messages.php:214
+#: js/messages.php:206
 msgid "Second"
 msgstr "Seconde"
 
@@ -1508,7 +1468,7 @@ msgstr "Bases de données"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:923
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Erreur"
@@ -1755,26 +1715,6 @@ msgstr "Télécharger"
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Échec d'ouverture du fichier %s"
-
-#: libraries/build_action_titles.inc.php:17
-#: libraries/build_action_titles.inc.php:18 libraries/common.lib.php:2824
-#: libraries/sql_query_form.lib.php:314 libraries/sql_query_form.lib.php:317
-#: libraries/tbl_links.inc.php:67
-msgid "Insert"
-msgstr "Insérer"
-
-#: libraries/build_action_titles.inc.php:19 libraries/common.lib.php:2821
-#: libraries/common.lib.php:2828 libraries/config/setup.forms.php:289
-#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:191
-#: libraries/config/user_preferences.forms.php:228
-#: libraries/config/user_preferences.forms.php:262
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:133 server_privileges.php:594 server_replication.php:313
-#: tbl_tracking.php:263
-msgid "Structure"
-msgstr "Structure"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -2070,6 +2010,19 @@ msgstr "Aller à la base de données &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:3009 libraries/config/setup.forms.php:289
+#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/user_preferences.forms.php:228
+#: libraries/config/user_preferences.forms.php:262
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
+#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: tbl_tracking.php:263
+msgid "Structure"
+msgstr "Structure"
+
 #: libraries/common.lib.php:2822 libraries/common.lib.php:2829
 #: libraries/config/messages.inc.php:209 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
@@ -2077,6 +2030,12 @@ msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
+
+#: libraries/common.lib.php:2824 libraries/common.lib.php:3007
+#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:314
+#: libraries/sql_query_form.lib.php:317 libraries/tbl_links.inc.php:67
+msgid "Insert"
+msgstr "Insérer"
 
 #: libraries/common.lib.php:2831 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
@@ -2095,7 +2054,7 @@ msgstr ""
 "Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> :"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:924
+#: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Le répertoire de transfert est inaccessible"
 
@@ -2217,6 +2176,11 @@ msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 "Ce réglage est désactivé, il ne sera pas appliqué à votre configuration"
 
+#: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
+#: libraries/relation.lib.php:90 pmd_relation_new.php:68
+msgid "Disabled"
+msgstr "Désactivé"
+
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
@@ -2234,14 +2198,14 @@ msgstr "Permettre aux utilisateurs de personnaliser cette valeur"
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1028 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1029 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Sauvegarder"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1077
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1078
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -4778,7 +4742,7 @@ msgstr "Montrer le contenu binaire"
 msgid "Show BLOB contents"
 msgstr "Montrer le contenu BLOB"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:140 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Cacher"
@@ -5968,6 +5932,11 @@ msgstr "en erreur"
 msgid "Enabled"
 msgstr "Activé"
 
+#: libraries/relation.lib.php:89 libraries/relation.lib.php:101
+#: pmd_relation_new.php:68
+msgid "General relation features"
+msgstr "Fonctions relationnelles"
+
 #: libraries/relation.lib.php:105
 msgid "Display Features"
 msgstr "Affichage infobulle"
@@ -6157,7 +6126,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma de la base %s - Page %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Cette page ne contient aucune table!"
 
@@ -6393,7 +6361,7 @@ msgstr "Voir uniquement"
 msgid "Location of the text file"
 msgstr "Emplacement du fichier texte"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:927
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
 msgstr "répertoire de transfert du serveur web"
 
@@ -6859,11 +6827,6 @@ msgstr ""
 "travail expirera plus tôt."
 
 #: main.php:279
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -6950,71 +6913,71 @@ msgstr "Nouvelle table"
 msgid "Please select a database"
 msgstr "Choisissez une base de données"
 
-#: pmd_general.php:63
+#: pmd_general.php:64
 msgid "Show/Hide left menu"
 msgstr "Montrer/cacher le menu de gauche"
 
-#: pmd_general.php:67
+#: pmd_general.php:68
 msgid "Save position"
 msgstr "Sauvegarder la position"
 
-#: pmd_general.php:70 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Nouvelle table"
 
-#: pmd_general.php:73 pmd_general.php:305
+#: pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
 msgstr "Nouvelle relation"
 
-#: pmd_general.php:79
+#: pmd_general.php:80
 msgid "Reload"
 msgstr "Recharger"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Help"
 msgstr "Aide"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Angular links"
 msgstr "Liens angulaires"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Direct links"
 msgstr "Liens directs"
 
-#: pmd_general.php:90
+#: pmd_general.php:91
 msgid "Snap to grid"
 msgstr "Accrocher à la grille"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Small/Big All"
 msgstr "Agrandir/réduire tout"
 
-#: pmd_general.php:98
+#: pmd_general.php:99
 msgid "Toggle small/big"
 msgstr "Bascule agrandir/réduire"
 
-#: pmd_general.php:103
+#: pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Exporter les coordonnées pour le schéma PDF"
 
-#: pmd_general.php:107
+#: pmd_general.php:108
 msgid "Move Menu"
 msgstr "Déplacer le menu"
 
-#: pmd_general.php:119
+#: pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Cacher/montrer tout"
 
-#: pmd_general.php:123
+#: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
 msgstr "Cacher/montrer les tables sans liens"
 
-#: pmd_general.php:163
+#: pmd_general.php:164
 msgid "Number of tables"
 msgstr "Nombre de tables"
 
-#: pmd_general.php:371
+#: pmd_general.php:372
 msgid "Delete relation"
 msgstr "Effacer la relation"
 
@@ -7051,6 +7014,34 @@ msgstr "recommandé"
 #: pmd_pdf.php:91
 msgid "to/from page"
 msgstr "de/vers la page"
+
+#: pmd_relation_new.php:29
+msgid "Error: relation already exists."
+msgstr "Erreur: relation déjà existante."
+
+#: pmd_relation_new.php:61 pmd_relation_new.php:86
+msgid "Error: Relation not added."
+msgstr "Erreur: relation non ajoutée."
+
+#: pmd_relation_new.php:62
+msgid "FOREIGN KEY relation added"
+msgstr "Relation de type FOREIGN KEY ajoutée"
+
+#: pmd_relation_new.php:84
+msgid "Internal relation added"
+msgstr "Relation interne ajoutée"
+
+#: pmd_relation_upd.php:55
+msgid "Relation deleted"
+msgstr "Relation supprimée"
+
+#: pmd_save_pos.php:44
+msgid "Error saving coordinates for Designer."
+msgstr "Erreur lors de la sauvegarde des coordonnées Concepteur."
+
+#: pmd_save_pos.php:52
+msgid "Modifications have been saved"
+msgstr "Les modifications ont été sauvegardées"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
@@ -9070,16 +9061,13 @@ msgstr ""
 
 #: setup/lib/index.lib.php:264
 #, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
-#| "cookie store%s."
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si vous utilisez l'authentification cookie et que le paramètre %sLogin cookie "
-"store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%s "
-"doit avoir une valeur plus petite ou égale à celui-ci."
+"Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
+"s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:266
 #, php-format
@@ -9190,64 +9178,64 @@ msgstr "Afficher les valeurs de la table liée"
 msgid "Function"
 msgstr "Fonction"
 
-#: tbl_change.php:722
+#: tbl_change.php:723
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 "Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
 "de sa longueur"
 
-#: tbl_change.php:837
+#: tbl_change.php:838
 msgid "Remove BLOB Repository Reference"
 msgstr "Supprimer les références au dépôt BLOB"
 
-#: tbl_change.php:843
+#: tbl_change.php:844
 msgid "Binary - do not edit"
 msgstr "Binaire - ne pas éditer"
 
-#: tbl_change.php:891
+#: tbl_change.php:892
 msgid "Upload to BLOB repository"
 msgstr "Télécharger vers le dépôt BLOB"
 
-#: tbl_change.php:1032
+#: tbl_change.php:1033
 msgid "Insert as new row"
 msgstr "Sauvegarder un nouvel enregistrement"
 
-#: tbl_change.php:1033
+#: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
 msgstr "Sauvegarder un nouvel enregistrement (ignorer les erreurs)"
 
-#: tbl_change.php:1034
+#: tbl_change.php:1035
 msgid "Show insert query"
 msgstr "Afficher l'énoncé d'insertion"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1046
 msgid "and then"
 msgstr "et ensuite"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1050
 msgid "Go back to previous page"
 msgstr "Retourner à la page précédente"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1051
 msgid "Insert another new row"
 msgstr "Insérer un nouvel enregistrement"
 
-#: tbl_change.php:1054
+#: tbl_change.php:1055
 msgid "Go back to this page"
 msgstr "Demeurer sur cette page"
 
-#: tbl_change.php:1062
+#: tbl_change.php:1063
 msgid "Edit next row"
 msgstr "Modifier l'enregistrement suivant"
 
-#: tbl_change.php:1073
+#: tbl_change.php:1074
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Utilisez la tabulation pour aller d'une valeur à l'autre, ou CTRL+flèches "
 "pour aller n'importe où"
 
-#: tbl_change.php:1111
+#: tbl_change.php:1112
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Continuer l'insertion avec %s lignes"

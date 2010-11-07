@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-03 12:13-0400\n"
+"POT-Creation-Date: 2010-11-07 07:20-0500\n"
 "PO-Revision-Date: 2010-11-04 14:35+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -41,9 +41,9 @@ msgstr ""
 "rodičovské okno, nebo prohlížeč blokuje operace mezi okny z důvodu "
 "bezpečnostních nastavení."
 
-#: browse_foreigners.php:148 libraries/build_action_titles.inc.php:15
-#: libraries/build_action_titles.inc.php:16 libraries/common.lib.php:2823
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:60
+#: browse_foreigners.php:148 libraries/common.lib.php:2823
+#: libraries/common.lib.php:2830 libraries/common.lib.php:3005
+#: libraries/common.lib.php:3006 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Vyhledávání"
@@ -71,8 +71,8 @@ msgstr "Vyhledávání"
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
 #: server_replication.php:316 server_replication.php:339
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1076
-#: tbl_change.php:1113 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
+#: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
 #: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
@@ -454,7 +454,7 @@ msgstr "smazat"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:927 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "nebo"
 
@@ -523,8 +523,8 @@ msgstr[0] "%s odpovídající záznam v tabulce <i>%s</i>"
 msgstr[1] "%s odpovídající záznamy v tabulce <i>%s</i>"
 msgstr[2] "%s odpovídajících záznamů v tabulce <i>%s</i>"
 
-#: db_search.php:255 libraries/build_action_titles.inc.php:13
-#: libraries/build_action_titles.inc.php:14 libraries/common.lib.php:2825
+#: db_search.php:255 libraries/common.lib.php:2825
+#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -536,7 +536,7 @@ msgstr "Projít"
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:376
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -604,8 +604,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -669,16 +669,15 @@ msgstr "Export"
 msgid "Print view"
 msgstr "Náhled pro tisk"
 
-#: db_structure.php:501 db_structure.php:502
-#: libraries/build_action_titles.inc.php:22
-#: libraries/build_action_titles.inc.php:23 libraries/common.lib.php:1642
+#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1642
+#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Vyprázdnit"
 
 #: db_structure.php:503 db_structure.php:504 db_tracking.php:103
-#: libraries/Index.class.php:482 libraries/build_action_titles.inc.php:20
-#: libraries/build_action_titles.inc.php:21 libraries/common.lib.php:1643
+#: libraries/Index.class.php:482 libraries/common.lib.php:1643
+#: libraries/common.lib.php:3010 libraries/common.lib.php:3011
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:251 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -828,8 +827,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1005,7 +1004,7 @@ msgstr "Odstraňuji vybrané uživatele"
 msgid "Close"
 msgstr "Ukončit"
 
-#: js/messages.php:60 pmd_general.php:341 pmd_general.php:378
+#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -1029,7 +1028,7 @@ msgstr "Odstraňuji sloupec"
 msgid "Adding Primary Key"
 msgstr "Přidávám primární klíč"
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:339
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
 msgid "OK"
 msgstr "OK"
 
@@ -1078,88 +1077,50 @@ msgstr "Upravit zde"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: js/messages.php:92 pmd_save_pos.php:52
-msgid "Modifications have been saved"
-msgstr "Změny byly uloženy"
-
-#: js/messages.php:93 pmd_relation_upd.php:47
-msgid "Relation deleted"
-msgstr "Relace smazána"
-
-#: js/messages.php:94 pmd_relation_new.php:62
-msgid "FOREIGN KEY relation added"
-msgstr "Relace FOREIGN KEY byla vytvořena"
-
-#: js/messages.php:95 pmd_relation_new.php:84
-msgid "Internal relation added"
-msgstr "Interní relace vytvořena"
-
-#: js/messages.php:96 pmd_relation_new.php:61 pmd_relation_new.php:86
-msgid "Error: Relation not added."
-msgstr "Chyba: relace nebyla přidána."
-
-#: js/messages.php:97 pmd_relation_new.php:29
-msgid "Error: relation already exists."
-msgstr "Chyba: relace již existuje."
-
-#: js/messages.php:98
-msgid "Error saving coordinates for Designer."
-msgstr "Chyba při ukládání souřadnic pro Návrháře."
-
-#: js/messages.php:99 libraries/relation.lib.php:89
-#: libraries/relation.lib.php:101
-msgid "General relation features"
-msgstr "Obecné funkce relací"
-
-#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:173
-#: libraries/relation.lib.php:83 libraries/relation.lib.php:90
-msgid "Disabled"
-msgstr "Vypnuto"
-
-#: js/messages.php:100
+#: js/messages.php:92
 msgid "Select referenced key"
 msgstr "Zvolte odkazovaný klíč"
 
-#: js/messages.php:101
+#: js/messages.php:93
 msgid "Select Foreign Key"
 msgstr "Zvolte cizí klíč"
 
-#: js/messages.php:102
+#: js/messages.php:94
 msgid "Please select the primary key or a unique key"
 msgstr "Zvolte, prosím, primární nebo unikátní klíč"
 
-#: js/messages.php:103 pmd_general.php:76 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Zvolte která pole zobrazit"
 
-#: js/messages.php:106
+#: js/messages.php:98
 msgid "Generate password"
 msgstr "Vytvořit heslo"
 
-#: js/messages.php:107 libraries/replication_gui.lib.php:365
+#: js/messages.php:99 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Vytvořit"
 
-#: js/messages.php:108
+#: js/messages.php:100
 msgid "Change Password"
 msgstr "Změnit heslo"
 
-#: js/messages.php:111
+#: js/messages.php:103
 msgid "More"
 msgstr "Více"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:121
+#: js/messages.php:113
 msgid "Done"
 msgstr "Hotovo"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:123
+#: js/messages.php:115
 msgid "Prev"
 msgstr "Předchozí"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:125 libraries/common.lib.php:2340
+#: js/messages.php:117 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1167,231 +1128,231 @@ msgid "Next"
 msgstr "Další"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:127
+#: js/messages.php:119
 msgid "Today"
 msgstr "Dnešek"
 
-#: js/messages.php:130
+#: js/messages.php:122
 msgid "January"
 msgstr "leden"
 
-#: js/messages.php:131
+#: js/messages.php:123
 msgid "February"
 msgstr "únor"
 
-#: js/messages.php:132
+#: js/messages.php:124
 msgid "March"
 msgstr "březen"
 
-#: js/messages.php:133
+#: js/messages.php:125
 msgid "April"
 msgstr "duben"
 
-#: js/messages.php:134
+#: js/messages.php:126
 msgid "May"
 msgstr "květen"
 
-#: js/messages.php:135
+#: js/messages.php:127
 msgid "June"
 msgstr "červen"
 
-#: js/messages.php:136
+#: js/messages.php:128
 msgid "July"
 msgstr "červenec"
 
-#: js/messages.php:137
+#: js/messages.php:129
 msgid "August"
 msgstr "srpen"
 
-#: js/messages.php:138
+#: js/messages.php:130
 msgid "September"
 msgstr "září"
 
-#: js/messages.php:139
+#: js/messages.php:131
 msgid "October"
 msgstr "říjen"
 
-#: js/messages.php:140
+#: js/messages.php:132
 msgid "November"
 msgstr "listopad"
 
-#: js/messages.php:141
+#: js/messages.php:133
 msgid "December"
 msgstr "prosinec"
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1545
+#: js/messages.php:137 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "led"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1547
+#: js/messages.php:139 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "úno"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1549
+#: js/messages.php:141 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "bře"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1551
+#: js/messages.php:143 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "dub"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1553
+#: js/messages.php:145 libraries/common.lib.php:1553
 msgctxt "Short month name"
 msgid "May"
 msgstr "kvě"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1555
+#: js/messages.php:147 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "čen"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1557
+#: js/messages.php:149 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "čec"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1559
+#: js/messages.php:151 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "srp"
 
 #. l10n: Short month name
-#: js/messages.php:161 libraries/common.lib.php:1561
+#: js/messages.php:153 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "zář"
 
 #. l10n: Short month name
-#: js/messages.php:163 libraries/common.lib.php:1563
+#: js/messages.php:155 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "říj"
 
 #. l10n: Short month name
-#: js/messages.php:165 libraries/common.lib.php:1565
+#: js/messages.php:157 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "lis"
 
 #. l10n: Short month name
-#: js/messages.php:167 libraries/common.lib.php:1567
+#: js/messages.php:159 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "pro"
 
-#: js/messages.php:170
+#: js/messages.php:162
 msgid "Sunday"
 msgstr "Neděle"
 
-#: js/messages.php:171
+#: js/messages.php:163
 msgid "Monday"
 msgstr "Pondělí"
 
-#: js/messages.php:172
+#: js/messages.php:164
 msgid "Tuesday"
 msgstr "Úterý"
 
-#: js/messages.php:173
+#: js/messages.php:165
 msgid "Wednesday"
 msgstr "Středa"
 
-#: js/messages.php:174
+#: js/messages.php:166
 msgid "Thursday"
 msgstr "Čtvrtek"
 
-#: js/messages.php:175
+#: js/messages.php:167
 msgid "Friday"
 msgstr "Pátek"
 
-#: js/messages.php:176
+#: js/messages.php:168
 msgid "Saturday"
 msgstr "Sobota"
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1570
+#: js/messages.php:172 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1572
+#: js/messages.php:174 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1574
+#: js/messages.php:176 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "Úte"
 
 #. l10n: Short week day name
-#: js/messages.php:186 libraries/common.lib.php:1576
+#: js/messages.php:178 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "Stř"
 
 #. l10n: Short week day name
-#: js/messages.php:188 libraries/common.lib.php:1578
+#: js/messages.php:180 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "Čtv"
 
 #. l10n: Short week day name
-#: js/messages.php:190 libraries/common.lib.php:1580
+#: js/messages.php:182 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "Pát"
 
 #. l10n: Short week day name
-#: js/messages.php:192 libraries/common.lib.php:1582
+#: js/messages.php:184 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "Sob"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:188
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:190
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:192
 msgid "Tu"
 msgstr "Út"
 
 #. l10n: Minimal week day name
-#: js/messages.php:202
+#: js/messages.php:194
 msgid "We"
 msgstr "St"
 
 #. l10n: Minimal week day name
-#: js/messages.php:204
+#: js/messages.php:196
 msgid "Th"
 msgstr "Čt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:206
+#: js/messages.php:198
 msgid "Fr"
 msgstr "Pá"
 
 #. l10n: Minimal week day name
-#: js/messages.php:208
+#: js/messages.php:200
 msgid "Sa"
 msgstr "So"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:210
+#: js/messages.php:202
 msgid "Wk"
 msgstr "Týd"
 
-#: js/messages.php:212
+#: js/messages.php:204
 msgid "Hour"
 msgstr "Hodiny"
 
-#: js/messages.php:213
+#: js/messages.php:205
 msgid "Minute"
 msgstr "Minuty"
 
-#: js/messages.php:214
+#: js/messages.php:206
 msgid "Second"
 msgstr "Sekundy"
 
@@ -1502,7 +1463,7 @@ msgstr "Databáze"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:923
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Chyba"
@@ -1616,8 +1577,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1748,26 +1709,6 @@ msgstr "Stáhnout soubor"
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Chyba při otevírání souboru: %s"
-
-#: libraries/build_action_titles.inc.php:17
-#: libraries/build_action_titles.inc.php:18 libraries/common.lib.php:2824
-#: libraries/sql_query_form.lib.php:314 libraries/sql_query_form.lib.php:317
-#: libraries/tbl_links.inc.php:67
-msgid "Insert"
-msgstr "Vložit"
-
-#: libraries/build_action_titles.inc.php:19 libraries/common.lib.php:2821
-#: libraries/common.lib.php:2828 libraries/config/setup.forms.php:289
-#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:191
-#: libraries/config/user_preferences.forms.php:228
-#: libraries/config/user_preferences.forms.php:262
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
-#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:133 server_privileges.php:594 server_replication.php:313
-#: tbl_tracking.php:263
-msgid "Structure"
-msgstr "Struktura"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -2059,6 +2000,19 @@ msgstr "Přejít na databázi „%s“."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:3009 libraries/config/setup.forms.php:289
+#: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/user_preferences.forms.php:228
+#: libraries/config/user_preferences.forms.php:262
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
+#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: tbl_tracking.php:263
+msgid "Structure"
+msgstr "Struktura"
+
 #: libraries/common.lib.php:2822 libraries/common.lib.php:2829
 #: libraries/config/messages.inc.php:209 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
@@ -2066,6 +2020,12 @@ msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
+
+#: libraries/common.lib.php:2824 libraries/common.lib.php:3007
+#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:314
+#: libraries/sql_query_form.lib.php:317 libraries/tbl_links.inc.php:67
+msgid "Insert"
+msgstr "Vložit"
 
 #: libraries/common.lib.php:2831 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
@@ -2083,7 +2043,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:924
+#: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Adresář určený pro upload souborů nemohl být otevřen"
 
@@ -2204,6 +2164,11 @@ msgstr "maximálně %s"
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních"
 
+#: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
+#: libraries/relation.lib.php:90 pmd_relation_new.php:68
+msgid "Disabled"
+msgstr "Vypnuto"
+
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
@@ -2221,14 +2186,14 @@ msgstr "Povolit uživatelům změnit tuto hodnotu"
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1028 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1029 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Uložit"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1077
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1078
 msgid "Reset"
 msgstr "Původní"
 
@@ -4527,8 +4492,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -4716,12 +4681,10 @@ msgid "Options"
 msgstr "Nastavení"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Zkrácené texty"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Celé texty"
 
@@ -4741,7 +4704,7 @@ msgstr "Zobrazit binární obsah"
 msgid "Show BLOB contents"
 msgstr "Zobrazit obsah BLOBu"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:140 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Skrýt"
@@ -5906,6 +5869,11 @@ msgstr "není v pořádku"
 msgid "Enabled"
 msgstr "Zapnuto"
 
+#: libraries/relation.lib.php:89 libraries/relation.lib.php:101
+#: pmd_relation_new.php:68
+msgid "General relation features"
+msgstr "Obecné funkce relací"
+
 #: libraries/relation.lib.php:105
 msgid "Display Features"
 msgstr "Zobrazení funkcí"
@@ -6329,7 +6297,7 @@ msgstr "Zobrazit"
 msgid "Location of the text file"
 msgstr "textový soubor"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:927
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
 msgstr "soubor z adresáře pro upload"
 
@@ -6443,8 +6411,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6485,8 +6453,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -6869,71 +6837,71 @@ msgstr "Nová tabulka"
 msgid "Please select a database"
 msgstr "Prosím vyberte databázi"
 
-#: pmd_general.php:63
+#: pmd_general.php:64
 msgid "Show/Hide left menu"
 msgstr "Zobrazit/Skrýt levé menu"
 
-#: pmd_general.php:67
+#: pmd_general.php:68
 msgid "Save position"
 msgstr "Uložit rozmístění"
 
-#: pmd_general.php:70 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Vytvořit tabulku"
 
-#: pmd_general.php:73 pmd_general.php:305
+#: pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
 msgstr "Vytvořit relaci"
 
-#: pmd_general.php:79
+#: pmd_general.php:80
 msgid "Reload"
 msgstr "Znovu načíst"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Help"
 msgstr "Nápověda"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Angular links"
 msgstr "Pravoúhlé spoje"
 
-#: pmd_general.php:86
+#: pmd_general.php:87
 msgid "Direct links"
 msgstr "Přímé spoje"
 
-#: pmd_general.php:90
+#: pmd_general.php:91
 msgid "Snap to grid"
 msgstr "Zachytávat na mřížku"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Small/Big All"
 msgstr "Vše malé/velké"
 
-#: pmd_general.php:98
+#: pmd_general.php:99
 msgid "Toggle small/big"
 msgstr "Přepnout malé/velké"
 
-#: pmd_general.php:103
+#: pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export souřadnic pro PDF schéma"
 
-#: pmd_general.php:107
+#: pmd_general.php:108
 msgid "Move Menu"
 msgstr "Přesun menu"
 
-#: pmd_general.php:119
+#: pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Skrýt/Zobrazit vše"
 
-#: pmd_general.php:123
+#: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
 msgstr "Skrýt/Zobrazit tabulky bez relací"
 
-#: pmd_general.php:163
+#: pmd_general.php:164
 msgid "Number of tables"
 msgstr "Počet tabulek"
 
-#: pmd_general.php:371
+#: pmd_general.php:372
 msgid "Delete relation"
 msgstr "Odstranit relaci"
 
@@ -6969,6 +6937,34 @@ msgstr "doporučené"
 #: pmd_pdf.php:91
 msgid "to/from page"
 msgstr "do/ze stránky"
+
+#: pmd_relation_new.php:29
+msgid "Error: relation already exists."
+msgstr "Chyba: relace již existuje."
+
+#: pmd_relation_new.php:61 pmd_relation_new.php:86
+msgid "Error: Relation not added."
+msgstr "Chyba: relace nebyla přidána."
+
+#: pmd_relation_new.php:62
+msgid "FOREIGN KEY relation added"
+msgstr "Relace FOREIGN KEY byla vytvořena"
+
+#: pmd_relation_new.php:84
+msgid "Internal relation added"
+msgstr "Interní relace vytvořena"
+
+#: pmd_relation_upd.php:55
+msgid "Relation deleted"
+msgstr "Relace smazána"
+
+#: pmd_save_pos.php:44
+msgid "Error saving coordinates for Designer."
+msgstr "Chyba při ukládání souřadnic pro Návrháře."
+
+#: pmd_save_pos.php:52
+msgid "Modifications have been saved"
+msgstr "Změny byly uloženy"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
@@ -7020,8 +7016,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7473,8 +7469,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -8951,8 +8947,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -9049,62 +9045,62 @@ msgstr "Projít hodnoty cizích klíčů"
 msgid "Function"
 msgstr "Funkce"
 
-#: tbl_change.php:722
+#: tbl_change.php:723
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Toto pole možná nepůjde <br />kvůli délce upravit "
 
-#: tbl_change.php:837
+#: tbl_change.php:838
 msgid "Remove BLOB Repository Reference"
 msgstr "Odstranit odkaz do skladiště BLOBů"
 
-#: tbl_change.php:843
+#: tbl_change.php:844
 msgid "Binary - do not edit"
 msgstr "Binární - neupravujte"
 
-#: tbl_change.php:891
+#: tbl_change.php:892
 msgid "Upload to BLOB repository"
 msgstr "Nahrát do skladiště BLOBů"
 
-#: tbl_change.php:1032
+#: tbl_change.php:1033
 msgid "Insert as new row"
 msgstr "Vložit jako nový řádek"
 
-#: tbl_change.php:1033
+#: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
 msgstr "Vložit jako nový řádek a ignorovat chyby"
 
-#: tbl_change.php:1034
+#: tbl_change.php:1035
 msgid "Show insert query"
 msgstr "Zobrazit dotaz pro vložení"
 
-#: tbl_change.php:1045
+#: tbl_change.php:1046
 msgid "and then"
 msgstr "a poté"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1050
 msgid "Go back to previous page"
 msgstr "Návrat na předchozí stránku"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1051
 msgid "Insert another new row"
 msgstr "Vložit další řádek"
 
-#: tbl_change.php:1054
+#: tbl_change.php:1055
 msgid "Go back to this page"
 msgstr "Návrat na tuto stránku"
 
-#: tbl_change.php:1062
+#: tbl_change.php:1063
 msgid "Edit next row"
 msgstr "Upravit následující řádek"
 
-#: tbl_change.php:1073
+#: tbl_change.php:1074
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
 "směry"
 
-#: tbl_change.php:1111
+#: tbl_change.php:1112
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Pokračovat ve vkládání s %s řádky"
