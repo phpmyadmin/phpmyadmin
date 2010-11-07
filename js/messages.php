@@ -88,15 +88,7 @@ $js_messages['strInlineEdit'] = __('Inline Edit');
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
 
-/* Designer */
-$js_messages['strModifications'] = __('Modifications have been saved');
-$js_messages['strRelationDeleted'] = __('Relation deleted');
-$js_messages['strForeignKeyRelationAdded'] = __('FOREIGN KEY relation added');
-$js_messages['strInternalRelationAdded'] = __('Internal relation added');
-$js_messages['strErrorRelationAdded'] = __('Error: Relation not added.');
-$js_messages['strErrorRelationExists'] = __('Error: relation already exists.');
-$js_messages['strErrorSaveTable'] = __('Error saving coordinates for Designer.');
-$js_messages['strGeneralRelationFeat:strDisabled'] = __('General relation features') . ': ' . __('Disabled');
+/* Designer (pmd/scripts/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');

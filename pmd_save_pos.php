@@ -41,7 +41,7 @@ function PMD_err_sav() {
     if (! empty($die_save_pos)) {
         header("Content-Type: text/xml; charset=utf-8");
         header("Cache-Control: no-cache");
-        die('<root act="save_pos" return="strErrorSaveTable"></root>');
+        die('<root act="save_pos" return="' . __('Error saving coordinates for Designer.') . '"></root>');
     }
 }
 

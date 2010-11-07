@@ -103,17 +103,17 @@ function PrintXML()
         //xmldoc.getElementsByTagName('root')[0].getAttribute("act")
 
         if (root.getAttribute('act') == 'save_pos') {
-            layer_alert(PMA_messages[root.getAttribute('return')]);
+            layer_alert(root.getAttribute('return'));
         }
         if (root.getAttribute('act') == 'relation_upd') {
-            layer_alert(PMA_messages[root.getAttribute('return')]);
+            layer_alert(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 contr.splice(root.getAttribute('K'), 1);
                 Re_load();
             }
         }
         if (root.getAttribute('act') == 'relation_new') {
-            layer_alert(PMA_messages[root.getAttribute('return')]);
+            layer_alert(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 var i    = contr.length;
                 var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');
