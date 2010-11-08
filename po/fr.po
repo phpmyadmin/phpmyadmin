@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-07 07:20-0500\n"
-"PO-Revision-Date: 2010-11-04 18:59+0200\n"
+"PO-Revision-Date: 2010-11-07 14:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +34,10 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"La fenêtre principale n'a pu être mise à jour. Il est possible que vous "
-"l'ayiez fermée, ou encore que votre navigateur bloque les mises à jour inter-"
-"fenêtres pour des raisons de sécurité."
+"La fenêtre demandée depuis votre navigateur ne peut être rafraîchie. Il est "
+"possible que vous ayez fermé la fenêtre source , ou encore que votre "
+"navigateur bloque les mises à jour inter-fenêtres pour des raisons de "
+"sécurité."
 
 #: browse_foreigners.php:148 libraries/common.lib.php:2823
 #: libraries/common.lib.php:2830 libraries/common.lib.php:3005
@@ -4715,13 +4716,11 @@ msgid "Options"
 msgstr "Options"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Textes réduits"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Textes complets"

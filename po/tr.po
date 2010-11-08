@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-07 07:20-0500\n"
-"PO-Revision-Date: 2010-11-03 00:21+0200\n"
+"PO-Revision-Date: 2010-11-05 17:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -4700,16 +4700,14 @@ msgid "Options"
 msgstr "Seçenekler"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Kısmi Metinler"
+msgstr "Kısmi metinler"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Tam Metinler"
+msgstr "Tam metinler"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
@@ -5345,7 +5343,9 @@ msgstr ""
 
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "İlave özel başlık yorumu (\\ n satırları böler):"
+msgstr ""
+"İlave özel başlık yorumu (\n"
+" satırları böler):"
 
 #: libraries/export/sql.php:37
 msgid ""
