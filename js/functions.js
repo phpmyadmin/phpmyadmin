@@ -1626,6 +1626,7 @@ $(document).ready(function() {
      */
     $("#create_table_form_minimal").live('submit', function(event) {
         event.preventDefault();
+        $form = $(this);
 
         /* @todo Validate this form! */
 
@@ -1634,12 +1635,14 @@ $(document).ready(function() {
          *                          dialog
          */
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {$form.dialog('close').remove();}
 
         PMA_ajaxShowMessage();
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
-        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+        $.get($form.attr('action'), $form.serialize(), function(data) {
             $('<div id="create_table_dialog"></div>')
             .append(data)
             .dialog({
@@ -1650,7 +1653,7 @@ $(document).ready(function() {
         }) // end $.get()
 
         // empty table name and number of columns from the minimal form 
-        $(this).find('input[name=table],input[name=num_fields]').val('');
+        $form.find('input[name=table],input[name=num_fields]').val('');
     });
 
     /**
