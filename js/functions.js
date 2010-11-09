@@ -1635,7 +1635,8 @@ $(document).ready(function() {
          *                          dialog
          */
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$form.dialog('close').remove();}
+        // in the following function we need to use $(this)
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         PMA_ajaxShowMessage();
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
