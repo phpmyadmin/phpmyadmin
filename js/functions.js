@@ -1671,12 +1671,14 @@ $(document).ready(function() {
         /**
          *  @var    the_form    object referring to the create table form
          */
-        var the_form = $("#create_table_form");
+        var $form = $("#create_table_form");
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
         //User wants to submit the form
-        $.post($(the_form).attr('action'), $(the_form).serialize() + "&do_save_data=" + $(this).val(), function(data) {
+        $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 $("#create_table_dialog").dialog("close").remove();
@@ -1749,13 +1751,15 @@ $(document).ready(function() {
         /**
          *  @var    the_form    object referring to the create table form
          */
-        var the_form = $("#create_table_form");
+        var $form = $("#create_table_form");
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
         //User wants to add more fields to the table
-        $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
+        $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
             $("#create_table_dialog").html(data);
         }) //end $.post()
 
