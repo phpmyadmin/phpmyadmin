@@ -36,7 +36,7 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
-            array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
+            array('type' => 'bool', 'name' => 'ignore', 'text' => __('Do not abort on INSERT error')),
             array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated by'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed by'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped by'), 'size' => 2, 'len' => 2),
