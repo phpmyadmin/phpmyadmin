@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-07 07:20-0500\n"
+"POT-Creation-Date: 2010-11-10 05:51-0500\n"
 "PO-Revision-Date: 2010-11-04 14:35+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -2993,8 +2993,8 @@ msgstr "Častečný import: povolit přerušení"
 
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
-msgid "Ignore duplicate rows"
-msgstr "Ignorovat duplicitní řádky"
+msgid "Do not abort on INSERT error"
+msgstr ""
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -9700,6 +9700,9 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid "Ignore duplicate rows"
+#~ msgstr "Ignorovat duplicitní řádky"
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "Spustit oblíbený dotaz"

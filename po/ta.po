@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-07 07:20-0500\n"
+"POT-Creation-Date: 2010-11-10 05:51-0500\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -2962,7 +2962,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
-msgid "Ignore duplicate rows"
+msgid "Do not abort on INSERT error"
 msgstr ""
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247

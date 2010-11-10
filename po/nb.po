@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-07 07:20-0500\n"
+"POT-Creation-Date: 2010-11-10 05:51-0500\n"
 "PO-Revision-Date: 2010-09-15 13:26+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -3033,8 +3033,8 @@ msgstr "Delvis import: tillat avbrudd"
 
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
-msgid "Ignore duplicate rows"
-msgstr "Ignorer dupliserte rader"
+msgid "Do not abort on INSERT error"
+msgstr ""
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -9972,6 +9972,9 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
+
+#~ msgid "Ignore duplicate rows"
+#~ msgstr "Ignorer dupliserte rader"
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "Utfør lagret spørring"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-07 07:20-0500\n"
+"POT-Creation-Date: 2010-11-10 05:51-0500\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -3118,8 +3118,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
-msgid "Ignore duplicate rows"
-msgstr "Игнориране на дублиращите се редове"
+msgid "Do not abort on INSERT error"
+msgstr ""
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -9707,6 +9707,9 @@ msgstr "Име на ИЗГЛЕД-а"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Преименуване на изгледа на"
+
+#~ msgid "Ignore duplicate rows"
+#~ msgstr "Игнориране на дублиращите се редове"
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "Стартиране на запазена SQL-заявка"
