@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-10 05:51-0500\n"
+"POT-Creation-Date: 2010-11-12 14:06+0100\n"
 "PO-Revision-Date: 2010-11-05 14:13+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -607,8 +607,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視至少有這些數目的列，請參考%sdocumentation%s。"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -829,8 +829,8 @@ msgstr "備份已儲到檔案 %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1645,8 +1645,8 @@ msgstr "歡迎使用 %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "有可能你未建立設定檔. 你可利用此 %1$s安裝程序%2$s 建立設定檔."
 
 #: libraries/auth/config.auth.lib.php:115
@@ -4539,8 +4539,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -6821,10 +6821,13 @@ msgid ""
 msgstr ""
 
 #: main.php:304
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "The additional features for working with linked tables have been "
+#| "deactivated. To find out why click %shere%s."
 msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage is not completely configured, some "
+"extended features have been deactivated. To find out why click %shere%s."
 msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
 #: main.php:319
@@ -7511,8 +7514,8 @@ msgstr "刪除與使用者相同名稱之資料庫."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "註: phpMyAdmin 直接由 MySQL 權限資料表取得使用者權限. 如果使用者自行更改資料"
 "表, 資料表內容將可能與實際使用者情況有異. 在這情況下, 您應在繼續前 %s重新載"
@@ -9599,6 +9602,11 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "將檢視表改名為"
+
+#~ msgid ""
+#~ "The additional features for working with linked tables have been "
+#~ "deactivated. To find out why click %shere%s."
+#~ msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "略過重覆列"

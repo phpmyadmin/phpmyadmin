@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-10 05:51-0500\n"
+"POT-Creation-Date: 2010-11-12 14:06+0100\n"
 "PO-Revision-Date: 2010-11-12 12:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -569,7 +569,6 @@ msgid "Inside column:"
 msgstr "Inside column:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "No tables found in database."
 
@@ -599,11 +598,11 @@ msgstr "Tracking is not active."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -822,11 +821,11 @@ msgstr "Dump has been saved to file %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1568,11 +1567,11 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -4479,12 +4478,12 @@ msgstr ", @TABLE@ will become the table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -4666,12 +4665,10 @@ msgid "Options"
 msgstr "Options"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Partial texts"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Full texts"
 
@@ -6052,7 +6049,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema of the %s database - Page %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "This page does not contain any tables!"
 
@@ -6749,18 +6745,12 @@ msgstr ""
 "sooner than configured in phpMyAdmin."
 
 #: main.php:279
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
-"because of this, your login will expire sooner than configured in "
-"phpMyAdmin."
+"because of this, your login will expire sooner than configured in phpMyAdmin."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -6778,13 +6768,16 @@ msgstr ""
 "has been configured."
 
 #: main.php:304
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "The phpMyAdmin configuration storage has been deactivated. To find out "
+#| "why click %shere%s."
 msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage is not completely configured, some "
+"extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage has been deactivated. To find out why "
+"click %shere%s."
 
 #: main.php:319
 msgid ""
@@ -7469,13 +7462,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1775
 msgid "The selected user was not found in the privilege table."
@@ -8936,9 +8929,6 @@ msgstr ""
 
 #: setup/lib/index.lib.php:264
 #, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
-#| "cookie store%s."
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
@@ -9707,6 +9697,13 @@ msgstr "VIEW name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rename view to"
+
+#~ msgid ""
+#~ "The additional features for working with linked tables have been "
+#~ "deactivated. To find out why click %shere%s."
+#~ msgstr ""
+#~ "The additional features for working with linked tables have been "
+#~ "deactivated. To find out why click %shere%s."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Ignore duplicate rows"
