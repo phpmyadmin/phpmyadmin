@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-10 05:51-0500\n"
-"PO-Revision-Date: 2010-11-08 13:29+0200\n"
+"PO-Revision-Date: 2010-11-12 12:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3014,7 +3014,7 @@ msgstr "Permettre l'interruption lors de l'importation"
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Ne pas arrêter l'importation lors d'une erreur d'énoncé INSERT"
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
