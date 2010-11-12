@@ -301,7 +301,7 @@ if (file_exists('./config')) {
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
     if(!$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'));
+        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
         $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
