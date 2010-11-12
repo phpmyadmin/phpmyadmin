@@ -93,7 +93,8 @@ $(document).ready(function() {
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
-                }
+                    window.parent.refreshNavigation();
+               }
             }
             else {
                 PMA_ajaxShowMessage(data.error);
