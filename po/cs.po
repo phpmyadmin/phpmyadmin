@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-12 14:06+0100\n"
-"PO-Revision-Date: 2010-11-11 22:14+0100\n"
+"PO-Revision-Date: 2010-11-12 14:26+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6776,7 +6776,7 @@ msgstr ""
 "phpMyAdmin nastaven."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -6784,8 +6784,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Některé z rozšířených funkcí phpMyAdmina nelze používat. %sZde%s zjistíte "
-"proč."
+"Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
+"funkcí phpMyAdmina nelze používat. %sZde%s zjistíte proč."
 
 #: main.php:319
 msgid ""
