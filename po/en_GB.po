@@ -8935,7 +8935,7 @@ msgstr ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 
 #: setup/lib/index.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
 #| "cookie store%s."
@@ -8943,8 +8943,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"%sLogin cookie validity%s must be set to a value less or equal to %sLogin "
-"cookie store%s."
+"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
+"cookie validity%s must be set to a value less or equal to it."
 
 #: setup/lib/index.lib.php:266
 #, php-format
