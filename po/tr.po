@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-12 14:06+0100\n"
-"PO-Revision-Date: 2010-11-13 06:44+0200\n"
+"PO-Revision-Date: 2010-11-13 06:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6817,7 +6817,7 @@ msgstr ""
 "kaldırmalısınız."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -6825,8 +6825,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin yapılandırma depolaması devre dışı bırakıldı. Nedenini öğrenmek "
-"için %sburaya%s tıklayın."
+"phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı. Nedenini "
+"öğrenmek için %sburaya%s tıklayın."
 
 #: main.php:319
 msgid ""
