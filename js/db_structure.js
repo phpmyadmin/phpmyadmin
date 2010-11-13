@@ -27,32 +27,45 @@ $(document).ready(function() {
     $(".truncate_table_anchor").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var $this_anchor Object  referring to the anchor clicked
+         */
+        var $this_anchor = $(this);
+
         //extract current table name and build the question string
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $(this).parents('tr').children('th').children('a').text();
+        var curr_table_name = $this_anchor.parents('tr').children('th').children('a').text();
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question = 'TRUNCATE ' + curr_table_name;
-        /**
-         * @var this_anchor Object  referring to the anchor clicked
-         */
-        var this_anchor = $(this);
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    //Remove the action's href and class, so as to disable further attempts to truncate the table
-                    // @todo: How to replace the icon with the disabled version?
-                    $(this_anchor)
-                    .removeAttr('href')
-                    .removeClass('.truncate_table_anchor');
+		    //Fetch inner span of this anchor
+		    //and replace the icon with its disabled version
+		    var span = $this_anchor.html().replace(/b_empty.png/, 'bd_empty.png');
+		    // find parent td of this anchor
+		    $this_anchor.parent()
+		    // set number of rows to 0
+		     .next().next().text('0')
+		    // set size to unknown (not sure how to get the exact
+		    // value here, as an empty InnoDB table would have a size) 
+		     .next().next().next().text('-');
+
+                    $this_anchor
+                    //To disable further attempts to truncate the table,
+		    //replace the a element with its inner span (modified)
+		    .replaceWith(span)
+                    .removeClass('truncate_table_anchor');
+
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
