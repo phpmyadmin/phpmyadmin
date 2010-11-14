@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used on the database structure page
  * @name            Database Structure
@@ -47,27 +48,40 @@ $(document).ready(function() {
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-		    //Fetch inner span of this anchor
-		    //and replace the icon with its disabled version
-		    var span = $this_anchor.html().replace(/b_empty.png/, 'bd_empty.png');
-		    // find parent td of this anchor
-		    $this_anchor.parent()
-		    // set number of rows to 0
-		     .next().next().text('0')
-		    // set size to unknown (not sure how to get the exact
-		    // value here, as an empty InnoDB table would have a size) 
-		     .next().next().next().text('-');
+                    //Fetch inner span of this anchor
+                    //and replace the icon with its disabled version
+                    var span = $this_anchor.html().replace(/b_empty.png/, 'bd_empty.png');
+                    var $parent_tr = $this_anchor.closest('tr');
+                    var $rows_td = $parent_tr.find('.tbl_rows');
+                    var $size_td = $parent_tr.find('.tbl_size');
+                    var num_rows = parseInt($rows_td.text());
+                    // set number of rows to 0
+                    $rows_td.text('0');
+                    // set size to unknown (not sure how to get the exact
+                    // value here, as an empty InnoDB table would have a size) 
+                    $size_td.text('-');
 
-                    $this_anchor
+                    // try to compute a new total row number
+                    if (! isNaN(num_rows)) {
+                        $total_rows_td = $('#tbl_summary_row').find('.tbl_rows');
+                        var total_rows = parseInt($total_rows_td.text());
+                        if (! isNaN(total_rows)) {
+                            $total_rows_td.text(total_rows - num_rows);
+                        }
+                    }
+
+                    // prefix total size with "~"
+                    var $total_size_td = $('#tbl_summary_row').find('.tbl_size');
+                    $total_size_td.text($total_size_td.text().replace(/^/,'~'));
+
                     //To disable further attempts to truncate the table,
-		    //replace the a element with its inner span (modified)
-		    .replaceWith(span)
-                    .removeClass('truncate_table_anchor');
-
-                }
-                else {
+                    //replace the a element with its inner span (modified)
+                    $this_anchor
+                        .replaceWith(span)
+                        .removeClass('truncate_table_anchor');
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             }) // end $.get()

@@ -381,7 +381,7 @@ foreach ($tables as $keyname => $each_table) {
             $show_superscript = '';
         }
     ?>
-    <td class="value"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
+    <td class="value tbl_rows"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
     <td nowrap="nowrap"><?php echo ($table_is_view ? __('View') : $each_table['ENGINE']); ?></td>
             <?php if (isset($collation)) { ?>
@@ -390,7 +390,7 @@ foreach ($tables as $keyname => $each_table) {
         <?php } ?>
 
         <?php if ($is_show_stats) { ?>
-    <td class="value"><a
+    <td class="value tbl_size"><a
         href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo $formatted_size . ' ' . $unit; ?></a></td>
     <td class="value"><?php echo $overhead; ?></td>
@@ -439,7 +439,7 @@ if ($is_show_stats) {
     ?>
     <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
         <?php echo __('Sum'); ?></th>
-    <th class="value"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
+    <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_get_default_engine();
@@ -458,7 +458,7 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
 
 if ($is_show_stats) {
     ?>
-    <th class="value"><?php echo $sum_formatted . ' ' . $unit; ?></th>
+    <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
     <th class="value"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
 }
