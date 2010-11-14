@@ -125,14 +125,15 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
 
         foreach ($tables_full as $each_table => $tmp) {
-            // to be able to rename a db containing views, we
-            // first collect in $views all the views we find and we
-            // will handle them after the tables
-            /**
-             * @todo support a view of a view
-             */
+            // to be able to rename a db containing views,
+            // first all the views are collected and a stand-in is created
+            // the real views are created after the tables
             if (PMA_Table::isView($db, $each_table)) {
                 $views[] = $each_table;
+		// Create stand-in definition to resolve view dependencies
+		$sql_view_standin = PMA_getTableDefStandIn($db, $each_table, "\n");
+		PMA_DBI_query($sql_view_standin);
+		$GLOBALS['sql_query'] .= "\n" . $sql_view_standin . ';';
                 continue;
             }
 
@@ -190,13 +191,19 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
         // handle the views
         if (! $_error) {
-            foreach ($views as $view) {
-                if (! PMA_Table::moveCopy($db, $view, $newname, $view,
-                 'structure', $move, 'db_copy')) {
-                    $_error = true;
-                    break;
-                }
-            }
+		// temporarily force to add DROP IF EXIST to CREATE VIEW query,
+		// to remove stand-in VIEW that was created earlier
+		$temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+		$GLOBALS['drop_if_exists'] = 'true';
+
+		foreach ($views as $view) {
+			if (! PMA_Table::moveCopy($db, $view, $newname, $view, 'structure', $move, 'db_copy')) {
+				$_error = true;
+				break;
+			}
+		}
+		// restore previous value
+		$GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
         }
         unset($view, $views);
 
