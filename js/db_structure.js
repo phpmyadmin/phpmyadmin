@@ -97,35 +97,36 @@ $(document).ready(function() {
     $(".drop_table_anchor").live('click', function(event) {
         event.preventDefault();
 
+        var $this_anchor = $(this);
+
         //extract current table name and build the question string
         /**
-         * @var curr_row    Object containing reference to the current row
+         * @var $curr_row    Object containing reference to the current row
          */
-        var curr_row = $(this).parents('tr');
+        var $curr_row = $this_anchor.parents('tr');
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $(curr_row).children('th').children('a').text();
+        var curr_table_name = $curr_row.children('th').children('a').text();
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question = 'DROP TABLE ' + curr_table_name;
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     //need to find a better solution here.  The icon should be replaced
-                    $(curr_row).hide("medium").remove();
+                    $curr_row.hide("medium").remove();
 
                     if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
                     }
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             }); // end $.get()
