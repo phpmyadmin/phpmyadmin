@@ -9,6 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [doc] Fix references to MySQL doc
 - patch #3101490 Default function for TIMESTAMP, thanks to jirand - jirand
 - bug #3103853 [js] Double quotes were not escaped in generated js
+- bug #3077463 [core] Events were not copied when copying/renaming database
 
 3.3.8.0 (2010-10-25)
 - bug #3059311 [import] BIGINT field type added to table analysis

@@ -212,6 +212,28 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
         }
 
+	if (PMA_MYSQL_INT_VERSION >= 50100) {
+		// here DELIMITER is not used because it's not part of the
+		// language; each statement is sent one by one
+
+		// to avoid selecting alternatively the current and new db
+		// we would need to modify the CREATE definitions to qualify
+		// the db name
+		$event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+		if ($event_names) {
+			foreach($event_names as $event_name) {
+				PMA_DBI_select_db($db);
+				$tmp_query = PMA_DBI_get_definition($db, 'EVENT', $event_name);
+				// collect for later display
+				$GLOBALS['sql_query'] .= "\n" . $tmp_query;
+				PMA_DBI_select_db($newname);
+				PMA_DBI_query($tmp_query);
+			}
+		}
+	}
+	// go back to current db, just in case
+	PMA_DBI_select_db($db);
+
         // Duplicate the bookmarks for this db (done once for each db)
         if (! $_error && $db != $newname) {
             $get_fields = array('user', 'label', 'query');
