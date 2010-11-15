@@ -4008,7 +4008,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid "Display table comment instead of its name"
-msgstr "Tablonun ismi yerine yorumunu görüntüle"
+msgstr "Tablonun adı yerine yorumunu görüntüle"
 
 #: libraries/config/messages.inc.php:455
 msgid "Display table comments in tooltips"
