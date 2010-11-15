@@ -3992,7 +3992,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Display database comment instead of its name"
-msgstr "Veritabanının ismi yerine yorumunu görüntüle"
+msgstr "Veritabanının adı yerine yorumunu görüntüle"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
