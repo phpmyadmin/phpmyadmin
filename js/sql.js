@@ -21,22 +21,22 @@ function PMA_urldecode(str) {
  * Get the field name for the current field.  Required to construct the query
  * for inline editing
  *
- * @param   this_field_obj  jQuery object that points to the current field's tr
- * @param   disp_mode       string
+ * @param   $this_field  jQuery object that points to the current field's tr
+ * @param   disp_mode    string
  */
-function getFieldName(this_field_obj, disp_mode) {
+function getFieldName($this_field, disp_mode) {
 
     if(disp_mode == 'vertical') {
-        var field_name = $(this_field_obj).siblings('th').find('a').text();
+        var field_name = $this_field.siblings('th').find('a').text();
     }
     else {
-        var this_field_index = $(this_field_obj).index();
+        var this_field_index = $this_field.index();
         if(window.parent.text_dir == 'ltr') {
             // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors but index is zero-based so substract 3
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
+            var field_name = $this_field.parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
         }
         else {
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
+            var field_name = $this_field.parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
         }
     }
 
@@ -345,20 +345,20 @@ $(document).ready(function() {
              */
             var this_row_index = $(this).index();
             /**
-             * @var input_siblings  Object referring to all inline editable events from same row
+             * @var $input_siblings  Object referring to all inline editable events from same row
              */
-            var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            var $input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
-            var input_siblings = $(this).parent('tr').find('.data_inline_edit');
+            var $input_siblings = $(this).parent('tr').find('.data_inline_edit');
             var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
 
-        $(input_siblings).each(function() {
+        $input_siblings.each(function() {
             /** @lends jQuery */
             /**
              * @var data_value  Current value of this field
@@ -371,23 +371,23 @@ $(document).ready(function() {
             /**
              * @var this_field  Object referring to this field (<td>)
              */
-            var this_field = $(this);
+            var $this_field = $(this);
             /**
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
              */
-            var field_name = getFieldName($(this), disp_mode);
+            var field_name = getFieldName($this_field, disp_mode);
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
-            if($(this).is(':not(.truncated, .transformed, .relation, .enum, .null)')) {
+            if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
-                $(this).html('<textarea>'+data_value+'</textarea>')
+                $this_field.html('<textarea>'+data_value+'</textarea>')
                 .append('<span class="original_data">'+data_value+'</span>');
                 $(".original_data").hide();
             }
-            else if($(this).is('.truncated, .transformed')) {
+            else if($this_field.is('.truncated, .transformed')) {
                 /** @lends jQuery */
                 //handle truncated/transformed values values
 
@@ -405,7 +405,7 @@ $(document).ready(function() {
                     'inline_edit' : true
                 }, function(data) {
                     if(data.success == true) {
-                        $(this_field).html('<textarea>'+data.value+'</textarea>')
+                        $this_field.html('<textarea>'+data.value+'</textarea>')
                         .append('<span class="original_data">'+data_value+'</span>');
                         $(".original_data").hide();
                     }
@@ -414,14 +414,14 @@ $(document).ready(function() {
                     }
                 }) // end $.post()
             }
-            else if($(this).is('.relation')) {
+            else if($this_field.is('.relation')) {
                 /** @lends jQuery */
                 //handle relations
 
                 /**
                  * @var curr_value  String containing the current value of this relational field
                  */
-                var curr_value = $(this).find('a').text();
+                var curr_value = $this_field.find('a').text();
 
                 /**
                  * @var post_params Object containing parameters for the POST request
@@ -437,18 +437,18 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $(this_field).html(data.dropdown)
+                    $this_field.html(data.dropdown)
                     .append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
             }
-            else if($(this).is('.enum')) {
+            else if($this_field.is('.enum')) {
                 /** @lends jQuery */
                 //handle enum fields
                 /**
                  * @var curr_value  String containing the current value of this relational field
                  */
-                var curr_value = $(this).text();
+                var curr_value = $this_field.text();
 
                 /**
                  * @var post_params Object containing parameters for the POST request
@@ -464,14 +464,14 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $(this_field).html(data.dropdown)
+                    $this_field.html(data.dropdown)
                     .append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
             }
-            else if($(this).is('.null')) {
+            else if($this_field.is('.null')) {
                 //handle null fields
-                $(this_field).html('<textarea></textarea>')
+                $this_field.html('<textarea></textarea>')
                 .append('<span class="original_data">NULL</span>');
                 $(".original_data").hide();
             }
@@ -506,16 +506,16 @@ $(document).ready(function() {
              */
             var this_td_index = $this_td.index();
             /**
-             * @var input_siblings  Object referring to all inline editable events from same row
+             * @var $input_siblings  Object referring to all inline editable events from same row
              */
-            var input_siblings = $this_td.parents('tbody').find('tr').find('.data_inline_edit:nth('+this_td_index+')');
+            var $input_siblings = $this_td.parents('tbody').find('tr').find('.data_inline_edit:nth('+this_td_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
             var where_clause = $this_td.parents('tbody').find('tr').find('.where_clause:nth('+this_td_index+')').val();
         }
         else {
-            var input_siblings = $this_td.parent('tr').find('.data_inline_edit');
+            var $input_siblings = $this_td.parent('tr').find('.data_inline_edit');
             var where_clause = $this_td.parent('tr').find('.where_clause').val();
         }
 
@@ -547,7 +547,7 @@ $(document).ready(function() {
          */
         var transformation_fields = false;
 
-        $(input_siblings).each(function() {
+        $input_siblings.each(function() {
             /** @lends jQuery */
             /**
              * @var this_field  Object referring to this field (<td>)
@@ -634,7 +634,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.message);
                 $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
 
-                $(input_siblings).each(function() {
+                $input_siblings.each(function() {
                     // Inline edit post has been successful.
                     if($(this).is(':not(.relation, .enum)')) {
                         /**
