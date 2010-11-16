@@ -847,23 +847,27 @@ function checkTransmitDump(theForm, theAction)
 } // end of the 'checkTransmitDump()' function
 
 /**
- * For row marking in horizontal mode (use "live" so that it works also for 
+ * Row marking in horizontal mode (use "live" so that it works also for 
  * next pages reached via AJAX); a tr may have the class noclick to remove
  * this behavior.
  */
 $(document).ready(function() {
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function() {
-        $(this).toggleClass('marked');
+        var $tr = $(this);
+        $tr.toggleClass('marked');
+        $tr.children().toggleClass('marked');
     });
 })
 
 /**
- * For row highlighting in horizontal mode (necessary for IE 6; use "live"
+ * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
 $(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function() {
-        $(this).toggleClass('hover');
+        var $tr = $(this);
+        $tr.toggleClass('hover');
+        $tr.children().toggleClass('hover');
     });
 })
 
