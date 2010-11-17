@@ -4659,9 +4659,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Permettre l'interruption de l'importation si la limite de temps est sur le "
-"point d'être atteinte. Ceci pourrait aider à importer des fichiers "
-"volumineux, au détriment du respect des transactions."
+"Permettre l'interruption de l'importation si la limite de temps configurée "
+"dans PHP est sur le point d'être atteinte. Ceci pourrait aider à importer "
+"des fichiers volumineux, au détriment du respect des transactions."
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
