@@ -2389,7 +2389,7 @@ msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:52
 msgid "Show binary contents as HEX by default"
-msgstr "Montrer par défaut le contenu binaire en hexadécimal"
+msgstr "Montrer par défaut le contenu binaire en hexadécimal (HEX)"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
