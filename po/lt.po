@@ -1615,7 +1615,7 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Jūs tikriausiai nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
+"Jūs dar turbūt nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
 
 #: libraries/auth/config.auth.lib.php:115
