@@ -1031,7 +1031,7 @@ msgstr "Šalinamas stulpelis"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Pridedamas pirminis raktas"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
 msgid "OK"
