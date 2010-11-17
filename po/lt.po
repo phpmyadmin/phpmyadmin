@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-12 14:06+0100\n"
-"PO-Revision-Date: 2010-11-17 20:34+0200\n"
+"PO-Revision-Date: 2010-11-17 20:35+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -931,7 +931,7 @@ msgstr "Jūs ruošiatės SUNAIKINTI visą duombazę!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Pašalinimo įvykis"
 
 #: js/messages.php:33
 #, fuzzy
