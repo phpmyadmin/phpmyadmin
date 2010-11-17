@@ -5373,8 +5373,8 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"nė vienas iš paminėtų<br /> &nbsp; &nbsp; &nbsp; Pavyzdys: <code>INSERT INTO "
-"lentelės_pavadinimas VALUES (1,2,3)</code>"
+"nė vienas iš paminėtų<br /> Pavyzdys: <code>INSERT INTO lentelės_pavadinimas "
+"VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
