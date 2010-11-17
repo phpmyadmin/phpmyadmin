@@ -1027,7 +1027,7 @@ msgstr "Klaida vykdant užklausą"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Šalinamas stulpelis"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
