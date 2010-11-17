@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-12 14:06+0100\n"
-"PO-Revision-Date: 2010-11-18 01:13+0200\n"
+"PO-Revision-Date: 2010-11-18 01:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5958,7 +5958,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:406
 msgid "Bookmarked SQL query"
-msgstr "Requêtes en signets"
+msgstr "Requêtes SQL en signets"
 
 #: libraries/relation.lib.php:129 querywindow.php:98 querywindow.php:205
 msgid "SQL history"
