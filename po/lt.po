@@ -7490,7 +7490,7 @@ msgstr "Sukurti privilegijas šiai duombazei"
 
 #: server_privileges.php:2034
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr "Norint naudoti _ ir % simblius, prieš juos prirašykite \\"
+msgstr "Norėdami naudoti _ ir % kaip simbolius, prieš juos prirašykite \\"
 
 #: server_privileges.php:2037
 msgid "Add privileges on the following table"
