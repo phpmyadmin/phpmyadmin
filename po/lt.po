@@ -934,10 +934,9 @@ msgid "Dropping Event"
 msgstr "Šalinamas įvykis"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedūros"
+msgstr "Šalinama procedūra"
 
 #: js/messages.php:35
 #, fuzzy
