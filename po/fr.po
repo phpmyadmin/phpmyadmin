@@ -3702,7 +3702,9 @@ msgstr "Mot de passe pour méthode config"
 #: libraries/config/messages.inc.php:394
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr "Laisser vider pour désactiver, suggéré : [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+"Laisser vider pour désactiver le support des schémas en PDF, suggéré : "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:395
 msgid "PDF schema: pages table"
