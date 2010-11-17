@@ -2499,7 +2499,7 @@ msgstr "Remplacer NULL par"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
 msgid "Remove CRLF characters within columns"
-msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
+msgstr "Enlève les caractères de fin de ligne (CRLF) à l'intérieur des colonnes"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
