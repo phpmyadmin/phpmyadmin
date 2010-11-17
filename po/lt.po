@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-12 14:06+0100\n"
-"PO-Revision-Date: 2010-11-17 20:41+0200\n"
+"PO-Revision-Date: 2010-11-17 20:42+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1038,10 +1038,9 @@ msgid "OK"
 msgstr "Gerai"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Pervadinti duombazę į"
+msgstr "Keičiamas duomenų bazės pavadinimas"
 
 #: js/messages.php:72
 #, fuzzy
