@@ -1043,10 +1043,9 @@ msgid "Renaming Databases"
 msgstr "Keičiamas duomenų bazės pavadinimas"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Pašalinti duombazę"
+msgstr "Perkrauti duomenų bazę"
 
 #: js/messages.php:73
 #, fuzzy
