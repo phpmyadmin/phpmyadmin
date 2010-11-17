@@ -999,10 +999,9 @@ msgid "Reloading Privileges"
 msgstr "Perkraunamos privilegijos"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Pašalinti pažymėtus vartotojus"
+msgstr "Šalinami pažymėti vartotojai"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
