@@ -229,7 +229,7 @@ msgstr "Spausdinti"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Sukurti, peržiūrėti duombazės atvaizdį"
+msgstr "Sukurti, peržiūrėti duomenų bazės atvaizdį"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:320
