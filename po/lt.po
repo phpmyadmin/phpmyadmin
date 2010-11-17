@@ -939,10 +939,9 @@ msgid "Dropping Procedure"
 msgstr "Šalinama procedūra"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Leisti įterpti ir modifikuoti duomenis."
+msgstr "Trinami sekimo duomenys"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
