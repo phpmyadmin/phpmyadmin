@@ -6328,7 +6328,7 @@ msgstr "Colonnes"
 
 #: libraries/sql_query_form.lib.php:332 sql.php:846 sql.php:847 sql.php:864
 msgid "Bookmark this SQL query"
-msgstr "Conserver cette requête dans les signets"
+msgstr "Conserver cette requête SQL dans les signets"
 
 #: libraries/sql_query_form.lib.php:339 sql.php:858
 msgid "Let every user access this bookmark"
