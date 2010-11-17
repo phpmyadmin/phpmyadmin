@@ -2393,7 +2393,7 @@ msgstr "Montrer par défaut le contenu binaire en hexadécimal (HEX)"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
-msgstr "Montrer le contenu binaire en hexadécimal"
+msgstr "Montrer le contenu binaire en hexadécimal (HEX)"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
