@@ -1023,7 +1023,7 @@ msgstr "Vykdoma užklausa"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Klaida vykdant užklausą"
 
 #: js/messages.php:66
 msgid "Dropping Column"
