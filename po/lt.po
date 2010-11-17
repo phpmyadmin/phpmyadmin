@@ -1053,10 +1053,9 @@ msgid "Copying Database"
 msgstr "Kopijuojama duomenų bazė"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Koduotė"
+msgstr "Keičiama koduotė"
 
 #: js/messages.php:75
 #, fuzzy
