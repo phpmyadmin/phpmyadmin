@@ -5642,7 +5642,7 @@ msgstr "Tradicinė kinų"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
-msgstr "nesvarbu didžiosios ar mažosios"
+msgstr "simbolių dydis nesvarbus"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
