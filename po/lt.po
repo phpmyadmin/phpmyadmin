@@ -4317,7 +4317,7 @@ msgstr "SQL užklausa"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
-msgstr ""
+msgstr "Projektavimas"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:64
 #: server_privileges.php:112 server_privileges.php:1813
