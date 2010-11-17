@@ -5364,7 +5364,7 @@ msgid ""
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "abu iš paminėtų<br /> &nbsp; &nbsp; &nbsp; Pavyzdys: <code>INSERT INTO "
-"lenteles_vardas (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"lentelės_pavadinimas (stul_A,stul_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
