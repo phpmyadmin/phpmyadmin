@@ -1048,10 +1048,9 @@ msgid "Reload Database"
 msgstr "Perkrauti duomenų bazę"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopijuoti duombazę į"
+msgstr "Kopijuojama duomenų bazė"
 
 #: js/messages.php:74
 #, fuzzy
