@@ -1012,10 +1012,9 @@ msgid "Cancel"
 msgstr "Atšaukti"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Įkelti"
+msgstr "Įkeliama"
 
 #: js/messages.php:64
 #, fuzzy
