@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-09-24 10:00+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -46,8 +46,8 @@ msgstr ""
 msgid "Search"
 msgstr "Cerca"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -112,7 +112,7 @@ msgstr "Non sono riuscito a leggere l'URL remoto"
 msgid "Database %1$s has been created."
 msgstr "Il database %1$s è stato creato."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "Commento al Database: "
 
@@ -249,78 +249,78 @@ msgstr "Deseleziona tutto"
 msgid "The database name is empty!"
 msgstr "Il nome del DataBase è vuoto!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Il DataBase %s è stato rinominato in %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Il Database %s è stato copiato in %s"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "Rinomina il DataBase in"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Comando"
 
-#: db_operations.php:400
+#: db_operations.php:429
 msgid "Remove database"
 msgstr "Rinomina il DataBase in"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Il Database %s è stato eliminato."
 
-#: db_operations.php:417
+#: db_operations.php:446
 msgid "Drop the database (DROP)"
 msgstr "Calcella il database (DROP)"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "Copia il Database in"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Solo struttura"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Struttura e dati"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Solo dati"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE prima di copiare"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "Aggiungi %s"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "Aggiungi valore AUTO_INCREMENT"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "Aggiungi vincoli"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "Passare al Database copiato"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -330,7 +330,7 @@ msgstr "Passare al Database copiato"
 msgid "Collation"
 msgstr "Collation"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -339,7 +339,7 @@ msgstr ""
 "Le caratteristiche aggiuntive sono state disattivate per funzionare con le "
 "tabelle linkate. Per scoprire perché clicca %squi%s."
 
-#: db_operations.php:552
+#: db_operations.php:581
 msgid "Edit or export relational schema"
 msgstr "Modifica o esporta schema relazionale"
 
@@ -602,8 +602,8 @@ msgstr "Il tracking non è attivo."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Questa visuale ha, come minimo, questo numero di righe. Per informazioni "
 "controlla la %sdocumentazione%s."
@@ -827,8 +827,8 @@ msgstr "Il dump è stato salvato sul file %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grosso. "
 "Fai riferimento alla documentazione %sdocumentation%s Per i modi di aggirare "
@@ -1594,8 +1594,8 @@ msgstr "Benvenuto in %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La ragione di questo è che probabilmente non hai creato alcun file di "
 "configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno."
@@ -2929,7 +2929,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4530,8 +4532,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
@@ -6997,8 +6999,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sul server è in esecuzione Suhosin. Controlla la documentazione: "
-"%sdocumentation%s per possibili problemi."
+"Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
+"sdocumentation%s per possibili problemi."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 #, fuzzy
@@ -7683,8 +7685,8 @@ msgstr "Elimina i databases gli stessi nomi degli utenti."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "

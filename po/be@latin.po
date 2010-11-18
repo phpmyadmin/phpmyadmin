@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
-"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: be@latin\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -46,8 +46,8 @@ msgstr ""
 msgid "Search"
 msgstr "Pošuk"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "Baza dadzienych %1$s stvoranaja."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "Kamentar da bazy dadzienych: "
 
@@ -253,82 +253,82 @@ msgstr "Źniać usie adznaki"
 msgid "The database name is empty!"
 msgstr "Imia bazy dadzienych nie paznačanaje!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Baza dadzienych %s była pierajmienavanaja ŭ %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Baza dadzienych %s była skapijavanaja ŭ %s"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Kamanda"
 
-#: db_operations.php:400
+#: db_operations.php:429
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Baza dadzienych %s była vydalenaja."
 
-#: db_operations.php:417
+#: db_operations.php:446
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Tolki strukturu"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Strukturu i dadzienyja"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Tolki dadzienyja"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "vykanać CREATE DATABASE pierad kapijavańniem"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "Dadać %s"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "Dadać značeńnie AUTO_INCREMENT"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "Dadać abmiežavańni"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "Pierajści da skapijavanaj bazy dadzienych"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -338,7 +338,7 @@ msgstr "Pierajści da skapijavanaj bazy dadzienych"
 msgid "Collation"
 msgstr "Supastaŭleńnie"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -350,7 +350,7 @@ msgstr ""
 "Dadatkovyja mahčymaści raboty z źviazanymi tablicami byli adklučanyja. Kab "
 "vyśvietlić čamu, naciśnicie %stut%s."
 
-#: db_operations.php:552
+#: db_operations.php:581
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -626,11 +626,11 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
-"%sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
+"sdakumentacyi%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -852,8 +852,8 @@ msgstr "Damp zachavany ŭ fajł %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -872,8 +872,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
-"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
+"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:335
@@ -1697,8 +1697,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -3015,7 +3015,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4599,8 +4601,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -6539,8 +6541,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
-"%sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
+"sdakumentacyi%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6726,8 +6728,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
-"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
+"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -7718,8 +7720,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "

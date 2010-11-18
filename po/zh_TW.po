@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-11-05 14:13+0200\n"
 "Last-Translator:  <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
-"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -44,8 +44,8 @@ msgstr ""
 msgid "Search"
 msgstr "搜索"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -110,7 +110,7 @@ msgstr "遠端 URL 開啟失敗"
 msgid "Database %1$s has been created."
 msgstr "資料庫 %s 已被刪除"
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "資料庫註解文字: "
 
@@ -249,78 +249,78 @@ msgstr "全部取消"
 msgid "The database name is empty!"
 msgstr "資料庫名稱並未輸入!!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "資料庫 %s 已更改名稱為 %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "資料庫 %s 已複製到 %s"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "更改資料庫名稱到"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "指令"
 
-#: db_operations.php:400
+#: db_operations.php:429
 msgid "Remove database"
 msgstr "移除資料庫"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "資料庫 %s 已被刪除"
 
-#: db_operations.php:417
+#: db_operations.php:446
 msgid "Drop the database (DROP)"
 msgstr "清除資料庫 (DROP)"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "複製資料庫到"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "只有結構"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "結構與資料"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "只有資料"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "複製前建立資料庫 (CREATE DATABASE)"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "新增 %s"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "新增 AUTO_INCREMENT 數值"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "加入限制"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "轉移到複製之資料庫"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -330,7 +330,7 @@ msgstr "轉移到複製之資料庫"
 msgid "Collation"
 msgstr "校對"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -340,7 +340,7 @@ msgid ""
 "click %shere%s."
 msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
-#: db_operations.php:552
+#: db_operations.php:581
 msgid "Edit or export relational schema"
 msgstr "編輯或匯出關連表"
 
@@ -607,8 +607,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "這個檢視至少有這些數目的列，請參考%sdocumentation%s。"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -829,8 +829,8 @@ msgstr "備份已儲到檔案 %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1645,8 +1645,8 @@ msgstr "歡迎使用 %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr "有可能你未建立設定檔. 你可利用此 %1$s安裝程序%2$s 建立設定檔."
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2958,7 +2958,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4539,8 +4541,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -7514,8 +7516,8 @@ msgstr "刪除與使用者相同名稱之資料庫."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "註: phpMyAdmin 直接由 MySQL 權限資料表取得使用者權限. 如果使用者自行更改資料"
 "表, 資料表內容將可能與實際使用者情況有異. 在這情況下, 您應在繼續前 %s重新載"

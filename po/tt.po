@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-07-22 02:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: tatarish <tt@li.org>\n"
-"Language: tt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tt\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Search"
 msgstr "Ezläw"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "%s biremlege beterelde."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "Biremlek açıqlaması:"
 
@@ -250,81 +250,81 @@ msgstr "Saylanunı Töşer"
 msgid "The database name is empty!"
 msgstr "Biremlek iseme buş!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "\"%s\" biremlege \"%s\" itep ataldı"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Database %s has been copied to %s"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "Biremlekne bolay atap quy"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Ämer"
 
-#: db_operations.php:400
+#: db_operations.php:429
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Biremlekne bolay atap quy"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "%s biremlege beterelde."
 
-#: db_operations.php:417
+#: db_operations.php:446
 #, fuzzy
 msgid "Drop the database (DROP)"
 msgstr "Biremleklär yuq"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "Biremlekne boña kübäyt"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Tözeleşen genä"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Tözeleşen dä, eçtälegen dä"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Eçtälegen genä"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "Kübäytü aldınnan CREATE DATABASE östise"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "%s östäw"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "\"AUTO_INCREMENT\" bäyäsen östise"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "Çikläwlär östise"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "Kübäytelgän biremlekkä küçäse"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -334,7 +334,7 @@ msgstr "Kübäytelgän biremlekkä küçäse"
 msgid "Collation"
 msgstr "Tezü cayı"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -346,7 +346,7 @@ msgstr ""
 "Bäyläneştä torğan tüşämä belän eşläp bulmas, östämä eşli-alu sünek tora. Anı "
 "qabızu öçen, %sbonda çirtäse%s."
 
-#: db_operations.php:552
+#: db_operations.php:581
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -616,8 +616,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -847,8 +847,8 @@ msgstr "Eçtälege \"%s\" biremenä saqlandı."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1663,8 +1663,8 @@ msgstr "%s siña İsäñme di"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2981,7 +2981,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4568,8 +4570,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -6447,8 +6449,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında "
-"%squllanmada%s uqıp bula."
+"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında %"
+"squllanmada%s uqıp bula."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -7587,8 +7589,8 @@ msgstr "Bu qullanuçılar kebek atalğan biremleklärne beteräse."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Beläse: MySQL-serverneñ eçke tüşämä eçennän alınğan xoquqlar bu. Server "
 "qullana torğan xoquqlar qul aşa üzgärtelgän bulsa, bu tüşämä eçtälege "

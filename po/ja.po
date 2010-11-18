@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Search"
 msgstr "検索"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "データベース %1$s を作成しました。"
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "データベースのコメント:"
 
@@ -252,82 +252,82 @@ msgstr "全選択解除"
 msgid "The database name is empty!"
 msgstr "データベース名が空です!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "データベース %s を %s にリネームしました"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "データベース %s を %s にコピーしました"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "新しいデータベース名"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "コマンド"
 
-#: db_operations.php:400
+#: db_operations.php:429
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "新しいデータベース名"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "データベース %s を削除しました"
 
-#: db_operations.php:417
+#: db_operations.php:446
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
 msgstr "データベースのコピー先"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "データベースのコピー先"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "構造のみ"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "構造とデータ"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "データのみ"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "コピーの前に CREATE DATABASE する"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "%s を追加"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "制約を追加する"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "コピーしたデータベースに切り替える"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -337,7 +337,7 @@ msgstr "コピーしたデータベースに切り替える"
 msgid "Collation"
 msgstr "照合順序"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -349,7 +349,7 @@ msgstr ""
 "リンクテーブルを処理するための追加機能が無効になっています。理由については%s"
 "こちら%sをご覧ください"
 
-#: db_operations.php:552
+#: db_operations.php:581
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -619,8 +619,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -841,8 +841,8 @@ msgstr "ダンプをファイル %s に保存しました"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1676,11 +1676,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
-"ト%2$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
+"$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2987,7 +2987,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4568,8 +4570,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "このテンプレートは %1$sstrftime%2$s を使って解釈されます。そのため、時間の書"
 "式文字列を利用できます。また、次の変換も行われます。%3$s それ以外のテキストは"
@@ -7653,8 +7655,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"

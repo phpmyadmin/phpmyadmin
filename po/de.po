@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-09-16 12:10+0200\n"
 "Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Search"
 msgstr "Suche"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -113,7 +113,7 @@ msgstr "Die entfernte URL konnte nicht geöffnet werden."
 msgid "Database %1$s has been created."
 msgstr "Die Datenbank %1$s wurde erzeugt."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "Datenbankkommentar: "
 
@@ -250,78 +250,78 @@ msgstr "Auswahl entfernen"
 msgid "The database name is empty!"
 msgstr "Der Datenbankname ist leer!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Datenbank %s wurde umbenannt zu %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Datenbank %s wurde nach %s kopiert"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "Datenbank umbenennen in"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Befehl"
 
-#: db_operations.php:400
+#: db_operations.php:429
 msgid "Remove database"
 msgstr "Datenbank entfernen"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Datenbank %s wurde gelöscht."
 
-#: db_operations.php:417
+#: db_operations.php:446
 msgid "Drop the database (DROP)"
 msgstr "Lösche die Datenbank (DROP)"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "Datenbank kopieren nach"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Nur Struktur"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Struktur und Daten"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Nur Daten"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "Vor dem Kopieren CREATE DATABASE ausführen."
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "Füge %s hinzu"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT-Wert hinzufügen"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "Constraints hinzufügen"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "Zu kopierter Datenbank wechseln"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -331,16 +331,16 @@ msgstr "Zu kopierter Datenbank wechseln"
 msgid "Collation"
 msgstr "Kollation"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
+"s um herauszufinden warum."
 
-#: db_operations.php:552
+#: db_operations.php:581
 msgid "Edit or export relational schema"
 msgstr "Beziehungsschema bearbeiten oder exportieren"
 
@@ -604,11 +604,11 @@ msgstr "Tracking ist nicht aktiviert."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die "
-"%sDokumentation%s."
+"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die %"
+"sDokumentation%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -828,11 +828,11 @@ msgstr "Dump (Schema) wurde in Datei %s gespeichert."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
-"%sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
+"sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1617,8 +1617,8 @@ msgstr "Willkommen bei %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
 "haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
@@ -2986,7 +2986,12 @@ msgid "Changes tracking"
 msgstr "Ändert die Verfolgung"
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+#, fuzzy
+#| msgid ""
+#| "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 "Verfolgen der erfolgten Änderungen in der Datenbank. Erfordert eine "
 "konfigurierte PMA-Datenbank"
@@ -4727,8 +4732,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst, Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -6776,8 +6781,8 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Für diese Umwandlung ist keine Beschreibung verfügbar.<br />Für weitere "
-"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;"
-"%s&quot;."
+"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;%"
+"s&quot;."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -7182,8 +7187,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
+"s um herauszufinden warum."
 
 #: main.php:319
 msgid ""
@@ -7896,8 +7901,8 @@ msgstr "Die gleichnamigen Datenbanken löschen."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-"
 "Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, "
@@ -9467,9 +9472,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "

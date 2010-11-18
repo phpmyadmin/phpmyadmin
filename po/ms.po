@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: malay <ms@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -41,8 +41,8 @@ msgstr ""
 msgid "Search"
 msgstr "Cari"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "angkalan data %s telah digugurkan."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 #, fuzzy
 msgid "Database comment: "
 msgstr "Komen jadual"
@@ -249,82 +249,82 @@ msgstr "Nyahpilih Semua"
 msgid "The database name is empty!"
 msgstr "Nama jadual  adalah kosong"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Jadual %s telah ditukarnama ke %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, fuzzy, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Jadual %s telah disalin ke %s."
 
-#: db_operations.php:366
+#: db_operations.php:395
 #, fuzzy
 msgid "Rename database to"
 msgstr "Tukarnama jadual ke"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Arahan"
 
-#: db_operations.php:400
+#: db_operations.php:429
 #, fuzzy
 msgid "Remove database"
 msgstr "Tukarnama jadual ke"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "angkalan data %s telah digugurkan."
 
-#: db_operations.php:417
+#: db_operations.php:446
 #, fuzzy
 msgid "Drop the database (DROP)"
 msgstr "Tiada pangkalan data"
 
-#: db_operations.php:445
+#: db_operations.php:474
 #, fuzzy
 msgid "Copy database to"
 msgstr "Tiada pangkalan data"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Struktur sahaja"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Struktur dan data"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Data sahaja"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr ""
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr ""
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr ""
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr ""
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr ""
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Collation"
 msgstr ""
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -346,7 +346,7 @@ msgstr ""
 "Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang telah "
 "tidak diaktifkan. Untuk mengetahuinya klik %shere%s."
 
-#: db_operations.php:552
+#: db_operations.php:581
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -620,8 +620,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -845,8 +845,8 @@ msgstr ""
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1650,8 +1650,8 @@ msgstr "Selamat Datang ke %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2946,7 +2946,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4500,8 +4502,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -7404,8 +7406,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1775

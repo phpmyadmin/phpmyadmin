@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-12 14:06+0100\n"
+"POT-Creation-Date: 2010-11-18 06:21-0500\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -44,8 +44,8 @@ msgstr ""
 msgid "Search"
 msgstr "Cerca"
 
-#: browse_foreigners.php:151 db_operations.php:338 db_operations.php:383
-#: db_operations.php:489 db_operations.php:513 db_search.php:359
+#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "S'ha creat la base de dades %1$s."
 
-#: db_datadict.php:48 db_operations.php:331
+#: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
 msgstr "Comentaris de la Base de Dades: "
 
@@ -251,82 +251,82 @@ msgstr "Desmarca tot"
 msgid "The database name is empty!"
 msgstr "El nom de la base de dades és buit!"
 
-#: db_operations.php:239
+#: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Base de dades %s reanomenada a %s"
 
-#: db_operations.php:243
+#: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "La Base de dades %s s'ha copiat a %s"
 
-#: db_operations.php:366
+#: db_operations.php:395
 msgid "Rename database to"
 msgstr "Reanomena base de dades a"
 
-#: db_operations.php:371 server_processlist.php:56
+#: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Ordre"
 
-#: db_operations.php:400
+#: db_operations.php:429
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Reanomena base de dades a"
 
-#: db_operations.php:412
+#: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "La Base de Dades %s s'ha eliminat."
 
-#: db_operations.php:417
+#: db_operations.php:446
 #, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Vés a la base de dades"
 
-#: db_operations.php:445
+#: db_operations.php:474
 msgid "Copy database to"
 msgstr "Còpia base de dades a"
 
-#: db_operations.php:452 tbl_operations.php:530 tbl_tracking.php:382
+#: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Només l'estructura"
 
-#: db_operations.php:453 tbl_operations.php:531 tbl_tracking.php:384
+#: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Estructura i dades"
 
-#: db_operations.php:454 tbl_operations.php:532 tbl_tracking.php:383
+#: db_operations.php:483 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Només dades"
 
-#: db_operations.php:462
+#: db_operations.php:491
 msgid "CREATE DATABASE before copying"
 msgstr "Inclou CREATE DATABASE abans de copiar"
 
-#: db_operations.php:465 libraries/config/messages.inc.php:122
+#: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:130 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
 msgstr "Afegeix %s"
 
-#: db_operations.php:469 libraries/config/messages.inc.php:115
+#: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
 msgstr "Afegeix valor AUTO_INCREMENT"
 
-#: db_operations.php:473 tbl_operations.php:547
+#: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
 msgstr "Afegeix restriccions"
 
-#: db_operations.php:486
+#: db_operations.php:515
 msgid "Switch to copied database"
 msgstr "Canvia a la base de dades copiada"
 
-#: db_operations.php:506 libraries/Index.class.php:447
+#: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
@@ -336,7 +336,7 @@ msgstr "Canvia a la base de dades copiada"
 msgid "Collation"
 msgstr "Ordenació"
 
-#: db_operations.php:519
+#: db_operations.php:548
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -348,7 +348,7 @@ msgstr ""
 "Les característiques addicionals per treballar amb taules enllaçades s'han "
 "desactivat. Per saber perquè prem a %saquí%s."
 
-#: db_operations.php:552
+#: db_operations.php:581
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -621,8 +621,8 @@ msgstr "El seguiment no està actiu."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1936
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
@@ -844,11 +844,11 @@ msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu massa gran. Consulta la "
-"%sdocumentació%s per trobar formes de modificar aquest límit."
+"Probablement has triat d'enviar un arxiu massa gran. Consulta la %"
+"sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
 #: libraries/File.class.php:676
@@ -1691,8 +1691,8 @@ msgstr "Benvingut a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podriau voler utilitzar %1$ssetup script%2$s per crear-ne un."
@@ -3065,7 +3065,9 @@ msgid "Changes tracking"
 msgstr ""
 
 #: libraries/config/messages.inc.php:202
-msgid "Tracking of changes made in database. Requires configured PMA database."
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -4804,12 +4806,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faràn aquestes transformacions: "
-"%3$s. Altre text es deixarà sense variació."
+"cadenes de formateig de temps. A més, es faràn aquestes transformacions: %3"
+"$s. Altre text es deixarà sense variació."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -6763,8 +6765,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "No s'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu "
-"instal·lats els mòduls de PHP necessaris tal i com s'indica a la "
-"%sdocumentació%s."
+"instal·lats els mòduls de PHP necessaris tal i com s'indica a la %"
+"sdocumentació%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -7960,8 +7962,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obté els permisos de l'usuari directament de les taules de "
 "permisos de MySQL. El contingut d'aquestes taules pot ser diferent dels "
@@ -9537,9 +9539,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
