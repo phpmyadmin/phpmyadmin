@@ -686,4 +686,34 @@ $(document).ready(function() {
     }) // End After editing, clicking again should post data
 }, 'top.frame_content') // end $(document).ready()
 
+/**
+ * Starting from some th, change the class of all td under it
+ */
+function PMA_changeClassForColumn($this_th, class) {
+    // index 0 is the th containing the big T
+    var th_index = $this_th.index();
+    // .eq() is zero-based
+    th_index--;
+    var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data_inline_edit');
+    $tr_with_data.each(function() {
+        $(this).find('td.data_inline_edit:eq('+th_index+')').toggleClass(class);
+    });
+}
+
+$(document).ready(function() {
+    /**
+     * column highlighting in horizontal mode when hovering over the column header
+     */
+    $('.column_heading').live('hover', function() {
+        PMA_changeClassForColumn($(this), 'hover'); 
+        });
+
+    /**
+     * column marking in horizontal mode when clicking the column header
+     */
+    $('.column_heading').live('click', function() {
+        PMA_changeClassForColumn($(this), 'marked'); 
+        });
+})
+
 /**#@- */

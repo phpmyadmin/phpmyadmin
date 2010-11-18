@@ -864,9 +864,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
+                $th_class = array(); 
                 if ($condition_field) {
-                    echo ' class="condition"';
+                    $th_class[] = 'condition';
                 }
+                $th_class[] = 'column_heading';
+                echo ' class="' . implode(' ', $th_class) . '"';
+
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                     echo ' valign="bottom"';
                 }

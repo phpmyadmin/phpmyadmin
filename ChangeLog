@@ -118,6 +118,7 @@
 - rfe #2956556 [interface] Allow to wrap enum values.
 - bug #1669459 [interface] Do not automatically mark PDF schema rows to delete
 - bug #3087682 [interface] Do not apply LeftFrameDBSeparator on first character.
+- rfe #3111455 [interface] Column highlighting and marking in table view
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc
