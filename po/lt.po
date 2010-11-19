@@ -1359,7 +1359,7 @@ msgstr "Valanda"
 
 #: js/messages.php:205
 msgid "Minute"
-msgstr "minutė"
+msgstr "Minutė"
 
 #: js/messages.php:206
 #| msgid "per second"
