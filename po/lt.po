@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 21:28+0200\n"
+"PO-Revision-Date: 2010-11-19 21:29+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3042,10 +3042,9 @@ msgid "Do not import empty rows"
 msgstr "Neimportuoti tuščių eilučių (įrašų)"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importuoti valiutas <i>(pavyzdžiui. $5.00 į 5.00)</i>"
+msgstr "Importuoti valiutas ($5.00 kaip 5.00)"
 
 #: libraries/config/messages.inc.php:252
 #, fuzzy
