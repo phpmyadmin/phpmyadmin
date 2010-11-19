@@ -1325,10 +1325,9 @@ msgstr "An"
 
 #. l10n: Minimal week day name
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Trečiadienis"
+msgstr "Tr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:196
