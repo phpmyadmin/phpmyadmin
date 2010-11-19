@@ -2602,7 +2602,6 @@ msgid "Creation/Update/Check dates"
 msgstr "Sukūrimo/atnaujinimo/tikrinimo datos"
 
 #: libraries/config/messages.inc.php:120
-#, fuzzy
 msgid "Use delayed inserts"
 msgstr "Naudoti užlaikytus įterpimus"
 
