@@ -1079,7 +1079,7 @@ msgstr "Ignoruoti"
 
 #: js/messages.php:92
 msgid "Select referenced key"
-msgstr ""
+msgstr "Pasirinkite siejamą raktą"
 
 #: js/messages.php:93
 msgid "Select Foreign Key"
