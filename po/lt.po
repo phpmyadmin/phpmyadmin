@@ -1283,7 +1283,7 @@ msgstr "Pir"
 #. l10n: Short week day name
 #: js/messages.php:176 libraries/common.lib.php:1574
 msgid "Tue"
-msgstr "Antradienis"
+msgstr "Ant"
 
 #. l10n: Short week day name
 #: js/messages.php:178 libraries/common.lib.php:1576
