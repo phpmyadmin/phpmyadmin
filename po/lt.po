@@ -2306,7 +2306,7 @@ msgstr "Eilučių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "CHAR tekstinio laukelio eilučių skaičius"
 
 #: libraries/config/messages.inc.php:36
 msgid "Check config file permissions"
