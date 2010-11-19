@@ -1343,10 +1343,9 @@ msgstr "Pn"
 
 #. l10n: Minimal week day name
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Šeštadienis"
+msgstr "Št"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:202
