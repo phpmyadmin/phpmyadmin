@@ -1303,7 +1303,7 @@ msgstr "Pen"
 #. l10n: Short week day name
 #: js/messages.php:184 libraries/common.lib.php:1582
 msgid "Sat"
-msgstr "Šeštadienis"
+msgstr "Šeš"
 
 #. l10n: Minimal week day name
 #: js/messages.php:188
