@@ -1102,7 +1102,6 @@ msgid "Generate"
 msgstr "Generuoti"
 
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Pakeisti slaptažodį"
