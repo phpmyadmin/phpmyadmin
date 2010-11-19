@@ -163,6 +163,29 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 }
 
 ?>
+<?php if (!empty($tab_designer['link'])) {
+        $tab_designer['link'] = htmlentities($tab_designer['link']);
+        $tab_designer['link'] = $tab_designer['link'] . PMA_generate_common_url($url_params);
+        if (! empty($tab_designer['args'])) {
+            foreach ($tab_designer['args'] as $param => $value) {
+                $tab_designer['link'] .= PMA_get_arg_separator('html') . urlencode($param) . '='
+                    . urlencode($value);
+            }
+        }
+    }
+    if (! empty($tab['fragment'])) {
+        $tab['link'] .= $tab['fragment'];
+    }
+?>
+<div class="notice">
+	<span id="footnote_1">
+    Switch to
+	<form action="<?php echo $tab_designer['link'] ?>" method="post">
+		<input type="submit"  style="background-color:#FFD; border-width:0; color:#00F;   
+    	font-size: 15px;cursor: pointer" name="query" onmouseover="this.style.color='#F00';"
+    	value="visual builder" onmouseout="this.style.color='#00F'"/></span>
+	</form>
+</div>
 <form action="db_qbe.php" method="post">
 <fieldset>
 <table class="data" style="width: 100%;">

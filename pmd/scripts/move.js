@@ -32,6 +32,8 @@ var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
 var old_class;
+var from_array = [];
+var downer;
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -620,7 +622,6 @@ function Small_tab(t, re_load)
     var id      = document.getElementById('id_tbody_' + t);
     var id_this = document.getElementById('id_hide_tbody_' + t);
     var id_t    = document.getElementById(t);
-
     id_t.style.width = id_t.offsetWidth + 'px';
     if (id_this.innerHTML == "v") {
         //---CROSS
@@ -646,7 +647,6 @@ function Select_tab(t)
     //----------
     var id_t = document.getElementById(t);
     window.scrollTo(parseInt(id_t.style.left) - 300, parseInt(id_t.style.top) - 300);
-
     setTimeout(function(){document.getElementById('id_zag_' + t).className = 'tab_zag';}, 800);
 }
 //------------------------------------------------------------------------------
@@ -963,4 +963,182 @@ function getColorByTarget( target )
   }
 
   return color;
+}
+
+function Click_option(id_this,column_name,table_name) 
+{
+    var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
+    document.getElementById(id_this).style.left = left + 'px';
+    // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
+    document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
+    document.getElementById(id_this).style.visibility = "visible";
+    document.getElementById('option_col_name').innerHTML = '<strong>Options For "' +column_name+ '" column</strong>';
+    col_name = column_name;
+    tab_name = table_name;
+}
+
+function Close_option()
+{
+    document.getElementById('pmd_optionse').style.visibility = "hidden";
+}
+
+function Select_all(id_this,owner)
+{
+    var parent= document.form1;
+    downer =owner;
+    var i;
+    var tab = [];
+    for(i = 0; i < parent.elements.length; i++) {
+        if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
+            if(document.getElementById('select_all_' + id_this).checked == true) {
+                parent.elements[i].checked = true;
+                parent.elements[i].disabled = true;
+                var temp = '`' + id_this.substring(owner.length +1) + '`.*';
+           }	
+           else {
+               parent.elements[i].checked = false;
+               parent.elements[i].disabled = false;	
+           }
+        }
+    }
+    if(document.getElementById('select_all_' + id_this).checked == true) {
+        select_field.push('`' + id_this.substring(owner.length +1) + '`.*');
+        tab = id_this.split(".");
+        from_array.push(tab[1]);
+    }
+    else {
+        for (i =0; i < select_field.length; i++) {
+            if (select_field[i] == ('`' + id_this.substring(owner.length +1) + '`.*')) {
+                select_field.splice(i,1);
+            }
+        }
+        for(k =0 ;k < from_array.length;k++){
+            if(from_array[k] == id_this){ 
+                from_array.splice(k,1); 
+                break;
+            }
+        }
+    }
+    Re_load();
+}
+
+function Table_onover(id_this,val,buil)
+{
+    if(!val) {
+        document.getElementById("id_zag_" + id_this).className="tab_zag_2";
+        if(buil) {
+            document.getElementById("id_zag_" + id_this + "_2").className="tab_zag_2";
+        }
+    }
+    else {
+        document.getElementById("id_zag_" + id_this).className="tab_zag";
+        if(buil) {
+            document.getElementById("id_zag_" + id_this + "_2").className="tab_zag";
+        }
+    }
+}
+
+/* This function stores selected column information in select_field[]
+ * In case column is checked it add else it deletes
+ *
+ */
+function store_column(id_this,owner,col) {
+    var i = 0;
+    var k = 0;
+    if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
+        select_field.push('`' + id_this + '`.`' + col +'`');	
+        from_array.push(id_this);
+    }
+    else {
+        for(i; i < select_field.length ;i++) {
+            if (select_field[i] == ('`' + id_this + '`.`' + col +'`')) {
+                select_field.splice(i,1);
+                break;
+            }
+        }
+        for(k =0 ;k < from_array.length;k++){
+            if(from_array[k] == id_this){ 
+                from_array.splice(k,1); 
+			    break;
+            }
+        }
+     }
+}
+
+/**
+ * This function builds object and adds them to history_array
+ * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
+ * then a new history object is made and finally all these history objects are addded to history_array[]
+ * 
+ * @uses	where()
+ * @uses	history()
+ * @uses	aggregate()
+ * @uses	rename()
+ * @uses	panel()
+ * @uses	display()
+**/
+
+function add_object() {
+    var rel = document.getElementById('rel_opt');
+    var sum = 0;
+    var init = history_array.length;
+    if (rel.value != '--') {
+        if (document.getElementById('Query').value == "") {
+            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('hint').style.visibility = "visible";
+            return;
+        }
+        var p = document.getElementById('Query');
+        var where_obj = new where(rel.value,p.value);//make where object
+        history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Where"));
+        sum = sum + 1;
+        rel.value = '--';
+        p.value = "";
+    }
+    if (document.getElementById('new_name').value !="") {
+        var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
+        history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[downer + '.' + tab_name],"Rename"));
+        sum = sum + 1;
+        document.getElementById('new_name').value = "" ;
+    }
+	if (document.getElementById('operator').value != '---') {
+        var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
+        history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[downer + '.' + tab_name],"Aggregate"));
+        sum = sum + 1;
+        document.getElementById('operator').value = '---';
+		//make aggregate operator
+    }
+    if (document.getElementById('groupby').checked == true ) {
+        history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[downer + '.' +tab_name],"GroupBy"));
+        sum = sum + 1;
+        document.getElementById('groupby').checked = false;
+	//make groupby
+    }
+    if (document.getElementById('h_rel_opt').value != '--') {
+        if (document.getElementById('having').value == "") {
+            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('hint').style.visibility = "visible";
+           return;
+        }
+        var p = document.getElementById('having');
+        var where_obj = new having(document.getElementById('h_rel_opt').value,p.value,document.getElementById('h_operator').value);//make where object
+        history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Having"));
+        sum = sum + 1;
+        document.getElementById('h_rel_opt').value = '--';
+        document.getElementById('h_operator').value = '---';
+        p.value = ""; //make having
+    }
+    if (document.getElementById('orderby').checked == true) {
+        history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[downer + '.' + tab_name],"OrderBy"));
+        sum = sum + 1;
+        document.getElementById('orderby').checked = false;
+		//make orderby
+    }
+    document.getElementById('hint').innerHTML = sum + "object created" ;
+    document.getElementById('hint').style.visibility = "visible";
+	//output sum new objects created
+    var existingDiv = document.getElementById('ab');
+    existingDiv.innerHTML = display(init,history_array.length);
+    Close_option();
+    panel(0);
 }
