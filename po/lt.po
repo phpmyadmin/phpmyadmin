@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 21:14+0200\n"
+"PO-Revision-Date: 2010-11-19 21:15+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2298,7 +2298,7 @@ msgstr "Stulpelių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR tekstinio laukelio stulpelių skaičius"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
