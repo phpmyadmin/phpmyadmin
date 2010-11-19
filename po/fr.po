@@ -6399,7 +6399,7 @@ msgstr ""
 "essayer votre requête. Le message d'erreur présenté plus bas pourrait vous "
 "indiquer la source du problème. En dernier recours, veuillez trouver la plus "
 "courte requête possible qui cause le problème, et soumettre un rapport "
-"d'anomalie en incluant la section à couper: "
+"d'anomalie en incluant la section à couper : "
 
 #: libraries/sqlparser.lib.php:175
 msgid "BEGIN CUT"
