@@ -457,9 +457,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         </tr>
         </thead>
         <tbody id="where">
-        <tr><td align="center" nowrap="nowrap"><b>Where</b></td></tr>
+        <tr><td align="center" nowrap="nowrap"><b>WHERE</b></td></tr>
         <tr>
-            <td width="58" nowrap="nowrap">Relation operator</td>
+        <td width="58" nowrap="nowrap"><?php echo __('Relation operator'); ?></td>
             <td width="102"><select name="rel_opt" id="rel_opt">
                     <option value="--" selected="selected"> -- </option>
                     <option value="=" > = </option>
@@ -469,56 +469,56 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     <option value="<="> <= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
-                    <option value="EXCEPT"> Except </option>
-                    <option value="NOT IN"> Not In </option>
+                    <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
+                    <option value="NOT IN"> NOT IN </option>
                 </select>
             </td>
         </tr>
         <tr>
-            <td nowrap="nowrap">Value/<br />Subquery</td>
+        <td nowrap="nowrap"><?php echo __('Value'); ?>/<br /><?php echo __('subquery'); ?></td>
             <td><textarea id="Query" value="" cols="18"></textarea>
             </td>
         </tr>
-        <tr><td align="center" nowrap="nowrap"><b>Rename To</b></td></tr>
+        <tr><td align="center" nowrap="nowrap"><b><?php echo __('Rename to'); ?></b></td></tr>
         <tr>
-            <td width="58" nowrap="nowrap">New Name</td>
+        <td width="58" nowrap="nowrap"><?php echo __('New name'); ?></td>
         	<td width="102"><input type="text" value="" id="new_name"/></td>
         </tr>
-        <tr><td align="center" nowrap="nowrap"><b>Aggregate</b></td></tr>   
+        <tr><td align="center" nowrap="nowrap"><b><?php echo __('Aggregate'); ?></b></td></tr>   
          <tr>
-         <td width="58" nowrap="nowrap">Operator</td>
+         <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="operator" id="operator">
                     <option value="---" selected="selected">---</option>
-                    <option value="sum" > Sum </option>
-                    <option value="min"> Min </option>
-                    <option value="max"> Max </option>
-                    <option value="avg"> Avg </option>
-                    <option value="count"> Count </option>
+                    <option value="sum" > SUM </option>
+                    <option value="min"> MIN </option>
+                    <option value="max"> MAX </option>
+                    <option value="avg"> AVG </option>
+                    <option value="count"> COUNT </option>
                     </select>
            </td></tr>
            <tr>
-				<td nowrap="nowrap" width="58" align="center"><b>Group By</b></td>
+				<td nowrap="nowrap" width="58" align="center"><b>GROUP BY</b></td>
                 <td><input type="checkbox" value="groupby" id="groupby"/></td>
            </tr>           	
            <tr>
-				<td nowrap="nowrap" width="58" align="center"><b>Order By</b></td>
+				<td nowrap="nowrap" width="58" align="center"><b>ORDER BY</b></td>
                 <td><input type="checkbox" value="orderby" id="orderby"/></td>
            </tr>
-          <tr><td align="center" nowrap="nowrap"><b>Having</b></td></tr>
+          <tr><td align="center" nowrap="nowrap"><b>HAVING</b></td></tr>
           <tr>
-         	<td width="58" nowrap="nowrap">Operator</td>
+          <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="h_operator" id="h_operator">
                     <option value="---" selected="selected">---</option>
-                    <option value="None" > None </option>
-                    <option value="sum" > Sum </option>
-                    <option value="min"> Min </option>
-                    <option value="max"> Max </option>
-                    <option value="avg"> Avg </option>
-                    <option value="count"> Count </option>
+                    <option value="None" > <?php echo __('None'); ?> </option>
+                    <option value="sum" > SUM </option>
+                    <option value="min"> MIN </option>
+                    <option value="max"> MAX </option>
+                    <option value="avg"> AVG </option>
+                    <option value="count"> COUNT </option>
                     </select>
            	</td></tr>
             <tr>
-            <td width="58" nowrap="nowrap">Relation operator</td>
+            <td width="58" nowrap="nowrap"><?php echo __('Relation operator'); ?></td>
             <td width="102"><select name="h_rel_opt" id="h_rel_opt">
                     <option value="--" selected="selected"> -- </option>
                     <option value="=" > = </option>
@@ -528,13 +528,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     <option value="<="> <= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
-                    <option value="EXCEPT"> Except </option>
-                    <option value="NOT IN"> Not In </option>
+                    <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
+                    <option value="NOT IN"> NOT IN </option>
                 </select>
             </td>
         	</tr>
             <tr>
-            	<td width="58" nowrap="nowrap">Value/<br/>subQuery</td>
+            <td width="58" nowrap="nowrap"><?php echo __('Value'); ?>/<br/><?php echo __('subquery'); ?></td>
         		<td width="102"><textarea id="having" value="" cols="18"></textarea></td>
         	</tr>
         </tbody>
@@ -575,12 +575,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><strong>Rename To</strong></td>
+        <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Rename to'); ?></strong></td>
         </tr>
         </thead>
         <tbody id="rename_to">
         <tr>
-            <td width="58" nowrap="nowrap">New Name</td>
+        <td width="58" nowrap="nowrap"><?php echo __('New name'); ?></td>
             <td width="102">
             	<input type="text" value="" id="e_rename"/>
             </td>
@@ -623,25 +623,25 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
-          <td colspan="2" align="center" nowrap="nowrap"><strong>Having</strong></td>
+          <td colspan="2" align="center" nowrap="nowrap"><strong>HAVING</strong></td>
         </tr>
         </thead>
         <tbody id="rename_to">
         <tr>
-         	<td width="58" nowrap="nowrap">Operator</td>
+        <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="hoperator" id="hoperator">
                     <option value="---" selected="selected">---</option>
                     <option value="None" > None </option>
-                    <option value="sum" > Sum </option>
-                    <option value="min"> Min </option>
-                    <option value="max"> Max </option>
-                    <option value="avg"> Avg </option>
-                    <option value="count"> Count </option>
+                    <option value="sum" > SUM </option>
+                    <option value="min"> MIN </option>
+                    <option value="max"> MAX </option>
+                    <option value="avg"> AVG </option>
+                    <option value="count"> COUNT </option>
                     </select>
            </td></tr>
         <tr>
         <tr>
-           <td width="58" nowrap="nowrap">Opeartor</td>
+        <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="hrel_opt" id="hrel_opt">
             	<option value="--" selected="selected"> -- </option>
                     <option value="=" > = </option>
@@ -651,13 +651,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     <option value="<="> <= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
-                    <option value="EXCEPT"> Except </option>
-                    <option value="NOT IN"> Not In </option>
+                    <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
+                    <option value="NOT IN"> NOT IN </option>
                 </select>
             </td>
         </tr>
         <tr>
-           <td nowrap="nowrap">Value/<br />Subquery</td>
+        <td nowrap="nowrap"><?php echo __('Value'); ?>/<br /><?php echo __('subquery'); ?></td>
             <td><textarea id="hQuery" value="" cols="18"></textarea>
             </td>
         	</tr>
@@ -699,20 +699,20 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><strong>Aggregate</strong></td>
+        <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Aggregate'); ?></strong></td>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td width="58" nowrap="nowrap">Operator</td>
+        <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102">
             	<select name="operator" id="e_operator">
                 	<option value="---" selected="selected">---</option>
-                	<option value="sum" > Sum </option>
-                	<option value="min"> Min </option>
-                	<option value="max"> Max </option>
-   	            	<option value="avg"> Avg </option>
-                	<option value="avg"> Count </option>
+                	<option value="sum" > SUM </option>
+                	<option value="min"> MIN </option>
+                	<option value="max"> MAX </option>
+   	            	<option value="avg"> AVG </option>
+                	<option value="avg"> COUNT </option>
                 </select>
            </td></tr>   
         </tbody>
@@ -753,12 +753,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
-          <td colspan="2" align="center" nowrap="nowrap"><strong>Where</strong></td>
+          <td colspan="2" align="center" nowrap="nowrap"><strong>WHERE</strong></td>
         </tr>
         </thead>
         <tbody id="rename_to">
         <tr>
-           <td width="58" nowrap="nowrap">Opeartor</td>
+        <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="erel_opt" id="erel_opt">
             	<option value="--" selected="selected"> -- </option>
                     <option value="=" > = </option>
@@ -768,13 +768,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     <option value="<="> <= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
-                    <option value="EXCEPT"> Except </option>
-                    <option value="NOT IN"> Not In </option>
+                    <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
+                    <option value="NOT IN"> NOT IN </option>
                 </select>
             </td>
         </tr>
         <tr>
-           <td nowrap="nowrap">Value/<br />Subquery</td>
+        <td nowrap="nowrap"><?php echo __('Value'); ?>/<br /><?php echo __('subquery'); ?></td>
             <td><textarea id="eQuery" value="" cols="18"></textarea>
             </td>
         	</tr>
@@ -809,7 +809,7 @@ if($_REQUEST['query']) {
    	echo '<div id="ab"></div>';
  	echo '<div style="clear:both;"></div>';
   	echo '</div>';
-	echo '<a class="trigger" href="#">History</a>';
+	echo '<a class="trigger" href="#">' . __('Active options') . '</a>';
 	echo '<div id="filter"></div>';
 	echo '<div id="box">';
   	echo '<span id="boxtitle"></span>';
