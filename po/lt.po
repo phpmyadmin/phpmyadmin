@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 20:26+0200\n"
+"PO-Revision-Date: 2010-11-19 20:30+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9031,7 +9031,7 @@ msgstr ""
 #: tbl_change.php:1112
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "Tęstį įterpimą su %s eilučių"
 
 #: tbl_chart.php:56
 msgid "Chart generated successfully."
