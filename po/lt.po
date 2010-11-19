@@ -1065,10 +1065,9 @@ msgid "Hide query box"
 msgstr "Slėpti užklausos laukelį"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL užklausos langelis"
+msgstr "Rodyti užklausos laukelį"
 
 #: js/messages.php:86
 msgid "Inline Edit"
