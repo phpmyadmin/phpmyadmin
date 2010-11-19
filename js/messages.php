@@ -94,6 +94,9 @@ $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
 
+/* Visual query builder (pmd/scripts/move.js) */
+$js_messages['strAddOption'] = __('Add an option for column ');
+
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');

@@ -972,7 +972,7 @@ function Click_option(id_this,column_name,table_name)
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.visibility = "visible";
-    document.getElementById('option_col_name').innerHTML = '<strong>Options For "' +column_name+ '" column</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] +'"' +column_name+ '"</strong>';
     col_name = column_name;
     tab_name = table_name;
 }
