@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 21:27+0200\n"
+"PO-Revision-Date: 2010-11-19 21:28+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2914,10 +2914,9 @@ msgid "SQL queries settings"
 msgstr "SQL užklausų nustatymai"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL užklausų istorija"
+msgstr "SQL tikrintuvas"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
