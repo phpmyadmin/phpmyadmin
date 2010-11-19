@@ -2294,7 +2294,7 @@ msgstr "CHAR stulpelių redagavimas"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Stulpelių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
