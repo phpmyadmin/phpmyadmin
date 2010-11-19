@@ -922,7 +922,7 @@ msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
-msgstr "Ar TIKRAI norite "
+msgstr "Ar tikrai norite "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
