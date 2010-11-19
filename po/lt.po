@@ -1355,7 +1355,7 @@ msgstr "Sav."
 
 #: js/messages.php:204
 msgid "Hour"
-msgstr "valanda"
+msgstr "Valanda"
 
 #: js/messages.php:205
 msgid "Minute"
