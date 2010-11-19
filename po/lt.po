@@ -1278,7 +1278,7 @@ msgstr "Sek"
 #. l10n: Short week day name
 #: js/messages.php:174 libraries/common.lib.php:1572
 msgid "Mon"
-msgstr "Pirmadienis"
+msgstr "Pir"
 
 #. l10n: Short week day name
 #: js/messages.php:176 libraries/common.lib.php:1574
