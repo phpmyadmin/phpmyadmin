@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 20:30+0200\n"
+"PO-Revision-Date: 2010-11-19 21:07+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6239,7 +6239,7 @@ msgstr "Peržiūra"
 
 #: libraries/sql_query_form.lib.php:487 prefs_manage.php:241
 msgid "Location of the text file"
-msgstr "Tekstiniai SQL užklausų failai"
+msgstr "Tekstinio failo vieta"
 
 #: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
