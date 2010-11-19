@@ -2952,7 +2952,7 @@ msgstr "Adaptuoti teksto įvedimo laukelius"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekstas"
 
 #: libraries/config/messages.inc.php:225
 msgid "Warnings"
