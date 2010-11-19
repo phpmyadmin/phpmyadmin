@@ -2302,7 +2302,7 @@ msgstr "CHAR tekstinio laukelio stulpelių skaičius"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Eilučių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea rows"
