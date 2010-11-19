@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 21:24+0200\n"
+"PO-Revision-Date: 2010-11-19 21:26+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2485,10 +2485,9 @@ msgstr "Stulpeliai apskliausti"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Laukų reikšmės baigiasi simboliu"
+msgstr "Prieš stulpelių spec. simbolius"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:86 libraries/config/messages.inc.php:95
