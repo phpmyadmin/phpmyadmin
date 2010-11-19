@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-18 06:21-0500\n"
+"POT-Creation-Date: 2010-11-19 13:22-0500\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -122,7 +122,7 @@ msgstr "데이터베이스 설명:"
 msgid "Table comments"
 msgstr "테이블 설명"
 
-#: db_datadict.php:169 db_qbe.php:170 libraries/Index.class.php:445
+#: db_datadict.php:169 db_qbe.php:193 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
 #: libraries/export/odt.php:301 libraries/export/texytext.php:226
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
@@ -404,7 +404,7 @@ msgid_plural "%s tables"
 msgstr[0] "%s개 테이블 "
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1973 libraries/sql_query_form.lib.php:136
+#: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -414,78 +414,78 @@ msgstr "SQL 질의가 바르게 실행되었습니다."
 msgid "You have to choose at least one column to display"
 msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
 
-#: db_qbe.php:196 libraries/db_structure.lib.php:95
+#: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
 msgid "Sort"
 msgstr "정렬"
 
-#: db_qbe.php:205 db_qbe.php:239 libraries/db_structure.lib.php:102
+#: db_qbe.php:228 db_qbe.php:262 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:822
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:257
 #: tbl_select.php:310
 msgid "Ascending"
 msgstr "오름차순"
 
-#: db_qbe.php:206 db_qbe.php:247 libraries/db_structure.lib.php:110
+#: db_qbe.php:229 db_qbe.php:270 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:819
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:258
 #: tbl_select.php:311
 msgid "Descending"
 msgstr "내림차순(역순)"
 
-#: db_qbe.php:260 db_tracking.php:90 libraries/display_tbl.lib.php:306
+#: db_qbe.php:283 db_tracking.php:90 libraries/display_tbl.lib.php:306
 #: tbl_change.php:269 tbl_tracking.php:591
 msgid "Show"
 msgstr "보기"
 
-#: db_qbe.php:296
+#: db_qbe.php:319
 msgid "Criteria"
 msgstr "Criteria"
 
-#: db_qbe.php:349 db_qbe.php:431 db_qbe.php:523 db_qbe.php:554
+#: db_qbe.php:372 db_qbe.php:454 db_qbe.php:546 db_qbe.php:577
 msgid "Ins"
 msgstr "삽입"
 
-#: db_qbe.php:353 db_qbe.php:435 db_qbe.php:520 db_qbe.php:551
+#: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
 msgstr "그리고"
 
-#: db_qbe.php:362 db_qbe.php:443 db_qbe.php:525 db_qbe.php:556
+#: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
 msgstr "삭제"
 
-#: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
+#: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
 #: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "또는"
 
-#: db_qbe.php:503
+#: db_qbe.php:526
 msgid "Modify"
 msgstr "수정"
 
-#: db_qbe.php:580
+#: db_qbe.php:603
 msgid "Add/Delete criteria rows"
 msgstr "조건행 추가/삭제"
 
-#: db_qbe.php:592
+#: db_qbe.php:615
 msgid "Add/Delete columns"
 msgstr "컬럼 추가/삭제"
 
-#: db_qbe.php:605 db_qbe.php:630
+#: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
 msgstr "질의 업데이트"
 
-#: db_qbe.php:613
+#: db_qbe.php:636
 msgid "Use Tables"
 msgstr "사용할 테이블"
 
-#: db_qbe.php:636
+#: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "데이터베이스 <b>%s</b>에 SQL 질의:"
 
-#: db_qbe.php:930 libraries/common.lib.php:1167
+#: db_qbe.php:953 libraries/common.lib.php:1167
 msgid "Submit Query"
 msgstr "질의 실행"
 
@@ -531,13 +531,13 @@ msgstr[0] "%s 건 일치 (테이블 <i>%s</i>)"
 msgid "Browse"
 msgstr "보기"
 
-#: db_search.php:260 libraries/display_tbl.lib.php:1186
-#: libraries/display_tbl.lib.php:2048
+#: db_search.php:260 libraries/display_tbl.lib.php:1190
+#: libraries/display_tbl.lib.php:2052
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:425
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -603,7 +603,7 @@ msgstr "트래킹이 활성화되었습니다."
 msgid "Tracking is not active."
 msgstr "트래킹이 활성화되어 있지 않습니다."
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:1936
+#: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -631,20 +631,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s는 이 MySQL 서버의 기본 스토리지 엔진입니다."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2073 libraries/display_tbl.lib.php:2078
+#: libraries/display_tbl.lib.php:2077 libraries/display_tbl.lib.php:2082
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "선택한 것을:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2068
+#: db_structure.php:479 libraries/display_tbl.lib.php:2072
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "모두 체크"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2069
+#: db_structure.php:483 libraries/display_tbl.lib.php:2073
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
@@ -656,7 +656,7 @@ msgstr ""
 
 #: db_structure.php:495 db_structure.php:496
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2086 libraries/display_tbl.lib.php:2220
+#: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
 #: prefs_manage.php:288 server_privileges.php:1371
@@ -665,7 +665,7 @@ msgid "Export"
 msgstr "내보내기"
 
 #: db_structure.php:497 db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2175 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2179 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "인쇄용 보기"
@@ -1013,7 +1013,9 @@ msgstr "선택한 사용자를 삭제"
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
+#: js/messages.php:60 pmd_general.php:390 pmd_general.php:427
+#: pmd_general.php:547 pmd_general.php:595 pmd_general.php:671
+#: pmd_general.php:725 pmd_general.php:788
 msgid "Cancel"
 msgstr ""
 
@@ -1040,7 +1042,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
+#: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
+#: pmd_general.php:723 pmd_general.php:786
 msgid "OK"
 msgstr ""
 
@@ -1114,46 +1118,50 @@ msgstr ""
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "출력할 필드 선택"
 
 #: js/messages.php:98
+msgid "Add an option for column "
+msgstr ""
+
+#: js/messages.php:101
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "암호 변경"
 
-#: js/messages.php:99 libraries/replication_gui.lib.php:365
+#: js/messages.php:102 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr ""
 
-#: js/messages.php:100
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "암호 변경"
 
-#: js/messages.php:103
+#: js/messages.php:106
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
 msgstr "월"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:113
+#: js/messages.php:116
 msgid "Done"
 msgstr "완료"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:115
+#: js/messages.php:118
 msgid "Prev"
 msgstr "이전"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:117 libraries/common.lib.php:2340
+#: js/messages.php:120 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1161,231 +1169,231 @@ msgid "Next"
 msgstr "다음"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:119
+#: js/messages.php:122
 msgid "Today"
 msgstr "오늘"
 
-#: js/messages.php:122
+#: js/messages.php:125
 msgid "January"
 msgstr "1월"
 
-#: js/messages.php:123
+#: js/messages.php:126
 msgid "February"
 msgstr "2월"
 
-#: js/messages.php:124
+#: js/messages.php:127
 msgid "March"
 msgstr "3월"
 
-#: js/messages.php:125
+#: js/messages.php:128
 msgid "April"
 msgstr "4월"
 
-#: js/messages.php:126
+#: js/messages.php:129
 msgid "May"
 msgstr "5월"
 
-#: js/messages.php:127
+#: js/messages.php:130
 msgid "June"
 msgstr "6월"
 
-#: js/messages.php:128
+#: js/messages.php:131
 msgid "July"
 msgstr "7월"
 
-#: js/messages.php:129
+#: js/messages.php:132
 msgid "August"
 msgstr "8월"
 
-#: js/messages.php:130
+#: js/messages.php:133
 msgid "September"
 msgstr "9월"
 
-#: js/messages.php:131
+#: js/messages.php:134
 msgid "October"
 msgstr "10월"
 
-#: js/messages.php:132
+#: js/messages.php:135
 msgid "November"
 msgstr "11월"
 
-#: js/messages.php:133
+#: js/messages.php:136
 msgid "December"
 msgstr "12월"
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1545
+#: js/messages.php:140 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "1월"
 
 #. l10n: Short month name
-#: js/messages.php:139 libraries/common.lib.php:1547
+#: js/messages.php:142 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "2월"
 
 #. l10n: Short month name
-#: js/messages.php:141 libraries/common.lib.php:1549
+#: js/messages.php:144 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "3월"
 
 #. l10n: Short month name
-#: js/messages.php:143 libraries/common.lib.php:1551
+#: js/messages.php:146 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "4월"
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1553
+#: js/messages.php:148 libraries/common.lib.php:1553
 msgctxt "Short month name"
 msgid "May"
 msgstr "5월"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1555
+#: js/messages.php:150 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "6월"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1557
+#: js/messages.php:152 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "7월"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1559
+#: js/messages.php:154 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "8월"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1561
+#: js/messages.php:156 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "9월"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1563
+#: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "10월"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1565
+#: js/messages.php:160 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "11월"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1567
+#: js/messages.php:162 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "12월"
 
-#: js/messages.php:162
+#: js/messages.php:165
 msgid "Sunday"
 msgstr "일요일"
 
-#: js/messages.php:163
+#: js/messages.php:166
 msgid "Monday"
 msgstr "월요일"
 
-#: js/messages.php:164
+#: js/messages.php:167
 msgid "Tuesday"
 msgstr "화요일"
 
-#: js/messages.php:165
+#: js/messages.php:168
 msgid "Wednesday"
 msgstr "수요일"
 
-#: js/messages.php:166
+#: js/messages.php:169
 msgid "Thursday"
 msgstr "목요일"
 
-#: js/messages.php:167
+#: js/messages.php:170
 msgid "Friday"
 msgstr "금요일"
 
-#: js/messages.php:168
+#: js/messages.php:171
 msgid "Saturday"
 msgstr "토요일"
 
 #. l10n: Short week day name
-#: js/messages.php:172 libraries/common.lib.php:1570
+#: js/messages.php:175 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "일"
 
 #. l10n: Short week day name
-#: js/messages.php:174 libraries/common.lib.php:1572
+#: js/messages.php:177 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "월"
 
 #. l10n: Short week day name
-#: js/messages.php:176 libraries/common.lib.php:1574
+#: js/messages.php:179 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "화"
 
 #. l10n: Short week day name
-#: js/messages.php:178 libraries/common.lib.php:1576
+#: js/messages.php:181 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "수"
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1578
+#: js/messages.php:183 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "목"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1580
+#: js/messages.php:185 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "금"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1582
+#: js/messages.php:187 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "토"
 
 #. l10n: Minimal week day name
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Su"
 msgstr "일"
 
 #. l10n: Minimal week day name
-#: js/messages.php:190
+#: js/messages.php:193
 msgid "Mo"
 msgstr "월"
 
 #. l10n: Minimal week day name
-#: js/messages.php:192
+#: js/messages.php:195
 msgid "Tu"
 msgstr "화"
 
 #. l10n: Minimal week day name
-#: js/messages.php:194
+#: js/messages.php:197
 msgid "We"
 msgstr "수"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:199
 msgid "Th"
 msgstr "목"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:201
 msgid "Fr"
 msgstr "금"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:203
 msgid "Sa"
 msgstr "토"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:202
+#: js/messages.php:205
 msgid "Wk"
 msgstr "주"
 
-#: js/messages.php:204
+#: js/messages.php:207
 msgid "Hour"
 msgstr "시"
 
-#: js/messages.php:205
+#: js/messages.php:208
 msgid "Minute"
 msgstr "분"
 
-#: js/messages.php:206
+#: js/messages.php:209
 msgid "Second"
 msgstr "초"
 
@@ -1464,7 +1472,7 @@ msgstr "설명(코멘트)"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:458
-#: libraries/display_tbl.lib.php:1151 libraries/import.lib.php:1150
+#: libraries/display_tbl.lib.php:1155 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
@@ -2032,7 +2040,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: pmd_general.php:153 server_privileges.php:594 server_replication.php:313
 #: tbl_tracking.php:263
 msgid "Structure"
 msgstr "구조"
@@ -4306,7 +4314,7 @@ msgstr ""
 msgid "Return type"
 msgstr ""
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1840
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1844
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4500,7 +4508,7 @@ msgstr "압축"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
-#: server_privileges.php:1966 server_processlist.php:74
+#: pmd_general.php:512 server_privileges.php:1966 server_processlist.php:74
 msgid "None"
 msgstr "없음"
 
@@ -4696,7 +4704,7 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:160 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr ""
@@ -4706,53 +4714,53 @@ msgstr ""
 msgid "Browser transformation"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1166 libraries/display_tbl.lib.php:1178
+#: libraries/display_tbl.lib.php:1170 libraries/display_tbl.lib.php:1182
 msgid "The row has been deleted"
 msgstr "선택한 줄(레코드)을 삭제 하였습니다."
 
-#: libraries/display_tbl.lib.php:1205 libraries/display_tbl.lib.php:2048
+#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2052
 #: server_processlist.php:70 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Kill"
 
-#: libraries/display_tbl.lib.php:1926
+#: libraries/display_tbl.lib.php:1930
 msgid "in query"
 msgstr "질의(in query)"
 
-#: libraries/display_tbl.lib.php:1944
+#: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
 msgstr "행(레코드) 보기"
 
-#: libraries/display_tbl.lib.php:1954
+#: libraries/display_tbl.lib.php:1958
 msgid "total"
 msgstr "합계"
 
-#: libraries/display_tbl.lib.php:1962 sql.php:597
+#: libraries/display_tbl.lib.php:1966 sql.php:597
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "질의 실행시간 %01.4f 초"
 
-#: libraries/display_tbl.lib.php:2081 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2085 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "변경"
 
-#: libraries/display_tbl.lib.php:2154
+#: libraries/display_tbl.lib.php:2158
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2182
+#: libraries/display_tbl.lib.php:2186
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2226 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
 msgstr "열(칼럼) 설명(코멘트) 출력하기"
 
-#: libraries/display_tbl.lib.php:2376
+#: libraries/display_tbl.lib.php:2380
 msgid "Link not found"
 msgstr ""
 
@@ -5905,9 +5913,10 @@ msgstr ""
 msgid "Variable"
 msgstr "변수"
 
-#: libraries/replication_gui.lib.php:117 server_status.php:751
-#: tbl_change.php:316 tbl_printview.php:367 tbl_select.php:136
-#: tbl_structure.php:821
+#: libraries/replication_gui.lib.php:117 pmd_general.php:478
+#: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
+#: server_status.php:751 tbl_change.php:316 tbl_printview.php:367
+#: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "값"
 
@@ -6720,75 +6729,129 @@ msgstr "새 페이지 만들기"
 msgid "Please select a database"
 msgstr "데이터베이스를 선택하세요"
 
-#: pmd_general.php:64
+#: pmd_general.php:76
 msgid "Show/Hide left menu"
 msgstr ""
 
-#: pmd_general.php:68
+#: pmd_general.php:80
 msgid "Save position"
 msgstr ""
 
-#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:83 server_synchronize.php:427 server_synchronize.php:870
 #, fuzzy
 msgid "Create table"
 msgstr "새 페이지 만들기"
 
-#: pmd_general.php:74 pmd_general.php:306
+#: pmd_general.php:86 pmd_general.php:354
 msgid "Create relation"
 msgstr ""
 
-#: pmd_general.php:80
+#: pmd_general.php:92
 msgid "Reload"
 msgstr ""
 
-#: pmd_general.php:83
+#: pmd_general.php:95
 msgid "Help"
 msgstr ""
 
-#: pmd_general.php:87
+#: pmd_general.php:99
 msgid "Angular links"
 msgstr ""
 
-#: pmd_general.php:87
+#: pmd_general.php:99
 msgid "Direct links"
 msgstr ""
 
-#: pmd_general.php:91
+#: pmd_general.php:103
 msgid "Snap to grid"
 msgstr ""
 
-#: pmd_general.php:95
+#: pmd_general.php:107
 msgid "Small/Big All"
 msgstr ""
 
-#: pmd_general.php:99
+#: pmd_general.php:111
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:104
+#: pmd_general.php:116
 msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
-#: pmd_general.php:108
+#: pmd_general.php:122
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "질의 실행"
+
+#: pmd_general.php:127
 msgid "Move Menu"
 msgstr ""
 
-#: pmd_general.php:120
+#: pmd_general.php:139
 #, fuzzy
 msgid "Hide/Show all"
 msgstr "모두 보기"
 
-#: pmd_general.php:124
+#: pmd_general.php:143
 msgid "Hide/Show Tables with no relation"
 msgstr ""
 
-#: pmd_general.php:164
+#: pmd_general.php:183
 msgid "Number of tables"
 msgstr ""
 
-#: pmd_general.php:372
+#: pmd_general.php:420
 msgid "Delete relation"
 msgstr ""
+
+#: pmd_general.php:462 pmd_general.php:521
+#, fuzzy
+msgid "Relation operator"
+msgstr "테이블 복구"
+
+#: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
+#: pmd_general.php:771
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "내보내기"
+
+#: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
+#: pmd_general.php:777
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "질의(in query)"
+
+#: pmd_general.php:482 pmd_general.php:578
+#, fuzzy
+msgid "Rename to"
+msgstr "테이블 이름 바꾸기"
+
+#: pmd_general.php:484 pmd_general.php:583
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "사용자명"
+
+#: pmd_general.php:487 pmd_general.php:702
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr " 만들기 "
+
+#: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
+#: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
+#: tbl_select.php:135
+#, fuzzy
+msgid "Operator"
+msgstr "테이블 작업"
+
+#: pmd_general.php:812
+#, fuzzy
+msgid "Active options"
+msgstr "실행"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -9190,11 +9253,6 @@ msgstr ""
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
 
-#: tbl_select.php:135
-#, fuzzy
-msgid "Operator"
-msgstr "테이블 작업"
-
 #: tbl_select.php:266
 #, fuzzy
 #| msgid "Select fields (at least one):"
@@ -9531,10 +9589,6 @@ msgstr "테이블 이름 바꾸기"
 
 #~ msgid "remember template"
 #~ msgstr "템플릿 기억"
-
-#, fuzzy
-#~ msgid "Actions"
-#~ msgstr "실행"
 
 #~ msgid "BLOB Repository"
 #~ msgstr "BLOB 저장소"

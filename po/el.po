@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-18 06:21-0500\n"
+"POT-Creation-Date: 2010-11-19 13:22-0500\n"
 "PO-Revision-Date: 2010-09-06 11:51+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -123,7 +123,7 @@ msgstr "Σχόλιο βάσης: "
 msgid "Table comments"
 msgstr "Σχόλια Πίνακα"
 
-#: db_datadict.php:169 db_qbe.php:170 libraries/Index.class.php:445
+#: db_datadict.php:169 db_qbe.php:193 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
 #: libraries/export/odt.php:301 libraries/export/texytext.php:226
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
@@ -403,7 +403,7 @@ msgstr[0] "%s Πίνακας"
 msgstr[1] "%s Πίνακες"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1973 libraries/sql_query_form.lib.php:136
+#: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -413,78 +413,78 @@ msgstr "Η SQL εντολή σας εκτελέσθηκε επιτυχώς"
 msgid "You have to choose at least one column to display"
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία στήλη για εμφάνιση"
 
-#: db_qbe.php:196 libraries/db_structure.lib.php:95
+#: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
-#: db_qbe.php:205 db_qbe.php:239 libraries/db_structure.lib.php:102
+#: db_qbe.php:228 db_qbe.php:262 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:822
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:257
 #: tbl_select.php:310
 msgid "Ascending"
 msgstr "Αύξουσα"
 
-#: db_qbe.php:206 db_qbe.php:247 libraries/db_structure.lib.php:110
+#: db_qbe.php:229 db_qbe.php:270 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:819
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:258
 #: tbl_select.php:311
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: db_qbe.php:260 db_tracking.php:90 libraries/display_tbl.lib.php:306
+#: db_qbe.php:283 db_tracking.php:90 libraries/display_tbl.lib.php:306
 #: tbl_change.php:269 tbl_tracking.php:591
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: db_qbe.php:296
+#: db_qbe.php:319
 msgid "Criteria"
 msgstr "Κριτήρια"
 
-#: db_qbe.php:349 db_qbe.php:431 db_qbe.php:523 db_qbe.php:554
+#: db_qbe.php:372 db_qbe.php:454 db_qbe.php:546 db_qbe.php:577
 msgid "Ins"
 msgstr "Εισαγωγή"
 
-#: db_qbe.php:353 db_qbe.php:435 db_qbe.php:520 db_qbe.php:551
+#: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
 msgstr "Και"
 
-#: db_qbe.php:362 db_qbe.php:443 db_qbe.php:525 db_qbe.php:556
+#: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
 msgstr "Διαγραφή"
 
-#: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
+#: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
 #: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "Ή"
 
-#: db_qbe.php:503
+#: db_qbe.php:526
 msgid "Modify"
 msgstr "Τροποποίηση"
 
-#: db_qbe.php:580
+#: db_qbe.php:603
 msgid "Add/Delete criteria rows"
 msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
 
-#: db_qbe.php:592
+#: db_qbe.php:615
 msgid "Add/Delete columns"
 msgstr "Προσθήκη/Αφαίρεση Στήλης Πεδίου"
 
-#: db_qbe.php:605 db_qbe.php:630
+#: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
 msgstr "Ενημέρωση Ερωτήματος"
 
-#: db_qbe.php:613
+#: db_qbe.php:636
 msgid "Use Tables"
 msgstr "Χρήση Πινάκων"
 
-#: db_qbe.php:636
+#: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
-#: db_qbe.php:930 libraries/common.lib.php:1167
+#: db_qbe.php:953 libraries/common.lib.php:1167
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
@@ -530,13 +530,13 @@ msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 msgid "Browse"
 msgstr "Περιήγηση"
 
-#: db_search.php:260 libraries/display_tbl.lib.php:1186
-#: libraries/display_tbl.lib.php:2048
+#: db_search.php:260 libraries/display_tbl.lib.php:1190
+#: libraries/display_tbl.lib.php:2052
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:443 pmd_general.php:377
+#: libraries/sql_query_form.lib.php:443 pmd_general.php:425
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -602,7 +602,7 @@ msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
 msgid "Tracking is not active."
 msgstr "Η παρακολούθηση δεν έιναι ενεργοποιημένη."
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:1936
+#: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -633,20 +633,20 @@ msgstr ""
 "Η %s είναι η προεπιλεγμένη μηχανή αποθήκευσης σε αυτόν τον διακομιστή MySQL."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2073 libraries/display_tbl.lib.php:2078
+#: libraries/display_tbl.lib.php:2077 libraries/display_tbl.lib.php:2082
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2068
+#: db_structure.php:479 libraries/display_tbl.lib.php:2072
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "Επιλογή όλων"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2069
+#: db_structure.php:483 libraries/display_tbl.lib.php:2073
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
@@ -658,7 +658,7 @@ msgstr "Επιλογή πινάκων με περίσσεια"
 
 #: db_structure.php:495 db_structure.php:496
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2086 libraries/display_tbl.lib.php:2220
+#: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
 #: prefs_manage.php:288 server_privileges.php:1371
@@ -667,7 +667,7 @@ msgid "Export"
 msgstr "Εξαγωγή"
 
 #: db_structure.php:497 db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2175 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2179 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Εμφάνιση για εκτύπωση"
@@ -1022,7 +1022,9 @@ msgstr "Διαγραφή των επιλεγμένων χρηστών"
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: js/messages.php:60 pmd_general.php:342 pmd_general.php:379
+#: js/messages.php:60 pmd_general.php:390 pmd_general.php:427
+#: pmd_general.php:547 pmd_general.php:595 pmd_general.php:671
+#: pmd_general.php:725 pmd_general.php:788
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -1050,7 +1052,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:340
+#: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
+#: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
+#: pmd_general.php:723 pmd_general.php:786
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -1130,47 +1134,51 @@ msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
-#: js/messages.php:95 pmd_general.php:77 tbl_relation.php:545
+#: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Επιλέξτε πεδίο για εμφάνιση"
 
 #: js/messages.php:98
+msgid "Add an option for column "
+msgstr ""
+
+#: js/messages.php:101
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Παραγωγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:99 libraries/replication_gui.lib.php:365
+#: js/messages.php:102 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Παραγωγή"
 
-#: js/messages.php:100
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: js/messages.php:103
+#: js/messages.php:106
 #, fuzzy
 msgid "More"
 msgstr "Δευτέρα"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:113
+#: js/messages.php:116
 #, fuzzy
 msgid "Done"
 msgstr "Δωρεά"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:115
+#: js/messages.php:118
 #, fuzzy
 msgid "Prev"
 msgstr "Προηγούμενο"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:117 libraries/common.lib.php:2340
+#: js/messages.php:120 libraries/common.lib.php:2340
 #: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1178,253 +1186,253 @@ msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:119
+#: js/messages.php:122
 #, fuzzy
 msgid "Today"
 msgstr "Σύνολο"
 
-#: js/messages.php:122
+#: js/messages.php:125
 #, fuzzy
 msgid "January"
 msgstr "Δυαδικό"
 
-#: js/messages.php:123
+#: js/messages.php:126
 msgid "February"
 msgstr ""
 
-#: js/messages.php:124
+#: js/messages.php:127
 #, fuzzy
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:125
+#: js/messages.php:128
 #, fuzzy
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:126
+#: js/messages.php:129
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:127
+#: js/messages.php:130
 #, fuzzy
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:128
+#: js/messages.php:131
 #, fuzzy
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:129
+#: js/messages.php:132
 #, fuzzy
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:130
+#: js/messages.php:133
 msgid "September"
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:134
 #, fuzzy
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:132
+#: js/messages.php:135
 msgid "November"
 msgstr ""
 
-#: js/messages.php:133
+#: js/messages.php:136
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1545
+#: js/messages.php:140 libraries/common.lib.php:1545
 msgid "Jan"
 msgstr "Ιανουαρίου"
 
 #. l10n: Short month name
-#: js/messages.php:139 libraries/common.lib.php:1547
+#: js/messages.php:142 libraries/common.lib.php:1547
 msgid "Feb"
 msgstr "Φεβρουαρίου"
 
 #. l10n: Short month name
-#: js/messages.php:141 libraries/common.lib.php:1549
+#: js/messages.php:144 libraries/common.lib.php:1549
 msgid "Mar"
 msgstr "Μαρτίου"
 
 #. l10n: Short month name
-#: js/messages.php:143 libraries/common.lib.php:1551
+#: js/messages.php:146 libraries/common.lib.php:1551
 msgid "Apr"
 msgstr "Απριλίου"
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1553
+#: js/messages.php:148 libraries/common.lib.php:1553
 #, fuzzy
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μαΐου"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1555
+#: js/messages.php:150 libraries/common.lib.php:1555
 msgid "Jun"
 msgstr "Ιουνίου"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1557
+#: js/messages.php:152 libraries/common.lib.php:1557
 msgid "Jul"
 msgstr "Ιουλίου"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1559
+#: js/messages.php:154 libraries/common.lib.php:1559
 msgid "Aug"
 msgstr "Αυγούστου"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1561
+#: js/messages.php:156 libraries/common.lib.php:1561
 msgid "Sep"
 msgstr "Σεπτεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1563
+#: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
 msgstr "Οκτωβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1565
+#: js/messages.php:160 libraries/common.lib.php:1565
 msgid "Nov"
 msgstr "Νοεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1567
+#: js/messages.php:162 libraries/common.lib.php:1567
 msgid "Dec"
 msgstr "Δεκεμβρίου"
 
-#: js/messages.php:162
+#: js/messages.php:165
 #, fuzzy
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:163
+#: js/messages.php:166
 #, fuzzy
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:164
+#: js/messages.php:167
 #, fuzzy
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:165
+#: js/messages.php:168
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:169
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:167
+#: js/messages.php:170
 #, fuzzy
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:168
+#: js/messages.php:171
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:172 libraries/common.lib.php:1570
+#: js/messages.php:175 libraries/common.lib.php:1570
 msgid "Sun"
 msgstr "Κυριακή"
 
 #. l10n: Short week day name
-#: js/messages.php:174 libraries/common.lib.php:1572
+#: js/messages.php:177 libraries/common.lib.php:1572
 msgid "Mon"
 msgstr "Δευτέρα"
 
 #. l10n: Short week day name
-#: js/messages.php:176 libraries/common.lib.php:1574
+#: js/messages.php:179 libraries/common.lib.php:1574
 msgid "Tue"
 msgstr "Τρίτη"
 
 #. l10n: Short week day name
-#: js/messages.php:178 libraries/common.lib.php:1576
+#: js/messages.php:181 libraries/common.lib.php:1576
 msgid "Wed"
 msgstr "Τετάρτη"
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1578
+#: js/messages.php:183 libraries/common.lib.php:1578
 msgid "Thu"
 msgstr "Πέμπτη"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1580
+#: js/messages.php:185 libraries/common.lib.php:1580
 msgid "Fri"
 msgstr "Παρασκευή"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1582
+#: js/messages.php:187 libraries/common.lib.php:1582
 msgid "Sat"
 msgstr "Σάββατο"
 
 #. l10n: Minimal week day name
-#: js/messages.php:188
+#: js/messages.php:191
 #, fuzzy
 msgid "Su"
 msgstr "Κυριακή"
 
 #. l10n: Minimal week day name
-#: js/messages.php:190
+#: js/messages.php:193
 #, fuzzy
 msgid "Mo"
 msgstr "Δευτέρα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:192
+#: js/messages.php:195
 #, fuzzy
 msgid "Tu"
 msgstr "Τρίτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:194
+#: js/messages.php:197
 #, fuzzy
 msgid "We"
 msgstr "Τετάρτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:199
 #, fuzzy
 msgid "Th"
 msgstr "Πέμπτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:201
 #, fuzzy
 msgid "Fr"
 msgstr "Παρασκευή"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:203
 #, fuzzy
 msgid "Sa"
 msgstr "Σάββατο"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:202
+#: js/messages.php:205
 #, fuzzy
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:204
+#: js/messages.php:207
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:205
+#: js/messages.php:208
 #, fuzzy
 msgid "Minute"
 msgstr "σε χρήση"
 
-#: js/messages.php:206
+#: js/messages.php:209
 #, fuzzy
 msgid "Second"
 msgstr "ανά δευτερόλεπτο"
@@ -1503,7 +1511,7 @@ msgstr "Σχόλιο"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:610
 #: libraries/common.lib.php:1143 libraries/config/messages.inc.php:458
-#: libraries/display_tbl.lib.php:1151 libraries/import.lib.php:1150
+#: libraries/display_tbl.lib.php:1155 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
@@ -2100,7 +2108,7 @@ msgstr "Η λειτουργία %s έχει επηρρεαστεί από ένα
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:134 server_privileges.php:594 server_replication.php:313
+#: pmd_general.php:153 server_privileges.php:594 server_replication.php:313
 #: tbl_tracking.php:263
 msgid "Structure"
 msgstr "Δομή"
@@ -4578,7 +4586,7 @@ msgstr "Εργασίες"
 msgid "Return type"
 msgstr "Τύπος επιστροφής"
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1840
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1844
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4784,7 +4792,7 @@ msgstr "Συμπίεση"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
-#: server_privileges.php:1966 server_processlist.php:74
+#: pmd_general.php:512 server_privileges.php:1966 server_processlist.php:74
 msgid "None"
 msgstr "Καμία"
 
@@ -4998,7 +5006,7 @@ msgstr "Εμφάνιση δυαδικών περιεχομένων"
 msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:141 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:160 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Απόκρυψη"
@@ -5008,53 +5016,53 @@ msgstr "Απόκρυψη"
 msgid "Browser transformation"
 msgstr "Μετατροπή περιηγητή"
 
-#: libraries/display_tbl.lib.php:1166 libraries/display_tbl.lib.php:1178
+#: libraries/display_tbl.lib.php:1170 libraries/display_tbl.lib.php:1182
 msgid "The row has been deleted"
 msgstr "Η Εγγραφή έχει διαγραφεί"
 
-#: libraries/display_tbl.lib.php:1205 libraries/display_tbl.lib.php:2048
+#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2052
 #: server_processlist.php:70 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Τερματισμός"
 
-#: libraries/display_tbl.lib.php:1926
+#: libraries/display_tbl.lib.php:1930
 msgid "in query"
 msgstr "στην εντολή"
 
-#: libraries/display_tbl.lib.php:1944
+#: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
 msgstr "Εμφάνιση εγγραφής "
 
-#: libraries/display_tbl.lib.php:1954
+#: libraries/display_tbl.lib.php:1958
 msgid "total"
 msgstr "συνολικά"
 
-#: libraries/display_tbl.lib.php:1962 sql.php:597
+#: libraries/display_tbl.lib.php:1966 sql.php:597
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
 
-#: libraries/display_tbl.lib.php:2081 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2085 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Αλλαγή"
 
-#: libraries/display_tbl.lib.php:2154
+#: libraries/display_tbl.lib.php:2158
 msgid "Query results operations"
 msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
-#: libraries/display_tbl.lib.php:2182
+#: libraries/display_tbl.lib.php:2186
 msgid "Print view (with full texts)"
 msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 
-#: libraries/display_tbl.lib.php:2226 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Εμφάνιση σχήματος PDF"
 
-#: libraries/display_tbl.lib.php:2376
+#: libraries/display_tbl.lib.php:2380
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
@@ -6297,9 +6305,10 @@ msgstr "Κατάσταση δευτερεύοντος"
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/replication_gui.lib.php:117 server_status.php:751
-#: tbl_change.php:316 tbl_printview.php:367 tbl_select.php:136
-#: tbl_structure.php:821
+#: libraries/replication_gui.lib.php:117 pmd_general.php:478
+#: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
+#: server_status.php:751 tbl_change.php:316 tbl_printview.php:367
+#: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Τιμή"
 
@@ -7264,73 +7273,128 @@ msgstr "Δημιουργία πίνακα"
 msgid "Please select a database"
 msgstr "Παρακαλώ επιλέξτε μία βάση δεδομένων"
 
-#: pmd_general.php:64
+#: pmd_general.php:76
 msgid "Show/Hide left menu"
 msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
 
-#: pmd_general.php:68
+#: pmd_general.php:80
 msgid "Save position"
 msgstr "Αποθήκευση θέσης"
 
-#: pmd_general.php:71 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:83 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
 
-#: pmd_general.php:74 pmd_general.php:306
+#: pmd_general.php:86 pmd_general.php:354
 msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
-#: pmd_general.php:80
+#: pmd_general.php:92
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
-#: pmd_general.php:83
+#: pmd_general.php:95
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: pmd_general.php:87
+#: pmd_general.php:99
 msgid "Angular links"
 msgstr "Γωνιακοί σύνδεσμοι"
 
-#: pmd_general.php:87
+#: pmd_general.php:99
 msgid "Direct links"
 msgstr "Άμεσοι σύνδεσμοι"
 
-#: pmd_general.php:91
+#: pmd_general.php:103
 msgid "Snap to grid"
 msgstr "Συγκράτηση στο πλέγμα"
 
-#: pmd_general.php:95
+#: pmd_general.php:107
 msgid "Small/Big All"
 msgstr "Όλα Μικρά/Μεγάλα"
 
-#: pmd_general.php:99
+#: pmd_general.php:111
 msgid "Toggle small/big"
 msgstr "Εναλλαγή μικρά/μεγάλα"
 
-#: pmd_general.php:104
+#: pmd_general.php:116
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Εισαγωγή/Εξαγωγή συντεταγμένων για σχέδιο PDF"
 
-#: pmd_general.php:108
+#: pmd_general.php:122
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "Υποβολή ερωτήματος"
+
+#: pmd_general.php:127
 msgid "Move Menu"
 msgstr "Μενου μετακίνησης"
 
-#: pmd_general.php:120
+#: pmd_general.php:139
 msgid "Hide/Show all"
 msgstr "Απόκρυψη/Προβολή όλων"
 
-#: pmd_general.php:124
+#: pmd_general.php:143
 msgid "Hide/Show Tables with no relation"
 msgstr "Απόκρυψη/Εμφάνιση Πινάκων χωρίς συσχέτιση"
 
-#: pmd_general.php:164
+#: pmd_general.php:183
 msgid "Number of tables"
 msgstr "Αριθμός πινάκων"
 
-#: pmd_general.php:372
+#: pmd_general.php:420
 msgid "Delete relation"
 msgstr "Διαγραφή συσχέτισης"
+
+#: pmd_general.php:462 pmd_general.php:521
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Relation operator"
+msgstr "Η συσχέτιση διαγράφηκε"
+
+#: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
+#: pmd_general.php:771
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "Εξαγωγή"
+
+#: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
+#: pmd_general.php:777
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "στην εντολή"
+
+#: pmd_general.php:482 pmd_general.php:578
+#, fuzzy
+msgid "Rename to"
+msgstr "Μετονομασία πίνακα σε"
+
+#: pmd_general.php:484 pmd_general.php:583
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "Όνομα χρήστη"
+
+#: pmd_general.php:487 pmd_general.php:702
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "Δημιουργία"
+
+#: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
+#: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
+#: tbl_select.php:135
+msgid "Operator"
+msgstr "Τελεστής"
+
+#: pmd_general.php:812
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "Επιλογές πίνακα"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -10066,10 +10130,6 @@ msgstr "Δεν επιλέχθηκαν γραμμές"
 #: tbl_select.php:129
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
-
-#: tbl_select.php:135
-msgid "Operator"
-msgstr "Τελεστής"
 
 #: tbl_select.php:266
 #, fuzzy
