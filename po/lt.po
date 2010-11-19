@@ -1293,7 +1293,7 @@ msgstr "Tre"
 #. l10n: Short week day name
 #: js/messages.php:180 libraries/common.lib.php:1578
 msgid "Thu"
-msgstr "Ketvirtadienis"
+msgstr "Ket"
 
 #. l10n: Short week day name
 #: js/messages.php:182 libraries/common.lib.php:1580
