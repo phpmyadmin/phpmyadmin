@@ -6773,7 +6773,7 @@ msgstr ""
 "has been configured."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -6781,8 +6781,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"The phpMyAdmin configuration storage has been deactivated. To find out why "
-"click %shere%s."
+"The phpMyAdmin configuration storage is not completely configured, some "
+"extended features have been deactivated. To find out why click %shere%s."
 
 #: main.php:319
 msgid ""
