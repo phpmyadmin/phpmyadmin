@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 21:12+0200\n"
+"PO-Revision-Date: 2010-11-19 21:13+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2161,7 +2161,7 @@ msgstr "eksportavimas neveiks, nerasta funkcija (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL tikrintuvas išjungtas"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
