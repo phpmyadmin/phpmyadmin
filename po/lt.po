@@ -1060,10 +1060,9 @@ msgid "Searching"
 msgstr "Ieškoma"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL užklausos langelis"
+msgstr "Slėpti užklausos laukelį"
 
 #: js/messages.php:85
 #, fuzzy
