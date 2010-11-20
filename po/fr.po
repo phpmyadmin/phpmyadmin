@@ -2871,9 +2871,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Configurez le stockage de configuration phpMyAdmin pour activer des "
-"fonctionnalités additionnelles, voir [a@Documentation.html#linked-tables]"
-"phpMyAdmin configuration storage[/a] dans la documentation"
+"Configurez le stockage de configurations phpMyAdmin pour activer des "
+"fonctionnalités additionnelles, voir [a@Documentation.html#linked-"
+"tables]phpMyAdmin configuration storage[/a] dans la documentation"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
