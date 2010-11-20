@@ -6696,7 +6696,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Vos préférences seront sauvegardées pour la session courante seulement. Un "
-"stockage permanent requiert l'installation de  %sstockage de configuration "
+"stockage permanent requiert l'installation de  %sstockage de configurations "
 "phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
