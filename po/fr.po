@@ -3410,7 +3410,7 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activer si vous désirez un historique permanent (nécessite le stockage de "
-"configuration phpMyAdmin. Si désactivé, utilise Javascript pour afficher un "
+"configurations phpMyAdmin. Si désactivé, utilise Javascript pour afficher un "
 "historique temporaire (sera perdu à la fermeture de la fenêtre)."
 
 #: libraries/config/messages.inc.php:331
