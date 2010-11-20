@@ -336,7 +336,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Le stockage des configurations phpMyAdmin a été désactivé. Pour une analyse "
+"Le stockage de configurations phpMyAdmin a été désactivé. Pour une analyse "
 "du problème, cliquez %sici%s."
 
 #: db_operations.php:581
