@@ -3389,7 +3389,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Tables manquantes pour le stockage de configuration phpMyAdmin"
+msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
 
 #: libraries/config/messages.inc.php:327
 msgid "Iconic table operations"
