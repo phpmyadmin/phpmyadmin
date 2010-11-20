@@ -2392,15 +2392,21 @@ $(document).ready(function() {
         );
 }) // end of $(document).ready() for vertical pointer
 
-/**
- * Vertical marker 
- */
 $(document).ready(function() {
+    /**
+     * Vertical marker 
+     */
     $('.vmarker').live('click', function(e) {
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
         // for all td of the same vertical row, toggle the marked class 
         $('.vmarker').filter('.row_' + row_num).toggleClass('marked'); 
         });
-}) // end of $(document).ready() for vertical marker 
+
+    /**
+     * Reveal visual builder anchor
+     */
+
+    $('#visual_builder_anchor').show();
+}) // end of $(document).ready()
 

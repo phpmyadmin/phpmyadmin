@@ -177,7 +177,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
         $tab['link'] .= $tab['fragment'];
     }
 ?>
-<div class="notice">
+<div id="visual_builder_anchor" class="notice hide">
 	<span id="footnote_1">
 <?php echo __('Switch to'); ?>
 	<form action="<?php echo $tab_designer['link'] ?>" method="post">
