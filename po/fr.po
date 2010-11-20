@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-20 14:20+0200\n"
+"PO-Revision-Date: 2010-11-20 14:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2863,7 +2863,7 @@ msgstr "Entrez les paramètres de connexion au serveur"
 
 #: libraries/config/messages.inc.php:199
 msgid "Configuration storage"
-msgstr "Stockage de configuration"
+msgstr "Stockage de configurations"
 
 #: libraries/config/messages.inc.php:200
 msgid ""
