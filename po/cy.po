@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-19 13:22-0500\n"
+"POT-Creation-Date: 2010-11-20 07:34-0500\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -421,6 +421,14 @@ msgstr "Cafodd eich ymholiad SQL ei gweithredu'n llwyddiannus"
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
 msgstr "Mae'n rhaid dewis o leiaf un golofn i'w dangos"
+
+#: db_qbe.php:182
+msgid "Switch to"
+msgstr ""
+
+#: db_qbe.php:186
+msgid "visual builder"
+msgstr ""
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860

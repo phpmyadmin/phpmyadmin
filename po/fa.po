@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-19 13:22-0500\n"
+"POT-Creation-Date: 2010-11-20 07:34-0500\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -418,6 +418,14 @@ msgstr "پرس و جوي SQL شما با موفقيت اجرا گرديد"
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
+
+#: db_qbe.php:182
+msgid "Switch to"
+msgstr ""
+
+#: db_qbe.php:186
+msgid "visual builder"
+msgstr ""
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860

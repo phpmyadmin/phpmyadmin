@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-19 13:22-0500\n"
+"POT-Creation-Date: 2010-11-20 07:34-0500\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -418,6 +418,14 @@ msgstr "SQL заявката беше изпълнена успешно"
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
 msgstr "Трябва да изберете поне една Колона за показване"
+
+#: db_qbe.php:182
+msgid "Switch to"
+msgstr ""
+
+#: db_qbe.php:186
+msgid "visual builder"
+msgstr ""
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860

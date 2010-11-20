@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-19 13:22-0500\n"
+"POT-Creation-Date: 2010-11-20 07:34-0500\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
@@ -416,6 +416,14 @@ msgstr "ทำคำค้นเสร็จเรียบร้อยแล้
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
 msgstr "ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์"
+
+#: db_qbe.php:182
+msgid "Switch to"
+msgstr ""
+
+#: db_qbe.php:186
+msgid "visual builder"
+msgstr ""
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
