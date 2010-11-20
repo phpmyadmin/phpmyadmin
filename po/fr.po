@@ -3385,7 +3385,7 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Désactiver l'avertissement affiché sur la page Structure de bases de données "
-"si l'une des tables du stockage de configuration phpMyAdmin est manquante"
+"si l'une des tables du stockage de configurations phpMyAdmin est manquante"
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
