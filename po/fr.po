@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-18 06:21-0500\n"
-"PO-Revision-Date: 2010-11-19 13:02+0200\n"
+"PO-Revision-Date: 2010-11-20 14:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2880,15 +2880,14 @@ msgid "Changes tracking"
 msgstr "Suivi des changements"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Suivi des changements faits dans la base de données. Requiert de configurer "
-"les fonctions avancées (pmadb)."
+"Suivi des changements faits dans la base de données. Requiert le stockage de "
+"configuration phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
