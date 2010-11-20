@@ -6862,7 +6862,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Le stockage des configurations phpMyAdmin n'est pas complètement configuré, "
+"Le stockage de configurations phpMyAdmin n'est pas complètement configuré, "
 "certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
 "cliquez %sici%s."
 
