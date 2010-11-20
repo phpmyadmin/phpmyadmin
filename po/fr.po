@@ -2887,7 +2887,7 @@ msgid ""
 "storage."
 msgstr ""
 "Suivi des changements faits dans la base de données. Requiert le stockage de "
-"configuration phpMyAdmin."
+"configurations phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
