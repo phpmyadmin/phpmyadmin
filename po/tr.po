@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-21 20:09+0200\n"
+"PO-Revision-Date: 2010-11-21 20:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6973,10 +6973,9 @@ msgid "Delete relation"
 msgstr "Bağlantıyı sil"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Bağlantı silindi"
+msgstr "Bağlantı işleticisi"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
