@@ -409,7 +409,7 @@ msgstr "Görüntülemek için en az bir sütun seçmelisiniz"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr "Şuna geç"
+msgstr "Şuna değiştir"
 
 #: db_qbe.php:186
 msgid "visual builder"
