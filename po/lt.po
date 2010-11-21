@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-17 21:02+0200\n"
+"PO-Revision-Date: 2010-11-19 21:31+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
 "100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -450,7 +450,7 @@ msgstr "Įterpiant"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
-msgstr "IR"
+msgstr "Ir"
 
 #: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
@@ -930,7 +930,7 @@ msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
-msgstr "Ar TIKRAI norite "
+msgstr "Ar tikrai norite "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
@@ -998,7 +998,6 @@ msgid "Create User"
 msgstr "Sukurti naudotoją"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Perkraunamos privilegijos"
@@ -1072,16 +1071,14 @@ msgid "Searching"
 msgstr "Ieškoma"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL užklausos langelis"
+msgstr "Slėpti užklausos laukelį"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL užklausos langelis"
+msgstr "Rodyti užklausos laukelį"
 
 #: js/messages.php:86
 msgid "Inline Edit"
@@ -1094,7 +1091,7 @@ msgstr "Ignoruoti"
 
 #: js/messages.php:92
 msgid "Select referenced key"
-msgstr ""
+msgstr "Pasirinkite siejamą raktą"
 
 #: js/messages.php:93
 msgid "Select Foreign Key"
@@ -1121,7 +1118,6 @@ msgid "Generate"
 msgstr "Generuoti"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Pakeisti slaptažodį"
@@ -1293,107 +1289,98 @@ msgstr "Šeštadienis"
 #. l10n: Short week day name
 #: js/messages.php:175 libraries/common.lib.php:1570
 msgid "Sun"
-msgstr "Sekmadienis"
+msgstr "Sek"
 
 #. l10n: Short week day name
 #: js/messages.php:177 libraries/common.lib.php:1572
 msgid "Mon"
-msgstr "Pirmadienis"
+msgstr "Pir"
 
 #. l10n: Short week day name
 #: js/messages.php:179 libraries/common.lib.php:1574
 msgid "Tue"
-msgstr "Antradienis"
+msgstr "Ant"
 
 #. l10n: Short week day name
 #: js/messages.php:181 libraries/common.lib.php:1576
 msgid "Wed"
-msgstr "Trečiadienis"
+msgstr "Tre"
 
 #. l10n: Short week day name
 #: js/messages.php:183 libraries/common.lib.php:1578
 msgid "Thu"
-msgstr "Ketvirtadienis"
+msgstr "Ket"
 
 #. l10n: Short week day name
 #: js/messages.php:185 libraries/common.lib.php:1580
 msgid "Fri"
-msgstr "Penktadienis"
+msgstr "Pen"
 
 #. l10n: Short week day name
 #: js/messages.php:187 libraries/common.lib.php:1582
 msgid "Sat"
-msgstr "Šeštadienis"
+msgstr "Šeš"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "Sekmadienis"
+msgstr "Sk"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "Pirmadienis"
+msgstr "Pr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "Antradienis"
+msgstr "An"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Trečiadienis"
+msgstr "Tr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "Ketvirtadienis"
+msgstr "Kt"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "Penktadienis"
+msgstr "Pn"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Šeštadienis"
+msgstr "Št"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Sav."
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr "valanda"
+msgstr "Valanda"
 
 #: js/messages.php:208
 msgid "Minute"
-msgstr "minutė"
+msgstr "Minutė"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "per sekundę"
+msgstr "Sekundės"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1682,8 +1669,8 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
-"Daugiau nei %s sekundžių nebuvo atlikta jokių veiksmų. Prašau prisijungti iš "
-"naujo."
+"Daugiau nei %s sekundžių nebuvo atlikta jokių veiksmų, prašome prisijungti "
+"iš naujo"
 
 #: libraries/auth/cookie.auth.lib.php:653
 #: libraries/auth/cookie.auth.lib.php:655
@@ -1914,10 +1901,9 @@ msgid "MySQL said: "
 msgstr "MySQL atsakymas: "
 
 #: libraries/common.lib.php:1078
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie SQL tikrintuvo!"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
@@ -2191,7 +2177,7 @@ msgstr "eksportavimas neveiks, nerasta funkcija (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL tikrintuvas išjungtas"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
@@ -2240,12 +2226,11 @@ msgid "Reset"
 msgstr "Atstatyti į pradinę būseną"
 
 #: libraries/config/messages.inc.php:17
-#, fuzzy
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Jeigu įjungta naudotojas gali įvesti bet kokį MySQL serverį prisijungimo "
-"formoje slapukų identifikavime"
+"formoje su slapukų autentifikacija"
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
@@ -2325,19 +2310,19 @@ msgstr "CHAR stulpelių redagavimas"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Stulpelių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR tekstinio laukelio stulpelių skaičius"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Eilučių skaičius CHAR/VARCHAR tekstiniuose laukeliuose"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "CHAR tekstinio laukelio eilučių skaičius"
 
 #: libraries/config/messages.inc.php:36
 msgid "Check config file permissions"
@@ -2353,7 +2338,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:38
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Glaudinti"
 
 #: libraries/config/messages.inc.php:39 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
@@ -2385,6 +2370,8 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] arba skaičius, kuris nurodo "
+"maksimalų skaičių, kada naudojamas vertikalusis režimas"
 
 #: libraries/config/messages.inc.php:45
 msgid "Display direction for altering/creating columns"
@@ -2509,15 +2496,14 @@ msgstr "Stulpelių pavadinimus įrašyti pirmame įraše (eilutėje)"
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
 #: libraries/import/ldi.php:41
 msgid "Columns enclosed by"
-msgstr "Laukų reikšmės apskliaustos"
+msgstr "Stulpeliai apskliausti"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Laukų reikšmės baigiasi simboliu"
+msgstr "Prieš stulpelių spec. simbolius"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:86 libraries/config/messages.inc.php:95
@@ -2632,7 +2618,6 @@ msgid "Creation/Update/Check dates"
 msgstr "Sukūrimo/atnaujinimo/tikrinimo datos"
 
 #: libraries/config/messages.inc.php:120
-#, fuzzy
 msgid "Use delayed inserts"
 msgstr "Naudoti užlaikytus įterpimus"
 
@@ -2645,9 +2630,8 @@ msgid "Use hexadecimal for BLOB"
 msgstr "Naudoti šešioliktainę BLOB'ui"
 
 #: libraries/config/messages.inc.php:126
-#, fuzzy
 msgid "Use ignore inserts"
-msgstr "Naudoti užlaikytus įterpimus"
+msgstr "Naudoti ignoruojamuosius įterpimus"
 
 #: libraries/config/messages.inc.php:128 libraries/export/sql.php:163
 msgid "Maximal length of created query"
@@ -2812,10 +2796,9 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Open Document rašyklė"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:185
 msgid "Other core settings"
@@ -2947,10 +2930,9 @@ msgid "SQL queries settings"
 msgstr "SQL užklausų nustatymai"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL užklausų istorija"
+msgstr "SQL tikrintuvas"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
@@ -2986,7 +2968,7 @@ msgstr "Adaptuoti teksto įvedimo laukelius"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekstas"
 
 #: libraries/config/messages.inc.php:225
 msgid "Warnings"
@@ -3076,17 +3058,14 @@ msgid "Do not import empty rows"
 msgstr "Neimportuoti tuščių eilučių (įrašų)"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importuoti valiutas <i>(pavyzdžiui. $5.00 į 5.00)</i>"
+msgstr "Importuoti valiutas ($5.00 kaip 5.00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
-"Importuoti procentus kaip dešimtainius <i>(pavyzdžiui. 12.00% į .12)</i>"
+msgstr "Importuoti procentus kaip dešimtainius (12.00% kaip .12)"
 
 #: libraries/config/messages.inc.php:253
 #, fuzzy
@@ -3099,10 +3078,9 @@ msgid "Partial import: skip queries"
 msgstr "Dalinis importas: praleisti užklausas"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Nenaudokite <code>AUTO_INCREMENT</code> nulinėms reikšmėms"
+msgstr "Nenaudoti AUTO_INCREMENT nulinėms reikšmėms"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
@@ -6269,7 +6247,7 @@ msgstr "Peržiūra"
 
 #: libraries/sql_query_form.lib.php:487 prefs_manage.php:241
 msgid "Location of the text file"
-msgstr "Tekstiniai SQL užklausų failai"
+msgstr "Tekstinio failo vieta"
 
 #: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
@@ -9116,7 +9094,7 @@ msgstr ""
 #: tbl_change.php:1112
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "Tęstį įterpimą su %s eilučių"
 
 #: tbl_chart.php:56
 msgid "Chart generated successfully."

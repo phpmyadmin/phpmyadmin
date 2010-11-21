@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-19 13:02+0200\n"
+"PO-Revision-Date: 2010-11-20 14:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -336,7 +336,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Le stockage des configurations phpMyAdmin a été désactivé. Pour une analyse "
+"Le stockage de configurations phpMyAdmin a été désactivé. Pour une analyse "
 "du problème, cliquez %sici%s."
 
 #: db_operations.php:581
@@ -2879,7 +2879,7 @@ msgstr "Entrez les paramètres de connexion au serveur"
 
 #: libraries/config/messages.inc.php:199
 msgid "Configuration storage"
-msgstr "Stockage de configuration"
+msgstr "Stockage de configurations"
 
 #: libraries/config/messages.inc.php:200
 msgid ""
@@ -2887,24 +2887,23 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Configurez le stockage de configuration phpMyAdmin pour activer des "
-"fonctionnalités additionnelles, voir [a@Documentation.html#linked-tables]"
-"phpMyAdmin configuration storage[/a] dans la documentation"
+"Configurez le stockage de configurations phpMyAdmin pour activer des "
+"fonctionnalités additionnelles, voir [a@Documentation.html#linked-"
+"tables]phpMyAdmin configuration storage[/a] dans la documentation"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
 msgstr "Suivi des changements"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Suivi des changements faits dans la base de données. Requiert de configurer "
-"les fonctions avancées (pmadb)."
+"Suivi des changements faits dans la base de données. Requiert le stockage de "
+"configurations phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -3402,11 +3401,11 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Désactiver l'avertissement affiché sur la page Structure de bases de données "
-"si l'une des tables du stockage de configuration phpMyAdmin est manquante"
+"si l'une des tables du stockage de configurations phpMyAdmin est manquante"
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Tables manquantes pour le stockage de configuration phpMyAdmin"
+msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
 
 #: libraries/config/messages.inc.php:327
 msgid "Iconic table operations"
@@ -3427,7 +3426,7 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activer si vous désirez un historique permanent (nécessite le stockage de "
-"configuration phpMyAdmin. Si désactivé, utilise Javascript pour afficher un "
+"configurations phpMyAdmin. Si désactivé, utilise Javascript pour afficher un "
 "historique temporaire (sera perdu à la fermeture de la fenêtre)."
 
 #: libraries/config/messages.inc.php:331
@@ -6714,7 +6713,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Vos préférences seront sauvegardées pour la session courante seulement. Un "
-"stockage permanent requiert l'installation de  %sstockage de configuration "
+"stockage permanent requiert l'installation de  %sstockage de configurations "
 "phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
@@ -6880,7 +6879,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Le stockage des configurations phpMyAdmin n'est pas complètement configuré, "
+"Le stockage de configurations phpMyAdmin n'est pas complètement configuré, "
 "certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
 "cliquez %sici%s."
 
