@@ -6975,7 +6975,7 @@ msgstr "Bağlantıyı sil"
 #: pmd_general.php:462 pmd_general.php:521
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Bağlantı işleticisi"
+msgstr "Bağlantı işletimi"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
