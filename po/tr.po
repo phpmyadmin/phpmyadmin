@@ -7017,7 +7017,7 @@ msgstr "Aktif seçenekler"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr "Bağlantıyı seçmek için buraya tıklayın :"
+msgstr "Bağlantı seçmek için buraya tıklayın :"
 
 #: pmd_help.php:28
 msgid ""
