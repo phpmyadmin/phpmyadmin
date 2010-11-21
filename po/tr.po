@@ -6990,10 +6990,9 @@ msgid "subquery"
 msgstr "alt sorgu"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Görünümü yeniden şuna adlandır"
+msgstr "Yeniden şuna adlandır"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
