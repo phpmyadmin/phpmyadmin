@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-22 09:22+0200\n"
+"PO-Revision-Date: 2010-11-22 09:26+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6577,14 +6577,14 @@ msgstr ""
 "好，请立即删除该文件夹。"
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此处%s。"
+msgstr "phpMyAdmin 高级功能未全部设置，部分功能不可用。要查出原因请%s点这里%s。"
 
 #: main.php:319
 msgid ""
