@@ -415,7 +415,7 @@ msgstr "Passer en"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "mode visuel"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
