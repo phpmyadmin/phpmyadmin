@@ -30,12 +30,12 @@ $.extend($.datepicker._defaults, {
     'altTimeField': '', // Selector for an alternate field to store time into
     'hourText': 'Hour',
     'minuteText': 'Minute',
-    'secondText': 'Second',
+    'secondText': 'Second'
 });
 $.extend($.datepicker.regional[''], {
     'hourText': 'Hour',
     'minuteText': 'Minute',
-    'secondText': 'Second',
+    'secondText': 'Second'
 });
 
 /**
