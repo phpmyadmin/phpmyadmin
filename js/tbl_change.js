@@ -11,10 +11,10 @@
 /**
  * Modify from controls when the "NULL" checkbox is selected
  *
- * @param   string   the MySQL field type
- * @param   string   the urlencoded field name - OBSOLETE
- * @param   string   the md5 hashed field name
- * @param   string   the multi_edit row sequence number
+ * @param   theType     string   the MySQL field type
+ * @param   urlField    string   the urlencoded field name - OBSOLETE
+ * @param   md5Field    string   the md5 hashed field name
+ * @param   multi_edit  string   the multi_edit row sequence number
  *
  * @return  boolean  always true
  */

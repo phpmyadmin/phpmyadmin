@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-15 19:47+0200\n"
+"PO-Revision-Date: 2010-11-21 20:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -409,11 +409,11 @@ msgstr "Görüntülemek için en az bir sütun seçmelisiniz"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Şuna değiştir"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "görsel yaratıcı"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -1100,7 +1100,7 @@ msgstr "Göstermek için sütun seçin"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Sütun için bir seçenek ekle"
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -2869,15 +2869,14 @@ msgid "Changes tracking"
 msgstr "Değişiklikleri izleme"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"İzlenen değişiklikler veritabanında yapıldı. Yapılandırılmış PMA veritabanı "
-"gerekir."
+"İzlenen değişiklikler veritabanında yapıldı. phpMyAdmin yapılandırma "
+"depolaması gerekir."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -6949,10 +6948,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Sorguyu Gönder"
+msgstr "Sorgu Yarat"
 
 #: pmd_general.php:127
 msgid "Move Menu"
@@ -6975,42 +6973,36 @@ msgid "Delete relation"
 msgstr "Bağlantıyı sil"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Bağlantı silindi"
+msgstr "Bağlantı işletici"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Dışa Aktar"
+msgstr "Hariç"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "sorgu içerisinde"
+msgstr "alt sorgu"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Görünümü yeniden şuna adlandır"
+msgstr "Yeniden şuna adlandır"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Kullanıcı Adı"
+msgstr "Yeni ad"
 
 #: pmd_general.php:487 pmd_general.php:702
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Oluştur"
+msgstr "Topla"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
@@ -7019,14 +7011,13 @@ msgid "Operator"
 msgstr "İşletici"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Tablo seçenekleri"
+msgstr "Aktif seçenekler"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr "Bağlantıyı seçmek için buraya tıklayın :"
+msgstr "Bağlantı seçmek için buraya tıklayın :"
 
 #: pmd_help.php:28
 msgid ""
