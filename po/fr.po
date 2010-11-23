@@ -7027,10 +7027,9 @@ msgid "subquery"
 msgstr "sous-requête"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Changer le nom de la vue pour"
+msgstr "Renommer en"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
