@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-23 19:41+0200\n"
+"PO-Revision-Date: 2010-11-23 19:42+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1112,7 +1112,7 @@ msgstr "Colonne descriptive"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Ajouter une option pour la colonne"
 
 #: js/messages.php:101
 msgid "Generate password"
