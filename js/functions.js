@@ -520,7 +520,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
             }
         }
         //The table row css is being adjusted. Class "odd" for odd rows and "even" for even rows should be maintained.
-        for(index; index < table_rows.length; index++)
+        for(index = 0; index < table_rows.length; index++)
         {
             row_class_element = table_rows[index].getAttribute('class');
             if (row_class_element == "even") {
