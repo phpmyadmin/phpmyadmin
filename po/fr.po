@@ -7010,10 +7010,9 @@ msgid "Delete relation"
 msgstr "Effacer la relation"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relation supprimée"
+msgstr "Opérateur de relation"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
