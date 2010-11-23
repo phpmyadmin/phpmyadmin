@@ -689,14 +689,14 @@ $(document).ready(function() {
 /**
  * Starting from some th, change the class of all td under it
  */
-function PMA_changeClassForColumn($this_th, class) {
+function PMA_changeClassForColumn($this_th, klass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     // .eq() is zero-based
     th_index--;
     var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data_inline_edit');
     $tr_with_data.each(function() {
-        $(this).find('td.data_inline_edit:eq('+th_index+')').toggleClass(class);
+        $(this).find('td.data_inline_edit:eq('+th_index+')').toggleClass(klass);
     });
 }
 
