@@ -122,11 +122,11 @@ if (isset($GLOBALS['sr_take_action'])) {
                 }
                 $dblist[] = $tmp_row[0];
 
-                PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.$tmp_row[0], $trg_link);
+                PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.PMA_backquote($tmp_row[0]), $trg_link);
             } else {
                 if (array_search($tmp_row[0], $do_db) !== false) {
                     $dblist[] = $tmp_row[0];
-                    PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.$tmp_row[0], $trg_link);
+                    PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.PMA_backquote($tmp_row[0]), $trg_link);
                 }
             }
         } // end while
