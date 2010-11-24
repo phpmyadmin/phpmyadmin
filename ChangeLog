@@ -129,6 +129,8 @@
 - bug #3103853 [js] Double quotes were not escaped in generated js
 - bug #3077463 [core] Events were not copied when copying/renaming database
 - bug #1762306 [core] Copy database with view of a view
+- patch #3117535 [replication] Add quotes to database in initial statement,
+  thanks to Craig Duncan - duncan3dc
 
 3.3.8.0 (2010-10-25)
 - bug #3059311 [import] BIGINT field type added to table analysis
