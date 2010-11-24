@@ -127,6 +127,8 @@ fi
 if [ $GETTEXT -eq 1 ] ; then
     echo "* Generating mo files"
     ./scripts/generate-mo
+    echo "* Removing gettext source files"
+    rm -rf po
 fi
 
 if [ -f ./scripts/compress-js ] ; then
