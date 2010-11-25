@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:06+0200\n"
+"PO-Revision-Date: 2010-11-25 21:09+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7573,7 +7573,7 @@ msgstr ""
 
 #: server_privileges.php:2125
 msgid "Database for user"
-msgstr "Naudotojo duombazė(s)"
+msgstr "Naudotojo duomenų bazė(s)"
 
 #: server_privileges.php:2129
 msgctxt "Create none database for user"
