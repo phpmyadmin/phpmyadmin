@@ -7573,7 +7573,7 @@ msgstr ""
 
 #: server_privileges.php:2125
 msgid "Database for user"
-msgstr "Naudotojo duomenų bazė(s)"
+msgstr "Vartotojo duomenų bazė"
 
 #: server_privileges.php:2129
 msgctxt "Create none database for user"
