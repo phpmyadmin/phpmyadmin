@@ -5283,7 +5283,7 @@ msgstr ""
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Duombazės sistema arba senesnis MySQL serveris tam, kad maksimaliai "
+"Duomenų bazės sistema arba senesnis MySQL serveris tam, kad maksimaliai "
 "pagerinti išvedimo suderinamumą su:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
