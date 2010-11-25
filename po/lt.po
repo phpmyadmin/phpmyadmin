@@ -3084,7 +3084,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
-msgstr "Kiek įrašų (eilučių) gali būti įdėti per vieną kartą"
+msgstr "Kiek eilučių gali būti įdėta per vieną kartą"
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
