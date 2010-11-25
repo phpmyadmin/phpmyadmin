@@ -468,7 +468,7 @@ msgstr "Keisti"
 
 #: db_qbe.php:603
 msgid "Add/Delete criteria rows"
-msgstr "Įterpti/Trinti požymio eilutę(es)"
+msgstr "Įterpti/Trinti požymio eilutes"
 
 #: db_qbe.php:615
 msgid "Add/Delete columns"
