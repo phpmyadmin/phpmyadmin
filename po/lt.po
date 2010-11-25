@@ -4415,7 +4415,7 @@ msgstr "Eksporto tipas:"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
-msgstr "Duombazė(s)"
+msgstr "Duomenų bazė(s)"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
