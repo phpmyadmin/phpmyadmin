@@ -7141,7 +7141,7 @@ msgstr "Nepažymėjote duomenų bazės."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Sėkmingai pašalintos %s duombazės."
+msgstr "Sėkmingai pašalintos %s duomenų bazės."
 
 #: server_databases.php:100
 msgid "Databases statistics"
