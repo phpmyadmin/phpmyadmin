@@ -8512,7 +8512,7 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Užklausų statistika</b>: nuo paleidimo dienos buvo išsiųsta %s užklausų į "
+"<b>Užklausų statistika</b>: nuo paleidimo buvo išsiųsta %s užklausų į "
 "serverį."
 
 #: server_status.php:615
