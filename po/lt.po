@@ -2383,7 +2383,7 @@ msgstr "Kortelė kuri yra rodoma kai įeinama į duomenų bazę"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default database tab"
-msgstr "Numatyta duombazės kortelė"
+msgstr "Numatyta duomenų bazės kortelė"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a server"
