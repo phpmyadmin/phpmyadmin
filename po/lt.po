@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:30+0200\n"
+"PO-Revision-Date: 2010-11-25 21:31+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2702,7 +2702,7 @@ msgstr "Kūrėjas"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr "Nustatymai phpMyAdmin tobulintojams (kūrėjams)"
+msgstr "Nustatymai phpMyAdmin kūrėjams"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
