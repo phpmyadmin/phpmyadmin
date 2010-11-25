@@ -7145,7 +7145,7 @@ msgstr "Sėkmingai pašalintos %s duomenų bazės."
 
 #: server_databases.php:100
 msgid "Databases statistics"
-msgstr "Duombazių statistika"
+msgstr "Duomenų bazių statistika"
 
 #: server_databases.php:172 server_replication.php:179
 #: server_replication.php:207
