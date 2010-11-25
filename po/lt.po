@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:10+0200\n"
+"PO-Revision-Date: 2010-11-25 21:15+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7605,7 +7605,7 @@ msgstr "globalus"
 
 #: server_privileges.php:2267
 msgid "database-specific"
-msgstr "priklausantis nuo duomenų bazės tipo"
+msgstr "tam tikros duomenų bazės"
 
 #: server_privileges.php:2269
 msgid "wildcard"
