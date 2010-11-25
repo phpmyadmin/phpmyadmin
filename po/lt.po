@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 20:58+0200\n"
+"PO-Revision-Date: 2010-11-25 21:00+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5290,7 +5290,7 @@ msgstr ""
 #: libraries/export/sql.php:107
 #, php-format
 msgid "Add %s statement"
-msgstr "Įtraukti %s teiginį (sakinį)"
+msgstr "Įtraukti %s sakinį"
 
 #: libraries/export/sql.php:91
 msgid "Add statements:"
