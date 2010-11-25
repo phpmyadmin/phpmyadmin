@@ -550,8 +550,8 @@ msgstr "Trinti"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
-msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
+msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmuo"
+msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
 msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
 
 #: db_search.php:296
