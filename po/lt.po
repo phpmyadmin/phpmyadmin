@@ -1200,7 +1200,7 @@ msgstr "gruodžio"
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
 msgid "Jan"
-msgstr "sausio"
+msgstr "Sau"
 
 #. l10n: Short month name
 #: js/messages.php:142 libraries/common.lib.php:1547
