@@ -5276,7 +5276,7 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Įtraukti duombazės sukūrimo datą (timestamp), paskutinio atnaujinimo ir "
+"Įtraukti duomenų bazės sukūrimo datą (timestamp), paskutinio atnaujinimo ir "
 "paskutinio patikrinimo"
 
 #: libraries/export/sql.php:65
