@@ -8641,8 +8641,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Paskirta duombazė bus pilnai susinchronizuota su pirmine duombaze. Pirminė "
-"duombazė išliks nepakeista."
+"Paskirta duomenų bazė bus pilnai susinchronizuota su pirmine duomenų baze. "
+"Pirminė duomenų bazė išliks nepakeista."
 
 #: server_variables.php:34
 msgid "Server variables and settings"
