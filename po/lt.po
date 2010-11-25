@@ -317,7 +317,7 @@ msgstr "Pridėti apribojimą"
 
 #: db_operations.php:515
 msgid "Switch to copied database"
-msgstr "Pereiti į nukopijuotą duombazę"
+msgstr "Pereiti į nukopijuotą duomenų bazę"
 
 #: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
