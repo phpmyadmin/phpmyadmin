@@ -5294,7 +5294,7 @@ msgstr "Įtraukti %s sakinį"
 
 #: libraries/export/sql.php:91
 msgid "Add statements:"
-msgstr "Pridėti teiginį (sakinį):"
+msgstr "Pridėti sakinius:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
