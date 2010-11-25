@@ -6814,7 +6814,7 @@ msgstr "Sukurti lentelę"
 
 #: navigation.php:327 navigation.php:489
 msgid "Please select a database"
-msgstr "Pasirinkite duombazę"
+msgstr "Pasirinkite duomenų bazę"
 
 #: pmd_general.php:76
 msgid "Show/Hide left menu"
