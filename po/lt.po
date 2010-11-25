@@ -2379,7 +2379,7 @@ msgstr "Rodyti krypti keičiamiems/sukuriamiems stulpeliams"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
-msgstr "Kortelė kuri yra rodoma kai įeinama į duombazę"
+msgstr "Kortelė kuri yra rodoma kai įeinama į duomenų bazę"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default database tab"
