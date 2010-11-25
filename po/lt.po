@@ -8465,7 +8465,7 @@ msgid ""
 "this MySQL server since its startup."
 msgstr ""
 "<b>Serverio apkrovimas</b>: šiose lentelėse saugoma statistinė informacija "
-"apie MySQL serverio apkrovimą nuo paleidimo dienos."
+"apie MySQL serverio apkrovimą nuo paleidimo."
 
 #: server_status.php:505
 msgid "Traffic"
