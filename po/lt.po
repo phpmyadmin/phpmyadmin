@@ -4552,7 +4552,7 @@ msgstr "Importuojama į šį serverį"
 #: libraries/display_import.lib.php:131
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Importuojama į duombazę „%s“"
+msgstr "Importuojama į duomenų bazę „%s“"
 
 #: libraries/display_import.lib.php:133
 #, php-format
