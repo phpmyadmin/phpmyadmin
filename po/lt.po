@@ -3958,7 +3958,8 @@ msgstr "Rodyti SQL užklausas"
 #: libraries/config/messages.inc.php:449
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Leisti rodyti duombazių ir lentelių statistiką (pavyzdžiui vietos naudojimą)"
+"Leisti rodyti duomenų bazių ir lentelių statistiką (pavyzdžiui vietos "
+"naudojimą)"
 
 #: libraries/config/messages.inc.php:450
 msgid "Show statistics"
