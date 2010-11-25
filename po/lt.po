@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:04+0200\n"
+"PO-Revision-Date: 2010-11-25 21:05+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7337,7 +7337,7 @@ msgstr "Leisti skaityti duomenis."
 #: server_privileges.php:54 server_privileges.php:194
 #: server_privileges.php:548
 msgid "Gives access to the complete list of databases."
-msgstr "Suteikti prieigą prie visų duomenų bazių."
+msgstr "Suteikti prieigą prie visų duomenų bazių sąrašo."
 
 #: server_privileges.php:55 server_privileges.php:205
 #: server_privileges.php:207 server_privileges.php:520
