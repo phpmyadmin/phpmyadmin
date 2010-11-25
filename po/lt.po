@@ -3911,7 +3911,7 @@ msgstr "Rodyti slaptažodžio keitimo formą"
 
 #: libraries/config/messages.inc.php:439
 msgid "Show create database form"
-msgstr "Rodyti duombazės sukūrimo formą"
+msgstr "Rodyti duomenų bazės sukūrimo formą"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
