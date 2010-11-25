@@ -4402,7 +4402,7 @@ msgstr "Eksportuojamos duomenų bazės šiame serveryje"
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting tables in the database \"%s\""
-msgstr "Eksportuojamos lentelės duombazėje „%s“"
+msgstr "Eksportuojamos lentelės duomenų bazėje „%s“"
 
 #: libraries/display_export.lib.php:91
 #, php-format
