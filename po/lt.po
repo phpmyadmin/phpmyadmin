@@ -3973,7 +3973,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Display database comment instead of its name"
-msgstr "Rodyti duombazės komentarą vietoje jos pavadinimo"
+msgstr "Rodyti duomenų bazės komentarą vietoje jos pavadinimo"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
