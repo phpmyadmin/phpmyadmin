@@ -1653,7 +1653,7 @@ msgstr "Pasirinkti serverį"
 
 #: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "Slapukai(Cookies) turi būti priimami."
+msgstr "Slapukai turi būti priimami."
 
 #: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
