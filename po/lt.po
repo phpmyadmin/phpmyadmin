@@ -3126,7 +3126,7 @@ msgstr "Simboliai kurie atskiria duomenų bazes į atskiras medžio šakas"
 
 #: libraries/config/messages.inc.php:269
 msgid "Database tree separator"
-msgstr "Duombazės medžio skyriklis"
+msgstr "Duomenų bazės medžio skyriklis"
 
 #: libraries/config/messages.inc.php:270
 msgid ""
