@@ -3122,7 +3122,7 @@ msgstr "Rodyti duombazes medyje"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
-msgstr "Simboliai kurie atskiria duombazes į atskiras medžio šakas"
+msgstr "Simboliai kurie atskiria duomenų bazes į atskiras medžio šakas"
 
 #: libraries/config/messages.inc.php:269
 msgid "Database tree separator"
