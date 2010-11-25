@@ -3137,7 +3137,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:271
 msgid "Display databases in a tree"
-msgstr "Rodyti duombazes medyje"
+msgstr "Rodyti duomenų bazes medyje"
 
 #: libraries/config/messages.inc.php:272
 msgid "Disable this if you want to see all databases at once"
