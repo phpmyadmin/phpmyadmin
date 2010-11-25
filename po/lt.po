@@ -1769,7 +1769,7 @@ msgstr "Perteklius"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr "Eiti į duombazę"
+msgstr "Eiti į duomenų bazę"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
