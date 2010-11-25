@@ -9304,7 +9304,7 @@ msgstr "Pervadinti lentelę į"
 
 #: tbl_operations.php:513
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Kopijuoti lentelė į (duombazė<b>.</b>lentelė):"
+msgstr "Kopijuoti lentelė į (duomenų bazė<b>.</b>lentelė):"
 
 #: tbl_operations.php:560
 msgid "Switch to copied table"
