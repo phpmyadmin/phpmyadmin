@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: libraries/File.class.php:321
 msgid "The uploaded file was only partially uploaded."
-msgstr "Įkeltas failas buvo dalinai (nepilnai) įkeltas"
+msgstr "Įkeltas failas buvo tik dalinai įkeltas."
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
