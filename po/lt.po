@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:16+0200\n"
+"PO-Revision-Date: 2010-11-25 21:17+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9292,7 +9292,7 @@ msgstr "(pavieniui)"
 
 #: tbl_operations.php:275
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Perkelti lentelė į (duombazė<b>.</b>lentelė):"
+msgstr "Perkelti lentelė į (duomenų bazė<b>.</b>lentelė):"
 
 #: tbl_operations.php:333
 msgid "Table options"
