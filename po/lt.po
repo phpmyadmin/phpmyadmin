@@ -6181,7 +6181,7 @@ msgstr "Nustatymai"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
-msgstr "Iš duombazės"
+msgstr "Iš duomenų bazės"
 
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
