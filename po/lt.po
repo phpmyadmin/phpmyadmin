@@ -2942,7 +2942,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
-msgstr "Paleidimas (pagrindinis)"
+msgstr "Paleidimas"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize startup page"
