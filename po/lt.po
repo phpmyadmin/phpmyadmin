@@ -3141,7 +3141,7 @@ msgstr "Rodyti duomenų bazes medyje"
 
 #: libraries/config/messages.inc.php:272
 msgid "Disable this if you want to see all databases at once"
-msgstr "Išjungti tai jeigu norite matyti visas duombazes iškart"
+msgstr "Išjungti tai jeigu norite matyti visas duomenų bazes iškart"
 
 #: libraries/config/messages.inc.php:273
 msgid "Use light version"
