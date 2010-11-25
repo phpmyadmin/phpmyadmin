@@ -1167,7 +1167,7 @@ msgstr "balandžio"
 
 #: js/messages.php:129
 msgid "May"
-msgstr "gegužės"
+msgstr "Geg"
 
 #: js/messages.php:130
 msgid "June"
