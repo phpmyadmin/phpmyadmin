@@ -2488,7 +2488,7 @@ msgstr "Glaudinimas"
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Put columns names in the first row"
-msgstr "Stulpelių pavadinimus įrašyti pirmame įraše (eilutėje)"
+msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
