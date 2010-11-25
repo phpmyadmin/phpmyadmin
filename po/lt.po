@@ -1428,7 +1428,7 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
-msgstr "Nėra aprašytų žurnalų (indeksų)!"
+msgstr "Nėra aprašytų indeksų!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:310
