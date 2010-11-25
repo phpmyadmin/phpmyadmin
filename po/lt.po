@@ -3292,7 +3292,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Maximum databases"
-msgstr "Didžiausias skaičius duombazių"
+msgstr "Didžiausias skaičius duomenų bazių"
 
 #: libraries/config/messages.inc.php:303
 msgid ""
