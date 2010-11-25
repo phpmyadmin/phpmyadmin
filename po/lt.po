@@ -7169,8 +7169,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Pastaba: jeigu duombazės statistika įjungta - apkrovimas tarp www ir MySQL "
-"darbinių stočių, gali padidėti aukščiau normos."
+"Pastaba: jeigu duomenų bazės statistika įjungta - apkrovimas tarp www ir "
+"MySQL darbinių stočių, gali padidėti aukščiau normos."
 
 #: server_engines.php:47
 msgid "Storage Engines"
