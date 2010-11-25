@@ -1483,7 +1483,7 @@ msgstr ""
 #: libraries/server_links.inc.php:42 server_databases.php:100
 #: server_privileges.php:1751 test/theme.php:92
 msgid "Databases"
-msgstr "Duombazės"
+msgstr "Duomenų bazės"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
