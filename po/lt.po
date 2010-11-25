@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-23 12:41+0200\n"
+"PO-Revision-Date: 2010-11-25 19:55+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -234,7 +234,7 @@ msgstr "Peržiūrėti duomenų bazės atvaizdį"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:320
 msgid "No tables found in database."
-msgstr "Duombazėje nerasta lentelių."
+msgstr "Duomenų bazėje nerasta lentelių."
 
 #: db_export.php:44 db_search.php:341 server_export.php:26
 msgid "Select All"
