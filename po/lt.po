@@ -1246,7 +1246,7 @@ msgstr "Rgs"
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
-msgstr "spalio"
+msgstr "Spa"
 
 #. l10n: Short month name
 #: js/messages.php:160 libraries/common.lib.php:1565
