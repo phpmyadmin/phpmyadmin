@@ -4385,7 +4385,7 @@ msgstr "Nėra privilegijų"
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
-msgstr "Sukurti naują lentelę duombazėje %s"
+msgstr "Sukurti naują lentelę duomenų bazėje %s"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
