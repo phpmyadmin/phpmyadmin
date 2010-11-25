@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 20:05+0200\n"
+"PO-Revision-Date: 2010-11-25 20:06+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4371,7 +4371,7 @@ msgstr "Suderinamas su MySQL 4.0"
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
 msgid "Create new database"
-msgstr "Sukurti naują duombazę"
+msgstr "Sukurti naują duomenų bazę"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
