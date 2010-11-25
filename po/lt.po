@@ -4045,7 +4045,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:470
 msgid "Suggest new database name"
-msgstr "Pasiūlyti naują duombazės pavadinimą"
+msgstr "Pasiūlyti naują duomenų bazės pavadinimą"
 
 #: libraries/config/messages.inc.php:471
 msgid "A warning is displayed on the main page if Suhosin is detected"
