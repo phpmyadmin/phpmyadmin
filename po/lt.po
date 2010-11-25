@@ -260,7 +260,7 @@ msgstr "Duomenų bazė %s buvo nukopijuota į %s"
 
 #: db_operations.php:395
 msgid "Rename database to"
-msgstr "Pervadinti duombazę į"
+msgstr "Pervadinti duomenų bazę į"
 
 #: db_operations.php:400 server_processlist.php:56
 msgid "Command"
