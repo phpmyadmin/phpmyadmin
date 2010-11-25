@@ -246,7 +246,7 @@ msgstr "Atžymėti visus"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr "Nenurodytas duombazės vardas!"
+msgstr "Nenurodytas duomenų bazės vardas!"
 
 #: db_operations.php:268
 #, php-format
