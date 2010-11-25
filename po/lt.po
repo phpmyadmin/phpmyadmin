@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:19+0200\n"
+"PO-Revision-Date: 2010-11-25 21:20+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -884,7 +884,7 @@ msgstr "Žymė %s sukurta"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Importavimas sėkmingai baigta, įvykdyta %d užklausų(os)."
+msgstr "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
 
 #: import.php:422
 msgid ""
