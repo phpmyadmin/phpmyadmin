@@ -7531,7 +7531,7 @@ msgstr "Specifinės stulpelių privilegijos"
 
 #: server_privileges.php:2016
 msgid "Add privileges on the following database"
-msgstr "Sukurti privilegijas šiai duombazei"
+msgstr "Sukurti privilegijas šiai duomenų bazei"
 
 #: server_privileges.php:2034
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
