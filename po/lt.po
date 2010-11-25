@@ -827,7 +827,7 @@ msgstr "Nėra teisių išsaugoti failui %s."
 #: export.php:664
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Duomenų bazės atvaizdis išsaugotas faile %s."
+msgstr "Atvaizdis įrašytas faile %s."
 
 #: import.php:58
 #, php-format
