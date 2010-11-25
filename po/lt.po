@@ -3604,7 +3604,7 @@ msgstr "Kontroliuoti naudotoją"
 
 #: libraries/config/messages.inc.php:373
 msgid "Count tables when showing database list"
-msgstr "Suskaičiuoti lenteles kai rodomas duombazių sąrašas"
+msgstr "Suskaičiuoti lenteles kai rodomas duomenų bazių sąrašas"
 
 #: libraries/config/messages.inc.php:374
 msgid "Count tables"
