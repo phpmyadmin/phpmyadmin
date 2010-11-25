@@ -281,7 +281,7 @@ msgstr "Pašalinti duomenų bazę (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
-msgstr "Kopijuoti duombazę į"
+msgstr "Kopijuoti duomenų bazę į"
 
 #: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
