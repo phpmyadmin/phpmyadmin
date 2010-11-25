@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 20:03+0200\n"
+"PO-Revision-Date: 2010-11-25 20:04+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4117,7 +4117,7 @@ msgstr "Įkelties katalogas"
 
 #: libraries/config/messages.inc.php:489
 msgid "Allow for searching inside the entire database"
-msgstr "Leisti paiešką visoje vidinėje duomenų bazėje"
+msgstr "Leisti paiešką visos duomenų bazės viduje"
 
 #: libraries/config/messages.inc.php:490
 msgid "Use database search"
