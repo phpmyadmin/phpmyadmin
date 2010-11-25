@@ -256,7 +256,7 @@ msgstr "Duomenų bazė %s pervadinta į %s"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Duombazė %s buvo nukopijuota į %s"
+msgstr "Duomenų bazė %s buvo nukopijuota į %s"
 
 #: db_operations.php:395
 msgid "Rename database to"
