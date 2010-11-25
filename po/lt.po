@@ -7703,7 +7703,7 @@ msgstr "Ignoruoti visas duomenų bazes; Padauginti:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr "Prašome pasirinkti duomenų bazę(es):"
+msgstr "Prašome pasirinkti duomenų bazes:"
 
 #: server_replication.php:226
 msgid ""
