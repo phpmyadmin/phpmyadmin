@@ -7744,7 +7744,7 @@ msgstr "Peržiūrėti pavaldžiojo serverio būklės lentelę"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "Sinchronizuoti duombazes su pagrindiniu serveriu (master)"
+msgstr "Sinchronizuoti duomenų bazes su pagrindiniu serveriu (master)"
 
 #: server_replication.php:320
 msgid "Control slave:"
