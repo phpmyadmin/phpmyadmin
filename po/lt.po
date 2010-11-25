@@ -3037,7 +3037,7 @@ msgid ""
 "table) and only SQL is always available"
 msgstr ""
 "Numatytasis formatas; žinokite, kad šis sąrašas priklauso nuo vietos "
-"(duombazė, lentelė) ir tik SQL visada pasiekiamas"
+"(duomenų bazė, lentelė) ir tik SQL visada pasiekiamas"
 
 #: libraries/config/messages.inc.php:242
 msgid "Format of imported file"
