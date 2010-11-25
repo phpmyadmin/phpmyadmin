@@ -934,7 +934,7 @@ msgstr "Ar tikrai norite "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
-msgstr "Jūs ruošiatės SUNAIKINTI visą duombazę!"
+msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
