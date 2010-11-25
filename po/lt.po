@@ -7395,7 +7395,7 @@ msgstr "Globalios teisės"
 
 #: server_privileges.php:566 server_privileges.php:1809
 msgid "Database-specific privileges"
-msgstr "Specifinės duombazių privilegijos"
+msgstr "Specifinės duomenų bazių privilegijos"
 
 #: server_privileges.php:611
 msgid "Administration"
