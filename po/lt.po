@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 20:06+0200\n"
+"PO-Revision-Date: 2010-11-25 20:07+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4397,7 +4397,7 @@ msgstr "Nepavyko įkelti eksportuojamų plėtinių, prašome patikrinti įdiegt�
 
 #: libraries/display_export.lib.php:87
 msgid "Exporting databases in the current server"
-msgstr "Eksportuojamos duombazės šiame serveryje"
+msgstr "Eksportuojamos duomenų bazės šiame serveryje"
 
 #: libraries/display_export.lib.php:89
 #, php-format
