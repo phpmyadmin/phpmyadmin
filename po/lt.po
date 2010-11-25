@@ -7582,7 +7582,8 @@ msgstr "Be"
 
 #: server_privileges.php:2130
 msgid "Create database with same name and grant all privileges"
-msgstr "Sukurti duombazę su tokiu pat vardu ir jai suteikti visas privilegijas"
+msgstr ""
+"Sukurti duomenų bazę su tokiu pat vardu ir jai suteikti visas privilegijas"
 
 #: server_privileges.php:2131
 msgid "Grant all privileges on wildcard name (username\\_%)"
