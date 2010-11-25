@@ -4121,7 +4121,7 @@ msgstr "Leisti paiešką visos duomenų bazės viduje"
 
 #: libraries/config/messages.inc.php:490
 msgid "Use database search"
-msgstr "Naudoti duombazės paiešką"
+msgstr "Naudoti duomenų bazės paiešką"
 
 #: libraries/config/messages.inc.php:491
 msgid ""
