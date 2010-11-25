@@ -1644,7 +1644,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         $tmp = $tag_params;
         $tag_params = array();
         if (!empty($tmp)) {
-            $tag_params['onclick'] = 'return confirmLink(this, \'' . $tmp . '\')';
+            $tag_params['onclick'] = 'return confirmLink(this, \'' . PMA_escapeJsString($tmp) . '\')';
         }
         unset($tmp);
     }
