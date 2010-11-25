@@ -7232,7 +7232,7 @@ msgstr "Leisti šalinti duomenis."
 #: server_privileges.php:35 server_privileges.php:186
 #: server_privileges.php:518
 msgid "Allows dropping databases and tables."
-msgstr "Leisti šalinti duombazes ir lenteles."
+msgstr "Leisti šalinti duomenų bazes ir lenteles."
 
 #: server_privileges.php:36 server_privileges.php:518
 msgid "Allows dropping tables."
