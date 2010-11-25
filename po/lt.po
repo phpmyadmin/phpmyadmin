@@ -3132,7 +3132,8 @@ msgstr "Duomenų bazės medžio skyriklis"
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr "Tik maža versija; rodyti duombazės medį (skyriklis nustatomas žemiau)"
+msgstr ""
+"Tik maža versija; rodyti duomenų bazės medį (skyriklis nustatomas žemiau)"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display databases in a tree"
