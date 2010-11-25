@@ -3048,10 +3048,9 @@ msgstr "Naudoti LOCAL raktažodį"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Column names in first row"
-msgstr "Stulpelių pavadinimus įrašyti pirmame įraše (eilutėje)"
+msgstr "Stulpelių pavadinimai pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
@@ -8490,7 +8489,7 @@ msgstr "Prisijungimai"
 
 #: server_status.php:557
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "Daugiausiai lygiagrečių prisijungimų"
 
 #: server_status.php:564
 msgid "Failed attempts"
@@ -9512,10 +9511,11 @@ msgid "After %s"
 msgstr "Po %s"
 
 #: tbl_structure.php:686
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Sukurti indeksą &nbsp;%s&nbsp;stulpeliui(iams)"
+msgstr "Sukurti indeksą &nbsp;%s&nbsp;stulpeliams"
 
 #: tbl_structure.php:848
 msgid "partitioned"
