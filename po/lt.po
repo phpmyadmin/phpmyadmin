@@ -273,7 +273,7 @@ msgstr "Pašalinti duomenų bazę"
 #: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Duombazė %s ištrinta."
+msgstr "Duomenų bazė %s ištrinta."
 
 #: db_operations.php:446
 msgid "Drop the database (DROP)"
