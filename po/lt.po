@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:29+0200\n"
+"PO-Revision-Date: 2010-11-25 21:30+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2524,7 +2524,7 @@ msgstr "Laukai baigiasi"
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "Eilutės (įrašai) baigiasi"
+msgstr "Eilutės baigiasi"
 
 #: libraries/config/messages.inc.php:78
 msgid "Excel edition"
