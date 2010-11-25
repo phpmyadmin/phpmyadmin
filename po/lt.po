@@ -485,7 +485,7 @@ msgstr "Naudoti lenteles"
 #: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-užklausa duombazėje <b>%s</b>:"
+msgstr "SQL-užklausa duomenų bazėje <b>%s</b>:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1167
 msgid "Submit Query"
