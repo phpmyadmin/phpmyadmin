@@ -2412,7 +2412,8 @@ msgstr "Rodyti dvejetainį turinį kaip HEX (šešioliktainį)"
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
-"Rodyti duombazės sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo sąrašo"
+"Rodyti duomenų bazės sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo "
+"sąrašo"
 
 #: libraries/config/messages.inc.php:55
 msgid "Display databases as a list"
