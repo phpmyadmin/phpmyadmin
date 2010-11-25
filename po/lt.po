@@ -2405,7 +2405,7 @@ msgstr "Rodyti dvejetainį turinį kaip šešioliktainį pagal nutylėjimą"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
-msgstr "Rodyti dvejetainį turinį kaip HEX (šešioliktainį)"
+msgstr "Rodyti dvejetainį turinį kaip šešioliktainį"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
