@@ -3384,7 +3384,7 @@ msgstr "Numatytoji rikiavimo tvarka"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use persistent connections to MySQL databases"
-msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duombazių"
+msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duomenų bazių"
 
 #: libraries/config/messages.inc.php:323
 msgid "Persistent connections"
