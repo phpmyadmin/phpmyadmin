@@ -268,7 +268,7 @@ msgstr "Komanda"
 
 #: db_operations.php:429
 msgid "Remove database"
-msgstr "Pašalinti duombazę"
+msgstr "Pašalinti duomenų bazę"
 
 #: db_operations.php:441
 #, php-format
