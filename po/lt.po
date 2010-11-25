@@ -3645,7 +3645,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid "Hide databases"
-msgstr "Slėpti duombazes"
+msgstr "Slėpti duomenų bazes"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
