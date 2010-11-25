@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:20+0200\n"
+"PO-Revision-Date: 2010-11-25 21:21+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1412,7 +1412,7 @@ msgstr "Nepavyko įrašyti failo į diską."
 
 #: libraries/File.class.php:330
 msgid "File upload stopped by extension."
-msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio (galūnės)."
+msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio."
 
 #: libraries/File.class.php:333
 msgid "Unknown error in file upload."
