@@ -7605,7 +7605,7 @@ msgstr "globalus"
 
 #: server_privileges.php:2267
 msgid "database-specific"
-msgstr "priklausantis nuo duombazės tipo"
+msgstr "priklausantis nuo duomenų bazės tipo"
 
 #: server_privileges.php:2269
 msgid "wildcard"
