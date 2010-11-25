@@ -7178,7 +7178,7 @@ msgstr "Saugojimo varikliai"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Peržiūrėti duomenų bazių išrašą (schemą)"
+msgstr "Peržiūrėti duomenų bazių atvaizdį (schemą)"
 
 #: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
