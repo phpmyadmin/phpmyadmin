@@ -7136,7 +7136,7 @@ msgstr "Simbolių rinkiniai ir Palyginimai"
 
 #: server_databases.php:64
 msgid "No databases selected."
-msgstr "Nepažymėjote duombazės."
+msgstr "Nepažymėjote duomenų bazės."
 
 #: server_databases.php:75
 #, php-format
