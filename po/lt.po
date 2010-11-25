@@ -556,7 +556,7 @@ msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
 
 #: db_search.php:296
 msgid "Search in database"
-msgstr "Paieška duombazėje"
+msgstr "Paieška duomenų bazėje"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
