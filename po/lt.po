@@ -6633,7 +6633,7 @@ msgstr "Pagrindiniai nustatymai"
 
 #: main.php:99
 msgid "MySQL connection collation"
-msgstr "MySQL prisijungimo išdėstymas"
+msgstr "MySQL prisijungimo lyginimas"
 
 #: main.php:115
 msgid "Appearance Settings"
