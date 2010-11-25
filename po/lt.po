@@ -3287,7 +3287,8 @@ msgstr "Naudotojai negali nustatyti didesnės reikšmės"
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Maksimalus skaičius rodomų duombazių kairiame rėmelyje ir duombazių sąraše"
+"Maksimalus skaičius rodomų duomenų bazių kairiame rėmelyje ir duomenų bazių "
+"sąraše"
 
 #: libraries/config/messages.inc.php:302
 msgid "Maximum databases"
