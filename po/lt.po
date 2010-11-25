@@ -7592,7 +7592,7 @@ msgstr "Suteikti visas privilegijas pakaitos vardui (username\\_%)"
 #: server_privileges.php:2134
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Suteikti visas privilegijas duombazei „%s“"
+msgstr "Suteikti visas privilegijas duomenų bazei „%s“"
 
 #: server_privileges.php:2157
 #, php-format
