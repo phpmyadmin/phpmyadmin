@@ -7337,7 +7337,7 @@ msgstr "Leisti skaityti duomenis."
 #: server_privileges.php:54 server_privileges.php:194
 #: server_privileges.php:548
 msgid "Gives access to the complete list of databases."
-msgstr "Suteikti prieigą prie visų duombazių."
+msgstr "Suteikti prieigą prie visų duomenų bazių."
 
 #: server_privileges.php:55 server_privileges.php:205
 #: server_privileges.php:207 server_privileges.php:520
