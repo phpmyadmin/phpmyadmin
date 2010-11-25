@@ -9292,7 +9292,7 @@ msgstr "(pavieniui)"
 
 #: tbl_operations.php:275
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Perkelti lentelė į (duomenų bazė<b>.</b>lentelė):"
+msgstr "Perkelti lentelę į (duomenų_bazė<b>.</b>lentelė):"
 
 #: tbl_operations.php:333
 msgid "Table options"
