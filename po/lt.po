@@ -4077,7 +4077,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
-msgstr "Naršyklės lango pavadinimas kai duombazė yra pasirinkta"
+msgstr "Naršyklės lango pavadinimas kai duomenų bazė yra pasirinkta"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
