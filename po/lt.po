@@ -1538,7 +1538,7 @@ msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr "Neteisingas duombazės vardas"
+msgstr "Neteisingas duomenų bazės vardas"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
