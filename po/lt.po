@@ -7291,8 +7291,8 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Riboti komandų (kurios vienaip ar kitaip modifikuoja lenteles ar duomenų "
-"bazes) kiekį per valandą."
+"Riboti komandų, kurios modifikuoja lenteles ar duomenų bazes, kiekį per "
+"valandą."
 
 # gal labiau kartu vykstančių
 #: server_privileges.php:47 server_privileges.php:653
