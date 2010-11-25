@@ -7197,7 +7197,7 @@ msgstr "Leisti keisti pašalinti saugimas programas (stored routines)."
 #: server_privileges.php:28 server_privileges.php:185
 #: server_privileges.php:515
 msgid "Allows creating new databases and tables."
-msgstr "Leisti kurti naujas duombazes ir lenteles."
+msgstr "Leisti kurti naujas duomenų bazes ir lenteles."
 
 #: server_privileges.php:29 server_privileges.php:208
 #: server_privileges.php:521
