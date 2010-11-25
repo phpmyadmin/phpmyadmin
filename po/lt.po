@@ -6009,7 +6009,7 @@ msgstr "Nustatykite lentelės %s koordinates"
 #: libraries/schema/Visio_Relation_Schema.class.php:502
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Duombazės %s schema - %s puslapis"
+msgstr "Duomenų bazės %s schema - %s puslapis"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #, fuzzy
