@@ -791,7 +791,7 @@ msgstr "Sekti lentelę"
 
 #: db_tracking.php:212
 msgid "Database Log"
-msgstr "Duombazės žurnalas (log)"
+msgstr "Duomenų bazės žurnalas (log)"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
