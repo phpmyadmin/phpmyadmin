@@ -2252,7 +2252,7 @@ msgstr "Leisti trečių šalių rėmelius"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Rodyti „Pašalinti duombazę“ nuorodą paprastiems naudotojams"
+msgstr "Rodyti „Pašalinti duomenų bazę“ nuorodą paprastiems naudotojams"
 
 #: libraries/config/messages.inc.php:22
 msgid ""
