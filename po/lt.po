@@ -2020,7 +2020,7 @@ msgstr "Pabaiga"
 #: libraries/common.lib.php:2416
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Pereiti į „%s“ duombazę."
+msgstr "Pereiti į „%s“ duomenų bazę."
 
 #: libraries/common.lib.php:2435
 #, php-format
