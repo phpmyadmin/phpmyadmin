@@ -4223,7 +4223,7 @@ msgstr "Adaptavimas"
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
-msgstr "Duombazės eksportavimo nustatymai"
+msgstr "Duomenų bazės eksportavimo nustatymai"
 
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:220
