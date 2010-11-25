@@ -7506,7 +7506,8 @@ msgstr ""
 #: server_privileges.php:1701
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
-"Pašalinti duomenų bazes, turinčias tokius pačius vardus kaip ir vartotojai."
+"Pašalinti duomenų bazes, turinčias tokius pačius pavadinimus kaip ir "
+"vartotojai."
 
 #: server_privileges.php:1722
 #, php-format
