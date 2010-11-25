@@ -277,7 +277,7 @@ msgstr "Duomenų bazė %s ištrinta."
 
 #: db_operations.php:446
 msgid "Drop the database (DROP)"
-msgstr "Pašalinti duombazę (DROP)"
+msgstr "Pašalinti duomenų bazę (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
