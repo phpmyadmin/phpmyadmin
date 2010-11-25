@@ -1433,7 +1433,7 @@ msgstr "Nėra aprašytų indeksų!"
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:310
 msgid "Indexes"
-msgstr "Žurnalai (indeksai)"
+msgstr "Indeksai"
 
 #: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
 #: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
