@@ -6223,7 +6223,7 @@ msgstr "Sukurti šios SQL užklausos žymę"
 
 #: libraries/sql_query_form.lib.php:339 sql.php:858
 msgid "Let every user access this bookmark"
-msgstr "Leisti kitiems vartotojams naudotis šia žyme (bookmark)"
+msgstr "Leisti kitiems vartotojams naudotis šia žyme"
 
 #: libraries/sql_query_form.lib.php:345
 msgid "Replace existing bookmark of same name"
