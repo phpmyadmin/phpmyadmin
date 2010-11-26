@@ -2637,10 +2637,9 @@ msgid "Relations"
 msgstr "Συσχετίσεις"
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Τύπος εξαγωγής"
+msgstr "Μέθοδος εξαγωγής"
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
 msgid "Save on server"
