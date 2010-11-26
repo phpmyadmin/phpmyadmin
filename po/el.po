@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:30+0200\n"
+"PO-Revision-Date: 2010-11-26 14:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3641,7 +3641,7 @@ msgstr "Προεπιλεγμένη καρτέλα παραθύρου ερωτή�
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Ύψος παραθύρου ερωτήματος (σε εικονοστοιχεία)"
 
 #: libraries/config/messages.inc.php:338
 #, fuzzy
