@@ -1283,7 +1283,6 @@ msgid "Dec"
 msgstr "Δεκεμβρίου"
 
 #: js/messages.php:165
-#, fuzzy
 msgid "Sunday"
 msgstr "Κυριακή"
 
