@@ -7123,10 +7123,9 @@ msgid "MySQL connection collation"
 msgstr "Σύνθεση σύνδεσης MySQL"
 
 #: main.php:115
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Άλλες ρυθμίσεις πυρήνα"
+msgstr "Ρυθμίσεις εμφάνισης"
 
 #: main.php:135
 msgid "Background color"
