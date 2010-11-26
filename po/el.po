@@ -2582,7 +2582,6 @@ msgid "Lines terminated by"
 msgstr "Γραμμές που τελειώνουν σε"
 
 #: libraries/config/messages.inc.php:78
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Έκδοση Excel"
