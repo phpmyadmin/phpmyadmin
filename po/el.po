@@ -5178,7 +5178,6 @@ msgstr ""
 "εντολές CREATE INDEX ή ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Όριο σκουπιδιών"
