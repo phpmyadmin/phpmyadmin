@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:14+0200\n"
+"PO-Revision-Date: 2010-11-26 23:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4612,10 +4612,10 @@ msgid "Exporting databases in the current server"
 msgstr "Εξαγωγή βάσεων δεδομένων στον τρέχοντα διακομιστή"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "Δημιουργία νέου πίνακα στη βάση %s"
+msgstr "Εξαγωγή πινάκων στη βάση δεδομένων «%s»"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
