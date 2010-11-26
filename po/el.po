@@ -3044,10 +3044,9 @@ msgid "Text fields"
 msgstr "Πεδία κειμένου"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Προσαρμογή επιλογών εξαγωγής"
+msgstr "Προσαρμογή πεδίων εισαγωγής κειμένου"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
