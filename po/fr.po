@@ -9663,7 +9663,7 @@ msgstr "Critères de recherche (pour l'énoncé «where») :"
 
 #: tbl_select.php:291
 msgid "Number of rows per page"
-msgstr "Nombre d'enregistrements par page"
+msgstr "Nombre de lignes par page"
 
 #: tbl_select.php:297
 msgid "Display order:"
