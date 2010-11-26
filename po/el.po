@@ -4981,10 +4981,9 @@ msgid "Print view (with full texts)"
 msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 
 #: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Εμφάνιση σχήματος PDF"
+msgstr "Εμφάνιση διαγράμματος"
 
 #: libraries/display_tbl.lib.php:2380
 msgid "Link not found"
