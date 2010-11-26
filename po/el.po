@@ -3424,10 +3424,9 @@ msgid "Memory limit"
 msgstr "Όριο μνήμης"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
+msgstr "Προβολή συνδέσμου διαγραφής στα αριστερά"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
