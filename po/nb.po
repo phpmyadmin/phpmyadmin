@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-09-15 13:26+0200\n"
+"PO-Revision-Date: 2010-11-26 12:57+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -408,7 +408,7 @@ msgstr "Du må velge minst en kolonne for visning"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Bytt til"
 
 #: db_qbe.php:186
 msgid "visual builder"
@@ -10067,15 +10067,3 @@ msgstr "Endre tabellens navn"
 
 #~ msgid "Toggle Query Box Visibility"
 #~ msgstr "Slå av/på visning av spørreboks"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV-data"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Denne [a@?page=form&amp;formset=features#tab_Security]innstillingen[/a] "
-#~ "burde være påslått hvis din webtjener støtter dette"
