@@ -1767,7 +1767,7 @@ msgstr "Επικύρωση..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Σφάλμα PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 #| msgid "Page creation failed"
