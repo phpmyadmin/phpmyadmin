@@ -476,7 +476,7 @@ msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
 
 #: db_qbe.php:615
 msgid "Add/Delete columns"
-msgstr "Προσθήκη/Αφαίρεση Στήλης Πεδίου"
+msgstr "Προσθήκη/Αφαίρεση Στηλών"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
