@@ -2137,10 +2137,9 @@ msgstr ""
 "Προσαρμογή - όπως παραπάνω αλλά χωρίς την επιλογή γρήγορου/προσαρμοσμένου"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Πλήρεις εντολές «Insert»"
+msgstr "πλήρεις εντολές εισαγωγής (Insert)"
 
 #: libraries/config.values.php:120
 #, fuzzy
