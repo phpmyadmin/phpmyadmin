@@ -1866,9 +1866,9 @@ msgstr ""
 "ρυθμίσεων!"
 
 #: libraries/common.inc.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid server index: %s"
-msgstr "Μη έγκυρο ευρετήριο διακομιστή: «%s»"
+msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
 #: libraries/common.inc.php:624
 #, php-format
