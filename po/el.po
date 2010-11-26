@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:54+0200\n"
+"PO-Revision-Date: 2010-11-26 13:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2143,7 +2143,7 @@ msgstr "Λειτουργίες"
 
 #: libraries/common.lib.php:2957
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Περιηγηθείτε στον υπολογιστή σας:"
 
 #: libraries/common.lib.php:2970
 #, php-format
