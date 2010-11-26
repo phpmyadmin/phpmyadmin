@@ -5183,14 +5183,12 @@ msgid "Garbage Threshold"
 msgstr "Όριο σκουπιδιών"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Το ποσοστό των σκουπιδιών στο αρχείο καταγραφής δεδομένων πριν συμπιεστεί. "
-"Λαμβάνει τιμές από 1 έως 99. Προεπιλεγμένη τιμή είναι το 50."
+"Το ποσοστό των σκουπιδιών στο αρχείο καταγραφής δεδομένων πριν συμπιεστεί."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
