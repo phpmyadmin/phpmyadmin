@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:35+0200\n"
+"PO-Revision-Date: 2010-11-26 15:36+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7610,9 +7610,8 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Ο πίνακας <b>%s</b> δεν βρέθηκε ή δεν ορίστηκε στη %s"
 
 #: schema_export.php:45
-#, fuzzy
 msgid "File doesn't exist"
-msgstr "Ο πίνακας «%s» δεν υπάρχει!"
+msgstr "Το αρχείο δεν υπάρχει"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
