@@ -4618,10 +4618,10 @@ msgid "Exporting tables in the database \"%s\""
 msgstr "Εξαγωγή πινάκων στη βάση δεδομένων «%s»"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
-msgstr "Δημιουργία νέου πίνακα στη βάση %s"
+msgstr "Εξαγωγή εγγραφών στον πίνακα «%s»"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
