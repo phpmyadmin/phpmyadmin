@@ -9286,7 +9286,6 @@ msgid "Cannot load or save configuration"
 msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσεων"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -9298,9 +9297,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@../Documentation."
-"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
-"λάβετε ή να τον προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
+"[a@../Documentation.html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα "
+"μπορείτε μόνο να τον λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:57
 msgid ""
