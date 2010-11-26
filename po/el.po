@@ -4634,10 +4634,9 @@ msgid "Database(s):"
 msgstr "Βάση(εις) Δεδομένων"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Πίνακες"
+msgstr "Πίνακας(ες)"
 
 #: libraries/display_export.lib.php:149
 #, fuzzy
