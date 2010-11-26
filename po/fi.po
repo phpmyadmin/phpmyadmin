@@ -1015,10 +1015,9 @@ msgid "Create User"
 msgstr "Luo käyttäjä"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
-msgstr "Lataa käyttöoikeudet uudelleen"
+msgstr "Käyttöoikeusten uudelleenlataus"
 
 #: js/messages.php:55
 #, fuzzy
