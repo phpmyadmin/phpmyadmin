@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 01:11+0200\n"
+"PO-Revision-Date: 2010-11-27 01:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6958,7 +6958,7 @@ msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "ΟΙ ρυθμίσεις αποθηκεύτηκαν"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
