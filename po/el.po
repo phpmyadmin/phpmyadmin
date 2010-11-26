@@ -3941,10 +3941,9 @@ msgstr ""
 "υποστηρίζεται. Προτείνεται: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Πίνακας προβολής πεδίων"
+msgstr "Πίνακας προβολής στηλών"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
