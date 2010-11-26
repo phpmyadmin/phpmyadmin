@@ -586,10 +586,9 @@ msgid "Inside table(s):"
 msgstr "Tauluista:"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Kentän sisältä:"
+msgstr "Sarakkeen sisältä:"
 
 #: db_structure.php:59
 #, fuzzy
