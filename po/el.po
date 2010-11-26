@@ -3147,6 +3147,7 @@ msgstr "Προειδοποίηση"
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr ""
+"Απενεργοποίηση ορισμένων προειδοποιήσεων που εμφανίζονται στο phpMyAdmin"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
