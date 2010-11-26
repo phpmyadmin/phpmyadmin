@@ -1390,9 +1390,8 @@ msgid "Hour"
 msgstr "Ώρα"
 
 #: js/messages.php:208
-#, fuzzy
 msgid "Minute"
-msgstr "σε χρήση"
+msgstr "Λεπτό"
 
 #: js/messages.php:209
 #, fuzzy
