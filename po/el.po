@@ -1486,7 +1486,9 @@ msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις ΣΑΕ 1.11"
+msgstr ""
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις "
+"[a@./Documentation.html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
