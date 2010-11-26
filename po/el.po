@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:46+0200\n"
+"PO-Revision-Date: 2010-11-26 14:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4359,6 +4359,9 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Το μέγεθος του textarea (στήλες) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
+"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2) και το παράθυρο των "
+"ερωτημάτων (x1,25)"
 
 #: libraries/config/messages.inc.php:474
 #, fuzzy
