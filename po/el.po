@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:51+0200\n"
+"PO-Revision-Date: 2010-11-26 13:52+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1801,7 +1801,7 @@ msgstr "Λήψη αρχείου"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Αδύνατο το άνοιγμα αρχείου: %s"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
