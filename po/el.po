@@ -7568,10 +7568,9 @@ msgid "This feature is not supported by your web browser"
 msgstr ""
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Προσαρμογή διακομιστή"
+msgstr "Ένωση με την τρέχουσα ρύθμιση"
 
 #: prefs_manage.php:277
 #, php-format
