@@ -5668,7 +5668,7 @@ msgstr "Διαθέσιμοι τύποι MIME"
 #: server_privileges.php:1618 server_privileges.php:2161
 #: server_processlist.php:54 server_synchronize.php:1157
 msgid "Host"
-msgstr "Σύστημα"
+msgstr "Φιλοξενητής"
 
 #: libraries/export/latex.php:144 libraries/export/sql.php:282
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
