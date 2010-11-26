@@ -10439,7 +10439,6 @@ msgid "VIEW name"
 msgstr "ΠΡΟΒΟΛΗ ονόματος"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
 msgstr "Μετονομασία πίνακα σε"
 
