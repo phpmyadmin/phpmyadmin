@@ -5638,10 +5638,9 @@ msgid "Object creation options"
 msgstr "Επιλογές μετατροπής αντικειμένου"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Λεζάντα πίνακα"
+msgstr "Λεζάντα πίνακα (συνεχίζει)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
