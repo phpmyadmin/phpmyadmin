@@ -1303,7 +1303,6 @@ msgid "Thursday"
 msgstr "Πέμπτη"
 
 #: js/messages.php:170
-#, fuzzy
 msgid "Friday"
 msgstr "Παρασκευή"
 
