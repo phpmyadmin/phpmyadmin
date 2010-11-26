@@ -4093,10 +4093,9 @@ msgstr ""
 "επεξεργασίας/εισαγωγής"
 
 #: libraries/config/messages.inc.php:441
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Εμφάνιση ανοιχτών πινάκων"
+msgstr "Εμφάνιση τύπων πεδίου"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
