@@ -10209,10 +10209,10 @@ msgid "None"
 msgstr "Καμία"
 
 #: tbl_structure.php:397
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Ο Πίνακας %s διεγράφη"
+msgstr "Η στήλη %s διεγράφη"
 
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
