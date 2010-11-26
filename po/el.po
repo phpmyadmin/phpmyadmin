@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:02+0200\n"
+"PO-Revision-Date: 2010-11-26 23:03+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3461,7 +3461,6 @@ msgid "GZip output buffering"
 msgstr "Εξαγόμενο GZip buffering"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3469,7 +3468,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για πεδία τύπου TIME, DATE, "
+"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για στήλες τύπου TIME, DATE, "
 "DATETIME και TIMESTAMP, αύξουσα ταξινόμηση στα υπόλοιπα"
 
 #: libraries/config/messages.inc.php:321
