@@ -2169,7 +2169,6 @@ msgid "complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Laajennetut lisäyslauseet"
