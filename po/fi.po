@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:44+0200\n"
+"PO-Revision-Date: 2010-11-26 19:47+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -336,7 +336,7 @@ msgid "Collation"
 msgstr "Aakkosjärjestys"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -344,8 +344,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso %slisätietoja%s."
+"phpMyAdminin asetusmuisti on poistettu käytöstä. Katso %slisätietoja%s, "
+"mistä tämä johtuu."
 
 #: db_operations.php:581
 #, fuzzy
