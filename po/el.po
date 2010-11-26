@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:24+0200\n"
+"PO-Revision-Date: 2010-11-26 14:25+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3454,7 +3454,7 @@ msgstr "Μέγιστο μήκος προβολής SQL"
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Οι χρήστες δεν μπορούν να ορίσουν μεγαλύτερη τιμή"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
