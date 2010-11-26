@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:41+0200\n"
+"PO-Revision-Date: 2010-11-26 13:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9060,14 +9060,12 @@ msgstr ""
 "<b>αναπαραγωγική</b> διαδικασία."
 
 #: server_status.php:483
-#, fuzzy
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Αυτός ο διακομιστής MySQL λειτουργεί ως %s στη διαδικασία <b>αναπαραγωγής</"
-"b>. Για περισσότερες πληροφορίες για την κατάσταση αναπαραγωγής στο "
-"διακομιστή, επισκευτείτε τον <a href=\"#replication\">τομέα αναπαραγωγής</a>."
+"Για περισσότερες πληροφορίες για την κατάσταση αναπαραγωγής στο διακομιστή, "
+"επισκεφτείτε τον <a href=#replication>τομέα αναπαραγωγής</a>."
 
 #: server_status.php:500
 msgid ""
