@@ -1133,10 +1133,9 @@ msgid "Add an option for column "
 msgstr "Προσθήκη επιλογής για τη στήλη "
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Παραγωγή Κωδικού Πρόσβασης"
+msgstr "Δημιουργία Κωδικού Πρόσβασης"
 
 #: js/messages.php:102 libraries/replication_gui.lib.php:365
 msgid "Generate"
