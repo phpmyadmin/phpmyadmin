@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:54+0200\n"
+"PO-Revision-Date: 2010-11-26 14:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4812,7 +4812,7 @@ msgstr "Μορφή ονόματος αρχείου"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστή"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
