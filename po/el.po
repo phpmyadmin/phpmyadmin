@@ -4421,10 +4421,9 @@ msgstr "Γρήγορο"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Προσαρμοσμένο χρώμα"
+msgstr "Προσαρμοσμένο"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
