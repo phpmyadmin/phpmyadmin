@@ -5997,7 +5997,6 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Εισαγωγή νομισμάτων (π.χ. €5,00 αντί 5,00)"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "Κατάσταση συμβατότητας SQL"
