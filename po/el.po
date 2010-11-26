@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:08+0200\n"
+"PO-Revision-Date: 2010-11-26 23:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3988,9 +3988,8 @@ msgstr ""
 "εκδόσεις."
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 msgid "Statements to track"
-msgstr "Δηλώσεις"
+msgstr "Δηλώσεις προς παρακολούθηση"
 
 #: libraries/config/messages.inc.php:423
 #, fuzzy
