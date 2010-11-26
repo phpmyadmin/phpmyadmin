@@ -281,10 +281,9 @@ msgid "Database %s has been dropped."
 msgstr "Tietokanta %s on poistettu."
 
 #: db_operations.php:446
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Siirry tietokantaan"
+msgstr "Tuhoa tietokanta (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
