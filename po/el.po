@@ -7456,7 +7456,7 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Οι υπάρχουσες ρυθμίσεις θα αντικατασταθούν!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
