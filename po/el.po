@@ -9473,7 +9473,7 @@ msgstr ""
 "[kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9481,8 +9481,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+"Η %sσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε αυτό "
+"το σύστημα."
 
 #: setup/lib/index.lib.php:272
 #, fuzzy, php-format
