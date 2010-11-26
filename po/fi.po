@@ -8768,7 +8768,7 @@ msgstr "Nollaa"
 
 #: server_status.php:132
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Replikaation vikasietotila (ei vielä toteutettu)."
+msgstr "Kahdennuksen vikasietotila (ei vielä toteutettu)."
 
 #: server_status.php:133
 msgid ""
