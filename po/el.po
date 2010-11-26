@@ -5933,7 +5933,7 @@ msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά
 #: libraries/import/ods.php:29
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
+msgstr "Εισαγωγή νομισμάτων (π.χ. €5,00 αντί 5,00)"
 
 #: libraries/import/sql.php:32
 #, fuzzy
