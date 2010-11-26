@@ -1073,10 +1073,9 @@ msgid "Copying Database"
 msgstr "Αντιγραφή βάσης δεδομένων"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Σύνολο χαρακτήρων"
+msgstr "Αλλαγή Συνόλου χαρακτήρων"
 
 #: js/messages.php:75
 #, fuzzy
