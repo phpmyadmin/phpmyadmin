@@ -636,7 +636,7 @@ msgstr "Näkymä"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
 msgid "Replication"
-msgstr "Replikaatio"
+msgstr "Kahdennus"
 
 #: db_structure.php:441
 msgid "Sum"
