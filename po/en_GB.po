@@ -6961,10 +6961,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Table options"
+msgstr "Active options"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
