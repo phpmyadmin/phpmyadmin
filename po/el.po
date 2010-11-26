@@ -4629,10 +4629,9 @@ msgid "Export Method:"
 msgstr "Μέθοδος εξαγωγής"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Βάσεις Δεδομένων"
+msgstr "Βάση(εις) Δεδομένων"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
