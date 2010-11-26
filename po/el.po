@@ -9757,7 +9757,6 @@ msgid "Function"
 msgstr "Έλεγχος"
 
 #: tbl_change.php:723
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
