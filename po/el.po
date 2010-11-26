@@ -1318,7 +1318,7 @@ msgstr "Κυρ"
 #. l10n: Short week day name
 #: js/messages.php:177 libraries/common.lib.php:1572
 msgid "Mon"
-msgstr "Δευτέρα"
+msgstr "Δευ"
 
 #. l10n: Short week day name
 #: js/messages.php:179 libraries/common.lib.php:1574
