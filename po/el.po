@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 00:47+0200\n"
+"PO-Revision-Date: 2010-11-27 00:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9475,6 +9475,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Αν χρησιμοποιείτε πιστοποίηση cookie και η %sαποθήκευση cookie Σύνδεσης%s "
+"δεν είναι 0, η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε μια τιμή "
+"μικρότερη ή ίση με αυτή."
 
 #: setup/lib/index.lib.php:266
 #, php-format
