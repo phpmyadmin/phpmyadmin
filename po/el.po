@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 00:06+0200\n"
+"PO-Revision-Date: 2010-11-27 00:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5838,6 +5838,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Ορίστηκε μη έγκυρη στήλη (%s)! Σιγουρευτείτε ότι τα ονόματα στηλών ορίζονται "
+"σωστά, χωρίζονται με κόμμα δεν περιέχονται σε εισαγωγικά."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
