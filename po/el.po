@@ -6741,7 +6741,6 @@ msgid "Length/Values"
 msgstr "Μήκος/Τιμές*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
