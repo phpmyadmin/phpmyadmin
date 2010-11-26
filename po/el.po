@@ -1250,7 +1250,7 @@ msgstr "Μάη"
 #. l10n: Short month name
 #: js/messages.php:150 libraries/common.lib.php:1555
 msgid "Jun"
-msgstr "Ιουνίου"
+msgstr "Ιουν"
 
 #. l10n: Short month name
 #: js/messages.php:152 libraries/common.lib.php:1557
