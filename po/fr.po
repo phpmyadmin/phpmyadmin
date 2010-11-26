@@ -9289,7 +9289,7 @@ msgstr "Retourner à la page précédente"
 
 #: tbl_change.php:1051
 msgid "Insert another new row"
-msgstr "Insérer un nouvel enregistrement"
+msgstr "Insérer une nouvelle ligne"
 
 #: tbl_change.php:1055
 msgid "Go back to this page"
