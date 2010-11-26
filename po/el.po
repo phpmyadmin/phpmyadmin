@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:45+0200\n"
+"PO-Revision-Date: 2010-11-26 14:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4348,7 +4348,7 @@ msgstr "Πρόταση νέου ονόματος βάσης δεδομένων"
 
 #: libraries/config/messages.inc.php:471
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Μια προειδοποίηση εμφανίζεται στη βασική σελίδα αν βρεθεί το Suhosin"
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
