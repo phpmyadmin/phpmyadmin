@@ -1005,10 +1005,9 @@ msgid "Add a New User"
 msgstr "Προσθήκη νέου Χρήστη"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Δημιουργία Χρήστη"
 
 #: js/messages.php:54
 #, fuzzy
