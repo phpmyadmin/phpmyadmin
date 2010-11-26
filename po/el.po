@@ -3207,9 +3207,8 @@ msgid "Do not import empty rows"
 msgstr "Να μην γίνει εισαγωγή άδειων γραμμών"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
+msgstr "Προσθήκη νομισμάτων (€5,00 αντί 5,00)"
 
 #: libraries/config/messages.inc.php:252
 #, fuzzy
