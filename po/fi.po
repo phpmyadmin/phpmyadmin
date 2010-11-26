@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:52+0200\n"
+"PO-Revision-Date: 2010-11-26 20:53+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -6302,7 +6302,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
 msgid "Add slave replication user"
-msgstr "Lisää alireplikaatiokäyttäjä"
+msgstr "Lisää alikahdennuksen käyttäjä"
 
 #: libraries/replication_gui.lib.php:256 server_privileges.php:717
 msgid "Any user"
