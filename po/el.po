@@ -3011,7 +3011,6 @@ msgid "Configuration storage"
 msgstr "Αρχείο ρυθμίσεων"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
