@@ -3307,7 +3307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of rows to display"
-msgstr "Nombre maximum d'enregistrements à afficher"
+msgstr "Nombre maximum de lignes à afficher"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of tables displayed in table list"
