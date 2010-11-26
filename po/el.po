@@ -9902,7 +9902,7 @@ msgstr "Πολλαπλό"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Συνεχής εικόνα"
 
 #: tbl_chart.php:155
 msgid ""
