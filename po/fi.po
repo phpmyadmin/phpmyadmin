@@ -8092,7 +8092,7 @@ msgstr "Isäntäpalvelimeksi on onnistuen vaihdettu %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr "Tämä palvelin on määritelty kahdennustoiminnon isäntäpalvelimeksi."
 
 #: server_replication.php:182 server_status.php:398
 msgid "Show master status"
