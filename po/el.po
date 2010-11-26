@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:28+0200\n"
+"PO-Revision-Date: 2010-11-26 15:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9692,7 +9692,6 @@ msgstr ""
 "υποστηρίζει"
 
 #: setup/lib/index.lib.php:306
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
 msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης"
