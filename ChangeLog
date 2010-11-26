@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.11.1 (2010-11-26)
+- bug #3115519 (private) [security] XSS on db search
+
 2.11.11.0 (2010-09-07)
 - [core] Fix broken cleanup of $_GET
 - bug #3054458 [core] Fixed displaying number of rows.
