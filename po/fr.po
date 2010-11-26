@@ -7979,8 +7979,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"Le nombre d'enregistrements écrits avec INSERT DELAYED pour lesquels une "
-"erreur est survenue (probablement un doublon sur la clé)."
+"Le nombre de lignes écrites avec INSERT DELAYED pour lesquels une erreur est "
+"survenue (probablement un doublon sur la clé)."
 
 #: server_status.php:52
 msgid ""
