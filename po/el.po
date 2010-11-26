@@ -1328,7 +1328,7 @@ msgstr "Τρί"
 #. l10n: Short week day name
 #: js/messages.php:181 libraries/common.lib.php:1576
 msgid "Wed"
-msgstr "Τετάρτη"
+msgstr "Τετ"
 
 #. l10n: Short week day name
 #: js/messages.php:183 libraries/common.lib.php:1578
