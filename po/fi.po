@@ -1080,7 +1080,7 @@ msgstr "Tietokannan kopiointi"
 #: js/messages.php:74
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Merkistökoodauksen muuttaminen"
+msgstr "Merkistökoodauksen vaihtaminen"
 
 #: js/messages.php:75
 #, fuzzy
