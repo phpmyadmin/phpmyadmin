@@ -2274,7 +2274,7 @@ msgstr "Utilisé quand on clique sur une ligne"
 
 #: libraries/config/messages.inc.php:25
 msgid "Row marker"
-msgstr "Activer le marqueur d'enregistrements"
+msgstr "Activer le marqueur de lignes"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
