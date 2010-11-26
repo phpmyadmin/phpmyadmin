@@ -122,7 +122,7 @@ if (!$GLOBALS['is_ajax_request']) {
                             $GLOBALS['cfg']['DefaultTabDatabase'],
                             PMA_generate_common_url($GLOBALS['db']),
                             $GLOBALS['db'],
-                            '',
+                            __('Database'),
                             's_tbl.png');
                     // if the table is being dropped, $_REQUEST['purge'] is set
                     // (it always contains "1")
