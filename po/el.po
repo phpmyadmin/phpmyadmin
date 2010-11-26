@@ -7901,10 +7901,9 @@ msgid "No privileges."
 msgstr "Χωρίς δικαιώματα."
 
 #: server_privileges.php:303 server_privileges.php:304
-#, fuzzy
 msgctxt "None privileges"
 msgid "None"
-msgstr "Καμία"
+msgstr "Κανένα"
 
 #: server_privileges.php:432 server_privileges.php:567
 #: server_privileges.php:1809 server_privileges.php:1815
