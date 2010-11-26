@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:18+0200\n"
+"PO-Revision-Date: 2010-11-26 23:19+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4783,9 +4783,9 @@ msgid "Importing into the current server"
 msgstr "Εισαγωγή στον τρέχοντα διακομιστή"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Εισαγωγή στη βάση δεδομένων «%s»"
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
