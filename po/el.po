@@ -2993,10 +2993,9 @@ msgid "Basic settings"
 msgstr "Βασικές ρυθμίσεις"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Τύπος επικύρωσης"
+msgstr "Πιστοποιίηση"
 
 #: libraries/config/messages.inc.php:195
 #, fuzzy
