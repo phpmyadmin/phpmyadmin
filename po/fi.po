@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:34+0200\n"
+"PO-Revision-Date: 2010-11-26 20:36+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1136,7 +1136,7 @@ msgstr "Valitse näytettävä sarake"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Lisää asetus sarakkeelle"
 
 #: js/messages.php:101
 #, fuzzy
