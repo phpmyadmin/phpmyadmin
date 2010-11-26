@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:52+0200\n"
+"PO-Revision-Date: 2010-11-26 15:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5713,10 +5713,11 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Προσθήκη προσαρμοσμένου σχολίου στην κεφαλίδα (το \\n χωρίζει γραμμές)"
+msgstr ""
+"Προσθήκη προσαρμοσμένου σχολίου στην κεφαλίδα (το \n"
+" χωρίζει γραμμές)"
 
 #: libraries/export/sql.php:37
 msgid ""
