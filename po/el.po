@@ -4734,7 +4734,6 @@ msgid "zipped"
 msgstr "συμπίεση «zip»"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 msgid "gzipped"
 msgstr "συμπίεση «gzip»"
 
