@@ -6350,7 +6350,7 @@ msgstr "Η σελίδα %s δεν περιέχει κανένα πίνακα!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
