@@ -4384,7 +4384,6 @@ msgid "HTTP authentication"
 msgstr "Πιστοποίηση HTTP"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
 msgstr "Σειρά επικύρωσης"
