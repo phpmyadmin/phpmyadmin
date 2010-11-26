@@ -2481,7 +2481,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:45
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Προβολή κατεύθυνσης για αλλαγή/δημιουργία στηλών"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
