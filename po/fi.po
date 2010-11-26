@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:49+0200\n"
+"PO-Revision-Date: 2010-11-26 20:50+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1818,7 +1818,6 @@ msgid "Overhead"
 msgstr "Ylijäämä"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Siirry tietokantaan"
