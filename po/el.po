@@ -7172,7 +7172,6 @@ msgstr ""
 "θα λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -7182,10 +7181,11 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την "
-"ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας "
-"θα λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
+"Η παράμετρος PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την ρυθμισμένη "
+"εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας θα λήξει "
+"νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
