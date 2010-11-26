@@ -953,10 +953,9 @@ msgid "Dropping Procedure"
 msgstr "Διαδικασία διαγραφής"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
