@@ -9273,7 +9273,7 @@ msgstr "Sauvegarder une nouvelle ligne"
 
 #: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
-msgstr "Sauvegarder un nouvel enregistrement (ignorer les erreurs)"
+msgstr "Sauvegarder une nouvelle ligne en ignorant les erreurs"
 
 #: tbl_change.php:1035
 msgid "Show insert query"
