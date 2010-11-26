@@ -2565,10 +2565,9 @@ msgid "Replace NULL by"
 msgstr "Αντικατάσταση τιμής NULL με"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στα πεδία"
+msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στήλες"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
