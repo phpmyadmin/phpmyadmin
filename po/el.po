@@ -4672,10 +4672,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Αποθήκευση στον διακομιστή στον φάκελο <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
