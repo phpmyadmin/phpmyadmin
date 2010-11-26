@@ -9887,10 +9887,9 @@ msgid "Pie"
 msgstr "Πίτα"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Τύπος ερωτήματος"
+msgstr "Τύπος στήλης"
 
 #: tbl_chart.php:146
 #, fuzzy
