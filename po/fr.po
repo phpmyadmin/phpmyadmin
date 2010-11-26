@@ -8088,7 +8088,7 @@ msgstr "Le nombre de requêtes de mise à jour de lignes dans une table."
 
 #: server_status.php:66
 msgid "The number of requests to insert a row in a table."
-msgstr "Le nombre de requêtes d'insertion d'enregistrements."
+msgstr "Le nombre de requêtes d'insertion de lignes dans une table."
 
 #: server_status.php:67
 msgid "The number of pages containing data (dirty or clean)."
