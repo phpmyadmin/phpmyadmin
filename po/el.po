@@ -1015,7 +1015,6 @@ msgid "Reloading Privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Διαγραφή των επιλεγμένων χρηστών"
