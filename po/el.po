@@ -1058,10 +1058,9 @@ msgid "OK"
 msgstr "Εντάξει"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Μετονομασία βάσεων δεδομένων"
 
 #: js/messages.php:72
 #, fuzzy
