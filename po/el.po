@@ -8604,7 +8604,8 @@ msgstr "Ο αριθμός των φυσικών εγγραφών στο αρχε
 
 #: server_status.php:93
 msgid "The number of fsync() writes done to the log file."
-msgstr "Ο αριθμός των εγγραφών fsyncs που ολοκληρώθηκαν στο αρχείο καταγραφής."
+msgstr ""
+"Ο αριθμός των εγγραφών fsyncs() που ολοκληρώθηκαν στο αρχείο καταγραφής."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
