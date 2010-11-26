@@ -4369,10 +4369,9 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Σειρά επικύρωσης"
+msgstr "Ρύθμιση πιστοποίησης"
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
