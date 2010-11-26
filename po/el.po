@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:09+0200\n"
+"PO-Revision-Date: 2010-11-26 23:10+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4016,13 +4016,12 @@ msgid "Automatically create versions"
 msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
-"[kbd]pma_history[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
+"[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
