@@ -6496,10 +6496,9 @@ msgid "Page name"
 msgstr "Όνομα σελίδας"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Αυτόματη διάταξη"
+msgstr "Αυτόματη διάταξη με βάση το"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
