@@ -4752,9 +4752,8 @@ msgid "Format-Specific Options:"
 msgstr "Επιλογές Ορισμένης Μορφής:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "Μηχανή επανακωδικοποίησης"
+msgstr "Μετατροπή κωδικοποίησης"
 
 #: libraries/display_import.lib.php:66
 msgid ""
