@@ -6934,10 +6934,9 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσεων"
+msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
