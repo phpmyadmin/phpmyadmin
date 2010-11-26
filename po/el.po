@@ -7415,7 +7415,7 @@ msgstr "Εισαγωγή από αρχείο"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Εισαγωγή από την αποθήκευση φυλλομετρητή"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
