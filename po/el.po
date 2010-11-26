@@ -937,7 +937,7 @@ msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποι�
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
-msgstr "Θέλετε να εκτελέσετε την εντολή"
+msgstr "Θέλετε να εκτελέσετε την εντολή "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
