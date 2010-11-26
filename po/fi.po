@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:43+0200\n"
+"PO-Revision-Date: 2010-11-26 19:44+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -303,7 +303,7 @@ msgstr "Vain tiedot"
 
 #: db_operations.php:491
 msgid "CREATE DATABASE before copying"
-msgstr "Suorita CREATE DATABASE ennen kopioimista"
+msgstr "Suorita CREATE DATABASE ennen kopiointia"
 
 #: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
