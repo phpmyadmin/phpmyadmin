@@ -4297,7 +4297,7 @@ msgstr "Παράβλεψη κλειδωμένων πινάκων"
 
 #: libraries/config/messages.inc.php:462
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποιητή SQL"
 
 #: libraries/config/messages.inc.php:464
 #: libraries/display_change_password.lib.php:40
