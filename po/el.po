@@ -2264,7 +2264,7 @@ msgstr "η εισαγωγή δεν θα λειτουργήσει γιατί λε
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "η εξαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
