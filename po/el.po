@@ -4719,7 +4719,6 @@ msgid "Character set of the file:"
 msgstr "Σύνολο χαρακτήρων του αρχείου:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Συμπίεση"
