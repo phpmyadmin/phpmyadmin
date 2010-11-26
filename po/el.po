@@ -7420,9 +7420,8 @@ msgid "subquery"
 msgstr "υποερώτημα"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 msgid "Rename to"
-msgstr "Μετονομασία πίνακα σε"
+msgstr "Μετονομασία σε"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
