@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:45+0200\n"
+"PO-Revision-Date: 2010-11-26 22:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1518,11 +1518,11 @@ msgstr[0] "Επηρεάστηκε %1$d γραμμή."
 msgstr[1] "Επηρεάστηκαν %1$d γραμμές."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Διαγράφτηκε(αν) %1$d γραμμή(ές)."
-msgstr[1] "Διαγράφτηκε(αν) %1$d γραμμή(ές)."
+msgstr[0] "Διαγράφτηκε %1$d γραμμή."
+msgstr[1] "Διαγράφτηκαν %1$d γραμμές."
 
 #: libraries/Message.class.php:319
 #, fuzzy, php-format
