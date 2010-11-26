@@ -1093,10 +1093,9 @@ msgid "Searching"
 msgstr "Αναζήτηση"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "Χώρος Ερωτήματος SQL"
+msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:85
 #, fuzzy
