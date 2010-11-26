@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 21:06+0200\n"
+"PO-Revision-Date: 2010-11-26 21:09+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -8984,12 +8984,13 @@ msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Tämä MySQL-palvelin on ollut käynnissä %s. Se käynnistettiin %s."
 
 #: server_status.php:477
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr ""
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> <b>pää-</b> ja "
+"<b>alipalvelimena</b>."
 
 #: server_status.php:479
 #, fuzzy
