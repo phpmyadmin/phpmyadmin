@@ -7520,10 +7520,10 @@ msgid "Modifications have been saved"
 msgstr "Οι αλλαγές αποθηκεύτηκαν"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Η υποβλειθείσα φόρμα περιέχει σφάλματα"
+msgstr ""
+"Αδύνατη η αποθήκευση ρυθμίσεων γιατί η υποβλειθείσα φόρμα περιέχει σφάλματα"
 
 #: prefs_manage.php:80
 #, fuzzy
