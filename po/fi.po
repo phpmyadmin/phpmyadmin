@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:53+0200\n"
+"PO-Revision-Date: 2010-11-26 20:54+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -7758,7 +7758,7 @@ msgstr "Sallii käyttäjän kysyä, missä ali- ja pääpalvelimet sijaitsevat."
 #: server_privileges.php:52 server_privileges.php:198
 #: server_privileges.php:554
 msgid "Needed for the replication slaves."
-msgstr "Tarvitaan replikaatiota käyttävissä alipalvelimissa."
+msgstr "Tarvitaan kahdennusta käyttävissä alipalvelimissa."
 
 #: server_privileges.php:53 server_privileges.php:181
 #: server_privileges.php:440 server_privileges.php:504
