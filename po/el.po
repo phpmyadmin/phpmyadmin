@@ -1280,7 +1280,7 @@ msgstr "Νοε"
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1567
 msgid "Dec"
-msgstr "Δεκεμβρίου"
+msgstr "Δεκ"
 
 #: js/messages.php:165
 msgid "Sunday"
