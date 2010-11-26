@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:37+0200\n"
+"PO-Revision-Date: 2010-11-26 23:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9315,13 +9315,13 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #: setup/lib/index.lib.php:162
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Χρησιμοποιείτε υποέκδοση έκδοσης. Εκτελέστε την [kbd]ενημέρωση svn[/kbd] :-)"
-"[br]Η τελευταία τελική έκδοση είναι η %s και δημοσιεύτηκε την %s."
+"Χρησιμοποιείτε έκδοση Git, τρέξτε το [kbd]git pull[/kbd] :-)[br]Η τελευταία "
+"σταθερή έκδοση είναι %s, δημοσιεύτηκε την %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
