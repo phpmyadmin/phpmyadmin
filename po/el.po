@@ -3559,10 +3559,9 @@ msgid "Query window width (in pixels)"
 msgstr "Πλάτος παραθύρου ερωτήματος (σε εικονοστοιχεία)"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Παράθυρο ερωτήματος"
+msgstr "Πλάτος παραθύρου ερωτήματος"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
