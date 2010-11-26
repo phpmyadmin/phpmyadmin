@@ -4374,6 +4374,9 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Το μέγεθος του textarea (γραμμές) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
+"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2) και το παράθυρο των "
+"ερωτημάτων (x1,25)"
 
 #: libraries/config/messages.inc.php:476
 #, fuzzy
