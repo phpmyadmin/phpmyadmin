@@ -2739,7 +2739,7 @@ msgstr "Κατάσταση συμβατότητας SQL"
 
 #: libraries/config/messages.inc.php:118
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Σύνταξη για χρήση στην εισαγωγή δεδομένων"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
