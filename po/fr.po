@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-23 19:43+0200\n"
+"PO-Revision-Date: 2010-11-26 19:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6913,7 +6913,7 @@ msgstr ""
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 msgid "Reload navigation frame"
-msgstr "Recharger le cadre de navigation"
+msgstr "Actualiser"
 
 #: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
 msgid "No databases"
