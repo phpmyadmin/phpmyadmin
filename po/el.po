@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:15+0200\n"
+"PO-Revision-Date: 2010-11-26 23:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4624,10 +4624,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr "Εξαγωγή εγγραφών στον πίνακα «%s»"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Τύπος εξαγωγής"
+msgstr "Μέθοδος εξαγωγής"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
