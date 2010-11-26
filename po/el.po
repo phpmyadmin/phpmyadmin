@@ -2016,7 +2016,7 @@ msgstr "Επικύρωση SQL"
 
 #: libraries/common.lib.php:1244
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
 #: libraries/common.lib.php:1246
 #, fuzzy
