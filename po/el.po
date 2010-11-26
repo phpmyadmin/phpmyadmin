@@ -2347,10 +2347,9 @@ msgstr ""
 "[kbd]textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
 
 #: libraries/config/messages.inc.php:31
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "Επεξεργασία πεδίων CHAR"
+msgstr "Επεξεργασία στηλών CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
