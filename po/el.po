@@ -5738,10 +5738,10 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Δηλώσεις"
+msgstr "Προσθήκη δήλωσης %s"
 
 #: libraries/export/sql.php:91
 #| msgid "Statements"
