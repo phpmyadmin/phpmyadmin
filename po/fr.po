@@ -8532,7 +8532,7 @@ msgstr "Le nombre de tri effectués avec des plages."
 
 #: server_status.php:145
 msgid "The number of sorted rows."
-msgstr "Le nombre d'enregistrements triés."
+msgstr "Le nombre de lignes triées."
 
 #: server_status.php:146
 msgid "The number of sorts that were done by scanning the table."
