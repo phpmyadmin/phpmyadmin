@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:03+0200\n"
+"PO-Revision-Date: 2010-11-26 13:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -867,7 +867,8 @@ msgid ""
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις ΣΑΕ 1.16."
+"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ "
+"1.16[/a]."
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1485,7 +1486,9 @@ msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις ΣΑΕ 1.11"
+msgstr ""
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις "
+"[a@./Documentation.html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
@@ -3011,7 +3014,6 @@ msgid "Configuration storage"
 msgstr "Αρχείο ρυθμίσεων"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -4901,7 +4903,6 @@ msgstr ""
 "συνεχίσει από τη θέση %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -6721,9 +6722,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Ο επικυρωτής SQL δεν μπόρεσε να ενεργοποιηθεί. Παρακαλώ ελέγξτε ότι έχετε "
-"εγκαταστήσει της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %"
-"sτεκμηρίωση%s."
+"Ο επικυρωτής SQL δεν μπόρεσε να ξεκινήσει. Ελέγξτε ότι έχετε εγκαταστήσει "
+"της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %sτεκμηρίωση%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6883,7 +6883,6 @@ msgid "Displays a link to download this image."
 msgstr "Εμφανίζει έναν σύνδεσμο για αυτήν την εικόνα."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 #| "formatted date. The first option is the offset (in hours) which will be "
@@ -6903,9 +6902,9 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Προβάλει ένα πεδίο ημερομηνίας-ώρας (TIME, TIMESTAMP, DATETIME ή αριθμητικός "
-"χρόνος UNIX) ως μορφοποιημένη ημερομηνία. Η πρώτη επιλογή είναι το "
-"αντιστάθμισμα (σε ώρες) που θα προστεθεί στην υπαρχουσα (Προεπιλογή: 0) "
+"Προβάλεται ένα πεδίο ημερομηνίας-ώρας (TIME, TIMESTAMP, DATETIME ή "
+"αριθμητικός χρόνος UNIX) ως μορφοποιημένη ημερομηνία. Η πρώτη επιλογή είναι "
+"το αντιστάθμισμα (σε ώρες) που θα προστεθεί στην υπαρχουσα (Προεπιλογή: 0) "
 "Χρησιμοποιείστε τη δεύτερη επιλογή για να ορίσετε μια μορφή ημερομηνίας "
 "ώρας. Η τρίτη επιλογή ορίζει αν θέλετε να δείτε την τοπική ή την παγκόσμια "
 "ώρα (χρήση «local» ή «utc» αντίστοιχα). Σύμφωνα με αυτό, η μορφή της "
@@ -6914,7 +6913,6 @@ msgstr ""
 "συνάρτηση gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6941,18 +6939,17 @@ msgstr ""
 "ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
 "«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
-"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
-"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
-"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
-"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
-"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
-"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
-"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
-"(Προεπιλεγμένη τιμή: 1)"
+"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
+"libraries/transformations/text_plain__external.inc.php και να εισάγετε τις "
+"εφαρμογές που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο "
+"αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
+"είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
+"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
+"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
+"περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
+"διάταξη (Προεπιλεγμένη τιμή: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6960,11 +6957,10 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες "
-"διαφυγής."
+"Διατηρεί την αρχική μορφοποίηση του πεδίου, χωρίς χρήση της συνάρτησης "
+"htmlspecialchars(). Θεωρείται ότι η στήλη περιέχει έγκυρη HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6975,11 +6971,10 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Εμφανίζει μία εικόνα και ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η "
-"πρώτη επιλογή είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή "
+"πρώτη επιλογή είναι ένα πρόθεμα όπως «http://domain.gr», η δεύτερη επιλογή "
 "είναι το πλάτος σε εικονοστοιχεία, η τρίτη είναι το ύψος."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6990,7 +6985,7 @@ msgid ""
 "the link."
 msgstr ""
 "Εμφανίζει ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η πρώτη επιλογή "
-"είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή είναι ένας "
+"είναι ένα πρόθεμα όπως «http://domain.gr», η δεύτερη επιλογή είναι ένας "
 "τίτλος για τον σύνδεσμο."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
@@ -9567,7 +9562,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9582,11 +9577,9 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
-"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
-"formset=features#tab_Security]λίστα αξιόπιστων διακομιστών[/a]. Ωστόσο, η "
-"βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν ο πάροχός έχει χιλιάδες "
-"χρήστες που συνδέονται."
+"προστασίας - ρυθμίσεις %sπιστοποίησης φιλοξενίας%s και %sλίστα ασφαλών "
+"διακομιστών%s. Ωστόσο, η βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν "
+"ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
@@ -10016,10 +10009,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:682
-#, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Διαγραφή της βάσης δεδομένων (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
