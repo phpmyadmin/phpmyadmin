@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:18+0200\n"
+"PO-Revision-Date: 2010-11-26 19:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8084,7 +8084,7 @@ msgstr "Le nombre d'énoncés ROLLBACK internes."
 
 #: server_status.php:65
 msgid "The number of requests to update a row in a table."
-msgstr "Le nombre de requêtes de mise à jour d'enregistrements."
+msgstr "Le nombre de requêtes de mise à jour de lignes dans une table."
 
 #: server_status.php:66
 msgid "The number of requests to insert a row in a table."
