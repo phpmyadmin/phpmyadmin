@@ -2463,7 +2463,7 @@ msgstr "Επιβεβαίωση ερωτημάτων ΔΙΑΓΡΑΦΗΣ (DROP)"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
-msgstr ""
+msgstr "Ανίχνευση λαθών SQL"
 
 #: libraries/config/messages.inc.php:43
 #, fuzzy
