@@ -4219,7 +4219,7 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
-"Montre le nombre d'enregistrements affectés par chaque énoncé. Voir "
+"Montre le nombre de lignes affectées par chaque énoncé. Voir "
 "libraries/import.lib.php pour le nombre d'énoncés qu'une requête peut "
 "comporter."
 
