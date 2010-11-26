@@ -8135,7 +8135,7 @@ msgstr "Kahdenna kaikki tietokannat; Sivuuta:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr "Sivuuta kaikki tietokannat; Replikoi:"
+msgstr "Sivuuta kaikki tietokannat; Kahdenna:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
