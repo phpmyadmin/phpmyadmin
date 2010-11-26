@@ -4639,7 +4639,6 @@ msgid "Table(s):"
 msgstr "Πίνακας(ες)"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Εγγραφές"
