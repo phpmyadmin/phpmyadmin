@@ -1229,7 +1229,7 @@ msgstr "Ιαν"
 #. l10n: Short month name
 #: js/messages.php:142 libraries/common.lib.php:1547
 msgid "Feb"
-msgstr "Φεβρουαρίου"
+msgstr "Φεβ"
 
 #. l10n: Short month name
 #: js/messages.php:144 libraries/common.lib.php:1549
