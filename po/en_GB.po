@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-19 13:06+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-11-26 12:01+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -410,11 +410,11 @@ msgstr "You have to choose at least one column to display"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Switch to"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "visual builder"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -1099,7 +1099,7 @@ msgstr "Choose column to display"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Add an option for column "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -6898,10 +6898,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export coordinates for PDF schema"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Submit Query"
+msgstr "Build Query"
 
 #: pmd_general.php:127
 msgid "Move Menu"
@@ -6924,42 +6923,36 @@ msgid "Delete relation"
 msgstr "Delete relation"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relation deleted"
+msgstr "Relation operator"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Export"
+msgstr "Except"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "in query"
+msgstr "subquery"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Rename view to"
+msgstr "Rename to"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "User name"
+msgstr "New name"
 
 #: pmd_general.php:487 pmd_general.php:702
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Create"
+msgstr "Aggregate"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
@@ -6968,10 +6961,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Table options"
+msgstr "Active options"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
