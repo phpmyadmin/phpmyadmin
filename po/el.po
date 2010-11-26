@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:07+0200\n"
+"PO-Revision-Date: 2010-11-26 13:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6974,7 +6974,6 @@ msgstr ""
 "είναι το πλάτος σε εικονοστοιχεία, η τρίτη είναι το ύψος."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6985,7 +6984,7 @@ msgid ""
 "the link."
 msgstr ""
 "Εμφανίζει ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η πρώτη επιλογή "
-"είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή είναι ένας "
+"είναι ένα πρόθεμα όπως «http://domain.gr», η δεύτερη επιλογή είναι ένας "
 "τίτλος για τον σύνδεσμο."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
