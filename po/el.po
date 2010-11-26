@@ -9054,11 +9054,10 @@ msgstr ""
 "<b>αναπαραγωγική</b> διαδικασία."
 
 #: server_status.php:481
-#, fuzzy
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Αυτός ο διακομιστής έχει ρυθμιστεί ως πρωτεύων σε μια αναπαραγωγική "
-"διαδικασία."
+"Αυτός ο διακομιστής έχει ρυθμιστεί ως <b>πρωτεύων</b> σε μια "
+"<b>αναπαραγωγική</b> διαδικασία."
 
 #: server_status.php:483
 #, fuzzy
