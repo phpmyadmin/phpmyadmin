@@ -5633,10 +5633,9 @@ msgstr "Δομή του πίνακα @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Επιλογές μετατροπής"
+msgstr "Επιλογές μετατροπής αντικειμένου"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #, fuzzy
