@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:36+0200\n"
+"PO-Revision-Date: 2010-11-26 22:37+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1035,10 +1035,9 @@ msgid "Loading"
 msgstr "Φόρτωση"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Διεργασίες"
+msgstr "Προώθηση Αιτήματος"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
