@@ -5570,10 +5570,9 @@ msgid "Columns escaped with:"
 msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής: "
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Γραμμές που τελειώνουν με"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
