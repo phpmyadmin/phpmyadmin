@@ -2237,7 +2237,7 @@ msgstr "vienti ei toimi, puuttuva funktio (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL-validaattori ei ole käytössä"
 
 #: libraries/config/FormDisplay.class.php:764
 #, fuzzy
