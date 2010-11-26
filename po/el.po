@@ -1432,7 +1432,7 @@ msgstr "Wiki"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "Ώρα"
 
 #: js/messages.php:208
 #, fuzzy
