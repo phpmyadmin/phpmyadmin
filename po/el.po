@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:44+0200\n"
+"PO-Revision-Date: 2010-11-26 22:45+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1394,9 +1394,8 @@ msgid "Minute"
 msgstr "Λεπτό"
 
 #: js/messages.php:209
-#, fuzzy
 msgid "Second"
-msgstr "ανά δευτερόλεπτο"
+msgstr "Δευτερόλεπτο"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
