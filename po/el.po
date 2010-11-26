@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:55+0200\n"
+"PO-Revision-Date: 2010-11-26 22:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2572,10 +2572,9 @@ msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στ�
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Στήλες που τελειώνουν με"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
