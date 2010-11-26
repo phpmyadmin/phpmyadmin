@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:54+0200\n"
+"PO-Revision-Date: 2010-11-26 19:56+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -5856,7 +5856,7 @@ msgstr "Luontiympäristö"
 #: libraries/import.lib.php:153 sql.php:593 tbl_change.php:176
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL palautti tyhjän vastauksen, toisin sanoen nolla riviä."
+msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
 #: libraries/import.lib.php:1141
 msgid ""
