@@ -4904,7 +4904,6 @@ msgid "Options"
 msgstr "Επιλογές"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Περιληπτικά κείμενα"
