@@ -414,7 +414,7 @@ msgstr "Πρέπει να επιλέξετε τουλάχιστον μία στ�
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Μετάβαση σε"
 
 #: db_qbe.php:186
 msgid "visual builder"
