@@ -3498,7 +3498,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:309
 msgid "mcrypt warning"
-msgstr ""
+msgstr "προειδοποιηση mcrypt"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
