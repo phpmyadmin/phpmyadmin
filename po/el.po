@@ -1853,7 +1853,7 @@ msgstr ""
 "σωστά."
 
 #: libraries/common.inc.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
