@@ -3507,10 +3507,9 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Αποτροπή επεξεργασίας στηλών BLOB και BINARY"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Προστασία δυαδικών πεδίων"
+msgstr "Προστασία δυαδικών στηλών"
 
 #: libraries/config/messages.inc.php:330
 #, fuzzy
