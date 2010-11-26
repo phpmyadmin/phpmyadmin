@@ -8171,7 +8171,7 @@ msgstr ""
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Palvelin on määritetty replikaatioprosessin alipalvelimeksi. Mitä haluat "
+"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Mitä haluat "
 "tehdä?"
 
 #: server_replication.php:306
