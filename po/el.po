@@ -7319,7 +7319,6 @@ msgid "Clear"
 msgstr "Καθάρισμα"
 
 #: navigation.php:324 navigation.php:325
-#, fuzzy
 msgctxt "short form"
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
