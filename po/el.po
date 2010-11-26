@@ -4012,9 +4012,8 @@ msgstr ""
 "αυτόματα."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "Αυτόματη κατάσταση επαναφοράς"
+msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:427
 #, fuzzy
