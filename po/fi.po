@@ -1417,7 +1417,7 @@ msgstr "Vko"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "Tunti"
 
 #: js/messages.php:208
 #, fuzzy
