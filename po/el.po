@@ -3992,7 +3992,6 @@ msgid "Statements to track"
 msgstr "Δηλώσεις προς παρακολούθηση"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
