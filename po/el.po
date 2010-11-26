@@ -4088,6 +4088,8 @@ msgstr "Προσθήκη ΔΙΑΓΡΑΦΗΣ ΠΡΟΒΟΛΗΣ (DROP VIEW)"
 #: libraries/config/messages.inc.php:421
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Ορίζει τη λίστα των δηλώσεων που χρησιμοποιεί η αυτόματη δημιουργία για νέες "
+"εκδόσεις."
 
 #: libraries/config/messages.inc.php:422
 #, fuzzy
