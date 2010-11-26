@@ -1103,10 +1103,9 @@ msgid "Hide query box"
 msgstr "Piilota SQL-kyselykenttä"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL-kyselykenttä"
+msgstr "Näytä kyselykenttä"
 
 #: js/messages.php:86
 #, fuzzy
