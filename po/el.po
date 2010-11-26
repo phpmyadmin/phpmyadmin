@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:35+0200\n"
+"PO-Revision-Date: 2010-11-26 13:36+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5034,7 +5034,7 @@ msgstr "στην εντολή"
 
 #: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
-msgstr "Εμφάνιση εγγραφής "
+msgstr "Εμφάνιση εγγραφών "
 
 #: libraries/display_tbl.lib.php:1958
 msgid "total"
