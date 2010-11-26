@@ -1103,9 +1103,8 @@ msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:86
-#, fuzzy
 msgid "Inline Edit"
-msgstr "Μηχανές"
+msgstr "Εσωτερική Επεξεργασία"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
