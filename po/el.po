@@ -7409,10 +7409,9 @@ msgstr "Λειτουργός συσχέτισης"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Εξαγωγή"
+msgstr "Εξαίρεση"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
