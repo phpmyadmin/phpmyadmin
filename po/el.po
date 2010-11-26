@@ -3502,10 +3502,9 @@ msgid "Iconic table operations"
 msgstr "Λειτουργίες πίνακα με εικονίδια"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Αποτροπή επεξεργασίας πεδίων BLOB και BINARY"
+msgstr "Αποτροπή επεξεργασίας στηλών BLOB και BINARY"
 
 #: libraries/config/messages.inc.php:329
 #, fuzzy
