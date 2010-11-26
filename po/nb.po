@@ -1076,7 +1076,6 @@ msgid "Show query box"
 msgstr "Vis spørringsboks"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
 msgstr "Inline Edit"
