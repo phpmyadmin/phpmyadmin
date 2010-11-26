@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:23+0200\n"
+"PO-Revision-Date: 2010-11-26 14:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3433,7 +3433,7 @@ msgstr "Εγκυρότητα cookie σύνδεσης"
 
 #: libraries/config/messages.inc.php:295
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Διπλό μέγεθος του textarea για στήλες LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
