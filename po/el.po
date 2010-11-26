@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:34+0200\n"
+"PO-Revision-Date: 2010-11-26 15:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8107,7 +8107,6 @@ msgid "Database for user"
 msgstr "Βάση δεδομένων για χρήστη"
 
 #: server_privileges.php:2129
-#, fuzzy
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Καμία"
