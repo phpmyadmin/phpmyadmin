@@ -8294,7 +8294,7 @@ msgstr "Le nombre de fois qu'on a dû attendre pour un verrou."
 
 #: server_status.php:106
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "Le nombre d'enregistrements supprimés des tables InnoDB."
+msgstr "Le nombre de lignes supprimées des tables InnoDB."
 
 #: server_status.php:107
 msgid "The number of rows inserted in InnoDB tables."
