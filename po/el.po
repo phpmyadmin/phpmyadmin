@@ -1245,7 +1245,7 @@ msgstr "Απρ"
 #: js/messages.php:148 libraries/common.lib.php:1553
 msgctxt "Short month name"
 msgid "May"
-msgstr "Μαΐου"
+msgstr "Μάη"
 
 #. l10n: Short month name
 #: js/messages.php:150 libraries/common.lib.php:1555
