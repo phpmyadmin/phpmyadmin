@@ -1881,7 +1881,7 @@ msgstr "Δεν βρέθηκαν δεδομένα για το διάγραμμα.
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Απαιτείται η επέκταση GD για τα διαγράμματα."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
