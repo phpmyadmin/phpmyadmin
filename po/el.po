@@ -6669,10 +6669,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Εκτέλεση εντολής/εντολών SQL στη βάση δεδομένων %s"
 
 #: libraries/sql_query_form.lib.php:297
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Ονόματα στηλών"
+msgstr "Στήλες"
 
 #: libraries/sql_query_form.lib.php:332 sql.php:846 sql.php:847 sql.php:864
 msgid "Bookmark this SQL query"
