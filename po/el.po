@@ -3377,7 +3377,7 @@ msgstr "Μέγιστος αριθμός χαρακτήρων όταν προβά
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
-msgstr ""
+msgstr "Όριο χαρακτήρων στήλης"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
