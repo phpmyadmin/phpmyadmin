@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:08+0200\n"
+"PO-Revision-Date: 2010-11-26 13:10+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9561,7 +9561,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9576,11 +9576,9 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
-"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
-"formset=features#tab_Security]λίστα αξιόπιστων διακομιστών[/a]. Ωστόσο, η "
-"βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν ο πάροχός έχει χιλιάδες "
-"χρήστες που συνδέονται."
+"προστασίας - ρυθμίσεις %sπιστοποίησης φιλοξενίας%s και %sλίστα ασφαλών "
+"διακομιστών%s. Ωστόσο, η βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν "
+"ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
