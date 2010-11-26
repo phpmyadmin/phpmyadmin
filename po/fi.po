@@ -1851,10 +1851,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Kyselyn suoritusajan vertailu (mikrosekunteina)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Kyselytulosten toimenpiteet"
+msgstr "Kyselyn tulokset"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
