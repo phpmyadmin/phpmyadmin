@@ -3437,7 +3437,7 @@ msgstr "Διπλό μέγεθος του textarea για στήλες LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Μεγαλύτερο textarea για LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Use icons on main page"
