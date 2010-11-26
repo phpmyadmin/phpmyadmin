@@ -8032,8 +8032,8 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"Le nombre de requêtes pour lire un enregistrement via une clé. Si élevé, "
-"c'est une bonne indication que vos tables sont correctement indexées."
+"Le nombre de requêtes pour lire une ligne via une clé. Si élevé, c'est une "
+"bonne indication que vos tables sont correctement indexées."
 
 #: server_status.php:60
 msgid ""
