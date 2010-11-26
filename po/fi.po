@@ -1050,7 +1050,7 @@ msgstr "Virhe pyynnön käsittelyssä"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Sarakkeen poisto"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
