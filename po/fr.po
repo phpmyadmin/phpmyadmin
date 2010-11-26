@@ -1508,8 +1508,8 @@ msgstr[1] "%1$d lignes supprimées."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d enregistrement inséré."
-msgstr[1] "%1$d enregistrements insérés."
+msgstr[0] "%1$d ligne insérée."
+msgstr[1] "%1$d lignes insérées."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
