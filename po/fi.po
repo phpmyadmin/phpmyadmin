@@ -1194,7 +1194,7 @@ msgstr "Tammikuu"
 
 #: js/messages.php:126
 msgid "February"
-msgstr "Helmikuu"
+msgstr "Helmi"
 
 #: js/messages.php:127
 #, fuzzy
