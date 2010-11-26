@@ -1083,10 +1083,9 @@ msgid "Table must have at least one column"
 msgstr "Ο πίνακας πρέπει να έχει τουλάχιστον μια στήλη"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
-msgstr "Δημιουργία πίνακα"
+msgstr "Δημιουργία Πίνακα"
 
 #: js/messages.php:81
 #, fuzzy
