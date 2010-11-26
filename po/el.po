@@ -5930,7 +5930,6 @@ msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά (12.00% αντί .12)"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
