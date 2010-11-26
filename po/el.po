@@ -1124,10 +1124,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Επιλέξτε πεδίο για εμφάνιση"
+msgstr "Επιλέξτε στήλη για εμφάνιση"
 
 #: js/messages.php:98
 msgid "Add an option for column "
