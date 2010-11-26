@@ -1991,7 +1991,7 @@ msgstr "Tarkista SQL-lause"
 
 #: libraries/common.lib.php:1244
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Tämän kyselyn muokkaus"
 
 #: libraries/common.lib.php:1246
 #, fuzzy
