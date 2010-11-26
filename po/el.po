@@ -331,7 +331,7 @@ msgid "Collation"
 msgstr "Σύνθεση"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
