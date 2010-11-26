@@ -5503,10 +5503,9 @@ msgid "Columns enclosed with:"
 msgstr "Πεδία που περικλείονται σε"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής "
+msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής: "
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
