@@ -7587,7 +7587,7 @@ msgstr "Isäntäpalvelimen kahdennus"
 
 #: server_databases.php:174 server_replication.php:246
 msgid "Slave replication"
-msgstr "Alipalvelimen replikointi"
+msgstr "Alipalvelimen kahdennus"
 
 #: server_databases.php:257 server_databases.php:258
 msgid "Enable Statistics"
