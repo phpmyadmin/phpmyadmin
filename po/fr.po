@@ -8822,7 +8822,7 @@ msgstr "Modifier des lignes"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Insert row(s)"
-msgstr "Insérer des enregistrements"
+msgstr "Insérer des lignes"
 
 #: server_synchronize.php:444 server_synchronize.php:888
 msgid "Would you like to delete all the previous rows from target tables?"
