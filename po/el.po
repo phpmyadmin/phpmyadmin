@@ -5231,10 +5231,9 @@ msgstr ""
 "εγγραφή στη βάση δεδομένων."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Όριο αρχείου καταγραφής"
+msgstr "Όριο αρχείου προσωρινής καταγραφής"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
