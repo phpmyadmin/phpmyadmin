@@ -1078,10 +1078,9 @@ msgid "Copying Database"
 msgstr "Tietokannan kopiointi"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Merkistökoodaus"
+msgstr "Merkistökoodauksen muuttaminen"
 
 #: js/messages.php:75
 #, fuzzy
