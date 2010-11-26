@@ -4790,7 +4790,7 @@ msgstr "dans la requête"
 
 #: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
-msgstr "Affichage des enregistrements"
+msgstr "Affichage des lignes"
 
 #: libraries/display_tbl.lib.php:1958
 msgid "total"
