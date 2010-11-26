@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 21:21+0200\n"
+"PO-Revision-Date: 2010-11-26 21:22+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -2153,7 +2153,7 @@ msgstr "rakenne ja tiedot"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Nopea asetusten määritys - näytä asetuksia mahdollisimman vähän"
 
 #: libraries/config.values.php:100 libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
