@@ -7415,10 +7415,9 @@ msgstr "Εξαίρεση"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "στην εντολή"
+msgstr "υποερώτημα"
 
 #: pmd_general.php:482 pmd_general.php:578
 #, fuzzy
