@@ -6456,10 +6456,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Σχήμα της βάσης «%s» - Σελίδα %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Το αρχείο %s δεν περιέχει καμιά ταυτότητα κλειδιού"
+msgstr "Η σελίδα %s δεν περιέχει κανένα πίνακα!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
