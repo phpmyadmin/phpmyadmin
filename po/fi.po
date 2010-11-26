@@ -1188,10 +1188,9 @@ msgid "Today"
 msgstr "Tänään"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binääritietoa"
+msgstr "Tammikuu"
 
 #: js/messages.php:126
 msgid "February"
