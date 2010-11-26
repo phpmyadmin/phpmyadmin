@@ -5704,10 +5704,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Δημιουργεί μια αναφορά με τα δεδομένα ενός πίνακα)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Τίτλος αναφοράς"
+msgstr "Τίτλος αναφοράς:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
