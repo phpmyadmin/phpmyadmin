@@ -5649,10 +5649,9 @@ msgid "Display foreign key relationships"
 msgstr "Προβολή σχέσεων μη διακριτών κλειδιών"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Εμφάνιση σχολίων πεδίων"
+msgstr "Εμφάνιση σχολίων"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
