@@ -9647,7 +9647,7 @@ msgstr "Contrainte de clé étrangère"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
-msgstr "Aucun enregistrement n'a été sélectionné"
+msgstr "Aucune ligne n'a été sélectionnée"
 
 #: tbl_select.php:129
 msgid "Do a \"query by example\" (wildcard: \"%\")"
