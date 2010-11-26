@@ -1020,7 +1020,6 @@ msgid "Reloading Privileges"
 msgstr "Käyttöoikeusten uudelleenlataus"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Poista valitut käyttäjät"
