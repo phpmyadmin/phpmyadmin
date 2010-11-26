@@ -2476,10 +2476,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Επεξεργασία ερωτημάτων SQL σε αναδυόμενο παράθυρο"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Επεξεργασία επόμενης γραμμής"
+msgstr "Επεξεργασία σε παράθυρο"
 
 #: libraries/config/messages.inc.php:60
 #, fuzzy
