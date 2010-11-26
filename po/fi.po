@@ -2271,7 +2271,7 @@ msgstr "Palauta oletusarvo"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Anna käyttäjien mukauttaa tätä arvoa"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
