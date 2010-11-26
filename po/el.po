@@ -1152,9 +1152,8 @@ msgstr "Περισσότερα"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#, fuzzy
 msgid "Done"
-msgstr "Δωρεά"
+msgstr "Ολοκληρώθηκε"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
