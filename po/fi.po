@@ -1751,7 +1751,7 @@ msgstr "Todennetaan..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS-virhe"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
