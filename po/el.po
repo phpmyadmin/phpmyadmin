@@ -6186,7 +6186,7 @@ msgstr "Ρυθμίσεις χρήστη"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Γρήγορα βήματα για εγκατάσταση χαρακτηριστικών για προχωρημένους:"
 
 #: libraries/relation.lib.php:147
 msgid ""
