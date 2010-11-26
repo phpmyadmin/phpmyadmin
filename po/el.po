@@ -4788,9 +4788,9 @@ msgid "Importing into the database \"%s\""
 msgstr "Εισαγωγή στη βάση δεδομένων «%s»"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Εισαγωγή στον πίνακα «%s»"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
