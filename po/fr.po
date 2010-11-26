@@ -4777,7 +4777,7 @@ msgstr "Transformation"
 
 #: libraries/display_tbl.lib.php:1170 libraries/display_tbl.lib.php:1182
 msgid "The row has been deleted"
-msgstr "L'enregistrement a été effacé"
+msgstr "La ligne a été effacée"
 
 #: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2052
 #: server_processlist.php:70 tbl_row_action.php:63
