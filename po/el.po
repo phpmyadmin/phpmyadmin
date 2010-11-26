@@ -10203,7 +10203,6 @@ msgid "Browse distinct values"
 msgstr "Αναζήτηση διακριτων τιμών"
 
 #: tbl_structure.php:384
-#, fuzzy
 msgctxt "None for default"
 msgid "None"
 msgstr "Καμία"
