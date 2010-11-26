@@ -5610,10 +5610,9 @@ msgid "Table structure for table"
 msgstr "Δομή Πίνακα για τον Πίνακα"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Περιεχόμενο του πίνακα __TABLE__"
+msgstr "Περιεχόμενο του πίνακα @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
