@@ -7129,7 +7129,7 @@ msgstr "Ρυθμίσεις εμφάνισης"
 
 #: main.php:135
 msgid "Background color"
-msgstr ""
+msgstr "Χρώμα υποβάθρου"
 
 #: main.php:136
 msgid "Choose..."
