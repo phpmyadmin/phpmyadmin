@@ -1053,7 +1053,7 @@ msgstr "Σφάλμα στην Προώθηση του Αιτημάτος"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Διαγραφή Στήλης"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
