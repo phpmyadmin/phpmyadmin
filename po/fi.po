@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 21:19+0200\n"
+"PO-Revision-Date: 2010-11-26 21:21+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -2121,10 +2121,10 @@ msgid "Browse your computer:"
 msgstr "Selaa tietokonettasi:"
 
 #: libraries/common.lib.php:2970
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "palvelimen lähetyshakemisto"
+msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
