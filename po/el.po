@@ -2254,7 +2254,7 @@ msgstr "Μεταβλητή"
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "Το «%s» απαιτείται για την επέκταση %s"
+msgstr "Το «%s» απαιτεί την επέκταση %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
