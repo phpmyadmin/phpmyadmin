@@ -6940,10 +6940,9 @@ msgid "subquery"
 msgstr "subquery"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Rename view to"
+msgstr "Rename to"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
