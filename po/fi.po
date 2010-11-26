@@ -2223,7 +2223,7 @@ msgstr "Ei saatavilla"
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" vaatii laajennuksen %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
