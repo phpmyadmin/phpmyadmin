@@ -1372,9 +1372,8 @@ msgstr "Πε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 msgid "Fr"
-msgstr "Παρασκευή"
+msgstr "Πα"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
