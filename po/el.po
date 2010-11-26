@@ -1511,11 +1511,11 @@ msgid "Error"
 msgstr "λάθος"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Επηρεάστηκε(αν) %1$d γραμμή(ές)."
-msgstr[1] "Επηρεάστηκε(αν) %1$d γραμμή(ές)."
+msgstr[0] "Επηρεάστηκε %1$d γραμμή."
+msgstr[1] "Επηρεάστηκαν %1$d γραμμές."
 
 #: libraries/Message.class.php:300
 #, fuzzy, php-format
