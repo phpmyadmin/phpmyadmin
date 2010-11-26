@@ -4319,7 +4319,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:466
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Ενεργοποίηση του Εγκυροποιητή SQL"
 
 #: libraries/config/messages.inc.php:467
 msgid ""
