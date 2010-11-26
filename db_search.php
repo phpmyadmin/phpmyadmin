@@ -257,7 +257,7 @@ if (isset($_REQUEST['submit_search'])) {
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             echo '<td>' . PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($this_url_params),
-                    __('Delete'), $newsearchsqls['delete']) .  "</td>\n";
+                    __('Delete'), printf(__('Delete the matches for the "%s" table?'), htmlspecialchars($each_table))) .  "</td>\n";
 
         } else {
             echo '<td>&nbsp;</td>' . "\n"
