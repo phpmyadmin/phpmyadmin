@@ -9303,9 +9303,9 @@ msgid "Current connection"
 msgstr "Τρέχουσα σύνδεση"
 
 #: server_synchronize.php:1150
-#, fuzzy, php-format
+#, php-format
 msgid "Configuration: %s"
-msgstr "Αρχείο ρυθμίσεων"
+msgstr "Ρύθμιση: %s"
 
 #: server_synchronize.php:1165
 msgid "Socket"
