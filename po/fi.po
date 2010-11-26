@@ -1828,10 +1828,9 @@ msgid "Not replicated"
 msgstr "Ei replikoitu"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replikaatio"
+msgstr "Kahdennettu"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
