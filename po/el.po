@@ -10234,10 +10234,9 @@ msgid "Propose table structure"
 msgstr "Προτεινόμενη δομή πίνακα"
 
 #: tbl_structure.php:631
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Προσθήκη στήλης(ών)"
+msgstr "Προσθήκη στήλης"
 
 #: tbl_structure.php:645
 msgid "At End of Table"
