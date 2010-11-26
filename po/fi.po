@@ -9090,7 +9090,7 @@ msgstr "Kyselyn tyyppi"
 
 #: server_status.php:845
 msgid "Replication status"
-msgstr "Replikaation tila"
+msgstr "Kahdennuksen tila"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
