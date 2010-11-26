@@ -7136,10 +7136,9 @@ msgid "Choose..."
 msgstr "Επιλογή..."
 
 #: main.php:153 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "ρυθμίσεις"
+msgstr "Περισσότερες ρυθμίσεις"
 
 #: main.php:170
 msgid "Protocol version"
