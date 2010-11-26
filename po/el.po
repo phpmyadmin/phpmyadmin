@@ -6734,7 +6734,7 @@ msgstr "Τα δεδομένα ENUM ή SET είναι πολύ μεγάλα;"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Λήψη περισσότερου χώρου επεξεργασίας"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
