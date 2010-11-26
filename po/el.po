@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:54+0200\n"
+"PO-Revision-Date: 2010-11-26 22:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2538,10 +2538,9 @@ msgstr "Συμπίεση"
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Εμφάνιση ονομάτων πεδίων στην πρώτη γραμμή"
+msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
