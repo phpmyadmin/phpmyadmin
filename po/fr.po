@@ -8004,7 +8004,7 @@ msgstr "Le nombre de commandes COMMIT internes."
 
 #: server_status.php:56
 msgid "The number of times a row was deleted from a table."
-msgstr "Le nombre de fois qu'un enregistrement a été supprimé d'une table."
+msgstr "Le nombre de fois qu'une ligne a été supprimée d'une table."
 
 #: server_status.php:57
 msgid ""
