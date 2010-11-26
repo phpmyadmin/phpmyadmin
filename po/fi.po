@@ -1083,7 +1083,6 @@ msgid "Changing Charset"
 msgstr "Merkistökoodauksen vaihtaminen"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Taulussa on oltava vähintään yksi kenttä."
