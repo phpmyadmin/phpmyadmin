@@ -3081,10 +3081,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Προσαρμογή εμφανιζόμενων συνδέσμων στους χώρους ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "Ερωτήματα SQL"
+msgstr "Ρυθμίσεις ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:215
 #, fuzzy
