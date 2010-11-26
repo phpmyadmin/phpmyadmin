@@ -2930,10 +2930,9 @@ msgid "Main frame"
 msgstr "Βασικό πλαίσιο"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 #| msgid "Microsoft Excel 2000"
 msgid "Microsoft Office"
-msgstr "Microsoft Excel 2000"
+msgstr "Microsoft Excel"
 
 #: libraries/config/messages.inc.php:183
 #, fuzzy
