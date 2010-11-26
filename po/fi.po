@@ -481,7 +481,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Lisää tai poista hakuehtoja"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Lisää tai poista sarakkeita"
