@@ -9858,7 +9858,7 @@ msgstr "Ετικέτα άξονα Χ"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Ετικέτα άξονα Υ"
 
 #: tbl_chart.php:112
 msgid "Area margins"
