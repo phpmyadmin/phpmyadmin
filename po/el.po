@@ -7073,10 +7073,9 @@ msgstr ""
 "κείμενο όταν εμφανίζεται μέρος του (Προεπιλογή: ...) ."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Άλλες ρυθμίσεις πυρήνα"
+msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
