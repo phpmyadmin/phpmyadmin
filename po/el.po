@@ -3226,7 +3226,6 @@ msgid "Partial import: skip queries"
 msgstr "Μερική εισαγωγή: παράβλεψη ερωτημάτων"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Να μην γίνεται αυτόματη αρίθμηση σε μηδενικές τιμές"
