@@ -1325,7 +1325,7 @@ msgstr "Ke"
 
 #: js/messages.php:169
 msgid "Thursday"
-msgstr ""
+msgstr "To"
 
 #: js/messages.php:170
 #, fuzzy
