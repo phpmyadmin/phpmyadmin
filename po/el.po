@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 00:41+0200\n"
+"PO-Revision-Date: 2010-11-27 00:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7452,6 +7452,7 @@ msgstr "Αποθήκευση στο χώρο αποθήκευσης του φυ�
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
+"Οι ρυθμίσεις θα αποθηκευτούν στην τοπική αποθήκευση του φυλλομετρητή σας."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
