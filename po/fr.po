@@ -8073,9 +8073,9 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"Le nombre de requêtes de lecture du prochaine enregistrement dans le "
-"fichier. Élevé si vous faites plusieurs parcours de tables. Ceci suggère que "
-"vos tables ne sont pas correctement indexées ou que vos requêtes ne sont pas "
+"Le nombre de requêtes de lecture de la prochaine ligne dans le fichier. "
+"Élevé si vous faites plusieurs parcours de tables. Ceci suggère que vos "
+"tables ne sont pas correctement indexées ou que vos requêtes ne sont pas "
 "écrites de façon à tirer parti des index que vous avez définis."
 
 #: server_status.php:64
