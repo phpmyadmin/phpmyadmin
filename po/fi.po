@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:11+0200\n"
+"PO-Revision-Date: 2010-11-26 20:12+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1098,10 +1098,9 @@ msgid "Searching"
 msgstr "Etsi"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL-kyselykenttä"
+msgstr "Piilota SQL-kyselykenttä"
 
 #: js/messages.php:85
 #, fuzzy
