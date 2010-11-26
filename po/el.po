@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:22+0200\n"
+"PO-Revision-Date: 2010-11-26 14:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3334,6 +3334,7 @@ msgstr "Διαχωριστικό δέντρου πινάκων"
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
 msgstr ""
+"Ο Σϋνδεσμος (URL) όπου θα τοποιθετηθεί στο λογότυπο στο πλαίσιο πλοήγησης"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
