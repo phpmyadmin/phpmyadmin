@@ -1270,7 +1270,7 @@ msgstr "Σεπ"
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
-msgstr "Οκτωβρίου"
+msgstr "Οκτ"
 
 #. l10n: Short month name
 #: js/messages.php:160 libraries/common.lib.php:1565
