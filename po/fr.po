@@ -3946,7 +3946,7 @@ msgstr "Devrait-on afficher un bouton «Tout afficher»"
 
 #: libraries/config/messages.inc.php:436
 msgid "Allow to display all the rows"
-msgstr "Permettre l'affichage de tous les enregistrements"
+msgstr "Permettre l'affichage de toutes les lignes"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
