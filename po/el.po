@@ -1966,9 +1966,8 @@ msgid "Inline edit of this query"
 msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
 #: libraries/common.lib.php:1246
-#, fuzzy
 msgid "Inline"
-msgstr "Μηχανές"
+msgstr "Εσωτερικό"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
