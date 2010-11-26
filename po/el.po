@@ -1247,7 +1247,7 @@ msgstr "Οκτωβρίου"
 
 #: js/messages.php:135
 msgid "November"
-msgstr ""
+msgstr "Νοεμβρίου"
 
 #: js/messages.php:136
 msgid "December"
