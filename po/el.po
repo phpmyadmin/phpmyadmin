@@ -6015,7 +6015,6 @@ msgstr ""
 "το θέμα και δοκιμάστε ξανά."
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Καμία"
