@@ -606,7 +606,7 @@ msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr "Η παρακολούθηση δεν έιναι ενεργοποιημένη."
+msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
 
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
