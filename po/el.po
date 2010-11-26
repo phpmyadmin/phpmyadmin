@@ -2789,10 +2789,9 @@ msgid "Features"
 msgstr "Χαρακτηριστικά"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Παραγωγή"
+msgstr "Γενικά"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
