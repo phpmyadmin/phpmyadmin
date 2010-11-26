@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-23 12:41+0200\n"
+"PO-Revision-Date: 2010-11-25 21:33+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -229,12 +229,12 @@ msgstr "Spausdinti"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Peržiūrėti duomenų bazės atvaizdį"
+msgstr "Peržiūrėti duomenų bazės atvaizdį (schemą)"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:320
 msgid "No tables found in database."
-msgstr "Duombazėje nerasta lentelių."
+msgstr "Duomenų bazėje nerasta lentelių."
 
 #: db_export.php:44 db_search.php:341 server_export.php:26
 msgid "Select All"
@@ -246,21 +246,21 @@ msgstr "Atžymėti visus"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr "Nenurodytas duombazės vardas!"
+msgstr "Nenurodytas duomenų bazės vardas!"
 
 #: db_operations.php:268
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Duombazė %s pervadinta į %s"
+msgstr "Duomenų bazė %s pervadinta į %s"
 
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Duombazė %s buvo nukopijuota į %s"
+msgstr "Duomenų bazė %s buvo nukopijuota į %s"
 
 #: db_operations.php:395
 msgid "Rename database to"
-msgstr "Pervadinti duombazę į"
+msgstr "Pervadinti duomenų bazę į"
 
 #: db_operations.php:400 server_processlist.php:56
 msgid "Command"
@@ -268,20 +268,20 @@ msgstr "Komanda"
 
 #: db_operations.php:429
 msgid "Remove database"
-msgstr "Pašalinti duombazę"
+msgstr "Pašalinti duomenų bazę"
 
 #: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Duombazė %s ištrinta."
+msgstr "Duomenų bazė %s ištrinta."
 
 #: db_operations.php:446
 msgid "Drop the database (DROP)"
-msgstr "Pašalinti duombazę (DROP)"
+msgstr "Pašalinti duomenų bazę (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
-msgstr "Kopijuoti duombazę į"
+msgstr "Kopijuoti duomenų bazę į"
 
 #: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
@@ -317,7 +317,7 @@ msgstr "Pridėti apribojimą"
 
 #: db_operations.php:515
 msgid "Switch to copied database"
-msgstr "Pereiti į nukopijuotą duombazę"
+msgstr "Pereiti į nukopijuotą duomenų bazę"
 
 #: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -468,7 +468,7 @@ msgstr "Keisti"
 
 #: db_qbe.php:603
 msgid "Add/Delete criteria rows"
-msgstr "Įterpti/Trinti požymio eilutę(es)"
+msgstr "Įterpti/Pašalinti požymio eilutes"
 
 #: db_qbe.php:615
 msgid "Add/Delete columns"
@@ -485,7 +485,7 @@ msgstr "Naudoti lenteles"
 #: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-užklausa duombazėje <b>%s</b>:"
+msgstr "SQL-užklausa duomenų bazėje <b>%s</b>:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1167
 msgid "Submit Query"
@@ -550,13 +550,13 @@ msgstr "Trinti"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
-msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
+msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmuo"
+msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
 msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
 
 #: db_search.php:296
 msgid "Search in database"
-msgstr "Paieška duombazėje"
+msgstr "Paieška duomenų bazėje"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
@@ -727,7 +727,7 @@ msgstr "Sekamos lentelės"
 #: server_synchronize.php:1177 server_synchronize.php:1181
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
-msgstr "Duombazė"
+msgstr "Duomenų bazė"
 
 #: db_tracking.php:85
 msgid "Last version"
@@ -791,7 +791,7 @@ msgstr "Sekti lentelę"
 
 #: db_tracking.php:212
 msgid "Database Log"
-msgstr "Duombazės žurnalas (log)"
+msgstr "Duomenų bazės žurnalas"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
@@ -827,7 +827,7 @@ msgstr "Nėra teisių išsaugoti failui %s."
 #: export.php:664
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Duombazės atvaizdis išsaugotas faile %s."
+msgstr "Atvaizdis įrašytas faile %s."
 
 #: import.php:58
 #, php-format
@@ -884,7 +884,7 @@ msgstr "Žymė %s sukurta"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Importavimas sėkmingai baigta, įvykdyta %d užklausų(os)."
+msgstr "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
 
 #: import.php:422
 msgid ""
@@ -934,7 +934,7 @@ msgstr "Ar tikrai norite "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
-msgstr "Jūs ruošiatės SUNAIKINTI visą duombazę!"
+msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
@@ -1129,7 +1129,7 @@ msgstr "Daugiau"
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
 msgid "Done"
-msgstr "Uždaryti"
+msgstr "Atlikta"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
@@ -1167,7 +1167,7 @@ msgstr "balandžio"
 
 #: js/messages.php:129
 msgid "May"
-msgstr "gegužės"
+msgstr "Geg"
 
 #: js/messages.php:130
 msgid "June"
@@ -1200,63 +1200,63 @@ msgstr "gruodžio"
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
 msgid "Jan"
-msgstr "sausio"
+msgstr "Sau"
 
 #. l10n: Short month name
 #: js/messages.php:142 libraries/common.lib.php:1547
 msgid "Feb"
-msgstr "vasario"
+msgstr "Vas"
 
 #. l10n: Short month name
 #: js/messages.php:144 libraries/common.lib.php:1549
 msgid "Mar"
-msgstr "kovo"
+msgstr "Kov"
 
 #. l10n: Short month name
 #: js/messages.php:146 libraries/common.lib.php:1551
 msgid "Apr"
-msgstr "balandžio"
+msgstr "Bal"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
 msgctxt "Short month name"
 msgid "May"
-msgstr "gegužės"
+msgstr "Geg"
 
 #. l10n: Short month name
 #: js/messages.php:150 libraries/common.lib.php:1555
 msgid "Jun"
-msgstr "birželio"
+msgstr "Bir"
 
 #. l10n: Short month name
 #: js/messages.php:152 libraries/common.lib.php:1557
 msgid "Jul"
-msgstr "liepos"
+msgstr "Lie"
 
 #. l10n: Short month name
 #: js/messages.php:154 libraries/common.lib.php:1559
 msgid "Aug"
-msgstr "rugpjūčio"
+msgstr "Rgp"
 
 #. l10n: Short month name
 #: js/messages.php:156 libraries/common.lib.php:1561
 msgid "Sep"
-msgstr "rugsėjo"
+msgstr "Rgs"
 
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
-msgstr "spalio"
+msgstr "Spa"
 
 #. l10n: Short month name
 #: js/messages.php:160 libraries/common.lib.php:1565
 msgid "Nov"
-msgstr "lapkričio"
+msgstr "Lap"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1567
 msgid "Dec"
-msgstr "gruodžio"
+msgstr "Grd"
 
 #: js/messages.php:165
 msgid "Sunday"
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: libraries/File.class.php:321
 msgid "The uploaded file was only partially uploaded."
-msgstr "Įkeltas failas buvo dalinai (nepilnai) įkeltas"
+msgstr "Įkeliamas failas buvo tik dalinai įkeltas."
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
@@ -1412,7 +1412,7 @@ msgstr "Nepavyko įrašyti failo į diską."
 
 #: libraries/File.class.php:330
 msgid "File upload stopped by extension."
-msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio (galūnės)."
+msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio."
 
 #: libraries/File.class.php:333
 msgid "Unknown error in file upload."
@@ -1428,12 +1428,12 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
-msgstr "Nėra aprašytų žurnalų (indeksų)!"
+msgstr "Nėra aprašytų indeksų!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:310
 msgid "Indexes"
-msgstr "Žurnalai (indeksai)"
+msgstr "Indeksai"
 
 #: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
 #: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
@@ -1483,7 +1483,7 @@ msgstr ""
 #: libraries/server_links.inc.php:42 server_databases.php:100
 #: server_privileges.php:1751 test/theme.php:92
 msgid "Databases"
-msgstr "Duombazės"
+msgstr "Duomenų bazės"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
@@ -1538,7 +1538,7 @@ msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr "Neteisingas duombazės vardas"
+msgstr "Neteisingas duomenų bazės vardas"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
@@ -1633,9 +1633,7 @@ msgstr "phpMyAdmin dokumentacija"
 #: libraries/auth/cookie.auth.lib.php:245
 #: libraries/auth/cookie.auth.lib.php:246
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
-"Jūs galite įvesti serverio vardą(hostname)/IP adresą ir prievadą (portą) "
-"atskirtą tarpu."
+msgstr "Jūs galite įvesti serverio vardą/IP adresą ir prievadą atskirtą tarpu."
 
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "Server:"
@@ -1655,7 +1653,7 @@ msgstr "Pasirinkti serverį"
 
 #: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "Slapukai(Cookies) turi būti priimami."
+msgstr "Slapukai turi būti priimami."
 
 #: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
@@ -1769,7 +1767,7 @@ msgstr "Perteklius"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr "Eiti į duombazę"
+msgstr "Eiti į duomenų bazę"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
@@ -1782,7 +1780,7 @@ msgstr "Padaugintas"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Patikrinti duombazės „%s“ privilegijas."
+msgstr "Patikrinti duomenų bazės „%s“ privilegijas."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
@@ -1810,7 +1808,7 @@ msgstr "GD plėtinys reikalingas diagramoms braižyti."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "JSON iškoduotojas reikalingas diagramos patarimams (paaiškinimams)."
+msgstr "JSON koduoklis reikalingas diagramos paaiškinimams."
 
 #: libraries/common.inc.php:571
 msgid ""
@@ -2020,7 +2018,7 @@ msgstr "Pabaiga"
 #: libraries/common.lib.php:2416
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Pereiti į „%s“ duombazę."
+msgstr "Pereiti į „%s“ duomenų bazę."
 
 #: libraries/common.lib.php:2435
 #, php-format
@@ -2242,9 +2240,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"Įjungiant šitai, puslapis patalpintas skirtingoje srityje (domain) gali "
-"iškviesti vidiniame rėmelyje phpMyAdmin, tai yra potenciali [strong]saugumo "
-"spraga[/strong] leidžianti įvairių rėmelių scenarijų (scripting) išpuolius"
+"Tai įjungus, puslapis patalpintas skirtingame domene gali iškviesti "
+"phpMyAdmin vidiniame rėmelyje, o tai yra potenciali [strong]saugumo "
+"spraga[/strong], leidžianti tarprėmelinius scenarijų išpuolius"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -2252,7 +2250,7 @@ msgstr "Leisti trečių šalių rėmelius"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Rodyti „Pašalinti duombazę“ nuorodą paprastiems naudotojams"
+msgstr "Rodyti „Pašalinti duomenų bazę“ nuorodą paprastiems naudotojams"
 
 #: libraries/config/messages.inc.php:22
 msgid ""
@@ -2300,9 +2298,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Nustato koks tipas redagavimo nustatymų turėtų būti naudojamas CHAR ir "
-"VARCHAR laukeliams (stulpeliams); [kbd]input[/kbd] - leidžia riboti įvedimo "
-"ilgį, [kbd]textarea[/kbd] - leidžia naujas eilutes laukelyje (stulpelyje)"
+"Nustato kokio tipo redagavimo laukelis turėtų būti naudojamas CHAR ir "
+"VARCHAR laukeliams; [kbd]input[/kbd] - leidžia riboti įvedimo ilgį, "
+"[kbd]textarea[/kbd] - leidžia naujas eilutes laukelyje"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -2359,7 +2357,7 @@ msgstr "Patvirtinti DROP užklausas"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
-msgstr "Derinti (debug) SQL"
+msgstr "Derinti SQL"
 
 #: libraries/config/messages.inc.php:43
 msgid "Default display direction"
@@ -2379,11 +2377,11 @@ msgstr "Rodyti krypti keičiamiems/sukuriamiems stulpeliams"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
-msgstr "Kortelė kuri yra rodoma kai įeinama į duombazę"
+msgstr "Kortelė kuri yra rodoma kai įeinama į duomenų bazę"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default database tab"
-msgstr "Numatyta duombazės kortelė"
+msgstr "Numatyta duomenų bazės kortelė"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a server"
@@ -2403,16 +2401,17 @@ msgstr "Numatytoji lentelės kortelė"
 
 #: libraries/config/messages.inc.php:52
 msgid "Show binary contents as HEX by default"
-msgstr "Rodyti dvejetainį turinį kaip HEX (šešioliktainį) pagal numatymą"
+msgstr "Rodyti dvejetainį turinį kaip šešioliktainį pagal nutylėjimą"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
-msgstr "Rodyti dvejetainį turinį kaip HEX (šešioliktainį)"
+msgstr "Rodyti dvejetainį turinį kaip šešioliktainį"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
-"Rodyti duombazės sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo sąrašo"
+"Rodyti duomenų bazės sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo "
+"sąrašo"
 
 #: libraries/config/messages.inc.php:55
 msgid "Display databases as a list"
@@ -2456,8 +2455,7 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Nustatyti sekundžių ribą po kurios scenarijus (skirptas) negalės veikti "
-"([kbd]0[/kbd] nėra ribos)"
+"Nustatyti, kiek sekundžių scenarijus gali veikti ([kbd]0[/kbd] nėra ribos)"
 
 #: libraries/config/messages.inc.php:65
 msgid "Maximum execution time"
@@ -2490,7 +2488,7 @@ msgstr "Glaudinimas"
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Put columns names in the first row"
-msgstr "Stulpelių pavadinimus įrašyti pirmame įraše (eilutėje)"
+msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
@@ -2515,7 +2513,7 @@ msgstr "Pakeisti NULL į"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
 msgid "Remove CRLF characters within columns"
-msgstr "Pašalinti CRLF simbolius (stulpelio) laukeliuose"
+msgstr "Pašalinti CRLF simbolius laukeliuose"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
@@ -2526,7 +2524,7 @@ msgstr "Laukai baigiasi"
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "Eilutės (įrašai) baigiasi"
+msgstr "Eilutės baigiasi"
 
 #: libraries/config/messages.inc.php:78
 msgid "Excel edition"
@@ -2704,7 +2702,7 @@ msgstr "Kūrėjas"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr "Nustatymai phpMyAdmin tobulintojams (kūrėjams)"
+msgstr "Nustatymai phpMyAdmin kūrėjams"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
@@ -2870,7 +2868,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:198
 msgid "Enter server connection parameters"
-msgstr "Įvesti serverio ryšio (jungimosi) nustatymus"
+msgstr "Įvesti serverio ryšio nustatymus"
 
 #: libraries/config/messages.inc.php:199
 msgid "Configuration storage"
@@ -2944,7 +2942,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
-msgstr "Paleidimas (pagrindinis)"
+msgstr "Paleidimas"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize startup page"
@@ -3036,7 +3034,7 @@ msgid ""
 "table) and only SQL is always available"
 msgstr ""
 "Numatytasis formatas; žinokite, kad šis sąrašas priklauso nuo vietos "
-"(duombazė, lentelė) ir tik SQL visada pasiekiamas"
+"(duomenų bazė, lentelė) ir tik SQL visada pasiekiamas"
 
 #: libraries/config/messages.inc.php:242
 msgid "Format of imported file"
@@ -3048,14 +3046,13 @@ msgstr "Naudoti LOCAL raktažodį"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Column names in first row"
-msgstr "Stulpelių pavadinimus įrašyti pirmame įraše (eilutėje)"
+msgstr "Stulpelių pavadinimai pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr "Neimportuoti tuščių eilučių (įrašų)"
+msgstr "Neimportuoti tuščių eilučių"
 
 #: libraries/config/messages.inc.php:251
 #| msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -3068,10 +3065,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importuoti procentus kaip dešimtainius (12.00% kaip .12)"
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Praleisti įrašų(užklausų) skaičių nuo pradžios"
+msgstr "Praleisti užklausų skaičių nuo pradžios"
 
 #: libraries/config/messages.inc.php:254
 msgid "Partial import: skip queries"
@@ -3088,7 +3084,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
-msgstr "Kiek įrašų (eilučių) gali būti įdėti per vieną kartą"
+msgstr "Kiek eilučių gali būti įdėta per vieną kartą"
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
@@ -3122,25 +3118,26 @@ msgstr "Rodyti duombazes medyje"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
-msgstr "Simboliai kurie atskiria duombazes į atskiras medžio šakas"
+msgstr "Simboliai kurie atskiria duomenų bazes į atskiras medžio šakas"
 
 #: libraries/config/messages.inc.php:269
 msgid "Database tree separator"
-msgstr "Duombazės medžio skyriklis"
+msgstr "Duomenų bazės medžio skyriklis"
 
 #: libraries/config/messages.inc.php:270
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr "Tik maža versija; rodyti duombazės medį (skyriklis nustatomas žemiau)"
+msgstr ""
+"Tik maža versija; rodyti duomenų bazės medį (skyriklis nustatomas žemiau)"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display databases in a tree"
-msgstr "Rodyti duombazes medyje"
+msgstr "Rodyti duomenų bazes medyje"
 
 #: libraries/config/messages.inc.php:272
 msgid "Disable this if you want to see all databases at once"
-msgstr "Išjungti tai jeigu norite matyti visas duombazes iškart"
+msgstr "Išjungti tai jeigu norite matyti visas duomenų bazes iškart"
 
 #: libraries/config/messages.inc.php:273
 msgid "Use light version"
@@ -3286,11 +3283,12 @@ msgstr "Naudotojai negali nustatyti didesnės reikšmės"
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Maksimalus skaičius rodomų duombazių kairiame rėmelyje ir duombazių sąraše"
+"Maksimalus skaičius rodomų duomenų bazių kairiame rėmelyje ir duomenų bazių "
+"sąraše"
 
 #: libraries/config/messages.inc.php:302
 msgid "Maximum databases"
-msgstr "Didžiausias skaičius duombazių"
+msgstr "Didžiausias duomenų bazių skaičius"
 
 #: libraries/config/messages.inc.php:303
 msgid ""
@@ -3346,7 +3344,8 @@ msgstr "Rodyti dešinėje pusėje esančių šalinimo nuorodą"
 
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
-msgstr "Naudoti natūralią tvarką rikiuojant lentelių ir duombazių pavadinimus"
+msgstr ""
+"Naudoti natūralią tvarką rikiuojant lentelių ir duomenų bazių pavadinimus"
 
 #: libraries/config/messages.inc.php:315
 msgid "Natural order"
@@ -3381,7 +3380,7 @@ msgstr "Numatytoji rikiavimo tvarka"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use persistent connections to MySQL databases"
-msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duombazių"
+msgstr "Naudoti ilgalaikius prisijungimus prie MySQL duomenų bazių"
 
 #: libraries/config/messages.inc.php:323
 msgid "Persistent connections"
@@ -3601,7 +3600,7 @@ msgstr "Kontroliuoti naudotoją"
 
 #: libraries/config/messages.inc.php:373
 msgid "Count tables when showing database list"
-msgstr "Suskaičiuoti lenteles kai rodomas duombazių sąrašas"
+msgstr "Suskaičiuoti lenteles kai rodomas duomenų bazių sąrašas"
 
 #: libraries/config/messages.inc.php:374
 msgid "Count tables"
@@ -3642,7 +3641,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid "Hide databases"
-msgstr "Slėpti duombazes"
+msgstr "Slėpti duomenų bazes"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
@@ -3908,7 +3907,7 @@ msgstr "Rodyti slaptažodžio keitimo formą"
 
 #: libraries/config/messages.inc.php:439
 msgid "Show create database form"
-msgstr "Rodyti duombazės sukūrimo formą"
+msgstr "Rodyti duomenų bazės sukūrimo formą"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
@@ -3955,7 +3954,8 @@ msgstr "Rodyti SQL užklausas"
 #: libraries/config/messages.inc.php:449
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Leisti rodyti duombazių ir lentelių statistiką (pavyzdžiui vietos naudojimą)"
+"Leisti rodyti duomenų bazių ir lentelių statistiką (pavyzdžiui vietos "
+"naudojimą)"
 
 #: libraries/config/messages.inc.php:450
 msgid "Show statistics"
@@ -3969,7 +3969,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Display database comment instead of its name"
-msgstr "Rodyti duombazės komentarą vietoje jos pavadinimo"
+msgstr "Rodyti duomenų bazės komentarą vietoje jos pavadinimo"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
@@ -4041,7 +4041,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:470
 msgid "Suggest new database name"
-msgstr "Pasiūlyti naują duombazės pavadinimą"
+msgstr "Pasiūlyti naują duomenų bazės pavadinimą"
 
 #: libraries/config/messages.inc.php:471
 msgid "A warning is displayed on the main page if Suhosin is detected"
@@ -4073,7 +4073,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
-msgstr "Naršyklės lango pavadinimas kai duombazė yra pasirinkta"
+msgstr "Naršyklės lango pavadinimas kai duomenų bazė yra pasirinkta"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
@@ -4113,11 +4113,11 @@ msgstr "Įkelties katalogas"
 
 #: libraries/config/messages.inc.php:489
 msgid "Allow for searching inside the entire database"
-msgstr "Leisti paiešką visoje vidinėje duombazėje"
+msgstr "Leisti paiešką visos duomenų bazės viduje"
 
 #: libraries/config/messages.inc.php:490
 msgid "Use database search"
-msgstr "Naudoti duombazės paiešką"
+msgstr "Naudoti duomenų bazės paiešką"
 
 #: libraries/config/messages.inc.php:491
 msgid ""
@@ -4219,7 +4219,7 @@ msgstr "Adaptavimas"
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
-msgstr "Duombazės eksportavimo nustatymai"
+msgstr "Duomenų bazės eksportavimo nustatymai"
 
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:220
@@ -4286,7 +4286,7 @@ msgstr "Pavadinimas"
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr "Duombazė atrodo tuščia!"
+msgstr "Duomenų bazė atrodo tuščia!"
 
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:90
@@ -4367,7 +4367,7 @@ msgstr "Suderinamas su MySQL 4.0"
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
 msgid "Create new database"
-msgstr "Sukurti naują duombazę"
+msgstr "Sukurti naują duomenų bazę"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -4381,7 +4381,7 @@ msgstr "Nėra privilegijų"
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
-msgstr "Sukurti naują lentelę duombazėje %s"
+msgstr "Sukurti naują lentelę duomenų bazėje %s"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
@@ -4393,12 +4393,12 @@ msgstr "Nepavyko įkelti eksportuojamų plėtinių, prašome patikrinti įdiegt�
 
 #: libraries/display_export.lib.php:87
 msgid "Exporting databases in the current server"
-msgstr "Eksportuojamos duombazės šiame serveryje"
+msgstr "Eksportuojamos duomenų bazės šiame serveryje"
 
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting tables in the database \"%s\""
-msgstr "Eksportuojamos lentelės duombazėje „%s“"
+msgstr "Eksportuojamos lentelės duomenų bazėje „%s“"
 
 #: libraries/display_export.lib.php:91
 #, php-format
@@ -4411,7 +4411,7 @@ msgstr "Eksporto tipas:"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
-msgstr "Duombazė(s)"
+msgstr "Duomenų bazė(s)"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
@@ -4460,7 +4460,7 @@ msgstr "@SERVER@ taps serverio pavadinimu"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ", @DATABASE@ taps duombazės pavadinimu"
+msgstr ", @DATABASE@ taps duomenų bazės pavadinimu"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
@@ -4548,7 +4548,7 @@ msgstr "Importuojama į šį serverį"
 #: libraries/display_import.lib.php:131
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Importuojama į duombazę „%s“"
+msgstr "Importuojama į duomenų bazę „%s“"
 
 #: libraries/display_import.lib.php:133
 #, php-format
@@ -5265,32 +5265,32 @@ msgstr ""
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Įterpti savo komentarą į antraštės sritį (eilutėms atskirti naudokite \n"
-")"
+"):"
 
 #: libraries/export/sql.php:37
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Įtraukti duombazės sukūrimo datą (timestamp), paskutinio atnaujinimo ir "
-"paskutinio patikrinimo"
+"Įtraukti duomenų bazės sukūrimo, paskutinio atnaujinimo ir paskutinio "
+"patikrinimo laiką"
 
 #: libraries/export/sql.php:65
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Duombazės sistema arba senesnis MySQL serveris tam, kad maksimaliai "
+"Duomenų bazės sistema arba senesnis MySQL serveris tam, kad maksimaliai "
 "pagerinti išvedimo suderinamumą su:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
 #, php-format
 msgid "Add %s statement"
-msgstr "Įtraukti %s teiginį (sakinį)"
+msgstr "Įtraukti %s sakinį"
 
 #: libraries/export/sql.php:91
 msgid "Add statements:"
-msgstr "Pridėti teiginį (sakinį):"
+msgstr "Pridėti sakinius:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
@@ -6005,7 +6005,7 @@ msgstr "Nustatykite lentelės %s koordinates"
 #: libraries/schema/Visio_Relation_Schema.class.php:502
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Duombazės %s schema - %s puslapis"
+msgstr "Duomenų bazės %s schema - %s puslapis"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #, fuzzy
@@ -6177,7 +6177,7 @@ msgstr "Nustatymai"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
-msgstr "Iš duombazės"
+msgstr "Iš duomenų bazės"
 
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
@@ -6195,7 +6195,7 @@ msgstr "Skirtumas"
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1110
 msgid "Target database"
-msgstr "Į duombazę"
+msgstr "Į duomenų bazę"
 
 #: libraries/sql_query_form.lib.php:220
 #, php-format
@@ -6205,7 +6205,7 @@ msgstr "Vykdyti SQL sakinius serveryje %s"
 #: libraries/sql_query_form.lib.php:237 libraries/sql_query_form.lib.php:261
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Vykdyti SQL sakinius duombazėje %s"
+msgstr "Vykdyti SQL sakinius duomenų bazėje %s"
 
 #: libraries/sql_query_form.lib.php:297
 #, fuzzy
@@ -6219,7 +6219,7 @@ msgstr "Sukurti šios SQL užklausos žymę"
 
 #: libraries/sql_query_form.lib.php:339 sql.php:858
 msgid "Let every user access this bookmark"
-msgstr "Leisti kitiems vartotojams naudotis šia žyme (bookmark)"
+msgstr "Leisti kitiems vartotojams naudotis šia žyme"
 
 #: libraries/sql_query_form.lib.php:345
 msgid "Replace existing bookmark of same name"
@@ -6629,7 +6629,7 @@ msgstr "Pagrindiniai nustatymai"
 
 #: main.php:99
 msgid "MySQL connection collation"
-msgstr "MySQL prisijungimo išdėstymas"
+msgstr "MySQL prisijungimo lyginimas"
 
 #: main.php:115
 msgid "Appearance Settings"
@@ -6793,7 +6793,7 @@ msgstr "Atsiųsti iš naujo navigacijos rėmelį"
 
 #: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
 msgid "No databases"
-msgstr "Nėra duombazių"
+msgstr "Nėra duomenų bazių"
 
 #: navigation.php:292
 msgid "Filter"
@@ -6810,7 +6810,7 @@ msgstr "Sukurti lentelę"
 
 #: navigation.php:327 navigation.php:489
 msgid "Please select a database"
-msgstr "Pasirinkite duombazę"
+msgstr "Pasirinkite duomenų bazę"
 
 #: pmd_general.php:76
 msgid "Show/Hide left menu"
@@ -7132,16 +7132,16 @@ msgstr "Simbolių rinkiniai ir Palyginimai"
 
 #: server_databases.php:64
 msgid "No databases selected."
-msgstr "Nepažymėjote duombazės."
+msgstr "Nepažymėjote duomenų bazės."
 
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Sėkmingai pašalintos %s duombazės."
+msgstr "Sėkmingai pašalintos %s duomenų bazės."
 
 #: server_databases.php:100
 msgid "Databases statistics"
-msgstr "Duombazių statistika"
+msgstr "Duomenų bazių statistika"
 
 #: server_databases.php:172 server_replication.php:179
 #: server_replication.php:207
@@ -7165,8 +7165,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Pastaba: jeigu duombazės statistika įjungta - apkrovimas tarp www ir MySQL "
-"darbinių stočių, gali padidėti aukščiau normos."
+"Pastaba: jeigu duomenų bazės statistika įjungta, duomenų srautas tarp www ir "
+"MySQL darbinių stočių gali labai padidėti."
 
 #: server_engines.php:47
 msgid "Storage Engines"
@@ -7174,7 +7174,7 @@ msgstr "Saugojimo varikliai"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Peržiūrėti duombazių išrašą (schemą)"
+msgstr "Peržiūrėti duomenų bazių atvaizdį (schemą)"
 
 #: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
@@ -7193,7 +7193,7 @@ msgstr "Leisti keisti pašalinti saugimas programas (stored routines)."
 #: server_privileges.php:28 server_privileges.php:185
 #: server_privileges.php:515
 msgid "Allows creating new databases and tables."
-msgstr "Leisti kurti naujas duombazes ir lenteles."
+msgstr "Leisti kurti naujas duomenų bazes ir lenteles."
 
 #: server_privileges.php:29 server_privileges.php:208
 #: server_privileges.php:521
@@ -7228,7 +7228,7 @@ msgstr "Leisti šalinti duomenis."
 #: server_privileges.php:35 server_privileges.php:186
 #: server_privileges.php:518
 msgid "Allows dropping databases and tables."
-msgstr "Leisti šalinti duombazes ir lenteles."
+msgstr "Leisti šalinti duomenų bazes ir lenteles."
 
 #: server_privileges.php:36 server_privileges.php:518
 msgid "Allows dropping tables."
@@ -7287,8 +7287,8 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Riboti komandų (kurios vienaip ar kitaip modifikuoja lenteles ar duombazes) "
-"kiekį per valandą."
+"Riboti komandų, kurios modifikuoja lenteles ar duomenų bazes, kiekį per "
+"valandą."
 
 # gal labiau kartu vykstančių
 #: server_privileges.php:47 server_privileges.php:653
@@ -7333,7 +7333,7 @@ msgstr "Leisti skaityti duomenis."
 #: server_privileges.php:54 server_privileges.php:194
 #: server_privileges.php:548
 msgid "Gives access to the complete list of databases."
-msgstr "Suteikti prieigą prie visų duombazių."
+msgstr "Suteikti prieigą prie visų duomenų bazių sąrašo."
 
 #: server_privileges.php:55 server_privileges.php:205
 #: server_privileges.php:207 server_privileges.php:520
@@ -7391,7 +7391,7 @@ msgstr "Globalios teisės"
 
 #: server_privileges.php:566 server_privileges.php:1809
 msgid "Database-specific privileges"
-msgstr "Specifinės duombazių privilegijos"
+msgstr "Specifinės duomenų bazių privilegijos"
 
 #: server_privileges.php:611
 msgid "Administration"
@@ -7502,7 +7502,8 @@ msgstr ""
 #: server_privileges.php:1701
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
-"Pašalinti duombazes, turinčias tokius pačius vardus kaip ir vartotojai."
+"Pašalinti duomenų bazes, turinčias tokius pačius pavadinimus kaip ir "
+"vartotojai."
 
 #: server_privileges.php:1722
 #, php-format
@@ -7526,7 +7527,7 @@ msgstr "Specifinės stulpelių privilegijos"
 
 #: server_privileges.php:2016
 msgid "Add privileges on the following database"
-msgstr "Sukurti privilegijas šiai duombazei"
+msgstr "Sukurti privilegijas šiai duomenų bazei"
 
 #: server_privileges.php:2034
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -7568,7 +7569,7 @@ msgstr ""
 
 #: server_privileges.php:2125
 msgid "Database for user"
-msgstr "Naudotojo duombazė(s)"
+msgstr "Vartotojo duomenų bazė"
 
 #: server_privileges.php:2129
 msgctxt "Create none database for user"
@@ -7577,7 +7578,8 @@ msgstr "Be"
 
 #: server_privileges.php:2130
 msgid "Create database with same name and grant all privileges"
-msgstr "Sukurti duombazę su tokiu pat vardu ir jai suteikti visas privilegijas"
+msgstr ""
+"Sukurti duomenų bazę su tokiu pat vardu ir suteikti jai visas privilegijas"
 
 #: server_privileges.php:2131
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -7586,7 +7588,7 @@ msgstr "Suteikti visas privilegijas pakaitos vardui (username\\_%)"
 #: server_privileges.php:2134
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Suteikti visas privilegijas duombazei „%s“"
+msgstr "Suteikti visas privilegijas duomenų bazei „%s“"
 
 #: server_privileges.php:2157
 #, php-format
@@ -7599,7 +7601,7 @@ msgstr "globalus"
 
 #: server_privileges.php:2267
 msgid "database-specific"
-msgstr "priklausantis nuo duombazės tipo"
+msgstr "tam tikros duomenų bazės"
 
 #: server_privileges.php:2269
 msgid "wildcard"
@@ -7682,22 +7684,22 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 "Šis serveris nesukonfigūruotas kaip pagrindinio serverio dauginimo procesas. "
-"Jūs galite pasirinkti vieną iš dviejų: dauginti visas duombazes ir ignoruoti "
-"kažkurias (naudinga kai Jūs dauginate didžiąją dalį duombazių) arba Jūs "
-"galite pasirinkti ignoruoti visas duombazes ir pasirinkti kažkurias "
-"duombazes dauginimui. Prašome pasirinkti režimą:"
+"Jūs galite pasirinkti vieną iš dviejų: dauginti visas duomenų bazes ir "
+"ignoruoti kažkurias (naudinga kai Jūs dauginate didžiąją dalį duomenų bazių) "
+"arba Jūs galite pasirinkti ignoruoti visas duomenų bazes ir pasirinkti "
+"kažkurias duomenų bazes dauginimui. Prašome pasirinkti režimą:"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr "Padauginti visas duombazes; Ignoruoti:"
+msgstr "Padauginti visas duomenų bazes; Ignoruoti:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr "Ignoruoti visas duombazes; Padauginti:"
+msgstr "Ignoruoti visas duomenų bazes; Padauginti:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr "Prašome pasirinkti duombazę(es):"
+msgstr "Prašome pasirinkti duomenų bazes:"
 
 #: server_replication.php:226
 msgid ""
@@ -7738,7 +7740,7 @@ msgstr "Peržiūrėti pavaldžiojo serverio būklės lentelę"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "Sinchronizuoti duombazes su pagrindiniu serveriu (master)"
+msgstr "Sinchronizuoti duomenų bazes su pagrindiniu serveriu"
 
 #: server_replication.php:320
 msgid "Control slave:"
@@ -8459,7 +8461,7 @@ msgid ""
 "this MySQL server since its startup."
 msgstr ""
 "<b>Serverio apkrovimas</b>: šiose lentelėse saugoma statistinė informacija "
-"apie MySQL serverio apkrovimą nuo paleidimo dienos."
+"apie MySQL serverio apkrovimą nuo jo paleidimo."
 
 #: server_status.php:505
 msgid "Traffic"
@@ -8490,7 +8492,7 @@ msgstr "Prisijungimai"
 
 #: server_status.php:557
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "Daugiausiai lygiagrečių prisijungimų"
 
 #: server_status.php:564
 msgid "Failed attempts"
@@ -8506,7 +8508,7 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Užklausų statistika</b>: nuo paleidimo dienos buvo išsiųsta %s užklausų į "
+"<b>Užklausų statistika</b>: nuo paleidimo buvo išsiųsta %s užklausų į "
 "serverį."
 
 #: server_status.php:615
@@ -8635,8 +8637,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Paskirta duombazė bus pilnai susinchronizuota su pirmine duombaze. Pirminė "
-"duombazė išliks nepakeista."
+"Paskirta duomenų bazė bus pilnai susinchronizuota su pirmine duomenų baze. "
+"Pirminė duomenų bazė išliks nepakeista."
 
 #: server_variables.php:34
 msgid "Server variables and settings"
@@ -9286,7 +9288,7 @@ msgstr "(pavieniui)"
 
 #: tbl_operations.php:275
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Perkelti lentelė į (duombazė<b>.</b>lentelė):"
+msgstr "Perkelti lentelę į (duomenų_bazė<b>.</b>lentelė):"
 
 #: tbl_operations.php:333
 msgid "Table options"
@@ -9298,7 +9300,7 @@ msgstr "Pervadinti lentelę į"
 
 #: tbl_operations.php:513
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Kopijuoti lentelė į (duombazė<b>.</b>lentelė):"
+msgstr "Kopijuoti lentelę į (duomenų_bazė<b>.</b>lentelė):"
 
 #: tbl_operations.php:560
 msgid "Switch to copied table"
@@ -9512,10 +9514,11 @@ msgid "After %s"
 msgstr "Po %s"
 
 #: tbl_structure.php:686
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Sukurti indeksą &nbsp;%s&nbsp;stulpeliui(iams)"
+msgstr "Sukurti indeksą &nbsp;%s&nbsp;stulpeliams"
 
 #: tbl_structure.php:848
 msgid "partitioned"

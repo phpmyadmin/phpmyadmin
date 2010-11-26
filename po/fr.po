@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-20 14:21+0200\n"
+"PO-Revision-Date: 2010-11-23 19:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -411,11 +411,11 @@ msgstr "Vous devez choisir au moins une colonne à afficher"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Passer en"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "mode visuel"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -1112,7 +1112,7 @@ msgstr "Colonne descriptive"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Ajouter une option pour la colonne"
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -6985,10 +6985,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Exporter les coordonnées pour le schéma PDF"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Exécuter la requête"
+msgstr "Construire la requête"
 
 #: pmd_general.php:127
 msgid "Move Menu"
@@ -7011,42 +7010,36 @@ msgid "Delete relation"
 msgstr "Effacer la relation"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relation supprimée"
+msgstr "Opérateur de relation"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Exporter"
+msgstr "Sauf"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "dans la requête"
+msgstr "sous-requête"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Changer le nom de la vue pour"
+msgstr "Renommer en"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Nom d'utilisateur"
+msgstr "Nouveau nom"
 
 #: pmd_general.php:487 pmd_general.php:702
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Créer"
+msgstr "Regroupement"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
@@ -7055,10 +7048,9 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "<b>Options</b> pour cette table"
+msgstr "Options actives"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
