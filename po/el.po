@@ -1238,7 +1238,7 @@ msgstr "Αυγούστου"
 
 #: js/messages.php:133
 msgid "September"
-msgstr ""
+msgstr "Σεπτεμβρίου"
 
 #: js/messages.php:134
 #, fuzzy
