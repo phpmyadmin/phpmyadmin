@@ -1928,10 +1928,9 @@ msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μύνημα: "
 
 #: libraries/common.lib.php:1078
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
