@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 21:15+0200\n"
+"PO-Revision-Date: 2010-11-26 21:17+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1865,7 +1865,7 @@ msgstr "Kaavioiden käyttöön tarvitaan GD-laajennus."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Kaavioiden työkaluvihjeitä varten tarvitaan JSON-koodain."
 
 #: libraries/common.inc.php:571
 msgid ""
