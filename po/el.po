@@ -1780,7 +1780,7 @@ msgstr "Η λήψη πληροφοριών BLOB από την PBMS απέτυχ�
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "η λήψη Τύπου-Περιεχομένου του BLOB απέτυχε"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
