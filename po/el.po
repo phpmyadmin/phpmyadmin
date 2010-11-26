@@ -2747,10 +2747,9 @@ msgstr "Προσαρμοσμένη κατάσταση αναζήτησης"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
-msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής"
+msgstr "Προσαρμογή προεπιλεγμένων επιλογών"
 
 #: libraries/config/messages.inc.php:153 libraries/config/setup.forms.php:230
 #: libraries/config/setup.forms.php:309
