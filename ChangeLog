@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.3.8.1 (2010-10-26)
+- bug #3115519 (private) [security] XSS on db search
+
 3.3.8.0 (2010-10-25)
 - bug #3059311 [import] BIGINT field type added to table analysis
 - [core] Update library PHPExcel to version 1.7.4
@@ -18,9 +21,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.3.7.0 (2010-09-07)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
   a page size increase, thanks to Martin Schönberger - mad05
-- bug #3054458 [core] Fixed displaying number of rows.
-- bug #3035300 [parser] Fixed wrong definition of keywords.
-- [setup] Fixed escaping of server name.
 
 3.3.6.0 (2010-08-28)
 - bug #3033063 [core] Navi gets wrong db name
