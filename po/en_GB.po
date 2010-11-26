@@ -6898,10 +6898,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export coordinates for PDF schema"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Submit Query"
+msgstr "Build Query"
 
 #: pmd_general.php:127
 msgid "Move Menu"
