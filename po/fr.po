@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:13+0200\n"
+"PO-Revision-Date: 2010-11-26 19:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3093,7 +3093,7 @@ msgstr "Valeur initiale des zones de glissement"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
-msgstr "Le nombre d'enregistrements qui peuvent être insérés à la fois."
+msgstr "Le nombre de lignes qui peuvent être insérées à la fois."
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
