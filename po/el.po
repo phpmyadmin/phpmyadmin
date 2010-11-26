@@ -1157,7 +1157,6 @@ msgstr "Ολοκληρώθηκε"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#, fuzzy
 msgid "Prev"
 msgstr "Προηγούμενο"
 
