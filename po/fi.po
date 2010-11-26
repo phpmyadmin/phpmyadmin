@@ -591,7 +591,6 @@ msgid "Inside column:"
 msgstr "Sarakkeen sisältä:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Tietokannassa ei ole tauluja."
