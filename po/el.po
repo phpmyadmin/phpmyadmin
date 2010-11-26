@@ -1382,7 +1382,6 @@ msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#, fuzzy
 msgid "Wk"
 msgstr "Wiki"
 
