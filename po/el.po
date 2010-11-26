@@ -4450,7 +4450,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Ενεργοποίηση της καρτέλας Δημιουργός στις ρυθμίσεις"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
