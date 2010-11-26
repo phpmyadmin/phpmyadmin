@@ -6513,11 +6513,10 @@ msgid "Please choose a page to edit"
 msgstr "Παρακαλώ επιλέξτε σελίδα για αλλαγή"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgctxt "Create SELECT * query"
 #| msgid "Select all"
 msgid "Select page"
-msgstr "Επιλογή όλων"
+msgstr "Επιλογή σελίδας"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
