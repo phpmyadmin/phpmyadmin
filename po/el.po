@@ -1205,7 +1205,7 @@ msgstr "Δυαδικό"
 
 #: js/messages.php:126
 msgid "February"
-msgstr ""
+msgstr "Φεβρουαρίου"
 
 #: js/messages.php:127
 #, fuzzy
