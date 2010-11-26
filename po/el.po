@@ -4860,10 +4860,9 @@ msgid "%d is not valid row number."
 msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γραμμών."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "Εγγραφές αρχίζοντας από την εγγραφή"
+msgstr "εγγραφή(ές) αρχίζοντας από την εγγραφή #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
