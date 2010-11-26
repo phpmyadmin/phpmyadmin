@@ -1035,10 +1035,9 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Lataa asetukset"
+msgstr "Lataa"
 
 #: js/messages.php:64
 #, fuzzy
