@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:15+0200\n"
+"PO-Revision-Date: 2010-11-26 19:16+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5574,7 +5574,7 @@ msgstr "Généré par"
 #: libraries/import.lib.php:153 sql.php:593 tbl_change.php:176
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL n'a retourné aucun enregistrement."
+msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: libraries/import.lib.php:1141
 msgid ""
