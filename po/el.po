@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:44+0200\n"
+"PO-Revision-Date: 2010-11-26 23:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9410,7 +9410,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9419,9 +9419,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"Η [a@?page=form&formset=features#tab_Security]Ισχύς του cookie σύνδεσης[/a] "
-"πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 λεπτά) το περισσότερο. Τιμές "
-"μεγαλύτερες από 1800 ίσως παρουσιάσουν προβλήματα ασφάλειας όπως μίμηση."
+"Η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 "
+"λεπτά) το περισσότερο. Τιμές μεγαλύτερες από 1800 μπορεί να ελοχεύει "
+"κινδύνους απροσωποληψίας."
 
 #: setup/lib/index.lib.php:264
 #, php-format
