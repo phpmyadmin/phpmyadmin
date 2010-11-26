@@ -3614,10 +3614,9 @@ msgid "Leave blank for defaults"
 msgstr "Αφήστε κενό για προεπιλογές"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Κανόνες επικύρωσης"
+msgstr "Κανόνες πιστοποίησης φιλοξενητή"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow logins without a password"
