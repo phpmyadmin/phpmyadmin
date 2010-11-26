@@ -3689,7 +3689,7 @@ msgstr "Προβλή κουμπιού βοήθειας αντί κειμένου
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
-msgstr ""
+msgstr "Προβολή κουμπιού βοήθειας"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
