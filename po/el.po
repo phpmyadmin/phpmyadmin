@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:46+0200\n"
+"PO-Revision-Date: 2010-11-26 23:48+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9451,7 +9451,7 @@ msgstr ""
 "ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9466,11 +9466,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Ορίζετε τον τύπο επικύρωσης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
+"Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
+"[kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
