@@ -4816,7 +4816,7 @@ msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστ�
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", το @DATABASE@ θα γίνει το όνομα της βάσης δεδομένων"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
