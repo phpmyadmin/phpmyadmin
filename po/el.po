@@ -1796,10 +1796,9 @@ msgid "Not replicated"
 msgstr "Χωρίς αναπαραγωγή"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Αναπαραγωγή"
+msgstr "Αναπαραγμένο"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
