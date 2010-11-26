@@ -7440,10 +7440,9 @@ msgid "Operator"
 msgstr "Τελεστής"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Επιλογές πίνακα"
+msgstr "Ενεργές επιλογές"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
