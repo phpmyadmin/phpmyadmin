@@ -1216,7 +1216,6 @@ msgid "June"
 msgstr "Kesä"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Heinä"
