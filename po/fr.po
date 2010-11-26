@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 19:19+0200\n"
+"PO-Revision-Date: 2010-11-26 19:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8298,7 +8298,7 @@ msgstr "Le nombre de lignes supprimées des tables InnoDB."
 
 #: server_status.php:107
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "Le nombre d'enregistrements insérés dans des tables InnoDB."
+msgstr "Le nombre de lignes insérées dans des tables InnoDB."
 
 #: server_status.php:108
 msgid "The number of rows read from InnoDB tables."
