@@ -4937,7 +4937,7 @@ msgstr "Αρχείο για εισαγωγή"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Το αρχείο μπορεί να συμπιεστεί (%s) ή να αποσυμπιεστεί."
 
 #: libraries/display_import.lib.php:158
 msgid ""
