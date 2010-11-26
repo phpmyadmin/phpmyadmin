@@ -1343,7 +1343,7 @@ msgstr "Παρ"
 #. l10n: Short week day name
 #: js/messages.php:187 libraries/common.lib.php:1582
 msgid "Sat"
-msgstr "Σάββατο"
+msgstr "Σάβ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
