@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:44+0200\n"
+"PO-Revision-Date: 2010-11-26 14:45+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4326,6 +4326,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ "
+"(προεπιλογή:[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:468 tbl_tracking.php:405
 #: tbl_tracking.php:456
