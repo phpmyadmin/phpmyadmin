@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:48+0200\n"
+"PO-Revision-Date: 2010-11-26 23:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9485,7 +9485,7 @@ msgstr ""
 "το σύστημα."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
@@ -9493,8 +9493,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]αποσυμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+"Η %sαποσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε "
+"αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:296
 #, fuzzy
