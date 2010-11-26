@@ -5941,7 +5941,7 @@ msgstr ""
 #: libraries/import/csv.php:41
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Ονόματα στηλών:"
+msgstr "Ονόματα στηλών: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
