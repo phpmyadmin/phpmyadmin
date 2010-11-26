@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:37+0200\n"
+"PO-Revision-Date: 2010-11-26 22:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1063,10 +1063,9 @@ msgid "Renaming Databases"
 msgstr "Μετονομασία βάσεων δεδομένων"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Επαναφόρτωση βάσεων δεδομένων"
 
 #: js/messages.php:73
 #, fuzzy
