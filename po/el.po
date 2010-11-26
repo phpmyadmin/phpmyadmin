@@ -4607,10 +4607,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Αδύνατη η φόρτωση προσθέτων εξαγωγής. Ελέξτε την εγκατάστασή σας!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
+msgstr "Εξαγωγή βάσεων δεδομένων στον τρέχοντα διακομιστή"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
