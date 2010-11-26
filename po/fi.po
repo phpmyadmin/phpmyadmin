@@ -2118,7 +2118,7 @@ msgstr "Toiminnot"
 
 #: libraries/common.lib.php:2957
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Selaa tietokonettasi:"
 
 #: libraries/common.lib.php:2970
 #, fuzzy, php-format
