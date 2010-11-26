@@ -6523,10 +6523,9 @@ msgid "Select Tables"
 msgstr "Επιλογή Πινάκων"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Σχεσιακό σχήμα"
+msgstr "Προβολή σχεσιακού σχήματος"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
