@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:39+0200\n"
+"PO-Revision-Date: 2010-11-26 22:40+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1098,10 +1098,9 @@ msgid "Hide query box"
 msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Χώρος Ερωτήματος SQL"
+msgstr "Προβολή παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:86
 #, fuzzy
