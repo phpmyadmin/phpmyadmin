@@ -9157,7 +9157,7 @@ msgstr "Τα ακόλουθα ερωτήματα εκτελέστηκαν:"
 
 #: server_synchronize.php:1120
 msgid "Enter manually"
-msgstr ""
+msgstr "Εισάγετε χειροκίνητα"
 
 #: server_synchronize.php:1121
 msgid "Current connection"
