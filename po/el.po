@@ -2655,10 +2655,9 @@ msgid "Remember file name template"
 msgstr "Πρότυπο απομνημόνευσης ονοματος αρχείου"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Πεδίων"
+msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Στηλών"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
