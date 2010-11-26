@@ -1183,10 +1183,9 @@ msgstr "Seuraava"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Yhteensä"
+msgstr "Tänään"
 
 #: js/messages.php:125
 #, fuzzy
