@@ -4371,7 +4371,7 @@ msgstr "ZIP"
 #: libraries/config/setup.forms.php:41
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Ρύθμιση πιστοποίησης"
+msgstr "Πιστοποίηση ρύθμισης"
 
 #: libraries/config/setup.forms.php:45
 #| msgid "Host authentication order"
