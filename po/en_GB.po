@@ -1099,7 +1099,7 @@ msgstr "Choose column to display"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Add an option for column "
 
 #: js/messages.php:101
 msgid "Generate password"
