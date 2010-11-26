@@ -1186,7 +1186,6 @@ msgid "March"
 msgstr "Μαρτίου"
 
 #: js/messages.php:128
-#, fuzzy
 msgid "April"
 msgstr "Απριλίου"
 
