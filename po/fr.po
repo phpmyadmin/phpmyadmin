@@ -3097,7 +3097,7 @@ msgstr "Le nombre de lignes qui peuvent être insérées à la fois."
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
-msgstr "Nombre d'enregistrements à insérer"
+msgstr "Nombre de lignes à insérer"
 
 #: libraries/config/messages.inc.php:262
 msgid "Target for quick access icon"
