@@ -8372,7 +8372,7 @@ msgstr ""
 
 #: server_status.php:118
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Le nombre d'enregistrements en attente d'écriture (INSERT DELAYED)."
+msgstr "Le nombre de lignes en attente d'écriture (INSERT DELAYED)."
 
 #: server_status.php:119
 msgid ""
