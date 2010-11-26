@@ -8826,7 +8826,7 @@ msgstr "Insérer des lignes"
 
 #: server_synchronize.php:444 server_synchronize.php:888
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Voulez-vous supprimer tous les enregistrements des tables cible ?"
+msgstr "Voulez-vous supprimer toutes les lignes des tables cible ?"
 
 #: server_synchronize.php:447 server_synchronize.php:892
 msgid "Apply Selected Changes"
