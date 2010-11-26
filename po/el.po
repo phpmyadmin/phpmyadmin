@@ -3551,7 +3551,7 @@ msgstr "Ύψος παραθύρου ερωτήματος (σε εικονοστ�
 #: libraries/config/messages.inc.php:338
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Ύψος παράθυρου ερωτήματος"
+msgstr "Ύψος παραθύρου ερωτήματος"
 
 #: libraries/config/messages.inc.php:339
 #, fuzzy
