@@ -4901,7 +4901,6 @@ msgstr ""
 "συνεχίσει από τη θέση %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
