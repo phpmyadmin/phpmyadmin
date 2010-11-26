@@ -6891,7 +6891,6 @@ msgid "Add %s column(s)"
 msgstr "Προσθήκη %s στήλης(ών)"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα πεδίο."
