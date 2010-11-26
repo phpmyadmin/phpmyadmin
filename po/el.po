@@ -9497,7 +9497,6 @@ msgstr ""
 "αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
 msgstr ""
