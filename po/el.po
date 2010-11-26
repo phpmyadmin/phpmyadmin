@@ -243,7 +243,7 @@ msgstr "Επιλογή όλων"
 
 #: db_export.php:46 db_search.php:344 server_export.php:28
 msgid "Unselect All"
-msgstr "Αποπεπιλογή όλων"
+msgstr "Αποεπιλογή όλων"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
