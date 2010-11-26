@@ -2215,10 +2215,9 @@ msgstr "Kohteesta %s puuttuu tiedot"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Muuttuja"
+msgstr "Ei saatavilla"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
