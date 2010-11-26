@@ -1557,7 +1557,7 @@ msgstr[0] "%1$d rivi(ä) poistettu."
 msgstr[1] "%1$d rivi(ä) poistettu."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
