@@ -3587,7 +3587,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
 
 #: libraries/config/messages.inc.php:327
 msgid "Iconic table operations"
