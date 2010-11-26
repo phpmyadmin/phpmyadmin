@@ -4649,10 +4649,9 @@ msgid "Dump some row(s)"
 msgstr "Αχρήστευση μερικών εγγραφών"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Αριθμός πεδίων"
+msgstr "Αριθμός εγγραφών"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
