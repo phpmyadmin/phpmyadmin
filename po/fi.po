@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:10+0200\n"
+"PO-Revision-Date: 2010-11-26 20:11+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1073,10 +1073,9 @@ msgid "Reload Database"
 msgstr "Lataa tietokanta uudestaan"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Luo tietokannasta toinen tietokanta nimellä"
+msgstr "Tietokannan kopiointi"
 
 #: js/messages.php:74
 #, fuzzy
