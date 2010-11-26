@@ -10168,7 +10168,6 @@ msgstr ""
 "συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)."
 
 #: tbl_relation.php:410
-#, fuzzy
 msgid "Foreign key constraint"
 msgstr "Όριο μη διακριτού κλειδιού"
 
