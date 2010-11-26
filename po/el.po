@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 22:50+0200\n"
+"PO-Revision-Date: 2010-11-26 22:51+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2333,7 +2333,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -2343,9 +2342,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Ορίζει ποιος τύπος επεξεργασμένων ελέγχων πρέπει να χρησιμοποιηθεί για πεδία "
-"CHAR και VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]"
-"textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
+"Ορίζει ποιος τύπος πεδίων φόρμας πρέπει να χρησιμοποιηθεί για πεδία CHAR και "
+"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, "
+"[kbd]textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
 
 #: libraries/config/messages.inc.php:31
 #, fuzzy
