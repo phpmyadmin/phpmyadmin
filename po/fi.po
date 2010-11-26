@@ -2164,7 +2164,6 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Mukautettu - kuten yllä, mutta ilman pika-/mukautettu-valintaa"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
