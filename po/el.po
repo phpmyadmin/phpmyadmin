@@ -5588,7 +5588,6 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στήλες"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Έκδοση Excel"
