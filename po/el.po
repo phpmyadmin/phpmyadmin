@@ -1352,9 +1352,8 @@ msgstr "Κυ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#, fuzzy
 msgid "Mo"
-msgstr "Δευτέρα"
+msgstr "Δε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
