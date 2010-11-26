@@ -1411,10 +1411,9 @@ msgstr "La"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Vko"
 
 #: js/messages.php:207
 msgid "Hour"
