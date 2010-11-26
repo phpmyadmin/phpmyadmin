@@ -1367,9 +1367,8 @@ msgstr "Τε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#, fuzzy
 msgid "Th"
-msgstr "Πέμπτη"
+msgstr "Πε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
