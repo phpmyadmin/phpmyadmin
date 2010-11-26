@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:32+0200\n"
+"PO-Revision-Date: 2010-11-26 14:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3685,7 +3685,7 @@ msgstr "Προσπάθειες επιδιόρθωσης"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Προβλή κουμπιού βοήθειας αντί κειμένου Τεκμηρίωσης"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
