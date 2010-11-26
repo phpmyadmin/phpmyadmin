@@ -2764,10 +2764,9 @@ msgid "Enclose export in a transaction"
 msgstr "Συμπερίληψη εξαγωγής στη συναλλαγή"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Εξαγωγή περιεχομένων"
+msgstr "Εξαγωγή χρόνου σε UTC"
 
 #: libraries/config/messages.inc.php:143
 msgid "Force secured connection while using phpMyAdmin"
