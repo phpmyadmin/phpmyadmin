@@ -2240,10 +2240,9 @@ msgid "SQL Validator is disabled"
 msgstr "SQL-validaattori ei ole käytössä"
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "Käytettävä PHP-laajennus"
+msgstr "SOAP-laajennusta ei löydy"
 
 #: libraries/config/FormDisplay.class.php:772
 #, fuzzy, php-format
