@@ -1147,9 +1147,8 @@ msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
 #: js/messages.php:106
-#, fuzzy
 msgid "More"
-msgstr "Δευτέρα"
+msgstr "Περισσότερα"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
