@@ -1243,7 +1243,6 @@ msgstr "Απριλίου"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#, fuzzy
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μαΐου"
