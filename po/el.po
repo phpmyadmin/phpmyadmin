@@ -4000,9 +4000,8 @@ msgstr ""
 "[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 msgid "SQL query tracking table"
-msgstr "Πίνακας ιστορικού ερωτημάτων SQL"
+msgstr "Πίνακας ιστορικού παρακολούθησης ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
