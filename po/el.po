@@ -4840,7 +4840,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
-msgstr ""
+msgstr "χρησιμοποιήστε το για μελλοντικές εξαγωγές"
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:512
