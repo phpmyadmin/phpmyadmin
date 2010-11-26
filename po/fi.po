@@ -8993,10 +8993,11 @@ msgstr ""
 "<b>alipalvelimena</b>."
 
 #: server_status.php:479
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr ""
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> "
+"<b>pääpalvelimena</b>."
 
 #: server_status.php:481
 #, fuzzy
