@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 00:37+0200\n"
+"PO-Revision-Date: 2010-11-27 00:39+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7420,6 +7420,7 @@ msgstr "Εισαγωγή από την αποθήκευση φυλλομετρη
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Οι ρυθμίσεις θα εισαχθούν από την τοπική αποθήκευση του φυλλομετρητή σας."
 
 #: prefs_manage.php:254
 #| msgid "Other core settings"
