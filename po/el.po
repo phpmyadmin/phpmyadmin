@@ -5636,7 +5636,7 @@ msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΑΓΝΟΗΣΗΣ</code> (INSER
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την αχρήστευση δεδομένων:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
