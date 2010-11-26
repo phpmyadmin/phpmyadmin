@@ -7583,7 +7583,7 @@ msgstr "Tietokantatilastot"
 #: server_databases.php:172 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr "Isäntäpalvelimen replikointi"
+msgstr "Isäntäpalvelimen kahdennus"
 
 #: server_databases.php:174 server_replication.php:246
 msgid "Slave replication"
