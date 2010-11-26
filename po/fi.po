@@ -2228,7 +2228,7 @@ msgstr "\"%s\" vaatii laajennuksen %s"
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "tuonti ei toimi, puuttuva funktio (%s)"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
