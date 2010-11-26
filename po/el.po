@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 14:26+0200\n"
+"PO-Revision-Date: 2010-11-26 14:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3520,7 +3520,7 @@ msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
-msgstr ""
+msgstr "Προβολή συνδέσμου διαγραφής στα δεξιά"
 
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
