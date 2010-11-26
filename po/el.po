@@ -1332,7 +1332,7 @@ msgstr "Τρίτη"
 
 #: js/messages.php:168
 msgid "Wednesday"
-msgstr ""
+msgstr "Τετάρτη"
 
 #: js/messages.php:169
 msgid "Thursday"
