@@ -1377,9 +1377,8 @@ msgstr "Πα"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#, fuzzy
 msgid "Sa"
-msgstr "Σάββατο"
+msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
