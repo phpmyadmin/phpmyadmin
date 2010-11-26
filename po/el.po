@@ -10055,10 +10055,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Εκκαθάριση («FLUSH») πίνακα"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων ή πίνακα"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
