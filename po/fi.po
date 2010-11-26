@@ -2179,7 +2179,7 @@ msgstr "molemmat yltä"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "ei kumpikaan yltä"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
