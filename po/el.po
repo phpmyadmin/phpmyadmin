@@ -4352,7 +4352,7 @@ msgstr "Μια προειδοποίηση εμφανίζεται στη βασι
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
-msgstr "προειδοποίηση Suhosin"
+msgstr "Προειδοποίηση Suhosin"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
