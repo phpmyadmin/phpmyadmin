@@ -2245,10 +2245,10 @@ msgid "SOAP extension not found"
 msgstr "SOAP-laajennusta ei löydy"
 
 #: libraries/config/FormDisplay.class.php:772
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Tauluja enintään"
+msgstr "Enintään %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
