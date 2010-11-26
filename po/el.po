@@ -1313,7 +1313,7 @@ msgstr "Σάββατο"
 #. l10n: Short week day name
 #: js/messages.php:175 libraries/common.lib.php:1570
 msgid "Sun"
-msgstr "Κυριακή"
+msgstr "Κυρ"
 
 #. l10n: Short week day name
 #: js/messages.php:177 libraries/common.lib.php:1572
