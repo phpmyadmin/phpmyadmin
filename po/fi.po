@@ -1420,10 +1420,9 @@ msgid "Hour"
 msgstr "Tunti"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "käytössä"
+msgstr "Minuutti"
 
 #: js/messages.php:209
 #, fuzzy
