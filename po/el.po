@@ -2496,10 +2496,9 @@ msgid "Default table tab"
 msgstr "Προεπιλεγμένη καρτέλα πίνακα"
 
 #: libraries/config/messages.inc.php:52
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά"
+msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά ως προεπιλογή"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
