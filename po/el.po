@@ -6417,7 +6417,7 @@ msgstr "Προβολή σχεσιακού σχήματος"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
