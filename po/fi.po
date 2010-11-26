@@ -1190,7 +1190,7 @@ msgstr "Tänään"
 #: js/messages.php:125
 #| msgid "Binary"
 msgid "January"
-msgstr "Tammikuu"
+msgstr "Tammi"
 
 #: js/messages.php:126
 msgid "February"
