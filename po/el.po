@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:40+0200\n"
+"PO-Revision-Date: 2010-11-26 13:41+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9048,11 +9048,10 @@ msgstr ""
 "μια <b>αναπαραγωγική</b> διαδικασία."
 
 #: server_status.php:479
-#, fuzzy
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Αυτός ο διακομιστής έχει ρυθμιστεί ως πρωτεύων σε μια αναπαραγωγική "
-"διαδικασία."
+"Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> σε μια "
+"<b>αναπαραγωγική</b> διαδικασία."
 
 #: server_status.php:481
 #, fuzzy
