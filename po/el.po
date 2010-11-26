@@ -6721,9 +6721,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Ο επικυρωτής SQL δεν μπόρεσε να ενεργοποιηθεί. Παρακαλώ ελέγξτε ότι έχετε "
-"εγκαταστήσει της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %"
-"sτεκμηρίωση%s."
+"Ο επικυρωτής SQL δεν μπόρεσε να ξεκινήσει. Ελέγξτε ότι έχετε εγκαταστήσει "
+"της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %sτεκμηρίωση%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
