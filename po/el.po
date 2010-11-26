@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:54+0200\n"
+"PO-Revision-Date: 2010-11-26 23:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5632,7 +5632,7 @@ msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΚΑΘΥΣΤΕΡΗΜΕΝΗΣ</
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΑΓΝΟΗΣΗΣ</code> (INSERT IGNORE)"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
