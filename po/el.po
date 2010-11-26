@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:05+0200\n"
+"PO-Revision-Date: 2010-11-26 13:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6949,7 +6949,6 @@ msgstr ""
 "διάταξη (Προεπιλεγμένη τιμή: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6957,8 +6956,8 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες "
-"διαφυγής."
+"Διατηρεί την αρχική μορφοποίηση του πεδίου, χωρίς χρήση της συνάρτησης "
+"htmlspecialchars(). Θεωρείται ότι η στήλη περιέχει έγκυρη HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
