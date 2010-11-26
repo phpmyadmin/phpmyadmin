@@ -2252,7 +2252,7 @@ msgstr "Enintään %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Tämä asetus on poissa käytöstä; sitä ei lisätä asetuksiisi"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
 #: libraries/relation.lib.php:90 pmd_relation_new.php:68
