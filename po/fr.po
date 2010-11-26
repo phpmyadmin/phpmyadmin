@@ -4696,7 +4696,7 @@ msgstr "Langue"
 #: libraries/display_tbl.lib.php:302
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d n'est pas un numéro d'enregistrement valable."
+msgstr "%d n'est pas un numéro de ligne valable."
 
 #: libraries/display_tbl.lib.php:308
 msgid "row(s) starting from row #"
