@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-09-06 11:51+0200\n"
+"PO-Revision-Date: 2010-11-26 12:39+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -10417,92 +10417,3 @@ msgstr "Μετονομασία πίνακα σε"
 
 #~ msgid "No tables"
 #~ msgstr "Δεν υπάρχουν πίνακες"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Αύτη η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει "
-#~ "να είναι ενεργή αν την υποστηρίζει ο διακομιστής σας"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Παρακαλώ εισάγετε τις τιμές για τη μετατροπή χρησιμοποιώντας τη μορφή: "
-#~ "'α', 100, β,'γ'...<br />Εάν χρειαστείτε να χρησιμοποιήσετε καθέτους («\\») "
-#~ "ή μονά εισαγωγικά («'») στις τιμές, χρησιμοποιείτε καθέτους (παράδειγμα '\\"
-#~ "\\χψω' ή 'α\\'β')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Παρακαλώ εισάγετε τις τιμές για τη μετατροπή χρησιμοποιώντας τη μορφή: "
-#~ "'α', 100, β,'γ'...<br />Εάν χρειαστείτε να χρησιμοποιήσετε καθέτους («\\») "
-#~ "ή μονά εισαγωγικά («'») στις τιμές, χρησιμοποιείτε καθέτους (παράδειγμα '\\"
-#~ "\\χψω' ή 'α\\'β')."
-
-#~ msgid "New table"
-#~ msgstr "Νέος πίνακας"
-
-#~ msgid "server name"
-#~ msgstr "όνομα διακομιστή"
-
-#~ msgid "database name"
-#~ msgstr "όνομα βάσης δεδομένων"
-
-#~ msgid "table name"
-#~ msgstr "όνομα πίνακα"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Αλλαγή σελίδων PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Μορφή λεξικού δεδομένων"
-
-#~ msgid "no"
-#~ msgstr "όχι"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Εισάγετε επιλογές σύνδεσης για επικύρωσης σύνδεσης"
-
-#~ msgid "Signon login options"
-#~ msgstr "Επιλογές σύνδεσης"
-
-#~ msgid "PMA database"
-#~ msgstr "Βάση δεδομένων PMA"
-
-#~ msgid "Customization"
-#~ msgstr "Προσαρμογή"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Ρυθμίσεις ερωτημάτων SQL, για επιλογές χώρου Ερωτήματος SQL δείτε τις "
-#~ "ρυθμίσεις [a@?page=form&amp;formset=main_frame#tab_Sql_box]πλαισίου "
-#~ "Πλοήγησης[/a]"
-
-#~ msgid "yes"
-#~ msgstr "ναι"
