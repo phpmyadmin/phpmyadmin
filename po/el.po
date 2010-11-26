@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 13:38+0200\n"
+"PO-Revision-Date: 2010-11-26 13:39+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5926,10 +5926,9 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει συμπιεσμένες εισαγωγές!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά (12.00% αντί .12)"
+msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά (π.χ. 12.00% αντί .12)"
 
 #: libraries/import/ods.php:29
 #| msgid "Import currencies ($5.00 to 5.00)"
