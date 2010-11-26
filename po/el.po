@@ -4253,10 +4253,9 @@ msgstr ""
 "ερωτημάτων (x1,25)"
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "Στήλες περιοχής κειμένου (textarea) CHAR"
+msgstr "Στήλες περιοχής κειμένου (textarea)"
 
 #: libraries/config/messages.inc.php:475
 msgid ""
