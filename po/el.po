@@ -3734,7 +3734,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Βασίλειο HTTP"
 
 #: libraries/config/messages.inc.php:358
 msgid ""
