@@ -9729,10 +9729,9 @@ msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
 #: sql.php:591
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Επικύρωση SQL"
+msgstr "Επικυρωμένη SQL"
 
 #: sql.php:820
 #, php-format
