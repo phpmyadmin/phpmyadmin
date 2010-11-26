@@ -406,7 +406,7 @@ msgstr[1] "%s Πίνακες"
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Η SQL εντολή σας εκτελέσθηκε επιτυχώς"
+msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
