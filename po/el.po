@@ -5655,7 +5655,6 @@ msgstr "Εμφάνιση σχολίων"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Διαθέσιμοι τύποι MIME"
