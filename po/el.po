@@ -1239,7 +1239,7 @@ msgstr "Μαρ"
 #. l10n: Short month name
 #: js/messages.php:146 libraries/common.lib.php:1551
 msgid "Apr"
-msgstr "Απριλίου"
+msgstr "Απρ"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
