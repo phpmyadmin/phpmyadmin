@@ -10051,7 +10051,6 @@ msgid "Table %s has been flushed"
 msgstr "Ο Πίνακας %s εκκαθαρίστηκε («FLUSH»)"
 
 #: tbl_operations.php:638
-#, fuzzy
 msgid "Flush the table (FLUSH)"
 msgstr "Εκκαθάριση («FLUSH») πίνακα"
 
