@@ -421,7 +421,7 @@ msgstr "Valitse vähintään yksi sarake"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Siirry kohteeseen"
 
 #: db_qbe.php:186
 msgid "visual builder"
