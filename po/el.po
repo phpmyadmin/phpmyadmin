@@ -2935,7 +2935,6 @@ msgid "Microsoft Office"
 msgstr "Microsoft Excel"
 
 #: libraries/config/messages.inc.php:183
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα (ODΤ)"
