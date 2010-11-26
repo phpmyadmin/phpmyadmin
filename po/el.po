@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:07+0200\n"
+"PO-Revision-Date: 2010-11-26 23:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3930,7 +3930,6 @@ msgid "PDF schema: table coordinates"
 msgstr "Σχέδιο PDF: συντεταγμένες πίνακα"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -3938,7 +3937,7 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Ο πίνακας που περιγράφει τα προβαλόμενα πεδία. Αφήστε το κενό για να μην "
+"Ο πίνακας που περιγράφει τις προβαλλόμενες στήλες. Αφήστε το κενό για να μην "
 "υποστηρίζεται. Προτείνεται: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
