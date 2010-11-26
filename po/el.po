@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:53+0200\n"
+"PO-Revision-Date: 2010-11-26 15:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5555,16 +5555,14 @@ msgstr ""
 "τους δίδεται ο επόμενος αύξων αριθμός."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Στήλες που χωρίζονται με"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Πεδία που περικλείονται σε"
+msgstr "Στήλες που περικλείονται με"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #| msgid "Fields escaped by"
@@ -5572,28 +5570,24 @@ msgid "Columns escaped with:"
 msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής: "
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Γραμμές που τελειώνουν με"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Αντικατάσταση τιμής NULL με"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στα πεδία"
+msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στήλες"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Έκδοση Excel"
@@ -5601,10 +5595,9 @@ msgstr "Έκδοση Excel"
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Επιλογές προβολής βάσεων δεδομένων"
+msgstr "Επιλογές απορριμμάτων δεδομένων"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:946 libraries/export/texytext.php:123
@@ -5617,10 +5610,9 @@ msgid "Table structure for table"
 msgstr "Δομή Πίνακα για τον Πίνακα"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Περιεχόμενο του πίνακα __TABLE__"
+msgstr "Περιεχόμενο του πίνακα @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
