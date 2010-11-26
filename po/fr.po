@@ -8306,7 +8306,7 @@ msgstr "Le nombre de lignes lues dans des tables InnoDB."
 
 #: server_status.php:109
 msgid "The number of rows updated in InnoDB tables."
-msgstr "Le nombre d'enregistrements mis à jour dans des tables InnoDB."
+msgstr "Le nombre de lignes mises à jour dans des tables InnoDB."
 
 #: server_status.php:110
 msgid ""
