@@ -7406,7 +7406,7 @@ msgstr "Θέλετε να εισάγετε τις υπόλοιπες ρυθμί�
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Αποθήκευση στις: @DATE@"
 
 #: prefs_manage.php:239
 #| msgid "Import files"
