@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 20:38+0200\n"
+"PO-Revision-Date: 2010-11-26 20:39+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1541,7 +1541,7 @@ msgid "Error"
 msgstr "Virhe"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
