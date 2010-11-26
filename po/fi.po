@@ -1994,10 +1994,9 @@ msgid "Inline edit of this query"
 msgstr "Tämän kyselyn muokkaus"
 
 #: libraries/common.lib.php:1246
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Moottorit"
+msgstr "Muokkaus"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
