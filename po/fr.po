@@ -1494,8 +1494,8 @@ msgstr "Erreur"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d enregistrement affecté."
-msgstr[1] "%1$d enregistrements affectés."
+msgstr[0] "%1$d ligne affectée."
+msgstr[1] "%1$d lignes affectées."
 
 #: libraries/Message.class.php:300
 #, php-format
