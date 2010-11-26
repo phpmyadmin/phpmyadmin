@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 23:00+0200\n"
+"PO-Revision-Date: 2010-11-26 23:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3196,10 +3196,9 @@ msgid "Display servers selection"
 msgstr "Προβολή επιλογής διακομιστών"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Δενδροειδής προβολή βάσεων δεδομένων"
+msgstr "Προβολή φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
