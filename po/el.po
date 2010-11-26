@@ -10155,9 +10155,8 @@ msgstr ""
 "δεδομένων)"
 
 #: tbl_relation.php:402
-#, fuzzy
 msgid "Internal relation"
-msgstr "Εσωτερικές συσχετίσεις"
+msgstr "Εσωτερική συσχέτιση"
 
 #: tbl_relation.php:404
 msgid ""
