@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:24+0200\n"
+"PO-Revision-Date: 2010-11-27 15:25+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1039,7 +1039,7 @@ msgstr "Eliminando los usuarios seleccionados"
 
 #: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: js/messages.php:60 pmd_general.php:390 pmd_general.php:427
 #: pmd_general.php:547 pmd_general.php:595 pmd_general.php:671
