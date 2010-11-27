@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:37+0200\n"
+"PO-Revision-Date: 2010-11-27 15:38+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1466,7 +1466,7 @@ msgstr "El archivo que intentó subir no alcanzó el 100%."
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
-msgstr "No existe una carpeta temporal."
+msgstr "Falta una carpeta temporal."
 
 #: libraries/File.class.php:327
 msgid "Failed to write file to disk."
