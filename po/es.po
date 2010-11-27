@@ -1470,7 +1470,7 @@ msgstr "Falta una carpeta temporal."
 
 #: libraries/File.class.php:327
 msgid "Failed to write file to disk."
-msgstr "No fue posible grabar el archivo al disco."
+msgstr "No fue posible grabar el archivo a disco."
 
 #: libraries/File.class.php:330
 msgid "File upload stopped by extension."
