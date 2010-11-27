@@ -2012,7 +2012,7 @@ msgstr "Validar SQL"
 
 #: libraries/common.lib.php:1244
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Edición en linea de esta consulta"
 
 #: libraries/common.lib.php:1246
 #, fuzzy
