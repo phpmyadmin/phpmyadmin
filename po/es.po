@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:31+0200\n"
+"PO-Revision-Date: 2010-11-27 15:32+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1188,7 +1188,7 @@ msgstr "Previo"
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
 msgid "Next"
-msgstr "Próxima"
+msgstr "Siguiente"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
