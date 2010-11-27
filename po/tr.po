@@ -9352,7 +9352,7 @@ msgstr "Tablonun dökümünü (şemasını) göster"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Birincil anahtarın ismi \"PRIMARY\" olmalıdır!"
+msgstr "Birincil anahtarın adı \"PRIMARY\" olmalıdır!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
