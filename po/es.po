@@ -2152,7 +2152,7 @@ msgstr ""
 #: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
-"No está disponible el directorio que usted habilitó para subir las tareas"
+"No se puede acceder al directorio que seleccionó para subir los archivos"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
