@@ -1136,7 +1136,7 @@ msgstr "Seleccionar la clave referenciada"
 
 #: js/messages.php:93
 msgid "Select Foreign Key"
-msgstr "Seleccione la llave extranjera (foreign key)"
+msgstr "Seleccione la clave foránea (foreign key)"
 
 #: js/messages.php:94
 msgid "Please select the primary key or a unique key"
