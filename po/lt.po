@@ -3559,9 +3559,8 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:366
-#, fuzzy
 msgid "Compress connection to MySQL server"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Naudoti suspaudimą jungiantis prie MySQL serverio"
 
 #: libraries/config/messages.inc.php:367
 #, fuzzy
