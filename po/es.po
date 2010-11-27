@@ -1059,7 +1059,7 @@ msgstr "Procesando Petición"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Error al Procesar la Petición"
 
 #: js/messages.php:66
 msgid "Dropping Column"
