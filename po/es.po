@@ -1048,10 +1048,9 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Cargar"
+msgstr "Cargando"
 
 #: js/messages.php:64
 #, fuzzy
