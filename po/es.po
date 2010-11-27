@@ -282,6 +282,7 @@ msgid "Database %s has been dropped."
 msgstr "La base de datos %s ha sido eliminada."
 
 #: db_operations.php:446
+#, fuzzy
 msgid "Drop the database (DROP)"
 msgstr "Eliminar la base de datos (DROP)"
 
