@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:26+0200\n"
+"PO-Revision-Date: 2010-11-27 15:27+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1091,10 +1091,9 @@ msgid "Copying Database"
 msgstr "Copiando Base de Datos"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Juego de caracteres"
+msgstr "Cambiando el Juego de caracteres"
 
 #: js/messages.php:75
 #, fuzzy
