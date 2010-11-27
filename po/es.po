@@ -813,9 +813,8 @@ msgid "Track table"
 msgstr "Hacer seguimiento a la tabla"
 
 #: db_tracking.php:212
-#, fuzzy
 msgid "Database Log"
-msgstr "Base de datos"
+msgstr "Log de la base de datos"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
