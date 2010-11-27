@@ -1132,7 +1132,7 @@ msgstr "Ignorar"
 
 #: js/messages.php:92
 msgid "Select referenced key"
-msgstr "Seleccionar la clave referenciada"
+msgstr "Seleccione la clave referenciada"
 
 #: js/messages.php:93
 msgid "Select Foreign Key"
