@@ -2726,7 +2726,7 @@ msgstr "Galimybės"
 
 #: libraries/config/messages.inc.php:163
 msgid "General"
-msgstr "Bendrinis"
+msgstr "Bendra"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
