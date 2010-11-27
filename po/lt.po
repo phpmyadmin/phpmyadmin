@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
 "PO-Revision-Date: 2010-11-27 19:07+0200\n"
-"Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
+"Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -2817,6 +2817,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Nurodykite naršyklės pavadinimo juostos tekstą. Pasinaudokite "
+"[a@Documentation.html#cfg_TitleTable]dokumentacija[/a] magiškiesiems "
+"tekstams, kurie bus paversti specialiomis reikšmėmis."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
