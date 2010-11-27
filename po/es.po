@@ -800,9 +800,8 @@ msgid "Tracking report"
 msgstr "Informe de seguimiento"
 
 #: db_tracking.php:135 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Únicamente la estructura "
+msgstr "Instantánea de la estructura"
 
 #: db_tracking.php:164
 #, fuzzy
