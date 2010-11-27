@@ -1858,10 +1858,9 @@ msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Mostrar estadísticas"
+msgstr "Estadísticas de Consulta"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
