@@ -3563,9 +3563,8 @@ msgid "Compress connection to MySQL server"
 msgstr "Naudoti suspaudimą jungiantis prie MySQL serverio"
 
 #: libraries/config/messages.inc.php:367
-#, fuzzy
 msgid "Compress connection"
-msgstr "Naudoti SSL susijungimą"
+msgstr "Naudoti suspaustą susijungimą"
 
 #: libraries/config/messages.inc.php:368
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
