@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 16:10+0200\n"
+"PO-Revision-Date: 2010-11-27 16:11+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1881,7 +1881,7 @@ msgstr "Se necesita la extensión GD para las gráficas."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "Se necesita el encoder JSON para los indicadores en las gráficas."
+msgstr "Se necesita el encoder JSON para los globos de ayuda en las gráficas."
 
 #: libraries/common.inc.php:571
 msgid ""
