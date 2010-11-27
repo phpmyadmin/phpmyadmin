@@ -1881,7 +1881,7 @@ msgstr "Se necesita la extensión GD para las gráficas."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "Se necesita el encoder JSON para las sugerencias en las gráficas"
+msgstr "Se necesita el encoder JSON para los indicadores en las gráficas."
 
 #: libraries/common.inc.php:571
 msgid ""
