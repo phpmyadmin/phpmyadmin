@@ -1172,10 +1172,9 @@ msgstr "Más"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Donación"
+msgstr "Terminado"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
