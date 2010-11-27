@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 22:08+0200\n"
+"PO-Revision-Date: 2010-11-27 22:10+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3696,7 +3696,7 @@ msgstr "Rodyti tik šias duomenų bazes"
 
 #: libraries/config/messages.inc.php:392 libraries/config/messages.inc.php:429
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Palikite tuščią, jei nenaudojate autentifikacijos pagal nustatymus"
 
 #: libraries/config/messages.inc.php:393
 msgid "Password for config auth"
