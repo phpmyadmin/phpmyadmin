@@ -2320,7 +2320,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
-msgstr "Permitir el login a cualquier servidor MySQL"
+msgstr "Permitir el login en cualquier servidor MySQL"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
