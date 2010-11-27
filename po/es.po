@@ -1873,7 +1873,7 @@ msgstr "Resultados de la Consulta"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr "No se encontraron datos para el gráfico."
+msgstr "No se encontraron datos para la gráfica."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
