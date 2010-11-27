@@ -985,7 +985,7 @@ msgstr "Esta operación podría llevar algún tiempo. ¿Proceder de todas formas
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "¡Está a punto de DESHABILITAR un repositorio BLOB!"
+msgstr "¡Está a punto de DESHABILITAR un repositorio de BLOBs!"
 
 #: js/messages.php:41
 #, php-format
