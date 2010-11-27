@@ -4154,10 +4154,9 @@ msgid "Cookie authentication"
 msgstr "Autentifikacija \"sausainiukais\""
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "HTTP authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr "HTTP autentifikacija"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
