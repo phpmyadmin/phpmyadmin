@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:25+0200\n"
+"PO-Revision-Date: 2010-11-27 15:26+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1067,7 +1067,7 @@ msgstr "Eliminando Columna"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Añadiendo Clave Primaria"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
