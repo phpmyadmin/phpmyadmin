@@ -1444,7 +1444,7 @@ msgstr "Segundo"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr "Tamaño del font"
+msgstr "Tamaño de fuente"
 
 #: libraries/File.class.php:315
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
