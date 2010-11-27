@@ -1149,7 +1149,7 @@ msgstr "Elegir el campo a mostrar"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Añadir una opción para la columna"
 
 #: js/messages.php:101
 #, fuzzy
