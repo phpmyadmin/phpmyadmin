@@ -1096,7 +1096,6 @@ msgid "Changing Charset"
 msgstr "Cambiando el Juego de caracteres"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "La tabla debe tener al menos un campo."
