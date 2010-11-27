@@ -1910,8 +1910,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"El contenido de <tt>$cfg['PmaAbsoluteUri']</tt> ¡DEBE constar en config.inc."
-"php!"
+"El contenido de <tt>$cfg['PmaAbsoluteUri']</tt> ¡DEBE constar en "
+"config.inc.php!"
 
 #: libraries/common.inc.php:617
 #, fuzzy, php-format
