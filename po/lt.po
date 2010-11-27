@@ -2560,10 +2560,9 @@ msgid "Table caption"
 msgstr "Lentelės antraštė"
 
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:98
-#, fuzzy
 #| msgid "Include table caption"
 msgid "Continued table caption"
-msgstr "Įterpti lentelės antraštę"
+msgstr "Pratęsta lentelės antraštė"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
