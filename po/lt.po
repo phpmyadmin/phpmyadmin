@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:45+0200\n"
+"PO-Revision-Date: 2010-11-27 16:25+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4644,7 +4644,6 @@ msgid "Options"
 msgstr "Nustatymai"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
