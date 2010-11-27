@@ -271,10 +271,9 @@ msgid "Command"
 msgstr "Comando"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Cambiar el nombre de la base de datos a"
+msgstr "Quitar base de datos"
 
 #: db_operations.php:441
 #, php-format
