@@ -1121,10 +1121,9 @@ msgid "Show query box"
 msgstr "Mostrar ventana de consultas SQL"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Motores"
+msgstr "Editar en línea"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
