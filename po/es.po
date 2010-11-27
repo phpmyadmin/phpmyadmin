@@ -1987,7 +1987,7 @@ msgstr "Explicar SQL (Explain)"
 
 #: libraries/common.lib.php:1122
 msgid "Skip Explain SQL"
-msgstr "Salir de la explicación del SQL"
+msgstr "Saltar la explicación del SQL (Explain)"
 
 #: libraries/common.lib.php:1156
 msgid "Without PHP Code"
