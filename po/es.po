@@ -1846,7 +1846,7 @@ msgstr "Sin replicar"
 #: libraries/build_html_for_db.lib.php:136
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replicado"
+msgstr "Replicado/a"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
