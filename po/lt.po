@@ -3189,12 +3189,10 @@ msgid "Light tabs"
 msgstr "Lengvos kortelės"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr ""
-"Didžiausias leistinas simbolių kiekis naudojamas SQL užklausai parodyti"
+msgstr "Didžiausias rodomas simbolių kiekis ne skaitiniuose stulpeliuose"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
