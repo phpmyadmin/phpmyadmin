@@ -1855,7 +1855,7 @@ msgstr "Comprobar los privilegios para la base de datos &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "Revisar los privilegios"
+msgstr "Comprobar los privilegios"
 
 #: libraries/chart.lib.php:40
 #, fuzzy
