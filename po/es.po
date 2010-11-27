@@ -1178,7 +1178,6 @@ msgstr "Terminado"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Previo"
