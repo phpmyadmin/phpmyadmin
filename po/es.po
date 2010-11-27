@@ -1055,7 +1055,7 @@ msgstr "Cargando"
 #: js/messages.php:64
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Procesando la petición"
+msgstr "Procesando Petición"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
