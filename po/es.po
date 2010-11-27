@@ -1116,10 +1116,9 @@ msgid "Hide query box"
 msgstr "Ocultar ventana de consultas SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Ventana de consultas SQL"
+msgstr "Mostrar ventana de consultas SQL"
 
 #: js/messages.php:86
 #, fuzzy
