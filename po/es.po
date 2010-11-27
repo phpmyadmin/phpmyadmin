@@ -1462,7 +1462,7 @@ msgstr ""
 
 #: libraries/File.class.php:321
 msgid "The uploaded file was only partially uploaded."
-msgstr "El archivo que intentó cargar no alcanzó el 100%."
+msgstr "El archivo que intentó subir no alcanzó el 100%."
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
