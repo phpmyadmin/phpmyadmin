@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:42+0200\n"
+"PO-Revision-Date: 2010-11-27 15:43+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1727,6 +1727,8 @@ msgstr "Las \"cookies\" deben estar habilitadas."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"El inicio de sesión sin contraseña está prohibido por la configuración (ver "
+"AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:184
