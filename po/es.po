@@ -1840,9 +1840,8 @@ msgid "Jump to database"
 msgstr "Saltar a la base de datos"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 msgid "Not replicated"
-msgstr "Configuración del servidor"
+msgstr "No replicado"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
