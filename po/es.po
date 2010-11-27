@@ -792,9 +792,8 @@ msgid "not active"
 msgstr "no activo/a"
 
 #: db_tracking.php:133
-#, fuzzy
 msgid "Versions"
-msgstr "Persa"
+msgstr "Versiones"
 
 #: db_tracking.php:134 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
