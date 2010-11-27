@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 16:16+0200\n"
+"PO-Revision-Date: 2010-11-27 16:17+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2004,7 +2004,7 @@ msgstr "Actualizar"
 
 #: libraries/common.lib.php:1186
 msgid "Skip Validate SQL"
-msgstr "Saltar la validación del SQL"
+msgstr "Saltar la validación de SQL"
 
 #: libraries/common.lib.php:1189 libraries/config/messages.inc.php:463
 msgid "Validate SQL"
