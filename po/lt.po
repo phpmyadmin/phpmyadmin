@@ -4196,10 +4196,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Adaptavimas"
+msgstr ""
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
