@@ -1474,7 +1474,7 @@ msgstr "No fue posible grabar el archivo a disco."
 
 #: libraries/File.class.php:330
 msgid "File upload stopped by extension."
-msgstr "La carga del archivo fue detenida por extensión."
+msgstr "La carga del archivo fue detenida por su extensión."
 
 #: libraries/File.class.php:333
 msgid "Unknown error in file upload."
