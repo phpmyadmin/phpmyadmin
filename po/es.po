@@ -1914,7 +1914,7 @@ msgstr ""
 "config.inc.php!"
 
 #: libraries/common.inc.php:617
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "No es válido el índice del servidor: \"%s\""
