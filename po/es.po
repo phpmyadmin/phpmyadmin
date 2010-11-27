@@ -2192,7 +2192,6 @@ msgid "complete inserts"
 msgstr "completar los INSERTS"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "INSERTs extendidos"
