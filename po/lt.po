@@ -4649,7 +4649,6 @@ msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Tekstus rodyti pilnai"
