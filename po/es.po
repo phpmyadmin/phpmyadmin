@@ -1028,10 +1028,9 @@ msgid "Create User"
 msgstr "Crear usuario"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
-msgstr "Cargar los privilegios nuevamente"
+msgstr "Recargando Privilegios"
 
 #: js/messages.php:55
 #, fuzzy
