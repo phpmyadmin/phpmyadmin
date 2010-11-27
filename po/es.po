@@ -1457,7 +1457,7 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"El archivo que intentó cargar excede la directiva MAX_FILE_SIZE especificada "
+"El archivo que intentó subir excede la directiva MAX_FILE_SIZE especificada "
 "en el formulario HTML."
 
 #: libraries/File.class.php:321
