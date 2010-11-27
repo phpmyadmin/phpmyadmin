@@ -2202,7 +2202,7 @@ msgstr "todo lo anterior"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "ninguno de los anteriores"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
