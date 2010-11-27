@@ -3649,7 +3649,7 @@ msgstr "SQL užklausų žurnalo lentelė"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Kompiuterio, kuriame veikia MySQL serveris, pavadinimas"
 
 #: libraries/config/messages.inc.php:386
 msgid "Server hostname"
