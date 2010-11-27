@@ -1081,10 +1081,9 @@ msgid "Renaming Databases"
 msgstr "Renombrando Bases de Datos"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Cambiar el nombre de la base de datos a"
+msgstr "Recargar Base de Datos"
 
 #: js/messages.php:73
 #, fuzzy
