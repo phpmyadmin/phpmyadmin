@@ -1504,7 +1504,7 @@ msgstr "Único"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:317
 msgid "Packed"
-msgstr "Empacado"
+msgstr "Empaquetado"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:319
 msgid "Cardinality"
