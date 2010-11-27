@@ -981,7 +981,7 @@ msgstr "Borrando Claves Primarias/Índice"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Esta operación podría tomar algún tiempo. ¿Proceder de todas formas?"
+msgstr "Esta operación podría llevar algún tiempo. ¿Proceder de todas formas?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
