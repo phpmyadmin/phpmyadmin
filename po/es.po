@@ -1319,10 +1319,9 @@ msgid "Sunday"
 msgstr "Domingo"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Lun"
+msgstr "Lunes"
 
 #: js/messages.php:167
 #, fuzzy
