@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 19:05+0200\n"
+"PO-Revision-Date: 2010-11-27 19:06+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2600,7 +2600,7 @@ msgstr "Atsiminti failo vardo šabloną"
 
 #: libraries/config/messages.inc.php:116
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Įdėti lentelių ir laukų pavadinimus į kabutes"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
