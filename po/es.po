@@ -1430,7 +1430,7 @@ msgstr "Sem"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: js/messages.php:208
 #, fuzzy
