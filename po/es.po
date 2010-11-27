@@ -2290,7 +2290,7 @@ msgstr "Valor establecido: %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:347
 msgid "Restore default value"
-msgstr "Restaurar los valores predeterminados"
+msgstr "Restaurar valor predeterminado"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
