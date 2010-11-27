@@ -968,7 +968,7 @@ msgstr ""
 #: js/messages.php:33
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedimiento de eliminación"
+msgstr "Eliminando procedimiento"
 
 #: js/messages.php:35
 #, fuzzy
