@@ -2363,7 +2363,7 @@ msgstr "Marcador de fila"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Resaltar las filas señaladas por el cursor del ratón"
 
 #: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
