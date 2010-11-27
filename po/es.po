@@ -1484,7 +1484,7 @@ msgstr "Error desconocido al subir el archivo."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Se detectó un error al subir el archivo cargado, ver FAQ 1.11"
+msgstr "Se detectó un error al mover el archivo subido, ver FAQ 1.11"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
