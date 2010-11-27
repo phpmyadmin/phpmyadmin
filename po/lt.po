@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 19:07+0200\n"
-"Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
+"PO-Revision-Date: 2010-11-27 19:08+0200\n"
+"Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -4092,7 +4092,7 @@ msgstr "Naršyklės lango pavadinimas kai serveris yra pasirinktas"
 
 #: libraries/config/messages.inc.php:483
 msgid "Title of browser window when a table is selected"
-msgstr "Naršyklės lango pavadinimas kai lentelė yra pasirinkta"
+msgstr "Naršyklės lango pavadinimas, kai pasirinkta lentelė"
 
 #: libraries/config/messages.inc.php:485
 msgid ""
