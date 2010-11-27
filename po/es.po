@@ -2021,7 +2021,7 @@ msgstr "En línea"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
-msgstr "Perfil/Perfilamiento"
+msgstr "Perfilando"
 
 #: libraries/common.lib.php:1331 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
