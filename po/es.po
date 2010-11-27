@@ -2008,7 +2008,7 @@ msgstr "Saltar la validación del SQL"
 
 #: libraries/common.lib.php:1189 libraries/config/messages.inc.php:463
 msgid "Validate SQL"
-msgstr "Validar el SQL"
+msgstr "Validar SQL"
 
 #: libraries/common.lib.php:1244
 msgid "Inline edit of this query"
