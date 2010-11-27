@@ -779,7 +779,7 @@ msgstr "Acción"
 
 #: db_tracking.php:100 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Borrar los datos de seguimiento para esta tabla"
 
 #: db_tracking.php:118 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
