@@ -2212,7 +2212,7 @@ msgstr "No es un número positivo"
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:429
 msgid "Not a non-negative number"
-msgstr "No es un número no negativo"
+msgstr "No es un número no-negativo"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:403
