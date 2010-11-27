@@ -1101,7 +1101,6 @@ msgid "Table must have at least one column"
 msgstr "La tabla debe tener al menos un campo."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Crear tabla"
