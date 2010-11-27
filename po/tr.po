@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-21 20:13+0200\n"
+"PO-Revision-Date: 2010-11-27 10:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7185,7 +7185,7 @@ msgstr "Tüm Sorguları Göster"
 
 #: server_binlog.php:201
 msgid "Log name"
-msgstr "Günlük ismi"
+msgstr "Günlük adı"
 
 #: server_binlog.php:202
 msgid "Position"
