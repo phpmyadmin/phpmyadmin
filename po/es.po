@@ -1488,7 +1488,7 @@ msgstr "Se detectó un error al mover el archivo subido, ver FAQ 1.11"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
-msgstr "¡No se ha definido el índice!"
+msgstr "¡No se ha definido ningún índice!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:310
