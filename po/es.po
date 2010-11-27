@@ -1053,10 +1053,9 @@ msgid "Loading"
 msgstr "Cargando"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Procesos"
+msgstr "Procesando la petición"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
