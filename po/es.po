@@ -2004,7 +2004,7 @@ msgstr "Actualizar"
 
 #: libraries/common.lib.php:1186
 msgid "Skip Validate SQL"
-msgstr "Salir de la validación del SQL"
+msgstr "Saltar la validación del SQL"
 
 #: libraries/common.lib.php:1189 libraries/config/messages.inc.php:463
 msgid "Validate SQL"
