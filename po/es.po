@@ -1943,7 +1943,7 @@ msgstr "Usted debería actualizar su %s a la versión %s o más reciente."
 #: libraries/common.lib.php:145
 #, php-format
 msgid "Max: %s%s"
-msgstr "Tamaño máximo: %s%s"
+msgstr "Máximo: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
