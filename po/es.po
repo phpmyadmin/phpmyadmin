@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 16:26+0200\n"
+"PO-Revision-Date: 2010-11-27 16:27+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2263,10 +2263,9 @@ msgid "SQL Validator is disabled"
 msgstr "El validador de SQL está desactivado"
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "extensión PHP para usar"
+msgstr "extensión SOAP no encontrada"
 
 #: libraries/config/FormDisplay.class.php:772
 #, fuzzy, php-format
