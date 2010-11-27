@@ -737,9 +737,8 @@ msgid "Data Dictionary"
 msgstr "Diccionario de datos"
 
 #: db_tracking.php:78
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Saltarse las tablas bloqueadas"
+msgstr "Tablas con seguimiento"
 
 #: db_tracking.php:83 libraries/config/messages.inc.php:478
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
