@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 15:26+0200\n"
+"PO-Revision-Date: 2010-11-27 15:27+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3109,10 +3109,9 @@ msgid "Display servers selection"
 msgstr "Rodyti serverių pasirinkimą"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Rodyti duombazes medyje"
+msgstr "Rodyti lentelių filtrą"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
