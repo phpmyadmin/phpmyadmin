@@ -2256,7 +2256,7 @@ msgstr "la importación no funcionará, falta una función (%s)"
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "la exportación no funcionará, falta una función (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
