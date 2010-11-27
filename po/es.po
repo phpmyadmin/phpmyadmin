@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 16:23+0200\n"
+"PO-Revision-Date: 2010-11-27 16:24+0200\n"
 "Last-Translator:  <davidbl06@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2184,7 +2184,7 @@ msgstr "Personalizado - mostrar todas las opciones de configuración posibles"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personalizado - como el anterior, pero sin elegir rápido/personalizado"
 
 #: libraries/config.values.php:119
 #, fuzzy
