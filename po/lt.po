@@ -3645,7 +3645,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:384
 msgid "SQL query history table"
-msgstr "SQL užklausų istorijos lentelė"
+msgstr "SQL užklausų žurnalo lentelė"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hostname where MySQL server is running"
