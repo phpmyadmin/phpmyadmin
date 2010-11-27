@@ -621,7 +621,7 @@ msgstr "Se ha eliminado la tabla %s"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "El seguimiento está activo."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
