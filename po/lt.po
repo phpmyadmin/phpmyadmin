@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 18:42+0200\n"
+"PO-Revision-Date: 2010-11-27 18:43+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3676,7 +3676,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:391
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Rodyti tik šias duomenų bazes"
 
 #: libraries/config/messages.inc.php:392 libraries/config/messages.inc.php:429
 msgid "Leave empty if not using config auth"
