@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 19:10+0200\n"
+"PO-Revision-Date: 2010-11-27 22:08+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3544,7 +3544,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:361 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr ""
+msgstr "Autentifikacijos tipas"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
