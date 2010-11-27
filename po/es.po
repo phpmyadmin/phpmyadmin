@@ -1063,7 +1063,7 @@ msgstr "Error al Procesar la Petición"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Eliminando Columna"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
