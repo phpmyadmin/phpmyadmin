@@ -2015,10 +2015,9 @@ msgid "Inline edit of this query"
 msgstr "Edición en linea de esta consulta"
 
 #: libraries/common.lib.php:1246
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Motores"
+msgstr "En línea"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
