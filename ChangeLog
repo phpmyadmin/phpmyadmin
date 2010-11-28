@@ -121,6 +121,8 @@
 + rfe #3111455 [interface] Column highlighting and marking in table view
 + Visual query builder
 - bug #3115519 [interface] Prevent long queries from being shown in confirmation popup
+- patch #3112792 [navi] Left panel table grouping incorrect,
+  thanks to garas - garas
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc
