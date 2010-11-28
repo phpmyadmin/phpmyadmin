@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-26 15:56+0200\n"
+"PO-Revision-Date: 2010-11-27 01:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -948,16 +948,14 @@ msgid "Dropping Event"
 msgstr "Συμβάν διαγραφής"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Διαδικασίες"
+msgstr "Διαδικασία διαγραφής"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
@@ -1002,25 +1000,21 @@ msgid "The passwords aren't the same!"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Προσθήκη νέου Χρήστη"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Δημιουργία Χρήστη"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Διαγραφή των επιλεγμένων χρηστών"
@@ -1036,16 +1030,14 @@ msgid "Cancel"
 msgstr "Άκυρο"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
 msgstr "Φόρτωση"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Διεργασίες"
+msgstr "Προώθηση Αιτήματος"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
@@ -1066,63 +1058,53 @@ msgid "OK"
 msgstr "Εντάξει"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Μετονομασία βάσεων δεδομένων"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Επαναφόρτωση βάσεων δεδομένων"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Αντιγραφή βάσης δεδομένων σε"
+msgstr "Αντιγραφή βάσης δεδομένων"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Σύνολο χαρακτήρων"
+msgstr "Αλλαγή Συνόλου χαρακτήρων"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "Ο πίνακας πρέπει να έχει τουλάχιστον ένα πεδίο."
+msgstr "Ο πίνακας πρέπει να έχει τουλάχιστον μια στήλη"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
-msgstr "Δημιουργία πίνακα"
+msgstr "Δημιουργία Πίνακα"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Αναζήτηση"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "Χώρος Ερωτήματος SQL"
+msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Χώρος Ερωτήματος SQL"
+msgstr "Προβολή παραθύρου ερωτήματος SQL"
 
 #: js/messages.php:86
-#, fuzzy
 msgid "Inline Edit"
-msgstr "Μηχανές"
+msgstr "Εσωτερική Επεξεργασία"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1142,45 +1124,39 @@ msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Επιλέξτε πεδίο για εμφάνιση"
+msgstr "Επιλέξτε στήλη για εμφάνιση"
 
 #: js/messages.php:98
 msgid "Add an option for column "
 msgstr "Προσθήκη επιλογής για τη στήλη "
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Παραγωγή Κωδικού Πρόσβασης"
+msgstr "Δημιουργία Κωδικού Πρόσβασης"
 
 #: js/messages.php:102 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Παραγωγή"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
-msgstr "Αλλαγή κωδικού πρόσβασης"
+msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
 #: js/messages.php:106
-#, fuzzy
 msgid "More"
-msgstr "Δευτέρα"
+msgstr "Περισσότερα"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#, fuzzy
 msgid "Done"
-msgstr "Δωρεά"
+msgstr "Ολοκληρώθηκε"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#, fuzzy
 msgid "Prev"
 msgstr "Προηγούμενο"
 
@@ -1194,26 +1170,22 @@ msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#, fuzzy
 msgid "Today"
-msgstr "Σύνολο"
+msgstr "Σήμερα"
 
 #: js/messages.php:125
-#, fuzzy
 msgid "January"
-msgstr "Δυαδικό"
+msgstr "Ιανουαρίου"
 
 #: js/messages.php:126
 msgid "February"
 msgstr "Φεβρουαρίου"
 
 #: js/messages.php:127
-#, fuzzy
 msgid "March"
 msgstr "Μαρτίου"
 
 #: js/messages.php:128
-#, fuzzy
 msgid "April"
 msgstr "Απριλίου"
 
@@ -1222,17 +1194,14 @@ msgid "May"
 msgstr "Μαΐου"
 
 #: js/messages.php:130
-#, fuzzy
 msgid "June"
 msgstr "Ιουνίου"
 
 #: js/messages.php:131
-#, fuzzy
 msgid "July"
 msgstr "Ιουλίου"
 
 #: js/messages.php:132
-#, fuzzy
 msgid "August"
 msgstr "Αυγούστου"
 
@@ -1241,7 +1210,6 @@ msgid "September"
 msgstr "Σεπτεμβρίου"
 
 #: js/messages.php:134
-#, fuzzy
 msgid "October"
 msgstr "Οκτωβρίου"
 
@@ -1256,77 +1224,73 @@ msgstr "Δεκεμβρίου"
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
 msgid "Jan"
-msgstr "Ιανουαρίου"
+msgstr "Ιαν"
 
 #. l10n: Short month name
 #: js/messages.php:142 libraries/common.lib.php:1547
 msgid "Feb"
-msgstr "Φεβρουαρίου"
+msgstr "Φεβ"
 
 #. l10n: Short month name
 #: js/messages.php:144 libraries/common.lib.php:1549
 msgid "Mar"
-msgstr "Μαρτίου"
+msgstr "Μαρ"
 
 #. l10n: Short month name
 #: js/messages.php:146 libraries/common.lib.php:1551
 msgid "Apr"
-msgstr "Απριλίου"
+msgstr "Απρ"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#, fuzzy
 msgctxt "Short month name"
 msgid "May"
-msgstr "Μαΐου"
+msgstr "Μάη"
 
 #. l10n: Short month name
 #: js/messages.php:150 libraries/common.lib.php:1555
 msgid "Jun"
-msgstr "Ιουνίου"
+msgstr "Ιουν"
 
 #. l10n: Short month name
 #: js/messages.php:152 libraries/common.lib.php:1557
 msgid "Jul"
-msgstr "Ιουλίου"
+msgstr "Ιουλ"
 
 #. l10n: Short month name
 #: js/messages.php:154 libraries/common.lib.php:1559
 msgid "Aug"
-msgstr "Αυγούστου"
+msgstr "Αυγ"
 
 #. l10n: Short month name
 #: js/messages.php:156 libraries/common.lib.php:1561
 msgid "Sep"
-msgstr "Σεπτεμβρίου"
+msgstr "Σεπ"
 
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1563
 msgid "Oct"
-msgstr "Οκτωβρίου"
+msgstr "Οκτ"
 
 #. l10n: Short month name
 #: js/messages.php:160 libraries/common.lib.php:1565
 msgid "Nov"
-msgstr "Νοεμβρίου"
+msgstr "Νοε"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1567
 msgid "Dec"
-msgstr "Δεκεμβρίου"
+msgstr "Δεκ"
 
 #: js/messages.php:165
-#, fuzzy
 msgid "Sunday"
 msgstr "Κυριακή"
 
 #: js/messages.php:166
-#, fuzzy
 msgid "Monday"
 msgstr "Δευτέρα"
 
 #: js/messages.php:167
-#, fuzzy
 msgid "Tuesday"
 msgstr "Τρίτη"
 
@@ -1339,7 +1303,6 @@ msgid "Thursday"
 msgstr "Πέμπτη"
 
 #: js/messages.php:170
-#, fuzzy
 msgid "Friday"
 msgstr "Παρασκευή"
 
@@ -1350,83 +1313,75 @@ msgstr "Σάββατο"
 #. l10n: Short week day name
 #: js/messages.php:175 libraries/common.lib.php:1570
 msgid "Sun"
-msgstr "Κυριακή"
+msgstr "Κυρ"
 
 #. l10n: Short week day name
 #: js/messages.php:177 libraries/common.lib.php:1572
 msgid "Mon"
-msgstr "Δευτέρα"
+msgstr "Δευ"
 
 #. l10n: Short week day name
 #: js/messages.php:179 libraries/common.lib.php:1574
 msgid "Tue"
-msgstr "Τρίτη"
+msgstr "Τρί"
 
 #. l10n: Short week day name
 #: js/messages.php:181 libraries/common.lib.php:1576
 msgid "Wed"
-msgstr "Τετάρτη"
+msgstr "Τετ"
 
 #. l10n: Short week day name
 #: js/messages.php:183 libraries/common.lib.php:1578
 msgid "Thu"
-msgstr "Πέμπτη"
+msgstr "Πέμ"
 
 #. l10n: Short week day name
 #: js/messages.php:185 libraries/common.lib.php:1580
 msgid "Fri"
-msgstr "Παρασκευή"
+msgstr "Παρ"
 
 #. l10n: Short week day name
 #: js/messages.php:187 libraries/common.lib.php:1582
 msgid "Sat"
-msgstr "Σάββατο"
+msgstr "Σάβ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
-#, fuzzy
 msgid "Su"
-msgstr "Κυριακή"
+msgstr "Κυ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#, fuzzy
 msgid "Mo"
-msgstr "Δευτέρα"
+msgstr "Δε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#, fuzzy
 msgid "Tu"
-msgstr "Τρίτη"
+msgstr "Τρ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#, fuzzy
 msgid "We"
-msgstr "Τετάρτη"
+msgstr "Τε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#, fuzzy
 msgid "Th"
-msgstr "Πέμπτη"
+msgstr "Πε"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 msgid "Fr"
-msgstr "Παρασκευή"
+msgstr "Πα"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#, fuzzy
 msgid "Sa"
-msgstr "Σάββατο"
+msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#, fuzzy
 msgid "Wk"
 msgstr "Wiki"
 
@@ -1435,14 +1390,12 @@ msgid "Hour"
 msgstr "Ώρα"
 
 #: js/messages.php:208
-#, fuzzy
 msgid "Minute"
-msgstr "σε χρήση"
+msgstr "Λεπτό"
 
 #: js/messages.php:209
-#, fuzzy
 msgid "Second"
-msgstr "ανά δευτερόλεπτο"
+msgstr "Δευτερόλεπτο"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1555,28 +1508,28 @@ msgstr "Βάσεις Δεδομένων"
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr "λάθος"
+msgstr "Λάθος"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Επηρεάστηκε(αν) %1$d γραμμή(ές)."
-msgstr[1] "Επηρεάστηκε(αν) %1$d γραμμή(ές)."
+msgstr[0] "Επηρεάστηκε %1$d γραμμή."
+msgstr[1] "Επηρεάστηκαν %1$d γραμμές."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Διαγράφτηκε(αν) %1$d γραμμή(ές)."
-msgstr[1] "Διαγράφτηκε(αν) %1$d γραμμή(ές)."
+msgstr[0] "Διαγράφτηκε %1$d γραμμή."
+msgstr[1] "Διαγράφτηκαν %1$d γραμμές."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Εισήχθηκε(αν) %1$d γραμμή(ές)."
-msgstr[1] "Εισήχθηκε(αν) %1$d γραμμή(ές)."
+msgstr[0] "Εισήχθηκε %1$d γραμμή."
+msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1834,21 +1787,18 @@ msgid "Overhead"
 msgstr "Περίσσεια"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 msgid "Jump to database"
 msgstr "Μετάβαση στη βάση δεδομένων"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Χωρίς αναπαραγωγή"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Αναπαραγωγή"
+msgstr "Αναπαραγμένο"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -1860,20 +1810,18 @@ msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Εμφάνιση στατιστικών"
+msgstr "Στατιστικά ερωτήματος"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
 msgstr "Σύγκριση χρόνου εκτέλεσης ερωτήματος (σε χιλιοστοδευτερόλεπτα)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
+msgstr "Αποτελέσματα ερωτήματος"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -1905,7 +1853,7 @@ msgstr ""
 "σωστά."
 
 #: libraries/common.inc.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
@@ -1918,9 +1866,9 @@ msgstr ""
 "ρυθμίσεων!"
 
 #: libraries/common.inc.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid server index: %s"
-msgstr "Μη έγκυρο ευρετήριο διακομιστή: «%s»"
+msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
 #: libraries/common.inc.php:624
 #, php-format
@@ -1977,13 +1925,12 @@ msgstr "Εντολή SQL"
 
 #: libraries/common.lib.php:628
 msgid "MySQL said: "
-msgstr "Η MySQL επέστρεψε το μύνημα: "
+msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
 #: libraries/common.lib.php:1078
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
@@ -2019,9 +1966,8 @@ msgid "Inline edit of this query"
 msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
 #: libraries/common.lib.php:1246
-#, fuzzy
 msgid "Inline"
-msgstr "Μηχανές"
+msgstr "Εσωτερικό"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
@@ -2173,10 +2119,9 @@ msgstr "δεδομένα"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Δομή και δεδομένα"
+msgstr "δομή και δεδομένα"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
@@ -2192,16 +2137,14 @@ msgstr ""
 "Προσαρμογή - όπως παραπάνω αλλά χωρίς την επιλογή γρήγορου/προσαρμοσμένου"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Πλήρεις εντολές «Insert»"
+msgstr "πλήρεις εντολές εισαγωγής (Insert)"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Εκτεταμένες εντολές «Insert»"
+msgstr "Εκτεταμένες εντολές εισαγωγής (Insert)"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
@@ -2245,10 +2188,9 @@ msgstr "Απολεσθέντα δεδομένα για %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Μεταβλητή"
+msgstr "μη διαθέσιμο"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
@@ -2276,10 +2218,10 @@ msgid "SOAP extension not found"
 msgstr "Η επέκταση SOAP δεν βρέθηκε"
 
 #: libraries/config/FormDisplay.class.php:772
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Μέγιστος αριθμός πινάκων"
+msgstr "Μέγιστος αριθμός %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -2391,7 +2333,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -2401,15 +2342,14 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Ορίζει ποιος τύπος επεξεργασμένων ελέγχων πρέπει να χρησιμοποιηθεί για πεδία "
-"CHAR και VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]"
-"textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
+"Ορίζει ποιος τύπος πεδίων φόρμας πρέπει να χρησιμοποιηθεί για πεδία CHAR και "
+"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, "
+"[kbd]textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
 
 #: libraries/config/messages.inc.php:31
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "Επεξεργασία πεδίων CHAR"
+msgstr "Επεξεργασία στηλών CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -2466,10 +2406,9 @@ msgid "Debug SQL"
 msgstr "Ανίχνευση λαθών SQL"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Επιλογές προβολής βάσεων δεδομένων"
+msgstr "Προεπιλεγμένη κατεύθυνση προβολής"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
@@ -2537,22 +2476,19 @@ msgid "Edit SQL queries in popup window"
 msgstr "Επεξεργασία ερωτημάτων SQL σε αναδυόμενο παράθυρο"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Επεξεργασία επόμενης γραμμής"
+msgstr "Επεξεργασία σε παράθυρο"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Λειτουργίες εμφάνισης"
+msgstr "Προβολή σφαλμάτων"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Παράβλεψη σφαλμάτων"
+msgstr "Συγκέντρωση σφαλμάτων"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
@@ -2560,10 +2496,9 @@ msgstr ""
 "Προβολή εικονιδίων για μηνύματα προειδοποίησης, σφαλματος και πληροφοριών"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Παράβλεψη σφαλμάτων"
+msgstr "Εικονικά σφάλματα"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -2603,18 +2538,16 @@ msgstr "Συμπίεση"
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Εμφάνιση ονομάτων πεδίων στην πρώτη γραμμή"
+msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Πεδία που περικλείονται σε"
+msgstr "Στήλες που περικλείονται από"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
@@ -2632,18 +2565,16 @@ msgid "Replace NULL by"
 msgstr "Αντικατάσταση τιμής NULL με"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στα πεδία"
+msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στήλες"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Στήλες που τελειώνουν με"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
@@ -2651,7 +2582,6 @@ msgid "Lines terminated by"
 msgstr "Γραμμές που τελειώνουν σε"
 
 #: libraries/config/messages.inc.php:78
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Έκδοση Excel"
@@ -2673,10 +2603,9 @@ msgstr "Πρότυπο ονόματος πίνακα"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s Πίνακας/Πίνακες"
+msgstr "Απόρριψη πίνακα"
 
 #: libraries/config/messages.inc.php:88 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -2708,10 +2637,9 @@ msgid "Relations"
 msgstr "Συσχετίσεις"
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Τύπος εξαγωγής"
+msgstr "Μέθοδος εξαγωγής"
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
 msgid "Save on server"
@@ -2727,10 +2655,9 @@ msgid "Remember file name template"
 msgstr "Πρότυπο απομνημόνευσης ονοματος αρχείου"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Πεδίων"
+msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Στηλών"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
@@ -2766,10 +2693,9 @@ msgid "Maximal length of created query"
 msgstr "Μέγιστο μήκος δημιουργηθέντος ερωτήματος"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Εξαγωγή πινάκων"
+msgstr "Εξαγωγή τύπου"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
@@ -2821,10 +2747,9 @@ msgstr "Προσαρμοσμένη κατάσταση αναζήτησης"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
-msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής"
+msgstr "Προσαρμογή προεπιλεγμένων επιλογών"
 
 #: libraries/config/messages.inc.php:153 libraries/config/setup.forms.php:230
 #: libraries/config/setup.forms.php:309
@@ -2864,10 +2789,9 @@ msgid "Features"
 msgstr "Χαρακτηριστικά"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Παραγωγή"
+msgstr "Γενικά"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
@@ -3080,10 +3004,9 @@ msgid "SQL queries settings"
 msgstr "Ρυθμίσεις ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Ιστορικό SQL"
+msgstr "Εγκυροποιητής SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
@@ -3116,16 +3039,14 @@ msgid "Choose how you want tabs to work"
 msgstr "Επιλέξτε πως θα λειτουργούν οι καρτέλες"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
+msgstr "Πεδία κειμένου"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Προσαρμογή επιλογών εξαγωγής"
+msgstr "Προσαρμογή πεδίων εισαγωγής κειμένου"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
@@ -3224,16 +3145,14 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Προσθήκη νομισμάτων (€5,00 αντί 5,00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά (12.00% αντί .12)"
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
+msgstr "Αριθμός ερωτημάτων που θα παραβλεφθούν από την αρχή"
 
 #: libraries/config/messages.inc.php:254
 msgid "Partial import: skip queries"
@@ -3277,10 +3196,9 @@ msgid "Display servers selection"
 msgstr "Προβολή επιλογής διακομιστών"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Δενδροειδής προβολή βάσεων δεδομένων"
+msgstr "Προβολή φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -3361,11 +3279,12 @@ msgid "Light tabs"
 msgstr "Απλές καρτέλες"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Μέγιστος αριθμός χαρακτήρων όταν προβάλεται ένα ερώτημα SQL"
+msgstr ""
+"Μέγιστος αριθμός χαρακτήρων που φαίνεται σε μη αριθμητική στήλη στην προβολή "
+"φυλλομετρητή"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
@@ -3505,10 +3424,9 @@ msgid "Memory limit"
 msgstr "Όριο μνήμης"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
+msgstr "Προβολή συνδέσμου διαγραφής στα αριστερά"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
@@ -3521,10 +3439,9 @@ msgstr ""
 "δεδομένων"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Αλλαγή ταξινόμησης Πίνακα κατά"
+msgstr "Φυσική ταξινόμηση"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
@@ -3544,7 +3461,6 @@ msgid "GZip output buffering"
 msgstr "Εξαγόμενο GZip buffering"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3552,7 +3468,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για πεδία τύπου TIME, DATE, "
+"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για στήλες τύπου TIME, DATE, "
 "DATETIME και TIMESTAMP, αύξουσα ταξινόμηση στα υπόλοιπα"
 
 #: libraries/config/messages.inc.php:321
@@ -3586,19 +3502,16 @@ msgid "Iconic table operations"
 msgstr "Λειτουργίες πίνακα με εικονίδια"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Αποτροπή επεξεργασίας πεδίων BLOB και BINARY"
+msgstr "Αποτροπή επεξεργασίας στηλών BLOB και BINARY"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Προστασία δυαδικών πεδίων"
+msgstr "Προστασία δυαδικών στηλών"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3607,9 +3520,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Ενεργοποιήστε το αν θέλετε ιστορικό ανά βάση δεδομένων (απαιτεί pmadb). Αν "
-"απενεργοποιηθεί, λειτουργούν ρουτίνες JS για προβολή του ιστορικού "
-"ερωτημάτων (χάνεται με το κλείσιμο του παραθύρου)."
+"Ενεργοποιήστε το αν θέλετε ιστορικό ανά βάση δεδομένων (απαιτεί αποθήκευση "
+"ρυθμίσεων phpMyAdmin). Αν απενεργοποιηθεί, λειτουργούν ρουτίνες JS για "
+"προβολή του ιστορικού ερωτημάτων (χάνεται με το κλείσιμο του παραθύρου)."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
@@ -3636,22 +3549,19 @@ msgid "Query window height (in pixels)"
 msgstr "Ύψος παραθύρου ερωτήματος (σε εικονοστοιχεία)"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Παράθυρο ερωτήματος"
+msgstr "Ύψος παραθύρου ερωτήματος"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Παράθυρο ερωτήματος"
+msgstr "Πλάτος παραθύρου ερωτήματος (σε εικονοστοιχεία)"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Παράθυρο ερωτήματος"
+msgstr "Πλάτος παραθύρου ερωτήματος"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
@@ -3670,10 +3580,9 @@ msgstr ""
 "χαρακτηριστικό"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Προσπάθειες επιδιόρθωσης"
+msgstr "Επανάληψη κεφαλίδων"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
@@ -3696,20 +3605,18 @@ msgid "Leave blank if not used"
 msgstr "Αφήστε το άδειο αν δεν χρησιμοποιηθεί"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Σειρά επικύρωσης"
+msgstr "Σειρά πιστοποίησης φιλοξενητή"
 
 #: libraries/config/messages.inc.php:352
 msgid "Leave blank for defaults"
 msgstr "Αφήστε κενό για προεπιλογές"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Κανόνες επικύρωσης"
+msgstr "Κανόνες πιστοποίησης φιλοξενητή"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow logins without a password"
@@ -3943,10 +3850,9 @@ msgstr ""
 "[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "όνομα βάσης δεδομένων"
+msgstr "Όνομα βάσης δεδομένων"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -3983,7 +3889,7 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"Δείτε τους  [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
+"Δείτε τους [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
 "επικύρωσης[/a] για ένα παράδειγμα"
 
 #: libraries/config/messages.inc.php:405
@@ -4024,7 +3930,6 @@ msgid "PDF schema: table coordinates"
 msgstr "Σχέδιο PDF: συντεταγμένες πίνακα"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -4032,14 +3937,13 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Ο πίνακας που περιγράφει τα προβαλόμενα πεδία. Αφήστε το κενό για να μην "
+"Ο πίνακας που περιγράφει τις προβαλλόμενες στήλες. Αφήστε το κενό για να μην "
 "υποστηρίζεται. Προτείνεται: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Πίνακας προβολής πεδίων"
+msgstr "Πίνακας προβολής στηλών"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
@@ -4084,12 +3988,10 @@ msgstr ""
 "εκδόσεις."
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 msgid "Statements to track"
-msgstr "Δηλώσεις"
+msgstr "Δηλώσεις προς παρακολούθηση"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -4098,9 +4000,8 @@ msgstr ""
 "[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 msgid "SQL query tracking table"
-msgstr "Πίνακας ιστορικού ερωτημάτων SQL"
+msgstr "Πίνακας ιστορικού παρακολούθησης ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
@@ -4111,18 +4012,16 @@ msgstr ""
 "αυτόματα."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "Αυτόματη κατάσταση επαναφοράς"
+msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
-"[kbd]pma_history[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
+"[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
@@ -4157,11 +4056,10 @@ msgid "Verbose name of this server"
 msgstr "Φιλοχρηστικό όνομα διακομιστή"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «Εμφάνιση όλων (εγγραφές)»"
+msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «Εμφάνιση όλων»"
 
 #: libraries/config/messages.inc.php:436
 msgid "Allow to display all the rows"
@@ -4195,10 +4093,9 @@ msgstr ""
 "επεξεργασίας/εισαγωγής"
 
 #: libraries/config/messages.inc.php:441
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Εμφάνιση ανοιχτών πινάκων"
+msgstr "Εμφάνιση τύπων πεδίου"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
@@ -4356,10 +4253,9 @@ msgstr ""
 "ερωτημάτων (x1,25)"
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "Στήλες περιοχής κειμένου (textarea) CHAR"
+msgstr "Στήλες περιοχής κειμένου (textarea)"
 
 #: libraries/config/messages.inc.php:475
 msgid ""
@@ -4371,10 +4267,9 @@ msgstr ""
 "ερωτημάτων (x1,25)"
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "Γραμμές περιοχής κειμένου (textarea) CHAR"
+msgstr "Γραμμές περιοχής κειμένου (textarea)"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
@@ -4386,10 +4281,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Τίτλος του παραθύρου του φυλλομετρητή όταν δεν επιλέγεται τίποτα"
 
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Προεπιλεγμένη καρτέλα πίνακα"
+msgstr "Προεπιλεγμένος τίτλος"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a server is selected"
@@ -4475,16 +4369,14 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Σειρά επικύρωσης"
+msgstr "Πιστοποίηση ρύθμισης"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Σειρά επικύρωσης"
+msgstr "Πιστοποίηση Cookie"
 
 #: libraries/config/setup.forms.php:48
 #| msgid "Host authentication order"
@@ -4492,7 +4384,6 @@ msgid "HTTP authentication"
 msgstr "Πιστοποίηση HTTP"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
 msgstr "Σειρά επικύρωσης"
@@ -4530,10 +4421,9 @@ msgstr "Γρήγορο"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Προσαρμοσμένο χρώμα"
+msgstr "Προσαρμοσμένο"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
@@ -4685,7 +4575,6 @@ msgid "Password Hashing"
 msgstr "Μείγμα κωδικού πρόσβασης"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 msgid "MySQL 4.0 compatible"
 msgstr "Συμβατό με MySQL 4.0"
 
@@ -4709,68 +4598,60 @@ msgid "Create table on database %s"
 msgstr "Δημιουργία νέου πίνακα στη βάση %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Αριθμός πεδίων"
+msgstr "Αριθμός στηλών"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Αδύνατη η φόρτωση προσθέτων εξαγωγής. Ελέξτε την εγκατάστασή σας!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
+msgstr "Εξαγωγή βάσεων δεδομένων στον τρέχοντα διακομιστή"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "Δημιουργία νέου πίνακα στη βάση %s"
+msgstr "Εξαγωγή πινάκων στη βάση δεδομένων «%s»"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
-msgstr "Δημιουργία νέου πίνακα στη βάση %s"
+msgstr "Εξαγωγή εγγραφών στον πίνακα «%s»"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Τύπος εξαγωγής"
+msgstr "Μέθοδος εξαγωγής"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Βάσεις Δεδομένων"
+msgstr "Βάση(εις) Δεδομένων"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Πίνακες"
+msgstr "Πίνακας(ες)"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Εγγραφές"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Αχρήστευση όλων των γραμμών"
+msgstr "Αχρήστευση μερικών εγγραφών"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Αριθμός πεδίων"
+msgstr "Αριθμός εγγραφών"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
@@ -4791,16 +4672,14 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Αποθήκευση στον διακομιστή στον φάκελο <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Μορφή ονόματος αρχείου"
+msgstr "Πρότυπο ονόματος αρχείου"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
@@ -4840,7 +4719,6 @@ msgid "Character set of the file:"
 msgstr "Σύνολο χαρακτήρων του αρχείου:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Συμπίεση"
@@ -4852,23 +4730,19 @@ msgid "None"
 msgstr "Καμία"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 msgid "zipped"
 msgstr "συμπίεση «zip»"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 msgid "gzipped"
 msgstr "συμπίεση «gzip»"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
 msgid "bzipped"
 msgstr "συμπίεση «bzip»"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Μορφοποίηση"
@@ -4878,9 +4752,8 @@ msgid "Format-Specific Options:"
 msgstr "Επιλογές Ορισμένης Μορφής:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "Μηχανή επανακωδικοποίησης"
+msgstr "Μετατροπή κωδικοποίησης"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -4905,23 +4778,21 @@ msgstr ""
 "διαθέσιμες."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
+msgstr "Εισαγωγή στον τρέχοντα διακομιστή"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Εισαγωγή στη βάση δεδομένων «%s»"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Εισαγωγή στον πίνακα «%s»"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
 msgstr "Αρχείο για εισαγωγή"
@@ -4944,7 +4815,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Μερική εισαγωγή"
@@ -4975,10 +4845,9 @@ msgstr ""
 "large files, however it can break transactions.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
+msgstr "Αριθμός εγγραφών που θα παραβλεφθούν από την αρχή"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -4991,10 +4860,9 @@ msgid "%d is not valid row number."
 msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γραμμών."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "Εγγραφές αρχίζοντας από την εγγραφή"
+msgstr "εγγραφή(ές) αρχίζοντας από την εγγραφή #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
@@ -5036,13 +4904,11 @@ msgid "Options"
 msgstr "Επιλογές"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Περιληπτικά κείμενα"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Πλήρη κείμενα"
@@ -5052,10 +4918,9 @@ msgid "Relational key"
 msgstr "Κλειδί συσχέτισης"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Πεδίο προβολής συσχέτισης"
+msgstr "Στήλη προβολής συσχέτισης"
 
 #: libraries/display_tbl.lib.php:593
 msgid "Show binary contents"
@@ -5116,10 +4981,9 @@ msgid "Print view (with full texts)"
 msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 
 #: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Εμφάνιση σχήματος PDF"
+msgstr "Εμφάνιση διαγράμματος"
 
 #: libraries/display_tbl.lib.php:2380
 msgid "Link not found"
@@ -5314,20 +5178,17 @@ msgstr ""
 "εντολές CREATE INDEX ή ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Όριο σκουπιδιών"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Το ποσοστό των σκουπιδιών στο αρχείο καταγραφής δεδομένων πριν συμπιεστεί. "
-"Λαμβάνει τιμές από 1 έως 99. Προεπιλεγμένη τιμή είναι το 50."
+"Το ποσοστό των σκουπιδιών στο αρχείο καταγραφής δεδομένων πριν συμπιεστεί."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
@@ -5370,10 +5231,9 @@ msgstr ""
 "εγγραφή στη βάση δεδομένων."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Όριο αρχείου καταγραφής"
+msgstr "Όριο αρχείου προσωρινής καταγραφής"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -5381,26 +5241,35 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Το μέγιστο μέγεθος ενός αρχείου προσωρινής απόθεσης BLOB. Μπορείτε να "
+"χρησιμοποιήσετε Kb, MB ή GB για να δείξετε τις μονάδες της τιμής. Η τιμή "
+"θεωρείτε σε Bytes όταν δεν οριστούν μονάδες."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Μέγιστη Διατήρηση Βιωσιμότητας"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Ο χρόνος λήξης για μη ενεργή σύνδεση με ορισμένη την επιλογή διαγήρησης "
+"βιωσιμότητας. Μετά από αυτό το χρόνο θα κλείσει. Ο χρόνος λήξης είναι σε "
+"χιλιοστοδευτερόλεπτα (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Κεφαλίδες μετα-δεδομένων"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Μια τελεία «:» διαχωρίζει τη λίστα των κεφαλίδων μετα-δεδομένων για να "
+"χρησιμοποιηθούν για την έναρξη του πίνακα pbms_metadata_header όταν "
+"δημιουργηθεί η βάση δεδομένων."
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -5703,6 +5572,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Προβολή σχολίων <i>(περιλαμβάνει πληροφορίες όπως εξαγωγή timestamp, έκδοση "
+"PHPκαι έκδοση διακομιστή)</i>"
 
 #: libraries/export/sql.php:35
 #| msgid "Add custom comment into header (\\n splits lines)"
@@ -5716,11 +5587,15 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Περιλαμβάνει μια χρονοσφραγίδα για το πότε δημιουργούνται, ενημερώνονται και "
+"ελέγχονται βάσεις δεδομένων"
 
 #: libraries/export/sql.php:65
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Σύστημα βάσεων δεδομένων ή παλαιός διακομιστής MySQL για μεγιστοποίηση της "
+"συμβατότητας του εξαγόμενου με:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
@@ -5736,33 +5611,36 @@ msgstr "Προσθήκη δηλώσεων"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Επιλογές <code>ΔΗΜΙΟΥΡΓΙΑΣ ΠΙΝΑΚΑ</code> (CREATE TABLE):"
 
 #: libraries/export/sql.php:123
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Εσωκλείνει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει "
+"τα ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
+"λέξεις-κλειδιά)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Αντί για δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ</code> (INSERT), χρησιμοποιήστε:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΚΑΘΥΣΤΕΡΗΜΕΝΗΣ</code> (INSERT DELAYED)"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΑΓΝΟΗΣΗΣ</code> (INSERT IGNORE)"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την αχρήστευση δεδομένων:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Η σύνταξη που θα χρησιμοποιηθεί κατά την εισαγωγή δεδομένων:"
 
 #: libraries/export/sql.php:154
 msgid ""
@@ -5770,6 +5648,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"συμπεριλαμβάνει ονόματα στηλών σε κάθε δήλωση <code>ΕΙΣΑΓΩΓΗΣ</code> "
+"(INSERT) <br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5777,30 +5658,42 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"εισάγει πολλαπλές εγγραφές σε κάθε δήλωση <code>ΕΙΣΑΓΩΓΗΣ</code> (INSERT)<br "
+"/> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES "
+"(1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"όλα τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO "
+"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"κανένα από τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Αχρήστευση δυαδικών στηλών σε δεκαεξαδική σημείωση <i>(για παράδειγμα, το "
+"«abc» γίνεται 0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Αχρήστευση στηλών ΧΡΟΝΟΣΦΡΑΓΙΔΑΣ (TIMESTAMP) σε UTC <i>(ενεργοποιεί τις "
+"στήλες  TIMESTAMP να αχρηστευτούν και να επαναφορτωθούν μεταξύ διακομιστών "
+"σε διαφορετικές ζώνες ώρας)</i>"
 
 #: libraries/export/sql.php:393 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5845,7 +5738,7 @@ msgstr "Κώδικας XML"
 
 #: libraries/export/xml.php:30
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Επιλογές δημιουργίας αντικειμένου (όλες προτείνονται)"
 
 #: libraries/export/xml.php:40
 #| msgid "View"
@@ -5915,6 +5808,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Η πρώτη γραμμή του αρχείου περιέχει τα ονόματα στηλών του πίνακα <i>(αν δεν "
+"επιλεγεί, η πρώτη γραμμή θα περιέχει δεδομένα)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5922,6 +5817,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Αν τα δεδομένα σε κάθε εγγραφή του αρχείου δεν είναι στην ίδια σειρά όπως "
+"στη βάση δεδομένων, δώστε εδώ τα ονόματα των στηλών. Τα ονόματα των στηλών "
+"πρέπει να χωρίζονται με κόμμα και να μην περιβάλλονται σε εισαγωγικά."
 
 #: libraries/import/csv.php:41
 #| msgid "Column names"
@@ -5940,6 +5838,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Ορίστηκε μη έγκυρη στήλη (%s)! Σιγουρευτείτε ότι τα ονόματα στηλών ορίζονται "
+"σωστά, χωρίζονται με κόμμα δεν περιέχονται σε εισαγωγικά."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
@@ -6282,30 +6182,37 @@ msgstr "Ιστορικό SQL"
 
 #: libraries/relation.lib.php:141
 msgid "User preferences"
-msgstr ""
+msgstr "Ρυθμίσεις χρήστη"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Γρήγορα βήματα για εγκατάσταση χαρακτηριστικών για προχωρημένους:"
 
 #: libraries/relation.lib.php:147
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
+"Δημιουργία των απαραίτητων πινάκων με το αρχείο "
+"<code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:148
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Δημιουργήστε έναν χρήστη pma και δώστε πρόσβαση σε αυτούς του πίνακες."
 
 #: libraries/relation.lib.php:149
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Ενεργοποιεί χαρακτηριστικά για προχωρημένους στο αρχείο ρυθμίσεων "
+"(<code>config.inc.php</code>), για παράδειγμα ξεκινήστε με το αρχείο "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:150
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Επανασυνδεθείτε στο phpMyAdmin για να φορτωθεί το ενημερωμένο αρχείο "
+"ρυθμίσεων."
 
 #: libraries/relation.lib.php:1164
 msgid "no description"
@@ -6443,7 +6350,7 @@ msgstr "Η σελίδα %s δεν περιέχει κανένα πίνακα!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
@@ -6487,11 +6394,11 @@ msgstr "Εσωτερικές συσχετίσεις"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "ΜΗ ΔΙΑΚΡΙΤΟ ΚΛΕΙΔΙ"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
-msgstr "Παρακαλώ επιλέξτε σελίδα για αλλαγή"
+msgstr "Παρακαλώ επιλέξτε σελίδα για επεξεργασία"
 
 #: libraries/schema/User_Schema.class.php:153
 #| msgctxt "Create SELECT * query"
@@ -6510,7 +6417,7 @@ msgstr "Προβολή σχεσιακού σχήματος"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
@@ -6735,7 +6642,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Αυτόματη επισύναψη οπισθοστίγματος στο τέλος του ερωτήματος!"
 
 #: libraries/sqlparser.lib.php:370
 msgid "Unclosed quote"
@@ -6823,11 +6730,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Τα δεδομένα ENUM ή SET είναι πολύ μεγάλα;"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Λήψη περισσότερου χώρου επεξεργασίας"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
@@ -6872,7 +6779,6 @@ msgid "Event"
 msgstr "Συμβάν"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6884,11 +6790,11 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Προβάλει έναν σύνδεσμο για λήψη των δυαδικών δεδομένων ενός πεδίου. Η πρώτη "
-"επιλογή είναι το όνομα αρχείου ενός δυαδικού αρχείου. Η δεύτερη επιλογή "
-"είναι ένα πιθανό όνομα πεδίου μια γραμμής πίνακα που περιέχει το όνομα "
-"αρχείου. Αν δώσετε μια δεύτερη επιλογή πρέπει να έχετε ορίσει την πρώτη "
-"επιλογή ως κενό"
+"Προβάλει έναν σύνδεσμο για λήψη των δυαδικών δεδομένων μιας στήλης. Μπορείτε "
+"να χρησιμοποιήσετε την πρώτη επιλογή για να ορίσετε το όνομα αρχείου. Η "
+"δεύτερη επιλογή είναι ένα πιθανό όνομα στήλης πίνακα που περιέχει το όνομα "
+"αρχείου. Αν επιλέξετε τη δεύτερη επιλογή πρέπει να έχετε ορίσει την πρώτη "
+"επιλογή ως κενό."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -7023,6 +6929,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Μετατρέπει μια διεύθυνση διαδικτύου (IPv4) σε κείμενο στη στικτή βασική "
+"μορφή Διαδικτόυ."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
@@ -7050,7 +6958,7 @@ msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "ΟΙ ρυθμίσεις αποθηκεύτηκαν"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -7058,18 +6966,21 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Οι προτιμήσεις σας θα αποθηκευτούν για την τρέχουσα συνεδρία μόνο. Για τη "
+"μόνιμη αποθήκευση τους απαιτείται %sαποθήκευση ρυθμίσεων phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσεων"
+msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Ο φυλλομετρητής σας έχει ρύθμιση phpMyAdmin για αυτό το domain. Θέλετε να το "
+"εισάγετε για την τρέχουσα συνεδρία;"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -7147,7 +7058,7 @@ msgstr "Επίσημη σελίδα του phpMyAdmin"
 
 #: main.php:223
 msgid "Mailing lists"
-msgstr ""
+msgstr "Λίστες αλληλογραφίας"
 
 #: main.php:248
 msgid ""
@@ -7228,7 +7139,7 @@ msgstr ""
 "μόλις ρυθμιστεί το phpMyAdmin."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -7236,8 +7147,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν "
-"απενεργοποιηθεί. Για να μάθετε γιατί, πατήστε %sεδώ%s."
+"Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
+"%sεδώ%s."
 
 #: main.php:319
 msgid ""
@@ -7412,7 +7324,6 @@ msgid "To select relation, click :"
 msgstr "Για να επιλέξετε συσχέτιση, πατήστε :"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7422,9 +7333,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Το προβαλόμενο πεδίο εμφανίζεται ροζ. Για να ορίσετε ή όχι ένα πεδίο ως "
-"εμφανιζόμενο πεδίο, πατήστε το εικονίδιο «Επιλογή πεδίο για εμφάνιση» και "
-"μετά πατήστε το κατάλληλο όνομα πεδίου."
+"Η προβαλλόμενη στήλη εμφανίζεται ως ροζ. Για να ορίσετε ή όχι μια στήλη ως "
+"εμφανιζόμενη στήλη, πατήστε το εικονίδιο «Επιλογή στήλης για προβολή» και "
+"μετά πατήστε το κατάλληλο όνομα στήλης."
 
 #: pmd_pdf.php:60
 msgid "Page has been created"
@@ -7487,15 +7398,15 @@ msgstr "Αδύνατη η εισαγωγή ρυθμίσεων"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Οι ρυθμίσεις περιέχουν λανθασμένα δεδομένα για ορισμένα πεδία."
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Θέλετε να εισάγετε τις υπόλοιπες ρυθμίσεις;"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Αποθήκευση στις: @DATE@"
 
 #: prefs_manage.php:239
 #| msgid "Import files"
@@ -7504,11 +7415,12 @@ msgstr "Εισαγωγή από αρχείο"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Εισαγωγή από την αποθήκευση φυλλομετρητή"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Οι ρυθμίσεις θα εισαχθούν από την τοπική αποθήκευση του φυλλομετρητή σας."
 
 #: prefs_manage.php:254
 #| msgid "Other core settings"
@@ -7517,7 +7429,7 @@ msgstr "Δεν έχετε αποθηκευμένες ρυθμίσεις!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Αυτό το χαρακτηριστικό δεν υποστηρίζεται από τον φυλλομετρητή σας"
 
 #: prefs_manage.php:263
 #| msgid "Server configuration"
@@ -7530,22 +7442,26 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο "
+"config.inc.php, π.χ. χρησιμοποιώντας τον  %sκώδικα Εγκατάστασης%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Αποθήκευση στο χώρο αποθήκευσης του φυλλομετρητή"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
+"Οι ρυθμίσεις θα αποθηκευτούν στην τοπική αποθήκευση του φυλλομετρητή σας."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Οι υπάρχουσες ρυθμίσεις θα αντικατασταθούν!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Μπορείτε να επαναφέρεται όλες σας τις ρυθμίσεις στις προεπιλεγμένες τιμές."
 
 #: querywindow.php:93
 msgid "Import files"
@@ -8206,11 +8122,11 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Το δευτερεύον νήμα SQL δεν τρέχει!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Το δευτερεύον IO SQL δεν τρέχει!"
 
 #: server_replication.php:303
 msgid ""
@@ -8266,7 +8182,6 @@ msgid "Error management:"
 msgstr "Διαχείριση σφάλματος:"
 
 #: server_replication.php:332
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
@@ -9242,7 +9157,7 @@ msgstr "Τα ακόλουθα ερωτήματα εκτελέστηκαν:"
 
 #: server_synchronize.php:1120
 msgid "Enter manually"
-msgstr ""
+msgstr "Εισάγετε χειροκίνητα"
 
 #: server_synchronize.php:1121
 msgid "Current connection"
@@ -9443,20 +9358,20 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #: setup/lib/index.lib.php:162
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Χρησιμοποιείτε υποέκδοση έκδοσης. Εκτελέστε την [kbd]ενημέρωση svn[/kbd] :-)"
-"[br]Η τελευταία τελική έκδοση είναι η %s και δημοσιεύτηκε την %s."
+"Χρησιμοποιείτε έκδοση Git, τρέξτε το [kbd]git pull[/kbd] :-)[br]Η τελευταία "
+"σταθερή έκδοση είναι %s, δημοσιεύτηκε την %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
 msgstr "Δεν υπάρχει νεότερη έκδοση (μη δοκιμαστική) διαθέσιμη"
 
 #: setup/lib/index.lib.php:250
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #| "disabled as it allows attackers to bruteforce login to any MySQL server. "
@@ -9470,13 +9385,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Αυτή η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει να "
-"απενεργοποιηθεί καθώς επιτρέπει σε κακόβουλους να εισβάλουν συνδεόμενοι σε "
-"οποιοδήποτε διακομιστή MySQL. Αν νομίζετε ότι είναι απαραίτητο, "
-"χρησιμοποιείστε [a@?page=form&amp;formset=features#tab_Security]λίστα "
-"διευθύνσεων που εμπιστεύεστε[/a]. Ωστόσο, η βασισμένη σε IP προστασία ίσως "
-"να μην είναι αξιόπιστη αν η IP σας ανήκει σε έναν ISP όπου χιλιάδες χρήστες, "
-"μαζί με εσάς, είναι συνδεδεμένοι σε αυτόν."
+"Αυτή η %sεπιλογή%s πρέπει να απενεργοποιηθεί καθώς επιτρέπει σε εισβολείς να "
+"συνδεθούν σε οποιοδήποτε διακομιστή MySQL. Αν νομίζετε ότι αυτό είναι "
+"απαραίτητο, χρησιμοποιήστε %sλίστα αξιόπιστων διακομιστών%s. Ωστόσο, η "
+"προστασία με βάση την IP ίσως να μην είναι αξιόπιστη γιατί μπορεί η IP σας "
+"να ανήκει σε πάροχο με χιλιάδες χρήστες."
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -9489,7 +9402,7 @@ msgstr ""
 "κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9498,9 +9411,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση και "
-"αποσυμπίεση Bzip2[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθεσιμες σε "
-"αυτό το σύστημα."
+"Η %sσυμπίεση και αποσυμπίεση Bzip2%s απαιτεί συναρτήσεις (%s) που δεν είναι "
+"διαθέσιμες σε αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:255
 msgid ""
@@ -9512,15 +9424,15 @@ msgstr ""
 "χρήστες στο διακομιστή σας."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
-"υποστηρίζει"
+"Αυτή η %sεπιλογή%s πρέπει να ενεργοποιηθεί αν ο διακομιστής σας το "
+"υποστηρίζει."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9529,9 +9441,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Συμπίεση και "
-"αποσυμπίεση GZip[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθέσιμες σε "
-"αυτό το σύστημα."
+"Η %sσυμπίεση και αποσυμπίεση GZip%s απαιτεί συναρτήσεις (%s) που δεν είναι "
+"διαθέσιμες σε αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -9540,9 +9451,12 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
+"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9551,9 +9465,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"Η [a@?page=form&formset=features#tab_Security]Ισχύς του cookie σύνδεσης[/a] "
-"πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 λεπτά) το περισσότερο. Τιμές "
-"μεγαλύτερες από 1800 ίσως παρουσιάσουν προβλήματα ασφάλειας όπως μίμηση."
+"Η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 "
+"λεπτά) το περισσότερο. Τιμές μεγαλύτερες από 1800 μπορεί να ελοχεύει "
+"κινδύνους απροσωποληψίας."
 
 #: setup/lib/index.lib.php:264
 #, php-format
@@ -9561,6 +9475,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Αν χρησιμοποιείτε πιστοποίηση cookie και η %sαποθήκευση cookie Σύνδεσης%s "
+"δεν είναι 0, η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε μια τιμή "
+"μικρότερη ή ίση με αυτή."
 
 #: setup/lib/index.lib.php:266
 #, php-format
@@ -9583,7 +9500,7 @@ msgstr ""
 "ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9598,14 +9515,14 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Ορίζετε τον τύπο επικύρωσης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
+"Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
+"[kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9613,11 +9530,11 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+"Η %sσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε αυτό "
+"το σύστημα."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
@@ -9625,11 +9542,10 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]αποσυμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+"Η %sαποσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε "
+"αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
 msgstr ""
@@ -9682,7 +9598,7 @@ msgstr "Προβλήματα με τα ευρετήρια στον πίνακα 
 
 #: sql.php:852
 msgid "Label"
-msgstr "Τίτλος"
+msgstr "Ετικέτα"
 
 #: tbl_addfield.php:185 tbl_alter.php:100 tbl_indexes.php:97
 #, php-format
@@ -9847,17 +9763,24 @@ msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
 msgstr ""
+"Για λόγους συμβατότητας, η εικόνα του διαγράμματος περιορίζεται ως "
+"προεπιλογή. Επιλέξτε το για σχεδιασμό όλο το διάγραμμα σε μια εικόνα."
 
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Όταν σχεδιάζετε ένα διάγραμμα ραντάρ, όλες οι τιμές κανονικοποιούνται σε ένα "
+"εύρος [0..10]."
 
 #: tbl_chart.php:173
 msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Σημειώστε ότι δεν μπορεί κάθε πίνακας αποτελεσμάτων να μπει σε διάγραμμα. "
+"Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">ΣΑΕ "
+"6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"

@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-04-30 18:08+0200\n"
-"Last-Translator:  <kajouni@gmail.com>\n"
+"PO-Revision-Date: 2010-11-26 21:29+0200\n"
+"Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -96,17 +96,16 @@ msgstr "Käytä tätä arvoa"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "BLOB-suoratoistopalvelinta ei ole määritelty."
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Tiedoston kirjoitus levylle epäonnistui."
+msgstr "Otsakkeiden nouto epäonnistui"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Etäosoitteen avaaminen epäonnistui"
 
 #: db_create.php:58
 #, php-format
@@ -132,10 +131,9 @@ msgstr "Taulun kommentit"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Sarakkeiden nimet"
+msgstr "Sarake"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -271,10 +269,9 @@ msgid "Command"
 msgstr "Komento"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Muuta tietokannan nimi"
+msgstr "Tuhoa tietokanta"
 
 #: db_operations.php:441
 #, php-format
@@ -282,10 +279,9 @@ msgid "Database %s has been dropped."
 msgstr "Tietokanta %s on poistettu."
 
 #: db_operations.php:446
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Siirry tietokantaan"
+msgstr "Tuhoa tietokanta (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
@@ -305,7 +301,7 @@ msgstr "Vain tiedot"
 
 #: db_operations.php:491
 msgid "CREATE DATABASE before copying"
-msgstr "Suorita CREATE DATABASE ennen kopioimista"
+msgstr "Suorita CREATE DATABASE ennen kopiointia"
 
 #: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
@@ -338,7 +334,7 @@ msgid "Collation"
 msgstr "Aakkosjärjestys"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -346,14 +342,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso %slisätietoja%s."
+"phpMyAdminin asetusmuisti on poistettu käytöstä. Katso %slisätietoja%s, "
+"mistä tämä johtuu."
 
 #: db_operations.php:581
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relaatioskeema"
+msgstr "Relaatioskeeman muokkaus tai vienti"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
@@ -404,12 +399,12 @@ msgid "Last check"
 msgstr "Viimeksi tarkistettu"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s taulu(a)"
-msgstr[1] "%s taulu(a)"
+msgstr[0] "%s taulu"
+msgstr[1] "%s taulua"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
@@ -424,11 +419,11 @@ msgstr "Valitse vähintään yksi sarake"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Siirry kohteeseen"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "visuaalinen luonti"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -481,13 +476,11 @@ msgid "Modify"
 msgstr "Muokkaa"
 
 #: db_qbe.php:603
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Lisää tai poista hakuehtoja"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Lisää tai poista sarakkeita"
@@ -538,7 +531,7 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
@@ -565,7 +558,7 @@ msgid "Delete"
 msgstr "Poista"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
@@ -593,13 +586,11 @@ msgid "Inside table(s):"
 msgstr "Tauluista:"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Kentän sisältä:"
+msgstr "Sarakkeen sisältä:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Tietokannassa ei ole tauluja."
@@ -645,7 +636,7 @@ msgstr "Näkymä"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
 msgid "Replication"
-msgstr "Replikaatio"
+msgstr "Kahdennus"
 
 #: db_structure.php:441
 msgid "Sum"
@@ -818,11 +809,11 @@ msgstr "Tietokantaloki"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Sarakkeen \"%s\" arvot"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Syötä arvot omiin kenttiinsä."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -959,23 +950,21 @@ msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Poistotapahtuma"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Proseduurit"
+msgstr "Poistotoiminto"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Poista tämän taulun seurantatiedot"
+msgstr "Seurantatietojen poisto"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Pääavaimen tai indeksin poisto"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1016,25 +1005,21 @@ msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Lisää uusi käyttäjä"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Luo versio"
+msgstr "Luo käyttäjä"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
-msgstr "Lataa käyttöoikeudet uudelleen"
+msgstr "Käyttöoikeusten uudelleenlataus"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Poista valitut käyttäjät"
@@ -1050,28 +1035,26 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Lataa asetukset"
+msgstr "Lataa"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Prosessit"
+msgstr "Pyynnön käsittely"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Virhe pyynnön käsittelyssä"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Sarakkeen poisto"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Pääavaimen lisäys"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
@@ -1080,64 +1063,54 @@ msgid "OK"
 msgstr "Kunnossa"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Muuta tietokannan nimi"
+msgstr "Muuta tietokantojen nimiä"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Muuta tietokannan nimi"
+msgstr "Lataa tietokanta uudestaan"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Luo tietokannasta toinen tietokanta nimellä"
+msgstr "Tietokannan kopiointi"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Merkistökoodaus"
+msgstr "Merkistökoodauksen vaihtaminen"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Taulussa on oltava vähintään yksi kenttä."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Luo taulu"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Etsi"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL-kyselykenttä"
+msgstr "Piilota SQL-kyselykenttä"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL-kyselykenttä"
+msgstr "Näytä kyselykenttä"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Moottorit"
+msgstr "Rivin muokkaus"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1157,17 +1130,15 @@ msgid "Please select the primary key or a unique key"
 msgstr "Valitse perusavain tai uniikki avain"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Valitse näytettävä sarake"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Lisää asetus sarakkeelle"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Keksi salasana"
@@ -1177,27 +1148,23 @@ msgid "Generate"
 msgstr "Keksi"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Vaihda salasana"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Ma"
+msgstr "Lisää"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Lahjoita"
+msgstr "Valmis"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Edellinen"
@@ -1212,29 +1179,25 @@ msgstr "Seuraava"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Yhteensä"
+msgstr "Tänään"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binääritietoa"
+msgstr "Tammi"
 
 #: js/messages.php:126
 msgid "February"
-msgstr ""
+msgstr "Helmi"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Maalis"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Huhti"
@@ -1244,40 +1207,36 @@ msgid "May"
 msgstr "Touko"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Kesä"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Heinä"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Elo"
 
 #: js/messages.php:133
 msgid "September"
-msgstr ""
+msgstr "Syys"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Loka"
 
 #: js/messages.php:135
 msgid "November"
-msgstr ""
+msgstr "Marras"
 
 #: js/messages.php:136
 msgid "December"
-msgstr ""
+msgstr "Joulu"
 
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
@@ -1301,7 +1260,6 @@ msgstr "Huhti"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1343,40 +1301,36 @@ msgid "Dec"
 msgstr "Joulu"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Su"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Ma"
 
 #: js/messages.php:167
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Ti"
 
 #: js/messages.php:168
 msgid "Wednesday"
-msgstr ""
+msgstr "Ke"
 
 #: js/messages.php:169
 msgid "Thursday"
-msgstr ""
+msgstr "To"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pe"
 
 #: js/messages.php:171
 msgid "Saturday"
-msgstr ""
+msgstr "La"
 
 #. l10n: Short week day name
 #: js/messages.php:175 libraries/common.lib.php:1570
@@ -1415,75 +1369,65 @@ msgstr "La"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Ti"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ke"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "To"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "La"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Vko"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "Tunti"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "käytössä"
+msgstr "Minuutti"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "sekunnissa"
+msgstr "Sekunti"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1597,7 +1541,7 @@ msgid "Error"
 msgstr "Virhe"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
@@ -1605,7 +1549,7 @@ msgstr[0] "%1$d rivi(ä) muutettu."
 msgstr[1] "%1$d rivi(ä) muutettu."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
@@ -1613,7 +1557,7 @@ msgstr[0] "%1$d rivi(ä) poistettu."
 msgstr[1] "%1$d rivi(ä) poistettu."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -1807,21 +1751,20 @@ msgstr "Todennetaan..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS-virhe"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "MySQL-yhteyden aakkosjärjestys"
+msgstr "PBMS-yhteys epäonnistui:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS:n BLOB-tietojen haku epäonnistui:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "BLOB Content-Typen haku epäonnistui"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1842,7 +1785,7 @@ msgstr "Lataa tiedosto"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Tiedostoa ei voida avata: %s"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -1875,22 +1818,19 @@ msgid "Overhead"
 msgstr "Ylijäämä"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Siirry tietokantaan"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Isäntäpalvelimen replikointi"
+msgstr "Ei kahdennettu"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replikaatio"
+msgstr "Kahdennettu"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -1902,32 +1842,30 @@ msgid "Check Privileges"
 msgstr "Hallitse käyttöoikeuksia"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Näytä tilastot"
+msgstr "Kyselyn ominaisuuksia"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Kyselyn suoritusajan vertailu (mikrosekunteina)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Kyselytulosten toimenpiteet"
+msgstr "Kyselyn tulokset"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Kaaviolle ei ole tietoja."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Kaavioiden käyttöön tarvitaan GD-laajennus."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Kaavioiden työkaluvihjeitä varten tarvitaan JSON-koodain."
 
 #: libraries/common.inc.php:571
 msgid ""
@@ -1945,7 +1883,7 @@ msgstr ""
 ">Jos linkistä avautuva sivu on tyhjä, asetustiedostossa ei ollut virhettä."
 
 #: libraries/common.inc.php:582
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
@@ -1957,10 +1895,10 @@ msgid ""
 msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> täytyy määritellä asetustiedostossa!"
 
 #: libraries/common.inc.php:617
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Virheellinen palvelimen indeksi: \"%s\""
+msgstr "Virheellinen palvelimen indeksi: %s"
 
 #: libraries/common.inc.php:624
 #, php-format
@@ -1988,17 +1926,15 @@ msgstr "Enimmäiskoko: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Lähetetty"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Lähetetty"
+msgstr "en"
 
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
@@ -2020,10 +1956,9 @@ msgid "MySQL said: "
 msgstr "MySQL ilmoittaa: "
 
 #: libraries/common.lib.php:1078
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "MySQL-palvelimeen ei voitu yhdistää"
+msgstr "SQL-validaattoriin ei voitu yhdistää"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
@@ -2056,13 +1991,12 @@ msgstr "Tarkista SQL-lause"
 
 #: libraries/common.lib.php:1244
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Tämän kyselyn muokkaus"
 
 #: libraries/common.lib.php:1246
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Moottorit"
+msgstr "Muokkaus"
 
 #: libraries/common.lib.php:1310 libraries/common.lib.php:1326
 msgid "Profiling"
@@ -2184,13 +2118,13 @@ msgstr "Toiminnot"
 
 #: libraries/common.lib.php:2957
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Selaa tietokonettasi:"
 
 #: libraries/common.lib.php:2970
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "palvelimen lähetyshakemisto"
+msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
 
 #: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
@@ -2208,47 +2142,44 @@ msgstr "rakenne"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "tiedot"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Rakenne ja tiedot"
+msgstr "rakenne ja tiedot"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Nopea asetusten määritys - näytä asetuksia mahdollisimman vähän"
 
 #: libraries/config.values.php:100 libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Mukautettu - näytä kaikki mahdolliset asetukset"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Mukautettu - kuten yllä, mutta ilman pika-/mukautettu-valintaa"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Laajennetut lisäyslauseet"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "molemmat yltä"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "ei kumpikaan yltä"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
@@ -2275,7 +2206,7 @@ msgstr "Virheellinen arvo"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Arvon on oltava yhtä suuri tai pienempi kuin %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
@@ -2284,46 +2215,44 @@ msgstr "Kohteesta %s puuttuu tiedot"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Muuttuja"
+msgstr "Ei saatavilla"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" vaatii laajennuksen %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "tuonti ei toimi, puuttuva funktio (%s)"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "vienti ei toimi, puuttuva funktio (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL-validaattori ei ole käytössä"
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "Käytettävä PHP-laajennus"
+msgstr "SOAP-laajennusta ei löydy"
 
 #: libraries/config/FormDisplay.class.php:772
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Tauluja enintään"
+msgstr "Enintään %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Tämä asetus on poissa käytöstä; sitä ei käytetä asetusmäärittelyssäsi"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
 #: libraries/relation.lib.php:90 pmd_relation_new.php:68
@@ -2342,7 +2271,7 @@ msgstr "Palauta oletusarvo"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Anna käyttäjien mukauttaa tätä arvoa"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
@@ -2375,10 +2304,13 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Tämän ottaminen käyttöön antaa eri palvelimella olevan sivun kutsua "
+"phpMyAdminia kehyksessä, ja on mahdollinen [strong]turva-aukko[/strong], "
+"joka mahdollistaa kehystenväliset skriptihyökkäykset."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Anna kolmannen osapuolen käyttää kehystä"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -5859,7 +5791,7 @@ msgstr "Luontiympäristö"
 #: libraries/import.lib.php:153 sql.php:593 tbl_change.php:176
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL palautti tyhjän vastauksen, toisin sanoen nolla riviä."
+msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6362,7 +6294,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
 msgid "Add slave replication user"
-msgstr "Lisää alireplikaatiokäyttäjä"
+msgstr "Lisää alikahdennuksen käyttäjä"
 
 #: libraries/replication_gui.lib.php:256 server_privileges.php:717
 msgid "Any user"
@@ -7643,11 +7575,11 @@ msgstr "Tietokantatilastot"
 #: server_databases.php:172 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr "Isäntäpalvelimen replikointi"
+msgstr "Isäntäpalvelimen kahdennus"
 
 #: server_databases.php:174 server_replication.php:246
 msgid "Slave replication"
-msgstr "Alipalvelimen replikointi"
+msgstr "Alipalvelimen kahdennus"
 
 #: server_databases.php:257 server_databases.php:258
 msgid "Enable Statistics"
@@ -7818,7 +7750,7 @@ msgstr "Sallii käyttäjän kysyä, missä ali- ja pääpalvelimet sijaitsevat."
 #: server_privileges.php:52 server_privileges.php:198
 #: server_privileges.php:554
 msgid "Needed for the replication slaves."
-msgstr "Tarvitaan replikaatiota käyttävissä alipalvelimissa."
+msgstr "Tarvitaan kahdennusta käyttävissä alipalvelimissa."
 
 #: server_privileges.php:53 server_privileges.php:181
 #: server_privileges.php:440 server_privileges.php:504
@@ -8152,7 +8084,7 @@ msgstr "Isäntäpalvelimeksi on onnistuen vaihdettu %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr "Tämä palvelin on määritelty kahdennustoiminnon isäntäpalvelimeksi."
 
 #: server_replication.php:182 server_status.php:398
 msgid "Show master status"
@@ -8168,8 +8100,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Tätä palvelinta ei ole määritetty replikaatioprosessin isäntäpalvelimeksi. "
-"Haluatko <a href=\"%s\">määrittää</a> sen?"
+"Tätä palvelinta ei ole määritetty kahdennustoiminnon isäntäpalvelimeksi. "
+"Haluatko <a href=\"%s\">määrittää</a> sen asetukset?"
 
 #: server_replication.php:215
 msgid "Master configuration"
@@ -8183,19 +8115,19 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"Tätä palvelinta ei ole määritetty replikaatioprosessin isäntäpalvelimeksi. "
-"Voit valita replikoitaviksi joko kaikki tietokannat tai sivuuttaa tietyt "
-"tietokannat (hyödyllinen, jos valtaosa tietokannoista halutaan replikoida). "
+"Tätä palvelinta ei ole määritetty kahdennustoiminnon isäntäpalvelimeksi. "
+"Voit valita kahdennettaviksi joko kaikki tietokannat tai sivuuttaa tietyt "
+"tietokannat (hyödyllinen, jos valtaosa tietokannoista halutaan kahdentaa). "
 "Voit myös oletusarvoisesti sivuuttaa kaikki tietokannat ja sallia vain "
-"tiettyjen tietokantojen replikoinnin. Valitse tila:"
+"tiettyjen tietokantojen kahdennuksen. Valitse tila:"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr "Replikoi kaikki tietokannat; Sivuuta:"
+msgstr "Kahdenna kaikki tietokannat; Sivuuta:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr "Sivuuta kaikki tietokannat; Replikoi:"
+msgstr "Sivuuta kaikki tietokannat; Kahdenna:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
@@ -8231,7 +8163,7 @@ msgstr ""
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Palvelin on määritetty replikaatioprosessin alipalvelimeksi. Mitä haluat "
+"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Mitä haluat "
 "tehdä?"
 
 #: server_replication.php:306
@@ -8306,7 +8238,7 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Tätä palvelinta ei ole määritetty replikaatioprosessin alipalvelimeksi. "
+"Tätä palvelinta ei ole määritetty kahdennustoiminnon alipalvelimeksi. "
 "Haluatko <a href=\"%s\">määrittää</a> sen?"
 
 #: server_status.php:46
@@ -8828,7 +8760,7 @@ msgstr "Nollaa"
 
 #: server_status.php:132
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Replikaation vikasietotila (ei vielä toteutettu)."
+msgstr "Kahdennuksen vikasietotila (ei vielä toteutettu)."
 
 #: server_status.php:133
 msgid ""
@@ -8874,8 +8806,8 @@ msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
-"Kertoo, kuinka usein replikaation SQL-alisäie on käynnistyksestään lähtien "
-"kaikkiaan uudelleen yrittänyt transkatioita."
+"Kertoo, kuinka monta kertaa kahdennusalipalvelimen SQL-säie on "
+"käynnistyksestään lähtien yrittänut suorittaa transaktioita."
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -8934,8 +8866,8 @@ msgid ""
 msgstr ""
 "Kertoo, kuinka usein taulua ei ole saatu heti lukittua, ja on siten jouduttu "
 "odottamaan. Jos tämä arvo on suuri, ja suorituskyvyn kanssa on ongelmia, on "
-"hyvä ensin optimoida kyselyjä ja sitten joko jakaa taulu useampaan osaan tai "
-"käyttää hyödyksi replikaatiota."
+"hyvä ensin optimoida kyselyjä ja sitten joko jakaa taulu useampaan osaan "
+"tai käyttää hyödyksi kahdennusta."
 
 #: server_status.php:149
 msgid ""
@@ -9044,27 +8976,29 @@ msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Tämä MySQL-palvelin on ollut käynnissä %s. Se käynnistettiin %s."
 
 #: server_status.php:477
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr ""
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> <b>pää-</b> ja "
+"<b>alipalvelimena</b>."
 
 #: server_status.php:479
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr ""
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> "
+"<b>pääpalvelimena</b>."
 
 #: server_status.php:481
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Tämä palvelin on määritelty replikaatioprosessin isäntäpalvelimeksi."
+msgstr ""
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> ja "
+"<b>alipalvelimena</b>."
 
 #: server_status.php:483
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -9073,9 +9007,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"MySQL-palvelin toimii %s-tilassa, <b>replikaatio</b>-prosessissa. Hae "
-"palvelimen replikaatiotilasta lisää tietoja kohdasta <a href=\"#replication"
-"\">Replikaatio</a>."
+"Hae lisätietoja palvelimen kahdennustilasta kohdasta <a "
+"href=\"#replication\">Replication</a>."
 
 #: server_status.php:500
 msgid ""
@@ -9149,7 +9082,7 @@ msgstr "Kyselyn tyyppi"
 
 #: server_status.php:845
 msgid "Replication status"
-msgstr "Replikaation tila"
+msgstr "Kahdennuksen tila"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
@@ -10402,502 +10335,3 @@ msgstr "Nimeä taulu uudelleen"
 
 #~ msgid "No tables"
 #~ msgstr "Ei tauluja"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Tämä [a@?page=form&amp;formset=features#tab_Security]valinta[/a] tulisi "
-#~ "ottaa käyttöön, jos verkkopalvelin tukee sitä"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'..."
-#~ "<br />Jos tarvitset arvoissa kenoviivaa (\"\\\") tai yksittäistä "
-#~ "lainausmerkkiä (\"'\"), lisää merkin eteen kenoviiva (esim. '\\\\xyz' tai "
-#~ "'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'..."
-#~ "<br />Jos tarvitset arvoissa kenoviivaa (\"\\\") tai yksittäistä "
-#~ "lainausmerkkiä (\"'\"), lisää merkin eteen kenoviiva (esim. '\\\\xyz' tai "
-#~ "'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Ei tauluja"
-
-#~ msgid "server name"
-#~ msgstr "palvelimen nimi"
-
-#~ msgid "database name"
-#~ msgstr "tietokannan nimi"
-
-#~ msgid "table name"
-#~ msgstr "taulun nimi"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Muokkaa PDF-sivuja"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Tietosanaston tallennusmuoto"
-
-#~ msgid "no"
-#~ msgstr "ei"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Anna kirjautumistodennuksen kirjautumisasetukset"
-
-#~ msgid "Signon login options"
-#~ msgstr "Kirjautumistodennuksen asetukset"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA-tietokanta"
-
-#~ msgid "Customization"
-#~ msgstr "Mukauttaminen"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "SQL-kyselyjen asetukset; SQL-kyselykentän asetuksia varten katso [a@?"
-#~ "page=form&amp;formset=main_frame#tab_Sql_box]navigointikehyksen[/a] "
-#~ "asetukset"
-
-#~ msgid "yes"
-#~ msgstr "kyllä"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within fields"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Poista kentistä CRLF-merkit"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Lisää AUTO_INCREMENT-arvo"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Tee vedos %s rivistä, alkaen riviltä: %s."
-
-#~ msgid "remember template"
-#~ msgstr "muista pohja"
-
-#~ msgid "\"zipped\""
-#~ msgstr "\"zip-pakattu\""
-
-#~ msgid "\"gzipped\""
-#~ msgstr "\"gzip-pakkaus\""
-
-#~ msgid "\"bzipped\""
-#~ msgstr "\"bzip-pakkaus\""
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Seuraavat tiedostonpakkausmuodot havaitaan automaattisesti: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Lisää kommentteihin"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Vie rakennekaaviot (suositeltavaa)"
-
-#~ msgid "Export functions"
-#~ msgstr "Vie funktiot"
-
-#~ msgid "Export procedures"
-#~ msgstr "Vie proseduurit"
-
-#~ msgid "Export triggers"
-#~ msgstr "Vie herättimet"
-
-#~ msgid "Export views"
-#~ msgstr "Vie näkymät"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Virheellinen sarake (%s) määritelty!"
-
-#~ msgid "Actions"
-#~ msgstr "Toiminnot"
-
-#~ msgid "Interface"
-#~ msgstr "Käyttöliittymä"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Taulun nimi"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB-tietokanta"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Päällä"
-
-#~ msgid "Disable"
-#~ msgstr "Poista käytöstä"
-
-#~ msgid "Damaged"
-#~ msgstr "Vioittunut"
-
-#, fuzzy
-#~| msgid "Repair"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Korjaa"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Pois päältä"
-
-#~ msgid "Enable"
-#~ msgstr "Ota käyttöön"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr "Laajennuksen %s lataus ei onnistu; tarkista PHP:n asetukset"
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Merkistön muunnokseen tarvittavaa iconv- tai recode-laajennusta ei voitu "
-#~ "ladata. Muokkaa PHP:n asetuksia ottaen käyttöön nämä laajennukset tai "
-#~ "muuta phpMyAdminin asetuksia siinä määrin ettei muunnosta suoriteta."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista "
-#~ "PHP:n asetukset."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Salli merkistömuunnos"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Muunnoksissa käytettävä oletusmerkistö"
-
-#~ msgid "Default character set"
-#~ msgstr "Oletusmerkistö"
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Lisää sarake"
-
-#~ msgid "Field"
-#~ msgstr "Sarake"
-
-#~ msgid "Records"
-#~ msgstr "Rivit"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Sarakkeiden erotinmerkki"
-
-#~ msgid "Fields"
-#~ msgstr "Sarakkeet"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Lisää %s kenttä(ä)"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Sarake %s on poistettu"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Katso image/jpeg: inline"
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr "Lisää oma kommentti otsikkoon (\\n on rivinvaihto)"
-
-#~ msgid "and"
-#~ msgstr "ja"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Ei käytössä"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Käytössä"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Korjaa"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalenteri"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "MySQL&nbsp;4.0 -yhteensopiva"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Luo &nbsp;%s:n sarakkeen indeksi"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Luo taulu"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Ei mitään"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Tyhjennä taulun välimuisti (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Virheellinen palvelimen indeksi: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Kuvaus"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Ei mikään"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Tietokannan \"%s\" kaavio - Sivu %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Taulua \"%s\" ei ole!"
-
-#~ msgid ""
-#~ "This MySQL server works as %s in <b>replication</b> process. For further "
-#~ "information about replication status on the server, please visit the <a "
-#~ "href=\"#replication\">replication section</a>."
-#~ msgstr ""
-#~ "MySQL-palvelin toimii %s-tilassa, <b>replikaatio</b>-prosessissa. Hae "
-#~ "palvelimen replikaatiotilasta lisää tietoja kohdasta <a href="
-#~ "\"#replication\">Replikaatio</a>."
-
-#~ msgid "running on %s"
-#~ msgstr "palvelimella %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Kaavio ei mahdu yhdelle sivulle tässä mittakaavassa"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Istuntoa ei voi aloittaa virheettömästi. Tarkista PHP:n tai "
-#~ "verkkopalvelimen lokitiedostojen virheilmoitukset ja määritä PHP-"
-#~ "asennuksen asetukset oikein."
-
-#, fuzzy
-#~| msgid ""
-#~| "However on last run no data has been parsed, this usually means "
-#~| "phpMyAdmin won't be able to finish this import unless you increase php "
-#~| "time limits."
-#~ msgid ""
-#~ "However on last run no data has been parsed, this usually means "
-#~ "phpMyAdmin won"
-#~ msgstr ""
-#~ "Viimeisellä suorituskerralla ei kuitenkaan jäsennelty mitään tietoja. "
-#~ "Tämä tarkoittaa yleensä sitä, että phpMyAdmin ei voi ajaa tätä tuontia "
-#~ "loppuun asti ellei PHP:n suoritusaikarajaa nosteta."
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Ei mitään"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Ei mitään"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr ""
-#~ "Anna kaikki oikeudet tietokannalle käyttäen korvausmerkkiä (username\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Taulua \"%s\" ei ole!"
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "Palvelimella %1$s virheellinen nimi. Tarkista asetukset."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr "Laajennuksen %s lataus ei onnistu; tarkista PHP:n asetukset"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Tätä palvelinta ei ole määritetty replikaatioprosessin "
-#~ "isäntäpalvelimeksi. Haluatko <a href=\"%s\">määrittää</a> sen?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Tätä palvelinta ei ole määritetty replikaatioprosessin alipalvelimeksi. "
-#~ "Haluatko <a href=\"%s\">määrittää</a> sen?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "MySQL-palvelimeen ei voitu yhdistää"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Olet ehkä löytänyt SQL-jäsentimestä ohjelmointivirheen. Tarkista "
-#~ "käyttämäsi SQL-lause, erityisesti lainausmerkit merkkijonojen alusta ja "
-#~ "lopusta. Toinen mahdollinen virheen aiheuttaja on se, että olet "
-#~ "siirtämässä tiedostoa, jossa on binääritietoa lainausmerkkien "
-#~ "ulkopuolella. Jos mahdollista, kokeile SQL-lausetta suoraan "
-#~ "komentoriviltä. MySQL-palvelimen antama virheilmoitus näkyy alla, mikäli "
-#~ "palvelin sellaisen antoi. Jos lause toimi komentoriviltä muttei "
-#~ "phpMyAdminista, etsi rivi jolla virheilmoitus ilmeni ja lähetä meille "
-#~ "ilmoitus virheestä alla olevan koodin kera:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV-muotoista tietoa"
-
-#~ msgid "Copy"
-#~ msgstr "Kopioi"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Poista käyttäjät ja lataa käyttöoikeudet sen jälkeen uudelleen."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Tämä on siivoin tapa, mutta käyttöoikeuksien lataaminen uudelleen kestää "
-#~ "hetken."
-
-#~ msgid "has been altered."
-#~ msgstr "on muutettu."
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer ei tue tätä toimintoa."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "&quot;Poistetut&quot; käyttäjät voivat edelleen käyttää tavalliseen "
-#~ "tapaan palvelinta, ellei käyttöoikeuksia ladata uudestaan."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Poista käyttäjät vain käyttöoikeustauluista."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Sallii talletettujen proseduurien suorittamisen; ei vaikutusta tässä "
-#~ "MySQL-palvelimen versiossa."
-
-#~ msgid "Process list"
-#~ msgstr "Prosessiluettelo"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Käyttäjillä on USAGE-käyttöoikeus, kunnes käyttöoikeudet ladataan "
-#~ "uudelleen."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Natiivi MS Excel -muoto"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Muuta indeksiä/indeksejä"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Seurantamekanismi"
