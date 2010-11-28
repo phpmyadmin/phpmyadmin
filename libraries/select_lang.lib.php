@@ -343,10 +343,8 @@ function PMA_langList()
 
     /* Open the directory */
     $handle = @opendir($GLOBALS['lang_path']);
+    /* This can happen if the kit is English-only */
     if ($handle === FALSE) {
-        trigger_error('phpMyAdmin: path not found: '
-            . $GLOBALS['lang_path'] . ', check your language directory.',
-            E_USER_WARNING);
         return $result;
     }
 
@@ -363,7 +361,7 @@ function PMA_langList()
 }
 
 /**
- * @global string  path to the translations directory
+ * @global string  path to the translations directory; may be absent if the kit is English-only
  */
 $GLOBALS['lang_path'] = './locale/';
 
