@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-25 21:33+0200\n"
-"Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
+"PO-Revision-Date: 2010-11-27 22:17+0200\n"
+"Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -410,7 +410,7 @@ msgstr "Pasirinkite bent vieną stulpelį išvedimui"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Pereiti į"
 
 #: db_qbe.php:186
 msgid "visual builder"
@@ -1608,6 +1608,7 @@ msgstr ""
 "skriptu%2$s, kad sukurtumėte failą."
 
 #: libraries/auth/config.auth.lib.php:115
+#, fuzzy
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2560,10 +2561,9 @@ msgid "Table caption"
 msgstr "Lentelės antraštė"
 
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:98
-#, fuzzy
 #| msgid "Include table caption"
 msgid "Continued table caption"
-msgstr "Įterpti lentelės antraštę"
+msgstr "Pratęsta lentelės antraštė"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
@@ -2600,7 +2600,7 @@ msgstr "Atsiminti failo vardo šabloną"
 
 #: libraries/config/messages.inc.php:116
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Įdėti lentelių ir laukų pavadinimus į kabutes"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
@@ -2727,7 +2727,7 @@ msgstr "Galimybės"
 
 #: libraries/config/messages.inc.php:163
 msgid "General"
-msgstr "Bendrinis"
+msgstr "Bendra"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
@@ -2807,10 +2807,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Kiti nustatymai"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Puslapis:"
+msgstr "Puslapių pavadinimai"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
@@ -2818,6 +2817,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Nurodykite naršyklės pavadinimo juostos tekstą. Pasinaudokite "
+"[a@Documentation.html#cfg_TitleTable]dokumentacija[/a] magiškiesiems "
+"tekstams, kurie bus paversti specialiomis reikšmėmis."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
@@ -2886,13 +2888,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
-msgstr ""
+msgstr "Pakeitimų sekimas"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Sekti duomenų bazėje atliktus pakeitimus. Reikia phpMyAdmin nustatymų "
+"saugyklos."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -3021,7 +3025,7 @@ msgstr "Dalinis importas: leisti pertrauktis"
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Nenutraukti įvykus INSERT klaidai"
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3111,10 +3115,9 @@ msgid "Display servers selection"
 msgstr "Rodyti serverių pasirinkimą"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Display databases in a tree"
 msgid "Display table filter"
-msgstr "Rodyti duombazes medyje"
+msgstr "Rodyti lentelių filtrą"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -3192,12 +3195,10 @@ msgid "Light tabs"
 msgstr "Lengvos kortelės"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr ""
-"Didžiausias leistinas simbolių kiekis naudojamas SQL užklausai parodyti"
+msgstr "Didžiausias rodomas simbolių kiekis ne skaitiniuose stulpeliuose"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
@@ -3253,10 +3254,9 @@ msgid "Login cookie validity"
 msgstr "Prisijungimo slapuko galiojimas"
 
 #: libraries/config/messages.inc.php:295
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT fields"
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Padvigubinti dydį LONGTEXT'o textarea laukelių"
+msgstr "Padvigubinti LONGTEXT laukelių dydį"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
@@ -3392,6 +3392,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Išjungti standartinį perspėjimą kuris rodomas duomenų bazės struktūros "
+"puslapyje, kai neįmanoma rasti phpMyAdmin nustatytų saugyklai reikalingų "
+"lentelių"
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -3410,7 +3413,6 @@ msgid "Protect binary columns"
 msgstr "Apsaugoti dvejetainius stulpelius"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3419,9 +3421,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Įjungti jeigu norite DB-paremtą užklausų istoriją (reikalauja pmadb). Jeigu "
-"išjungta, naudoja JS-programas rodyti užklausų istoriją (prarandamos "
-"uždarius langą)."
+"Įjunkite, jeigu norite naudoti duomenų baze paremtą užklausų istoriją "
+"(reikalinga phpMyAdmin nustatymų saugykla). Jeigu išjungta, naudoja "
+"JavaScript užklausų istorijai rodyti (prarandama uždarius langą)."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
@@ -3542,7 +3544,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:361 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr ""
+msgstr "Autentifikacijos tipas"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
@@ -3565,14 +3567,12 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:366
-#, fuzzy
 msgid "Compress connection to MySQL server"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Naudoti suspaudimą jungiantis prie MySQL serverio"
 
 #: libraries/config/messages.inc.php:367
-#, fuzzy
 msgid "Compress connection"
-msgstr "Naudoti SSL susijungimą"
+msgstr "Naudoti suspaustą susijungimą"
 
 #: libraries/config/messages.inc.php:368
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
@@ -3637,7 +3637,7 @@ msgstr "Naudoti PHP išplėtimą"
 
 #: libraries/config/messages.inc.php:381
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Slėpti duomenų bazės, atitinkančias standartines išraiškas (PCRE)"
 
 #: libraries/config/messages.inc.php:382
 msgid "Hide databases"
@@ -3648,14 +3648,16 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"Palikite tuščią, jei nenorite SQL užklausų žurnalo, siūlome: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:384
 msgid "SQL query history table"
-msgstr "SQL užklausų istorijos lentelė"
+msgstr "SQL užklausų žurnalo lentelė"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Kompiuterio, kuriame veikia MySQL serveris, pavadinimas"
 
 #: libraries/config/messages.inc.php:386
 msgid "Server hostname"
@@ -3681,14 +3683,20 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
+"Jūs galite naudoti MySQL pakaitos simbolius (% ir _), naudokite \\, jei "
+"norite juos naudoti, tokius kokie yra, pvz. naudokite [kbd]'mano\\_db'[/kbd], "
+"bet ne [kbd]'mano_db'[/kbd]. Naudodami šį nustatymą, jis taip pat galite "
+"surikiuoti duomenų bazių sąrašą, tiesiog nurodykite jas norima tvarka ir "
+"pabaigoje nurodykite [kbd]*[/kbd], kad parodytumėte likusias abėcėlės "
+"tvarka."
 
 #: libraries/config/messages.inc.php:391
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Rodyti tik šias duomenų bazes"
 
 #: libraries/config/messages.inc.php:392 libraries/config/messages.inc.php:429
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Palikite tuščią, jei nenaudojate autentifikacijos pagal nustatymus"
 
 #: libraries/config/messages.inc.php:393
 msgid "Password for config auth"
@@ -3711,10 +3719,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "duomenų bazės vardas"
+msgstr "Duomenų bazės vardas"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -3747,6 +3754,9 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Žiūrėkite "
+"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentifikacijos "
+"tipus[/a] dėl pavyzdžių"
 
 #: libraries/config/messages.inc.php:405
 msgid "Signon session name"
@@ -3758,7 +3768,7 @@ msgstr "Prisijungimo adresas"
 
 #: libraries/config/messages.inc.php:407
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Prievadas, kurio klausosi MySQL serveris, palikite tuščią įprastiniam"
 
 #: libraries/config/messages.inc.php:408
 msgid "Server socket"
@@ -3826,10 +3836,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Parametrai"
+msgstr "Sekamos užklausos"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
@@ -3872,9 +3881,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 msgid "Verbose check"
-msgstr "Versijos patikrinimas"
+msgstr "Išplėstinis patikrinimas"
 
 #: libraries/config/messages.inc.php:433
 msgid ""
@@ -4089,7 +4097,7 @@ msgstr "Naršyklės lango pavadinimas kai serveris yra pasirinktas"
 
 #: libraries/config/messages.inc.php:483
 msgid "Title of browser window when a table is selected"
-msgstr "Naršyklės lango pavadinimas kai lentelė yra pasirinkta"
+msgstr "Naršyklės lango pavadinimas, kai pasirinkta lentelė"
 
 #: libraries/config/messages.inc.php:485
 msgid ""
@@ -4155,28 +4163,24 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Config authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr ""
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Cookie authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr "Autentifikavimas slapukais"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "HTTP authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr "HTTP autentifikacija"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Signon authentication"
-msgstr "Nustatomas tapatumas..."
+msgstr ""
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
@@ -4211,10 +4215,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Adaptavimas"
+msgstr ""
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
@@ -4589,7 +4592,6 @@ msgstr ""
 "išsiuntimo bus tęsiama nuo %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4599,9 +4601,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Leisti sustabdyti importavimą jei skriptas nustato, kad priartėta prie laiko "
-"limito. Gali būti naudinga importuojant didelius failus, tačiau gali "
-"sugadinti transakcijas."
+"Leisti sustabdyti importavimą jei skriptas nustato, kad priartėta prie PHP "
+"laiko limito. <i>Gali būti naudinga importuojant didelius failus, tačiau "
+"gali sugadinti transakcijas.</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -4661,13 +4663,11 @@ msgid "Options"
 msgstr "Nustatymai"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Tekstus rodyti pilnai"
@@ -5258,13 +5258,13 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Išvesti detales <i>(įtraukiant tokią info kaip eksporto timestamp, PHP "
-"versiją ir serverio versiją)</i>"
+"Išvesti detales <i>(įtraukiant tokią info kaip eksporto eksportavimo laiką, "
+"PHP versiją ir serverio versiją)</i>"
 
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Įterpti savo komentarą į antraštės sritį (eilutėms atskirti naudokite \n"
+"Įterpti komentarą į antraštės sritį (eilutėms atskirti naudokite \n"
 "):"
 
 #: libraries/export/sql.php:37
@@ -5899,8 +5899,9 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"Įsitikinkite, kad server-id yra unikalus Jūsų konfigūraciniame faile (my."
-"cnf). Jei ne tada prašome įdėti sekančią eilutę į [mysqld] skiltį:"
+"Įsitikinkite, kad serverio identifikacinis numeris yra unikalus jūsų "
+"nustatymų faile (my.cnf). Jei ne, tada įterpkite šią eilutę į [mysqld] "
+"skiltį:"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
@@ -6586,10 +6587,9 @@ msgstr ""
 "(nutylint: ...)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Kiti branduolio nustatymai"
+msgstr "Keiskite savo nustatymus"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 msgid "Configuration has been saved"
@@ -7715,8 +7715,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Kai tik paleisite iš naujo MySQL serverį, prašome paspausi mygtuką Eiti. Po "
-"to, Jūs turite pamatyti informacinę žinutę, kad šis serveris <b>yra</b> "
+"Kai iš naujo paleisite MySQL serverį, prašome paspausti mygtuką Vykdyti. Po "
+"to turėtumėte pamatyti informacinę žinutę, kad šis serveris <b>yra</b> "
 "sukonfigūruotas kaip pagrindinis (master)."
 
 #: server_replication.php:291

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-21 20:13+0200\n"
+"PO-Revision-Date: 2010-11-27 10:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2222,7 +2222,7 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Bunu etkinleştirmek phpMyAdmin'i çerçeve içinde çağırmak için farklı alan "
-"isimlerine yerleşmiş sayfalara izin verir ve çapraz çerçeve betik yazım "
+"adlarına yerleşmiş sayfalara izin verir ve çapraz çerçeve betik yazım "
 "saldırılarına izin veren olası [strong]güvenlik açığıdır[/strong]"
 
 #: libraries/config/messages.inc.php:20
@@ -7185,7 +7185,7 @@ msgstr "Tüm Sorguları Göster"
 
 #: server_binlog.php:201
 msgid "Log name"
-msgstr "Günlük ismi"
+msgstr "Günlük adı"
 
 #: server_binlog.php:202
 msgid "Position"
@@ -9352,7 +9352,7 @@ msgstr "Tablonun dökümünü (şemasını) göster"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Birincil anahtarın ismi \"PRIMARY\" olmalıdır!"
+msgstr "Birincil anahtarın adı \"PRIMARY\" olmalıdır!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
@@ -9382,7 +9382,7 @@ msgstr "İndeks türü:"
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"(\"PRIMARY\" <b>sadece ve sadece</b> bir birincil anahtarın ismi "
+"(\"PRIMARY\" <b>sadece ve sadece</b> bir birincil anahtarın adı "
 "<b>olmalıdır!</b>)"
 
 #: tbl_indexes.php:249
