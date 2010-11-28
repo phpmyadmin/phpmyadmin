@@ -122,6 +122,8 @@
 - bug #3087682 [interface] Do not apply LeftFrameDBSeparator on first character.
 + rfe #3111455 [interface] Column highlighting and marking in table view
 + Visual query builder
+- patch #3112792 [navi] Left panel table grouping incorrect,
+  thanks to garas - garas
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc

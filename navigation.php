@@ -606,7 +606,7 @@ function PMA_displayTableList($tables, $visible = false,
             echo '</li>' . "\n";
         } elseif (is_array($table)) {
             // the table was not grouped because it is the only one with its prefix
-            if (isset($table['is' . $sep . 'group'])) {
+            while (isset($table['is' . $sep . 'group'])) {
                 // get the array with the actual table information
                 foreach ($table as $value) {
                     if(is_array($value)) {
