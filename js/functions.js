@@ -80,7 +80,7 @@ function selectContent( element, lock, only_once ) {
 }
 
 /**
- * Displays an confirmation box before to submit a "DROP DATABASE" query.
+ * Displays a confirmation box before submitting a "DROP DATABASE" query.
  * This function is called while clicking links
  *
  * @param   object   the link
@@ -105,7 +105,7 @@ function confirmLinkDropDB(theLink, theSqlQuery)
 } // end of the 'confirmLinkDropDB()' function
 
 /**
- * Displays an confirmation box before to submit a "DROP/DELETE/ALTER" query.
+ * Displays a confirmation box before to submit a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *
  * @param   object   the link
@@ -135,7 +135,7 @@ function confirmLink(theLink, theSqlQuery)
 
 
 /**
- * Displays an confirmation box before doing some action
+ * Displays a confirmation box before doing some action
  *
  * @param   object   the message to display
  *
@@ -540,7 +540,6 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
  * @param   img_obj   the image object whose source needs to be changed
  *
  */
-
 function change_Image(img_obj)
 {
      var relative_path = (img_obj.src).split("themes/");
@@ -571,7 +570,6 @@ function change_Image(img_obj)
  * @param   token   the token generated for each PMA form
  *
  */
-
 function ApplySelectedChanges(token)
 {
     var div =  document.getElementById("list");
@@ -604,8 +602,8 @@ function ApplySelectedChanges(token)
 }
 
 /**
-* Displays error message if any text field
-* is left empty other than port field.
+* Displays an error message if any text field
+* is left empty other than the port field.
 *
 * @param  string   the form name
 * @param  object   the form
@@ -650,8 +648,8 @@ function validateConnection(form_name, form_obj)
 }
 
 /**
- * Check if a form's element is empty
- * should be
+ * Check if a form's element is empty.
+ * An element containing only spaces is also considered empty
  *
  * @param   object   the form
  * @param   string   the name of the form field to put the focus on
@@ -677,6 +675,7 @@ function emptyCheckTheField(theForm, theFieldName)
 
 
 /**
+ * Check whether a form field is empty or not
  *
  * @param   object   the form
  * @param   string   the name of the form field to put the focus on
