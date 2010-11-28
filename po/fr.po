@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-23 19:43+0200\n"
+"PO-Revision-Date: 2010-11-26 19:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -359,7 +359,7 @@ msgstr "Table"
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:869
 msgid "Rows"
-msgstr "Enregistrements"
+msgstr "Lignes"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
@@ -610,7 +610,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
-"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à %"
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
 "sdocumentation%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -1494,22 +1494,22 @@ msgstr "Erreur"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d enregistrement affecté."
-msgstr[1] "%1$d enregistrements affectés."
+msgstr[0] "%1$d ligne affectée."
+msgstr[1] "%1$d lignes affectées."
 
 #: libraries/Message.class.php:300
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d enregistrement supprimé."
-msgstr[1] "%1$d enregistrements supprimés."
+msgstr[0] "%1$d ligne supprimée."
+msgstr[1] "%1$d lignes supprimées."
 
 #: libraries/Message.class.php:319
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d enregistrement inséré."
-msgstr[1] "%1$d enregistrements insérés."
+msgstr[0] "%1$d ligne insérée."
+msgstr[1] "%1$d lignes insérées."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -2274,11 +2274,11 @@ msgstr "Utilisé quand on clique sur une ligne"
 
 #: libraries/config/messages.inc.php:25
 msgid "Row marker"
-msgstr "Activer le marqueur d'enregistrements"
+msgstr "Activer le marqueur de lignes"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Mettre en surbrillance l'enregistrement sur lequel pointe la souris"
+msgstr "Mettre en surbrillance la ligne sur laquelle pointe la souris"
 
 #: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
@@ -3093,11 +3093,11 @@ msgstr "Valeur initiale des zones de glissement"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
-msgstr "Le nombre d'enregistrements qui peuvent être insérés à la fois."
+msgstr "Le nombre de lignes qui peuvent être insérées à la fois."
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
-msgstr "Nombre d'enregistrements à insérer"
+msgstr "Nombre de lignes à insérer"
 
 #: libraries/config/messages.inc.php:262
 msgid "Target for quick access icon"
@@ -3307,7 +3307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of rows to display"
-msgstr "Nombre maximum d'enregistrements à afficher"
+msgstr "Nombre maximum de lignes à afficher"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of tables displayed in table list"
@@ -3946,7 +3946,7 @@ msgstr "Devrait-on afficher un bouton «Tout afficher»"
 
 #: libraries/config/messages.inc.php:436
 msgid "Allow to display all the rows"
-msgstr "Permettre l'affichage de tous les enregistrements"
+msgstr "Permettre l'affichage de toutes les lignes"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
@@ -4219,7 +4219,7 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
-"Montre le nombre d'enregistrements affectés par chaque énoncé. Voir "
+"Montre le nombre de lignes affectées par chaque énoncé. Voir "
 "libraries/import.lib.php pour le nombre d'énoncés qu'une requête peut "
 "comporter."
 
@@ -4518,7 +4518,7 @@ msgstr "Ligne de début:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr "Exporter tous les enregistrements"
+msgstr "Exporter toutes les lignes"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
@@ -4696,7 +4696,7 @@ msgstr "Langue"
 #: libraries/display_tbl.lib.php:302
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d n'est pas un numéro d'enregistrement valable."
+msgstr "%d n'est pas un numéro de ligne valable."
 
 #: libraries/display_tbl.lib.php:308
 msgid "row(s) starting from row #"
@@ -4777,7 +4777,7 @@ msgstr "Transformation"
 
 #: libraries/display_tbl.lib.php:1170 libraries/display_tbl.lib.php:1182
 msgid "The row has been deleted"
-msgstr "L'enregistrement a été effacé"
+msgstr "La ligne a été effacée"
 
 #: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2052
 #: server_processlist.php:70 tbl_row_action.php:63
@@ -4790,7 +4790,7 @@ msgstr "dans la requête"
 
 #: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
-msgstr "Affichage des enregistrements"
+msgstr "Affichage des lignes"
 
 #: libraries/display_tbl.lib.php:1958
 msgid "total"
@@ -5574,7 +5574,7 @@ msgstr "Généré par"
 #: libraries/import.lib.php:153 sql.php:593 tbl_change.php:176
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL n'a retourné aucun enregistrement."
+msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6913,7 +6913,7 @@ msgstr ""
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 msgid "Reload navigation frame"
-msgstr "Recharger le cadre de navigation"
+msgstr "Actualiser"
 
 #: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
 msgid "No databases"
@@ -7979,8 +7979,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"Le nombre d'enregistrements écrits avec INSERT DELAYED pour lesquels une "
-"erreur est survenue (probablement un doublon sur la clé)."
+"Le nombre de lignes écrites avec INSERT DELAYED pour lesquels une erreur est "
+"survenue (probablement un doublon sur la clé)."
 
 #: server_status.php:52
 msgid ""
@@ -7992,7 +7992,7 @@ msgstr ""
 
 #: server_status.php:53
 msgid "The number of INSERT DELAYED rows written."
-msgstr "Le nombre d'enregistrements écrits via INSERT DELAYED."
+msgstr "Le nombre de lignes écrites via INSERT DELAYED."
 
 #: server_status.php:54
 msgid "The number of executed FLUSH statements."
@@ -8004,7 +8004,7 @@ msgstr "Le nombre de commandes COMMIT internes."
 
 #: server_status.php:56
 msgid "The number of times a row was deleted from a table."
-msgstr "Le nombre de fois qu'un enregistrement a été supprimé d'une table."
+msgstr "Le nombre de fois qu'une ligne a été supprimée d'une table."
 
 #: server_status.php:57
 msgid ""
@@ -8032,8 +8032,8 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"Le nombre de requêtes pour lire un enregistrement via une clé. Si élevé, "
-"c'est une bonne indication que vos tables sont correctement indexées."
+"Le nombre de requêtes pour lire une ligne via une clé. Si élevé, c'est une "
+"bonne indication que vos tables sont correctement indexées."
 
 #: server_status.php:60
 msgid ""
@@ -8041,17 +8041,17 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"Le nombre de requêtes de lecture du prochain enregistrement, en ordre de "
-"clé. Ceci est augmenté si vous interrogez une colonne indexée avec un "
-"critère de fourchette ou si vous parcourez l'index."
+"Le nombre de requêtes de lecture de la prochaine ligne, en ordre de clé. "
+"Ceci est augmenté si vous interrogez une colonne indexée avec un critère de "
+"fourchette ou si vous parcourez l'index."
 
 #: server_status.php:61
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
-"Le nombre de requêtes de lecture de l'enregistrement précédent, en ordre de "
-"clé. Utilisé surtout pour optimiser ORDER BY ... DESC."
+"Le nombre de requêtes de lecture de la ligne précédente, en ordre de clé. "
+"Utilisé surtout pour optimiser ORDER BY ... DESC."
 
 #: server_status.php:62
 msgid ""
@@ -8060,11 +8060,11 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"Le nombre de requêtes de lecture d'un enregistrement basée sur une position "
-"fixe. Ce nombre est élevé si vous faites de nombreuses requêtes qui "
-"nécessitent de trier les résultats. Vous avez probablement un grand nombre "
-"de requêtes qui demandent à MySQL de parcourir des tables en entier, ou vous "
-"avez des jointures qui n'utilisent pas correctement les clés."
+"Le nombre de requêtes de lecture d'une ligne basée sur une position fixe. Ce "
+"nombre est élevé si vous faites de nombreuses requêtes qui nécessitent de "
+"trier les résultats. Vous avez probablement un grand nombre de requêtes qui "
+"demandent à MySQL de parcourir des tables en entier, ou vous avez des "
+"jointures qui n'utilisent pas correctement les clés."
 
 #: server_status.php:63
 msgid ""
@@ -8073,9 +8073,9 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"Le nombre de requêtes de lecture du prochaine enregistrement dans le "
-"fichier. Élevé si vous faites plusieurs parcours de tables. Ceci suggère que "
-"vos tables ne sont pas correctement indexées ou que vos requêtes ne sont pas "
+"Le nombre de requêtes de lecture de la prochaine ligne dans le fichier. "
+"Élevé si vous faites plusieurs parcours de tables. Ceci suggère que vos "
+"tables ne sont pas correctement indexées ou que vos requêtes ne sont pas "
 "écrites de façon à tirer parti des index que vous avez définis."
 
 #: server_status.php:64
@@ -8084,11 +8084,11 @@ msgstr "Le nombre d'énoncés ROLLBACK internes."
 
 #: server_status.php:65
 msgid "The number of requests to update a row in a table."
-msgstr "Le nombre de requêtes de mise à jour d'enregistrements."
+msgstr "Le nombre de requêtes de mise à jour de lignes dans une table."
 
 #: server_status.php:66
 msgid "The number of requests to insert a row in a table."
-msgstr "Le nombre de requêtes d'insertion d'enregistrements."
+msgstr "Le nombre de requêtes d'insertion de lignes dans une table."
 
 #: server_status.php:67
 msgid "The number of pages containing data (dirty or clean)."
@@ -8294,19 +8294,19 @@ msgstr "Le nombre de fois qu'on a dû attendre pour un verrou."
 
 #: server_status.php:106
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "Le nombre d'enregistrements supprimés des tables InnoDB."
+msgstr "Le nombre de lignes supprimées des tables InnoDB."
 
 #: server_status.php:107
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "Le nombre d'enregistrements insérés dans des tables InnoDB."
+msgstr "Le nombre de lignes insérées dans des tables InnoDB."
 
 #: server_status.php:108
 msgid "The number of rows read from InnoDB tables."
-msgstr "Le nombre d'enregistrements lus dans des tables InnoDB."
+msgstr "Le nombre de lignes lues dans des tables InnoDB."
 
 #: server_status.php:109
 msgid "The number of rows updated in InnoDB tables."
-msgstr "Le nombre d'enregistrements mis à jour dans des tables InnoDB."
+msgstr "Le nombre de lignes mises à jour dans des tables InnoDB."
 
 #: server_status.php:110
 msgid ""
@@ -8372,7 +8372,7 @@ msgstr ""
 
 #: server_status.php:118
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Le nombre d'enregistrements en attente d'écriture (INSERT DELAYED)."
+msgstr "Le nombre de lignes en attente d'écriture (INSERT DELAYED)."
 
 #: server_status.php:119
 msgid ""
@@ -8467,8 +8467,8 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Le nombre de jointures sans clés qui vérifient l'utilisation de clé à chaque "
-"enregistrement. (Si ceci est supérieur à 0, vérifiez soigneusement les "
-"indexes de vos tables.)"
+"ligne. (Si ceci est supérieur à 0, vérifiez soigneusement les indexes de "
+"vos tables.)"
 
 #: server_status.php:136
 msgid ""
@@ -8532,7 +8532,7 @@ msgstr "Le nombre de tri effectués avec des plages."
 
 #: server_status.php:145
 msgid "The number of sorted rows."
-msgstr "Le nombre d'enregistrements triés."
+msgstr "Le nombre de lignes triées."
 
 #: server_status.php:146
 msgid "The number of sorts that were done by scanning the table."
@@ -8818,15 +8818,15 @@ msgstr "Appliquer des index"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Update row(s)"
-msgstr "Modifier des enregistrements"
+msgstr "Modifier des lignes"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Insert row(s)"
-msgstr "Insérer des enregistrements"
+msgstr "Insérer des lignes"
 
 #: server_synchronize.php:444 server_synchronize.php:888
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Voulez-vous supprimer tous les enregistrements des tables cible ?"
+msgstr "Voulez-vous supprimer toutes les lignes des tables cible ?"
 
 #: server_synchronize.php:447 server_synchronize.php:892
 msgid "Apply Selected Changes"
@@ -9212,7 +9212,7 @@ msgstr ""
 #: sql.php:569 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr "Identifiant de l'enregistrement inséré : %1$d"
+msgstr "Identifiant de la ligne insérée : %1$d"
 
 #: sql.php:586
 msgid "Showing as PHP code"
@@ -9269,11 +9269,11 @@ msgstr "Télécharger vers le dépôt BLOB"
 
 #: tbl_change.php:1033
 msgid "Insert as new row"
-msgstr "Sauvegarder un nouvel enregistrement"
+msgstr "Sauvegarder une nouvelle ligne"
 
 #: tbl_change.php:1034
 msgid "Insert as new row and ignore errors"
-msgstr "Sauvegarder un nouvel enregistrement (ignorer les erreurs)"
+msgstr "Sauvegarder une nouvelle ligne en ignorant les erreurs"
 
 #: tbl_change.php:1035
 msgid "Show insert query"
@@ -9289,7 +9289,7 @@ msgstr "Retourner à la page précédente"
 
 #: tbl_change.php:1051
 msgid "Insert another new row"
-msgstr "Insérer un nouvel enregistrement"
+msgstr "Insérer une nouvelle ligne"
 
 #: tbl_change.php:1055
 msgid "Go back to this page"
@@ -9297,7 +9297,7 @@ msgstr "Demeurer sur cette page"
 
 #: tbl_change.php:1063
 msgid "Edit next row"
-msgstr "Modifier l'enregistrement suivant"
+msgstr "Modifier la ligne suivante"
 
 #: tbl_change.php:1074
 msgid ""
@@ -9647,7 +9647,7 @@ msgstr "Contrainte de clé étrangère"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
-msgstr "Aucun enregistrement n'a été sélectionné"
+msgstr "Aucune ligne n'a été sélectionnée"
 
 #: tbl_select.php:129
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -9663,7 +9663,7 @@ msgstr "Critères de recherche (pour l'énoncé «where») :"
 
 #: tbl_select.php:291
 msgid "Number of rows per page"
-msgstr "Nombre d'enregistrements par page"
+msgstr "Nombre de lignes par page"
 
 #: tbl_select.php:297
 msgid "Display order:"
