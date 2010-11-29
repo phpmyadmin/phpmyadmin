@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 02:18+0200\n"
+"PO-Revision-Date: 2010-11-29 02:19+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10243,7 +10243,7 @@ msgstr ""
 
 #: tbl_tracking.php:666
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Hacer un seguimiento de estas sentencias de definición de datos:"
 
 #: tbl_tracking.php:674
 msgid "Track these data manipulation statements:"
