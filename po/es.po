@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 02:19+0200\n"
+"PO-Revision-Date: 2010-11-29 02:20+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10205,9 +10205,9 @@ msgid "SQL execution"
 msgstr ""
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Exportar las opciones predeterminadas"
+msgstr "Exportar como %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
