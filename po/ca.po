@@ -1100,10 +1100,9 @@ msgid "Searching"
 msgstr "Cercar"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "Caixa de consultes SQL"
+msgstr "Amagar caixa de consultes SQL"
 
 #: js/messages.php:85
 #, fuzzy
