@@ -1313,7 +1313,7 @@ msgstr "మంగళవారం"
 
 #: js/messages.php:168
 msgid "Wednesday"
-msgstr ""
+msgstr "బుధవారం"
 
 #: js/messages.php:169
 msgid "Thursday"
