@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 10:18+0200\n"
+"PO-Revision-Date: 2010-11-29 10:19+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1102,7 +1102,7 @@ msgstr "Cercar"
 #: js/messages.php:84
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "Amagar caixa de consultes SQL"
+msgstr "Amagar quadre de consultes SQL"
 
 #: js/messages.php:85
 #, fuzzy
