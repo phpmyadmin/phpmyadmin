@@ -2743,10 +2743,9 @@ msgid "Features"
 msgstr ""
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "German"
 msgid "General"
-msgstr "జర్మన్"
+msgstr "సాధారణ"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
