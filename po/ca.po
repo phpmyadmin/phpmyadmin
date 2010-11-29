@@ -1105,10 +1105,9 @@ msgid "Hide query box"
 msgstr "Amagar quadre de consultes SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Caixa de consultes SQL"
+msgstr "Mostrar quadre de consultes SQL"
 
 #: js/messages.php:86
 #, fuzzy
