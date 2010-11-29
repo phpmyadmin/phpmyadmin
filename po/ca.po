@@ -419,7 +419,7 @@ msgstr "Has de triar al menys una columna per mostrar"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Canvia a"
 
 #: db_qbe.php:186
 msgid "visual builder"
