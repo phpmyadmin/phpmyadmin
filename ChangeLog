@@ -133,8 +133,8 @@
 - patch #3117535 [replication] Add quotes to database in initial statement,
   thanks to Craig Duncan - duncan3dc
 
-3.3.8.1 (2010-10-26)
-- bug #3115519 (private) [security] XSS on db search
+3.3.8.1 (2010-11-29)
+- bug #3115519 (private) [security] XSS on db search, see PMASA-2010-8
 
 3.3.8.0 (2010-10-25)
 - bug #3059311 [import] BIGINT field type added to table analysis
