@@ -10152,6 +10152,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Puedes ejecutar el volcado creando y utilizando una base de datos temporal. "
+"Por favor, asegúrate de tener los privilegios para poder hacerlo."
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
