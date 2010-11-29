@@ -1537,7 +1537,7 @@ msgstr ""
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "పొరపాటు"
 
 #: libraries/Message.class.php:281
 #, php-format
