@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:32+0200\n"
+"PO-Revision-Date: 2010-11-29 17:33+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4186,7 +4186,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "మైక్రోసాఫ్ట్ వర్డ్ 2000"
 
 #: libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:260 libraries/export/odt.php:21
