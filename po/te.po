@@ -1430,10 +1430,9 @@ msgid "Minute"
 msgstr "నిమిషం"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "క్షణానికి"
+msgstr "క్షణం"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
