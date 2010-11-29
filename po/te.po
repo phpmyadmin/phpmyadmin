@@ -8786,7 +8786,7 @@ msgstr "వెడల్పు"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "ఎత్తు"
 
 #: tbl_chart.php:98
 msgid "Title"
