@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-27 16:35+0200\n"
-"Last-Translator:  <davidbl06@gmail.com>\n"
+"PO-Revision-Date: 2010-11-29 02:31+0200\n"
+"Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -269,10 +269,9 @@ msgid "Command"
 msgstr "Comando"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Quitar base de datos"
+msgstr "Eliminar base de datos"
 
 #: db_operations.php:441
 #, php-format
@@ -9992,7 +9991,7 @@ msgstr "Enunciado"
 
 #: tbl_printview.php:377 tbl_structure.php:832
 msgid "static"
-msgstr ""
+msgstr "estático"
 
 #: tbl_printview.php:379 tbl_structure.php:834
 msgid "dynamic"
@@ -10013,18 +10012,17 @@ msgstr ""
 "Ocurrió un error al crear la llave extranjera en %1$s (revise los data types)"
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relaciones internas"
+msgstr "Relación interna"
 
 #: tbl_relation.php:404
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"No es necesaria una relación interna cuando existe una relación LLAVE "
-"EXTRANJERA correspondiente."
+"No es necesaria una relación interna cuando existe una relación CLAVE "
+"FORÁNEA correspondiente."
 
 #: tbl_relation.php:410
 #, fuzzy
@@ -10041,7 +10039,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Hacer una consulta (comodín: \"%\")"
 
 #: tbl_select.php:266
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Seleccionar campos (al menos uno):"
@@ -10064,7 +10061,6 @@ msgid "Browse distinct values"
 msgstr "Navegar los valores distintivos"
 
 #: tbl_structure.php:384
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -10096,10 +10092,9 @@ msgid "Propose table structure"
 msgstr "Planteamiento de la estructura de tabla"
 
 #: tbl_structure.php:631
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Añadir %s campo(s)"
+msgstr "Añadir columna"
 
 #: tbl_structure.php:645
 msgid "At End of Table"
@@ -10115,10 +10110,10 @@ msgid "After %s"
 msgstr "Después de %s"
 
 #: tbl_structure.php:686
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Crear un índice en&nbsp;%s&nbsp;columna(s)"
+msgstr "Crear un índice en &nbsp;%s&nbsp;columna(s)"
 
 #: tbl_structure.php:848
 msgid "partitioned"
@@ -10127,40 +10122,42 @@ msgstr "particionado"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Informe de seguimiento para la tabla `%s`"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Se ha creado la versión %s, se ha activado el seguimiento para %s.%s"
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Se ha desactivado el seguimiento para %s.%s, versión %s"
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Se ha activado el seguimiento para %s.%s, versión %s"
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Sentencias SQL ejecutadas."
 
 #: tbl_tracking.php:215
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Puedes ejecutar el volcado creando y utilizando una base de datos temporal. "
+"Por favor, asegúrate de tener los privilegios para poder hacerlo."
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Comenta estas dos líneas si no las necesitas."
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "Sentencias SQL exportadas. Por favor, copia el volcado o ejecútalo."
 
 #: tbl_tracking.php:256
 #, php-format
@@ -10169,91 +10166,88 @@ msgstr ""
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
-msgstr ""
+msgstr "Realizando el seguimiento de las sentencias"
 
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "Muestra %s con fechas de %s a %s por parte del usuario %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Datos"
+msgstr "Fecha"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
-msgstr ""
+msgstr "Declaración de definición de datos"
 
 #: tbl_tracking.php:457
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Declaración de manipulación de datos"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "Volcado SQL (descarga de fichero)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
-msgstr ""
+msgstr "Volcado SQL"
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Esta opción sustituirá tu tabla y los datos que contiene."
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "Ejecución SQL"
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Exportar las opciones predeterminadas"
+msgstr "Exportar como %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Mostrar versiones"
 
 #: tbl_tracking.php:587
-#, fuzzy
 msgid "Version"
-msgstr "Persa"
+msgstr "Versión"
 
 #: tbl_tracking.php:634
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Desactivar el seguimiento para %s.%s"
 
 #: tbl_tracking.php:636
 msgid "Deactivate now"
-msgstr ""
+msgstr "Desactivar ahora"
 
 #: tbl_tracking.php:647
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Activar el seguimiento para %s.%s"
 
 #: tbl_tracking.php:649
 msgid "Activate now"
-msgstr ""
+msgstr "Activar ahora"
 
 #: tbl_tracking.php:662
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Crear versión %s de %s.%s"
 
 #: tbl_tracking.php:666
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Hacer un seguimiento de estas sentencias de definición de datos:"
 
 #: tbl_tracking.php:674
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Hacer un seguimiento de estas sentencias de manipulación de datos:"
 
 #: tbl_tracking.php:682
-#, fuzzy
 msgid "Create version"
-msgstr "Crear relación"
+msgstr "Crear versión"
 
 #: themes.php:31
 #, php-format
@@ -10266,7 +10260,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "¡Obtener más temas!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -10284,7 +10278,6 @@ msgid "Available transformations"
 msgstr "Transformaciones disponibles"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -10303,9 +10296,8 @@ msgid "VIEW name"
 msgstr "(VIEW) VER nombre"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Cambiar el nombre de la tabla a"
+msgstr "Cambiar el nombre de la vista a "
 
 #~ msgid ""
 #~ "The additional features for working with linked tables have been "
