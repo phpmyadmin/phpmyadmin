@@ -10063,7 +10063,6 @@ msgid "Browse distinct values"
 msgstr "Navegar los valores distintivos"
 
 #: tbl_structure.php:384
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
