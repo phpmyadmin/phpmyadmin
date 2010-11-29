@@ -965,7 +965,7 @@ msgstr "Esborra les dades de seguiment"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Elimina la clau principal o l'index"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
