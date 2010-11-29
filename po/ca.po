@@ -1138,7 +1138,7 @@ msgstr "Tria la columna a mostrar"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Afegeix una opció per a la columna"
 
 #: js/messages.php:101
 #, fuzzy
