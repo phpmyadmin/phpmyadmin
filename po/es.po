@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 02:20+0200\n"
+"PO-Revision-Date: 2010-11-29 02:21+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10185,7 +10185,7 @@ msgstr ""
 
 #: tbl_tracking.php:457
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Declaración de manipulación de datos"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
