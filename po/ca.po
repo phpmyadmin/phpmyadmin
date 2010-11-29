@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 10:06+0200\n"
+"PO-Revision-Date: 2010-11-29 10:07+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -334,7 +334,7 @@ msgid "Collation"
 msgstr "Ordenació"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -342,8 +342,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Les característiques addicionals per treballar amb taules enllaçades s'han "
-"desactivat. Per saber perquè prem a %saquí%s."
+"S'ha desactivat l' emmagatzemament de la configuració de phpMyAdmin. Per "
+"veure el motiu, clica %saqui%s."
 
 #: db_operations.php:581
 #, fuzzy
