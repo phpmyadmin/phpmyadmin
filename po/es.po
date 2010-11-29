@@ -10040,7 +10040,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Hacer una consulta (comodín: \"%\")"
 
 #: tbl_select.php:266
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Seleccionar campos (al menos uno):"
