@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 09:56+0200\n"
+"PO-Revision-Date: 2010-11-29 09:57+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2245,7 +2245,7 @@ msgstr "Insercions ampliades"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "Ambdós anteriors"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
