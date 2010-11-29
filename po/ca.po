@@ -961,7 +961,7 @@ msgstr "Procediment d'esborrat"
 #: js/messages.php:35
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Esborra les dades de seguiment"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
