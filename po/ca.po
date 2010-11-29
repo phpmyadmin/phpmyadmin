@@ -1085,10 +1085,9 @@ msgid "Changing Charset"
 msgstr "Canvi de Joc de Caràcters"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "La taula ha de tenir al menys un camp."
+msgstr "La taula ha de tenir al menys una columna."
 
 #: js/messages.php:76
 #, fuzzy
