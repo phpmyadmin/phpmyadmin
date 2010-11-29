@@ -7236,9 +7236,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La cookie d'identificació enmagatzemada és menor que la configuració a "
-"phpMyAdmin, degut a aixó, la teva sessió caducarà més aviat que el que "
-"indica la configuració de phpMyAdmin."
+"La galeta (cookie) d'identificació enmagatzemada és menor que la "
+"configuració a phpMyAdmin, degut a aixó, la teva sessió caducarà més aviat "
+"que el que indica la configuració de phpMyAdmin."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
