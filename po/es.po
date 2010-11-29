@@ -10211,7 +10211,7 @@ msgstr "Exportar las opciones predeterminadas"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Mostrar versiones"
 
 #: tbl_tracking.php:587
 msgid "Version"
