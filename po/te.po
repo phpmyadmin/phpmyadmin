@@ -1421,7 +1421,7 @@ msgstr "వికీ"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "గంట"
 
 # మొదటి అనువాదము
 #: js/messages.php:208
