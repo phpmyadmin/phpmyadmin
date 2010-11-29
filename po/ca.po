@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-03-12 09:13+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-11-29 10:20+0200\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -95,17 +96,16 @@ msgstr "Fes servir aquest valor"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "No s'ha configurat un servidor d'emissió binari (blob streaming)"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Error en gravar l'arxiu al disc."
+msgstr "Error en obtenir capceleres"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Error en obrir una URL remota"
 
 #: db_create.php:58
 #, php-format
@@ -131,10 +131,9 @@ msgstr "Comentaris de la taula"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Nom de les columnes"
+msgstr "Columna"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -270,10 +269,9 @@ msgid "Command"
 msgstr "Ordre"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Reanomena base de dades a"
+msgstr "Elimina la base de dades"
 
 #: db_operations.php:441
 #, php-format
@@ -281,10 +279,9 @@ msgid "Database %s has been dropped."
 msgstr "La Base de Dades %s s'ha eliminat."
 
 #: db_operations.php:446
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Vés a la base de dades"
+msgstr "Esborra la base de dades (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
@@ -337,7 +334,7 @@ msgid "Collation"
 msgstr "Ordenació"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -345,14 +342,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Les característiques addicionals per treballar amb taules enllaçades s'han "
-"desactivat. Per saber perquè prem a %saquí%s."
+"S'ha desactivat l' emmagatzemament de la configuració de phpMyAdmin. Per "
+"veure el motiu, clica %saqui%s."
 
 #: db_operations.php:581
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Esquema Relacional"
+msgstr "Edita o exporta l'esquema relacional"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
@@ -403,12 +399,12 @@ msgid "Last check"
 msgstr "Darrera comprovació"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s taula(es)"
-msgstr[1] "%s taula(es)"
+msgstr[0] "%s taula"
+msgstr[1] "%s taules"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
@@ -423,11 +419,11 @@ msgstr "Has de triar al menys una columna per mostrar"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Canvia a"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "Constructor visual"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -480,16 +476,14 @@ msgid "Modify"
 msgstr "Modificar"
 
 #: db_qbe.php:603
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Afegeix/esborra fila de criteri"
+msgstr "Afegeix/esborra criteris de files"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Afegeix/esborra Camps de Columna"
+msgstr "Afegeix/esborra columnes"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
@@ -537,12 +531,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Resultats de la recerca per a \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s resultat(s) a la taula <i>%s</i>"
-msgstr[1] "%s resultat(s) a la taula <i>%s</i>"
+msgstr[0] "%s resultat a la taula <i>%s</i>"
+msgstr[1] "%s resultats a la taula <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2825
 #: libraries/common.lib.php:3003 libraries/common.lib.php:3004
@@ -564,12 +558,12 @@ msgid "Delete"
 msgstr "Esborra"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultat(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultat(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> resultat"
+msgstr[1] "<b>Total:</b> <i>%s</i> resultats"
 
 #: db_search.php:296
 msgid "Search in database"
@@ -592,13 +586,11 @@ msgid "Inside table(s):"
 msgstr "A la(les) taula(es):"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Camp interior:"
+msgstr "Dins la columna:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Base de dades sense taules."
@@ -816,11 +808,11 @@ msgstr "Registre de la base de dades"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Valors per la columna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Entra cada valor en camps separats"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -959,23 +951,21 @@ msgstr "Ets a punt d'ELIMINAR completament una base de dades!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Event d'esborrat"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procediments"
+msgstr "Procediment d'esborrat"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Esborra les dades de seguiment"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Elimina la clau principal o l'index"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1017,25 +1007,21 @@ msgid "The passwords aren't the same!"
 msgstr "Les contrasenyes no coincideixen!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Afegeix un usuari nou"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Crea versió"
+msgstr "Crea un usuari"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Recarrega els permisos"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Treu els usuaris triats"
@@ -1051,28 +1037,26 @@ msgid "Cancel"
 msgstr "Cancel.lar"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
 msgstr "Carregar"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Processos"
+msgstr "Petició de procés"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Error a la petició de procés"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Eliminació de columna"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Afegir clau principal"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
@@ -1081,64 +1065,54 @@ msgid "OK"
 msgstr "Correcte"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Reanomena base de dades a"
+msgstr "Reanomenar bases de dades"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Reanomena base de dades a"
+msgstr "Recarregar base de dades"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Còpia base de dades a"
+msgstr "Copiant base de dades"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Joc de Caràcters"
+msgstr "Canvi de Joc de Caràcters"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "La taula ha de tenir al menys un camp."
+msgstr "La taula ha de tenir al menys una columna."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Crea una taula"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Cerca"
+msgstr "Cercar"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "Caixa de consultes SQL"
+msgstr "Amagar quadre de consultes SQL"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Caixa de consultes SQL"
+msgstr "Mostrar quadre de consultes SQL"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Motors"
+msgstr "Edició en linia"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1158,17 +1132,15 @@ msgid "Please select the primary key or a unique key"
 msgstr "Tria la clau principal o una clau única"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Tria el camp a mostrar"
+msgstr "Tria la columna a mostrar"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Afegeix una opció per a la columna"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Genera una Contrasenya"
@@ -1178,27 +1150,23 @@ msgid "Generate"
 msgstr "Genera"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Canvi de contrasenya"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Dll"
+msgstr "Més"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Donacions"
+msgstr "Fet"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Anterior"
@@ -1213,72 +1181,64 @@ msgstr "Següent"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Total"
+msgstr "Avui"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " Binari "
+msgstr "Gener"
 
 #: js/messages.php:126
 msgid "February"
-msgstr ""
+msgstr "Febrer"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "Mar"
+msgstr "Març"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "Abr"
+msgstr "Abril"
 
 #: js/messages.php:129
 msgid "May"
-msgstr "Mai"
+msgstr "Maig"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "Jun"
+msgstr "Juny"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "Jul"
+msgstr "Juliol"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "Ago"
+msgstr "Agost"
 
 #: js/messages.php:133
 msgid "September"
-msgstr ""
+msgstr "Setembre"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "Oct"
+msgstr "Octubre"
 
 #: js/messages.php:135
 msgid "November"
-msgstr ""
+msgstr "Novembre"
 
 #: js/messages.php:136
 msgid "December"
-msgstr ""
+msgstr "Desembre"
 
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
@@ -2211,47 +2171,44 @@ msgstr "estructura"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "dades"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
 msgstr "Estructura i dades"
 
 #: libraries/config.values.php:99 libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Ràpid - Mostra només les opcions mínimes a configurar."
 
 #: libraries/config.values.php:100 libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Complet - Mostra totes les opcions a configurar"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Complet - Igual que el anterior, però sense l'opció \"Ràpid\""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Completa insercions"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Insercions ampliades"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "Ambdós anteriors"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "Cap dels anteriors"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:416
@@ -2278,7 +2235,7 @@ msgstr "Valor incorrecte"
 #: libraries/config/validate.lib.php:458
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "El valor ha de ser igual o menor que %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
@@ -2287,16 +2244,15 @@ msgstr "Falten dades a %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variable"
+msgstr "No disponible"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requereix l'extensió %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
@@ -7018,7 +6974,6 @@ msgid ""
 msgstr "Conserva el format original del camp. No es fa cap canvi."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -7033,7 +6988,6 @@ msgstr ""
 "en pixels, la tercera és l'alçada."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -7228,7 +7182,6 @@ msgstr ""
 "vostra conenexió caducarà abans del establert a phpMyAdmin."
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -7238,10 +7191,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"El paràmetre de PHP [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] és menor que la "
-"caducitat de galetes (cookies) configurat a phpMyAdmin, degut a aixó, la "
-"vostra conenexió caducarà abans del establert a phpMyAdmin."
+"La galeta (cookie) d'identificació enmagatzemada és menor que la "
+"configuració a phpMyAdmin, degut a aixó, la teva sessió caducarà més aviat "
+"que el que indica la configuració de phpMyAdmin."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -10423,554 +10375,3 @@ msgstr "Reanomena les taules a"
 
 #~ msgid "No tables"
 #~ msgstr "No hi ha taules"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "dades CSV "
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Aquesta [a@?page=form&amp;formset=features#tab_Security]opció[/a] s'ha "
-#~ "d'activar si el servidor web ho permet"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Entra els valors per a transformar utilitzant aquest format: 'a', 100, "
-#~ "b,'c'...<br />Si mai necessites escriure una barra invertida (\"\\\") o "
-#~ "un apòstrof (\"'\") entre aquests valors, posa una barra invertida devant "
-#~ "(per exemple '\\\\xyz' o 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Entra els valors per a transformar utilitzant aquest format: 'a', 100, "
-#~ "b,'c'...<br />Si mai necessites escriure una barra invertida (\"\\\") o "
-#~ "un apòstrof (\"'\") entre aquests valors, posa una barra invertida devant "
-#~ "(per exemple '\\\\xyz' o 'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "No hi ha taules"
-
-#~ msgid "server name"
-#~ msgstr "nom de servidor"
-
-#~ msgid "database name"
-#~ msgstr "nom de base de dades"
-
-#~ msgid "table name"
-#~ msgstr "nom de taula"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Edita pàgines PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Format del Diccionari de Dades"
-
-#~ msgid "no"
-#~ msgstr "no"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Entra les opcions de connexió per a l'autenticació signon"
-
-#~ msgid "Signon login options"
-#~ msgstr "Opcions de connexió signon"
-
-#~ msgid "PMA database"
-#~ msgstr "Base de dades PMA"
-
-#~ msgid "Customization"
-#~ msgstr "Configuració"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Paràmetres de consultes SQL, per a les opcions de la caixa de consultes "
-#~ "SQL consulta els paràmetres de la [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Caixa de consultes SQL[/a]"
-
-#~ msgid "yes"
-#~ msgstr "si"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within fields"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Treu caràcters CRLF de dins dels camps"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Afegeix valor AUTO_INCREMENT"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Bolcar %s files començant a la fila %s."
-
-#~ msgid "remember template"
-#~ msgstr "Recordar plantilla"
-
-#~ msgid "\"zipped\""
-#~ msgstr "\"comprimit amb zip\""
-
-#~ msgid "\"gzipped\""
-#~ msgstr "\"comprimit amb gzip\""
-
-#~ msgid "\"bzipped\""
-#~ msgstr "\"comprimit amb bzip\""
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "La compressió de l'arxiu importat es detectarà automàticament des de: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Afegeix en comentaris"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Exporta esquemes d'estructura (recomanat)"
-
-#~ msgid "Export functions"
-#~ msgstr "Exporta funcions"
-
-#~ msgid "Export procedures"
-#~ msgstr "Exporta procediments"
-
-#~ msgid "Export triggers"
-#~ msgstr "Exporta disparadors (triggers)"
-
-#~ msgid "Export views"
-#~ msgstr "Exporta vistes"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "S'ha especificat una columna incorrecta (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Accions"
-
-#~ msgid "Interface"
-#~ msgstr "Interficie"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Nom de taula"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "Repositori BLOB"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Activat"
-
-#~ msgid "Disable"
-#~ msgstr "Desactiva"
-
-#~ msgid "Damaged"
-#~ msgstr "Fet malbé"
-
-#, fuzzy
-#~| msgid "Repair"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Repara"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Desactivat"
-
-#~ msgid "Enable"
-#~ msgstr "Activa"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "No es pot carregar iconv o recodificar una extensió necessària per la "
-#~ "conversió de jocs de caràcters, Configura php per permetre l'ús "
-#~ "d'aquestes extensions o bé desactiva la conversió de jocs de caràcters en "
-#~ "phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "No es pot utilitzar iconv ni libiconv ni la funció recode_string mentre "
-#~ "es carrega l'extensió d'informes. Comprova la configuració de php."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Permet la conversió de jocs de caràcters"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Joc de caràcters predeterminat usat per a conversions"
-
-#~ msgid "Default character set"
-#~ msgstr "Joc de caràcters predeterminat"
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Afegeix un camp nou"
-
-#~ msgid "Field"
-#~ msgstr "Camp"
-
-#~ msgid "Records"
-#~ msgstr "Registres"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Camps acabats per"
-
-#~ msgid "Fields"
-#~ msgstr "Camps"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Afegeix %s camp(s)"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "S'ha esborrat el camp %s"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Veure image/jpeg: en linia"
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Afegeix comentari personalitzat a la capçalera (\\n divideix linies)"
-
-#~ msgid "and"
-#~ msgstr "i"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Desactivat"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Activat"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Repara"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendari"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "Compatible amb MySQL&nbsp;4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "No es pot carregar la configuració per defecte des de: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Crea un índex de columnes %s:&nbsp;"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Crea una taula"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Res"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Buida la memòria cau de la taula (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Index de servidor invàlid: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Descripció"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Cap"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Esquema de la base de dades \"%s\" - Pàgina %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "La taula \"%s\" no existeix!"
-
-#~ msgid ""
-#~ "This MySQL server works as %s in <b>replication</b> process. For further "
-#~ "information about replication status on the server, please visit the <a "
-#~ "href=\"#replication\">replication section</a>."
-#~ msgstr ""
-#~ "Aquest servidor MySQL treballa com a %s al procés de <b>replicació</b>. "
-#~ "Per a més informació sobre l'estat de replicació al servidor, mira la "
-#~ "secció <ahref=\"#replication\">replicació</a>."
-
-#~ msgid "running on %s"
-#~ msgstr "funcionant a %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr ""
-#~ "El factor de l'escala és massa petit per posar l'esquema en una pàgina"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "No es pot iniciar una sessió sense errors, comprova els error obtinguts "
-#~ "al teu registre de PHP i/o servidor web i configura el teu entorn de PHP "
-#~ "acuradament."
-
-#, fuzzy
-#~| msgid ""
-#~| "However on last run no data has been parsed, this usually means "
-#~| "phpMyAdmin won't be able to finish this import unless you increase php "
-#~| "time limits."
-#~ msgid ""
-#~ "However on last run no data has been parsed, this usually means "
-#~ "phpMyAdmin won"
-#~ msgstr ""
-#~ "Però a la darrera importació no s'han processat dades, el que normalment "
-#~ "indica que phpMyAdmin no ha pogut finalitzar aquesta importació a menys "
-#~ "que incrementeu els límits de temps de php."
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Res"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Res"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Atorga tots els permisos en un nom comodí (nomusuari_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "La taula \"%s\" no existeix!"
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la "
-#~ "configuració."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Error reanomenant la taula %1$s a %2$s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Aquest servidor no està configurat com a mestre en un procés de "
-#~ "replicació. Vols <a href=\"%s\">configurar-lo</a>?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Aquest servidor no està configurat com a esclau en un procés de "
-#~ "replicació. Vols <a href=\"%s\">configurar-lo</a>?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "No es pot connectar al servidor MySQL"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "És possible que hagueu trobat un error a l'intèrpret SQL. Si us plau, "
-#~ "comproveu la sintaxi de la consulta i verifiqueu que les cometes estiguin "
-#~ "al seu lloc i facin parelles. Un altra possible causa de l'errada és que "
-#~ "estigueu pujant un arxiu amb dades binàries per fora de l'àrea de text "
-#~ "delimitada. També podeu provar la consulta a la interfície de comandes de "
-#~ "MySQL. La sortida següent generada pel servidor MySQL, si n'hi ha, pot "
-#~ "ajudar-vos a diagnosticar el problema. Si encara teniu problemes o si "
-#~ "l'intèrpret falla i l'interfície de comandes funciona, reduïu la consulta "
-#~ "a la part de l'SQL que produeix l'errada, i envieu un informe d'error amb "
-#~ "la cadena de dades de la secció de TALL indicada avall:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "dades CSV "
-
-#~ msgid "Copy"
-#~ msgstr "Còpia"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Esborra els usuaris i recarrega els permisos seguidament."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Aquesta és la forma més clara, pero recarregar els permisos pot tardar "
-#~ "una mica."
-
-#~ msgid "has been altered."
-#~ msgstr "ha estat alterada."
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer no suporta aquesta funció."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Els usuaris &quot;esborrats&quot; encara tindrán accés al servidor com "
-#~ "fins ara mentre no es recarreguin els permisos."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Només esborra els usuaris de les taules de permisos."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Permet executar processos enmagatzemats (stored procedures); No té efecte "
-#~ "en aquesta versió de MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Llista de processos"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Els usuaris encara tindran el permís USAGE fins que es recarreguin els "
-#~ "permisos."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Dades Natives MS Excel"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Canvia index(s)"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Mecanisme de seguiment"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Tria Tot"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Insereix"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Actualitzat"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Esborra"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "%1$d fila(es) afectada(es)."
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "Gen0"
-
-#~ msgid "Jan1"
-#~ msgstr "Gen1"
-
-#~ msgid "Jan2"
-#~ msgstr "Gen2"
-
-#~ msgid ""
-#~ "Structure Difference' ;\n"
-#~ "$strStructureForView = 'Structure for view"
-#~ msgstr "Diferència d'estructura"
