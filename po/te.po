@@ -4528,10 +4528,9 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "పాక్షిక పాఠ్యాలు"
+msgstr "పాక్షిక దిగుమతి:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
