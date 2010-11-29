@@ -9991,7 +9991,7 @@ msgstr "Enunciado"
 
 #: tbl_printview.php:377 tbl_structure.php:832
 msgid "static"
-msgstr ""
+msgstr "estático"
 
 #: tbl_printview.php:379 tbl_structure.php:834
 msgid "dynamic"
