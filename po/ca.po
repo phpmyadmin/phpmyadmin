@@ -1080,7 +1080,6 @@ msgid "Copying Database"
 msgstr "Copiant base de dades"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Joc de Caràcters"
