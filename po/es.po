@@ -10126,7 +10126,7 @@ msgstr "particionado"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Informe de seguimiento para la tabla `%s`"
 
 #: tbl_tracking.php:182
 #, php-format
