@@ -2867,7 +2867,7 @@ msgstr "అధీకరణ"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
-msgstr ""
+msgstr "అధీకరణ అమరికలు"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
