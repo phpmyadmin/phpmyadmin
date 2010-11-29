@@ -1297,10 +1297,9 @@ msgid "Dec"
 msgstr "డిసెం"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "ఆది"
+msgstr "ఆదివారం"
 
 #: js/messages.php:166
 #, fuzzy
