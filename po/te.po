@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:33+0200\n"
+"PO-Revision-Date: 2010-11-29 17:34+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4373,10 +4373,9 @@ msgid "Database(s):"
 msgstr "డేటాబేస్"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Table"
 msgid "Table(s):"
-msgstr "పట్టిక"
+msgstr "పట్టిక(లు):"
 
 #: libraries/display_export.lib.php:149
 msgid "Rows:"
