@@ -1180,10 +1180,9 @@ msgid "Today"
 msgstr "ఈరోజు"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Jan"
 msgid "January"
-msgstr "జన"
+msgstr "జనవరి"
 
 #: js/messages.php:126
 msgid "February"
