@@ -1022,7 +1022,6 @@ msgid "Reloading Privileges"
 msgstr "Recarrega els permisos"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Treu els usuaris triats"
