@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:34+0200\n"
+"PO-Revision-Date: 2010-11-29 17:35+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4600,7 +4600,7 @@ msgstr ""
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:263
 #: tbl_structure.php:845
 msgid "Options"
-msgstr ""
+msgstr "ఎంపికలు"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
 #, fuzzy
