@@ -6474,10 +6474,9 @@ msgid "Choose..."
 msgstr ""
 
 #: main.php:153 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "అమరికలు"
+msgstr "మరిన్ని అమరికలు"
 
 #: main.php:170
 msgid "Protocol version"
