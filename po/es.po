@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 02:29+0200\n"
+"PO-Revision-Date: 2010-11-29 02:30+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10012,10 +10012,9 @@ msgstr ""
 "Ocurrió un error al crear la llave extranjera en %1$s (revise los data types)"
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relaciones internas"
+msgstr "Relación interna"
 
 #: tbl_relation.php:404
 msgid ""
