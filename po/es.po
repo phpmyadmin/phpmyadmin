@@ -10181,7 +10181,7 @@ msgstr "Fecha"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
-msgstr ""
+msgstr "Declaración de definición de datos"
 
 #: tbl_tracking.php:457
 msgid "Data manipulation statement"
