@@ -2824,10 +2824,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "పుట సంఖ్య:"
+msgstr "పుట శీర్షికలు"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
