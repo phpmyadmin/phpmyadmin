@@ -951,7 +951,7 @@ msgstr "Ets a punt d'ELIMINAR completament una base de dades!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Event d'esborrat"
 
 #: js/messages.php:33
 #, fuzzy
