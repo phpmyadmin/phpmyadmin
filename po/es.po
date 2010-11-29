@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 02:25+0200\n"
+"PO-Revision-Date: 2010-11-29 02:26+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10159,7 +10159,7 @@ msgstr "Comenta estas dos líneas si no las necesitas."
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "Sentencias SQL exportadas. Por favor, copia el volcado o ejecútalo."
 
 #: tbl_tracking.php:256
 #, php-format
