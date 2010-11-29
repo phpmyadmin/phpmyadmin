@@ -10190,7 +10190,7 @@ msgstr ""
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "Volcado SQL (descarga de fichero)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
