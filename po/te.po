@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:24+0200\n"
+"PO-Revision-Date: 2010-11-29 17:25+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -1194,10 +1194,9 @@ msgid "March"
 msgstr "మార్చి"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "ఏప్రి"
+msgstr "ఏప్రిల్"
 
 #: js/messages.php:129
 msgid "May"
