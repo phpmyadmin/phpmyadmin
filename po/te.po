@@ -1302,10 +1302,9 @@ msgid "Sunday"
 msgstr "ఆదివారం"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "సోమ"
+msgstr "సోమవారం"
 
 #: js/messages.php:167
 #, fuzzy
