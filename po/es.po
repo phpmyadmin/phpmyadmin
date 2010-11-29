@@ -10202,7 +10202,7 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "Ejecución SQL"
 
 #: tbl_tracking.php:515
 #, php-format
