@@ -4609,7 +4609,7 @@ msgstr "పాక్షిక పాఠ్యాలు"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
 msgid "Full texts"
-msgstr ""
+msgstr "పూర్తి పాఠ్యాలు"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
