@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 10:04+0200\n"
+"PO-Revision-Date: 2010-11-29 10:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -269,10 +269,9 @@ msgid "Command"
 msgstr "Ordre"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Reanomena base de dades a"
+msgstr "Elimina la base de dades"
 
 #: db_operations.php:441
 #, php-format
