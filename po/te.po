@@ -1320,10 +1320,9 @@ msgid "Thursday"
 msgstr "గురువారం"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "శుక్ర"
+msgstr "శుక్రవారం"
 
 #: js/messages.php:171
 msgid "Saturday"
