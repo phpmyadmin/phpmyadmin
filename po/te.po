@@ -2861,10 +2861,9 @@ msgid "Basic settings"
 msgstr "ప్రాధమిక అమరికలు"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Action"
 msgid "Authentication"
-msgstr "చర్య"
+msgstr "అధీకరణ"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
