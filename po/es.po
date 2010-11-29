@@ -10176,9 +10176,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Datos"
+msgstr "Fecha"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
