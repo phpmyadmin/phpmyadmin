@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:39+0200\n"
+"PO-Revision-Date: 2010-11-29 17:40+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -6719,10 +6719,9 @@ msgid "Rename to"
 msgstr ""
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "వాడుకరి పేరు"
+msgstr "కొత్త పేరు"
 
 # మొదటి అనువాదము
 #: pmd_general.php:487 pmd_general.php:702
