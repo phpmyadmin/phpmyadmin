@@ -1185,10 +1185,9 @@ msgid "Change Password"
 msgstr "Canvi de contrasenya"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Dll"
+msgstr "Més"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
