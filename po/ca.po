@@ -959,7 +959,6 @@ msgid "Dropping Procedure"
 msgstr "Procediment d'esborrat"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Esborra les dades de seguiment per aquesta taula"
