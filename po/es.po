@@ -10194,7 +10194,7 @@ msgstr ""
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
-msgstr ""
+msgstr "Volcado SQL"
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
