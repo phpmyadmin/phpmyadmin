@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 17:35+0200\n"
+"PO-Revision-Date: 2010-11-29 17:37+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -5589,7 +5589,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:360
 msgid "Japanese"
-msgstr "జాపనీస్"
+msgstr "జపనీ"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
