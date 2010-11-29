@@ -10237,7 +10237,7 @@ msgstr "Activar ahora"
 #: tbl_tracking.php:662
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Crear versión %s de %s.%s"
 
 #: tbl_tracking.php:666
 msgid "Track these data definition statements:"
