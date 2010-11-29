@@ -1216,10 +1216,9 @@ msgid "Today"
 msgstr "Avui"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " Binari "
+msgstr "Gener"
 
 #: js/messages.php:126
 msgid "February"
