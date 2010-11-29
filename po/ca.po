@@ -1150,7 +1150,6 @@ msgid "Generate"
 msgstr "Genera"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Canvi de contrasenya"
