@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-29 10:11+0200\n"
+"PO-Revision-Date: 2010-11-29 10:12+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -586,10 +586,9 @@ msgid "Inside table(s):"
 msgstr "A la(les) taula(es):"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Camp interior:"
+msgstr "Dins la columna:"
 
 #: db_structure.php:59
 #, fuzzy
