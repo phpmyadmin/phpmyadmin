@@ -2234,7 +2234,6 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Complet - Igual que el anterior, però sense l'opció \"Ràpid\""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Completa insercions"
