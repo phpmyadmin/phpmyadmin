@@ -6984,10 +6984,9 @@ msgid "subquery"
 msgstr "podpoizvedba"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Preimenuj pogled v"
+msgstr "Preimenuj v"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
