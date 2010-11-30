@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: bosnian <bs@li.org>\n"
@@ -563,6 +563,12 @@ msgstr "Pregled"
 msgid "Delete"
 msgstr "Obriši"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Dumping data for table"
+msgid "Delete the matches for the %s table?"
+msgstr "Prikaz podataka tabele"
+
 #: db_search.php:273
 #, fuzzy, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
@@ -741,11 +747,11 @@ msgstr ""
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Baza podataka"
 
@@ -6208,12 +6214,12 @@ msgid "Toggle scratchboard"
 msgstr "Uključuje/isključuje scratchboard"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
@@ -6866,6 +6872,12 @@ msgstr "Baza ne postoji"
 #: navigation.php:292
 msgid "Filter"
 msgstr ""
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "filter tables by name"
+msgstr "Promijeni redoslijed u tabeli"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"

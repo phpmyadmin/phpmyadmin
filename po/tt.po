@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-07-22 02:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -559,6 +559,12 @@ msgstr "Küzätü"
 msgid "Delete"
 msgstr "Sal"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Dumping data for table"
+msgid "Delete the matches for the %s table?"
+msgstr "Tüşämä eçtälegen çığaru"
+
 #: db_search.php:273
 #, fuzzy, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
@@ -737,11 +743,11 @@ msgstr "Tüşämä tikşerü"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Biremlek"
 
@@ -6269,12 +6275,12 @@ msgid "Toggle scratchboard"
 msgstr "Toggle scratchboard"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Belgesez tel: %1$s."
@@ -6946,6 +6952,12 @@ msgstr "Biremleklär yuq"
 #, fuzzy
 msgid "Filter"
 msgstr "Alan"
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "table name"
+msgid "filter tables by name"
+msgstr "tüşämä adı"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 #, fuzzy
@@ -9840,9 +9852,6 @@ msgstr "Tüşämä adın üzgärtü"
 
 #~ msgid "database name"
 #~ msgstr "biremlek adı"
-
-#~ msgid "table name"
-#~ msgstr "tüşämä adı"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "PDF-Bitlär Üzgärtü"

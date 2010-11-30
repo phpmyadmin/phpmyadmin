@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-21 10:10+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -550,6 +550,12 @@ msgstr "Projít"
 msgid "Delete"
 msgstr "Odstranit"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Delete the matches for the %s table?"
+msgstr "Odstranit všechny informace o sledování této tabulky"
+
 #: db_search.php:273
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
@@ -612,8 +618,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -724,11 +730,11 @@ msgstr "Sledované tabulky"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Databáze"
 
@@ -835,8 +841,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1593,8 +1599,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2876,8 +2882,6 @@ msgid "Changes tracking"
 msgstr "Sledování změn"
 
 #: libraries/config/messages.inc.php:202
-#| msgid ""
-#| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -4513,8 +4517,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6202,12 +6206,12 @@ msgid "Toggle scratchboard"
 msgstr "Zobrazit grafický návrh"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Neznámý jazyk: %1$s."
@@ -6433,8 +6437,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6475,8 +6479,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -6846,6 +6850,12 @@ msgstr "Žádné databáze"
 msgid "Filter"
 msgstr "Filtr"
 
+#: navigation.php:292
+#, fuzzy
+#| msgid "table name"
+msgid "filter tables by name"
+msgstr "jméno tabulky"
+
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
 msgstr "Vyčistit"
@@ -6908,7 +6918,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export souřadnic pro PDF schéma"
 
 #: pmd_general.php:122
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Vytvořit dotaz"
 
@@ -6933,34 +6942,28 @@ msgid "Delete relation"
 msgstr "Odstranit relaci"
 
 #: pmd_general.php:462 pmd_general.php:521
-#| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Relační operátor"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#| msgid "Export"
 msgid "Except"
 msgstr "Kromě"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#| msgid "in query"
 msgid "subquery"
 msgstr "poddotaz"
 
 #: pmd_general.php:482 pmd_general.php:578
-#| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Přejmenovat na"
 
 #: pmd_general.php:484 pmd_general.php:583
-#| msgid "User name"
 msgid "New name"
 msgstr "Nové jméno"
 
 #: pmd_general.php:487 pmd_general.php:702
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "Sloučit"
 
@@ -6971,7 +6974,6 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: pmd_general.php:812
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Zapnuté parametry"
 
@@ -7086,8 +7088,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7539,8 +7541,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9017,8 +9019,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -9829,9 +9831,6 @@ msgstr "Přejmenovat pohled na"
 
 #~ msgid "database name"
 #~ msgstr "jméno databáze"
-
-#~ msgid "table name"
-#~ msgstr "jméno tabulky"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "Upravit PDF stránky"

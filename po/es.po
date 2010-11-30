@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-29 02:31+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -99,7 +99,6 @@ msgid "No blob streaming server configured!"
 msgstr "No hay configurado ningun servidor de streaming de blobs!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Fallo al obtener las cabeceras"
 
@@ -131,7 +130,6 @@ msgstr "Comentarios de la tabla"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#| msgid "Column names"
 msgid "Column"
 msgstr "Columna"
 
@@ -269,7 +267,6 @@ msgid "Command"
 msgstr "Comando"
 
 #: db_operations.php:429
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Eliminar base de datos"
 
@@ -335,9 +332,6 @@ msgstr "Cotejamiento"
 
 #: db_operations.php:548
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -346,7 +340,6 @@ msgstr ""
 "Para saber por qué haz clic %saquí%s."
 
 #: db_operations.php:581
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "Editar o exportar esquema relacional"
 
@@ -402,7 +395,6 @@ msgstr "Última revisión"
 # plural: tablas
 #: db_printview.php:220 db_structure.php:432
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tablas"
@@ -478,12 +470,10 @@ msgid "Modify"
 msgstr "Modificar"
 
 #: db_qbe.php:603
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Añadir/borrar filas de criterios"
 
 #: db_qbe.php:615
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Añadir/borrar columnas"
 
@@ -560,6 +550,12 @@ msgstr "Examinar"
 #: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Borrar"
+
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Delete the matches for the %s table?"
+msgstr "Borrar los datos de seguimiento para esta tabla"
 
 #: db_search.php:273
 #, fuzzy, php-format
@@ -741,11 +737,11 @@ msgstr "Tablas con seguimiento"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Base de datos"
 
@@ -963,12 +959,10 @@ msgid "Dropping Event"
 msgstr "Eliminando evento"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Eliminando procedimiento"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "Borrando los datos de seguimiento"
 
@@ -1016,7 +1010,6 @@ msgid "The passwords aren't the same!"
 msgstr "¡Las contraseñas no coinciden!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Agregar un nuevo usuario"
 
@@ -1025,12 +1018,10 @@ msgid "Create User"
 msgstr "Crear usuario"
 
 #: js/messages.php:54
-#| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Recargando Privilegios"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Eliminando los usuarios seleccionados"
 
@@ -1045,12 +1036,10 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "Cargando"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Procesando Petición"
 
@@ -1073,52 +1062,42 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Renombrando Bases de Datos"
 
 #: js/messages.php:72
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Recargar Base de Datos"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Copiando Base de Datos"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Cambiando el Juego de caracteres"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "La tabla debe tener al menos un campo."
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Crear tabla"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "Buscando"
 
 #: js/messages.php:84
-#| msgid "SQL Query box"
 msgid "Hide query box"
 msgstr "Ocultar ventana de consultas SQL"
 
 #: js/messages.php:85
-#| msgid "SQL Query box"
 msgid "Show query box"
 msgstr "Mostrar ventana de consultas SQL"
 
 #: js/messages.php:86
-#| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Editar en línea"
 
@@ -1140,7 +1119,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Por favor, seleccione la clave primaria o una clave única"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Elegir el campo a mostrar"
 
@@ -1149,7 +1127,6 @@ msgid "Add an option for column "
 msgstr "Añadir una opción para la columna"
 
 #: js/messages.php:101
-#| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generar contraseña"
 
@@ -1158,24 +1135,20 @@ msgid "Generate"
 msgstr "Generar"
 
 #: js/messages.php:103
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Cambar contraseña"
 
 #: js/messages.php:106
-#| msgid "Mon"
 msgid "More"
 msgstr "Más"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#| msgid "Donate"
 msgid "Done"
 msgstr "Terminado"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Previo"
 
@@ -1189,12 +1162,10 @@ msgstr "Siguiente"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#| msgid "Total"
 msgid "Today"
 msgstr "Hoy"
 
 #: js/messages.php:125
-#| msgid "Binary"
 msgid "January"
 msgstr "Enero"
 
@@ -1203,12 +1174,10 @@ msgid "February"
 msgstr "Febrero"
 
 #: js/messages.php:127
-#| msgid "Mar"
 msgid "March"
 msgstr "Marzo"
 
 #: js/messages.php:128
-#| msgid "Apr"
 msgid "April"
 msgstr "Abril"
 
@@ -1217,17 +1186,14 @@ msgid "May"
 msgstr "Mayo"
 
 #: js/messages.php:130
-#| msgid "Jun"
 msgid "June"
 msgstr "Junio"
 
 #: js/messages.php:131
-#| msgid "Jul"
 msgid "July"
 msgstr "Julio"
 
 #: js/messages.php:132
-#| msgid "Aug"
 msgid "August"
 msgstr "Agosto"
 
@@ -1236,7 +1202,6 @@ msgid "September"
 msgstr "Septiembre"
 
 #: js/messages.php:134
-#| msgid "Oct"
 msgid "October"
 msgstr "Octubre"
 
@@ -1270,7 +1235,6 @@ msgstr "Abr"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
@@ -1311,17 +1275,14 @@ msgid "Dec"
 msgstr "Dic"
 
 #: js/messages.php:165
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Domingo"
 
 #: js/messages.php:166
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Lunes"
 
 #: js/messages.php:167
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Martes"
 
@@ -1334,7 +1295,6 @@ msgid "Thursday"
 msgstr "Jueves"
 
 #: js/messages.php:170
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Viernes"
 
@@ -1379,49 +1339,41 @@ msgstr "Sab"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
-#| msgid "Sun"
 msgid "Su"
 msgstr "Do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Lu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#| msgid "Wed"
 msgid "We"
 msgstr "Mi"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#| msgid "Thu"
 msgid "Th"
 msgstr "Ju"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Vi"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#| msgid "Wiki"
 msgid "Wk"
 msgstr "Sem"
 
@@ -1430,12 +1382,10 @@ msgid "Hour"
 msgstr "Hora"
 
 #: js/messages.php:208
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minuto"
 
 #: js/messages.php:209
-#| msgid "per second"
 msgid "Second"
 msgstr "Segundo"
 
@@ -1446,8 +1396,8 @@ msgstr "Tamaño de fuente"
 #: libraries/File.class.php:315
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"El archivo que intentó subir excede la directiva upload_max_filesize en "
-"php.ini."
+"El archivo que intentó subir excede la directiva upload_max_filesize en php."
+"ini."
 
 #: libraries/File.class.php:318
 msgid ""
@@ -1771,7 +1721,6 @@ msgid "PBMS error"
 msgstr "error PBMS"
 
 #: libraries/blobstreaming.lib.php:267
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "Falló la conexión PBMS:"
 
@@ -1843,7 +1792,6 @@ msgid "Not replicated"
 msgstr "Sin replicar"
 
 #: libraries/build_html_for_db.lib.php:136
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "Replicado/a"
 
@@ -1857,7 +1805,6 @@ msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
 #: libraries/chart.lib.php:40
-#| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Estadísticas de Consulta"
 
@@ -1866,7 +1813,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Comparación del tiempo de ejecución de Consulta (en microsegundos)"
 
 #: libraries/chart.lib.php:83
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Resultados de la Consulta"
 
@@ -1900,7 +1846,6 @@ msgstr ""
 
 #: libraries/common.inc.php:582
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "No se pudo cargar la configuración predeterminada desde: \"%1$s\""
 
@@ -1909,12 +1854,11 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"El contenido de <tt>$cfg['PmaAbsoluteUri']</tt> ¡DEBE constar en "
-"config.inc.php!"
+"El contenido de <tt>$cfg['PmaAbsoluteUri']</tt> ¡DEBE constar en config.inc."
+"php!"
 
 #: libraries/common.inc.php:617
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "No es válido el índice del servidor: \"%s\""
 
@@ -1976,7 +1920,6 @@ msgid "MySQL said: "
 msgstr "MySQL ha dicho: "
 
 #: libraries/common.lib.php:1078
-#| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
 msgstr "No pudo conectarse a un validador de SQL!"
 
@@ -2014,7 +1957,6 @@ msgid "Inline edit of this query"
 msgstr "Edición en linea de esta consulta"
 
 #: libraries/common.lib.php:1246
-#| msgid "Engines"
 msgid "Inline"
 msgstr "En línea"
 
@@ -2142,7 +2084,6 @@ msgstr "Buscar en su ordenador:"
 
 #: libraries/common.lib.php:2970
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 "Seleccionar directorio en el servidor web para subir los archivos <b>%s</b>:"
@@ -2169,7 +2110,6 @@ msgstr "datos"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "estructura y datos"
 
@@ -2186,12 +2126,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Personalizado - como el anterior, pero sin elegir rápido/personalizado"
 
 #: libraries/config.values.php:119
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "completar los INSERTS"
 
 #: libraries/config.values.php:120
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "INSERTs extendidos"
 
@@ -2237,7 +2175,6 @@ msgstr "Faltan datos para %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "no disponible"
 
@@ -2262,13 +2199,11 @@ msgid "SQL Validator is disabled"
 msgstr "El validador de SQL está desactivado"
 
 #: libraries/config/FormDisplay.class.php:764
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "extensión SOAP no encontrada"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "máximo %s"
 
@@ -2328,8 +2263,8 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Habilitar esto permite que una página en un dominio distinto llame a "
-"phpMyAdmin dentro de un frame, y es un potencial [strong]agujero de "
-"seguridad[strong] que permite ataques de cross-frame scripting"
+"phpMyAdmin dentro de un frame, y es un potencial [strong]agujero de seguridad"
+"[strong] que permite ataques de cross-frame scripting"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -2381,21 +2316,16 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
 "Define qué tipo de control de edición se debe usar para los campos CHAR y "
-"VARCHAR; [kbd]input[/kbd] - permite limitar la longitud del input, "
-"[kbd]textarea[/kbd] - permite líneas nuevas en los campos"
+"VARCHAR; [kbd]input[/kbd] - permite limitar la longitud del input, [kbd]"
+"textarea[/kbd] - permite líneas nuevas en los campos"
 
 #: libraries/config/messages.inc.php:31
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "Edición de columnas CHAR"
 
@@ -6478,12 +6408,12 @@ msgid "Toggle scratchboard"
 msgstr "cambiar el estado del scratchboard"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Idioma desconocido: %1$s."
@@ -7197,6 +7127,12 @@ msgstr "No hay bases de datos"
 #, fuzzy
 msgid "Filter"
 msgstr "Archivos"
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "filter tables by name"
+msgstr "Modificar el ORDER BY de la tabla"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
@@ -10012,7 +9948,6 @@ msgstr ""
 "Ocurrió un error al crear la llave extranjera en %1$s (revise los data types)"
 
 #: tbl_relation.php:402
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Relación interna"
 
@@ -10039,7 +9974,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Hacer una consulta (comodín: \"%\")"
 
 #: tbl_select.php:266
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Seleccionar campos (al menos uno):"
 
@@ -10061,7 +9995,6 @@ msgid "Browse distinct values"
 msgstr "Navegar los valores distintivos"
 
 #: tbl_structure.php:384
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Ninguna"
@@ -10092,7 +10025,6 @@ msgid "Propose table structure"
 msgstr "Planteamiento de la estructura de tabla"
 
 #: tbl_structure.php:631
-#| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Añadir columna"
 
@@ -10111,7 +10043,6 @@ msgstr "Después de %s"
 
 #: tbl_structure.php:686
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Crear un índice en &nbsp;%s&nbsp;columna(s)"
 
@@ -10278,7 +10209,6 @@ msgid "Available transformations"
 msgstr "Transformaciones disponibles"
 
 #: transformation_overview.php:47
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descripción"

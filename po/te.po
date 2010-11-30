@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-29 17:44+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
-"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -556,6 +556,11 @@ msgstr ""
 msgid "Delete"
 msgstr "తొలగించు"
 
+#: db_search.php:260
+#, php-format
+msgid "Delete the matches for the %s table?"
+msgstr ""
+
 #: db_search.php:273
 #, fuzzy, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
@@ -734,11 +739,11 @@ msgstr ""
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "డేటాబేస్"
 
@@ -1147,7 +1152,6 @@ msgid "Change Password"
 msgstr "సంకేతపదం"
 
 #: js/messages.php:106
-#| msgid "Mon"
 msgid "More"
 msgstr "మరిన్ని"
 
@@ -1175,12 +1179,10 @@ msgstr "తదుపరి"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#| msgid "Total"
 msgid "Today"
 msgstr "ఈరోజు"
 
 #: js/messages.php:125
-#| msgid "Jan"
 msgid "January"
 msgstr "జనవరి"
 
@@ -1189,12 +1191,10 @@ msgid "February"
 msgstr "ఫిబ్రవరి"
 
 #: js/messages.php:127
-#| msgid "Mar"
 msgid "March"
 msgstr "మార్చి"
 
 #: js/messages.php:128
-#| msgid "Apr"
 msgid "April"
 msgstr "ఏప్రిల్"
 
@@ -1203,17 +1203,14 @@ msgid "May"
 msgstr "మే"
 
 #: js/messages.php:130
-#| msgid "Jun"
 msgid "June"
 msgstr "జూన్"
 
 #: js/messages.php:131
-#| msgid "Jul"
 msgid "July"
 msgstr "జూలై"
 
 #: js/messages.php:132
-#| msgid "Aug"
 msgid "August"
 msgstr "ఆగస్ట్"
 
@@ -1222,7 +1219,6 @@ msgid "September"
 msgstr "సెప్టెంబర్"
 
 #: js/messages.php:134
-#| msgid "Oct"
 msgid "October"
 msgstr "అక్టోబర్"
 
@@ -1256,7 +1252,6 @@ msgstr "ఏప్రి"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "మే"
@@ -1297,17 +1292,14 @@ msgid "Dec"
 msgstr "డిసెం"
 
 #: js/messages.php:165
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "ఆదివారం"
 
 #: js/messages.php:166
-#| msgid "Mon"
 msgid "Monday"
 msgstr "సోమవారం"
 
 #: js/messages.php:167
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "మంగళవారం"
 
@@ -1320,7 +1312,6 @@ msgid "Thursday"
 msgstr "గురువారం"
 
 #: js/messages.php:170
-#| msgid "Fri"
 msgid "Friday"
 msgstr "శుక్రవారం"
 
@@ -1425,12 +1416,10 @@ msgstr "గంట"
 
 # మొదటి అనువాదము
 #: js/messages.php:208
-#| msgid "in use"
 msgid "Minute"
 msgstr "నిమిషం"
 
 #: js/messages.php:209
-#| msgid "per second"
 msgid "Second"
 msgstr "క్షణం"
 
@@ -2652,7 +2641,6 @@ msgid "Maximal length of created query"
 msgstr ""
 
 #: libraries/config/messages.inc.php:133
-#| msgid "Export type"
 msgid "Export type"
 msgstr "ఎగుమతి రకం"
 
@@ -2743,7 +2731,6 @@ msgid "Features"
 msgstr ""
 
 #: libraries/config/messages.inc.php:163
-#| msgid "German"
 msgid "General"
 msgstr "సాధారణ"
 
@@ -2824,7 +2811,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:187
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "పుట శీర్షికలు"
 
@@ -2861,7 +2847,6 @@ msgid "Basic settings"
 msgstr "ప్రాధమిక అమరికలు"
 
 #: libraries/config/messages.inc.php:194
-#| msgid "Action"
 msgid "Authentication"
 msgstr "అధీకరణ"
 
@@ -2985,7 +2970,6 @@ msgid "Texy! text"
 msgstr ""
 
 #: libraries/config/messages.inc.php:225
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "హెచ్చరికలు"
 
@@ -4360,7 +4344,6 @@ msgid "Exporting rows in the table \"%s\""
 msgstr ""
 
 #: libraries/display_export.lib.php:97
-#| msgid "Export type"
 msgid "Export Method:"
 msgstr "ఎగుమతి పద్ధతి:"
 
@@ -4372,7 +4355,6 @@ msgid "Database(s):"
 msgstr "డేటాబేస్"
 
 #: libraries/display_export.lib.php:139
-#| msgid "Table"
 msgid "Table(s):"
 msgstr "పట్టిక(లు):"
 
@@ -4528,7 +4510,6 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "పాక్షిక దిగుమతి:"
 
@@ -4603,7 +4584,6 @@ msgid "Options"
 msgstr "ఎంపికలు"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "పాక్షిక పాఠ్యాలు"
 
@@ -6039,12 +6019,12 @@ msgid "Toggle scratchboard"
 msgstr ""
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr ""
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
@@ -6081,7 +6061,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "settings"
 msgid "Settings"
 msgstr "అమరికలు"
 
@@ -6451,7 +6430,6 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:67
-#| msgid "Basic settings"
 msgid "General Settings"
 msgstr "సాధారణ అమరికలు"
 
@@ -6474,7 +6452,6 @@ msgid "Choose..."
 msgstr ""
 
 #: main.php:153 prefs_manage.php:274
-#| msgid "settings"
 msgid "More settings"
 msgstr "మరిన్ని అమరికలు"
 
@@ -6607,6 +6584,10 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
+#: navigation.php:292
+msgid "filter tables by name"
+msgstr ""
+
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
 msgstr ""
@@ -6719,7 +6700,6 @@ msgid "Rename to"
 msgstr ""
 
 #: pmd_general.php:484 pmd_general.php:583
-#| msgid "User name"
 msgid "New name"
 msgstr "కొత్త పేరు"
 
@@ -9341,7 +9321,6 @@ msgid "Available transformations"
 msgstr ""
 
 #: transformation_overview.php:47
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "వివరణ"

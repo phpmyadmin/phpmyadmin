@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-26 19:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -546,6 +546,12 @@ msgstr "Afficher"
 msgid "Delete"
 msgstr "Effacer"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Delete the matches for the %s table?"
+msgstr "Supprimer les données de suivi de cette table"
+
 #: db_search.php:273
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
@@ -720,11 +726,11 @@ msgstr "Tables faisant l'objet d'un suivi"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Base de données"
 
@@ -2888,16 +2894,14 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Configurez le stockage de configurations phpMyAdmin pour activer des "
-"fonctionnalités additionnelles, voir [a@Documentation.html#linked-"
-"tables]phpMyAdmin configuration storage[/a] dans la documentation"
+"fonctionnalités additionnelles, voir [a@Documentation.html#linked-tables]"
+"phpMyAdmin configuration storage[/a] dans la documentation"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
 msgstr "Suivi des changements"
 
 #: libraries/config/messages.inc.php:202
-#| msgid ""
-#| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -4219,9 +4223,8 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
-"Montre le nombre de lignes affectées par chaque énoncé. Voir "
-"libraries/import.lib.php pour le nombre d'énoncés qu'une requête peut "
-"comporter."
+"Montre le nombre de lignes affectées par chaque énoncé. Voir libraries/"
+"import.lib.php pour le nombre d'énoncés qu'une requête peut comporter."
 
 #: libraries/config/messages.inc.php:494
 msgid "Verbose multiple statements"
@@ -6266,12 +6269,12 @@ msgid "Toggle scratchboard"
 msgstr "Éditeur visuel"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Langue inconnue: %1$s."
@@ -6923,6 +6926,12 @@ msgstr "Aucune base de données"
 msgid "Filter"
 msgstr "Filtre"
 
+#: navigation.php:292
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "filter tables by name"
+msgstr "<b>Ordonner</b> la table par"
+
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
 msgstr "Vider"
@@ -6985,7 +6994,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Exporter les coordonnées pour le schéma PDF"
 
 #: pmd_general.php:122
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Construire la requête"
 
@@ -7010,34 +7018,28 @@ msgid "Delete relation"
 msgstr "Effacer la relation"
 
 #: pmd_general.php:462 pmd_general.php:521
-#| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Opérateur de relation"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#| msgid "Export"
 msgid "Except"
 msgstr "Sauf"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#| msgid "in query"
 msgid "subquery"
 msgstr "sous-requête"
 
 #: pmd_general.php:482 pmd_general.php:578
-#| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Renommer en"
 
 #: pmd_general.php:484 pmd_general.php:583
-#| msgid "User name"
 msgid "New name"
 msgstr "Nouveau nom"
 
 #: pmd_general.php:487 pmd_general.php:702
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "Regroupement"
 
@@ -7048,7 +7050,6 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: pmd_general.php:812
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Options actives"
 
@@ -8467,8 +8468,8 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Le nombre de jointures sans clés qui vérifient l'utilisation de clé à chaque "
-"ligne. (Si ceci est supérieur à 0, vérifiez soigneusement les indexes de "
-"vos tables.)"
+"ligne. (Si ceci est supérieur à 0, vérifiez soigneusement les indexes de vos "
+"tables.)"
 
 #: server_status.php:136
 msgid ""

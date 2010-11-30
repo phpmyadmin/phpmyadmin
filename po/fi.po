@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -99,7 +99,6 @@ msgid "No blob streaming server configured!"
 msgstr "BLOB-suoratoistopalvelinta ei ole määritelty."
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Otsakkeiden nouto epäonnistui"
 
@@ -131,7 +130,6 @@ msgstr "Taulun kommentit"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#| msgid "Column names"
 msgid "Column"
 msgstr "Sarake"
 
@@ -269,7 +267,6 @@ msgid "Command"
 msgstr "Komento"
 
 #: db_operations.php:429
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Tuhoa tietokanta"
 
@@ -279,7 +276,6 @@ msgid "Database %s has been dropped."
 msgstr "Tietokanta %s on poistettu."
 
 #: db_operations.php:446
-#| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Tuhoa tietokanta (DROP)"
 
@@ -335,9 +331,6 @@ msgstr "Aakkosjärjestys"
 
 #: db_operations.php:548
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -346,7 +339,6 @@ msgstr ""
 "mistä tämä johtuu."
 
 #: db_operations.php:581
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "Relaatioskeeman muokkaus tai vienti"
 
@@ -400,7 +392,6 @@ msgstr "Viimeksi tarkistettu"
 
 #: db_printview.php:220 db_structure.php:432
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s taulu"
@@ -476,12 +467,10 @@ msgid "Modify"
 msgstr "Muokkaa"
 
 #: db_qbe.php:603
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Lisää tai poista hakuehtoja"
 
 #: db_qbe.php:615
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Lisää tai poista sarakkeita"
 
@@ -532,7 +521,6 @@ msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
@@ -557,9 +545,14 @@ msgstr "Selaa"
 msgid "Delete"
 msgstr "Poista"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Delete the matches for the %s table?"
+msgstr "Poista tämän taulun seurantatiedot"
+
 #: db_search.php:273
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
@@ -586,12 +579,10 @@ msgid "Inside table(s):"
 msgstr "Tauluista:"
 
 #: db_search.php:352
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Sarakkeen sisältä:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Tietokannassa ei ole tauluja."
 
@@ -734,11 +725,11 @@ msgstr "Seurattavat taulut"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Tietokanta"
 
@@ -953,12 +944,10 @@ msgid "Dropping Event"
 msgstr "Poistotapahtuma"
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Poistotoiminto"
 
 #: js/messages.php:35
-#| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Seurantatietojen poisto"
 
@@ -1005,22 +994,18 @@ msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Lisää uusi käyttäjä"
 
 #: js/messages.php:53
-#| msgid "Create version"
 msgid "Create User"
 msgstr "Luo käyttäjä"
 
 #: js/messages.php:54
-#| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Käyttöoikeusten uudelleenlataus"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Poista valitut käyttäjät"
 
@@ -1035,12 +1020,10 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: js/messages.php:63
-#| msgid "Load"
 msgid "Loading"
 msgstr "Lataa"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Pyynnön käsittely"
 
@@ -1063,52 +1046,42 @@ msgid "OK"
 msgstr "Kunnossa"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Muuta tietokantojen nimiä"
 
 #: js/messages.php:72
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Lataa tietokanta uudestaan"
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Tietokannan kopiointi"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Merkistökoodauksen vaihtaminen"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Taulussa on oltava vähintään yksi kenttä."
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Luo taulu"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "Etsi"
 
 #: js/messages.php:84
-#| msgid "SQL Query box"
 msgid "Hide query box"
 msgstr "Piilota SQL-kyselykenttä"
 
 #: js/messages.php:85
-#| msgid "SQL Query box"
 msgid "Show query box"
 msgstr "Näytä kyselykenttä"
 
 #: js/messages.php:86
-#| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Rivin muokkaus"
 
@@ -1130,7 +1103,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Valitse perusavain tai uniikki avain"
 
 #: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Valitse näytettävä sarake"
 
@@ -1139,7 +1111,6 @@ msgid "Add an option for column "
 msgstr "Lisää asetus sarakkeelle"
 
 #: js/messages.php:101
-#| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Keksi salasana"
 
@@ -1148,24 +1119,20 @@ msgid "Generate"
 msgstr "Keksi"
 
 #: js/messages.php:103
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Vaihda salasana"
 
 #: js/messages.php:106
-#| msgid "Mon"
 msgid "More"
 msgstr "Lisää"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
-#| msgid "Donate"
 msgid "Done"
 msgstr "Valmis"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:118
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Edellinen"
 
@@ -1179,12 +1146,10 @@ msgstr "Seuraava"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#| msgid "Total"
 msgid "Today"
 msgstr "Tänään"
 
 #: js/messages.php:125
-#| msgid "Binary"
 msgid "January"
 msgstr "Tammi"
 
@@ -1193,12 +1158,10 @@ msgid "February"
 msgstr "Helmi"
 
 #: js/messages.php:127
-#| msgid "Mar"
 msgid "March"
 msgstr "Maalis"
 
 #: js/messages.php:128
-#| msgid "Apr"
 msgid "April"
 msgstr "Huhti"
 
@@ -1207,17 +1170,14 @@ msgid "May"
 msgstr "Touko"
 
 #: js/messages.php:130
-#| msgid "Jun"
 msgid "June"
 msgstr "Kesä"
 
 #: js/messages.php:131
-#| msgid "Jul"
 msgid "July"
 msgstr "Heinä"
 
 #: js/messages.php:132
-#| msgid "Aug"
 msgid "August"
 msgstr "Elo"
 
@@ -1226,7 +1186,6 @@ msgid "September"
 msgstr "Syys"
 
 #: js/messages.php:134
-#| msgid "Oct"
 msgid "October"
 msgstr "Loka"
 
@@ -1260,7 +1219,6 @@ msgstr "Huhti"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "Touko"
@@ -1301,17 +1259,14 @@ msgid "Dec"
 msgstr "Joulu"
 
 #: js/messages.php:165
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Su"
 
 #: js/messages.php:166
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Ma"
 
 #: js/messages.php:167
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Ti"
 
@@ -1324,7 +1279,6 @@ msgid "Thursday"
 msgstr "To"
 
 #: js/messages.php:170
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Pe"
 
@@ -1369,49 +1323,41 @@ msgstr "La"
 
 #. l10n: Minimal week day name
 #: js/messages.php:191
-#| msgid "Sun"
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Ti"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#| msgid "Wed"
 msgid "We"
 msgstr "Ke"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#| msgid "Thu"
 msgid "Th"
 msgstr "To"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#| msgid "Sat"
 msgid "Sa"
 msgstr "La"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:205
-#| msgid "Wiki"
 msgid "Wk"
 msgstr "Vko"
 
@@ -1420,12 +1366,10 @@ msgid "Hour"
 msgstr "Tunti"
 
 #: js/messages.php:208
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minuutti"
 
 #: js/messages.php:209
-#| msgid "per second"
 msgid "Second"
 msgstr "Sekunti"
 
@@ -1542,7 +1486,6 @@ msgstr "Virhe"
 
 #: libraries/Message.class.php:281
 #, php-format
-#| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rivi(ä) muutettu."
@@ -1550,7 +1493,6 @@ msgstr[1] "%1$d rivi(ä) muutettu."
 
 #: libraries/Message.class.php:300
 #, php-format
-#| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rivi(ä) poistettu."
@@ -1558,7 +1500,6 @@ msgstr[1] "%1$d rivi(ä) poistettu."
 
 #: libraries/Message.class.php:319
 #, php-format
-#| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rivi(ä) lisätty."
@@ -1754,7 +1695,6 @@ msgid "PBMS error"
 msgstr "PBMS-virhe"
 
 #: libraries/blobstreaming.lib.php:267
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "PBMS-yhteys epäonnistui:"
 
@@ -1818,17 +1758,14 @@ msgid "Overhead"
 msgstr "Ylijäämä"
 
 #: libraries/build_html_for_db.lib.php:93
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Siirry tietokantaan"
 
 #: libraries/build_html_for_db.lib.php:130
-#| msgid "Master replication"
 msgid "Not replicated"
 msgstr "Ei kahdennettu"
 
 #: libraries/build_html_for_db.lib.php:136
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "Kahdennettu"
 
@@ -1842,7 +1779,6 @@ msgid "Check Privileges"
 msgstr "Hallitse käyttöoikeuksia"
 
 #: libraries/chart.lib.php:40
-#| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Kyselyn ominaisuuksia"
 
@@ -1851,7 +1787,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Kyselyn suoritusajan vertailu (mikrosekunteina)"
 
 #: libraries/chart.lib.php:83
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Kyselyn tulokset"
 
@@ -1884,7 +1819,6 @@ msgstr ""
 
 #: libraries/common.inc.php:582
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
 
@@ -1896,7 +1830,6 @@ msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> täytyy määritellä asetustiedostossa!
 
 #: libraries/common.inc.php:617
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Virheellinen palvelimen indeksi: %s"
 
@@ -1956,7 +1889,6 @@ msgid "MySQL said: "
 msgstr "MySQL ilmoittaa: "
 
 #: libraries/common.lib.php:1078
-#| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL-validaattoriin ei voitu yhdistää"
 
@@ -1994,7 +1926,6 @@ msgid "Inline edit of this query"
 msgstr "Tämän kyselyn muokkaus"
 
 #: libraries/common.lib.php:1246
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Muokkaus"
 
@@ -2122,7 +2053,6 @@ msgstr "Selaa tietokonettasi:"
 
 #: libraries/common.lib.php:2970
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
 
@@ -2147,7 +2077,6 @@ msgstr "tiedot"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "rakenne ja tiedot"
 
@@ -2164,12 +2093,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Mukautettu - kuten yllä, mutta ilman pika-/mukautettu-valintaa"
 
 #: libraries/config.values.php:119
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
 
 #: libraries/config.values.php:120
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Laajennetut lisäyslauseet"
 
@@ -2215,7 +2142,6 @@ msgstr "Kohteesta %s puuttuu tiedot"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "Ei saatavilla"
 
@@ -2240,13 +2166,11 @@ msgid "SQL Validator is disabled"
 msgstr "SQL-validaattori ei ole käytössä"
 
 #: libraries/config/FormDisplay.class.php:764
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "SOAP-laajennusta ei löydy"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
-#| msgid "Maximum tables"
 msgid "maximum %s"
 msgstr "Enintään %s"
 
@@ -6494,12 +6418,12 @@ msgid "Toggle scratchboard"
 msgstr "Näytä/kätke luonnospöytä"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Tuntematon kieli: %1$s."
@@ -7214,6 +7138,12 @@ msgstr "Ei tietokantoja"
 #: navigation.php:292
 msgid "Filter"
 msgstr "Suodatin"
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "filter tables by name"
+msgstr "Lajittele taulu"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
@@ -8163,8 +8093,7 @@ msgstr ""
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Mitä haluat "
-"tehdä?"
+"Palvelin on määritetty kahdennustoiminnon alipalvelimeksi. Mitä haluat tehdä?"
 
 #: server_replication.php:306
 msgid "See slave status table"
@@ -8866,8 +8795,8 @@ msgid ""
 msgstr ""
 "Kertoo, kuinka usein taulua ei ole saatu heti lukittua, ja on siten jouduttu "
 "odottamaan. Jos tämä arvo on suuri, ja suorituskyvyn kanssa on ongelmia, on "
-"hyvä ensin optimoida kyselyjä ja sitten joko jakaa taulu useampaan osaan "
-"tai käyttää hyödyksi kahdennusta."
+"hyvä ensin optimoida kyselyjä ja sitten joko jakaa taulu useampaan osaan tai "
+"käyttää hyödyksi kahdennusta."
 
 #: server_status.php:149
 msgid ""
@@ -8976,7 +8905,6 @@ msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Tämä MySQL-palvelin on ollut käynnissä %s. Se käynnistettiin %s."
 
 #: server_status.php:477
-#| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -8985,30 +8913,23 @@ msgstr ""
 "<b>alipalvelimena</b>."
 
 #: server_status.php:479
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> "
-"<b>pääpalvelimena</b>."
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> <b>pääpalvelimena</b>."
 
 #: server_status.php:481
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> ja "
-"<b>alipalvelimena</b>."
+"Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> ja <b>alipalvelimena</"
+"b>."
 
 #: server_status.php:483
-#| msgid ""
-#| "This MySQL server works as %s in <b>replication</b> process. For further "
-#| "information about replication status on the server, please visit the <a "
-#| "href=\"#replication\">replication section</a>."
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Hae lisätietoja palvelimen kahdennustilasta kohdasta <a "
-"href=\"#replication\">Replication</a>."
+"Hae lisätietoja palvelimen kahdennustilasta kohdasta <a href=\"#replication"
+"\">Replication</a>."
 
 #: server_status.php:500
 msgid ""

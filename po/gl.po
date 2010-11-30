@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -565,6 +565,12 @@ msgstr "Visualizar"
 msgid "Delete"
 msgstr "Eliminar"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Dumping data for table"
+msgid "Delete the matches for the %s table?"
+msgstr "A extraer datos da táboa"
+
 #: db_search.php:273
 #, fuzzy, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
@@ -744,11 +750,11 @@ msgstr "Táboas seguidas"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Base de datos"
 
@@ -6606,12 +6612,12 @@ msgid "Toggle scratchboard"
 msgstr "conmutar o borrador"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Linguaxe descoñecida: %1$s."
@@ -7330,6 +7336,12 @@ msgstr "Non hai ningunha base de datos"
 #: navigation.php:292
 msgid "Filter"
 msgstr "Filtro"
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "table name"
+msgid "filter tables by name"
+msgstr "nome da táboa"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
@@ -10501,9 +10513,6 @@ msgstr "Mudar o nome da táboa para"
 
 #~ msgid "database name"
 #~ msgstr "nome da base de datos"
-
-#~ msgid "table name"
-#~ msgstr "nome da táboa"
 
 #~ msgid "Edit PDF Pages"
 #~ msgstr "Editar as páxinas PDF"

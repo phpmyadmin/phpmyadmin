@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-20 07:34-0500\n"
+"POT-Creation-Date: 2010-11-30 12:47-0500\n"
 "PO-Revision-Date: 2010-11-30 16:19+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -131,7 +131,6 @@ msgstr "Tabelopmerkingen"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#| msgid "Column names"
 msgid "Column"
 msgstr "Kolom "
 
@@ -269,7 +268,6 @@ msgid "Command"
 msgstr "Commando"
 
 #: db_operations.php:429
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Verwijder database"
 
@@ -279,7 +277,6 @@ msgid "Database %s has been dropped."
 msgstr "Database %s is vervallen."
 
 #: db_operations.php:446
-#| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Laat de database vervallen (DROP)"
 
@@ -335,9 +332,6 @@ msgstr "Collatie"
 
 #: db_operations.php:548
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -532,7 +526,6 @@ msgstr "Zoek resultaten voor \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s overeenkomst in de tabel <i>%s</i>"
@@ -557,9 +550,14 @@ msgstr "Verkennen"
 msgid "Delete"
 msgstr "Verwijderen"
 
+#: db_search.php:260
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Delete the matches for the %s table?"
+msgstr "Verwijder tracking data voor deze tabel"
+
 #: db_search.php:273
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst"
@@ -735,11 +733,11 @@ msgstr "Tabellen met tracker"
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/sql.php:441
 #: libraries/export/texytext.php:77 libraries/export/xml.php:258
-#: libraries/header_printview.inc.php:57 server_databases.php:146
-#: server_privileges.php:1751 server_privileges.php:1812
-#: server_privileges.php:2070 server_processlist.php:55
-#: server_synchronize.php:1177 server_synchronize.php:1181
-#: tbl_tracking.php:585 test/theme.php:64
+#: libraries/header.inc.php:125 libraries/header_printview.inc.php:57
+#: server_databases.php:146 server_privileges.php:1751
+#: server_privileges.php:1812 server_privileges.php:2070
+#: server_processlist.php:55 server_synchronize.php:1177
+#: server_synchronize.php:1181 tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Database"
 
@@ -2670,7 +2668,6 @@ msgstr "Tabel naam template"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "Dump tabel"
 
@@ -2723,7 +2720,6 @@ msgid "Remember file name template"
 msgstr "Herinner bestandsnaam template"
 
 #: libraries/config/messages.inc.php:116
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Gebruik backticks (`) bij tabellen- en kolomnamen"
 
@@ -6564,12 +6560,12 @@ msgid "Toggle scratchboard"
 msgstr "Aan/uit voorbeeldkader"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:499
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
@@ -7294,6 +7290,12 @@ msgstr "Geen databases"
 #: navigation.php:292
 msgid "Filter"
 msgstr "Filter"
+
+#: navigation.php:292
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "filter tables by name"
+msgstr "Wijzig het \"Sorteren op/Order by\" van de tabel"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
