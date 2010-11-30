@@ -6996,7 +6996,7 @@ msgstr "Novo ime"
 #: pmd_general.php:487 pmd_general.php:702
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Zberi"
+msgstr "Agregat"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
