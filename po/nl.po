@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-30 15:15+0200\n"
+"PO-Revision-Date: 2010-11-30 15:17+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -131,10 +131,9 @@ msgstr "Tabelopmerkingen"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Kolom namen"
+msgstr "Kolom "
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
