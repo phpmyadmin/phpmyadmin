@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-05-26 14:20+0200\n"
+"PO-Revision-Date: 2010-11-29 17:44+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -171,7 +171,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:202 tbl_tracking.php:271
 msgid "Default"
-msgstr ""
+msgstr "అప్రమేయం"
 
 #: db_datadict.php:177 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
@@ -969,7 +969,7 @@ msgstr ""
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr ""
+msgstr "ఇది సంఖ్య కాదు!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
@@ -1147,10 +1147,9 @@ msgid "Change Password"
 msgstr "సంకేతపదం"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "సోమ"
+msgstr "మరిన్ని"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
@@ -1176,72 +1175,64 @@ msgstr "తదుపరి"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "మొత్తం"
+msgstr "ఈరోజు"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Jan"
 msgid "January"
-msgstr "జన"
+msgstr "జనవరి"
 
 #: js/messages.php:126
 msgid "February"
-msgstr ""
+msgstr "ఫిబ్రవరి"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "మార్చి"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "ఏప్రి"
+msgstr "ఏప్రిల్"
 
 #: js/messages.php:129
 msgid "May"
 msgstr "మే"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "జూన్"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "జూలై"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "ఆగ"
+msgstr "ఆగస్ట్"
 
 #: js/messages.php:133
 msgid "September"
-msgstr ""
+msgstr "సెప్టెంబర్"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "అక్టో"
+msgstr "అక్టోబర్"
 
 #: js/messages.php:135
 msgid "November"
-msgstr ""
+msgstr "నవంబర్"
 
 #: js/messages.php:136
 msgid "December"
-msgstr ""
+msgstr "డిసెంబర్"
 
 #. l10n: Short month name
 #: js/messages.php:140 libraries/common.lib.php:1545
@@ -1265,7 +1256,6 @@ msgstr "ఏప్రి"
 
 #. l10n: Short month name
 #: js/messages.php:148 libraries/common.lib.php:1553
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1307,40 +1297,36 @@ msgid "Dec"
 msgstr "డిసెం"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "ఆది"
+msgstr "ఆదివారం"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "సోమ"
+msgstr "సోమవారం"
 
 #: js/messages.php:167
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "మంగళ"
+msgstr "మంగళవారం"
 
 #: js/messages.php:168
 msgid "Wednesday"
-msgstr ""
+msgstr "బుధవారం"
 
 #: js/messages.php:169
 msgid "Thursday"
-msgstr ""
+msgstr "గురువారం"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "శుక్ర"
+msgstr "శుక్రవారం"
 
 #: js/messages.php:171
 msgid "Saturday"
-msgstr ""
+msgstr "శనివారం"
 
 #. l10n: Short week day name
 #: js/messages.php:175 libraries/common.lib.php:1570
@@ -1435,20 +1421,18 @@ msgstr "వికీ"
 
 #: js/messages.php:207
 msgid "Hour"
-msgstr ""
+msgstr "గంట"
 
 # మొదటి అనువాదము
 #: js/messages.php:208
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "వాడుకలో ఉన్నది"
+msgstr "నిమిషం"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "క్షణానికి"
+msgstr "క్షణం"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1553,7 +1537,7 @@ msgstr ""
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "పొరపాటు"
 
 #: libraries/Message.class.php:281
 #, php-format
@@ -2237,7 +2221,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "గరిష్ఠం %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -2668,7 +2652,6 @@ msgid "Maximal length of created query"
 msgstr ""
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export type"
 msgid "Export type"
 msgstr "ఎగుమతి రకం"
@@ -2760,10 +2743,9 @@ msgid "Features"
 msgstr ""
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "German"
 msgid "General"
-msgstr "జర్మన్"
+msgstr "సాధారణ"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
@@ -2827,7 +2809,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:181
 msgid "Microsoft Office"
-msgstr ""
+msgstr "మైక్రోసాఫ్ట్ ఆఫీస్"
 
 #: libraries/config/messages.inc.php:183
 msgid "Open Document"
@@ -2842,10 +2824,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "పుట సంఖ్య:"
+msgstr "పుట శీర్షికలు"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
@@ -2880,14 +2861,13 @@ msgid "Basic settings"
 msgstr "ప్రాధమిక అమరికలు"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Action"
 msgid "Authentication"
-msgstr "చర్య"
+msgstr "అధీకరణ"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
-msgstr ""
+msgstr "అధీకరణ అమరికలు"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
@@ -3005,10 +2985,9 @@ msgid "Texy! text"
 msgstr ""
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "హెచ్చరిక"
+msgstr "హెచ్చరికలు"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
@@ -3353,7 +3332,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:315
 msgid "Natural order"
-msgstr ""
+msgstr "సహజ క్రమం"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
@@ -4207,7 +4186,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "మైక్రోసాఫ్ట్ వర్డ్ 2000"
 
 #: libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:260 libraries/export/odt.php:21
@@ -4381,10 +4360,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr ""
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "ఎగుమతి రకం"
+msgstr "ఎగుమతి పద్ధతి:"
 
 # మొదటి అనువాదము
 #: libraries/display_export.lib.php:137
@@ -4394,10 +4372,9 @@ msgid "Database(s):"
 msgstr "డేటాబేస్"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Table"
 msgid "Table(s):"
-msgstr "పట్టిక"
+msgstr "పట్టిక(లు):"
 
 #: libraries/display_export.lib.php:149
 msgid "Rows:"
@@ -4551,10 +4528,9 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "పాక్షిక పాఠ్యాలు"
+msgstr "పాక్షిక దిగుమతి:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -4624,17 +4600,16 @@ msgstr ""
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:263
 #: tbl_structure.php:845
 msgid "Options"
-msgstr ""
+msgstr "ఎంపికలు"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "పాక్షిక పాఠ్యాలు"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
 msgid "Full texts"
-msgstr ""
+msgstr "పూర్తి పాఠ్యాలు"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
@@ -5614,7 +5589,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:360
 msgid "Japanese"
-msgstr "జాపనీస్"
+msgstr "జపనీ"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
@@ -5793,7 +5768,7 @@ msgstr "SQL చరిత్ర"
 
 #: libraries/relation.lib.php:141
 msgid "User preferences"
-msgstr ""
+msgstr "వాడుకరి అభిరుచులు"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
@@ -6106,7 +6081,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
 msgstr "అమరికలు"
@@ -6477,10 +6451,9 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:67
-#, fuzzy
 #| msgid "Basic settings"
 msgid "General Settings"
-msgstr "ప్రాధమిక అమరికలు"
+msgstr "సాధారణ అమరికలు"
 
 #: main.php:99
 msgid "MySQL connection collation"
@@ -6501,10 +6474,9 @@ msgid "Choose..."
 msgstr ""
 
 #: main.php:153 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "అమరికలు"
+msgstr "మరిన్ని అమరికలు"
 
 #: main.php:170
 msgid "Protocol version"
@@ -6747,10 +6719,9 @@ msgid "Rename to"
 msgstr ""
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "వాడుకరి పేరు"
+msgstr "కొత్త పేరు"
 
 # మొదటి అనువాదము
 #: pmd_general.php:487 pmd_general.php:702
@@ -8811,15 +8782,15 @@ msgstr ""
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "వెడల్పు"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "ఎత్తు"
 
 #: tbl_chart.php:98
 msgid "Title"
-msgstr ""
+msgstr "శీర్షిక"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
@@ -9370,7 +9341,6 @@ msgid "Available transformations"
 msgstr ""
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -9398,16 +9368,3 @@ msgstr ""
 
 #~ msgid "yes"
 #~ msgstr "అవును"
-
-#, fuzzy
-#~| msgid "End"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "ముగింపు"
-
-#~ msgid "and"
-#~ msgstr "మరియు"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "వివరణ"
