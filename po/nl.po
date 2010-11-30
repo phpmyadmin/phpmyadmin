@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-30 15:49+0200\n"
+"PO-Revision-Date: 2010-11-30 15:51+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9749,9 +9749,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Voeg toe als nieuwe rij en negeer foutmeldingen"
 
 #: tbl_change.php:1035
-#, fuzzy
 msgid "Show insert query"
-msgstr "Toont SQL-query"
+msgstr "Toon insert-query"
 
 #: tbl_change.php:1046
 msgid "and then"
