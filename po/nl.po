@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-08-27 12:34+0200\n"
+"PO-Revision-Date: 2010-11-30 16:19+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -95,17 +95,17 @@ msgstr "Gebruik deze waarde"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Geen blob streaming server geconfigureerd!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Opslaan van het bestand op de hardeschijf is mislukt."
+msgstr "Ophalen van headers mislukt"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Openen van remote URL mislult"
 
 #: db_create.php:58
 #, php-format
@@ -131,10 +131,9 @@ msgstr "Tabelopmerkingen"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Kolom namen"
+msgstr "Kolom "
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -270,10 +269,9 @@ msgid "Command"
 msgstr "Commando"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Hernoem database naar"
+msgstr "Verwijder database"
 
 #: db_operations.php:441
 #, php-format
@@ -281,10 +279,9 @@ msgid "Database %s has been dropped."
 msgstr "Database %s is vervallen."
 
 #: db_operations.php:446
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Ga naar database"
+msgstr "Laat de database vervallen (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
@@ -337,7 +334,7 @@ msgid "Collation"
 msgstr "Collatie"
 
 #: db_operations.php:548
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -345,8 +342,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Extra opties om met tabellen te werken, die gelinkt zijn, zijn "
-"uitgeschakeld. Om te weten te komen waarom klik %shier%s."
+"De phpMyAdmin configuratie opslag is uitgeschakeld. Om te weten te komen "
+"waarom klik %shier%s."
 
 #: db_operations.php:581
 #, fuzzy
@@ -422,11 +419,11 @@ msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Overschakelen naar"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "designer met query opbouw mogelijkheden"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -534,12 +531,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Zoek resultaten voor \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s overeenkomst(en) in de tabel <i>%s</i>"
-msgstr[1] "%s overeenkomst(en) in de tabel <i>%s</i>"
+msgstr[0] "%s overeenkomst in de tabel <i>%s</i>"
+msgstr[1] "%s overeenkomsten in de tabel <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2825
 #: libraries/common.lib.php:3003 libraries/common.lib.php:3004
@@ -561,12 +558,12 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst(en)"
-msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomst(en)"
+msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst"
+msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomsten"
 
 #: db_search.php:296
 msgid "Search in database"
@@ -1571,14 +1568,14 @@ msgstr "Fout"
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rij bijgewerkt."
-msgstr[1] "%1$d rij(en) bijgewerkt."
+msgstr[1] "%1$d rijen bijgewerkt."
 
 #: libraries/Message.class.php:300
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rij verwijderd."
-msgstr[1] "%1$d rij(en) verwijderd."
+msgstr[1] "%1$d rijen verwijderd."
 
 #: libraries/Message.class.php:319
 #, php-format
@@ -2673,10 +2670,9 @@ msgstr "Tabel naam template"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s tabel(len)"
+msgstr "Dump tabel"
 
 #: libraries/config/messages.inc.php:88 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -2727,10 +2723,9 @@ msgid "Remember file name template"
 msgstr "Herinner bestandsnaam template"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Gebruik backticks (`) bij tabellen- en veldnamen"
+msgstr "Gebruik backticks (`) bij tabellen- en kolomnamen"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
@@ -7290,7 +7285,7 @@ msgstr ""
 # Zowel "frame" als "window" vertalen naar "venster".
 #: navigation.php:60 navigation.php:61 navigation.php:64
 msgid "Reload navigation frame"
-msgstr "Herlaad het navigatievenster."
+msgstr "Navigatievenster herladen."
 
 #: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
 msgid "No databases"
@@ -9752,9 +9747,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Voeg toe als nieuwe rij en negeer foutmeldingen"
 
 #: tbl_change.php:1035
-#, fuzzy
 msgid "Show insert query"
-msgstr "Toont SQL-query"
+msgstr "Toon insert-query"
 
 #: tbl_change.php:1046
 msgid "and then"
@@ -10431,90 +10425,3 @@ msgstr "Hernoem view naar"
 
 #~ msgid "No tables"
 #~ msgstr "Geen Tabellen"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV gegevens"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Deze [a@?page=form&amp;formset=features#tab_Security]optie[/a] zou "
-#~ "ingeschakeld moeten zijn indien uw webserver dit ondersteund."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-#~ "100, b,'c'...<br />Wanneer u een backslash (\"\") of een enkele quote "
-#~ "(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
-#~ "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-#~ "100, b,'c'...<br />Wanneer u een backslash (\"\") of een enkele quote "
-#~ "(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
-#~ "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Nieuwe tabel"
-
-#~ msgid "server name"
-#~ msgstr "servernaam"
-
-#~ msgid "database name"
-#~ msgstr "databasenaam"
-
-#~ msgid "table name"
-#~ msgstr "tabelnaam"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "PDF Pagina's aanpassen"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Data Dictionary Formaat"
-
-#~ msgid "no"
-#~ msgstr "nee"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr ""
-#~ "Aanpassen inlog-opties voor het authenticatie type [kbd]signon[/kbd]"
-
-#~ msgid "Signon login options"
-#~ msgstr "Signon inlog opties"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA database"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Aanpassen SQL-query instellingen, voor SQL-query venster opties zie [a@?"
-#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigatieframe[/a] "
-#~ "instellingen"
-
-#~ msgid "yes"
-#~ msgstr "ja"
