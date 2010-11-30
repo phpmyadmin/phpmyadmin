@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-30 15:57+0200\n"
+"PO-Revision-Date: 2010-11-30 16:00+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2670,10 +2670,9 @@ msgstr "Tabel naam template"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s tabel(len)"
+msgstr "Dump tabel"
 
 #: libraries/config/messages.inc.php:88 libraries/export/latex.php:31
 msgid "Include table caption"
