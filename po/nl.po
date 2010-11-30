@@ -281,7 +281,7 @@ msgstr "Database %s is vervallen."
 #: db_operations.php:446
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Laat de database vallen (DROP)"
+msgstr "Laat de database vervallen (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
