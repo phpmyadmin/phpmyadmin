@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-30 17:25+0200\n"
+"PO-Revision-Date: 2010-11-30 17:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1108,7 +1108,7 @@ msgstr "Izberite stolpec za prikaz"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Dodaj možnost za stolpec "
 
 #: js/messages.php:101
 msgid "Generate password"
