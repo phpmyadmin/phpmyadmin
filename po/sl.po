@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-20 07:34-0500\n"
-"PO-Revision-Date: 2010-11-03 01:25+0200\n"
+"PO-Revision-Date: 2010-11-30 17:31+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -412,11 +412,11 @@ msgstr "Za prikaz morate izbrati morate vsaj en stolpec"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Preklopi na"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "vidni graditelj"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -1108,7 +1108,7 @@ msgstr "Izberite stolpec za prikaz"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Dodaj možnost za stolpec "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -2883,15 +2883,14 @@ msgid "Changes tracking"
 msgstr "Sledenje spremembam"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Sledenje spremembam narejenih v zbirki podatkov. Potrebuje konfigurirano "
-"zbirko podatkov PMA."
+"Sledenje spremembam narejenih v zbirki podatkov. Potrebuje hrambo "
+"konfiguracije phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -3023,7 +3022,7 @@ msgstr "Delni uvoz: dovoli prekinitev"
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Ne prekini ob napaki INSERT"
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -4716,13 +4715,11 @@ msgid "Options"
 msgstr "Možnosti"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Delna besedila"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Polna besedila"
@@ -6831,7 +6828,7 @@ msgstr ""
 "phpMyAdmin enkrat že konfiguriran."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -6839,8 +6836,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Hramba konfiguracije phpMyAdmin je bila onemogočena. Če želite izvedeti "
-"zakaj, kliknite %stukaj%s."
+"Hramba konfiguracije phpMyAdmin ni konfigurirana v celoti, zato so bile "
+"nekatere razširjene zmožnosti onemogočene. Če želite izvedeti zakaj, "
+"kliknite %stukaj%s."
 
 #: main.php:319
 msgid ""
@@ -6944,10 +6942,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Uvozi/Izvozi koordinate za PDF-shemo"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Izvedi poizvedbo"
+msgstr "Zgradi poizvedbo"
 
 #: pmd_general.php:127
 msgid "Move Menu"
@@ -6970,42 +6967,36 @@ msgid "Delete relation"
 msgstr "Izbriši razmerje"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relacija je izbrisana"
+msgstr "Operator razmerja"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Izvozi"
+msgstr "Razen"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "v poizvedbi"
+msgstr "podpoizvedba"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Preimenuj pogled v"
+msgstr "Preimenuj v"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Uporabniško ime"
+msgstr "Novo ime"
 
 #: pmd_general.php:487 pmd_general.php:702
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Ustvari"
+msgstr "Agregat"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
@@ -7014,10 +7005,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Možnosti tabele"
+msgstr "Dejavne možnosti"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
