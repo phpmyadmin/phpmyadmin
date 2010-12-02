@@ -775,10 +775,11 @@ $cfg['LeftLogoLinkWindow'] = 'main';
 
 /**
  * display a JavaScript table filter in the left frame
+ * when more then x tables are present
  *
- * @global boolean $cfg['LeftDisplayTableFilter']
+ * @global boolean $cfg['LeftDisplayTableFilterMinimum']
  */
-$cfg['LeftDisplayTableFilter'] = true;
+$cfg['LeftDisplayTableFilterMinimum'] = 30;
 
 /**
  * display server choice at top of left frame

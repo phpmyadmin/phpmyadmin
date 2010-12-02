@@ -286,7 +286,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         $db_tooltip     = $GLOBALS['db'];
     }
 
-    if ($table_count && $GLOBALS['cfg']['LeftDisplayTableFilter']) {
+    if ($table_count >= $GLOBALS['cfg']['LeftDisplayTableFilterMinimum']) {
         ?>
         <span id="NavFilter">
         <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter'); ?>" value="<?php echo __('filter tables by name'); ?>" />
