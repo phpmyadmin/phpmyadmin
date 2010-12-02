@@ -616,9 +616,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             .'    </p>' . "\n";
     } // end if
 
-    $tmp_mysql_error = ''; // for saving the original $error_message
     if (!empty($error_message)) {
-        $tmp_mysql_error = strtolower($error_message); // save the original $error_message
         $error_message = htmlspecialchars($error_message);
         $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
     }
