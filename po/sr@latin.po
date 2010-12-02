@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-02 14:47+0200\n"
+"PO-Revision-Date: 2010-12-02 14:48+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
 "Language: sr@latin\n"
@@ -478,10 +478,9 @@ msgid "Modify"
 msgstr "Promeni"
 
 #: db_qbe.php:603
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Dodaj/obriši polje za kriterijum"
+msgstr "Dodaj/obriši kriterijum za polja"
 
 #: db_qbe.php:615
 #, fuzzy
