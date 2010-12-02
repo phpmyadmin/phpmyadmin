@@ -163,12 +163,16 @@ for kit in $KITS ; do
     # Prepare distributions
     for comp in $COMPRESSIONS ; do
         case $comp in
-            tbz|tgz)
+            tbz|tgz|txz)
                 echo "* Creating $name.tar"
                 tar cf $name.tar $name
                 if [ $comp = tbz ] ; then
                     echo "* Creating $name.tar.bz2"
                     bzip2 -9k $name.tar
+                fi
+                if [ $comp = txz ] ; then
+                    echo "* Creating $name.tar.xz"
+                    xz -9k $name.tar
                 fi
                 if [ $comp = tgz ] ; then
                     echo "* Creating $name.tar.gz"
