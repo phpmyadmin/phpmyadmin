@@ -112,7 +112,7 @@ msgstr "Neuspelo otvaranje udaljene URL adrese"
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Baza %1$ je kreirana."
+msgstr "Baza %1$s je kreirana."
 
 #: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
