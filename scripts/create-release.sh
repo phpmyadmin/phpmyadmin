@@ -12,7 +12,7 @@ set -u
 set -e
 
 KITS="all-languages english"
-COMPRESSIONS="zip-7z tbz tgz 7z"
+COMPRESSIONS="zip-7z tbz txz tgz 7z"
 
 if [ $# -lt 2 ]
 then
