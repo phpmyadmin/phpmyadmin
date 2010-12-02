@@ -123,6 +123,7 @@
 - bug #3115519 [interface] Prevent long queries from being shown in confirmation popup
 - patch #3112792 [navi] Left panel table grouping incorrect,
   thanks to garas - garas
+- bug #3123433 [interface] Avoid double escaping of MySQL errors.
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc

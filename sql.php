@@ -377,12 +377,12 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
                 $table = '';
             }
             $active_page = $goto;
-            $message = PMA_Message::rawError(htmlspecialchars($error));
+            $message = PMA_Message::rawError($error);
 
             if( $GLOBALS['is_ajax_request'] == true) {
                 PMA_ajaxResponse($message, false);
             }
-            
+
             /**
              * Go to target path.
              */
