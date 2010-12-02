@@ -21,6 +21,8 @@ mkdir $REL
 cd $REL
 put phpMyAdmin-$REL-all-languages.tar.bz2
 put phpMyAdmin-$REL-english.tar.bz2
+put phpMyAdmin-$REL-all-languages.tar.xz
+put phpMyAdmin-$REL-english.tar.xz
 put phpMyAdmin-$REL-all-languages.tar.gz
 put phpMyAdmin-$REL-english.tar.gz
 put phpMyAdmin-$REL-all-languages.zip	
