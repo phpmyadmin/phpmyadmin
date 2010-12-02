@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-11-21 10:10+0100\n"
+"PO-Revision-Date: 2010-12-02 17:30+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -551,10 +551,10 @@ msgid "Delete"
 msgstr "Odstranit"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Odstranit všechny informace o sledování této tabulky"
+msgstr "Odstranit nalezené záznamy z tabulky %s?"
 
 #: db_search.php:273
 #, php-format
@@ -618,8 +618,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -841,8 +841,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1599,8 +1599,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1785,7 +1785,7 @@ msgstr "Zkontrolovat oprávnění"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
-msgstr "Statistika dotazu"
+msgstr "Statistika dotazů"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
@@ -4517,8 +4517,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6437,8 +6437,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6479,8 +6479,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -6851,10 +6851,9 @@ msgid "Filter"
 msgstr "Filtr"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "jméno tabulky"
+msgstr "filtrovat tabulky podle jména"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
@@ -7088,8 +7087,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7541,8 +7540,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9019,8 +9018,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
