@@ -643,6 +643,10 @@ if (0 == $num_rows || $is_affected) {
             //if some posted fields need to be transformed, generate them here.
             $mime_map = PMA_getMIME($db, $table);
 
+            if ($mime_map === FALSE) {
+                $mime_map = array();
+            }
+
             $edited_values = array();
             parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
