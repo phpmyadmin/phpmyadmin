@@ -2990,10 +2990,10 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
 }
 
 /**
- * Build titles and icons for action links 
+ * Build titles and icons for action links
  *
- * @return   array   the action titles 
- * @uses     PMA_getIcon() 
+ * @return   array   the action titles
+ * @uses     PMA_getIcon()
  */
 function PMA_buildActionTitles() {
     $titles = array();
