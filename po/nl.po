@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 16:19+0200\n"
+"PO-Revision-Date: 2010-12-03 16:20+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1103,10 +1103,9 @@ msgid "Searching"
 msgstr "Zoeken"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL-query veld"
+msgstr "SQL-query veld verbergen"
 
 #: js/messages.php:85
 #, fuzzy
