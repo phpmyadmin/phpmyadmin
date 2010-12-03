@@ -1098,7 +1098,6 @@ msgid "Create Table"
 msgstr "Maak tabel"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Zoeken"
