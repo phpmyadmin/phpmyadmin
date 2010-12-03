@@ -1391,7 +1391,6 @@ msgstr "Do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Vr"
