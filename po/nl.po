@@ -1037,7 +1037,6 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
 msgstr "Laden"
