@@ -1012,10 +1012,9 @@ msgid "Add a New User"
 msgstr "Voeg een nieuwe gebruiker toe"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Versie aanmaken"
+msgstr "Gebruiker aanmaken"
 
 #: js/messages.php:54
 #, fuzzy
