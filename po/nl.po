@@ -1108,10 +1108,9 @@ msgid "Hide query box"
 msgstr "SQL-query veld verbergen"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL-query veld"
+msgstr "SQL-query veld tonen"
 
 # "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen iets anders.
 #: js/messages.php:86
