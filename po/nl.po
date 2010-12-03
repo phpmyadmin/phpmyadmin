@@ -1159,10 +1159,9 @@ msgid "Change Password"
 msgstr "Wijzig wachtwoord"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Ma"
+msgstr "Meer"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:116
