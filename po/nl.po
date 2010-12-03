@@ -1828,7 +1828,6 @@ msgid "Check Privileges"
 msgstr "Controleer privileges"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Toon statistieken"
