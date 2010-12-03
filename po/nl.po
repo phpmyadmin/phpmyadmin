@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 16:20+0200\n"
+"PO-Revision-Date: 2010-12-03 16:36+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1114,10 +1114,9 @@ msgstr "SQL-query veld tonen"
 
 # "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen iets anders.
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr "Rechtstreeks"
+msgstr "Wijzig inline"
 
 #: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
