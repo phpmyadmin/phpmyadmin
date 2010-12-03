@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 16:52+0200\n"
+"PO-Revision-Date: 2010-12-03 16:53+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1741,10 +1741,9 @@ msgid "PBMS error"
 msgstr ""
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Het aanmaken van de pagina is mislukt"
+msgstr "PBMS connectie mislukt:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
