@@ -1844,7 +1844,7 @@ msgstr "Query resultaat bewerkingen"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Geen gegeven beschikbaar voor de grafiek."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
