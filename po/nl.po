@@ -1017,7 +1017,6 @@ msgid "Create User"
 msgstr "Gebruiker aanmaken"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Bezig de privileges te verversen"
