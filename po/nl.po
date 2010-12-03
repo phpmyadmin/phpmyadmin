@@ -581,10 +581,9 @@ msgid "Inside table(s):"
 msgstr "In de tabel(len):"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "In het veld:"
+msgstr "In de kolom:"
 
 #: db_structure.php:59
 #, fuzzy
