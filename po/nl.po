@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 16:53+0200\n"
+"PO-Revision-Date: 2010-12-03 16:54+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -803,7 +803,7 @@ msgstr "Database-log"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Waarden voor het de kolom \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
