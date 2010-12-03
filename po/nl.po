@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 16:18+0200\n"
+"PO-Revision-Date: 2010-12-03 16:19+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1071,10 +1071,9 @@ msgid "Renaming Databases"
 msgstr "Hernoem database naar"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Hernoem database naar"
+msgstr "Ververs database"
 
 #: js/messages.php:73
 #, fuzzy
