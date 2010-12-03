@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-03 19:37+0200\n"
+"PO-Revision-Date: 2010-12-03 19:38+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -6843,10 +6843,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "table name"
+msgstr "filter tables by name"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
