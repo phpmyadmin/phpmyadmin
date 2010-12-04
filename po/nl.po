@@ -2582,7 +2582,6 @@ msgid "Replace NULL by"
 msgstr "Vervang NULL door"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
