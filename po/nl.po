@@ -1881,10 +1881,10 @@ msgstr ""
 "configuratiebestand!"
 
 #: libraries/common.inc.php:617
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Ongeldige serverindex: \"%s\""
+msgstr "Ongeldige serverindex: %s"
 
 #: libraries/common.inc.php:624
 #, php-format
