@@ -2235,7 +2235,7 @@ msgstr "PHP SOAP-extensie niet gevonden"
 #, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Maximum %s"
+msgstr "maximum %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
