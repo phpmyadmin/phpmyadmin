@@ -276,8 +276,24 @@ $(document).ready(function() {
      * Submission of data to be inserted or updated 
      * 
      * @uses    PMA_ajaxShowMessage()
+     *
+     * This section has been deactivated. Here are the problems that I've
+     * noticed:
+     *
+     * 1. If the form contains a file upload field, the data does not reach
+     *    tbl_replace.php. This is because AJAX does not support file upload.
+     *    As a workaround I tried jquery.form.js version 2.49. The file
+     *    upload worked but afterwards the browser presented a tbl_replace.php
+     *    file and a choice to open or save.
+     *
+     * 2. This code can be called if we are editing or inserting. If editing,
+     *    the "and then" action can be "go back to this page" or "edit next
+     *    row", in which cases it makes sense to use AJAX. But the "go back
+     *    to previous page" and "insert another new row" actions, using AJAX 
+     *    has no obvious advantage. If inserting, the "go back to previous"
+     *    action needs a page refresh anyway. 
      */
-    $("#insertForm").live('submit', function(event) {
+    $("#insertFormDEACTIVATED").live('submit', function(event) {
 
         /**
          * @var the_form    Object referring to the insertion form
