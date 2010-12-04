@@ -2151,10 +2151,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Uitgebreid - als bovenstaande maar zonder snel/uitgebreid keuze"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Invoegen voltooid"
+msgstr "Volledige inserts "
 
 #: libraries/config.values.php:120
 #, fuzzy
