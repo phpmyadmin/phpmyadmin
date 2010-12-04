@@ -1942,10 +1942,9 @@ msgid "MySQL said: "
 msgstr "MySQL retourneerde: "
 
 #: libraries/common.lib.php:1078
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Er kan geen verbinding worden gemaakt met de server"
+msgstr "Er kan geen verbinding worden gemaakt met de SQL-validator"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
