@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 23:14+0200\n"
+"PO-Revision-Date: 2010-12-04 23:15+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2525,6 +2525,7 @@ msgstr "Negeer foutmeldingen"
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
 msgstr ""
+"Toon iconen voor waarschuwingen, foutmeldingen en informatieve berichten"
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
