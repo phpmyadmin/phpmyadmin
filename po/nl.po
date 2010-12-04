@@ -1052,7 +1052,7 @@ msgstr "Fout tijdens het verwerken van de opdracht"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Kolom komt te vervallen"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
