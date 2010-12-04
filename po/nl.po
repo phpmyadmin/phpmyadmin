@@ -2886,10 +2886,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Instellingen die onder geen andere categorie pasten"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Paginanummer:"
+msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
