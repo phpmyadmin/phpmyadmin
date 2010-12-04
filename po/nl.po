@@ -2156,7 +2156,6 @@ msgid "complete inserts"
 msgstr "Volledige inserts "
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Uitgebreide invoegingen"
