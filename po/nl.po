@@ -2503,10 +2503,9 @@ msgid "Display errors"
 msgstr "Toon foutmeldingen"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Negeer foutmeldingen"
+msgstr "Verzamel foutmeldingen"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
