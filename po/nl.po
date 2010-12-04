@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 22:36+0200\n"
+"PO-Revision-Date: 2010-12-04 22:37+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -951,7 +951,7 @@ msgstr "U staat op het punt een complete database te VERWIJDEREN!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Gebeurtenis komt te vervallen"
 
 #: js/messages.php:33
 #| msgid "Procedures"
