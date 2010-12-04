@@ -1142,7 +1142,7 @@ msgstr "Kies weer te geven veld"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Voeg een optie toe voor komom "
 
 #: js/messages.php:101
 #| msgid "Generate Password"
