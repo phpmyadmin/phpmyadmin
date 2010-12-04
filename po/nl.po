@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 23:30+0200\n"
+"PO-Revision-Date: 2010-12-04 23:31+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2589,10 +2589,9 @@ msgstr "Verwijder CRLF tekens uit veld-waarden"
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Regels beëindigd door"
+msgstr "Velden beëindigd door"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
