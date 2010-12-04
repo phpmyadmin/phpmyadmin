@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 23:32+0200\n"
+"PO-Revision-Date: 2010-12-04 23:33+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2804,10 +2804,9 @@ msgid "Features"
 msgstr "Opties"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Genereer"
+msgstr "Algemeen"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
