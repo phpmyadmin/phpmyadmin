@@ -92,7 +92,6 @@ if (isset($_REQUEST['do_save_data'])) {
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_backquote($db) . ';', '', $err_url);
-    // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ' . implode(', ', $changes) . $key_query;
     $result    = PMA_DBI_try_query($sql_query);
 

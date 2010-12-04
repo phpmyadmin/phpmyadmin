@@ -246,7 +246,7 @@ for ($x = 0; $x < $col; $x++) {
 
     // If they have chosen all fields using the * selector,
     // then sorting is not available
-    // Robbat2 - Fix for Bug #570698
+    // Fix for Bug #570698
     if (isset($Sort[$x]) && isset($Field[$x])
      && substr($Field[$x], -2) == '.*') {
         $Sort[$x] = '';
@@ -936,7 +936,7 @@ for ($x = 0; $x < $col; $x++) {
     if (!empty($curField[$x]) && !empty($curSort[$x])) {
         // if they have chosen all fields using the * selector,
         // then sorting is not available
-        // Robbat2 - Fix for Bug #570698
+        // Fix for Bug #570698
         if (substr($curField[$x], -2) != '.*') {
             $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
             $last_orderby = 1;
