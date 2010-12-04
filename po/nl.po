@@ -2430,7 +2430,7 @@ msgstr "Bevestig 'DROP'-queries"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:43
 #, fuzzy
