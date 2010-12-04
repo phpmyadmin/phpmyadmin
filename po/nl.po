@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 23:26+0200\n"
+"PO-Revision-Date: 2010-12-04 23:27+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2463,10 +2463,9 @@ msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
 #: libraries/config/messages.inc.php:52
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Toon binaire-inhoud als HEX"
+msgstr "Toon binaire-inhoud standaard als HEX"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
