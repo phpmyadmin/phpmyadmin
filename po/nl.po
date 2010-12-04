@@ -2422,10 +2422,9 @@ msgid "Debug SQL"
 msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Weergave opties voor databases"
+msgstr "Standaard weergave richting"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
