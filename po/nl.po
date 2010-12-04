@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 23:13+0200\n"
+"PO-Revision-Date: 2010-12-04 23:14+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2502,7 +2502,7 @@ msgstr "Toon servers als een lijst"
 
 #: libraries/config/messages.inc.php:58
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Bewerk SQL-queries in popup  venster"
 
 #: libraries/config/messages.inc.php:59
 #, fuzzy
