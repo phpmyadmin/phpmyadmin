@@ -2599,7 +2599,6 @@ msgid "Lines terminated by"
 msgstr "Regels beëindigd door"
 
 #: libraries/config/messages.inc.php:78
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel editie"
