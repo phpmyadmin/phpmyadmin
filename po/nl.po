@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-11-30 12:47-0500\n"
-"PO-Revision-Date: 2010-12-04 22:40+0200\n"
+"PO-Revision-Date: 2010-12-04 22:41+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1751,7 +1751,7 @@ msgstr "PBMS BLOB info ophalen mislukt"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "ophalen van BLOB Content-type mislukt"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
