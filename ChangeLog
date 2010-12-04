@@ -125,6 +125,7 @@
   thanks to garas - garas
 - bug #3123433 [interface] Avoid double escaping of MySQL errors.
 - bug #3119874 [interface] Show integers without decimals on status page.
+- bug #3119882 [interface] Display query chart on demand.
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc

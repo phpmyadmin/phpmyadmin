@@ -603,7 +603,7 @@ foreach ($sections as $section_name => $section) {
 
 <hr class="clearfloat" />
 
-<h3><?php echo
+<h3 id="serverstatusqueries"><?php echo
     sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
         PMA_formatNumber($server_status['Questions'], 0)); ?></h3>
 
@@ -702,10 +702,20 @@ foreach ($used_queries as $name => $value) {
     <div class="clearfloat"></div>
 </div>
 
-<div>    
-    <?php
-    echo PMA_chart_status($used_queries);
-    ?>
+<div id="serverstatusquerieschart">
+<?php
+	if (empty($_REQUEST["query_chart"])) {
+		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query . '&amp;query_chart=1#serverstatusqueries"'
+			.'title="' . __('Show query chart') . '">'
+			. __('Show query chart') . '</a>';
+	} else {
+		echo PMA_chart_status($used_queries);
+		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query . '#serverstatusqueries"'
+		.'title="' . __('Hide query chart') . '">'
+		. __('Hide query chart') . '</a>';
+	}
+	PMA_Message::warning(__('Note: Generating the query chart can take a long time.'))->display();
+?>
 </div>
 
 <div id="serverstatussection">
