@@ -57,18 +57,23 @@ require './libraries/Error_Handler.class.php';
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
 $cfg['Error_Handler']['display'] = TRUE;
 
-// at this point PMA_PHP_INT_VERSION is not yet defined
-if (version_compare(phpversion(), '6', 'lt')) {
+/*
+ * This setting was removed in PHP 5.3. But at this point PMA_PHP_INT_VERSION 
+ * is not yet defined so we use another way to find out the PHP version.
+ */
+if (version_compare(phpversion(), '5.3', 'lt')) {
     /**
      * Avoid object cloning errors
      */
     @ini_set('zend.ze1_compatibility_mode', false);
-
-    /**
-     * Avoid problems with magic_quotes_runtime
-     */
-    @ini_set('magic_quotes_runtime', false);
 }
+
+/**
+ * Avoid problems with magic_quotes_runtime
+ * (in the future, this setting will be removed but it's not yet
+ * known in which PHP version)
+ */
+@ini_set('magic_quotes_runtime', false);
 
 /**
  * for verification in all procedural scripts under libraries
