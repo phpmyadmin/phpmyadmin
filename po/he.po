@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-11-30 12:47-0500\n"
+"POT-Creation-Date: 2010-12-04 15:22+0100\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Show all"
 msgstr "ראיית הכל"
 
-#: browse_foreigners.php:80 libraries/common.lib.php:2300
+#: browse_foreigners.php:80 libraries/common.lib.php:2293
 #: libraries/display_tbl.lib.php:392 libraries/export/pdf.php:137
 #: libraries/schema/Pdf_Relation_Schema.class.php:242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1101
@@ -34,9 +34,9 @@ msgid ""
 "cross-window updates."
 msgstr ""
 
-#: browse_foreigners.php:148 libraries/common.lib.php:2823
-#: libraries/common.lib.php:2830 libraries/common.lib.php:3005
-#: libraries/common.lib.php:3006 libraries/db_links.inc.php:60
+#: browse_foreigners.php:148 libraries/common.lib.php:2816
+#: libraries/common.lib.php:2823 libraries/common.lib.php:2998
+#: libraries/common.lib.php:2999 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "חיפוש"
@@ -45,8 +45,8 @@ msgstr "חיפוש"
 #: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1311
-#: libraries/common.lib.php:2276 libraries/core.lib.php:544
+#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
+#: libraries/common.lib.php:2269 libraries/core.lib.php:544
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -80,7 +80,7 @@ msgstr ""
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:752
+#: server_status.php:762
 msgid "Description"
 msgstr "תיאור"
 
@@ -497,7 +497,7 @@ msgstr "השתמש בטבלאות"
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
-#: db_qbe.php:953 libraries/common.lib.php:1167
+#: db_qbe.php:953 libraries/common.lib.php:1160
 msgid "Submit Query"
 msgstr "שליחת שאילתה"
 
@@ -536,8 +536,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: db_search.php:255 libraries/common.lib.php:2825
-#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
+#: db_search.php:255 libraries/common.lib.php:2818
+#: libraries/common.lib.php:2996 libraries/common.lib.php:2997
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -692,15 +692,15 @@ msgstr "ייצוא"
 msgid "Print view"
 msgstr "תצוגת הדפסה"
 
-#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1642
-#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
+#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1635
+#: libraries/common.lib.php:3005 libraries/common.lib.php:3006
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "ריקון"
 
 #: db_structure.php:503 db_structure.php:504 db_tracking.php:103
-#: libraries/Index.class.php:482 libraries/common.lib.php:1643
-#: libraries/common.lib.php:3010 libraries/common.lib.php:3011
+#: libraries/Index.class.php:482 libraries/common.lib.php:1636
+#: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:251 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -760,7 +760,7 @@ msgstr "יצירה"
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:88 libraries/common.lib.php:1330
+#: db_tracking.php:88 libraries/common.lib.php:1323
 #: libraries/server_links.inc.php:50 server_processlist.php:58
 #: tbl_tracking.php:590 test/theme.php:100
 msgid "Status"
@@ -890,7 +890,7 @@ msgstr "כתובת מועדפת נמחקה."
 msgid "Showing bookmark"
 msgstr ""
 
-#: import.php:401 sql.php:807
+#: import.php:401 sql.php:811
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -912,7 +912,7 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import_status.php:30 libraries/common.lib.php:661
+#: import_status.php:30 libraries/common.lib.php:654
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
 msgid "Back"
 msgstr "חזרה"
@@ -1180,8 +1180,8 @@ msgid "Prev"
 msgstr "הקודם"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:120 libraries/common.lib.php:2340
-#: libraries/common.lib.php:2343 libraries/display_tbl.lib.php:336
+#: js/messages.php:120 libraries/common.lib.php:2333
+#: libraries/common.lib.php:2336 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
 msgid "Next"
@@ -1257,27 +1257,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:140 libraries/common.lib.php:1545
+#: js/messages.php:140 libraries/common.lib.php:1538
 msgid "Jan"
 msgstr "ינואר"
 
 #. l10n: Short month name
-#: js/messages.php:142 libraries/common.lib.php:1547
+#: js/messages.php:142 libraries/common.lib.php:1540
 msgid "Feb"
 msgstr "פברואר"
 
 #. l10n: Short month name
-#: js/messages.php:144 libraries/common.lib.php:1549
+#: js/messages.php:144 libraries/common.lib.php:1542
 msgid "Mar"
 msgstr "מרץ"
 
 #. l10n: Short month name
-#: js/messages.php:146 libraries/common.lib.php:1551
+#: js/messages.php:146 libraries/common.lib.php:1544
 msgid "Apr"
 msgstr "אפריל"
 
 #. l10n: Short month name
-#: js/messages.php:148 libraries/common.lib.php:1553
+#: js/messages.php:148 libraries/common.lib.php:1546
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1285,37 +1285,37 @@ msgid "May"
 msgstr "מאי"
 
 #. l10n: Short month name
-#: js/messages.php:150 libraries/common.lib.php:1555
+#: js/messages.php:150 libraries/common.lib.php:1548
 msgid "Jun"
 msgstr "יוני"
 
 #. l10n: Short month name
-#: js/messages.php:152 libraries/common.lib.php:1557
+#: js/messages.php:152 libraries/common.lib.php:1550
 msgid "Jul"
 msgstr "יולי"
 
 #. l10n: Short month name
-#: js/messages.php:154 libraries/common.lib.php:1559
+#: js/messages.php:154 libraries/common.lib.php:1552
 msgid "Aug"
 msgstr "אוגוסט"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1561
+#: js/messages.php:156 libraries/common.lib.php:1554
 msgid "Sep"
 msgstr "ספטמבר"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1563
+#: js/messages.php:158 libraries/common.lib.php:1556
 msgid "Oct"
 msgstr "אוקטובר"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1565
+#: js/messages.php:160 libraries/common.lib.php:1558
 msgid "Nov"
 msgstr "נובמבר"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1567
+#: js/messages.php:162 libraries/common.lib.php:1560
 msgid "Dec"
 msgstr "דצמבר"
 
@@ -1356,37 +1356,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:175 libraries/common.lib.php:1570
+#: js/messages.php:175 libraries/common.lib.php:1563
 msgid "Sun"
 msgstr "יום ראשון"
 
 #. l10n: Short week day name
-#: js/messages.php:177 libraries/common.lib.php:1572
+#: js/messages.php:177 libraries/common.lib.php:1565
 msgid "Mon"
 msgstr "יום שני"
 
 #. l10n: Short week day name
-#: js/messages.php:179 libraries/common.lib.php:1574
+#: js/messages.php:179 libraries/common.lib.php:1567
 msgid "Tue"
 msgstr "יום שלישי"
 
 #. l10n: Short week day name
-#: js/messages.php:181 libraries/common.lib.php:1576
+#: js/messages.php:181 libraries/common.lib.php:1569
 msgid "Wed"
 msgstr "יום רביעי"
 
 #. l10n: Short week day name
-#: js/messages.php:183 libraries/common.lib.php:1578
+#: js/messages.php:183 libraries/common.lib.php:1571
 msgid "Thu"
 msgstr "יום חמישי"
 
 #. l10n: Short week day name
-#: js/messages.php:185 libraries/common.lib.php:1580
+#: js/messages.php:185 libraries/common.lib.php:1573
 msgid "Fri"
 msgstr "יום שישי"
 
 #. l10n: Short week day name
-#: js/messages.php:187 libraries/common.lib.php:1582
+#: js/messages.php:187 libraries/common.lib.php:1575
 msgid "Sat"
 msgstr "שבת"
 
@@ -1530,8 +1530,8 @@ msgstr "מספור"
 msgid "Comment"
 msgstr "הערות"
 
-#: libraries/Index.class.php:465 libraries/common.lib.php:610
-#: libraries/common.lib.php:1143 libraries/config/messages.inc.php:458
+#: libraries/Index.class.php:465 libraries/common.lib.php:606
+#: libraries/common.lib.php:1136 libraries/config/messages.inc.php:458
 #: libraries/display_tbl.lib.php:1155 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
@@ -1561,7 +1561,7 @@ msgid "Databases"
 msgstr "מאגרי נתונים"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
-#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:575
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:573
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -1885,7 +1885,7 @@ msgstr ""
 msgid "JSON encoder is needed for chart tooltips."
 msgstr ""
 
-#: libraries/common.inc.php:571
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1899,37 +1899,37 @@ msgstr ""
 "ישירות בעזרת הקישור מתחת להודעה זו וקרא את הודעת PHP שהינך מקבל. ברוב המילים "
 "גרש או נקודה-פסיק חסרים במקום כלשהו.<br /> אם הינך מקבל דף ריק, הכל בסדר."
 
-#: libraries/common.inc.php:582
+#: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
 
-#: libraries/common.inc.php:617
+#: libraries/common.inc.php:622
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:624
+#: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:633 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "שרת"
 
-#: libraries/common.inc.php:822
+#: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:926
+#: libraries/common.inc.php:929
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "אתה צריך לשדרג אל %s %s לפחות."
@@ -1963,146 +1963,146 @@ msgstr "נשלח"
 msgid "Documentation"
 msgstr "תיעוד"
 
-#: libraries/common.lib.php:589 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:585 libraries/header_printview.inc.php:60
 #: server_processlist.php:59 server_status.php:364
 msgid "SQL query"
 msgstr "שאילתת SQL"
 
-#: libraries/common.lib.php:628
+#: libraries/common.lib.php:621
 msgid "MySQL said: "
 msgstr "MySQL אמר: "
 
-#: libraries/common.lib.php:1078
+#: libraries/common.lib.php:1071
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/common.lib.php:1119 libraries/config/messages.inc.php:459
+#: libraries/common.lib.php:1112 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
 msgstr "הסברת SQL"
 
-#: libraries/common.lib.php:1122
+#: libraries/common.lib.php:1115
 msgid "Skip Explain SQL"
 msgstr "Skip Explain SQL"
 
-#: libraries/common.lib.php:1156
+#: libraries/common.lib.php:1149
 msgid "Without PHP Code"
 msgstr "ללא קוד PHP"
 
-#: libraries/common.lib.php:1159 libraries/config/messages.inc.php:461
+#: libraries/common.lib.php:1152 libraries/config/messages.inc.php:461
 msgid "Create PHP Code"
 msgstr "ייצור קוד PHP"
 
-#: libraries/common.lib.php:1177 libraries/config/messages.inc.php:460
+#: libraries/common.lib.php:1170 libraries/config/messages.inc.php:460
 #: server_status.php:458
 msgid "Refresh"
 msgstr "רענון"
 
-#: libraries/common.lib.php:1186
+#: libraries/common.lib.php:1179
 #, fuzzy
 msgid "Skip Validate SQL"
 msgstr "בדיקת תקינות SQL"
 
-#: libraries/common.lib.php:1189 libraries/config/messages.inc.php:463
+#: libraries/common.lib.php:1182 libraries/config/messages.inc.php:463
 msgid "Validate SQL"
 msgstr "בדיקת תקינות SQL"
 
-#: libraries/common.lib.php:1244
+#: libraries/common.lib.php:1237
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1246
+#: libraries/common.lib.php:1239
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "מנועים"
 
-#: libraries/common.lib.php:1310 libraries/common.lib.php:1326
+#: libraries/common.lib.php:1303 libraries/common.lib.php:1319
 msgid "Profiling"
 msgstr ""
 
-#: libraries/common.lib.php:1331 libraries/tbl_triggers.lib.php:27
+#: libraries/common.lib.php:1324 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
 msgid "Time"
 msgstr "זמן"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "B"
 msgstr "Bytes"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "KiB"
 msgstr "KB"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "MiB"
 msgstr "MB"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "GiB"
 msgstr "GB"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "TiB"
 msgstr "TB"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "PiB"
 msgstr "PB"
 
-#: libraries/common.lib.php:1369
+#: libraries/common.lib.php:1362
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1407
+#: libraries/common.lib.php:1400
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1409
+#: libraries/common.lib.php:1402
 msgid "."
 msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1586
+#: libraries/common.lib.php:1579
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y at %I:%M %p"
 
-#: libraries/common.lib.php:1896
+#: libraries/common.lib.php:1889
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ימים, %s שעות, %s דקות ו- %s שניות"
 
-#: libraries/common.lib.php:2309 libraries/common.lib.php:2312
-#: libraries/display_tbl.lib.php:288 server_status.php:732
+#: libraries/common.lib.php:2302 libraries/common.lib.php:2305
+#: libraries/display_tbl.lib.php:288 server_status.php:742
 msgid "Begin"
 msgstr "התחלה"
 
-#: libraries/common.lib.php:2310 libraries/common.lib.php:2313
+#: libraries/common.lib.php:2303 libraries/common.lib.php:2306
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
 msgstr "הקודם"
 
-#: libraries/common.lib.php:2341 libraries/common.lib.php:2344
+#: libraries/common.lib.php:2334 libraries/common.lib.php:2337
 #: libraries/display_tbl.lib.php:351
 msgid "End"
 msgstr "סיום"
 
-#: libraries/common.lib.php:2416
+#: libraries/common.lib.php:2409
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "קפיצה אל מאגר נתונים &quot;%s&quot;."
 
-#: libraries/common.lib.php:2435
+#: libraries/common.lib.php:2428
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
-#: libraries/common.lib.php:3009 libraries/config/setup.forms.php:289
+#: libraries/common.lib.php:2814 libraries/common.lib.php:2821
+#: libraries/common.lib.php:3002 libraries/config/setup.forms.php:289
 #: libraries/config/setup.forms.php:326 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:191
 #: libraries/config/user_preferences.forms.php:228
@@ -2114,7 +2114,7 @@ msgstr ""
 msgid "Structure"
 msgstr "מבנה"
 
-#: libraries/common.lib.php:2822 libraries/common.lib.php:2829
+#: libraries/common.lib.php:2815 libraries/common.lib.php:2822
 #: libraries/config/messages.inc.php:209 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:46 libraries/tbl_links.inc.php:58
@@ -2122,28 +2122,28 @@ msgstr "מבנה"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2824 libraries/common.lib.php:3007
-#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:314
+#: libraries/common.lib.php:2817 libraries/common.lib.php:3000
+#: libraries/common.lib.php:3001 libraries/sql_query_form.lib.php:314
 #: libraries/sql_query_form.lib.php:317 libraries/tbl_links.inc.php:67
 msgid "Insert"
 msgstr "הכנסה"
 
-#: libraries/common.lib.php:2831 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2824 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "פעולות"
 
-#: libraries/common.lib.php:2957
+#: libraries/common.lib.php:2950
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:2970
+#: libraries/common.lib.php:2963
 #, fuzzy, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "שמירת שרת בתוך תיקיית %s"
 
-#: libraries/common.lib.php:2982 libraries/sql_query_form.lib.php:496
+#: libraries/common.lib.php:2975 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
@@ -3205,10 +3205,8 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
-#| msgid "Displaying Column Comments"
-msgid "Display table filter"
-msgstr "מציג הערות עמודה"
+msgid "Mimimum number of tables to display table filter"
+msgstr ""
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -5993,13 +5991,13 @@ msgid "Slave status"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:750 server_variables.php:51
+#: server_status.php:760 server_variables.php:51
 msgid "Variable"
 msgstr "משתנה"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:751 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "ערך"
@@ -6300,11 +6298,11 @@ msgstr "הרצת את שאילתה/שאילתות על מסד הנתונים %s"
 msgid "Columns"
 msgstr "שמות עמודה"
 
-#: libraries/sql_query_form.lib.php:332 sql.php:846 sql.php:847 sql.php:864
+#: libraries/sql_query_form.lib.php:332 sql.php:850 sql.php:851 sql.php:868
 msgid "Bookmark this SQL query"
 msgstr "הכנס שאילתת SQL זאת למועדפים"
 
-#: libraries/sql_query_form.lib.php:339 sql.php:858
+#: libraries/sql_query_form.lib.php:339 sql.php:862
 msgid "Let every user access this bookmark"
 msgstr "אפשר לכל משתמש לגשת לכתובת מועדפת זאת"
 
@@ -6341,13 +6339,13 @@ msgstr "מיקום של קובץ טקסט"
 msgid "web server upload directory"
 msgstr "שמירת שרת בתוך תיקיית %s"
 
-#: libraries/sqlparser.lib.php:138
+#: libraries/sqlparser.lib.php:134
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:173
+#: libraries/sqlparser.lib.php:169
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -6360,35 +6358,35 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:175
+#: libraries/sqlparser.lib.php:171
 msgid "BEGIN CUT"
 msgstr "התחלת חיתוך"
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:173
 msgid "END CUT"
 msgstr "END CUT"
 
-#: libraries/sqlparser.lib.php:179
+#: libraries/sqlparser.lib.php:175
 msgid "BEGIN RAW"
 msgstr "התחלת RAW"
 
-#: libraries/sqlparser.lib.php:183
+#: libraries/sqlparser.lib.php:179
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/sqlparser.lib.php:367
+#: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:370
+#: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:522
+#: libraries/sqlparser.lib.php:518
 msgid "Invalid Identifer"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:639
+#: libraries/sqlparser.lib.php:635
 msgid "Unknown Punctuation String"
 msgstr ""
 
@@ -8497,7 +8495,21 @@ msgstr "לשנייה"
 msgid "Query type"
 msgstr "סוג שאילתה"
 
-#: server_status.php:845
+#: server_status.php:709 server_status.php:710
+#, fuzzy
+msgid "Show query chart"
+msgstr "שאילתת SQL"
+
+#: server_status.php:714 server_status.php:715
+#, fuzzy
+msgid "Hide query chart"
+msgstr "שאילתת SQL"
+
+#: server_status.php:717
+msgid "Note: Generating the query chart can take a long time."
+msgstr ""
+
+#: server_status.php:855
 msgid "Replication status"
 msgstr ""
 
@@ -8919,16 +8931,16 @@ msgstr ""
 msgid "Validated SQL"
 msgstr "בדיקת תקינות SQL"
 
-#: sql.php:820
+#: sql.php:824
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "בעיות עם אינדקסים של טבלה `%s`"
 
-#: sql.php:852
+#: sql.php:856
 msgid "Label"
 msgstr "תווית"
 
-#: tbl_addfield.php:185 tbl_alter.php:100 tbl_indexes.php:97
+#: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
@@ -9616,6 +9628,11 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
+
+#, fuzzy
+#~| msgid "Displaying Column Comments"
+#~ msgid "Display table filter"
+#~ msgstr "מציג הערות עמודה"
 
 #~ msgid ""
 #~ "The additional features for working with linked tables have been "
