@@ -46,7 +46,7 @@ function PMA_getIp()
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
  * Found on <http://www.php.net/manual/en/function.ip2long.php>
- * Modified by Robbat2 <robbat2@users.sourceforge.net>
+ * Modified for phpMyAdmin 
  *
  * Matches:
  * xxx.xxx.xxx.xxx        (exact)

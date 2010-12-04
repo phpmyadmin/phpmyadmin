@@ -86,7 +86,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @access public
      */
-    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_resetError()
     {
         global $SQP_errorString;
@@ -101,7 +100,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @access public
      */
-    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_getErrorString()
     {
         global $SQP_errorString;
@@ -115,7 +113,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @access public
      */
-    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_isError()
     {
         global $SQP_errorString;
@@ -131,7 +128,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @access private
      * @scope SQL Parser internal
      */
-    // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_throwError($message, $sql)
     {
         global $SQP_errorString;
