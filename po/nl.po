@@ -2974,7 +2974,6 @@ msgid "Changes tracking"
 msgstr "Wijzigingen bijhouden"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
@@ -2982,7 +2981,7 @@ msgid ""
 "storage."
 msgstr ""
 "Bijhouden van wijzigingen in de database. Dit vereist een geconfigureerde "
-"PMA database."
+"phpMyAdmin configuratie opslag."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
