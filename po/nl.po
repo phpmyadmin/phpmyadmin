@@ -2951,10 +2951,9 @@ msgid "Enter server connection parameters"
 msgstr "Geef de server verbindingsparameters"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Configuratie: %s"
+msgstr "Configuratie opslag"
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
