@@ -1077,7 +1077,7 @@ msgstr "Ververs database"
 #: js/messages.php:73
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Database kopieeren"
+msgstr "Database kopiëren"
 
 #: js/messages.php:74
 #, fuzzy
