@@ -167,7 +167,7 @@ $func_no_param = array(
     'CURRENT_USER',
 );
 
-foreach ($loop_array as $rowcount => $where_clause) {
+foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
         continue;
@@ -178,36 +178,36 @@ foreach ($loop_array as $rowcount => $where_clause) {
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
     $me_fields =
-        isset($_REQUEST['fields']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields']['multi_edit'][$rownumber]
         : array();
     $me_fields_name =
-        isset($_REQUEST['fields_name']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields_name']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
         : null;
     $me_fields_prev =
-        isset($_REQUEST['fields_prev']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields_prev']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
         : null;
     $me_funcs =
-        isset($_REQUEST['funcs']['multi_edit'][$rowcount])
-        ? $_REQUEST['funcs']['multi_edit'][$rowcount]
+        isset($_REQUEST['funcs']['multi_edit'][$rownumber])
+        ? $_REQUEST['funcs']['multi_edit'][$rownumber]
         : null;
     $me_fields_type =
-        isset($_REQUEST['fields_type']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields_type']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
         : null;
     $me_fields_null =
-        isset($_REQUEST['fields_null']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields_null']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_null']['multi_edit'][$rownumber]
         : null;
     $me_fields_null_prev =
-        isset($_REQUEST['fields_null_prev']['multi_edit'][$rowcount])
-        ? $_REQUEST['fields_null_prev']['multi_edit'][$rowcount]
+        isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_null_prev']['multi_edit'][$rownumber]
         : null;
     $me_auto_increment =
-        isset($_REQUEST['auto_increment']['multi_edit'][$rowcount])
-        ? $_REQUEST['auto_increment']['multi_edit'][$rowcount]
+        isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
+        ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
 
     // Fetch the current values of a row to use in case we have a protected field

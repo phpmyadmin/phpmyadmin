@@ -46,7 +46,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/File.class.php';
 
 $file_to_insert = new PMA_File();
-$file_to_insert->checkTblChangeForm($key, $rowcount);
+$file_to_insert->checkTblChangeForm($key, $rownumber);
 
 $possibly_uploaded_val = $file_to_insert->getContent();
 
@@ -81,8 +81,8 @@ if (false !== $possibly_uploaded_val) {
                 // if we have a set, then construct the value
             case 'foreign':
                 // if we have a foreign key, then construct the value
-                if (! empty($_REQUEST[$f]['multi_edit'][$rowcount])) {
-                    $val = implode(',', $_REQUEST[$f]['multi_edit'][$rowcount]);
+                if (! empty($_REQUEST[$f]['multi_edit'][$rownumber])) {
+                    $val = implode(',', $_REQUEST[$f]['multi_edit'][$rownumber]);
                     $val = "'" . PMA_sqlAddslashes($val) . "'";
                 }
                 break;
