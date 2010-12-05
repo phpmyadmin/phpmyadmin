@@ -259,11 +259,11 @@ class PMA_File
      * @uses    curl_setopt_array()
      * @uses    PMA_File::$_error_message
      * @uses    $_FILES
-     * @param   string  $key    a numeric key used to identify the different rows
-     * @param   string  $primary_key
+     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $rownumber
      * @return  boolean success
      */
-    function setUploadedFromTblChangeRequest($key, $primary = null)
+    function setUploadedFromTblChangeRequest($key, $rownumber = null)
     {
         if (! isset($_FILES['fields_upload_' . $key])) {
             return false;
@@ -271,8 +271,8 @@ class PMA_File
 
         $file = $_FILES['fields_upload_' . $key];
 
-        if (null !== $primary) {
-            $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($file, $primary);
+        if (null !== $rownumber) {
+            $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($file, $rownumber);
         }
 
         // for blobstreaming
@@ -340,11 +340,11 @@ class PMA_File
      * strips some dimension from the multi-dimensional array from $_FILES
      *
      * <code>
-     * $file['name']['multi_edit'][$primary] = [value]
-     * $file['type']['multi_edit'][$primary] = [value]
-     * $file['size']['multi_edit'][$primary] = [value]
-     * $file['tmp_name']['multi_edit'][$primary] = [value]
-     * $file['error']['multi_edit'][$primary] = [value]
+     * $file['name']['multi_edit'][$rownumber] = [value]
+     * $file['type']['multi_edit'][$rownumber] = [value]
+     * $file['size']['multi_edit'][$rownumber] = [value]
+     * $file['tmp_name']['multi_edit'][$rownumber] = [value]
+     * $file['error']['multi_edit'][$rownumber] = [value]
      *
      * // becomes:
      *
@@ -359,17 +359,17 @@ class PMA_File
      * @access  public
      * @static
      * @param   array   $file       the array
-     * @param   string  $primary
+     * @param   string  $rownumber
      * @return  array
      */
-    function fetchUploadedFromTblChangeRequestMultiple($file, $primary)
+    function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber)
     {
         $new_file = array(
-            'name' => $file['name']['multi_edit'][$primary],
-            'type' => $file['type']['multi_edit'][$primary],
-            'size' => $file['size']['multi_edit'][$primary],
-            'tmp_name' => $file['tmp_name']['multi_edit'][$primary],
-            'error' => $file['error']['multi_edit'][$primary],
+            'name' => $file['name']['multi_edit'][$rownumber],
+            'type' => $file['type']['multi_edit'][$rownumber],
+            'size' => $file['size']['multi_edit'][$rownumber],
+            'tmp_name' => $file['tmp_name']['multi_edit'][$rownumber],
+            'error' => $file['error']['multi_edit'][$rownumber],
         );
 
         return $new_file;
@@ -382,15 +382,15 @@ class PMA_File
      * @uses    $_REQUEST
      * @uses    PMA_File::setLocalSelectedFile()
      * @uses    is_string()
-     * @param   string  $key    a numeric key used to identify the different rows
-     * @param   string  $primary_key
+     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $rownumber
      * @return  boolean success
      */
-    function setSelectedFromTblChangeRequest($key, $primary = null)
+    function setSelectedFromTblChangeRequest($key, $rownumber = null)
     {
-        if (null !== $primary) {
-            if (! empty($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary])
-             && is_string($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary])) {
+        if (null !== $rownumber) {
+            if (! empty($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber])
+             && is_string($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber])) {
                 // ... whether with multiple rows ...
                 // for blobstreaming
                 $is_bs_upload = FALSE;
@@ -404,7 +404,7 @@ class PMA_File
                 if ($is_bs_upload) {
                     $bs_db = $_REQUEST['db'];
                     $bs_table = $_REQUEST['table'];
-                    $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary];
+                    $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber];
 
                     // check if fileinfo library exists
                     if ($PMA_Config->get('FILEINFO_EXISTS')) {
@@ -434,7 +434,7 @@ class PMA_File
                     PMA_File::setRecentBLOBReference($blob_url);
 				}   // end if ($is_bs_upload)
 
-                return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary]);
+                return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber]);
             } else {
                 return false;
             }
@@ -515,13 +515,13 @@ class PMA_File
      * @access  public
      * @uses    PMA_File::setUploadedFromTblChangeRequest()
      * @uses    PMA_File::setSelectedFromTblChangeRequest()
-     * @param   string  $key    a numeric key used to identify the different rows
-     * @param   string  $primary_key
+     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $rownumber
      * @return  boolean success
      */
-    function checkTblChangeForm($key, $primary_key)
+    function checkTblChangeForm($key, $rownumber)
     {
-        if ($this->setUploadedFromTblChangeRequest($key, $primary_key)) {
+        if ($this->setUploadedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = '';
             return true;
@@ -531,7 +531,7 @@ class PMA_File
             $this->_error_message = '';
             return true;
 */
-        } elseif ($this->setSelectedFromTblChangeRequest($key, $primary_key)) {
+        } elseif ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = '';
             return true;
