@@ -705,16 +705,14 @@ foreach ($used_queries as $name => $value) {
 <div id="serverstatusquerieschart">
 <?php
 	if (empty($_REQUEST["query_chart"])) {
-		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query . '&amp;query_chart=1#serverstatusqueries"'
-			.'title="' . __('Show query chart') . '">'
-			. __('Show query chart') . '</a>';
+		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query
+			. '&amp;query_chart=1#serverstatusqueries"'
+			. 'title="' . __('Show query chart') . '">['
+			. __('Show query chart') . ']</a>';
+		PMA_Message::notice( __('Note: Generating the query chart can take a long time.'))->display();
 	} else {
 		echo PMA_chart_status($used_queries);
-		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query . '#serverstatusqueries"'
-		.'title="' . __('Hide query chart') . '">'
-		. __('Hide query chart') . '</a>';
 	}
-	PMA_Message::warning(__('Note: Generating the query chart can take a long time.'))->display();
 ?>
 </div>
 
