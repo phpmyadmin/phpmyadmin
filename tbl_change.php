@@ -889,11 +889,11 @@ foreach ($rows as $row_id => $vrow) {
                 // check if field type is of longblob and  if the table is PBMS enabled.
                 if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)) {
                     echo '<br />';
-                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' .  __('Upload to BLOB repository');
+                    echo '<input type="checkbox" name="upload_blob_repo' . $vkey . '[' . $field['Field_md5'] . ']" /> ' .  __('Upload to BLOB repository');
                 }
 
                 echo '<br />';
-                echo '<input type="file" name="fields_upload_' . $field['Field_md5'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
+                echo '<input type="file" name="fields_upload' . $vkey . '[' . $field['Field_md5'] . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
@@ -926,7 +926,7 @@ foreach ($rows as $row_id => $vrow) {
                 } elseif (!empty($files)) {
                     echo "<br />\n";
                     echo '    <i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n";
-                    echo '        <select size="1" name="fields_uploadlocal_' . $field['Field_md5'] . $vkey . '">' . "\n";
+                    echo '        <select size="1" name="fields_uploadlocal' . $vkey . '[' . $field['Field_md5'] . ']">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                     echo $files;
                     echo '        </select>' . "\n";

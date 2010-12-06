@@ -263,24 +263,19 @@ class PMA_File
      * @param   string  $rownumber
      * @return  boolean success
      */
-    function setUploadedFromTblChangeRequest($key, $rownumber = null)
+    function setUploadedFromTblChangeRequest($key, $rownumber)
     {
-        if (! isset($_FILES['fields_upload_' . $key])) {
+        if (! isset($_FILES['fields_upload']) && ! isset($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])) {
             return false;
         }
-
-        $file = $_FILES['fields_upload_' . $key];
-
-        if (null !== $rownumber) {
-            $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($file, $rownumber);
-        }
+        $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
 
         // for blobstreaming
         $is_bs_upload = FALSE;
 
         // check if this field requires a repository upload
-        if (isset($_REQUEST['upload_blob_repo_' . $key])) {
-            $is_bs_upload = ($_REQUEST['upload_blob_repo_' . $key]['multi_edit'][0] == "on") ? TRUE : FALSE;
+        if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
+            $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? TRUE : FALSE;
         }
         // if request is an upload to the BLOB repository
         if ($is_bs_upload) {
@@ -340,11 +335,11 @@ class PMA_File
      * strips some dimension from the multi-dimensional array from $_FILES
      *
      * <code>
-     * $file['name']['multi_edit'][$rownumber] = [value]
-     * $file['type']['multi_edit'][$rownumber] = [value]
-     * $file['size']['multi_edit'][$rownumber] = [value]
-     * $file['tmp_name']['multi_edit'][$rownumber] = [value]
-     * $file['error']['multi_edit'][$rownumber] = [value]
+     * $file['name']['multi_edit'][$rownumber][$key] = [value]
+     * $file['type']['multi_edit'][$rownumber][$key] = [value]
+     * $file['size']['multi_edit'][$rownumber][$key] = [value]
+     * $file['tmp_name']['multi_edit'][$rownumber][$key] = [value]
+     * $file['error']['multi_edit'][$rownumber][$key] = [value]
      *
      * // becomes:
      *
@@ -360,16 +355,17 @@ class PMA_File
      * @static
      * @param   array   $file       the array
      * @param   string  $rownumber
+     * @param   string  $key
      * @return  array
      */
-    function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber)
+    function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
     {
         $new_file = array(
-            'name' => $file['name']['multi_edit'][$rownumber],
-            'type' => $file['type']['multi_edit'][$rownumber],
-            'size' => $file['size']['multi_edit'][$rownumber],
-            'tmp_name' => $file['tmp_name']['multi_edit'][$rownumber],
-            'error' => $file['error']['multi_edit'][$rownumber],
+            'name' => $file['name']['multi_edit'][$rownumber][$key],
+            'type' => $file['type']['multi_edit'][$rownumber][$key],
+            'size' => $file['size']['multi_edit'][$rownumber][$key],
+            'tmp_name' => $file['tmp_name']['multi_edit'][$rownumber][$key],
+            'error' => $file['error']['multi_edit'][$rownumber][$key],
         );
 
         return $new_file;
@@ -388,104 +384,55 @@ class PMA_File
      */
     function setSelectedFromTblChangeRequest($key, $rownumber = null)
     {
-        if (null !== $rownumber) {
-            if (! empty($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber])
-             && is_string($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber])) {
-                // ... whether with multiple rows ...
-                // for blobstreaming
-                $is_bs_upload = FALSE;
-
-                // check if this field requires a repository upload
-                if (isset($_REQUEST['upload_blob_repo_' . $key])) {
-                    $is_bs_upload = ($_REQUEST['upload_blob_repo_' . $key]['multi_edit'][0] == "on") ? TRUE : FALSE;
-                }
-
-                // is a request to upload file to BLOB repository using uploadDir mechanism
-                if ($is_bs_upload) {
-                    $bs_db = $_REQUEST['db'];
-                    $bs_table = $_REQUEST['table'];
-                    $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber];
-
-                    // check if fileinfo library exists
-                    if ($PMA_Config->get('FILEINFO_EXISTS')) {
-                    // attempt to init fileinfo
-                        $finfo = finfo_open(FILEINFO_MIME);
-
-                        // fileinfo exists
-                        if ($finfo) {
-                            // pass in filename to fileinfo and close fileinfo handle after
-                            $tmp_file_type = finfo_file($finfo, $tmp_filename);
-                            finfo_close($finfo);
-                        }
-                    } else {
-                        // no fileinfo library exists, use file command
-                        $tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
-                    }
-
-                    if (! $tmp_file_type) {
-                        $tmp_file_type = NULL;
-                    }
-
-                    if (! $bs_db || !$bs_table) {
-                        $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
-                        return FALSE;
-                    }
-                    $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
-                    PMA_File::setRecentBLOBReference($blob_url);
-				}   // end if ($is_bs_upload)
-
-                return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber]);
-            } else {
-                return false;
-            }
-        } elseif (! empty($_REQUEST['fields_uploadlocal_' . $key])
-         && is_string($_REQUEST['fields_uploadlocal_' . $key])) {
+        if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
+         && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])) {
+            // ... whether with multiple rows ...
             // for blobstreaming
             $is_bs_upload = FALSE;
 
             // check if this field requires a repository upload
-            if (isset($_REQUEST['upload_blob_repo_' . $key]))
-                $is_bs_upload = ($_REQUEST['upload_blob_repo_' . $key]['multi_edit'][0] == "on") ? TRUE : FALSE;
+            if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
+                $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? TRUE : FALSE;
+            }
 
             // is a request to upload file to BLOB repository using uploadDir mechanism
-            if ($is_bs_upload)
-            {
-				// check if fileinfo library exists
-				if ($PMA_Config->get('FILEINFO_EXISTS'))
-				{
-					// attempt to init fileinfo
-					$finfo = finfo_open(FILEINFO_MIME);
+            if ($is_bs_upload) {
+                $bs_db = $_REQUEST['db'];
+                $bs_table = $_REQUEST['table'];
+                $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber];
 
-					// if fileinfo exists
-					if ($finfo)
-					{
-						// pass in filename to fileinfo and close fileinfo handle after
-						$tmp_file_type = finfo_file($finfo, $tmp_filename);
-						finfo_close($finfo);
-					}
-				}
-				else // no fileinfo library exists, use file command
-					$tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
+                // check if fileinfo library exists
+                if ($PMA_Config->get('FILEINFO_EXISTS')) {
+                // attempt to init fileinfo
+                    $finfo = finfo_open(FILEINFO_MIME);
 
-				if (!$tmp_file_type)
-					$tmp_file_type = NULL;
+                    // fileinfo exists
+                    if ($finfo) {
+                        // pass in filename to fileinfo and close fileinfo handle after
+                        $tmp_file_type = finfo_file($finfo, $tmp_filename);
+                        finfo_close($finfo);
+                    }
+                } else {
+                    // no fileinfo library exists, use file command
+                    $tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
+                }
 
-			    $bs_db = $_REQUEST['db'];
-				$bs_table = $_REQUEST['table'];
-				if (!$bs_db || !$bs_table)
-				{
-					$this->_error_message = $GLOBALS['strUploadErrorUnknown'];
-					return FALSE;
-				}
- 				$blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
-				PMA_File::setRecentBLOBReference($blob_url);
+                if (! $tmp_file_type) {
+                    $tmp_file_type = NULL;
+                }
 
+                if (! $bs_db || !$bs_table) {
+                    $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                    return FALSE;
+                }
+                $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
+                PMA_File::setRecentBLOBReference($blob_url);
             }   // end if ($is_bs_upload)
 
-            return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]);
+            return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]);
+        } else {
+            return false;
         }
-
-         return false;
     }
 
     /**
@@ -525,22 +472,10 @@ class PMA_File
             // well done ...
             $this->_error_message = '';
             return true;
-/*
-        } elseif ($this->setUploadedFromTblChangeRequest($key)) {
-            // well done ...
-            $this->_error_message = '';
-            return true;
-*/
         } elseif ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = '';
             return true;
-/*
-        } elseif ($this->setSelectedFromTblChangeRequest($key)) {
-            // well done ...
-            $this->_error_message = '';
-            return true;
-*/
         }
         // all failed, whether just no file uploaded/selected or an error
 
