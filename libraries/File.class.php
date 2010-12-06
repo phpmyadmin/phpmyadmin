@@ -298,7 +298,7 @@ class PMA_File
 
         // check for file upload errors
         switch ($file['error']) {
-            // cybot_tm: we do not use the PHP constants here cause not all constants
+            // we do not use the PHP constants here cause not all constants
             // are defined in all versions of PHP - but the correct constants names
             // are given as comment
             case 0: //UPLOAD_ERR_OK:
