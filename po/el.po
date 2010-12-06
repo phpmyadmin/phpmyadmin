@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-11-27 01:15+0200\n"
+"PO-Revision-Date: 2010-12-04 17:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -546,10 +546,10 @@ msgid "Delete"
 msgstr "Διαγραφή"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή ταιριασμάτων για τον πίνακα %s;"
 
 #: db_search.php:273
 #, php-format
@@ -6949,10 +6949,9 @@ msgid "Filter"
 msgstr "Φίλτρο"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
-msgstr "Αλλαγή ταξινόμησης Πίνακα κατά"
+msgstr "φιλτράρισμα πινάκων κατά όνομα"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"

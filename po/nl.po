@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-03 17:10+0200\n"
+"PO-Revision-Date: 2010-12-04 23:35+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -945,7 +945,7 @@ msgstr "U staat op het punt een complete database te VERWIJDEREN!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Gebeurtenis komt te vervallen"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
@@ -957,7 +957,7 @@ msgstr "Tracking data voor deze tabel wordt verwijderd"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Primaire sleutel/index wordt verwijderd"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1034,15 +1034,15 @@ msgstr "Bezig met verwerken"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Fout tijdens het verwerken van de opdracht"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Kolom komt te vervallen"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Primaire sleutel wordt toegevoegd"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
@@ -1051,26 +1051,23 @@ msgid "OK"
 msgstr "Correct"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Hernoem database naar"
+msgstr "Database hernoemen"
 
 #: js/messages.php:72
 msgid "Reload Database"
 msgstr "Ververs database"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopieer database naar"
+msgstr "Database kopiëren"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Karakterset"
+msgstr "Karakterset aanpassen"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
@@ -1120,7 +1117,7 @@ msgstr "Kies weer te geven veld"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "Voeg een optie toe voor komom "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -1714,11 +1711,11 @@ msgstr "PBMS connectie mislukt:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS BLOB info ophalen mislukt"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "ophalen van BLOB Content-type mislukt"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1801,10 +1798,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Vergelijking van query uitvoer tijden ( in microseconden)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Query resultaat bewerkingen"
+msgstr "Query resultaten"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -1816,7 +1812,7 @@ msgstr "De GD-extensie is vereist voor het tonen van grafieken."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "JSON encoder vereist voor het tonen van zwevende tips bij een grafiek."
 
 #: libraries/common.inc.php:576
 msgid ""
@@ -1849,10 +1845,10 @@ msgstr ""
 "configuratiebestand!"
 
 #: libraries/common.inc.php:622
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Ongeldige serverindex: \"%s\""
+msgstr "Ongeldige serverindex: %s"
 
 #: libraries/common.inc.php:629
 #, php-format
@@ -1910,10 +1906,9 @@ msgid "MySQL said: "
 msgstr "MySQL retourneerde: "
 
 #: libraries/common.lib.php:1071
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Er kan geen verbinding worden gemaakt met de server"
+msgstr "Er kan geen verbinding worden gemaakt met de SQL-validator"
 
 #: libraries/common.lib.php:1112 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
@@ -2073,7 +2068,7 @@ msgstr "Handelingen"
 
 #: libraries/common.lib.php:2950
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Blader op uw eigen pc:"
 
 #: libraries/common.lib.php:2963
 #, fuzzy, php-format
@@ -2103,7 +2098,6 @@ msgstr "gegevens"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
 msgstr "Structuur en gegevens"
@@ -2121,13 +2115,11 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Uitgebreid - als bovenstaande maar zonder snel/uitgebreid keuze"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Invoegen voltooid"
+msgstr "Volledige inserts "
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Uitgebreide invoegingen"
@@ -2174,10 +2166,9 @@ msgstr "Ontbrekende data voor %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variabelen"
+msgstr "onbeschikbaar"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
@@ -2200,20 +2191,21 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "PHP-extensie"
+msgstr "PHP SOAP-extensie niet gevonden"
 
 #: libraries/config/FormDisplay.class.php:772
-#, fuzzy, php-format
+#, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
-msgstr "Maximum aantal tabellen"
+msgstr "maximum %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Deze instelling is uitgeschakeld, het is niet van toepassing op uw "
+"configuratie"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
 #: libraries/relation.lib.php:90 pmd_relation_new.php:68
@@ -2232,7 +2224,7 @@ msgstr "Herstel standaard waarde"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Sta gebruikers toe deze waarde aan te passen"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
@@ -2265,10 +2257,14 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
+"pagina op een ander domein in een frame te openen. Een potentieel "
+"[strong]beveiligingslek[/strong] wat cross-frame scripting aanvallen "
+"mogelijk kan maken"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Framing van derden toestaan"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -2331,7 +2327,6 @@ msgstr ""
 "vullen."
 
 #: libraries/config/messages.inc.php:31
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR velden bewerken"
@@ -2388,23 +2383,24 @@ msgstr "Bevestig 'DROP'-queries"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Weergave opties voor databases"
+msgstr "Standaard weergave richting"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] of een getal dat aangeeft tot "
+"hoeveel velden de verticale weergave moet worden toegepast"
 
 #: libraries/config/messages.inc.php:45
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Weergave richting voor toevoegen/bewerken van kolommen"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
@@ -2431,10 +2427,9 @@ msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
 #: libraries/config/messages.inc.php:52
-#, fuzzy
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Toon binaire-inhoud als HEX"
+msgstr "Toon binaire-inhoud standaard als HEX"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
@@ -2458,7 +2453,7 @@ msgstr "Toon servers als een lijst"
 
 #: libraries/config/messages.inc.php:58
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Bewerk SQL-queries in popup  venster"
 
 #: libraries/config/messages.inc.php:59
 #, fuzzy
@@ -2467,26 +2462,24 @@ msgid "Edit in window"
 msgstr "Bewerk volgende rij"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Toon Opties"
+msgstr "Toon foutmeldingen"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Negeer foutmeldingen"
+msgstr "Verzamel foutmeldingen"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
 msgstr ""
+"Toon iconen voor waarschuwingen, foutmeldingen en informatieve berichten"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "Negeer foutmeldingen"
+msgstr "Foutmeldingen met iconen"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -2526,7 +2519,6 @@ msgstr "Compressie"
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Plaats veldnamen in de eerste rij"
@@ -2534,7 +2526,6 @@ msgstr "Plaats veldnamen in de eerste rij"
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Velden ingesloten door"
@@ -2542,7 +2533,6 @@ msgstr "Velden ingesloten door"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Velden ontweken door"
@@ -2556,7 +2546,6 @@ msgid "Replace NULL by"
 msgstr "Vervang NULL door"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
@@ -2564,10 +2553,9 @@ msgstr "Verwijder CRLF tekens uit veld-waarden"
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Regels beëindigd door"
+msgstr "Velden beëindigd door"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
@@ -2575,7 +2563,6 @@ msgid "Lines terminated by"
 msgstr "Regels beëindigd door"
 
 #: libraries/config/messages.inc.php:78
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel editie"
@@ -2630,10 +2617,9 @@ msgid "Relations"
 msgstr "Relaties"
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Export type"
+msgstr "Export methode"
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
 msgid "Save on server"
@@ -2686,10 +2672,9 @@ msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Exporteer tabellen"
+msgstr "Export type"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
@@ -2755,11 +2740,11 @@ msgstr "CSV gegevens"
 
 #: libraries/config/messages.inc.php:155
 msgid "Developer"
-msgstr ""
+msgstr "Ontwikkelaar"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Instellingen voor phpMyAdmin ontwikkelaars"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
@@ -2783,14 +2768,13 @@ msgid "Features"
 msgstr "Opties"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Genereer"
+msgstr "Algemeen"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Enkele veel gebruikte opties"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2850,13 +2834,12 @@ msgstr "Hoofdframe"
 
 #: libraries/config/messages.inc.php:181
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Open Document Tekst"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:185
 msgid "Other core settings"
@@ -2867,10 +2850,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Instellingen die onder geen andere categorie pasten"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Paginanummer:"
+msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
@@ -2907,16 +2889,14 @@ msgid "Basic settings"
 msgstr "Basis instellingen"
 
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Authenticatie type"
+msgstr "Authenticatie"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Authenticatie type"
+msgstr "Authenticatie instellingen"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
@@ -2935,13 +2915,11 @@ msgid "Enter server connection parameters"
 msgstr "Geef de server verbindingsparameters"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configuration storage"
-msgstr "Configuratie: %s"
+msgstr "Configuratie opslag"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -2951,16 +2929,15 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Configureer de phpMyAdmin database om toegang te krijgen tot extra "
-"functionaliteit, zie [a@../Documentation.html#linked-tables]linked-tables "
-"infrastructure[/a] in de documentatie"
+"Configureer de phpMyAdmin configuratie opslag om toegang te krijgen tot "
+"extra functionaliteit, zie [a@../Documentation.html#linked-tables]phpMyAdmin "
+"configuratie opslag[/a] in de documentatie"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
 msgstr "Wijzigingen bijhouden"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Tracking of changes made in database. Requires configured PMA database."
 msgid ""
@@ -2968,7 +2945,7 @@ msgid ""
 "storage."
 msgstr ""
 "Bijhouden van wijzigingen in de database. Dit vereist een geconfigureerde "
-"PMA database."
+"phpMyAdmin configuratie opslag."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -6923,7 +6900,6 @@ msgstr ""
 "toegepast."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6934,11 +6910,10 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Toont een plaatje en een link, het veld bevat de bestandsnaam. De eerste "
-"optie is een prefix als \"http://domein.com/\", de tweede optie is de "
+"optie is een prefix als \"http://www.example.com/\", de tweede optie is de "
 "breedte in pixels, de derde is de hoogte."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6949,7 +6924,8 @@ msgid ""
 "the link."
 msgstr ""
 "Toont een link, het veld bevat de bestandsnaam. De eerste optie is een "
-"prefix als \"http://domein.com/\", de tweede optie is de titel voor de link."
+"prefix als \"http://www.example.com/\", de tweede optie is de titel voor de "
+"link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 #, fuzzy
@@ -7136,7 +7112,6 @@ msgstr ""
 "eerder dan in phpMyAdmin is ingesteld."
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -7146,10 +7121,11 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lager dan de "
-"ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
-"eerder dan in phpMyAdmin is ingesteld."
+"De PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is lager dan de ingestelde cookie "
+"geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
+"phpMyAdmin is ingesteld."
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
