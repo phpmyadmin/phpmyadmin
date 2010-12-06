@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-06 17:26+0200\n"
+"PO-Revision-Date: 2010-12-06 17:28+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3223,7 +3223,7 @@ msgstr "Tabel boomstructuur scheidingsteken"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL van het logo in het navigatie frame"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
