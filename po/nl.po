@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-06 17:29+0200\n"
+"PO-Revision-Date: 2010-12-07 23:34+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2441,10 +2441,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Bewerk SQL-queries in popup  venster"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Bewerk volgende rij"
+msgstr "Bewerk in venster"
 
 #: libraries/config/messages.inc.php:60
 msgid "Display errors"
