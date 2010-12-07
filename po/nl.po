@@ -3428,7 +3428,6 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Blokkeer het bewerken van 'BLOB' en 'BINARY' velden"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Bescherm binaire velden"
