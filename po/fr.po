@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 05:59-0500\n"
-"PO-Revision-Date: 2010-12-03 19:36+0200\n"
+"PO-Revision-Date: 2010-12-07 13:03+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -7886,28 +7886,24 @@ msgid "Reset slave"
 msgstr "Réinitialiser l'esclave"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "%s seulement le fil d'exécution SQL"
+msgstr "Démarrer seulement le fil d'exécution SQL"
 
 #: server_replication.php:328
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "%s seulement le fil d'exécution SQL"
+msgstr "Arrêter seulement le fil d'exécution SQL"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "%s seulement le fil d'exécution des entrées-sorties"
+msgstr "Démarrer seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "%s seulement le fil d'exécution des entrées-sorties"
+msgstr "Arrêter seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:338
 msgid "Error management:"
@@ -8765,16 +8761,14 @@ msgid "Query type"
 msgstr "Type de requête"
 
 #: server_status.php:709 server_status.php:710
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Montrer zone SQL"
+msgstr "Afficher le graphique des requêtes"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "Cacher zone SQL"
+msgstr "Cacher le graphique des requêtes"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
