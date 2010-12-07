@@ -3423,7 +3423,6 @@ msgid "Iconic table operations"
 msgstr "Icoon gebruik bij tabel bewerkingen"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Blokkeer het bewerken van 'BLOB' en 'BINARY' velden"
