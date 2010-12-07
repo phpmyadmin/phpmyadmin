@@ -3902,10 +3902,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Opdrachten"
+msgstr "Bij te houden opdrachten"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
