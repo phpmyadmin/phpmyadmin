@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 05:59-0500\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Procurar"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -1938,7 +1938,7 @@ msgstr ""
 msgid "JSON encoder is needed for chart tooltips."
 msgstr ""
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1954,13 +1954,13 @@ msgstr ""
 "casos simplemente faltan unha aspa ou un ponto e vírcula <br/>Se recibe unha "
 "páxina en branco é que todo está ben."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Non se puido cargar a configuración desde: \"%1$s\""
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1968,28 +1968,28 @@ msgstr ""
 "A directiva <tt>$cfg['PmaAbsoluteUri']</tt> DEBE estar asignada no seu "
 "ficheiro de configuración."
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "O índice do servidor non é válido: \"%s\""
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "O nome de servidor non é válido para o servidor %1$s. Revise a configuración."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Na configuración indicouse un método de autenticación que non válido::"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Debería actualizar a %s %s ou posterior."
@@ -2231,11 +2231,11 @@ msgstr ""
 msgid "structure and data"
 msgstr "Estrutura e datos"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
@@ -4619,7 +4619,7 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo IP é incorrecto: %s"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -4751,19 +4751,19 @@ msgstr ""
 #: libraries/display_export.lib.php:87
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Permite bloquear táboas do fío en uso"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "Crear unha táboa nova na base de datos %s"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Crear unha táboa nova na base de datos %s"
 
 #: libraries/display_export.lib.php:97
@@ -4771,6 +4771,16 @@ msgstr "Crear unha táboa nova na base de datos %s"
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Tipo de exportación"
+
+#: libraries/display_export.lib.php:113
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+#| msgid "Customize default export options"
+msgid "Custom - display all possible options"
+msgstr "Personalizar as opcións de exportación por omisión"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
@@ -4905,9 +4915,11 @@ msgstr "comprimido no formato \"bzip\""
 msgid "Format:"
 msgstr "Formato"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
-msgstr ""
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Format-specific options:"
+msgstr "Opcións de transformación"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
@@ -5010,6 +5022,10 @@ msgstr ""
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Número de rexistros (procuras) que se ignoran desde o comezo"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr ""
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71

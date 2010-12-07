@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 05:59-0500\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-12-07 12:05+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Vyhledávání"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -617,8 +617,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -840,8 +840,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1598,8 +1598,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1806,7 +1806,7 @@ msgstr "Pro grafy je potřebné rozšíření GD."
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "Enkodér pro JSON je potřeba pro tooltipy grafu."
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1822,12 +1822,12 @@ msgstr ""
 "(nejčastěji se jedná o chybějící středník).<br />Pokud získáte prázdnou "
 "stránku, všechno je v pořádku."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1835,26 +1835,26 @@ msgstr ""
 "Parametr <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ být nastaven v konfiguračním "
 "souboru!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybný index serveru: „%s“"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfiguraci máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
@@ -2087,11 +2087,11 @@ msgstr "data"
 msgid "structure and data"
 msgstr "struktura a data"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr "Rychlý - zobrazí jen minimum možností nastavení"
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr "Vlastní - zobrazí všechna možná nastavení"
 
@@ -3103,7 +3103,6 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Mimimum number of tables to display table filter"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
 
@@ -4312,7 +4311,7 @@ msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití pmadb
 msgid "Incorrect IP address: %s"
 msgstr "Nesprávná IP adresa: %s"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
@@ -4439,22 +4438,38 @@ msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/display_export.lib.php:87
-msgid "Exporting databases in the current server"
+#, fuzzy
+#| msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Exportuji databáze z aktuálního serveru"
 
 #: libraries/display_export.lib.php:89
-#, php-format
-msgid "Exporting tables in the database \"%s\""
+#, fuzzy, php-format
+#| msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "Exportuji tabulky z databáze „%s“"
 
 #: libraries/display_export.lib.php:91
-#, php-format
-msgid "Exporting rows in the table \"%s\""
+#, fuzzy, php-format
+#| msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Exportuji řádky z tabulky „%s“"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
 msgstr "Způsob exportu:"
+
+#: libraries/display_export.lib.php:113
+#, fuzzy
+#| msgid "Quick - display only the minimal options to configure"
+msgid "Quick - display only the minimal options"
+msgstr "Rychlý - zobrazí jen minimum možností nastavení"
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+#| msgid "Custom - display all possible options to configure"
+msgid "Custom - display all possible options"
+msgstr "Vlastní - zobrazí všechna možná nastavení"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -4517,8 +4532,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -4561,8 +4576,10 @@ msgstr "zabzipováno"
 msgid "Format:"
 msgstr "Formát:"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Format-Specific Options:"
+msgid "Format-specific options:"
 msgstr "Parametry pro výstupní formát:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4651,6 +4668,10 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Počet dotazů od začátku, které se mají přeskočit:"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr "Parametry pro výstupní formát:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -6437,8 +6458,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6479,8 +6500,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -7087,8 +7108,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7540,8 +7561,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9016,8 +9037,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
-"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
+"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:266
@@ -9028,8 +9049,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 

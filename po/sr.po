@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 05:59-0500\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Претраживање"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -1924,7 +1924,7 @@ msgstr ""
 msgid "JSON encoder is needed for chart tooltips."
 msgstr ""
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1940,13 +1940,13 @@ msgstr ""
 "недостаје наводник или тачка-зарез.<br />Ако добијете празну страну, све је "
 "у реду."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1954,27 +1954,27 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> директива МОРА бити подешена у "
 "конфигурационој датотеци!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Неисправан индекс сервера: \"%s\""
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Неисправан назив сервера %1$s. Молимо проверите своју конфигурацију."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Сервер"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Требало би да унапредите ваш %s сервер на верзију %s или новију."
@@ -2213,11 +2213,11 @@ msgstr ""
 msgid "structure and data"
 msgstr "Структура и подаци"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
@@ -4402,7 +4402,7 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr ""
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -4535,19 +4535,19 @@ msgstr ""
 #: libraries/display_export.lib.php:87
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Дозвољава закључавање табела текућим процесима."
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "Направи нову табелу у бази %s"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Направи нову табелу у бази %s"
 
 #: libraries/display_export.lib.php:97
@@ -4555,6 +4555,15 @@ msgstr "Направи нову табелу у бази %s"
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Тип извоза"
+
+#: libraries/display_export.lib.php:113
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+msgid "Custom - display all possible options"
+msgstr "Опције за извоз базе"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
@@ -4687,9 +4696,11 @@ msgstr "\"бзип-овано\""
 msgid "Format:"
 msgstr "Формат"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
-msgstr ""
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Format-specific options:"
+msgstr "Опције трансформације"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
@@ -4784,6 +4795,10 @@ msgstr ""
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Број записа (упита) које треба прескочити:"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr ""
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71

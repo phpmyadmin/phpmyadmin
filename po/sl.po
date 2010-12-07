@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 05:59-0500\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-11-30 17:31+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Iskanje"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -1809,7 +1809,7 @@ msgstr "Za grafikone je potrebna razširitev GD."
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "Za zaslonske namige grafikonov je potreben kodirnik JSON."
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1825,12 +1825,12 @@ msgstr ""
 "večini primerov gre za manjkajoči narekovaj ali podpičje.<br />Če dobite "
 "prazno stran, je vse v redu."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ne morem naložiti privzete konfiguracije iz: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1838,28 +1838,28 @@ msgstr ""
 "Ukaz <tt>$cfg['PmaAbsoluteUri']</tt> MORA biti določen v konfiguracijski "
 "datoteki!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Neveljaven indeks strežnika: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Neveljavno ime gostitelja za strežnik %1$s. Prosim, preglejte svojo "
 "konfiguracijo."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Strežnik"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
@@ -2092,11 +2092,11 @@ msgstr "podatki"
 msgid "structure and data"
 msgstr "struktura in podatki"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr "Hitro - prikaži kar najmanj možnosti za konfiguriranje"
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr "Po meri - prikaži vse mogoče možnosti za konfiguriranje"
 
@@ -4326,7 +4326,7 @@ msgstr "Počisti geslo krmilnega uporabnika phpMyAdmin med uporabo pmadb"
 msgid "Incorrect IP address: %s"
 msgstr "Napačen IP-naslov: %s"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Razširitev %s manjka. Prosimo, preverite vašo konfiguracijo PHP."
@@ -4454,22 +4454,38 @@ msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
 
 #: libraries/display_export.lib.php:87
-msgid "Exporting databases in the current server"
+#, fuzzy
+#| msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Izvažanje zbirk podatkov na trenutnem strežniku"
 
 #: libraries/display_export.lib.php:89
-#, php-format
-msgid "Exporting tables in the database \"%s\""
+#, fuzzy, php-format
+#| msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "Izvažanje tabel v zbirki podatkov \"%s\""
 
 #: libraries/display_export.lib.php:91
-#, php-format
-msgid "Exporting rows in the table \"%s\""
+#, fuzzy, php-format
+#| msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Izvažanje vrstic v tabeli \"%s\""
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
 msgstr "Način izvoza:"
+
+#: libraries/display_export.lib.php:113
+#, fuzzy
+#| msgid "Quick - display only the minimal options to configure"
+msgid "Quick - display only the minimal options"
+msgstr "Hitro - prikaži kar najmanj možnosti za konfiguriranje"
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+#| msgid "Custom - display all possible options to configure"
+msgid "Custom - display all possible options"
+msgstr "Po meri - prikaži vse mogoče možnosti za konfiguriranje"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -4576,8 +4592,10 @@ msgstr "bzipano"
 msgid "Format:"
 msgstr "Oblika:"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Format-Specific Options:"
+msgid "Format-specific options:"
 msgstr "Možnosti odvisne od oblike:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4666,6 +4684,10 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Število vrstic, ki jih naj preskočim od prve vrstice:"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr "Možnosti odvisne od oblike:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
