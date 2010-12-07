@@ -8635,7 +8635,7 @@ msgstr "Skrýt graf dotazu"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Poznámka: Generování dotazu může trvat dlouho."
 
 #: server_status.php:855
 msgid "Replication status"
