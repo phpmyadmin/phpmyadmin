@@ -8774,6 +8774,8 @@ msgstr "Cacher le graphique des requêtes"
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
+"Remarque : la génération du graphique des requêtes peut prendre un certain "
+"temps."
 
 #: server_status.php:855
 msgid "Replication status"
