@@ -7902,10 +7902,9 @@ msgid "Start IO Thread only"
 msgstr "Démarrer seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "%s seulement le fil d'exécution des entrées-sorties"
+msgstr "Arrêter seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:338
 msgid "Error management:"
