@@ -5575,7 +5575,7 @@ msgstr ""
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
-msgstr "Názvy polí:"
+msgstr "Názvy polí: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
