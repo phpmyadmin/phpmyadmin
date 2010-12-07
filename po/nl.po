@@ -4508,7 +4508,6 @@ msgid "Create table on database %s"
 msgstr "Nieuwe tabel aanmaken in database %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Aantal velden"
