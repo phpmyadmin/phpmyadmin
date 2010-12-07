@@ -8629,10 +8629,9 @@ msgid "Show query chart"
 msgstr "Zobrazit graf dotazu"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "Schovat pole pro dotaz"
+msgstr "Skrýt graf dotazu"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
