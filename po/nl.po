@@ -4010,10 +4010,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:441
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Toon open tabellen"
+msgstr "Toon veld typen"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
