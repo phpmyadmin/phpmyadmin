@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 11:19+0100\n"
-"PO-Revision-Date: 2010-12-03 19:36+0200\n"
+"PO-Revision-Date: 2010-12-07 13:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7887,10 +7887,9 @@ msgid "Reset slave"
 msgstr "Réinitialiser l'esclave"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "%s seulement le fil d'exécution SQL"
+msgstr "Démarrer seulement le fil d'exécution SQL"
 
 #: server_replication.php:328
 #, fuzzy
