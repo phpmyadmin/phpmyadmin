@@ -134,6 +134,7 @@ fi
 if [ -f ./scripts/compress-js ] ; then
     echo "* Compressing javascript files"
     ./scripts/compress-js
+    rm -rf sources
 fi
 
 # Remove test directory from package to avoid Path disclosure messages
