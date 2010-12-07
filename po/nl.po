@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-07 23:49+0200\n"
+"PO-Revision-Date: 2010-12-07 23:50+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2065,10 +2065,10 @@ msgid "Browse your computer:"
 msgstr "Blader op uw eigen pc:"
 
 #: libraries/common.lib.php:2963
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "web-server upload directory"
+msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 
 #: libraries/common.lib.php:2975 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
