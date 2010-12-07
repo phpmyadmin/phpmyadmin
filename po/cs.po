@@ -6629,7 +6629,7 @@ msgstr ""
 "Zobrazí jen část textu. První parametr je posun od začátku (výchozí je 0) a "
 "druhý určuje délku textu, který se má zobrazit, pokud není uveden, bude "
 "zobrazen zbytek textu. Třetí parametr určuje, jaký text má být přidán za "
-"zkrácený text (výchozí je ...)."
+"zkrácený text (výchozí je „...“)."
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
