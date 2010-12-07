@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-07 12:09+0200\n"
+"PO-Revision-Date: 2010-12-07 12:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4546,7 +4546,7 @@ msgstr "Žádná"
 
 #: libraries/display_export.lib.php:313
 msgid "zipped"
-msgstr "„zazipováno“"
+msgstr "zazipováno"
 
 #: libraries/display_export.lib.php:315
 msgid "gzipped"
