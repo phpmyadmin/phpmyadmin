@@ -169,12 +169,17 @@ for kit in $KITS ; do
     rm -f scripts/lang-cleanup.sh
     cd ..
 
+    # Remove tar file possibly left from previous run
+    rm -f $name.tar
+
     # Prepare distributions
     for comp in $COMPRESSIONS ; do
         case $comp in
             tbz|tgz|txz)
-                echo "* Creating $name.tar"
-                tar cf $name.tar $name
+                if [ ! -f $name.tar ] ; then
+                    echo "* Creating $name.tar"
+                    tar cf $name.tar $name
+                fi
                 if [ $comp = tbz ] ; then
                     echo "* Creating $name.tar.bz2"
                     bzip2 -9k $name.tar
@@ -187,7 +192,6 @@ for kit in $KITS ; do
                     echo "* Creating $name.tar.gz"
                     gzip -9c $name.tar > $name.tar.gz
                 fi
-                rm $name.tar
                 ;;
             zip)
                 echo "* Creating $name.zip"
@@ -205,6 +209,9 @@ for kit in $KITS ; do
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
         esac
+
+        # Cleanup
+        rm -f $name.tar
     done
 
     # Remove directory with current dist set
