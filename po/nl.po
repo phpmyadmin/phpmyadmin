@@ -3476,10 +3476,9 @@ msgid "Query window height"
 msgstr "Query-venster hoogte"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Query-venster"
+msgstr "Query-venster breedte (in pixels)"
 
 #: libraries/config/messages.inc.php:340
 #, fuzzy
