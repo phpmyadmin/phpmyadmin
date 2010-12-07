@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 11:19+0100\n"
 "PO-Revision-Date: 2010-11-29 02:31+0200\n"
 "Last-Translator:  <javipas@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -67,7 +67,7 @@ msgstr "Buscar"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -623,11 +623,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas.  Por favor, refiérase a la %"
-"sdocumentation%s."
+"Esta vista tiene al menos este número de filas.  Por favor, refiérase a la "
+"%sdocumentation%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -848,20 +848,20 @@ msgstr "Su archivo (MySQL dump) ha sido guardado con el nombre %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande.  Por favor, "
 "refiérase a %sdocumentation%s para hallar modos de superar esta limitante."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "No fue posible leer el archivo"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1393,13 +1393,13 @@ msgstr "Segundo"
 msgid "Font size"
 msgstr "Tamaño de fuente"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "El archivo que intentó subir excede la directiva upload_max_filesize en php."
 "ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1407,27 +1407,27 @@ msgstr ""
 "El archivo que intentó subir excede la directiva MAX_FILE_SIZE especificada "
 "en el formulario HTML."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "El archivo que intentó subir no alcanzó el 100%."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Falta una carpeta temporal."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "No fue posible grabar el archivo a disco."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "La subida del archivo fue detenida por su extensión."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Error desconocido al subir el archivo."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1593,8 +1593,8 @@ msgstr "¡No se halló la plantilla de interfaz (theme) %s!"
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
-"¡No se halló la ruta de la plantilla de interfaz (theme) para la plantilla %"
-"s!"
+"¡No se halló la ruta de la plantilla de interfaz (theme) para la plantilla "
+"%s!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
@@ -1615,8 +1615,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no creó un archivo de configuración. "
 "Utilice %1$ssetup script%2$s para crear una."
@@ -4652,8 +4652,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s; así, usted puede usar "
 "cadenas de caracteres para formatear el tiempo. De manera adicional, "
@@ -6158,7 +6158,7 @@ msgstr "Sin descripción"
 msgid "Slave configuration"
 msgstr "Configuración del servidor"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -7111,8 +7111,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"El servidor está utilizando Suhosin. Por favor, refiérase a %sdocumentation%"
-"s para posibles ajustes."
+"El servidor está utilizando Suhosin. Por favor, refiérase a %sdocumentation"
+"%s para posibles ajustes."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 #, fuzzy
@@ -7870,8 +7870,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -8113,46 +8113,47 @@ msgstr "Texto completo"
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr ""
-
-#: server_replication.php:325 server_replication.php:326
-#, fuzzy
-msgid "Start"
-msgstr "Inicio"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr ""
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start SQL Thread only"
+msgstr "Únicamente la estructura "
+
+#: server_replication.php:328
+msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:330
-msgid "Error management:"
-msgstr ""
+#: server_replication.php:331
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start IO Thread only"
+msgstr "Únicamente la estructura "
 
-#: server_replication.php:332
-msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
-
-#: server_replication.php:334
-msgid "Skip current error"
-msgstr ""
-
-#: server_replication.php:335
-msgid "Skip next"
+#: server_replication.php:333
+msgid "Stop IO Thread only"
 msgstr ""
 
 #: server_replication.php:338
+msgid "Error management:"
+msgstr ""
+
+#: server_replication.php:340
+msgid "Skipping errors might lead into unsynchronized master and slave!"
+msgstr ""
+
+#: server_replication.php:342
+msgid "Skip current error"
+msgstr ""
+
+#: server_replication.php:343
+msgid "Skip next"
+msgstr ""
+
+#: server_replication.php:346
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -9456,9 +9457,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -10244,6 +10245,10 @@ msgstr "(VIEW) VER nombre"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a "
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Inicio"
 
 #, fuzzy
 #~| msgid "Display databases in a tree"

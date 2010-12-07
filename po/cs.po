@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 11:19+0100\n"
 "PO-Revision-Date: 2010-12-07 11:13+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -70,7 +70,7 @@ msgstr "Vyhledávání"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -846,14 +846,14 @@ msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Soubor nelze přečíst"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1381,12 +1381,12 @@ msgstr "Sekundy"
 msgid "Font size"
 msgstr "Velikost písma"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Velikost nahraného souboru přesahuje nastavení upload_max_filesize v php.ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1394,27 +1394,27 @@ msgstr ""
 "Velikost nahraného souboru přesahuje hodnotu MAX_FILE_SIZE, která byla "
 "zadána v HTML formuláři."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Soubor byl nahrán jen částečně."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Chybějící adresář pro dočasné soubory."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Chyba při zapisování souboru na disk."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Nahrávání souboru zastaveno rozšířením."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Neznámá chyba při nahrávání souboru."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -3103,7 +3103,6 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Mimimum number of tables to display table filter"
 msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
 
@@ -5966,7 +5965,7 @@ msgstr "žádný popisek"
 msgid "Slave configuration"
 msgstr "Nastavení podřízeného"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Změnit nebo přenastavit nadřízený server"
 
@@ -7782,47 +7781,53 @@ msgstr "Kompletně zastavit"
 msgid "Reset slave"
 msgstr "Resetovat podřízený server"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
+#: server_replication.php:326
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Start SQL Thread only"
 msgstr "%s jen SQL vlákno"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Spustit"
+#: server_replication.php:328
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Stop SQL Thread only"
+msgstr "%s jen SQL vlákno"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Zastavit"
-
-#: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#: server_replication.php:331
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Start IO Thread only"
 msgstr "%s jen IO vlákno"
 
-#: server_replication.php:330
+#: server_replication.php:333
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Stop IO Thread only"
+msgstr "%s jen IO vlákno"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Práce s chybami:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném "
 "serveru."
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Přeskočit současnou chybu"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Přeskočit dalších"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "chyb."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -8625,12 +8630,10 @@ msgid "Query type"
 msgstr "Typ dotazu"
 
 #: server_status.php:709 server_status.php:710
-#| msgid "Show query box"
 msgid "Show query chart"
 msgstr "Zobrazit graf dotazu"
 
 #: server_status.php:714 server_status.php:715
-#| msgid "Hide query box"
 msgid "Hide query chart"
 msgstr "Skrýt graf dotazu"
 
@@ -9781,6 +9784,12 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid "Start"
+#~ msgstr "Spustit"
+
+#~ msgid "Stop"
+#~ msgstr "Zastavit"
 
 #~ msgid "Display table filter"
 #~ msgstr "Zobrazit rychlé vyhledávání tabulek"

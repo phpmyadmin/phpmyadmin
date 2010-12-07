@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 11:19+0100\n"
 "PO-Revision-Date: 2010-11-26 12:58+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -66,7 +66,7 @@ msgstr "Søk"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -610,8 +610,8 @@ msgstr "Overvåkning er ikke aktiv."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -832,20 +832,20 @@ msgstr "Dump har blitt lagret til fila %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Du forsøkte sansynligvis å laste opp en for stor fil. Sjekk %sdokumentasjonen"
 "%s for måter å omgå denne begrensningen."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Fila kunne ikke leses"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1374,13 +1374,13 @@ msgstr "Sekund"
 msgid "Font size"
 msgstr "Fontstørrelse"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Opplastingsfila er større enn upload_max_filesize direktivet definert i php."
 "ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1388,27 +1388,27 @@ msgstr ""
 "Opplastingsfila er større enn MAX_FILE_SIZE direktivet som ble spesifisert i "
 "HTML-skjemaet."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Opplastingsfila ble bare delvis opplastet."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Mangler en midlertidig mappe."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Klarte ikke å skrive fila til harddisken."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Filopplasting stoppet av utvidelse."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1589,8 +1589,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -4603,8 +4603,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -6097,7 +6097,7 @@ msgstr "ingen beskrivelse"
 msgid "Slave configuration"
 msgstr "Slavekonfigurasjon"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Endre eller rekonfigurer mastertjener"
 
@@ -6582,8 +6582,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-"stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på "
+"%stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -7734,8 +7734,8 @@ msgstr "Slett databasene som har det samme navnet som brukerne."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -7976,45 +7976,51 @@ msgstr "Full stopp"
 msgid "Reset slave"
 msgstr "Resett slave"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
+#: server_replication.php:326
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Start SQL Thread only"
 msgstr "Kun SQL tråd %s"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Start"
+#: server_replication.php:328
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Stop SQL Thread only"
+msgstr "Kun SQL tråd %s"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Stopp"
-
-#: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#: server_replication.php:331
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Start IO Thread only"
 msgstr "Kun IO tråd %s"
 
-#: server_replication.php:330
+#: server_replication.php:333
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Stop IO Thread only"
+msgstr "Kun IO tråd %s"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Feilbehandling:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "Å hoppe over feil kan føre til usynkroniserte master og slave!"
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Hopp over nåværende feil"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Hopp over neste"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "feil."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -9280,8 +9286,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -9292,9 +9298,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -10068,6 +10074,12 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
+
+#~ msgid "Start"
+#~ msgstr "Start"
+
+#~ msgid "Stop"
+#~ msgstr "Stopp"
 
 #, fuzzy
 #~| msgid "Display databases in a tree"

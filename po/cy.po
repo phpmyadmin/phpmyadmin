@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 11:19+0100\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
+"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cy\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -70,7 +70,7 @@ msgstr "Chwilio"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -630,8 +630,8 @@ msgstr "Nid yw tracio'n weithredol"
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
@@ -853,20 +853,20 @@ msgstr "Dadlwythiad wedi'i gadw i'r ffeil %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
 "%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Nid oedd modd darllen y ffeil hon."
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1431,37 +1431,37 @@ msgstr "Eiliad"
 msgid "Font size"
 msgstr "Maint ffont"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr ""
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Ffolder dros dro ar goll."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Methu ag ysgrifennu i'r ddisg."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Cafodd y lanlwythiad ei atal gan estyniad."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Gwall anhysbys wrth lanlwytho ffeil."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1641,11 +1641,11 @@ msgstr "Croeso i %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
-"$sgript gosod%2$s  er mwyn ei chreu."
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r "
+"%1$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -4506,8 +4506,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -5910,7 +5910,7 @@ msgstr ""
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -7408,8 +7408,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1775
@@ -7630,45 +7630,47 @@ msgstr ""
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr ""
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr ""
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr ""
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start SQL Thread only"
+msgstr "Strwythur yn unig"
+
+#: server_replication.php:328
+msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:330
-msgid "Error management:"
-msgstr ""
+#: server_replication.php:331
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start IO Thread only"
+msgstr "Strwythur yn unig"
 
-#: server_replication.php:332
-msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
-
-#: server_replication.php:334
-msgid "Skip current error"
-msgstr ""
-
-#: server_replication.php:335
-msgid "Skip next"
+#: server_replication.php:333
+msgid "Stop IO Thread only"
 msgstr ""
 
 #: server_replication.php:338
+msgid "Error management:"
+msgstr ""
+
+#: server_replication.php:340
+msgid "Skipping errors might lead into unsynchronized master and slave!"
+msgstr ""
+
+#: server_replication.php:342
+msgid "Skip current error"
+msgstr ""
+
+#: server_replication.php:343
+msgid "Skip next"
+msgstr ""
+
+#: server_replication.php:346
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "

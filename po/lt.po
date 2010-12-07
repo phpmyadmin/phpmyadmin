@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 11:19+0100\n"
 "PO-Revision-Date: 2010-11-27 22:17+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -67,7 +67,7 @@ msgstr "Paieška"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -614,11 +614,11 @@ msgstr "Sekimas yra neaktyvus."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos %"
-"sdokumentacijoje%s."
+"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
+"%sdokumentacijoje%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -838,20 +838,20 @@ msgstr "Atvaizdis įrašytas faile %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti %"
-"sdokumentaciją%s būdams kaip apeiti šį apribojimą."
+"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti "
+"%sdokumentaciją%s būdams kaip apeiti šį apribojimą."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Negalima perskaityti failo"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1379,11 +1379,11 @@ msgstr "Sekundės"
 msgid "Font size"
 msgstr "Šrifto dydis"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Įkeltas failas viršija upload_max_filesize nurodymą faile php.ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1391,27 +1391,27 @@ msgstr ""
 "Įkeltas failas viršija MAX_FILE_SIZE nurodymą kuris buvo nustatytas HTML "
 "formoje."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Įkeliamas failas buvo tik dalinai įkeltas."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Trūksta laikino katalogo."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Nepavyko įrašyti failo į diską."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Nežinoma klaida failų įkėlime."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1594,8 +1594,8 @@ msgstr "Jūs naudojate %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Jūs dar turbūt nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
@@ -4443,8 +4443,8 @@ msgstr ", @TABLE@ taps lentelės pavadinimu"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi Jūs galite "
 "keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
@@ -5854,7 +5854,7 @@ msgstr "Aprašymo nėra"
 msgid "Slave configuration"
 msgstr "Pavaldžiojo (Slave) serverio konfigūracija"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Pakeisti arba perkonfigūruoti pagrindinį (master) serverį"
 
@@ -7479,8 +7479,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
@@ -7727,47 +7727,53 @@ msgstr "Pilnas išjungimas"
 msgid "Reset slave"
 msgstr "Paleisti iš naujo pavaldųjį serverį (reset slave)"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
+#: server_replication.php:326
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Start SQL Thread only"
 msgstr "Tik SQL gija %s"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Paleisti"
+#: server_replication.php:328
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Stop SQL Thread only"
+msgstr "Tik SQL gija %s"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Sustabdyti"
-
-#: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#: server_replication.php:331
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Start IO Thread only"
 msgstr "Tik IO %s gija"
 
-#: server_replication.php:330
+#: server_replication.php:333
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Stop IO Thread only"
+msgstr "Tik IO %s gija"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Klaidų valdymas:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Klaidų praleidinėjimas gali nuvesti iki nesusinchronizavimo tarp pagrindinio "
 "ir jam pavaldžių serverių!"
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Praleisti šią klaidą"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Praleisti sekančius"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "klaidos."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -8912,9 +8918,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -9686,6 +9692,12 @@ msgstr "VIEW pavadinimas"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Pervadinti lentelę į"
+
+#~ msgid "Start"
+#~ msgstr "Paleisti"
+
+#~ msgid "Stop"
+#~ msgstr "Sustabdyti"
 
 #~ msgid "Display table filter"
 #~ msgstr "Rodyti lentelių filtrą"
