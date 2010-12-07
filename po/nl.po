@@ -3353,7 +3353,7 @@ msgstr "Geheugen limiet"
 #: libraries/config/messages.inc.php:312
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Toon linker edit/delete links "
+msgstr "Toon linker edit/delete links"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
