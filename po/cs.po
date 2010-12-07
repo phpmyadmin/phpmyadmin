@@ -4550,7 +4550,7 @@ msgstr "zazipováno"
 
 #: libraries/display_export.lib.php:315
 msgid "gzipped"
-msgstr "„zagzipováno“"
+msgstr "zagzipováno"
 
 #: libraries/display_export.lib.php:317
 msgid "bzipped"
