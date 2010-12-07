@@ -7897,10 +7897,9 @@ msgid "Stop SQL Thread only"
 msgstr "Arrêter seulement le fil d'exécution SQL"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "%s seulement le fil d'exécution des entrées-sorties"
+msgstr "Démarrer seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:333
 #, fuzzy
