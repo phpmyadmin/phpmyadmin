@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-02 17:30+0100\n"
+"PO-Revision-Date: 2010-12-07 12:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3103,10 +3103,9 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Mimimum number of tables to display table filter"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
