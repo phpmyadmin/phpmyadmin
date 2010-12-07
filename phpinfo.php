@@ -7,10 +7,6 @@
  */
 
 /**
- * @ignore
- */
-define('PMA_MINIMUM_COMMON', true);
-/**
  * Gets core libraries and defines some variables
  */
 require_once './libraries/common.inc.php';
