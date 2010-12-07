@@ -2976,10 +2976,9 @@ msgid "Text fields"
 msgstr "Tekstvelden"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Aanpassen export opties"
+msgstr "Tekstvelden aanpassen"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
