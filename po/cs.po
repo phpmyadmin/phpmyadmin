@@ -6093,7 +6093,7 @@ msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr "Chyba při vytváření schéma:"
+msgstr "Chyba při vytváření schéma: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
