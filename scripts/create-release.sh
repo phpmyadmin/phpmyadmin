@@ -137,12 +137,19 @@ if [ -f ./scripts/compress-js ] ; then
     rm -rf sources
 fi
 
+echo "* Removing unneeded files"
+
 # Remove test directory from package to avoid Path disclosure messages
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
 
 # Remove javascript compiler, no need to ship it
 rm -rf scripts/google-javascript-compiler/
+
+# Remove scripts which are not useful for user
+for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release ; do
+    rm -f scripts/$s
+done
 
 # Remove git metadata
 rm -rf .git
@@ -159,6 +166,7 @@ for kit in $KITS ; do
 	# Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
+    rm -f scripts/lang-cleanup.sh
     cd ..
 
     # Prepare distributions
