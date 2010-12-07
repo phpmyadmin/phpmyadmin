@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-07 23:35+0200\n"
+"PO-Revision-Date: 2010-12-07 23:36+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2971,10 +2971,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Aanpassen van tabblad functioneren"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Gebruik tekstveld"
+msgstr "Tekstvelden"
 
 #: libraries/config/messages.inc.php:222
 #, fuzzy
