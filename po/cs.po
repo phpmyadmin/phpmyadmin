@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-07 11:13+0100\n"
+"PO-Revision-Date: 2010-12-07 12:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1112,7 +1112,7 @@ msgstr "Zvolte která pole zobrazit"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr "Přidat paramer pro sloupec"
+msgstr "Přidat paramer pro sloupec "
 
 #: js/messages.php:101
 msgid "Generate password"
