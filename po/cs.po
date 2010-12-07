@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-07 12:06+0200\n"
+"PO-Revision-Date: 2010-12-07 12:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8624,10 +8624,9 @@ msgid "Query type"
 msgstr "Typ dotazu"
 
 #: server_status.php:709 server_status.php:710
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Zobrazit pole pro dotaz"
+msgstr "Zobrazit graf dotazu"
 
 #: server_status.php:714 server_status.php:715
 #, fuzzy
