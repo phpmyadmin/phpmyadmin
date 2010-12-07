@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-07 23:36+0200\n"
+"PO-Revision-Date: 2010-12-07 23:37+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3076,7 +3076,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
