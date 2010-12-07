@@ -2937,10 +2937,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Aanpassen van links getoond in de SQL-query vensters"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL-queries"
+msgstr "SQL-query instellingen"
 
 #: libraries/config/messages.inc.php:215
 #, fuzzy
