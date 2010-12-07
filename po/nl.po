@@ -4282,10 +4282,9 @@ msgid "Cookie authentication"
 msgstr "Cookie authenticatie"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Machine authenticatie volgorde"
+msgstr "HTTP authenticatie"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
