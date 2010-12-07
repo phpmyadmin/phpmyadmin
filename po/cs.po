@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 11:19+0100\n"
-"PO-Revision-Date: 2010-12-07 11:13+0100\n"
+"PO-Revision-Date: 2010-12-07 11:21+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1112,7 +1112,7 @@ msgstr "Zvolte která pole zobrazit"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr "Přidat paramer pro sloupec"
+msgstr "Přidat paramer pro sloupec "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -5574,7 +5574,7 @@ msgstr ""
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
-msgstr "Názvy polí:"
+msgstr "Názvy polí: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -6092,7 +6092,7 @@ msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr "Chyba při vytváření schéma:"
+msgstr "Chyba při vytváření schéma: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
@@ -7782,28 +7782,24 @@ msgid "Reset slave"
 msgstr "Resetovat podřízený server"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "%s jen SQL vlákno"
+msgstr "Spustit jen SQL vlákno"
 
 #: server_replication.php:328
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "%s jen SQL vlákno"
+msgstr "Zastavit jen SQL vlákno"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "%s jen IO vlákno"
+msgstr "Spustit jen IO vlákno"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "%s jen IO vlákno"
+msgstr "Zastavit jen IO vlákno"
 
 #: server_replication.php:338
 msgid "Error management:"
