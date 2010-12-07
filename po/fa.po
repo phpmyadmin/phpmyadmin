@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 11:19+0100\n"
+"POT-Creation-Date: 2010-12-07 05:59-0500\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -629,8 +629,8 @@ msgstr ""
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
@@ -854,8 +854,8 @@ msgstr ""
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:501
@@ -1662,8 +1662,8 @@ msgstr "به %s خوش‌آمديد"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -3176,7 +3176,7 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:267
-msgid "Mimimum number of tables to display table filter"
+msgid "Minimum number of tables to display the table filter box"
 msgstr ""
 
 #: libraries/config/messages.inc.php:268
@@ -4507,8 +4507,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -6360,9 +6360,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
+"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
+"\\'b')"
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6391,9 +6391,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
+"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
+"\\'b')"
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
@@ -6646,8 +6646,8 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 "پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
-"مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد."
+"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز مي‌شود "
+"، و شما بايد اين حفره امنيتي را ذرست كنيد."
 
 #: main.php:256
 msgid ""
@@ -7439,8 +7439,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1775
