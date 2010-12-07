@@ -4162,10 +4162,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR textarea kolommen"
+msgstr "Textarea kolommen"
 
 #: libraries/config/messages.inc.php:475
 msgid ""
