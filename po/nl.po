@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-07 23:51+0200\n"
+"PO-Revision-Date: 2010-12-07 23:53+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3433,7 +3433,6 @@ msgid "Protect binary columns"
 msgstr "Bescherm binaire velden"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3443,8 +3442,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-query historie wordt bijgehouden in een "
-"database (vereist pmadb). Indien uitgeschakeld worden JS-routines gebruikt "
-"die niet bewaard worden bij het sluiten van het venster."
+"database (vereist phpMyAdmin configuratie opslag). Indien uitgeschakeld "
+"worden JS-routines gebruikt die niet bewaard worden bij het sluiten van het "
+"venster."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
