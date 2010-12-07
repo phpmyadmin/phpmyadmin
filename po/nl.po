@@ -3090,7 +3090,6 @@ msgid "Partial import: skip queries"
 msgstr "Gedeeltelijke import: queries overslaan"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
