@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-09 00:25+0200\n"
+"PO-Revision-Date: 2010-12-09 00:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3097,10 +3097,9 @@ msgid "Display servers selection"
 msgstr "Sunucu seçimlerini görüntüle"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
