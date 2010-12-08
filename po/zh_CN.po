@@ -7553,7 +7553,7 @@ msgstr "控制从服务器:"
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr "全部开始"
+msgstr "全部启动"
 
 #: server_replication.php:323
 msgid "Full stop"
