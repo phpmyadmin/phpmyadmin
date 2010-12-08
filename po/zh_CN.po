@@ -4319,10 +4319,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "正在导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
-msgstr "导出数据表“%s”中的记录"
+msgstr "正在导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
