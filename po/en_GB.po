@@ -4430,10 +4430,10 @@ msgid "Exporting databases from the current server"
 msgstr "Exporting databases from the current server"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Exporting tables in the database \"%s\""
+msgstr "Exporting tables from \"%s\" database"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
