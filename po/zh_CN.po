@@ -4313,10 +4313,10 @@ msgid "Exporting databases from the current server"
 msgstr "正在从当前服务器中导出数据库"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "导出数据库“%s”中的数据表"
+msgstr "正在导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
