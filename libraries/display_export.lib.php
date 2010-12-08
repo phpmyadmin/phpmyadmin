@@ -84,11 +84,11 @@ if(isset($_GET['sql_query'])) {
         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_export.png" alt="export" />
         <?php
         if($export_type == 'server') {
-            echo __('Exporting databases in the current server');
+            echo __('Exporting databases from the current server');
         } elseif($export_type == 'database') {
-            printf(__('Exporting tables in the database "%s"'), htmlspecialchars($db));
+            printf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
         } else {
-            printf(__('Exporting rows in the table "%s"'), htmlspecialchars($table));
+            printf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
         }?>
     </h2>
 </div>
@@ -110,7 +110,7 @@ if(isset($_GET['sql_query'])) {
             } else {
                 echo ' checked="checked" />';
             }
-            echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options to configure') . '</label>'; ?>
+            echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options') . '</label>'; ?>
         </li>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
@@ -126,7 +126,7 @@ if(isset($_GET['sql_query'])) {
             } else {
                 echo ' />';
             }
-            echo '<label for="radio_custom_export">' . __('Custom - display all possible options to configure') . '</label>';?>
+            echo '<label for="radio_custom_export">' . __('Custom - display all possible options') . '</label>';?>
         </li>
     </ul>
 </div>
@@ -333,7 +333,7 @@ if(isset($_GET['sql_query'])) {
 </div>
 
 <div class="exportoptions" id="format_specific_opts">
-    <h3><?php echo __('Format-Specific Options:'); ?></h3>
+    <h3><?php echo __('Format-specific options:'); ?></h3>
     <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
     <?php echo PMA_pluginGetOptions('Export', $export_list); ?>
 </div>

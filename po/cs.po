@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-02 17:30+0100\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"PO-Revision-Date: 2010-12-07 15:56+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Vyhledávání"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -70,7 +70,7 @@ msgstr "Vyhledávání"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -617,8 +617,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -804,7 +804,7 @@ msgstr "Historie databáze"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Hodnoty pro pole \"%s\""
+msgstr "Hodnoty pro pole „%s“"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
@@ -840,20 +840,20 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Soubor nelze přečíst"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1112,7 +1112,7 @@ msgstr "Zvolte která pole zobrazit"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr "Přidat paramer pro sloupec"
+msgstr "Přidat paramer pro sloupec "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -1381,12 +1381,12 @@ msgstr "Sekundy"
 msgid "Font size"
 msgstr "Velikost písma"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Velikost nahraného souboru přesahuje nastavení upload_max_filesize v php.ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1394,27 +1394,27 @@ msgstr ""
 "Velikost nahraného souboru přesahuje hodnotu MAX_FILE_SIZE, která byla "
 "zadána v HTML formuláři."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Soubor byl nahrán jen částečně."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Chybějící adresář pro dočasné soubory."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Chyba při zapisování souboru na disk."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Nahrávání souboru zastaveno rozšířením."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Neznámá chyba při nahrávání souboru."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1598,8 +1598,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1806,7 +1806,7 @@ msgstr "Pro grafy je potřebné rozšíření GD."
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "Enkodér pro JSON je potřeba pro tooltipy grafu."
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1822,12 +1822,12 @@ msgstr ""
 "(nejčastěji se jedná o chybějící středník).<br />Pokud získáte prázdnou "
 "stránku, všechno je v pořádku."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1835,26 +1835,26 @@ msgstr ""
 "Parametr <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ být nastaven v konfiguračním "
 "souboru!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybný index serveru: „%s“"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfiguraci máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
@@ -2087,11 +2087,11 @@ msgstr "data"
 msgid "structure and data"
 msgstr "struktura a data"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr "Rychlý - zobrazí jen minimum možností nastavení"
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr "Vlastní - zobrazí všechna možná nastavení"
 
@@ -2156,7 +2156,7 @@ msgstr "nedostupné"
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" vyžaduje rozšíření %s"
+msgstr "„%s“ vyžaduje rozšíření %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
@@ -3103,10 +3103,8 @@ msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Mimimum number of tables to display table filter"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgid "Minimum number of tables to display the table filter box"
+msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -4313,7 +4311,7 @@ msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití pmadb
 msgid "Incorrect IP address: %s"
 msgstr "Nesprávná IP adresa: %s"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
@@ -4440,22 +4438,35 @@ msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/display_export.lib.php:87
-msgid "Exporting databases in the current server"
+#| msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Exportuji databáze z aktuálního serveru"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-msgid "Exporting tables in the database \"%s\""
-msgstr "Exportuji tabulky z databáze \"%s\""
+#| msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
+msgstr "Exportuji tabulky z databáze „%s“"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-msgid "Exporting rows in the table \"%s\""
-msgstr "Exportuji řádky z tabulky \"%s\""
+#| msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
+msgstr "Exportuji řádky z tabulky „%s“"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
 msgstr "Způsob exportu:"
+
+#: libraries/display_export.lib.php:113
+#| msgid "Quick - display only the minimal options to configure"
+msgid "Quick - display only the minimal options"
+msgstr "Rychlý - zobrazí jen minimum nastavení"
+
+#: libraries/display_export.lib.php:129
+#| msgid "Custom - display all possible options to configure"
+msgid "Custom - display all possible options"
+msgstr "Vlastní - zobrazí všechna nastavení"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -4518,8 +4529,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -4547,23 +4558,24 @@ msgstr "Žádná"
 
 #: libraries/display_export.lib.php:313
 msgid "zipped"
-msgstr "„zazipováno“"
+msgstr "zazipováno"
 
 #: libraries/display_export.lib.php:315
 msgid "gzipped"
-msgstr "„zagzipováno“"
+msgstr "zagzipováno"
 
 #: libraries/display_export.lib.php:317
 msgid "bzipped"
-msgstr "„zabzipováno“"
+msgstr "zabzipováno"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 msgid "Format:"
 msgstr "Formát:"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
+#: libraries/display_export.lib.php:336
+#| msgid "Format-Specific Options:"
+msgid "Format-specific options:"
 msgstr "Parametry pro výstupní formát:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4599,12 +4611,12 @@ msgstr "Importuji na aktuální server"
 #: libraries/display_import.lib.php:131
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Importuji do databáze \"%s\""
+msgstr "Importuji do databáze „%s“"
 
 #: libraries/display_import.lib.php:133
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Importuji do tabulky \"%s\""
+msgstr "Importuji do tabulky „%s“"
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
@@ -4652,6 +4664,10 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Počet dotazů od začátku, které se mají přeskočit:"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr "Parametry pro výstupní formát:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -5051,7 +5067,7 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
-"Dvojtečkou (\":\") oddělený seznam hlaviček metadat, který bude použit pro "
+"Dvojtečkou („:“) oddělený seznam hlaviček metadat, který bude použit pro "
 "inicializaci tabulky pbms_metadata_header při vytváření databáze."
 
 #: libraries/engines/pbxt.lib.php:22
@@ -5439,8 +5455,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Vypisovat binární pole šestnáctkově <i>(například, \"abc\" becomes 0x616263)"
-"</i>"
+"Vypisovat binární pole šestnáctkově <i>(například, „abc“ becomes 0x616263)</"
+"i>"
 
 #: libraries/export/sql.php:171
 msgid ""
@@ -5533,11 +5549,11 @@ msgstr "Zobrazit obsah tabulky kliknutím na její jméno"
 #: libraries/import.lib.php:1143
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz \"Nastavení\""
+msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz „Nastavení“"
 
 #: libraries/import.lib.php:1144
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Upravit strukturu kliknutím na odkaz \"Struktura\""
+msgstr "Upravit strukturu kliknutím na odkaz „Struktura“"
 
 #: libraries/import.lib.php:1147
 msgid "Go to database"
@@ -5576,7 +5592,7 @@ msgstr ""
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
-msgstr "Názvy polí:"
+msgstr "Názvy polí: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -5967,7 +5983,7 @@ msgstr "žádný popisek"
 msgid "Slave configuration"
 msgstr "Nastavení podřízeného"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Změnit nebo přenastavit nadřízený server"
 
@@ -6094,7 +6110,7 @@ msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr "Chyba při vytváření schéma:"
+msgstr "Chyba při vytváření schéma: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
@@ -6438,8 +6454,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6480,8 +6496,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -6630,7 +6646,7 @@ msgstr ""
 "Zobrazí jen část textu. První parametr je posun od začátku (výchozí je 0) a "
 "druhý určuje délku textu, který se má zobrazit, pokud není uveden, bude "
 "zobrazen zbytek textu. Třetí parametr určuje, jaký text má být přidán za "
-"zkrácený text (výchozí je ...)."
+"zkrácený text (výchozí je „...“)."
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
@@ -6743,8 +6759,9 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"Máte standardní nastavení hesla uživatele root v MySQL. Doporučujeme změnit "
-"toto nastavení a tím podstatně zvýšit zabezpečení vašeho serveru."
+"Máte standardní nastavení hesla uživatele root v MySQL. Doporučujeme "
+"nastavit heslo pro uživatele 'root' a tím podstatně zvýšit zabezpečení "
+"vašeho serveru."
 
 #: main.php:256
 msgid ""
@@ -7087,8 +7104,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7540,8 +7557,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -7782,47 +7799,45 @@ msgstr "Kompletně zastavit"
 msgid "Reset slave"
 msgstr "Resetovat podřízený server"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr "%s jen SQL vlákno"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Spustit"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Zastavit"
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
-msgstr "%s jen IO vlákno"
+msgid "Start SQL Thread only"
+msgstr "Spustit jen SQL vlákno"
 
-#: server_replication.php:330
+#: server_replication.php:328
+msgid "Stop SQL Thread only"
+msgstr "Zastavit jen SQL vlákno"
+
+#: server_replication.php:331
+msgid "Start IO Thread only"
+msgstr "Spustit jen IO vlákno"
+
+#: server_replication.php:333
+msgid "Stop IO Thread only"
+msgstr "Zastavit jen IO vlákno"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Práce s chybami:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném "
 "serveru."
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Přeskočit současnou chybu"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Přeskočit dalších"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "chyb."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -8625,20 +8640,16 @@ msgid "Query type"
 msgstr "Typ dotazu"
 
 #: server_status.php:709 server_status.php:710
-#, fuzzy
-#| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Zobrazit pole pro dotaz"
+msgstr "Zobrazit graf dotazu"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "Schovat pole pro dotaz"
+msgstr "Skrýt graf dotazu"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Poznámka: Generování dotazu může trvat dlouho."
 
 #: server_status.php:855
 msgid "Replication status"
@@ -9022,7 +9033,7 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při  %sUkládádání přihlašovaci cookie"
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
 "%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
@@ -9034,8 +9045,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -9783,6 +9794,12 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid "Start"
+#~ msgstr "Spustit"
+
+#~ msgid "Stop"
+#~ msgstr "Zastavit"
 
 #~ msgid "Display table filter"
 #~ msgstr "Zobrazit rychlé vyhledávání tabulek"

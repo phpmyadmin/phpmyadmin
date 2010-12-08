@@ -322,8 +322,16 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo '  <ul>';
         echo '   <li><a href="'. $slave_control_full_link . '">' . (($server_slave_replication[0]['Slave_IO_Running'] == 'No' || $server_slave_replication[0]['Slave_SQL_Running'] == 'No') ? __('Full start') : __('Full stop')) . ' </a></li>';
         echo '   <li><a href="'. $slave_control_reset_link . '">' . __('Reset slave') . '</a></li>';
-        echo '   <li><a href="' . $slave_control_sql_link . '">' . sprintf(__('SQL Thread %s only'), ($server_slave_replication[0]['Slave_SQL_Running'] == 'No' ? __('Start') : __('Stop'))) . '</a></li>';
-        echo '   <li><a href="' . $slave_control_io_link . '">' . sprintf(__('IO Thread %s only'), ($server_slave_replication[0]['Slave_IO_Running'] == 'No' ? __('Start') : __('Stop'))) . '</a></li>';
+        if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
+            echo '   <li><a href="' . $slave_control_sql_link . '">' . __('Start SQL Thread only') . '</a></li>';
+        } else {
+            echo '   <li><a href="' . $slave_control_sql_link . '">' . __('Stop SQL Thread only') . '</a></li>';
+        }
+        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
+            echo '   <li><a href="' . $slave_control_io_link . '">' . __('Start IO Thread only') . '</a></li>';
+        } else {
+            echo '   <li><a href="' . $slave_control_io_link . '">' . __('Stop IO Thread only') . '</a></li>';
+        }
         echo '  </ul>';
         echo ' </div>';
         echo ' </li>';

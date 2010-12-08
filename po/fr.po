@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-12-03 19:36+0200\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"PO-Revision-Date: 2010-12-08 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -51,7 +51,7 @@ msgstr "Rechercher"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -68,7 +68,7 @@ msgstr "Rechercher"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -548,7 +548,6 @@ msgstr "Effacer"
 
 #: db_search.php:260
 #, php-format
-#| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
 msgstr "Supprimer de la table %s les occurences?"
 
@@ -846,14 +845,14 @@ msgstr ""
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
 "cette limite."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Le fichier n'a pu être lu"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1387,13 +1386,13 @@ msgstr "Seconde"
 msgid "Font size"
 msgstr "Taille du texte"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "La taille du fichier téléchargé dépasse la limite permise par la directive "
 "upload_max_filesize de php.ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1401,27 +1400,27 @@ msgstr ""
 "La taille du fichier téléchargé dépasse la limite permise par la directive "
 "MAX_FILE_SIZE présente dans le formulaire HTML."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Le fichier n'a été que partiellement téléchargé."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Répertoire temporaire manquant."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Erreur lors de l'écriture du fichier sur disque."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Téléchargement arrêté par l'extension."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Erreur inconnue durant le téléchargement."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1814,7 +1813,7 @@ msgstr "L'extension GD est requise pour les graphiques."
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "L'encodeur JSON est requis pour afficher les conseils de graphique."
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1830,13 +1829,13 @@ msgstr ""
 "virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur "
 "n'a été détectée."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 
 # OK
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1844,29 +1843,29 @@ msgstr ""
 "Le paramètre <tt>$cfg['PmaAbsoluteUri']</tt> DOIT être renseigné dans votre "
 "fichier de configuration !"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indice de serveur invalide: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom d'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Serveur"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "Le fichier de configuration contient un type d'authentification invalide :"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Vous devriez utiliser %s en version %s ou plus récente."
@@ -2100,11 +2099,11 @@ msgstr "données"
 msgid "structure and data"
 msgstr "structure et données"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr "Rapide - n'afficher qu'un minimum d'options à configurer"
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr "Personnalisée - afficher toutes les options possibles"
 
@@ -3124,10 +3123,9 @@ msgid "Display servers selection"
 msgstr "Affiche la liste des serveurs"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
-msgid "Mimimum number of tables to display table filter"
-msgstr "Nombre maximum de tables affichées dans la liste des tables"
+msgid "Minimum number of tables to display the table filter box"
+msgstr "Nombre minimum de tables pour afficher la boîte de filtre de table"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -4352,7 +4350,7 @@ msgstr "Le controlpass est vide"
 msgid "Incorrect IP address: %s"
 msgstr "Adresse IP incorrecte : %s"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Il manque l'extension %s. Veuillez vérifier votre configuration PHP."
@@ -4480,22 +4478,35 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Erreur lors du chargement des modules d'exportation !"
 
 #: libraries/display_export.lib.php:87
-msgid "Exporting databases in the current server"
-msgstr "Exportation des bases de données du serveur actuel"
+#| msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
+msgstr "Exportation des bases de données depuis le serveur courant"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-msgid "Exporting tables in the database \"%s\""
-msgstr "Exportation des tables dans la base de données «%s»"
+#| msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
+msgstr "Exportation des tables depuis la base de données «%s»"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-msgid "Exporting rows in the table \"%s\""
+#| msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Exportation des lignes de la table «%s»"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
 msgstr "Méthode d'exportation:"
+
+#: libraries/display_export.lib.php:113
+#| msgid "Quick - display only the minimal options to configure"
+msgid "Quick - display only the minimal options"
+msgstr "Rapide - n'afficher qu'un minimum d'options"
+
+#: libraries/display_export.lib.php:129
+#| msgid "Custom - display all possible options to configure"
+msgid "Custom - display all possible options"
+msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -4602,8 +4613,9 @@ msgstr " «bzippé »"
 msgid "Format:"
 msgstr "Format:"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
+#: libraries/display_export.lib.php:336
+#| msgid "Format-Specific Options:"
+msgid "Format-specific options:"
 msgstr "Options spécifiques au format:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4692,6 +4704,10 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Nombre de lignes à ignorer à partir de la première ligne:"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr "Options spécifiques au format:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -6030,7 +6046,7 @@ msgstr "pas de description"
 msgid "Slave configuration"
 msgstr "Configuration de l'esclave"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Changer ou reconfigurer le serveur maître"
 
@@ -6929,7 +6945,6 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: navigation.php:292
-#| msgid "Alter table order by"
 msgid "filter tables by name"
 msgstr "filtrer par nom de table"
 
@@ -7887,47 +7902,45 @@ msgstr "Arrêter complètement"
 msgid "Reset slave"
 msgstr "Réinitialiser l'esclave"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr "%s seulement le fil d'exécution SQL"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Démarrer"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Arrêter"
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
-msgstr "%s seulement le fil d'exécution des entrées-sorties"
+msgid "Start SQL Thread only"
+msgstr "Démarrer seulement le fil d'exécution SQL"
 
-#: server_replication.php:330
+#: server_replication.php:328
+msgid "Stop SQL Thread only"
+msgstr "Arrêter seulement le fil d'exécution SQL"
+
+#: server_replication.php:331
+msgid "Start IO Thread only"
+msgstr "Démarrer seulement le fil d'exécution des entrées-sorties"
+
+#: server_replication.php:333
+msgid "Stop IO Thread only"
+msgstr "Arrêter seulement le fil d'exécution des entrées-sorties"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Gestion des erreurs : "
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Ignorer les erreurs peut mener à une désynchronisation entre les serveurs "
 "maître et esclave !"
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Ignorer l'erreur courante"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Ignorer les prochaines"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "erreurs."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -8761,20 +8774,18 @@ msgid "Query type"
 msgstr "Type de requête"
 
 #: server_status.php:709 server_status.php:710
-#, fuzzy
-#| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Montrer zone SQL"
+msgstr "Afficher le graphique des requêtes"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "Cacher zone SQL"
+msgstr "Cacher le graphique des requêtes"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
+"Remarque : la génération du graphique des requêtes peut prendre un certain "
+"temps."
 
 #: server_status.php:855
 msgid "Replication status"
@@ -9925,6 +9936,12 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
+
+#~ msgid "Start"
+#~ msgstr "Démarrer"
+
+#~ msgid "Stop"
+#~ msgstr "Arrêter"
 
 #~ msgid "Display table filter"
 #~ msgstr "Montrer le filtre de table"

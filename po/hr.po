@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Traži"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -68,7 +68,7 @@ msgstr "Traži"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -873,14 +873,14 @@ msgstr ""
 "Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
 "sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Datoteku nije moguće pročitati"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1499,13 +1499,13 @@ msgstr "po sekundi"
 msgid "Font size"
 msgstr "Veličina fonta"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Učitana datoteka nadmašuje uputu upload_max_filesize (najveća veličina "
 "datoteke) u datoteci php.ini."
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1513,27 +1513,27 @@ msgstr ""
 "Učitana datoteka nadmašuje uputu MAX_FILE_SIZE (najveća veličina datoteke), "
 "određenu u HTML obliku."
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Učitana datoteka bila je djelomično učitana."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Nedostaje mapa privremene pohrane."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Zapisivanje datoteke na disk nije uspjelo."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Učitavanje datoteke prekinuto je uslijed ekstenzije."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Nepoznata pogreška tijekom učitavanja datoteke."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1928,7 +1928,7 @@ msgstr ""
 msgid "JSON encoder is needed for chart tooltips."
 msgstr ""
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1944,13 +1944,13 @@ msgstr ""
 "većini slučajeva na nekom mjestu nedostaje znak navodnika ili točke-zareza."
 "<br />Ako se prikaže prazna stranica, sve je u redu."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1958,29 +1958,29 @@ msgstr ""
 "Direktiva <tt>$cfg['PmaAbsoluteUri']</tt> MORA BITI postavljena u vašoj "
 "konfiguracijskoj datoteci!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks poslužitelja: \"%s\""
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Neispravan naziv za poslužitelj %1$s. Molimo, pregledajte svoju "
 "konfiguraciju."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Poslužitelj"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan komplet načina provjere vjerodostojnosti u konfiguraciji:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebali biste nadograditi na %s %s ili kasniju."
@@ -2221,11 +2221,11 @@ msgstr ""
 msgid "structure and data"
 msgstr "Strukturu i podatke"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
@@ -3271,7 +3271,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:267
 #, fuzzy
 #| msgid "The number of tables that are open."
-msgid "Mimimum number of tables to display table filter"
+msgid "Minimum number of tables to display the table filter box"
 msgstr "Broj otvorenih tablica."
 
 #: libraries/config/messages.inc.php:268
@@ -4410,7 +4410,7 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr ""
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -4542,19 +4542,19 @@ msgstr "Nije moguće učitati dodatke za izvoz. Provjerite svoju instalaciju!"
 #: libraries/display_export.lib.php:87
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Dopušta zaključavanje tablica u trenutnoj grani."
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "Izradi novu tablicu u bazi podataka %s"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "Izradi novu tablicu u bazi podataka %s"
 
 #: libraries/display_export.lib.php:97
@@ -4562,6 +4562,15 @@ msgstr "Izradi novu tablicu u bazi podataka %s"
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Vrsta izvoza"
+
+#: libraries/display_export.lib.php:113
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+msgid "Custom - display all possible options"
+msgstr "Opcije izvoza baze podataka"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
@@ -4694,9 +4703,11 @@ msgstr "\"bzipano\""
 msgid "Format:"
 msgstr "Oblikovanje"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
-msgstr ""
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Format-specific options:"
+msgstr "Opcije preoblikovanja"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
@@ -4791,6 +4802,10 @@ msgstr ""
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Broj zapisa (upita) koje je potrebno preskočiti od početka"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr ""
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -6127,7 +6142,7 @@ msgstr "bez opisa"
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -8044,46 +8059,47 @@ msgstr "Puni tekst"
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr ""
-
-#: server_replication.php:325 server_replication.php:326
-#, fuzzy
-msgid "Start"
-msgstr "Sub"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr ""
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start SQL Thread only"
+msgstr "Samo strukturu"
+
+#: server_replication.php:328
+msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:330
-msgid "Error management:"
-msgstr ""
+#: server_replication.php:331
+#, fuzzy
+#| msgid "Structure only"
+msgid "Start IO Thread only"
+msgstr "Samo strukturu"
 
-#: server_replication.php:332
-msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
-
-#: server_replication.php:334
-msgid "Skip current error"
-msgstr ""
-
-#: server_replication.php:335
-msgid "Skip next"
+#: server_replication.php:333
+msgid "Stop IO Thread only"
 msgstr ""
 
 #: server_replication.php:338
+msgid "Error management:"
+msgstr ""
+
+#: server_replication.php:340
+msgid "Skipping errors might lead into unsynchronized master and slave!"
+msgstr ""
+
+#: server_replication.php:342
+msgid "Skip current error"
+msgstr ""
+
+#: server_replication.php:343
+msgid "Skip next"
+msgstr ""
+
+#: server_replication.php:346
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -10054,6 +10070,10 @@ msgstr "Naziv prikaza"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Preimenuj tablicu u"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Sub"
 
 #, fuzzy
 #~| msgid "Displaying Column Comments"

@@ -6,34 +6,11 @@
  * @package phpMyAdmin
  */
 
-/**
- * Input sanitizing.
- */
-require './libraries/sanitizing.lib.php';
-
-/* Get variables */
-if (! empty($_REQUEST['lang']) && is_string($_REQUEST['lang'])) {
-    $lang = htmlspecialchars($_REQUEST['lang']);
-} else {
-    $lang = 'en';
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-if (! empty($_REQUEST['dir']) && is_string($_REQUEST['dir'])) {
-    $dir = htmlspecialchars($_REQUEST['dir']);
-} else {
-    $dir = 'ltr';
-}
-
-if (! empty($_REQUEST['type']) && is_string($_REQUEST['type'])) {
-    $type = htmlspecialchars($_REQUEST['type']);
-} else {
-    $type = 'error';
-}
-
-// force utf-8 to avoid XSS with crafted URL and utf-7 in charset parameter
-$charset = 'utf-8';
-
-header('Content-Type: text/html; charset=' . $charset);
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
@@ -41,7 +18,7 @@ header('Content-Type: text/html; charset=' . $charset);
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style type="text/css">
     <!--
     html {
@@ -73,17 +50,8 @@ header('Content-Type: text/html; charset=' . $charset);
     </style>
 </head>
 <body>
-<h1>phpMyAdmin - <?php echo $type; ?></h1>
-<p><?php
-if (!empty($_REQUEST['error'])) {
-    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-        echo PMA_sanitize(stripslashes($_REQUEST['error']));
-    } else {
-        echo PMA_sanitize($_REQUEST['error']);
-    }
-} else {
-    echo 'No error message!';
-}
-?></p>
+<h1>phpMyAdmin - <?php echo $error_header; ?></h1>
+<p><?php echo PMA_sanitize($error_message); ?></p>
 </body>
 </html>
+

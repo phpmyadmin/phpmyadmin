@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -49,7 +49,7 @@ msgstr "Қидириш"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -66,7 +66,7 @@ msgstr "Қидириш"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -865,14 +865,14 @@ msgstr ""
 "Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
 "sдокументацияда%s келтирилган."
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "Файлни ўқиб бўлмади!!"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1501,13 +1501,13 @@ msgstr "секундига"
 msgid "Font size"
 msgstr "Шрифт ўлчами"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Юкланаётган файл ҳажми PHP конфигурацион файлида (php.ini) кўрсатилган "
 "\"upload_max_filesize\" директиваси қийматидан катта!"
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -1515,27 +1515,27 @@ msgstr ""
 "Юкланаётган файл ҳажми HTML формада кўрсатилган \"MAX_FILE_SIZE\" "
 "директиваси қийматидан катта!"
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "Юкланаётган файл фақатгина қисман юкланди."
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "Вақтинчалик файлларни сақлаш учун каталог топилмади."
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "Файлни дискка ёзишдахатолик юз берди."
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "Файлнинг юкланиши унинг кенгайтмаси сабали тўхтатилди."
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "Файл юкланаётган вақтда номаълум хатолик юз берди."
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1938,7 +1938,7 @@ msgstr ""
 msgid "JSON encoder is needed for chart tooltips."
 msgstr ""
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1953,13 +1953,13 @@ msgstr ""
 "ни кўриб чиқинг. Кўп ҳолларда қўштирноқ ёки нуқта-вергул қолдириб кетилган "
 "бўлади.<br />Агар бўм-бўш саҳифа кўрсатилса, демак, ҳаммаси жойида."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr " \"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1967,30 +1967,30 @@ msgstr ""
 "<tt>$cfg[\"PmaAbsoluteUrl\"]</tt> директиваси конфигурацион файлда созланиши "
 "ШАРТ!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервер рақами нотўғри: \"%s\""
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 " %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
 "файлида белгиланган созлашларни тўғирланг."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "Сервер"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "phpMyAdmin конфигурацион файлида нотўғри аутентификация усули белгиланган:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr " \"%s\" ни \"%s\" версияга ёки каттароқ версияга янгилаш зарур."
@@ -2234,11 +2234,11 @@ msgstr ""
 msgid "structure and data"
 msgstr "Тузилиши ва маълумотлари"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
@@ -3331,7 +3331,7 @@ msgstr "Сервер танловини кўрсатиш"
 #: libraries/config/messages.inc.php:267
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
-msgid "Mimimum number of tables to display table filter"
+msgid "Minimum number of tables to display the table filter box"
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
 #: libraries/config/messages.inc.php:268
@@ -4616,7 +4616,7 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "Нотўғри IP-адрес: \"%s\""
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -4751,19 +4751,19 @@ msgstr ""
 #: libraries/display_export.lib.php:87
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
 msgstr "Жорий оқим учун жадвални блокировку қилишга рухсат беради"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
 msgstr "\"%s\" маълумотлар базасида янги жадвал тузиш"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
 msgstr "\"%s\" маълумотлар базасида янги жадвал тузиш"
 
 #: libraries/display_export.lib.php:97
@@ -4771,6 +4771,16 @@ msgstr "\"%s\" маълумотлар базасида янги жадвал т�
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Эскпорт тури"
+
+#: libraries/display_export.lib.php:113
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: libraries/display_export.lib.php:129
+#, fuzzy
+#| msgid "Customize default export options"
+msgid "Custom - display all possible options"
+msgstr "Экспорт афзалликларини созлаш"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
@@ -4905,9 +4915,11 @@ msgstr "bzip ёрдамида сиқилган"
 msgid "Format:"
 msgstr "Формат"
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
-msgstr ""
+#: libraries/display_export.lib.php:336
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Format-specific options:"
+msgstr "Ўгиришлар параметрлари"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
@@ -5010,6 +5022,10 @@ msgstr ""
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Файл бошидаги эътибор бериш керак бўлмаган қаторлар (сўровлар) сони"
+
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr ""
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -6363,7 +6379,7 @@ msgstr "тавсиф мавжуд эмас"
 msgid "Slave configuration"
 msgstr "Тобе сервер конфигурацияси"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "Бош серверни ўзгартириш ёки қайта конфигурация қилиш"
 
@@ -8338,29 +8354,35 @@ msgstr "Барчасини тўхтатиш"
 msgid "Reset slave"
 msgstr "Тобе серверни тиклаш"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
+#: server_replication.php:326
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Start SQL Thread only"
 msgstr "Фақат %s SQL кириш/чиқиш оқимини"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "Бошлаш"
+#: server_replication.php:328
+#, fuzzy
+#| msgid "SQL Thread %s only"
+msgid "Stop SQL Thread only"
+msgstr "Фақат %s SQL кириш/чиқиш оқимини"
 
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "Тўхтатиш"
-
-#: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
+#: server_replication.php:331
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Start IO Thread only"
 msgstr "Фақат %s қириш/чиқиш оқимини"
 
-#: server_replication.php:330
+#: server_replication.php:333
+#, fuzzy
+#| msgid "IO Thread %s only"
+msgid "Stop IO Thread only"
+msgstr "Фақат %s қириш/чиқиш оқимини"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "Хатоликларни бошқариш:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 #, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -8368,19 +8390,19 @@ msgstr ""
 "Хатолик(лар)ни ташлаб кетиш бош ва тобе серверларнинг тўла синхронизация "
 "қилинмаганлигига олиб келиши мумкин!"
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "Жорий хатоликларни ташлаб кетиш"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "Кейингисини ташлаб кетиш"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr " хатоликлар."
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -10480,6 +10502,12 @@ msgstr "Ном кўриниши"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
+
+#~ msgid "Start"
+#~ msgstr "Бошлаш"
+
+#~ msgid "Stop"
+#~ msgstr "Тўхтатиш"
 
 #, fuzzy
 #~| msgid "Display databases in a tree"

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-04 15:22+0100\n"
-"PO-Revision-Date: 2010-11-22 09:26+0200\n"
+"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"PO-Revision-Date: 2010-12-08 05:44+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -49,7 +49,7 @@ msgstr "搜索"
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
-#: libraries/common.lib.php:2269 libraries/core.lib.php:544
+#: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -66,7 +66,7 @@ msgstr "搜索"
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:339
+#: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
 #: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
@@ -406,11 +406,11 @@ msgstr "您最少要选择显示一列"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "切换到"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "可视化查询生成器"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -541,10 +541,10 @@ msgid "Delete"
 msgstr "删除"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "删除追踪数据"
+msgstr "删除 %s 表中所有匹配的记录？"
 
 #: db_search.php:273
 #, php-format
@@ -830,14 +830,14 @@ msgid ""
 "s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
-#: import.php:277 import.php:330 libraries/File.class.php:566
-#: libraries/File.class.php:676
+#: import.php:277 import.php:330 libraries/File.class.php:501
+#: libraries/File.class.php:611
 msgid "File could not be read"
 msgstr "无法读取文件"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:746 libraries/File.class.php:754
-#: libraries/File.class.php:770 libraries/File.class.php:778
+#: libraries/File.class.php:681 libraries/File.class.php:689
+#: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1090,7 +1090,7 @@ msgstr "选择要显示的字段"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "给字段添加选项 "
 
 #: js/messages.php:101
 msgid "Generate password"
@@ -1359,37 +1359,37 @@ msgstr "秒"
 msgid "Font size"
 msgstr "字号"
 
-#: libraries/File.class.php:315
+#: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上传文件的大小超过 php.ini 文件中 upload_max_filesize 的限制。"
 
-#: libraries/File.class.php:318
+#: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "上传文件的大小超过 HTML 表单中指定的 MAX_FILE_SIZE 值。"
 
-#: libraries/File.class.php:321
+#: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
 msgstr "仅上传了文件的一部分内容。"
 
-#: libraries/File.class.php:324
+#: libraries/File.class.php:319
 msgid "Missing a temporary folder."
 msgstr "找不到临时文件夹。"
 
-#: libraries/File.class.php:327
+#: libraries/File.class.php:322
 msgid "Failed to write file to disk."
 msgstr "将文件写入磁盘失败。"
 
-#: libraries/File.class.php:330
+#: libraries/File.class.php:325
 msgid "File upload stopped by extension."
 msgstr "因扩展而停止文件上传。"
 
-#: libraries/File.class.php:333
+#: libraries/File.class.php:328
 msgid "Unknown error in file upload."
 msgstr "上传文件时发生未知错误。"
 
-#: libraries/File.class.php:624
+#: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1768,7 +1768,7 @@ msgstr "绘制图表需要 GD 扩展。"
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "绘制图表气泡提示需要 JSON 扩展。"
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:575
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1782,37 +1782,37 @@ msgstr ""
 "常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，则代表没"
 "有任何问题。"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:591
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:482
+#: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
 #: libraries/header.inc.php:115 main.php:168 test/theme.php:56
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/common.inc.php:826
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -2045,11 +2045,11 @@ msgstr "数据"
 msgid "structure and data"
 msgstr "结构和数据"
 
-#: libraries/config.values.php:99 libraries/display_export.lib.php:113
+#: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
 msgstr "快速 - 仅显示必须的设置项"
 
-#: libraries/config.values.php:100 libraries/display_export.lib.php:129
+#: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
 msgstr "自定义 - 显示所有可用的设置项"
 
@@ -2956,7 +2956,7 @@ msgstr "部分导入：允许中断"
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "不在发生插入错误时中断"
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3040,10 +3040,9 @@ msgid "Display servers selection"
 msgstr "显示服务器选择"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
-msgid "Mimimum number of tables to display table filter"
-msgstr "在数据表列表中最多显示的数据表个数"
+msgid "Minimum number of tables to display the table filter box"
+msgstr "显示快速搜索框的最少数据表数量"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -4184,7 +4183,7 @@ msgstr "使用 PMA 数据时控制用户的密码不能为空"
 msgid "Incorrect IP address: %s"
 msgstr "%s 是一个错误的 IP 地址"
 
-#: libraries/core.lib.php:265
+#: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
@@ -4308,22 +4307,35 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:87
-msgid "Exporting databases in the current server"
-msgstr "导出当前服务器中的数据库"
+#| msgid "Exporting databases in the current server"
+msgid "Exporting databases from the current server"
+msgstr "正在从当前服务器中导出数据库"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-msgid "Exporting tables in the database \"%s\""
-msgstr "导出数据库“%s”中的数据表"
+#| msgid "Exporting tables in the database \"%s\""
+msgid "Exporting tables from \"%s\" database"
+msgstr "正在导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-msgid "Exporting rows in the table \"%s\""
-msgstr "导出数据表“%s”中的记录"
+#| msgid "Exporting rows in the table \"%s\""
+msgid "Exporting rows from \"%s\" table"
+msgstr "正在导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
 msgstr "导出方式"
+
+#: libraries/display_export.lib.php:113
+#| msgid "Quick - display only the minimal options to configure"
+msgid "Quick - display only the minimal options"
+msgstr "快速 - 显示最少的选项"
+
+#: libraries/display_export.lib.php:129
+#| msgid "Custom - display all possible options to configure"
+msgid "Custom - display all possible options"
+msgstr "自定义 - 显示所有可用的选项"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -4428,8 +4440,9 @@ msgstr "bzip 压缩"
 msgid "Format:"
 msgstr "格式："
 
-#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:250
-msgid "Format-Specific Options:"
+#: libraries/display_export.lib.php:336
+#| msgid "Format-Specific Options:"
+msgid "Format-specific options:"
 msgstr "格式特定选项："
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4511,6 +4524,10 @@ msgstr ""
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "从首行起要跳过的行数："
 
+#: libraries/display_import.lib.php:250
+msgid "Format-Specific Options:"
+msgstr "格式特定选项："
+
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
 msgid "Language"
@@ -4565,16 +4582,14 @@ msgid "Options"
 msgstr "选项"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "部分文字"
+msgstr "部分内容"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "完整文字"
+msgstr "完整内容"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
@@ -5781,7 +5796,7 @@ msgstr "无说明"
 msgid "Slave configuration"
 msgstr "从服务器配置"
 
-#: libraries/replication_gui.lib.php:53 server_replication.php:345
+#: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
 msgstr "修改或重新配置主服务器"
 
@@ -6012,7 +6027,7 @@ msgstr "当前页所引用的表不存在了。您是否想要删除这些引用
 
 #: libraries/schema/User_Schema.class.php:469
 msgid "Toggle scratchboard"
-msgstr "切换刮板"
+msgstr "切换草稿板"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:482
@@ -6554,7 +6569,6 @@ msgstr ""
 "phpMyAdmin 中设置的时间要更短。"
 
 #: main.php:279
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
@@ -6564,10 +6578,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 配置参数 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime (外链，英文)[/a] 短于您在 "
-"phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
-"phpMyAdmin 中设置的时间要更短。"
+"phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间将会比您在 phpMyAdmin "
+"中设置的时间要更短。"
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -6628,10 +6640,9 @@ msgid "Filter"
 msgstr "快速搜索"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
-msgstr "更改表的排序，根据"
+msgstr "请输入部分或完整的表名"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
@@ -6695,10 +6706,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "为 PDF 大纲导入/导出坐标"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "提交查询"
+msgstr "生成查询"
 
 #: pmd_general.php:127
 msgid "Move Menu"
@@ -6721,54 +6731,47 @@ msgid "Delete relation"
 msgstr "删除关系"
 
 #: pmd_general.php:462 pmd_general.php:521
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "已删除关系"
+msgstr "关系运算符"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "导出"
+msgstr "EXCEPT"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "查询中"
+msgstr "子查询"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "将视图改名为"
+msgstr "改名为"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "用户名"
+msgstr "新名称"
 
 #: pmd_general.php:487 pmd_general.php:702
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "创建"
+msgstr "聚合"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
 #: tbl_select.php:135
 msgid "Operator"
-msgstr "操作符"
+msgstr "运算符"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "表选项"
+msgstr "当前选项"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -7545,7 +7548,7 @@ msgstr "控制从服务器:"
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr "全部开始"
+msgstr "全部启动"
 
 #: server_replication.php:323
 msgid "Full stop"
@@ -7555,45 +7558,47 @@ msgstr "全部停止"
 msgid "Reset slave"
 msgstr "重置从服务器"
 
-#: server_replication.php:325
-#, php-format
-msgid "SQL Thread %s only"
-msgstr "仅%s SQL 线程"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Start"
-msgstr "开始"
-
-#: server_replication.php:325 server_replication.php:326
-msgid "Stop"
-msgstr "停止"
-
 #: server_replication.php:326
-#, php-format
-msgid "IO Thread %s only"
-msgstr "仅%s IO 线程"
+#| msgid "SQL Thread %s only"
+msgid "Start SQL Thread only"
+msgstr "仅启动 SQL 线程"
 
-#: server_replication.php:330
+#: server_replication.php:328
+#| msgid "SQL Thread %s only"
+msgid "Stop SQL Thread only"
+msgstr "仅停止 SQL 线程"
+
+#: server_replication.php:331
+#| msgid "IO Thread %s only"
+msgid "Start IO Thread only"
+msgstr "仅启动 IO 线程"
+
+#: server_replication.php:333
+#| msgid "IO Thread %s only"
+msgid "Stop IO Thread only"
+msgstr "仅停止 IO 线程"
+
+#: server_replication.php:338
 msgid "Error management:"
 msgstr "错误管理:"
 
-#: server_replication.php:332
+#: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
 
-#: server_replication.php:334
+#: server_replication.php:342
 msgid "Skip current error"
 msgstr "忽略当前错误"
 
-#: server_replication.php:335
+#: server_replication.php:343
 msgid "Skip next"
 msgstr "忽略下"
 
-#: server_replication.php:338
+#: server_replication.php:346
 msgid "errors."
 msgstr "个错误。"
 
-#: server_replication.php:353
+#: server_replication.php:361
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -8353,20 +8358,18 @@ msgid "Query type"
 msgstr "查询方式"
 
 #: server_status.php:709 server_status.php:710
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
-msgstr "显示查询框"
+msgstr "显示查询图表"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "隐藏查询框"
+msgstr "隐藏查询图表"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "注意：生成查询图表可能需要一定的时间。"
 
 #: server_status.php:855
 msgid "Replication status"
@@ -9467,6 +9470,12 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid "Start"
+#~ msgstr "开始"
+
+#~ msgid "Stop"
+#~ msgstr "停止"
 
 #~ msgid "Display table filter"
 #~ msgstr "显示数据表快速搜索框"

@@ -134,7 +134,10 @@ fi
 if [ -f ./scripts/compress-js ] ; then
     echo "* Compressing javascript files"
     ./scripts/compress-js
+    rm -rf sources
 fi
+
+echo "* Removing unneeded files"
 
 # Remove test directory from package to avoid Path disclosure messages
 # if someone runs /test/wui.php and there are test failures
@@ -142,6 +145,11 @@ rm -rf test
 
 # Remove javascript compiler, no need to ship it
 rm -rf scripts/google-javascript-compiler/
+
+# Remove scripts which are not useful for user
+for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release ; do
+    rm -f scripts/$s
+done
 
 # Remove git metadata
 rm -rf .git
@@ -158,14 +166,20 @@ for kit in $KITS ; do
 	# Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
+    rm -f scripts/lang-cleanup.sh
     cd ..
+
+    # Remove tar file possibly left from previous run
+    rm -f $name.tar
 
     # Prepare distributions
     for comp in $COMPRESSIONS ; do
         case $comp in
             tbz|tgz|txz)
-                echo "* Creating $name.tar"
-                tar cf $name.tar $name
+                if [ ! -f $name.tar ] ; then
+                    echo "* Creating $name.tar"
+                    tar cf $name.tar $name
+                fi
                 if [ $comp = tbz ] ; then
                     echo "* Creating $name.tar.bz2"
                     bzip2 -9k $name.tar
@@ -178,7 +192,6 @@ for kit in $KITS ; do
                     echo "* Creating $name.tar.gz"
                     gzip -9c $name.tar > $name.tar.gz
                 fi
-                rm $name.tar
                 ;;
             zip)
                 echo "* Creating $name.zip"
@@ -196,6 +209,9 @@ for kit in $KITS ; do
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
         esac
+
+        # Cleanup
+        rm -f $name.tar
     done
 
     # Remove directory with current dist set
