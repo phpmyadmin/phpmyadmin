@@ -4560,10 +4560,9 @@ msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
-msgstr "Format-Specific Options:"
+msgstr "Format-specific options:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
