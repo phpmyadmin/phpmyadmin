@@ -7859,10 +7859,9 @@ msgid "Start IO Thread only"
 msgstr "Sadece G/Ç İşlemi başlat"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "Sadece G/Ç İşlemi %s"
+msgstr "Sadece G/Ç İşlemi durdur"
 
 #: server_replication.php:338
 msgid "Error management:"
