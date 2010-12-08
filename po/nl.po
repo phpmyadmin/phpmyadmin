@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-12-08 00:03+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -83,7 +83,7 @@ msgstr "Sleutelnaam"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -2002,7 +2002,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagen, %s uren, %s minuten en %s seconden"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "Begin"
 
@@ -2066,7 +2066,6 @@ msgstr "Blader op uw eigen pc:"
 
 #: libraries/common.lib.php:2963
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 
@@ -2299,10 +2298,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -2440,7 +2435,6 @@ msgid "Edit SQL queries in popup window"
 msgstr "Bewerk SQL-queries in popup  venster"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Bewerk in venster"
 
@@ -2697,7 +2691,6 @@ msgstr "Aanpassen verkennen-mode"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Aanpassen standaard opties"
 
@@ -2936,12 +2929,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Aanpassen van links getoond in de SQL-query vensters"
 
 #: libraries/config/messages.inc.php:214
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL-query instellingen"
 
 #: libraries/config/messages.inc.php:215
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL-Validator"
 
@@ -2970,12 +2961,10 @@ msgid "Choose how you want tabs to work"
 msgstr "Aanpassen van tabblad functioneren"
 
 #: libraries/config/messages.inc.php:221
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Tekstvelden"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Tekstvelden aanpassen"
 
@@ -2984,7 +2973,6 @@ msgid "Texy! text"
 msgstr "Texy! tekst"
 
 #: libraries/config/messages.inc.php:225
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Waarschuwingen"
 
@@ -3070,17 +3058,14 @@ msgid "Do not import empty rows"
 msgstr "Lege rijen niet importeren"
 
 #: libraries/config/messages.inc.php:251
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
 #: libraries/config/messages.inc.php:252
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
 
 #: libraries/config/messages.inc.php:253
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
 
@@ -3089,7 +3074,6 @@ msgid "Partial import: skip queries"
 msgstr "Gedeeltelijke import: queries overslaan"
 
 #: libraries/config/messages.inc.php:256
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
 
@@ -3126,7 +3110,6 @@ msgid "Display servers selection"
 msgstr "Toon serverkeuze"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Het minimale aantal tabellen waarbij een filterveld wordt getoond"
 
@@ -3207,7 +3190,6 @@ msgid "Light tabs"
 msgstr "Lichte tabbladen"
 
 #: libraries/config/messages.inc.php:285
-#| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
@@ -3350,7 +3332,6 @@ msgid "Memory limit"
 msgstr "Geheugen limiet"
 
 #: libraries/config/messages.inc.php:312
-#| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "Toon linker edit/delete links"
 
@@ -3385,9 +3366,6 @@ msgid "GZip output buffering"
 msgstr "GZip uitvoer buffering"
 
 #: libraries/config/messages.inc.php:320
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3423,19 +3401,14 @@ msgid "Iconic table operations"
 msgstr "Icoon gebruik bij tabel bewerkingen"
 
 #: libraries/config/messages.inc.php:328
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Blokkeer het bewerken van 'BLOB' en 'BINARY' velden"
 
 #: libraries/config/messages.inc.php:329
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Bescherm binaire velden"
 
 #: libraries/config/messages.inc.php:330
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3471,17 +3444,14 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:338
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Query-venster hoogte"
 
 #: libraries/config/messages.inc.php:339
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Query-venster breedte (in pixels)"
 
 #: libraries/config/messages.inc.php:340
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Query-venster breedte"
 
@@ -3500,7 +3470,6 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:344
-#| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Herhaal tabel koppen"
 
@@ -3525,7 +3494,6 @@ msgid "Leave blank if not used"
 msgstr "Laat dit veld leeg indien u het niet wenst te gebruiken"
 
 #: libraries/config/messages.inc.php:351
-#| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Machine autorisatie volgorde"
 
@@ -3534,7 +3502,6 @@ msgid "Leave blank for defaults"
 msgstr "Laat dit veld leeg om de standaardwaarde te gebruiken"
 
 #: libraries/config/messages.inc.php:353
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Host autorisatie regels"
 
@@ -3767,7 +3734,6 @@ msgstr ""
 "phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#| msgid "database name"
 msgid "Database name"
 msgstr "Databasenaam"
 
@@ -3847,9 +3813,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-schema: tabel coördinaten"
 
 #: libraries/config/messages.inc.php:413
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -3902,7 +3865,6 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:422
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Bij te houden opdrachten"
 
@@ -3927,14 +3889,10 @@ msgstr ""
 "of niet."
 
 #: libraries/config/messages.inc.php:426
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:427
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
@@ -3975,8 +3933,6 @@ msgid "Verbose name of this server"
 msgstr "Uitgebreide naam voor deze server"
 
 #: libraries/config/messages.inc.php:435
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Of er een &quot;Toon alle (rijen)&quot; knop moet worden getoond."
 
@@ -4010,7 +3966,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:441
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Toon veld typen"
 
@@ -4162,7 +4117,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474
-#| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "Textarea kolommen"
 
@@ -4173,7 +4127,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:476
-#| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "Textarea regels"
 
@@ -4186,7 +4139,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:480
-#| msgid "Default table tab"
 msgid "Default title"
 msgstr "Standaard titel"
 
@@ -4272,22 +4224,18 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#| msgid "Host authentication order"
 msgid "Config authentication"
 msgstr "Configuratie authenticatie"
 
 #: libraries/config/setup.forms.php:45
-#| msgid "Host authentication order"
 msgid "Cookie authentication"
 msgstr "Cookie authenticatie"
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Host authentication order"
 msgid "HTTP authentication"
 msgstr "HTTP authenticatie"
 
 #: libraries/config/setup.forms.php:51
-#| msgid "Host authentication order"
 msgid "Signon authentication"
 msgstr "Signon authenticatie"
 
@@ -4508,7 +4456,6 @@ msgid "Create table on database %s"
 msgstr "Nieuwe tabel aanmaken in database %s"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Aantal velden"
 
@@ -6184,13 +6131,13 @@ msgid "Slave status"
 msgstr "Slave status"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "Variabelen"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Waarde"
@@ -7116,7 +7063,7 @@ msgstr ""
 msgid "Reload navigation frame"
 msgstr "Navigatievenster herladen."
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "Geen databases"
 
@@ -7501,11 +7448,7 @@ msgstr "Slave replicatie"
 msgid "Enable Statistics"
 msgstr "Statistieken aanzetten"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "Statistieken uitzetten"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9001,23 +8944,17 @@ msgstr "per seconde"
 msgid "Query type"
 msgstr "Query-type"
 
-#: server_status.php:709 server_status.php:710
+#: server_status.php:710 server_status.php:711
 #, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
 msgstr "SQL-query veld tonen"
 
-#: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "Hide query box"
-msgid "Hide query chart"
-msgstr "SQL-query veld verbergen"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "Replicatie status"
 
@@ -10266,6 +10203,14 @@ msgstr "VIEW-naam"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Hernoem view naar"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "Statistieken uitzetten"
+
+#, fuzzy
+#~| msgid "Hide query box"
+#~ msgid "Hide query chart"
+#~ msgstr "SQL-query veld verbergen"
 
 #~ msgid "Start"
 #~ msgstr "Start"

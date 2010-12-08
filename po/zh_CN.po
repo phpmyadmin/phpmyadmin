@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-12-08 05:44+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -83,7 +83,7 @@ msgstr "键名"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "说明"
 
@@ -542,7 +542,6 @@ msgstr "删除"
 
 #: db_search.php:260
 #, php-format
-#| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
 msgstr "删除 %s 表中所有匹配的记录？"
 
@@ -1954,7 +1953,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "开始"
 
@@ -3040,7 +3039,6 @@ msgid "Display servers selection"
 msgstr "显示服务器选择"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "显示快速搜索框的最少数据表数量"
 
@@ -4307,19 +4305,16 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:87
-#| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
 msgstr "正在从当前服务器中导出数据库"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-#| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
 msgstr "正在导出数据库“%s”中的数据表"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-#| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
 msgstr "正在导出数据表“%s”中的记录"
 
@@ -4328,12 +4323,10 @@ msgid "Export Method:"
 msgstr "导出方式"
 
 #: libraries/display_export.lib.php:113
-#| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "快速 - 显示最少的选项"
 
 #: libraries/display_export.lib.php:129
-#| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "自定义 - 显示所有可用的选项"
 
@@ -4441,7 +4434,6 @@ msgid "Format:"
 msgstr "格式："
 
 #: libraries/display_export.lib.php:336
-#| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
 msgstr "格式特定选项："
 
@@ -4582,12 +4574,10 @@ msgid "Options"
 msgstr "选项"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "部分内容"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "完整内容"
 
@@ -5825,13 +5815,13 @@ msgid "Slave status"
 msgstr "从服务器状态"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "变量"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "值"
@@ -6569,17 +6559,12 @@ msgstr ""
 "phpMyAdmin 中设置的时间要更短。"
 
 #: main.php:279
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间将会比您在 phpMyAdmin "
-"中设置的时间要更短。"
+"phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
+"将会比您在 phpMyAdmin 中设置的时间要更短。"
 
 #: main.php:287
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -6631,7 +6616,7 @@ msgstr "服务器上运行了 Suhosin。请先查看%s文档%s中是否有类似
 msgid "Reload navigation frame"
 msgstr "刷新导航框架"
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "无数据库"
 
@@ -6640,7 +6625,6 @@ msgid "Filter"
 msgstr "快速搜索"
 
 #: navigation.php:292
-#| msgid "Alter table order by"
 msgid "filter tables by name"
 msgstr "请输入部分或完整的表名"
 
@@ -6706,7 +6690,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "为 PDF 大纲导入/导出坐标"
 
 #: pmd_general.php:122
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "生成查询"
 
@@ -6731,34 +6714,28 @@ msgid "Delete relation"
 msgstr "删除关系"
 
 #: pmd_general.php:462 pmd_general.php:521
-#| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "关系运算符"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
-#| msgid "Export"
 msgid "Except"
 msgstr "EXCEPT"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#| msgid "in query"
 msgid "subquery"
 msgstr "子查询"
 
 #: pmd_general.php:482 pmd_general.php:578
-#| msgid "Rename view to"
 msgid "Rename to"
 msgstr "改名为"
 
 #: pmd_general.php:484 pmd_general.php:583
-#| msgid "User name"
 msgid "New name"
 msgstr "新名称"
 
 #: pmd_general.php:487 pmd_general.php:702
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "聚合"
 
@@ -6769,7 +6746,6 @@ msgid "Operator"
 msgstr "运算符"
 
 #: pmd_general.php:812
-#| msgid "Table options"
 msgid "Active options"
 msgstr "当前选项"
 
@@ -6987,11 +6963,7 @@ msgstr "从复制"
 msgid "Enable Statistics"
 msgstr "启用统计"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "禁用统计"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -7559,22 +7531,18 @@ msgid "Reset slave"
 msgstr "重置从服务器"
 
 #: server_replication.php:326
-#| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
 msgstr "仅启动 SQL 线程"
 
 #: server_replication.php:328
-#| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
 msgstr "仅停止 SQL 线程"
 
 #: server_replication.php:331
-#| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
 msgstr "仅启动 IO 线程"
 
 #: server_replication.php:333
-#| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
 msgstr "仅停止 IO 线程"
 
@@ -8357,21 +8325,15 @@ msgstr "每秒"
 msgid "Query type"
 msgstr "查询方式"
 
-#: server_status.php:709 server_status.php:710
-#| msgid "Show query box"
+#: server_status.php:710 server_status.php:711
 msgid "Show query chart"
 msgstr "显示查询图表"
 
-#: server_status.php:714 server_status.php:715
-#| msgid "Hide query box"
-msgid "Hide query chart"
-msgstr "隐藏查询图表"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr "注意：生成查询图表可能需要一定的时间。"
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "复制状态"
 
@@ -9470,6 +9432,13 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "禁用统计"
+
+#~| msgid "Hide query box"
+#~ msgid "Hide query chart"
+#~ msgstr "隐藏查询图表"
 
 #~ msgid "Start"
 #~ msgstr "开始"

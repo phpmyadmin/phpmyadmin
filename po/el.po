@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-12-04 17:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -84,7 +84,7 @@ msgstr "Όνομα κλειδιού"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -2002,7 +2002,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s μέρες, %s ώρες, %s λεπτά %s δευτερόλεπτα"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "Κορυφή"
 
@@ -6097,13 +6097,13 @@ msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "Μεταβλητή"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Τιμή"
@@ -6961,7 +6961,7 @@ msgstr ""
 msgid "Reload navigation frame"
 msgstr "Επαναφόρτωση πλαισίου πλοήγησης"
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "Δεν υπάρχουν βάσεις δεδομένων"
 
@@ -7314,11 +7314,7 @@ msgstr "Δευτερεύουσα αναπαραγωγή"
 msgid "Enable Statistics"
 msgstr "Ενεργοποίηση Στατιστικών"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "Απενεργοποίηση Στατιστικών"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -8830,23 +8826,17 @@ msgstr "ανά δευτερόλεπτο"
 msgid "Query type"
 msgstr "Τύπος ερωτήματος"
 
-#: server_status.php:709 server_status.php:710
+#: server_status.php:710 server_status.php:711
 #, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
 msgstr "Προβολή παραθύρου ερωτήματος SQL"
 
-#: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "Hide query box"
-msgid "Hide query chart"
-msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "Κατάσταση αναπαραγωγής"
 
@@ -10011,6 +10001,14 @@ msgstr "ΠΡΟΒΟΛΗ ονόματος"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Μετονομασία πίνακα σε"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "Απενεργοποίηση Στατιστικών"
+
+#, fuzzy
+#~| msgid "Hide query box"
+#~ msgid "Hide query chart"
+#~ msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
 
 #~ msgid "Start"
 #~ msgstr "Εκκίνηση"

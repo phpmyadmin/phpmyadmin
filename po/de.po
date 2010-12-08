@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-09-16 12:10+0200\n"
 "Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
@@ -84,7 +84,7 @@ msgstr "Name"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -2056,7 +2056,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s Tage, %s Stunden, %s Minuten und %s Sekunden"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "Anfang"
 
@@ -6306,13 +6306,13 @@ msgid "Slave status"
 msgstr "Slave-Status"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "Variable"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Wert"
@@ -7261,7 +7261,7 @@ msgstr ""
 msgid "Reload navigation frame"
 msgstr "Navigations-Frame aktualisieren"
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "Keine Datenbanken"
 
@@ -7645,11 +7645,7 @@ msgstr "Slave Replikation"
 msgid "Enable Statistics"
 msgstr "Datenbankstatistiken aktivieren"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "Datenbankstatistiken deaktivieren"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9140,23 +9136,17 @@ msgstr "pro Sekunde"
 msgid "Query type"
 msgstr "Abfrageart"
 
-#: server_status.php:709 server_status.php:710
+#: server_status.php:710 server_status.php:711
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query chart"
 msgstr "SQL-Querybox"
 
-#: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "SQL Query box"
-msgid "Hide query chart"
-msgstr "SQL-Querybox"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "Replikations-Status"
 
@@ -10384,6 +10374,14 @@ msgstr "VIEW Name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "View umbenennen in"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "Datenbankstatistiken deaktivieren"
+
+#, fuzzy
+#~| msgid "SQL Query box"
+#~ msgid "Hide query chart"
+#~ msgstr "SQL-Querybox"
 
 #~ msgid "Start"
 #~ msgstr "Start"

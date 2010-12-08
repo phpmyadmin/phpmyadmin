@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-07-21 14:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -84,7 +84,7 @@ msgstr "Nyckel"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -2130,7 +2130,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "Början"
 
@@ -6336,13 +6336,13 @@ msgid "Slave status"
 msgstr "Slave-status"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "Variabel"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Värde"
@@ -7274,7 +7274,7 @@ msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga frågor."
 msgid "Reload navigation frame"
 msgstr "Anpassa navigeringsram"
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "Inga databaser"
 
@@ -7659,11 +7659,7 @@ msgstr "Serverkonfiguration"
 msgid "Enable Statistics"
 msgstr "Slå på statistik"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "Stäng av statistik"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9113,23 +9109,17 @@ msgstr "per sekund"
 msgid "Query type"
 msgstr "Typ av fråga"
 
-#: server_status.php:709 server_status.php:710
+#: server_status.php:710 server_status.php:711
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query chart"
 msgstr "SQL-frågeruta"
 
-#: server_status.php:714 server_status.php:715
-#, fuzzy
-#| msgid "SQL Query box"
-msgid "Hide query chart"
-msgstr "SQL-frågeruta"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "Replikeringsstatus"
 
@@ -10368,6 +10358,14 @@ msgstr "Namn på vy"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Döp om tabellen till"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "Stäng av statistik"
+
+#, fuzzy
+#~| msgid "SQL Query box"
+#~ msgid "Hide query chart"
+#~ msgstr "SQL-frågeruta"
 
 #, fuzzy
 #~ msgid "Start"

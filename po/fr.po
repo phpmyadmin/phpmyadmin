@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-07 09:47-0500\n"
+"POT-Creation-Date: 2010-12-08 14:29-0500\n"
 "PO-Revision-Date: 2010-12-08 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -85,7 +85,7 @@ msgstr "Nom de l'index"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:762
+#: server_status.php:760
 msgid "Description"
 msgstr "Description"
 
@@ -2007,7 +2007,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
-#: libraries/display_tbl.lib.php:288 server_status.php:742
+#: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
 msgstr "Début"
 
@@ -3123,7 +3123,6 @@ msgid "Display servers selection"
 msgstr "Affiche la liste des serveurs"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Nombre minimum de tables pour afficher la boîte de filtre de table"
 
@@ -4478,19 +4477,16 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Erreur lors du chargement des modules d'exportation !"
 
 #: libraries/display_export.lib.php:87
-#| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
 msgstr "Exportation des bases de données depuis le serveur courant"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-#| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
 msgstr "Exportation des tables depuis la base de données «%s»"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-#| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
 msgstr "Exportation des lignes de la table «%s»"
 
@@ -4499,12 +4495,10 @@ msgid "Export Method:"
 msgstr "Méthode d'exportation:"
 
 #: libraries/display_export.lib.php:113
-#| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "Rapide - n'afficher qu'un minimum d'options"
 
 #: libraries/display_export.lib.php:129
-#| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "Personnalisée - afficher toutes les options possibles"
 
@@ -4614,7 +4608,6 @@ msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:336
-#| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
 msgstr "Options spécifiques au format:"
 
@@ -6076,13 +6069,13 @@ msgid "Slave status"
 msgstr "État de l'esclave"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:418
-#: server_status.php:760 server_variables.php:51
+#: server_status.php:758 server_variables.php:51
 msgid "Variable"
 msgstr "Variable"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
-#: server_status.php:761 tbl_change.php:316 tbl_printview.php:367
+#: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:136 tbl_structure.php:821
 msgid "Value"
 msgstr "Valeur"
@@ -6936,7 +6929,7 @@ msgstr ""
 msgid "Reload navigation frame"
 msgstr "Actualiser"
 
-#: navigation.php:203 server_databases.php:270 server_synchronize.php:1189
+#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "Aucune base de données"
 
@@ -7291,11 +7284,7 @@ msgstr "Réplication esclave"
 msgid "Enable Statistics"
 msgstr "Activer les statistiques"
 
-#: server_databases.php:261 server_databases.php:262
-msgid "Disable Statistics"
-msgstr "Désactiver les statistiques"
-
-#: server_databases.php:265
+#: server_databases.php:260
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -8773,21 +8762,17 @@ msgstr "par seconde"
 msgid "Query type"
 msgstr "Type de requête"
 
-#: server_status.php:709 server_status.php:710
+#: server_status.php:710 server_status.php:711
 msgid "Show query chart"
 msgstr "Afficher le graphique des requêtes"
 
-#: server_status.php:714 server_status.php:715
-msgid "Hide query chart"
-msgstr "Cacher le graphique des requêtes"
-
-#: server_status.php:717
+#: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
 "Remarque : la génération du graphique des requêtes peut prendre un certain "
 "temps."
 
-#: server_status.php:855
+#: server_status.php:853
 msgid "Replication status"
 msgstr "État de la réplication"
 
@@ -9936,6 +9921,12 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
+
+#~ msgid "Disable Statistics"
+#~ msgstr "Désactiver les statistiques"
+
+#~ msgid "Hide query chart"
+#~ msgstr "Cacher le graphique des requêtes"
 
 #~ msgid "Start"
 #~ msgstr "Démarrer"
