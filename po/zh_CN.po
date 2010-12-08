@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-08 04:35+0200\n"
+"PO-Revision-Date: 2010-12-08 04:37+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3040,10 +3040,9 @@ msgid "Display servers selection"
 msgstr "显示服务器选择"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
-msgstr "在数据表列表中最多显示的数据表个数"
+msgstr "显示快速搜索框的最少数据表数量"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
