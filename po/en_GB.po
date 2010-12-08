@@ -4436,10 +4436,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exporting tables from \"%s\" database"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exporting rows in the table \"%s\""
+msgstr "Exporting rows from \"%s\" table"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
