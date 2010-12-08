@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-08 04:18+0200\n"
+"PO-Revision-Date: 2010-12-08 04:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1090,7 +1090,7 @@ msgstr "选择要显示的字段"
 
 #: js/messages.php:98
 msgid "Add an option for column "
-msgstr ""
+msgstr "给字段添加选项 "
 
 #: js/messages.php:101
 msgid "Generate password"
