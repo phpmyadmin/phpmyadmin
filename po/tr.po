@@ -4478,10 +4478,9 @@ msgid "Export Method:"
 msgstr "Dışa Aktarma Yöntemi:"
 
 #: libraries/display_export.lib.php:113
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
-msgstr "Hızlı - yapılandırmak için sadece en az seçenekleri göster"
+msgstr "Hızlı - sadece en az seçenekleri göster"
 
 #: libraries/display_export.lib.php:129
 #, fuzzy
