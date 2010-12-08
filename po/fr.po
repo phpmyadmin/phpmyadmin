@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-08 12:43+0200\n"
+"PO-Revision-Date: 2010-12-08 12:44+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4478,10 +4478,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Erreur lors du chargement des modules d'exportation !"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
-msgstr "Exportation des bases de données du serveur actuel"
+msgstr "Exportation des bases de données depuis le serveur courant"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
