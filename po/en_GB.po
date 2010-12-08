@@ -4451,10 +4451,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Quick - display only the minimal options"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Custom - display all possible options to configure"
+msgstr "Custom - display all possible options"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
