@@ -4489,7 +4489,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportation des tables depuis la base de données «%s»"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
 msgstr "Exportation des lignes de la table «%s»"
