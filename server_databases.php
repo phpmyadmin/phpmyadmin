@@ -251,20 +251,15 @@ if ($databases_count > 0) {
         PMA_buttonOrImage('drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
     }
 
-    echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
     if (empty($dbstats)) {
+	echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
         echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
             .' title="' . __('Enable Statistics') . '">' . "\n"
             .'            ' . __('Enable Statistics');
-    } else {
-        echo '        <a href="./server_databases.php?' . $url_query . '"'
-            .' title="' . __('Disable Statistics') . '">' . "\n"
-            .'            ' . __('Disable Statistics');
+	echo '</a></strong><br />' . "\n";
+	PMA_Message::notice(__('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'))->display();
+	echo '</li>' . "\n" . '</ul>' . "\n";
     }
-    echo '</a></strong><br />' . "\n";
-    PMA_Message::warning(__('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'))->display();
-    echo '</li>' . "\n"
-        .'</ul>' . "\n";
     echo '</form>';
 } else {
     echo __('No databases');
