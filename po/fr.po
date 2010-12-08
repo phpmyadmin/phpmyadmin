@@ -4483,10 +4483,10 @@ msgid "Exporting databases from the current server"
 msgstr "Exportation des bases de données depuis le serveur courant"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Exportation des tables dans la base de données «%s»"
+msgstr "Exportation des tables depuis la base de données «%s»"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
