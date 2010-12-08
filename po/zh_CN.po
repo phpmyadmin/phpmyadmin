@@ -7579,10 +7579,9 @@ msgid "Start IO Thread only"
 msgstr "仅启动 IO 线程"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "仅%s IO 线程"
+msgstr "仅停止 IO 线程"
 
 #: server_replication.php:338
 msgid "Error management:"
