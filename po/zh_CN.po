@@ -6771,7 +6771,7 @@ msgstr "聚合"
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
 #: tbl_select.php:135
 msgid "Operator"
-msgstr "操作符"
+msgstr "运算符"
 
 #: pmd_general.php:812
 #, fuzzy
