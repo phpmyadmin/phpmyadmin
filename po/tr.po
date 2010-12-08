@@ -5867,7 +5867,7 @@ msgstr "Ukraynaca"
 
 #: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 msgid "Unicode"
-msgstr "Evrensel kod"
+msgstr "Evrensel Kod"
 
 #: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 #: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:343
