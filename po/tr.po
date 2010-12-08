@@ -4462,7 +4462,7 @@ msgid "Exporting databases from the current server"
 msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
 msgstr "\"%s\" veritabanında tablolar dışa aktarılıyor"
