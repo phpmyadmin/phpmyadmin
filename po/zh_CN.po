@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-08 04:37+0200\n"
+"PO-Revision-Date: 2010-12-08 05:44+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6027,7 +6027,7 @@ msgstr "当前页所引用的表不存在了。您是否想要删除这些引用
 
 #: libraries/schema/User_Schema.class.php:469
 msgid "Toggle scratchboard"
-msgstr "切换刮板"
+msgstr "切换草稿板"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:482
