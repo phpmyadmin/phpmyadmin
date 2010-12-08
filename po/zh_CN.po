@@ -4334,10 +4334,9 @@ msgid "Quick - display only the minimal options"
 msgstr "快速 - 显示最少的选项"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "自定义 - 显示所有可用的设置项"
+msgstr "自定义 - 显示所有可用的选项"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
