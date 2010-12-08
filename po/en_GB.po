@@ -8655,7 +8655,7 @@ msgstr "Hide query chart"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Note: Generating the query chart can take a long time."
 
 #: server_status.php:855
 msgid "Replication status"
