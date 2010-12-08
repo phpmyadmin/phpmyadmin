@@ -4483,10 +4483,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Hızlı - sadece en az seçenekleri göster"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Özel - yapılandırmak için tüm olası seçenekleri göster"
+msgstr "Özel - tüm olası seçenekleri göster"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
