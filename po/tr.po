@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-09 00:26+0200\n"
+"PO-Revision-Date: 2010-12-09 00:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4457,10 +4457,9 @@ msgstr ""
 "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
-msgstr "Veritabanları şu anki sunucu içinde dışa aktarılıyor"
+msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
