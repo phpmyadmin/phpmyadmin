@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-07 09:47-0500\n"
-"PO-Revision-Date: 2010-12-08 03:44+0200\n"
+"PO-Revision-Date: 2010-12-08 03:48+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6710,10 +6710,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "为 PDF 大纲导入/导出坐标"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "提交查询"
+msgstr "生成查询"
 
 #: pmd_general.php:127
 msgid "Move Menu"
