@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-09 00:46+0200\n"
+"PO-Revision-Date: 2010-12-09 00:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5867,7 +5867,7 @@ msgstr "Ukraynaca"
 
 #: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 msgid "Unicode"
-msgstr "Unicode"
+msgstr "Evrensel kod"
 
 #: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 #: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:343
