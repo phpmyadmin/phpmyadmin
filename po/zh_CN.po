@@ -8368,10 +8368,9 @@ msgid "Show query chart"
 msgstr "显示查询图表"
 
 #: server_status.php:714 server_status.php:715
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Hide query chart"
-msgstr "隐藏查询框"
+msgstr "隐藏查询图表"
 
 #: server_status.php:717
 msgid "Note: Generating the query chart can take a long time."
