@@ -7569,10 +7569,9 @@ msgid "Start SQL Thread only"
 msgstr "仅启动 SQL 线程"
 
 #: server_replication.php:328
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "仅%s SQL 线程"
+msgstr "仅停止 SQL 线程"
 
 #: server_replication.php:331
 #, fuzzy
