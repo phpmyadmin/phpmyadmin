@@ -28,15 +28,23 @@ function getFieldName($this_field, disp_mode) {
 
     if(disp_mode == 'vertical') {
         var field_name = $this_field.siblings('th').find('a').text();
+        // happens when just one row (headings contain no a)
+        if ("" == field_name) {
+            field_name = $this_field.siblings('th').text();
+        }
     }
     else {
         var this_field_index = $this_field.index();
         if(window.parent.text_dir == 'ltr') {
             // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors but index is zero-based so substract 3
-            var field_name = $this_field.parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
+            var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
+            // happens when just one row (headings contain no a)
+            if ("" == field_name) {
+                field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+            }
         }
         else {
-            var field_name = $this_field.parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
+            var field_name = $('#table_results').find('thead').find('th:nth('+ this_field_index+') a').text();
         }
     }
 
