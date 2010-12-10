@@ -35,16 +35,13 @@ function getFieldName($this_field, disp_mode) {
     }
     else {
         var this_field_index = $this_field.index();
-        if(window.parent.text_dir == 'ltr') {
-            // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors but index is zero-based so substract 3
-            var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
-            // happens when just one row (headings contain no a)
-            if ("" == field_name) {
-                field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
-            }
-        }
-        else {
-            var field_name = $('#table_results').find('thead').find('th:nth('+ this_field_index+') a').text();
+        // ltr or rtl direction does not impact how the DOM was generated
+        //
+        // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors but index is zero-based so substract 3
+        var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
+        // happens when just one row (headings contain no a)
+        if ("" == field_name) {
+            field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
         }
     }
 
