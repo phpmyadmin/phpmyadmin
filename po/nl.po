@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-08 00:03+0200\n"
+"PO-Revision-Date: 2010-12-10 22:54+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2612,7 +2612,7 @@ msgstr "SQL-compatibiliteits mode"
 
 #: libraries/config/messages.inc.php:118
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Syntax voor insert opdrachten"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
@@ -10206,14 +10206,3 @@ msgstr "Hernoem view naar"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Statistieken uitzetten"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "SQL-query veld verbergen"
-
-#~ msgid "Start"
-#~ msgstr "Start"
-
-#~ msgid "Stop"
-#~ msgstr "Stop"
