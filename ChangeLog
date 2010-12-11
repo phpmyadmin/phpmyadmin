@@ -124,8 +124,6 @@
 - patch #3112792 [navi] Left panel table grouping incorrect,
   thanks to garas - garas
 - bug #3123433 [interface] Avoid double escaping of MySQL errors.
-- bug #3119874 [interface] Show integers without decimals on status page.
-- bug #3119882 [interface] Display query chart on demand.
 - [interface] Use less noisy message and remove disable link on server charts and database statistics.
 
 3.3.9.0 (not yet released)
