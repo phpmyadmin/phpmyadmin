@@ -135,6 +135,7 @@
 - patch #3117535 [replication] Add quotes to database in initial statement,
   thanks to Craig Duncan - duncan3dc
 - bug #3112614 [pdf schema] Scratchboard for PDF pages not working
+- bug #3125606 [parser] Query for table "level" causes strange display
 
 3.3.8.1 (2010-11-29)
 - bug #3115519 (private) [security] XSS on db search, see PMASA-2010-8
