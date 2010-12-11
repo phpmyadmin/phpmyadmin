@@ -516,7 +516,6 @@ $PMA_SQPdata_reserved_word = array (
     'LAST_INSERT_ID',
     'LEADING',
     'LEFT',
-    'LEVEL',
     'LIKE',
     'LIMIT',
     'LINEAR',               // 5.1
@@ -686,7 +685,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 289;
+$PMA_SQPdata_reserved_word_cnt = 288;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
@@ -905,7 +904,6 @@ $PMA_SQPdata_forbidden_word = array (
     'LEAVE',
     'LEAVES',
     'LEFT',
-    'LEVEL',
     'LIKE',
     'LIMIT',
     'LINEAR',               // 5.1
@@ -1184,7 +1182,7 @@ $PMA_SQPdata_forbidden_word = array (
  *
  * @global integer MySQL forbidden words count
  */
-$PMA_SQPdata_forbidden_word_cnt = 483;
+$PMA_SQPdata_forbidden_word_cnt = 482;
 
 /**
  * the MySQL column/data types
