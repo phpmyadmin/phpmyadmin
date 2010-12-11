@@ -54,8 +54,7 @@ shift
 
 cat <<END
 
-Please ensure you have:
-  1. incremented rc count or version in the repository :
+Please ensure you have incremented rc count or version in the repository :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in Documentation.html the 2 lines
@@ -63,8 +62,6 @@ Please ensure you have:
           " <h1>phpMyAdmin $version Documentation</h1> "
      - in translators.html
      - in README
-  2. checked that all language files are valid (use
-     the "./scripts/check_lang.php" script to do it).
 
 Continue (y/n)?
 END
