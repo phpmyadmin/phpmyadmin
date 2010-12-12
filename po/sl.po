@@ -4474,10 +4474,9 @@ msgid "Export Method:"
 msgstr "Način izvoza:"
 
 #: libraries/display_export.lib.php:113
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
-msgstr "Hitro - prikaži kar najmanj možnosti za konfiguriranje"
+msgstr "Hitro - prikaži kar najmanj možnosti"
 
 #: libraries/display_export.lib.php:129
 #, fuzzy
