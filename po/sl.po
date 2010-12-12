@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-12 12:58+0200\n"
+"PO-Revision-Date: 2010-12-12 12:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4458,10 +4458,10 @@ msgid "Exporting databases from the current server"
 msgstr "Izvažanje zbirk podatkov iz trenutnega strežnika"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Izvažanje tabel v zbirki podatkov \"%s\""
+msgstr "Izvažanje tabel iz zbirke podatkov \"%s\""
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
