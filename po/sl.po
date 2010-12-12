@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-12 13:01+0200\n"
+"PO-Revision-Date: 2010-12-12 13:02+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -8705,7 +8705,7 @@ msgstr "Prikaži graf poizvedbe"
 
 #: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Opomba: Ustvarjanje grafa poizvedbe lahko traja dolgo časa."
 
 #: server_status.php:853
 msgid "Replication status"
