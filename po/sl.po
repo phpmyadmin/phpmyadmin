@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-11-30 17:31+0200\n"
+"PO-Revision-Date: 2010-12-12 12:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -550,10 +550,10 @@ msgid "Delete"
 msgstr "Izbriši"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbrišem zadetke v tabeli %s?"
 
 #: db_search.php:273
 #, php-format
@@ -9863,119 +9863,3 @@ msgstr "Preimenuj pogled v"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Onemogoči statistiko"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Skrij polje poizvedbe"
-
-#~ msgid "Start"
-#~ msgstr "Začetek"
-
-#~ msgid "Stop"
-#~ msgstr "Ustavi"
-
-#~ msgid "Display table filter"
-#~ msgstr "Prikaži filter tabel"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Dodatne funkcije za delo s povezanimi tabelami so bile izkjučene. Če "
-#~ "želite izvedeti zakaj, kliknite %stukaj%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Prezri podvojene vrstice"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Izvedi izbrano poizvedbo"
-
-#~ msgid "No tables"
-#~ msgstr "Ni tabel"
-
-#~ msgid "Field navigation using Ctrl+Arrows"
-#~ msgstr "Usmerjanje po poljih s ctrl+puščice"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "Preklopi vidnost polja za poizvedbe"
-
-#~ msgid "SVG"
-#~ msgstr "SVG"
-
-#~ msgid "DIA"
-#~ msgstr "DIA"
-
-#~ msgid "VISIO"
-#~ msgstr "VISIO"
-
-#~ msgid "EPS"
-#~ msgstr "EPS"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Ta [a@?page=form&amp;formset=features#tab_Security]možnost[/a] naj bo "
-#~ "omogočena, če jo vaš spletni strežnik podpira"
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Vsako vrednost vnesite v ločeno polje, obdano z enojnima narekovajema. Če "
-#~ "želite med vrednosti vnesti desno poševnico (\"\\\") ali enojni narekovaj "
-#~ "(\"'\"), morate pred ta znak postaviti desno poševnico (npr. '\\\\xyz' "
-#~ "ali 'a\\'b')."
-
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Vnesite vsako vrednost v ločeno polje. Če želite med vrednosti vnesti "
-#~ "desno poševnico (\"\\\") ali enojni narekovaj (\"'\"), morate pred ta "
-#~ "znak postaviti desno poševnico (na primer '\\\\xyz' ali 'a\\'b')."
-
-#~ msgid "Debug PHP"
-#~ msgstr "Odkrivaj napake PHP"
-
-#~ msgid "New table"
-#~ msgstr "Nova tabela"
-
-#~ msgid "server name"
-#~ msgstr "ime strežnika"
-
-#~ msgid "database name"
-#~ msgstr "ime zbirke podatkov"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Uredi PDF strani"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Oblika podatkovnega slovarja"
-
-#~ msgid "no"
-#~ msgstr "ne"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Vnesite prijavne možnosti za overovitev signon"
-
-#~ msgid "Signon login options"
-#~ msgstr "Prijavne možnosti signon"
-
-#~ msgid "PMA database"
-#~ msgstr "Podatkovna zbirka PMA"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Nastavitve poizvedb SQL, za možnosti polja poizvedb SQL glej nastavitve "
-#~ "[a@?page=form&amp;formset=main_frame#tab_Sql_box]navigacijskega okvirja[/"
-#~ "a]"
-
-#~ msgid "yes"
-#~ msgstr "da"
