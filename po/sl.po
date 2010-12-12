@@ -4589,7 +4589,6 @@ msgid "Format:"
 msgstr "Oblika:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
 msgstr "Možnosti odvisne od oblike:"
