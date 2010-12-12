@@ -6899,10 +6899,9 @@ msgid "Filter"
 msgstr "Filtriranje"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "ime tabele"
+msgstr "filtriraj tabele po imenu"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
