@@ -4464,10 +4464,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Izvažanje tabel iz zbirke podatkov \"%s\""
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
-msgstr "Izvažanje vrstic v tabeli \"%s\""
+msgstr "Izvažanje vrstic iz tabele \"%s\""
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
