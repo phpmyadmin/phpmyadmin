@@ -7847,10 +7847,9 @@ msgid "Stop SQL Thread only"
 msgstr "Ustavi samo nit SQL"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Nit IO samo %s"
+msgstr "Zaženi samo nit IO"
 
 #: server_replication.php:333
 #, fuzzy
