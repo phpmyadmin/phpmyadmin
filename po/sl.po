@@ -8699,10 +8699,9 @@ msgid "Query type"
 msgstr "Vrsta poizvedbe"
 
 #: server_status.php:710 server_status.php:711
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Prikaži polje poizvedbe"
+msgstr "Prikaži graf poizvedbe"
 
 #: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
