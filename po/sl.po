@@ -4453,10 +4453,9 @@ msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
-msgstr "Izvažanje zbirk podatkov na trenutnem strežniku"
+msgstr "Izvažanje zbirk podatkov iz trenutnega strežnika"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
