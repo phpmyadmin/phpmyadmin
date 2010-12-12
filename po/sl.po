@@ -4479,10 +4479,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Hitro - prikaži kar najmanj možnosti"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Po meri - prikaži vse mogoče možnosti za konfiguriranje"
+msgstr "Po meri - prikaži vse mogoče možnosti"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
