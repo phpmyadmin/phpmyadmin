@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 17:53+0200\n"
+"PO-Revision-Date: 2010-12-13 17:54+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5874,7 +5874,7 @@ msgstr "Aquesta extensió no suporta importacions comprimides!"
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Importar percentatges amb els decimals adients <i>(ex. 12.00% to .12)</i>"
+"Importar percentatges amb els decimals adients <i>(ex. 12.00% a .12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
