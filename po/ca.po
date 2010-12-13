@@ -3445,7 +3445,6 @@ msgid "GZip output buffering"
 msgstr "Memòria cau de sortida per GZip"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
