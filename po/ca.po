@@ -3369,8 +3369,8 @@ msgid ""
 "shown."
 msgstr ""
 "Nombre de files mostrades quan es navega mper un resultat. Si el resultat "
-"conté més files, es mostraràn els enllaços &quot;Anterior&quot; i &quot;"
-"Següent&quot;."
+"conté més files, es mostraràn els enllaços &quot;Anterior&quot; i "
+"&quot;Següent&quot;."
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of rows to display"
