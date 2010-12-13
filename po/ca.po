@@ -3577,7 +3577,7 @@ msgstr "Mostra el botó d'ajuda"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
-msgstr "Directori del servidor ón pots desar les exportacions"
+msgstr "Directori del servidor on pots desar les exportacions"
 
 #: libraries/config/messages.inc.php:349
 msgid "Save directory"
