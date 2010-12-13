@@ -4091,7 +4091,7 @@ msgstr "Mostra tipus de camps"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
-msgstr "Mostra els camps de funcio en modes edició/inserció"
+msgstr "Mostra els camps de funció en modes edició/inserció"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show function fields"
