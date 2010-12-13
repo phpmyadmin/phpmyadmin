@@ -3573,7 +3573,7 @@ msgstr "Mostra el botó d'ajuda en lloc del text de la Documentació"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
-msgstr ""
+msgstr "Mostra el botó d'ajuda"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
