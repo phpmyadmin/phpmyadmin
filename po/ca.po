@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 11:51+0200\n"
+"PO-Revision-Date: 2010-12-13 11:52+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "La finestra destí del navegador no s'ha pogut actualitzar. Potser has tancat "
 "la finestra \"pare\" o bé el teu navegador bloqueja actualitzacions entre "
-"finestres per la teva configuració de seguretat"
+"finestres per la teva configuració de seguretat."
 
 #: browse_foreigners.php:148 libraries/common.lib.php:2816
 #: libraries/common.lib.php:2823 libraries/common.lib.php:2998
