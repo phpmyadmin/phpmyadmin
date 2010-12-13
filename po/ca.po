@@ -4912,10 +4912,9 @@ msgid "%d is not valid row number."
 msgstr "%d no és un num. vàlid de fila."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "Files començant des de"
+msgstr "Fila(es) començant des de la fila #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
