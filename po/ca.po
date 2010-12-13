@@ -4254,10 +4254,9 @@ msgstr ""
 "textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "Files per àrea de text CHAR"
+msgstr "Files per a textareas"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
