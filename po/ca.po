@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 17:09+0200\n"
+"PO-Revision-Date: 2010-12-13 17:10+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5452,10 +5452,9 @@ msgid "Replace NULL with:"
 msgstr "Canvía NULL amb:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Treu caràcters CRLF de dins dels camps"
+msgstr "Treu caràcters CR/LF dins de les columnes"
 
 #: libraries/export/excel.php:32
 #| msgid "Excel edition"
