@@ -2335,7 +2335,6 @@ msgstr ""
 "[kbd]textarea[/kbd] - permet varies línies dintre dels camps"
 
 #: libraries/config/messages.inc.php:31
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "Edició de camps CHAR"
