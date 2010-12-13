@@ -7916,10 +7916,9 @@ msgid "Reset slave"
 msgstr "Επαναφορά δευτερεύοντος"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "Διεργασία SQL %s μόνο"
+msgstr "Εκκίνηση μόνο Νήματος SQL"
 
 #: server_replication.php:328
 #, fuzzy
