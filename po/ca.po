@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:01+0200\n"
+"PO-Revision-Date: 2010-12-13 12:02+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6896,7 +6896,6 @@ msgstr ""
 "() de PHP i per a \"utc\" s'obté amb l'ús de la funció gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6927,8 +6926,8 @@ msgstr ""
 "afegir les eines que vulguis fer servir. La primera opció és, llavors, el "
 "numero del programa que vols fer servir i la segona opció són els paràmetres "
 "per el programa. El tercer paràmetre, si es posa a 1, convertirà la sortida "
-"fent servir htmlspecialchars() (El defecte és 1). El quart paràmetre, si val "
-"1, posarà un NOWRAP al contingut de les cel.les de forma que la sortida "
+"fent servir htmlspecialchars() (El defecte és 1). El quart paràmetre, si "
+"val 1, posarà un NOWRAP al contingut de les cel.les de forma que la sortida "
 "sencera es mostrarà sense reformatejar (Per defecte 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
