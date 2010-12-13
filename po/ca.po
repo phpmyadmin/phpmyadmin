@@ -6193,7 +6193,7 @@ msgstr "Passos ràpids per a activar les característiques avançades:"
 #: libraries/relation.lib.php:147
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
+msgstr "Crea les taules necessàries amb <code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:148
 msgid "Create a pma user and give access to these tables."
