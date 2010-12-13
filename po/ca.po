@@ -7278,10 +7278,9 @@ msgstr "Excepte"
 
 #: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
 #: pmd_general.php:777
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "en consulta"
+msgstr "subconsulta"
 
 #: pmd_general.php:482 pmd_general.php:578
 #, fuzzy
