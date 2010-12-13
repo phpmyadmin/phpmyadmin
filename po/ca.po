@@ -8260,8 +8260,8 @@ msgid ""
 "based instead of disk-based."
 msgstr ""
 "El nombre de taules temporals en disc creades automàticament per el servidor "
-"mentre executa instruccions. Si Created_tmp_disk_tables és gran, potser vols "
-"incrementar el valor de tmp_table_size per fer que les taules temporals "
+"mentre executa instruccions. Si Created_tmp_disk_tables és gran, potser "
+"vols incrementar el valor de tmp_table_size per fer que les taules temporals "
 "treballin en memòria en lloc de treballar en disc."
 
 #: server_status.php:49
