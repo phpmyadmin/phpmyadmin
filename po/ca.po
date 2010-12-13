@@ -4264,7 +4264,7 @@ msgstr "Títol de la finestra del navegador quan es selecciona una base de dades
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat"
 
 #: libraries/config/messages.inc.php:480
 #, fuzzy
