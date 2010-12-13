@@ -6378,10 +6378,10 @@ msgstr "Configura les coordinades per la taula %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:866
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Esquema de la base de dades \"%s\" - Pàgina %s"
+msgstr "Esquema de la base de dades %s - Pàgina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #, fuzzy
