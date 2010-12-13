@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:42+0200\n"
+"PO-Revision-Date: 2010-12-13 16:43+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4619,10 +4619,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Ràpid - Mostra només les opcions mínimes a configurar"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Complet - Mostra totes les opcions a configurar"
+msgstr "Usuari - Mostra totes les opcions possibles"
 
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
