@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 13:35+0200\n"
+"PO-Revision-Date: 2010-12-13 13:40+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8825,6 +8825,8 @@ msgstr "Προβολή διαγράμματος ερωτήματος"
 #: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
+"Σημείωση: Η δημιουργία του διαγράμματος ερωτήματος μπορεί να διαρκέσει "
+"αρκετά."
 
 #: server_status.php:853
 msgid "Replication status"
