@@ -9554,10 +9554,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "La clau és massa curta, ha de tenir al menys 8 caràcters."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials"
+msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials."
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
