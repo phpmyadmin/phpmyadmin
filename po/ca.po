@@ -4912,10 +4912,9 @@ msgid "Partial texts"
 msgstr "Textos Parcials"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Texts sencers"
+msgstr "Textos sencers"
 
 #: libraries/display_tbl.lib.php:585
 msgid "Relational key"
