@@ -5877,10 +5877,9 @@ msgstr ""
 "Importar percentatges amb els decimals adients <i>(ex. 12.00% a .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importar monedes ($5.00 a 5.00)"
+msgstr "Importar moneda <i>(ex. $5.00 a 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #| msgid "SQL compatibility mode"
