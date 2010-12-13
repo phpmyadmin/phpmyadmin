@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:51+0200\n"
+"PO-Revision-Date: 2010-12-13 12:52+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5608,10 +5608,11 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Afegeix comentari personalitzat a la capçalera (\\n divideix linies)"
+msgstr ""
+"Afegeix comentari personalitzat a la capçalera (\n"
+" divideix línies):"
 
 #: libraries/export/sql.php:37
 msgid ""
