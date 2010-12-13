@@ -4226,7 +4226,7 @@ msgstr "Proposa un nou nom de base de dades"
 
 #: libraries/config/messages.inc.php:471
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Si es detecta Suoshin, es mostra un avís a la pàgina principal"
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
