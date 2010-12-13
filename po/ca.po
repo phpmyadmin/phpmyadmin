@@ -6959,10 +6959,9 @@ msgstr ""
 "phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "No es pot carregar o desar la configuració"
+msgstr "No es pot desar la configuració"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
