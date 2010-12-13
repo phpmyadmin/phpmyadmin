@@ -4882,7 +4882,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:322
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr " en mode %s i repeteix capçaleres després de %s cel·les "
+msgstr "en mode %s i repeteix capçaleres després de %s cel·les "
 
 #: libraries/display_tbl.lib.php:510
 msgid "Sort by key"
