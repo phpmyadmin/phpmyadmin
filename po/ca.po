@@ -3544,10 +3544,9 @@ msgid "Query window width (in pixels)"
 msgstr "Amplada de la finestra de consultes (en pixels)"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Finestra de consultes"
+msgstr "Amplada de la finestra de consultes"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
