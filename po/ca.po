@@ -4681,10 +4681,9 @@ msgid "Dump some row(s)"
 msgstr "Bolca alguna(es) fila(es)"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Nombre de camps"
+msgstr "Nombre de files:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
