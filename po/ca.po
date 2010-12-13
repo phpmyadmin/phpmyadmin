@@ -2908,10 +2908,9 @@ msgid "Authentication"
 msgstr "Autenticació"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Tipus d'autenticació"
+msgstr "Paràmetres d'autenticació"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
