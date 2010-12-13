@@ -4751,10 +4751,9 @@ msgid "Character set of the file:"
 msgstr "Joc de caràcters de l'arxiu:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compresió"
+msgstr "Compressió:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
