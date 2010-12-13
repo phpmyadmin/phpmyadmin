@@ -6017,7 +6017,7 @@ msgstr "Letó"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
-msgstr "Lituà "
+msgstr "Lituà"
 
 #: libraries/mysql_charsets.lib.php:279 libraries/mysql_charsets.lib.php:382
 msgid "Korean"
