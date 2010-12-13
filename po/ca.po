@@ -1803,10 +1803,9 @@ msgid "Check Privileges"
 msgstr "Comprova els permisos"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Mostra estadístiques"
+msgstr "Consulta d'estadístiques"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
