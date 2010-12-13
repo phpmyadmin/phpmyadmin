@@ -6412,10 +6412,9 @@ msgid "Select Tables"
 msgstr "Tria Taules"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Esquema Relacional"
+msgstr "Mostra l'Esquema Relacional"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
