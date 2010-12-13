@@ -6767,10 +6767,10 @@ msgid "PARTITION definition"
 msgstr "Definicio de PARTICIÓ"
 
 #: libraries/tbl_properties.inc.php:779 tbl_structure.php:633
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Afegeix columna(es)"
+msgstr "Afegeix %s columna(es)"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
 #, fuzzy
