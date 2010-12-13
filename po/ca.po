@@ -6205,7 +6205,7 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Activa les característiques avançades a l'arxiu de configuració "
-"(<code>config.inc.php</code>), començant, per exemple, amb l'arxiu "
+"(<code>config.inc.php</code>), partint, per exemple, de l'arxiu "
 "<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:150
