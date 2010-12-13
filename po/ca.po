@@ -6403,10 +6403,9 @@ msgid "Please choose a page to edit"
 msgstr "Tria una pàgina per editar"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select All"
 msgid "Select page"
-msgstr "Tria Tot"
+msgstr "Selecciona la pàgina"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
