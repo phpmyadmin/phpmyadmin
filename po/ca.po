@@ -5485,7 +5485,7 @@ msgstr "Contingut de la taula @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
-msgstr "(continúa)"
+msgstr "(continua)"
 
 #: libraries/export/latex.php:15
 #, fuzzy
