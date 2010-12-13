@@ -2949,7 +2949,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
-msgstr ""
+msgstr "Seguiment de canvis"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
