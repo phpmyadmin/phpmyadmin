@@ -5280,7 +5280,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
 msgstr "LLindar de l'arxiu de Registre (Log)"
