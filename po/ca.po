@@ -5179,7 +5179,6 @@ msgstr ""
 "mentre es creen índexs amb CREATE INDEX o ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Llindar de les escombraries"
