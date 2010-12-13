@@ -2888,7 +2888,7 @@ msgstr "Configura les opcions de la finestra de consultes"
 
 #: libraries/config/messages.inc.php:191
 msgid "Security"
-msgstr "Securetat"
+msgstr "Seguretat"
 
 #: libraries/config/messages.inc.php:192
 msgid ""
