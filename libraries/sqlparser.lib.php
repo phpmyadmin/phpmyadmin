@@ -2165,7 +2165,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
-            $indent = 0;
             // array_shift($typearr);
             /*
             0 prev2
@@ -2265,17 +2264,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                     break;
                 case 'punct_bracket_close_round':
-                    $bracketlevel--;
-                    if ($infunction == TRUE) {
-                        $functionlevel--;
-                        $after     .= ' ';
-                        $before    .= ' ';
-                    } else {
-                        $indent--;
-                        $before    .= ($mode != 'query_only' ? '</div>' : ' ');
-                    }
-                    $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
-                    break;
+			// only close bracket level when it was opened before
+			if ($bracketlevel > 0) {
+				$bracketlevel--;
+				if ($infunction == TRUE) {
+					$functionlevel--;
+					$after     .= ' ';
+					$before    .= ' ';
+				} else {
+					$indent--;
+					$before    .= ($mode != 'query_only' ? '</div>' : ' ');
+				}
+				$infunction    = ($functionlevel > 0) ? TRUE : FALSE;
+			}
+			break;
                 case 'alpha_columnType':
                     if ($typearr[3] == 'alpha_columnAttrib') {
                         $after     .= ' ';
@@ -2466,6 +2468,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
             $str .= $after;
         } // end for
+	// close unclosed indent levels
+	while ($indent > 0) {
+		$indent--;
+		$str .= ($mode != 'query_only' ? '</div>' : ' ');
+	}
         if ($mode=='color') {
             $str .= '</span>';
         }
