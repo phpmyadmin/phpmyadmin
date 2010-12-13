@@ -1282,7 +1282,7 @@ msgstr "Dimecres"
 
 #: js/messages.php:169
 msgid "Thursday"
-msgstr ""
+msgstr "Dijous"
 
 #: js/messages.php:170
 #, fuzzy
