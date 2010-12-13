@@ -1712,7 +1712,7 @@ msgstr "Autenticant..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Error de PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 #| msgid "MySQL connection collation"
