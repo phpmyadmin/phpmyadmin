@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 18:23+0200\n"
+"PO-Revision-Date: 2010-12-13 18:24+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7312,7 +7312,6 @@ msgid "To select relation, click :"
 msgstr "Per triar una relació, clica :"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7322,8 +7321,8 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"El camp a visualitzar es mostra en rosa. Per establir/treure un camp com a "
-"camp de visualització, clica la icona \"Tria camp a visualitzar\", i clica "
+"La columna a visualitzar es mostra en rosa. Per establir/treure un camp com "
+"a camp de visualització, clica la icona \"Tria camp a visualitzar\", i clica "
 "també en el nom de camp adient."
 
 #: pmd_pdf.php:60
