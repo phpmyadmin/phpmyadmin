@@ -4681,10 +4681,9 @@ msgid "Rows:"
 msgstr "Fila"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Bolca totes les files"
+msgstr "Bolca alguna(es) fila(es):"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
