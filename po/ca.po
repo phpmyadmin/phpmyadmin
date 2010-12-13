@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 11:48+0200\n"
+"PO-Revision-Date: 2010-12-13 11:49+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2975,7 +2975,6 @@ msgid "Configuration storage"
 msgstr "Arxiu de configuració"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -2986,8 +2985,8 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [a@../Documentation.html#linked-tables]infraestructura "
-"de taules enllaçades[/a] a la documentació"
+"adiccionals, consulta [a@Documentation.html#linked-tables]infraestructura de "
+"taules enllaçades[/a] a la documentació"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
