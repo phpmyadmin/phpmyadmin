@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 17:23+0200\n"
+"PO-Revision-Date: 2010-12-13 17:38+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5627,7 +5627,7 @@ msgstr "Enlloc d'instruccions <code>INSERT</code>, usa:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "instruccions <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
