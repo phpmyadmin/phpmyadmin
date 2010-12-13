@@ -1332,7 +1332,7 @@ msgstr "Dis"
 #: js/messages.php:191
 #| msgid "Sun"
 msgid "Su"
-msgstr "Dm"
+msgstr "Dg"
 
 #. l10n: Minimal week day name
 #: js/messages.php:193
