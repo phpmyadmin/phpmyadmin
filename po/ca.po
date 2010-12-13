@@ -2337,7 +2337,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:31
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "Edició de camps CHAR"
+msgstr "Edició de columnes CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
