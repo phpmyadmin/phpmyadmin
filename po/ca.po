@@ -1065,7 +1065,7 @@ msgstr "Canvi de Joc de Caràcters"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
-msgstr "La taula ha de tenir al menys una columna."
+msgstr "La taula ha de tenir al menys una columna"
 
 #: js/messages.php:76
 msgid "Create Table"
