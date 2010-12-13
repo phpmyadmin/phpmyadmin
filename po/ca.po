@@ -1278,7 +1278,7 @@ msgstr "Dimarts"
 
 #: js/messages.php:168
 msgid "Wednesday"
-msgstr ""
+msgstr "Dimecres"
 
 #: js/messages.php:169
 msgid "Thursday"
