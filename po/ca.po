@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:12+0200\n"
+"PO-Revision-Date: 2010-12-13 12:13+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2620,10 +2620,9 @@ msgstr "Plantilla de nom de taula"
 #: libraries/config/messages.inc.php:138 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s taula(es)"
+msgstr "Bolcat de taula"
 
 #: libraries/config/messages.inc.php:88 libraries/export/latex.php:31
 msgid "Include table caption"
