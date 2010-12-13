@@ -4639,10 +4639,10 @@ msgid "Exporting databases from the current server"
 msgstr "Permet bloquejar taules per l'actual fil d'execució."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Crear una taula nova a la base de dades %s"
+msgstr "Crear una taula nova a la base de dades \"%s\""
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
