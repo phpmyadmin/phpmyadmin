@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 14:34+0200\n"
+"PO-Revision-Date: 2010-12-13 14:35+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3048,7 +3048,7 @@ msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Desactiva alguns dels avisos mostrats per phpMyAdmin"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
