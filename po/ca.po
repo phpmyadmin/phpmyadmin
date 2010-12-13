@@ -4558,10 +4558,9 @@ msgid "Password Hashing"
 msgstr "Contrasenya Hashing"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "Compatible amb MySQL&nbsp;4.0"
+msgstr "Compatible amb MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
