@@ -6773,10 +6773,9 @@ msgid "Add %s column(s)"
 msgstr "Afegeix %s columna(es)"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Has d'afegir al menys un camp."
+msgstr "Has d'afegir al menys una columna."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
