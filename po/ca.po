@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:33+0200\n"
+"PO-Revision-Date: 2010-12-13 16:34+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4260,7 +4260,7 @@ msgstr "Files per a textareas"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Títol de la finestra del navegador quan es selecciona una base de dades"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
