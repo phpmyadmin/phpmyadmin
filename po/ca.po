@@ -1958,7 +1958,7 @@ msgstr "Valida l'SQL"
 
 #: libraries/common.lib.php:1237
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Editar aquesta consulta en línia"
 
 #: libraries/common.lib.php:1239
 #, fuzzy
