@@ -7000,7 +7000,7 @@ msgstr "Color de fons"
 
 #: main.php:136
 msgid "Choose..."
-msgstr ""
+msgstr "Tria..."
 
 #: main.php:153 prefs_manage.php:274
 #, fuzzy
