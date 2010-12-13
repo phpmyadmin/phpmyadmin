@@ -973,7 +973,7 @@ msgstr ""
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Falta un valor al formulari !"
+msgstr "Falta un valor al formulari!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
