@@ -4667,10 +4667,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Desa al servidor al directori <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Desa com a arxiu"
+msgstr "Desa la sortida com a arxiu"
 
 #: libraries/display_export.lib.php:227
 #| msgid "File name template"
