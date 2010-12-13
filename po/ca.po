@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:46+0200\n"
+"PO-Revision-Date: 2010-12-13 12:47+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2897,10 +2897,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Paràmetres que no encaixaven en cap altre lloc"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Número de pàgina:"
+msgstr "Títols de pàgina"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
