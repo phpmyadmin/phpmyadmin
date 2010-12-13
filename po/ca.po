@@ -7331,7 +7331,7 @@ msgstr "S'ha creat una pàgina"
 
 #: pmd_pdf.php:62
 msgid "Page creation failed"
-msgstr ""
+msgstr "Ha fallat la creació de pàgina"
 
 #: pmd_pdf.php:82
 msgid "Export/Import to scale"
