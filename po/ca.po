@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 14:48+0200\n"
+"PO-Revision-Date: 2010-12-13 14:49+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3265,11 +3265,12 @@ msgid "Light tabs"
 msgstr "Pestanyes lleugeres"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL"
+msgstr ""
+"Màxim nombre de caràcters usats en qualsevol columna no-numèrica a la vista "
+"de navegació"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
