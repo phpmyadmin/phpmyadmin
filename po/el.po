@@ -548,7 +548,7 @@ msgstr "Διαγραφή"
 #: db_search.php:260
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον %s πίνακα?"
+msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον πίνακα %s;"
 
 #: db_search.php:273
 #, php-format
