@@ -2464,10 +2464,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Edita consultes SQL en finestra desplegable"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Edita el següent registre"
+msgstr "Edita en finestra"
 
 #: libraries/config/messages.inc.php:60
 #, fuzzy
