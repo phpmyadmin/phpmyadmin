@@ -6739,11 +6739,10 @@ msgid "Get more editing space"
 msgstr "Obté més espai d'edició"
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
-msgstr "Res"
+msgstr "Cap"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
