@@ -5821,10 +5821,9 @@ msgstr ""
 "de separar amb comes i no poden estar inclosos entre cometes."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Nom de les columnes"
+msgstr "Nom de les columnes:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
