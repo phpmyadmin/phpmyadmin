@@ -9473,7 +9473,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9482,9 +9482,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Validació de connexió amb cookies"
-"[/a] s'ha de configurar al menys a 1800 segons (30 minuts). Valors més grans "
-"de 1800 poden ser un risc de seguretat,   com a suplantacions."
+"%sLogin cookie validity%s s'ha de configurar al menys a 1800 segons (30 "
+"minuts). Valors més grans de 1800 poden ser un risc de seguretat, com a "
+"suplantacions."
 
 #: setup/lib/index.lib.php:264
 #, php-format
