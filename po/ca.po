@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 13:58+0200\n"
+"PO-Revision-Date: 2010-12-13 13:59+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2642,10 +2642,9 @@ msgid "Remember file name template"
 msgstr "Recorda la plantilla del nom d'arxiu"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Usa &quot;backquotes&quot; amb taules i noms de camps"
+msgstr "Usa -backquotes- amb noms de taules i columnes"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
