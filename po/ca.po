@@ -2782,7 +2782,7 @@ msgstr "General"
 
 #: libraries/config/messages.inc.php:164
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Estableix algunes de les opcions més utilitzades"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
