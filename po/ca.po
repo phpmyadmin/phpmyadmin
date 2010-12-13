@@ -1889,7 +1889,7 @@ msgstr "Es necessari actualitzar a %s %s o posterior."
 #: libraries/common.lib.php:145
 #, php-format
 msgid "Max: %s%s"
-msgstr "Tamany Màxim: %s%s"
+msgstr "Màx: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
