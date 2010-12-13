@@ -8210,11 +8210,10 @@ msgid "Error management:"
 msgstr "Gestió d'errors:"
 
 #: server_replication.php:340
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
-"Saltar error(s) podria donar lloc a falta de sincronització entre mestre i "
+"Saltar errors podria donar lloc a falta de sincronització entre mestre i "
 "esclau!"
 
 #: server_replication.php:342
