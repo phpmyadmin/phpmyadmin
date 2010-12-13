@@ -4802,7 +4802,7 @@ msgstr "Arxiu a importar:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "L'arxiu pot ser comprimit (%s) o descomprimit."
 
 #: libraries/display_import.lib.php:158
 msgid ""
