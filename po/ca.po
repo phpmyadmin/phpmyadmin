@@ -10106,7 +10106,6 @@ msgid "Propose table structure"
 msgstr "Proposa una estructura de taula"
 
 #: tbl_structure.php:631
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Afegeix columna(es)"
