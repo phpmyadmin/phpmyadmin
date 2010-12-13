@@ -7446,7 +7446,7 @@ msgstr "Els paràmetres existents es sobreescriuran!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "Pots restablir tots els teus paràmetres als valors per defecte."
 
 #: querywindow.php:93
 msgid "Import files"
