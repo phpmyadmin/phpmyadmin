@@ -3948,7 +3948,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:418
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Afegir DROP TABLE"
 
 #: libraries/config/messages.inc.php:419
 msgid ""
