@@ -1564,7 +1564,7 @@ msgstr "Error reanomenant la taula %1$s a %2$s"
 #: libraries/Table.class.php:1129
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "La taula %s ha canviat de nom. Ara es diu %s"
+msgstr "La taula %s ha canviat de nom a %s"
 
 #: libraries/Theme.class.php:160
 #, php-format
