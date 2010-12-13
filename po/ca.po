@@ -4398,10 +4398,9 @@ msgid "Cookie authentication"
 msgstr "Ordre d'autenticació del servidor"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Ordre d'autenticació del servidor"
+msgstr "Autenticació HTTP"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
