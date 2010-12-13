@@ -3339,7 +3339,7 @@ msgstr "textarea més gran per a LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Usa icones a la pàgina principal"
 
 #: libraries/config/messages.inc.php:298
 msgid "Maximum number of characters used when a SQL query is displayed"
