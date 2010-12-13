@@ -5510,10 +5510,9 @@ msgid "Display foreign key relationships"
 msgstr "Mostra les relacions de claus externes"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Mostrant comentaris de les columnes"
+msgstr "Mostra comentaris"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
