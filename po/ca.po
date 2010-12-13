@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:36+0200\n"
+"PO-Revision-Date: 2010-12-13 16:38+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4321,7 +4321,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Activa la pestanya del Desenvolupador en les opcions"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
