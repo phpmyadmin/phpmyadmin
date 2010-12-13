@@ -3588,7 +3588,6 @@ msgid "Leave blank if not used"
 msgstr "Deixa en blanc si no l'utilitzes"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Ordre d'autenticació del servidor"
