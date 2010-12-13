@@ -3974,7 +3974,6 @@ msgid "Statements to track"
 msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -3982,8 +3981,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'historial de consultes SQL, "
-"suggerit: [kbd]pma_history[/kbd]"
+"Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
+"suggerit: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 #, fuzzy
