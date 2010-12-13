@@ -9839,7 +9839,7 @@ msgstr "El nom de la clau principal ha de ser ... \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
-msgstr "No pots canviar el nom d'un índex a \"PRIMARY\"!"
+msgstr "No pots canviar el nom d'un índex a PRIMARY!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
