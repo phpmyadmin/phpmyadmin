@@ -2492,8 +2492,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Estableix el temps en segons que es permet per executar ordres, ([kbd]0[/"
-"kbd] per no posar límit)"
+"Estableix el temps en segons que es permet per executar ordres, "
+"([kbd]0[/kbd] per no posar límit)"
 
 #: libraries/config/messages.inc.php:65
 msgid "Maximum execution time"
