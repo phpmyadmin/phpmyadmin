@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 14:04+0200\n"
+"PO-Revision-Date: 2010-12-13 14:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2752,7 +2752,7 @@ msgstr "Desenvolupador"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Opcions per desenvolupadors de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:157
 msgid "Edit mode"
