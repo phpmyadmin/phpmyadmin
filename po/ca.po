@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 18:24+0200\n"
+"PO-Revision-Date: 2010-12-13 18:25+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7374,10 +7374,9 @@ msgid "Modifications have been saved"
 msgstr "Les modificacions han estat desades"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "El formulari enviat conté errors"
+msgstr "No es poden desar els paràmetres, el formulari enviat conté errors"
 
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: \"%1$s\""
