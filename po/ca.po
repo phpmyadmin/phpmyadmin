@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 14:37+0200\n"
+"PO-Revision-Date: 2010-12-13 14:38+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3157,7 +3157,7 @@ msgstr "Estat inicial per a les barres de desplaçament"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
-msgstr "Quàntes files es poden inserir a la vegada"
+msgstr "Quantes files es poden inserir a la vegada"
 
 #: libraries/config/messages.inc.php:261
 msgid "Number of inserted rows"
