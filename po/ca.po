@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:45+0200\n"
+"PO-Revision-Date: 2010-12-13 16:47+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4689,7 +4689,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ serà el nom de la taula"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4700,8 +4700,9 @@ msgid ""
 "3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faràn aquestes transformacions: %3"
-"$s. Altre text es deixarà sense variació."
+"cadenes de formateig de temps. A més, es faran aquestes transformacions: %"
+"3$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC(FAQ)%5$s "
+"per a més detalls."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
