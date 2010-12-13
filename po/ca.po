@@ -4788,10 +4788,9 @@ msgid "Format-specific options:"
 msgstr "Opcions específiques del format:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding Conversion:"
-msgstr "Motor d'enregistrament"
+msgstr "Conversió de codificació:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
