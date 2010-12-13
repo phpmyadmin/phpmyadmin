@@ -3317,7 +3317,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:292
 msgid "Login cookie store"
-msgstr "Enmagatzema les galetes de connexió"
+msgstr "Emmagatzema les galetes de connexió"
 
 #: libraries/config/messages.inc.php:293
 msgid "Define how long (in seconds) a login cookie is valid"
