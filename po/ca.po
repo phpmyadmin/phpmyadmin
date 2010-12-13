@@ -3090,7 +3090,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:233
 msgid "Partial import: allow interrupt"
-msgstr "Importació pacial: permet interrompre"
+msgstr "Importació parcial: permet interrompre"
 
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
