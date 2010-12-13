@@ -2931,7 +2931,7 @@ msgstr "Entra els paràmetres de connexió al servidor"
 #: libraries/config/messages.inc.php:199
 #| msgid "Configuration file"
 msgid "Configuration storage"
-msgstr "Emmagatzemament de la configuració"
+msgstr "Infraestructura de taules enllaçades"
 
 #: libraries/config/messages.inc.php:200
 #| msgid ""
