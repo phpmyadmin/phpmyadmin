@@ -6996,7 +6996,7 @@ msgstr "Paràmetres d'aparença"
 
 #: main.php:135
 msgid "Background color"
-msgstr ""
+msgstr "Color de fons"
 
 #: main.php:136
 msgid "Choose..."
