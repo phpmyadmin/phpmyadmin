@@ -4958,7 +4958,7 @@ msgstr "en consulta"
 
 #: libraries/display_tbl.lib.php:1948
 msgid "Showing rows"
-msgstr "Mostrant registres: "
+msgstr "Mostrant registres:"
 
 #: libraries/display_tbl.lib.php:1958
 msgid "total"
