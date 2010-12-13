@@ -9536,7 +9536,7 @@ msgstr ""
 "sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9544,8 +9544,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Empaquetat amb Zip[/a] "
-"necessita les funcions (%s) que no estàn disponibles en aquest sistema."
+"%sZip compression%s necessita les funcions (%s) que no estàn disponibles en "
+"aquest sistema."
 
 #: setup/lib/index.lib.php:272
 #, fuzzy, php-format
