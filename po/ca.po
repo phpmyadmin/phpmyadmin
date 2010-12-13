@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:07+0200\n"
+"PO-Revision-Date: 2010-12-13 16:08+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3563,10 +3563,9 @@ msgstr ""
 "Repeteix les capçeleres cada X cel.les, [kbd]0[/kbd] desactiva la funció"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Repara fils"
+msgstr "Repeteix capçeleres"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
