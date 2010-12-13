@@ -5871,10 +5871,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Aquesta extensió no suporta importacions comprimides!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importar percentatges amb els decimals adients (12.00% a .12)"
+msgstr ""
+"Importar percentatges amb els decimals adients <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
