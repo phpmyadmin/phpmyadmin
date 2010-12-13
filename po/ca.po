@@ -6681,7 +6681,6 @@ msgid "Length/Values"
 msgstr "Longitud/Valors*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6695,7 +6694,7 @@ msgid ""
 msgstr ""
 "Si el tipus de camp és \"enum\" o \"set\", entra els valors fent servir el "
 "format: 'a','b','c'...<br />Si mai necessites escriure la barra invertida "
-"(\"\\\") o la cometa simple (\"'\") abans d'aquests valors, escriu barres "
+"(\"\\\") o la cometa simple (\"'\") abans d'aquests valors, escriu davant barres "
 "invertides (per exemple '\\\\xyz' o 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
