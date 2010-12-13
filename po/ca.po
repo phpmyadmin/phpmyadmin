@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:33+0200\n"
+"PO-Revision-Date: 2010-12-13 12:34+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9494,7 +9494,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9508,13 +9508,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si ho consideres necessari, utilitza paràmetres de protecció extres - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]identificació de "
-"servidor authentication[/a] i [a@?page=form&amp;"
-"formset=features#tab_Security]llista de proxies autoritzats[/a]. Tanmateix, "
-"una protecció basada en adreces IP pot no ser suficient si la teva IP "
-"pertany a un proveïdor ISP amb gran nombre d'usuaris connectats, inclós tu "
-"mateix."
+"Si ho consideres necessari, utilitza paràmetres de protecció extres - %shost "
+"authentication%s i%strusted proxies list%s. Tanmateix, una protecció basada "
+"en adreces IP pot no ser suficient si la teva IP pertany a un proveïdor ISP "
+"amb gran nombre d'usuaris connectats, inclós tu mateix."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
