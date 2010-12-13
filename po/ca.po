@@ -4921,10 +4921,9 @@ msgid "Relational key"
 msgstr "Clau relacional"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Camp relacional per mostrar"
+msgstr "Columna relacional a mostrar"
 
 #: libraries/display_tbl.lib.php:593
 msgid "Show binary contents"
