@@ -1386,10 +1386,9 @@ msgid "Minute"
 msgstr "Minut"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "per segon"
+msgstr "Segon"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
