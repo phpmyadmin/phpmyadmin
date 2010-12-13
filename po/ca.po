@@ -6351,10 +6351,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Esquema de la base de dades %s - Pàgina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "L 'arxiu %s no conté cap identificació de clau"
+msgstr "Aquesta pàgina no conté taules!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
