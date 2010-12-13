@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:41+0200\n"
+"PO-Revision-Date: 2010-12-13 12:43+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -546,10 +546,10 @@ msgid "Delete"
 msgstr "Esborra"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Esborrar les coincidències per a la taula %s?"
 
 #: db_search.php:273
 #, php-format
