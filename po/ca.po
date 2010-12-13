@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:02+0200\n"
+"PO-Revision-Date: 2010-12-13 12:04+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6931,14 +6931,15 @@ msgstr ""
 "sencera es mostrarà sense reformatejar (Per defecte 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Conserva el format original del camp. No es fa cap canvi."
+msgstr ""
+"Conserva el format original del camp, sense passar per la funció "
+"htmlspecialchars(). Llavors, es considera que la columna conté HTML vàlid."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 msgid ""
