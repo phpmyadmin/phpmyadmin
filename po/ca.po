@@ -2216,7 +2216,7 @@ msgstr "màxim %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Aquesta opció està desactivada, no s'aplicarà a la teva configuració"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
 #: libraries/relation.lib.php:90 pmd_relation_new.php:68
