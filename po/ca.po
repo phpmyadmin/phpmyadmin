@@ -1617,7 +1617,7 @@ msgid ""
 "1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
-"Podriau voler utilitzar %1$ssetup script%2$s per crear-ne un."
+"Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
