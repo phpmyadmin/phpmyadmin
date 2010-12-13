@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:43+0200\n"
+"PO-Revision-Date: 2010-12-13 12:44+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1943,10 +1943,9 @@ msgid "MySQL said: "
 msgstr "MySQL diu: "
 
 #: libraries/common.lib.php:1071
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "No es pot connectar al servidor MySQL"
+msgstr "No es pot connectar al validador SQL!"
 
 #: libraries/common.lib.php:1112 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
