@@ -3646,8 +3646,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"consultes desades[/a], suggerit: [kbd]pma_bookmark[/kbd]"
+"Deixa en blanc per desactivar les "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]consultes desades[/a], suggerit: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:363
 msgid "Bookmark table"
