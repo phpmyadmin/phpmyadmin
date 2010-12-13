@@ -2994,10 +2994,9 @@ msgid "SQL queries settings"
 msgstr "Opcions de consultes SQL"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Historial SQL"
+msgstr "Validador SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
