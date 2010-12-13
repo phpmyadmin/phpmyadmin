@@ -2391,7 +2391,7 @@ msgstr "Confirma les consultes de DROP"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
-msgstr ""
+msgstr "Depuració SQL"
 
 #: libraries/config/messages.inc.php:43
 #, fuzzy
