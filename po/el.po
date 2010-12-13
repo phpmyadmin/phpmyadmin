@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 13:40+0200\n"
+"PO-Revision-Date: 2010-12-13 13:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -548,7 +548,7 @@ msgstr "Διαγραφή"
 #: db_search.php:260
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Διαγραφή ταιριασμάτων για τον πίνακα %s;"
+msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον %s πίνακα?"
 
 #: db_search.php:273
 #, php-format
