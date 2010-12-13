@@ -3626,8 +3626,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "El camí de l'arxiu de configuració per [a@http://swekey.com]autenticació per "
-"maquinari SweKey[/a] (no trobat al teu arrel de documents; es recomana a: /"
-"etc/swekey.conf)"
+"maquinari SweKey[/a] (no trobat al teu arrel de documents; es recomana a: "
+"/etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:359
 msgid "SweKey config file"
