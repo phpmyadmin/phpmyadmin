@@ -7283,9 +7283,8 @@ msgid "subquery"
 msgstr "subconsulta"
 
 #: pmd_general.php:482 pmd_general.php:578
-#, fuzzy
 msgid "Rename to"
-msgstr "Reanomena les taules a"
+msgstr "Reanomena a"
 
 #: pmd_general.php:484 pmd_general.php:583
 #, fuzzy
