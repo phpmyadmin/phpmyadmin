@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:04+0200\n"
+"PO-Revision-Date: 2010-12-13 16:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3496,7 +3496,6 @@ msgid "Protect binary columns"
 msgstr "Protegeix les columnes de contingut binari"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3506,8 +3505,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activa si vols tenir un historial de consultes basat en BD (requireix "
-"pmadb). Si es desactiva, es fan servir rutines JS per mostrar l'historial de "
-"consultes (es perd al tancar la finestra)."
+"l'infraestructura de taules enllaçades de phpMyAdmin). Si es desactiva, es "
+"fan servir rutines JS per mostrar l'historial de consultes (es perd al "
+"tancar la finestra)."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
