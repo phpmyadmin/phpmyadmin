@@ -3717,7 +3717,7 @@ msgstr "Connexió comprimida"
 
 #: libraries/config/messages.inc.php:368
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "Cóm connectar al servidor, deixa tcp si no estàs segur"
+msgstr "Cóm connectar al servidor, deixa [kbd]tcp[/kbd] si no estàs segur"
 
 #: libraries/config/messages.inc.php:369
 msgid "Connection type"
