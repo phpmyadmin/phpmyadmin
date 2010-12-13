@@ -4650,7 +4650,7 @@ msgstr "Nombre de files:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Fila que comença a:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
