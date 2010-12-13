@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:50+0200\n"
+"PO-Revision-Date: 2010-12-13 12:51+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5460,10 +5460,9 @@ msgid "Columns enclosed with:"
 msgstr "Columnes englobades per:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Camps amb marca d'escapada"
+msgstr "Columnes amb marca d'escapada:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
