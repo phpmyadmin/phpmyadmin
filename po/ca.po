@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:51+0200\n"
+"PO-Revision-Date: 2010-12-13 16:52+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4984,10 +4984,9 @@ msgid "Print view (with full texts)"
 msgstr "Vista d'impresió (amb texts sencers)"
 
 #: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Mostra l'esquema PDF"
+msgstr "Mostra el gràfic"
 
 #: libraries/display_tbl.lib.php:2380
 msgid "Link not found"
