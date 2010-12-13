@@ -5494,10 +5494,9 @@ msgstr "Estructura de la taula @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Opcions de Transformació"
+msgstr "Opcions de creació d'objectes"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #| msgid "Table caption"
