@@ -7162,9 +7162,8 @@ msgstr ""
 "per a possibles assumptes."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Configurar marc de navegació"
+msgstr "Recarrega el marc de navegació"
 
 #: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
