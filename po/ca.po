@@ -4777,10 +4777,9 @@ msgid "None"
 msgstr "Res"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"comprimit amb zip\""
+msgstr "comprimit amb zip"
 
 #: libraries/display_export.lib.php:315
 #, fuzzy
