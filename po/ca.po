@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-11-29 10:20+0200\n"
+"PO-Revision-Date: 2010-12-13 11:40+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -10340,35 +10340,3 @@ msgstr "Reanomena les taules a"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Desactiva Estadístiques"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Amagar quadre de consultes SQL"
-
-#~ msgid "Start"
-#~ msgstr "Inicia"
-
-#~ msgid "Stop"
-#~ msgstr "Para"
-
-#, fuzzy
-#~| msgid "Display databases in a tree"
-#~ msgid "Display table filter"
-#~ msgstr "Mostra les bases de dades en arbre"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Les característiques addicionals per treballar amb taules enllaçades "
-#~ "s'han desactivat. Per saber perquè prem a %saquí%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignora les files duplicades"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Executa una consulta desada"
-
-#~ msgid "No tables"
-#~ msgstr "No hi ha taules"
