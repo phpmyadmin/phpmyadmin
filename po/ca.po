@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 17:10+0200\n"
+"PO-Revision-Date: 2010-12-13 17:11+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5479,10 +5479,9 @@ msgid "Table structure for table"
 msgstr "Estructura de la taula"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Contingut de la taula __TABLE__"
+msgstr "Contingut de la taula @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
