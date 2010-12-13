@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 13:57+0200\n"
+"PO-Revision-Date: 2010-12-13 13:58+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2601,7 +2601,7 @@ msgstr "Inclusió del titol de taula"
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:97
 #: libraries/export/latex.php:49 libraries/export/latex.php:73
 msgid "Table caption"
-msgstr "Titol de Taula"
+msgstr "Títol de Taula"
 
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:98
 msgid "Continued table caption"
