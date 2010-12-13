@@ -7888,7 +7888,7 @@ msgstr "Esborrant %s"
 
 #: server_privileges.php:1287
 msgid "No users selected for deleting!"
-msgstr "No s\\han triat usuaris per esborrar!"
+msgstr "No s'han triat usuaris per esborrar!"
 
 #: server_privileges.php:1290
 msgid "Reloading the privileges"
