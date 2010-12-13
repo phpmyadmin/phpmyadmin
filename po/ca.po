@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 11:44+0200\n"
+"PO-Revision-Date: 2010-12-13 11:45+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -8023,7 +8023,7 @@ msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos"
 
 #: server_privileges.php:2131
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr "Atorga tots els permisos en un nom comodí (nomusuari_%)"
+msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)"
 
 #: server_privileges.php:2134
 #, php-format
