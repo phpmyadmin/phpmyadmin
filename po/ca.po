@@ -4356,7 +4356,7 @@ msgstr "ZIP"
 #: libraries/config/setup.forms.php:41
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Autenticació de configuració"
+msgstr "Autenticació per configuració"
 
 #: libraries/config/setup.forms.php:45
 #| msgid "Host authentication order"
