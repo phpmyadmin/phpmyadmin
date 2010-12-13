@@ -3607,7 +3607,7 @@ msgstr "Permetre connexions sense contrasenya"
 
 #: libraries/config/messages.inc.php:355
 msgid "Allow root login"
-msgstr "Permetre la connexió de root"
+msgstr "Permet la connexió de root"
 
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
