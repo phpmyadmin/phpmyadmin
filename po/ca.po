@@ -2085,7 +2085,7 @@ msgstr "Operacions"
 
 #: libraries/common.lib.php:2950
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Navega al teu ordinador:"
 
 #: libraries/common.lib.php:2963
 #, php-format
