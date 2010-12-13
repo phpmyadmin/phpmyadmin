@@ -5450,10 +5450,9 @@ msgstr ""
 "donarà el pròxim número més alt."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Línies acabades amb"
+msgstr "Columnes separades amb:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
