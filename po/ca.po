@@ -7350,9 +7350,8 @@ msgstr ""
 "també en el nom de camp adient."
 
 #: pmd_pdf.php:60
-#, fuzzy
 msgid "Page has been created"
-msgstr "S'ha creat la taula %1$s."
+msgstr "S'ha creat una pàgina"
 
 #: pmd_pdf.php:62
 msgid "Page creation failed"
