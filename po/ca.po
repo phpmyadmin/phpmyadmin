@@ -9835,7 +9835,7 @@ msgstr "Veure un esquema de la taula"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "El nom de la clau principal ha de ser ... PRIMARY!"
+msgstr "El nom de la clau principal ha de ser ... \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
