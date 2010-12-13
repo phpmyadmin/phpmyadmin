@@ -9834,7 +9834,7 @@ msgstr "No es pot moure la taula sobre ella mateixa!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "No es pot copiar la taula sobre ella mateixa"
+msgstr "No es pot copiar la taula sobre ella mateixa!"
 
 #: tbl_move_copy.php:54
 #, php-format
