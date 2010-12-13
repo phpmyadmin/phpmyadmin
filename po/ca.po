@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:13+0200\n"
+"PO-Revision-Date: 2010-12-13 16:14+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3911,7 +3911,6 @@ msgid "PDF schema: table coordinates"
 msgstr "Esquema PDF: taula de coordinades"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -3919,7 +3918,7 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Taula per descriure els camps a mostrar, deixa en blanc per desactivar; "
+"Taula per descriure les columnes a mostrar, deixa en blanc per desactivar; "
 "suggerit: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
