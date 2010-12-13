@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:52+0200\n"
+"PO-Revision-Date: 2010-12-13 12:53+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6386,10 +6386,9 @@ msgid "Create a page"
 msgstr "Crea una nova Pàgina"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Número de pàgina:"
+msgstr "Nom de pàgina"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
