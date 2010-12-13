@@ -3597,7 +3597,6 @@ msgid "Leave blank for defaults"
 msgstr "Deixa en blanc per als predeterminats"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Regles d'autenticació del servidor"
