@@ -7174,10 +7174,9 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: navigation.php:292
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
-msgstr "Altera la taula i ordena per"
+msgstr "Filtra les taules pel nom"
 
 #: navigation.php:293 setup/frames/index.inc.php:219
 msgid "Clear"
