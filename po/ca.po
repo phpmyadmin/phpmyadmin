@@ -1866,10 +1866,10 @@ msgstr ""
 "en blanc, tot està bé."
 
 #: libraries/common.inc.php:586
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "No es pot carregar la configuració per defecte des de: \"%1$s\""
+msgstr "No es pot carregar la configuració per defecte des de: %1$s"
 
 #: libraries/common.inc.php:591
 msgid ""
