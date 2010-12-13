@@ -9941,10 +9941,9 @@ msgid "Table %s has been flushed"
 msgstr "S'ha buidat la memòria cau de la taula %s"
 
 #: tbl_operations.php:638
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Buida la memòria cau de la taula (\"FLUSH\")"
+msgstr "Buida la memòria cau de la taula (FLUSH)"
 
 #: tbl_operations.php:647
 #, fuzzy
