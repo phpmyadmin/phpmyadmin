@@ -3422,10 +3422,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Usa l'ordre natural per ordenar els noms de taules i bases de dades"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Altera la taula i ordena per"
+msgstr "Ordre natural"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
