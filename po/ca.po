@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 11:54+0200\n"
+"PO-Revision-Date: 2010-12-13 11:55+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6856,7 +6856,7 @@ msgid ""
 msgstr ""
 "Mostra la representació hexadecimal de les dades. El primer paràmetre és "
 "opcional i especifica cóm de sovint s'afegirà l'espai (per defecte a 2 "
-"\"nibbles\")."
+"nibbles)."
 
 #: libraries/transformations/image_jpeg__inline.inc.php:9
 #: libraries/transformations/image_png__inline.inc.php:9
