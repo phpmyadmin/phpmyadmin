@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:21+0200\n"
+"PO-Revision-Date: 2010-12-13 16:22+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4047,13 +4047,12 @@ msgid "Verbose name of this server"
 msgstr "Nom explicatiu d'aquest servidor"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar tots (els "
-"registres)&quot;"
+"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les "
+"files)&quot;"
 
 #: libraries/config/messages.inc.php:436
 msgid "Allow to display all the rows"
