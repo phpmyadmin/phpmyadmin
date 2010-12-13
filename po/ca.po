@@ -1880,10 +1880,10 @@ msgstr ""
 "configuració!"
 
 #: libraries/common.inc.php:621
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Index de servidor invàlid: \"%s\""
+msgstr "Index de servidor invàlid: %s"
 
 #: libraries/common.inc.php:628
 #, php-format
