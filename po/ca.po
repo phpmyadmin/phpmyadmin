@@ -6138,7 +6138,6 @@ msgid "Log out"
 msgstr "Surt"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Aquest format no té opcions"
