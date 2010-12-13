@@ -3289,7 +3289,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Delete all cookies on logout"
-msgstr "Esborra totres les galetes al desconnectar"
+msgstr "Esborra totes les galetes al desconnectar"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
