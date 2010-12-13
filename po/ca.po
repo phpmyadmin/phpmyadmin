@@ -6981,10 +6981,9 @@ msgid "Error in ZIP archive:"
 msgstr "Error en arxiu ZIP:"
 
 #: main.php:67
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Característiques generals de relacions"
+msgstr "Paràmetres Generals"
 
 #: main.php:99
 msgid "MySQL connection collation"
