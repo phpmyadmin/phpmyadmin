@@ -3401,8 +3401,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"El nombre d'octets que una ordre està autoritzada a reservar, ex. [kbd]32M[/"
-"kbd] ([kbd]0[/kbd] per no posar límit)"
+"El nombre d'octets que una ordre està autoritzada a reservar, ex. "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] per no posar límit)"
 
 #: libraries/config/messages.inc.php:311
 msgid "Memory limit"
