@@ -9424,7 +9424,7 @@ msgstr ""
 "per xifrar galetes; no necesites recordar-la."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9433,9 +9433,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Empaquetat i "
-"desempaquetat amb Bzip2[/a] necessita les funcions (%s) que no estàn "
-"disponibles en aquest sistema."
+"%sBzip2 compression and decompression%s necessita les funcions (%s) que no "
+"estàn disponibles en aquest sistema."
 
 #: setup/lib/index.lib.php:255
 msgid ""
