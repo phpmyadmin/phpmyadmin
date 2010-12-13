@@ -4628,10 +4628,9 @@ msgstr ""
 "No es poden carregar les extensions d'exportació, comprova l'instal.lació!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Permet bloquejar taules per l'actual fil d'execució."
+msgstr "Exportant bases de dades des del servidor actual"
 
 #: libraries/display_export.lib.php:89
 #, php-format
