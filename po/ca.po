@@ -3998,10 +3998,9 @@ msgstr ""
 "automàticament."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Modus de recuperació automàtic"
+msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:427
 #, fuzzy
