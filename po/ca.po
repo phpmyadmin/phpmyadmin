@@ -3615,7 +3615,7 @@ msgstr "Nom de l' -HTTP Basic Auth Realm- per a mostrar a l'autenticació HTTP"
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Domini HTTP"
 
 #: libraries/config/messages.inc.php:358
 msgid ""
