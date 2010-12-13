@@ -5941,7 +5941,7 @@ msgstr "Joc de Caràcters"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:509
 msgid "Binary"
-msgstr " Binari "
+msgstr "Binari"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
