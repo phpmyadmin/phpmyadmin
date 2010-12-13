@@ -3987,7 +3987,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:424
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "Taula de seguimentl de consultes SQL"
+msgstr "Taula de seguiment de consultes SQL"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
