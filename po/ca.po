@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:20+0200\n"
+"PO-Revision-Date: 2010-12-13 16:21+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4003,7 +4003,6 @@ msgid "Automatically create versions"
 msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -4011,8 +4010,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'historial de consultes SQL, "
-"suggerit: [kbd]pma_history[/kbd]"
+"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
+"de dades, suggerit: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
