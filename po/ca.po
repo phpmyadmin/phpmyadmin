@@ -6442,7 +6442,7 @@ msgstr "Mostra dimensió de les taules"
 
 #: libraries/schema/User_Schema.class.php:384
 msgid "Display all tables with the same width"
-msgstr "Mostrar totes les taules amb la mateixa amplada?"
+msgstr "Mostrar totes les taules amb la mateixa amplada"
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
