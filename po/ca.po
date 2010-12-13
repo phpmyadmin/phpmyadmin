@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:05+0200\n"
+"PO-Revision-Date: 2010-12-13 16:06+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3531,7 +3531,7 @@ msgstr "Pestanya de finestra de consultes predeterminada"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Alçada de la finestra de consultes (en píxels)"
 
 #: libraries/config/messages.inc.php:338
 #, fuzzy
