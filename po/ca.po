@@ -3560,6 +3560,7 @@ msgstr "Motor d'enregistrament"
 #: libraries/config/messages.inc.php:343
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Repeteix les capçeleres cada X cel.les, [kbd]0[/kbd] desactiva la funció"
 
 #: libraries/config/messages.inc.php:344
 #, fuzzy
