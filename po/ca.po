@@ -5184,14 +5184,12 @@ msgid "Garbage Threshold"
 msgstr "Llindar de les escombraries"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"El percentatge d'escombraries en un registre de dades abans de compactar. És "
-"un valor entre 1 i 99. El valor per defecte és 50."
+"El percentatge d'escombraries en un registre de dades abans de compactar."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
