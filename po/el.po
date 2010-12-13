@@ -4629,7 +4629,6 @@ msgid "Format:"
 msgstr "Μορφοποίηση"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
 msgstr "Επιλογές Ορισμένης Μορφής:"
