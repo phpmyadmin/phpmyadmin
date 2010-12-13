@@ -9549,10 +9549,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Estàs permetent connexions al servidor sense contrasenya."
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "La clau és massa curta, ha de tenir al menys 8 caràcters"
+msgstr "La clau és massa curta, ha de tenir al menys 8 caràcters."
 
 #: setup/lib/index.lib.php:358
 #, fuzzy
