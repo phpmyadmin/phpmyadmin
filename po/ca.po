@@ -1784,10 +1784,9 @@ msgid "Jump to database"
 msgstr "Vés a la base de dades"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Replicació del mestre"
+msgstr "No replicat"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
