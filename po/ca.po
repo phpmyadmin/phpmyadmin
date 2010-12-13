@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 13:48+0200\n"
+"PO-Revision-Date: 2010-12-13 13:49+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2461,7 +2461,7 @@ msgstr "Mostra servidors com a llista"
 
 #: libraries/config/messages.inc.php:58
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Edita consultes SQL en finestra desplegable"
 
 #: libraries/config/messages.inc.php:59
 #, fuzzy
