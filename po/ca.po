@@ -5274,7 +5274,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr "Tamany del cau d'index"
+msgstr "Tamany del cau d'índex"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
