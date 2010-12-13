@@ -8129,7 +8129,7 @@ msgstr "El fil IO de l'esclau IO no va!"
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "Servidor configurat com a esclau en un procés de replicació. Vols?:"
+msgstr "Servidor configurat com a esclau en un procés de replicació. Vols:"
 
 #: server_replication.php:306
 msgid "See slave status table"
