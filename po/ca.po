@@ -5639,7 +5639,7 @@ msgstr "Funció a usar quan es bolquin dades:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintaxi a usar quan s'insereixin dades:"
 
 #: libraries/export/sql.php:154
 msgid ""
