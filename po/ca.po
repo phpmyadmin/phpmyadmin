@@ -4853,10 +4853,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "No es permet pujar arxius en aquest servidor."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Importació parcial"
+msgstr "Importació parcial:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
