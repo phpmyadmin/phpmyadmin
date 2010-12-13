@@ -3133,7 +3133,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar monedes ($5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importar percentatges amb els decimals adients (12.00% a .12)"
