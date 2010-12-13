@@ -5739,10 +5739,9 @@ msgid "Object creation options (all are recommended)"
 msgstr "Opcions de creació d'objectes (es recomanen totes)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Vista"
+msgstr "Vistes"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
