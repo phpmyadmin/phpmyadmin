@@ -3153,7 +3153,7 @@ msgstr "No feu servir AUTO_INCREMENT per a valors zero"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Estat inicial per a les barres de desplaçament"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
