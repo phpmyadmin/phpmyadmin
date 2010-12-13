@@ -4663,7 +4663,7 @@ msgstr "Complet - Mostra totes les opcions a configurar"
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Base(s) de dades"
+msgstr "Base(s) de dades:"
 
 #: libraries/display_export.lib.php:139
 #| msgid "Tables"
