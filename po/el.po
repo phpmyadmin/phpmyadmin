@@ -4519,10 +4519,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Γρήγορο - προβολή μονό των ελάχιστων επιλογών"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Προσαρμογή - προβολή όλων των πιθανών επιλογών για ρύθμιση"
+msgstr "Προσαρμογή - προβολή όλων των πιθανών επιλογών"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
