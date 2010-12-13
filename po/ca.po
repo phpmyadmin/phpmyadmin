@@ -4645,10 +4645,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Crear una taula nova a la base de dades \"%s\""
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Tipus d' Exportació"
+msgstr "Tipus d'exportació:"
 
 #: libraries/display_export.lib.php:113
 #, fuzzy
