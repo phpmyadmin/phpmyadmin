@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 14:10+0200\n"
+"PO-Revision-Date: 2010-12-13 14:11+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2929,10 +2929,9 @@ msgid "Enter server connection parameters"
 msgstr "Entra els paràmetres de connexió al servidor"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration storage"
-msgstr "Arxiu de configuració"
+msgstr "Emmagatzemament de la configuració"
 
 #: libraries/config/messages.inc.php:200
 #| msgid ""
