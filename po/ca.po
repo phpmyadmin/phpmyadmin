@@ -2539,10 +2539,9 @@ msgstr "Columnes englobades per"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Camps amb marca d'escapada"
+msgstr "Columnes amb marca d'escapada"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:86 libraries/config/messages.inc.php:95
