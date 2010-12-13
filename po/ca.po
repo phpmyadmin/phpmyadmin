@@ -4403,7 +4403,7 @@ msgstr "Full de càlcul Open Document"
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
-msgstr ""
+msgstr "Ràpid"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
