@@ -5242,6 +5242,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"El tamany màxim d'un arxiu de registre BLOB. Pots usar Kb, MB or GB per "
+"indicar les unitats del valor. S'assumeix el valor en bytes si no s'indica "
+"la unitat."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
