@@ -1789,10 +1789,9 @@ msgid "Not replicated"
 msgstr "No replicat"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replicació"
+msgstr "Replicat"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
