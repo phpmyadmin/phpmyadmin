@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 12:32+0200\n"
+"PO-Revision-Date: 2010-12-13 12:33+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9452,7 +9452,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "Hauries de fer servir connexions SSL si el teu servidor web ho permet"
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9461,9 +9461,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Empaquetat i "
-"desempaquetat amb GZip[/a] mecessita les funcions (%s) que no estàn "
-"disponibles en aquest sistema."
+"%sGZip compression and decompression%s necessita les funcions (%s) que no "
+"estan disponibles en aquest sistema."
 
 #: setup/lib/index.lib.php:260
 #, php-format
