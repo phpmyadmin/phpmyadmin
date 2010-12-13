@@ -4686,7 +4686,7 @@ msgstr ", @DATABASE@ serà el nom de la base de dades"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ serà el nom de la taula"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
