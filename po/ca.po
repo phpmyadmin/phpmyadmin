@@ -3042,10 +3042,9 @@ msgid "Texy! text"
 msgstr "Text Texy!"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "Atenció"
+msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
