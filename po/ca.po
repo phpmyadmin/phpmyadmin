@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 18:30+0200\n"
+"PO-Revision-Date: 2010-12-13 18:31+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7442,7 +7442,7 @@ msgstr "Els paràmetres es desaràn al emmagatzemament local del teu navegador"
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Els paràmetres existents es sobreescriuran!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
