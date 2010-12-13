@@ -1961,10 +1961,9 @@ msgid "Inline edit of this query"
 msgstr "Editar aquesta consulta en línia"
 
 #: libraries/common.lib.php:1239
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Motors"
+msgstr "En línia"
 
 #: libraries/common.lib.php:1303 libraries/common.lib.php:1319
 msgid "Profiling"
