@@ -4250,6 +4250,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Tamany de textarea (files) en mode d'edició, aquest valor s'augmentarà per a "
+"textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
 
 #: libraries/config/messages.inc.php:476
 #, fuzzy
