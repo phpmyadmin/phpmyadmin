@@ -7003,10 +7003,9 @@ msgid "Choose..."
 msgstr "Tria..."
 
 #: main.php:153 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "configuració"
+msgstr "Més paràmetres"
 
 #: main.php:170
 msgid "Protocol version"
