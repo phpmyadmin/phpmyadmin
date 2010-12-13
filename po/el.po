@@ -4498,10 +4498,10 @@ msgid "Exporting databases from the current server"
 msgstr "Εξαγωγή βάσεων δεδομένων από τον τρέχοντα διακομιστή"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Εξαγωγή πινάκων στη βάση δεδομένων «%s»"
+msgstr "Εξαγωγή πινάκων από τη βάση δεδομένων «%s»"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
