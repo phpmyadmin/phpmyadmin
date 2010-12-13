@@ -9781,7 +9781,7 @@ msgstr "S'ha creat la taula %1$s."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
-msgstr "Veure un esquema de la taula"
+msgstr "Veure un bolcat (esquema) de la taula"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
