@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-04 17:14+0200\n"
+"PO-Revision-Date: 2010-12-13 13:32+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3120,10 +3120,9 @@ msgid "Display servers selection"
 msgstr "Προβολή επιλογής διακομιστών"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+msgstr "Ελάχιστος αριθμός πινάκων για προβολή του πλαισίου φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -10004,33 +10003,3 @@ msgstr "Μετονομασία πίνακα σε"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Απενεργοποίηση Στατιστικών"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Απόκρυψη παραθύρου ερωτήματος SQL"
-
-#~ msgid "Start"
-#~ msgstr "Εκκίνηση"
-
-#~ msgid "Stop"
-#~ msgstr "Σταμάτημα"
-
-#~ msgid "Display table filter"
-#~ msgstr "Προβολή φίλτρου πίνακα"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν "
-#~ "απενεργοποιηθεί. Για να μάθετε γιατί, πατήστε %sεδώ%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Παράβλεψη διπλών γραμμών"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Εκτέλεση αποθηκευμένου ερωτήματος"
-
-#~ msgid "No tables"
-#~ msgstr "Δεν υπάρχουν πίνακες"
