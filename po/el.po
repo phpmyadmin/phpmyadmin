@@ -7926,10 +7926,9 @@ msgid "Stop SQL Thread only"
 msgstr "Σταμάτημα μόνο Νήματος SQL"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Διεργασία IO %s μόνο"
+msgstr "Εκκίνηση μόνο Νήματος IO"
 
 #: server_replication.php:333
 #, fuzzy
