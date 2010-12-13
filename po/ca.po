@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-13 16:30+0200\n"
+"PO-Revision-Date: 2010-12-13 16:32+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4237,6 +4237,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Tamany de textarea (columnes) en mode d'edició, aquest valor s'augmentarà "
+"per a textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
 
 #: libraries/config/messages.inc.php:474
 #, fuzzy
