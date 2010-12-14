@@ -9627,10 +9627,10 @@ msgstr ""
 "on vulguis"
 
 #: tbl_change.php:1112
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Reinicia l'inserció amb %s files"
+msgstr "Continua l'inserció amb %s files"
 
 #: tbl_chart.php:56
 #, fuzzy
