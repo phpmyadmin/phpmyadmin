@@ -6956,8 +6956,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"Les teves preferències només es desaran per a la sessió actual.Per desar-les "
-"permanentment es necessita activar %sinterficie de taules enllaçades de "
+"Les teves preferències només es desaran per a la sessió actual. Per desar-"
+"les permanentment es necessita activar %sinterficie de taules enllaçades de "
 "phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
