@@ -7133,7 +7133,7 @@ msgid ""
 msgstr ""
 "La configuració d'emmagatzemament de la configuració de phpMyAdmin no està "
 "completa, s'han desactivat algunes característiques avançades. Per saber "
-"perquè, clica %aquí%s"
+"perquè, clica %aquí%s."
 
 #: main.php:319
 msgid ""
