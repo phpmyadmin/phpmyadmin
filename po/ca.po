@@ -5956,7 +5956,7 @@ msgstr "Xinés Tradicional"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
-msgstr "No sensible a majúscules"
+msgstr "no sensible a majúscules"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
