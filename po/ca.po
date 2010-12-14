@@ -9662,7 +9662,7 @@ msgstr "Títol"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
-msgstr ""
+msgstr "Títol de l'eix X"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
