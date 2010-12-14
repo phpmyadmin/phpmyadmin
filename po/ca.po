@@ -6122,7 +6122,7 @@ msgstr "Txec-Eslovac"
 
 #: libraries/mysql_charsets.lib.php:409 libraries/mysql_charsets.lib.php:416
 msgid "unknown"
-msgstr "Desconegut"
+msgstr "desconegut"
 
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:60
