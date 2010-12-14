@@ -6412,7 +6412,7 @@ msgstr "Tria Taules"
 #: libraries/schema/User_Schema.class.php:346
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Mostra l'Esquema Relacional"
+msgstr "Mostra l'esquema relacional"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
