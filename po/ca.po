@@ -7552,7 +7552,7 @@ msgstr "Veure volcat (esquema) de les bases de dades"
 
 #: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
-msgstr "Inclou tots els permisos excepte GRANT (atorgar)."
+msgstr "Inclou tots els permisos excepte GRANT -atorgar-."
 
 #: server_privileges.php:26 server_privileges.php:193
 #: server_privileges.php:516
