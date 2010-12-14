@@ -9867,10 +9867,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Buida la memòria cau de la taula (FLUSH)"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Esborra les dades o la taula"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
