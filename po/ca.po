@@ -4940,7 +4940,7 @@ msgstr "Amaga"
 #: libraries/display_tbl.lib.php:605 libraries/relation.lib.php:117
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
 msgid "Browser transformation"
-msgstr "Transformació del Navegador"
+msgstr "Transformació del navegador"
 
 #: libraries/display_tbl.lib.php:1170 libraries/display_tbl.lib.php:1182
 msgid "The row has been deleted"
