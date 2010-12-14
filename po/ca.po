@@ -7167,7 +7167,7 @@ msgstr "Recarrega el marc de navegació"
 
 #: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
-msgstr "No hi ha Bases de Dades"
+msgstr "No hi ha bases de dades"
 
 #: navigation.php:292
 msgid "Filter"
