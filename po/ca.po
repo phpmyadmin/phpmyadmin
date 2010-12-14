@@ -7100,7 +7100,7 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La galeta (cookie) d'identificació enmagatzemada és menor que la "
+"La galeta -cookie- d'identificació enmagatzemada és menor que la "
 "configuració a phpMyAdmin, degut a aixó, la teva sessió caducarà més aviat "
 "que el que indica la configuració de phpMyAdmin."
 
