@@ -7440,7 +7440,7 @@ msgstr "Desar a l'emmagatzemament del navegador"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Els paràmetres es desaràn al emmagatzemament local del teu navegador"
+msgstr "Els paràmetres es desaran al emmagatzemament local del teu navegador"
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
