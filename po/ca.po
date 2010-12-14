@@ -4763,7 +4763,7 @@ msgid ""
 msgstr ""
 "L'arxiu que s'està carregant és probablement més gran que la mida màxima "
 "permesa o es tracta d'un error conegut dels navegadors basats en WebKit "
-"(Safari, Google Chrome, Arora, etc)."
+"(Safari, Google Chrome, Arora, etc.)."
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
