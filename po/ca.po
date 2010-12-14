@@ -2140,7 +2140,7 @@ msgstr "insercions ampliades"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr "Ambdós anteriors"
+msgstr "ambdós anteriors"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
