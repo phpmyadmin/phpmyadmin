@@ -2939,7 +2939,7 @@ msgstr "Personnaliser les liens affichés dans les boîtes de requêtes SQL"
 
 #: libraries/config/messages.inc.php:214
 msgid "SQL queries settings"
-msgstr "Réglages des requêtes SQL"
+msgstr "Paramètres des requêtes SQL"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Validator"
