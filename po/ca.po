@@ -7190,7 +7190,7 @@ msgstr "Crea una taula"
 
 #: navigation.php:327 navigation.php:489
 msgid "Please select a database"
-msgstr "Tria una Base de Dades"
+msgstr "Tria una base de dades"
 
 #: pmd_general.php:76
 msgid "Show/Hide left menu"
