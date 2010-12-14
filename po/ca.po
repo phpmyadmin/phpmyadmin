@@ -3659,7 +3659,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Deixa en blanc per no usar comentaris de columna o tipus MIME, suggerit: "
+"Deixa en blanc per no usar comentaris de columna o tipus mime, suggerit: "
 "[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:365
