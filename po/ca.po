@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:01+0200\n"
+"PO-Revision-Date: 2010-12-14 10:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9410,6 +9410,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"El valor %sValidació de la cookie d'entrada%s més gran de 1440 segons pot "
+"provocar aleatòriament invalidació de sessions si %ssession.gc_maxlifetime%s "
+"és menor que el seu valor (actualment %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
