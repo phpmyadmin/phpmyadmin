@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:38+0200\n"
+"PO-Revision-Date: 2010-12-14 10:39+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10017,10 +10017,10 @@ msgid "None"
 msgstr "Cap"
 
 #: tbl_structure.php:397
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "S'ha esborrat la taula %s"
+msgstr "S'ha esborrat la columna %s"
 
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
