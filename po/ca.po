@@ -9996,7 +9996,7 @@ msgstr "Tria les columnes (una com a mínim):"
 
 #: tbl_select.php:284
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Afegeix condicions de recerca (cos de la clàusula \"WHERE\"):"
+msgstr "Afegeix condicions de recerca (cos de la clàusula \"where\"):"
 
 #: tbl_select.php:291
 msgid "Number of rows per page"
