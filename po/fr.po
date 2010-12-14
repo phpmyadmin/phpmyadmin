@@ -8890,7 +8890,7 @@ msgstr ""
 
 #: server_variables.php:34
 msgid "Server variables and settings"
-msgstr "Variables et réglages du serveur"
+msgstr "Variables et paramètres du serveur"
 
 #: server_variables.php:54
 msgid "Session value"
