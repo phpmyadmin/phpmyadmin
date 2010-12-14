@@ -9117,10 +9117,9 @@ msgid "Enter manually"
 msgstr "Entrada manual"
 
 #: server_synchronize.php:1121
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Connexió insegura"
+msgstr "Connexió actual"
 
 #: server_synchronize.php:1150
 #, fuzzy, php-format
