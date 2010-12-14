@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 09:52+0200\n"
+"PO-Revision-Date: 2010-12-14 09:57+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9011,10 +9011,9 @@ msgid "Query type"
 msgstr "Tipus de consulta"
 
 #: server_status.php:710 server_status.php:711
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show query chart"
-msgstr "Mostrar quadre de consultes SQL"
+msgstr "Mostrar gràfic de consultes"
 
 #: server_status.php:712
 msgid "Note: Generating the query chart can take a long time."
