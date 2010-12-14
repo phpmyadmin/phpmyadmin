@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:07+0200\n"
+"PO-Revision-Date: 2010-12-14 10:08+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9570,10 +9570,10 @@ msgid "Function"
 msgstr "Funció"
 
 #: tbl_change.php:723
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " A causa de la seva longitud,<br /> aquest camp pot no ser editable "
+msgstr ""
+" A causa de la seva longitud,<br /> aquesta columna no pot ser editable "
 
 #: tbl_change.php:838
 msgid "Remove BLOB Repository Reference"
