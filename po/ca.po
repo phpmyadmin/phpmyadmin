@@ -5996,7 +5996,7 @@ msgstr "diccionari"
 
 #: libraries/mysql_charsets.lib.php:261
 msgid "phone book"
-msgstr "Libreta d'adreces"
+msgstr "llibreta d'adreces"
 
 #: libraries/mysql_charsets.lib.php:264
 msgid "Hungarian"
