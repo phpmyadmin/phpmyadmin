@@ -5657,7 +5657,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"insereix múltiples files a cada instrucció <code>INSERT</code><br /> &nbsp; "
+"insereix múltiples files a cada instrucció <code>INSERT</code> <br /> &nbsp; "
 "&nbsp; &nbsp; Exemple: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
