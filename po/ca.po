@@ -7510,7 +7510,7 @@ msgstr "Jocs de Caràcters i ordenacions"
 
 #: server_databases.php:64
 msgid "No databases selected."
-msgstr "No s'han triat Bases de dades."
+msgstr "No s'han triat bases de dades."
 
 #: server_databases.php:75
 #, php-format
