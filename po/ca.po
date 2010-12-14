@@ -7788,7 +7788,6 @@ msgid "Do not change the password"
 msgstr "No canviïs la contrasenya"
 
 #: server_privileges.php:836 server_privileges.php:2297
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "No s'han trobat usuaris."
