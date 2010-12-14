@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 11:00+0200\n"
+"PO-Revision-Date: 2010-12-14 11:01+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4230,7 +4230,7 @@ msgstr "Si es detecta Suoshin, es mostra un avís a la pàgina principal"
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
-msgstr "Avís Suoshin"
+msgstr "avís Suoshin"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
