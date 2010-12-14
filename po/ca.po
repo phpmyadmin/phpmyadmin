@@ -504,7 +504,7 @@ msgstr "al menys una d'aquestes paraules"
 
 #: db_search.php:66 db_search.php:309
 msgid "all words"
-msgstr "Totes les paraules"
+msgstr "totes les paraules"
 
 #: db_search.php:67 db_search.php:310
 msgid "the exact phrase"
