@@ -8914,7 +8914,7 @@ msgid ""
 "b> process."
 msgstr ""
 "Aquest servidor MySQL treballa com a <b>mestre</b> i <b>esclau</b> en un "
-"procés de <b>replicació</b>."
+"procés de <b>replicació</b> ."
 
 #: server_status.php:479
 #| msgid "This server is configured as master in a replication process."
