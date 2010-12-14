@@ -7324,7 +7324,7 @@ msgid ""
 "appropriate column name."
 msgstr ""
 "La columna a visualitzar es mostra en rosa. Per establir/treure un camp com "
-"a camp de visualització, clica la icona \"Tria camp a visualitzar\", i clica "
+"a camp de visualització, clica la icona \"Tria camp a visualitzar\" , i clica "
 "també en el nom de camp adient."
 
 #: pmd_pdf.php:60
