@@ -2132,7 +2132,7 @@ msgstr "Complet - igual que el anterior, però sense l'opció ràpid/complet"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
-msgstr "Completa insercions"
+msgstr "completa insercions"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
