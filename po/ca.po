@@ -10011,11 +10011,10 @@ msgid "Browse distinct values"
 msgstr "Navega per valors diferents"
 
 #: tbl_structure.php:384
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
-msgstr "Res"
+msgstr "Cap"
 
 #: tbl_structure.php:397
 #, fuzzy, php-format
