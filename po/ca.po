@@ -2181,7 +2181,7 @@ msgstr "Falten dades a %s"
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
 msgid "unavailable"
-msgstr "No disponible"
+msgstr "no disponible"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
