@@ -2957,7 +2957,7 @@ msgid ""
 "storage."
 msgstr ""
 "Seguiment de canvis a la base de dades. Necessita de la infraestructura de "
-"taules enllaçades de phpMyAdmin"
+"taules enllaçades de phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
