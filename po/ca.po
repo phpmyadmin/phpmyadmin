@@ -7515,7 +7515,7 @@ msgstr "No s'han triat bases de dades."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s Bases de dades s'han esborrat correctament."
+msgstr "%s bases de dades s'han esborrat correctament."
 
 #: server_databases.php:100
 msgid "Databases statistics"
