@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:11+0200\n"
+"PO-Revision-Date: 2010-12-14 10:12+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9690,10 +9690,9 @@ msgid "Radar"
 msgstr "Radar"
 
 #: tbl_chart.php:138
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PB"
+msgstr "Pastis"
 
 #: tbl_chart.php:144
 #, fuzzy
