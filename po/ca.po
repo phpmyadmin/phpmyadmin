@@ -3612,7 +3612,7 @@ msgstr "Permet la connexió de root"
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
-"Nom del Domini HTTP (HTTP Basic Auth Realm) per a mostrar a l'autenticació "
+"Nom del Domini HTTP -HTTP Basic Auth Realm- per a mostrar a l'autenticació "
 "HTTP"
 
 #: libraries/config/messages.inc.php:357
