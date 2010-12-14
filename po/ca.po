@@ -8928,7 +8928,7 @@ msgstr ""
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Aquest servidor MySQL treballa com a <b>esclau</b> en un procés de "
-"<b>replicació</b>."
+"<b>replicació</b> ."
 
 #: server_status.php:483
 #| msgid ""
