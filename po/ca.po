@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:57+0200\n"
+"PO-Revision-Date: 2010-12-14 10:58+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2128,7 +2128,7 @@ msgstr "Complet - mostra totes les opcions a configurar"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Complet - Igual que el anterior, però sense l'opció \"Ràpid\""
+msgstr "Complet - igual que el anterior, però sense l'opció ràpid/complet"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
