@@ -883,7 +883,7 @@ msgstr "Mostrant consultes desades"
 #: import.php:401 sql.php:811
 #, php-format
 msgid "Bookmark %s created"
-msgstr "%s creat com a consulta desada"
+msgstr "%s creat com a Consulta desada"
 
 #: import.php:407 import.php:413
 #, php-format
