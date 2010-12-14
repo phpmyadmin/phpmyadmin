@@ -576,7 +576,7 @@ msgstr "Paraules separades per un espai (\" \")."
 
 #: db_search.php:322
 msgid "Inside table(s):"
-msgstr "A la(les) taula(es):"
+msgstr "Dins la/les taula(es):"
 
 #: db_search.php:352
 msgid "Inside column:"
