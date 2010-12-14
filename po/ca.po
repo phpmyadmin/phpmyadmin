@@ -256,7 +256,7 @@ msgstr "Base de dades %s reanomenada a %s"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "La Base de dades %s s'ha copiat a %s"
+msgstr "La base de dades %s s'ha copiat a %s"
 
 #: db_operations.php:395
 msgid "Rename database to"
