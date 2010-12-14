@@ -6231,7 +6231,8 @@ msgid ""
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Assegura't que tens un identificador únic de servidor en el teu arxiu de "
-"configuració (my.cnf). Si no, afegeix la línia següent a la secció [mysqld]:"
+"configuració (my.cnf). Si no, afegeix la línia següent a la secció [mysqld] "
+":"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
