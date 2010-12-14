@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-15 01:49+0200\n"
+"PO-Revision-Date: 2010-12-15 01:50+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -457,7 +457,7 @@ msgstr "Вставити"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
-msgstr "І"
+msgstr "Та"
 
 #: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
