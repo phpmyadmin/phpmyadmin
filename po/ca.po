@@ -10035,7 +10035,7 @@ msgstr "S'ha afegit un índex a %s"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
-msgstr "Vista de Relacions"
+msgstr "Vista de relacions"
 
 #: tbl_structure.php:606 tbl_structure.php:608
 msgid "Propose table structure"
