@@ -4620,7 +4620,7 @@ msgstr "Ràpid - mostra només les opcions mínimes a configurar"
 #: libraries/display_export.lib.php:129
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Usuari - Mostra totes les opcions possibles"
+msgstr "Usuari - mostra totes les opcions possibles"
 
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
