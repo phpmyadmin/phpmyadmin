@@ -9834,7 +9834,7 @@ msgstr "Mou la taula a (base-de-dades<b>.</b>taula):"
 
 #: tbl_operations.php:333
 msgid "Table options"
-msgstr "Opcions de Taula"
+msgstr "Opcions de taula"
 
 #: tbl_operations.php:337
 msgid "Rename table to"
