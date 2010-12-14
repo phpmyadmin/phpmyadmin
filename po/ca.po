@@ -113,7 +113,7 @@ msgstr "S'ha creat la base de dades %1$s."
 
 #: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
-msgstr "Comentaris de la Base de Dades: "
+msgstr "Comentaris de la base de dades: "
 
 #: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1215
 #: libraries/tbl_properties.inc.php:723 tbl_operations.php:344
