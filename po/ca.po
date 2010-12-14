@@ -3716,7 +3716,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:376
 msgid "Designer table"
-msgstr "Taula del Dissenyador"
+msgstr "Taula del dissenyador"
 
 #: libraries/config/messages.inc.php:377
 msgid ""
