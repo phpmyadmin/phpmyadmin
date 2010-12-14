@@ -4371,7 +4371,7 @@ msgstr "Autenticació HTTP"
 #: libraries/config/setup.forms.php:51
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Autenticació Signon"
+msgstr "autenticació Signon"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
