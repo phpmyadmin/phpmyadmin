@@ -4082,8 +4082,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Defineix si els tipus de camps han d'apareixer en un principi en el mode "
-"d'edició / inserció"
+"Defineix si els tipus de camps han d'aparèixer en un principi en el mode "
+"d'edició/inserció"
 
 #: libraries/config/messages.inc.php:441
 #| msgid "Show open tables"
