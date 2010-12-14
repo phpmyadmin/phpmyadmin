@@ -10077,7 +10077,7 @@ msgstr "Informe de seguiment per la taula `%s`"
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr "S'ha creat la Versió %s, activat el seguiment per %s.%s."
+msgstr "S'ha creat la versió %s, activat el seguiment per %s.%s."
 
 #: tbl_tracking.php:190
 #, php-format
