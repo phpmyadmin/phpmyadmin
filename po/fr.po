@@ -2864,7 +2864,7 @@ msgstr "Type d'authentification"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
-msgstr "Réglages d'authentification"
+msgstr "Paramètres d'authentification"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
