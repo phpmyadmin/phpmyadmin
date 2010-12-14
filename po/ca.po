@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 11:04+0200\n"
+"PO-Revision-Date: 2010-12-14 11:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7023,7 +7023,7 @@ msgstr "Joc de caràcters de MySQL"
 
 #: main.php:188
 msgid "Web server"
-msgstr "Servidor Web"
+msgstr "Servidor web"
 
 #: main.php:194
 msgid "MySQL client version"
