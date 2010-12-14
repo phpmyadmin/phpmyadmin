@@ -6214,7 +6214,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1164
 msgid "no description"
-msgstr "Sense Descripció"
+msgstr "sense descripció"
 
 #: libraries/replication_gui.lib.php:53
 msgid "Slave configuration"
