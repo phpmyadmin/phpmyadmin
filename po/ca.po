@@ -5935,7 +5935,7 @@ msgstr "Sense canvis"
 
 #: libraries/mysql_charsets.lib.php:116
 msgid "Charset"
-msgstr "Joc de Caràcters"
+msgstr "Joc de caràcters"
 
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:509
