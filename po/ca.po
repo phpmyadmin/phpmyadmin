@@ -803,7 +803,7 @@ msgstr "Valors per la columna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr "Entra cada valor en camps separats"
+msgstr "Entra cada valor en camps separats."
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
