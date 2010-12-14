@@ -5616,7 +5616,7 @@ msgstr "Aller à la base de données"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
-msgstr "réglages"
+msgstr "paramètres"
 
 #: libraries/import.lib.php:1169
 msgid "Go to table"
