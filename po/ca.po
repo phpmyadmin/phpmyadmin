@@ -9674,7 +9674,7 @@ msgstr "Marges de l'àrea"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Marges de la llegenda"
 
 #: tbl_chart.php:134
 #, fuzzy
