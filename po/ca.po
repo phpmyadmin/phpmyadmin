@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:18+0200\n"
+"PO-Revision-Date: 2010-12-14 10:38+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9964,10 +9964,9 @@ msgstr ""
 "Error creant clau externa (foreign key) a %1$s (comprovar tipus de dades)"
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relacions internes"
+msgstr "Relació interna"
 
 #: tbl_relation.php:404
 msgid ""
