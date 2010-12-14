@@ -508,7 +508,7 @@ msgstr "totes les paraules"
 
 #: db_search.php:67 db_search.php:310
 msgid "the exact phrase"
-msgstr "La frase exacta"
+msgstr "la frase exacta"
 
 #: db_search.php:68 db_search.php:311
 msgid "as regular expression"
