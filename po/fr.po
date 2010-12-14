@@ -4214,7 +4214,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable the Developer tab in settings"
-msgstr "Active le menu Développeur dans les réglages"
+msgstr "Active le menu Développeur dans les paramètres"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
