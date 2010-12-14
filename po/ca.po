@@ -584,7 +584,7 @@ msgstr "Dins la columna:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Base de dades sense taules."
+msgstr "Base de dades sense taules"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
