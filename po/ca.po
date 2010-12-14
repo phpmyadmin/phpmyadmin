@@ -2571,7 +2571,7 @@ msgstr "Línies acabades amb"
 #: libraries/config/messages.inc.php:78
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Edició per Excel"
+msgstr "Edició per excel"
 
 #: libraries/config/messages.inc.php:81
 msgid "Database name template"
