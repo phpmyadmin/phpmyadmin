@@ -7459,7 +7459,7 @@ msgstr "Tot"
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "Taula <b>%s</b> no trobada o no definida a %s"
+msgstr "taula <b>%s</b> no trobada o no definida a %s"
 
 #: schema_export.php:45
 #| msgid "The \"%s\" table doesn't exist!"
