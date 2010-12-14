@@ -80,7 +80,7 @@ msgstr "Executa"
 #: browse_foreigners.php:166 browse_foreigners.php:170
 #: libraries/Index.class.php:441 tbl_tracking.php:314
 msgid "Keyname"
-msgstr "Nom Clau"
+msgstr "Nom de clau"
 
 #: browse_foreigners.php:167 browse_foreigners.php:169
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
