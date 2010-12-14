@@ -7744,11 +7744,10 @@ msgid "No privileges."
 msgstr "Sense permisos."
 
 #: server_privileges.php:303 server_privileges.php:304
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
-msgstr "Res"
+msgstr "Cap"
 
 #: server_privileges.php:432 server_privileges.php:567
 #: server_privileges.php:1809 server_privileges.php:1815
