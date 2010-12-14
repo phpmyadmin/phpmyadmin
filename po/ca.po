@@ -7779,7 +7779,7 @@ msgstr "Limit de recursos"
 
 #: server_privileges.php:632
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Nota: Es treu el limit establint aquestes opcions a 0 (zero)."
+msgstr "Nota: Es treu el limit establint aquestes opcions a 0 (zero) ."
 
 #: server_privileges.php:709
 msgid "Login Information"
