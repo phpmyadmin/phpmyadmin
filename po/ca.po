@@ -9654,7 +9654,7 @@ msgstr "Ample"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Alt"
 
 #: tbl_chart.php:98
 msgid "Title"
