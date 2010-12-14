@@ -915,7 +915,7 @@ msgstr "Enrere"
 #: index.php:183
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"phpMyAdmin és més fàcil amb un navegador que <b>suporti marcs (frames)</b>."
+"phpMyAdmin és més fàcil amb un navegador que <b>suporti marcs -frames-</b>."
 
 #: js/messages.php:25 server_synchronize.php:343 server_synchronize.php:355
 #: server_synchronize.php:371 server_synchronize.php:378
