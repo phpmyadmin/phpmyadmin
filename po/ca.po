@@ -6590,7 +6590,7 @@ msgstr "Ubicació de l'arxiu de text"
 
 #: libraries/sql_query_form.lib.php:499 tbl_change.php:928
 msgid "web server upload directory"
-msgstr "Directori de pujada d'arxius del servidor web"
+msgstr "directori de pujada d'arxius del servidor web"
 
 #: libraries/sqlparser.lib.php:134
 msgid ""
