@@ -4993,7 +4993,7 @@ msgstr "No s'ha trobat l'enllaç "
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
-msgstr "Informació de Versió"
+msgstr "Informació de versió"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
