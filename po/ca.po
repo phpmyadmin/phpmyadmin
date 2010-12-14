@@ -1433,7 +1433,7 @@ msgid ""
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
 "Error movent l'arxiu pujat, consulta la "
-"[a@./Documentation.html#faq1_11@Documentation]PCF(FAQ) 1.11[/a]"
+"[a@./Documentation.html#faq1_11@Documentation]PCF -FAQ- 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
