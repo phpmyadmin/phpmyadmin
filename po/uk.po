@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-15 01:33+0200\n"
+"PO-Revision-Date: 2010-12-15 01:35+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -6584,7 +6584,6 @@ msgstr ""
 "ширина та висота в пікселах."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6594,8 +6593,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Показує лінк, поле містить назву файлу; перша опція - префікс, подібно до "
-"\"http://domain.com/\", друга опція - title для лінку."
+"Показує посилання, поле містить назву файлу. Перша опція - префікс "
+"посилання, подібно до \"http://www.example.com/\". Друга опція - заголовок для "
+"посилання."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
