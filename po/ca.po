@@ -2043,7 +2043,7 @@ msgstr "Final"
 #: libraries/common.lib.php:2409
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Vés a la Base de Dades &quot;%s&quot;."
+msgstr "Vés a la base de dades &quot;%s&quot;."
 
 #: libraries/common.lib.php:2428
 #, php-format
