@@ -9670,7 +9670,7 @@ msgstr "Títol de l'eix Y"
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Marges de l'àrea"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
