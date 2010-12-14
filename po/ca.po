@@ -8180,7 +8180,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Aquest servidor no està configurat com a esclau en un procés de replicació. "
-"Vols <a href=\"%s\">configurar-lo</a>?"
+"Vols <a href=\"%s\">configurar-lo</a> ?"
 
 #: server_status.php:46
 msgid ""
