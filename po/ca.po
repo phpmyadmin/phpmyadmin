@@ -1081,7 +1081,7 @@ msgstr "Amagar quadre de consultes"
 
 #: js/messages.php:85
 msgid "Show query box"
-msgstr "Mostrar quadre de consultes SQL"
+msgstr "Mostrar quadre de consultes"
 
 #: js/messages.php:86
 msgid "Inline Edit"
