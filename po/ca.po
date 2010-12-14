@@ -5500,7 +5500,7 @@ msgstr "Opcions de creació d'objectes"
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Títol de Taula (continuació)"
+msgstr "Títol de taula (continuació)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
