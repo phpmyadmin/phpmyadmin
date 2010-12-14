@@ -6579,9 +6579,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Показує малюнок і посилання, поле містить назву файлу. Перша опція - префікс "
-"посилання, подібно до \"http://www.domain.com/\". Друга та третя - відповідно "
-"ширина та висота в пікселах."
+"Показує посилання, поле містить назву файлу. Перша опція - префікс "
+"посилання, подібно до \"http://www.example.com/\". Друга опція - заголовок для "
+"посилання."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #| msgid ""
