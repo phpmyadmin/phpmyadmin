@@ -9706,7 +9706,7 @@ msgstr "Apilat"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Multi"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
