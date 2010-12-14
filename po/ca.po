@@ -6384,10 +6384,9 @@ msgid "Page name"
 msgstr "Nom de pàgina"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Disseny automàtic"
+msgstr "Disseny automàtic basat en"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
