@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:48+0200\n"
+"PO-Revision-Date: 2010-12-14 10:49+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -273,7 +273,7 @@ msgstr "Elimina la base de dades"
 #: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "La Base de Dades %s s'ha eliminat."
+msgstr "La base de dades %s s'ha eliminat."
 
 #: db_operations.php:446
 msgid "Drop the database (DROP)"
