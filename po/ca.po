@@ -6762,7 +6762,7 @@ msgstr "Motor d'emmagatzematge"
 
 #: libraries/tbl_properties.inc.php:754
 msgid "PARTITION definition"
-msgstr "Definicio de PARTICIÓ"
+msgstr "Definició de PARTICIÓ"
 
 #: libraries/tbl_properties.inc.php:779 tbl_structure.php:633
 #, php-format
