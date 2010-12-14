@@ -7347,7 +7347,7 @@ msgstr "plana a/de"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr "Error: La relació ja existeix."
+msgstr "Error: la relació ja existeix."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
