@@ -9646,7 +9646,7 @@ msgid ""
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
 "El resultat d'aquesta consuta no es pot usar per a un gràfic. See "
-"[a@./Documentation.html#faq6_29@Documentation]PFC(FAQ) 6.29[/a]"
+"[a@./Documentation.html#faq6_29@Documentation]PFC -FAQ- 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
