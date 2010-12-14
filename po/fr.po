@@ -6324,7 +6324,7 @@ msgstr "Synchroniser"
 
 #: libraries/server_links.inc.php:99
 msgid "Settings"
-msgstr "Réglages"
+msgstr "Paramètres"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
