@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-08 12:45+0200\n"
+"PO-Revision-Date: 2010-12-14 18:05+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1591,7 +1591,7 @@ msgstr "Thème / Style"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr "Connexion impossible: réglages incorrects."
+msgstr "Connexion impossible: paramètres incorrects."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
