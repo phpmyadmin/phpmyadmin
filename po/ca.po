@@ -8915,11 +8915,11 @@ msgstr ""
 "procés de <b>replicació</b>."
 
 #: server_status.php:479
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Aquest servidor s'ha configurat com a mestre en un procés de replicació."
+"Aquest servidor MySQL treballa com a <b>mestre</b> en un procés de "
+"<b>replicació</b>."
 
 #: server_status.php:481
 #, fuzzy
