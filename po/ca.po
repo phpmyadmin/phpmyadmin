@@ -6376,7 +6376,7 @@ msgstr "Extra"
 
 #: libraries/schema/User_Schema.class.php:93 pmd_pdf.php:111
 msgid "Create a page"
-msgstr "Crea una nova Pàgina"
+msgstr "Crea una nova pàgina"
 
 #: libraries/schema/User_Schema.class.php:99
 #| msgid "Page number:"
