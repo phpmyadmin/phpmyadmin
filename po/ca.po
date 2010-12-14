@@ -1857,8 +1857,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"La directiva <tt>$cfg['PmaAbsoluteUri']</tt> HA d'estar a l'arxiu de "
-"configuració!"
+"La directiva <tt>$cfg['PmaAbsoluteUri']</tt> HA d'estar establerta a l'arxiu "
+"de configuració!"
 
 #: libraries/common.inc.php:621
 #, php-format
