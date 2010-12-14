@@ -2815,7 +2815,7 @@ msgstr "Autres paramètres de base"
 
 #: libraries/config/messages.inc.php:186
 msgid "Settings that didn't fit enywhere else"
-msgstr "Réglages divers"
+msgstr "Paramètres divers"
 
 #: libraries/config/messages.inc.php:187
 msgid "Page titles"
