@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 11:05+0200\n"
+"PO-Revision-Date: 2010-12-14 11:06+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7268,7 +7268,7 @@ msgstr "Esborra la relació"
 #: pmd_general.php:462 pmd_general.php:521
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Operador de Relació"
+msgstr "Operador de relació"
 
 #: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
 #: pmd_general.php:771
