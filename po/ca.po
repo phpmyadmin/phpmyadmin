@@ -2605,7 +2605,7 @@ msgstr "Títol de taula"
 
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:98
 msgid "Continued table caption"
-msgstr "Continuació del Títol de taula"
+msgstr "Continuació del títol de taula"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
