@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-08 14:29-0500\n"
+"POT-Creation-Date: 2010-12-14 11:27-0500\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "Търсене"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
 #: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:230
-#: pmd_pdf.php:113 prefs_manage.php:265 prefs_manage.php:316
+#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
@@ -685,9 +685,9 @@ msgstr "Маркиране на таблиците със загубено мя�
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
-#: prefs_manage.php:288 server_privileges.php:1371
-#: setup/frames/menu.inc.php:21 tbl_row_action.php:58
+#: libraries/tbl_links.inc.php:73 prefs_manage.php:288
+#: server_privileges.php:1371 setup/frames/menu.inc.php:21
+#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Експортиране"
 
@@ -2855,8 +2855,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:81 pmd_pdf.php:107 prefs_manage.php:231
-#: setup/frames/menu.inc.php:20
+#: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Импортиране"
 
@@ -6183,7 +6182,7 @@ msgstr "Атрибути"
 msgid "Extra"
 msgstr "Допълнително"
 
-#: libraries/schema/User_Schema.class.php:93 pmd_pdf.php:111
+#: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
 msgstr "Създай нова Страница"
 
@@ -7025,7 +7024,7 @@ msgstr ""
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:116
+#: pmd_general.php:116 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
@@ -7117,25 +7116,51 @@ msgid ""
 "appropriate column name."
 msgstr ""
 
-#: pmd_pdf.php:60
+#: pmd_pdf.php:34
 #, fuzzy
 msgid "Page has been created"
 msgstr "Таблицата %s беше изтрита"
 
-#: pmd_pdf.php:62
+#: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr ""
 
-#: pmd_pdf.php:82
+#: pmd_pdf.php:89
+#, fuzzy
+#| msgid "pages"
+msgid "Page"
+msgstr "страници"
+
+#: pmd_pdf.php:99
+#, fuzzy
+#| msgid "Import files"
+msgid "Import from selected page"
+msgstr "Импортиране на файлове"
+
+#: pmd_pdf.php:100
+#, fuzzy
+#| msgid "No rows selected"
+msgid "Export to selected page"
+msgstr "Няма върнати редове"
+
+#: pmd_pdf.php:102
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and export to it"
+msgstr "Създай нов индекс"
+
+#: pmd_pdf.php:111
+#, fuzzy
+#| msgid "User name"
+msgid "New page name: "
+msgstr "Потребителско име"
+
+#: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr ""
 
-#: pmd_pdf.php:86
+#: pmd_pdf.php:119
 msgid "recommended"
-msgstr ""
-
-#: pmd_pdf.php:91
-msgid "to/from page"
 msgstr ""
 
 #: pmd_relation_new.php:29

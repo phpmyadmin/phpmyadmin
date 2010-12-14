@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-08 14:29-0500\n"
+"POT-Creation-Date: 2010-12-14 11:27-0500\n"
 "PO-Revision-Date: 2010-12-09 00:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -63,7 +63,7 @@ msgstr "Ara"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
 #: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:230
-#: pmd_pdf.php:113 prefs_manage.php:265 prefs_manage.php:316
+#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
@@ -661,9 +661,9 @@ msgstr "Ek yükü olan tabloları kontrol et"
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
-#: prefs_manage.php:288 server_privileges.php:1371
-#: setup/frames/menu.inc.php:21 tbl_row_action.php:58
+#: libraries/tbl_links.inc.php:73 prefs_manage.php:288
+#: server_privileges.php:1371 setup/frames/menu.inc.php:21
+#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Dışa Aktar"
 
@@ -2720,8 +2720,7 @@ msgstr "Bazı çoğunlukla kullanılmış seçenekleri ayarla"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:81 pmd_pdf.php:107 prefs_manage.php:231
-#: setup/frames/menu.inc.php:20
+#: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "İçe Aktar"
 
@@ -3097,7 +3096,6 @@ msgid "Display servers selection"
 msgstr "Sunucu seçimlerini görüntüle"
 
 #: libraries/config/messages.inc.php:267
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
 
@@ -4457,19 +4455,16 @@ msgstr ""
 "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: libraries/display_export.lib.php:87
-#| msgid "Exporting databases in the current server"
 msgid "Exporting databases from the current server"
 msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-#| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
 msgstr "\"%s\" veritabanında tablolar dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-#| msgid "Exporting rows in the table \"%s\""
 msgid "Exporting rows from \"%s\" table"
 msgstr "\"%s\" tablosunda satırlar dışa aktarılıyor"
 
@@ -4478,12 +4473,10 @@ msgid "Export Method:"
 msgstr "Dışa Aktarma Yöntemi:"
 
 #: libraries/display_export.lib.php:113
-#| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "Hızlı - sadece en az seçenekleri göster"
 
 #: libraries/display_export.lib.php:129
-#| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "Özel - tüm olası seçenekleri göster"
 
@@ -4593,7 +4586,6 @@ msgid "Format:"
 msgstr "Biçim:"
 
 #: libraries/display_export.lib.php:336
-#| msgid "Format-Specific Options:"
 msgid "Format-specific options:"
 msgstr "Biçim-belli seçenekler:"
 
@@ -6166,7 +6158,7 @@ msgstr "Öznitelikler"
 msgid "Extra"
 msgstr "Ekstra"
 
-#: libraries/schema/User_Schema.class.php:93 pmd_pdf.php:111
+#: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
 msgstr "Yeni bir sayfa oluştur"
 
@@ -6969,7 +6961,7 @@ msgstr "Tümü Küçük/Büyük"
 msgid "Toggle small/big"
 msgstr "Küçüğü/büyüğü değiştir"
 
-#: pmd_general.php:116
+#: pmd_general.php:116 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
@@ -7047,25 +7039,51 @@ msgstr ""
 "ayarı kaldırmak için \"Görüntülemek için sütun seç\" simgesine tıklayın, "
 "sonrada uygun sütun adı üzerine tıklayın."
 
-#: pmd_pdf.php:60
+#: pmd_pdf.php:34
 msgid "Page has been created"
 msgstr "Sayfa oluşturuldu"
 
-#: pmd_pdf.php:62
+#: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr "Sayfa oluşturma başarısız"
 
-#: pmd_pdf.php:82
+#: pmd_pdf.php:89
+#, fuzzy
+#| msgid "pages"
+msgid "Page"
+msgstr "sayfa"
+
+#: pmd_pdf.php:99
+#, fuzzy
+#| msgid "Import from file"
+msgid "Import from selected page"
+msgstr "Dosyadan içe aktar"
+
+#: pmd_pdf.php:100
+#, fuzzy
+#| msgid "Export/Import to scale"
+msgid "Export to selected page"
+msgstr "Ölçeklemek için içe/dışa aktar"
+
+#: pmd_pdf.php:102
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and export to it"
+msgstr "Yeni bir indeks oluştur"
+
+#: pmd_pdf.php:111
+#, fuzzy
+#| msgid "New name"
+msgid "New page name: "
+msgstr "Yeni ad"
+
+#: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr "Ölçeklemek için içe/dışa aktar"
 
-#: pmd_pdf.php:86
+#: pmd_pdf.php:119
 msgid "recommended"
 msgstr "önerilir"
-
-#: pmd_pdf.php:91
-msgid "to/from page"
-msgstr "sayfadan/sayfaya"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
@@ -7844,22 +7862,18 @@ msgid "Reset slave"
 msgstr "Slave'i sıfırla"
 
 #: server_replication.php:326
-#| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
 msgstr "Sadece SQL İşlemini başlat"
 
 #: server_replication.php:328
-#| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
 msgstr "Sadece SQL İşlemini durdur"
 
 #: server_replication.php:331
-#| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
 msgstr "Sadece G/Ç İşlemini başlat"
 
 #: server_replication.php:333
-#| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
 msgstr "Sadece G/Ç İşlemini durdur"
 
@@ -8705,7 +8719,6 @@ msgid "Query type"
 msgstr "Sorgu türü"
 
 #: server_status.php:710 server_status.php:711
-#| msgid "Show query box"
 msgid "Show query chart"
 msgstr "Sorgu çizelgesini göster"
 
@@ -9860,6 +9873,9 @@ msgstr "GÖRÜNÜM adı"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
+
+#~ msgid "to/from page"
+#~ msgstr "sayfadan/sayfaya"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "İstatistikler etkisiz"

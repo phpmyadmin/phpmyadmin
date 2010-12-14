@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-08 14:29-0500\n"
+"POT-Creation-Date: 2010-12-14 11:27-0500\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "Пошук"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
 #: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:230
-#: pmd_pdf.php:113 prefs_manage.php:265 prefs_manage.php:316
+#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
@@ -690,9 +690,9 @@ msgstr "Адзначыць тыя, што патрабуюць аптыміза�
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
-#: prefs_manage.php:288 server_privileges.php:1371
-#: setup/frames/menu.inc.php:21 tbl_row_action.php:58
+#: libraries/tbl_links.inc.php:73 prefs_manage.php:288
+#: server_privileges.php:1371 setup/frames/menu.inc.php:21
+#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Экспарт"
 
@@ -2888,8 +2888,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:81 pmd_pdf.php:107 prefs_manage.php:231
-#: setup/frames/menu.inc.php:20
+#: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Імрарт"
 
@@ -6314,7 +6313,7 @@ msgstr "Атрыбуты"
 msgid "Extra"
 msgstr "Дадаткова"
 
-#: libraries/schema/User_Schema.class.php:93 pmd_pdf.php:111
+#: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
 msgstr "Стварыць новую старонку"
 
@@ -7190,7 +7189,7 @@ msgstr "Згарнуць/разгарнуць адлюстраваньне ўс�
 msgid "Toggle small/big"
 msgstr "Пераключыць маленькі/вялікі"
 
-#: pmd_general.php:116
+#: pmd_general.php:116 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Імпартаваць/Экспартаваць каардынаты табліц ў PDF-схему"
 
@@ -7289,26 +7288,52 @@ msgstr ""
 "адлюстраваных палёў, націсьніце іконку «Выберыце поле для адлюстраваньня» і "
 "націсьніце на адпаведнае імя поля."
 
-#: pmd_pdf.php:60
+#: pmd_pdf.php:34
 #, fuzzy
 msgid "Page has been created"
 msgstr "Табліца %1$s створаная."
 
-#: pmd_pdf.php:62
+#: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr ""
 
-#: pmd_pdf.php:82
+#: pmd_pdf.php:89
+#, fuzzy
+#| msgid "pages"
+msgid "Page"
+msgstr "старонак"
+
+#: pmd_pdf.php:99
+#, fuzzy
+#| msgid "Import files"
+msgid "Import from selected page"
+msgstr "Імпартаваць файлы"
+
+#: pmd_pdf.php:100
+#, fuzzy
+#| msgid "Export/Import to scale"
+msgid "Export to selected page"
+msgstr "Маштаб"
+
+#: pmd_pdf.php:102
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and export to it"
+msgstr "Стварыць новы індэкс"
+
+#: pmd_pdf.php:111
+#, fuzzy
+#| msgid "User name"
+msgid "New page name: "
+msgstr "Імя карыстальніка"
+
+#: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr "Маштаб"
 
-#: pmd_pdf.php:86
+#: pmd_pdf.php:119
 msgid "recommended"
 msgstr "рэкамэндаваны"
-
-#: pmd_pdf.php:91
-msgid "to/from page"
-msgstr "старонка"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
@@ -10101,6 +10126,9 @@ msgstr "Назва прагляду"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Перайменаваць табліцу ў"
+
+#~ msgid "to/from page"
+#~ msgstr "старонка"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Адключыць статыстыку"

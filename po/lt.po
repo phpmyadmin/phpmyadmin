@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-08 14:29-0500\n"
+"POT-Creation-Date: 2010-12-14 11:27-0500\n"
 "PO-Revision-Date: 2010-11-27 22:17+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "Paieška"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
 #: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:230
-#: pmd_pdf.php:113 prefs_manage.php:265 prefs_manage.php:316
+#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
@@ -668,9 +668,9 @@ msgstr "Pažymėti turinčias perteklių"
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:73 pmd_pdf.php:81 pmd_pdf.php:106
-#: prefs_manage.php:288 server_privileges.php:1371
-#: setup/frames/menu.inc.php:21 tbl_row_action.php:58
+#: libraries/tbl_links.inc.php:73 prefs_manage.php:288
+#: server_privileges.php:1371 setup/frames/menu.inc.php:21
+#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Eksportuoti"
 
@@ -2725,8 +2725,7 @@ msgstr "Nustatyti keletą dažniausiai naudojamų nustatymų"
 
 #: libraries/config/messages.inc.php:165 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:81 pmd_pdf.php:107 prefs_manage.php:231
-#: setup/frames/menu.inc.php:20
+#: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importuoti"
 
@@ -6026,7 +6025,7 @@ msgstr "Atributai"
 msgid "Extra"
 msgstr "Papildomai"
 
-#: libraries/schema/User_Schema.class.php:93 pmd_pdf.php:111
+#: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
 msgstr "Sukurti naują puslapį"
 
@@ -6848,7 +6847,7 @@ msgstr "Mažinti/didinti visus"
 msgid "Toggle small/big"
 msgstr "Suskleisti/Išskleisti"
 
-#: pmd_general.php:116
+#: pmd_general.php:116 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importuoti/eksportuoti koordinates PDF schemai"
 
@@ -6941,25 +6940,51 @@ msgstr ""
 "rodymui, paspauskite „Pasirinkite laukus peržiūrai“ ikoną, tada paspauskite "
 "ant pasirinkto stulpelio vardo."
 
-#: pmd_pdf.php:60
+#: pmd_pdf.php:34
 msgid "Page has been created"
 msgstr "Puslapis sukurtas"
 
-#: pmd_pdf.php:62
+#: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr "Puslapio kūrimas nepavyko"
 
-#: pmd_pdf.php:82
+#: pmd_pdf.php:89
+#, fuzzy
+#| msgid "pages"
+msgid "Page"
+msgstr "puslapiai"
+
+#: pmd_pdf.php:99
+#, fuzzy
+#| msgid "Import from file"
+msgid "Import from selected page"
+msgstr "Importuoti iš failo"
+
+#: pmd_pdf.php:100
+#, fuzzy
+#| msgid "No rows selected"
+msgid "Export to selected page"
+msgstr "Nepasirinkti įrašai"
+
+#: pmd_pdf.php:102
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and export to it"
+msgstr "Sukurti naują indeksą"
+
+#: pmd_pdf.php:111
+#, fuzzy
+#| msgid "User name"
+msgid "New page name: "
+msgstr "Naudotojo vardas"
+
+#: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr ""
 
-#: pmd_pdf.php:86
+#: pmd_pdf.php:119
 msgid "recommended"
 msgstr "rekomenduojame"
-
-#: pmd_pdf.php:91
-msgid "to/from page"
-msgstr "į/iš puslapio"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
@@ -9704,6 +9729,9 @@ msgstr "VIEW pavadinimas"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Pervadinti lentelę į"
+
+#~ msgid "to/from page"
+#~ msgstr "į/iš puslapio"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Neleisti statistikos"
