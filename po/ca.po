@@ -8139,10 +8139,9 @@ msgid "Stop SQL Thread only"
 msgstr "Atura només el fil SQL"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Només fils IO %s"
+msgstr "Inicia només el fil IO"
 
 #: server_replication.php:333
 #, fuzzy
