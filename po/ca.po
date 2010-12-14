@@ -1653,7 +1653,7 @@ msgstr "Servidor:"
 
 #: libraries/auth/cookie.auth.lib.php:250
 msgid "Username:"
-msgstr "Nom d'Usuari:"
+msgstr "Nom d'usuari:"
 
 #: libraries/auth/cookie.auth.lib.php:254
 msgid "Password:"
