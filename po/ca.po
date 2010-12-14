@@ -1666,7 +1666,7 @@ msgstr "Elecció de Servidor"
 #: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
 msgstr ""
-"A partir d'aquest punt és necessari tenir les galetes (cookies) activades."
+"A partir d'aquest punt és necessari tenir les galetes -cookies- activades."
 
 #: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
