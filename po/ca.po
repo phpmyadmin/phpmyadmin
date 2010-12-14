@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 10:40+0200\n"
+"PO-Revision-Date: 2010-12-14 10:41+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -938,7 +938,7 @@ msgstr "Realment vols fer?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
-msgstr "Ets a punt d'ELIMINAR completament una base de dades!"
+msgstr "Ets a punt de DESTRUIR completament una base de dades!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
