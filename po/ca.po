@@ -9596,9 +9596,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Insereix com a nova fila i ignora els errors"
 
 #: tbl_change.php:1035
-#, fuzzy
 msgid "Show insert query"
-msgstr "Mostrant consulta SQL"
+msgstr "Mostra la consulta d'inserció"
 
 #: tbl_change.php:1046
 msgid "and then"
