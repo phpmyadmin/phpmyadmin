@@ -8028,7 +8028,7 @@ msgstr ""
 
 #: server_replication.php:182 server_status.php:398
 msgid "Show master status"
-msgstr "Mostra l'estat del mestre (Show master status)"
+msgstr "Mostra l'estat del mestre (show master status)"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
