@@ -7732,7 +7732,7 @@ msgstr ""
 #: server_privileges.php:58 server_privileges.php:202
 #: server_privileges.php:536
 msgid "Allows creating and dropping triggers"
-msgstr "Permet crear i eliminar disparadors (triggers)"
+msgstr "Permet crear i eliminar disparadors -triggers-"
 
 #: server_privileges.php:59 server_privileges.php:183
 #: server_privileges.php:446 server_privileges.php:506
