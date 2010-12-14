@@ -9961,7 +9961,7 @@ msgstr "Mida de fila "
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-"Error creant clau externa (foreign key) a %1$s (comprovar tipus de dades)"
+"Error creant clau externa -foreign key- a %1$s (comprovar tipus de dades)"
 
 #: tbl_relation.php:402
 #| msgid "Internal relations"
