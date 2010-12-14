@@ -6910,7 +6910,7 @@ msgid ""
 "the link."
 msgstr ""
 "Mostra un enllaç; el camp conté el nom de l'arxiu. La primera opció és un "
-"prefixe com \"http://domini.com/\". La segona opció és el titol del enllaç."
+"prefixe com \"http://domini.com/\". La segona opció és el títol del enllaç."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
