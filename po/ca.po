@@ -5349,7 +5349,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Llindar del registre de dades (data log)"
+msgstr "Llindar del registre de dades -data log-"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
