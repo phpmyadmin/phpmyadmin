@@ -5397,7 +5397,7 @@ msgstr "Tamany de creixement de l'arxiu de dades"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "El tamany de creixement dels arxius del gestor de dades (.xtd)."
+msgstr "El tamany de creixement dels arxius del gestor de dades (.xtd) ."
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
