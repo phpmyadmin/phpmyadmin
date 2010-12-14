@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 11:01+0200\n"
+"PO-Revision-Date: 2010-12-14 11:02+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4908,7 +4908,7 @@ msgstr "Opcions"
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Textos Parcials"
+msgstr "Textos parcials"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
 #| msgid "Full Texts"
