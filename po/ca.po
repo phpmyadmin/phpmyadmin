@@ -6901,7 +6901,7 @@ msgid ""
 msgstr ""
 "Mostra una imatge i un enllaç; el camp conté el nom de l'arxiu. La primera "
 "opció és un prefixe com \"http://domini.com/\". La segona i tercera opcions "
-"són les mides en ample i alt en pixels."
+"són les mides en ample i alt en píxels."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 msgid ""
