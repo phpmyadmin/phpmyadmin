@@ -9734,7 +9734,7 @@ msgid ""
 msgstr ""
 "Teniu en compte que no totes les taules de resultat poden esdevenir un "
 "gràfic. Veieu <a href=\"./Documentation.html#faq6_29\" "
-"target=\"Documentation\">PFC(FAQ) 6.29</a>"
+"target=\"Documentation\">PFC -FAQ- 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
