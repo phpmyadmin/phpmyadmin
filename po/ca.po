@@ -7047,7 +7047,7 @@ msgstr "Pàgina oficial del phpMyAdmin"
 
 #: main.php:223
 msgid "Mailing lists"
-msgstr ""
+msgstr "Llistes de correu"
 
 #: main.php:248
 msgid ""
