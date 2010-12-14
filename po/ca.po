@@ -9990,10 +9990,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
 
 #: tbl_select.php:266
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Tria els camps (un com a mínim):"
+msgstr "Tria les columnes (una com a mínim):"
 
 #: tbl_select.php:284
 msgid "Add search conditions (body of the \"where\" clause):"
