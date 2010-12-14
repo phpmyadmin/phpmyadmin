@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-alpha3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-08 14:29-0500\n"
-"PO-Revision-Date: 2010-12-14 09:50+0200\n"
+"PO-Revision-Date: 2010-12-14 09:51+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -8922,11 +8922,11 @@ msgstr ""
 "<b>replicació</b>."
 
 #: server_status.php:481
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Aquest servidor s'ha configurat com a mestre en un procés de replicació."
+"Aquest servidor MySQL treballa com a <b>esclau</b> en un procés de "
+"<b>replicació</b>."
 
 #: server_status.php:483
 #, fuzzy
