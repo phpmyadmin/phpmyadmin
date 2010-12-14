@@ -307,7 +307,9 @@ function validate_regex($path, $values)
     test_php_errormsg();
 
     $matches = array();
-    preg_match($values[$path], '', $matches);
+    // in libraries/List_Database.class.php _checkHideDatabase(),
+    // a '/' is used as the delimiter for hide_db
+    preg_match('/' . $values[$path] . '/', '', $matches);
 
     test_php_errormsg(false);
 
