@@ -4413,7 +4413,7 @@ msgstr "Usuari"
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
-msgstr "Opcions d'exportació de Bases de Dades"
+msgstr "Opcions d'exportació de bases de dades"
 
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:220
