@@ -9977,10 +9977,9 @@ msgstr ""
 "de FOREIGN KEY."
 
 #: tbl_relation.php:410
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Límit de claus externes"
+msgstr "Límit de clau externa"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
