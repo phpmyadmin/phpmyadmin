@@ -5313,7 +5313,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
-msgstr "LLindar de l'arxiu de Registre (Log)"
+msgstr "LLindar de l'arxiu de Registre (log)"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid ""
