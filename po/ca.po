@@ -7946,11 +7946,10 @@ msgid "Database for user"
 msgstr "Base de dades per usuari"
 
 #: server_privileges.php:2129
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "Res"
+msgstr "Cap"
 
 #: server_privileges.php:2130
 msgid "Create database with same name and grant all privileges"
