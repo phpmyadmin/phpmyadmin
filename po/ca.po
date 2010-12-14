@@ -8747,7 +8747,7 @@ msgstr ""
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
-"Aixó és ACTIU (ON) si aquest servidor és un esclau que està connectat a un "
+"Aixó és ACTIU -ON- si aquest servidor és un esclau que està connectat a un "
 "mestre."
 
 #: server_status.php:141
