@@ -3039,7 +3039,7 @@ msgstr "Configurar camps d'entrada de text"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr "Text Texy!"
+msgstr "text Texy!"
 
 #: libraries/config/messages.inc.php:225
 #| msgid "Warning"
