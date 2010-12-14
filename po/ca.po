@@ -1796,7 +1796,7 @@ msgstr "Replicat"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Comprova els permisos per la Base de dades &quot;%s&quot;."
+msgstr "Comprova els permisos per la base de dades &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
