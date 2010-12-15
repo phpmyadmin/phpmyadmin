@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 00:07+0200\n"
+"PO-Revision-Date: 2010-12-16 00:08+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -5233,10 +5233,9 @@ msgid "(continued)"
 msgstr ""
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Table structure for table"
 msgid "Structure of table @TABLE@"
-msgstr "Структура таблиці"
+msgstr "Структура таблиці @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
