@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-08 12:48+0200\n"
+"PO-Revision-Date: 2010-12-15 19:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -7000,10 +7000,9 @@ msgid "Page creation failed"
 msgstr "Page creation failed"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "pages"
+msgstr "Page"
 
 #: pmd_pdf.php:99
 #, fuzzy
@@ -9804,120 +9803,3 @@ msgstr "Rename view to"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Disable Statistics"
-
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Hide query chart"
-
-#~ msgid "Start"
-#~ msgstr "Start"
-
-#~ msgid "Stop"
-#~ msgstr "Stop"
-
-#~ msgid "Display table filter"
-#~ msgstr "Display table filter"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignore duplicate rows"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Execute bookmarked query"
-
-#~ msgid "No tables"
-#~ msgstr "No tables"
-
-#~ msgid "Field navigation using Ctrl+Arrows"
-#~ msgstr "Field navigation using Ctrl+Arrows"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "Toggle Query Box Visibility"
-
-#~ msgid "SVG"
-#~ msgstr "SVG"
-
-#~ msgid "DIA"
-#~ msgstr "DIA"
-
-#~ msgid "VISIO"
-#~ msgstr "VISIO"
-
-#~ msgid "EPS"
-#~ msgstr "EPS"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-
-#~ msgid "Debug PHP"
-#~ msgstr "Debug PHP"
-
-#~ msgid "New table"
-#~ msgstr "New table"
-
-#~ msgid "server name"
-#~ msgstr "server name"
-
-#~ msgid "database name"
-#~ msgstr "database name"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Edit PDF Pages"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Data Dictionary Format"
-
-#~ msgid "Method"
-#~ msgstr "Method"
-
-#~ msgid "no"
-#~ msgstr "no"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Enter login options for signon authentication"
-
-#~ msgid "Signon login options"
-#~ msgstr "Signon login options"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA database"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-
-#~ msgid "yes"
-#~ msgstr "yes"
