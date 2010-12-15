@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-15 16:12+0200\n"
+"PO-Revision-Date: 2010-12-15 19:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7095,10 +7095,9 @@ msgid "Import from selected page"
 msgstr "Importer depuis la page sélectionnée"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Exporter/Importer à l'échelle"
+msgstr "Exporter vers la page sélectionnée"
 
 #: pmd_pdf.php:102
 #, fuzzy
