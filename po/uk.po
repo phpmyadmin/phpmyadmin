@@ -298,7 +298,7 @@ msgstr "Лише дані"
 
 #: db_operations.php:491
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Перед копіюванням створити базу данних (CREATE DATABASE)"
 
 #: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
@@ -310,11 +310,11 @@ msgstr "Додати %s"
 #: db_operations.php:498 libraries/config/messages.inc.php:115
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Додати AUTO_INCREMENT значення"
 
 #: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
-msgstr ""
+msgstr "Додати constraints"
 
 #: db_operations.php:515
 msgid "Switch to copied database"
