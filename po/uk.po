@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 00:11+0200\n"
+"PO-Revision-Date: 2010-12-16 00:12+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -9274,10 +9274,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:682
-#, fuzzy
 #| msgid "No databases"
 msgid "Delete the table (DROP)"
-msgstr "БД відсутні"
+msgstr "Видалити таюлицю (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
