@@ -2253,10 +2253,9 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
-msgstr "Лінк не знайдено"
+msgstr "SOA розширення не знайдено"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
