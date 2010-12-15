@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 00:03+0200\n"
+"PO-Revision-Date: 2010-12-16 00:04+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1904,7 +1904,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "Змінна <tt>$cfg['PmaAbsoluteUri']</tt> ПОВИННА бути встановлена у Вашому "
-"конфіґураційному файлі!"
+"конфігураційному файлі!"
 
 #: libraries/common.inc.php:621
 #, php-format
