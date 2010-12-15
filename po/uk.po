@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 01:14+0200\n"
+"PO-Revision-Date: 2010-12-16 01:33+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -533,7 +533,7 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s співпадіння у таблиці <i>%s</i>"
 msgstr[1] "%s співпадіння у таблиці <i>%s</i>"
-msgstr[2] "%s співпадіннь у таблиці <i>%s</i>"
+msgstr[2] "%s співпадінь у таблиці <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2818
 #: libraries/common.lib.php:2996 libraries/common.lib.php:2997
