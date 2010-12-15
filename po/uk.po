@@ -4689,7 +4689,7 @@ msgstr "горизонтальному (повернуті заголовки)"
 
 #: libraries/display_tbl.lib.php:316
 msgid "vertical"
-msgstr " вертикально "
+msgstr "вертикальному"
 
 #: libraries/display_tbl.lib.php:322
 #, php-format
