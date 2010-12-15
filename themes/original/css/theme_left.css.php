@@ -239,20 +239,22 @@ div#left_tableList ul ul {
 }
 
 #NavFilter {
-    display: none;
+	display: none;
 }
 
 #clear_fast_filter {
-    background: white;
-    color: black;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    right: 3ex;
+	background: white;
+	color: black;
+	cursor: pointer;
+	padding: 0;
+	margin: 3px 5px 0 -23px;
+	position: relative;
+	float: right;
 }
 
 #fast_filter {
-    width: 85%;
-    padding: 0.1em;
+	width: 100%;
+	padding:2px 0px;
+	margin:0;
+	border:0;
 }
