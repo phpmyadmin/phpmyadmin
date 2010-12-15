@@ -7043,10 +7043,9 @@ msgid "Page"
 msgstr "Stran"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import from file"
 msgid "Import from selected page"
-msgstr "Uvozi iz datoteke"
+msgstr "Uvozi iz izbrane strani"
 
 #: pmd_pdf.php:100
 #, fuzzy
