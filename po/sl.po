@@ -7053,10 +7053,9 @@ msgid "Export to selected page"
 msgstr "Izvozi na izbrano stran"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Ustvari nov indeks"
+msgstr "Ustvari stran in izvozi nanjo"
 
 #: pmd_pdf.php:111
 #, fuzzy
