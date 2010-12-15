@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 00:12+0200\n"
+"PO-Revision-Date: 2010-12-16 00:13+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -356,7 +356,7 @@ msgstr "Схема зв'язків"
 #: server_synchronize.php:421 server_synchronize.php:864 tbl_tracking.php:586
 #: test/theme.php:74
 msgid "Table"
-msgstr "таблиця "
+msgstr "Таблиця"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
