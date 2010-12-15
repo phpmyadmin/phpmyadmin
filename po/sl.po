@@ -7048,10 +7048,9 @@ msgid "Import from selected page"
 msgstr "Uvozi iz izbrane strani"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Izvozi/Uvozi v razmerju"
+msgstr "Izvozi na izbrano stran"
 
 #: pmd_pdf.php:102
 #, fuzzy
