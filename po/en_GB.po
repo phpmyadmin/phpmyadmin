@@ -7015,10 +7015,9 @@ msgid "Export to selected page"
 msgstr "Export to selected page"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Create a new index"
+msgstr "Create a page and export to it"
 
 #: pmd_pdf.php:111
 #, fuzzy
