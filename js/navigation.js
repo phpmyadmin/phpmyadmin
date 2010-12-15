@@ -141,14 +141,18 @@ function PMA_setCookie(name, value, expires, path, domain, secure) {
 /**
  * hide all LI elements with second A tag which doesn`t contain requested value
  *
- *	@param   string  value    requested value
+ * @param   string  value    requested value
  *
  */
 function fast_filter(value){
-	$("#subel0 a[class!='tableicon']").each(function(idx,elem){
-		if(value && $(elem).html().indexOf(value)==-1) $(elem).parent().hide();
-		else $(elem).parent().show();
-	});
+    $("#subel0 a[class!='tableicon']").each(function(idx,elem){
+        $elem = $(elem);
+        if (value && $elem.html().indexOf(value) == -1) {
+            $elem.parent().hide();
+        } else {
+            $elem.parent().show();
+        }
+    });
 }
 
 /**
