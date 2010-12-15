@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-15 23:48+0200\n"
+"PO-Revision-Date: 2010-12-15 23:58+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4694,7 +4694,7 @@ msgstr " вертикально "
 #: libraries/display_tbl.lib.php:322
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "-го %s і дублювати заголовки через кожні %s рядків "
+msgstr "в %s режимі і дублювати заголовки через кожні %s рядків "
 
 #: libraries/display_tbl.lib.php:510
 msgid "Sort by key"
