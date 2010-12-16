@@ -7063,10 +7063,9 @@ msgid "Export to selected page"
 msgstr "Seçili sayfaya aktar"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Yeni bir indeks oluştur"
+msgstr "Yeni bir sayfa oluştur ve ona aktar"
 
 #: pmd_pdf.php:111
 #, fuzzy
