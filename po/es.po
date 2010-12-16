@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-11-29 02:31+0200\n"
-"Last-Translator:  <javipas@gmail.com>\n"
+"PO-Revision-Date: 2010-12-16 22:36+0200\n"
+"Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1484,7 +1484,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Los índices %1$s y %2$s parecen ser iguales y posiblemente se puede remover "
+"Los índices %1$s y %2$s parecen ser iguales y posiblemente se puede eliminar "
 "uno."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:172
@@ -10284,33 +10284,3 @@ msgstr "Cambiar el nombre de la vista a "
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Desactivar las estadísticas"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Ocultar ventana de consultas SQL"
-
-#, fuzzy
-#~ msgid "Start"
-#~ msgstr "Inicio"
-
-#, fuzzy
-#~| msgid "Display databases in a tree"
-#~ msgid "Display table filter"
-#~ msgstr "Mostrar las bases de datos en un árbol"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Las opciones adicionales para trabajar con tablas vinculadas fueron "
-#~ "desactivadas. Para saber porqué, dé clic %saquí%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignore las filas duplicadas"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Ejecute la consulta marcada previamente"
-
-#~ msgid "No tables"
-#~ msgstr "No existen tablas"
