@@ -2429,7 +2429,7 @@ msgstr "Mostrar el contenido binario en HEXadecimal por defecto"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Mostrar contenido binario como HEXadecimal"
 
 #: libraries/config/messages.inc.php:54
 #, fuzzy
