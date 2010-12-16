@@ -558,7 +558,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Borrar los datos de seguimiento para esta tabla"
 
 #: db_search.php:273
-#, php-format
+#, php-format, fuzzy
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
