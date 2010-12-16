@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 22:48+0200\n"
+"PO-Revision-Date: 2010-12-16 22:49+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3130,7 +3130,7 @@ msgstr "Poner los nombres de campo en la primera hilera"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "No importar filas vacías"
 
 #: libraries/config/messages.inc.php:251
 msgid "Import currencies ($5.00 to 5.00)"
