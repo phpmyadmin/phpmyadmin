@@ -3353,7 +3353,7 @@ msgstr "Máxima longitud al mostrar consulta SQL"
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Los usuarios no pueden definir un valor más alto"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
