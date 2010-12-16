@@ -2470,7 +2470,7 @@ msgstr "Ignorar los errores"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Mostrar iconos para los mensajes de información, error  y advertencia"
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
