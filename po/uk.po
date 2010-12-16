@@ -4450,10 +4450,9 @@ msgid "Database(s):"
 msgstr "База(и) даних:"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Таблиць"
+msgstr "Таблиця(ь):"
 
 #: libraries/display_export.lib.php:149
 #, fuzzy
