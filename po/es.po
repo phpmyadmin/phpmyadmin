@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 22:46+0200\n"
+"PO-Revision-Date: 2010-12-16 22:47+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2747,7 +2747,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:155
 msgid "Developer"
-msgstr ""
+msgstr "Desarrollados"
 
 #: libraries/config/messages.inc.php:156
 msgid "Settings for phpMyAdmin developers"
