@@ -1509,12 +1509,12 @@ msgstr[0] "%1$d fila afectada."
 msgstr[1] "%1$d filas afectadas."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d fila(s) fueron eliminadas."
-msgstr[1] "%1$d fila(s) fueron eliminadas."
+msgstr[0] "%1$d fila eliminada."
+msgstr[1] "%1$d filas eliminadas."
 
 #: libraries/Message.class.php:319
 #, fuzzy, php-format
