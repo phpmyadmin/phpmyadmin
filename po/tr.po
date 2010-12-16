@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 01:16+0200\n"
+"PO-Revision-Date: 2010-12-17 01:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7068,10 +7068,9 @@ msgid "Create a page and export to it"
 msgstr "Yeni bir sayfa oluştur ve ona aktar"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "New name"
 msgid "New page name: "
-msgstr "Yeni ad"
+msgstr "Yeni sayfa adı: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
