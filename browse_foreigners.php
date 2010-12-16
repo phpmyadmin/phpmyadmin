@@ -98,12 +98,12 @@ if (is_array($foreignData['disp_row'])) {
     <script type="text/javascript">
     //<![CDATA[
     self.focus();
-    function formupdate(field, key) {
+    function formupdate(fieldmd5, key) {
         if (opener && opener.document && opener.document.insertForm) {
-            var field = 'field_' + field;
+            var field = 'fields';
 
             <?php if (isset($pk)) { ?>
-            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($pk); ?>][]';
+            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($pk); ?>][' + fieldmd5 + ']';
             <?php } else { ?>
             var element_name = field + '[]';
             <?php } ?>

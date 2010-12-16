@@ -411,8 +411,6 @@ foreach ($rows as $row_id => $vrow) {
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
         $field_name_appendix =  $vkey . '[' . $field['Field_md5'] . ']';
-        $field_name_appendix_md5 = $field['Field_md5'] . $vkey . '[]';
-
 
         if ($field['Type'] == 'datetime'
          && ! isset($field['Default'])
@@ -656,9 +654,7 @@ foreach ($rows as $row_id => $vrow) {
             ?>
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
                 value="foreign" />
-            <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
-                value="" id="field_<?php echo ($idindex); ?>_3A" />
-            <input type="text" name="field_<?php echo $field_name_appendix_md5; ?>"
+            <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                 class="textfield" <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
@@ -678,10 +674,9 @@ foreach ($rows as $row_id => $vrow) {
             ?>
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
                 value="foreign" />
-            <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
-                value="" id="field_<?php echo $idindex; ?>_3A" />
-            <select name="field_<?php echo $field_name_appendix_md5; ?>"
+            <select name="fields<?php echo $field_name_appendix; ?>"
                 <?php echo $unnullify_trigger; ?>
+                class="textfield"
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3">
                 <?php echo PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $data, $cfg['ForeignKeyMaxLimit']); ?>
@@ -744,8 +739,9 @@ foreach ($rows as $row_id => $vrow) {
             // show dropdown or radio depend on length
             if (strlen($field['Type']) > 20) {
                 ?>
-                <select name="field_<?php echo $field_name_appendix_md5; ?>"
+                <select name="fields<?php echo $field_name_appendix; ?>"
                     <?php echo $unnullify_trigger; ?>
+                    class="textfield"
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3">
                     <option value="">&nbsp;</option>
@@ -772,7 +768,8 @@ foreach ($rows as $row_id => $vrow) {
                 $j = 0;
                 foreach ($field_enum_values as $enum_value) {
                     echo '            ';
-                    echo '<input type="radio" name="field_' . $field_name_appendix_md5 . '"';
+                    echo '<input type="radio" name="fields' . $field_name_appendix . '"';
+                    echo ' class="textfield"';
                     echo ' value="' . $enum_value['html'] . '"';
                     echo ' id="field_' . ($idindex) . '_3_'  . $j . '"';
                     echo $unnullify_trigger;
@@ -807,8 +804,8 @@ foreach ($rows as $row_id => $vrow) {
             echo $backup_field . "\n";
             ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="set" />
-                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
-                <select name="field_<?php echo $field_name_appendix_md5; ?>"
+                <select name="fields<?php echo $field_name_appendix; ?>"
+                    class="textfield"
                     size="<?php echo $select_size; ?>"
                     multiple="multiple" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"

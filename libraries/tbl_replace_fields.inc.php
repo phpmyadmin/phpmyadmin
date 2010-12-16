@@ -68,8 +68,6 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // $key contains the md5() of the fieldname
-    $f = 'field_' . $key;
-
     if (0 === strlen($val)) {
         // default
         $val = "''";
@@ -81,8 +79,8 @@ if (false !== $possibly_uploaded_val) {
                 // if we have a set, then construct the value
             case 'foreign':
                 // if we have a foreign key, then construct the value
-                if (! empty($_REQUEST[$f]['multi_edit'][$rownumber])) {
-                    $val = implode(',', $_REQUEST[$f]['multi_edit'][$rownumber]);
+                if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
+                    $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
                     $val = "'" . PMA_sqlAddslashes($val) . "'";
                 }
                 break;
@@ -129,5 +127,5 @@ if (false !== $possibly_uploaded_val) {
         $val = "''";
     }
 }  // end else (field value in the form)
-unset($type, $f);
+unset($type);
 ?>
