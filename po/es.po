@@ -3336,7 +3336,7 @@ msgstr "Doble tamaño del textarea para las columnas LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "textarea más grande para LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Use icons on main page"
