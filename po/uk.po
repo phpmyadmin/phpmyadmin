@@ -3486,10 +3486,9 @@ msgid "Query window height"
 msgstr "Вікно запиту"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Вікно запиту"
+msgstr "Ширина вікна запиту (в пікселях)"
 
 #: libraries/config/messages.inc.php:340
 #, fuzzy
