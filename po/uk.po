@@ -6362,7 +6362,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Не можу запустити перевірку SQL. Прошу проконтролювати чи інстальовані "
-"необхідні PHP extensions як описано в %документації%s."
+"необхідні PHP extensions як описано в %sдокументації%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
