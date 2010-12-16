@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 22:44+0200\n"
+"PO-Revision-Date: 2010-12-16 22:45+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2458,10 +2458,9 @@ msgid "Edit in window"
 msgstr "Editar en ventana"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Mostrar las opciones"
+msgstr "Mostrar errores"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
