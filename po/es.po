@@ -2450,7 +2450,7 @@ msgstr "Muestra los servidores en una lista"
 
 #: libraries/config/messages.inc.php:58
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Editar las consultas SQL en una ventana emergente"
 
 #: libraries/config/messages.inc.php:59
 #, fuzzy
