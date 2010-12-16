@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-16 22:36+0200\n"
+"PO-Revision-Date: 2010-12-16 22:39+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -558,12 +558,12 @@ msgid "Delete the matches for the %s table?"
 msgstr "Borrar los datos de seguimiento para esta tabla"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultado(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
+msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: db_search.php:296
 msgid "Search in database"
