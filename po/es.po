@@ -3563,7 +3563,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
-msgstr ""
+msgstr "Mostrar el botón de ayuda"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
