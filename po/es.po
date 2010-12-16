@@ -3256,7 +3256,7 @@ msgstr "Logo enlace objetivo"
 
 #: libraries/config/messages.inc.php:281
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Resaltar servidor bajo el cursor"
 
 #: libraries/config/messages.inc.php:282
 msgid "Enable highlighting"
