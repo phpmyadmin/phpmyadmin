@@ -442,7 +442,7 @@ msgstr "Descendente"
 #: db_qbe.php:283 db_tracking.php:90 libraries/display_tbl.lib.php:306
 #: tbl_change.php:269 tbl_tracking.php:591
 msgid "Show"
-msgstr "Mostra"
+msgstr "Mostrar"
 
 #: db_qbe.php:319
 msgid "Criteria"
