@@ -538,7 +538,7 @@ msgstr[1] "%s resultados na tabela <i>%s</i>"
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
-msgstr "Visualiza"
+msgstr "Visualizar"
 
 #: db_search.php:260 libraries/display_tbl.lib.php:1190
 #: libraries/display_tbl.lib.php:2052
