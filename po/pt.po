@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:20+0200\n"
+"PO-Revision-Date: 2010-12-17 14:21+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -104,9 +104,9 @@ msgid "Failed to open remote URL"
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "A base de dados %s foi eliminada."
+msgstr "A base de dados %s foi criada."
 
 #: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
