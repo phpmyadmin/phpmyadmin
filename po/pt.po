@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:37+0200\n"
+"PO-Revision-Date: 2010-12-17 14:38+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -526,12 +526,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s resultado(s) na tabela <i>%s</i>"
-msgstr[1] "%s resultado(s) na tabela <i>%s</i>"
+msgstr[0] "%s resultado na tabela <i>%s</i>"
+msgstr[1] "%s resultados na tabela <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2818
 #: libraries/common.lib.php:2996 libraries/common.lib.php:2997
