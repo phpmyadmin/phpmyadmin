@@ -283,7 +283,7 @@ msgstr "Copiar a Base de Dados para"
 
 #: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
-msgstr "Somente estrutura"
+msgstr "Somente a estrutura"
 
 #: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
