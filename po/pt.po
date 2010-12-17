@@ -278,9 +278,8 @@ msgid "Drop the database (DROP)"
 msgstr "Apagar a Base de Dados (DROP)"
 
 #: db_operations.php:474
-#, fuzzy
 msgid "Copy database to"
-msgstr "Sem bases de dados"
+msgstr "Copiar a Bases de Dados para"
 
 #: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
