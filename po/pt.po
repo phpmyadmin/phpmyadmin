@@ -384,7 +384,7 @@ msgstr "Criação"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr "Ultima actualização"
+msgstr "Última actualização"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:589
