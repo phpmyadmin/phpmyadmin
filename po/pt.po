@@ -495,7 +495,7 @@ msgstr "Comando SQL na base de dados <b>%s</b>:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1160
 msgid "Submit Query"
-msgstr "Executa Comando SQL"
+msgstr "Executar Comando SQL"
 
 #: db_search.php:53 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
