@@ -804,7 +804,7 @@ foreach ($rows as $row_id => $vrow) {
             echo $backup_field . "\n";
             ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="set" />
-                <select name="fields<?php echo $field_name_appendix; ?>"
+                <select name="fields<?php echo $field_name_appendix . '[]'; ?>"
                     class="textfield"
                     size="<?php echo $select_size; ?>"
                     multiple="multiple" <?php echo $unnullify_trigger; ?>
