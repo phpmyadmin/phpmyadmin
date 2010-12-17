@@ -572,7 +572,7 @@ msgstr "Pesquisar na Base de Dados"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Palavra(s) ou valor(es) para pesquisar para (wildcard: \"%\"):"
+msgstr "Palavra(s) ou valor(es) a pesquisar (wildcard: \"%\"):"
 
 #: db_search.php:304
 msgid "Find:"
