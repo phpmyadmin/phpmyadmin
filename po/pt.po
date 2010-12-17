@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-07-22 02:23+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-12-17 14:20+0200\n"
+"Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -97,7 +97,7 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Erro ao obter cabeçalhos (headers)"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -9728,164 +9728,3 @@ msgstr "Renomeia a tabela para "
 #, fuzzy
 #~ msgid "Start"
 #~ msgstr "Sab"
-
-#, fuzzy
-#~| msgid "Displaying Column Comments"
-#~ msgid "Display table filter"
-#~ msgstr "Mostrando comentários das Colunas"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "As Características adicionais para trabalhar com ligações entre Tabelas "
-#~ "foram desactivadas. Para saber porquê carregue %saqui%s."
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Executar um query marcado(do marcador)"
-
-#~ msgid "No tables"
-#~ msgstr "Sem tablelas"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "Dados CSV"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Introduza os valores para as opções de transformação a usando este "
-#~ "formato: 'a', 100, b,'c'...<br />Se por acaso precisar de inserir um "
-#~ "backslash (\"\\\") ou uma pelica (\"'\") no meio desses valores, faça-o "
-#~ "backslashes (por exemplo '\\\\xyz' ou 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Introduza os valores para as opções de transformação a usando este "
-#~ "formato: 'a', 100, b,'c'...<br />Se por acaso precisar de inserir um "
-#~ "backslash (\"\\\") ou uma pelica (\"'\") no meio desses valores, faça-o "
-#~ "backslashes (por exemplo '\\\\xyz' ou 'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Sem tablelas"
-
-#, fuzzy
-#~ msgid "server name"
-#~ msgstr "Nome do Utilizador"
-
-#, fuzzy
-#~ msgid "database name"
-#~ msgstr "Base de Dados"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Editar páginas PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Formato dos dados do dicionário"
-
-#, fuzzy
-#~ msgid "PMA database"
-#~ msgstr "Sem bases de dados"
-
-#, fuzzy
-#~ msgid "yes"
-#~ msgstr "Sim"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Adicionar valor AUTO_INCREMENT"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Exporta %s registos começando em %s."
-
-#~ msgid "remember template"
-#~ msgstr "Lembrar-se do modelo"
-
-#~ msgid "Add into comments"
-#~ msgstr "Adicionar aos comentários"
-
-#, fuzzy
-#~ msgid "Export triggers"
-#~ msgstr "Tipo de Exportação"
-
-#, fuzzy
-#~ msgid "Export views"
-#~ msgstr "Tipo de Exportação"
-
-#, fuzzy
-#~ msgid "Actions"
-#~ msgstr "Acções"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Activado"
-
-#, fuzzy
-#~ msgid "Disable"
-#~ msgstr "Desactidado"
-
-#, fuzzy
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Reparar tabela"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Desactidado"
-
-#, fuzzy
-#~ msgid "Enable"
-#~ msgstr "Activado"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "não é possível carregar a extensão %s ;<br />verifique a configuração do "
-#~ "PHP por favor"
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Não é possível carregar <i>iconv</i> ou recodificar a extensão necessária "
-#~ "para a conversão do Mapa de Caracteres, configure o php de modo a "
-#~ "permitir utilizar estas extensões ou desligue a conversão do mapa de "
-#~ "caracteres no phpmyadmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Não é possível usar <i>iconv</i> nem <i>libiconv</i> nem a função "
-#~ "<i>recode_string</i> enquanto a extensão reportar que está ligada. "
-#~ "Confira a configuração do seu php."
