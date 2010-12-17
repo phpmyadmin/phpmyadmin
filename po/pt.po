@@ -636,6 +636,7 @@ msgstr "Vista"
 #: db_structure.php:437 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
+#, fuzzy
 msgid "Replication"
 msgstr "Replicação"
 
