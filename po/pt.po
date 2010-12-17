@@ -518,7 +518,7 @@ msgstr "a frase exacta"
 
 #: db_search.php:68 db_search.php:311
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr "como expressão regular"
 
 #: db_search.php:230
 #, php-format
