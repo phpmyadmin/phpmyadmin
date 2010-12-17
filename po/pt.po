@@ -391,7 +391,7 @@ msgstr "Última actualização"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230 tbl_printview.php:451
 #: tbl_structure.php:917
 msgid "Last check"
-msgstr "Verificação"
+msgstr "Última Verificação"
 
 #: db_printview.php:220 db_structure.php:432
 #, fuzzy, php-format
