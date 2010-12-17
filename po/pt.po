@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:25+0200\n"
+"PO-Revision-Date: 2010-12-17 14:26+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -257,9 +257,8 @@ msgid "Database %s has been copied to %s"
 msgstr "A base de dados %s foi copiada para %s."
 
 #: db_operations.php:395
-#, fuzzy
 msgid "Rename database to"
-msgstr "Renomeia a tabela para "
+msgstr "Alterar o nome da base de dados para"
 
 #: db_operations.php:400 server_processlist.php:56
 msgid "Command"
