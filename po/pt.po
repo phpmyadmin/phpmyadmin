@@ -311,7 +311,7 @@ msgstr "Adicionar valor AUTO_INCREMENT"
 
 #: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
-msgstr "Adicionar limitadores"
+msgstr "Adicionar restrições (constraints)"
 
 #: db_operations.php:515
 #, fuzzy
