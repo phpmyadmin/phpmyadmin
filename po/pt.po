@@ -418,7 +418,7 @@ msgstr "Trocar para"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "Construtor Gráfico"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
