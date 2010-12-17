@@ -613,7 +613,7 @@ msgstr "A tabela %s foi eliminada"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
-msgstr "Detecção de Alterações encontra-se activada."
+msgstr "Detecção de Alterações está activa."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
