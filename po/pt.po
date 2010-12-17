@@ -315,7 +315,7 @@ msgstr "Adicionar restrições (constraints)"
 
 #: db_operations.php:515
 msgid "Switch to copied database"
-msgstr "Mudar para a base de dados copiada"
+msgstr "Mudar para a Base de Dados copiada"
 
 #: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
