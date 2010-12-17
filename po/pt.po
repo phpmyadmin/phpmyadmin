@@ -589,7 +589,7 @@ msgstr "Dentro de Tabela(s):"
 #: db_search.php:352
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Dentro de Colunas(s):"
+msgstr "Dentro da coluna:"
 
 #: db_structure.php:59
 #, fuzzy
