@@ -252,9 +252,9 @@ msgid "Database %s has been renamed to %s"
 msgstr "O nome da base de dados %s foi alterado para %s"
 
 #: db_operations.php:272
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Tabela %s copiada para %s."
+msgstr "A base de dados %s foi copiada para %s."
 
 #: db_operations.php:395
 #, fuzzy
