@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:33+0200\n"
+"PO-Revision-Date: 2010-12-17 14:34+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -414,7 +414,7 @@ msgstr "Tem que escolher pelo menos uma coluna para mostrar"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Trocar para"
 
 #: db_qbe.php:186
 msgid "visual builder"
