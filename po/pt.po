@@ -647,7 +647,7 @@ msgstr "Soma"
 #: db_structure.php:448 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s é o storage engine por defeito neste MySQL server."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
 #: libraries/display_tbl.lib.php:2077 libraries/display_tbl.lib.php:2082
