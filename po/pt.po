@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:43+0200\n"
+"PO-Revision-Date: 2010-12-17 14:44+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -602,9 +602,9 @@ msgid "Table %s has been emptied"
 msgstr "A tabela %s foi limpa"
 
 #: db_structure.php:279 tbl_operations.php:675
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "O campo %s foi eliminado"
+msgstr "A Vista %s foi eliminada"
 
 #: db_structure.php:279 tbl_operations.php:675
 #, php-format
