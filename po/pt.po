@@ -295,7 +295,7 @@ msgstr "Apenas dados"
 
 #: db_operations.php:491
 msgid "CREATE DATABASE before copying"
-msgstr "Criar Base de Dados antes de copiar (CREATE DATABASE)"
+msgstr "Criar a Base de Dados antes de copiar (CREATE DATABASE)"
 
 #: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
