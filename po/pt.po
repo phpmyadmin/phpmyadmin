@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:38+0200\n"
+"PO-Revision-Date: 2010-12-17 14:39+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -553,10 +553,10 @@ msgid "Delete"
 msgstr "Apagar"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Extraindo dados da tabela"
+msgstr "Apagar os semelhantes para a %s tabela?"
 
 #: db_search.php:273
 #, fuzzy, php-format
