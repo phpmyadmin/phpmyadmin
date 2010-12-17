@@ -559,12 +559,12 @@ msgid "Delete the matches for the %s table?"
 msgstr "Apagar os semelhantes para a %s tabela?"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultado(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
+msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: db_search.php:296
 msgid "Search in database"
