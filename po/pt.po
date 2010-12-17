@@ -468,7 +468,7 @@ msgstr "Ou"
 
 #: db_qbe.php:526
 msgid "Modify"
-msgstr "Modifica"
+msgstr "Modificar"
 
 #: db_qbe.php:603
 #, fuzzy
