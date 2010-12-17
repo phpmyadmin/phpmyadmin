@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:22+0200\n"
+"PO-Revision-Date: 2010-12-17 14:24+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -243,9 +243,8 @@ msgid "Unselect All"
 msgstr "Limpa Todas as Selecções"
 
 #: db_operations.php:41 tbl_create.php:48
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "O nome da tabela está vazio!"
+msgstr "O nome da base de dados está vazia!"
 
 #: db_operations.php:268
 #, fuzzy, php-format
