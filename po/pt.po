@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-17 14:32+0200\n"
+"PO-Revision-Date: 2010-12-17 14:33+0200\n"
 "Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -384,7 +384,7 @@ msgstr "Criação"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr "Actualização"
+msgstr "Ultima actualização"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:589
