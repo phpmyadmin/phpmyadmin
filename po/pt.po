@@ -471,10 +471,9 @@ msgid "Modify"
 msgstr "Modificar"
 
 #: db_qbe.php:603
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Adicionar/Remover Critérios"
+msgstr "Adicionar/Remover Linhas de Critérios"
 
 #: db_qbe.php:615
 #, fuzzy
