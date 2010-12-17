@@ -69,44 +69,31 @@ if (false !== $possibly_uploaded_val) {
 
     // $key contains the md5() of the fieldname
     if (0 === strlen($val)) {
-        // default
-        $val = "''";
-
-        switch ($type) {
-            case 'enum':
-                // if we have an enum, then construct the value
-            case 'set':
-                // if we have a set, then construct the value
-            case 'foreign':
-                // if we have a foreign key, then construct the value
-                if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
-                    $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
-                    $val = "'" . PMA_sqlAddslashes($val) . "'";
-                }
-                break;
-            case 'protected':
-                // here we are in protected mode (asked in the config)
-                // so tbl_change has put this special value in the
-                // fields array, so we do not change the field value
-                // but we can still handle field upload
-
-                // when in UPDATE mode, do not alter field's contents. When in INSERT
-                // mode, insert empty field because no values were submitted. If protected
-                // blobs where set, insert original fields content.
-                if (! empty($prot_row[$me_fields_name[$key]])) {
-                    $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
-                } else {
-                    $val = '';
-                }
-
-                break;
-            default:
-                // best way to avoid problems in strict mode (works also in non-strict mode)
-                if (isset($me_auto_increment)  && isset($me_auto_increment[$key])) {
-                    $val = 'NULL';
-                }
-                break;
+        // best way to avoid problems in strict mode (works also in non-strict mode)
+        if (isset($me_auto_increment)  && isset($me_auto_increment[$key])) {
+            $val = 'NULL';
+        } else {
+            $val = "''";
+        } 
+    } elseif ($type == 'set') {
+        if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
+            $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
+            $val = "'" . PMA_sqlAddslashes($val) . "'";
         }
+    } elseif ($type == 'protected') {
+        // here we are in protected mode (asked in the config)
+        // so tbl_change has put this special value in the
+        // fields array, so we do not change the field value
+        // but we can still handle field upload
+
+        // when in UPDATE mode, do not alter field's contents. When in INSERT
+        // mode, insert empty field because no values were submitted. If protected
+        // blobs where set, insert original fields content.
+            if (! empty($prot_row[$me_fields_name[$key]])) {
+                $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
+            } else {
+                $val = '';
+            }
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
         $val = "b'" . PMA_sqlAddslashes($val) . "'";
