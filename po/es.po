@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-18 21:13+0200\n"
+"PO-Revision-Date: 2010-12-18 21:16+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2383,10 +2383,9 @@ msgid "Debug SQL"
 msgstr "Depuración SQL"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Opciones para visualizar las bases de datos"
+msgstr "Dirección por defecto de la visualización"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
