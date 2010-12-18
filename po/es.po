@@ -2855,10 +2855,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Parámetros que no encajaban en otra parte"
 
 #: libraries/config/messages.inc.php:187
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Número de página:"
+msgstr "Títulos de página"
 
 #: libraries/config/messages.inc.php:188
 msgid ""
