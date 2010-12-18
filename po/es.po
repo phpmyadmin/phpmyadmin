@@ -525,7 +525,7 @@ msgstr "Resultados de la búsqueda por \"<i>%s</i>\" %s:"
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
 #: db_search.php:248
-#, php-format
+#, php-format, fuzzy
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
