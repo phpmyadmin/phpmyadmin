@@ -2397,7 +2397,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:45
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Dirección de visualización para creación/edición de columnas"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
