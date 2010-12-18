@@ -397,8 +397,8 @@ msgstr "Última revisión"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tablas"
-msgstr[1] "%s tabla(s)"
+msgstr[0] "%s tabla"
+msgstr[1] "%s tablas"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
