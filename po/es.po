@@ -525,12 +525,12 @@ msgstr "Resultados de la búsqueda por \"<i>%s</i>\" %s:"
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s resultado(s) en la tabla <i>%s</i>"
-msgstr[1] "%s resultado(s) en la tabla <i>%s</i>"
+msgstr[0] "%s resultado en la tabla <i>%s</i>"
+msgstr[1] "%s resultados en la tabla <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2818
 #: libraries/common.lib.php:2996 libraries/common.lib.php:2997
