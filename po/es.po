@@ -955,7 +955,7 @@ msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr "Eliminando evento"
+msgstr "Evento de eliminación"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
