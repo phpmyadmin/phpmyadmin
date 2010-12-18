@@ -258,6 +258,9 @@ function unNullify(urlField, multi_edit)
  */
 $(document).ready(function() {
 
+    // these were hidden via the "hide" class
+    $('.foreign_values_anchor').show();
+
     /**
      * Handles all current checkboxes for Null 
      * 
@@ -363,10 +366,15 @@ $(document).ready(function() {
                  */
                 var last_row = $("#insertForm").find(".insertRowTable:last");
 
+                // need to access this at more than one level
+                // (also needs improvement because it should be calculated
+                //  just once per cloned row, not once per column)
+                var new_row_index = 0;
+
                 //Clone the insert tables
                 $(last_row)
                 .clone()
-                .insertBefore("#insertForm > fieldset")
+                .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit]')
                 .each(function() {
 
@@ -387,7 +395,7 @@ $(document).ready(function() {
                     var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0]);
 
                     /** calculate next index i.e. 11 */
-                    var new_row_index = old_row_index + 1;
+                    new_row_index = old_row_index + 1;
                     /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
                     var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
 
@@ -417,8 +425,17 @@ $(document).ready(function() {
                                     );
                         }) 
                         .end();
-
-                });
+                    })
+                .end()
+                .find('.foreign_values_anchor')
+                .each(function() {
+                        $anchor = $(this);
+                        var new_value = 'pk=' + new_row_index;
+                        // needs improvement in case something else inside
+                        // the href contains this pattern
+                        var new_href = $anchor.attr('href').replace(/pk=\d+/, new_value);
+                        $anchor.attr('href', new_href );
+                    });
 
                 //Insert/Clone the ignore checkboxes
                 if(curr_rows == 1 ) {

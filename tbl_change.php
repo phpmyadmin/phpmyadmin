@@ -659,15 +659,7 @@ foreach ($rows as $row_id => $vrow) {
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
                 value="<?php echo htmlspecialchars($data); ?>" />
-            <script type="text/javascript">
-            //<![CDATA[
-                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"');
-                document.write(' href="browse_foreigners.php?');
-                document.write('<?php echo PMA_generate_common_url($db, $table); ?>');
-                document.writeln('&amp;field=<?php echo PMA_escapeJsString(urlencode($field['Field']) . $browse_foreigners_uri); ?>">');
-                document.writeln('<?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
-            //]]>
-            </script>
+                <a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes'); return false;" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo PMA_escapeJsString(urlencode($field['Field']) . $browse_foreigners_uri); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>
             <?php
         } elseif (is_array($foreignData['disp_row'])) {
             echo $backup_field . "\n";
@@ -1015,7 +1007,7 @@ $(function() {
 ?>
     <br />
 
-    <fieldset>
+    <fieldset id="actions_panel">
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
