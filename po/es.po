@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-18 21:23+0200\n"
+"PO-Revision-Date: 2010-12-18 21:24+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2842,10 +2842,9 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:183
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Texto Open Document"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:185
 msgid "Other core settings"
