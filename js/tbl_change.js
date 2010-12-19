@@ -430,10 +430,10 @@ $(document).ready(function() {
                 .find('.foreign_values_anchor')
                 .each(function() {
                         $anchor = $(this);
-                        var new_value = 'pk=' + new_row_index;
+                        var new_value = 'rownumber=' + new_row_index;
                         // needs improvement in case something else inside
                         // the href contains this pattern
-                        var new_href = $anchor.attr('href').replace(/pk=\d+/, new_value);
+                        var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
                         $anchor.attr('href', new_href );
                     });
 

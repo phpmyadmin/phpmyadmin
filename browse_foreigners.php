@@ -39,13 +39,13 @@ if (isset($foreign_navig) && $foreign_navig == __('Show all')) {
 
 $foreignData = PMA_getForeignData($foreigners, $field, $override_total, isset($foreign_filter) ? $foreign_filter : '', $foreign_limit);
 
-if (isset($pk)) {
-    $pk_uri = '&amp;pk=' . urlencode($pk);
+if (isset($rownumber)) {
+    $rownumber_param = '&amp;rownumber=' . urlencode($rownumber);
     ?>
-<input type="hidden" name="pk" value="<?php echo htmlspecialchars($pk); ?>" />
+<input type="hidden" name="rownumber" value="<?php echo htmlspecialchars($rownumber); ?>" />
     <?php
 } else {
-    $pk_uri = '';
+    $rownumber_param = '';
 }
 
 $gotopage = '';
@@ -65,7 +65,7 @@ if (is_array($foreignData['disp_row'])) {
         $gotopage = PMA_pageselector(
                       'browse_foreigners.php?field='    . urlencode($field) .
                                        '&amp;'          . PMA_generate_common_url($db, $table)
-                                                        . $pk_uri .
+                                                        . $rownumber_param .
                                        '&amp;fieldkey=' . (isset($fieldkey) ? urlencode($fieldkey) : '') .
                                        '&amp;foreign_filter=' . (isset($foreign_filter) ? urlencode($foreign_filter) : '') .
                                        '&amp;',
@@ -102,8 +102,8 @@ if (is_array($foreignData['disp_row'])) {
         if (opener && opener.document && opener.document.insertForm) {
             var field = 'fields';
 
-            <?php if (isset($pk)) { ?>
-            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($pk); ?>][' + fieldmd5 + ']';
+            <?php if (isset($rownumber)) { ?>
+            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
             <?php } else { ?>
             var element_name = field + '[]';
             <?php } ?>
@@ -141,8 +141,8 @@ if (is_array($foreignData['disp_row'])) {
 <input type="hidden" name="field" value="<?php echo htmlspecialchars($field); ?>" />
 <input type="hidden" name="fieldkey"
     value="<?php echo isset($fieldkey) ? htmlspecialchars($fieldkey) : ''; ?>" />
-<?php if (isset($pk)) { ?>
-<input type="hidden" name="pk" value="<?php echo htmlspecialchars($pk); ?>" />
+<?php if (isset($rownumber)) { ?>
+<input type="hidden" name="rownumber" value="<?php echo htmlspecialchars($rownumber); ?>" />
 <?php } ?>
 <span class="formelement">
     <label for="input_foreign_filter"><?php echo __('Search') . ':'; ?></label>
