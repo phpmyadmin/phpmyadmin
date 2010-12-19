@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-07-22 02:23+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-12-17 14:46+0200\n"
+"Last-Translator:  <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -97,16 +97,16 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Erro ao obter cabeçalhos (headers)"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "A base de dados %s foi eliminada."
+msgstr "A base de dados %s foi criada."
 
 #: db_datadict.php:48 db_operations.php:360
 msgid "Database comment: "
@@ -127,10 +127,9 @@ msgstr "Comentários da tabela"
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Nome dos Campos"
+msgstr "Coluna"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -166,7 +165,7 @@ msgstr "Nulo"
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:202 tbl_tracking.php:271
 msgid "Default"
-msgstr "Defeito"
+msgstr "Omissão"
 
 #: db_datadict.php:177 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
@@ -244,33 +243,30 @@ msgid "Unselect All"
 msgstr "Limpa Todas as Selecções"
 
 #: db_operations.php:41 tbl_create.php:48
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "O nome da tabela está vazio!"
+msgstr "O nome da base de dados está vazia!"
 
 #: db_operations.php:268
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Tabela %s renomeada para %s"
+msgstr "O nome da base de dados %s foi alterado para %s"
 
 #: db_operations.php:272
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Tabela %s copiada para %s."
+msgstr "A base de dados %s foi copiada para %s."
 
 #: db_operations.php:395
-#, fuzzy
 msgid "Rename database to"
-msgstr "Renomeia a tabela para "
+msgstr "Alterar o nome da base de dados para"
 
 #: db_operations.php:400 server_processlist.php:56
 msgid "Command"
 msgstr "Comando"
 
 #: db_operations.php:429
-#, fuzzy
 msgid "Remove database"
-msgstr "Renomeia a tabela para "
+msgstr "Remover a Base de Dados"
 
 #: db_operations.php:441
 #, php-format
@@ -278,18 +274,16 @@ msgid "Database %s has been dropped."
 msgstr "A base de dados %s foi eliminada."
 
 #: db_operations.php:446
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Sem bases de dados"
+msgstr "Apagar a Base de Dados (DROP)"
 
 #: db_operations.php:474
-#, fuzzy
 msgid "Copy database to"
-msgstr "Sem bases de dados"
+msgstr "Copiar a Base de Dados para"
 
 #: db_operations.php:481 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
-msgstr "Somente estrutura"
+msgstr "Somente a estrutura"
 
 #: db_operations.php:482 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
@@ -301,7 +295,7 @@ msgstr "Apenas dados"
 
 #: db_operations.php:491
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Criar a Base de Dados antes de copiar (CREATE DATABASE)"
 
 #: db_operations.php:494 libraries/config/messages.inc.php:122
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:125
@@ -317,12 +311,11 @@ msgstr "Adicionar valor AUTO_INCREMENT"
 
 #: db_operations.php:502 tbl_operations.php:547
 msgid "Add constraints"
-msgstr "Adicionar limitadores"
+msgstr "Adicionar restrições (constraints)"
 
 #: db_operations.php:515
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "Mudar para a tabela copiada"
+msgstr "Mudar para a Base de Dados copiada"
 
 #: db_operations.php:535 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -348,10 +341,9 @@ msgstr ""
 "foram desactivadas. Para saber porquê carregue %saqui%s."
 
 #: db_operations.php:581
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Esquema relacional"
+msgstr "Editar ou exporta o esquema relacional (schema)"
 
 #: db_printview.php:102 db_tracking.php:84 db_tracking.php:169
 #: libraries/config/messages.inc.php:484 libraries/db_structure.lib.php:37
@@ -392,22 +384,22 @@ msgstr "Criação"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr "Actualização"
+msgstr "Última actualização"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:589
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230 tbl_printview.php:451
 #: tbl_structure.php:917
 msgid "Last check"
-msgstr "Verificação"
+msgstr "Última Verificação"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabela(s)"
-msgstr[1] "%s tabela(s)"
+msgstr[0] "%s tabela"
+msgstr[1] "%s tabelas"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
@@ -422,11 +414,11 @@ msgstr "Tem que escolher pelo menos uma coluna para mostrar"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr ""
+msgstr "Trocar para"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "Construtor Gráfico"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
@@ -450,7 +442,7 @@ msgstr "Descendente"
 #: db_qbe.php:283 db_tracking.php:90 libraries/display_tbl.lib.php:306
 #: tbl_change.php:269 tbl_tracking.php:591
 msgid "Show"
-msgstr "Mostra"
+msgstr "Mostrar"
 
 #: db_qbe.php:319
 msgid "Criteria"
@@ -476,19 +468,17 @@ msgstr "Ou"
 
 #: db_qbe.php:526
 msgid "Modify"
-msgstr "Modifica"
+msgstr "Modificar"
 
 #: db_qbe.php:603
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Adicionar/Remover Critérios"
+msgstr "Adicionar/Remover Linhas de Critérios"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Adicionar/Remover Campos"
+msgstr "Adicionar/Remover Colunas"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
@@ -505,7 +495,7 @@ msgstr "Comando SQL na base de dados <b>%s</b>:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1160
 msgid "Submit Query"
-msgstr "Executa Comando SQL"
+msgstr "Executar Comando SQL"
 
 #: db_search.php:53 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -528,7 +518,7 @@ msgstr "a frase exacta"
 
 #: db_search.php:68 db_search.php:311
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr "como expressão regular"
 
 #: db_search.php:230
 #, php-format
@@ -536,19 +526,19 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s resultado(s) na tabela <i>%s</i>"
-msgstr[1] "%s resultado(s) na tabela <i>%s</i>"
+msgstr[0] "%s resultado na tabela <i>%s</i>"
+msgstr[1] "%s resultados na tabela <i>%s</i>"
 
 #: db_search.php:255 libraries/common.lib.php:2818
 #: libraries/common.lib.php:2996 libraries/common.lib.php:2997
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
-msgstr "Visualiza"
+msgstr "Visualizar"
 
 #: db_search.php:260 libraries/display_tbl.lib.php:1190
 #: libraries/display_tbl.lib.php:2052
@@ -563,18 +553,18 @@ msgid "Delete"
 msgstr "Apagar"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Extraindo dados da tabela"
+msgstr "Apagar os semelhantes para a %s tabela?"
 
 #: db_search.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultado(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
+msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: db_search.php:296
 msgid "Search in database"
@@ -582,7 +572,7 @@ msgstr "Pesquisar na Base de Dados"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Palavra(s) ou valor(es) para pesquisar para (wildcard: \"%\"):"
+msgstr "Palavra(s) ou valor(es) a pesquisar (wildcard: \"%\"):"
 
 #: db_search.php:304
 msgid "Find:"
@@ -597,16 +587,14 @@ msgid "Inside table(s):"
 msgstr "Dentro de Tabela(s):"
 
 #: db_search.php:352
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Dentro de Tabela(s):"
+msgstr "Dentro da coluna:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Nenhuma tabela encontrada na base de dados"
+msgstr "Não foram encontradas tabelas na base de dados"
 
 #: db_structure.php:270 tbl_operations.php:658
 #, php-format
@@ -614,9 +602,9 @@ msgid "Table %s has been emptied"
 msgstr "A tabela %s foi limpa"
 
 #: db_structure.php:279 tbl_operations.php:675
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "O campo %s foi eliminado"
+msgstr "A Vista %s foi eliminada"
 
 #: db_structure.php:279 tbl_operations.php:675
 #, php-format
@@ -625,11 +613,11 @@ msgstr "A tabela %s foi eliminada"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Detecção de Alterações está activa."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Detecção de Alterações está desactivada."
 
 #: db_structure.php:372 libraries/display_tbl.lib.php:1940
 #, php-format
@@ -637,18 +625,20 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
+"Esta vista tem número de linhas aproximado. Por favor, consulte a %"
+"sdocumentação%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
-msgstr ""
+msgstr "Vista"
 
 #: db_structure.php:437 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
 #, fuzzy
 msgid "Replication"
-msgstr "Relações"
+msgstr "Replicação"
 
 #: db_structure.php:441
 msgid "Sum"
@@ -657,7 +647,7 @@ msgstr "Soma"
 #: db_structure.php:448 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s é o storage engine por defeito neste MySQL server."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
 #: libraries/display_tbl.lib.php:2077 libraries/display_tbl.lib.php:2082
@@ -9728,164 +9718,3 @@ msgstr "Renomeia a tabela para "
 #, fuzzy
 #~ msgid "Start"
 #~ msgstr "Sab"
-
-#, fuzzy
-#~| msgid "Displaying Column Comments"
-#~ msgid "Display table filter"
-#~ msgstr "Mostrando comentários das Colunas"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "As Características adicionais para trabalhar com ligações entre Tabelas "
-#~ "foram desactivadas. Para saber porquê carregue %saqui%s."
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Executar um query marcado(do marcador)"
-
-#~ msgid "No tables"
-#~ msgstr "Sem tablelas"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "Dados CSV"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Introduza os valores para as opções de transformação a usando este "
-#~ "formato: 'a', 100, b,'c'...<br />Se por acaso precisar de inserir um "
-#~ "backslash (\"\\\") ou uma pelica (\"'\") no meio desses valores, faça-o "
-#~ "backslashes (por exemplo '\\\\xyz' ou 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Introduza os valores para as opções de transformação a usando este "
-#~ "formato: 'a', 100, b,'c'...<br />Se por acaso precisar de inserir um "
-#~ "backslash (\"\\\") ou uma pelica (\"'\") no meio desses valores, faça-o "
-#~ "backslashes (por exemplo '\\\\xyz' ou 'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Sem tablelas"
-
-#, fuzzy
-#~ msgid "server name"
-#~ msgstr "Nome do Utilizador"
-
-#, fuzzy
-#~ msgid "database name"
-#~ msgstr "Base de Dados"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Editar páginas PDF"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Formato dos dados do dicionário"
-
-#, fuzzy
-#~ msgid "PMA database"
-#~ msgstr "Sem bases de dados"
-
-#, fuzzy
-#~ msgid "yes"
-#~ msgstr "Sim"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Adicionar valor AUTO_INCREMENT"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Exporta %s registos começando em %s."
-
-#~ msgid "remember template"
-#~ msgstr "Lembrar-se do modelo"
-
-#~ msgid "Add into comments"
-#~ msgstr "Adicionar aos comentários"
-
-#, fuzzy
-#~ msgid "Export triggers"
-#~ msgstr "Tipo de Exportação"
-
-#, fuzzy
-#~ msgid "Export views"
-#~ msgstr "Tipo de Exportação"
-
-#, fuzzy
-#~ msgid "Actions"
-#~ msgstr "Acções"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Activado"
-
-#, fuzzy
-#~ msgid "Disable"
-#~ msgstr "Desactidado"
-
-#, fuzzy
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Reparar tabela"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Desactidado"
-
-#, fuzzy
-#~ msgid "Enable"
-#~ msgstr "Activado"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "não é possível carregar a extensão %s ;<br />verifique a configuração do "
-#~ "PHP por favor"
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Não é possível carregar <i>iconv</i> ou recodificar a extensão necessária "
-#~ "para a conversão do Mapa de Caracteres, configure o php de modo a "
-#~ "permitir utilizar estas extensões ou desligue a conversão do mapa de "
-#~ "caracteres no phpmyadmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Não é possível usar <i>iconv</i> nem <i>libiconv</i> nem a função "
-#~ "<i>recode_string</i> enquanto a extensão reportar que está ligada. "
-#~ "Confira a configuração do seu php."
