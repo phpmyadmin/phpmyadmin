@@ -21,7 +21,6 @@ require_once './libraries/header_http.inc.php';
 /**
  * Displays the frame
  */
-$per_page = 200;
 require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
@@ -32,7 +31,7 @@ if (!isset($pos)) {
     $pos = 0;
 }
 
-$foreign_limit = 'LIMIT ' . $pos . ', ' . $per_page . ' ';
+$foreign_limit = 'LIMIT ' . $pos . ', ' . $GLOBALS['cfg']['MaxRows'] . ' ';
 if (isset($foreign_navig) && $foreign_navig == __('Show all')) {
     unset($foreign_limit);
 }
@@ -53,15 +52,15 @@ $showall = '';
 
 if (is_array($foreignData['disp_row'])) {
 
-    if ($cfg['ShowAll'] && ($foreignData['the_total'] > $per_page)) {
+    if ($cfg['ShowAll'] && ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows'])) {
         $showall = '<input type="submit" name="foreign_navig" value="' . __('Show all') . '" />';
     }
 
-    $session_max_rows = $per_page;
+    $session_max_rows = $GLOBALS['cfg']['MaxRows'];
     $pageNow = @floor($pos / $session_max_rows) + 1;
     $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
 
-    if ($foreignData['the_total'] > $per_page) {
+    if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
         $gotopage = PMA_pageselector(
                       'browse_foreigners.php?field='    . urlencode($field) .
                                        '&amp;'          . PMA_generate_common_url($db, $table)
