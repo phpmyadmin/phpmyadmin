@@ -40,9 +40,6 @@ $foreignData = PMA_getForeignData($foreigners, $field, $override_total, isset($f
 
 if (isset($rownumber)) {
     $rownumber_param = '&amp;rownumber=' . urlencode($rownumber);
-    ?>
-<input type="hidden" name="rownumber" value="<?php echo htmlspecialchars($rownumber); ?>" />
-    <?php
 } else {
     $rownumber_param = '';
 }
@@ -260,7 +257,7 @@ if (is_array($foreignData['disp_row'])) {
         ?></td>
         <td width="20%">
             <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>"
-                alt="" width="1" height="1"></td>
+                alt="" width="1" height="1" /></td>
 
         <td>
         <?php
