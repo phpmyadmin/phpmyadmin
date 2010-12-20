@@ -1070,7 +1070,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
     // name of the class added to all inline editable elements
-    $data_inline_edit_class = 'data_inline_edit';
+    $inline_edit_class = 'inline_edit';
 
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
@@ -1226,8 +1226,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
-            // to $data_inline_edit_class
-            $class = 'data ' . $data_inline_edit_class . ' ' . $alternating_color_class;
+            // to $inline_edit_class
+            $class = 'data ' . $inline_edit_class . ' ' . $alternating_color_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1312,7 +1312,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                // reset $class from $data_inline_edit_class to just 'data' 
+                // reset $class from $inline_edit_class to just 'data' 
                 // as we can't edit binary data
                 $class = 'data';
 
@@ -1353,7 +1353,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
                 $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
-                // reset $class from $data_inline_edit_class to 'data' 
+                // reset $class from $inline_edit_class to 'data' 
                 // as we can't edit geometry data
                 $class = 'data';
                 $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);

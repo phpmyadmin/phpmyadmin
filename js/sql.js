@@ -352,14 +352,14 @@ $(document).ready(function() {
             /**
              * @var $input_siblings  Object referring to all inline editable events from same row
              */
-            var $input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            var $input_siblings = $(this).parents('tbody').find('tr').find('.inline_edit:nth('+this_row_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
-            var $input_siblings = $(this).parent('tr').find('.data_inline_edit');
+            var $input_siblings = $(this).parent('tr').find('.inline_edit');
             var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
 
@@ -513,14 +513,14 @@ $(document).ready(function() {
             /**
              * @var $input_siblings  Object referring to all inline editable events from same row
              */
-            var $input_siblings = $this_td.parents('tbody').find('tr').find('.data_inline_edit:nth('+this_td_index+')');
+            var $input_siblings = $this_td.parents('tbody').find('tr').find('.inline_edit:nth('+this_td_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
             var where_clause = $this_td.parents('tbody').find('tr').find('.where_clause:nth('+this_td_index+')').val();
         }
         else {
-            var $input_siblings = $this_td.parent('tr').find('.data_inline_edit');
+            var $input_siblings = $this_td.parent('tr').find('.inline_edit');
             var where_clause = $this_td.parent('tr').find('.where_clause').val();
         }
 
