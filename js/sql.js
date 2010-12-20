@@ -694,27 +694,27 @@ $(document).ready(function() {
 /**
  * Starting from some th, change the class of all td under it
  */
-function PMA_changeClassForColumn($this_th, klass) {
+function PMA_changeClassForColumn($this_th, newclass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     // .eq() is zero-based
     th_index--;
-    var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data_inline_edit');
+    var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data');
     $tr_with_data.each(function() {
-        $(this).find('td.data_inline_edit:eq('+th_index+')').toggleClass(klass);
+        $(this).find('td.data:eq('+th_index+')').toggleClass(newclass);
     });
 }
 
 $(document).ready(function() {
     /**
-     * column highlighting in horizontal mode when hovering over the column header
+     * vertical column highlighting in horizontal mode when hovering over the column header
      */
     $('.column_heading').live('hover', function() {
         PMA_changeClassForColumn($(this), 'hover'); 
         });
 
     /**
-     * column marking in horizontal mode when clicking the column header
+     * vertical column marking in horizontal mode when clicking the column header
      */
     $('.column_heading').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked'); 
