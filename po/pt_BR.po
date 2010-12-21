@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-10-21 05:02+0200\n"
-"Last-Translator:  <fabiobucior@gmail.com>\n"
+"PO-Revision-Date: 2010-12-21 18:45+0200\n"
+"Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -99,10 +99,9 @@ msgid "No blob streaming server configured!"
 msgstr ""
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Falhou ao salvar arquivo no disco."
+msgstr "Falhou ao recuperar cabeçalhos."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -10040,24 +10039,3 @@ msgstr "Renomear a tabela para "
 #, fuzzy
 #~ msgid "Start"
 #~ msgstr "Sab"
-
-#, fuzzy
-#~| msgid "Displaying Column Comments"
-#~ msgid "Display table filter"
-#~ msgstr "Exibindo comentários da coluna"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Os recursos adicionais para trabalhar com tabelas linkadas foram "
-#~ "desativadas. Para descobrir o motivo clique %saqui%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorar linhas duplicadas"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Executar consulta marcada"
-
-#~ msgid "No tables"
-#~ msgstr "Sem tabelas"
