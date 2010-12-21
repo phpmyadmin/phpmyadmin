@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-21 13:13+0200\n"
+"PO-Revision-Date: 2010-12-21 13:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3918,7 +3918,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:434
 msgid "Verbose name of this server"
-msgstr "Sunucunun fazladan adı"
+msgstr "Bu sunucunun fazladan adı"
 
 #: libraries/config/messages.inc.php:435
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
