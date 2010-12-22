@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-22 22:48+0200\n"
+"PO-Revision-Date: 2010-12-22 22:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4566,7 +4566,7 @@ msgstr "Sıkıştırma:"
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:512 server_privileges.php:1966 server_processlist.php:74
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: libraries/display_export.lib.php:313
 msgid "zipped"
