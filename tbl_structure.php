@@ -162,14 +162,14 @@ $titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinc
 // hidden action titles (image and string)
 $hidden_titles = array();
 $hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), false, true);
-$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), false, true);
-$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), false, true);
-$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Index'), false, true);
-$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), false, true);
-$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), false, true);
-$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), false, true);
-$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), false, true);
-$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), false, true);
+$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Add primary key'), false, true);
+$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Add primary key'), false, true);
+$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add index'), false, true);
+$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), false, true);
+$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), false, true);
+$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), false, true);
+$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), false, true);
+$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), false, true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
