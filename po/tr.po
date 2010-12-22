@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-22 22:52+0200\n"
+"PO-Revision-Date: 2010-12-22 22:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5689,7 +5689,7 @@ msgstr ""
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
