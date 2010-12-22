@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-22 22:08+0200\n"
+"PO-Revision-Date: 2010-12-22 22:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4386,8 +4386,8 @@ msgstr ""
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"Yapılandırmanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
-"başarısız."
+"Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
+"başarısız oldu."
 
 #: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysql.dbi.lib.php:359
 #: libraries/dbi/mysqli.dbi.lib.php:411
