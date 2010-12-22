@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-22 22:28+0200\n"
+"PO-Revision-Date: 2010-12-22 22:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4461,7 +4461,7 @@ msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "\"%s\" veritabanında tablolar dışa aktarılıyor"
+msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
 
 #: libraries/display_export.lib.php:91
 #, php-format
