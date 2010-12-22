@@ -503,7 +503,7 @@ function PMA_exportDBFooter($db)
  * Returns a stand-in CREATE definition to resolve view dependencies
  *
  * @param   string   the database name
- * @param   string   the vew name
+ * @param   string   the view name
  * @param   string   the end of line sequence
  *
  * @return  string   resulting definition
