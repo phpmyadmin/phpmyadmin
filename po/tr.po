@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-21 13:26+0200\n"
+"PO-Revision-Date: 2010-12-22 22:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7676,7 +7676,7 @@ msgstr "Kullanıcı için veritabanı"
 #: server_privileges.php:2129
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: server_privileges.php:2130
 msgid "Create database with same name and grant all privileges"
