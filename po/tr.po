@@ -6509,7 +6509,7 @@ msgstr "Daha fazla düzenleme alanı alın"
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
