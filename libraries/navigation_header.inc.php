@@ -91,13 +91,26 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
         echo '>' . $query_frame_link_text . '</a>' . "\n";
     } // end if ($server != 0)
 
-if ($GLOBALS['cfg']['MainPageIconic']) {
     echo '    <a href="Documentation.html" target="documentation"'
-        .' title="' . __('phpMyAdmin documentation') . '" >'
-        .'<img class="icon" src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
-        .' alt="' . __('phpMyAdmin documentation') . '" /></a>' . "\n";
+        .' title="' . __('phpMyAdmin documentation') . '" >';
+
+    if ($GLOBALS['cfg']['MainPageIconic']) {
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
+            .' alt="' . __('phpMyAdmin documentation') . '" />';
+    }
+    echo '</a>';
     echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
-}
+
+    echo '<a href="navigation.php' . PMA_generate_common_url($params) . '" target="frame_navigation">';
+    if ($GLOBALS['cfg']['MainPageIconic']) {
+        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
+            . ' title="' . __('Reload navigation frame') . '"'
+            . ' alt="' . __('Reload navigation frame') . '" />';
+    } else {
+        echo '<br />' . __('Reload navigation frame');
+    }
+    echo '</a>';
+
 echo '</div>' . "\n";
 
 /**

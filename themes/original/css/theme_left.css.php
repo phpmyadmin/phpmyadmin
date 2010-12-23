@@ -134,7 +134,6 @@ div#leftframelinks .icon {
     margin:             0;
 }
 
-div#reloadlink a img,
 div#leftframelinks a img.icon {
     margin:             0;
     padding:            0.2em;
@@ -230,12 +229,6 @@ div#left_tableList ul ul {
 #serverinfo a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-#reloadlink {
-    clear: both;
-    float: <?php echo $right; ?>;
-    display: block;
-    padding: 1em;
 }
 
 #NavFilter {

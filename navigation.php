@@ -53,18 +53,6 @@ function PMA_exitNavigationFrame()
     if (!empty($GLOBALS['db'])) {
         $params['db'] = $GLOBALS['db'];
     }
-    echo '<div id="reloadlink">' . "\n";
-    echo '<a href="navigation.php' . PMA_generate_common_url($params) . '" target="frame_navigation">';
-    if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
-            . ' title="' . __('Reload navigation frame') . '"'
-            . ' alt="' . __('Reload navigation frame') . '" />';
-    }
-    if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-        echo __('Reload navigation frame');
-    }
-    echo '</a>';
-    echo '</div>' . "\n";
     echo '</body></html>';
     exit;
 }
