@@ -101,7 +101,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     echo '</a>';
     echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
 
-    echo '<a href="navigation.php' . PMA_generate_common_url($params) . '" target="frame_navigation">';
+    echo '<a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
             . ' title="' . __('Reload navigation frame') . '"'
