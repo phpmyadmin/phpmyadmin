@@ -57,7 +57,7 @@ if (isset($fields['dbase'])) {
  * This doesn't seem to be the right place to do this, but I can't think of any
  * better place either.
  */
-if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
+if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
     require_once 'libraries/relation.lib.php';
 
     $column = $_REQUEST['column'];
@@ -75,9 +75,9 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
                 'field' => $column
         );
 
-        $dropdown = '<a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
-                    . ' target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"'
-                    .'>Search Foreign Data</a>';
+        $dropdown = '<span class="curr_value">' . htmlspecialchars($_REQUEST['curr_value']) . '</span> <a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
+                    . ' target="_blank" class="browse_foreign" '
+                    .'>' . __('Browse foreign values') . '</a>';
     }
     else {
         $dropdown = '<select>' . $dropdown . '</select>';

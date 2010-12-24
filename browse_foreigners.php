@@ -98,6 +98,16 @@ require_once './libraries/header_scripts.inc.php';
     //<![CDATA[
     self.focus();
     function formupdate(fieldmd5, key) {
+        var $inline = window.opener.jQuery('.browse_foreign_clicked');
+        if ($inline.length != 0) {
+            $inline.removeClass('browse_foreign_clicked')
+                // puts new value in the previous element which is 
+                // a span with class curr_value
+                .prev().text(key);
+            self.close();
+            return false;
+        }
+
         if (opener && opener.document && opener.document.insertForm) {
             var field = 'fields';
 

@@ -503,6 +503,8 @@ $(document).ready(function() {
          */
         var $this_td = $(this);
 
+        var $test_element = ''; // to test the presence of a element
+
         // Initialize variables
         if(disp_mode == 'vertical') {
             /**
@@ -580,7 +582,17 @@ $(document).ready(function() {
                 }
             }
             else {
-                this_field_params[field_name] = $this_field.find('select').val();
+                // results from a drop-down
+                $test_element = $this_field.find('select');
+                if ($test_element.length != 0) {
+                    this_field_params[field_name] = $test_element.val();
+                }
+
+                // results from Browse foreign value
+                $test_element = $this_field.find('span.curr_value');
+                if ($test_element.length != 0) {
+                    this_field_params[field_name] = $test_element.text();
+                }
 
                 if($this_field.is('.relation')) {
                     $.extend(relation_fields, this_field_params);
@@ -667,18 +679,32 @@ $(document).ready(function() {
                         }
                     }
                     else {
-                        var new_html = $(this).find('select').val();
+                        var new_html = '';
+                        var new_value = '';
+                        $test_element = $(this).find('select');
+                        if ($test_element.length != 0) {
+                            new_value = $test_element.val();
+                        }
+
+                        $test_element = $(this).find('span.curr_value');
+                        if ($test_element.length != 0) {
+                            new_value = $test_element.text();
+                        }
+
+                        
                         if($(this).is('.relation')) {
                             var field_name = getFieldName($(this), disp_mode);
                             var this_field = $(this);
 
                             $.each(data.relations, function(key, value) {
                                 if(key == field_name) {
-                                    var new_value = $(this_field).find('select').val();
                                     new_html = $(value).append(new_value);
                                     return false;
                                 }
                             })
+                        } 
+                        if($(this).is('.enum')) {
+                            new_html = new_value;
                         }
                     }
                     $(this).html(new_html);
@@ -706,6 +732,15 @@ function PMA_changeClassForColumn($this_th, newclass) {
 }
 
 $(document).ready(function() {
+
+    $('.browse_foreign').live('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes');
+        $anchor = $(this);
+        $anchor.addClass('browse_foreign_clicked');
+        return false;
+    });
+
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
