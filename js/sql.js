@@ -653,24 +653,23 @@ $(document).ready(function() {
 
                 $input_siblings.each(function() {
                     // Inline edit post has been successful.
-                    if($(this).is(':not(.relation, .enum)')) {
+                    $this_sibling = $(this);
+                    if($this_sibling.is(':not(.relation, .enum)')) {
                         /**
                          * @var new_html    String containing value of the data field after edit
                          */
-                        var new_html = $(this).find('textarea').val();
+                        var new_html = $this_sibling.find('textarea').val();
 
-                        if($(this).is('.transformed')) {
-                            var field_name = getFieldName($(this), disp_mode);
-                            var this_field = $(this);
-
+                        if($this_sibling.is('.transformed')) {
+                            var field_name = getFieldName($this_sibling, disp_mode);
                             $.each(data.transformations, function(key, value) {
                                 if(key == field_name) {
-                                    if($(this_field).is('.text_plain, .application_octetstream')) {
+                                    if($this_sibling.is('.text_plain, .application_octetstream')) {
                                         new_html = value;
                                         return false;
                                     }
                                     else {
-                                        var new_value = $(this_field).find('textarea').val();
+                                        var new_value = $this_sibling.find('textarea').val();
                                         new_html = $(value).append(new_value);
                                         return false;
                                     }
@@ -681,21 +680,19 @@ $(document).ready(function() {
                     else {
                         var new_html = '';
                         var new_value = '';
-                        $test_element = $(this).find('select');
+                        $test_element = $this_sibling.find('select');
                         if ($test_element.length != 0) {
                             new_value = $test_element.val();
                         }
 
-                        $test_element = $(this).find('span.curr_value');
+                        $test_element = $this_sibling.find('span.curr_value');
                         if ($test_element.length != 0) {
                             new_value = $test_element.text();
                         }
 
                         
-                        if($(this).is('.relation')) {
-                            var field_name = getFieldName($(this), disp_mode);
-                            var this_field = $(this);
-
+                        if($this_sibling.is('.relation')) {
+                            var field_name = getFieldName($this_sibling, disp_mode);
                             $.each(data.relations, function(key, value) {
                                 if(key == field_name) {
                                     new_html = $(value).append(new_value);
@@ -703,11 +700,11 @@ $(document).ready(function() {
                                 }
                             })
                         } 
-                        if($(this).is('.enum')) {
+                        if($this_sibling.is('.enum')) {
                             new_html = new_value;
                         }
                     }
-                    $(this).html(new_html);
+                    $this_sibling.html(new_html);
                 })
             }
             else {
