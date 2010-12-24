@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-14 11:27-0500\n"
+"POT-Creation-Date: 2010-12-24 07:55-0500\n"
 "PO-Revision-Date: 2010-10-21 01:36+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: browse_foreigners.php:36 browse_foreigners.php:57
+#: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
 msgid "Show all"
 msgstr "সবগুলো দেখাও"
 
-#: browse_foreigners.php:80 libraries/common.lib.php:2293
+#: browse_foreigners.php:76 libraries/common.lib.php:2293
 #: libraries/display_tbl.lib.php:392 libraries/export/pdf.php:137
 #: libraries/schema/Pdf_Relation_Schema.class.php:242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1101
@@ -28,7 +28,7 @@ msgstr "সবগুলো দেখাও"
 msgid "Page number:"
 msgstr "পাতার সংখ্যাঃ"
 
-#: browse_foreigners.php:130
+#: browse_foreigners.php:139
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -38,14 +38,14 @@ msgstr ""
 "করেছেন, অথবা আপনার ব্রাউজার এর নিরাপত্তা সেটিংস্ এমন ভাবে কনফিগার করা আছে যে "
 "দুটি উইন্ডোর এক সাথে হালনাগাদ করাকে বাধা দিবে।"
 
-#: browse_foreigners.php:148 libraries/common.lib.php:2816
+#: browse_foreigners.php:157 libraries/common.lib.php:2816
 #: libraries/common.lib.php:2823 libraries/common.lib.php:2998
 #: libraries/common.lib.php:2999 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "খুঁজুন"
 
-#: browse_foreigners.php:151 db_operations.php:367 db_operations.php:412
+#: browse_foreigners.php:160 db_operations.php:367 db_operations.php:412
 #: db_operations.php:518 db_operations.php:542 db_search.php:359
 #: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
 #: libraries/Theme_Manager.class.php:305
@@ -62,14 +62,14 @@ msgstr "খুঁজুন"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
-#: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:230
+#: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:218
 #: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
 #: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
 #: server_privileges.php:2062 server_privileges.php:2109
 #: server_privileges.php:2149 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1077
-#: tbl_change.php:1114 tbl_indexes.php:252 tbl_operations.php:262
+#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1066
+#: tbl_change.php:1103 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
 #: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
@@ -77,19 +77,19 @@ msgstr "খুঁজুন"
 msgid "Go"
 msgstr "যাও"
 
-#: browse_foreigners.php:166 browse_foreigners.php:170
+#: browse_foreigners.php:175 browse_foreigners.php:179
 #: libraries/Index.class.php:441 tbl_tracking.php:314
 msgid "Keyname"
 msgstr "Keyname"
 
-#: browse_foreigners.php:167 browse_foreigners.php:169
+#: browse_foreigners.php:176 browse_foreigners.php:178
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:760
 msgid "Description"
 msgstr "বর্ণনা"
 
-#: browse_foreigners.php:245 browse_foreigners.php:254
-#: browse_foreigners.php:266 browse_foreigners.php:274
+#: browse_foreigners.php:254 browse_foreigners.php:263
+#: browse_foreigners.php:275 browse_foreigners.php:283
 msgid "Use this value"
 msgstr "এই মান ব্যাবহার করুন"
 
@@ -234,7 +234,7 @@ msgid "View dump (schema) of database"
 msgstr "ডাটাবেজ ওর (schema) ভান্ডারটি দেখা হোক"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
-#: export.php:371 navigation.php:320
+#: export.php:371 navigation.php:308
 msgid "No tables found in database."
 msgstr "ডাটাবেজ এ কোন টেবিল পাওয়া যায়নি।"
 
@@ -364,7 +364,7 @@ msgstr "টেবিল"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:623 navigation.php:645
+#: libraries/import.lib.php:147 navigation.php:611 navigation.php:633
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:869
 msgid "Rows"
@@ -409,7 +409,7 @@ msgstr[0] "%s table(s)"
 msgstr[1] "%s table(s)"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1977 libraries/sql_query_form.lib.php:136
+#: libraries/display_tbl.lib.php:1979 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -469,7 +469,7 @@ msgstr "Del"
 
 #: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:928 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:917 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "অথবা"
 
@@ -550,7 +550,7 @@ msgid "Browse"
 msgstr "ব্রাউজ করুন"
 
 #: db_search.php:260 libraries/display_tbl.lib.php:1190
-#: libraries/display_tbl.lib.php:2052
+#: libraries/display_tbl.lib.php:2054
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:1940
+#: db_structure.php:372 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -658,20 +658,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s MySQL সার্ভার এর ডিফল্ট ষ্টোরেজ ইঞ্জিন"
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2077 libraries/display_tbl.lib.php:2082
+#: libraries/display_tbl.lib.php:2079 libraries/display_tbl.lib.php:2084
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "With selected:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2072
+#: db_structure.php:479 libraries/display_tbl.lib.php:2074
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "সব পরীক্ষা করুন"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2073
+#: db_structure.php:483 libraries/display_tbl.lib.php:2075
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
@@ -683,7 +683,7 @@ msgstr "ওভারহেড সহ টেবিল পরীক্ষা ক�
 
 #: db_structure.php:495 db_structure.php:496
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2090 libraries/display_tbl.lib.php:2224
+#: libraries/display_tbl.lib.php:2092 libraries/display_tbl.lib.php:2226
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1371 setup/frames/menu.inc.php:21
@@ -692,7 +692,7 @@ msgid "Export"
 msgstr "Export"
 
 #: db_structure.php:497 db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2179 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2181 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Print view"
@@ -1535,8 +1535,8 @@ msgstr "ইন্ডেস্ক সমূহ"
 
 #: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
 #: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
-#: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:169
-#: tbl_structure.php:170 tbl_structure.php:564 tbl_tracking.php:316
+#: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
+#: tbl_tracking.php:316
 msgid "Unique"
 msgstr "Unique"
 
@@ -1585,7 +1585,7 @@ msgstr "ডাটাবেজসমূহ Databases"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:573
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:924
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:913
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "ভূল"
@@ -1723,8 +1723,8 @@ msgstr "লগ ইন"
 
 #: libraries/auth/cookie.auth.lib.php:233
 #: libraries/auth/cookie.auth.lib.php:235
-#: libraries/navigation_header.inc.php:96
-#: libraries/navigation_header.inc.php:98
+#: libraries/navigation_header.inc.php:95
+#: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin documentation"
 
@@ -2177,7 +2177,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web server upload directory"
 
 #: libraries/common.lib.php:2975 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:925
+#: tbl_change.php:914
 msgid "The directory you set for upload work cannot be reached"
 msgstr "The directory you set for upload work cannot be reached"
 
@@ -2236,28 +2236,28 @@ msgid "neither of the above"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:83
-#: libraries/config/validate.lib.php:416
+#: libraries/config/validate.lib.php:418
 msgid "Not a positive number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:84
-#: libraries/config/validate.lib.php:429
+#: libraries/config/validate.lib.php:431
 msgid "Not a non-negative number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:85
-#: libraries/config/validate.lib.php:403
+#: libraries/config/validate.lib.php:405
 msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:565
-#: libraries/config/validate.lib.php:354 libraries/config/validate.lib.php:444
+#: libraries/config/validate.lib.php:356 libraries/config/validate.lib.php:446
 msgid "Incorrect value"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:87
-#: libraries/config/validate.lib.php:458
+#: libraries/config/validate.lib.php:460
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr ""
@@ -2330,14 +2330,14 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1029 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1018 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "সেভ করুন"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1078
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1067
 msgid "Reset"
 msgstr "রিসেট করুন"
 
@@ -4384,7 +4384,7 @@ msgstr ""
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:361
+#: libraries/config/validate.lib.php:363
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -4438,7 +4438,7 @@ msgstr ""
 msgid "Return type"
 msgstr ""
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1844
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1846
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4884,49 +4884,49 @@ msgstr "Browser transformation"
 msgid "The row has been deleted"
 msgstr "সারিটি মুছে ফেলা হয়েছে"
 
-#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2052
+#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2054
 #: server_processlist.php:70 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Kill"
 
-#: libraries/display_tbl.lib.php:1930
+#: libraries/display_tbl.lib.php:1932
 msgid "in query"
 msgstr "in query"
 
-#: libraries/display_tbl.lib.php:1948
+#: libraries/display_tbl.lib.php:1950
 msgid "Showing rows"
 msgstr "Showing rows"
 
-#: libraries/display_tbl.lib.php:1958
+#: libraries/display_tbl.lib.php:1960
 msgid "total"
 msgstr "মোট"
 
-#: libraries/display_tbl.lib.php:1966 sql.php:597
+#: libraries/display_tbl.lib.php:1968 sql.php:597
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Query took %01.4f sec"
 
-#: libraries/display_tbl.lib.php:2085 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2087 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Change"
 
-#: libraries/display_tbl.lib.php:2158
+#: libraries/display_tbl.lib.php:2160
 msgid "Query results operations"
 msgstr "Query results operations"
 
-#: libraries/display_tbl.lib.php:2186
+#: libraries/display_tbl.lib.php:2188
 msgid "Print view (with full texts)"
 msgstr "Print view (with full texts)"
 
-#: libraries/display_tbl.lib.php:2230 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2232 tbl_chart.php:81
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Display PDF schema"
 
-#: libraries/display_tbl.lib.php:2380
+#: libraries/display_tbl.lib.php:2382
 msgid "Link not found"
 msgstr "লিংক পাওয়া যায়নি"
 
@@ -5784,21 +5784,20 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
 #: tbl_structure.php:28 tbl_structure.php:152 tbl_structure.php:156
-#: tbl_structure.php:165 tbl_structure.php:166 tbl_structure.php:563
+#: tbl_structure.php:563
 msgid "Primary"
 msgstr "প্রাথমিক"
 
 #: libraries/mult_submits.inc.php:97 libraries/tbl_properties.inc.php:115
 #: libraries/tbl_properties.inc.php:528 tbl_printview.php:323
 #: tbl_structure.php:30 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:167 tbl_structure.php:168 tbl_structure.php:565
-#: tbl_structure.php:765
+#: tbl_structure.php:565 tbl_structure.php:765
 msgid "Index"
 msgstr "ইন্ডেস্ক"
 
 #: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
 #: tbl_structure.php:34 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:171 tbl_structure.php:172 tbl_structure.php:569
+#: tbl_structure.php:569
 msgid "Fulltext"
 msgstr "Fulltext"
 
@@ -5811,7 +5810,7 @@ msgid "Charset"
 msgstr "Charset"
 
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
-#: tbl_change.php:509
+#: tbl_change.php:507
 msgid "Binary"
 msgstr "বাইনারী"
 
@@ -6008,6 +6007,12 @@ msgstr "মূল পাতা"
 #: libraries/navigation_header.inc.php:74
 msgid "Log out"
 msgstr "লগ আউট"
+
+#: libraries/navigation_header.inc.php:107
+#: libraries/navigation_header.inc.php:108
+#: libraries/navigation_header.inc.php:110
+msgid "Reload navigation frame"
+msgstr ""
 
 #: libraries/plugin_interface.lib.php:336
 #, fuzzy
@@ -6463,7 +6468,7 @@ msgstr "শুধু দেখ"
 msgid "Location of the text file"
 msgstr "Location of the text file"
 
-#: libraries/sql_query_form.lib.php:499 tbl_change.php:928
+#: libraries/sql_query_form.lib.php:499 tbl_change.php:917
 msgid "web server upload directory"
 msgstr "web server upload directory"
 
@@ -7025,37 +7030,33 @@ msgid ""
 "issues."
 msgstr ""
 
-#: navigation.php:60 navigation.php:61 navigation.php:64
-msgid "Reload navigation frame"
-msgstr ""
-
-#: navigation.php:203 server_databases.php:265 server_synchronize.php:1189
+#: navigation.php:191 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
 msgstr "কোন ডাটাবেজ নাই"
 
-#: navigation.php:292
+#: navigation.php:280 setup/frames/index.inc.php:219
+#, fuzzy
+msgid "Clear"
+msgstr "ক্যালেন্ডার"
+
+#: navigation.php:281
 #, fuzzy
 msgid "Filter"
 msgstr "ক্ষেত্রসমূহ"
 
-#: navigation.php:292
+#: navigation.php:281
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
 msgstr "টেবিল অর্ডার পরিবর্তন কর"
 
-#: navigation.php:293 setup/frames/index.inc.php:219
-#, fuzzy
-msgid "Clear"
-msgstr "ক্যালেন্ডার"
-
-#: navigation.php:324 navigation.php:325
+#: navigation.php:312 navigation.php:313
 #, fuzzy
 msgctxt "short form"
 msgid "Create table"
 msgstr "একটি নতুন পাতা তৈরী কর"
 
-#: navigation.php:327 navigation.php:489
+#: navigation.php:315 navigation.php:477
 msgid "Please select a database"
 msgstr "Please select a database"
 
@@ -9286,6 +9287,11 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
+#: sql.php:80 tbl_change.php:244 tbl_select.php:25 tbl_select.php:26
+#: tbl_select.php:29 tbl_select.php:32
+msgid "Browse foreign values"
+msgstr "Browse foreign values"
+
 #: sql.php:569 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
@@ -9320,72 +9326,67 @@ msgstr "লেবেল"
 msgid "Table %1$s has been altered successfully"
 msgstr "The selected users have been deleted successfully."
 
-#: tbl_change.php:244 tbl_select.php:25 tbl_select.php:26 tbl_select.php:29
-#: tbl_select.php:32
-msgid "Browse foreign values"
-msgstr "Browse foreign values"
-
 #: tbl_change.php:274 tbl_change.php:312
 msgid "Function"
 msgstr "ফাংশন"
 
-#: tbl_change.php:723
+#: tbl_change.php:710
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Because of its length,<br /> this field might not be editable "
 
-#: tbl_change.php:838
+#: tbl_change.php:827
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:844
+#: tbl_change.php:833
 msgid "Binary - do not edit"
 msgstr "বাইনারী -সম্পাদনা করবেন না"
 
-#: tbl_change.php:892
+#: tbl_change.php:881
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1033
+#: tbl_change.php:1022
 msgid "Insert as new row"
 msgstr "Insert as new row"
 
-#: tbl_change.php:1034
+#: tbl_change.php:1023
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1035
+#: tbl_change.php:1024
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1046
+#: tbl_change.php:1035
 msgid "and then"
 msgstr "এবং তারপর"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1039
 msgid "Go back to previous page"
 msgstr "পূর্বের পাতায় ফিরে যাও"
 
-#: tbl_change.php:1051
+#: tbl_change.php:1040
 msgid "Insert another new row"
 msgstr "নতুন আরেকটি সাড়ি যোগ করুন"
 
-#: tbl_change.php:1055
+#: tbl_change.php:1044
 msgid "Go back to this page"
 msgstr "এই পাতায় ফিরে যাও"
 
-#: tbl_change.php:1063
+#: tbl_change.php:1052
 msgid "Edit next row"
 msgstr "পরবর্তী সাড়ি সম্পাদনা করুন"
 
-#: tbl_change.php:1074
+#: tbl_change.php:1063
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 
-#: tbl_change.php:1112
+#: tbl_change.php:1101
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
@@ -9764,6 +9765,22 @@ msgstr "ক্রম প্রদর্শন কর"
 #: tbl_structure.php:160 tbl_structure.php:164
 msgid "Browse distinct values"
 msgstr "নির্দিষ্ট মান ব্রাউজ করুন"
+
+#: tbl_structure.php:165 tbl_structure.php:166
+msgid "Add primary key"
+msgstr ""
+
+#: tbl_structure.php:167 tbl_structure.php:168
+msgid "Add index"
+msgstr ""
+
+#: tbl_structure.php:169 tbl_structure.php:170
+msgid "Add unique index"
+msgstr ""
+
+#: tbl_structure.php:171 tbl_structure.php:172
+msgid "Add FULLTEXT index"
+msgstr ""
 
 #: tbl_structure.php:384
 #, fuzzy
