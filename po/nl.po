@@ -6205,10 +6205,9 @@ msgid "Create a page"
 msgstr "Creëer een nieuwe pagina"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Paginanummer:"
+msgstr "Paginanaam"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
