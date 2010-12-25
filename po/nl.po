@@ -4670,7 +4670,7 @@ msgstr "Importeren in tabel \"%s\""
 #: libraries/display_import.lib.php:139
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Te importeren bestand"
+msgstr "Te importeren bestand:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
