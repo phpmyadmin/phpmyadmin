@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-25 21:40+0200\n"
+"PO-Revision-Date: 2010-12-25 21:56+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5285,10 +5285,9 @@ msgid "Columns separated with:"
 msgstr "Velden beëindigd door:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Velden ingesloten door"
+msgstr "Velden ingesloten door:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
