@@ -5295,10 +5295,9 @@ msgid "Columns escaped with:"
 msgstr "Velden ontweken door:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Regels beëindigd door"
+msgstr "Regels beëindigd door:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
