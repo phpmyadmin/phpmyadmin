@@ -5366,7 +5366,6 @@ msgid "Display foreign key relationships"
 msgstr "Toon vreemde sleutel relaties"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Toon kolom commentaar"
