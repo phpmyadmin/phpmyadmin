@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-25 22:06+0200\n"
+"PO-Revision-Date: 2010-12-25 22:07+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6170,10 +6170,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema van de \"%s\" database - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Bestand %s bevat geen sleutel id"
+msgstr "Deze pagina bevat geen tabellen!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
