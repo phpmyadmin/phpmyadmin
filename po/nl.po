@@ -4612,10 +4612,9 @@ msgstr "ge-bzipt"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Opmaak"
+msgstr "Opmaak:"
 
 #: libraries/display_export.lib.php:336
 #, fuzzy
