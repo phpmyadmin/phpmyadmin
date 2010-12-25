@@ -4485,7 +4485,6 @@ msgid "Export Method:"
 msgstr "Export methode:"
 
 #: libraries/display_export.lib.php:113
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "Snel - toon enkel de belangrijkste opties"
