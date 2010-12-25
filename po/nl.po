@@ -4782,7 +4782,6 @@ msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Volledige teksten"
