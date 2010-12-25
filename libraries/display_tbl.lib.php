@@ -2014,20 +2014,24 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
     $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
-    if ($cfgRelation['displaywork']) {
-        if (! strlen($table)) {
-            $exist_rel = false;
-        } else {
-            $exist_rel = PMA_getForeigners($db, $table, '', 'both');
-            if ($exist_rel) {
-                foreach ($exist_rel AS $master_field => $rel) {
-                    $display_field = PMA_getDisplayField($rel['foreign_db'], $rel['foreign_table']);
-                    $map[$master_field] = array($rel['foreign_table'],
-                                          $rel['foreign_field'],
-                                          $display_field,
-                                          $rel['foreign_db']);
-                } // end while
-            } // end if
+    if (! strlen($table)) {
+        $exist_rel = false;
+    } else {
+        // To be able to later display a link to the related table,
+        // we verify both types of relations: either those that are
+        // native foreign keys or those defined in the phpMyAdmin
+        // configuration storage. If no PMA storage, we won't be able
+        // to use the "column to display" notion (for example show
+        // the name related to a numeric id).
+        $exist_rel = PMA_getForeigners($db, $table, '', 'both');
+        if ($exist_rel) {
+            foreach ($exist_rel AS $master_field => $rel) {
+                $display_field = PMA_getDisplayField($rel['foreign_db'], $rel['foreign_table']);
+                $map[$master_field] = array($rel['foreign_table'],
+                                      $rel['foreign_field'],
+                                      $display_field,
+                                      $rel['foreign_db']);
+            } // end while
         } // end if
     } // end if
     // end 2b
