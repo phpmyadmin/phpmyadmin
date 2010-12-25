@@ -6210,10 +6210,9 @@ msgid "Page name"
 msgstr "Paginanaam"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatische lay-out"
+msgstr "Automatische lay-out gebaseerd op"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
