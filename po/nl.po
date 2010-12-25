@@ -5705,10 +5705,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL-compatibiliteits mode"
+msgstr "SQL-compatibiliteits mode:"
 
 #: libraries/import/sql.php:42
 #, fuzzy
