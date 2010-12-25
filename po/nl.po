@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-25 22:10+0200\n"
+"PO-Revision-Date: 2010-12-25 22:12+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6605,7 +6605,6 @@ msgid "Event"
 msgstr "Gebeurtenis"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6618,8 +6617,8 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "Toon een link om de binaire data van een veld te downloaden. De eerste optie "
-"is de bestandsnaam van het binaire bestand, de tweede optie is een mogelijke "
-"veldnaam van een rij van de tabel, welke de bestandsnaam bevat. Wanneer de "
+"is de bestandsnaam van het binaire bestand, de tweede optie is een "
+"mogelijke veldnaam uit de tabel, welke de bestandsnaam bevat. Wanneer de "
 "tweede optie wordt gekozen is het vereist dat de eerste optie leeg is."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
