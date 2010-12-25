@@ -4517,7 +4517,7 @@ msgstr "Dump alle rijen"
 #: libraries/display_export.lib.php:159
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Aantal velden:"
+msgstr "Aantal rijen:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
