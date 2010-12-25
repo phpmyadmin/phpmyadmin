@@ -5053,7 +5053,6 @@ msgstr ""
 "'ALTER TABLE'"
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Garbage drempelwaaarde"
