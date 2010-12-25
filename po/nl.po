@@ -4529,7 +4529,7 @@ msgstr "Dump alle rijen"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Uitvoer:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, fuzzy, php-format
