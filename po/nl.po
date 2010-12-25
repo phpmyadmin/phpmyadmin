@@ -4500,7 +4500,6 @@ msgid "Database(s):"
 msgstr "Databases"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabellen"
