@@ -4791,7 +4791,6 @@ msgid "Relational key"
 msgstr "Relationele sleutel"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Relationele weergave veld"
