@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-25 21:22+0200\n"
+"PO-Revision-Date: 2010-12-25 21:23+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4468,10 +4468,10 @@ msgid "Exporting databases from the current server"
 msgstr "Exporteer meerdere databases vanuit de huidige server"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Nieuwe tabel aanmaken in database %s"
+msgstr "Tabellen exporteren uit de \"%s\" database"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
