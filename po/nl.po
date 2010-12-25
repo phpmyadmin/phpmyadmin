@@ -4510,7 +4510,6 @@ msgid "Rows:"
 msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Dump alle rijen"
