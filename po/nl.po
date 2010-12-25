@@ -6164,7 +6164,7 @@ msgstr "Configureer de coördinaten voor de tabel %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:866
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema van de \"%s\" database - Pagina %s"
