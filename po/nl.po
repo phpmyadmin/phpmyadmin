@@ -4490,7 +4490,6 @@ msgid "Quick - display only the minimal options"
 msgstr "Snel - toon enkel de belangrijkste opties"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "Uitgebreid - toon alle mogelijke opties"
