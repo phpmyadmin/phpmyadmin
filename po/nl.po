@@ -4521,7 +4521,7 @@ msgstr "Aantal rijen:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Te beginnen op rij:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
