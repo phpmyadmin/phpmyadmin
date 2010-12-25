@@ -6305,7 +6305,6 @@ msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
 msgstr "Huidige server"
