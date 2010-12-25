@@ -4538,7 +4538,6 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Bewaar op de server in <b>%s</b> directory"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Opslaan als bestand"
