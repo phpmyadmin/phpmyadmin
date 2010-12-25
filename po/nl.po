@@ -4507,7 +4507,7 @@ msgstr "Tabellen"
 #: libraries/display_export.lib.php:149
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Rijen"
+msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:157
 #, fuzzy
