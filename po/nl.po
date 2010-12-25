@@ -5415,10 +5415,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Report titel"
+msgstr "Report titel:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
