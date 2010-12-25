@@ -4688,10 +4688,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Het uploaden van bestanden is niet toegestaan op deze server."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Gedeeltelijke import"
+msgstr "Gedeeltelijke import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
