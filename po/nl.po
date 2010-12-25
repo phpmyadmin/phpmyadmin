@@ -5361,10 +5361,9 @@ msgstr "Tabeltitel (vervolgd)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "controle op vreemde sleutels uitschakelen"
+msgstr "Toon vreemde sleutel relaties"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
