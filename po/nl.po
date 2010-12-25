@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-14 11:27-0500\n"
-"PO-Revision-Date: 2010-12-25 21:26+0200\n"
+"PO-Revision-Date: 2010-12-25 21:27+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4543,10 +4543,9 @@ msgid "Save output to a file"
 msgstr "Opslaan als bestand"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Bestandsnaam template"
+msgstr "Bestandsnaam template:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
