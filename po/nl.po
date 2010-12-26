@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-24 07:55-0500\n"
-"PO-Revision-Date: 2010-12-10 22:54+0200\n"
+"PO-Revision-Date: 2010-12-25 22:12+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3821,7 +3821,6 @@ msgstr ""
 "suggestie: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Toon velden tabel"
@@ -4271,10 +4270,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Aanpassingen"
+msgstr "Aangepast"
 
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
@@ -4465,74 +4463,65 @@ msgstr ""
 "installatie!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Maakt het mogelijk tabellen op slot te zetten voor de huidige thread."
+msgstr "Exporteer meerdere databases vanuit de huidige server"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Nieuwe tabel aanmaken in database %s"
+msgstr "Tabellen exporteren uit de \"%s\" database"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Nieuwe tabel aanmaken in database %s"
+msgstr "Rijen exporteren uit de \"%s\" tabel"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Export type"
+msgstr "Export methode:"
 
 #: libraries/display_export.lib.php:113
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "Snel - toon enkel de belangrijkste opties"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
 msgstr "Databases"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabellen"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Rijen"
+msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Dump alle rijen"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Aantal velden"
+msgstr "Aantal rijen:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Te beginnen op rij:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
@@ -4540,40 +4529,38 @@ msgstr "Dump alle rijen"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Uitvoer:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Bewaar op de server in %s directory"
+msgstr "Bewaar op de server in <b>%s</b> directory"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Opslaan als bestand"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Bestandsnaam template"
+msgstr "Bestandsnaam template:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ wordt vervangen door de servernaam"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ wordt vervangen door de databasenaam"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ wordt vervangen door de tabel naam"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4585,11 +4572,12 @@ msgid ""
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%"
+"5$s voor meer details."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
-msgstr ""
+msgstr "gebruik dit voor toekomstige exports"
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:512
@@ -4597,10 +4585,9 @@ msgid "Character set of the file:"
 msgstr "Karakter set van het bestand:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compressie"
+msgstr "Compressie:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
@@ -4609,35 +4596,30 @@ msgid "None"
 msgstr "Geen"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"Gezipt\""
+msgstr "gezipt"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"ge-gzipt\""
+msgstr "ge-gzipt"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"ge-bzipt\""
+msgstr "ge-bzipt"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Opmaak"
+msgstr "Opmaak:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Transformatieopties"
+msgstr "Opmaakspecifieke-opties:"
 
 # Is er een betere vertaling voor 'encoding' ?
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4669,28 +4651,26 @@ msgstr ""
 "zijn niet beschikbaar."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Kan niet inloggen op de MySQL-server"
+msgstr "Importeren naar de huidige MySQL-server"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
-msgstr "Ga naar database"
+msgstr "Importeren in database \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
-msgstr "Ga naar database"
+msgstr "Importeren in tabel \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Te importeren bestand"
+msgstr "Te importeren bestand:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
@@ -4708,10 +4688,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Het uploaden van bestanden is niet toegestaan op deze server."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Gedeeltelijke import"
+msgstr "Gedeeltelijke import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -4722,7 +4701,6 @@ msgstr ""
 "hervat worden vanaf positie %d"
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4737,10 +4715,9 @@ msgstr ""
 "bestanden, maar kan transacties verstoren."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
+msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -4800,13 +4777,11 @@ msgid "Options"
 msgstr "Opties"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Volledige teksten"
@@ -4816,7 +4791,6 @@ msgid "Relational key"
 msgstr "Relationele sleutel"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Relationele weergave veld"
@@ -4880,10 +4854,9 @@ msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
 #: libraries/display_tbl.lib.php:2232 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Geef het PDF-schema weer"
+msgstr "Grafiek weergeven"
 
 #: libraries/display_tbl.lib.php:2382
 msgid "Link not found"
@@ -5080,20 +5053,18 @@ msgstr ""
 "'ALTER TABLE'"
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Garbage drempelwaaarde"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Het percentage van garbage in een data logbestand voor dat deze wordt "
-"geschoond. Dit is een waarde tussen 1 en 99. De standaard is 50."
+"geschoond."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
@@ -5128,10 +5099,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Log file drempelwaarde"
+msgstr "Tijdelijke log file drempelwaarde"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -5310,57 +5280,49 @@ msgstr ""
 "hernoemd met een opgehoogd volgnummer"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Regels beëindigd door"
+msgstr "Velden beëindigd door:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Velden ingesloten door"
+msgstr "Velden ingesloten door:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Velden ontweken door"
+msgstr "Velden ontweken door:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Regels beëindigd door"
+msgstr "Regels beëindigd door:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Vervang NULL door"
+msgstr "Vervang NULL door:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel editie"
+msgstr "Excel editie:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Weergave opties voor databases"
+msgstr "Data dump opties"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:946 libraries/export/texytext.php:123
@@ -5373,53 +5335,46 @@ msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Content van tabel __TABLE__"
+msgstr "Inhoud van tabel @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
 msgstr "(vervolgd)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Structuur van de tabel __TABLE__"
+msgstr "Structuur van de tabel @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Transformatieopties"
+msgstr "Object-aanmaakopties"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Tabeltitel"
+msgstr "Tabeltitel (vervolgd)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "controle op vreemde sleutels uitschakelen"
+msgstr "Toon vreemde sleutel relaties"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Toon kolom commentaar"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Beschikbare MIME-types"
+msgstr "Toon beschikbare MIME-types"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:281
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
@@ -5460,10 +5415,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Report titel"
+msgstr "Report titel:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -5476,10 +5430,11 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Voeg een commentaar toe in de header (\\n om regels af te breken"
+msgstr ""
+"Voeg een commentaar toe in de header (\n"
+" om regels af te breken):"
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5494,16 +5449,15 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Opdrachten"
+msgstr "%s statement toevoegen"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Opdrachten"
+msgstr "Statements toevoegen: "
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
@@ -5619,10 +5573,9 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "View"
+msgstr "Views"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -5695,10 +5648,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Kolom namen"
+msgstr "Kolom namen: "
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -5719,7 +5671,7 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Ongeldig formaat van CSV invoer op regel %d."
 
 #: libraries/import/csv.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal velden in CSV invoer op regel %d."
@@ -5743,28 +5695,24 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Percentages als decimalen importeren (12.00% naar .12)"
+msgstr "Percentages als decimalen importeren <i>(12.00% naar ,12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Valuta importeren ($5.00 naar 5.00)"
+msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL-compatibiliteits mode"
+msgstr "SQL-compatibiliteits mode:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
+msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
@@ -5775,7 +5723,6 @@ msgstr ""
 "probeer opnieuw. "
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -6021,7 +5968,6 @@ msgid "Reload navigation frame"
 msgstr "Navigatievenster herladen."
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Dit format heeft geen opties"
@@ -6224,16 +6170,15 @@ msgstr "Configureer de coördinaten voor de tabel %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:866
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema van de \"%s\" database - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Bestand %s bevat geen sleutel id"
+msgstr "Deze pagina bevat geen tabellen!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
@@ -6266,16 +6211,14 @@ msgid "Create a page"
 msgstr "Creëer een nieuwe pagina"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Paginanummer:"
+msgstr "Paginanaam"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatische lay-out"
+msgstr "Automatische lay-out gebaseerd op"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
@@ -6290,20 +6233,18 @@ msgid "Please choose a page to edit"
 msgstr "Kies een pagina om aan te passen"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Selecteer tabellen"
+msgstr "Selecteer pagina"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relationeel schema"
+msgstr "Toon relationeel schema"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
@@ -6338,10 +6279,9 @@ msgid "Portrait"
 msgstr "Portret"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Gecreëerd"
+msgstr "Oriëntatie"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
@@ -6371,7 +6311,6 @@ msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
 msgstr "Huidige server"
@@ -6404,10 +6343,9 @@ msgid "Synchronize"
 msgstr "Synchronizatie"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "instellingen"
+msgstr "Instellingen"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
@@ -6442,10 +6380,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Draai SQL query/queries op database %s"
 
 #: libraries/sql_query_form.lib.php:297
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Kolom namen"
+msgstr "Kolommen"
 
 #: libraries/sql_query_form.lib.php:332 sql.php:850 sql.php:851 sql.php:868
 msgid "Bookmark this SQL query"
@@ -6573,7 +6510,6 @@ msgid "Length/Values"
 msgstr "Lengte/Waardes*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6586,7 +6522,7 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Als het veld type \"enum\" of \"set\" is, voer dan de waardes in volgens dit "
-"formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\") of een "
+"formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\\\") of een "
 "enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
 "voor (voorbeeld '\\\\xyz' of 'a\\'b')."
 
@@ -6660,23 +6596,21 @@ msgid "PARTITION definition"
 msgstr "PARTITION definitie"
 
 #: libraries/tbl_properties.inc.php:779 tbl_structure.php:633
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Kolom(men) toevoegen"
+msgstr "Voeg %s kolom(men) toe"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "U moet minimaal een veld toevoegen."
+msgstr "U moet minimaal een kolom toevoegen."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
 msgstr "Gebeurtenis"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6689,8 +6623,8 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "Toon een link om de binaire data van een veld te downloaden. De eerste optie "
-"is de bestandsnaam van het binaire bestand, de tweede optie is een mogelijke "
-"veldnaam van een rij van de tabel, welke de bestandsnaam bevat. Wanneer de "
+"is de bestandsnaam van het binaire bestand, de tweede optie is een "
+"mogelijke veldnaam uit de tabel, welke de bestandsnaam bevat. Wanneer de "
 "tweede optie wordt gekozen is het vereist dat de eerste optie leeg is."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
