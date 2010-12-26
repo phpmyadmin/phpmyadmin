@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 01:08+0200\n"
+"PO-Revision-Date: 2010-12-27 01:09+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1047,10 +1047,9 @@ msgid "Renaming Databases"
 msgstr "Перейменувати базу даних в"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Видалити базу даних"
+msgstr "Перезавантажити базу даних"
 
 #: js/messages.php:73
 #, fuzzy
