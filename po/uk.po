@@ -589,7 +589,6 @@ msgid "Inside column:"
 msgstr "Всередині стовпчика:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "В БД не виявлено таблиць."
