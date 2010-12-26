@@ -2135,40 +2135,50 @@ $(document).ready(function() {
      */
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
-    if($("input[type='hidden'][name='table_type']").attr("value") == "table") {
-         $("table[id='tablestructure'] td[class='browse']").remove();
-         $("table[id='tablestructure'] td[class='primary']").remove();
-         $("table[id='tablestructure'] td[class='unique']").remove();
-         $("table[id='tablestructure'] td[class='index']").remove();
-         $("table[id='tablestructure'] td[class='fulltext']").remove();
-         $("table[id='tablestructure'] th[class='action']").attr("colspan", 3);
+    if($("input[type='hidden'][name='table_type']").val() == "table") {
+	    var $table = $("table[id='tablestructure']");
+        $table.find("td[class='browse']").remove();
+        $table.find("td[class='primary']").remove();
+        $table.find("td[class='unique']").remove();
+        $table.find("td[class='index']").remove();
+        $table.find("td[class='fulltext']").remove();
+        $table.find("th[class='action']").attr("colspan", 3);
 
-         // Display the "more" text
-         $("table[id='tablestructure'] td[class='more_opts']").show()
+        // Display the "more" text
+        $table.find("td[class='more_opts']").show();
 
-         // Position the dropdown
-         $.each($(".structure_actions_dropdown"), function() {
-              // The top offset must be set for IE even if it didn't change
-             var cell_right_edge_offset = $(this).parent().offset().left + $(this).parent().innerWidth();
-             var left_offset = cell_right_edge_offset - $(this).innerWidth();
-             var top_offset = $(this).parent().offset().top + $(this).parent().innerHeight();
-             $(this).offset({ top: top_offset, left: left_offset });
-         });
+        // Position the dropdown
+        $(".structure_actions_dropdown").each(function() {
+             // The top offset must be set for IE even if it didn't change
+            var cell_right_edge_offset = $(this).parent().offset().left + $(this).parent().innerWidth();
+            var left_offset = cell_right_edge_offset - $(this).innerWidth();
+            var top_offset = $(this).parent().offset().top + $(this).parent().innerHeight();
+            $(this).offset({ top: top_offset, left: left_offset });
+        });
 
-         // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
-         // positioning an iframe directly on top of it
-         $("iframe[class='IE_hack']").width($("select[name='after_field']").width());
-         $("iframe[class='IE_hack']").height($("select[name='after_field']").height());
-         $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left });
+        // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
+        // positioning an iframe directly on top of it
+        var $after_field = $("select[name='after_field']");
+	    $("iframe[class='IE_hack']")
+		    .width($after_field.width())
+            .height($after_field.height())
+            .offset({
+                top: $after_field.offset().top,
+                left: $after_field.offset().left
+            });
 
-         // When "more" is hovered over, show the hidden actions
-         $("table[id='tablestructure'] td[class='more_opts']").mouseenter(
-             function() {
+        // When "more" is hovered over, show the hidden actions
+        $table.find("td[class='more_opts']")
+		    .mouseenter(function() {
                 if($.browser.msie && $.browser.version == "6.0") {
-                    $("iframe[class='IE_hack']").show();
-                    $("iframe[class='IE_hack']").width($("select[name='after_field']").width()+4);
-                    $("iframe[class='IE_hack']").height($("select[name='after_field']").height()+4);
-                    $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left});
+                    $("iframe[class='IE_hack']")
+		                .show()
+                        .width($after_field.width()+4)
+                        .height($after_field.height()+4)
+                        .offset({
+                            top: $after_field.offset().top,
+                            left: $after_field.offset().left
+                        });
                 }
                 $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
                 $(this).children(".structure_actions_dropdown").show();
@@ -2176,15 +2186,17 @@ $(document).ready(function() {
                 if($.browser.msie) {
                     var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
                     var top_offset_IE = $(this).offset().top + $(this).innerHeight();
-                    $(this).children(".structure_actions_dropdown").offset({ top: top_offset_IE, left: left_offset_IE });
+                    $(this).children(".structure_actions_dropdown").offset({
+	                    top: top_offset_IE,
+	                    left: left_offset_IE });
                 }
-         });
-         $(".structure_actions_dropdown").mouseleave(function() {
-              $(this).hide();
-              if($.browser.msie && $.browser.version == "6.0") {
-                  $("iframe[class='IE_hack']").hide();
-              }
-         });
+            })
+            .mouseleave(function() {
+                $(this).children(".structure_actions_dropdown").hide();
+                if($.browser.msie && $.browser.version == "6.0") {
+                    $("iframe[class='IE_hack']").hide();
+                }
+            });
     }
 });
 

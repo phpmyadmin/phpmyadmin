@@ -1551,6 +1551,10 @@ a.close_enum_editor {
     z-index: 100;
 }
 
+.structure_actions_dropdown a {
+    display: block;
+}
+
 td.more_opts {
     display: none;
     white-space: nowrap;
