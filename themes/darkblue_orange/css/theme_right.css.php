@@ -1610,6 +1610,10 @@ a.close_enum_editor {
     display: none;
 }
 
+.structure_actions_dropdown a {
+    display: block;
+}
+
 td.more_opts {
     display: none;
     white-space: nowrap;
