@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-24 07:55-0500\n"
+"POT-Creation-Date: 2010-12-26 08:19-0500\n"
 "PO-Revision-Date: 2010-11-26 12:58+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -70,7 +70,7 @@ msgstr "Søk"
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1066
 #: tbl_change.php:1103 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
-#: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
+#: tbl_operations.php:733 tbl_select.php:302 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -127,7 +127,7 @@ msgstr "Tabellkommentarer"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
-#: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
+#: tbl_relation.php:399 tbl_select.php:111 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
 msgid "Column"
 msgstr "Kolonne"
@@ -141,7 +141,7 @@ msgstr "Kolonne"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:99 server_privileges.php:2162
 #: tbl_change.php:279 tbl_change.php:306 tbl_chart.php:132
-#: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:133
+#: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:112
 #: tbl_structure.php:198 tbl_structure.php:751 tbl_tracking.php:268
 #: tbl_tracking.php:315
 msgid "Type"
@@ -322,7 +322,7 @@ msgstr "Bytt til kopiert database"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:360 tbl_select.php:134
+#: server_collations.php:65 tbl_operations.php:360 tbl_select.php:113
 #: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Collation"
@@ -422,14 +422,14 @@ msgstr "Sorter"
 #: db_qbe.php:228 db_qbe.php:262 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:822
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:257
-#: tbl_select.php:310
+#: tbl_select.php:289
 msgid "Ascending"
 msgstr "Stigende"
 
 #: db_qbe.php:229 db_qbe.php:270 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:819
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:258
-#: tbl_select.php:311
+#: tbl_select.php:290
 msgid "Descending"
 msgstr "Synkende"
 
@@ -456,7 +456,7 @@ msgstr "Slett"
 
 #: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:917 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:917 tbl_indexes.php:248 tbl_select.php:263
 msgid "Or"
 msgstr "Eller"
 
@@ -532,7 +532,7 @@ msgid "Browse"
 msgstr "Se på"
 
 #: db_search.php:260 libraries/display_tbl.lib.php:1190
-#: libraries/display_tbl.lib.php:2054
+#: libraries/display_tbl.lib.php:2058
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
@@ -635,20 +635,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s er standard lagringsmotor for denne MySQL tjeneren."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2079 libraries/display_tbl.lib.php:2084
+#: libraries/display_tbl.lib.php:2083 libraries/display_tbl.lib.php:2088
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "Med avkrysset:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2074
+#: db_structure.php:479 libraries/display_tbl.lib.php:2078
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "Merk alle"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2075
+#: db_structure.php:483 libraries/display_tbl.lib.php:2079
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
@@ -660,7 +660,7 @@ msgstr "Merk overheng"
 
 #: db_structure.php:495 db_structure.php:496
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2092 libraries/display_tbl.lib.php:2226
+#: libraries/display_tbl.lib.php:2096 libraries/display_tbl.lib.php:2230
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1371 setup/frames/menu.inc.php:21
@@ -669,7 +669,7 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: db_structure.php:497 db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2181 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2185 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Utskriftsvennlig forhåndsvisning"
@@ -1082,59 +1082,71 @@ msgstr "Vis spørringsboks"
 msgid "Inline Edit"
 msgstr "Inline Edit"
 
-#: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
+#: js/messages.php:89
+#, fuzzy
+#| msgid "Hide query box"
+msgid "Hide search criteria"
+msgstr "Skjul spørringsboks"
+
+#: js/messages.php:90
+#, fuzzy
+#| msgid "Show query box"
+msgid "Show search criteria"
+msgstr "Vis spørringsboks"
+
+#: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:92
+#: js/messages.php:96
 msgid "Select referenced key"
 msgstr "Velg referert nøkkel"
 
-#: js/messages.php:93
+#: js/messages.php:97
 msgid "Select Foreign Key"
 msgstr "Velg fremmednøkkel"
 
-#: js/messages.php:94
+#: js/messages.php:98
 msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
 
-#: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
+#: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Velg kolonne for visning"
 
-#: js/messages.php:98
+#: js/messages.php:102
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:101
+#: js/messages.php:105
 msgid "Generate password"
 msgstr "Generer passord"
 
-#: js/messages.php:102 libraries/replication_gui.lib.php:365
+#: js/messages.php:106 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Generer"
 
-#: js/messages.php:103
+#: js/messages.php:107
 msgid "Change Password"
 msgstr "Endre passord"
 
-#: js/messages.php:106
+#: js/messages.php:110
 msgid "More"
 msgstr "Mer"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:116
+#: js/messages.php:120
 msgid "Done"
 msgstr "Utført"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:118
+#: js/messages.php:122
 msgid "Prev"
 msgstr "Forrige"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:120 libraries/common.lib.php:2333
+#: js/messages.php:124 libraries/common.lib.php:2333
 #: libraries/common.lib.php:2336 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1142,231 +1154,231 @@ msgid "Next"
 msgstr "Neste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:122
+#: js/messages.php:126
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:125
+#: js/messages.php:129
 msgid "January"
 msgstr "Januar"
 
-#: js/messages.php:126
+#: js/messages.php:130
 msgid "February"
 msgstr "Februar"
 
-#: js/messages.php:127
+#: js/messages.php:131
 msgid "March"
 msgstr "Mars"
 
-#: js/messages.php:128
+#: js/messages.php:132
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:129
+#: js/messages.php:133
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:130
+#: js/messages.php:134
 msgid "June"
 msgstr "Juni"
 
-#: js/messages.php:131
+#: js/messages.php:135
 msgid "July"
 msgstr "Juli"
 
-#: js/messages.php:132
+#: js/messages.php:136
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:133
+#: js/messages.php:137
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:134
+#: js/messages.php:138
 msgid "October"
 msgstr "Oktober"
 
-#: js/messages.php:135
+#: js/messages.php:139
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:136
+#: js/messages.php:140
 msgid "December"
 msgstr "Desember"
 
 #. l10n: Short month name
-#: js/messages.php:140 libraries/common.lib.php:1538
+#: js/messages.php:144 libraries/common.lib.php:1538
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:142 libraries/common.lib.php:1540
+#: js/messages.php:146 libraries/common.lib.php:1540
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:144 libraries/common.lib.php:1542
+#: js/messages.php:148 libraries/common.lib.php:1542
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:146 libraries/common.lib.php:1544
+#: js/messages.php:150 libraries/common.lib.php:1544
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:148 libraries/common.lib.php:1546
+#: js/messages.php:152 libraries/common.lib.php:1546
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:150 libraries/common.lib.php:1548
+#: js/messages.php:154 libraries/common.lib.php:1548
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:152 libraries/common.lib.php:1550
+#: js/messages.php:156 libraries/common.lib.php:1550
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:154 libraries/common.lib.php:1552
+#: js/messages.php:158 libraries/common.lib.php:1552
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1554
+#: js/messages.php:160 libraries/common.lib.php:1554
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1556
+#: js/messages.php:162 libraries/common.lib.php:1556
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1558
+#: js/messages.php:164 libraries/common.lib.php:1558
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1560
+#: js/messages.php:166 libraries/common.lib.php:1560
 msgid "Dec"
 msgstr "Des"
 
-#: js/messages.php:165
+#: js/messages.php:169
 msgid "Sunday"
 msgstr "Søndag"
 
-#: js/messages.php:166
+#: js/messages.php:170
 msgid "Monday"
 msgstr "Mandag"
 
-#: js/messages.php:167
+#: js/messages.php:171
 msgid "Tuesday"
 msgstr "Tirsdag"
 
-#: js/messages.php:168
+#: js/messages.php:172
 msgid "Wednesday"
 msgstr "Onsdag"
 
-#: js/messages.php:169
+#: js/messages.php:173
 msgid "Thursday"
 msgstr "Torsdag"
 
-#: js/messages.php:170
+#: js/messages.php:174
 msgid "Friday"
 msgstr "Fredag"
 
-#: js/messages.php:171
+#: js/messages.php:175
 msgid "Saturday"
 msgstr "Lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:175 libraries/common.lib.php:1563
+#: js/messages.php:179 libraries/common.lib.php:1563
 msgid "Sun"
 msgstr "Søn"
 
 #. l10n: Short week day name
-#: js/messages.php:177 libraries/common.lib.php:1565
+#: js/messages.php:181 libraries/common.lib.php:1565
 msgid "Mon"
 msgstr "Man"
 
 #. l10n: Short week day name
-#: js/messages.php:179 libraries/common.lib.php:1567
+#: js/messages.php:183 libraries/common.lib.php:1567
 msgid "Tue"
 msgstr "Tir"
 
 #. l10n: Short week day name
-#: js/messages.php:181 libraries/common.lib.php:1569
+#: js/messages.php:185 libraries/common.lib.php:1569
 msgid "Wed"
 msgstr "Ons"
 
 #. l10n: Short week day name
-#: js/messages.php:183 libraries/common.lib.php:1571
+#: js/messages.php:187 libraries/common.lib.php:1571
 msgid "Thu"
 msgstr "Tor"
 
 #. l10n: Short week day name
-#: js/messages.php:185 libraries/common.lib.php:1573
+#: js/messages.php:189 libraries/common.lib.php:1573
 msgid "Fri"
 msgstr "Fre"
 
 #. l10n: Short week day name
-#: js/messages.php:187 libraries/common.lib.php:1575
+#: js/messages.php:191 libraries/common.lib.php:1575
 msgid "Sat"
 msgstr "Lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:191
+#: js/messages.php:195
 msgid "Su"
 msgstr "Søndag"
 
 #. l10n: Minimal week day name
-#: js/messages.php:193
+#: js/messages.php:197
 msgid "Mo"
 msgstr "Man"
 
 #. l10n: Minimal week day name
-#: js/messages.php:195
+#: js/messages.php:199
 msgid "Tu"
 msgstr "Tir"
 
 #. l10n: Minimal week day name
-#: js/messages.php:197
+#: js/messages.php:201
 msgid "We"
 msgstr "Ons"
 
 #. l10n: Minimal week day name
-#: js/messages.php:199
+#: js/messages.php:203
 msgid "Th"
 msgstr "Tor"
 
 #. l10n: Minimal week day name
-#: js/messages.php:201
+#: js/messages.php:205
 msgid "Fr"
 msgstr "Fre"
 
 #. l10n: Minimal week day name
-#: js/messages.php:203
+#: js/messages.php:207
 msgid "Sa"
 msgstr "Lør"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:205
+#: js/messages.php:209
 msgid "Wk"
 msgstr "Uke"
 
-#: js/messages.php:207
+#: js/messages.php:211
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:208
+#: js/messages.php:212
 msgid "Minute"
 msgstr "Minutt"
 
-#: js/messages.php:209
+#: js/messages.php:213
 msgid "Second"
 msgstr "Sekund"
 
@@ -4824,7 +4836,7 @@ msgstr "Sorter etter nøkkel"
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
-#: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:263
+#: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:242
 #: tbl_structure.php:845
 msgid "Options"
 msgstr "Innstillinger"
@@ -4871,7 +4883,7 @@ msgstr "Nettvisertransformasjon"
 msgid "The row has been deleted"
 msgstr "Raden er slettet"
 
-#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2054
+#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2058
 #: server_processlist.php:70 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Avslutt"
@@ -4893,27 +4905,27 @@ msgstr "totalt"
 msgid "Query took %01.4f sec"
 msgstr "Spørring tok %01.4f sek"
 
-#: libraries/display_tbl.lib.php:2087 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2091 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Endre"
 
-#: libraries/display_tbl.lib.php:2160
+#: libraries/display_tbl.lib.php:2164
 msgid "Query results operations"
 msgstr "Spørringsresultatshandlinger"
 
-#: libraries/display_tbl.lib.php:2188
+#: libraries/display_tbl.lib.php:2192
 msgid "Print view (with full texts)"
 msgstr "Forhåndsvisning (med all tekst)"
 
-#: libraries/display_tbl.lib.php:2232 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2236 tbl_chart.php:81
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Vis PDF-skjema"
 
-#: libraries/display_tbl.lib.php:2382
+#: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
 msgstr "Link ikke funnet"
 
@@ -6153,7 +6165,7 @@ msgstr "Variabler"
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
 #: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
-#: tbl_select.php:136 tbl_structure.php:821
+#: tbl_select.php:115 tbl_structure.php:821
 msgid "Value"
 msgstr "Verdi"
 
@@ -7165,7 +7177,7 @@ msgstr "Opprett"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
-#: tbl_select.php:135
+#: tbl_select.php:114
 msgid "Operator"
 msgstr "Operator"
 
@@ -9850,23 +9862,23 @@ msgstr "Fremmednøkkelbegrensning"
 msgid "No rows selected"
 msgstr "Ingen rader valgt"
 
-#: tbl_select.php:129
+#: tbl_select.php:108
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Utfør en \"spørring ved eksempel\" (jokertegn: \"%\")"
 
-#: tbl_select.php:266
+#: tbl_select.php:245
 msgid "Select columns (at least one):"
 msgstr "Velg kolonner (minst ett):"
 
-#: tbl_select.php:284
+#: tbl_select.php:263
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Legg til søkekriterier (innhold i \"where\"-setningen):"
 
-#: tbl_select.php:291
+#: tbl_select.php:270
 msgid "Number of rows per page"
 msgstr "Antall poster per side"
 
-#: tbl_select.php:297
+#: tbl_select.php:276
 msgid "Display order:"
 msgstr "Visningsrekkefølge:"
 
@@ -10132,11 +10144,6 @@ msgstr "Endre tabellens navn"
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Slå av statistikk"
-
-#, fuzzy
-#~| msgid "Hide query box"
-#~ msgid "Hide query chart"
-#~ msgstr "Skjul spørringsboks"
 
 #~ msgid "Start"
 #~ msgstr "Start"

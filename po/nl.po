@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-24 07:55-0500\n"
+"POT-Creation-Date: 2010-12-26 08:19-0500\n"
 "PO-Revision-Date: 2010-12-25 22:12+0200\n"
 "Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -70,7 +70,7 @@ msgstr "Zoeken"
 #: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1066
 #: tbl_change.php:1103 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
-#: tbl_operations.php:733 tbl_select.php:323 tbl_structure.php:653
+#: tbl_operations.php:733 tbl_select.php:302 tbl_structure.php:653
 #: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -127,7 +127,7 @@ msgstr "Tabelopmerkingen"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: tbl_change.php:300 tbl_indexes.php:187 tbl_printview.php:139
-#: tbl_relation.php:399 tbl_select.php:132 tbl_structure.php:197
+#: tbl_relation.php:399 tbl_select.php:111 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
 msgid "Column"
 msgstr "Kolom "
@@ -141,7 +141,7 @@ msgstr "Kolom "
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:99 server_privileges.php:2162
 #: tbl_change.php:279 tbl_change.php:306 tbl_chart.php:132
-#: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:133
+#: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:112
 #: tbl_structure.php:198 tbl_structure.php:751 tbl_tracking.php:268
 #: tbl_tracking.php:315
 msgid "Type"
@@ -322,7 +322,7 @@ msgstr "Schakel naar de gekopieerde database"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:729 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:360 tbl_select.php:134
+#: server_collations.php:65 tbl_operations.php:360 tbl_select.php:113
 #: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Collation"
@@ -423,14 +423,14 @@ msgstr "Sorteren"
 #: db_qbe.php:228 db_qbe.php:262 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:822
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:257
-#: tbl_select.php:310
+#: tbl_select.php:289
 msgid "Ascending"
 msgstr "Oplopend"
 
 #: db_qbe.php:229 db_qbe.php:270 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:819
 #: server_databases.php:147 server_databases.php:164 tbl_operations.php:258
-#: tbl_select.php:311
+#: tbl_select.php:290
 msgid "Descending"
 msgstr "Aflopend"
 
@@ -457,7 +457,7 @@ msgstr "Verwijder"
 
 #: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:917 tbl_indexes.php:248 tbl_select.php:284
+#: tbl_change.php:917 tbl_indexes.php:248 tbl_select.php:263
 msgid "Or"
 msgstr "Of"
 
@@ -533,7 +533,7 @@ msgid "Browse"
 msgstr "Verkennen"
 
 #: db_search.php:260 libraries/display_tbl.lib.php:1190
-#: libraries/display_tbl.lib.php:2054
+#: libraries/display_tbl.lib.php:2058
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
@@ -636,20 +636,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s is de standaard storage engine op deze MySQL-server."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2079 libraries/display_tbl.lib.php:2084
+#: libraries/display_tbl.lib.php:2083 libraries/display_tbl.lib.php:2088
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "Met geselecteerd:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2074
+#: db_structure.php:479 libraries/display_tbl.lib.php:2078
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "Selecteer alles"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2075
+#: db_structure.php:483 libraries/display_tbl.lib.php:2079
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
@@ -661,7 +661,7 @@ msgstr "Selecteer tabellen met overhead"
 
 #: db_structure.php:495 db_structure.php:496
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2092 libraries/display_tbl.lib.php:2226
+#: libraries/display_tbl.lib.php:2096 libraries/display_tbl.lib.php:2230
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1371 setup/frames/menu.inc.php:21
@@ -670,7 +670,7 @@ msgid "Export"
 msgstr "Exporteer"
 
 #: db_structure.php:497 db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2181 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2185 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Afdrukken"
@@ -1091,59 +1091,69 @@ msgstr "SQL-query veld tonen"
 msgid "Inline Edit"
 msgstr "Wijzig inline"
 
-#: js/messages.php:89 tbl_change.php:294 tbl_indexes.php:198
+#: js/messages.php:89
+msgid "Hide search criteria"
+msgstr ""
+
+#: js/messages.php:90
+#, fuzzy
+#| msgid "Show query box"
+msgid "Show search criteria"
+msgstr "SQL-query veld tonen"
+
+#: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Negeer"
 
-#: js/messages.php:92
+#: js/messages.php:96
 msgid "Select referenced key"
 msgstr "Selecteer de gerefereerde sleutel"
 
-#: js/messages.php:93
+#: js/messages.php:97
 msgid "Select Foreign Key"
 msgstr "Selecteer vreemde sleutel"
 
-#: js/messages.php:94
+#: js/messages.php:98
 msgid "Please select the primary key or a unique key"
 msgstr "Selecteer de primaire sleutel of een unieke sleutel"
 
-#: js/messages.php:95 pmd_general.php:89 tbl_relation.php:545
+#: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Kies weer te geven veld"
 
-#: js/messages.php:98
+#: js/messages.php:102
 msgid "Add an option for column "
 msgstr "Voeg een optie toe voor komom "
 
-#: js/messages.php:101
+#: js/messages.php:105
 msgid "Generate password"
 msgstr "Genereer wachtwoord"
 
-#: js/messages.php:102 libraries/replication_gui.lib.php:365
+#: js/messages.php:106 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Genereer"
 
-#: js/messages.php:103
+#: js/messages.php:107
 msgid "Change Password"
 msgstr "Wijzig wachtwoord"
 
-#: js/messages.php:106
+#: js/messages.php:110
 msgid "More"
 msgstr "Meer"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:116
+#: js/messages.php:120
 msgid "Done"
 msgstr "Klaar"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:118
+#: js/messages.php:122
 msgid "Prev"
 msgstr "Vorige"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:120 libraries/common.lib.php:2333
+#: js/messages.php:124 libraries/common.lib.php:2333
 #: libraries/common.lib.php:2336 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1151,231 +1161,231 @@ msgid "Next"
 msgstr "Volgende"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:122
+#: js/messages.php:126
 msgid "Today"
 msgstr "Vandaag"
 
-#: js/messages.php:125
+#: js/messages.php:129
 msgid "January"
 msgstr "Januari"
 
-#: js/messages.php:126
+#: js/messages.php:130
 msgid "February"
 msgstr "Februari"
 
-#: js/messages.php:127
+#: js/messages.php:131
 msgid "March"
 msgstr "Maart"
 
-#: js/messages.php:128
+#: js/messages.php:132
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:129
+#: js/messages.php:133
 msgid "May"
 msgstr "Mei"
 
-#: js/messages.php:130
+#: js/messages.php:134
 msgid "June"
 msgstr "Juni"
 
-#: js/messages.php:131
+#: js/messages.php:135
 msgid "July"
 msgstr "Juli"
 
-#: js/messages.php:132
+#: js/messages.php:136
 msgid "August"
 msgstr "Augustus"
 
-#: js/messages.php:133
+#: js/messages.php:137
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:134
+#: js/messages.php:138
 msgid "October"
 msgstr "Oktober"
 
-#: js/messages.php:135
+#: js/messages.php:139
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:136
+#: js/messages.php:140
 msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:140 libraries/common.lib.php:1538
+#: js/messages.php:144 libraries/common.lib.php:1538
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:142 libraries/common.lib.php:1540
+#: js/messages.php:146 libraries/common.lib.php:1540
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:144 libraries/common.lib.php:1542
+#: js/messages.php:148 libraries/common.lib.php:1542
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:146 libraries/common.lib.php:1544
+#: js/messages.php:150 libraries/common.lib.php:1544
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:148 libraries/common.lib.php:1546
+#: js/messages.php:152 libraries/common.lib.php:1546
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mei"
 
 #. l10n: Short month name
-#: js/messages.php:150 libraries/common.lib.php:1548
+#: js/messages.php:154 libraries/common.lib.php:1548
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:152 libraries/common.lib.php:1550
+#: js/messages.php:156 libraries/common.lib.php:1550
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:154 libraries/common.lib.php:1552
+#: js/messages.php:158 libraries/common.lib.php:1552
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1554
+#: js/messages.php:160 libraries/common.lib.php:1554
 msgid "Sep"
 msgstr "Sept"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1556
+#: js/messages.php:162 libraries/common.lib.php:1556
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1558
+#: js/messages.php:164 libraries/common.lib.php:1558
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1560
+#: js/messages.php:166 libraries/common.lib.php:1560
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:165
+#: js/messages.php:169
 msgid "Sunday"
 msgstr "Zondag"
 
-#: js/messages.php:166
+#: js/messages.php:170
 msgid "Monday"
 msgstr "Maandag"
 
-#: js/messages.php:167
+#: js/messages.php:171
 msgid "Tuesday"
 msgstr "Dinsdag"
 
-#: js/messages.php:168
+#: js/messages.php:172
 msgid "Wednesday"
 msgstr "Woensdag"
 
-#: js/messages.php:169
+#: js/messages.php:173
 msgid "Thursday"
 msgstr "Donderdag"
 
-#: js/messages.php:170
+#: js/messages.php:174
 msgid "Friday"
 msgstr "Vrijdag"
 
-#: js/messages.php:171
+#: js/messages.php:175
 msgid "Saturday"
 msgstr "Zaterdag"
 
 #. l10n: Short week day name
-#: js/messages.php:175 libraries/common.lib.php:1563
+#: js/messages.php:179 libraries/common.lib.php:1563
 msgid "Sun"
 msgstr "Zo"
 
 #. l10n: Short week day name
-#: js/messages.php:177 libraries/common.lib.php:1565
+#: js/messages.php:181 libraries/common.lib.php:1565
 msgid "Mon"
 msgstr "Ma"
 
 #. l10n: Short week day name
-#: js/messages.php:179 libraries/common.lib.php:1567
+#: js/messages.php:183 libraries/common.lib.php:1567
 msgid "Tue"
 msgstr "Di"
 
 #. l10n: Short week day name
-#: js/messages.php:181 libraries/common.lib.php:1569
+#: js/messages.php:185 libraries/common.lib.php:1569
 msgid "Wed"
 msgstr "Wo"
 
 #. l10n: Short week day name
-#: js/messages.php:183 libraries/common.lib.php:1571
+#: js/messages.php:187 libraries/common.lib.php:1571
 msgid "Thu"
 msgstr "Do"
 
 #. l10n: Short week day name
-#: js/messages.php:185 libraries/common.lib.php:1573
+#: js/messages.php:189 libraries/common.lib.php:1573
 msgid "Fri"
 msgstr "Vr"
 
 #. l10n: Short week day name
-#: js/messages.php:187 libraries/common.lib.php:1575
+#: js/messages.php:191 libraries/common.lib.php:1575
 msgid "Sat"
 msgstr "Za"
 
 #. l10n: Minimal week day name
-#: js/messages.php:191
+#: js/messages.php:195
 msgid "Su"
 msgstr "Zo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:193
+#: js/messages.php:197
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:195
+#: js/messages.php:199
 msgid "Tu"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:197
+#: js/messages.php:201
 msgid "We"
 msgstr "Wo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:199
+#: js/messages.php:203
 msgid "Th"
 msgstr "Do"
 
 #. l10n: Minimal week day name
-#: js/messages.php:201
+#: js/messages.php:205
 msgid "Fr"
 msgstr "Vr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:203
+#: js/messages.php:207
 msgid "Sa"
 msgstr "Za"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:205
+#: js/messages.php:209
 msgid "Wk"
 msgstr "Week"
 
-#: js/messages.php:207
+#: js/messages.php:211
 msgid "Hour"
 msgstr "Uur"
 
-#: js/messages.php:208
+#: js/messages.php:212
 msgid "Minute"
 msgstr "Minuut"
 
-#: js/messages.php:209
+#: js/messages.php:213
 msgid "Second"
 msgstr "Seconde"
 
@@ -3821,7 +3831,6 @@ msgstr ""
 "suggestie: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Toon velden tabel"
 
@@ -4270,7 +4279,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:167
-#| msgid "Customization"
 msgid "Custom"
 msgstr "Aangepast"
 
@@ -4463,59 +4471,48 @@ msgstr ""
 "installatie!"
 
 #: libraries/display_export.lib.php:87
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Exporteer meerdere databases vanuit de huidige server"
 
 #: libraries/display_export.lib.php:89
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Tabellen exporteren uit de \"%s\" database"
 
 #: libraries/display_export.lib.php:91
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Rijen exporteren uit de \"%s\" tabel"
 
 #: libraries/display_export.lib.php:97
-#| msgid "Export type"
 msgid "Export Method:"
 msgstr "Export methode:"
 
 #: libraries/display_export.lib.php:113
-#| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
 msgstr "Snel - toon enkel de belangrijkste opties"
 
 #: libraries/display_export.lib.php:129
-#| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
 msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: libraries/display_export.lib.php:137
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "Databases"
 
 #: libraries/display_export.lib.php:139
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabellen"
 
 #: libraries/display_export.lib.php:149
-#| msgid "Rows"
 msgid "Rows:"
 msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:157
-#| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Dump alle rijen"
 
 #: libraries/display_export.lib.php:159
-#| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Aantal rijen:"
 
@@ -4533,17 +4530,14 @@ msgstr "Uitvoer:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, php-format
-#| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Bewaar op de server in <b>%s</b> directory"
 
 #: libraries/display_export.lib.php:206
-#| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Opslaan als bestand"
 
 #: libraries/display_export.lib.php:227
-#| msgid "File name template"
 msgid "File name template:"
 msgstr "Bestandsnaam template:"
 
@@ -4561,10 +4555,6 @@ msgstr ", @TABLE@ wordt vervangen door de tabel naam"
 
 #: libraries/display_export.lib.php:237
 #, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: %"
@@ -4572,8 +4562,8 @@ msgid ""
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%"
-"5$s voor meer details."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%5"
+"$s voor meer details."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -4585,7 +4575,6 @@ msgid "Character set of the file:"
 msgstr "Karakter set van het bestand:"
 
 #: libraries/display_export.lib.php:309
-#| msgid "Compression"
 msgid "Compression:"
 msgstr "Compressie:"
 
@@ -4596,28 +4585,23 @@ msgid "None"
 msgstr "Geen"
 
 #: libraries/display_export.lib.php:313
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "gezipt"
 
 #: libraries/display_export.lib.php:315
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "ge-gzipt"
 
 #: libraries/display_export.lib.php:317
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "ge-bzipt"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#| msgid "Format"
 msgid "Format:"
 msgstr "Opmaak:"
 
 #: libraries/display_export.lib.php:336
-#| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Opmaakspecifieke-opties:"
 
@@ -4651,24 +4635,20 @@ msgstr ""
 "zijn niet beschikbaar."
 
 #: libraries/display_import.lib.php:129
-#| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "Importeren naar de huidige MySQL-server"
 
 #: libraries/display_import.lib.php:131
 #, php-format
-#| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
 msgstr "Importeren in database \"%s\""
 
 #: libraries/display_import.lib.php:133
 #, php-format
-#| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
 msgstr "Importeren in tabel \"%s\""
 
 #: libraries/display_import.lib.php:139
-#| msgid "File to import"
 msgid "File to Import:"
 msgstr "Te importeren bestand:"
 
@@ -4688,7 +4668,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Het uploaden van bestanden is niet toegestaan op deze server."
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Gedeeltelijke import:"
 
@@ -4701,10 +4680,6 @@ msgstr ""
 "hervat worden vanaf positie %d"
 
 #: libraries/display_import.lib.php:221
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -4715,7 +4690,6 @@ msgstr ""
 "bestanden, maar kan transacties verstoren."
 
 #: libraries/display_import.lib.php:228
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin:"
 
@@ -4771,18 +4745,16 @@ msgstr "Sorteren op sleutel"
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
-#: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:263
+#: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:242
 #: tbl_structure.php:845
 msgid "Options"
 msgstr "Opties"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Volledige teksten"
 
@@ -4791,7 +4763,6 @@ msgid "Relational key"
 msgstr "Relationele sleutel"
 
 #: libraries/display_tbl.lib.php:586
-#| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Relationele weergave veld"
 
@@ -4817,7 +4788,7 @@ msgstr "Browser transformaties"
 msgid "The row has been deleted"
 msgstr "De rij is verwijderd"
 
-#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2054
+#: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:2058
 #: server_processlist.php:70 tbl_row_action.php:63
 msgid "Kill"
 msgstr "stop proces"
@@ -4839,26 +4810,25 @@ msgstr "totaal"
 msgid "Query took %01.4f sec"
 msgstr "Query duurde %01.4f sec"
 
-#: libraries/display_tbl.lib.php:2087 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2091 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Veranderen"
 
-#: libraries/display_tbl.lib.php:2160
+#: libraries/display_tbl.lib.php:2164
 msgid "Query results operations"
 msgstr "Query resultaat bewerkingen"
 
-#: libraries/display_tbl.lib.php:2188
+#: libraries/display_tbl.lib.php:2192
 msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
-#: libraries/display_tbl.lib.php:2232 tbl_chart.php:81
-#| msgid "Display PDF schema"
+#: libraries/display_tbl.lib.php:2236 tbl_chart.php:81
 msgid "Display chart"
 msgstr "Grafiek weergeven"
 
-#: libraries/display_tbl.lib.php:2382
+#: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
 msgstr "Link niet gevonden"
 
@@ -5053,14 +5023,10 @@ msgstr ""
 "'ALTER TABLE'"
 
 #: libraries/engines/pbms.lib.php:30
-#| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Garbage drempelwaaarde"
 
 #: libraries/engines/pbms.lib.php:31
-#| msgid ""
-#| "The percentage of garbage in a data log file before it is compacted. This "
-#| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Het percentage van garbage in een data logbestand voor dat deze wordt "
@@ -5099,7 +5065,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
-#| msgid "Log file threshold"
 msgid "Temp Log Threshold"
 msgstr "Tijdelijke log file drempelwaarde"
 
@@ -5280,22 +5245,18 @@ msgstr ""
 "hernoemd met een opgehoogd volgnummer"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Velden beëindigd door:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Velden ingesloten door:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
 msgstr "Velden ontweken door:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "Regels beëindigd door:"
 
@@ -5303,24 +5264,20 @@ msgstr "Regels beëindigd door:"
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Vervang NULL door:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #: libraries/export/excel.php:32
-#| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Excel editie:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#| msgid "Databases display options"
 msgid "Data dump options"
 msgstr "Data dump opties"
 
@@ -5335,7 +5292,6 @@ msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
 #: libraries/export/latex.php:13
-#| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
 msgstr "Inhoud van tabel @TABLE@"
 
@@ -5344,35 +5300,29 @@ msgid "(continued)"
 msgstr "(vervolgd)"
 
 #: libraries/export/latex.php:15
-#| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
 msgstr "Structuur van de tabel @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Object-aanmaakopties"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#| msgid "Table caption"
 msgid "Table caption (continued)"
 msgstr "Tabeltitel (vervolgd)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Toon vreemde sleutel relaties"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Toon kolom commentaar"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Toon beschikbare MIME-types"
 
@@ -5415,7 +5365,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 
 #: libraries/export/pdf.php:24
-#| msgid "Report title"
 msgid "Report title:"
 msgstr "Report titel:"
 
@@ -5430,7 +5379,6 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Voeg een commentaar toe in de header (\n"
@@ -5450,12 +5398,10 @@ msgstr ""
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
 #, php-format
-#| msgid "Statements"
 msgid "Add %s statement"
 msgstr "%s statement toevoegen"
 
 #: libraries/export/sql.php:91
-#| msgid "Statements"
 msgid "Add statements:"
 msgstr "Statements toevoegen: "
 
@@ -5573,7 +5519,6 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:40
-#| msgid "View"
 msgid "Views"
 msgstr "Views"
 
@@ -5648,7 +5593,6 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#| msgid "Column names"
 msgid "Column names: "
 msgstr "Kolom namen: "
 
@@ -5672,7 +5616,6 @@ msgstr "Ongeldig formaat van CSV invoer op regel %d."
 
 #: libraries/import/csv.php:314
 #, php-format
-#| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal velden in CSV invoer op regel %d."
 
@@ -5695,22 +5638,18 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
 #: libraries/import/ods.php:28
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Percentages als decimalen importeren <i>(12.00% naar ,12)</i>"
 
 #: libraries/import/ods.php:29
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "SQL-compatibiliteits mode:"
 
 #: libraries/import/sql.php:42
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
@@ -5723,7 +5662,6 @@ msgstr ""
 "probeer opnieuw. "
 
 #: libraries/kanji-encoding.lib.php:142
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Geen"
@@ -5968,7 +5906,6 @@ msgid "Reload navigation frame"
 msgstr "Navigatievenster herladen."
 
 #: libraries/plugin_interface.lib.php:336
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Dit format heeft geen opties"
 
@@ -6089,7 +6026,7 @@ msgstr "Variabelen"
 #: libraries/replication_gui.lib.php:117 pmd_general.php:478
 #: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
 #: server_status.php:759 tbl_change.php:316 tbl_printview.php:367
-#: tbl_select.php:136 tbl_structure.php:821
+#: tbl_select.php:115 tbl_structure.php:821
 msgid "Value"
 msgstr "Waarde"
 
@@ -6171,12 +6108,10 @@ msgstr "Configureer de coördinaten voor de tabel %s"
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema van de \"%s\" database - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Deze pagina bevat geen tabellen!"
 
@@ -6211,12 +6146,10 @@ msgid "Create a page"
 msgstr "Creëer een nieuwe pagina"
 
 #: libraries/schema/User_Schema.class.php:99
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Paginanaam"
 
 #: libraries/schema/User_Schema.class.php:103
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Automatische lay-out gebaseerd op"
 
@@ -6233,7 +6166,6 @@ msgid "Please choose a page to edit"
 msgstr "Kies een pagina om aan te passen"
 
 #: libraries/schema/User_Schema.class.php:153
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Selecteer pagina"
 
@@ -6242,7 +6174,6 @@ msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
 #: libraries/schema/User_Schema.class.php:346
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Toon relationeel schema"
 
@@ -6279,7 +6210,6 @@ msgid "Portrait"
 msgstr "Portret"
 
 #: libraries/schema/User_Schema.class.php:394
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Oriëntatie"
 
@@ -6311,7 +6241,6 @@ msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#| msgid "Current server"
 msgid "Current Server"
 msgstr "Huidige server"
 
@@ -6343,7 +6272,6 @@ msgid "Synchronize"
 msgstr "Synchronizatie"
 
 #: libraries/server_links.inc.php:99
-#| msgid "settings"
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -6380,7 +6308,6 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Draai SQL query/queries op database %s"
 
 #: libraries/sql_query_form.lib.php:297
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Kolommen"
 
@@ -6510,11 +6437,6 @@ msgid "Length/Values"
 msgstr "Lengte/Waardes*"
 
 #: libraries/tbl_properties.inc.php:104
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6522,9 +6444,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Als het veld type \"enum\" of \"set\" is, voer dan de waardes in volgens dit "
-"formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\\\") of een "
-"enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
-"voor (voorbeeld '\\\\xyz' of 'a\\'b')."
+"formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\\\") of "
+"een enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een "
+"backslash voor (voorbeeld '\\\\xyz' of 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6597,12 +6519,10 @@ msgstr "PARTITION definitie"
 
 #: libraries/tbl_properties.inc.php:779 tbl_structure.php:633
 #, php-format
-#| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "Voeg %s kolom(men) toe"
 
 #: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "U moet minimaal een kolom toevoegen."
 
@@ -6611,11 +6531,6 @@ msgid "Event"
 msgstr "Gebeurtenis"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -6623,9 +6538,9 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "Toon een link om de binaire data van een veld te downloaden. De eerste optie "
-"is de bestandsnaam van het binaire bestand, de tweede optie is een "
-"mogelijke veldnaam uit de tabel, welke de bestandsnaam bevat. Wanneer de "
-"tweede optie wordt gekozen is het vereist dat de eerste optie leeg is."
+"is de bestandsnaam van het binaire bestand, de tweede optie is een mogelijke "
+"veldnaam uit de tabel, welke de bestandsnaam bevat. Wanneer de tweede optie "
+"wordt gekozen is het vereist dat de eerste optie leeg is."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -7138,7 +7053,7 @@ msgstr "Aanmaken"
 
 #: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
 #: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
-#: tbl_select.php:135
+#: tbl_select.php:114
 msgid "Operator"
 msgstr "Operator"
 
@@ -9894,25 +9809,25 @@ msgstr "Vreemdesleutel limiet"
 msgid "No rows selected"
 msgstr "Geen rijen geselecteerd"
 
-#: tbl_select.php:129
+#: tbl_select.php:108
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
-#: tbl_select.php:266
+#: tbl_select.php:245
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Selecteer velden (tenminste 1):"
 
-#: tbl_select.php:284
+#: tbl_select.php:263
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Zoek condities toevoegen (het \"where\" gedeelte van de query):"
 
-#: tbl_select.php:291
+#: tbl_select.php:270
 msgid "Number of rows per page"
 msgstr "records per pagina"
 
-#: tbl_select.php:297
+#: tbl_select.php:276
 msgid "Display order:"
 msgstr "Weergave volgorde:"
 
