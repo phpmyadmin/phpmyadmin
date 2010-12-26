@@ -60,7 +60,6 @@ if (!isset($param) || $param[0] == '') {
     // Gets the list and number of fields
     $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt = PMA_DBI_num_rows($result);
-    // rabue: we'd better ensure, that all arrays are empty.
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
@@ -98,26 +97,6 @@ if (!isset($param) || $param[0] == '') {
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
     ?>
-<script type="text/javascript">
-// <![CDATA[
-function PMA_tbl_select_operator(f, index, multiple) {
-    switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
-<?php
-reset($GLOBALS['cfg']['UnaryOperators']);
-while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
-    echo '        case "' . $operator . "\":\r\n";
-}
-?>
-            bDisabled = true;
-            break;
-
-        default:
-            bDisabled = false;
-    }
-    f.elements["fields[" + index + "]" + ((multiple) ? "[]": "")].disabled = bDisabled;
-}
-// ]]>
-</script>
 <form method="post" action="tbl_select.php" name="insertForm" id="tbl_search_form">
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
