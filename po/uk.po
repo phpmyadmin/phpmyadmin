@@ -611,7 +611,7 @@ msgstr "Таблицю %s було знищено"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
-msgstr "Трекінг є активним"
+msgstr "Трекінг є активним."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
