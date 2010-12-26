@@ -85,6 +85,10 @@ $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strInlineEdit'] = __('Inline Edit');
 
+/* For tbl_select.js */
+$js_messages['strHideSearchCriteria'] = __('Hide search criteria');
+$js_messages['strShowSearchCriteria'] = __('Show search criteria');
+
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
 

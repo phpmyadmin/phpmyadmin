@@ -22,6 +22,24 @@ $(document).ready(function() {
         cache: 'false'
     });
 
+    $('<a id="togglesearchform"></a>')
+     .html(PMA_messages['strShowSearchCriteria'])
+     .insertAfter('#tbl_search_form')
+     // don't show it until we have results on-screen
+     .hide();
+
+    $('#togglesearchform').bind('click', function() {
+        var $link = $(this);
+        $('#tbl_search_form').slideToggle();
+        if ($link.text() == PMA_messages['strHideSearchCriteria']) {
+            $link.text(PMA_messages['strShowSearchCriteria']);
+        } else {
+            $link.text(PMA_messages['strHideSearchCriteria']);
+        }
+        // avoid default click action
+        return false;
+    })
+
     /**
      * Ajax event handler for Table Search
      * 
@@ -45,6 +63,12 @@ $(document).ready(function() {
             if (typeof response == 'string') {
                 // found results
                 $("#searchresults").html(response);
+                $('#tbl_search_form').hide();
+                $('#togglesearchform')
+                 // always start with the Show message
+                 .text(PMA_messages['strShowSearchCriteria'])
+                 // now it's time to show the link
+                 .show();
             } else {
                 // error message (zero rows)
                 $("#searchresults").html(response['message']);
