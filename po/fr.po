@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 13:47+0200\n"
+"PO-Revision-Date: 2010-12-27 13:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -821,7 +821,7 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "Le fichier %s existe déjà sur le serveur, veuillez changer le nom, ou cocher "
-"l'option «écraser»."
+"l'option d'écrasement des fichiers existants."
 
 #: export.php:311 export.php:315
 #, php-format
