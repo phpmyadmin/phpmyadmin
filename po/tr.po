@@ -949,7 +949,7 @@ msgstr "İzleme verisi siliniyor"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "Birincil Anaktar/İndeks Kaldırılıyor"
+msgstr "Birincil Anahtar/İndeks Kaldırılıyor"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
