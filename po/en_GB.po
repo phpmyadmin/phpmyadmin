@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 13:45+0200\n"
+"PO-Revision-Date: 2010-12-27 13:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -9582,7 +9582,7 @@ msgstr "Add unique index"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Add FULLTEXT index"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
