@@ -68,6 +68,8 @@ function appendInlineAnchor(disp_mode) {
             var $cloned_tr = $this_tr.clone();
 
             var $img_object = $cloned_tr.find('img:first').attr('title', PMA_messages['strInlineEdit']);
+            var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
+            $img_object.attr('src', img_src);
 
             $cloned_tr.find('td')
              .addClass('inline_edit_anchor')
@@ -91,6 +93,8 @@ function appendInlineAnchor(disp_mode) {
             var $cloned_anchor = $this_td.clone();
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
+            var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
+            $img_object.attr('src', img_src);
 
             $cloned_anchor.addClass('inline_edit_anchor')
             .find('a').attr('href', '#')
