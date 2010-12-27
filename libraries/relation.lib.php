@@ -840,7 +840,9 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
 {
     $reloptions = array();
 
-    if ($mode == 'id-content') {
+    // id-only is a special mode used when no foreign display column
+    // is available
+    if ($mode == 'id-content' || $mode == 'id-only') {
         // sort for id-content
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($foreign, 'strnatcasecmp');
@@ -857,7 +859,6 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-
         if (PMA_strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
@@ -866,7 +867,7 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
             $value  = htmlspecialchars(substr($value, 0, $GLOBALS['cfg']['LimitChars']) . '...');
         }
 
-        $reloption = '                <option value="' . htmlspecialchars($key) . '"';
+        $reloption = '<option value="' . htmlspecialchars($key) . '"';
         if ($vtitle != '') {
             $reloption .= ' title="' . $vtitle . '"';
         }
@@ -876,9 +877,11 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
         }
 
         if ($mode == 'content-id') {
-            $reloptions[] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
-        } else {
-            $reloptions[] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
+            $reloptions[] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>';
+        } elseif ($mode == 'id-content') {
+            $reloptions[] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>';
+        } elseif ($mode == 'id-only') {
+            $reloptions[] = $reloption . '>' . htmlspecialchars($key) . '</option>';
         }
     } // end foreach
 
@@ -925,33 +928,39 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 
     // put the dropdown sections in correct order
     $top = array();
-    $bot = array();
-    if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
-        if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
-            $top = PMA__foreignDropdownBuild($foreign, $data,
-                $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]);
-        }
-        if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
-            $bot = PMA__foreignDropdownBuild($foreign, $data,
-                $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]);
+    $bottom = array();
+    if ($foreign_display) {
+        if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
+            if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
+                $top = PMA__foreignDropdownBuild($foreign, $data,
+                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]);
+            }
+            if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
+                $bottom = PMA__foreignDropdownBuild($foreign, $data,
+                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]);
+            }
+        } else {
+            $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
+            $bottom = PMA__foreignDropdownBuild($foreign, $data, 'content-id');
         }
     } else {
-        $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
-        $bot = PMA__foreignDropdownBuild($foreign, $data, 'content-id');
+        $top = PMA__foreignDropdownBuild($foreign, $data, 'id-only');
     }
 
     // beginning of dropdown
-    $ret = '<option value="">&nbsp;</option>' . "\n";
-
+    $ret = '<option value="">&nbsp;</option>';
     $top_count = count($top);
     if ($max == -1 || $top_count < $max) {
         $ret .= implode('', $top);
-        if ($top_count > 0) {
-            $ret .= '                <option value="">&nbsp;</option>' . "\n";
-            $ret .= '                <option value="">&nbsp;</option>' . "\n";
+        if ($foreign_display && $top_count > 0) {
+            // this empty option is to visually mark the beginning of the
+            // second series of values (bottom)
+            $ret .= '<option value="">&nbsp;</option>';
         }
     }
-    $ret .= implode('', $bot);
+    if ($foreign_display) {
+        $ret .= implode('', $bottom);
+    }
 
     return $ret;
 } // end of 'PMA_foreignDropdown()' function

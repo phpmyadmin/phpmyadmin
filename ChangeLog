@@ -127,6 +127,7 @@
 - [interface] Use less noisy message and remove disable link on server charts and database statistics.
 + rfe #3141330 [relation] When displaying results, show a link to the foreign 
   table even when phpMyAdmin configuration storage is not active
+- bug #3141327 [relation] Foreign key input options
 
 3.3.10.0 (not yet released)
 
