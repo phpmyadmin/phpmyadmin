@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 15:18+0200\n"
+"PO-Revision-Date: 2010-12-27 15:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1084,7 +1084,7 @@ msgstr "Sıralı Düzenleme"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Arama kriterini gizle"
 
 #: js/messages.php:90
 #| msgid "Show query chart"
