@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-26 08:19-0500\n"
+"POT-Creation-Date: 2010-12-27 07:14-0500\n"
 "PO-Revision-Date: 2010-12-23 23:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -2068,6 +2068,10 @@ msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 #: tbl_change.php:914
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
+
+#: libraries/common.lib.php:2983
+msgid "There are no files to upload"
+msgstr ""
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33

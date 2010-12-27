@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-26 08:19-0500\n"
+"POT-Creation-Date: 2010-12-27 07:14-0500\n"
 "PO-Revision-Date: 2010-09-14 20:45+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -2218,6 +2218,10 @@ msgstr "webszerver feltöltési könyvtár"
 #: tbl_change.php:914
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Nem elérhető a feltöltésekhez megadott könyvtár"
+
+#: libraries/common.lib.php:2983
+msgid "There are no files to upload"
+msgstr ""
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33

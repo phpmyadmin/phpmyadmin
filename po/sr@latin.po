@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-26 08:19-0500\n"
+"POT-Creation-Date: 2010-12-27 07:14-0500\n"
 "PO-Revision-Date: 2010-12-02 14:49+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -2190,6 +2190,10 @@ msgstr "direktorijum za slanje veb servera "
 #: tbl_change.php:914
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktorijum koji ste izabrali za slanje nije dostupan"
+
+#: libraries/common.lib.php:2983
+msgid "There are no files to upload"
+msgstr ""
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-26 08:19-0500\n"
+"POT-Creation-Date: 2010-12-27 07:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2024,6 +2024,10 @@ msgstr ""
 #: libraries/common.lib.php:2975 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:914
 msgid "The directory you set for upload work cannot be reached"
+msgstr ""
+
+#: libraries/common.lib.php:2983
+msgid "There are no files to upload"
 msgstr ""
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
