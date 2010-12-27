@@ -3271,7 +3271,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie validity"
-msgstr "Durée de validité de la connexion (mode cookie)"
+msgstr "Durée de validité de la connexion en mode cookie"
 
 #: libraries/config/messages.inc.php:295
 msgid "Double size of textarea for LONGTEXT columns"
