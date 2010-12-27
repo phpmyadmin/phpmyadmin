@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 14:05+0200\n"
+"PO-Revision-Date: 2010-12-27 14:06+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3374,7 +3374,7 @@ msgstr "Ordre naturel"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
-msgstr "Utiliser les icônes (true), du texte (false) ou les deux (both)"
+msgstr "Afficher seulement des icônes, seulement du texte ou les deux"
 
 #: libraries/config/messages.inc.php:317
 msgid "Iconic navigation bar"
