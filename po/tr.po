@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-23 23:46+0200\n"
+"PO-Revision-Date: 2010-12-27 16:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -949,7 +949,7 @@ msgstr "İzleme verisi siliniyor"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "Birincil Anaktar/İndeks Kaldırılıyor"
+msgstr "Birincil Anahtar/İndeks Kaldırılıyor"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1034,7 +1034,7 @@ msgstr "Sütun Kaldırılıyor"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr "Birincil Anaktar Ekleniyor"
+msgstr "Birincil Anahtar Ekleniyor"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
@@ -1084,13 +1084,12 @@ msgstr "Sıralı Düzenleme"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Arama kriterini gizle"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "Sorgu çizelgesini göster"
+msgstr "Arama kriterini göster"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1107,7 +1106,7 @@ msgstr "Dış Anahtarı seç"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
-msgstr "Lütfen birincil anaktarı veya benzersiz anahtarı seçin"
+msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin"
 
 #: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
 msgid "Choose column to display"
@@ -1439,7 +1438,7 @@ msgstr "İndeksler"
 #: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
 #: tbl_tracking.php:316
 msgid "Unique"
-msgstr "Eşsiz"
+msgstr "Benzersiz"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:317
 msgid "Packed"
@@ -7935,7 +7934,7 @@ msgstr ""
 "İfadeler çalıştırılırken sunucu tarafından disk üzerindeki geçici tablo "
 "sayıları otomatik olarak oluşturuldu. Eğer Created_tmp_disk_tables değeri "
 "büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olamasına "
-"sebep olmak için tmp_table_size  değerini arttırmak isteyebilirsiniz."
+"sebep olmak için tmp_table_size değerini arttırmak isteyebilirsiniz."
 
 #: server_status.php:49
 msgid "How many temporary files mysqld has created."
@@ -9644,24 +9643,22 @@ msgid "Browse distinct values"
 msgstr "Belirgin değerlere gözat"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Birincil Anaktar Ekleniyor"
+msgstr "Birincil anahtar ekle"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "İndeks(leri)i uygula"
+msgstr "İndeks ekle"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
-msgstr ""
+msgstr "Benzersiz indeks ekle"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT indeks ekle"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
