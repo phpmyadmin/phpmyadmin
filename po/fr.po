@@ -3266,7 +3266,8 @@ msgstr "Stockage du cookie"
 
 #: libraries/config/messages.inc.php:293
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Le nombre de secondes pendant lequel la connexion demeure valide"
+msgstr ""
+"Définit pendant combien de temps (en secondes) la connexion demeure valide"
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie validity"
