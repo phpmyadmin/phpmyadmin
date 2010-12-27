@@ -4965,7 +4965,7 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"La taille du pointeur en octets qui servira lors d'un CREATE TABLE sur une "
+"La taille en octets du pointeur qui servira lors d'un CREATE TABLE sur une "
 "table MyISAM si aucune option MAX_ROWS n'est indiquée."
 
 #: libraries/engines/myisam.lib.php:27
