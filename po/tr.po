@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 15:16+0200\n"
+"PO-Revision-Date: 2010-12-27 15:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1106,7 +1106,7 @@ msgstr "Dış Anahtarı seç"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
-msgstr "Lütfen birincil anaktarı veya benzersiz anahtarı seçin"
+msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin"
 
 #: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
 msgid "Choose column to display"
