@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 14:08+0200\n"
+"PO-Revision-Date: 2010-12-27 14:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4428,7 +4428,7 @@ msgstr "Le serveur ne répond pas"
 #: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion (socket) vers le serveur MySQL local n'est pas "
+"(ou l'interface de connexion vers le serveur MySQL local n'est pas "
 "correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
