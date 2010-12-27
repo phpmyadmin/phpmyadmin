@@ -2260,7 +2260,7 @@ msgid ""
 msgstr ""
 "Activer ceci permet à une page située dans un domaine différent d'appeler "
 "phpMyAdmin à l'intérieur d'un cadre et représente un trou potentiel de "
-"sécurité pour les attaques de script inter-cadre (cross-frame)."
+"sécurité pour les attaques de script inter-cadre"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
