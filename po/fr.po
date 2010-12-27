@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 13:58+0200\n"
+"PO-Revision-Date: 2010-12-27 13:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -564,7 +564,7 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Mot ou valeur à rechercher (passe-partout: «%») :"
+msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
 
 #: db_search.php:304
 msgid "Find:"
