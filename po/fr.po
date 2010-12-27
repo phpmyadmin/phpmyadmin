@@ -9715,10 +9715,9 @@ msgid "Browse distinct values"
 msgstr "Affiche les valeurs distinctes"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Ajout de clé primaire"
+msgstr "Ajouter une clé primaire"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 #, fuzzy
