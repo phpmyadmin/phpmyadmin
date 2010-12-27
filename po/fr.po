@@ -9730,7 +9730,7 @@ msgstr "Ajouter un index unique"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Ajouter un index FULLTEXT"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
