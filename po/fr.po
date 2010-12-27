@@ -3659,7 +3659,7 @@ msgstr "Empêcher l'accès à INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:379
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr "Quelle extension PHP utiliser (prenez mysqli si possible)"
+msgstr "Quelle extension PHP utiliser; vous devriez choisir mysqli si possible"
 
 #: libraries/config/messages.inc.php:380
 msgid "PHP extension to use"
