@@ -3241,7 +3241,7 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Sur le panneau de connexion (mode cookie ), le nom du précédent utilisateur "
+"Sur le panneau de connexion du mode cookie, le nom du précédent utilisateur "
 "devrait-il apparaître?"
 
 #: libraries/config/messages.inc.php:290
