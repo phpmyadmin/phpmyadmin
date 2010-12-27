@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 14:06+0200\n"
+"PO-Revision-Date: 2010-12-27 14:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3540,9 +3540,7 @@ msgstr "Permettre une connexion à root"
 
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-"Domaine de protection (realm) à afficher lors d'une authentification HTTP "
-"Basic"
+msgstr "Domaine de protection à afficher lors d'une authentification HTTP Basic"
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
