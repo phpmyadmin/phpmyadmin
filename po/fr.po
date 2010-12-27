@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-15 19:13+0200\n"
+"PO-Revision-Date: 2010-12-27 14:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -230,7 +230,7 @@ msgstr "Imprimer"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Schéma et données de la base"
+msgstr "Voir une exportation (schéma) de la base de données"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:308
@@ -564,7 +564,7 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:299
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Mot ou valeur à rechercher (passe-partout: «%») :"
+msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
 
 #: db_search.php:304
 msgid "Find:"
@@ -821,7 +821,7 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "Le fichier %s existe déjà sur le serveur, veuillez changer le nom, ou cocher "
-"l'option «écraser»."
+"l'option d'écrasement des fichiers existants."
 
 #: export.php:311 export.php:315
 #, php-format
@@ -1095,16 +1095,14 @@ msgid "Inline Edit"
 msgstr "Édition en place"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Hide query chart"
 msgid "Hide search criteria"
-msgstr "Cacher le graphique des requêtes"
+msgstr "Cacher les critères de recherche"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "Afficher le graphique des requêtes"
+msgstr "Afficher les critères de recherche"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1864,7 +1862,7 @@ msgstr "Indice de serveur invalide: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nom d'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre "
+"Nom d'hôte invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
@@ -2252,7 +2250,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Si activé, permet d'entrer un nom de serveur MySQL sur le panneau de "
-"connexion (mode cookie)"
+"connexion en mode cookie"
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
@@ -2266,7 +2264,7 @@ msgid ""
 msgstr ""
 "Activer ceci permet à une page située dans un domaine différent d'appeler "
 "phpMyAdmin à l'intérieur d'un cadre et représente un trou potentiel de "
-"sécurité pour les attaques de script inter-cadre (cross-frame)."
+"sécurité pour les attaques de script inter-cadre"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -2333,7 +2331,7 @@ msgstr "Édition des colonnes CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Nombre de colonnes pour les textareas CHAR/VARCHAR)"
+msgstr "Nombre de colonnes pour les textareas CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
@@ -2341,7 +2339,7 @@ msgstr "Taille horizontale pour un textarea contenant un CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr "Nombre de lignes pour les textareas CHAR/VARCHAR)"
+msgstr "Nombre de lignes pour les textareas CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea rows"
@@ -2373,12 +2371,12 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Un message devrait-il s'afficher quand vous êtes sur le point de perdre des "
-"données"
+"Un message (Êtes-vous certain...) devrait-il s'afficher quand vous êtes sur "
+"le point de perdre des données"
 
 #: libraries/config/messages.inc.php:41
 msgid "Confirm DROP queries"
-msgstr "Confirmer les requêtes de suppression (DROP)"
+msgstr "Confirmer les requêtes de suppression DROP"
 
 #: libraries/config/messages.inc.php:42
 msgid "Debug SQL"
@@ -2426,11 +2424,11 @@ msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:52
 msgid "Show binary contents as HEX by default"
-msgstr "Montrer par défaut le contenu binaire en hexadécimal (HEX)"
+msgstr "Montrer par défaut le contenu binaire en hexadécimal"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
-msgstr "Montrer le contenu binaire en hexadécimal (HEX)"
+msgstr "Montrer le contenu binaire en hexadécimal"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
@@ -2536,8 +2534,7 @@ msgstr "Remplacer NULL par"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
 msgid "Remove CRLF characters within columns"
-msgstr ""
-"Enlève les caractères de fin de ligne (CRLF) à l'intérieur des colonnes"
+msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:61
@@ -3153,7 +3150,9 @@ msgstr "Séparateur pour l'arborescence des bases de données"
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr "En affichage léger; déterminé par le séparateur)"
+msgstr ""
+"En affichage léger; afficher les bases de données en arborescence (déterminé "
+"par le séparateur défini plus bas)"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display databases in a tree"
@@ -3246,7 +3245,7 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Sur le panneau de connexion (mode cookie ), le nom du précédent utilisateur "
+"Sur le panneau de connexion du mode cookie, le nom du précédent utilisateur "
 "devrait-il apparaître?"
 
 #: libraries/config/messages.inc.php:290
@@ -3260,10 +3259,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"Définit combien de secondes le cookie de connexion sera conservé dans le "
-"fureteur. La valeur par défaut de 0 signifie qu'il ne sera conservé que pour "
-"la session; ceci est recommandé si l'environnement n'est pas digne de "
-"confiance."
+"Définit pendant combien de temps (en secondes) le cookie de connexion sera "
+"conservé dans le fureteur. La valeur par défaut de 0 signifie qu'il ne sera "
+"conservé que pour la session; ceci est recommandé si l'environnement n'est "
+"pas digne de confiance."
 
 #: libraries/config/messages.inc.php:292
 msgid "Login cookie store"
@@ -3271,11 +3270,12 @@ msgstr "Stockage du cookie"
 
 #: libraries/config/messages.inc.php:293
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Le nombre de secondes pendant lequel la connexion demeure valide"
+msgstr ""
+"Définit pendant combien de temps (en secondes) la connexion demeure valide"
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie validity"
-msgstr "Durée de validité de la connexion (mode cookie)"
+msgstr "Durée de validité de la connexion en mode cookie"
 
 #: libraries/config/messages.inc.php:295
 msgid "Double size of textarea for LONGTEXT columns"
@@ -3378,7 +3378,7 @@ msgstr "Ordre naturel"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
-msgstr "Utiliser les icônes (true), du texte (false) ou les deux (both)"
+msgstr "Afficher seulement des icônes, seulement du texte ou les deux"
 
 #: libraries/config/messages.inc.php:317
 msgid "Iconic navigation bar"
@@ -3444,8 +3444,8 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activer si vous désirez un historique permanent (nécessite le stockage de "
-"configurations phpMyAdmin. Si désactivé, utilise Javascript pour afficher un "
-"historique temporaire (sera perdu à la fermeture de la fenêtre)."
+"configurations phpMyAdmin). Si désactivé, utilise Javascript pour afficher "
+"un historique temporaire (sera perdu à la fermeture de la fenêtre)."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
@@ -3544,9 +3544,7 @@ msgstr "Permettre une connexion à root"
 
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-"Domaine de protection (realm) à afficher lors d'une authentification HTTP "
-"Basic"
+msgstr "Domaine de protection à afficher lors d'une authentification HTTP Basic"
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
@@ -3600,7 +3598,7 @@ msgstr "Table pour informations sur les colonnes"
 
 #: libraries/config/messages.inc.php:366
 msgid "Compress connection to MySQL server"
-msgstr "(connexion au serveur MySQL)"
+msgstr "Comprime la connexion au serveur MySQL"
 
 #: libraries/config/messages.inc.php:367
 msgid "Compress connection"
@@ -3665,7 +3663,7 @@ msgstr "Empêcher l'accès à INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:379
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr "Quelle extension PHP utiliser (prenez mysqli si possible)"
+msgstr "Quelle extension PHP utiliser; vous devriez choisir mysqli si possible"
 
 #: libraries/config/messages.inc.php:380
 msgid "PHP extension to use"
@@ -3720,10 +3718,11 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Vous pouvez utiliser ces caractères passepartout MySQL (% et _), avec un "
-"caractère d'échappement si vous les employez de manière littérale («ma"
-"\\_base» et non «ma_base»). Ainsi vous pouvez trier la liste des bases de "
-"données en entrant leurs noms et en utilisant [kbd]*[/kbd] en fin de liste "
-"pour montrer le reste des noms de base de données en ordre alphabétique."
+"caractère d'échappement si vous les employez de manière littérale, par "
+"exemple «ma\\_base» et non «ma_base». Ainsi vous pouvez trier la liste des "
+"bases de données en entrant leurs noms et en utilisant [kbd]*[/kbd] en fin "
+"de liste pour montrer le reste des noms de base de données en ordre "
+"alphabétique."
 
 #: libraries/config/messages.inc.php:391
 msgid "Show only listed databases"
@@ -4433,7 +4432,7 @@ msgstr "Le serveur ne répond pas"
 #: libraries/dbi/mysql.dbi.lib.php:357 libraries/dbi/mysqli.dbi.lib.php:411
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion (socket) vers le serveur MySQL local n'est pas "
+"(ou l'interface de connexion vers le serveur MySQL local n'est pas "
 "correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:366 tbl_structure.php:700
@@ -4706,8 +4705,9 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Permettre l'interruption de l'importation si la limite de temps configurée "
-"dans PHP est sur le point d'être atteinte. Ceci pourrait aider à importer "
-"des fichiers volumineux, au détriment du respect des transactions."
+"dans PHP est sur le point d'être atteinte. <i>(Ceci pourrait aider à "
+"importer des fichiers volumineux, au détriment du respect des "
+"transactions.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -4969,7 +4969,7 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"La taille du pointeur (en octets) qui servira lors d'un CREATE TABLE sur une "
+"La taille en octets du pointeur qui servira lors d'un CREATE TABLE sur une "
 "table MyISAM si aucune option MAX_ROWS n'est indiquée."
 
 #: libraries/engines/myisam.lib.php:27
@@ -6491,7 +6491,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées (voir la %sdocumentation%s)."
+"PHP nécessaires ont bien été installées tel que décrit dans la %"
+"sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -9721,24 +9722,22 @@ msgid "Browse distinct values"
 msgstr "Affiche les valeurs distinctes"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Ajout de clé primaire"
+msgstr "Ajouter une clé primaire"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Appliquer des index"
+msgstr "Ajouter un index"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
-msgstr ""
+msgstr "Ajouter un index unique"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Ajouter un index FULLTEXT"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
