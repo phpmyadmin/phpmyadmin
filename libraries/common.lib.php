@@ -2980,7 +2980,7 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
         echo $files;
         echo '    </select>' . "\n";
     } elseif (empty ($files)) {
-        echo '<i>There are no files to upload</i>';
+        echo '<i>' . __('There are no files to upload') . '</i>';
     }
 }
 
