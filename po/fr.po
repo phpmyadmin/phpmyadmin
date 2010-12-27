@@ -1862,7 +1862,7 @@ msgstr "Indice de serveur invalide: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nom d'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre "
+"Nom d'hôte invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:482
