@@ -3594,7 +3594,7 @@ msgstr "Table pour informations sur les colonnes"
 
 #: libraries/config/messages.inc.php:366
 msgid "Compress connection to MySQL server"
-msgstr "(connexion au serveur MySQL)"
+msgstr "Comprime la connexion au serveur MySQL"
 
 #: libraries/config/messages.inc.php:367
 msgid "Compress connection"
