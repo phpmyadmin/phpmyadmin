@@ -75,7 +75,7 @@ function appendInlineAnchor(disp_mode) {
              .addClass('inline_edit_anchor')
              .find('a').attr('href', '#')
              .find('span')
-             .text(PMA_messages['strInlineEdit'])
+             .text(' ' + PMA_messages['strInlineEdit'])
              .prepend($img_object);
 
             $cloned_tr.insertAfter($this_tr);
@@ -99,7 +99,7 @@ function appendInlineAnchor(disp_mode) {
             $cloned_anchor.addClass('inline_edit_anchor')
             .find('a').attr('href', '#')
             .find('span')
-            .text(PMA_messages['strInlineEdit'])
+            .text(' ' + PMA_messages['strInlineEdit'])
             .prepend($img_object);
 
             $this_td.after($cloned_anchor);
