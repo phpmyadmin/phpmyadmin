@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-26 08:19-0500\n"
-"PO-Revision-Date: 2010-12-27 13:55+0200\n"
+"PO-Revision-Date: 2010-12-27 13:58+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -230,7 +230,7 @@ msgstr "Imprimer"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Schéma et données de la base"
+msgstr "Voir une exportation (schéma) de la base de données"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:47
 #: export.php:371 navigation.php:308
