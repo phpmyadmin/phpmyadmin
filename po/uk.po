@@ -1097,9 +1097,8 @@ msgid "Ignore"
 msgstr "Ігнорувати"
 
 #: js/messages.php:96
-#, fuzzy
 msgid "Select referenced key"
-msgstr "Вибрати ключі з посиланнями"
+msgstr ""
 
 #: js/messages.php:97
 msgid "Select Foreign Key"
