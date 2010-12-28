@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-28 21:41+0200\n"
+"PO-Revision-Date: 2010-12-28 21:43+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1110,10 +1110,9 @@ msgid "Please select the primary key or a unique key"
 msgstr ""
 
 #: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Виберіть поля для відображення"
+msgstr "Виберіть колонку для відображення"
 
 #: js/messages.php:102
 msgid "Add an option for column "
