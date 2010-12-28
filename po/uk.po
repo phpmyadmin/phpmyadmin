@@ -2634,10 +2634,9 @@ msgid "Use hexadecimal for BLOB"
 msgstr ""
 
 #: libraries/config/messages.inc.php:126
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "Використовувати ignore вставки"
+msgstr ""
 
 #: libraries/config/messages.inc.php:128 libraries/export/sql.php:163
 msgid "Maximal length of created query"
