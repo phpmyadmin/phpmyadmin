@@ -1184,7 +1184,7 @@ msgstr "Квітень"
 
 #: js/messages.php:133
 msgid "May"
-msgstr "Трв"
+msgstr "Травень"
 
 #: js/messages.php:134
 #, fuzzy
