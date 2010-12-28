@@ -1281,10 +1281,9 @@ msgid "Dec"
 msgstr "Гру"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Нд"
+msgstr "Неділя"
 
 #: js/messages.php:170
 #, fuzzy
