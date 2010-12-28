@@ -4451,10 +4451,9 @@ msgid "zipped"
 msgstr "стиснено"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "запакувати в \"gzip\""
+msgstr "стиснено в \"gzip\""
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
