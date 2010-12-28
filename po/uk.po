@@ -1403,10 +1403,9 @@ msgid "Minute"
 msgstr "Хвилина"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "за секунду"
+msgstr "Секунда"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
