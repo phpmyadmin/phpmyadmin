@@ -1087,10 +1087,9 @@ msgid "Hide search criteria"
 msgstr "Сховати критерії пошуку"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "SQL query"
 msgid "Show search criteria"
-msgstr "SQL-запит"
+msgstr "Показати критерії пошуку"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
