@@ -4003,10 +4003,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Textarea columns"
-msgstr "Додати/Прибрати колонки"
+msgstr ""
 
 #: libraries/config/messages.inc.php:475
 msgid ""
