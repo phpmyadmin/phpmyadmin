@@ -1060,10 +1060,9 @@ msgid "Table must have at least one column"
 msgstr "Таблиця повинна мати принаймі один Стовпчик"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create a page"
 msgid "Create Table"
-msgstr "Створити нову сторінку"
+msgstr "Створити Таблицю"
 
 #: js/messages.php:81
 #, fuzzy
