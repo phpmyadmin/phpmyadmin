@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-28 22:05+0200\n"
+"PO-Revision-Date: 2010-12-28 22:06+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2132,7 +2132,7 @@ msgstr "повні вставки"
 #: libraries/config.values.php:120
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "розширена вставки"
+msgstr "розширені вставки"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
