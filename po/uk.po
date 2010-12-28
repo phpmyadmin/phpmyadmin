@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-28 21:43+0200\n"
+"PO-Revision-Date: 2010-12-28 21:44+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1145,10 +1145,9 @@ msgstr "Готово"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Назад"
+msgstr "Попередні"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:124 libraries/common.lib.php:2333
