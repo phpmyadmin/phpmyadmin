@@ -1221,7 +1221,7 @@ msgstr "Грудень"
 #. l10n: Short month name
 #: js/messages.php:144 libraries/common.lib.php:1538
 msgid "Jan"
-msgstr "Січень"
+msgstr "Січ"
 
 #. l10n: Short month name
 #: js/messages.php:146 libraries/common.lib.php:1540
