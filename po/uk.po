@@ -2132,7 +2132,7 @@ msgstr "повна вставка"
 #: libraries/config.values.php:120
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "розширена вставка"
+msgstr "розширена вставки"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
