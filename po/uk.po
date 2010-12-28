@@ -2127,7 +2127,7 @@ msgstr ""
 #: libraries/config.values.php:119
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "повна вставка"
+msgstr "повні вставки"
 
 #: libraries/config.values.php:120
 #| msgid "Extended inserts"
