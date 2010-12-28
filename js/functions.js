@@ -1520,10 +1520,10 @@ function toggle_enum_notice(selectElement) {
     var enum_notice_id = selectElement.attr("id").split("_")[1];
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
     var selectedType = selectElement.attr("value");
-    if(selectedType == "ENUM" || selectedType == "SET") {
+    if (selectedType == "ENUM" || selectedType == "SET") {
         $("p[id='enum_notice_" + enum_notice_id + "']").show();
     } else {
-          $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+        $("p[id='enum_notice_" + enum_notice_id + "']").hide();
     }
 }
 
@@ -1652,6 +1652,7 @@ $(document).ready(function() {
             .dialog({
                 title: PMA_messages['strCreateTable'],
                 width: 900,
+                open: PMA_verifyTypeOfAllColumns, 
                 buttons : button_options
             }); // end dialog options
         }) // end $.get()
@@ -2038,13 +2039,21 @@ $(document).ready(function() {
  * the page loads and when the selected data type changes
  */
 $(document).ready(function() {
-    $.each($("select[class='column_type']"), function() {
-        toggle_enum_notice($(this));
-    });
-    $("select[class='column_type']").change(function() {
+    // is called here for normal page loads and also when opening
+    // the Create table dialog
+    PMA_verifyTypeOfAllColumns();
+    //
+    // needs live() to work also in the Create Table dialog
+    $("select[class='column_type']").live('change', function() {
         toggle_enum_notice($(this));
     });
 });
+
+function PMA_verifyTypeOfAllColumns() {
+    $("select[class='column_type']").each(function() {
+        toggle_enum_notice($(this));
+    });
+}
 
 /**
  * Closes the ENUM/SET editor and removes the data in it
@@ -2061,7 +2070,8 @@ function disable_popup() {
  * Opens the ENUM/SET editor and controls its functions
  */
 $(document).ready(function() {
-    $("a[class='open_enum_editor']").click(function() {
+    // Needs live() to work also in the Create table dialog
+    $("a[class='open_enum_editor']").live('click', function() {
         // Center the popup
         var windowWidth = document.documentElement.clientWidth;
         var windowHeight = document.documentElement.clientHeight;
@@ -2100,22 +2110,26 @@ $(document).ready(function() {
     });
 
     // If the "close" link is clicked, close the enum editor
-    $("a[class='close_enum_editor']").click(function() {
+    // Needs live() to work also in the Create table dialog
+    $("a[class='close_enum_editor']").live('click', function() {
         disable_popup();
     });
 
     // If the "cancel" link is clicked, close the enum editor
-    $("a[class='cancel_enum_editor']").click(function() {
+    // Needs live() to work also in the Create table dialog
+    $("a[class='cancel_enum_editor']").live('click', function() {
         disable_popup();
     });
 
     // When "add a new value" is clicked, append an empty text field
-    $("a[class='add_value']").click(function() {
+    // Needs live() to work also in the Create table dialog
+    $("a[class='add_value']").live('click', function() {
         $("#enum_editor #values").append("<input type='text' />");
     });
 
     // When the submit button is clicked, put the data back into the original form
-    $("#enum_editor input[type='submit']").click(function() {
+    // Needs live() to work also in the Create table dialog
+    $("#enum_editor input[type='submit']").live('click', function() {
         var value_array = new Array();
         $.each($("#enum_editor #values input"), function(index, input_element) {
             val = jQuery.trim(input_element.value);
