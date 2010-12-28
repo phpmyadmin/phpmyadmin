@@ -1065,10 +1065,9 @@ msgid "Create Table"
 msgstr "Створити Таблицю"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Шукати"
+msgstr "Пошук"
 
 #: js/messages.php:84
 msgid "Hide query box"
