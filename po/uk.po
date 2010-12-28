@@ -1133,10 +1133,9 @@ msgid "Change Password"
 msgstr "Змінити пароль"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Пн"
+msgstr "Більше"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:120
