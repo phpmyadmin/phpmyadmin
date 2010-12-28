@@ -2965,10 +2965,9 @@ msgid "Text fields"
 msgstr "Текстові поля"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Use text field"
 msgid "Customize text input fields"
-msgstr "Використовувати текстове поле"
+msgstr "Налаштувати текстові поля вводу"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
