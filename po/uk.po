@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-28 22:24+0200\n"
+"PO-Revision-Date: 2010-12-28 22:25+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4401,10 +4401,9 @@ msgid "Save output to a file"
 msgstr "Зберегти вивід у файл"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Шаблон назви файлу"
+msgstr "Шаблон назви файлу:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
