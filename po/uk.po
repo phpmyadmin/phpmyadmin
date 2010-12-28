@@ -4344,10 +4344,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Експортування рядків із таблиці \"%s\""
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export"
 msgid "Export Method:"
-msgstr "Експорт"
+msgstr "Метод Експорту:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
