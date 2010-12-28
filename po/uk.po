@@ -1164,10 +1164,9 @@ msgid "Today"
 msgstr "Сьогодні"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " Двійковий "
+msgstr "Січень"
 
 #: js/messages.php:130
 msgid "February"
