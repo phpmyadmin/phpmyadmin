@@ -2367,10 +2367,9 @@ msgid "Debug SQL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Default display direction"
-msgstr "Схема зв'язків"
+msgstr "Напрямок відображення по змовчуванню"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
