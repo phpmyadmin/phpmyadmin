@@ -4327,10 +4327,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Дозволити блокування таблиць для біжучих потоків."
+msgstr "Експортування баз даних із поточного сервера"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
