@@ -8,4 +8,3 @@ Theme created by Mike Homme http://www.mikehomme.com
 $theme_name = 'pmamhomme';
 $theme_full_version = '1.0';
 ?>
-
