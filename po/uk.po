@@ -1094,7 +1094,7 @@ msgstr "Показати критерії пошуку"
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
-msgstr "Ігноруровати"
+msgstr "Ігнорувати"
 
 #: js/messages.php:96
 msgid "Select referenced key"
