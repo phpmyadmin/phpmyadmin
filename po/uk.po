@@ -1212,7 +1212,7 @@ msgstr "Жовтень"
 
 #: js/messages.php:139
 msgid "November"
-msgstr ""
+msgstr "Листопад"
 
 #: js/messages.php:140
 msgid "December"
