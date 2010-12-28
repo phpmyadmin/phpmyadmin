@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-27 07:14-0500\n"
-"PO-Revision-Date: 2010-12-28 22:21+0200\n"
+"PO-Revision-Date: 2010-12-28 22:22+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4332,10 +4332,10 @@ msgid "Exporting databases from the current server"
 msgstr "Експортування баз даних із поточного сервера"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Створити нову таблицю в БД %s"
+msgstr "Експортування таблиць із бази даних \"%s\""
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
