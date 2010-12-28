@@ -2466,7 +2466,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:66 prefs_manage.php:299
 msgid "Save as file"
-msgstr "Відіслати"
+msgstr "Зберегти як файл"
 
 #: libraries/config/messages.inc.php:67 libraries/config/messages.inc.php:234
 msgid "Character set of the file"
