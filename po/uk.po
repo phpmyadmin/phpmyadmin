@@ -1802,7 +1802,7 @@ msgstr "Перевірити права"
 #: libraries/chart.lib.php:40
 #| msgid "Databases statistics"
 msgid "Query statistics"
-msgstr "Статистика запитів"
+msgstr "Статистика запиту"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
