@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-29 21:35+0200\n"
+"PO-Revision-Date: 2010-12-29 21:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6574,10 +6574,9 @@ msgid "You have to add at least one column."
 msgstr "En az bir sütun eklemek zorundasınız."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "Yeni sunucu ekle"
+msgstr "+ Yeni bir değer ekle"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
