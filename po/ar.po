@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-27 07:14-0500\n"
+"POT-Creation-Date: 2010-12-29 08:42-0500\n"
 "PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -47,8 +47,8 @@ msgstr "ابحث"
 
 #: browse_foreigners.php:160 db_operations.php:367 db_operations.php:412
 #: db_operations.php:518 db_operations.php:542 db_search.php:359
-#: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
-#: libraries/Theme_Manager.class.php:305
+#: db_structure.php:524 enum_editor.php:63 js/messages.php:59
+#: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
 #: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
@@ -62,18 +62,18 @@ msgstr "ابحث"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
-#: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:218
-#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
-#: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
-#: server_privileges.php:2062 server_privileges.php:2109
-#: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1066
-#: tbl_change.php:1103 tbl_indexes.php:252 tbl_operations.php:262
-#: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
-#: tbl_operations.php:733 tbl_select.php:302 tbl_structure.php:653
-#: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
-#: view_create.php:181 view_operations.php:99
+#: libraries/tbl_properties.inc.php:781 libraries/tbl_properties.inc.php:798
+#: main.php:105 navigation.php:218 pmd_pdf.php:124 prefs_manage.php:265
+#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:665
+#: server_privileges.php:1705 server_privileges.php:2062
+#: server_privileges.php:2109 server_privileges.php:2149
+#: server_replication.php:233 server_replication.php:316
+#: server_replication.php:347 server_synchronize.php:1207 tbl_change.php:322
+#: tbl_change.php:1066 tbl_change.php:1103 tbl_indexes.php:252
+#: tbl_operations.php:262 tbl_operations.php:299 tbl_operations.php:501
+#: tbl_operations.php:563 tbl_operations.php:733 tbl_select.php:302
+#: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
+#: tbl_tracking.php:506 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "&nbsp;تنفيذ&nbsp;"
 
@@ -161,7 +161,7 @@ msgstr "النوع"
 msgid "Null"
 msgstr "خالي"
 
-#: db_datadict.php:173 db_structure.php:453 libraries/export/htmlword.php:250
+#: db_datadict.php:173 db_structure.php:455 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
 #: libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
@@ -375,7 +375,7 @@ msgstr "صفوف"
 msgid "Size"
 msgstr "الحجم"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:624
+#: db_printview.php:160 db_structure.php:411 libraries/export/sql.php:624
 #: libraries/export/sql.php:964
 msgid "in use"
 msgstr "قيد الإستعمال"
@@ -401,7 +401,7 @@ msgstr "التحديث الأخير"
 msgid "Last check"
 msgstr "التحقق الأخير"
 
-#: db_printview.php:220 db_structure.php:432
+#: db_printview.php:220 db_structure.php:434
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
@@ -616,57 +616,57 @@ msgstr "داخل الجدول)الجداول(:"
 msgid "No tables found in database"
 msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
 
-#: db_structure.php:270 tbl_operations.php:658
+#: db_structure.php:272 tbl_operations.php:658
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "جدول %s أفرغت محتوياتها"
 
-#: db_structure.php:279 tbl_operations.php:675
+#: db_structure.php:281 tbl_operations.php:675
 #, php-format
 msgid "View %s has been dropped"
 msgstr ""
 
-#: db_structure.php:279 tbl_operations.php:675
+#: db_structure.php:281 tbl_operations.php:675
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "جدول %s حذفت"
 
-#: db_structure.php:286 tbl_create.php:295
+#: db_structure.php:288 tbl_create.php:295
 msgid "Tracking is active."
 msgstr ""
 
-#: db_structure.php:288 tbl_create.php:297
+#: db_structure.php:290 tbl_create.php:297
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:1942
+#: db_structure.php:374 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
 
-#: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
+#: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
 msgstr ""
 
-#: db_structure.php:437 libraries/db_structure.lib.php:40
+#: db_structure.php:439 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
 msgid "Replication"
 msgstr ""
 
-#: db_structure.php:441
+#: db_structure.php:443
 msgid "Sum"
 msgstr "المجموع"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:450 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
-#: db_structure.php:476 db_structure.php:493 db_structure.php:494
+#: db_structure.php:478 db_structure.php:495 db_structure.php:496
 #: libraries/display_tbl.lib.php:2083 libraries/display_tbl.lib.php:2088
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
@@ -674,23 +674,23 @@ msgstr ""
 msgid "With selected:"
 msgstr ": على المحدد"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2078
+#: db_structure.php:481 libraries/display_tbl.lib.php:2078
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "اختر الكل"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2079
+#: db_structure.php:485 libraries/display_tbl.lib.php:2079
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
 msgstr "إلغاء تحديد الكل"
 
-#: db_structure.php:488
+#: db_structure.php:490
 msgid "Check tables having overhead"
 msgstr "تحقق من overhead"
 
-#: db_structure.php:495 db_structure.php:496
+#: db_structure.php:497 db_structure.php:498
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2096 libraries/display_tbl.lib.php:2230
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
@@ -700,19 +700,19 @@ msgstr "تحقق من overhead"
 msgid "Export"
 msgstr "تصدير"
 
-#: db_structure.php:497 db_structure.php:498 db_structure.php:553
+#: db_structure.php:499 db_structure.php:500 db_structure.php:555
 #: libraries/display_tbl.lib.php:2185 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "عرض نسخة للطباعة"
 
-#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1635
+#: db_structure.php:503 db_structure.php:504 libraries/common.lib.php:1635
 #: libraries/common.lib.php:3005 libraries/common.lib.php:3006
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "إفراغ محتوى"
 
-#: db_structure.php:503 db_structure.php:504 db_tracking.php:103
+#: db_structure.php:505 db_structure.php:506 db_tracking.php:103
 #: libraries/Index.class.php:482 libraries/common.lib.php:1636
 #: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
@@ -721,27 +721,27 @@ msgstr "إفراغ محتوى"
 msgid "Drop"
 msgstr "حذف"
 
-#: db_structure.php:505 db_structure.php:506 libraries/mult_submits.inc.php:41
+#: db_structure.php:507 db_structure.php:508 libraries/mult_submits.inc.php:41
 #: tbl_operations.php:583
 msgid "Check table"
 msgstr "التحقق من الجدول"
 
-#: db_structure.php:507 db_structure.php:508 libraries/mult_submits.inc.php:46
+#: db_structure.php:509 db_structure.php:510 libraries/mult_submits.inc.php:46
 #: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
 msgid "Optimize table"
 msgstr "ضغط الجدول"
 
-#: db_structure.php:509 db_structure.php:510 libraries/mult_submits.inc.php:51
+#: db_structure.php:511 db_structure.php:512 libraries/mult_submits.inc.php:51
 #: tbl_operations.php:613
 msgid "Repair table"
 msgstr "إصلاح الجدول"
 
-#: db_structure.php:511 db_structure.php:512 libraries/mult_submits.inc.php:56
+#: db_structure.php:513 db_structure.php:514 libraries/mult_submits.inc.php:56
 #: tbl_operations.php:603
 msgid "Analyze table"
 msgstr "تحليل الجدول"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:387
+#: db_structure.php:562 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
 msgstr "قاموس البيانات"
 
@@ -832,6 +832,18 @@ msgstr ""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
+msgstr ""
+
+#: enum_editor.php:57
+msgid "+ Restart insertion and add a new value"
+msgstr ""
+
+#: enum_editor.php:67
+msgid "Output"
+msgstr ""
+
+#: enum_editor.php:68
+msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:73
@@ -1034,13 +1046,14 @@ msgstr "قيد إعادة قراءة الصلاحيات."
 msgid "Removing Selected Users"
 msgstr "احذف المستخدمين المحددين"
 
-#: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
+#: js/messages.php:56 libraries/tbl_properties.inc.php:793
+#: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
 msgstr "أغلق"
 
-#: js/messages.php:60 pmd_general.php:390 pmd_general.php:427
-#: pmd_general.php:547 pmd_general.php:595 pmd_general.php:671
-#: pmd_general.php:725 pmd_general.php:788
+#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:390
+#: pmd_general.php:427 pmd_general.php:547 pmd_general.php:595
+#: pmd_general.php:671 pmd_general.php:725 pmd_general.php:788
 msgid "Cancel"
 msgstr "ألغ"
 
@@ -5964,7 +5977,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1164
+#: libraries/relation.lib.php:1173
 msgid "no description"
 msgstr "بدون وصف"
 
@@ -6522,6 +6535,12 @@ msgstr "أضف إلى الملاحظات"
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
+
+#: libraries/tbl_properties.inc.php:797
+#, fuzzy
+#| msgid "Add a new User"
+msgid "+ Add a new value"
+msgstr "أضف مستخدم جديد"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"

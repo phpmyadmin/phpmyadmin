@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-12-27 07:14-0500\n"
+"POT-Creation-Date: 2010-12-29 08:42-0500\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -47,8 +47,8 @@ msgstr "検索"
 
 #: browse_foreigners.php:160 db_operations.php:367 db_operations.php:412
 #: db_operations.php:518 db_operations.php:542 db_search.php:359
-#: db_structure.php:522 js/messages.php:59 libraries/Config.class.php:1220
-#: libraries/Theme_Manager.class.php:305
+#: db_structure.php:524 enum_editor.php:63 js/messages.php:59
+#: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
 #: libraries/common.lib.php:2269 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
@@ -62,18 +62,18 @@ msgstr "検索"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:380
 #: libraries/sql_query_form.lib.php:450 libraries/sql_query_form.lib.php:515
-#: libraries/tbl_properties.inc.php:781 main.php:105 navigation.php:218
-#: pmd_pdf.php:124 prefs_manage.php:265 prefs_manage.php:316
-#: server_binlog.php:128 server_privileges.php:665 server_privileges.php:1705
-#: server_privileges.php:2062 server_privileges.php:2109
-#: server_privileges.php:2149 server_replication.php:233
-#: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1207 tbl_change.php:322 tbl_change.php:1066
-#: tbl_change.php:1103 tbl_indexes.php:252 tbl_operations.php:262
-#: tbl_operations.php:299 tbl_operations.php:501 tbl_operations.php:563
-#: tbl_operations.php:733 tbl_select.php:302 tbl_structure.php:653
-#: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
-#: view_create.php:181 view_operations.php:99
+#: libraries/tbl_properties.inc.php:781 libraries/tbl_properties.inc.php:798
+#: main.php:105 navigation.php:218 pmd_pdf.php:124 prefs_manage.php:265
+#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:665
+#: server_privileges.php:1705 server_privileges.php:2062
+#: server_privileges.php:2109 server_privileges.php:2149
+#: server_replication.php:233 server_replication.php:316
+#: server_replication.php:347 server_synchronize.php:1207 tbl_change.php:322
+#: tbl_change.php:1066 tbl_change.php:1103 tbl_indexes.php:252
+#: tbl_operations.php:262 tbl_operations.php:299 tbl_operations.php:501
+#: tbl_operations.php:563 tbl_operations.php:733 tbl_select.php:302
+#: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
+#: tbl_tracking.php:506 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "実行する"
 
@@ -163,7 +163,7 @@ msgstr "種別"
 msgid "Null"
 msgstr "ヌル(NULL)"
 
-#: db_datadict.php:173 db_structure.php:453 libraries/export/htmlword.php:250
+#: db_datadict.php:173 db_structure.php:455 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
 #: libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
@@ -377,7 +377,7 @@ msgstr "行"
 msgid "Size"
 msgstr "サイズ"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:624
+#: db_printview.php:160 db_structure.php:411 libraries/export/sql.php:624
 #: libraries/export/sql.php:964
 msgid "in use"
 msgstr "使用中"
@@ -403,7 +403,7 @@ msgstr "最終更新"
 msgid "Last check"
 msgstr "最終検査"
 
-#: db_printview.php:220 db_structure.php:432
+#: db_printview.php:220 db_structure.php:434
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
@@ -607,57 +607,57 @@ msgstr "検索するフィールド:"
 msgid "No tables found in database"
 msgstr "このデータベースにはテーブルがありません"
 
-#: db_structure.php:270 tbl_operations.php:658
+#: db_structure.php:272 tbl_operations.php:658
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "テーブル %s を空にしました"
 
-#: db_structure.php:279 tbl_operations.php:675
+#: db_structure.php:281 tbl_operations.php:675
 #, php-format
 msgid "View %s has been dropped"
 msgstr "ビュー %s を破棄しました"
 
-#: db_structure.php:279 tbl_operations.php:675
+#: db_structure.php:281 tbl_operations.php:675
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "テーブル %s を削除しました"
 
-#: db_structure.php:286 tbl_create.php:295
+#: db_structure.php:288 tbl_create.php:295
 msgid "Tracking is active."
 msgstr ""
 
-#: db_structure.php:288 tbl_create.php:297
+#: db_structure.php:290 tbl_create.php:297
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:1942
+#: db_structure.php:374 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:138
+#: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
 msgstr "ビュー"
 
-#: db_structure.php:437 libraries/db_structure.lib.php:40
+#: db_structure.php:439 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:375
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: db_structure.php:441
+#: db_structure.php:443
 msgid "Sum"
 msgstr "合計"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:450 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s はこの MySQL サーバのデフォルトストレージエンジンです"
 
-#: db_structure.php:476 db_structure.php:493 db_structure.php:494
+#: db_structure.php:478 db_structure.php:495 db_structure.php:496
 #: libraries/display_tbl.lib.php:2083 libraries/display_tbl.lib.php:2088
 #: libraries/mult_submits.inc.php:15 server_databases.php:245
 #: server_databases.php:250 server_privileges.php:1677 tbl_structure.php:545
@@ -665,23 +665,23 @@ msgstr "%s はこの MySQL サーバのデフォルトストレージエンジ�
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2078
+#: db_structure.php:481 libraries/display_tbl.lib.php:2078
 #: server_databases.php:247 server_privileges.php:570
 #: server_privileges.php:1680 tbl_structure.php:548
 msgid "Check All"
 msgstr "すべてチェックする"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2079
+#: db_structure.php:485 libraries/display_tbl.lib.php:2079
 #: libraries/replication_gui.lib.php:35 server_databases.php:249
 #: server_privileges.php:573 server_privileges.php:1684 tbl_structure.php:552
 msgid "Uncheck All"
 msgstr "すべてのチェックを外す"
 
-#: db_structure.php:488
+#: db_structure.php:490
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認してください"
 
-#: db_structure.php:495 db_structure.php:496
+#: db_structure.php:497 db_structure.php:498
 #: libraries/config/messages.inc.php:159 libraries/db_links.inc.php:56
 #: libraries/display_tbl.lib.php:2096 libraries/display_tbl.lib.php:2230
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
@@ -691,19 +691,19 @@ msgstr "オーバーヘッドのあるテーブルを確認してください"
 msgid "Export"
 msgstr "エクスポート"
 
-#: db_structure.php:497 db_structure.php:498 db_structure.php:553
+#: db_structure.php:499 db_structure.php:500 db_structure.php:555
 #: libraries/display_tbl.lib.php:2185 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: db_structure.php:501 db_structure.php:502 libraries/common.lib.php:1635
+#: db_structure.php:503 db_structure.php:504 libraries/common.lib.php:1635
 #: libraries/common.lib.php:3005 libraries/common.lib.php:3006
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "空にする"
 
-#: db_structure.php:503 db_structure.php:504 db_tracking.php:103
+#: db_structure.php:505 db_structure.php:506 db_tracking.php:103
 #: libraries/Index.class.php:482 libraries/common.lib.php:1636
 #: libraries/common.lib.php:3003 libraries/common.lib.php:3004
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
@@ -712,27 +712,27 @@ msgstr "空にする"
 msgid "Drop"
 msgstr "削除"
 
-#: db_structure.php:505 db_structure.php:506 libraries/mult_submits.inc.php:41
+#: db_structure.php:507 db_structure.php:508 libraries/mult_submits.inc.php:41
 #: tbl_operations.php:583
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: db_structure.php:507 db_structure.php:508 libraries/mult_submits.inc.php:46
+#: db_structure.php:509 db_structure.php:510 libraries/mult_submits.inc.php:46
 #: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
-#: db_structure.php:509 db_structure.php:510 libraries/mult_submits.inc.php:51
+#: db_structure.php:511 db_structure.php:512 libraries/mult_submits.inc.php:51
 #: tbl_operations.php:613
 msgid "Repair table"
 msgstr "テーブルを修復する"
 
-#: db_structure.php:511 db_structure.php:512 libraries/mult_submits.inc.php:56
+#: db_structure.php:513 db_structure.php:514 libraries/mult_submits.inc.php:56
 #: tbl_operations.php:603
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:387
+#: db_structure.php:562 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
 msgstr "データ辞書"
 
@@ -823,6 +823,18 @@ msgstr ""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
+msgstr ""
+
+#: enum_editor.php:57
+msgid "+ Restart insertion and add a new value"
+msgstr ""
+
+#: enum_editor.php:67
+msgid "Output"
+msgstr ""
+
+#: enum_editor.php:68
+msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:73
@@ -1040,13 +1052,14 @@ msgstr "特権をリロードする"
 msgid "Removing Selected Users"
 msgstr "選択したユーザを削除する"
 
-#: js/messages.php:56 tbl_tracking.php:245 tbl_tracking.php:373
+#: js/messages.php:56 libraries/tbl_properties.inc.php:793
+#: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:60 pmd_general.php:390 pmd_general.php:427
-#: pmd_general.php:547 pmd_general.php:595 pmd_general.php:671
-#: pmd_general.php:725 pmd_general.php:788
+#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:390
+#: pmd_general.php:427 pmd_general.php:547 pmd_general.php:595
+#: pmd_general.php:671 pmd_general.php:725 pmd_general.php:788
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -6104,7 +6117,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1164
+#: libraries/relation.lib.php:1173
 msgid "no description"
 msgstr "説明がありません"
 
@@ -6666,6 +6679,12 @@ msgstr "%s 個のフィールドを追加する"
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "最低ひとつはフィールドを追加してください"
+
+#: libraries/tbl_properties.inc.php:797
+#, fuzzy
+#| msgid "Add a new User"
+msgid "+ Add a new value"
+msgstr "新しいユーザを追加する"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
