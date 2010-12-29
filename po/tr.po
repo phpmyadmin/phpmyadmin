@@ -806,10 +806,9 @@ msgid "+ Restart insertion and add a new value"
 msgstr "+ Eklemeyi yeniden başlat ve yeni bir değer gir"
 
 #: enum_editor.php:67
-#, fuzzy
 #| msgid "Output:"
 msgid "Output"
-msgstr "Çıktı:"
+msgstr "Çıktı"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
