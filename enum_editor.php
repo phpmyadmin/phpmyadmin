@@ -24,7 +24,7 @@ require_once './libraries/header_meta_style.inc.php';
             <?php
                 $values = array();
                 if (isset($_GET['values'])) { // This page was displayed when the "add a new value" link or the link in tbl_alter.php was clicked
-                    $values = split(',', urldecode($_GET['values']));
+                    $values = explode(',', urldecode($_GET['values']));
                 } elseif (isset($_GET['num_fields'])) { // This page was displayed from submitting this form
                     for($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
                         $values[] = "'" . str_replace(array("'", '\\'), array("''", '\\\\'), $_GET['field' . $field_num]) . "'";
