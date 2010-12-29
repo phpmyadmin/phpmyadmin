@@ -816,7 +816,7 @@ msgstr "Output"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Copy and paste the joined values into the \"Length/Values\" field"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
