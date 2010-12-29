@@ -130,6 +130,8 @@
 - bug #3141327 [relation] Foreign key input options
 
 3.3.10.0 (not yet released)
+- patch #3147400 [structure] Aria table size printed as unknown,
+  thanks to erickoh75 - erickoh75
 
 3.3.9.0 (not yet released)
 - bug [doc] Fix references to MySQL doc

@@ -144,6 +144,8 @@ foreach ($tables as $keyname => $each_table) {
         case 'HEAP' :
         case 'MEMORY' :
         case 'ARCHIVE' :
+        case 'Aria' :
+        case 'Maria' :
             if ($db_is_information_schema) {
                 $each_table['Rows'] = PMA_Table::countRecords($db,
                     $each_table['Name']);
