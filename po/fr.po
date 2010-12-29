@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-29 20:38+0200\n"
+"PO-Revision-Date: 2010-12-29 20:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -817,7 +817,7 @@ msgstr "Résultat"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Copiez les valeurs et collez-les dans le champ «Taille/Valeurs»"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
