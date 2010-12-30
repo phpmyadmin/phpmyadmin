@@ -6809,10 +6809,9 @@ msgid "Page"
 msgstr "页面"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import from file"
 msgid "Import from selected page"
-msgstr "从文件导入"
+msgstr "从所选页导入"
 
 #: pmd_pdf.php:100
 #, fuzzy
