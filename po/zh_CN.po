@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-30 04:54+0200\n"
+"PO-Revision-Date: 2010-12-30 04:55+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6814,10 +6814,9 @@ msgid "Import from selected page"
 msgstr "从所选页导入"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "按比例导出/导入"
+msgstr "导出至所选页"
 
 #: pmd_pdf.php:102
 #| msgid "Create a new index"
