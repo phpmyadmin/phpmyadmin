@@ -224,7 +224,10 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+                // fade out previous success message, if any 
+                $('.success').fadeOut();
+                // show a message that stays on screen 
+                $('#sqlqueryform').before(data.message);
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
@@ -243,6 +246,7 @@ $(document).ready(function() {
                 $('#sqlqueryresults').hide();
             }
             else {
+                // real results are returned
                 $('#sqlqueryresults').show();
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
