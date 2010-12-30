@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-30 04:55+0200\n"
+"PO-Revision-Date: 2010-12-30 04:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6826,7 +6826,7 @@ msgstr "导出至新页"
 #: pmd_pdf.php:111
 #| msgid "New name"
 msgid "New page name: "
-msgstr "新页名: "
+msgstr "新页面名: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
