@@ -270,13 +270,13 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
         
         /**
-         * @var the_form    Object referring to the form element that paginates the results table
+         * @var $the_form    Object referring to the form element that paginates the results table
          */
-        var the_form = $(this).parent("form");
+        var $the_form = $(this).parent("form");
 
-        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+        $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
         }) // end $.post()
