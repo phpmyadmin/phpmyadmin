@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-30 04:39+0200\n"
+"PO-Revision-Date: 2010-12-30 04:42+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1081,10 +1081,9 @@ msgid "Inline Edit"
 msgstr "快速编辑"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Hide query chart"
 msgid "Hide search criteria"
-msgstr "隐藏查询图表"
+msgstr "隐藏搜索条件"
 
 #: js/messages.php:90
 #, fuzzy
