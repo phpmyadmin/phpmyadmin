@@ -9265,10 +9265,9 @@ msgid "Browse distinct values"
 msgstr "浏览非重复值 (DISTINCT)"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "正在添加主键"
+msgstr "添加主键"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 #, fuzzy
