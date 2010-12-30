@@ -22,25 +22,6 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-    /**
-     * Attach the {@link appendInlineAnchor} function to a custom event, which
-     * will be triggered manually everytime the table of results is reloaded;
-     *
-     * Needs appendInlineAnchor() which is defined in sql.js
-     * @memberOf    jQuery
-     */
-    $("#searchresults").live('appendAnchor',function() {
-        appendInlineAnchor();
-    })
-
-    /**
-     * Trigger the appendAnchor event to prepare the first table for inline edit
-     *
-     * @memberOf    jQuery
-     */
-    $("#searchresults").trigger('appendAnchor');
-
-
     $('<a id="togglesearchform"></a>')
      .html(PMA_messages['strShowSearchCriteria'])
      .insertAfter('#tbl_search_form')
@@ -70,7 +51,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
-        $("#searchresults").empty();
+        $("#sqlqueryresults").empty();
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
 	    // add this hidden field just once 
@@ -81,8 +62,8 @@ $(document).ready(function() {
         $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
             if (typeof response == 'string') {
                 // found results
-                $("#searchresults").html(response);
-                $("#searchresults").trigger('appendAnchor');
+                $("#sqlqueryresults").html(response);
+                $("#sqlqueryresults").trigger('appendAnchor');
                 $('#tbl_search_form').hide();
                 $('#togglesearchform')
                  // always start with the Show message
@@ -91,7 +72,7 @@ $(document).ready(function() {
                  .show();
             } else {
                 // error message (zero rows)
-                $("#searchresults").html(response['message']);
+                $("#sqlqueryresults").html(response['message']);
             }
         })
     })

@@ -303,7 +303,7 @@ $(function() {
     <input type="submit" name="submit" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
-<div id="searchresults"></div>
+<div id="sqlqueryresults"></div>
     <?php
     require './libraries/footer.inc.php';
 }
