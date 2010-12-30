@@ -1086,10 +1086,9 @@ msgid "Hide search criteria"
 msgstr "隐藏搜索条件"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "显示查询图表"
+msgstr "显示搜索条件"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
