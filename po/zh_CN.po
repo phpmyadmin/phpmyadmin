@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-30 04:46+0200\n"
+"PO-Revision-Date: 2010-12-30 04:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9270,10 +9270,9 @@ msgid "Add primary key"
 msgstr "添加主键"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "增加索引"
+msgstr "添加索引"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
