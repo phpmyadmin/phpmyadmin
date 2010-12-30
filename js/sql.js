@@ -54,10 +54,11 @@ function getFieldName($this_field, disp_mode) {
  * The function that iterates over each row in the table_results and appends a
  * new inline edit anchor to each table row.
  *
- * @param   disp_mode   string
  */
-function appendInlineAnchor(disp_mode) {
-    if(disp_mode == 'vertical') {
+function appendInlineAnchor() {
+    var disp_mode = $("#top_direction_dropdown").val();
+
+    if (disp_mode == 'vertical') {
         // there can be one or two tr containing this class, depending
         // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters 
         $('#table_results tr')
@@ -163,10 +164,9 @@ $(document).ready(function() {
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
-     * @name        sqlqueryresults_live
      */
     $("#sqlqueryresults").live('appendAnchor',function() {
-        appendInlineAnchor(disp_mode);
+        appendInlineAnchor();
     })
 
     /**
@@ -224,7 +224,10 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+                // fade out previous success message, if any 
+                $('.success').fadeOut();
+                // show a message that stays on screen 
+                $('#sqlqueryform').before(data.message);
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
@@ -243,6 +246,7 @@ $(document).ready(function() {
                 $('#sqlqueryresults').hide();
             }
             else {
+                // real results are returned
                 $('#sqlqueryresults').show();
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
@@ -270,13 +274,13 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
         
         /**
-         * @var the_form    Object referring to the form element that paginates the results table
+         * @var $the_form    Object referring to the form element that paginates the results table
          */
-        var the_form = $(this).parent("form");
+        var $the_form = $(this).parent("form");
 
-        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+        $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+        $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
         }) // end $.post()
