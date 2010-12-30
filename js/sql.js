@@ -54,10 +54,11 @@ function getFieldName($this_field, disp_mode) {
  * The function that iterates over each row in the table_results and appends a
  * new inline edit anchor to each table row.
  *
- * @param   disp_mode   string
  */
-function appendInlineAnchor(disp_mode) {
-    if(disp_mode == 'vertical') {
+function appendInlineAnchor() {
+    var disp_mode = $("#top_direction_dropdown").val();
+
+    if (disp_mode == 'vertical') {
         // there can be one or two tr containing this class, depending
         // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters 
         $('#table_results tr')
@@ -163,10 +164,9 @@ $(document).ready(function() {
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
-     * @name        sqlqueryresults_live
      */
     $("#sqlqueryresults").live('appendAnchor',function() {
-        appendInlineAnchor(disp_mode);
+        appendInlineAnchor();
     })
 
     /**
