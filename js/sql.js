@@ -619,7 +619,7 @@ $(document).ready(function() {
             if(value.length == 0) {
                 value = 'NULL'
             }
-           sql_query += ' ' + key + "='" + value + "' , ";
+           sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
         })
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
