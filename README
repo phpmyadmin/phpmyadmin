@@ -35,36 +35,36 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 Requirements
-~~~~~~~~~~~~
+------------
 
 * PHP 5.2 or later
 * MySQL 5.0 or later
 * a web-browser (doh!)
 
 Summary
-~~~~~~~
+-------
 
 phpMyAdmin is intended to handle the administration of MySQL over the web.
 For a summary of features, please see the Documentation.txt/.html file.
 
 Download
-~~~~~~~~
+--------
 
 You can get the newest version at http://www.phpmyadmin.net/.
 
 More Information
-~~~~~~~~~~~~~~~~
+----------------
 
 Please see the Documentation.txt/.html file.
 
 Support
-~~~~~~~
+-------
 
 See reference about support forums under http://www.phpmyadmin.net/
 
 
 Enjoy!
-~~~~~~
+------
 
 The phpMyAdmin Devel team
 
