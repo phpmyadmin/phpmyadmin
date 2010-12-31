@@ -58,7 +58,7 @@ $GLOBALS['error_handler'] = new PMA_Error_Handler();
 $cfg['Error_Handler']['display'] = TRUE;
 
 /*
- * This setting was removed in PHP 5.3. But at this point PMA_PHP_INT_VERSION 
+ * This setting was removed in PHP 5.3. But at this point PMA_PHP_INT_VERSION
  * is not yet defined so we use another way to find out the PHP version.
  */
 if (version_compare(phpversion(), '5.3', 'lt')) {
@@ -414,7 +414,6 @@ $goto_whitelist = array(
     //'themes.php',
     'transformation_overview.php',
     'transformation_wrapper.php',
-    'translators.html',
     'user_password.php',
 );
 

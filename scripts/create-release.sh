@@ -60,7 +60,6 @@ Please ensure you have incremented rc count or version in the repository :
      - in Documentation.html the 2 lines
           " <title>phpMyAdmin $version - Documentation</title> "
           " <h1>phpMyAdmin $version Documentation</h1> "
-     - in translators.html
      - in README
 
 Continue (y/n)?
@@ -95,10 +94,6 @@ if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
 fi
 if ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
     echo "There seems to be wrong version in Documentation.html"
-    exit 2
-fi
-if ! grep -q "phpMyAdmin $version - Official translators" translators.html ; then
-    echo "There seems to be wrong version in translators.html"
     exit 2
 fi
 if ! grep -q "Version $version\$" README ; then
@@ -296,7 +291,6 @@ Todo now:
         - in Documentation.html the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
-        - in translators.html
 
  8. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1

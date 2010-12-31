@@ -110,7 +110,6 @@ install RELEASE-DATE-* "${DOCROOT}"/
 install CREDITS ChangeLog INSTALL LICENSE "${DOCROOT}"/
 install README TODO "${DOCROOT}"/
 install Documentation.* docs.css "${DOCROOT}"/
-install translators.html "${DOCROOT}"/
 install lang/*.sh "${DOCROOT}"/lang/
 install scripts/* "${DOCROOT}"/scripts/
 install libraries/tcpdf/README "${DOCROOT}"/README.tcpdf

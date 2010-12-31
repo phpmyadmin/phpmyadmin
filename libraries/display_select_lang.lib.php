@@ -44,10 +44,7 @@ function PMA_select_language($use_fieldset = FALSE, $show_doc = TRUE) {
     $language_title = __('Language')
         . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
     if ($show_doc) {
-        $language_title .= ' <a href="./translators.html" target="documentation">' .
-            ($cfg['ReplaceHelpImg']
-                ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />'
-                : '(*)') . '</a>';
+        $language_title .= PMA_showDocu('faq7_2');
     }
     if ($use_fieldset) {
         echo '<fieldset><legend xml:lang="en" dir="ltr">' . $language_title . '</legend>';
