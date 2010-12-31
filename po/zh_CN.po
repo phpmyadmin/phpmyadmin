@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2010-12-08 05:44+0200\n"
+"PO-Revision-Date: 2010-12-30 05:04+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -799,17 +799,16 @@ msgstr "请将每个值分别输入在不同的输入框中。"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ 重新插入并添加一个值"
 
 #: enum_editor.php:67
-#, fuzzy
 #| msgid "Output:"
 msgid "Output"
-msgstr "输出："
+msgstr "输出"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "将生成的内容复制粘贴到 \"长度/值\" 一栏中"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -1082,16 +1081,14 @@ msgid "Inline Edit"
 msgstr "快速编辑"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Hide query chart"
 msgid "Hide search criteria"
-msgstr "隐藏查询图表"
+msgstr "隐藏搜索条件"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "显示查询图表"
+msgstr "显示搜索条件"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -2054,7 +2051,7 @@ msgstr "用于上传的文件夹出错，无法使用"
 
 #: libraries/common.lib.php:2983
 msgid "There are no files to upload"
-msgstr ""
+msgstr "没有可上传的文件"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -6336,10 +6333,9 @@ msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "添加服务器"
+msgstr "+ 添加"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -6808,34 +6804,29 @@ msgid "Page creation failed"
 msgstr "页面创建失败"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "页数"
+msgstr "页面"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import from file"
 msgid "Import from selected page"
-msgstr "从文件导入"
+msgstr "从所选页导入"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "按比例导出/导入"
+msgstr "导出至所选页"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "新建索引"
+msgstr "导出至新页"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "New name"
 msgid "New page name: "
-msgstr "新名称"
+msgstr "新页面名: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -9269,24 +9260,22 @@ msgid "Browse distinct values"
 msgstr "浏览非重复值 (DISTINCT)"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "正在添加主键"
+msgstr "添加主键"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "增加索引"
+msgstr "添加索引"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
-msgstr ""
+msgstr "添加唯一键"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "添加全文索引"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
