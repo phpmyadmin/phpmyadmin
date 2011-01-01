@@ -9657,10 +9657,9 @@ msgid "Add primary key"
 msgstr "Dodaj primarni ključ"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Uveljavi indeks(e)"
+msgstr "Dodaj indeks"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
