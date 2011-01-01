@@ -6720,7 +6720,7 @@ msgstr "Appearance Settings"
 
 #: main.php:135
 msgid "Background color"
-msgstr "Background color"
+msgstr "Background colour"
 
 #: main.php:136
 msgid "Choose..."
