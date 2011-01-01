@@ -9667,7 +9667,7 @@ msgstr "Dodaj izvirno vrednost"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Dodaj indeks FULLTEXT"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
