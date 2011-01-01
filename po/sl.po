@@ -5466,7 +5466,7 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "vključi imena stolpcev v vsaki izjavi <code>INSERT</code><br /> &nbsp; "
-"&nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele (sto_A,sto_B,sto_C) "
+"&nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele (stolp_A,stolp_B,stolp_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
