@@ -6424,7 +6424,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "The SQL validator could not be initialised. Please check if you have "
-"installed the necessary PHP extensions as described in the %sdocumentation%s."
+"installed the necessary PHP extensions as described in the %sdocumentation%"
+"s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
