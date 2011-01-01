@@ -362,9 +362,9 @@ $(document).ready(function() {
             while( curr_rows < target_rows ) {
 
                 /**
-                 * @var last_row    Object referring to the last row
+                 * @var $last_row    Object referring to the last row
                  */
-                var last_row = $("#insertForm").find(".insertRowTable:last");
+                var $last_row = $("#insertForm").find(".insertRowTable:last");
 
                 // need to access this at more than one level
                 // (also needs improvement because it should be calculated
@@ -372,12 +372,13 @@ $(document).ready(function() {
                 var new_row_index = 0;
 
                 //Clone the insert tables
-                $(last_row)
+                $last_row
                 .clone()
                 .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit]')
                 .each(function() {
 
+                    var $this_element = $(this);
                     /**
                      * Extract the index from the name attribute for all input/select fields and increment it
                      * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
@@ -386,7 +387,7 @@ $(document).ready(function() {
                     /**
                      * @var this_name   String containing name of the input/select elements
                      */
-                    var this_name = $(this).attr('name');
+                    var this_name = $this_element.attr('name');
                     /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
                     var name_parts = this_name.split(/\[\d+\]/);
                     /** extract the [10] from  {@link name_parts} */
@@ -400,9 +401,10 @@ $(document).ready(function() {
                     var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
 
                     var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
-                    $(this).attr('name', new_name);
+                    $this_element.attr('name', new_name);
 
-                    $(this).filter('.textfield')
+                    if ($this_element.is('.textfield')) {
+                        $this_element
                         .attr('value', '')
                         .unbind('change')
                         .attr('onchange', null)
@@ -410,22 +412,23 @@ $(document).ready(function() {
                             Validator(
                                 hashed_field, 
                                 new_row_index, 
-                                $(this).closest('tr').find('span.column_type').html()
+                                $this_element.closest('tr').find('span.column_type').html()
                                 );
-                        })
-                        .end();
+                        });
+                    }
 
-                    $(this).filter('.checkbox_null')
+                    if ($this_element.is('.checkbox_null')) {
+                        $this_element
                         .bind('click', function(e) {
                                 nullify(
-                                    $(this).siblings('.nullify_code').val(),
-                                    $(this).closest('tr').find('input:hidden').first().val(), 
+                                    $this_element.siblings('.nullify_code').val(),
+                                    $this_element.closest('tr').find('input:hidden').first().val(), 
                                     hashed_field, 
                                     '[multi_edit][' + new_row_index + ']'
                                     );
-                        }) 
-                        .end();
-                    })
+                        });
+                    }
+                }) // end each
                 .end()
                 .find('.foreign_values_anchor')
                 .each(function() {
