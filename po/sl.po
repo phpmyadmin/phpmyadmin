@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2011-01-01 22:55+0200\n"
+"PO-Revision-Date: 2011-01-01 22:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7088,7 +7088,7 @@ msgstr "Ustvari stran in izvozi nanjo"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr "Ime nove strani:  "
+msgstr "Ime nove strani: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
