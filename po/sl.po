@@ -9652,10 +9652,9 @@ msgid "Browse distinct values"
 msgstr "Prebrskaj različne vrednosti"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Dodajanje primarnega ključa"
+msgstr "Dodaj primarni ključ"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 #, fuzzy
