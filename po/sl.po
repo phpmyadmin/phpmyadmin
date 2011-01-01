@@ -1109,10 +1109,9 @@ msgid "Hide search criteria"
 msgstr "Skrij iskalne pogoje"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "Prikaži graf poizvedbe"
+msgstr "Prikaži iskalne pogoje"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
