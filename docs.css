@@ -59,10 +59,6 @@ ul#footer {
     border: none;
 }
 
-#footer li.logo {
-    padding: 0.5em;
-}
-
 #footer a {
 	color: #c19e66;
 }
@@ -155,31 +151,6 @@ p {
     margin: 1em;
 }
 
-table {
-    margin: 1em;
-    border: none;
-}
-
-table tr,table td,table th {
-    border: none;
-}
-
-table.translators {
-    text-align: center;
-    display: table; margin-left: auto; margin-right: auto;
-    border-collapse: collapse;
-}
-
-table.translators th {
-    color: #000000;
-    background-color: #d3dce3;
-}
-
-table.translators td, table.translators th {
-    border: 1px solid #000000;
-    padding: 5px;
-}
-
 ul, dl, ol {
     margin: 1em;
     max-width: 70em;
@@ -207,10 +178,6 @@ li pre {
     margin: 1em 0 1em 0;
 }
 
-pre.wrap {
-    white-space: normal;
-}
-
 dt {
     font-weight: bold;
     margin-left: 2em;
@@ -223,10 +190,6 @@ dd {
 
 .configrule {
     font-family: monospace;
-}
-
-dt.configrule {
-    font-weight: bold;
 }
 
 .important {
@@ -247,9 +210,4 @@ p.footnote {
 
 p.footnote:first-line {
     margin-left: -2%;
-}
-
-/* Block to mark separate translation string */
-div.l10n {
-    display: inline;
 }
