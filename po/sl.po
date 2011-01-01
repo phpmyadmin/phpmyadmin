@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2011-01-01 22:54+0200\n"
+"PO-Revision-Date: 2011-01-01 22:55+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6569,10 +6569,9 @@ msgid "You have to add at least one column."
 msgstr "Dodati morate vsaj en stolpec."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "Dodaj nov strežnik"
+msgstr "+ Dodaj novo vrednost"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
