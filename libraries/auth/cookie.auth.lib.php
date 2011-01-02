@@ -170,7 +170,7 @@ function PMA_auth()
     $page_title = 'phpMyAdmin ';
     require './libraries/header_meta_style.inc.php';
     ?>
-<script src="./js/jquery/jquery-1.4.2.js" type="text/javascript"></script>
+<script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
 <script src="./js/update-location.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[

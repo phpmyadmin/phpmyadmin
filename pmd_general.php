@@ -27,7 +27,7 @@ $hidden           = "hidden";
     <link rel="shortcut icon" href="pmd/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css" />
     <title>Designer</title>
-     <script src="./js/jquery/jquery-1.4.2.js" type="text/javascript"></script>
+     <script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
     <script type="text/javascript">
     // <![CDATA[
 <?php
