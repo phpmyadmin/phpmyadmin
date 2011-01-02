@@ -427,8 +427,7 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
 <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td align="center"<?php echo $field['wrap']; ?>><span class="column_type">
-                 <?php echo $field['pma_type']; ?></span>
+             <td align="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
