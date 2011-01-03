@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2011-01-03 22:54+0200\n"
+"PO-Revision-Date: 2011-01-03 22:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3558,7 +3558,7 @@ msgstr "Kullanmak için kimlik doğrulama yöntemi"
 
 #: libraries/config/messages.inc.php:361 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr "Kimlik denetimi türü"
+msgstr "Kimlik doğrulama türü"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
