@@ -4261,7 +4261,7 @@ msgstr "Tanımlama bilgisi kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr "HTTP kimlik denetimi"
+msgstr "HTTP kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
