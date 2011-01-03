@@ -388,6 +388,9 @@ $(document).ready(function() {
                         $this_element
                         .attr('value', '')
                         .unbind('change')
+                        // Remove onchange attribute that was placed
+                        // by tbl_change.php; it refers to the wrong row index
+                        .attr('onchange', null)
                         // Keep these values to be used when the element
                         // will change
                         .data('hashed_field', hashed_field)
