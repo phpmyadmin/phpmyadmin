@@ -2858,7 +2858,7 @@ msgstr "Temel ayarlar"
 
 #: libraries/config/messages.inc.php:194
 msgid "Authentication"
-msgstr "Kimlik denetimi"
+msgstr "Kimlik doğrulama"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
