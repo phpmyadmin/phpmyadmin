@@ -2862,7 +2862,7 @@ msgstr "Kimlik doğrulama"
 
 #: libraries/config/messages.inc.php:195
 msgid "Authentication settings"
-msgstr "Kimlik denetimi ayarları"
+msgstr "Kimlik doğrulama ayarları"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
