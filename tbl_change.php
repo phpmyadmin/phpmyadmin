@@ -406,7 +406,7 @@ foreach ($rows as $row_id => $vrow) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
         }
         //Call validation when the form submited...
-        $unnullify_trigger = $chg_evt_handler . "=\"return Validator('". PMA_escapeJsString($field['Field_md5']) . "', '"
+        $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('". PMA_escapeJsString($field['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "','".$field['pma_type']."')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )

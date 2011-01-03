@@ -155,8 +155,8 @@ function isTime(val)
             return false;
         return true;
 }
-//validate the datetime and integer
-function Validator(urlField, multi_edit,theType){
+
+function verificationsAfterFieldChange(urlField, multi_edit,theType){
     var rowForm = document.forms['insertForm'];
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
@@ -394,7 +394,7 @@ $(document).ready(function() {
                         .data('new_row_index', new_row_index)
                         .bind('change', function(e) {
                             var $changed_element = $(this);
-                            Validator(
+                            verificationsAfterFieldChange(
                                 $changed_element.data('hashed_field'), 
                                 $changed_element.data('new_row_index'), 
                                 $changed_element.closest('tr').find('span.column_type').html()
