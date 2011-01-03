@@ -3328,7 +3328,7 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
-"Eğer tanımlama bilgisi kimlik doğrulama için mcrypt eksikse, gösterilen "
+"Eğer tanımlama bilgisi kimlik doğrulaması için mcrypt eksikse, gösterilen "
 "varsayılan uyarıyı etkisizleştir"
 
 #: libraries/config/messages.inc.php:309
