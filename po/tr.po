@@ -3544,8 +3544,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"[a@http://swekey.com]SweKey donanımsal kimlik denetimi[/a] için yapılandırma "
-"dosyası yolu (belge kök klasörünüzde yer almaz; önerilen: /etc/swekey.conf)"
+"[a@http://swekey.com]SweKey donanımsal kimlik doğrulama[/a] için "
+"yapılandırma dosyası yolu (belge kök klasörünüzde yer almaz; önerilen: "
+"/etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:359
 msgid "SweKey config file"
