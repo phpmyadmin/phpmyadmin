@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2011-01-03 23:01+0200\n"
+"PO-Revision-Date: 2011-01-03 23:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4341,7 +4341,8 @@ msgstr ""
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon URL while using signon authentication method"
-msgstr "Oturum açma kimlik denetimi yöntemi kullanan boş oturum açma URL'si"
+msgstr ""
+"Oturum kaydı kimlik doğrulaması yöntemi kullanırken oturum kaydı URL'si boş"
 
 #: libraries/config/validate.lib.php:272
 msgid "Empty phpMyAdmin control user while using pmadb"
