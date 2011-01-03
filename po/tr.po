@@ -3554,7 +3554,7 @@ msgstr "SweKey yapılandırma dosyası"
 
 #: libraries/config/messages.inc.php:360
 msgid "Authentication method to use"
-msgstr "Kullanmak için kimlik denetimi yöntemi"
+msgstr "Kullanmak için kimlik doğrulama yöntemi"
 
 #: libraries/config/messages.inc.php:361 setup/frames/index.inc.php:114
 msgid "Authentication type"
