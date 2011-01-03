@@ -2546,9 +2546,10 @@ function PMA_generate_slider_effect($id, $message)
         $('<a href="#<?php echo $id; ?>" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
             .insertBefore('#<?php echo $id; ?>')
             .click(function() {
-                // the callback should be the 4th parameter but
-                // it only works as the second parameter
-                $('#<?php echo $id; ?>').toggle('drop', function() {
+                // The callback should be the 4th parameter but
+                // it only works as the second parameter;
+                // For the possible effects see http://jqueryui.com/demos/show
+                $('#<?php echo $id; ?>').toggle('clip', function() {
                     PMA_set_status_label_<?php echo $id; ?>();
                 });
             });

@@ -22,23 +22,28 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-    $('<a id="togglesearchform"></a>')
-     .html(PMA_messages['strShowSearchCriteria'])
+    /**
+     * Prepare a div containing a link, otherwise it's incorrectly displayed 
+     * after a couple of clicks
+     */
+    $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
      .insertAfter('#tbl_search_form')
      // don't show it until we have results on-screen
      .hide();
 
-    $('#togglesearchform').bind('click', function() {
-        var $link = $(this);
-        $('#tbl_search_form').slideToggle();
-        if ($link.text() == PMA_messages['strHideSearchCriteria']) {
-            $link.text(PMA_messages['strShowSearchCriteria']);
-        } else {
-            $link.text(PMA_messages['strHideSearchCriteria']);
-        }
-        // avoid default click action
-        return false;
-    })
+    $('#togglesearchformlink')
+        .html(PMA_messages['strShowSearchCriteria'])
+        .bind('click', function() {
+            var $link = $(this);
+            $('#tbl_search_form').slideToggle();
+            if ($link.text() == PMA_messages['strHideSearchCriteria']) {
+                $link.text(PMA_messages['strShowSearchCriteria']);
+            } else {
+                $link.text(PMA_messages['strHideSearchCriteria']);
+            }
+            // avoid default click action
+            return false;
+        });
 
     /**
      * Ajax event handler for Table Search
@@ -65,10 +70,11 @@ $(document).ready(function() {
                 $("#sqlqueryresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 $('#tbl_search_form').hide();
-                $('#togglesearchform')
+                $('#togglesearchformlink')
                  // always start with the Show message
                  .text(PMA_messages['strShowSearchCriteria'])
-                 // now it's time to show the link
+                $('#togglesearchformdiv')
+                 // now it's time to show the div containing the link 
                  .show();
             } else {
                 // error message (zero rows)
