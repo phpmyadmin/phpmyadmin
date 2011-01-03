@@ -1865,7 +1865,7 @@ msgstr "Sunucu"
 
 #: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
-msgstr "Yapılandırma içinde geçersiz kimlik denetimi yöntemi ayarı:"
+msgstr "Yapılandırma içinde geçersiz kimlik doğrulama yöntemi ayarı:"
 
 #: libraries/common.inc.php:928
 #, php-format
