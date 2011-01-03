@@ -4257,7 +4257,7 @@ msgstr "Yapılandırma kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr "Tanımlama bilgisi kimlik denetimi"
+msgstr "Tanımlama bilgisi kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
