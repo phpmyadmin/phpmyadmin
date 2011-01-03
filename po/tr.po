@@ -4265,7 +4265,7 @@ msgstr "HTTP kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr "Oturum açma kimlik denetimi"
+msgstr "Oturum kaydı kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
