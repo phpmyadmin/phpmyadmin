@@ -407,12 +407,16 @@ $(document).ready(function() {
                         $this_element
                         .attr('value', '')
                         .unbind('change')
-                        .attr('onchange', null)
+                        // Keep these values to be used when the element
+                        // will change
+                        .data('hashed_field', hashed_field)
+                        .data('new_row_index', new_row_index)
                         .bind('change', function(e) {
+                            var $changed_element = $(this);
                             Validator(
-                                hashed_field, 
-                                new_row_index, 
-                                $this_element.closest('tr').find('span.column_type').html()
+                                $changed_element.data('hashed_field'), 
+                                $changed_element.data('new_row_index'), 
+                                $changed_element.closest('tr').find('span.column_type').html()
                                 );
                         });
                     }
