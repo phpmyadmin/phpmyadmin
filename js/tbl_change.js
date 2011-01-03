@@ -160,7 +160,12 @@ function Validator(urlField, multi_edit,theType){
     var rowForm = document.forms['insertForm'];
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
-    unNullify(urlField, multi_edit);
+
+    // Unchecks the corresponding "NULL" control
+    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").attr({'checked': false});
+
+    // Unchecks the Ignore checkbox for the current row
+    $("input[name='insert_ignore_" + multi_edit + "']").attr({'checked': false});
 
     if(target.name.substring(0,6)=="fields")
     {
@@ -224,30 +229,6 @@ function Validator(urlField, multi_edit,theType){
     }
  }
  /* End of datetime validation*/
-
-/**
- * Unchecks the "NULL" control when a function has been selected or a value
- * entered
- *
- * @param   string   the urlencoded field name
- * @param   string   the multi_edit row sequence number
- *
- * @return  boolean  always true
- */
-function unNullify(urlField, multi_edit)
-{
-    var rowForm = document.forms['insertForm'];
-
-    if (typeof(rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']']) != 'undefined') {
-        rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']'].checked = false
-    } // end if
-
-    if (typeof(rowForm.elements['insert_ignore_' + multi_edit]) != 'undefined') {
-        rowForm.elements['insert_ignore_' + multi_edit].checked = false
-    } // end if
-
-    return true;
-} // end of the 'unNullify()' function
 
 /**
  * Ajax handlers for Change Table page
