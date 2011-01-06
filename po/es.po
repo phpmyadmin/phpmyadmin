@@ -3115,10 +3115,9 @@ msgstr "Use la palabra clave LOCAL"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Poner los nombres de campo en la primera hilera"
+msgstr "Nombres de columna en la primera fila"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
