@@ -2555,7 +2555,7 @@ msgstr "Caracter de escape de columnas"
 #: libraries/config/messages.inc.php:137 libraries/config/messages.inc.php:140
 #: libraries/config/messages.inc.php:142 libraries/export/texytext.php:26
 msgid "Replace NULL by"
-msgstr "Reemplazar NULL con"
+msgstr "Reemplazar NULL por"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:80
 msgid "Remove CRLF characters within columns"
