@@ -3141,10 +3141,9 @@ msgid "Partial import: skip queries"
 msgstr "Importación parcial: saltarse las consultas"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Añadir el valor AUTO_INCREMENT"
+msgstr "No usar AUTO_INCREMENT para valores iguales a cero"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
