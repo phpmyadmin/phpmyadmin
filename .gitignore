@@ -19,5 +19,13 @@ phpmyadmin.wpj
 .settings
 .buildpath
 .cache
+.idea
 *.sw[op]
+# Locales
 locale
+# Backups
+*~
+# Javascript sources
+sources
+# API documentation
+apidoc
