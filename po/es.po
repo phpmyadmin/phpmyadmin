@@ -3129,7 +3129,7 @@ msgstr "Importar monedas (€5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:252
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importar porcentajes como números decimales (12.00% como .12)"
 
 #: libraries/config/messages.inc.php:253
 #, fuzzy
