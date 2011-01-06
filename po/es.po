@@ -3125,7 +3125,7 @@ msgstr "No importar filas vacías"
 
 #: libraries/config/messages.inc.php:251
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importar monedas (€5.00 a 5.00)"
+msgstr "Importar monedas (€5.00 como 5.00)"
 
 #: libraries/config/messages.inc.php:252
 msgid "Import percentages as proper decimals (12.00% to .12)"
