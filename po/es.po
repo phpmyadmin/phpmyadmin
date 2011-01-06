@@ -3024,10 +3024,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Seleccione como quiere que funcionen las tabulaciones"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Use el campo de texto"
+msgstr "Campos de texto"
 
 #: libraries/config/messages.inc.php:222
 #, fuzzy
