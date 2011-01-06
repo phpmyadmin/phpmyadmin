@@ -3196,7 +3196,7 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
-"Solamente la versión clara; mostrar las bases de datos en un árbol "
+"Solamente la versión ligera; mostrar las bases de datos en un árbol "
 "(determinado por el separador definido abajo)"
 
 #: libraries/config/messages.inc.php:271
