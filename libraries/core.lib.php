@@ -241,17 +241,17 @@ function PMA_fatalError($error_message, $message_args = null)
     $error_message = strtr($error_message, array('<br />' => '[br]'));
 
     // Displays the error message
-    // (do not use &amp; for parameters sent by header)
-    header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
-            . '?lang='  . urlencode($GLOBALS['available_languages'][$GLOBALS['lang']][2])
-            . '&dir='   . urlencode($GLOBALS['text_dir'])
-            . '&type='  . urlencode($GLOBALS['strError'])
-            . '&error=' . urlencode($error_message));
+    $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
+    $dir = $GLOBALS['text_dir'];
+    $type = $GLOBALS['strError'];
+    $error = $error_message;
 
     // on fatal errors it cannot hurt to always delete the current session
     if (isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
         PMA_removeCookie($GLOBALS['session_name']);
     }
+
+    require('./libraries/error.inc.php');
 
     exit;
 }
