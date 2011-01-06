@@ -1114,7 +1114,7 @@ msgstr "Editar en línea"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Ocultar criterio de búsqueda"
 
 #: js/messages.php:90
 #, fuzzy
