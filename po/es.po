@@ -3188,9 +3188,8 @@ msgid "String that separates databases into different tree levels"
 msgstr "Cadena que separa bases de datos en diferentes niveles de árbol"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 msgid "Database tree separator"
-msgstr "Nombre de la plantilla de la base de datos"
+msgstr "Separador de árbol de base de datos"
 
 #: libraries/config/messages.inc.php:270
 msgid ""
