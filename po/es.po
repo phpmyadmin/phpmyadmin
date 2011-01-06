@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-12-29 08:42-0500\n"
-"PO-Revision-Date: 2011-01-06 19:53+0200\n"
+"PO-Revision-Date: 2011-01-06 19:54+0200\n"
 "Last-Translator:  <gaspy@totaki.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3125,7 +3125,7 @@ msgstr "No importar filas vacías"
 
 #: libraries/config/messages.inc.php:251
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importar monedas (€5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:252
 msgid "Import percentages as proper decimals (12.00% to .12)"
