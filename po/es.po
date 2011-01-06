@@ -3172,6 +3172,7 @@ msgstr "Mostrar el logo"
 #: libraries/config/messages.inc.php:265
 msgid "Display server choice at the top of the left frame"
 msgstr ""
+"Mostrar la elección de servidor en la parte superior de la columna izquierda"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display servers selection"
