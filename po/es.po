@@ -2652,7 +2652,7 @@ msgstr "Encerrar nombres de tabla y columna con comillas dobles"
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr "Modalidad compatible con SQL"
+msgstr "Modo compatible con SQL"
 
 #: libraries/config/messages.inc.php:118
 msgid "Syntax to use when inserting data"
