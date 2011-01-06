@@ -3159,7 +3159,7 @@ msgstr "Número de filas insertadas"
 
 #: libraries/config/messages.inc.php:262
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Destino para el icono de acceso rápido"
 
 #: libraries/config/messages.inc.php:263
 msgid "Show logo in left frame"
