@@ -167,11 +167,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 continue;
             }
 
-            $record[$i] = preg_replace('/\r\n|\r|\n/', $crlf.'    ', $record[$i]);
-            if (strstr($record[$i], $crlf))
-              $record[$i] = '|-' . $crlf . '    '.$record[$i];
-
-            $buffer .= '  ' . $column . ': ' . $record[$i] . $crlf;
+            $record[$i] = str_replace(array('\\', '"', "\n", "\r"), array('\\\\', '\"', '\n', '\r'), $record[$i]);
+            $buffer .= '  ' . $column . ': "' . $record[$i] . '"' . $crlf;
         }
 
         if (! PMA_exportOutputHandler($buffer)) {
