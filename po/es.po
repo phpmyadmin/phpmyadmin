@@ -2954,6 +2954,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Seguimiento de cambios hechos en la base de datos. Requiere el archivo de "
+"configuración de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
