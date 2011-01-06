@@ -3225,7 +3225,7 @@ msgstr "Separador de árbol de tablas"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL a la que apuntará el logotipo del cuadro de navegación"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
