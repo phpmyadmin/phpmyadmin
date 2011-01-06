@@ -3220,9 +3220,8 @@ msgid "String that separates tables into different tree levels"
 msgstr "Cadena que separa tablas en diferentes niveles de árbol"
 
 #: libraries/config/messages.inc.php:276
-#, fuzzy
 msgid "Table tree separator"
-msgstr "Nombre de la plantilla de la base de datos"
+msgstr "Separador de árbol de tablas"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
