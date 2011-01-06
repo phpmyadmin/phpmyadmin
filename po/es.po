@@ -1117,10 +1117,9 @@ msgid "Hide search criteria"
 msgstr "Ocultar criterio de búsqueda"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show search criteria"
-msgstr "Mostrar ventana de consultas SQL"
+msgstr "Mostrar criterio de búsqueda"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
