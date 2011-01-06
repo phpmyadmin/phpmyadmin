@@ -1,0 +1,31 @@
+# Directory for creating releases
+release
+# Configuration files
+config.inc.php
+config.header.inc.php
+config.footer.inc.php
+# Upload/save dirs
+upload
+save
+# For setup script
+config
+# ctags
+tags
+# Editor files
+phpmyadmin.wpj
+.projectOptions
+.vimrc
+.project
+.settings
+.buildpath
+.cache
+.idea
+*.sw[op]
+# Locales
+locale
+# Backups
+*~
+# Javascript sources
+sources
+# API documentation
+apidoc
