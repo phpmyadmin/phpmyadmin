@@ -2545,10 +2545,9 @@ msgstr "Columnas encerradas por"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Caracter de escape"
+msgstr "Caracter de escape de columnas"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:86 libraries/config/messages.inc.php:95
