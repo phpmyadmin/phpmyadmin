@@ -2113,7 +2113,7 @@ msgstr ""
 
 #: libraries/common.lib.php:2983
 msgid "There are no files to upload"
-msgstr ""
+msgstr "No hay archivos para subir"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
