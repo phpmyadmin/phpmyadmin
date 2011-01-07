@@ -323,7 +323,7 @@ if(isset($_GET['sql_query'])) {
                 <?php } ?>
              </ul>
         </li>
-        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo isset($_GET['repopulate']) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text">View output as text</label></li>
+        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo isset($_GET['repopulate']) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text"><?php echo __('View output as text'); ?></label></li>
     </ul>
  </div>
 
@@ -334,7 +334,7 @@ if(isset($_GET['sql_query'])) {
 
 <div class="exportoptions" id="format_specific_opts">
     <h3><?php echo __('Format-specific options:'); ?></h3>
-    <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
+    <p class="no_js_msg" id="scroll_to_options_msg"><?php echo __('Scroll down to fill in the options for the selected format and ignore the options for other formats.'); ?></p>
     <?php echo PMA_pluginGetOptions('Export', $export_list); ?>
 </div>
 
