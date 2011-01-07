@@ -430,14 +430,13 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
 
         $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
-            $("#usersForm")
-            .hide("medium")
-            .siblings("#initials_table")
-            .after(data)
-            .show("medium")
-            .end()
-            .remove();
-            $("#initials_table").siblings("h2").not(":first").remove();
+            // This form is not on screen when first entering Privileges
+            // if there are more than 50 users
+            $("#usersForm").hide("medium").remove();
+            $("#fieldset_add_user").hide("medium").remove();
+            $("#initials_table")
+             .after(data).show("medium")
+             .siblings("h2").not(":first").remove();
         }) // end $.get
     })// end of the paginate users table
 
