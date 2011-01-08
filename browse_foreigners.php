@@ -59,12 +59,6 @@ if (is_array($foreignData['disp_row'])) {
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
         $gotopage = PMA_pageselector(
-                      'browse_foreigners.php?field='    . urlencode($field) .
-                                       '&amp;'          . PMA_generate_common_url($db, $table)
-                                                        . $rownumber_param .
-                                       '&amp;fieldkey=' . (isset($fieldkey) ? urlencode($fieldkey) : '') .
-                                       '&amp;foreign_filter=' . (isset($foreign_filter) ? urlencode($foreign_filter) : '') .
-                                       '&amp;',
                       $session_max_rows,
                       $pageNow,
                       $nbTotalPage,
