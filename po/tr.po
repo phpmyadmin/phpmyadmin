@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-03 23:06+0200\n"
+"PO-Revision-Date: 2011-01-08 21:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -4609,10 +4609,9 @@ msgid "bzipped"
 msgstr "bzip olarak"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 #| msgid "Save output to a file"
 msgid "View output as text"
-msgstr "Çıktıyı dosyaya kaydet"
+msgstr "Çıktıyı metin olarak göster"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
