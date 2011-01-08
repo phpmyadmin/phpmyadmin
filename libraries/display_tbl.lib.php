@@ -370,8 +370,6 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
        &nbsp;&nbsp;&nbsp;
    </td>
    <td>
-        <?php //<form> for keep the form alignment of button < and << ?>
-        <form action="none">
         <?php
             $_url_params = array(
                 'db'        => $db,
@@ -379,9 +377,11 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
                 'sql_query' => $sql_query,
                 'goto'      => $goto,
             );
+            //<form> to keep the form alignment of button < and <<
+            // and also to know what to execute when the selector changes
+            echo '<form action="sql.php' . PMA_generate_common_url($_url_params). '" method="post">';
             echo PMA_pageselector(
-                     'sql.php' . PMA_generate_common_url($_url_params) . PMA_get_arg_separator('js'),
-                     $_SESSION['tmp_user_values']['max_rows'],
+                    $_SESSION['tmp_user_values']['max_rows'],
                     $pageNow,
                     $nbTotalPage,
                     200,

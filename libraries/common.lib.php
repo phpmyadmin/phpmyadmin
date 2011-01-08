@@ -2173,9 +2173,7 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
 /**
  * Generate a pagination selector for browsing resultsets
  *
- * @todo $url is not javascript escaped!?
  * @uses    range()
- * @param   string      URL for the JavaScript
  * @param   string      Number of rows in the pagination set
  * @param   string      current page number
  * @param   string      number of total pages
@@ -2195,7 +2193,7 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  *
  * @access  public
  */
-function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
+function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
     $range = 10, $prompt = '')
 {
@@ -2320,7 +2318,6 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
         echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
-            $script . PMA_generate_common_url($_url_params) . '&amp;',
                 $max_count,
                 floor(($pos + 1) / $max_count) + 1,
                 ceil($count / $max_count));

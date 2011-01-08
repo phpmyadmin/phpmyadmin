@@ -295,11 +295,12 @@ $(document).ready(function() {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
+        var $the_form = $(this).parent("form");
 
-        $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
+        $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-        }) // end $.get()
+        }) // end $.post()
     })// end Paginate results with Page Selector
 
     /**
