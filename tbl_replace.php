@@ -357,7 +357,7 @@ foreach ($query as $single_query) {
     if (! $result) {
         $error_messages[] = PMA_DBI_getError();
     } else {
-        // the following is a real assignment:
+        // The next line contains a real assignment, it's not a typo
         if ($tmp = @PMA_DBI_affected_rows()) {
             $total_affected_rows += $tmp;
         }

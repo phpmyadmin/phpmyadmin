@@ -29,10 +29,16 @@ require_once './libraries/Table.class.php';
  */
 function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 {
+    // Avoid caching of the number of rows affected; for example, this function 
+    // is called for tracking purposes but we want to display the correct number
+    // of rows affected by the original query, not by the query generated for
+    // tracking.
+    $cache_affected_rows = false;
+
     if ($show_error) {
-        $result = PMA_DBI_query($sql, $GLOBALS['controllink'], $options);
+        $result = PMA_DBI_query($sql, $GLOBALS['controllink'], $options, $cache_affected_rows);
     } else {
-        $result = @PMA_DBI_try_query($sql, $GLOBALS['controllink'], $options);
+        $result = @PMA_DBI_try_query($sql, $GLOBALS['controllink'], $options, $cache_affected_rows);
     } // end if... else...
 
     if ($result) {

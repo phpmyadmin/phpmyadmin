@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to erickoh75 - erickoh75
 - patch #3150164 [structure] Ordering by size gives incorrect results,
   thanks to Madhura Jayaratne - madhuracj 
+- bug #3153409 [core] 0 row(s) affected 
 
 3.3.9.0 (2011-01-03)
 - bug [doc] Fix references to MySQL doc

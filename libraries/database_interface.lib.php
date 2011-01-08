@@ -79,8 +79,8 @@ require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi
 /**
  * Common Functions
  */
-function PMA_DBI_query($query, $link = null, $options = 0) {
-    $res = PMA_DBI_try_query($query, $link, $options)
+function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true) {
+    $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
         or PMA_mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
 }
