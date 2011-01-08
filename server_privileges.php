@@ -1411,7 +1411,7 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
 
         $new_user_string .='</td>';
 
-        $new_user_string .= '<td>'.sprintf($link_edit, urlencode($username), urlencode($host), '', '' ).'</td>'."\n";
+        $new_user_string .= '<td>'.sprintf($link_edit, urlencode($username), urlencode($hostname), '', '' ).'</td>'."\n";
         $new_user_string .= '<td>'.sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')).'</td>'."\n";
 
         $new_user_string .= '</tr>';
