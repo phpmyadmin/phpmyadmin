@@ -2442,11 +2442,20 @@ $(document).ready(function() {
     $('#tableslistcontainer').find('#pageselector').live('change', function() {
         $(this).parent("form").submit();
     });
+
     /**
      * Page selector in navi panel (non-AJAX)
      */
     $('#navidbpageselector').find('#pageselector').live('change', function() {
         $(this).parent("form").submit();
     });
+
+    /**
+     * Page selector in browse_foreigners windows (non-AJAX)
+     */
+    $('#body_browse_foreigners').find('#pageselector').live('change', function() {
+        $(this).closest("form").submit();
+    });
+
 }) // end of $(document).ready()
 
