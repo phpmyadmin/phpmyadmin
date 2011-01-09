@@ -83,6 +83,7 @@ if ($num_tables == 0) {
 /**
  * Displays the tables list
  */
+echo '<div id="tableslistcontainer">';
 $_url_params = array(
     'pos' => $pos,
     'db'  => $db);
@@ -530,6 +531,7 @@ if (!$db_is_information_schema) {
 // display again the table list navigator
 PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
 ?>
+</div>
 <hr />
 
 <?php

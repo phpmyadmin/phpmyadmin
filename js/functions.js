@@ -2435,5 +2435,18 @@ $(document).ready(function() {
      */
 
     $('#visual_builder_anchor').show();
+
+    /**
+     * Page selector in db Structure (non-AJAX)
+     */
+    $('#tableslistcontainer').find('#pageselector').live('change', function() {
+        $(this).parent("form").submit();
+    });
+    /**
+     * Page selector in navi panel (non-AJAX)
+     */
+    $('#navidbpageselector').find('#pageselector').live('change', function() {
+        $(this).parent("form").submit();
+    });
 }) // end of $(document).ready()
 
