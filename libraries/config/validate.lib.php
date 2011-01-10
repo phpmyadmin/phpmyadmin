@@ -30,6 +30,10 @@ function PMA_config_get_validators()
         $cf = ConfigFile::getInstance();
         $validators = $cf->getDbEntry('_validators', array());
         if (!defined('PMA_SETUP')) {
+            // not in setup script: load additional validators for user preferences
+            // we need oryginal config values not overwritten by user preferences, creating a new PMA_Config
+            // instance is a better idea than hacking into its code
+            $org_cfg = new PMA_Config(CONFIG_FILE);
             $uvs = $cf->getDbEntry('_userValidators', array());
             foreach ($uvs as $field => $uv_list) {
                 $uv_list = (array)$uv_list;
@@ -39,7 +43,7 @@ function PMA_config_get_validators()
                     }
                     for ($i = 1; $i < count($uv); $i++) {
                         if (substr($uv[$i], 0, 6) == 'value:') {
-                            $uv[$i] = PMA_array_read(substr($uv[$i], 6), $GLOBALS['cfg']);
+                            $uv[$i] = PMA_array_read(substr($uv[$i], 6), $org_cfg->settings);
                         }
                     }
                 }
