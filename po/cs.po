@@ -7871,7 +7871,7 @@ msgstr "Práce s chybami:"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném "
-"serveru."
+"serveru!"
 
 #: server_replication.php:342
 msgid "Skip current error"
