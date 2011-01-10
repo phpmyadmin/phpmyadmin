@@ -5275,7 +5275,7 @@ msgstr "Nahradit NULL hodnoty:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Odstranit znaky konců řádek z polí:"
+msgstr "Odstranit znaky konců řádek z polí"
 
 #: libraries/export/excel.php:32
 msgid "Excel edition:"
