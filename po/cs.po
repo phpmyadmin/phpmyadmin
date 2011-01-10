@@ -9128,7 +9128,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr "Měli byste použít SSL připojení pokud to váš webserver podporuje."
+msgstr "Pokud to váš webserver podporuje, měli byste použít SSL připojení."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
