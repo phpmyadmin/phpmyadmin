@@ -9249,7 +9249,7 @@ msgstr "Pokračovat ve vkládání s %s řádky"
 
 #: tbl_chart.php:56
 msgid "Chart generated successfully."
-msgstr "Graf byl úspěšně vytvořen"
+msgstr "Graf byl úspěšně vytvořen."
 
 #: tbl_chart.php:59
 msgid ""
