@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-10 14:22+0200\n"
+"PO-Revision-Date: 2011-01-10 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9039,7 +9039,7 @@ msgstr ""
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Měli byste použít %sSSL připojení%s pokud to váš webserver podporuje."
+msgstr "Pokud to váš webserver podporuje, měli byste použít %sSSL připojení%s."
 
 #: setup/lib/index.lib.php:258
 #, php-format
