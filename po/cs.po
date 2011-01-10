@@ -9039,7 +9039,7 @@ msgstr ""
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Měli byste použít %sSSL připojení%s pokud to váš webserver podporuje"
+msgstr "Měli byste použít %sSSL připojení%s pokud to váš webserver podporuje."
 
 #: setup/lib/index.lib.php:258
 #, php-format
