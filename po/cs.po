@@ -7136,7 +7136,7 @@ msgstr "Načíst z úložiště v prohlížeči"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr "Nastavení bude načteno z lokálního úložiště ve vašem prohlížeči"
+msgstr "Nastavení bude načteno z lokálního úložiště ve vašem prohlížeči."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
