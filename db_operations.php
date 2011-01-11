@@ -196,7 +196,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         if (! $_error) {
             // temporarily force to add DROP IF EXIST to CREATE VIEW query,
             // to remove stand-in VIEW that was created earlier
-            $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+            if (isset($GLOBALS['drop_if_exists'])) {
+                $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+            }
             $GLOBALS['drop_if_exists'] = 'true';
 
             foreach ($views as $view) {
@@ -205,8 +207,12 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                     break;
                 }
             }
-            // restore previous value
-            $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+            unset($GLOBALS['drop_if_exists']);
+            if (isset($temp_drop_if_exists)) {
+                // restore previous value
+                $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+                unset($temp_drop_if_exists);
+            }
         }
         unset($view, $views);
 
