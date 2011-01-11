@@ -103,9 +103,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         // go back to current db, just in case
         PMA_DBI_select_db($db);
 
-        if (isset($GLOBALS['add_constraints']) || $move) {
-            $GLOBALS['sql_constraints_query_full_db'] = array();
-        }
+        $GLOBALS['sql_constraints_query_full_db'] = array();
 
         $tables_full = PMA_DBI_get_tables_full($db);
         $views = array();
