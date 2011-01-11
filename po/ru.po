@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-11 13:12+0200\n"
+"PO-Revision-Date: 2011-01-11 13:14+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -270,10 +270,9 @@ msgid "Command"
 msgstr "Команда"
 
 #: db_operations.php:429
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Переименовать базу данных в"
+msgstr "Удалить базу данных"
 
 #: db_operations.php:441
 #, php-format
