@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2010-07-22 02:27+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-01-11 12:57+0200\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -97,7 +97,7 @@ msgstr "Использовать это значение"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Сервер для работы с потоковыми данными не настроен!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -10594,228 +10594,3 @@ msgstr "Переименовать таблицу в"
 
 #~ msgid "Stop"
 #~ msgstr "Стоп"
-
-#, fuzzy
-#~| msgid "Display databases in a tree"
-#~ msgid "Display table filter"
-#~ msgstr "Отображать базы данных в виде дерева"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Дополнительные возможности для работы со связанными таблицами недоступны. "
-#~ "Для определения причины нажмите %sздесь%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Игнорировать повторяющиеся строки"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Выполнить отмеченный запрос"
-
-#~ msgid "No tables"
-#~ msgstr "Нет таблиц"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Данный [a@?page=form&amp;formset=features#tab_Security]параметр[/a] "
-#~ "должен быть включен, если ваш сервер его поддерживает"
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Значения параметров преобразований должны иметь формат: 'a', 100, 'b', "
-#~ "'c'...<br />Символы обратной косой черты (\\) и одинарной кавычки (') "
-#~ "необходимо экранировать (предварять) символом обратной косой черты, "
-#~ "например: '\\\\xyz' или 'a\\'b'."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Значения параметров преобразований должны иметь формат: 'a', 100, 'b', "
-#~ "'c'...<br />Символы обратной косой черты (\\) и одинарной кавычки (') "
-#~ "необходимо экранировать (предварять) символом обратной косой черты, "
-#~ "например: '\\\\xyz' или 'a\\'b'."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Нет таблиц"
-
-#~ msgid "server name"
-#~ msgstr "имя сервера"
-
-#~ msgid "database name"
-#~ msgstr "имя базы данных"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Редактирование PDF-страниц"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Ориентация страниц словаря данных"
-
-#~ msgid "no"
-#~ msgstr "нет"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Введите параметры входа для единого метода идентификации"
-
-#~ msgid "Signon login options"
-#~ msgstr "Параметры Signon входа"
-
-#~ msgid "PMA database"
-#~ msgstr "Расширения PMA"
-
-#~ msgid "Customization"
-#~ msgstr "Модификация"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Настройки SQL запросов. Для установки параметров всплывающего окна SQL "
-#~ "запросов смотрите настройки [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]фрейма Навигации[/a]"
-
-#~ msgid "yes"
-#~ msgstr "да"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within fields"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Удалите из полей символы CRLF"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Добавить AUTO_INCREMENT"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Дамп из %s строк, начиная с записи # %s."
-
-#~ msgid "remember template"
-#~ msgstr "запомнить шаблон"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Автоматическое определение типа сжатия, варианты: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Добавить в комментарии"
-
-#~ msgid "Export Structure Schemas (recommended)"
-#~ msgstr "Экспортировать структуру (рекомендуется)"
-
-#~ msgid "Export functions"
-#~ msgstr "Экспортировать функции"
-
-#~ msgid "Export procedures"
-#~ msgstr "Экспортировать процедуры"
-
-#~ msgid "Export triggers"
-#~ msgstr "Экспортировать триггеры"
-
-#~ msgid "Export views"
-#~ msgstr "Экспортировать отображения (VIEW)"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Выбран неверный столбец (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Действия"
-
-#~ msgid "Interface"
-#~ msgstr "Отображение"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Имя таблицы"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "Хранилище данных типа BLOB"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Доступно"
-
-#~ msgid "Disable"
-#~ msgstr "Отключить"
-
-#~ msgid "Damaged"
-#~ msgstr "Повреждено"
-
-#, fuzzy
-#~| msgid "Repair"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Исправление"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Недоступно"
-
-#~ msgid "Enable"
-#~ msgstr "Включить"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Невозможно загрузить расширение [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a]! Проверьте настройки PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Не подключены расширения iconv или recode, необходимые для конвертации "
-#~ "кодировок. Необходимо настроить PHP, включив данные расширения, или "
-#~ "отключить возможность конвертации кодировок в настройках phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Несмотря на то что необходимые расширения загружены, использование "
-#~ "функций iconv, libiconv или recode_string - невозможно. Проверьте "
-#~ "настройки PHP."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Разрешить перекодирование"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Кодировка по умолчанию используемая при перекодировании"
-
-#~ msgid "Default character set"
-#~ msgstr "Кодировка по умолчанию"
