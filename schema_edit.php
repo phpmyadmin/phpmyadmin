@@ -85,7 +85,7 @@ if ($cfgRelation['pdfwork']) {
      */
     if(isset($_REQUEST['do'])){
         $user_schema->setAction($_REQUEST['do']);
-        $user_schema->processUserPreferences();
+        $user_schema->processUserChoice();
     }    
 
     /**
@@ -99,7 +99,7 @@ if ($cfgRelation['pdfwork']) {
      * Create a new page where relations will be drawn 
      */
 
-    $user_schema->createPage($db);
+    $user_schema->showCreatePageDialog($db);
 
     /**
      * After selection of page or creating a page 
@@ -111,8 +111,8 @@ if ($cfgRelation['pdfwork']) {
 
     if (isset($_REQUEST['do'])
     && ($_REQUEST['do'] == 'edcoord'
-       || ($_REQUEST['do']== 'selectpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0)
-       || ($_REQUEST['do'] == 'createpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0))) {
+       || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0)
+       || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0))) {
 
       /** 
        * show Export schema generation options

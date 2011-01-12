@@ -182,7 +182,7 @@ class PMA_Export_Relation_Schema
     /**
      * Displays an error message
      *
-     * @param integer pageNumber ID of the page choosen
+     * @param integer pageNumber ID of the chosen page
      * @param string type Schema Type
      * @param string error_message the error mesage
      * @global array    the PMA configuration array

@@ -452,7 +452,7 @@ if (! PMA_langCheck()) {
             . __FILE__ . '#' . $line . ', check hard coded fall back language.',
             E_USER_WARNING);
         // stop execution
-        // and tell the user that his choosen language is invalid
+        // and tell the user that his chosen language is invalid
         PMA_fatalError('Could not load any language, please check your language settings and folder.');
     }
 }
