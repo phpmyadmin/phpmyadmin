@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 18:29+0200\n"
+"PO-Revision-Date: 2011-01-12 18:38+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1934,10 +1934,10 @@ msgstr ""
 "конфигурационном файле!"
 
 #: libraries/common.inc.php:620
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Неправильный номер сервера: &quot;%s&quot;"
+msgstr "Неверный индекс сервера: %s"
 
 #: libraries/common.inc.php:627
 #, php-format
