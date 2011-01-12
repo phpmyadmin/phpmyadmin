@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 15:07+0200\n"
+"PO-Revision-Date: 2011-01-12 15:08+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1218,10 +1218,9 @@ msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:126
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Всего"
+msgstr "Сегодня"
 
 #: js/messages.php:129
 #, fuzzy
