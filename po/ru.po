@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 00:01+0200\n"
+"PO-Revision-Date: 2011-01-12 19:04+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -977,23 +977,21 @@ msgstr "База данных будет полностью удалена!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Удаление события"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Процедуры"
+msgstr "Удаление процедуры"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Удалить данные слежения за таблицей"
+msgstr "Удаление данных слежения"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Удаление первичного ключа / индекса"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1033,28 +1031,24 @@ msgid "The passwords aren't the same!"
 msgstr "Некорректное подтверждение пароля!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Добавить нового пользователя"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
-msgstr "Создать версию"
+msgstr "Создать пользователя"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Перезагрузка привилегий"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Удалить выделенных пользователей"
+msgstr "Удаление выбранных пользователей"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
@@ -1068,28 +1062,26 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Загрузить"
+msgstr "Загрузка"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Процессы"
+msgstr "Обработка запроса"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Ошибка при обработке запроса"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Удаление столбца"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Добавление первичного ключа"
 
 #: js/messages.php:68 libraries/relation.lib.php:81 pmd_general.php:388
 #: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
@@ -1098,76 +1090,64 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Переименовать базу данных в"
+msgstr "Переименование базы данных"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Переименовать базу данных в"
+msgstr "Перезагрузка базы данных"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Скопировать базу данных в"
+msgstr "Копирование базы данных"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Кодировка"
+msgstr "Смена кодировки"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "У таблицы должно быть, как минимум, одно поле."
+msgstr "У таблицы должен быть, как минимум, один столбец"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Создать таблицу"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Поиск"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
-msgstr "SQL Запрос"
+msgstr "Скрыть поле запроса"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL Запрос"
+msgstr "Отобразить поле запроса"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Типы таблиц"
+msgstr "Быстрая правка"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
-msgstr "SQL Запрос"
+msgstr "Скрыть параметры поиска"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
-msgstr "SQL Запрос"
+msgstr "Отобразить параметры поиска"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1189,17 +1169,15 @@ msgstr ""
 "индексом!"
 
 #: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Выбор отображаемого столбца"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr ""
+msgstr "Добавить параметр для столбца"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Создать пароль"
@@ -1209,30 +1187,26 @@ msgid "Generate"
 msgstr "Генерировать"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Изменить пароль"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Пн"
+msgstr "Ещё"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Пожертвование"
+msgstr "Готово"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Назад"
+msgstr "Предыдущий"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:124 libraries/common.lib.php:2333
@@ -1244,72 +1218,64 @@ msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:126
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Всего"
+msgstr "Сегодня"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Двоичный"
+msgstr "Январь"
 
 #: js/messages.php:130
 msgid "February"
-msgstr ""
+msgstr "Февраль"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "Мар"
+msgstr "Март"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "Апр"
+msgstr "Апрель"
 
 #: js/messages.php:133
 msgid "May"
 msgstr "Май"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "Июн"
+msgstr "Июнь"
 
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "Июл"
+msgstr "Июль"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "Авг"
+msgstr "Август"
 
 #: js/messages.php:137
 msgid "September"
-msgstr ""
+msgstr "Сентябрь"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "Окт"
+msgstr "Октябрь"
 
 #: js/messages.php:139
 msgid "November"
-msgstr ""
+msgstr "Ноябрь"
 
 #: js/messages.php:140
 msgid "December"
-msgstr ""
+msgstr "Декабрь"
 
 #. l10n: Short month name
 #: js/messages.php:144 libraries/common.lib.php:1538
@@ -1333,7 +1299,6 @@ msgstr "Апр"
 
 #. l10n: Short month name
 #: js/messages.php:152 libraries/common.lib.php:1546
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1375,40 +1340,36 @@ msgid "Dec"
 msgstr "Дек"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Вс"
+msgstr "Воскресенье"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Пн"
+msgstr "Понедельник"
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "Вт"
+msgstr "Вторник"
 
 #: js/messages.php:172
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #: js/messages.php:173
 msgid "Thursday"
-msgstr ""
+msgstr "Четверг"
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Пт"
+msgstr "Пятница"
 
 #: js/messages.php:175
 msgid "Saturday"
-msgstr ""
+msgstr "Суббота"
 
 #. l10n: Short week day name
 #: js/messages.php:179 libraries/common.lib.php:1563
@@ -1447,75 +1408,65 @@ msgstr "Сб"
 
 #. l10n: Minimal week day name
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Вс"
 
 #. l10n: Minimal week day name
 #: js/messages.php:197
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:207
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Вики"
+msgstr "Нед."
 
 #: js/messages.php:211
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: js/messages.php:212
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "используется"
+msgstr "Минута"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "в секунду"
+msgstr "Секунда"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1627,28 +1578,31 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Затронуто строк: %1$d."
-msgstr[1] "Затронуто строк: %1$d."
+msgstr[0] "Затронута %1$d строка."
+msgstr[1] "Затронуто %1$d строки."
+msgstr[2] "Затронуто %1$d строк."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Удалено строк: %1$d."
-msgstr[1] "Удалено строк: %1$d."
+msgstr[0] "Удалена %1$d строка."
+msgstr[1] "Удалено %1$d строки."
+msgstr[2] "Удалено %1$d строк."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Вставлено строк: %1$d."
-msgstr[1] "Вставлено строк: %1$d."
+msgstr[0] "Добавлена %1$d строка."
+msgstr[1] "Добавлено %1$d строки."
+msgstr[2] "Добавлено %1$d строк."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1833,21 +1787,20 @@ msgstr "Идентификация..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Ошибка PBMS"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "Сопоставление соединения с MySQL"
+msgstr "Ошибка подключения к PBMS:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "Ошибка получения информации о BLOB данных от PBMS:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "Ошибка получения заголовка Content-Type BLOB данных"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1868,7 +1821,7 @@ msgstr "Загрузить файл"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Невозможно открыть файл: %s"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:178 libraries/export/xml.php:36
@@ -1901,22 +1854,19 @@ msgid "Overhead"
 msgstr "Фрагментировано"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Перейти к базе данных"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Репликация головного сервера"
+msgstr "Не реплицировано"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Репликация"
+msgstr "Реплицировано"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -1928,32 +1878,30 @@ msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Показывать статистику"
+msgstr "Статистика запросов"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Сравнение времени выполнения запроса (в микросекундах)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Использование результатов запроса"
+msgstr "Результаты запроса"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Данные для графика не найдены."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Для графиков необходимо расширение GD."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Для всплывающих подсказок графиков необходимо расширение JSON."
 
 #: libraries/common.inc.php:574
 msgid ""
@@ -1972,10 +1920,10 @@ msgstr ""
 "запятой.<br />Если отобразится пустая страница - все в порядке."
 
 #: libraries/common.inc.php:585
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Невозможно загрузить изначальную конфигурацию из: &quot;%1$s&quot;"
+msgstr "Невозможно загрузить изначальную конфигурацию из: %1$s"
 
 #: libraries/common.inc.php:590
 msgid ""
@@ -1986,10 +1934,10 @@ msgstr ""
 "конфигурационном файле!"
 
 #: libraries/common.inc.php:620
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Неправильный номер сервера: &quot;%s&quot;"
+msgstr "Неверный индекс сервера: %s"
 
 #: libraries/common.inc.php:627
 #, php-format
@@ -2050,10 +1998,9 @@ msgid "MySQL said: "
 msgstr "Ответ MySQL: "
 
 #: libraries/common.lib.php:1071
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Невозможно соединиться с сервером MySQL"
+msgstr "Невозможно соединиться с SQL валидатором!"
 
 #: libraries/common.lib.php:1112 libraries/config/messages.inc.php:459
 msgid "Explain SQL"
@@ -2086,13 +2033,12 @@ msgstr "Проверка синтаксиса"
 
 #: libraries/common.lib.php:1237
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Быстрое редактирование запроса"
 
 #: libraries/common.lib.php:1239
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Типы таблиц"
+msgstr "Быстрая правка"
 
 #: libraries/common.lib.php:1303 libraries/common.lib.php:1319
 msgid "Profiling"
@@ -2215,13 +2161,13 @@ msgstr "Операции"
 
 #: libraries/common.lib.php:2951
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Обзор вашего компьютера:"
 
 #: libraries/common.lib.php:2964
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Из каталога загрузки"
+msgstr "Выберите из каталога загрузки сервера <b>%s</b>:"
 
 #: libraries/common.lib.php:2976 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:913
@@ -2230,7 +2176,7 @@ msgstr "Установленный каталог загрузки не дост
 
 #: libraries/common.lib.php:2984
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Файлы для загрузки отсутствуют"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2243,27 +2189,26 @@ msgstr "структура"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "данные"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Структура и данные"
+msgstr "структура и данные"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Быстро - отображать минимальный набор параметров"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "По выбору - отображать все возможные параметры"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "По выбору - как выше, но без выбора быстро/по выбору"
 
 #: libraries/config.values.php:119
 #, fuzzy
