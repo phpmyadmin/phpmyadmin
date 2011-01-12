@@ -1459,10 +1459,9 @@ msgid "Hour"
 msgstr "Час"
 
 #: js/messages.php:212
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "используется"
+msgstr "Минута"
 
 #: js/messages.php:213
 #, fuzzy
