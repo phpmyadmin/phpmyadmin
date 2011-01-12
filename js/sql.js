@@ -110,7 +110,13 @@ function appendInlineAnchor() {
             if($(this).attr('colspan') == 3) {
                 $(this).attr('colspan', '4')
             }
-        })
+        });
+		
+		$('#rowsDeleteForm').find('tbody').find('th').each(function() {
+            if($(this).attr('colspan') == 3) {
+                $(this).attr('colspan', '4')
+            }
+        });
     }
 }
 
