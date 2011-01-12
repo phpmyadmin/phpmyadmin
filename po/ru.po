@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 14:46+0200\n"
+"PO-Revision-Date: 2011-01-12 14:55+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1175,7 +1175,7 @@ msgstr "Выбор отображаемого столбца"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr ""
+msgstr "Добавить параметр для столбца"
 
 #: js/messages.php:105
 #, fuzzy
