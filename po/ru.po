@@ -1363,10 +1363,9 @@ msgid "Thursday"
 msgstr "Четверг"
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Пт"
+msgstr "Пятница"
 
 #: js/messages.php:175
 msgid "Saturday"
