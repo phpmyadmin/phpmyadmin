@@ -106,11 +106,12 @@ function appendInlineAnchor() {
             $this_td.after($cloned_anchor);
         });
 
-        $('#rowsDeleteForm').find('thead').find('th').each(function() {
-            if($(this).attr('colspan') == 3) {
-                $(this).attr('colspan', '4')
+        $('#rowsDeleteForm').find('thead, tbody').find('th').each(function() {
+            var $this_th = $(this);
+            if ($this_th.attr('colspan') == 3) {
+                $this_th.attr('colspan', '4')
             }
-        })
+        });
     }
 }
 
