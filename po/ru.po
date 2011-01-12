@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 17:51+0200\n"
+"PO-Revision-Date: 2011-01-12 18:10+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1859,10 +1859,9 @@ msgid "Jump to database"
 msgstr "Перейти к базе данных"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Репликация головного сервера"
+msgstr "Не реплицировано"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
