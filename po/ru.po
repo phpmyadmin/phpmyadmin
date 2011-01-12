@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 15:18+0200\n"
+"PO-Revision-Date: 2011-01-12 15:20+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1578,12 +1578,13 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Затронуто строк: %1$d."
-msgstr[1] "Затронуто строк: %1$d."
+msgstr[0] "Затронута %1$d строка."
+msgstr[1] "Затронуто %1$d строки."
+msgstr[2] "Затронуто %1$d строк."
 
 #: libraries/Message.class.php:300
 #, fuzzy, php-format
