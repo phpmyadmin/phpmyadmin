@@ -1356,7 +1356,7 @@ msgstr "Вторник"
 
 #: js/messages.php:172
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #: js/messages.php:173
 msgid "Thursday"
