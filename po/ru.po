@@ -1456,7 +1456,7 @@ msgstr "Нед."
 
 #: js/messages.php:211
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: js/messages.php:212
 #, fuzzy
