@@ -1115,7 +1115,6 @@ msgid "Table must have at least one column"
 msgstr "У таблицы должен быть, как минимум, один столбец"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Создать таблицу"
