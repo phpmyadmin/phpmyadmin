@@ -396,13 +396,11 @@ function PMA_DBI_insert_id($link = null)
             return false;
         }
     }
-    //$insert_id = mysql_insert_id($link);
-    // if the primary key is BIGINT we get an incorrect result
+    // If the primary key is BIGINT we get an incorrect result
     // (sometimes negative, sometimes positive)
     // and in the present function we don't know if the PK is BIGINT
     // so better play safe and use LAST_INSERT_ID()
     //
-    // by the way, no problem with mysqli_insert_id()
     return PMA_DBI_fetch_value('SELECT LAST_INSERT_ID();', 0, 0, $link);
 }
 
