@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 18:11+0200\n"
+"PO-Revision-Date: 2011-01-12 18:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1878,10 +1878,9 @@ msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Показывать статистику"
+msgstr "Статистика запросов"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
