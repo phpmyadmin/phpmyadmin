@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 18:27+0200\n"
+"PO-Revision-Date: 2011-01-12 18:28+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1920,10 +1920,10 @@ msgstr ""
 "запятой.<br />Если отобразится пустая страница - все в порядке."
 
 #: libraries/common.inc.php:585
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Невозможно загрузить изначальную конфигурацию из: &quot;%1$s&quot;"
+msgstr "Невозможно загрузить изначальную конфигурацию из: %1$s"
 
 #: libraries/common.inc.php:590
 msgid ""
