@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 15:11+0200\n"
+"PO-Revision-Date: 2011-01-12 15:12+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1340,10 +1340,9 @@ msgid "Dec"
 msgstr "Дек"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Вс"
+msgstr "Воскресенье"
 
 #: js/messages.php:170
 #, fuzzy
