@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-12 18:49+0200\n"
+"PO-Revision-Date: 2011-01-12 18:50+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2164,10 +2164,10 @@ msgid "Browse your computer:"
 msgstr "Обзор вашего компьютера:"
 
 #: libraries/common.lib.php:2964
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Из каталога загрузки"
+msgstr "Выберите из каталога загрузки сервера <b>%s</b>:"
 
 #: libraries/common.lib.php:2976 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:913
