@@ -40,7 +40,7 @@ class PMA_User_Schema
      * @access public
      */
 
-    public function processUserPreferences()
+    public function processUserChoice()
     {
         global $action_choose,$db,$cfgRelation,$cfg,$query_default_option;
 
@@ -65,7 +65,7 @@ class PMA_User_Schema
                 $this->c_table_rows = $_POST['c_table_rows'];
                 $this->_editCoordinates($db, $cfgRelation,$query_default_option);
                 break;
-            case 'deleteCrap':
+            case 'delete_old_references':
                 $this->_deleteTableRows($delrow,$cfgRelation,$db,$this->chosenPage);
                 break;
             case 'process_export':
@@ -84,7 +84,7 @@ class PMA_User_Schema
      * @return void
      * @access public
      */
-    public function createPage($db)
+    public function showCreatePageDialog($db)
     {
         ?>
         <form method="post" action="schema_edit.php" name="frm_create_page">
@@ -439,7 +439,7 @@ class PMA_User_Schema
             if ($shoot) {
                 echo '<form action="schema_edit.php" method="post">' . "\n"
                     . PMA_generate_common_hidden_inputs($db, $table)
-                    . '<input type="hidden" name="do" value="deleteCrap" />' . "\n"
+                    . '<input type="hidden" name="do" value="delete_old_references" />' . "\n"
                     . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
                     . __('The current page has references to tables that no longer exist. Would you like to delete those references?')
                     . '<ul>' . "\n"

@@ -85,7 +85,7 @@ if ($cfgRelation['pdfwork']) {
      */
     if(isset($_REQUEST['do'])){
         $user_schema->setAction($_REQUEST['do']);
-        $user_schema->processUserPreferences();
+        $user_schema->processUserChoice();
     }    
 
     /**
@@ -99,7 +99,7 @@ if ($cfgRelation['pdfwork']) {
      * Create a new page where relations will be drawn 
      */
 
-    $user_schema->createPage($db);
+    $user_schema->showCreatePageDialog($db);
 
     /**
      * After selection of page or creating a page 
