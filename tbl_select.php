@@ -211,12 +211,13 @@ if (!isset($param) || $param[0] == '') {
 //<![CDATA[
 $(function() {
     $('#field_<?php echo $i; ?>').datepicker({
-    	duration: '',
-		time24h: true,
-		 stepMinutes: 1,
+        duration: '',
+        time24h: true,
+        stepMinutes: 1,
         stepHours: 1,
         <?php echo ($type == 'date' ? "showTime: false,":"showTime: true,"); ?>
-		altTimeField: '',
+        dateFormat: 'yy-mm-dd',
+        altTimeField: '',
         constrainInput: false
      });
 });
