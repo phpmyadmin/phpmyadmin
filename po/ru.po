@@ -2996,10 +2996,9 @@ msgid "Authentication"
 msgstr "Идентификация"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Тип идентификации"
+msgstr "Настройки идентификации"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
