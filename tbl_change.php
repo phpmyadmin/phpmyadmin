@@ -986,7 +986,7 @@ $(function() {
         stepMinutes: 1,
         stepHours: 1,
         <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
-        dateFormat: 'yy-mm-dd',
+        dateFormat: 'yy-mm-dd', // yy means year with four digits
         altTimeField: '',
         constrainInput: false
      });
