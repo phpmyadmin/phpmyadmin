@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 14:22+0200\n"
+"PO-Revision-Date: 2011-01-13 14:27+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2713,10 +2713,9 @@ msgid "Relations"
 msgstr "Связи"
 
 #: libraries/config/messages.inc.php:101
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Тип экспорта"
+msgstr "Метод экспорта"
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
 msgid "Save on server"
@@ -2732,7 +2731,6 @@ msgid "Remember file name template"
 msgstr "Запомнить шаблон имени файла"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Заключить названия таблиц и полей в косые кавычки"
