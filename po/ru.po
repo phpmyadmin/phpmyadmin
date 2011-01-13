@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 19:49+0200\n"
+"PO-Revision-Date: 2011-01-13 20:41+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3534,7 +3534,6 @@ msgid "GZip output buffering"
 msgstr "Буферизация вывода GZip"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3542,8 +3541,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - означает обратный порядок для полей имеющих тип TIME, "
-"DATE, DATETIME и TIMESTAMP; в ином случае порядок будет прямой"
+"[kbd]SMART[/kbd] - означает обратный порядок сортировки для полей имеющих "
+"тип TIME, DATE, DATETIME и TIMESTAMP; в ином случае порядок будет прямой"
 
 #: libraries/config/messages.inc.php:321
 msgid "Default sorting order"
