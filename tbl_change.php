@@ -978,13 +978,16 @@ foreach ($rows as $row_id => $vrow) {
 //<![CDATA[
 $(function() {
     $('#field_<?php echo ($idindex); ?>_3').datepicker({
-    	duration: '',
-		time24h: true,
-		 stepMinutes: 1,
+        showOn: 'button',
+        buttonImage: '<?php echo $GLOBALS['pmaThemeImage'] . 'b_calendar.png'; ?>',
+        buttonImageOnly: true,
+        duration: '',
+        time24h: true,
+        stepMinutes: 1,
         stepHours: 1,
         <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
         dateFormat: 'yy-mm-dd',
-		altTimeField: '',
+        altTimeField: '',
         constrainInput: false
      });
 });

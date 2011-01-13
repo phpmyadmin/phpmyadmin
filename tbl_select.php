@@ -211,6 +211,9 @@ if (!isset($param) || $param[0] == '') {
 //<![CDATA[
 $(function() {
     $('#field_<?php echo $i; ?>').datepicker({
+        showOn: 'button',
+        buttonImage: '<?php echo $GLOBALS['pmaThemeImage'] . 'b_calendar.png'; ?>',
+        buttonImageOnly: true,
         duration: '',
         time24h: true,
         stepMinutes: 1,
