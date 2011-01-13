@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 14:59+0200\n"
+"PO-Revision-Date: 2011-01-13 15:07+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2959,6 +2959,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Определите текст заголовка браузера. Для ввода особых значений используйте "
+"подставные строки, которые описаны в "
+"[a@Documentation.html#cfg_TitleTable]документации[/a]."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
