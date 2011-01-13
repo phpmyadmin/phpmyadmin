@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 19:28+0200\n"
+"PO-Revision-Date: 2011-01-13 19:30+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3419,6 +3419,7 @@ msgstr "Срок действия cookie"
 #: libraries/config/messages.inc.php:295
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr ""
+"Двойное увеличение размера текстового поля для столбцов имеющих тип LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
