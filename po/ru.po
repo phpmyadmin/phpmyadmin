@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 21:32+0200\n"
+"PO-Revision-Date: 2011-01-13 21:35+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3648,6 +3648,8 @@ msgstr "Механизм перекодирования"
 #: libraries/config/messages.inc.php:343
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Повторять заголовки через каждые X ячеек; [kbd]0[/kbd] отключает данную "
+"функцию"
 
 #: libraries/config/messages.inc.php:344
 #, fuzzy
