@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 14:27+0200\n"
+"PO-Revision-Date: 2011-01-13 14:40+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2742,7 +2742,7 @@ msgstr "Режим совместимости SQL"
 
 #: libraries/config/messages.inc.php:118
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Использовать синтаксис при вставке данных"
 
 #: libraries/config/messages.inc.php:119
 msgid "Creation/Update/Check dates"
@@ -2769,20 +2769,18 @@ msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Экспортировать таблицы"
+msgstr "Тип экспорта"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
 msgstr "Заключить экспорт в транзакцию"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Экспортировать содержимое"
+msgstr "Экспорт времени в UTC"
 
 #: libraries/config/messages.inc.php:143
 msgid "Force secured connection while using phpMyAdmin"
@@ -2828,7 +2826,6 @@ msgstr "Настройка режима обзора данных"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Настройте параметры экспорта используемые по умолчанию"
