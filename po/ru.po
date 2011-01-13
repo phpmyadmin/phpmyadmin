@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 21:31+0200\n"
+"PO-Revision-Date: 2011-01-13 21:32+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3623,10 +3623,9 @@ msgid "Query window height (in pixels)"
 msgstr "Высота окна запроса (в пикселях)"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Окно запроса"
+msgstr "Высота окна запроса"
 
 #: libraries/config/messages.inc.php:339
 #, fuzzy
