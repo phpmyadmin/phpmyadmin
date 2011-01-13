@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 22:06+0200\n"
+"PO-Revision-Date: 2011-01-13 22:13+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4002,7 +4002,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF схема: координаты таблиц"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -4010,7 +4009,7 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Таблица для описания отображаемого поля. Для отключения поддержки данной "
+"Таблица для описания отображаемых полей. Для отключения поддержки данной "
 "функции оставьте поле пустым. Рекомендуется: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
