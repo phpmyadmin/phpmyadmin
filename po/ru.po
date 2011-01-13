@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 14:31+0200\n"
+"PO-Revision-Date: 2011-01-13 14:38+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2769,10 +2769,9 @@ msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Экспортировать таблицы"
+msgstr "Тип экспорта"
 
 #: libraries/config/messages.inc.php:134 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
