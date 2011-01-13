@@ -128,6 +128,7 @@
 + rfe #3141330 [relation] When displaying results, show a link to the foreign 
   table even when phpMyAdmin configuration storage is not active
 - bug #3141327 [relation] Foreign key input options
+- [export] Better handling of export to PHP array.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
