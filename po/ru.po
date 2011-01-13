@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 15:11+0200\n"
+"PO-Revision-Date: 2011-01-13 22:25+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3017,13 +3017,11 @@ msgid "Enter server connection parameters"
 msgstr "Введите параметры соединения сервера"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration storage"
-msgstr "Конфигурационный файл"
+msgstr "Хранение конфигурации"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -3033,19 +3031,21 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Настройка базы данных для установки расширенных возможностей phpMyAdmin. "
-"Смотрите в документации раздел описывающий [a@../Documentation.html#linked-"
-"tables]инфраструктуру связанных таблиц[/a]"
+"Настройка phpMyAdmin для установки расширенных возможностей. Смотрите в "
+"документации раздел описывающий [a@../Documentation.html#linked-"
+"tables]хранение конфигурации[/a]"
 
 #: libraries/config/messages.inc.php:201
 msgid "Changes tracking"
-msgstr ""
+msgstr "Слежение за изменениями"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Слежение за изменениями произведенными в базе данных. Для работы требуется "
+"настройка хранения конфигурации phpMyAdmin."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
@@ -3077,16 +3077,14 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Настройте ссылки выводимые в блоке SQL запросов"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL запросы"
+msgstr "Настройки SQL запросов"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "История SQL-запросов"
+msgstr "Валидатор SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
@@ -3095,6 +3093,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Если вы хотите использовать валидатор SQL, имейте в виду, что [strong]все "
+"SQL выражения сохраняются анонимно в статистических "
+"целях[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Все права "
+"сохранены.[/em]"
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
@@ -3113,30 +3116,27 @@ msgid "Choose how you want tabs to work"
 msgstr "Настройте отображение вкладок"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Использовать текстовое поле"
+msgstr "Текстовые поля"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Модифицировать параметры экспорта"
+msgstr "Настройте отображение текстовых полей"
 
 #: libraries/config/messages.inc.php:223 libraries/export/texytext.php:17
 msgid "Texy! text"
 msgstr "Texy! текст"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "Предупреждение"
+msgstr "Предупреждения"
 
 #: libraries/config/messages.inc.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Отключение некоторых предупреждений выводимых phpMyAdmin"
 
 #: libraries/config/messages.inc.php:227
 msgid ""
@@ -3183,7 +3183,7 @@ msgstr "Частичный импорт: разрешает прерывание
 #: libraries/config/messages.inc.php:238 libraries/config/messages.inc.php:245
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Не прерывать при возникновении ошибки во время выполнения INSERT"
 
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3216,36 +3216,32 @@ msgid "Do not import empty rows"
 msgstr "Пропускать пустые строки"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
+msgstr "Импортировать денежные единицы (5.00 вместо $5.00)"
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Импортировать проценты в виде десятичных значений (12.00% в .12)"
+msgstr "Импортировать проценты в виде десятичных значений (.12 вместо 12.00%)"
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Количество запросов пропускаемых от начала импорта"
+msgstr "Количество запросов пропускаемых от начала"
 
 #: libraries/config/messages.inc.php:254
 msgid "Partial import: skip queries"
 msgstr "Частичный импорт: пропуск запросов"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Не используйте параметр AUTO_INCREMENT для нулевых значений"
+msgstr "Не использовать AUTO_INCREMENT для нулевых значений"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Исходное положение раскрывающихся блоков"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
@@ -3276,10 +3272,9 @@ msgid "Display servers selection"
 msgstr "Отображать выбор сервера"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Максимальное количество таблиц отображаемых в списке"
+msgstr "Минимальное количество таблиц для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:268
 msgid "String that separates databases into different tree levels"
@@ -3323,7 +3318,7 @@ msgstr "Разделитель дерева таблиц"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL на который будет ссылаться логотип из фрейма навигации"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
@@ -3358,16 +3353,16 @@ msgid "Light tabs"
 msgstr "Облегченные вкладки"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Максимальное количество символов используемых при отображении SQL запроса"
+"Максимальное количество символов отображаемых в любом нечисловом поле в "
+"режиме обзора"
 
 #: libraries/config/messages.inc.php:286
 msgid "Limit column characters"
-msgstr ""
+msgstr "Ограничить по количеству символов в поле"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
@@ -3424,14 +3419,15 @@ msgstr "Срок действия cookie"
 #: libraries/config/messages.inc.php:295
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr ""
+"Двойное увеличение размера текстового поля для столбцов имеющих тип LONGTEXT"
 
 #: libraries/config/messages.inc.php:296
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Увеличение текстового поля для LONGTEXT"
 
 #: libraries/config/messages.inc.php:297
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Отображать пиктограммы на главной странице"
 
 #: libraries/config/messages.inc.php:298
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -3445,7 +3441,7 @@ msgstr "Максимальная длинна отображаемого SQL"
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Пользователи не смогут установить более высокое значение"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -3483,10 +3479,12 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Отключить отображение предупреждения при отсутствии mcrypt, необходимого для "
+"идентификации методом cookie"
 
 #: libraries/config/messages.inc.php:309
 msgid "mcrypt warning"
-msgstr ""
+msgstr "Предупреждение о mcrypt"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
@@ -3501,24 +3499,22 @@ msgid "Memory limit"
 msgstr "Лимит памяти"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Показать/скрыть левое меню"
+msgstr "Отобразить ссылки удаления слева"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
-msgstr ""
+msgstr "Отобразить ссылки удаления справа"
 
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Использовать естественный порядок сортировки имен таблиц и баз данных"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Изменить сортировку таблицы"
+msgstr "Порядок сортировки"
 
 #: libraries/config/messages.inc.php:316 libraries/config/messages.inc.php:326
 msgid "Use only icons, only text or both"
@@ -3538,7 +3534,6 @@ msgid "GZip output buffering"
 msgstr "Буферизация вывода GZip"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3546,8 +3541,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - означает обратный порядок для полей имеющих тип TIME, "
-"DATE, DATETIME и TIMESTAMP; в ином случае порядок будет прямой"
+"[kbd]SMART[/kbd] - означает обратный порядок сортировки для полей имеющих "
+"тип TIME, DATE, DATETIME и TIMESTAMP; в ином случае порядок будет прямой"
 
 #: libraries/config/messages.inc.php:321
 msgid "Default sorting order"
@@ -3567,29 +3562,28 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Отключить предупреждение отображаемое на странице структуры базы данных при "
+"отсутствии таблиц необходимых для хранения конфигурации phpMyAdmin"
 
 #: libraries/config/messages.inc.php:325
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Отсутствие таблиц хранения конфигурации phpMyAdmin"
 
 #: libraries/config/messages.inc.php:327
 msgid "Iconic table operations"
 msgstr "Иконки операций над таблицами"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Запретить возможность редактирования данных полей типа BLOB и BINARY"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Защитить бинарные данные"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
@@ -3599,8 +3593,8 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Включите для хранения истории запросов с помощью базы данных (требуется "
-"pmadb). При отключении, для истории запросов используется JS (история "
-"теряется при закрытии окна)."
+"настройка расширений phpMyAdmin). При отключении, для истории запросов "
+"используется JavaScript (история теряется при закрытии окна)."
 
 #: libraries/config/messages.inc.php:331
 msgid "Permanent query history"
@@ -3626,25 +3620,22 @@ msgstr "Вкладка по умолчанию для окна запросов"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Высота окна запроса (в пикселях)"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Окно запроса"
+msgstr "Высота окна запроса"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Окно запроса"
+msgstr "Ширина окна запроса (в пикселях)"
 
 #: libraries/config/messages.inc.php:340
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Окно запроса"
+msgstr "Ширина окна запроса"
 
 #: libraries/config/messages.inc.php:341
 msgid "Select which functions will be used for character set conversion"
@@ -3657,20 +3648,21 @@ msgstr "Механизм перекодирования"
 #: libraries/config/messages.inc.php:343
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Повторять заголовки через каждые X ячеек; [kbd]0[/kbd] отключает данную "
+"функцию"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Потоков восстановления"
+msgstr "Повтор заголовков"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Отобразить кнопку помощи вместо текста Документация"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
-msgstr ""
+msgstr "Отобразить кнопку помощи"
 
 #: libraries/config/messages.inc.php:348
 msgid "Directory where exports can be saved on server"
@@ -3685,20 +3677,18 @@ msgid "Leave blank if not used"
 msgstr "Оставьте поле пустым, если не используете данную функцию"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Порядок хостов для идентификации"
+msgstr "Последовательность идентификации хоста"
 
 #: libraries/config/messages.inc.php:352
 msgid "Leave blank for defaults"
 msgstr "Оставьте поле пустым для использования значения по умолчанию"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Правила хостов для идентификации"
+msgstr "Правила идентификации хоста"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow logins without a password"
@@ -3710,11 +3700,11 @@ msgstr "Разрешить вход под root"
 
 #: libraries/config/messages.inc.php:356
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "Отображаемая строка при идентификации методом HTTP"
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Область HTTP"
 
 #: libraries/config/messages.inc.php:358
 msgid ""
@@ -3879,7 +3869,6 @@ msgid "Connect without password"
 msgstr "Соединять без пароля"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3891,8 +3880,11 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Вы можете использовать подстановочные символы (% и _), экранируйте их, если "
-"хотите использовать, как обычные литературные символы, т.е. используйте 'my"
-"\\_db' а не 'my_db'"
+"хотите использовать, как обычные литературные символы, т.е. используйте "
+"'my\\_db' а не 'my_db'. С помощью данной настройки можно сортировать список "
+"баз данных, для чего достаточно ввести их имена в определенном порядке и "
+"использовать [kbd]*[/kbd] в конце для вывода оставшихся в алфавитном "
+"порядке."
 
 #: libraries/config/messages.inc.php:391
 msgid "Show only listed databases"
@@ -3929,10 +3921,9 @@ msgstr ""
 "[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "имя базы данных"
+msgstr "Имя базы данных"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -4011,7 +4002,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF схема: координаты таблиц"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -4019,24 +4009,25 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Таблица для описания отображаемого поля. Для отключения поддержки данной "
+"Таблица для описания отображаемых полей. Для отключения поддержки данной "
 "функции оставьте поле пустым. Рекомендуется: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Таблица отображения полей"
+msgstr "Таблица с описаниями полей"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Будет ли при создании базы данных в журнал первой строкой добавлено "
+"выражение DROP DATABASE IF EXISTS."
 
 #: libraries/config/messages.inc.php:416
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Добавить DROP DATABASE"
 
 #: libraries/config/messages.inc.php:417
 msgid ""
