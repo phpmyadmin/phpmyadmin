@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 13:42+0200\n"
+"PO-Revision-Date: 2011-01-13 13:44+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2621,7 +2621,6 @@ msgstr "Поместить названия полей в первой стро�
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:236
 #: libraries/config/messages.inc.php:243 libraries/import/csv.php:73
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Значения полей обрамлены"
