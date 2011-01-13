@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 18:46+0200\n"
+"PO-Revision-Date: 2011-01-13 18:49+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3235,10 +3235,9 @@ msgid "Partial import: skip queries"
 msgstr "Частичный импорт: пропуск запросов"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Не используйте параметр AUTO_INCREMENT для нулевых значений"
+msgstr "Не использовать AUTO_INCREMENT для нулевых значений"
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
