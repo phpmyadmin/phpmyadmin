@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 18:49+0200\n"
+"PO-Revision-Date: 2011-01-13 18:52+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3241,7 +3241,7 @@ msgstr "Не использовать AUTO_INCREMENT для нулевых зн�
 
 #: libraries/config/messages.inc.php:259
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Исходное положение раскрывающихся блоков"
 
 #: libraries/config/messages.inc.php:260
 msgid "How many rows can be inserted at one time"
