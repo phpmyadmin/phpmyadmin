@@ -3686,10 +3686,9 @@ msgid "Leave blank for defaults"
 msgstr "Оставьте поле пустым для использования значения по умолчанию"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Правила хостов для идентификации"
+msgstr "Правила идентификации хоста"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow logins without a password"
