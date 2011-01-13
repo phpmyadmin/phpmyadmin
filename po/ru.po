@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 14:39+0200\n"
+"PO-Revision-Date: 2011-01-13 14:40+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2826,7 +2826,6 @@ msgstr "Настройка режима обзора данных"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:182
 #: libraries/config/messages.inc.php:184 libraries/config/messages.inc.php:212
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Настройте параметры экспорта используемые по умолчанию"
