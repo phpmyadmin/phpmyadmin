@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 21:44+0200\n"
+"PO-Revision-Date: 2011-01-13 21:51+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3677,10 +3677,9 @@ msgid "Leave blank if not used"
 msgstr "Оставьте поле пустым, если не используете данную функцию"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Порядок хостов для идентификации"
+msgstr "Последовательность идентификации хоста"
 
 #: libraries/config/messages.inc.php:352
 msgid "Leave blank for defaults"
