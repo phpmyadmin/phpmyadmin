@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 18:45+0200\n"
+"PO-Revision-Date: 2011-01-13 18:46+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3226,10 +3226,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Импортировать проценты в виде десятичных значений (.12 вместо 12.00%)"
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Количество запросов пропускаемых от начала импорта"
+msgstr "Количество запросов пропускаемых от начала"
 
 #: libraries/config/messages.inc.php:254
 msgid "Partial import: skip queries"
