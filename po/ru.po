@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-13 21:37+0200\n"
+"PO-Revision-Date: 2011-01-13 21:41+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3658,7 +3658,7 @@ msgstr "Повтор заголовков"
 
 #: libraries/config/messages.inc.php:345
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Отобразить кнопку помощи вместо текста Документация"
 
 #: libraries/config/messages.inc.php:346
 msgid "Show help button"
