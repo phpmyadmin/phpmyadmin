@@ -4034,7 +4034,7 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Будет ли при создании таблицы в журнал первой строкой добавлено выражение "
+"Будет ли при создании таблицы, в журнал первой строкой добавлено выражение "
 "DROP TABLE IF EXISTS."
 
 #: libraries/config/messages.inc.php:418
