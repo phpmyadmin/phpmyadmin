@@ -4076,10 +4076,9 @@ msgstr ""
 "Рекомендуется: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "Таблица истории SQL запросов"
+msgstr "Таблица слежения за SQL запросами"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
