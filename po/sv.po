@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2010-07-21 14:48+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-01-15 01:54+0200\n"
+"Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1594
@@ -96,7 +96,7 @@ msgstr "Använd detta värde"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Ingen blob streaming server konfigurerad!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -10457,224 +10457,3 @@ msgstr "Döp om tabellen till"
 #, fuzzy
 #~ msgid "Start"
 #~ msgstr "Start"
-
-#, fuzzy
-#~| msgid "Display databases in a tree"
-#~ msgid "Display table filter"
-#~ msgstr "Visa databaser i ett träd"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Den extra funktionaliteten för att hantera länkade tabeller har "
-#~ "inaktiverats. %sVisa orsaken%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorera dubblerade rader"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Utför bokmärkt fråga"
-
-#~ msgid "No tables"
-#~ msgstr "Inga tabeller"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Denna [a@?page=form&amp;formset=features#tab_Security]inställning[/a] bör "
-#~ "vara aktiverad om din webbserver har stöd för det."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Ange värdena för omvandlingsparametrar enligt följande format: 'a', 100, "
-#~ "b,'c'...<br />Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
-#~ "enkelcitat (\"'\") i värdena, skriv ett bakåtstreck före tecknet (t.ex. "
-#~ "'\\\\xyz' eller 'a\\'b')."
-
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Ange värdena för omvandlingsparametrar enligt följande format: 'a', 100, "
-#~ "b,'c'...<br />Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
-#~ "enkelcitat (\"'\") i värdena, skriv ett bakåtstreck före tecknet (t.ex. "
-#~ "'\\\\xyz' eller 'a\\'b')."
-
-#, fuzzy
-#~ msgid "New table"
-#~ msgstr "Inga tabeller"
-
-#~ msgid "server name"
-#~ msgstr "servernamn"
-
-#~ msgid "database name"
-#~ msgstr "databasnamn"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Redigera PDF-sidor"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Format för datalexikon"
-
-#~ msgid "no"
-#~ msgstr "nej"
-
-#~ msgid "Enter login options for signon authentication"
-#~ msgstr "Ange inloggningsaltertiv för signon-autentisering"
-
-#~ msgid "Signon login options"
-#~ msgstr "Signon inloggningsalternativ"
-
-#~ msgid "PMA database"
-#~ msgstr "PMA databas"
-
-#~ msgid "Customization"
-#~ msgstr "Anpassning"
-
-#~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-#~ msgstr ""
-#~ "Inställningar för SQL-frågor, för SQL-frågeboxalternativ se [a@?"
-#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigeringsram[/a]-"
-#~ "inställningar"
-
-#~ msgid "yes"
-#~ msgstr "ja"
-
-#, fuzzy
-#~| msgid "Remove CRLF characters within fields"
-#~ msgid "Remove carriage return/line field characters within columns"
-#~ msgstr "Ta bort CRLF-tecken i fält"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Lägg till AUTO_INCREMENT-värde"
-
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Visa %s rader med början på rad %s."
-
-#~ msgid "remember template"
-#~ msgstr "kom ihåg mall"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr "Importerad fils komprimering kommer automatiskt detekteras från: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Lägg till i kommentarer"
-
-#, fuzzy
-#~ msgid "Export functions"
-#~ msgstr "Standard för export"
-
-#, fuzzy
-#~ msgid "Export triggers"
-#~ msgstr "Export-typ"
-
-#, fuzzy
-#~ msgid "Export views"
-#~ msgstr "Standard för export"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Ogiltig kolumn (%s) angiven!"
-
-#~ msgid "Actions"
-#~ msgstr "Åtgärder"
-
-#~ msgid "Interface"
-#~ msgstr "Gränssnitt"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Tabellnamn"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB-förvaringsplats"
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Aktiverat"
-
-#~ msgid "Disable"
-#~ msgstr "Inaktivera"
-
-#~ msgid "Damaged"
-#~ msgstr "Skadad"
-
-#, fuzzy
-#~| msgid "Repair"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Reparera"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Inaktiverat"
-
-#~ msgid "Enable"
-#~ msgstr "Aktivera"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Kan inte ladda tilläggen iconv eller recode som behövs för "
-#~ "teckenuppsättningsomvandling. Antingen konfigurera PHP för att tillåta "
-#~ "dessa tillägg eller inaktivera teckenuppsättningsomvandling i phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Kan inte använda varken funktionen iconv, libiconv eller recode_string, "
-#~ "fastän de nödvändiga tilläggen verkar vara laddade. Kontrollera din PHP-"
-#~ "konfiguration."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Tillåt omvandling av teckenuppsättning"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Standard teckenuppsättning som används för omvandlingar"
-
-#~ msgid "Default character set"
-#~ msgstr "Standard teckenuppsättning"
