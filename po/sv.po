@@ -398,12 +398,12 @@ msgid "Last check"
 msgstr "Senaste kontroll"
 
 #: db_printview.php:220 db_structure.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabell(er)"
-msgstr[1] "%s tabell(er)"
+msgstr[0] "%s tabell"
+msgstr[1] "%s tabeller"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1979 libraries/sql_query_form.lib.php:136
