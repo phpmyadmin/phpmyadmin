@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-14 13:34+0200\n"
+"PO-Revision-Date: 2011-01-14 13:35+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4051,7 +4051,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Добавить DROP VIEW"
 
 #: libraries/config/messages.inc.php:421
 msgid "Defines the list of statements the auto-creation uses for new versions."
