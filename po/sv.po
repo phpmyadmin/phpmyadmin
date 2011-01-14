@@ -279,9 +279,8 @@ msgid "Database %s has been dropped."
 msgstr "Databasen %s har tagits bort."
 
 #: db_operations.php:446
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Inga databaser"
+msgstr "Tag bort databasen (DROP)"
 
 #: db_operations.php:474
 msgid "Copy database to"
