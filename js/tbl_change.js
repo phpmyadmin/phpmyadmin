@@ -156,8 +156,7 @@ function isTime(val)
         return true;
 }
 
-function verificationsAfterFieldChange(urlField, multi_edit,theType){
-    var rowForm = document.forms['insertForm'];
+function verificationsAfterFieldChange(urlField, multi_edit, theType){
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
 
@@ -166,53 +165,49 @@ function verificationsAfterFieldChange(urlField, multi_edit,theType){
 
     // Unchecks the Ignore checkbox for the current row
     $("input[name='insert_ignore_" + multi_edit + "']").attr({'checked': false});
+    $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
-    if(target.name.substring(0,6)=="fields")
-    {
-        var dt=rowForm.elements['fields[multi_edit][' + multi_edit + '][' + urlField + ']'];
+    // Does this field come from datepicker?
+    if ($this_input.data('comes_from') == 'datepicker') {
+        // Yes, so do not validate because the final value is not yet in
+        // the field and hopefully the datepicker returns a valid date+time
+        $this_input.data('comes_from', '');
+        return true;
+    }
+
+    if(target.name.substring(0,6)=="fields") {
         // validate for date time
-        if(theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp")
-        {
+        if(theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp") {
+            $this_input.removeClass("invalid_value");
+            var dt_value = $this_input.val();
             if(theType=="date"){
-                if(!isDate(dt.value))
-                    {
-                        dt.className="invalid_value";
-                        return false;
-                    }
-            }
-            else if(theType=="time")
-            {
-                if(!isTime(dt.value))
-                {
-                    dt.className="invalid_value";
+                if (! isDate(dt_value)) {
+                    $this_input.addClass("invalid_value");
                     return false;
                 }
-            }
-            else if(theType=="datetime"||theType=="timestamp")
-            {
+            } else if(theType=="time") {
+                if (! isTime(dt_value)) {
+                    $this_input.addClass("invalid_value");
+                    return false;
+                }
+            } else if(theType=="datetime"||theType=="timestamp") {
                 tmstmp=false;
-                if(dt.value=="CURRENT_TIMESTAMP")
-                {
-                    dt.className="";
+                if(dt_value == "CURRENT_TIMESTAMP") {
                     return true;
                 }
-                if(theType=="timestamp")
-                {
+                if(theType=="timestamp") {
                     tmstmp=true;
                 }
-                if(dt.value=="0000-00-00 00:00:00")
+                if(dt_value=="0000-00-00 00:00:00") {
                     return true;
-                var dv=dt.value.indexOf(" ");
-                if(dv==-1)
-                {
-                    dt.className="invalid_value";
-                    return false;
                 }
-                else
-                {
-                    if(!(isDate(dt.value.substring(0,dv),tmstmp)&&isTime(dt.value.substring(dv+1))))
-                    {
-                        dt.className="invalid_value";
+                var dv=dt_value.indexOf(" ");
+                if(dv==-1) {
+                    $this_input.addClass("invalid_value");
+                    return false;
+                } else {
+                    if (! (isDate(dt_value.substring(0,dv),tmstmp) && isTime(dt_value.substring(dv+1)))) {
+                        $this_input.addClass("invalid_value");
                         return false;
                     }
                 }

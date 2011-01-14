@@ -988,6 +988,10 @@ $(function() {
         <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
         dateFormat: 'yy-mm-dd', // yy means year with four digits
         altTimeField: '',
+        beforeShow: function(input, inst) {
+            // Remember that we came from the datepicker
+            $(input).data('comes_from', 'datepicker');
+        },
         constrainInput: false
      });
 });
