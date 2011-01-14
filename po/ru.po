@@ -4022,7 +4022,7 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Будет ли при создании базы данных в журнал первой строкой добавлено "
+"Будет ли при создании базы данных, в журнал первой строкой добавлено "
 "выражение DROP DATABASE IF EXISTS."
 
 #: libraries/config/messages.inc.php:416
