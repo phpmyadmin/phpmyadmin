@@ -4888,7 +4888,7 @@ msgstr "Partiell Import:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"föregående impor fick timeoutt. Efter återupptagning av importen kommer den "
+"Föregående impor fick timeoutt. Efter återupptagning av importen kommer den "
 "fortsätta från position %d."
 
 #: libraries/display_import.lib.php:221
