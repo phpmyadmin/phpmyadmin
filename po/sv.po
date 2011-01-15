@@ -2038,7 +2038,7 @@ msgstr "Invändig"
 
 #: libraries/common.lib.php:1303 libraries/common.lib.php:1319
 msgid "Profiling"
-msgstr "Under produktion"
+msgstr "Profilering"
 
 #: libraries/common.lib.php:1324 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
