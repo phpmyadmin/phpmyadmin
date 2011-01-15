@@ -2679,7 +2679,7 @@ msgstr "Dumpa tabell"
 
 #: libraries/config/messages.inc.php:88 libraries/export/latex.php:31
 msgid "Include table caption"
-msgstr "Inkludera tabellrubrik"
+msgstr "Inkludera tabellbeskrivning"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:97
 #: libraries/export/latex.php:49 libraries/export/latex.php:73
