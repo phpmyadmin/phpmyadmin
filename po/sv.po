@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 18:48+0200\n"
+"PO-Revision-Date: 2011-01-15 18:50+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4038,7 +4038,6 @@ msgid "Statements to track"
 msgstr "Kommandon att spåra"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -4046,8 +4045,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Lämna tomt för inget stöd för SQL-frågehistorik, förslag: [kbd]pma_history[/"
-"kbd]"
+"Lämna tomt för inget stöd för SQL-frågehistorik, förslag: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 #, fuzzy
