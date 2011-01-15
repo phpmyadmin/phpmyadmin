@@ -4267,9 +4267,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:468 tbl_tracking.php:405
 #: tbl_tracking.php:456
-#, fuzzy
 msgid "Username"
-msgstr "Användarnamn:"
+msgstr "Användarnamn"
 
 #: libraries/config/messages.inc.php:469
 msgid ""
