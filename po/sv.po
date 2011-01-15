@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:56+0200\n"
+"PO-Revision-Date: 2011-01-15 19:57+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4710,7 +4710,7 @@ msgstr "¨Skippa alla rader:"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Output:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, fuzzy, php-format
