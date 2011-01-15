@@ -3986,10 +3986,9 @@ msgstr ""
 "[kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Tabell för visa fält"
+msgstr "Visa tabellkolumner"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
