@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:21+0200\n"
+"PO-Revision-Date: 2011-01-15 23:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6391,10 +6391,10 @@ msgstr "Var god ange koordinaterna för tabellen %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:866
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema för databasen \"%s\" - Sidan %s"
+msgstr "Schema för databasen %s - Sida %s "
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #, fuzzy
