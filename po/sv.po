@@ -3875,7 +3875,7 @@ msgstr "Lämna tomt om inte config auth används"
 
 #: libraries/config/messages.inc.php:393
 msgid "Password for config auth"
-msgstr "Löseenord för autentisering config"
+msgstr "Löseenord för config auth"
 
 #: libraries/config/messages.inc.php:394
 msgid ""
