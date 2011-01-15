@@ -3905,7 +3905,7 @@ msgstr "Databasnamn"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr "Port som MySQL-servern lyssnar på, lämna tomt för standard"
+msgstr "Port som MySQL-servern lyssnar på, lämna blankt för default"
 
 #: libraries/config/messages.inc.php:399
 msgid "Server port"
