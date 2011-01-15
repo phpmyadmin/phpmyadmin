@@ -4049,10 +4049,9 @@ msgstr ""
 "[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "Tabell för SQL-frågehistorik"
+msgstr "SQL-fråga spårningstabellen"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
