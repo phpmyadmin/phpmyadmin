@@ -919,7 +919,7 @@ msgstr "Bokmärket %s har skapats"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Importen har avslutats korrekt, %d frågor utförda."
+msgstr "Importen har slutförtskorrekt, %d frågor utförda."
 
 #: import.php:422
 msgid ""
