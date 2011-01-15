@@ -3528,7 +3528,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:321
 msgid "Default sorting order"
-msgstr "Standard sorteringsordning"
+msgstr "Default sorteringsordning"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use persistent connections to MySQL databases"
