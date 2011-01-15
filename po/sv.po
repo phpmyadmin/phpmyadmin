@@ -4696,10 +4696,9 @@ msgid "Dump some row(s)"
 msgstr "Skippa några rader:"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Antal fält"
+msgstr "Antal rader:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
