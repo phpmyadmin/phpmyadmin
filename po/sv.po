@@ -6579,9 +6579,8 @@ msgstr "Aktuell Server"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
-#, fuzzy
 msgid "Remote server"
-msgstr "Ny server"
+msgstr "Fjärrserver"
 
 #: libraries/server_synchronize.lib.php:1344
 msgid "Difference"
