@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:37+0200\n"
+"PO-Revision-Date: 2011-01-15 20:38+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5052,7 +5052,7 @@ msgstr "Visa diagram"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
-msgstr "Länk ej funnen"
+msgstr "Länken hittades inte"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
