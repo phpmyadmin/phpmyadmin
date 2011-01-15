@@ -901,7 +901,7 @@ msgstr ""
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunde inte ladda tillägg för import. Kontrollera din installation!"
+msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
