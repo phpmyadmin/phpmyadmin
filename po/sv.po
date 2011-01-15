@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 21:01+0200\n"
+"PO-Revision-Date: 2011-01-15 21:04+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5482,10 +5482,9 @@ msgid "Columns separated with:"
 msgstr "Raderna avslutas med"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Fälten omges av"
+msgstr "Kolumner omges av:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
