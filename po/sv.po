@@ -4062,10 +4062,9 @@ msgstr ""
 "automatiskt."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatisk återställning"
+msgstr "Automatiskt skapa versioner"
 
 #: libraries/config/messages.inc.php:427
 #, fuzzy
