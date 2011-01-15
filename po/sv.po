@@ -3034,6 +3034,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Spårning av ändringar i databasen. Kräver phpMyAdmin konfigurations lagring."
 
 #: libraries/config/messages.inc.php:203
 msgid "Customize export options"
