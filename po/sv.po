@@ -2427,7 +2427,7 @@ msgstr "Antal kolumner för CHAR/VARCHAR textfält"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
-msgstr "Kolumner för CHAR-textrutor"
+msgstr "Kolumner för CHAR textfält"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
