@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:36+0200\n"
+"PO-Revision-Date: 2011-01-15 19:37+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4434,7 +4434,7 @@ msgstr "Signon autentisering"
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
 msgid "CSV using LOAD DATA"
-msgstr "CSV mha LOAD DATA"
+msgstr "CSV med LOAD DATA"
 
 #: libraries/config/setup.forms.php:247 libraries/config/setup.forms.php:341
 #: libraries/config/user_preferences.forms.php:150
