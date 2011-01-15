@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:20+0200\n"
+"PO-Revision-Date: 2011-01-15 02:21+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -839,7 +839,7 @@ msgstr "Klipp och klistra de sammanförda värdena till fältet /Längd/Värde\"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "Vald export-typ måste sparas i fil!"
+msgstr "Vald export-typ måste sparas i filen!"
 
 #: export.php:164 export.php:189 export.php:662
 #, php-format
