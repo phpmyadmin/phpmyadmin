@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:05+0200\n"
+"PO-Revision-Date: 2011-01-15 02:16+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -620,7 +620,7 @@ msgstr "Tabellen %s har tagits bort"
 
 #: db_structure.php:288 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Spårning är aktiv."
 
 #: db_structure.php:290 tbl_create.php:297
 msgid "Tracking is not active."
