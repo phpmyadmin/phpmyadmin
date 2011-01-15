@@ -2379,7 +2379,7 @@ msgstr "Markera valda rader"
 
 #: libraries/config/messages.inc.php:25
 msgid "Row marker"
-msgstr "Radmarkering"
+msgstr "Radmarkör"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
