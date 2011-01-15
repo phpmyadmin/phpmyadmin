@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 21:16+0200\n"
+"PO-Revision-Date: 2011-01-15 21:17+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5609,10 +5609,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Skapar en rapport som innehåller data från en enstaka tabell)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Rapportrubrik"
+msgstr "Rapport titel:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
