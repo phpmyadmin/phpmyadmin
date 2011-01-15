@@ -1643,7 +1643,7 @@ msgstr "Tabell %s har döpts om till %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "Ingen giltig sökväg till bilder för tema %s hittades!"
+msgstr "Ingen giltig sökväg för tema %s hittades!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
