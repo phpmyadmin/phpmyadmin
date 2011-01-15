@@ -6270,9 +6270,8 @@ msgid "no description"
 msgstr "Ingen beskrivning"
 
 #: libraries/replication_gui.lib.php:53
-#, fuzzy
 msgid "Slave configuration"
-msgstr "Serverkonfiguration"
+msgstr "Slavkonfiguration"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
