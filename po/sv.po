@@ -5994,7 +5994,7 @@ msgstr "Bulgarisk"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:353
 msgid "Simplified Chinese"
-msgstr "Förenklad kinesiska"
+msgstr "Förenklad Kinesiska"
 
 #: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:373
 msgid "Traditional Chinese"
