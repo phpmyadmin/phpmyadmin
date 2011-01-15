@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:51+0200\n"
+"PO-Revision-Date: 2011-01-15 16:52+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3482,10 +3482,9 @@ msgid "Memory limit"
 msgstr "Minnesgräns"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
-msgstr "Visa/Dölj vänster meny"
+msgstr "Visa vänster radera-länk"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
