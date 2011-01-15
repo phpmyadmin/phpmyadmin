@@ -2849,7 +2849,7 @@ msgstr "Exportera standardvärden"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize default export options"
-msgstr "Anpassa standardalternativ för export"
+msgstr "Anpassa standard exportalternativ"
 
 #: libraries/config/messages.inc.php:162 libraries/config/messages.inc.php:204
 #: setup/frames/menu.inc.php:16
