@@ -6006,7 +6006,7 @@ msgstr "skiftlägesokänslig"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
-msgstr "skiftlägeskänsligt"
+msgstr "skiftlägeskänslig"
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Croatian"
