@@ -4842,10 +4842,9 @@ msgstr ""
 "tillgängliga."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Kan ej logga in på MySQL-server"
+msgstr "Importera till den aktuella servern"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
