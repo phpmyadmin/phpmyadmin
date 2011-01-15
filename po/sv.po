@@ -4912,7 +4912,7 @@ msgstr "Antal rader att hoppa, med början från den första raden:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Format-specifika alternativ:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
