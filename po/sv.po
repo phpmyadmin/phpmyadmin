@@ -2772,9 +2772,8 @@ msgid "Enclose export in a transaction"
 msgstr "Bifoga export i en transaktion"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Standard för export"
+msgstr "Exportera tid i UTC"
 
 #: libraries/config/messages.inc.php:143
 msgid "Force secured connection while using phpMyAdmin"
