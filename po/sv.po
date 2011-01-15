@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:39+0200\n"
+"PO-Revision-Date: 2011-01-16 00:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6796,7 +6796,7 @@ msgstr "Inget"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
-msgstr "Enligt angivet:"
+msgstr "Som definierat:"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
