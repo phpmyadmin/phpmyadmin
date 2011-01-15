@@ -3536,7 +3536,7 @@ msgstr "Använd beständiga anslutningar till MySQL-databaser"
 
 #: libraries/config/messages.inc.php:323
 msgid "Persistent connections"
-msgstr "Persistenta anslutningar"
+msgstr "Beständiga anslutningar"
 
 #: libraries/config/messages.inc.php:324
 msgid ""
