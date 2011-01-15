@@ -4322,7 +4322,7 @@ msgstr "Titel på webbläsarfönstret när en databas är vald"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Titel på webbläsarfönstret när ingenting är markerat"
 
 #: libraries/config/messages.inc.php:480
 #, fuzzy
