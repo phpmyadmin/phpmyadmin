@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:06+0200\n"
+"PO-Revision-Date: 2011-01-15 23:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6185,9 +6185,8 @@ msgstr "Logga ut"
 #: libraries/navigation_header.inc.php:107
 #: libraries/navigation_header.inc.php:108
 #: libraries/navigation_header.inc.php:110
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Anpassa navigeringsram"
+msgstr "Ladda om navigering ram"
 
 #: libraries/plugin_interface.lib.php:336
 #, fuzzy
