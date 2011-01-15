@@ -5274,7 +5274,7 @@ msgid ""
 "specified."
 msgstr ""
 "Den maximala storleken på en BLOB arkivfil. Du får använda Kb, Mb eller Gb "
-"när du  ange värdet. Ett värde i bytes förutsätts när ingen enhet är "
+"när du anger värdet. Ett värde i bytes förutsätts när ingen enhet är "
 "angiven."
 
 #: libraries/engines/pbms.lib.php:45
