@@ -2257,10 +2257,9 @@ msgstr "Saknar data för %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variabel"
+msgstr "otillgänglig"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
