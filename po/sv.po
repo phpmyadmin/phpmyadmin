@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:23+0200\n"
+"PO-Revision-Date: 2011-01-15 20:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4906,10 +4906,9 @@ msgstr ""
 "det kan bryta transaktioner.)</ >"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Antal poster (frågor) att hoppa över från början"
+msgstr "Antal rader att hoppa, med början från den första raden:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
