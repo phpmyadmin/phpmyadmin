@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:10+0200\n"
+"PO-Revision-Date: 2011-01-15 03:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2171,7 +2171,7 @@ msgstr "Katalogen som du konfigurerat för uppladdning kan inte nås"
 
 #: libraries/common.lib.php:2984
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Det finns inga filer att ladda upp"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
