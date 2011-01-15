@@ -3421,7 +3421,7 @@ msgstr "Maximalt antal tecken som används när en SQL-fråga visas"
 
 #: libraries/config/messages.inc.php:299
 msgid "Maximum displayed SQL length"
-msgstr "Max visad SQL-längd"
+msgstr "Maximal visad SQL-längd"
 
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
