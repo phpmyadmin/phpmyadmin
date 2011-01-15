@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 14:44+0200\n"
+"PO-Revision-Date: 2011-01-15 14:47+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2348,6 +2348,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Vid aktivering tillåts att en sida som ligger på en annan domän att anropa "
+"phpMyAdmin i en ram, vilket är en potentiell [strong] säkerhetshål [/ "
+"strong] och tillåter mellan ramar scripting-angrepp"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
