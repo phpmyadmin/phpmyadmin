@@ -129,6 +129,7 @@
   table even when phpMyAdmin configuration storage is not active
 - bug #3141327 [relation] Foreign key input options
 - [export] Better handling of export to PHP array.
+- rfe #3158867 [privileges] No DROP DATABASE warning if you delete a user
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
