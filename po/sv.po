@@ -3656,7 +3656,7 @@ msgstr "Spara katalog"
 
 #: libraries/config/messages.inc.php:350
 msgid "Leave blank if not used"
-msgstr "Lämna tomt om inte används"
+msgstr "Lämna tomt om den inte används"
 
 #: libraries/config/messages.inc.php:351
 #, fuzzy
