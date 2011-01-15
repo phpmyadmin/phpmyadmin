@@ -2217,7 +2217,7 @@ msgstr "utökade infogningar"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "båda av ovanstående"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
