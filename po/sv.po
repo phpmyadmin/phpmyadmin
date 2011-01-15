@@ -6234,7 +6234,7 @@ msgstr "SQL-historik"
 
 #: libraries/relation.lib.php:141
 msgid "User preferences"
-msgstr ""
+msgstr "Användarinställningar"
 
 #: libraries/relation.lib.php:145
 msgid "Quick steps to setup advanced features:"
