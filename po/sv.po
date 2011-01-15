@@ -5528,7 +5528,7 @@ msgstr "Dumpning av Data i tabell"
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
 #: libraries/export/sql.php:850 libraries/export/texytext.php:170
 msgid "Table structure for table"
-msgstr "Struktur för tabell"
+msgstr "Tabellstruktur"
 
 #: libraries/export/latex.php:13
 msgid "Content of table @TABLE@"
