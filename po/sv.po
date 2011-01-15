@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:30+0200\n"
+"PO-Revision-Date: 2011-01-15 02:31+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1174,10 +1174,9 @@ msgid "Add an option for column "
 msgstr "Välj ett alternativ för kolumn"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Generera lösenord"
+msgstr "Skapa lösenord"
 
 #: js/messages.php:106 libraries/replication_gui.lib.php:365
 msgid "Generate"
