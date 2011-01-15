@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:33+0200\n"
+"PO-Revision-Date: 2011-01-15 23:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6601,10 +6601,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Kör SQL-fråga/frågor i databasen %s"
 
 #: libraries/sql_query_form.lib.php:297
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Kolumn-namn"
+msgstr "Kolumn"
 
 #: libraries/sql_query_form.lib.php:332 sql.php:850 sql.php:851 sql.php:868
 msgid "Bookmark this SQL query"
