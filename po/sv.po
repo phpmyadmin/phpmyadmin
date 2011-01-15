@@ -1073,7 +1073,7 @@ msgstr "Fel i processbegäran"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Tar bort kolumn"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
