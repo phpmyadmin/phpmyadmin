@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:06+0200\n"
+"PO-Revision-Date: 2011-01-15 16:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2986,10 +2986,9 @@ msgid "Authentication"
 msgstr "Typ av autentisering"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Typ av autentisering"
+msgstr "Behörighetsinställningar"
 
 #: libraries/config/messages.inc.php:196
 msgid "Server configuration"
