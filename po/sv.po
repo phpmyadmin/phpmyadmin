@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:47+0200\n"
+"PO-Revision-Date: 2011-01-15 16:48+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3426,7 +3426,7 @@ msgstr "Maximal visad SQL-längd"
 #: libraries/config/messages.inc.php:300 libraries/config/messages.inc.php:305
 #: libraries/config/messages.inc.php:332
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Användare kan inte ange ett högre värde"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of databases displayed in left frame and database list"
