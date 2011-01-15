@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 22:58+0200\n"
+"PO-Revision-Date: 2011-01-15 22:59+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5933,10 +5933,9 @@ msgid "SQL compatibility mode:"
 msgstr "SQL kompatibilitetsläge:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Använd inte AUTO_INCREMENT för nollvärden"
+msgstr "Använd inte <code>AUTO_INCREMENT</code> för nollvärden"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
