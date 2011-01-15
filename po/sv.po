@@ -968,7 +968,7 @@ msgstr "Vill du verkligen "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:239
 msgid "You are about to DESTROY a complete database!"
-msgstr "Du håller på att FÖRGÖRA en hel databas!"
+msgstr "Du håller på att FÖRSTÖRA en hel databas!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
