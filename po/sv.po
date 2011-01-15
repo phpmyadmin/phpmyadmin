@@ -2301,7 +2301,7 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:83
 #: libraries/relation.lib.php:90 pmd_relation_new.php:68
 msgid "Disabled"
-msgstr "Inaktiverat"
+msgstr "Inaktiverad"
 
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
