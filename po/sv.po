@@ -1096,10 +1096,9 @@ msgid "Reload Database"
 msgstr "Ladda om databas"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopiera databas till"
+msgstr "Kopiera databas"
 
 #: js/messages.php:74
 #, fuzzy
