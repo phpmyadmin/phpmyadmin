@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 22:43+0200\n"
+"PO-Revision-Date: 2011-01-15 22:45+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5864,6 +5864,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Om uppgifterna i varje rad i filen är inte i samma ordning som i databasen, "
+"lista motsvarande kolumnnamn här. Kolumnnamn måste vara åtskilda med "
+"kommatecken och inte inneslutna i citattecken."
 
 #: libraries/import/csv.php:41
 #, fuzzy
