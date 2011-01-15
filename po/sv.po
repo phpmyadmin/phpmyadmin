@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:29+0200\n"
+"PO-Revision-Date: 2011-01-15 19:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4359,7 +4359,7 @@ msgstr "Katalog på servern där du kan ladda upp filer för import"
 
 #: libraries/config/messages.inc.php:488
 msgid "Upload directory"
-msgstr "Uppladdningskatalog"
+msgstr "Uppladdningskatalogen"
 
 #: libraries/config/messages.inc.php:489
 msgid "Allow for searching inside the entire database"
