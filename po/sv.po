@@ -3881,7 +3881,8 @@ msgstr "Löseenord för config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Lämna tomt för inget stöd för PDF-schema, förslag: [kbd]pma_pdf_pages[/kbd]"
+"Lämna blankt för inget stöd för PDF-schema, förslag: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:395
 msgid "PDF schema: pages table"
