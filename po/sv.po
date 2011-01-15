@@ -3455,7 +3455,7 @@ msgstr "Maximalt antal tabeller som visas i tabellista"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum tables"
-msgstr "Max antal tabeller"
+msgstr "Maximalt antal tabeller"
 
 #: libraries/config/messages.inc.php:308
 msgid ""
