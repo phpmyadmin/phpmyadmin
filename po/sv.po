@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:17+0200\n"
+"PO-Revision-Date: 2011-01-15 16:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3090,7 +3090,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:217
 msgid "Startup"
-msgstr "Start"
+msgstr "Uppstart"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize startup page"
