@@ -6789,7 +6789,6 @@ msgid "Get more editing space"
 msgstr "Få mer redigerings utrymme"
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
