@@ -2211,10 +2211,9 @@ msgid "complete inserts"
 msgstr "kompletta infogningar"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Utökade infogningar"
+msgstr "utökade infogningar"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
