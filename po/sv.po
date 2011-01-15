@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:34+0200\n"
+"PO-Revision-Date: 2011-01-15 16:35+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3306,7 +3306,7 @@ msgstr "Avskiljare för tabellträd"
 
 #: libraries/config/messages.inc.php:277
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL där logotyp i navigeringsramen kommer att peka till"
 
 #: libraries/config/messages.inc.php:278
 msgid "Logo link URL"
