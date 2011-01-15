@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:32+0200\n"
+"PO-Revision-Date: 2011-01-15 16:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3286,7 +3286,7 @@ msgstr "Visa databaser i ett träd"
 
 #: libraries/config/messages.inc.php:272
 msgid "Disable this if you want to see all databases at once"
-msgstr "Inaktivera detta om du vill se alla databaser på en gång"
+msgstr "Inaktivera detta om du vill se alla databaser samtidigt"
 
 #: libraries/config/messages.inc.php:273
 msgid "Use light version"
