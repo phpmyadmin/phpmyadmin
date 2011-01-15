@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:40+0200\n"
+"PO-Revision-Date: 2011-01-15 02:41+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1567,7 +1567,7 @@ msgstr ""
 #: libraries/server_links.inc.php:42 server_databases.php:100
 #: server_privileges.php:1751 test/theme.php:92
 msgid "Databases"
-msgstr "Databaser"
+msgstr "Databaserna"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:573
