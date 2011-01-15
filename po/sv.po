@@ -2387,7 +2387,7 @@ msgstr "Markera raden som indikeras av muspekaren"
 
 #: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
-msgstr "Framhäv under pekare"
+msgstr "Markera pekaren"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
