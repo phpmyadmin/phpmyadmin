@@ -6160,7 +6160,7 @@ msgstr "Georgisk"
 
 #: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
-msgstr "Grekisk"
+msgstr "Grekiska"
 
 #: libraries/mysql_charsets.lib.php:394
 msgid "Czech-Slovak"
