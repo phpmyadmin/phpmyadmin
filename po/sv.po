@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 22:09+0200\n"
+"PO-Revision-Date: 2011-01-15 22:13+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5626,10 +5626,11 @@ msgstr ""
 "och server version)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Lägg till egen kommentar i huvud (\\n delar rader)"
+msgstr ""
+"Ytterligare Anpassa sidhuvud kommentar (\n"
+" delar rader):"
 
 #: libraries/export/sql.php:37
 msgid ""
