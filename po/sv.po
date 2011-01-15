@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:06+0200\n"
+"PO-Revision-Date: 2011-01-15 03:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2098,7 +2098,7 @@ msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 #: libraries/common.lib.php:2302 libraries/common.lib.php:2305
 #: libraries/display_tbl.lib.php:288 server_status.php:740
 msgid "Begin"
-msgstr "Början"
+msgstr "Starta"
 
 #: libraries/common.lib.php:2303 libraries/common.lib.php:2306
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
