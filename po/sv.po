@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:54+0200\n"
+"PO-Revision-Date: 2011-01-15 19:55+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4693,7 +4693,7 @@ msgstr "Rader:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Skippa några rader:"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
