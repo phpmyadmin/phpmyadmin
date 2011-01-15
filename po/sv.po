@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:24+0200\n"
+"PO-Revision-Date: 2011-01-15 02:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -980,10 +980,9 @@ msgid "Dropping Procedure"
 msgstr "Tar bort Procedur"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Tillåter infogning och ersättning av data."
+msgstr "Tar bort spårdata"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
