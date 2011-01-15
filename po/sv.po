@@ -4939,7 +4939,7 @@ msgstr "horisontell (roterade rubriker)"
 
 #: libraries/display_tbl.lib.php:316
 msgid "vertical"
-msgstr "lodrätt"
+msgstr "vertikal"
 
 #: libraries/display_tbl.lib.php:322
 #, php-format
