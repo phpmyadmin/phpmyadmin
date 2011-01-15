@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:14+0200\n"
+"PO-Revision-Date: 2011-01-15 20:15+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4852,9 +4852,9 @@ msgid "Importing into the database \"%s\""
 msgstr "Importera till databasen \"%s \""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Inga databaser"
+msgstr "Importera till tabellen \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
