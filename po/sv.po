@@ -3447,7 +3447,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of rows to display"
-msgstr "Max antal rader att visa"
+msgstr "Maximalt antal rader att visa"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of tables displayed in table list"
