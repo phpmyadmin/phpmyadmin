@@ -2652,10 +2652,9 @@ msgid "Lines terminated by"
 msgstr "Rader avslutas med"
 
 #: libraries/config/messages.inc.php:78
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Excel-version"
+msgstr "Excel utgåva"
 
 #: libraries/config/messages.inc.php:81
 msgid "Database name template"
