@@ -4417,10 +4417,9 @@ msgid "Config authentication"
 msgstr "Config autentisering"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Ordning för värdautentisering"
+msgstr "Cookie autentisering"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
