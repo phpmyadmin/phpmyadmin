@@ -5839,7 +5839,7 @@ msgstr "Gå till databas"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
-msgstr ""
+msgstr "inställningar"
 
 #: libraries/import.lib.php:1169
 #, fuzzy
