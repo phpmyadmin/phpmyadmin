@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:45+0200\n"
+"PO-Revision-Date: 2011-01-15 19:47+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4613,10 +4613,9 @@ msgid "Password Hashing"
 msgstr "Hashning av lösenord"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "Kompatibel med MySQL&nbsp;4.0"
+msgstr "Kompatibel med MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
