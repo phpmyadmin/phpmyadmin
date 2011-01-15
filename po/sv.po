@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:41+0200\n"
+"PO-Revision-Date: 2011-01-15 02:42+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1620,7 +1620,7 @@ msgstr "%s har inaktiverats på denna MySQL-server."
 #: libraries/StorageEngine.class.php:361
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Denna MySQL-server har inte stöd för lagringsmotorn %s."
+msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
