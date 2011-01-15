@@ -1414,7 +1414,7 @@ msgstr "Sön"
 #: js/messages.php:197
 #| msgid "Mon"
 msgid "Mo"
-msgstr "Mån"
+msgstr "Må"
 
 #. l10n: Minimal week day name
 #: js/messages.php:199
