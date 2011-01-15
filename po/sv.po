@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 15:10+0200\n"
+"PO-Revision-Date: 2011-01-15 15:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2498,7 +2498,7 @@ msgstr "Flik som visas när du anger en databas"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default database tab"
-msgstr "Standard databasflik"
+msgstr "Default fliken Databas"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a server"
