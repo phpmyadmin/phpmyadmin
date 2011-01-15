@@ -3203,7 +3203,7 @@ msgstr "Kolumn på första raden"
 
 #: libraries/config/messages.inc.php:250 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Importera inte tomma rader"
 
 #: libraries/config/messages.inc.php:251
 msgid "Import currencies ($5.00 to 5.00)"
