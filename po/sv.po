@@ -823,7 +823,7 @@ msgstr "Värden för kolumn \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Mata in varje värde i ett eget fält."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
