@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:46+0200\n"
+"PO-Revision-Date: 2011-01-15 20:48+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5244,14 +5244,11 @@ msgid "Garbage Threshold"
 msgstr "Skräptröskel"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"Andelen skräp i en dataloggfil innan den komprimeras. Detta är ett värde "
-"mellan 1 och 99. Standardvärdet är 50."
+msgstr "Den procentuella andelen skräp i en arkivfil innan den packas."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
