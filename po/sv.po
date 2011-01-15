@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:00+0200\n"
+"PO-Revision-Date: 2011-01-15 03:01+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1958,7 +1958,7 @@ msgstr "Du bör uppgradera till %s %s eller senare."
 #: libraries/common.lib.php:145
 #, php-format
 msgid "Max: %s%s"
-msgstr "Maximal storlek: %s%s"
+msgstr "Max: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
