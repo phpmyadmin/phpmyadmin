@@ -6489,7 +6489,7 @@ msgstr "Visa alla tabeller med samma bredd"
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
-msgstr "Endast visa nycklar"
+msgstr "Visa endast nycklar"
 
 #: libraries/schema/User_Schema.class.php:391
 msgid "Landscape"
