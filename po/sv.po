@@ -4144,10 +4144,9 @@ msgid ""
 msgstr "Anger om typ-fält bör först visas i redigera / infogningsläget"
 
 #: libraries/config/messages.inc.php:441
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Visa öppna tabeller"
+msgstr "Visa fälttyper"
 
 #: libraries/config/messages.inc.php:442
 msgid "Display the function fields in edit/insert mode"
