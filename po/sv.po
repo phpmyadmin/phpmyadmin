@@ -6463,10 +6463,9 @@ msgid "Select Tables"
 msgstr "Välj tabeller"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relationsschema"
+msgstr "Visa relationsschema"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
