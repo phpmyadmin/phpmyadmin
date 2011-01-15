@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:21+0200\n"
+"PO-Revision-Date: 2011-01-15 02:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -871,7 +871,7 @@ msgid ""
 "s for ways to workaround this limit."
 msgstr ""
 "Du försökte förmodligen ladda upp en för stor fil. Se %sdokumentationen%s "
-"för metoder att gå runt denna begränsning."
+"för att gå runt denna begränsning."
 
 #: import.php:277 import.php:330 libraries/File.class.php:501
 #: libraries/File.class.php:611
