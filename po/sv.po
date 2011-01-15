@@ -3597,7 +3597,7 @@ msgstr "Flik som visas när man öppnar ett nytt frågefönster"
 
 #: libraries/config/messages.inc.php:336
 msgid "Default query window tab"
-msgstr "Standard frågefönsterflik"
+msgstr "Default frågefönsterflik"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query window height (in pixels)"
