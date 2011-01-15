@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 15:45+0200\n"
+"PO-Revision-Date: 2011-01-15 15:47+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2797,7 +2797,7 @@ msgstr "Ordning i främmande nyckel-listruta"
 
 #: libraries/config/messages.inc.php:147
 msgid "A dropdown will be used if fewer items are present"
-msgstr "En listruta kommer användas om det är färre poster"
+msgstr "En listruta kommer användas om färre objekt finns"
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key limit"
