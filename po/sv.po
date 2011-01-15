@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:44+0200\n"
+"PO-Revision-Date: 2011-01-15 02:45+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1763,7 +1763,7 @@ msgstr "Kan ej logga in på MySQL-server"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Fel användarnamn/lösenord. Åtkomst nekad."
+msgstr "Felaktigt användarnamn/lösenord. Åtkomst nekad."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
