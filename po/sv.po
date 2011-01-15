@@ -6208,7 +6208,7 @@ msgstr "Allmänna relationsfunktionaliteter"
 
 #: libraries/relation.lib.php:105
 msgid "Display Features"
-msgstr "Visningsfunktionaliteter"
+msgstr "Visningsfunktionalitet"
 
 #: libraries/relation.lib.php:111
 msgid "Creation of PDFs"
