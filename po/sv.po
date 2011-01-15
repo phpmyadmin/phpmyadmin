@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 15:14+0200\n"
+"PO-Revision-Date: 2011-01-15 15:15+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2526,7 +2526,7 @@ msgstr "Visa binärt innehåll som HEX"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
-msgstr "Visa databaslista som en lista istället för en listkontroll"
+msgstr "Visa databas som en lista i stället för en drop-down"
 
 #: libraries/config/messages.inc.php:55
 msgid "Display databases as a list"
