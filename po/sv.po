@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 22:32+0200\n"
+"PO-Revision-Date: 2011-01-15 22:33+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5768,7 +5768,7 @@ msgstr "RELATIONER FÖR TABELL"
 #: libraries/export/sql.php:861 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
-msgstr "Utlösare"
+msgstr "Trigger"
 
 #: libraries/export/sql.php:873
 msgid "Structure for view"
