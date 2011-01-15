@@ -1585,12 +1585,12 @@ msgstr[0] "%1$d rad påverkad."
 msgstr[1] "%1$d rader påverkade."
 
 #: libraries/Message.class.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rad(er) borttagna."
-msgstr[1] "%1$d rad(er) borttagna."
+msgstr[0] "%1$d rad borttagen."
+msgstr[1] "%1$d rader borttagna."
 
 #: libraries/Message.class.php:319
 #, fuzzy, php-format
