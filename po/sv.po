@@ -4288,7 +4288,7 @@ msgstr "En varning visas på huvudsidan om Suhosin upptäcks"
 
 #: libraries/config/messages.inc.php:472
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin varning"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
