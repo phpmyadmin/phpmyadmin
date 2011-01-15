@@ -1007,7 +1007,7 @@ msgstr "Värde saknas i formuläret!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr "Det är inte ett nummer!"
+msgstr "Detta är inte ett nummer!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
