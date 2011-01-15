@@ -4719,10 +4719,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Spara på servern i katalogen <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Spara som fil"
+msgstr "Spara utdata till en fil"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
