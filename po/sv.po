@@ -6561,7 +6561,7 @@ msgstr "Motorer"
 #: libraries/server_links.inc.php:95 server_synchronize.php:1090
 #: server_synchronize.php:1098
 msgid "Synchronize"
-msgstr ""
+msgstr "Synkronisera"
 
 #: libraries/server_links.inc.php:99
 #, fuzzy
