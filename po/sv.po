@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:01+0200\n"
+"PO-Revision-Date: 2011-01-15 20:03+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4741,7 +4741,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ blir tabellnamnet"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4751,9 +4751,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: %"
 "3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Detta värde tolkas mha %1$sstrftime%2$s, så du kan använda strängar med "
+"Detta värde tolkas med %1$sstrftime%2$s, så du kan använda strängar med "
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
-"text behålls som den är."
+"text behålls som den är.Se %4$sFAQ%5$s för detaljer.."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
