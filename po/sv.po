@@ -5998,7 +5998,7 @@ msgstr "Förenklad Kinesiska"
 
 #: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:373
 msgid "Traditional Chinese"
-msgstr "Traditionell kinesiska"
+msgstr "Traditionell Kinesiska"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
