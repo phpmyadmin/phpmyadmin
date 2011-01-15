@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:44+0200\n"
+"PO-Revision-Date: 2011-01-15 20:46+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5239,10 +5239,9 @@ msgstr ""
 "eller vid skapande av index med CREATE INDEX eller ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
-msgstr "Gräns för skräp"
+msgstr "Skräptröskel"
 
 #: libraries/engines/pbms.lib.php:31
 #, fuzzy
