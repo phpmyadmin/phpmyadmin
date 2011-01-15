@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:22+0200\n"
+"PO-Revision-Date: 2011-01-15 23:23+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6403,7 +6403,7 @@ msgstr "Den här sidan innehåller inga tabeller!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA FEL:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
 #: libraries/schema/Pdf_Relation_Schema.class.php:1119
