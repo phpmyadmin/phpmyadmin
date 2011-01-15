@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:29+0200\n"
+"PO-Revision-Date: 2011-01-15 20:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4969,10 +4969,9 @@ msgid "Options"
 msgstr "Alternativ"
 
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:568
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Avkortade texter"
+msgstr "Förkortade texter"
 
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:572
 #, fuzzy
