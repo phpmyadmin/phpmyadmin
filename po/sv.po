@@ -1735,7 +1735,7 @@ msgstr "Lösenord:"
 
 #: libraries/auth/cookie.auth.lib.php:261
 msgid "Server Choice"
-msgstr "Serverval"
+msgstr "Välj server"
 
 #: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
