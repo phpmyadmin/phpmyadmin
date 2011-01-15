@@ -6429,7 +6429,7 @@ msgstr "Extra"
 
 #: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
-msgstr "Skapa en ny sida"
+msgstr "Skapa ny sida"
 
 #: libraries/schema/User_Schema.class.php:99
 #, fuzzy
