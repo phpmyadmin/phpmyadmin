@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 14:53+0200\n"
+"PO-Revision-Date: 2011-01-15 14:56+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2402,7 +2402,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -2413,8 +2412,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Anger vilken typ av redigeringskontroll som ska användas för CHAR- och "
-"VARCHAR-fält; [kbd]input[/kbd] - tillåter begränsning av antal tecken, [kbd]"
-"textarea[/kbd] - tillåter radbrytningar i fält"
+"VARCHAR-fält; [kbd]input[/kbd] - tillåter begränsning avinmatningens längd, "
+"[kbd]textarea[/kbd] - tillåter radbrytningar i kolumner"
 
 #: libraries/config/messages.inc.php:31
 #, fuzzy
