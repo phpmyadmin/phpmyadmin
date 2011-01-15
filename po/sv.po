@@ -1023,7 +1023,7 @@ msgstr "Lösenordet saknas!"
 
 #: js/messages.php:51 server_privileges.php:1236 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr "Lösenorden är inte lika!"
+msgstr "Lösenorden överensstämmer inte!"
 
 #: js/messages.php:52
 #, fuzzy
