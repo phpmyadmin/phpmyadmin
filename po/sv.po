@@ -5928,10 +5928,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importera valutor <i>(t.ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL-kompatibilitet"
+msgstr "SQL kompatibilitetsläge:"
 
 #: libraries/import/sql.php:42
 #, fuzzy
