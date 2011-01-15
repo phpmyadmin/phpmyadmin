@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:00+0200\n"
+"PO-Revision-Date: 2011-01-15 16:02+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2948,6 +2948,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Ange webbläsarens namnlisttext. Se "
+"[a@Documentation.html#cfg_TitleTable]dokumentationen[/a] för magiska "
+"strängar som kan användas för att få speciella värden."
 
 #: libraries/config/messages.inc.php:189
 #: libraries/navigation_header.inc.php:83
