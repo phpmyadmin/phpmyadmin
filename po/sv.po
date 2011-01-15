@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 17:24+0200\n"
+"PO-Revision-Date: 2011-01-15 17:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3513,7 +3513,7 @@ msgstr "Använd GZip utmatningsbuffer för ökad hastighet i HTTP-överföringar
 
 #: libraries/config/messages.inc.php:319
 msgid "GZip output buffering"
-msgstr "GZip buffring av utdata"
+msgstr "GZip Utmatningsbuffer"
 
 #: libraries/config/messages.inc.php:320
 #, fuzzy
