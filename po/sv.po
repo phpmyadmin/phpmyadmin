@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:59+0200\n"
+"PO-Revision-Date: 2011-01-15 21:00+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5318,7 +5318,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Metadata rubriker"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
