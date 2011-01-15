@@ -2555,10 +2555,9 @@ msgid "Display errors"
 msgstr "Visa fel"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
-msgstr "Ignorera fel"
+msgstr "Samla fel"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show icons for warning, error and information messages"
