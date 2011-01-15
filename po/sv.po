@@ -975,10 +975,9 @@ msgid "Dropping Event"
 msgstr "Tar bort Händelse"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedurer"
+msgstr "Tar bort Procedur"
 
 #: js/messages.php:35
 #, fuzzy
