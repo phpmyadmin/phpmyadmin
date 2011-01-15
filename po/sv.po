@@ -2028,7 +2028,7 @@ msgstr "Validera SQL-kod"
 
 #: libraries/common.lib.php:1237
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Redigera denna fråga"
 
 #: libraries/common.lib.php:1239
 #, fuzzy
