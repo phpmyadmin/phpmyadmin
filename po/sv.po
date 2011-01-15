@@ -4543,7 +4543,7 @@ msgstr "Databasen verkar vara tom!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:90
 msgid "Tracking"
-msgstr ""
+msgstr "Spårning"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
