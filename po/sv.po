@@ -6728,7 +6728,7 @@ msgstr "Spårning  av %s.%s är aktiverad."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr "Längd/Värden*"
+msgstr "Längd/Värden"
 
 #: libraries/tbl_properties.inc.php:104
 #, fuzzy
