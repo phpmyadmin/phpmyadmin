@@ -4687,10 +4687,9 @@ msgid "Table(s):"
 msgstr "Tabell(er):"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Rader"
+msgstr "Rader:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
