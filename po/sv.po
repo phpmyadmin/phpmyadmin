@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 15:28+0200\n"
+"PO-Revision-Date: 2011-01-15 15:29+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2649,7 +2649,7 @@ msgstr "Kolumner avslutas med"
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:235
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "Raderna avslutas med"
+msgstr "Rader avslutas med"
 
 #: libraries/config/messages.inc.php:78
 #, fuzzy
