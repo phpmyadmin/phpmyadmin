@@ -1454,7 +1454,7 @@ msgstr "Vecka"
 
 #: js/messages.php:211
 msgid "Hour"
-msgstr ""
+msgstr "Timme"
 
 #: js/messages.php:212
 #, fuzzy
