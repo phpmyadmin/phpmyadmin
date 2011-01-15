@@ -5946,7 +5946,6 @@ msgstr ""
 "problemet och försök igen."
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
