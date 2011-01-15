@@ -5486,10 +5486,9 @@ msgid "Columns enclosed with:"
 msgstr "Kolumner omges av:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Specialtecken i fält föregås av"
+msgstr "Specialtecken i fält föregås av:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
