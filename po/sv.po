@@ -5140,7 +5140,7 @@ msgstr "Buffert Pool aktivitet"
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
-msgstr "Läsefterfrågningar"
+msgstr "Läs förfrågningar"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
