@@ -1577,12 +1577,12 @@ msgid "Error"
 msgstr "Fel"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rad(er) påverkade."
-msgstr[1] "%1$d rad(er) påverkade."
+msgstr[0] "%1$d rad påverkad."
+msgstr[1] "%1$d rader påverkade."
 
 #: libraries/Message.class.php:300
 #, fuzzy, php-format
