@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 22:40+0200\n"
+"PO-Revision-Date: 2011-01-15 22:41+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5842,9 +5842,8 @@ msgid "settings"
 msgstr "inställningar"
 
 #: libraries/import.lib.php:1169
-#, fuzzy
 msgid "Go to table"
-msgstr "Inga databaser"
+msgstr "Gå till tabell"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
