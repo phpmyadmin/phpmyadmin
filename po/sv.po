@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:11+0200\n"
+"PO-Revision-Date: 2011-01-15 23:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6248,7 +6248,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:148
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Skapa en PMA användare och ge tillgång till dessa tabeller."
 
 #: libraries/relation.lib.php:149
 msgid ""
