@@ -754,9 +754,8 @@ msgid "Last version"
 msgstr "Senaste versionen"
 
 #: db_tracking.php:86 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "Skapa"
+msgstr "Skapad"
 
 #: db_tracking.php:87 tbl_tracking.php:589
 msgid "Updated"
