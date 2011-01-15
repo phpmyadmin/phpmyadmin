@@ -2494,7 +2494,7 @@ msgstr "Visa riktning för att ändra / skapa kolumner"
 
 #: libraries/config/messages.inc.php:46
 msgid "Tab that is displayed when entering a database"
-msgstr "Flik som visas när man går till en databas"
+msgstr "Flik som visas när du anger en databas"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default database tab"
