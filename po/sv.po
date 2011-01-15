@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:15+0200\n"
+"PO-Revision-Date: 2011-01-15 20:16+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4864,7 +4864,7 @@ msgstr "Fil att importera:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Filen kan vara komprimerad (%s) eller okomprimerad"
 
 #: libraries/display_import.lib.php:158
 msgid ""
