@@ -209,6 +209,9 @@ $(document).ready(function() {
             .dialog({
                 title: PMA_messages['strAddNewUser'],
                 width: 800,
+                // height is a workaround for this Chrome problem:
+                // http://bugs.jqueryui.com/ticket/4671
+                height: 700,
                 modal: true,
                 buttons: button_options
             }); //dialog options end
@@ -439,6 +442,20 @@ $(document).ready(function() {
              .siblings("h2").not(":first").remove();
         }) // end $.get
     })// end of the paginate users table
+
+    /*
+     * Additional confirmation dialog after clicking 
+     * 'Drop the databases...'
+     */
+    $('#checkbox_drop_users_db').click(function() {
+        $this_checkbox = $(this);
+        if ($this_checkbox.is(':checked')) {
+            var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\nDROP DATABASE');
+            if (! is_confirmed) {
+                $this_checkbox.attr('checked', false);
+            }
+        }
+    });
 
 }, 'top.frame_content'); //end $(document).ready()
 
