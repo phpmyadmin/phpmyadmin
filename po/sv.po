@@ -1310,7 +1310,7 @@ msgstr "jun"
 #. l10n: Short month name
 #: js/messages.php:156 libraries/common.lib.php:1550
 msgid "Jul"
-msgstr "juli"
+msgstr "jul"
 
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1552
