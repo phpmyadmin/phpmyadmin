@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:26+0200\n"
+"PO-Revision-Date: 2011-01-15 02:27+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1048,7 +1048,7 @@ msgstr "Tar bort markerade användare"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:390
 #: pmd_general.php:427 pmd_general.php:547 pmd_general.php:595
