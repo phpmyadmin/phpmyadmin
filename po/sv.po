@@ -1690,8 +1690,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"Trolig orsak till detta är att du inte skapade en konfigurationsfil. Du vill "
-"kanske använda %1$suppsättningsskript%2$s för att skapa en."
+"Du har troligen inte skapat en konfigurationsfil. Du vill kanske använda %"
+"1$suppsättningsskript%2$s för att skapa denna."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
