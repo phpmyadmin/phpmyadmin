@@ -6724,7 +6724,7 @@ msgstr "Tabellen verkar vara tom!"
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr "Spårning  av %s.%s är aktiverad."
+msgstr "Spårning av %s.%s är aktiverad."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
