@@ -1856,9 +1856,8 @@ msgid "Jump to database"
 msgstr "Gå till daatabas"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 msgid "Not replicated"
-msgstr "Serverkonfiguration"
+msgstr "Inte replikerad"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
