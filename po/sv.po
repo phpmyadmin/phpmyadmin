@@ -4441,7 +4441,7 @@ msgstr "CSV med LOAD DATA"
 #: libraries/config/user_preferences.forms.php:243 libraries/export/xls.php:17
 #: libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS arbetsbok"
 
 #: libraries/config/setup.forms.php:250 libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:153
