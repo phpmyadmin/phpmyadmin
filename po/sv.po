@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:35+0200\n"
+"PO-Revision-Date: 2011-01-15 20:37+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5043,7 +5043,7 @@ msgstr "Operationer för frågeresultat"
 
 #: libraries/display_tbl.lib.php:2192
 msgid "Print view (with full texts)"
-msgstr "Utskriftsvänlig visning (med fullständiga texter)"
+msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
 #: libraries/display_tbl.lib.php:2236 tbl_chart.php:81
 #, fuzzy
