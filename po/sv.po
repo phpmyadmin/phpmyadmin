@@ -972,7 +972,7 @@ msgstr "Du håller på att FÖRSTÖRA en hel databas!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Tar bort Händelse"
 
 #: js/messages.php:33
 #, fuzzy
