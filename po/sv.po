@@ -3488,7 +3488,7 @@ msgstr "Visa vänster radera-länk"
 
 #: libraries/config/messages.inc.php:313
 msgid "Show right delete link"
-msgstr ""
+msgstr "Visa höger radera-länk"
 
 #: libraries/config/messages.inc.php:314
 msgid "Use natural order for sorting table and database names"
