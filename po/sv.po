@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 14:56+0200\n"
+"PO-Revision-Date: 2011-01-15 14:57+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2423,7 +2423,7 @@ msgstr "Redigering av CHAR-fält"
 
 #: libraries/config/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Antal kolumner för CHAR/VARCHAR-textrutor"
+msgstr "Antal kolumner för CHAR/VARCHAR textfält"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR textarea columns"
