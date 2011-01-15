@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:09+0200\n"
+"PO-Revision-Date: 2011-01-15 23:10+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6221,7 +6221,8 @@ msgstr "Visning av kolumnkommentarer"
 #: libraries/relation.lib.php:120
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr "Se dokumentationen för uppdatering av din tabell column_comments"
+msgstr ""
+"Vänligen se dokumentationen om hur du uppdaterar din column_comments tabell"
 
 #: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:406
 msgid "Bookmarked SQL query"
