@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:26+0200\n"
+"PO-Revision-Date: 2011-01-15 16:27+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3207,7 +3207,7 @@ msgstr "Importera inte tomma rader"
 
 #: libraries/config/messages.inc.php:251
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importera valutor ($5,00 till 5,00)"
 
 #: libraries/config/messages.inc.php:252
 msgid "Import percentages as proper decimals (12.00% to .12)"
