@@ -2521,9 +2521,8 @@ msgid "Show binary contents as HEX by default"
 msgstr "Visa binärt innehåll som HEX som standard"
 
 #: libraries/config/messages.inc.php:53 libraries/display_tbl.lib.php:597
-#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr "Visa binärt innehåll"
+msgstr "Visa binärt innehåll som HEX"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show database listing as a list instead of a drop down"
