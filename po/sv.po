@@ -2961,7 +2961,7 @@ msgstr "Sökfönster"
 
 #: libraries/config/messages.inc.php:190
 msgid "Customize query window options"
-msgstr "Anpassa alternativ för sökfönster"
+msgstr "Alternativ för sökfönster"
 
 #: libraries/config/messages.inc.php:191
 msgid "Security"
