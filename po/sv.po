@@ -631,7 +631,7 @@ msgstr "Spårning är inte aktiv."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentation%s."
+msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
 #: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
