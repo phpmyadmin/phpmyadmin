@@ -4427,10 +4427,9 @@ msgid "HTTP authentication"
 msgstr "HTTP-autentisering"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Ordning för värdautentisering"
+msgstr "Signon autentisering"
 
 #: libraries/config/setup.forms.php:238
 #: libraries/config/user_preferences.forms.php:142 libraries/import/ldi.php:34
