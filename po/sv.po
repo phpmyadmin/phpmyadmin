@@ -1137,10 +1137,9 @@ msgid "Inline Edit"
 msgstr "Redigera"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
-msgstr "SQL-frågeruta"
+msgstr "Dölj sökkriterier"
 
 #: js/messages.php:90
 #, fuzzy
