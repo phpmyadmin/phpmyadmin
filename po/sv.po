@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 17:22+0200\n"
+"PO-Revision-Date: 2011-01-15 17:23+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3505,7 +3505,7 @@ msgstr " Använd bara ikoner, endast text eller både och"
 
 #: libraries/config/messages.inc.php:317
 msgid "Iconic navigation bar"
-msgstr "Ikonbaserad navigeringslist"
+msgstr "Ikonbaserad navigeringsfält"
 
 #: libraries/config/messages.inc.php:318
 msgid "use GZip output buffering for increased speed in HTTP transfers"
