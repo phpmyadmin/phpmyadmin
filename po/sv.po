@@ -1860,10 +1860,9 @@ msgid "Not replicated"
 msgstr "Inte replikerad"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replikering"
+msgstr "Replikerad"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
