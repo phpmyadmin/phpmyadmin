@@ -6569,9 +6569,8 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
-#, fuzzy
 msgid "Source database"
-msgstr "Sök i databas"
+msgstr "Källdatabas"
 
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
