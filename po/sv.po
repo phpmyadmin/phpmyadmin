@@ -1442,10 +1442,9 @@ msgstr "Fr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:207
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Lör"
+msgstr "Lö"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:209
