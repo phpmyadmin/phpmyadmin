@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:01+0200\n"
+"PO-Revision-Date: 2011-01-15 03:02+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1962,10 +1962,9 @@ msgstr "Max: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Skickade"
+msgstr "sv"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
