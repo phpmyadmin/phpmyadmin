@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:15+0200\n"
+"PO-Revision-Date: 2011-01-15 03:16+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2248,7 +2248,7 @@ msgstr "Felaktigt värde"
 #: libraries/config/validate.lib.php:460
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Värdet måste vara lika med eller mindre än %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
