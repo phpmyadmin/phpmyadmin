@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 23:29+0200\n"
+"PO-Revision-Date: 2011-01-15 23:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6532,10 +6532,9 @@ msgid "Unknown language: %1$s."
 msgstr "Okänt språk: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Server"
+msgstr "Nuvarande Server"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:370 test/theme.php:120
