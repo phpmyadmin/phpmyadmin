@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 18:52+0200\n"
+"PO-Revision-Date: 2011-01-15 18:55+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4067,7 +4067,6 @@ msgid "Automatically create versions"
 msgstr "Automatiskt skapa versioner"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -4075,8 +4074,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Lämna tomt för inget stöd för SQL-frågehistorik, förslag: [kbd]pma_history[/"
-"kbd]"
+"Lämna tomt för iatt inte spara användarinställningar i databasen, förslag: "
+"[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
