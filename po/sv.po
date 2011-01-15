@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 03:05+0200\n"
+"PO-Revision-Date: 2011-01-15 03:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2077,7 +2077,7 @@ msgstr "EiB"
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1400
 msgid ","
-msgstr " "
+msgstr "  "
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1402
