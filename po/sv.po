@@ -6394,7 +6394,7 @@ msgstr "Var god ange koordinaterna för tabellen %s"
 #, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema för databasen %s - Sida %s "
+msgstr "Schema för databasen %s - Sida %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #| msgid "File %s does not contain any key id"
