@@ -1026,10 +1026,9 @@ msgid "The passwords aren't the same!"
 msgstr "Lösenorden överensstämmer inte!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Lägg till ny användare"
+msgstr "Lägg till en ny användare"
 
 #: js/messages.php:53
 #, fuzzy
