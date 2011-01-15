@@ -4335,7 +4335,7 @@ msgstr "Titel på webbläsarfönstret när en server är vald"
 
 #: libraries/config/messages.inc.php:483
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Titel på webbläsarfönstret när en tabell är markerad"
 
 #: libraries/config/messages.inc.php:485
 msgid ""
