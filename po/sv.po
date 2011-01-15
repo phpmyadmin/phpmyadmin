@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:50+0200\n"
+"PO-Revision-Date: 2011-01-15 19:51+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4663,10 +4663,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Exportera rader från \"%s \" tabell"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Export-typ"
+msgstr "Export metod:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
