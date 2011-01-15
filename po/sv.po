@@ -945,7 +945,7 @@ msgstr "Bakåt"
 
 #: index.php:183
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin fungerar tyvärr endast med webbläsare som hanterar ramar."
+msgstr "phpMyAdmin fungerarbättre med webbläsare som hanterar ramar."
 
 #: js/messages.php:25 server_synchronize.php:343 server_synchronize.php:355
 #: server_synchronize.php:371 server_synchronize.php:378
