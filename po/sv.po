@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:23+0200\n"
+"PO-Revision-Date: 2011-01-15 02:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -960,7 +960,7 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:156
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\"-satser är inaktiverade."
+msgstr "\"DROP DATABASE\" satserna är inaktiverade."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
