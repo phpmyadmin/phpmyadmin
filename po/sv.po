@@ -5834,9 +5834,8 @@ msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Redigera dess struktur genom att följa \"Struktur\" länken"
 
 #: libraries/import.lib.php:1147
-#, fuzzy
 msgid "Go to database"
-msgstr "Inga databaser"
+msgstr "Gå till databas"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
