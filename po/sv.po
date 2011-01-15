@@ -1875,7 +1875,6 @@ msgid "Check Privileges"
 msgstr "Kontrollera privilegier"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Visa statistik"
