@@ -1171,7 +1171,7 @@ msgstr "Välj fält som ska visas"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr ""
+msgstr "Välj ett alternativ för kolumn"
 
 #: js/messages.php:105
 #, fuzzy
