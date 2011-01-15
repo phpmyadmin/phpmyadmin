@@ -2206,10 +2206,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Anpassad - Som ovan, men utan valet snabb/anpassad "
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Kompletta infogningar"
+msgstr "kompletta infogningar"
 
 #: libraries/config.values.php:120
 #, fuzzy
