@@ -2999,8 +2999,8 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
-"Advancerad serverkonfiguration, ändra inte dessa alternativ såvida du inte "
-"vet vad de är till för"
+"Advancerad serverkonfiguration, ändra inte dessa alternativ om du inte vet "
+"vad de är till för"
 
 #: libraries/config/messages.inc.php:198
 msgid "Enter server connection parameters"
