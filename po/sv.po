@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 16:13+0200\n"
+"PO-Revision-Date: 2011-01-15 16:14+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3066,10 +3066,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Anpassa länkar som visas i SQL-frågeruta"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL-frågor"
+msgstr "Inställningar för SQL-frågor"
 
 #: libraries/config/messages.inc.php:215
 #, fuzzy
