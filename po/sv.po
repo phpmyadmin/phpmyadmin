@@ -1454,7 +1454,7 @@ msgstr "Vecka"
 
 #: js/messages.php:211
 msgid "Hour"
-msgstr "Timme"
+msgstr "Timmar"
 
 #: js/messages.php:212
 #| msgid "in use"
