@@ -3071,10 +3071,9 @@ msgid "SQL queries settings"
 msgstr "Inställningar för SQL-frågor"
 
 #: libraries/config/messages.inc.php:215
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL-historik"
+msgstr "SQL validerare"
 
 #: libraries/config/messages.inc.php:216
 msgid ""
