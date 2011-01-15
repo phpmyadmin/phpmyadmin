@@ -2662,7 +2662,7 @@ msgstr "Databas namn"
 
 #: libraries/config/messages.inc.php:82
 msgid "Server name template"
-msgstr "Mall för servernamn"
+msgstr "Servernamn mall"
 
 #: libraries/config/messages.inc.php:83
 msgid "Table name template"
