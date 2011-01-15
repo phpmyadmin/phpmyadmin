@@ -1971,7 +1971,7 @@ msgstr "sv"
 #, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Skickade"
+msgstr "sv"
 
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
