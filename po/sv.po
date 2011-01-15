@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 21:04+0200\n"
+"PO-Revision-Date: 2011-01-15 21:05+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5476,10 +5476,9 @@ msgstr ""
 "bort. Annars döps de om och ges det näst högsta numret."
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Raderna avslutas med"
+msgstr "Kolumnerna avslutas med:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #| msgid "Fields enclosed by"
