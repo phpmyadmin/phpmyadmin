@@ -781,7 +781,7 @@ msgstr "Ta bort spårning för denna tabell"
 #: db_tracking.php:118 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr ""
+msgstr "aktiv"
 
 #: db_tracking.php:120 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
