@@ -3094,7 +3094,7 @@ msgstr "Uppstart"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize startup page"
-msgstr "Anpassa startsida"
+msgstr "Anpassa startsidan"
 
 #: libraries/config/messages.inc.php:219
 msgid "Tabs"
