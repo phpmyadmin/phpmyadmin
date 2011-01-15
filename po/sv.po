@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 17:48+0200\n"
+"PO-Revision-Date: 2011-01-15 17:57+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3668,10 +3668,9 @@ msgid "Leave blank for defaults"
 msgstr "Lämna blankt för defaultvärden"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Regler för värdautentisering"
+msgstr "Behörighetsregler för host"
 
 #: libraries/config/messages.inc.php:354
 msgid "Allow logins without a password"
