@@ -2753,7 +2753,7 @@ msgstr "Inaktivera kontroller av främmande nycklar"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use hexadecimal for BLOB"
-msgstr "Använd hexadecimal för BLOB"
+msgstr "Använd hexadecimalt för BLOB"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use ignore inserts"
