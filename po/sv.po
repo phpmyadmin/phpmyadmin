@@ -5675,7 +5675,7 @@ msgstr "Istället för <code>INSERT</code> kommando, använd:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code> kommando"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
