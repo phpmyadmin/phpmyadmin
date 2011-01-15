@@ -4471,7 +4471,7 @@ msgstr "Anpassad"
 #: libraries/config/setup.forms.php:285
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
-msgstr "Exportalternativ för databas"
+msgstr "Databas exportalternativ"
 
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:220
