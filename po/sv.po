@@ -1117,10 +1117,9 @@ msgid "Create Table"
 msgstr "Skapa tabell"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Sök"
+msgstr "Söker"
 
 #: js/messages.php:84
 #, fuzzy
