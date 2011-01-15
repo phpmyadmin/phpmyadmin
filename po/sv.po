@@ -2957,7 +2957,7 @@ msgstr ""
 #: libraries/navigation_header.inc.php:86
 #: libraries/navigation_header.inc.php:89
 msgid "Query window"
-msgstr "Frågefönster"
+msgstr "Sökfönster"
 
 #: libraries/config/messages.inc.php:190
 msgid "Customize query window options"
