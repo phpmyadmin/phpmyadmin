@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:19+0200\n"
+"PO-Revision-Date: 2011-01-15 02:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -813,9 +813,8 @@ msgid "Track table"
 msgstr "Kontrollera tabell"
 
 #: db_tracking.php:212
-#, fuzzy
 msgid "Database Log"
-msgstr "Databas"
+msgstr "Databas logg"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
