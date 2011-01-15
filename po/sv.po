@@ -5509,10 +5509,9 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr "Ta bort radbrytning inom kolumner"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel-version"
+msgstr "Excel-version:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
