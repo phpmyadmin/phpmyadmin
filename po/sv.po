@@ -4455,7 +4455,7 @@ msgstr "Excel 2007 XLSX arbetsbok"
 #: libraries/config/user_preferences.forms.php:256 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr "OpenDocument-kalkylblad"
+msgstr "OpenDocument kalkylblad"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
