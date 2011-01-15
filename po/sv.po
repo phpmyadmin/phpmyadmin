@@ -5847,7 +5847,7 @@ msgstr "Gå till tabell"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
-msgstr ""
+msgstr "Gå till vy"
 
 #: libraries/import/csv.php:37 libraries/import/ods.php:26
 #: libraries/import/xls.php:24 libraries/import/xlsx.php:24
