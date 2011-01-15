@@ -5046,10 +5046,9 @@ msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
 #: libraries/display_tbl.lib.php:2236 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Visa PDF-schema"
+msgstr "Visa diagram"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
