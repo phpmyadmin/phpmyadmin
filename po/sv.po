@@ -4802,10 +4802,9 @@ msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Omvandlingsparametrar"
+msgstr "Format-specifika alternativ:"
 
 #: libraries/display_export.lib.php:337
 msgid ""
