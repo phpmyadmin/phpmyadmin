@@ -4657,10 +4657,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportera tabeller från \"%s\" databas"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Skapa ny tabell i databas %s"
+msgstr "Exportera rader från \"%s \" tabell"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
