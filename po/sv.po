@@ -6244,6 +6244,7 @@ msgstr "Snabba steg för att installera avancerade funktioner"
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
+"Skapa de nödvändiga tabellerna med <code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:148
 msgid "Create a pma user and give access to these tables."
