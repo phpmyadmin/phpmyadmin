@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:43+0200\n"
+"PO-Revision-Date: 2011-01-15 02:44+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1753,7 +1753,7 @@ msgstr ""
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "Ingen aktivitet sedan %s sekunder eller mer. Var god logga in igen"
+msgstr "Ingen aktivitet sedan %s sekunder; var god logga in igen"
 
 #: libraries/auth/cookie.auth.lib.php:653
 #: libraries/auth/cookie.auth.lib.php:655
