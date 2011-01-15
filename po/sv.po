@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:58+0200\n"
+"PO-Revision-Date: 2011-01-15 19:59+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4724,10 +4724,9 @@ msgid "Save output to a file"
 msgstr "Spara utdata till en fil"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Mall för filnamn"
+msgstr "Filnamn mall:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
