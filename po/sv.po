@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:55+0200\n"
+"PO-Revision-Date: 2011-01-15 20:56+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5290,10 +5290,9 @@ msgstr ""
 "efter denna tid, såvida de inte refereras av en post i databasen."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Gräns för loggfil"
+msgstr "Tröskelvärde för temporär loggfil"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
