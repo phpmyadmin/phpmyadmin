@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 02:57+0200\n"
+"PO-Revision-Date: 2011-01-15 02:58+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1914,7 +1914,7 @@ msgstr ""
 "PHP hittar ett fel i den eller om PHP inte hittar filen.<br />Anropa "
 "konfigurationsfilen direkt mha länken nedan och läs PHP:s felmeddelande(n) "
 "som du erhåller. I de flesta fall saknas ett citationstecken eller ett "
-"semikolon någonstans.<br />Om du erhåller en tom sida är allt bra."
+"semikolon någonstans.<br />Om du får en tom sida är allt OK."
 
 #: libraries/common.inc.php:585
 #, fuzzy, php-format
