@@ -3177,7 +3177,7 @@ msgstr "Avbryt inte vid INSERT fel"
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
-msgstr "Ersätt data i tabell"
+msgstr "Ersätt tabelldata med fil"
 
 #: libraries/config/messages.inc.php:241
 msgid ""
