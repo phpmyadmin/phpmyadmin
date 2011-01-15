@@ -2109,7 +2109,7 @@ msgstr "Föregående"
 #: libraries/common.lib.php:2334 libraries/common.lib.php:2337
 #: libraries/display_tbl.lib.php:351
 msgid "End"
-msgstr "Slutet"
+msgstr "Slut"
 
 #: libraries/common.lib.php:2409
 #, php-format
