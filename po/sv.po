@@ -3899,10 +3899,9 @@ msgstr ""
 "Lämna tomt för inget stöd. Förslag: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "databasnamn"
+msgstr "Databasnamn"
 
 #: libraries/config/messages.inc.php:398
 msgid "Port on which MySQL server is listening, leave empty for default"
