@@ -1633,7 +1633,7 @@ msgstr "Ogiltigt tabellnamn"
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "Fel vid namnbyte på tabell %1$s till %2$s"
+msgstr "Fel vid namnbyte av tabell %1$s till %2$s"
 
 #: libraries/Table.class.php:1129
 #, php-format
