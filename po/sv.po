@@ -4079,7 +4079,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:428
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Användarinställningar lagringstabell"
 
 #: libraries/config/messages.inc.php:430
 msgid "User for config auth"
