@@ -1041,10 +1041,9 @@ msgid "Reloading Privileges"
 msgstr "Laddar om privilegierna"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Ta bort markerade användare"
+msgstr "Tar bort markerade användare"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
