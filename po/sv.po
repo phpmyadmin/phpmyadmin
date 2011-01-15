@@ -6437,10 +6437,9 @@ msgid "Page name"
 msgstr "Sidnamn"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatisk layout"
+msgstr "Automatisk layout baserad på"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
