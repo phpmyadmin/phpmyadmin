@@ -1127,10 +1127,9 @@ msgid "Hide query box"
 msgstr "Göm sök-rutan"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL-frågeruta"
+msgstr "Visa frågerutan"
 
 #: js/messages.php:86
 #, fuzzy
