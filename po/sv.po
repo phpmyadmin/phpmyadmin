@@ -1031,9 +1031,8 @@ msgid "Add a New User"
 msgstr "Lägg till en ny användare"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
-msgstr "Skapa relation"
+msgstr "Skapa Användare"
 
 #: js/messages.php:54
 #, fuzzy
