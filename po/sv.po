@@ -3686,7 +3686,7 @@ msgstr "HTTP Basic Auth Realm namn att visa när man gör HTTP Auth"
 
 #: libraries/config/messages.inc.php:357
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:358
 msgid ""
