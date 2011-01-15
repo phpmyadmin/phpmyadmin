@@ -1604,7 +1604,7 @@ msgstr[1] "%1$d rader infogade."
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Det finns ingen tillgänglig detaljerad statusinformation för denna "
+"Det finns ingen detaljerad statusinformation  tillgänglig  för denna "
 "lagringsmotor."
 
 #: libraries/StorageEngine.class.php:354
