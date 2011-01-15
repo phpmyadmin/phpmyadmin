@@ -6315,7 +6315,7 @@ msgstr "Värde"
 
 #: libraries/replication_gui.lib.php:175 server_binlog.php:204
 msgid "Server ID"
-msgstr "Server-ID"
+msgstr "Server ID"
 
 #: libraries/replication_gui.lib.php:194
 msgid ""
