@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 20:33+0200\n"
+"PO-Revision-Date: 2011-01-15 20:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4983,10 +4983,9 @@ msgid "Relational key"
 msgstr "Besläktad nyckel"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Visningsfält för relation"
+msgstr "Kolumn för besläktad nyckel"
 
 #: libraries/display_tbl.lib.php:593
 msgid "Show binary contents"
