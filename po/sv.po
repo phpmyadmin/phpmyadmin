@@ -4738,7 +4738,7 @@ msgstr " , @DATABASE@ kommer att bli namnet på databasen"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ blir tabellnamnet"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
