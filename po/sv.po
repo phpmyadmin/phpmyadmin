@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 15:40+0200\n"
+"PO-Revision-Date: 2011-01-15 15:41+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2749,7 +2749,7 @@ msgstr "Använd fördröjda inläggningar"
 
 #: libraries/config/messages.inc.php:121 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr "Stäng av kontroll av främmande nycklar"
+msgstr "Inaktivera kontroller av främmande nycklar"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use hexadecimal for BLOB"
