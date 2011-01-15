@@ -1931,10 +1931,10 @@ msgstr ""
 "konfigurationsfil!"
 
 #: libraries/common.inc.php:620
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Ogiltigt serverindex: \"%s\""
+msgstr "Ogiltigt serverindex: %s"
 
 #: libraries/common.inc.php:627
 #, php-format
