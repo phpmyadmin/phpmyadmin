@@ -5792,9 +5792,8 @@ msgid "Views"
 msgstr "Vy"
 
 #: libraries/export/xml.php:47
-#, fuzzy
 msgid "Export contents"
-msgstr "Standard för export"
+msgstr "Exportera innehåll"
 
 #: libraries/footer.inc.php:186 libraries/footer.inc.php:189
 #: libraries/footer.inc.php:192
