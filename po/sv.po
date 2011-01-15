@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-15 19:48+0200\n"
+"PO-Revision-Date: 2011-01-15 19:49+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4646,10 +4646,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation."
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Tillåter låsning av tabeller för gällande tråd."
+msgstr "Exportera databaser från den aktuella servern"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
