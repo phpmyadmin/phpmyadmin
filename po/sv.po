@@ -9365,8 +9365,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"En nyare version av phpMyAdmin finns tillgänglig och du bör överväga att "
-"uppgradera. Den nyaste versionen är %s, publicerad den %s."
+"En nyare version av phpMyAdmin finns tillgänglig och du bör uppgradera. Den "
+"senaste versionen är %s, publicerad den %s."
 
 #: setup/lib/index.lib.php:162
 #, fuzzy, php-format
