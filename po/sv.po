@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:18+0200\n"
+"PO-Revision-Date: 2011-01-16 16:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8790,7 +8790,8 @@ msgstr ""
 #: server_status.php:137
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
-"Antalet föreningar som gjorde en fullständig avsökning av första tabellen."
+"Antalet kopplingar som gjorde en fullständig genomsökning av den första "
+"tabellen."
 
 #: server_status.php:138
 msgid "The number of temporary tables currently open by the slave SQL thread."
