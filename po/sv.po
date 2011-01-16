@@ -9725,7 +9725,7 @@ msgstr "Area marginaler"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Förklaring marginaler"
 
 #: tbl_chart.php:134
 #, fuzzy
