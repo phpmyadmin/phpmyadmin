@@ -10038,10 +10038,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Utför en \"Query By Example\" (jokertecken: \"%\")"
 
 #: tbl_select.php:246
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Välj fält (minst ett):"
+msgstr "Markera kolumner (minst en):"
 
 #: tbl_select.php:264
 msgid "Add search conditions (body of the \"where\" clause):"
