@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:10+0200\n"
+"PO-Revision-Date: 2011-01-16 15:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7595,7 +7595,7 @@ msgstr "Inga databaser markerade."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s databaser har tagits bort."
+msgstr "%s databaser har framgångsrikt tagits bort."
 
 #: server_databases.php:100
 msgid "Databases statistics"
