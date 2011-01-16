@@ -7068,10 +7068,9 @@ msgid "Choose..."
 msgstr "välj..."
 
 #: main.php:153 prefs_manage.php:274
-#, fuzzy
 #| msgid "Other core settings"
 msgid "More settings"
-msgstr "Andra grundinställningar"
+msgstr "Fler inställningar"
 
 #: main.php:170
 msgid "Protocol version"
