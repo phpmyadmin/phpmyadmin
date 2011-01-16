@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:12+0200\n"
+"PO-Revision-Date: 2011-01-16 15:13+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7607,9 +7607,8 @@ msgid "Master replication"
 msgstr "Master replikering"
 
 #: server_databases.php:174 server_replication.php:246
-#, fuzzy
 msgid "Slave replication"
-msgstr "Serverkonfiguration"
+msgstr "Slav replikering"
 
 #: server_databases.php:257 server_databases.php:258
 msgid "Enable Statistics"
