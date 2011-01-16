@@ -8956,7 +8956,6 @@ msgid "Show processes"
 msgstr "Visa processer"
 
 #: server_status.php:461
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
