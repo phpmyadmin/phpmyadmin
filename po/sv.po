@@ -7005,10 +7005,9 @@ msgstr ""
 "trunkering utförs (standardvärde: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Andra grundinställningar"
+msgstr "Hantera dina inställningar"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
