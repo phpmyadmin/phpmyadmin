@@ -7065,7 +7065,7 @@ msgstr "Bakgrundsfärg"
 
 #: main.php:136
 msgid "Choose..."
-msgstr ""
+msgstr "välj..."
 
 #: main.php:153 prefs_manage.php:274
 #, fuzzy
