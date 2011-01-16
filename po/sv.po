@@ -8205,7 +8205,7 @@ msgstr "Full stopp"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Återställ slav"
 
 #: server_replication.php:326
 #, fuzzy
