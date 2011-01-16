@@ -9686,7 +9686,7 @@ msgstr "Fortsätt inmatning med %s rader"
 #: tbl_chart.php:56
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Chart genereras framgångsrikt."
+msgstr "Diagram skapadesframgångsrikt."
 
 #: tbl_chart.php:59
 #| msgid ""
