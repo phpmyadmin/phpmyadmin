@@ -7603,9 +7603,8 @@ msgstr "Databas-statistik"
 
 #: server_databases.php:172 server_replication.php:179
 #: server_replication.php:207
-#, fuzzy
 msgid "Master replication"
-msgstr "Serverkonfiguration"
+msgstr "Master replikering"
 
 #: server_databases.php:174 server_replication.php:246
 #, fuzzy
