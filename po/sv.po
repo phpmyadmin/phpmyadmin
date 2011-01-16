@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:25+0200\n"
+"PO-Revision-Date: 2011-01-16 16:26+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8964,7 +8964,7 @@ msgstr "Återställ"
 #: server_status.php:467
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr "Denna MySQL-server har körts i %s. Den startade den %s."
+msgstr "Denna MySQL-server har varit igång i %s. Den startade den %s."
 
 #: server_status.php:477
 msgid ""
