@@ -8243,7 +8243,7 @@ msgstr "Hoppa över nästa"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "fel."
 
 #: server_replication.php:361
 #, php-format
