@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:50+0200\n"
+"PO-Revision-Date: 2011-01-16 16:52+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9213,7 +9213,6 @@ msgid "Cannot load or save configuration"
 msgstr "Kan inte ladda eller spara konfiguration"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -9225,8 +9224,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Skapa en för webbservern skrivbar katalog [em]config[/em] i phpMyAdmin:s "
-"huvudkatalog enligt beskrivning i [a@../Documentation.html#setup_script]"
-"dokumentationen[/a]. Annars kan du endast ladda ner och visa den."
+"huvudkatalog son beskrivs i "
+"[a@../Documentation.html#setup_script]dokumentationen[/a]. Annars kommer du "
+"endast att kunna hämta eller visa den."
 
 #: setup/frames/index.inc.php:57
 msgid ""
