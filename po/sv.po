@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:55+0200\n"
+"PO-Revision-Date: 2011-01-16 16:58+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9369,7 +9369,7 @@ msgstr ""
 "senaste versionen är %s, publicerad den %s."
 
 #: setup/lib/index.lib.php:162
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
@@ -9377,8 +9377,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Du använder en subversion-version, kör [kbd]svn update[/kbd] :-)[br]Den "
-"senaste stabila versionen är %s, publicerad den %s."
+"Du använder Git version, kör [kbd]git pull[/ kbd] :-) [br] Den senaste "
+"stabila versionen är%s, släppt den %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
