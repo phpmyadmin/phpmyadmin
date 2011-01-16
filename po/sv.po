@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:32+0200\n"
+"PO-Revision-Date: 2011-01-16 14:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7204,6 +7204,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Stöd för Javascript saknas eller är inaktiverat i din webbläsare. Viss "
+"phpMyAdmin funktionalitet kommer saknas. Till exempel kommer "
+"navigeringsramen inte uppdateras automatiskt."
 
 #: main.php:334
 #, php-format
