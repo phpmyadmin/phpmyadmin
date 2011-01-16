@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:29+0200\n"
+"PO-Revision-Date: 2011-01-16 16:31+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8985,7 +8985,6 @@ msgstr ""
 "Denna MySQL server arbetar som <b>slave</b> in <b>replication</b> process."
 
 #: server_status.php:483
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -8994,9 +8993,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Denna MySQL-server arbetar som %s i <b>replikerings</b>-läge. För mer "
-"information om replikeringsstatus på servern, gå till <a href=\"#replication"
-"\">replikeringssektionen</a>."
+"För ytterligare information om replikeringsstatus på servern, gå till <a "
+"href=\"#replication\">replikeringssektionen</a>."
 
 #: server_status.php:500
 msgid ""
