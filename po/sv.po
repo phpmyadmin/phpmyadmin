@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:58+0200\n"
+"PO-Revision-Date: 2011-01-16 17:59+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10124,10 +10124,10 @@ msgid "After %s"
 msgstr "Efter %s"
 
 #: tbl_structure.php:686
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Skapa ett index för&nbsp;%s&nbsp;kolumn(er)"
+msgstr "Skapa ett index för &nbsp;%s&nbsp;kolumn(er)"
 
 #: tbl_structure.php:848
 msgid "partitioned"
