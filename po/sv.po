@@ -8083,7 +8083,7 @@ msgstr "Okänt fel"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Kan inte ansluta till master %s."
 
 #: server_replication.php:63
 msgid ""
