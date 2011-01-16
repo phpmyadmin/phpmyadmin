@@ -8181,7 +8181,7 @@ msgstr "Slav IO tråden exekveras inte!"
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "Servern är konfigurerad som slav i en replikering process. Vill du:"
 
 #: server_replication.php:306
 msgid "See slave status table"
