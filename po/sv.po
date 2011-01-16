@@ -8775,7 +8775,7 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Antalet föreningar utan nycklar som kontrollerar nyckelanvändning efter "
+"Antalet kopplingar utan nycklar som kontrollerar nyckelanvändning efter "
 "varje rad. (Om detta värde inte är 0, bör du noggrant kontrollera index för "
 "dina tabeller.)"
 
