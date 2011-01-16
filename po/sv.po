@@ -9830,7 +9830,7 @@ msgstr "Indexnamn:"
 
 #: tbl_indexes.php:172
 msgid "Index type:"
-msgstr "Indextyp&nbsp;:"
+msgstr "Indextyp:"
 
 #: tbl_indexes.php:182
 msgid ""
