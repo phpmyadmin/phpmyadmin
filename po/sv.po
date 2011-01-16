@@ -9127,7 +9127,7 @@ msgstr "Ändra kolumn(er)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Radera index"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Apply index(s)"
