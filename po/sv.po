@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:17+0200\n"
+"PO-Revision-Date: 2011-01-16 15:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7628,7 +7628,7 @@ msgstr "Lagringsmotorer"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Visa SQL-satser för databaser"
+msgstr "Visa dump (schemat) för databaser"
 
 #: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
