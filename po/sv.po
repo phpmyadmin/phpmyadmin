@@ -8106,9 +8106,8 @@ msgid "This server is configured as master in a replication process."
 msgstr "Denna server är konfigurerad som master i en replikerings process."
 
 #: server_replication.php:182 server_status.php:398
-#, fuzzy
 msgid "Show master status"
-msgstr "Visa slav-status"
+msgstr "Visa master-status"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
