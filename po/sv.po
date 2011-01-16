@@ -10136,7 +10136,7 @@ msgstr "partitionerad"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Spårning av rapport för tabell `%s`"
 
 #: tbl_tracking.php:182
 #, php-format
