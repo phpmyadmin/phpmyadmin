@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:49+0200\n"
+"PO-Revision-Date: 2011-01-16 14:50+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7385,9 +7385,8 @@ msgstr ""
 "lämpligt fältnamn."
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "Tabell %1$s har skapats."
+msgstr "Sidan har skapats"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
