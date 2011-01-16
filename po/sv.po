@@ -9746,10 +9746,9 @@ msgid "Pie"
 msgstr "Paj"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Typ av fråga"
+msgstr "Stapel typ"
 
 #: tbl_chart.php:146
 #, fuzzy
