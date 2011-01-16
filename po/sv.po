@@ -9644,7 +9644,7 @@ msgstr "Lägg till som ny rad"
 
 #: tbl_change.php:1022
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Infoga som ny rad och ignorera fel"
 
 #: tbl_change.php:1023
 #, fuzzy
