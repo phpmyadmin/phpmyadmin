@@ -9705,7 +9705,7 @@ msgstr "Bredd"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Höjd"
 
 #: tbl_chart.php:98
 msgid "Title"
