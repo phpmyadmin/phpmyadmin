@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:32+0200\n"
+"PO-Revision-Date: 2011-01-16 16:33+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9064,7 +9064,7 @@ msgstr "per sekund"
 
 #: server_status.php:671
 msgid "Query type"
-msgstr "Typ av fråga"
+msgstr "Fråge-typ"
 
 #: server_status.php:710 server_status.php:711
 #, fuzzy
