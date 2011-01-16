@@ -10021,8 +10021,8 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"En intern relation är inte nödvändig när en motsvarande främmande nyckel-"
-"relation finns."
+"En intern relation är inte nödvändig när en motsvarande FOREIGN KEY relation "
+"finns."
 
 #: tbl_relation.php:410
 #, fuzzy
