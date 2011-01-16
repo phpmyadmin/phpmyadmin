@@ -7403,10 +7403,9 @@ msgid "Import from selected page"
 msgstr "Importera från vald sida"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Exportera/importera till skala"
+msgstr "Exportera till vald sida"
 
 #: pmd_pdf.php:102
 #, fuzzy
