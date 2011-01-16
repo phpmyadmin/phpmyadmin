@@ -8561,7 +8561,7 @@ msgstr "Antalet väntande fsync() av loggfil."
 
 #: server_status.php:95
 msgid "Pending log file writes."
-msgstr "Pågående skrivningar till loggfil."
+msgstr "Väntande skrivningar till loggfil."
 
 #: server_status.php:96
 msgid "The number of bytes written to the log file."
