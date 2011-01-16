@@ -9980,7 +9980,7 @@ msgstr "Användning"
 
 #: tbl_printview.php:338 tbl_structure.php:779
 msgid "Effective"
-msgstr "Effektivt"
+msgstr "Effektiv"
 
 #: tbl_printview.php:363 tbl_structure.php:817
 msgid "Row Statistics"
