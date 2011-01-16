@@ -8763,7 +8763,7 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Antalet föreningar som inte använder index. Om detta värde inte är 0, bör du "
+"Antalet kopplingar som inte använder index. Om detta värde inte är 0, bör du "
 "noggrant kontrollera index för dina tabeller."
 
 #: server_status.php:134
