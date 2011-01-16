@@ -7390,7 +7390,7 @@ msgstr "Sidan har skapats"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Sidan gick inte att skapa"
 
 #: pmd_pdf.php:89
 #, fuzzy
