@@ -10222,7 +10222,7 @@ msgstr "Exportera som %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Visa versioner"
 
 #: tbl_tracking.php:587
 #, fuzzy
