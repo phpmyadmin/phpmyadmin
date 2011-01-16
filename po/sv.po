@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 18:02+0200\n"
+"PO-Revision-Date: 2011-01-16 18:03+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10151,7 +10151,7 @@ msgstr "Spårning av %s.%s , version %s är avaktiverad."
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Spårning av %s.%s , version %s är aktiverad."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
