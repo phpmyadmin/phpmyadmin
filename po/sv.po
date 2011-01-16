@@ -10188,9 +10188,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Visa %s med datum fån %s till %s av användare %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Data"
+msgstr "Datum"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
