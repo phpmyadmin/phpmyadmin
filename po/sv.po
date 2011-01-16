@@ -9751,10 +9751,9 @@ msgid "Bar type"
 msgstr "Stapel typ"
 
 #: tbl_chart.php:146
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Packad"
+msgstr "Staplade"
 
 #: tbl_chart.php:147
 msgid "Multi"
