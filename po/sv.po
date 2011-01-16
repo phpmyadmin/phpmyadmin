@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:35+0200\n"
+"PO-Revision-Date: 2011-01-16 14:36+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7230,7 +7230,7 @@ msgstr "Inga databaser"
 
 #: navigation.php:280 setup/frames/index.inc.php:219
 msgid "Clear"
-msgstr "Nollställ"
+msgstr "Rensa"
 
 #: navigation.php:281
 msgid "Filter"
