@@ -8036,7 +8036,7 @@ msgstr "Skapa databas med samma namn och tilldela alla privilegier"
 
 #: server_privileges.php:2131
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr "Ge alla privilegier till namn med jokertecken (username\\_%)"
+msgstr "Bevilja alla privilegier till namn med jokertecken (username\\_%)"
 
 #: server_privileges.php:2134
 #, php-format
