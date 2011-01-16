@@ -10260,9 +10260,8 @@ msgid "Track these data manipulation statements:"
 msgstr "Spåra dessa datahanterings kommandon"
 
 #: tbl_tracking.php:682
-#, fuzzy
 msgid "Create version"
-msgstr "Skapa relation"
+msgstr "Skapa version"
 
 #: themes.php:31
 #, php-format
