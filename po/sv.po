@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:09+0200\n"
+"PO-Revision-Date: 2011-01-16 14:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7020,6 +7020,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Dina inställningar kommer enbart att sparas för den aktuella sessionen.För "
+"att lagra dem permanent krävs %sphpMyAdmin% configuration storage%s."
 
 #: libraries/user_preferences.lib.php:141
 #, fuzzy
