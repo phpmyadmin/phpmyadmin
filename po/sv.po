@@ -7362,10 +7362,9 @@ msgid "Operator"
 msgstr "Aktör"
 
 #: pmd_general.php:812
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Tabellalternativ"
+msgstr "Aktiva alternativ"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
