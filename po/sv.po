@@ -8111,7 +8111,7 @@ msgstr "Visa master-status"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Visa anslutna slavar"
 
 #: server_replication.php:208
 #, php-format
