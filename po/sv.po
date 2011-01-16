@@ -8227,7 +8227,7 @@ msgstr "Stoppa endast IO tråd"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Felhantering:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
