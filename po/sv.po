@@ -9917,10 +9917,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Rensa tabellen (flush)"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Data i tabell"
+msgstr "Ta bort data eller tabell"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
