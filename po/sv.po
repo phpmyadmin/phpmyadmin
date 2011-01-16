@@ -10213,7 +10213,7 @@ msgstr "Denna alternativ kommer att ersätta din tabell och ingående data."
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL exekvering"
 
 #: tbl_tracking.php:515
 #, fuzzy, php-format
