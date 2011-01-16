@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:27+0200\n"
+"PO-Revision-Date: 2011-01-16 14:32+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7187,7 +7187,7 @@ msgstr ""
 "har konfigurerats."
 
 #: main.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -7195,8 +7195,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Den extra funktionaliteten för att hantera länkade tabeller har "
-"inaktiverats. %sVisa orsaken%s."
+" phpMyAdmin konfigurationen är inte fullständigt konfigurerat, vissa utökade "
+"funktioner har inaktiverats.. Föra att ta reda på varför klicka%shär%s."
 
 #: main.php:319
 msgid ""
