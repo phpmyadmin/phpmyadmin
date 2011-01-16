@@ -8533,9 +8533,7 @@ msgstr "Antalet sidor som har skrivits för doublewrite transaktioner"
 
 #: server_status.php:89
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"Antalet dubbelskrivningar som har utförts och antalet sidor som har skrivits "
-"för detta ändamål."
+msgstr "Antalet doublewrite transaktioner som har utförts.."
 
 #: server_status.php:90
 msgid ""
