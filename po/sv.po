@@ -9091,7 +9091,7 @@ msgstr "Kunde inte ansluta till målet"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s'  databasen finns inte."
+msgstr "'%s' databasen finns inte."
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
