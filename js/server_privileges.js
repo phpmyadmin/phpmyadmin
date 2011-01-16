@@ -211,7 +211,7 @@ $(document).ready(function() {
                 width: 800,
                 // height is a workaround for this Chrome problem:
                 // http://bugs.jqueryui.com/ticket/4671
-                height: 700,
+                height: 600,
                 modal: true,
                 buttons: button_options
             }); //dialog options end
