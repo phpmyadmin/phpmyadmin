@@ -10056,7 +10056,7 @@ msgstr "Visningsordning:"
 
 #: tbl_structure.php:160 tbl_structure.php:164
 msgid "Browse distinct values"
-msgstr "Visa distinkta värden"
+msgstr "Bläddra bland distinkta värden"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
