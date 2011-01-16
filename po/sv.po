@@ -7486,7 +7486,7 @@ msgstr "Importera från webbläsaren"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Inställningar kommer att importeras från webbläsaren"
 
 #: prefs_manage.php:254
 #, fuzzy
