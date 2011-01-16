@@ -8505,7 +8505,7 @@ msgstr "Nuvarande antal pågående fsync()-operationer."
 
 #: server_status.php:82
 msgid "The current number of pending reads."
-msgstr "Nuvarande antal pågående läsningar."
+msgstr "Nuvarande antal väntande läsningar."
 
 #: server_status.php:83
 msgid "The current number of pending writes."
