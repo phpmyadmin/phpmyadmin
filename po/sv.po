@@ -9111,7 +9111,7 @@ msgstr "Struktur skillnad"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Data Difference"
-msgstr "Data skillnda"
+msgstr "Data skillnad"
 
 #: server_synchronize.php:428 server_synchronize.php:871
 msgid "Add column(s)"
