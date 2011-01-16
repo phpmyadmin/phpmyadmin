@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:10+0200\n"
+"PO-Revision-Date: 2011-01-16 17:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9467,7 +9467,7 @@ msgstr ""
 "värde (för närvarande%d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9476,9 +9476,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Giltighet för inloggnings-cookie"
-"[/a] bör sättas till 1800 sekunder (30 minuter) som mest. Värden större än "
-"1800 kan utgöra en säkerhetsrisk såsom identitetsstöld."
+"%slogin cookie giltighet%s ska anges till 1800 sekunder (30 minuter) som "
+"mest. Värden större än 1800 kan innebära en säkerhetsrisk som "
+"identitetsstöld.."
 
 #: setup/lib/index.lib.php:264
 #, php-format
