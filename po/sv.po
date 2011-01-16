@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:07+0200\n"
+"PO-Revision-Date: 2011-01-16 15:08+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7539,7 +7539,7 @@ msgstr "Alla"
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "<b>%s</b>-tabellen ej funnen eller ej angiven i %s"
+msgstr "<b>%s</b>-tabellen hittas ej eller är ej angiven i %s"
 
 #: schema_export.php:45
 #, fuzzy
