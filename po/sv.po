@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:23+0200\n"
+"PO-Revision-Date: 2011-01-16 17:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9576,10 +9576,9 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Nyckeln är för kort, den ska ha minst 8 tecken."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Nyckel bör innehålla bokstäver, siffror [em]och[/em] specialteckan"
+msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 
 #: sql.php:80 tbl_change.php:244 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
