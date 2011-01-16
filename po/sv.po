@@ -9151,7 +9151,7 @@ msgstr "Applicera markerade ändringar"
 
 #: server_synchronize.php:449 server_synchronize.php:894
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Synkronisera databaser"
 
 #: server_synchronize.php:462
 msgid "Selected target tables have been synchronized with source tables."
