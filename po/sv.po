@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:18+0200\n"
+"PO-Revision-Date: 2011-01-16 15:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7757,7 +7757,7 @@ msgstr "Tillåter visning av processer för alla användare"
 #: server_privileges.php:49 server_privileges.php:191
 #: server_privileges.php:449 server_privileges.php:551
 msgid "Has no effect in this MySQL version."
-msgstr "Har ingen verkan i denna MySQL-version."
+msgstr "Har ingen verkan i denna version av MySQL."
 
 #: server_privileges.php:50 server_privileges.php:187
 #: server_privileges.php:546
