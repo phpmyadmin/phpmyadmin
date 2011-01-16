@@ -7632,7 +7632,7 @@ msgstr "Visa dump (schemat) för databaser"
 
 #: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
-msgstr "Inkluderar alla privilegier utom GRANT."
+msgstr "Inkluderar alla privilegier förutom GRANT."
 
 #: server_privileges.php:26 server_privileges.php:193
 #: server_privileges.php:516
