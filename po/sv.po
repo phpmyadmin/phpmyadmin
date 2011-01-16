@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:44+0200\n"
+"PO-Revision-Date: 2011-01-16 17:45+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9826,7 +9826,7 @@ msgstr "Ändra ett index"
 
 #: tbl_indexes.php:166
 msgid "Index name:"
-msgstr "Indexnamn&nbsp;:"
+msgstr "Indexnamn:"
 
 #: tbl_indexes.php:172
 msgid "Index type:"
