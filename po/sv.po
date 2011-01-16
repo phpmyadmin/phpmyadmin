@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:41+0200\n"
+"PO-Revision-Date: 2011-01-16 16:42+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9119,7 +9119,7 @@ msgstr "Lägg till kolumn(er)"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Radera kolumn(er)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Alter column(s)"
