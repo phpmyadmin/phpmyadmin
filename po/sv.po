@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:23+0200\n"
+"PO-Revision-Date: 2011-01-16 15:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7834,7 +7834,7 @@ msgstr "Tabellspecifika privilegier"
 #: server_privileges.php:433 server_privileges.php:575
 #: server_privileges.php:1621
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Obs! MySQL privilegiumnamn anges på engelska "
+msgstr " Notera: MySQL privilegie benämningar uttrycks på engelska"
 
 #: server_privileges.php:564 server_privileges.php:1620
 msgid "Global privileges"
