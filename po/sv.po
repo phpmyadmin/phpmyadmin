@@ -9788,7 +9788,7 @@ msgstr ""
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "Rita om"
 
 #: tbl_create.php:56
 #, php-format
