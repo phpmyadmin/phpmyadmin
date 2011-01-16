@@ -9163,7 +9163,7 @@ msgstr "Måldatabas har synkroniserats med källdatabasen"
 
 #: server_synchronize.php:1001
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Följande frågor har verkställts:"
 
 #: server_synchronize.php:1120
 msgid "Enter manually"
