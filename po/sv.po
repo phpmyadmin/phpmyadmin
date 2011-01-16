@@ -10216,9 +10216,9 @@ msgid "SQL execution"
 msgstr "SQL exekvering"
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Standard för export"
+msgstr "Exportera som %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
