@@ -8196,9 +8196,8 @@ msgid "Control slave:"
 msgstr "Kontroll-slav"
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full start"
-msgstr "Heltext"
+msgstr "Full start"
 
 #: server_replication.php:323
 #, fuzzy
