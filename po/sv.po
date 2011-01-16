@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:13+0200\n"
+"PO-Revision-Date: 2011-01-16 17:15+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9491,7 +9491,7 @@ msgstr ""
 "den."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9505,12 +9505,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Om du känner att detta är nödvändigt, använd ytterligare "
-"säkerhetsinställningar - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]värdautentisering[/a] och [a@?page=form&amp;"
-"formset=features#tab_Security]betrodd proxyserverlista[/a]. Dock är kanske "
-"IP-baserat skydd inte pålitligt om din IP-adress hör till en ISP som "
-"tusentals användare, inklusive du, är ansluten till."
+"Om du känner att detta är nödvändigt, använd extra skyddsinställningar - "
+"shost autentisering%s inställningarna  och %strusted proxies listan%s. Dock "
+"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP där "
+"tusentals användare, inklusive dig, är anslutna till"
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
