@@ -8123,9 +8123,8 @@ msgstr ""
 "du <a href=\"%s\">konfigurera</a> den?"
 
 #: server_replication.php:215
-#, fuzzy
 msgid "Master configuration"
-msgstr "Serverkonfiguration"
+msgstr "Master-konfiguration"
 
 #: server_replication.php:216
 msgid ""
