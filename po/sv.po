@@ -8239,7 +8239,7 @@ msgstr "Hoppa över nuvarande fel"
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Hoppa över nästa"
 
 #: server_replication.php:346
 msgid "errors."
