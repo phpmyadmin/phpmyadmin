@@ -8214,7 +8214,7 @@ msgstr "Starta endast SQL tråd"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Stoppa endast SQL tråd"
 
 #: server_replication.php:331
 #, fuzzy
