@@ -8146,7 +8146,7 @@ msgstr "Replikera alla databaser, Ignorera:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Ignorera alla databaser, Replikera:"
 
 #: server_replication.php:223
 #, fuzzy
