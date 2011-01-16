@@ -9031,7 +9031,7 @@ msgstr "Skickade"
 
 #: server_status.php:550
 msgid "Connections"
-msgstr "Uppkopplingar"
+msgstr "Förbindelser"
 
 #: server_status.php:557
 msgid "max. concurrent connections"
