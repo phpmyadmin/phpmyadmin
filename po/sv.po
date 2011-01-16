@@ -8768,7 +8768,7 @@ msgstr ""
 
 #: server_status.php:134
 msgid "The number of joins that used a range search on a reference table."
-msgstr "Antalet föreningar som använde en urvalssökning på en referenstabell."
+msgstr "Antalet kopplingar som använde en urvalssökning på en referenstabell."
 
 #: server_status.php:135
 msgid ""
