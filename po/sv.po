@@ -7944,7 +7944,7 @@ msgstr "Lägg till ny användare"
 
 #: server_privileges.php:1695
 msgid "Remove selected users"
-msgstr "Ta bort markerade användare"
+msgstr "Ta bort valda användare"
 
 #: server_privileges.php:1698
 msgid "Revoke all active privileges from the users and delete them afterwards."
