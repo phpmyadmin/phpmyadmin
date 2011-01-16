@@ -7476,10 +7476,9 @@ msgid "Saved on: @DATE@"
 msgstr "Har sparat på: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importera filer"
+msgstr "Importera från fil"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
