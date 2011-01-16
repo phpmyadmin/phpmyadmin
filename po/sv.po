@@ -7495,7 +7495,7 @@ msgstr "Du har inga sparade inställningar!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Denna funktion stöds inte av din webbläsare"
 
 #: prefs_manage.php:263
 #, fuzzy
