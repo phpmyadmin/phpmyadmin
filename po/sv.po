@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 18:18+0200\n"
+"PO-Revision-Date: 2011-01-16 18:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10235,7 +10235,7 @@ msgstr "Avbryt spårning för %s.%s"
 
 #: tbl_tracking.php:636
 msgid "Deactivate now"
-msgstr ""
+msgstr "Deaktivera nu"
 
 #: tbl_tracking.php:647
 #, php-format
