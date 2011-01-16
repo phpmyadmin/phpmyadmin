@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:15+0200\n"
+"PO-Revision-Date: 2011-01-16 14:16+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7055,10 +7055,9 @@ msgid "MySQL connection collation"
 msgstr "Kollation för MySQL anslutning"
 
 #: main.php:115
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Andra grundinställningar"
+msgstr "Inställningar för utseende"
 
 #: main.php:135
 msgid "Background color"
