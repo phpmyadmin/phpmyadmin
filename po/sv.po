@@ -8192,9 +8192,8 @@ msgid "Synchronize databases with master"
 msgstr "Synkronisera databaser med master"
 
 #: server_replication.php:320
-#, fuzzy
 msgid "Control slave:"
-msgstr "Kontrollanvändare"
+msgstr "Kontroll-slav"
 
 #: server_replication.php:323
 #, fuzzy
