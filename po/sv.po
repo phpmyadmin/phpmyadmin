@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 16:09+0200\n"
+"PO-Revision-Date: 2011-01-16 16:10+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8509,7 +8509,7 @@ msgstr "Nuvarande antal pågående läsningar."
 
 #: server_status.php:83
 msgid "The current number of pending writes."
-msgstr "Nuvarande antal pågående skrivningar."
+msgstr "Nuvarande antal väntande skrivningar."
 
 #: server_status.php:84
 msgid "The amount of data read so far, in bytes."
