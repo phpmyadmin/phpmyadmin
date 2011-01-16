@@ -9952,7 +9952,7 @@ msgstr "Optimera"
 
 #: tbl_operations.php:717
 msgid "Rebuild"
-msgstr "Omskapa"
+msgstr "Återskapa"
 
 #: tbl_operations.php:718
 msgid "Repair"
