@@ -9854,7 +9854,7 @@ msgstr "Kan inte flytta tabell till samma en!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Kan inte kopiera tabell till samma namn!"
+msgstr "Kan inte kopiera tabell till samma en!"
 
 #: tbl_move_copy.php:54
 #, php-format
