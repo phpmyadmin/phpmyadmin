@@ -9103,7 +9103,7 @@ msgstr "Datasynkronisering"
 
 #: server_synchronize.php:398 server_synchronize.php:837
 msgid "not present"
-msgstr ""
+msgstr "inte närvarande"
 
 #: server_synchronize.php:422 server_synchronize.php:865
 #, fuzzy
