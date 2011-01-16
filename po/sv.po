@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:44+0200\n"
+"PO-Revision-Date: 2011-01-16 14:45+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7346,10 +7346,9 @@ msgid "Rename to"
 msgstr "Byt namn till"
 
 #: pmd_general.php:484 pmd_general.php:583
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Användarnamn"
+msgstr "Nytt namn"
 
 #: pmd_general.php:487 pmd_general.php:702
 #, fuzzy
