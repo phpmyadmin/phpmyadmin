@@ -9717,7 +9717,7 @@ msgstr "X-axel etikett"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Y-axel etikett"
 
 #: tbl_chart.php:112
 msgid "Area margins"
