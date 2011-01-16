@@ -115,6 +115,7 @@ foreach ($js_messages as $name => $js_message) {
 }
 
 /* Calendar */
+echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage'] . 'b_calendar.png' . "';\n";
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
 PMA_printJsValue("$.datepicker.regional['']['closeText']", __('Done'));

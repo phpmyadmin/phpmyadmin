@@ -201,33 +201,16 @@ if (!isset($param) || $param[0] == '') {
             echo '            </select>' . "\n";
         } else {
             // o t h e r   c a s e s
+            $the_class = 'textfield';
+            $type = $fields_type[$i];
+            if ($type == 'date') {
+                $the_class .= ' datefield';
+            } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+                $the_class .= ' datetimefield';
+            }
             echo '            <input type="text" name="fields[' . $i . ']"'
-                .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
+                .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
         };
-        $type = $fields_type[$i];
-        if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
-        ?>
-<script type="text/javascript">
-//<![CDATA[
-$(function() {
-    $('#field_<?php echo $i; ?>').datepicker({
-        showOn: 'button',
-        buttonImage: '<?php echo $GLOBALS['pmaThemeImage'] . 'b_calendar.png'; ?>',
-        buttonImageOnly: true,
-        duration: '',
-        time24h: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        <?php echo ($type == 'date' ? "showTime: false,":"showTime: true,"); ?>
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        altTimeField: '',
-        constrainInput: false
-     });
-});
-//]]>
-</script>
-        <?php
-        }
         ?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
                 value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />

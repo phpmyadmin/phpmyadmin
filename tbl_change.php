@@ -942,10 +942,16 @@ foreach ($rows as $row_id => $vrow) {
                     ><?php echo $special_chars_encoded; ?></textarea>
                 <?php
             } else {
+                $the_class = 'textfield';
+                if ($field['pma_type'] == 'date') {
+                    $the_class .= ' datefield';
+                } elseif ($field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                    $the_class .= ' datetimefield';
+                }
                 ?>
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
-                    class="textfield" <?php echo $unnullify_trigger; ?>
+                    class="<?php echo $the_class; ?>" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
@@ -973,31 +979,6 @@ foreach ($rows as $row_id => $vrow) {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
                     // in dateFormat, 'yy' means the year with 4 digits
-                    ?>
-<script type="text/javascript">
-//<![CDATA[
-$(function() {
-    $('#field_<?php echo ($idindex); ?>_3').datepicker({
-        showOn: 'button',
-        buttonImage: '<?php echo $GLOBALS['pmaThemeImage'] . 'b_calendar.png'; ?>',
-        buttonImageOnly: true,
-        duration: '',
-        time24h: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        altTimeField: '',
-        beforeShow: function(input, inst) {
-            // Remember that we came from the datepicker
-            $(input).data('comes_from', 'datepicker');
-        },
-        constrainInput: false
-     });
-});
-//]]>
-</script>
-                    <?php
                 }
             }
         }

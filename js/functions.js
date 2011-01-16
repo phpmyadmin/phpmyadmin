@@ -55,6 +55,37 @@ function displayPasswordGenerateButton() {
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
 }
 
+/*
+ * Adds a date/time picker to an element
+ *
+ * @param   object  $this_element   a jQuery object pointing to the element 
+ */
+function PMA_addDatepicker($this_element) {
+    var showTimeOption = false;
+    if ($this_element.is('.datetimefield')) {
+        showTimeOption = true;
+    }
+
+    $this_element
+        .datepicker({
+        showOn: 'button',
+        buttonImage: themeCalendarImage, // defined in js/messages.php
+        buttonImageOnly: true,
+        duration: '',
+        time24h: true,
+        stepMinutes: 1,
+        stepHours: 1,
+        showTime: showTimeOption, 
+        dateFormat: 'yy-mm-dd', // yy means year with four digits
+        altTimeField: '',
+        beforeShow: function(input, inst) {
+            // Remember that we came from the datepicker; this is used
+            // in tbl_change.js by verificationsAfterFieldChange()
+            $this_element.data('comes_from', 'datepicker');
+        },
+        constrainInput: false
+     });
+}
 
 /**
  * selects the content of a given object, f.e. a textarea
@@ -845,17 +876,24 @@ function checkTransmitDump(theForm, theAction)
     return true;
 } // end of the 'checkTransmitDump()' function
 
-/**
- * Row marking in horizontal mode (use "live" so that it works also for 
- * next pages reached via AJAX); a tr may have the class noclick to remove
- * this behavior.
- */
 $(document).ready(function() {
+    /**
+     * Row marking in horizontal mode (use "live" so that it works also for 
+     * next pages reached via AJAX); a tr may have the class noclick to remove
+     * this behavior.
+     */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function() {
         var $tr = $(this);
         $tr.toggleClass('marked');
         $tr.children().toggleClass('marked');
     });
+
+    /**
+     * Add a date/time picker to each element that needs it 
+     */
+    $('.datefield, .datetimefield').each(function() {
+        PMA_addDatepicker($(this));
+        });
 })
 
 /**
