@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:46+0200\n"
+"PO-Revision-Date: 2011-01-16 14:49+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7371,7 +7371,6 @@ msgid "To select relation, click :"
 msgstr "För att välja relation, klicka :"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7381,8 +7380,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Visningsfältet visas i rosa. För att ange ett fält som visningsfält, klicka "
-"på ikonen \"Välj fält som ska visas\" och klicka sedan på lämpligt fältnamn."
+"Visningsfältet visas i rosa. För att aktivera/avaktivera ett fält som "
+"visningsfält, klicka på ikonen \"Välj fält som ska visas\" och klicka sedan på "
+"lämpligt fältnamn."
 
 #: pmd_pdf.php:34
 #, fuzzy
