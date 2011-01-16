@@ -7612,7 +7612,7 @@ msgstr "Slav replikering"
 
 #: server_databases.php:257 server_databases.php:258
 msgid "Enable Statistics"
-msgstr "Slå på statistik"
+msgstr "Aktivera Statistik"
 
 #: server_databases.php:260
 msgid ""
