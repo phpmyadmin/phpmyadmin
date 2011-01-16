@@ -7821,7 +7821,6 @@ msgid "No privileges."
 msgstr "Inga privilegier."
 
 #: server_privileges.php:303 server_privileges.php:304
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
