@@ -7393,10 +7393,9 @@ msgid "Page creation failed"
 msgstr "Sidan gick inte att skapa"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "sidor"
+msgstr "Sida"
 
 #: pmd_pdf.php:99
 #, fuzzy
