@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:29+0200\n"
+"PO-Revision-Date: 2011-01-16 15:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7970,7 +7970,7 @@ msgstr ""
 
 #: server_privileges.php:1775
 msgid "The selected user was not found in the privilege table."
-msgstr "Den markerade användaren kunde inte hittas i privilegiumtabellen."
+msgstr "Den valda användaren kunde inte hittas i privilegietabellen."
 
 #: server_privileges.php:1815
 msgid "Column-specific privileges"
