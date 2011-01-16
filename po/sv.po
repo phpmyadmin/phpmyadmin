@@ -7222,7 +7222,7 @@ msgstr ""
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga frågor."
+msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga problem."
 
 #: navigation.php:191 server_databases.php:265 server_synchronize.php:1189
 msgid "No databases"
