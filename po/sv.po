@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:15+0200\n"
+"PO-Revision-Date: 2011-01-16 17:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9511,7 +9511,7 @@ msgstr ""
 "tusentals användare, inklusive dig, är anslutna till"
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9528,10 +9528,9 @@ msgid ""
 msgstr ""
 "Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och "
 "lösenord för autoinloggning, vilket inte är en önskvärd inställning för "
-"skarpa värdar. Vem som helst som vet eller gissar din phpMyAdmin-URL kan "
-"direkt komma åt ditt phpMyAdmin-verktyg. Sätt [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server]autentiseringstyp[/a] till [kbd]cookie[/"
-"kbd] eller [kbd]http[/kbd]."
+"värdar i skarp drift. Vem som helst som vet eller gissar din phpMyAdmin-URL "
+"kan direkt komma åt ditt phpMyAdmin-verktyg. Sätt   %sauthentication type%s "
+"till [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
