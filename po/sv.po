@@ -7419,7 +7419,7 @@ msgstr "Nytt sidnamn:"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
-msgstr "Exportera/importera till skala"
+msgstr "Exportera/Importera till skala"
 
 #: pmd_pdf.php:119
 msgid "recommended"
