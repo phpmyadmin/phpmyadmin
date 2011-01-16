@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 17:02+0200\n"
+"PO-Revision-Date: 2011-01-16 17:04+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9416,7 +9416,7 @@ msgstr ""
 "att kryptera cookies; du behöver inte komma ihåg den."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9425,9 +9425,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 komprimering och "
-"dekomprimering[/a] erfordrar funktioner (%s) som inte är tillgängliga på "
-"detta system."
+"%sBzip2 komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
+"tillgängliga på detta system."
 
 #: setup/lib/index.lib.php:255
 msgid ""
