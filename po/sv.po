@@ -7046,10 +7046,9 @@ msgid "Error in ZIP archive:"
 msgstr "Fel i ZIP-arkiv:"
 
 #: main.php:67
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Allmänna relationsfunktionaliteter"
+msgstr "Allmänna inställningar"
 
 #: main.php:99
 msgid "MySQL connection collation"
