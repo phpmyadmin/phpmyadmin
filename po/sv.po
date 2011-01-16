@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:54+0200\n"
+"PO-Revision-Date: 2011-01-16 15:57+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8185,7 +8185,7 @@ msgstr "Servern är konfigurerad som slav i en replikering process. Vill du:"
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Se slavtabell status"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
