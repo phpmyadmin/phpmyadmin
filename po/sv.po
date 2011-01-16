@@ -9583,7 +9583,7 @@ msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 #: sql.php:80 tbl_change.php:244 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Visa främmande värden"
+msgstr "Bläddra bland främmande värden"
 
 #: sql.php:569 tbl_replace.php:380
 #, php-format
