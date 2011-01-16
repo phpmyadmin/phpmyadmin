@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:05+0200\n"
+"PO-Revision-Date: 2011-01-16 15:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7521,7 +7521,7 @@ msgstr "Inställningarna kommer att sparas i din webbläsare."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Befintliga inställningar kommer skrivas över!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
