@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 14:38+0200\n"
+"PO-Revision-Date: 2011-01-16 14:39+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7289,7 +7289,7 @@ msgstr "Fäst vid rutnät"
 
 #: pmd_general.php:107
 msgid "Small/Big All"
-msgstr "Små/stora alla"
+msgstr "Små/Stora Alla"
 
 #: pmd_general.php:111
 msgid "Toggle small/big"
