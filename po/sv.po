@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 03:41+0200\n"
+"PO-Revision-Date: 2011-01-16 14:01+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6951,7 +6951,6 @@ msgstr ""
 "htmlspecialchars(). Det innebär att fältet antas innehålla korrekt HTML-kod."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6961,9 +6960,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Visar en bild och en länk; fältet innehåller filnamnet. Första parametern är "
-"ett URL-prefix såsom \"http://www.example.com/\". Andra och tredje "
-"parametern är bredden och höjden i pixlar."
+"Visar en bild och en länk; kolumnen innehåller filnamn. Det första "
+"alternativet är en URL prefix som \"http://www.example.com/\". Det andra och "
+"tredje alternativet är bredden och höjden i pixlar."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #, fuzzy
