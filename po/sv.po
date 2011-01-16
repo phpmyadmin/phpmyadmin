@@ -7061,7 +7061,7 @@ msgstr "Inställningar för utseende"
 
 #: main.php:135
 msgid "Background color"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 #: main.php:136
 msgid "Choose..."
