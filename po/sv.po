@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 15:58+0200\n"
+"PO-Revision-Date: 2011-01-16 16:00+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8200,9 +8200,8 @@ msgid "Full start"
 msgstr "Full start"
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full stop"
-msgstr "Heltext"
+msgstr "Full stopp"
 
 #: server_replication.php:324
 msgid "Reset slave"
