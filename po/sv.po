@@ -7024,10 +7024,9 @@ msgstr ""
 "att lagra dem permanent krävs %sphpMyAdmin% configuration storage%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Kan inte ladda eller spara konfiguration"
+msgstr "Kunde inte spara konfigurationen"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
