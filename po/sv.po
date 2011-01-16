@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-16 03:39+0200\n"
+"PO-Revision-Date: 2011-01-16 03:41+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6940,7 +6940,6 @@ msgstr ""
 "att utskriften kommer på en enda rad (standard 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6948,7 +6947,7 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Visar innehållet i fältet som det är, utan att köra det genom "
+"Visar innehållet i den kolumn som det är, utan att köra det genom "
 "htmlspecialchars(). Det innebär att fältet antas innehålla korrekt HTML-kod."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
