@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-17 21:12+0200\n"
+"PO-Revision-Date: 2011-01-17 21:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4138,11 +4138,10 @@ msgid "Verbose name of this server"
 msgstr "Пользовательское имя сервера"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Позволяет вывести кнопку &quot;показать все (записи)&quot;"
+msgstr "Позволяет вывести пользователю кнопку &quot;показать все (записи)&quot;"
 
 #: libraries/config/messages.inc.php:436
 msgid "Allow to display all the rows"
