@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-17 21:24+0200\n"
+"PO-Revision-Date: 2011-01-17 21:27+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4265,7 +4265,7 @@ msgstr "Пропускать заблокированные таблицы"
 
 #: libraries/config/messages.inc.php:462
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Требуется подключенный SQL валидатор"
 
 #: libraries/config/messages.inc.php:464
 #: libraries/display_change_password.lib.php:40
