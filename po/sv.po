@@ -4522,7 +4522,7 @@ msgstr "Felaktig IP-adress: %s"
 #: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%S tillägg saknas. Vänligen kontrollera din PHP konfiguration."
+msgstr "%s tillägg saknas. Vänligen kontrollera din PHP konfiguration."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:481
@@ -7021,7 +7021,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Dina inställningar kommer enbart att sparas för den aktuella sessionen.För "
-"att lagra dem permanent krävs %sphpMyAdmin% configuration storage%s."
+"att lagra dem permanent krävs %sphpMyAdmin configuration storage%s."
 
 #: libraries/user_preferences.lib.php:141
 #| msgid "Cannot load or save configuration"
@@ -9463,8 +9463,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "%sLogin cookie validity%s är mer än 1440 sekunder kan orsaka slumpmässit  "
-"ogiltigförklarande av session om%ssession.gc_maxlifetime s är mindre än dess "
-"värde (för närvarande%d)."
+"ogiltigförklarande av session om %ssession.gc_maxlifetime%s s är mindre än dess "
+"värde (för närvarande %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
@@ -9506,7 +9506,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Om du känner att detta är nödvändigt, använd extra skyddsinställningar - "
-"shost autentisering%s inställningarna  och %strusted proxies listan%s. Dock "
+"%shost autentisering%s inställningarna  och %strusted proxies listan%s. Dock "
 "kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP där "
 "tusentals användare, inklusive dig, är anslutna till"
 
@@ -9553,7 +9553,7 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sZip dekompression%s kräver funktioner ( s) som inte är tillgängliga på "
+"%sZip dekompression%s kräver funktioner (%s) som inte är tillgängliga på "
 "detta system."
 
 #: setup/lib/index.lib.php:296
