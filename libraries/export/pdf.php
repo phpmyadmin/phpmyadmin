@@ -47,45 +47,39 @@ class PMA_PDF extends TCPDF
     var $headerset;
     var $footerset;
 
-    // overloading of a tcpdf function:
-    function _beginpage($orientation)
-    {
-        $this->page++;
-        // solved the problem of overwriting a page, if it already exists
-        if (!isset($this->pages[$this->page])) {
-            $this->pages[$this->page] = '';
+    function checkPageBreak($h=0, $y='', $addpage=true) {
+        if ($this->empty_string($y)) {
+            $y = $this->y;
         }
-        $this->state = 2;
-        $this->x = $this->lMargin;
-        $this->y = $this->tMargin;
-        $this->lasth = 0;
-        $this->FontFamily = '';
-
-        //Page orientation
-        if (!$orientation) {
-            $orientation = $this->DefOrientation;
-        } else {
-            $orientation = strtoupper($orientation{0});
-            if ($orientation != $this->DefOrientation) {
-                $this->OrientationChanges[$this->page] = true;
+        $current_page = $this->page;
+        if ((($y + $h) > $this->PageBreakTrigger) AND (!$this->InFooter) AND ($this->AcceptPageBreak())) {
+            if ($addpage) {
+                //Automatic page break
+                $x = $this->x;
+                $this->AddPage($this->CurOrientation);
+                $this->y = $this->dataY;
+                $oldpage = $this->page - 1;
+                if ($this->rtl) {
+                    if ($this->pagedim[$this->page]['orm'] != $this->pagedim[$oldpage]['orm']) {
+                        $this->x = $x - ($this->pagedim[$this->page]['orm'] - $this->pagedim[$oldpage]['orm']);
+                    } else {
+                        $this->x = $x;
+                    }
+                } else {
+                    if ($this->pagedim[$this->page]['olm'] != $this->pagedim[$oldpage]['olm']) {
+                        $this->x = $x + ($this->pagedim[$this->page]['olm'] - $this->pagedim[$oldpage]['olm']);
+                    } else {
+                        $this->x = $x;
+                    }
+                }
             }
+            return true;
         }
-        if ($orientation != $this->CurOrientation) {
-            //Change orientation
-            if ($orientation == 'P') {
-                $this->wPt = $this->fwPt;
-                $this->hPt = $this->fhPt;
-                $this->w = $this->fw;
-                $this->h = $this->fh;
-            } else {
-                $this->wPt = $this->fhPt;
-                $this->hPt = $this->fwPt;
-                $this->w = $this->fh;
-                $this->h = $this->fw;
-            }
-            $this->PageBreakTrigger = $this->h - $this->bMargin;
-            $this->CurOrientation = $orientation;
+        if ($current_page != $this->page) {
+            // account for columns mode
+            return true;
         }
+        return false;
     }
 
     function Header()
@@ -125,18 +119,18 @@ class PMA_PDF extends TCPDF
             $this->headerset[$this->page] = 1;
         }
 
-        $this->SetY($maxY);
+        $this->dataY = $maxY;
     }
 
     function Footer()
     {
-    // Check if footer for this page already exists
+        // Check if footer for this page already exists
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             //Page number
             $this->Cell(0, 10, __('Page number:') .' '.$this->PageNo() .'/{nb}', 'T', 0, 'C');
 
-        // set footerset
+            // set footerset
             $this->footerset[$this->page] = 1;
         }
     }
@@ -145,7 +139,7 @@ class PMA_PDF extends TCPDF
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
-        $startheight = $h = $this->GetY();
+        $startheight = $h = $this->dataY;
         $startpage = $currpage = $this->page;
 
         // calculate the whole width
@@ -448,9 +442,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $pdf = new PMA_PDF('L', 'pt', 'A3');
 
     $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
-    $pdf->AddFont('DejaVuSans', 'B', 'dejavusans-bold.php');
+    $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
     $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-    $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserif-bold.php');
+    $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
     $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
     $pdf->AliasNbPages();
     $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
