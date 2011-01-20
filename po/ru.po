@@ -4352,7 +4352,7 @@ msgstr "Строк в текстовом поле"
 
 #: libraries/config/messages.inc.php:477
 msgid "Title of browser window when a database is selected"
-msgstr "Заголовок окна браузера при выборе базе данных"
+msgstr "Заголовок окна браузера при выборе базы данных"
 
 #: libraries/config/messages.inc.php:479
 msgid "Title of browser window when nothing is selected"
