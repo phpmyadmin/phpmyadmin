@@ -4365,7 +4365,7 @@ msgstr "Заголовок по умолчанию"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a server is selected"
-msgstr "Заголовок окна браузера при выбранном сервере"
+msgstr "Заголовок окна браузера при выборе сервера"
 
 #: libraries/config/messages.inc.php:483
 msgid "Title of browser window when a table is selected"
