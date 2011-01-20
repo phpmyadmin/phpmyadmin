@@ -4458,10 +4458,9 @@ msgid "Cookie authentication"
 msgstr "Авторизация с помощью cookie"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Порядок хостов для идентификации"
+msgstr "Авторизация с помощью HTTP"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
