@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-20 22:08+0200\n"
+"PO-Revision-Date: 2011-01-20 22:10+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4341,6 +4341,9 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Размер текстового поля в режиме редактирования (в строках); данное значение "
+"будет приоритетным для текстовых полей SQL запроса (*2) и для окна запроса "
+"(*1.25)"
 
 #: libraries/config/messages.inc.php:476
 #, fuzzy
