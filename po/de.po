@@ -817,7 +817,7 @@ msgstr "+ Eingabe wiederholen und neuen Wert hinzufügen"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Ausgabe"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
