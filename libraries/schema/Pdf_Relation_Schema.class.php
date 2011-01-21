@@ -18,7 +18,7 @@ require_once './libraries/tcpdf/tcpdf.php';
 /**
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
- * 
+ *
  * @name PMA_PDF
  * @copyright
  * @license
@@ -435,8 +435,8 @@ class PMA_PDF extends TCPDF
 
 /**
  * Table preferences/statistics
- * 
- * This class preserves the table co-ordinates,fields 
+ *
+ * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name Table_Stats
@@ -444,7 +444,7 @@ class PMA_PDF extends TCPDF
  * @license
  * @see PMA_PDF
  */
-class Table_Stats 
+class Table_Stats
 {
     /**
      * Defines properties
@@ -646,9 +646,9 @@ class Table_Stats
 
 /**
  * Relation preferences/statistics
- * 
+ *
  * This class fetches the table master and foreign fields positions
- * and helps in generating the Table references and then connects 
+ * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
@@ -657,7 +657,7 @@ class Table_Stats
  * @license
  * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
  */
-class Relation_Stats 
+class Relation_Stats
 {
     /**
      * Defines properties
@@ -923,7 +923,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 } // end while
             } // end if
         } // end while
-        
+
         if ($seen_a_relation) {
             $this->_drawRelations($this->showColor);
         }
@@ -979,8 +979,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _strokeGrid()
     {
-        global $pdf, $with_doc;;
-        
+        global $pdf, $with_doc;
+
         $gridSize = 10;
         $labelHeight = 4;
         $labelWidth = 5;
@@ -1041,7 +1041,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     }
 
     /**
-     * Ouputs the PDF document to a file 
+     * Ouputs the PDF document to a file
      * or sends the output to browser
      *
      * @global object   The current PDF document
@@ -1333,7 +1333,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             } // end while
             $pdf->SetFont('', '', 14);
             PMA_DBI_free_result($result);
-        } //end each    
+        } //end each
     }
 }
 ?>
