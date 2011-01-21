@@ -4744,10 +4744,9 @@ msgid "Dump some row(s)"
 msgstr "Выгрузить часть строк"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Количество полей"
+msgstr "Количество строк:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
