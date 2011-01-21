@@ -4786,7 +4786,7 @@ msgstr ", @DATABASE@ будет замещено именем базы данн�
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ будет замещено именем таблицы"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
