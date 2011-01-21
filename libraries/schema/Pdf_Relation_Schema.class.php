@@ -381,14 +381,6 @@ class PMA_PDF extends TCPDF
         $this->Ln($h);
     }
 
-    function CheckPageBreak($h)
-    {
-        // if height h overflows, manual page break
-        if ($this->GetY() + $h > $this->PageBreakTrigger) {
-            $this->AddPage($this->CurOrientation);
-        }
-    }
-
     function NbLines($w, $txt)
     {
         // compute number of lines used by a multicell of width w
@@ -987,26 +979,34 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _strokeGrid()
     {
-        global $pdf;
+        global $pdf, $with_doc;;
+        
+        $gridSize = 10;
+        $labelHeight = 4;
+        $labelWidth = 5;
+        if ($with_doc) {
+            $topSpace = 6;
+            $bottomSpace = 15;
+        }
 
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
-        for ($l = 0; $l < 21; $l++) {
-            $pdf->line(0, $l * 10, $pdf->getW(), $l * 10);
+        for ($l = 0; $l <= intval(($pdf->getH() - $topSpace - $bottomSpace) / $gridSize); $l++) {
+            $pdf->line(0, $l * $gridSize + $topSpace, $pdf->getW(), $l * $gridSize + $topSpace);
             // Avoid duplicates
-            if ($l > 0) {
-                $pdf->SetXY(0, $l * 10);
-                $label = (string) sprintf('%.0f', ($l * 10 - $this->topMargin) * $this->scale + $this->_yMin);
-                $pdf->Cell(5, 5, ' ' . $label);
+            if ($l > 0 && $l <= intval(($pdf->getH() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)) {
+                $pdf->SetXY(0, $l * $gridSize + $topSpace);
+                $label = (string) sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->_yMin);
+                $pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
         } // end for
         // Draws vertical lines
-        for ($j = 0; $j < 30 ;$j++) {
-            $pdf->line($j * 10, 0, $j * 10, $pdf->getH());
-            $pdf->SetXY($j * 10, 0);
-            $label = (string) sprintf('%.0f', ($j * 10 - $this->leftMargin) * $this->scale + $this->_xMin);
-            $pdf->Cell(5, 7, $label);
+        for ($j = 0; $j <= intval($pdf->getW() / $gridSize); $j++) {
+            $pdf->line($j * $gridSize, $topSpace, $j * $gridSize, $pdf->getH() - $bottomSpace);
+            $pdf->SetXY($j * $gridSize, $topSpace);
+            $label = (string) sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->_xMin);
+            $pdf->Cell($labelWidth, $labelHeight, $label);
         }
     }
 
@@ -1111,7 +1111,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $z = 0;
         foreach ($alltables as $table) {
             $z++;
-			$pdf->SetAutoPageBreak(true);
+            $pdf->SetAutoPageBreak(true);
             $pdf->addpage($GLOBALS['orientation']);
             $pdf->Bookmark($table);
             $pdf->SetAlias('{' . sprintf("%02d", $z) . '}', $pdf->PageNo()) ;
