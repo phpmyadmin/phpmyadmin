@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-21 22:31+0200\n"
+"PO-Revision-Date: 2011-01-21 22:33+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4778,7 +4778,7 @@ msgstr "Шаблон имени файла:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ будет замещено именем сервера"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
