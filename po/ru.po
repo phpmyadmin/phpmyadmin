@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-21 22:33+0200\n"
+"PO-Revision-Date: 2011-01-21 22:36+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4789,7 +4789,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ будет замещено именем таблицы"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4801,7 +4801,8 @@ msgid ""
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
-"следующие подстановки: %3$s. Остальной текст останется без изменений."
+"следующие подстановки: %3$s. Остальной текст останется без изменений. "
+"Подробности смотрите в %4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
