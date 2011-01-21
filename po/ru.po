@@ -4734,10 +4734,9 @@ msgid "Table(s):"
 msgstr "Таблицы:"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Строки"
+msgstr "Строки:"
 
 #: libraries/display_export.lib.php:157
 #, fuzzy
