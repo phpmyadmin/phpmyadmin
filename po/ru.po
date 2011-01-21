@@ -4830,7 +4830,6 @@ msgid "zipped"
 msgstr "zip"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzip"
