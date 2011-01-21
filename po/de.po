@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-21 12:05+0200\n"
+"PO-Revision-Date: 2011-01-21 12:06+0200\n"
 "Last-Translator:  <ch@rech.co>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -808,7 +808,7 @@ msgstr "Werte für die Spalte \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Jeden Wert in ein eigenes Feld eingeben."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
