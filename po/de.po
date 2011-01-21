@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2010-09-16 12:10+0200\n"
-"Last-Translator:  <sven-cihar.com@incase.de>\n"
+"PO-Revision-Date: 2011-01-21 12:02+0200\n"
+"Last-Translator:  <ch@rech.co>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -10477,36 +10477,3 @@ msgstr "View umbenennen in"
 
 #~ msgid "Stop"
 #~ msgstr "Stop"
-
-#, fuzzy
-#~| msgid "Display databases in a tree"
-#~ msgid "Display table filter"
-#~ msgstr "Datenbanken als Baum anzeigen"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch "
-#~ "deaktiviert. Klicken Sie %shier%s um herauszufinden warum."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignoriere doppelte Zeilen"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Gespeicherte SQL-Anfrage ausführen"
-
-#~ msgid "No tables"
-#~ msgstr "keine Tabellen"
-
-#, fuzzy
-#~| msgid "CSV"
-#~ msgid "SVG"
-#~ msgstr "CSV"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "Falls vom Server unterstützt, sollte diese [a@?page=form&amp;"
-#~ "formset=features#tab_Security]Option[/a] aktiviert werden"
