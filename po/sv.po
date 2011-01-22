@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-22 15:07+0200\n"
+"PO-Revision-Date: 2011-01-22 15:10+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1028,10 +1028,9 @@ msgid "Create User"
 msgstr "Skapa Användare"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Laddar om privilegierna"
+msgstr "Ladda om privilegier"
 
 #: js/messages.php:55
 #| msgid "Remove selected users"
