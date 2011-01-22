@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-22 15:01+0200\n"
+"PO-Revision-Date: 2011-01-22 15:02+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -790,7 +790,7 @@ msgstr "Versioner"
 
 #: db_tracking.php:134 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
-msgstr ""
+msgstr "Spårningsrapport"
 
 #: db_tracking.php:135 tbl_tracking.php:245 tbl_tracking.php:618
 #, fuzzy
