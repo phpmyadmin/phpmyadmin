@@ -802,9 +802,8 @@ msgstr "Ej spårade tabeller"
 
 #: db_tracking.php:184 db_tracking.php:186 tbl_structure.php:619
 #: tbl_structure.php:621
-#, fuzzy
 msgid "Track table"
-msgstr "Kontrollera tabell"
+msgstr "Spåra tabell"
 
 #: db_tracking.php:212
 msgid "Database Log"
