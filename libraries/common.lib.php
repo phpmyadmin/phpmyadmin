@@ -2201,8 +2201,11 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
     $pageNowMinusRange = ($pageNow - $range);
     $pageNowPlusRange = ($pageNow + $range);
 
-    $gotopage = $prompt
-              . ' <select id="pageselector" name="pos" >' . "\n";
+    $gotopage = $prompt . ' <select id="pageselector" ';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $gotopage .= ' class="ajax"';
+    }
+    $gotopage .= ' name="pos" >' . "\n";
     if ($nbTotalPage < $showAll) {
         $pages = range(1, $nbTotalPage);
     } else {
