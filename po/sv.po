@@ -945,7 +945,7 @@ msgstr "phpMyAdmin fungerar bättre med en webbläsare som hanterar ramar."
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr "Klicka för att välja"
+msgstr "Klicka för att markera"
 
 #: js/messages.php:26
 msgid "Click to unselect"
