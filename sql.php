@@ -730,7 +730,7 @@ if (0 == $num_rows || $is_affected) {
 else {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if( $GLOBALS['inline_edit'] == true) {
+    if( $GLOBALS['inline_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
         $extra_data = array();
         $extra_data['value'] = $row[0];
@@ -750,7 +750,7 @@ else {
 
         unset($message);
 
-        if( $GLOBALS['is_ajax_request'] != true) {
+        if( ! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
             if (strlen($table)) {
                 require './libraries/tbl_common.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
@@ -781,9 +781,13 @@ else {
         $fields_cnt  = count($fields_meta);
     }
 
-    if( $GLOBALS['is_ajax_request'] != true ) {
+    if( ! $GLOBALS['is_ajax_request']) {
         //begin the sqlqueryresults div here. container div
-        echo '<div id="sqlqueryresults">';
+        echo '<div id="sqlqueryresults"';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax"';
+        }
+        echo '>';
     }
 
     // Display previous update query (from tbl_replace)

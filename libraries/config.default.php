@@ -488,6 +488,13 @@ $cfg['ServerDefault'] = 1;
  * Other core phpMyAdmin settings
  */
 /**
+ * whether Ajax behavior is active 
+ *
+ * @global boolean $cfg['AjaxEnable']
+ */
+$cfg['AjaxEnable'] = true;
+
+/**
  * maximum number of db's displayed in left frame and database list
  *
  * @global integer $cfg['MaxDbList']

@@ -228,7 +228,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
         <input type="hidden" name="pos" value="<?php echo $pos; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
         <?php echo $input_for_real_end; ?>
-        <input type="submit" name="navig" value="<?php echo $caption_output; ?>"<?php echo $title_output . $onclick; ?> />
+        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' ); ?> value="<?php echo $caption_output; ?>"<?php echo $title_output . $onclick; ?> />
     </form>
 </td>
 <?php
@@ -303,7 +303,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo __('Show'); ?> :" />
+        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
         <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
         <?php echo __('row(s) starting from row #') . "\n"; ?>
         <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />

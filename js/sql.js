@@ -172,11 +172,11 @@ $(document).ready(function() {
 
     /**
      * Trigger the appendAnchor event to prepare the first table for inline edit
-     *
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      * @memberOf    jQuery
      * @name        sqlqueryresults_trigger
      */
-    $("#sqlqueryresults").trigger('appendAnchor');
+    $("#sqlqueryresults.ajax").trigger('appendAnchor');
 
     /**
      * Append the "Show/Hide query box" message to the query input form
@@ -264,11 +264,12 @@ $(document).ready(function() {
 
     /**
      * Paginate when we click any of the navigation buttons
+     * (only if the element has the ajax class, see $cfg['AjaxEnable'])
      * @memberOf    jQuery
      * @name        paginate_nav_button_click
      * @uses        PMA_ajaxShowMessage()
      */
-    $("input[name=navig]").live('click', function(event) {
+    $("input[name=navig].ajax").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -293,15 +294,22 @@ $(document).ready(function() {
      * @name        paginate_dropdown_change
      */
     $("#pageselector").live('change', function(event) {
-        event.preventDefault();
-
-        PMA_ajaxShowMessage();
         var $the_form = $(this).parent("form");
 
-        $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
-        }) // end $.post()
+        // see $cfg['AjaxEnable']
+        if ($(this).hasClass('ajax')) {
+            event.preventDefault();
+
+            PMA_ajaxShowMessage();
+
+            $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
+                $("#sqlqueryresults").html(data);
+                $("#sqlqueryresults").trigger('appendAnchor');
+            }) // end $.post()
+        } else {
+            $the_form.submit();
+        }
+
     })// end Paginate results with Page Selector
 
     /**
