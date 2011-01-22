@@ -245,7 +245,7 @@ class PMA_PDF extends TCPDF
         }
     }
 
-    function Bookmark($txt, $level = 0, $y = 0)
+    function Bookmark($txt, $level = 0, $y = 0, $page = '')
     {
         // Add a bookmark
         $this->Outlines[0][] = $level;
