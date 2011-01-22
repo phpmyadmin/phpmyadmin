@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-22 15:29+0200\n"
+"PO-Revision-Date: 2011-01-22 15:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10284,9 +10284,8 @@ msgid "VIEW name"
 msgstr "VIEW namn"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Döp om tabellen till"
+msgstr "Ändra namn till"
 
 #~ msgid "to/from page"
 #~ msgstr "till/från sida"
