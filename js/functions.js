@@ -1689,6 +1689,7 @@ $(document).ready(function() {
             .append(data)
             .dialog({
                 title: PMA_messages['strCreateTable'],
+                height: 600,
                 width: 900,
                 open: PMA_verifyTypeOfAllColumns, 
                 buttons : button_options
