@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-22 15:14+0200\n"
+"PO-Revision-Date: 2011-01-22 15:16+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1883,9 +1883,8 @@ msgid "GD extension is needed for charts."
 msgstr "GD filändelse är nödvändig för tabell. "
 
 #: libraries/chart.lib.php:252
-#, fuzzy
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "JSON kodare är nödvändig för tabell verktygstips"
+msgstr "JSON avkodare behövs för verktygstips för diagram"
 
 #: libraries/common.inc.php:574
 msgid ""
