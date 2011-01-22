@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-22 15:21+0200\n"
+"PO-Revision-Date: 2011-01-22 15:23+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2600,10 +2600,9 @@ msgstr "Kolumnerna avgränsas av"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:244 libraries/import/csv.php:77
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Specialtecken i fält föregås av"
+msgstr "Kolumner föregås av"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:86 libraries/config/messages.inc.php:95
