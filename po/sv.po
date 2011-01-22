@@ -1154,10 +1154,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Välj den primära nyckeln eller en unik nyckel"
 
 #: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Välj fält som ska visas"
+msgstr "Välj kolumn att visa"
 
 #: js/messages.php:102
 msgid "Add an option for column "
