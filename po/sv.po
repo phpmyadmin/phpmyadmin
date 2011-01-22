@@ -1049,10 +1049,9 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
-msgstr "Ladda"
+msgstr "Laddar"
 
 #: js/messages.php:64
 #| msgid "Processes"
