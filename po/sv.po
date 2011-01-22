@@ -1953,7 +1953,6 @@ msgstr "sv"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "sv"
