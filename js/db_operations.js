@@ -91,8 +91,11 @@ $(document).ready(function() {
         }
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
+            // use messages that stay on screen
+            $('.success').fadeOut();
+            $('.error').fadeOut();
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+                $('#topmenucontainer').after(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
@@ -100,7 +103,7 @@ $(document).ready(function() {
                }
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                $('#topmenucontainer').after(data.error);
             }
         }) // end $.get
     }) // end copy database
