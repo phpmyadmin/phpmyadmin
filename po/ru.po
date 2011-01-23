@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-21 22:52+0200\n"
+"PO-Revision-Date: 2011-01-23 14:35+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4889,10 +4889,9 @@ msgid ""
 msgstr "Пожалуйста, подождите, файл был загружен. Детали загрузки недоступны."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Невозможно подключиться к серверу MySQL"
+msgstr "Импорт на текущий сервер"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
