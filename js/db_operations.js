@@ -85,11 +85,17 @@ $(document).ready(function() {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        $form = $(this);
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
-        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+        $.get($form.attr('action'), $form.serialize(), function(data) {
+            // use messages that stay on screen
+            $('.success').fadeOut();
+            $('.error').fadeOut();
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+                $('#topmenucontainer').after(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
@@ -97,7 +103,7 @@ $(document).ready(function() {
                }
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                $('#topmenucontainer').after(data.error);
             }
         }) // end $.get
     }) // end copy database
