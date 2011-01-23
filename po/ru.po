@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-23 14:57+0200\n"
+"PO-Revision-Date: 2011-01-23 15:04+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4974,10 +4974,9 @@ msgid "%d is not valid row number."
 msgstr "Число %d не является правильным номером строки."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "строк начиная с"
+msgstr "строки начиная от"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
