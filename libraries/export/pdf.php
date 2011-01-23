@@ -85,19 +85,20 @@ class PMA_PDF extends TCPDF
     function Header()
     {
         global $maxY;
-
         // Check if header for this page already exists
         if (!isset($this->headerset[$this->page])) {
             $fullwidth = 0;
             foreach ($this->tablewidths as $width) {
                 $fullwidth += $width;
             }
-            $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*2);
+            $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*3);
             $this->cellFontSize = $this->FontSizePt ;
             $this->SetFont(PMA_PDF_FONT, '', ($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt));
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
-            $l = ($this->lMargin);
             $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
+            $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*1.5);
+            $this->Cell(0, $this->FontSizePt, __('Database') .': ' .$this->currentDb .',  ' .__('Table') .': ' .$this->currentTable, 0, 1, 'L');
+            $l = ($this->lMargin);
             foreach ($this->colTitles as $col => $txt) {
                 $this->SetXY($l, ($this->tMargin));
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt);
@@ -207,12 +208,26 @@ class PMA_PDF extends TCPDF
         $this->page = $maxpage;
     }
 
-
-    function mysql_report($query, $attr = array())
+    function setAttributes($attr = array())
     {
         foreach ($attr as $key => $val){
             $this->$key = $val ;
         }
+    }
+
+    function setTopMargin($topMargin)
+    {
+        $this->tMargin = $topMargin;
+    }
+
+    function mysql_report($query)
+    {
+        unset($this->tablewidths);
+        unset($this->colTitles);
+        unset($this->titleWidth);
+        unset($this->colFits);
+        unset($this->display_column);
+        unset($this->colAlign);
 
         /**
          * Pass 1 for column widths
@@ -221,118 +236,114 @@ class PMA_PDF extends TCPDF
         $this->numFields  = PMA_DBI_num_fields($this->results);
         $this->fields = PMA_DBI_get_fields_meta($this->results);
 
-        // if column widths not set
-        if (!isset($this->tablewidths)){
+        // sColWidth = starting col width (an average size width)
+        $availableWidth = $this->w - $this->lMargin - $this->rMargin;
+        $this->sColWidth = $availableWidth / $this->numFields;
+        $totalTitleWidth = 0;
 
-            // sColWidth = starting col width (an average size width)
-            $availableWidth = $this->w - $this->lMargin - $this->rMargin;
-            $this->sColWidth = $availableWidth / $this->numFields;
-            $totalTitleWidth = 0;
+        // loop through results header and set initial col widths/ titles/ alignment
+        // if a col title is less than the starting col width, reduce that column size
+        for ($i = 0; $i < $this->numFields; $i++){
+            $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
+            // save the real title's width
+            $titleWidth[$i] = $stringWidth;
+            $totalTitleWidth += $stringWidth;
 
-            // loop through results header and set initial col widths/ titles/ alignment
-            // if a col title is less than the starting col width, reduce that column size
-            for ($i = 0; $i < $this->numFields; $i++){
-                $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
-                // save the real title's width
-                $titleWidth[$i] = $stringWidth;
-                $totalTitleWidth += $stringWidth;
-
-                // set any column titles less than the start width to the column title width
-                if ($stringWidth < $this->sColWidth){
-                    $colFits[$i] = $stringWidth ;
-                }
-                $this->colTitles[$i] = $this->fields[$i]->name;
-                $this->display_column[$i] = true;
-
-                switch ($this->fields[$i]->type){
-                case 'int':
-                    $this->colAlign[$i] = 'R';
-                    break;
-                case 'blob':
-                case 'tinyblob':
-                case 'mediumblob':
-                case 'longblob':
-                    /**
-                     * @todo do not deactivate completely the display
-                     * but show the field's name and [BLOB]
-                     */
-                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
-                        $this->display_column[$i] = false;
-                        unset($this->colTitles[$i]);
-                    }
-                    $this->colAlign[$i] = 'L';
-                    break;
-                default:
-                    $this->colAlign[$i] = 'L';
-                }
+            // set any column titles less than the start width to the column title width
+            if ($stringWidth < $this->sColWidth){
+                $colFits[$i] = $stringWidth ;
             }
+            $this->colTitles[$i] = $this->fields[$i]->name;
+            $this->display_column[$i] = true;
 
-            // title width verification
-            if ($totalTitleWidth > $availableWidth) {
-                $adjustingMode = true;
-            } else {
-                $adjustingMode = false;
-                // we have enough space for all the titles at their
-                // original width so use the true title's width
-                foreach ($titleWidth as $key => $val) {
-                    $colFits[$key] = $val;
+            switch ($this->fields[$i]->type){
+            case 'int':
+                $this->colAlign[$i] = 'R';
+                break;
+            case 'blob':
+            case 'tinyblob':
+            case 'mediumblob':
+            case 'longblob':
+                /**
+                 * @todo do not deactivate completely the display
+                 * but show the field's name and [BLOB]
+                 */
+                if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                    $this->display_column[$i] = false;
+                    unset($this->colTitles[$i]);
                 }
+                $this->colAlign[$i] = 'L';
+                break;
+            default:
+                $this->colAlign[$i] = 'L';
             }
-
-            // loop through the data; any column whose contents
-            // is greater than the column size is resized
-            /**
-              * @todo force here a LIMIT to avoid reading all rows
-              */
-            while ($row = PMA_DBI_fetch_row($this->results)) {
-                foreach ($colFits as $key => $val) {
-                    $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
-                    if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
-                    // any column whose data's width is bigger than the start width is now discarded
-                        unset($colFits[$key]);
-                    } else {
-                    // if data's width is bigger than the current column width,
-                    // enlarge the column (but avoid enlarging it if the
-                    // data's width is very big)
-                            if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
-                            $colFits[$key] = $stringWidth ;
-                        }
-                    }
-                }
-            }
-
-            $totAlreadyFitted = 0;
-            foreach ($colFits as $key => $val){
-                // set fitted columns to smallest size
-                $this->tablewidths[$key] = $val;
-                // to work out how much (if any) space has been freed up
-                $totAlreadyFitted += $val;
-            }
-
-            if ($adjustingMode) {
-                $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
-                $surplusToAdd = $surplus / ($this->numFields - sizeof($colFits));
-            } else {
-                $surplusToAdd = 0;
-            }
-
-            for ($i=0; $i < $this->numFields; $i++) {
-                if (!in_array($i, array_keys($colFits))) {
-                    $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
-                }
-                if ($this->display_column[$i] == false) {
-                    $this->tablewidths[$i] = 0;
-                }
-            }
-
-            ksort($this->tablewidths);
         }
+
+        // title width verification
+        if ($totalTitleWidth > $availableWidth) {
+            $adjustingMode = true;
+        } else {
+            $adjustingMode = false;
+            // we have enough space for all the titles at their
+            // original width so use the true title's width
+            foreach ($titleWidth as $key => $val) {
+                $colFits[$key] = $val;
+            }
+        }
+
+        // loop through the data; any column whose contents
+        // is greater than the column size is resized
+        /**
+          * @todo force here a LIMIT to avoid reading all rows
+          */
+        while ($row = PMA_DBI_fetch_row($this->results)) {
+            foreach ($colFits as $key => $val) {
+                $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
+                if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
+                // any column whose data's width is bigger than the start width is now discarded
+                    unset($colFits[$key]);
+                } else {
+                // if data's width is bigger than the current column width,
+                // enlarge the column (but avoid enlarging it if the
+                // data's width is very big)
+                        if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
+                        $colFits[$key] = $stringWidth ;
+                    }
+                }
+            }
+        }
+
+        $totAlreadyFitted = 0;
+        foreach ($colFits as $key => $val){
+            // set fitted columns to smallest size
+            $this->tablewidths[$key] = $val;
+            // to work out how much (if any) space has been freed up
+            $totAlreadyFitted += $val;
+        }
+
+        if ($adjustingMode) {
+            $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
+            $surplusToAdd = $surplus / ($this->numFields - sizeof($colFits));
+        } else {
+            $surplusToAdd = 0;
+        }
+
+        for ($i=0; $i < $this->numFields; $i++) {
+            if (!in_array($i, array_keys($colFits))) {
+                $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
+            }
+            if ($this->display_column[$i] == false) {
+                $this->tablewidths[$i] = 0;
+            }
+        }
+
+        ksort($this->tablewidths);
+
         PMA_DBI_free_result($this->results);
 
         // Pass 2
 
         $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $this->Open();
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->morepagestable($this->FontSizePt);
@@ -341,6 +352,8 @@ class PMA_PDF extends TCPDF
     } // end of mysql_report function
 
 } // end of PMA_PDF class
+
+$pdf = new PMA_PDF('L', 'pt', 'A3');
 
 /**
  * Outputs comment
@@ -355,7 +368,7 @@ function PMA_exportComment($text)
 }
 
 /**
- * Outputs export footer
+ * Finalize the pdf.
  *
  * @return  bool        Whether it suceeded
  *
@@ -363,11 +376,18 @@ function PMA_exportComment($text)
  */
 function PMA_exportFooter()
 {
+    global $pdf;
+
+    // instead of $pdf->Output():
+    if (!PMA_exportOutputHandler($pdf->getPDFData())) {
+        return FALSE;
+    }
+
     return TRUE;
 }
 
 /**
- * Outputs export header
+ * Initialize the pdf to export data.
  *
  * @return  bool        Whether it suceeded
  *
@@ -375,6 +395,21 @@ function PMA_exportFooter()
  */
 function PMA_exportHeader()
 {
+    global $pdf_report_title;
+    global $pdf;
+
+    $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
+    $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
+    $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
+    $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
+    $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
+    $pdf->AliasNbPages();
+    $pdf->Open();
+
+    $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
+    $pdf->setAttributes($attr);
+    $pdf->setTopMargin(45);
+
     return TRUE;
 }
 
@@ -436,24 +471,11 @@ function PMA_exportDBCreate($db)
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
-    global $what;
-    global $pdf_report_title;
+    global $pdf;
 
-    $pdf = new PMA_PDF('L', 'pt', 'A3');
-
-    $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
-    $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-    $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-    $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
-    $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
-    $pdf->AliasNbPages();
-    $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
-    $pdf->mysql_report($sql_query, $attr);
-
-    // instead of $pdf->Output():
-    if (!PMA_exportOutputHandler($pdf->getPDFData())) {
-        return FALSE;
-    }
+    $attr=array('currentDb' => $db, 'currentTable' => $table);
+    $pdf->setAttributes($attr);
+    $pdf->mysql_report($sql_query);
 
     return TRUE;
 } // end of the 'PMA_exportData()' function
