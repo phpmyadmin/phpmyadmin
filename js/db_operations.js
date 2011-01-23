@@ -85,9 +85,12 @@ $(document).ready(function() {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        $form = $(this);
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
-        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+        $.get($form.attr('action'), $form.serialize(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
