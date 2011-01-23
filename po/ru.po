@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-23 14:44+0200\n"
+"PO-Revision-Date: 2011-01-23 14:55+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4941,7 +4941,6 @@ msgstr ""
 "перезапуска импорт будет продолжен с позиции %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4952,7 +4951,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Разрешить скрипту разбивать процесс импорта при приближении временного "
-"лимита. Может быть использовано при импорте файлов большого размера."
+"лимита. <i>(Может быть использовано при импорте файлов большого размера, "
+"однако при этом вероятны проблемы с транзакциями.)</i>"
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
