@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-23 14:55+0200\n"
+"PO-Revision-Date: 2011-01-23 14:56+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4955,10 +4955,9 @@ msgstr ""
 "однако при этом вероятны проблемы с транзакциями.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Количество запросов пропускаемых от начала импорта"
+msgstr "Количество пропускаемых строк, начиная от первой строки:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
