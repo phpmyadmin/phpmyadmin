@@ -5341,6 +5341,9 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Интервал в секундах для временных BLOBов. Загруженные в BLOB данные "
+"удаляются по истечении этого времени, если на них не ссылаются записи в базе "
+"данных."
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
