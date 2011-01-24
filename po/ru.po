@@ -5541,7 +5541,6 @@ msgid "Columns separated with:"
 msgstr "Разделитель полей"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Значения полей обрамлены"
