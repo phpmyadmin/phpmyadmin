@@ -187,15 +187,23 @@ function refreshMain(url) {
  * @uses     lang
  * @uses    collation_connection
  * @uses    encodeURIComponent()
+ * @param    boolean    force   force reloading 
  */
-function refreshNavigation() {
-    goTo('navigation.php?server=' + encodeURIComponent(server) +
-        '&token=' + encodeURIComponent(token)  +
-        '&db=' + encodeURIComponent(db)  +
-        '&table=' + encodeURIComponent(table) +
-        '&lang=' + encodeURIComponent(lang) +
-        '&collation_connection=' + encodeURIComponent(collation_connection)
-        );
+function refreshNavigation(force) {
+    // The goTo() function won't refresh in case the target
+    // url is the same as the url given as parameter, but sometimes
+    // we want to refresh anyway. 
+    if (typeof force != undefined && force && window.parent && window.parent.frame_navigation) {
+        window.parent.frame_navigation.location.reload();
+    } else {
+        goTo('navigation.php?server=' + encodeURIComponent(server) +
+            '&token=' + encodeURIComponent(token)  +
+            '&db=' + encodeURIComponent(db)  +
+            '&table=' + encodeURIComponent(table) +
+            '&lang=' + encodeURIComponent(lang) +
+            '&collation_connection=' + encodeURIComponent(collation_connection)
+            );
+    }
 }
 
 /**
