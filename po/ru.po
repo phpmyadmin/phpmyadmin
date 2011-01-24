@@ -5328,6 +5328,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Максимальный размер файла хранилища BLOB. Вы можете использовать  Kb, MB или "
+" GB для обозначения единицы значений. По умолчанию указывается значение в "
+"байтах."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
