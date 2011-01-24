@@ -5369,6 +5369,8 @@ msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Тайм-аут для неактивных соединений с флагом Keep-Alive . По истечении этого "
+"времени соединение будет закрыто. Тайм-аут в миллисекундах (1 / 1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
