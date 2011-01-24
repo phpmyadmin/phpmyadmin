@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-24 22:14+0200\n"
+"PO-Revision-Date: 2011-01-24 22:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5095,10 +5095,9 @@ msgid "Print view (with full texts)"
 msgstr "Версия для печати (полностью)"
 
 #: libraries/display_tbl.lib.php:2236 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Показать PDF-схему"
+msgstr "Отобразить график"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
