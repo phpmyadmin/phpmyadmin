@@ -152,7 +152,7 @@ class PMA_PDF extends TCPDF
         // Now let's start to write the table
         $row = 0;
         $tmpheight = array();
-        $maxpage = 0;
+        $maxpage = $this->page;
 
         while ($data = PMA_DBI_fetch_row($this->results)) {
             $this->page = $currpage;

@@ -979,14 +979,17 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _strokeGrid()
     {
-        global $pdf, $with_doc;
+        global $pdf;
 
         $gridSize = 10;
         $labelHeight = 4;
         $labelWidth = 5;
-        if ($with_doc) {
+        if ($this->withDoc) {
             $topSpace = 6;
             $bottomSpace = 15;
+        } else {
+            $topSpace = 0;
+            $bottomSpace = 0;
         }
 
         $pdf->SetMargins(0, 0);
