@@ -48,9 +48,10 @@ $(document).ready(function() {
     /**
      * Ajax event handler for Table Search
      * 
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      * @uses    PMA_ajaxShowMessage()
      */
-    $("#tbl_search_form").live('submit', function(event) {
+    $("#tbl_search_form.ajax").live('submit', function(event) {
         // jQuery object to reuse
         $search_form = $(this);
         event.preventDefault();
