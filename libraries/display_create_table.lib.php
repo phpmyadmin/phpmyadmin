@@ -36,7 +36,7 @@ require_once './libraries/check_user_privileges.lib.php';
 $is_create_table_priv = true;
 
 ?>
-<form id="create_table_form_minimal" method="post" action="tbl_create.php">
+    <form id="create_table_form_minimal" method="post" action="tbl_create.php"<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
 <fieldset>
     <legend>
 <?php

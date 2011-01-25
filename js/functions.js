@@ -1665,7 +1665,7 @@ $(document).ready(function() {
      *
      * @uses    PMA_ajaxShowMessage()
      */
-    $("#create_table_form_minimal").live('submit', function(event) {
+    $("#create_table_form_minimal.ajax").live('submit', function(event) {
         event.preventDefault();
         $form = $(this);
 
@@ -1708,7 +1708,7 @@ $(document).ready(function() {
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
-    $("#create_table_form input[name=do_save_data]").live('click', function(event) {
+    $("#create_table_form.ajax input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -1788,7 +1788,7 @@ $(document).ready(function() {
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
-    $("#create_table_form input[name=submit_num_fields]").live('click', function(event) {
+    $("#create_table_form.ajax input[name=submit_num_fields]").live('click', function(event) {
         event.preventDefault();
 
         /**
