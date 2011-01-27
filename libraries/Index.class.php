@@ -477,7 +477,11 @@ class PMA_Index
                 }
 
                 $r .= '<td ' . $row_span . '>'
-                   . '    <a class="drop_primary_key_index_anchor" href="sql.php' . PMA_generate_common_url($this_params)
+                    . '    <a ';
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $r .= 'class="drop_primary_key_index_anchor" ';
+                }
+                $r .= ' href="sql.php' . PMA_generate_common_url($this_params)
                    . '" >'
                    . PMA_getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";

@@ -24,6 +24,7 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $(".drop_column_anchor").live('click', function(event) {
         event.preventDefault();
@@ -66,6 +67,7 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $(".action_primary a").live('click', function(event) {
         event.preventDefault();
@@ -107,6 +109,7 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $('.drop_primary_key_index_anchor').live('click', function(event) {
         event.preventDefault();

@@ -394,7 +394,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td align="center" class="drop">
-        <a class="drop_column_anchor" href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
+        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
     <td align="center" class="primary">
@@ -476,7 +476,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
                     <?php echo $hidden_titles['BrowseDistinctValues']; ?>
                 </a>
             </div>
-            <div class="action_primary">
+            <div <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="action_primary"' : ''); ?>>
                 <?php
                 if(isset($primary_enabled)) {
                      if($primary_enabled) { ?>
