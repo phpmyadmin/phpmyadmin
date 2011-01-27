@@ -9609,7 +9609,7 @@ msgstr "Procházet odlišné hodnoty"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
-msgstr "Přidávt primární klíč"
+msgstr "Přidat primární klíč"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add index"
