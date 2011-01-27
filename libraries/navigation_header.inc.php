@@ -101,6 +101,10 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     echo '</a>';
     echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
 
+    $params = array('uniqid' => uniqid());
+    if (!empty($GLOBALS['db'])) {
+        $params['db'] = $GLOBALS['db'];
+    }
     echo '<a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'

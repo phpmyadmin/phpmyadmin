@@ -49,10 +49,6 @@ require_once './libraries/common.inc.php';
  */
 function PMA_exitNavigationFrame()
 {
-    $params = array('uniqid' => uniqid());
-    if (!empty($GLOBALS['db'])) {
-        $params['db'] = $GLOBALS['db'];
-    }
     echo '</body></html>';
     exit;
 }
