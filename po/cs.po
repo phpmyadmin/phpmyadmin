@@ -414,11 +414,11 @@ msgstr "Musíte zvolit alespoň jedno pole, které chcete zobrazit"
 
 #: db_qbe.php:182
 msgid "Switch to"
-msgstr "Přepnou na"
+msgstr "Přepnout na"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr "vizuální návrhář"
+msgstr "vizuálního návrháře"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:860
