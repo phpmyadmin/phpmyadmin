@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    JavaScript functions used on Database Search page
  * @name            Database Search
@@ -25,17 +26,22 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
+     * (see $GLOBALS['cfg']['AjaxEnable'])
      *
      * @uses    PMA_ajaxShowMessage()
      */
-    $("#db_search_form").live('submit', function(event) {
+    $("#db_search_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true">');
+        $form = $(this);
 
-        $.get($(this).attr('action'), $(this).serialize() + "&submit_search=" + $("#buttonGo").val(), function(data) {
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
+
+        $.get($form.attr('action'), $form.serialize() + "&submit_search=" + $("#buttonGo").val(), function(data) {
             $("#searchresults").html(data);
         }) // end $.get()
     })
