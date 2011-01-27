@@ -33,7 +33,7 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true"');
+        $(this).append('<input type="hidden" name="ajax_request" value="true">');
 
         $.get($(this).attr('action'), $(this).serialize() + "&submit_search=" + $("#buttonGo").val(), function(data) {
             $("#searchresults").html(data);
