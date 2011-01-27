@@ -176,16 +176,20 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
     if (! empty($tab['fragment'])) {
         $tab['link'] .= $tab['fragment'];
     }
+    if (isset($tab_designer['link'])) {
 ?>
 <div id="visual_builder_anchor" class="notice hide">
 	<span id="footnote_1">
 <?php echo __('Switch to'); ?>
 	<form action="<?php echo $tab_designer['link'] ?>" method="post">
-		<input type="submit"  style="background-color:#FFD; border-width:0; color:#00F;   
+		<input type="submit"  style="background-color:#FFD; border-width:0; color:#00F;
     	font-size: 15px;cursor: pointer" name="query" onmouseover="this.style.color='#F00';"
             value="<?php echo __('visual builder'); ?>" onmouseout="this.style.color='#00F'"/></span>
 	</form>
 </div>
+<?php
+    }
+?>
 <form action="db_qbe.php" method="post">
 <fieldset>
 <table class="data" style="width: 100%;">
