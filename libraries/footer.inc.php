@@ -88,6 +88,7 @@ if (! empty($_SESSION['debug'])) {
     $_SESSION['debug'] = array();
 }
 
+if (!$GLOBALS['is_ajax_request']) {
 ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -162,6 +163,7 @@ if (window.parent.frame_content) {
 //]]>
 </script>
 <?php
+}
 
 // Link to itself to replicate windows including frameset
 if (!isset($GLOBALS['checked_special'])) {
