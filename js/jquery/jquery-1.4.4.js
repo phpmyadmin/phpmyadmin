@@ -1035,10 +1035,16 @@ return (window.jQuery = window.$ = jQuery);
 	// Figure out if the W3C box model works as expected
 	// document.body must exist before we can do this
 	jQuery(function() {
-		var div = document.createElement("div");
-		div.style.width = div.style.paddingLeft = "1px";
+		var div = document.createElement("div"),
+		  body = document.getElementsByTagName("body")[0];
 
-		document.body.appendChild( div );
+		// Frameset documents with no body should not run this code
+		if ( !body ) {
+		  return;
+		}
+
+		div.style.width = div.style.paddingLeft = "1px";
+		body.appendChild( div );
 		jQuery.boxModel = jQuery.support.boxModel = div.offsetWidth === 2;
 
 		if ( "zoom" in div.style ) {
@@ -1077,7 +1083,7 @@ return (window.jQuery = window.$ = jQuery);
 		jQuery.support.reliableHiddenOffsets = jQuery.support.reliableHiddenOffsets && tds[0].offsetHeight === 0;
 		div.innerHTML = "";
 
-		document.body.removeChild( div ).style.display = "none";
+		body.removeChild( div ).style.display = "none";
 		div = tds = null;
 	});
 
