@@ -72,7 +72,11 @@ function PMA_sanitize($message, $escape = false)
             }
         }
 
-        $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
+        if (substr($found[1], 0, 4) == 'http') {
+            $message = preg_replace($pattern, '<a href="./url.php?url=\1" target="\2">', $message);
+        } else {
+            $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
+        }
     }
 
     if ($escape) {

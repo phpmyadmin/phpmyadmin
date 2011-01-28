@@ -647,69 +647,14 @@ class PMA_Message
      * for formatting
      *
      * @static
-     * @uses    PREG_SET_ORDER
-     * @uses    in_array()
-     * @uses    preg_match_all()
-     * @uses    preg_match()
-     * @uses    preg_replace()
-     * @uses    substr()
-     * @uses    strtr()
+     * @uses    PMA_sanitize
      * @param   string  $message the message
      * @return  string  the decoded message
      * @access  public
      */
     static public function decodeBB($message)
     {
-        $replace_pairs = array(
-            '[i]'       => '<em>',      // deprecated by em
-            '[/i]'      => '</em>',     // deprecated by em
-            '[em]'      => '<em>',
-            '[/em]'     => '</em>',
-            '[b]'       => '<strong>',  // deprecated by strong
-            '[/b]'      => '</strong>', // deprecated by strong
-            '[strong]'  => '<strong>',
-            '[/strong]' => '</strong>',
-            '[tt]'      => '<code>',    // deprecated by CODE or KBD
-            '[/tt]'     => '</code>',   // deprecated by CODE or KBD
-            '[code]'    => '<code>',
-            '[/code]'   => '</code>',
-            '[kbd]'     => '<kbd>',
-            '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br />',
-            '[/a]'      => '</a>',
-            '[sup]'     => '<sup>',
-            '[/sup]'    => '</sup>',
-        );
-
-        $message = strtr($message, $replace_pairs);
-
-        $pattern = '/\[a@([^"@]*)@([^]"]*)\]/';
-
-        if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
-            $valid_links = array(
-                'http',  // default http:// links (and https://)
-                './Do',  // ./Documentation
-            );
-
-            foreach ($founds as $found) {
-                // only http... and ./Do... allowed
-                if (! in_array(substr($found[1], 0, 4), $valid_links)) {
-                    return $message;
-                }
-                // a-z and _ allowed in target
-                if (! empty($found[2]) && preg_match('/[^a-z_]+/i', $found[2])) {
-                    return $message;
-                }
-            }
-
-            if (substr($found[1], 0, 4) == 'http') {
-                $message = preg_replace($pattern, '<a href="./url.php?url=\1" target="\2">', $message);
-            } else {
-                $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
-            }
-        }
-
-        return $message;
+        return PMA_sanitize($message, false);
     }
 
     /**
