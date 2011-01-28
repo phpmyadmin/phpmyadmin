@@ -208,10 +208,11 @@ $(document).ready(function() {
      * Ajax Event handler for 'SQL Query Submit'
      *
      * @see         PMA_ajaxShowMessage()
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
-    $("#sqlqueryform").live('submit', function(event) {
+    $("#sqlqueryform.ajax").live('submit', function(event) {
         event.preventDefault();
         // remove any div containing a previous error message
         $('.error').remove();

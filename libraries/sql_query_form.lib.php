@@ -115,7 +115,11 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
               return checkSqlQuery(this)">
         <?php
     } else {
-        echo '<form method="post" action="import.php" ' . $enctype . ' id="sqlqueryform"'
+        echo '<form method="post" action="import.php" ' . $enctype;
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax"';
+        }
+        echo ' id="sqlqueryform"'
             .' onsubmit="return checkSqlQuery(this)" name="sqlform">' . "\n";
     }
 
