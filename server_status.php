@@ -41,7 +41,7 @@ require_once './libraries/replication_gui.lib.php';
 require_once './libraries/chart.lib.php';
 
 /**
- * Messages are built using the message name 
+ * Messages are built using the message name
  */
 $strShowStatusBinlog_cache_disk_useDescr = __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.');
 $strShowStatusBinlog_cache_useDescr = __('The number of transactions that used the temporary binary log cache.');
@@ -789,7 +789,8 @@ if (! empty($section['title'])) {
             $odd_row = !$odd_row;
 ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo htmlspecialchars($name); ?></th>
+            <th class="name"><?php echo htmlspecialchars($name) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
+            </th>
             <td class="value"><?php
             if (isset($alerts[$name])) {
                 if ($value > $alerts[$name]) {
