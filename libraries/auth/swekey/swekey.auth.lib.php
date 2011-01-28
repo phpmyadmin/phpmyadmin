@@ -231,7 +231,7 @@ function Swekey_login($input_name, $input_go)
         ?>
             function open_swekey_site()
             {
-                window.open("http://phpmyadmin.net/auth_key");
+                window.open("./url.php?url=http://phpmyadmin.net/auth_key");
             }
 
             var input_username = document.getElementById("<?php echo $input_name; ?>");

@@ -681,7 +681,7 @@ class FormDisplay
         if ($test == 'Export') {
             $opt_name = substr($opt_name, 7);
         }
-        return 'http://wiki.phpmyadmin.net/pma/Config#' . $opt_name;
+        return './url.php?url=http://wiki.phpmyadmin.net/pma/Config#' . $opt_name;
     }
 
     /**

@@ -476,7 +476,9 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* for playing blobstreamable media */
         'media_type', 'custom_type', 'bs_reference',
         /* for changing BLOB repository file MIME type */
-        'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type'
+        'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type',
+        /* URL redirector */
+        'url'
     );
     /**
      * Require cleanup functions

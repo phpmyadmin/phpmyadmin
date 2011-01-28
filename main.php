@@ -210,16 +210,16 @@ echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version');
 PMA_printListItem(__('Documentation'), 'li_pma_docs', 'Documentation.html', null, '_blank');
-PMA_printListItem(__('Wiki'), 'li_pma_wiki', 'http://wiki.phpmyadmin.net', null, '_blank');
+PMA_printListItem(__('Wiki'), 'li_pma_wiki', './url.php?url=http://wiki.phpmyadmin.net', null, '_blank');
 
 // does not work if no target specified, don't know why
-PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', 'http://www.phpMyAdmin.net/', null, '_blank');
+PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', './url.php?url=http://www.phpMyAdmin.net/', null, '_blank');
 ?>
     <li><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
-        [<a href="http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi"
+        [<a href="./url.php?url=http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi"
             target="_blank">Git</a>]
-        [<a href="http://sourceforge.net/mail/?group_id=23067"
+        [<a href="./url.php?url=http://sourceforge.net/mail/?group_id=23067"
             target="_blank"><?php echo __('Mailing lists'); ?></a>]
         </bdo>
     </li>
