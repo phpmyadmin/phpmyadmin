@@ -199,7 +199,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $(curr_proc_row).children('.drop_procedure_sql').val();
+        var question = $(curr_proc_row).children('td').children('.drop_procedure_sql').val();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 

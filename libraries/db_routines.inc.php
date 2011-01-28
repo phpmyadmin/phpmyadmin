@@ -65,20 +65,19 @@ if ($routines) {
             $sqlDropProc = 'DROP FUNCTION ' . PMA_backquote($routine['SPECIFIC_NAME']);
         }
         echo sprintf('<tr class="%s">
-                          <td><strong>%s</strong></td>
+                          <td><input type="hidden" class="drop_procedure_sql" value="%s" /><strong>%s</strong></td>
                           <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>
-                          <input type="hidden" class="drop_procedure_sql" value="%s" />
                      </tr>',
                      ($ct%2 == 0) ? 'even' : 'odd',
+                     $sqlDropProc,
                      $routine['ROUTINE_NAME'],
                      ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
                      '<a class="drop_procedure_anchor" href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDropProc) . '" >' . $titles['Drop'] . '</a>',
                      $routine['ROUTINE_TYPE'],
-                     $routine['DTD_IDENTIFIER'],
-                    $sqlDropProc);
+                     $routine['DTD_IDENTIFIER']);
         $ct++;
     }
     echo '</table>';
