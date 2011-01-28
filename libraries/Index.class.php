@@ -476,8 +476,9 @@ class PMA_Index
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP INDEX ' . $index->getName());
                 }
 
-                $r .= '<td ' . $row_span . '>'
-                    . '    <a ';
+                $r .= '<td ' . $row_span . '>';
+                $r .= '<input type="hidden" class="drop_primary_key_index_msg" value="' . $js_msg . '" />';
+                $r .= '    <a ';
                 if ($GLOBALS['cfg']['AjaxEnable']) {
                     $r .= 'class="drop_primary_key_index_anchor" ';
                 }
@@ -485,8 +486,6 @@ class PMA_Index
                    . '" >'
                    . PMA_getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
-
-                $r .= '<input type="hidden" class="drop_primary_key_index_msg" value="' . $js_msg . '" />';
             }
 
             $r .= '<th ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</th>';

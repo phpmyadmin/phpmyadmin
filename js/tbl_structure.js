@@ -119,7 +119,7 @@ $(document).ready(function() {
          */
         var curr_row = $(this).parents('tr');
 
-        var question = $(curr_row).children('.drop_primary_key_index_msg').val();
+        var question = $(curr_row).children('td').children('.drop_primary_key_index_msg').val();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
