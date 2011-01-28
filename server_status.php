@@ -605,7 +605,9 @@ foreach ($sections as $section_name => $section) {
 
 <h3 id="serverstatusqueries"><?php echo
     sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
-        PMA_formatNumber($server_status['Questions'], 0)); ?></h3>
+        PMA_formatNumber($server_status['Questions'], 0));
+    echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+    ?></h3>
 
 <table id="serverstatusqueriessummary" class="data">
 <thead>
