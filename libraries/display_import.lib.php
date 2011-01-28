@@ -267,4 +267,3 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
     </div>
 </form>
-</div>
