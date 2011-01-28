@@ -1295,6 +1295,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>The maximum number of database names to be displayed in the
         navigation frame and the database list.</dd>
 
+    <dt id="cfg_AjaxEnable">$cfg['AjaxEnable'] boolean</dt>
+    <dd>Defines whether to refresh only parts of certain pages using Ajax
+    techniques. Applies only where a non-Ajax behavior is possible;
+    for example, the Designer feature is Ajax-only so this directive
+    does not apply to it.</dd>
+
     <dt id="cfg_MaxTableList">$cfg['MaxTableList'] integer</dt>
     <dd>The maximum number of table names to be displayed in the
     main panel's list (except on the Export page). This limit is also enforced in the navigation panel
