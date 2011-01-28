@@ -2022,7 +2022,7 @@ $(document).ready(function() {
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            $('<div id="change_password_dialog></div>')
+            $('<div id="change_password_dialog"></div>')
             .dialog({
                 title: PMA_messages['strChangePassword'],
                 width: 600,
