@@ -342,12 +342,16 @@ $allocations = array(
     'Flush_commands'    => 'query',
     'Last_query_cost'   => 'query',
     'Slow_queries'      => 'query',
+    'Queries'           => 'query',
+    'Prepared_stmt_count' => 'query',
 
     'Select_'           => 'select',
     'Sort_'             => 'sort',
 
     'Open_tables'       => 'table',
     'Opened_tables'     => 'table',
+    'Open_table_definitions' => 'table',
+    'Opened_table_definitions' => 'table',
     'Table_locks_'      => 'table',
 
     'Rpl_status'        => 'repl',
@@ -356,6 +360,10 @@ $allocations = array(
     'Tc_'               => 'tc',
 
     'Ssl_'              => 'ssl',
+
+    'Open_files'        => 'files',
+    'Open_streams'      => 'files',
+    'Opened_files'      => 'files',
 );
 
 $sections = array(
@@ -376,6 +384,7 @@ $sections = array(
     'sort'          => array('title' => __('Sorting')),
     'table'         => array('title' => __('Tables')),
     'tc'            => array('title' => __('Transaction coordinator')),
+    'files'         => array('title' => __('Files')),
     'ssl'           => array('title' => 'SSL'),
 );
 
