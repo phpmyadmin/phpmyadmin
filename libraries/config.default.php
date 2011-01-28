@@ -425,7 +425,7 @@ $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
  *
  * @global array $cfg['Servers'][$i]['CountTables']
  */
-$cfg['Servers'][$i]['CountTables'] = true;
+$cfg['Servers'][$i]['CountTables'] = false;
 
 /**
  * Whether the tracking mechanism creates versions for tables and views automatically.
@@ -488,7 +488,7 @@ $cfg['ServerDefault'] = 1;
  * Other core phpMyAdmin settings
  */
 /**
- * whether Ajax behavior is active 
+ * whether Ajax behavior is active
  *
  * @global boolean $cfg['AjaxEnable']
  */
@@ -1179,7 +1179,7 @@ $cfg['Export']['file_template_server'] = '@SERVER@';
 $cfg['Export']['codegen_structure_or_data'] = 'data';
 
 /**
- * 
+ *
  *
  * @global $cfg['Export']['codegen_format']
  */
@@ -2179,7 +2179,7 @@ $cfg['TextareaCols'] = 40;
 $cfg['TextareaRows'] = 15;
 
 /**
- * double size of textarea size for LONGTEXT columns 
+ * double size of textarea size for LONGTEXT columns
  *
  * @global boolean $cfg['LongtextDoubleTextarea']
  */

@@ -132,6 +132,7 @@
 - rfe #3158867 [privileges] No DROP DATABASE warning if you delete a user
 - [interface] Add link to documentation for status variables.
 - [security] Redirect external links to avoid Referer leakage.
+- [interface] Default to not count tables in database.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
