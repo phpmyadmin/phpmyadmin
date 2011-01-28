@@ -654,7 +654,7 @@ class PMA_Message
      */
     static public function decodeBB($message)
     {
-        return PMA_sanitize($message, false);
+        return PMA_sanitize($message, false, true);
     }
 
     /**

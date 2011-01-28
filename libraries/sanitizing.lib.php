@@ -27,11 +27,12 @@
  *
  * @access  public
  */
-function PMA_sanitize($message, $escape = false)
+function PMA_sanitize($message, $escape = false, $safe = false)
 {
+    if (!$safe) {
+        $message = strtr($message, array('<' => '&lt;', '>' => '&gt;'));
+    }
     $replace_pairs = array(
-        '<'         => '&lt;',
-        '>'         => '&gt;',
         '[i]'       => '<em>',      // deprecated by em
         '[/i]'      => '</em>',     // deprecated by em
         '[em]'      => '<em>',
