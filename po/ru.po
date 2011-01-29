@@ -5931,10 +5931,9 @@ msgstr ""
 "Имена полей разделяются запятыми и не должны быть заключены в кавычки."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Названия столбцов"
+msgstr "Названия столбцов:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
