@@ -458,7 +458,7 @@ echo __('Remove database');
      * Copy database
      */
     ?>
-    <form id="copy_db_form" method="post" action="db_operations.php"
+        <form id="copy_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
     <?php
     if (isset($db_collation)) {
@@ -528,7 +528,11 @@ echo __('Remove database');
     /**
      * Change database charset
      */
-    echo '<form id="change_db_charset_form" method="post" action="./db_operations.php">' . "\n"
+    echo '<form id="change_db_charset_form" ';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        echo ' class="ajax" ';
+    }
+    echo 'method="post" action="./db_operations.php">'
        . PMA_generate_common_hidden_inputs($db, $table)
        . '<fieldset>' . "\n"
        . '    <legend>';

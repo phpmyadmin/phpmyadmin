@@ -30,7 +30,7 @@ $(document).ready(function() {
     $("#rename_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
 
         var question = 'CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + window.parent.db;
 
@@ -86,12 +86,15 @@ $(document).ready(function() {
      * Ajax Event Handler for 'Copy Database'
      *
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
-    $("#copy_db_form").live('submit', function(event) {
+    $("#copy_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
-        $form = $(this);
+
+        var $form = $(this);
+        
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
             $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
         }
@@ -123,15 +126,20 @@ $(document).ready(function() {
      * Ajax Event handler for 'Change Charset' of the database
      *
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
-    $("#change_db_charset_form").live('submit', function(event) {
+    $("#change_db_charset_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        var $form = $(this);
+
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
 
-        $.get($(this).attr('action'), $(this).serialize() + "&submitcollation=" + $(this).find("input[name=submitcollation]").attr('value'), function(data) {
+        $.get($form.attr('action'), $form.serialize() + "&submitcollation=" + $form.find("input[name=submitcollation]").attr('value'), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
             }
