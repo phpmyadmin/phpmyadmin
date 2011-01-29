@@ -25,12 +25,18 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowUser()
+     * @see     $cfg['AjaxEnable']
      */
-    $("#rename_db_form").live('submit', function(event) {
+    $("#rename_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        var question = 'CREATE DATABASE ... and then DROP DATABASE ' + window.parent.db;
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        $form = $(this);
+
+        var question = 'CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + window.parent.db;
+
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
@@ -43,7 +49,7 @@ $(document).ready(function() {
                                                 };
         button_options[PMA_messages['strNo']] = function() { $(this).dialog("close").remove(); }
 
-        $(this).PMA_confirm(question, $(this).attr('action'), function(url) {
+        $form.PMA_confirm(question, $form.attr('action'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases']);
 
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {

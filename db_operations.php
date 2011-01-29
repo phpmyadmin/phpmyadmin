@@ -378,7 +378,7 @@ if (!$is_information_schema) {
      */
 if ($db != 'mysql') {
     ?>
-    <form id="rename_db_form" method="post" action="db_operations.php"
+        <form id="rename_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
         <?php
     if (isset($db_collation)) {
@@ -399,7 +399,7 @@ if ($db != 'mysql') {
     echo __('Rename database to') . ':';
     ?>
         </legend>
-        <input type="text" name="newname" size="30" class="textfield" value="" />
+        <input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" />
         <?php
     echo '(' . __('Command') . ': ';
     /**
