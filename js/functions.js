@@ -1685,15 +1685,28 @@ $(document).ready(function() {
         }
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
-            $('<div id="create_table_dialog"></div>')
-            .append(data)
-            .dialog({
-                title: PMA_messages['strCreateTable'],
-                height: 600,
-                width: 900,
-                open: PMA_verifyTypeOfAllColumns, 
-                buttons : button_options
-            }); // end dialog options
+            //in the case of an error, show the error message returned.
+            if (data.success != undefined && data.success == false) {
+                $('<div id="create_table_dialog"></div>')
+                .append(data.error)
+                .dialog({
+                    title: PMA_messages['strCreateTable'],
+                    height: 260,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options
+                })// end dialog options
+            } else {
+                $('<div id="create_table_dialog"></div>')
+                .append(data)
+                .dialog({
+                    title: PMA_messages['strCreateTable'],
+                    height: 600,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options
+                }); // end dialog options
+            }
         }) // end $.get()
 
         // empty table name and number of columns from the minimal form 
