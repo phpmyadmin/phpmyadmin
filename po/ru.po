@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-07 07:51-0500\n"
-"PO-Revision-Date: 2011-01-29 15:51+0200\n"
+"PO-Revision-Date: 2011-01-29 15:57+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5926,6 +5926,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Если данные в строках файла расположены не в том же порядке, как в базе "
+"данных, введите здесь имена полей в соответствующей последовательности. "
+"Имена полей разделяются запятыми и не должны быть заключены в кавычки."
 
 #: libraries/import/csv.php:41
 #, fuzzy
