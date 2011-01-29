@@ -5749,7 +5749,7 @@ msgstr "Использовать оператор при сохранении д
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr "Использовать синтаксис при вставки данных:"
+msgstr "Использовать синтаксис при вставке данных:"
 
 #: libraries/export/sql.php:154
 msgid ""
