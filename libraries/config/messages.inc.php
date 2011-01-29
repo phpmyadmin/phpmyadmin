@@ -14,6 +14,8 @@ if (!function_exists('__')) {
     die('Bad invocation!');
 }
 
+$strConfigAjaxEnable_desc = __('Improves efficiency of screen refresh');
+$strConfigAjaxEnable_name = __('Enable Ajax');
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __('Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks');

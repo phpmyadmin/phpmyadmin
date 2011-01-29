@@ -22,6 +22,7 @@
 
 $forms = array();
 $forms['Features']['General'] = array(
+    'AjaxEnable',
     'NaturalOrder',
     'InitialSlidersState',
     'ErrorIconic',
