@@ -37,6 +37,12 @@ if ($routines) {
           __('Return type'));
     $ct=0;
     $delimiter = '//';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $conditional_class = 'class="drop_procedure_anchor"';
+    } else {
+        $conditional_class = '';
+    }
+
     foreach ($routines as $routine) {
 
         // information_schema (at least in MySQL 5.0.45)
@@ -64,6 +70,7 @@ if ($routines) {
         } else {
             $sqlDropProc = 'DROP FUNCTION ' . PMA_backquote($routine['SPECIFIC_NAME']);
         }
+
         echo sprintf('<tr class="%s">
                           <td><input type="hidden" class="drop_procedure_sql" value="%s" /><strong>%s</strong></td>
                           <td>%s</td>
@@ -75,7 +82,7 @@ if ($routines) {
                      $sqlDropProc,
                      $routine['ROUTINE_NAME'],
                      ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
-                     '<a class="drop_procedure_anchor" href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDropProc) . '" >' . $titles['Drop'] . '</a>',
+                     '<a ' . $conditional_class . ' href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDropProc) . '" >' . $titles['Drop'] . '</a>',
                      $routine['ROUTINE_TYPE'],
                      $routine['DTD_IDENTIFIER']);
         $ct++;

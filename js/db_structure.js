@@ -57,6 +57,7 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
     $(".truncate_table_anchor").live('click', function(event) {
         event.preventDefault();
@@ -105,6 +106,7 @@ $(document).ready(function() {
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
     $(".drop_table_anchor").live('click', function(event) {
         event.preventDefault();
@@ -150,6 +152,7 @@ $(document).ready(function() {
      * 
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
     $('.drop_event_anchor').live('click', function(event) {
         event.preventDefault();
@@ -188,6 +191,7 @@ $(document).ready(function() {
      * 
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
      */
     $('.drop_procedure_anchor').live('click', function(event) {
         event.preventDefault();
@@ -217,19 +221,28 @@ $(document).ready(function() {
         }) // end $.PMA_confirm()
     }) //end Drop Procedure
     
+    /**
+     * Ajax Event handler for 'Drop tracking'
+     * 
+     * @uses    $.PMA_confirm()
+     * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
+     */
     $('.drop_tracking_anchor').live('click', function(event) {
         event.preventDefault();
+
+        var $anchor = $(this);
 
         /**
          * @var curr_tracking_row   Object containing reference to the current tracked table's row
          */
-        var curr_tracking_row = $(this).parents('tr');
+        var curr_tracking_row = $anchor.parents('tr');
          /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages['strDeleteTrackingData'];
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
 
             PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
 

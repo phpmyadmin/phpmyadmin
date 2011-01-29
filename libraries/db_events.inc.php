@@ -25,6 +25,11 @@ if ($events) {
           __('Type'));
     $ct=0;
     $delimiter = '//';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $conditional_class = 'class="drop_event_anchor"';
+    } else {
+        $conditional_class = '';
+    }
     foreach ($events as $event) {
 
         // information_schema (at least in MySQL 5.1.22) does not return
@@ -45,7 +50,7 @@ if ($events) {
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $event['EVENT_NAME'],
                      ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
-                     '<a class="drop_event_anchor" href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
+                     '<a ' . $conditional_class . ' href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
                      $event['EVENT_TYPE']);
         $ct++;
     }
