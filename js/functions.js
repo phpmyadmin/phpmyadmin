@@ -1679,6 +1679,9 @@ $(document).ready(function() {
         // in the following function we need to use $(this)
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+
         PMA_ajaxShowMessage();
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
             $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
@@ -1691,11 +1694,13 @@ $(document).ready(function() {
                 .append(data.error)
                 .dialog({
                     title: PMA_messages['strCreateTable'],
-                    height: 260,
+                    height: 230,
                     width: 900,
                     open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
+                    buttons : button_options_error
                 })// end dialog options
+                //remove the redundant [Back] link in the error message//
+                .find('fieldset').remove();
             } else {
                 $('<div id="create_table_dialog"></div>')
                 .append(data)
