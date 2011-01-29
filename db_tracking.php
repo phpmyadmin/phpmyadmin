@@ -11,6 +11,7 @@ require_once './libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'db_structure.js';
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -129,7 +130,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td><a class="drop_tracking_anchor" href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
+            <td><a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_tracking_anchor"' : ''); ?> href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
             <td> <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>
