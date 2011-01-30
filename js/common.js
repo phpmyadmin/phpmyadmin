@@ -206,40 +206,16 @@ function refreshNavigation(force) {
     }
 }
 
-/**
- * adds class to element
- */
-function addClass(element, classname)
-{
-    if (element != null) {
-        $("#"+element).addClass(classname);
-        //alert('set class: ' + classname + ', now: ' + element.className);
-    }
-}
-
-/**
- * removes class from element
- */
-function removeClass(element, classname)
-{
-    if (element != null) {
-        $("#"+element).removeClass(classname);
-        //alert('removed class: ' + classname + ', now: ' + element.className);
-    }
-}
-
 function unmarkDbTable(db, table)
 {
     var element_reference = window.frame_navigation.document.getElementById(db);
     if (element_reference != null) {
-        //alert('remove from: ' + db);
-        removeClass(element_reference.parentNode, 'marked');
+        $(element_reference).parent().removeClass('marked');
     }
 
     element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
     if (element_reference != null) {
-        //alert('remove from: ' + db + '.' + table);
-        removeClass(element_reference.parentNode, 'marked');
+        $(element_reference).parent().removeClass('marked');
     }
 }
 
@@ -247,7 +223,7 @@ function markDbTable(db, table)
 {
     var element_reference = window.frame_navigation.document.getElementById(db);
     if (element_reference != null) {
-        addClass(element_reference.parentNode, 'marked');
+        $(element_reference).parent().addClass('marked');
         // scrolldown
         element_reference.focus();
         // opera marks the text, we dont want this ...
@@ -256,7 +232,7 @@ function markDbTable(db, table)
 
     element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
     if (element_reference != null) {
-        addClass(element_reference.parentNode, 'marked');
+        $(element_reference).parent().addClass('marked');
         // scrolldown
         element_reference.focus();
         // opera marks the text, we dont want this ...
