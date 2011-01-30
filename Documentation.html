@@ -2743,13 +2743,15 @@ setfacl -d -m "g:www-data:rwx" tmp
     connect to your MySQL server using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
-    is available in php 5.0. The latter one should be used unless you have 
+    is available in php 5.0. The latter one should be used unless you have a
     good reason not to do so.<br />
-    When compiling php, we strongly recommend that you manually link the MySQL
+    When compiling PHP, we strongly recommend that you manually link the MySQL
     extension of your choice to a MySQL client library of at least the same
     minor version since the one that is bundled with some PHP distributions is
     rather old and might cause problems <a href="#faq1_17a">
-       (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.</p>
+        (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.<br /><br />
+    MariaDB is also supported (version 5.2 was tested).
+    </p>
 
 <h5 id="faq1_17a">
     <a href="#faq1_17a">1.17a I cannot connect to the MySQL server. It always returns the error
