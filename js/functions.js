@@ -1699,7 +1699,7 @@ $(document).ready(function() {
                     open: PMA_verifyTypeOfAllColumns,
                     buttons : button_options_error
                 })// end dialog options
-                //remove the redundant [Back] link in the error message//
+                //remove the redundant [Back] link in the error message.
                 .find('fieldset').remove();
             } else {
                 $('<div id="create_table_dialog"></div>')
