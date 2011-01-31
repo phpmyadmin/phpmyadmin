@@ -5173,10 +5173,9 @@ msgstr ""
 "sur %sle site de PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relations"
+msgstr "Liens connexes"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
