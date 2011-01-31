@@ -377,7 +377,7 @@ msgstr "právě se používá"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1215 tbl_printview.php:431
 #: tbl_structure.php:901
 msgid "Creation"
-msgstr "Vytvoření"
+msgstr "Vytvořeno"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:584
