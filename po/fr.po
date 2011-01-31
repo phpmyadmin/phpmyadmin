@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-31 15:47+0100\n"
-"PO-Revision-Date: 2011-01-31 15:05+0200\n"
+"PO-Revision-Date: 2011-01-31 19:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5169,6 +5169,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"La documentation de PBMS et des informations additionnelles sont disponibles "
+"sur %sle site de PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 #, fuzzy
