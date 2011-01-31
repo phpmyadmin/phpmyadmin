@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-29 15:09-0500\n"
+"POT-Creation-Date: 2011-01-31 15:47+0100\n"
 "PO-Revision-Date: 2011-01-31 15:38+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2249,7 +2249,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Vylepší odezvu na jednotlivé akce"
 
 #: libraries/config/messages.inc.php:18
-#| msgid "Enabled"
 msgid "Enable Ajax"
 msgstr "Povolit Ajax"
 
@@ -5110,6 +5109,27 @@ msgstr ""
 "Dvojtečkou („:“) oddělený seznam hlaviček metadat, který bude použit pro "
 "inicializaci tabulky pbms_metadata_header při vytváření databáze."
 
+#: libraries/engines/pbms.lib.php:94
+#, php-format
+msgid ""
+"Documentation and further information about PBMS can be found on %sThe "
+"PrimeBase Media Streaming home page%s."
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
+#, fuzzy
+#| msgid "Relations"
+msgid "Related Links"
+msgstr "Relace"
+
+#: libraries/engines/pbms.lib.php:98
+msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:99
+msgid "PrimeBase XT Home Page"
+msgstr ""
+
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
 msgstr "Velikost vyrovnávací paměti indexu"
@@ -5258,6 +5278,21 @@ msgstr ""
 "Toto je počet souborů transakčních logů (pbxt/system/xlog*.xt), které bude "
 "systém udržovat. Pokud množství logů překročí tuto hodnotu, budou staré "
 "soubory vymazány. Jinak jsou soubory přejmenovány a označeny vyšším číslem."
+
+#: libraries/engines/pbxt.lib.php:125
+#, php-format
+msgid ""
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:129
+msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:130
+msgid "The PrimeBase Media Streaming (PBMS) home page"
+msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"

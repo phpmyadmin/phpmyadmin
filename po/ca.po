@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-29 15:09-0500\n"
+"POT-Creation-Date: 2011-01-31 15:47+0100\n"
 "PO-Revision-Date: 2010-12-14 11:33+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -611,8 +611,8 @@ msgstr "El seguiment no està actiu."
 #: db_structure.php:379 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
@@ -849,11 +849,11 @@ msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu massa gran. Consulta la %"
-"sdocumentació%s per trobar formes de modificar aquest límit."
+"Probablement has triat d'enviar un arxiu massa gran. Consulta la "
+"%sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1620,8 +1620,8 @@ msgstr "Benvingut a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
@@ -4593,12 +4593,12 @@ msgstr ", @TABLE@ serà el nom de la taula"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faran aquestes transformacions: %3"
-"$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
+"cadenes de formateig de temps. A més, es faran aquestes transformacions: "
+"%3$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
 "per a més detalls."
 
 #: libraries/display_export.lib.php:275
@@ -5154,6 +5154,27 @@ msgstr ""
 "per a inicialitzar la taula pbms_metadata_header quan es crea una base de "
 "dades."
 
+#: libraries/engines/pbms.lib.php:94
+#, php-format
+msgid ""
+"Documentation and further information about PBMS can be found on %sThe "
+"PrimeBase Media Streaming home page%s."
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
+#, fuzzy
+#| msgid "Relations"
+msgid "Related Links"
+msgstr "Relacions"
+
+#: libraries/engines/pbms.lib.php:98
+msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:99
+msgid "PrimeBase XT Home Page"
+msgstr ""
+
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
 msgstr "Tamany del cau d'índex"
@@ -5304,6 +5325,21 @@ msgstr ""
 "xt) que el sistema mantindrà. Si el nombre de registres supera aquest valor, "
 "llavors els registres vells s'esborraràn, altrament es reanomenaràn i es "
 "donarà el pròxim número més alt."
+
+#: libraries/engines/pbxt.lib.php:125
+#, php-format
+msgid ""
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:129
+msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:130
+msgid "The PrimeBase Media Streaming (PBMS) home page"
+msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
@@ -6511,8 +6547,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "No s'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu "
-"instal·lats els mòduls de PHP necessaris tal i com s'indica a la %"
-"sdocumentació%s."
+"instal·lats els mòduls de PHP necessaris tal i com s'indica a la "
+"%sdocumentació%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -7693,8 +7729,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obté els permisos de l'usuari directament de les taules de "
 "permisos de MySQL. El contingut d'aquestes taules pot ser diferent dels "
@@ -9199,8 +9235,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store%"
-"s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
+"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store"
+"%s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
 "igual a ell."
 
 #: setup/lib/index.lib.php:266
@@ -9228,8 +9264,8 @@ msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
 "recomanable per a servidors actius. Qualsevol que conegui la teva URL de "
-"phpMyAdmin pot accedir al teu panel directament. Estableix el %"
-"sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin pot accedir al teu panel directament. Estableix el "
+"%sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-29 15:09-0500\n"
+"POT-Creation-Date: 2011-01-31 15:47+0100\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -612,11 +612,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:379 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
-"sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
+"%sohjeista%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -849,8 +849,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -1617,11 +1617,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
-"$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
+"%1$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -4715,8 +4715,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -5301,6 +5301,27 @@ msgid ""
 "pbms_metadata_header table when a database is created."
 msgstr ""
 
+#: libraries/engines/pbms.lib.php:94
+#, php-format
+msgid ""
+"Documentation and further information about PBMS can be found on %sThe "
+"PrimeBase Media Streaming home page%s."
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
+#, fuzzy
+#| msgid "Relations"
+msgid "Related Links"
+msgstr "Relaatiot"
+
+#: libraries/engines/pbms.lib.php:98
+msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:99
+msgid "PrimeBase XT Home Page"
+msgstr ""
+
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
 msgstr "Indeksivälimuistin koko"
@@ -5448,6 +5469,21 @@ msgstr ""
 "xlog*.xt) lukumäärä. Jos lokien määrä ylittää tämän arvon, vanhat lokit "
 "poistetaan; muuten ne nimetään uudelleen antamalla niille seuraavaksi suurin "
 "numero."
+
+#: libraries/engines/pbxt.lib.php:125
+#, php-format
+msgid ""
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:129
+msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:130
+msgid "The PrimeBase Media Streaming (PBMS) home page"
+msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #, fuzzy
@@ -7967,8 +8003,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -9559,9 +9595,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "

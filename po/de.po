@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-29 15:09-0500\n"
+"POT-Creation-Date: 2011-01-31 15:47+0100\n"
 "PO-Revision-Date: 2011-01-21 12:07+0200\n"
 "Last-Translator:  <ch@rech.co>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -335,8 +335,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
-"s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
+"%s um herauszufinden warum."
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
@@ -614,11 +614,11 @@ msgstr "Tracking ist nicht aktiviert."
 #: db_structure.php:379 libraries/display_tbl.lib.php:1942
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die %"
-"sDokumentation%s."
+"Dieser View hat mindestens diese Anzahl von Zeilen. Bitte lesen Sie die "
+"%sDokumentation%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -852,11 +852,11 @@ msgstr "Dump (Schema) wurde in Datei %s gespeichert."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
-"sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
+"%sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:277 import.php:330 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1662,8 +1662,8 @@ msgstr "Willkommen bei %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
 "haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
@@ -4800,8 +4800,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst, Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -5388,6 +5388,27 @@ msgid ""
 "pbms_metadata_header table when a database is created."
 msgstr ""
 
+#: libraries/engines/pbms.lib.php:94
+#, php-format
+msgid ""
+"Documentation and further information about PBMS can be found on %sThe "
+"PrimeBase Media Streaming home page%s."
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
+#, fuzzy
+#| msgid "Relations"
+msgid "Related Links"
+msgstr "Tabellenverknüpfungen"
+
+#: libraries/engines/pbms.lib.php:98
+msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
+
+#: libraries/engines/pbms.lib.php:99
+msgid "PrimeBase XT Home Page"
+msgstr ""
+
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
 msgstr "Index-Cache Größe"
@@ -5534,6 +5555,21 @@ msgstr ""
 "Die Anzahl an Transaktionslogdateien (pbxt/system/xlog*.xt), die vom System "
 "verwaltet werden. Sind mehr Logs vorhanden, werden alte Logs gelöscht, "
 "ansonsten werden sie umbenannt und bekommen die nächsthöhere Nummer."
+
+#: libraries/engines/pbxt.lib.php:125
+#, php-format
+msgid ""
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:129
+msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:130
+msgid "The PrimeBase Media Streaming (PBMS) home page"
+msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #, fuzzy
@@ -6873,8 +6909,8 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Für diese Umwandlung ist keine Beschreibung verfügbar.<br />Für weitere "
-"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;%"
-"s&quot;."
+"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;"
+"%s&quot;."
 
 #: libraries/tbl_properties.inc.php:725 server_engines.php:56
 #: tbl_operations.php:352
@@ -7285,8 +7321,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
-"s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
+"%s um herauszufinden warum."
 
 #: main.php:319
 msgid ""
@@ -8079,8 +8115,8 @@ msgstr "Die gleichnamigen Datenbanken löschen."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-"
 "Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, "
@@ -9666,9 +9702,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
