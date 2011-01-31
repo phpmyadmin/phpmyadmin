@@ -124,18 +124,11 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
         $output = '<p>'
         . sprintf('Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.', '<a href="' . PMA_linkURL('http://www.primebase.com/xt/') . '" target="_blank">', '</a>')
         . '</p>' . "\n"
-        . '<table id="PBMS_Related_Links" >' . "\n"
-        . '<tr>' . "\n"
-        . '<td>' . "\n"
-        . '<p>' . "\n"
-        . '<strong><font size="2"><b>' . __('Related Links') . '</b></font></strong>' . "\n"
-        . '<br>' . "\n"
-        . '<a href="' . PMA_linkURL('http://pbxt.blogspot.com/') . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh') . '</a><br><br>' . "\n"
-        . '<a href="' . PMA_linkURL('http://www.blobstreaming.org/') . '" target="_blank">' . __('The PrimeBase Media Streaming (PBMS) home page') . '</a>.<br><br>' . "\n"
-        . '</font>' . "\n"
-        . '</td>' . "\n"
-        . '</tr>' . "\n"
-        . '</table>' . "\n";
+        . '<h3>' . __('Related Links') . '</h3>' . "\n"
+        . '<ul>' . "\n"
+        . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/') . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh') . '</a></li>' . "\n"
+        . '<li><a href="' . PMA_linkURL('http://www.blobstreaming.org/') . '" target="_blank">' . __('The PrimeBase Media Streaming (PBMS) home page') . '</a></li>' . "\n"
+        . '</ul>' . "\n";
 
         return $output;
     }
