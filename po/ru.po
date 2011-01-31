@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-01-29 15:09-0500\n"
-"PO-Revision-Date: 2011-01-25 17:26+0200\n"
+"PO-Revision-Date: 2011-01-29 16:02+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5502,26 +5502,28 @@ msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Заключить имена таблиц и полей в обратные кавычки <i>(защищает имена таблиц "
+"и полей содержащих специальные символы или зарезервированные слова)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Использовать вместо <code>INSERT</code> выражения:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Использовать оператор при сохранении данных:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Использовать синтаксис при вставке данных:"
 
 #: libraries/export/sql.php:154
 msgid ""
@@ -5529,6 +5531,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"включение имен полей в каждом выражении <code>INSERT</code> <br /> &nbsp; "
+"&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5536,30 +5541,43 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"включение нескольких строк в каждом выражении <code>INSERT</code><br /> "
+"&nbsp; &nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), "
+"(4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"комбинация обоих верхних вариантов<br /> &nbsp; &nbsp; &nbsp; Пример: "
+"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"ни один из выше перечисленных<br /> &nbsp; &nbsp; &nbsp; Пример: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Сохранение бинарных полей в шестнадцатеричном виде <i>(к примеру, \"abc\" "
+"станет 0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Сохранять поля с типом TIMESTAMP в UTC <i>(позволяет сохранить и перенести "
+"поля с типом TIMESTAMP между серверами находящимися в различных временных "
+"зонах)</i>"
 
 #: libraries/export/sql.php:393 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5604,13 +5622,12 @@ msgstr "XML"
 
 #: libraries/export/xml.php:30
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Параметры создания объекта (рекомендуется выбрать все)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Представление"
+msgstr "Представления"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -5674,6 +5691,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Первая строка файла содержит имена полей таблицы <i>(если данный параметр не "
+"выбран, то первая строка будет частью данных)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5681,12 +5700,14 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Если данные в строках файла расположены не в том же порядке, как в базе "
+"данных, введите здесь имена полей в соответствующей последовательности. "
+"Имена полей разделяются запятыми и не должны быть заключены в кавычки."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Названия столбцов"
+msgstr "Названия столбцов:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -5700,6 +5721,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Указано ошибочное имя столбца (%s)! Убедитесь, что названия столбцов указаны "
+"верно, разделены запятыми, и не заключены в кавычки."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
@@ -5707,10 +5730,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Неправильный формат входных CSV-данных в строке %d."
 
 #: libraries/import/csv.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Неправильное количество полей во входных CSV-данных в строке %d."
+msgstr "Несоответствие количества столбцов в CSV данных на строке %d."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
