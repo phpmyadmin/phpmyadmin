@@ -5352,7 +5352,7 @@ msgstr "Le blogue de PrimeBase XT par Paul McCullagh"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "Le site PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
