@@ -91,7 +91,7 @@ class PMA_StorageEngine_pbms extends PMA_StorageEngine
     function getPageDocumentation()
     {
         $output = '<p>'
-        . sprintf('Documentation and further information about PBMS can be found on %sThe PrimeBase Media Streaming home page%s.', '<a href="' . PMA_linkURL('http://www.blobstreaming.org/') . '" target="_blank">', '</a>')
+        . sprintf(__('Documentation and further information about PBMS can be found on %sThe PrimeBase Media Streaming home page%s.'), '<a href="' . PMA_linkURL('http://www.blobstreaming.org/') . '" target="_blank">', '</a>')
         . '</p>' . "\n"
         . '<h3>' . __('Related Links') . '</h3>' . "\n"
         . '<ul>' . "\n"
