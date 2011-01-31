@@ -235,7 +235,7 @@ if(isset($_GET['sql_query'])) {
                     }
 
                     $message = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.'));
-                    $message->addParam('<a href="./url.php?url=http://php.net/strftime" target="documentation" title="'
+                    $message->addParam('<a href="' . PMA_linkURL('http://php.net/strftime') . '" target="documentation" title="'
                         . __('Documentation') . '">', false);
                     $message->addParam('</a>', false);
                     $message->addParam($trans);

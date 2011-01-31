@@ -656,4 +656,21 @@ function PMA_array_remove($path, &$array)
         }
     }
 }
+
+/**
+ * Returns link to (possibly) external site using defined redirector.
+ *
+ * @param string $url  URL where to go.
+ *
+ * @return string URL for a link.
+ */
+function PMA_linkURL($url) {
+    if (!preg_match('#^https?://#', $url)) {
+        return $url;
+    } elseif (defined('PMA_SETUP')) {
+        return '../url.php?url=' . $url;
+    } else {
+        return './url.php?url=' . $url;
+    }
+}
 ?>

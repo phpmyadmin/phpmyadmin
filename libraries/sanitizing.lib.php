@@ -74,7 +74,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         }
 
         if (substr($found[1], 0, 4) == 'http') {
-            $message = preg_replace($pattern, '<a href="./url.php?url=\1" target="\2">', $message);
+            $message = preg_replace($pattern, '<a href="' . PMA_linkURL($found[1]) . '" target="\2">', $message);
         } else {
             $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
         }

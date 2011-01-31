@@ -497,7 +497,7 @@ function PMA_BS_getURL($reference)
         return FALSE;
     }
 
-    $bs_url = './url.php?url=http://' . $bs_server . '/' . rtrim($reference);
+    $bs_url = PMA_linkURL('http://' . $bs_server . '/' . rtrim($reference));
     return $bs_url;
 }
 

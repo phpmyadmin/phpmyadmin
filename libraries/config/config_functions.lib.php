@@ -93,10 +93,8 @@ function PMA_lang_link_replace($link, $text)
 
     if (!preg_match('#^https?://#', $link)) {
         $link = str_replace('&amp;', $separator, $link);
-    } elseif (defined('PMA_SETUP')) {
-        $link = '../url.php?url=' . $link;
     } else {
-        $link = './url.php?url=' . $link;
+        $link = PMA_linkURL($link);
     }
 
     return '<a href="' . $link . '">' . $text . '</a>';
