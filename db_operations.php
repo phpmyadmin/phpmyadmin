@@ -446,7 +446,7 @@ echo __('Remove database');
             'db' => NULL,
         );
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLinkDropDB(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+        <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : ''); ?>>
             <?php echo __('Drop the database (DROP)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
     </li>
