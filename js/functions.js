@@ -1830,6 +1830,7 @@ $(document).ready(function() {
 
 /**
  * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
+ * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
 
