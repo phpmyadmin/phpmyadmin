@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-31 15:47+0100\n"
+"POT-Creation-Date: 2011-02-01 18:24+0100\n"
 "PO-Revision-Date: 2011-01-08 23:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -46,10 +46,10 @@ msgid "Search"
 msgstr "Ara"
 
 #: browse_foreigners.php:154 db_operations.php:371 db_operations.php:416
-#: db_operations.php:522 db_operations.php:550 db_search.php:359
+#: db_operations.php:522 db_operations.php:550 db_search.php:358
 #: db_structure.php:529 enum_editor.php:63 js/messages.php:59
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
+#: libraries/auth/cookie.auth.lib.php:269 libraries/common.lib.php:1304
 #: libraries/common.lib.php:2270 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
@@ -69,7 +69,7 @@ msgstr "Ara"
 #: server_privileges.php:2109 server_privileges.php:2149
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1207 tbl_change.php:322
-#: tbl_change.php:1053 tbl_change.php:1090 tbl_indexes.php:252
+#: tbl_change.php:1074 tbl_change.php:1111 tbl_indexes.php:252
 #: tbl_operations.php:262 tbl_operations.php:299 tbl_operations.php:501
 #: tbl_operations.php:563 tbl_operations.php:733 tbl_select.php:290
 #: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
@@ -236,11 +236,11 @@ msgstr "Veritabanının dökümünü (şemasını) göster"
 msgid "No tables found in database."
 msgstr "Veritabanında tablo bulunamadı."
 
-#: db_export.php:44 db_search.php:341 server_export.php:26
+#: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: db_export.php:46 db_search.php:344 server_export.php:28
+#: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
 msgstr "Tüm Seçimi Kaldır"
 
@@ -457,7 +457,7 @@ msgstr "Del"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:545 db_qbe.php:576
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:916 tbl_indexes.php:248 tbl_select.php:251
+#: tbl_change.php:937 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
 msgstr "Veya"
 
@@ -490,91 +490,91 @@ msgstr "<b>%s</b> veritabanındaki SQL sorgusu:"
 msgid "Submit Query"
 msgstr "Sorguyu Gönder"
 
-#: db_search.php:53 libraries/auth/config.auth.lib.php:83
+#: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:631 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "Erişim engellendi"
 
-#: db_search.php:65 db_search.php:308
+#: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
 msgstr "kelimelerin en azından biri"
 
-#: db_search.php:66 db_search.php:309
+#: db_search.php:65 db_search.php:308
 msgid "all words"
 msgstr "tüm kelimeler"
 
-#: db_search.php:67 db_search.php:310
+#: db_search.php:66 db_search.php:309
 msgid "the exact phrase"
 msgstr "kesin ifade"
 
-#: db_search.php:68 db_search.php:311
+#: db_search.php:67 db_search.php:310
 msgid "as regular expression"
 msgstr "kurallı ifade olarak"
 
-#: db_search.php:230
+#: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
 
-#: db_search.php:248
+#: db_search.php:247
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s eşleşme, <i>%s</i> tablosu içinde"
 
-#: db_search.php:255 libraries/common.lib.php:2819
+#: db_search.php:254 libraries/common.lib.php:2819
 #: libraries/common.lib.php:2997 libraries/common.lib.php:2998
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
 msgstr "Gözat"
 
-#: db_search.php:260 libraries/display_tbl.lib.php:1190
+#: db_search.php:259 libraries/display_tbl.lib.php:1190
 #: libraries/display_tbl.lib.php:2058
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:447 pmd_general.php:425
+#: libraries/sql_query_form.lib.php:447 pmd_general.php:424
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Sil"
 
-#: db_search.php:260
+#: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "%s tablosu için benzeşenler silinsin mi?"
 
-#: db_search.php:273
+#: db_search.php:272
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Toplam:</b> <i>%s</i> eşleşme"
 
-#: db_search.php:296
+#: db_search.php:295
 msgid "Search in database"
 msgstr "Veritabanında ara"
 
-#: db_search.php:299
+#: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr "Aranacak kelime(ler) veya değer(ler) (joker: \"%\"):"
 
-#: db_search.php:304
+#: db_search.php:303
 msgid "Find:"
 msgstr "Bul:"
 
-#: db_search.php:308 db_search.php:309
+#: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
-#: db_search.php:322
+#: db_search.php:321
 msgid "Inside table(s):"
 msgstr "Tablo içindeki(ler):"
 
-#: db_search.php:352
+#: db_search.php:351
 msgid "Inside column:"
 msgstr "İç sütun:"
 
@@ -1024,9 +1024,9 @@ msgstr "Seçili Kullanıcılar Kaldırılıyor"
 msgid "Close"
 msgstr "Kapat"
 
-#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:390
-#: pmd_general.php:427 pmd_general.php:547 pmd_general.php:595
-#: pmd_general.php:671 pmd_general.php:725 pmd_general.php:788
+#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
+#: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
+#: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
 msgid "Cancel"
 msgstr "İptal"
 
@@ -1050,9 +1050,9 @@ msgstr "Sütun Kaldırılıyor"
 msgid "Adding Primary Key"
 msgstr "Birincil Anahtar Ekleniyor"
 
-#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:388
-#: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
-#: pmd_general.php:723 pmd_general.php:786
+#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
+#: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
+#: pmd_general.php:722 pmd_general.php:785
 msgid "OK"
 msgstr "TAMAM"
 
@@ -1121,7 +1121,7 @@ msgstr "Dış Anahtarı seç"
 msgid "Please select the primary key or a unique key"
 msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin"
 
-#: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
+#: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Göstermek için sütun seçin"
 
@@ -1141,7 +1141,7 @@ msgstr "Üret"
 msgid "Change Password"
 msgstr "Parola Değiştir"
 
-#: js/messages.php:110
+#: js/messages.php:110 tbl_structure.php:471
 msgid "More"
 msgstr "Daha Fazla"
 
@@ -1499,7 +1499,7 @@ msgstr "Veritabanları"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:573
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:912
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:933
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Hata"
@@ -1598,7 +1598,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Bağlanamıyor: geçersiz ayarlar."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:196 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1625,45 +1625,45 @@ msgstr ""
 "parolayı kontrol edin ve MySQL sunucusu yöneticisi tarafından verilen "
 "bilgiye uyduğundan emin olun."
 
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:221
 msgid "Log in"
 msgstr "Oturum aç"
 
-#: libraries/auth/cookie.auth.lib.php:233
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:225
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin belgeleri"
 
-#: libraries/auth/cookie.auth.lib.php:245
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:236
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Anamakine adı/IP adresi ve bağlantı noktasını boşluk bırakarak ayrı "
 "girebilirsiniz."
 
-#: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:235
 msgid "Server:"
 msgstr "Sunucu:"
 
-#: libraries/auth/cookie.auth.lib.php:250
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
 
-#: libraries/auth/cookie.auth.lib.php:254
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Password:"
 msgstr "Parola:"
 
-#: libraries/auth/cookie.auth.lib.php:261
+#: libraries/auth/cookie.auth.lib.php:251
 msgid "Server Choice"
 msgstr "Sunucu Seçimi"
 
-#: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
+#: libraries/auth/cookie.auth.lib.php:297 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
 msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalıdır."
 
-#: libraries/auth/cookie.auth.lib.php:639
+#: libraries/auth/cookie.auth.lib.php:629
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1671,14 +1671,14 @@ msgstr ""
 "Yapılandırma tarafından parolasız oturum açma yasaktır (AllowNoPassword'a "
 "bakın)"
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:633
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s saniye içinde hiçbir işlem yapılmadı, lütfen yeniden oturum açın"
 
-#: libraries/auth/cookie.auth.lib.php:653
-#: libraries/auth/cookie.auth.lib.php:655
+#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:645
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL sunucusuna oturum açılamıyor"
@@ -2042,7 +2042,7 @@ msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakını
 #: libraries/config/user_preferences.forms.php:263
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:153 server_privileges.php:594 server_replication.php:313
+#: pmd_general.php:152 server_privileges.php:594 server_replication.php:313
 #: tbl_tracking.php:263
 msgid "Structure"
 msgstr "Yapı"
@@ -2077,7 +2077,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
 #: libraries/common.lib.php:2976 libraries/sql_query_form.lib.php:500
-#: tbl_change.php:913
+#: tbl_change.php:934
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
@@ -2224,14 +2224,14 @@ msgstr "Bu değeri özelleştirmek için kullanıcılara izin ver"
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1005 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Kaydet"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1054
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -4603,7 +4603,7 @@ msgstr "Sıkıştırma:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:512 server_privileges.php:1966 server_processlist.php:74
+#: pmd_general.php:511 server_privileges.php:1966 server_processlist.php:74
 msgid "None"
 msgstr "Yok"
 
@@ -4808,7 +4808,7 @@ msgstr "Binari içerikleri göster"
 msgid "Show BLOB contents"
 msgstr "BLOB içerikleri göster"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:160 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:159 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Gizle"
@@ -5811,7 +5811,7 @@ msgid "Charset"
 msgstr "Karakter Grubu"
 
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
-#: tbl_change.php:506
+#: tbl_change.php:527
 msgid "Binary"
 msgstr "Binari"
 
@@ -6132,8 +6132,8 @@ msgstr "Slave durumu"
 msgid "Variable"
 msgstr "Değişken"
 
-#: libraries/replication_gui.lib.php:117 pmd_general.php:478
-#: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
+#: libraries/replication_gui.lib.php:117 pmd_general.php:477
+#: pmd_general.php:536 pmd_general.php:659 pmd_general.php:776
 #: server_status.php:770 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:821
 msgid "Value"
@@ -6456,7 +6456,7 @@ msgstr "Sadece göster"
 msgid "Location of the text file"
 msgstr "Metin dosyasının yeri"
 
-#: libraries/sql_query_form.lib.php:503 tbl_change.php:916
+#: libraries/sql_query_form.lib.php:503 tbl_change.php:937
 msgid "web server upload directory"
 msgstr "web sunucusu gönderme dizini"
 
@@ -7009,111 +7009,111 @@ msgstr "Tablo oluştur"
 msgid "Please select a database"
 msgstr "Lütfen bir veritabanı seçin"
 
-#: pmd_general.php:76
+#: pmd_general.php:75
 msgid "Show/Hide left menu"
 msgstr "Sol menüyü Göster/Gizle"
 
-#: pmd_general.php:80
+#: pmd_general.php:79
 msgid "Save position"
 msgstr "Konumu kaydet"
 
-#: pmd_general.php:83 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:82 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Tablo oluştur"
 
-#: pmd_general.php:86 pmd_general.php:354
+#: pmd_general.php:85 pmd_general.php:353
 msgid "Create relation"
 msgstr "Bağlantı oluştur"
 
-#: pmd_general.php:92
+#: pmd_general.php:91
 msgid "Reload"
 msgstr "Yeniden yükle"
 
-#: pmd_general.php:95
+#: pmd_general.php:94
 msgid "Help"
 msgstr "Yardım"
 
-#: pmd_general.php:99
+#: pmd_general.php:98
 msgid "Angular links"
 msgstr "Yönlendirmeli bağlantılar"
 
-#: pmd_general.php:99
+#: pmd_general.php:98
 msgid "Direct links"
 msgstr "Doğrudan bağlantılar"
 
-#: pmd_general.php:103
+#: pmd_general.php:102
 msgid "Snap to grid"
 msgstr "Kılavuza ayarla"
 
-#: pmd_general.php:107
+#: pmd_general.php:106
 msgid "Small/Big All"
 msgstr "Tümü Küçük/Büyük"
 
-#: pmd_general.php:111
+#: pmd_general.php:110
 msgid "Toggle small/big"
 msgstr "Küçüğü/büyüğü değiştir"
 
-#: pmd_general.php:116 pmd_pdf.php:80
+#: pmd_general.php:115 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
-#: pmd_general.php:122
+#: pmd_general.php:121
 msgid "Build Query"
 msgstr "Sorgu Yarat"
 
-#: pmd_general.php:127
+#: pmd_general.php:126
 msgid "Move Menu"
 msgstr "Menüyü taşı"
 
-#: pmd_general.php:139
+#: pmd_general.php:138
 msgid "Hide/Show all"
 msgstr "Tümünü Gizle/Göster"
 
-#: pmd_general.php:143
+#: pmd_general.php:142
 msgid "Hide/Show Tables with no relation"
 msgstr "Bağlantılı olmayan Tabloları Gizle/Göster"
 
-#: pmd_general.php:183
+#: pmd_general.php:182
 msgid "Number of tables"
 msgstr "Tablo sayısı"
 
-#: pmd_general.php:420
+#: pmd_general.php:419
 msgid "Delete relation"
 msgstr "Bağlantıyı sil"
 
-#: pmd_general.php:462 pmd_general.php:521
+#: pmd_general.php:461 pmd_general.php:520
 msgid "Relation operator"
 msgstr "Bağlantı işletici"
 
-#: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
-#: pmd_general.php:771
+#: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
+#: pmd_general.php:770
 msgid "Except"
 msgstr "Hariç"
 
-#: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
-#: pmd_general.php:777
+#: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
+#: pmd_general.php:776
 msgid "subquery"
 msgstr "alt sorgu"
 
-#: pmd_general.php:482 pmd_general.php:578
+#: pmd_general.php:481 pmd_general.php:577
 msgid "Rename to"
 msgstr "Yeniden şuna adlandır"
 
-#: pmd_general.php:484 pmd_general.php:583
+#: pmd_general.php:483 pmd_general.php:582
 msgid "New name"
 msgstr "Yeni ad"
 
-#: pmd_general.php:487 pmd_general.php:702
+#: pmd_general.php:486 pmd_general.php:701
 msgid "Aggregate"
 msgstr "Topla"
 
-#: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
-#: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
+#: pmd_general.php:488 pmd_general.php:508 pmd_general.php:630
+#: pmd_general.php:643 pmd_general.php:706 pmd_general.php:760
 #: tbl_select.php:115
 msgid "Operator"
 msgstr "İşletici"
 
-#: pmd_general.php:812
+#: pmd_general.php:811
 msgid "Active options"
 msgstr "Aktif seçenekler"
 
@@ -9298,62 +9298,62 @@ msgstr "Tablo %1$s başarılı olarak değiştirldi"
 msgid "Function"
 msgstr "İşlev"
 
-#: tbl_change.php:709
+#: tbl_change.php:730
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir "
 
-#: tbl_change.php:826
+#: tbl_change.php:847
 msgid "Remove BLOB Repository Reference"
 msgstr "BLOB Havuzu Referansını kaldır"
 
-#: tbl_change.php:832
+#: tbl_change.php:853
 msgid "Binary - do not edit"
 msgstr "Binari - düzenlemeyiniz"
 
-#: tbl_change.php:880
+#: tbl_change.php:901
 msgid "Upload to BLOB repository"
 msgstr "BLOB Havuzuna gönder"
 
-#: tbl_change.php:1009
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr "Yeni satır olarak ekle"
 
-#: tbl_change.php:1010
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr "Yeni satır olarak ekle ve hataları yoksay"
 
-#: tbl_change.php:1011
+#: tbl_change.php:1032
 msgid "Show insert query"
 msgstr "Ekleme sorgusunu göster"
 
-#: tbl_change.php:1022
+#: tbl_change.php:1043
 msgid "and then"
 msgstr "ve sonra"
 
-#: tbl_change.php:1026
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr "Önceki sayfaya geri dön"
 
-#: tbl_change.php:1027
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr "Yeni başka bir satır ekle"
 
-#: tbl_change.php:1031
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr "Bu sayfaya geri dön"
 
-#: tbl_change.php:1039
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr "Sonraki satırı düzenle"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
 "CTRL+OK TUŞLARI'nı kullanın"
 
-#: tbl_change.php:1088
+#: tbl_change.php:1109
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "%s satırla eklemeye devam et"
@@ -9756,6 +9756,12 @@ msgstr "%s üzerinde birincil anahtar eklendi"
 #, php-format
 msgid "An index has been added on %s"
 msgstr "%s üzerinde bir indeks eklendi"
+
+#: tbl_structure.php:471
+#, fuzzy
+#| msgid "Show versions"
+msgid "Show more actions"
+msgstr "Sürümleri göster"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"

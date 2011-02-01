@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-01-31 15:47+0100\n"
+"POT-Creation-Date: 2011-02-01 18:24+0100\n"
 "PO-Revision-Date: 2010-11-26 12:58+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -45,10 +45,10 @@ msgid "Search"
 msgstr "Søk"
 
 #: browse_foreigners.php:154 db_operations.php:371 db_operations.php:416
-#: db_operations.php:522 db_operations.php:550 db_search.php:359
+#: db_operations.php:522 db_operations.php:550 db_search.php:358
 #: db_structure.php:529 enum_editor.php:63 js/messages.php:59
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:1304
+#: libraries/auth/cookie.auth.lib.php:269 libraries/common.lib.php:1304
 #: libraries/common.lib.php:2270 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
@@ -68,7 +68,7 @@ msgstr "Søk"
 #: server_privileges.php:2109 server_privileges.php:2149
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1207 tbl_change.php:322
-#: tbl_change.php:1053 tbl_change.php:1090 tbl_indexes.php:252
+#: tbl_change.php:1074 tbl_change.php:1111 tbl_indexes.php:252
 #: tbl_operations.php:262 tbl_operations.php:299 tbl_operations.php:501
 #: tbl_operations.php:563 tbl_operations.php:733 tbl_select.php:290
 #: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
@@ -235,11 +235,11 @@ msgstr "Vis dump (skjema) av database"
 msgid "No tables found in database."
 msgstr "Ingen tabeller i databasen."
 
-#: db_export.php:44 db_search.php:341 server_export.php:26
+#: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
 msgstr "Velg alle"
 
-#: db_export.php:46 db_search.php:344 server_export.php:28
+#: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
 msgstr "Fjern alle valgte"
 
@@ -456,7 +456,7 @@ msgstr "Slett"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:545 db_qbe.php:576
 #: libraries/tbl_properties.inc.php:778 server_privileges.php:298
-#: tbl_change.php:916 tbl_indexes.php:248 tbl_select.php:251
+#: tbl_change.php:937 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
 msgstr "Eller"
 
@@ -489,94 +489,94 @@ msgstr "SQL-spørring i database <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Kjør spørring"
 
-#: db_search.php:53 libraries/auth/config.auth.lib.php:83
+#: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:631 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "Ingen tilgang"
 
-#: db_search.php:65 db_search.php:308
+#: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
 msgstr "minst ett av ordene"
 
-#: db_search.php:66 db_search.php:309
+#: db_search.php:65 db_search.php:308
 msgid "all words"
 msgstr "alle ordene"
 
-#: db_search.php:67 db_search.php:310
+#: db_search.php:66 db_search.php:309
 msgid "the exact phrase"
 msgstr "med den nøyaktige setningen"
 
-#: db_search.php:68 db_search.php:311
+#: db_search.php:67 db_search.php:310
 msgid "as regular expression"
 msgstr "som \"regular expression\""
 
-#: db_search.php:230
+#: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Søkeresultat for \"<i>%s</i>\" %s:"
 
-#: db_search.php:248
+#: db_search.php:247
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s treff i tabell <i>%s</i>"
 msgstr[1] "%s treff i tabell <i>%s</i>"
 
-#: db_search.php:255 libraries/common.lib.php:2819
+#: db_search.php:254 libraries/common.lib.php:2819
 #: libraries/common.lib.php:2997 libraries/common.lib.php:2998
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
 msgstr "Se på"
 
-#: db_search.php:260 libraries/display_tbl.lib.php:1190
+#: db_search.php:259 libraries/display_tbl.lib.php:1190
 #: libraries/display_tbl.lib.php:2058
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:447 pmd_general.php:425
+#: libraries/sql_query_form.lib.php:447 pmd_general.php:424
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Slett"
 
-#: db_search.php:260
+#: db_search.php:259
 #, fuzzy, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
 msgstr "Slett overvåkningsdata for denne tabellen"
 
-#: db_search.php:273
+#: db_search.php:272
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Totalt:</b> <i>%s</i> treff"
 msgstr[1] "<b>Totalt:</b> <i>%s</i> treff"
 
-#: db_search.php:296
+#: db_search.php:295
 msgid "Search in database"
 msgstr "Søk i database"
 
-#: db_search.php:299
+#: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr "Ord eller verdi(er) å søke etter (jokertegn: \"%\"):"
 
-#: db_search.php:304
+#: db_search.php:303
 msgid "Find:"
 msgstr "Finn:"
 
-#: db_search.php:308 db_search.php:309
+#: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
 msgstr "Ord er separert med et mellomrom (\" \")."
 
-#: db_search.php:322
+#: db_search.php:321
 msgid "Inside table(s):"
 msgstr "I tabell(ene):"
 
-#: db_search.php:352
+#: db_search.php:351
 msgid "Inside column:"
 msgstr "I kolonne:"
 
@@ -1024,9 +1024,9 @@ msgstr "Fjern valgte brukere"
 msgid "Close"
 msgstr "Lukk"
 
-#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:390
-#: pmd_general.php:427 pmd_general.php:547 pmd_general.php:595
-#: pmd_general.php:671 pmd_general.php:725 pmd_general.php:788
+#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
+#: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
+#: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -1050,9 +1050,9 @@ msgstr "Dropper kolonne"
 msgid "Adding Primary Key"
 msgstr "Legger til primærnøkkel"
 
-#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:388
-#: pmd_general.php:545 pmd_general.php:593 pmd_general.php:669
-#: pmd_general.php:723 pmd_general.php:786
+#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
+#: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
+#: pmd_general.php:722 pmd_general.php:785
 msgid "OK"
 msgstr "OK"
 
@@ -1125,7 +1125,7 @@ msgstr "Velg fremmednøkkel"
 msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
 
-#: js/messages.php:99 pmd_general.php:89 tbl_relation.php:545
+#: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Velg kolonne for visning"
 
@@ -1145,7 +1145,7 @@ msgstr "Generer"
 msgid "Change Password"
 msgstr "Endre passord"
 
-#: js/messages.php:110
+#: js/messages.php:110 tbl_structure.php:471
 msgid "More"
 msgstr "Mer"
 
@@ -1503,7 +1503,7 @@ msgstr "Databaser"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:573
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:912
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:933
 #: tbl_operations.php:210 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Feil"
@@ -1606,7 +1606,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Kan ikke koble til: ugyldige innstillinger."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:196 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1633,57 +1633,57 @@ msgstr ""
 "passord (password) i config.inc.php og sjekke at de tilsvarer den "
 "informasjonen du fikk fra MySQL-server administratoren."
 
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:221
 msgid "Log in"
 msgstr "Logg inn"
 
-#: libraries/auth/cookie.auth.lib.php:233
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:225
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-Dokumentasjon"
 
-#: libraries/auth/cookie.auth.lib.php:245
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:236
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Du kan skrive vertsnavn/IP adresse og port separert med mellomrom."
 
-#: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:235
 msgid "Server:"
 msgstr "Tjener"
 
-#: libraries/auth/cookie.auth.lib.php:250
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "Username:"
 msgstr "Brukernavn:"
 
-#: libraries/auth/cookie.auth.lib.php:254
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Password:"
 msgstr "Passord:"
 
-#: libraries/auth/cookie.auth.lib.php:261
+#: libraries/auth/cookie.auth.lib.php:251
 msgid "Server Choice"
 msgstr "Tjenervalg"
 
-#: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:72
+#: libraries/auth/cookie.auth.lib.php:297 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies må være slått på forbi dette punkt."
 
-#: libraries/auth/cookie.auth.lib.php:639
+#: libraries/auth/cookie.auth.lib.php:629
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Innlogging uten passord er forbudt av konfigurasjonen (see AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:633
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Ingen aktivitet på %s sekunder eller mer, du må logge inn på nytt"
 
-#: libraries/auth/cookie.auth.lib.php:653
-#: libraries/auth/cookie.auth.lib.php:655
+#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:645
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ikke logge inn til MySQL tjeneren"
@@ -2044,7 +2044,7 @@ msgstr "Funksjonaliteten %s er påvirket av en kjent feil, se %s"
 #: libraries/config/user_preferences.forms.php:263
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:153 server_privileges.php:594 server_replication.php:313
+#: pmd_general.php:152 server_privileges.php:594 server_replication.php:313
 #: tbl_tracking.php:263
 msgid "Structure"
 msgstr "Struktur"
@@ -2080,7 +2080,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "webtjener opplastingskatalog"
 
 #: libraries/common.lib.php:2976 libraries/sql_query_form.lib.php:500
-#: tbl_change.php:913
+#: tbl_change.php:934
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Katalogen du anga for opplasting kan ikke nåes"
 
@@ -2230,14 +2230,14 @@ msgstr "Tillat brukere å endre denne verdien"
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1005 tbl_indexes.php:246
+#: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Lagre"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:140
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1054
+#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "Tilbakestill"
 
@@ -4676,7 +4676,7 @@ msgstr "Kompresjon"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:512 server_privileges.php:1966 server_processlist.php:74
+#: pmd_general.php:511 server_privileges.php:1966 server_processlist.php:74
 msgid "None"
 msgstr "Ingen"
 
@@ -4909,7 +4909,7 @@ msgstr "Vis binært innhold"
 msgid "Show BLOB contents"
 msgstr "Vis BLOB innhold"
 
-#: libraries/display_tbl.lib.php:605 pmd_general.php:160 tbl_change.php:306
+#: libraries/display_tbl.lib.php:605 pmd_general.php:159 tbl_change.php:306
 #: tbl_change.php:312
 msgid "Hide"
 msgstr "Skjul"
@@ -5919,7 +5919,7 @@ msgid "Charset"
 msgstr "Tegnsett"
 
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
-#: tbl_change.php:506
+#: tbl_change.php:527
 msgid "Binary"
 msgstr " Binær "
 
@@ -6238,8 +6238,8 @@ msgstr "Slavestatus"
 msgid "Variable"
 msgstr "Variabler"
 
-#: libraries/replication_gui.lib.php:117 pmd_general.php:478
-#: pmd_general.php:537 pmd_general.php:660 pmd_general.php:777
+#: libraries/replication_gui.lib.php:117 pmd_general.php:477
+#: pmd_general.php:536 pmd_general.php:659 pmd_general.php:776
 #: server_status.php:770 tbl_change.php:316 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:821
 msgid "Value"
@@ -6574,7 +6574,7 @@ msgstr "Bare se"
 msgid "Location of the text file"
 msgstr "Plassering av filen"
 
-#: libraries/sql_query_form.lib.php:503 tbl_change.php:916
+#: libraries/sql_query_form.lib.php:503 tbl_change.php:937
 msgid "web server upload directory"
 msgstr "webtjener opplastingskatalog"
 
@@ -7145,125 +7145,125 @@ msgstr "Opprett tabell"
 msgid "Please select a database"
 msgstr "Vennligst velg en database"
 
-#: pmd_general.php:76
+#: pmd_general.php:75
 msgid "Show/Hide left menu"
 msgstr "Skjul/Vis venstre meny"
 
-#: pmd_general.php:80
+#: pmd_general.php:79
 msgid "Save position"
 msgstr "Lagre posisjon"
 
-#: pmd_general.php:83 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:82 server_synchronize.php:427 server_synchronize.php:870
 msgid "Create table"
 msgstr "Opprett tabell"
 
-#: pmd_general.php:86 pmd_general.php:354
+#: pmd_general.php:85 pmd_general.php:353
 msgid "Create relation"
 msgstr "Opprett relasjon"
 
-#: pmd_general.php:92
+#: pmd_general.php:91
 msgid "Reload"
 msgstr "Oppdater"
 
-#: pmd_general.php:95
+#: pmd_general.php:94
 msgid "Help"
 msgstr "Hjelp"
 
-#: pmd_general.php:99
+#: pmd_general.php:98
 msgid "Angular links"
 msgstr "Vinklede linker"
 
-#: pmd_general.php:99
+#: pmd_general.php:98
 msgid "Direct links"
 msgstr "Direkte linker"
 
-#: pmd_general.php:103
+#: pmd_general.php:102
 msgid "Snap to grid"
 msgstr "Lås til ruter"
 
-#: pmd_general.php:107
+#: pmd_general.php:106
 msgid "Small/Big All"
 msgstr "Liten/Stor alle"
 
-#: pmd_general.php:111
+#: pmd_general.php:110
 msgid "Toggle small/big"
 msgstr "Veksle mellom liten/stor"
 
-#: pmd_general.php:116 pmd_pdf.php:80
+#: pmd_general.php:115 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Eksporter koordinater for PDF skjema"
 
-#: pmd_general.php:122
+#: pmd_general.php:121
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Kjør spørring"
 
-#: pmd_general.php:127
+#: pmd_general.php:126
 msgid "Move Menu"
 msgstr "Flytt meny"
 
-#: pmd_general.php:139
+#: pmd_general.php:138
 msgid "Hide/Show all"
 msgstr "Skjul/Vis alle"
 
-#: pmd_general.php:143
+#: pmd_general.php:142
 msgid "Hide/Show Tables with no relation"
 msgstr "Skjul/Vis tabeller uten relasjoner"
 
-#: pmd_general.php:183
+#: pmd_general.php:182
 msgid "Number of tables"
 msgstr "Antall tabeller"
 
-#: pmd_general.php:420
+#: pmd_general.php:419
 msgid "Delete relation"
 msgstr "Slett relasjon"
 
-#: pmd_general.php:462 pmd_general.php:521
+#: pmd_general.php:461 pmd_general.php:520
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Relasjon slettet"
 
-#: pmd_general.php:472 pmd_general.php:531 pmd_general.php:654
-#: pmd_general.php:771
+#: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
+#: pmd_general.php:770
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Eksporter"
 
-#: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
-#: pmd_general.php:777
+#: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
+#: pmd_general.php:776
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "i spørring"
 
-#: pmd_general.php:482 pmd_general.php:578
+#: pmd_general.php:481 pmd_general.php:577
 #, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Endre tabellens navn"
 
-#: pmd_general.php:484 pmd_general.php:583
+#: pmd_general.php:483 pmd_general.php:582
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "Brukernavn"
 
-#: pmd_general.php:487 pmd_general.php:702
+#: pmd_general.php:486 pmd_general.php:701
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Opprett"
 
-#: pmd_general.php:489 pmd_general.php:509 pmd_general.php:631
-#: pmd_general.php:644 pmd_general.php:707 pmd_general.php:761
+#: pmd_general.php:488 pmd_general.php:508 pmd_general.php:630
+#: pmd_general.php:643 pmd_general.php:706 pmd_general.php:760
 #: tbl_select.php:115
 msgid "Operator"
 msgstr "Operator"
 
-#: pmd_general.php:812
+#: pmd_general.php:811
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"
@@ -9532,64 +9532,64 @@ msgstr "Tabellen %1$s har blitt endrett"
 msgid "Function"
 msgstr "Funksjon"
 
-#: tbl_change.php:709
+#: tbl_change.php:730
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 " På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
 "redigerbar"
 
-#: tbl_change.php:826
+#: tbl_change.php:847
 msgid "Remove BLOB Repository Reference"
 msgstr "Fjern BLOB lager referanse"
 
-#: tbl_change.php:832
+#: tbl_change.php:853
 msgid "Binary - do not edit"
 msgstr " Binær - må ikke redigeres "
 
-#: tbl_change.php:880
+#: tbl_change.php:901
 msgid "Upload to BLOB repository"
 msgstr "Last opp til BLOB lager"
 
-#: tbl_change.php:1009
+#: tbl_change.php:1030
 msgid "Insert as new row"
 msgstr "Sett inn som ny rad"
 
-#: tbl_change.php:1010
+#: tbl_change.php:1031
 msgid "Insert as new row and ignore errors"
 msgstr "Sett inn som ny rad og ignorer feil"
 
-#: tbl_change.php:1011
+#: tbl_change.php:1032
 msgid "Show insert query"
 msgstr "Viser SQL spørring"
 
-#: tbl_change.php:1022
+#: tbl_change.php:1043
 msgid "and then"
 msgstr "og så"
 
-#: tbl_change.php:1026
+#: tbl_change.php:1047
 msgid "Go back to previous page"
 msgstr "Returner"
 
-#: tbl_change.php:1027
+#: tbl_change.php:1048
 msgid "Insert another new row"
 msgstr "Sett inn en ny post"
 
-#: tbl_change.php:1031
+#: tbl_change.php:1052
 msgid "Go back to this page"
 msgstr "Tilbake til denne siden"
 
-#: tbl_change.php:1039
+#: tbl_change.php:1060
 msgid "Edit next row"
 msgstr "Rediger neste rad"
 
-#: tbl_change.php:1050
+#: tbl_change.php:1071
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Bruk TAB tasten for å flytte fra verdi til verdi, eller CTRL+piltastene for "
 "å bevege deg hvor som helst"
 
-#: tbl_change.php:1088
+#: tbl_change.php:1109
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
@@ -10008,6 +10008,12 @@ msgstr "En primærnøkkel har blitt lagt til %s"
 #, php-format
 msgid "An index has been added on %s"
 msgstr "En indeks har blitt lagt til %s"
+
+#: tbl_structure.php:471
+#, fuzzy
+#| msgid "Show versions"
+msgid "Show more actions"
+msgstr "Vis versjoner"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
