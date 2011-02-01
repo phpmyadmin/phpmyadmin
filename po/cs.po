@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-01 18:24+0100\n"
-"PO-Revision-Date: 2011-01-31 15:51+0100\n"
+"PO-Revision-Date: 2011-02-01 18:25+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -761,7 +761,7 @@ msgstr "Stav"
 #: server_privileges.php:1623 server_privileges.php:1816
 #: server_privileges.php:2165 tbl_structure.php:207
 msgid "Action"
-msgstr "Akce"
+msgstr "Operace"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
@@ -9691,10 +9691,9 @@ msgid "An index has been added on %s"
 msgstr "Na poli %s byl vytvořen index"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Zobrazit verze"
+msgstr "Zobrazit více operací"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
