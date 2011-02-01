@@ -57,7 +57,7 @@ require_once './libraries/header_scripts.inc.php';
 ?>
     <script src="js/messages.php<?php echo PMA_generate_common_url($params); ?>" type="text/javascript"></script>
     <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
-    <script src="pmd/scripts/history.js" type="text/javascript"></script> 
+    <script src="pmd/scripts/history.js" type="text/javascript"></script>
 	<script src="pmd/scripts/move.js" type="text/javascript"></script>
     <!--[if IE]>
     <script src="pmd/scripts/iecanvas.js" type="text/javascript"></script>
@@ -109,17 +109,17 @@ echo $script_tabs . $script_contr . $script_display_field;
             class="M_butt" target="_self"
         ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="pmd/images/bottom.png"
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
-        /><a href="javascript:PDF_save();" onmousedown="return false;" 
+        /><a href="javascript:PDF_save();" onmousedown="return false;"
             class="M_butt" target="_self"
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
          >
         <?php if($_REQUEST['query']){
-            echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;" 
+            echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
             class="M_butt" target="_self">';
             echo '<img src="pmd/images/query_builder.png" alt="key" width="20" height="20" title="';
             echo __('Build Query');
-            echo '"/></a>'; }?> 
+            echo '"/></a>'; }?>
          <a href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));"
             onmousedown="return false;" class="M_butt last" target="_self">
             <img src="pmd/images/2rightarrow_m.png" id="key_Left_Right" alt=">"
@@ -205,7 +205,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
          ">
 <thead>
 <tr>
-    <?php 
+    <?php
 	if(isset($_REQUEST['query'])) {
 		echo '<td class="select_all">';
     	echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
@@ -238,7 +238,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         echo '.</span>';
         echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
         ?></td>
-    <?php 
+    <?php
 	if(isset($_REQUEST['query'])) {
 		echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
         echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
@@ -274,10 +274,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
         }
         ?>)">
-    <?php 
+    <?php
 	if(isset($_REQUEST['query'])) {
     	echo '<td class="select_all">';
-	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"'; 
+	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"';
         echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'._'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
  		echo 'style="margin: 0px;" title="select_'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
 		echo 'onclick="store_column(\''.urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]).'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\')"></td>';
@@ -315,7 +315,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         ?>
         </div>
    </td>
-   <?php 
+   <?php
    if(isset($_REQUEST['query'])) {
 	   //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
 	   echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
@@ -483,7 +483,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <td width="58" nowrap="nowrap"><?php echo __('New name'); ?></td>
         	<td width="102"><input type="text" value="" id="new_name"/></td>
         </tr>
-        <tr><td align="center" nowrap="nowrap"><b><?php echo __('Aggregate'); ?></b></td></tr>   
+        <tr><td align="center" nowrap="nowrap"><b><?php echo __('Aggregate'); ?></b></td></tr>
          <tr>
          <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="operator" id="operator">
@@ -498,7 +498,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
            <tr>
 				<td nowrap="nowrap" width="58" align="center"><b>GROUP BY</b></td>
                 <td><input type="checkbox" value="groupby" id="groupby"/></td>
-           </tr>           	
+           </tr>
            <tr>
 				<td nowrap="nowrap" width="58" align="center"><b>ORDER BY</b></td>
                 <td><input type="checkbox" value="orderby" id="orderby"/></td>
@@ -713,7 +713,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
    	            	<option value="avg"> AVG </option>
                 	<option value="avg"> COUNT </option>
                 </select>
-           </td></tr>   
+           </td></tr>
         </tbody>
         <tbody>
         <tr>
@@ -801,7 +801,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<?php 
+<?php
 if($_REQUEST['query']) {
 	echo '<div class="panel">';
   	echo '<div style="clear:both;"></div>';
@@ -819,7 +819,7 @@ if($_REQUEST['query']) {
     echo PMA_generate_common_hidden_inputs($GLOBALS['db']);
     echo '</div></p>';
     echo '</form></div>';
-	
+
 } ?>
 
 
