@@ -370,10 +370,31 @@ foreach ($rows as $row_id => $vrow) {
                 $table_fields[$i]['Field_title'] = $table_fields[$i]['Field_html'];
             }
 
-            // The type column
-            $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
-            $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
-            $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
+            // The type column.
+            // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
+            // If check to ensure types such as "enum('one','two','binary',..)" or
+            // "enum('one','two','varbinary',..)" are not categorized as binary.
+            if (stripos($table_fields[$i]['Type'], 'binary') === 0
+            || stripos($table_fields[$i]['Type'], 'varbinary') === 0) {
+                $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
+            }
+
+            // If check to ensure types such as "enum('one','two','blob',..)" or
+            // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
+            if (stripos($table_fields[$i]['Type'], 'blob') === 0
+            || stripos($table_fields[$i]['Type'], 'tinyblob') === 0
+            || stripos($table_fields[$i]['Type'], 'mediumblob') === 0
+            || stripos($table_fields[$i]['Type'], 'longblob') === 0) {
+                $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
+            }
+
+            // If check to ensure types such as "enum('one','two','char',..)" or
+            // "enum('one','two','varchar',..)" are not categorized as char.
+            if (stripos($table_fields[$i]['Type'], 'char') === 0
+            || stripos($table_fields[$i]['Type'], 'varchar') === 0) {
+                $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
+            }
+
             $table_fields[$i]['first_timestamp'] = false;
             switch ($table_fields[$i]['True_Type']) {
                 case 'set':
@@ -616,7 +637,7 @@ foreach ($rows as $row_id => $vrow) {
                 echo ' checked="checked"';
             }
             echo ' id="field_' . ($idindex) . '_2" />';
-            
+
             // nullify_code is needed by the js nullify() function
             if (strstr($field['True_Type'], 'enum')) {
                 if (strlen($field['Type']) > 20) {
@@ -635,7 +656,7 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 $nullify_code = '5';
             }
-            // to be able to generate calls to nullify() in jQuery 
+            // to be able to generate calls to nullify() in jQuery
             echo '<input type="hidden" class="nullify_code" name="nullify_code' . $field_name_appendix . '" value="' . $nullify_code . '" />';
             echo '<input type="hidden" class="hashed_field" name="hashed_field' . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
             echo '<input type="hidden" class="multi_edit" name="multi_edit' . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
