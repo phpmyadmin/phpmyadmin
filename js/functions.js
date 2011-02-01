@@ -906,10 +906,13 @@ $(document).ready(function() {
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
-    $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function() {
-        var $tr = $(this);
-        $tr.toggleClass('marked');
-        $tr.children().toggleClass('marked');
+    $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
+        //do not trigger when clicked on anchor or inside input element (in inline editing mode) with exception of the first checkbox
+        if (!jQuery(e.target).is('a, a *, :input:not([name^="rows_to_delete"])')) {
+            var $tr = $(this);
+            $tr.toggleClass('marked');
+            $tr.children().toggleClass('marked');
+        }
     });
 
     /**
