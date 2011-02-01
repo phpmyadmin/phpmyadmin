@@ -169,18 +169,8 @@ function PMA_auth()
     /* HTML header; do not show here the PMA version to improve security */
     $page_title = 'phpMyAdmin ';
     require './libraries/header_meta_style.inc.php';
+    require './libraries/header_scripts.inc.php';
     ?>
-<script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
-<script src="./js/update-location.js" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-// show login form in top frame
-if (top != self) {
-    window.top.location.href=location;
-}
-//]]>
-</script>
-<script src="./js/functions.js" type="text/javascript"></script>
 </head>
 
 <body class="loginform">
