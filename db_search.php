@@ -37,7 +37,6 @@
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.4.js';
 $GLOBALS['js_include'][] = 'db_search.js';
 
 /**
