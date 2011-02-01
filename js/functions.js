@@ -1837,16 +1837,17 @@ $(document).ready(function() {
     $(".drop_trigger_anchor").live('click', function(event) {
         event.preventDefault();
 
+        $anchor = $(this);
         /**
          * @var curr_row    Object reference to the current trigger's <tr>
          */
-        var curr_row = $(this).parents('tr');
+        var $curr_row = $anchor.parents('tr');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 'DROP TRIGGER IF EXISTS `' + $(curr_row).children('td:first').text() + '`';
+        var question = 'DROP TRIGGER IF EXISTS `' + $curr_row.children('td:first').text() + '`';
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
 
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
@@ -1857,7 +1858,7 @@ $(document).ready(function() {
                     .remove()
                     .end()
                     .after(data.sql_query);
-                    $(curr_row).hide("medium").remove();
+                    $curr_row.hide("medium").remove();
                 }
                 else {
                     PMA_ajaxShowMessage(data.error);
