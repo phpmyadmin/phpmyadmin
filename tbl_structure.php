@@ -468,7 +468,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
     ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        More <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="show more actions" />
+        <?php echo __('More'); ?> <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="<?php echo __('Show more actions'); ?>" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
             <div class="action_browse">
