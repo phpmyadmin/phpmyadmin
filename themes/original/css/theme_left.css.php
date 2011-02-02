@@ -75,11 +75,6 @@ button {
     margin-left:        0.3em;
 }
 
-.navi_dbName {
-    font-weight:    bold;
-    color:          <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
-}
-
 /******************************************************************************/
 /* specific elements */
 
