@@ -45,7 +45,7 @@ function suggestPassword(passwd_form) {
 }
 
 /**
- * for libraries/display_change_password.lib.php 
+ * for libraries/display_change_password.lib.php
  *     libraries/user_password.php
  *
  */
@@ -58,7 +58,7 @@ function displayPasswordGenerateButton() {
 /*
  * Adds a date/time picker to an element
  *
- * @param   object  $this_element   a jQuery object pointing to the element 
+ * @param   object  $this_element   a jQuery object pointing to the element
  */
 function PMA_addDatepicker($this_element) {
     var showTimeOption = false;
@@ -75,7 +75,7 @@ function PMA_addDatepicker($this_element) {
         time24h: true,
         stepMinutes: 1,
         stepHours: 1,
-        showTime: showTimeOption, 
+        showTime: showTimeOption,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
         altTimeField: '',
         beforeShow: function(input, inst) {
@@ -853,7 +853,7 @@ function checkTransmitDump(theForm, theAction)
 
 $(document).ready(function() {
     /**
-     * Row marking in horizontal mode (use "live" so that it works also for 
+     * Row marking in horizontal mode (use "live" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
@@ -864,7 +864,7 @@ $(document).ready(function() {
     });
 
     /**
-     * Add a date/time picker to each element that needs it 
+     * Add a date/time picker to each element that needs it
      */
     $('.datefield, .datetimefield').each(function() {
         PMA_addDatepicker($(this));
@@ -1689,7 +1689,7 @@ $(document).ready(function() {
             }
         }) // end $.get()
 
-        // empty table name and number of columns from the minimal form 
+        // empty table name and number of columns from the minimal form
         $form.find('input[name=table],input[name=num_fields]').val('');
     });
 
@@ -1770,7 +1770,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error);
             }
         }) // end $.post()
-    }) // end create table form (save) 
+    }) // end create table form (save)
 
     /**
      * Attach event handler for create table form (add fields)
@@ -1799,7 +1799,7 @@ $(document).ready(function() {
             $("#create_table_dialog").html(data);
         }) //end $.post()
 
-    }) // end create table form (add fields) 
+    }) // end create table form (add fields)
 
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
@@ -1907,7 +1907,7 @@ $(document).ready(function() {
                 .removeClass('odd even');
 
                 var $databases_count_object = $('#databases_count');
-                var databases_count = parseInt($databases_count_object.text()); 
+                var databases_count = parseInt($databases_count_object.text());
                 $databases_count_object.text(++databases_count);
                 //Refresh navigation frame as a new database has been added
                 if (window.parent && window.parent.frame_navigation) {
@@ -2310,7 +2310,7 @@ $(document).ready(function() {
         var right_checkbox_id = current_checkbox_id.replace('_left', '_right');
         var other_checkbox_id = '';
         if (current_checkbox_id == left_checkbox_id) {
-            other_checkbox_id = right_checkbox_id; 
+            other_checkbox_id = right_checkbox_id;
         } else {
             other_checkbox_id = left_checkbox_id;
         }
@@ -2326,7 +2326,7 @@ $(document).ready(function() {
                 .filter(function(index) {
                     // the first clicked row can be on a row above or below the
                     // shift-clicked row
-                    return (index_of_current_checkbox > index_of_last_click && index > index_of_last_click && index < index_of_current_checkbox) 
+                    return (index_of_current_checkbox > index_of_last_click && index > index_of_last_click && index < index_of_current_checkbox)
                      || (index_of_last_click > index_of_current_checkbox && index < index_of_last_click && index > index_of_current_checkbox);
                 })
                 .each(function(index) {
@@ -2341,8 +2341,8 @@ $(document).ready(function() {
 
         $('.multi_checkbox').removeClass('last_clicked');
         $current_checkbox.addClass('last_clicked');
-        
-        // When there is a checkbox on both ends of the row, propagate the 
+
+        // When there is a checkbox on both ends of the row, propagate the
         // click on one of them to the other one.
         // (the default action has not been prevented so if we have
         // just clicked, this "if" is true)
@@ -2371,20 +2371,20 @@ $(document).ready(function() {
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
         // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover'); 
+        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
 
 $(document).ready(function() {
     /**
-     * Vertical marker 
+     * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class 
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked'); 
+        // for all td of the same vertical row, toggle the marked class
+        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
         });
 
     /**
