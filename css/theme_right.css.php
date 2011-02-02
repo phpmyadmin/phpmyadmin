@@ -192,6 +192,9 @@ table tr.even th,
 .even {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
+tr.even th, tr.odd th {
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+}
 
 /* odd table rows 1,3,5,7,... */
 table tr.odd th,
