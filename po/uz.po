@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-01 18:24+0100\n"
+"POT-Creation-Date: 2011-02-02 14:41+0100\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "Қидириш"
 #: db_operations.php:522 db_operations.php:550 db_search.php:358
 #: db_structure.php:529 enum_editor.php:63 js/messages.php:59
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:269 libraries/common.lib.php:1304
+#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1304
 #: libraries/common.lib.php:2270 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
@@ -62,7 +62,7 @@ msgstr "Қидириш"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:519
 #: libraries/tbl_properties.inc.php:781 libraries/tbl_properties.inc.php:798
-#: main.php:105 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
+#: main.php:106 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
 #: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:665
 #: server_privileges.php:1705 server_privileges.php:2062
 #: server_privileges.php:2109 server_privileges.php:2149
@@ -366,7 +366,7 @@ msgstr "Жадвал "
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:607 navigation.php:629
+#: libraries/import.lib.php:147 navigation.php:610 navigation.php:632
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:869
 msgid "Rows"
@@ -510,7 +510,7 @@ msgstr "сўровни бажариш"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:631 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:639 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "Рухсат берилмади"
@@ -1226,22 +1226,39 @@ msgstr "Паролни ўзгартириш"
 msgid "More"
 msgstr "Душ"
 
+#: js/messages.php:113 setup/lib/index.lib.php:158
+#, php-format
+msgid ""
+"A newer version of phpMyAdmin is available and you should consider "
+"upgrading. The newest version is %s, released on %s."
+msgstr ""
+"phpMyAdmin дастурининг янги версияси мавжуд ва Сиз ўз версиянгизни "
+"янгилашингизни тавсия этамиз. Энг янги версия \"%s\" бўлиб, у \"%s\" санада "
+"чиқарилган."
+
+#. l10n: Latest available phpMyAdmin version
+#: js/messages.php:115
+#, fuzzy
+#| msgid "Check for latest version"
+msgid ", latest stable version:"
+msgstr "Охирги версияни текшириш"
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:121
+#: js/messages.php:130
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Садақа"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:123
+#: js/messages.php:132
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Орқага"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:125 libraries/common.lib.php:2333
+#: js/messages.php:134 libraries/common.lib.php:2333
 #: libraries/common.lib.php:2336 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1249,96 +1266,96 @@ msgid "Next"
 msgstr "Кейинги"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:127
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Жами"
 
-#: js/messages.php:130
+#: js/messages.php:139
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Иккилик"
 
-#: js/messages.php:131
+#: js/messages.php:140
 msgid "February"
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:133
+#: js/messages.php:142
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:134
+#: js/messages.php:143
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:135
+#: js/messages.php:144
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:136
+#: js/messages.php:145
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:137
+#: js/messages.php:146
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:138
+#: js/messages.php:147
 msgid "September"
 msgstr ""
 
-#: js/messages.php:139
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:140
+#: js/messages.php:149
 msgid "November"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:150
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1538
+#: js/messages.php:154 libraries/common.lib.php:1538
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:147 libraries/common.lib.php:1540
+#: js/messages.php:156 libraries/common.lib.php:1540
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:149 libraries/common.lib.php:1542
+#: js/messages.php:158 libraries/common.lib.php:1542
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:151 libraries/common.lib.php:1544
+#: js/messages.php:160 libraries/common.lib.php:1544
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:153 libraries/common.lib.php:1546
+#: js/messages.php:162 libraries/common.lib.php:1546
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1346,178 +1363,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:155 libraries/common.lib.php:1548
+#: js/messages.php:164 libraries/common.lib.php:1548
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:157 libraries/common.lib.php:1550
+#: js/messages.php:166 libraries/common.lib.php:1550
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:159 libraries/common.lib.php:1552
+#: js/messages.php:168 libraries/common.lib.php:1552
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:161 libraries/common.lib.php:1554
+#: js/messages.php:170 libraries/common.lib.php:1554
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:163 libraries/common.lib.php:1556
+#: js/messages.php:172 libraries/common.lib.php:1556
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:165 libraries/common.lib.php:1558
+#: js/messages.php:174 libraries/common.lib.php:1558
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:167 libraries/common.lib.php:1560
+#: js/messages.php:176 libraries/common.lib.php:1560
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:170
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Якш"
 
-#: js/messages.php:171
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Душ"
 
-#: js/messages.php:172
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Сеш"
 
-#: js/messages.php:173
+#: js/messages.php:182
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:174
+#: js/messages.php:183
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Жум"
 
-#: js/messages.php:176
+#: js/messages.php:185
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:180 libraries/common.lib.php:1563
+#: js/messages.php:189 libraries/common.lib.php:1563
 msgid "Sun"
 msgstr "Якш"
 
 #. l10n: Short week day name
-#: js/messages.php:182 libraries/common.lib.php:1565
+#: js/messages.php:191 libraries/common.lib.php:1565
 msgid "Mon"
 msgstr "Душ"
 
 #. l10n: Short week day name
-#: js/messages.php:184 libraries/common.lib.php:1567
+#: js/messages.php:193 libraries/common.lib.php:1567
 msgid "Tue"
 msgstr "Сеш"
 
 #. l10n: Short week day name
-#: js/messages.php:186 libraries/common.lib.php:1569
+#: js/messages.php:195 libraries/common.lib.php:1569
 msgid "Wed"
 msgstr "Чор"
 
 #. l10n: Short week day name
-#: js/messages.php:188 libraries/common.lib.php:1571
+#: js/messages.php:197 libraries/common.lib.php:1571
 msgid "Thu"
 msgstr "Пай"
 
 #. l10n: Short week day name
-#: js/messages.php:190 libraries/common.lib.php:1573
+#: js/messages.php:199 libraries/common.lib.php:1573
 msgid "Fri"
 msgstr "Жум"
 
 #. l10n: Short week day name
-#: js/messages.php:192 libraries/common.lib.php:1575
+#: js/messages.php:201 libraries/common.lib.php:1575
 msgid "Sat"
 msgstr "Шан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:196
+#: js/messages.php:205
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Якш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:198
+#: js/messages.php:207
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Душ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:200
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Сеш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:202
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Чор"
 
 #. l10n: Minimal week day name
-#: js/messages.php:204
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пай"
 
 #. l10n: Minimal week day name
-#: js/messages.php:206
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Жум"
 
 #. l10n: Minimal week day name
-#: js/messages.php:208
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Шан"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:210
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:212
+#: js/messages.php:221
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:213
+#: js/messages.php:222
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "ишлатилмоқда"
 
-#: js/messages.php:214
+#: js/messages.php:223
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1734,7 +1751,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Уланиб бўлмади: нотўғри созланган."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:196 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1760,43 +1777,43 @@ msgstr ""
 "файлидаги хост, фойдаланувчи ва паролни текширинг ва улар MySQL сервери "
 "администраторидан олинган маълумотларга мос келишига ишонч ҳосил қилинг."
 
-#: libraries/auth/cookie.auth.lib.php:221
+#: libraries/auth/cookie.auth.lib.php:229
 msgid "Log in"
 msgstr "Авторизация"
 
-#: libraries/auth/cookie.auth.lib.php:223
-#: libraries/auth/cookie.auth.lib.php:225
+#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:233
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документацияси"
 
-#: libraries/auth/cookie.auth.lib.php:235
-#: libraries/auth/cookie.auth.lib.php:236
+#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Сиз хост/IP адрес ва бўш жой қолдириб портни киритишингиз мумкин."
 
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
 msgstr "Сервер"
 
-#: libraries/auth/cookie.auth.lib.php:240
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
 msgstr "Фойдаланувчи:"
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:252
 msgid "Password:"
 msgstr "Парол:"
 
-#: libraries/auth/cookie.auth.lib.php:251
+#: libraries/auth/cookie.auth.lib.php:259
 msgid "Server Choice"
 msgstr "Серверни танланг"
 
-#: libraries/auth/cookie.auth.lib.php:297 libraries/header.inc.php:72
+#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
 msgstr "Браузерда \"cookies\" фаоллаштирилган бўлиши шарт."
 
-#: libraries/auth/cookie.auth.lib.php:629
+#: libraries/auth/cookie.auth.lib.php:637
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1804,7 +1821,7 @@ msgstr ""
 "Паролсиз аутентификация конфигурация томонидан ўчирилган (қаранг "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:633
+#: libraries/auth/cookie.auth.lib.php:641
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -1812,8 +1829,8 @@ msgstr ""
 "\"%s\" сония давомида фаоллик кузатилмади, илтимос, қайта авторизациядан "
 "ўтинг. "
 
-#: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/cookie.auth.lib.php:645
+#: libraries/auth/cookie.auth.lib.php:651
+#: libraries/auth/cookie.auth.lib.php:653
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL серверига уланиб бўлмади"
@@ -1885,13 +1902,13 @@ msgstr ""
 msgid "Tables"
 msgstr "Жадваллар"
 
-#: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:299
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:366
-#: libraries/config/setup.forms.php:371
-#: libraries/config/user_preferences.forms.php:201
-#: libraries/config/user_preferences.forms.php:237
-#: libraries/config/user_preferences.forms.php:268
-#: libraries/config/user_preferences.forms.php:273
+#: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:300
+#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:202
+#: libraries/config/user_preferences.forms.php:238
+#: libraries/config/user_preferences.forms.php:269
+#: libraries/config/user_preferences.forms.php:274
 #: libraries/export/latex.php:215 libraries/export/sql.php:933
 #: server_privileges.php:577 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:757
@@ -2007,7 +2024,7 @@ msgstr ""
 "файлида белгиланган созлашларни тўғирланг."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:484
-#: libraries/header.inc.php:115 main.php:168 test/theme.php:56
+#: libraries/header.inc.php:115 main.php:169 test/theme.php:56
 msgid "Server"
 msgstr "Сервер"
 
@@ -2046,7 +2063,7 @@ msgstr "Юборилди"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
-#: main.php:212
+#: main.php:217
 msgid "Documentation"
 msgstr "Документация"
 
@@ -2192,11 +2209,11 @@ msgstr ""
 "маълумот учун қаранг \"%s\""
 
 #: libraries/common.lib.php:2815 libraries/common.lib.php:2822
-#: libraries/common.lib.php:3003 libraries/config/setup.forms.php:290
-#: libraries/config/setup.forms.php:327 libraries/config/setup.forms.php:361
-#: libraries/config/user_preferences.forms.php:192
-#: libraries/config/user_preferences.forms.php:229
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/common.lib.php:3003 libraries/config/setup.forms.php:291
+#: libraries/config/setup.forms.php:328 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:193
+#: libraries/config/user_preferences.forms.php:230
+#: libraries/config/user_preferences.forms.php:264
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
 #: pmd_general.php:152 server_privileges.php:594 server_replication.php:313
@@ -2399,7 +2416,7 @@ msgid "Save"
 msgstr "Сақлаш"
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 main.php:140
+#: libraries/schema/User_Schema.class.php:470 main.php:141
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1075
 msgid "Reset"
 msgstr "Тозалаш"
@@ -2918,10 +2935,10 @@ msgstr "Кўриб чиқиш усулини созлаш"
 msgid "Customize default options"
 msgstr "Экспорт афзалликларини созлаш"
 
-#: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:231
-#: libraries/config/setup.forms.php:310
-#: libraries/config/user_preferences.forms.php:135
-#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:16
+#: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
+#: libraries/config/setup.forms.php:311
+#: libraries/config/user_preferences.forms.php:136
+#: libraries/config/user_preferences.forms.php:213 libraries/export/csv.php:16
 #: libraries/import/csv.php:21
 msgid "CSV"
 msgstr "CSV"
@@ -4521,6 +4538,18 @@ msgid "Check for latest version"
 msgstr "Охирги версияни текшириш"
 
 #: libraries/config/messages.inc.php:498
+msgid "Enables check for latest version on main phpMyAdmin page"
+msgstr ""
+
+#: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
+#: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
+#: setup/lib/index.lib.php:149 setup/lib/index.lib.php:157
+#: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
+#: setup/lib/index.lib.php:200
+msgid "Version check"
+msgstr "Версияни текшириш"
+
+#: libraries/config/messages.inc.php:500
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -4528,7 +4557,7 @@ msgstr ""
 "Импорт ва экспорт операциялари учун  [a@http://en.wikipedia.org/wiki/ZIP_"
 "(file_format)]ZIP[/a] қисишни ёқиш"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -4556,63 +4585,63 @@ msgstr "Аутентификация тартиби"
 msgid "Signon authentication"
 msgstr "Аутентификация тартиби"
 
-#: libraries/config/setup.forms.php:239
-#: libraries/config/user_preferences.forms.php:143 libraries/import/ldi.php:34
+#: libraries/config/setup.forms.php:240
+#: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
 msgid "CSV using LOAD DATA"
 msgstr "\"LOAD DATA\" ишлатилган CSV"
 
-#: libraries/config/setup.forms.php:248 libraries/config/setup.forms.php:342
-#: libraries/config/user_preferences.forms.php:151
-#: libraries/config/user_preferences.forms.php:244 libraries/export/xls.php:17
+#: libraries/config/setup.forms.php:249 libraries/config/setup.forms.php:343
+#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/user_preferences.forms.php:245 libraries/export/xls.php:17
 #: libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
 msgstr "Excel 97-2003 XLS иш китоби"
 
-#: libraries/config/setup.forms.php:251 libraries/config/setup.forms.php:346
-#: libraries/config/user_preferences.forms.php:154
-#: libraries/config/user_preferences.forms.php:248
+#: libraries/config/setup.forms.php:252 libraries/config/setup.forms.php:347
+#: libraries/config/user_preferences.forms.php:155
+#: libraries/config/user_preferences.forms.php:249
 #: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX иш китоби"
 
-#: libraries/config/setup.forms.php:254 libraries/config/setup.forms.php:355
-#: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:257 libraries/export/ods.php:17
+#: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:158
+#: libraries/config/user_preferences.forms.php:258 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Open Document жадвали"
 
-#: libraries/config/setup.forms.php:261
-#: libraries/config/user_preferences.forms.php:164
+#: libraries/config/setup.forms.php:262
+#: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:265
-#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/setup.forms.php:266
+#: libraries/config/user_preferences.forms.php:169
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Рангни танлаш"
 
-#: libraries/config/setup.forms.php:286
-#: libraries/config/user_preferences.forms.php:188
+#: libraries/config/setup.forms.php:287
+#: libraries/config/user_preferences.forms.php:189
 msgid "Database export options"
 msgstr "Маълумотлар базаси экспорт параметрлари"
 
-#: libraries/config/setup.forms.php:319
-#: libraries/config/user_preferences.forms.php:221
+#: libraries/config/setup.forms.php:320
+#: libraries/config/user_preferences.forms.php:222
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "MS Excel учун CSV"
 
-#: libraries/config/setup.forms.php:350
-#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/setup.forms.php:351
+#: libraries/config/user_preferences.forms.php:253
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:359
-#: libraries/config/user_preferences.forms.php:261 libraries/export/odt.php:21
+#: libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:262 libraries/export/odt.php:21
 msgid "Open Document Text"
 msgstr "OpenDocument матн"
 
@@ -4730,7 +4759,7 @@ msgstr "(ёки локал MySQL сервернинг сокети нотўғр�
 msgid "Details..."
 msgstr "Тафсилотлар..."
 
-#: libraries/display_change_password.lib.php:29 main.php:90
+#: libraries/display_change_password.lib.php:29 main.php:91
 #: user_password.php:119 user_password.php:137
 msgid "Change password"
 msgstr "Паролни ўзгартириш"
@@ -5223,7 +5252,7 @@ msgstr "PDF-схемани кўрсатиш"
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/engines/bdb.lib.php:20 main.php:211
+#: libraries/engines/bdb.lib.php:20 main.php:216
 msgid "Version information"
 msgstr "Версия ҳақида маълумот"
 
@@ -5800,7 +5829,7 @@ msgid "Generation Time"
 msgstr "Тузилган сана "
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:284
-#: libraries/export/xml.php:111 main.php:169
+#: libraries/export/xml.php:111 main.php:170
 msgid "Server version"
 msgstr "Сервер версияси"
 
@@ -7260,79 +7289,79 @@ msgstr "ZIP-архив ичида файл мавжуд эмас!"
 msgid "Error in ZIP archive:"
 msgstr "Ушбу ZIP архивда хатолик:"
 
-#: main.php:67
+#: main.php:68
 #, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
 msgstr "Алоқаларнинг асосий имкониятлари"
 
-#: main.php:99
+#: main.php:100
 msgid "MySQL connection collation"
 msgstr "MySQL билан уланишни чоғиштириш"
 
-#: main.php:115
+#: main.php:116
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
 msgstr "Бошқа созланишлар"
 
-#: main.php:135
+#: main.php:136
 msgid "Background color"
 msgstr ""
 
-#: main.php:136
+#: main.php:137
 msgid "Choose..."
 msgstr ""
 
-#: main.php:153 prefs_manage.php:274
+#: main.php:154 prefs_manage.php:274
 #, fuzzy
 #| msgid "settings"
 msgid "More settings"
 msgstr "танловлар"
 
-#: main.php:170
+#: main.php:171
 msgid "Protocol version"
 msgstr "Протокол версияси"
 
-#: main.php:172 server_privileges.php:1463 server_privileges.php:1617
+#: main.php:173 server_privileges.php:1463 server_privileges.php:1617
 #: server_privileges.php:1741 server_privileges.php:2160
 #: server_processlist.php:53
 msgid "User"
 msgstr "Фойдаланувчи"
 
-#: main.php:176
+#: main.php:177
 msgid "MySQL charset"
 msgstr "MySQL-кодировка"
 
-#: main.php:188
+#: main.php:189
 msgid "Web server"
 msgstr "Веб сервер"
 
-#: main.php:194
+#: main.php:195
 msgid "MySQL client version"
 msgstr "MySQL-клиент версияси"
 
-#: main.php:196
+#: main.php:197
 msgid "PHP extension"
 msgstr "PHP кенгайтмаси"
 
-#: main.php:202
+#: main.php:203
 msgid "Show PHP information"
 msgstr "PHP ҳақида маълумотни кўрсатиш"
 
-#: main.php:213
+#: main.php:218
 msgid "Wiki"
 msgstr "Вики"
 
-#: main.php:216
+#: main.php:221
 msgid "Official Homepage"
 msgstr " phpMyAdmin расмий веб-саҳифаси"
 
-#: main.php:223
+#: main.php:228
 msgid "Mailing lists"
 msgstr ""
 
-#: main.php:248
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7344,7 +7373,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: main.php:256
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7354,7 +7383,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: main.php:264
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7365,7 +7394,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: main.php:272
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7378,7 +7407,7 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:279
+#: main.php:284
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7395,13 +7424,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:287
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: main.php:295
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7411,7 +7440,7 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: main.php:304
+#: main.php:309
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7423,7 +7452,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: main.php:319
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7433,7 +7462,7 @@ msgstr ""
 "баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
 "янгиланиб турмайди."
 
-#: main.php:334
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7442,7 +7471,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: main.php:346
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -7476,7 +7505,7 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Жадвал тузиш"
 
-#: navigation.php:311 navigation.php:473
+#: navigation.php:313 navigation.php:476
 msgid "Please select a database"
 msgstr "Маълумотлар базасини танланг"
 
@@ -9628,13 +9657,6 @@ msgstr "Хатоларга эътибор бермаслик"
 msgid "Show form"
 msgstr "Формани кўрсатиш"
 
-#: setup/lib/index.lib.php:118 setup/lib/index.lib.php:125
-#: setup/lib/index.lib.php:142 setup/lib/index.lib.php:149
-#: setup/lib/index.lib.php:157 setup/lib/index.lib.php:161
-#: setup/lib/index.lib.php:164 setup/lib/index.lib.php:200
-msgid "Version check"
-msgstr "Версияни текшириш"
-
 #: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
@@ -9655,16 +9677,6 @@ msgstr "Сервердар версия ҳақида ноўрин маълумо
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
 msgstr "Версия ҳақида тушунарсиз маълумот"
-
-#: setup/lib/index.lib.php:158
-#, php-format
-msgid ""
-"A newer version of phpMyAdmin is available and you should consider "
-"upgrading. The newest version is %s, released on %s."
-msgstr ""
-"phpMyAdmin дастурининг янги версияси мавжуд ва Сиз ўз версиянгизни "
-"янгилашингизни тавсия этамиз. Энг янги версия \"%s\" бўлиб, у \"%s\" санада "
-"чиқарилган."
 
 #: setup/lib/index.lib.php:162
 #, fuzzy, php-format
@@ -9919,7 +9931,7 @@ msgstr " `\"%s\"` жадвалидаги индексларда муаммо м�
 msgid "Label"
 msgstr "Хатчўп белгиси"
 
-#: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
+#: tbl_addfield.php:185 tbl_alter.php:100 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "%1$s жадвали муваффақиятли ўзгартирилди"
