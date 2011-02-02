@@ -308,7 +308,10 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . _pgettext('short form', 'Create table') . '" />'
         . _pgettext('short form', 'Create table') . '</a></li></ul>';
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
-    echo '<p>' . __('Please select a database') . '</p>';
+    /* No need to tell user to select database if we're showing complete list */
+    if (!$list) {
+        echo '<p>' . __('Please select a database') . '</p>';
+    }
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
