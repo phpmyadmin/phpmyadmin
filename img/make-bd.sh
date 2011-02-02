@@ -2,7 +2,7 @@
 
 for f in bd* ; do
     orig=b_${f##bd_}
-    if [ -h $orig -a -f $f ] ; then
+    if [ -f $f ] ; then
         convert $orig -colorspace Gray $f
     fi
 done
