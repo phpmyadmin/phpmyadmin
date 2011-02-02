@@ -45,6 +45,55 @@ function suggestPassword(passwd_form) {
 }
 
 /**
+ * Version string to integer conversion.
+ */
+function parseVersionString (str) {
+    if (typeof(str) != 'string') { return false; }
+    var add = 0;
+    // Parse possible alpha/beta/rc/
+    var state = str.split('-');
+    if (state.length >= 2) {
+        if (state[1].substr(0, 2) == 'rc') {
+            add = - 20 - parseInt(state[1].substr(2));
+        } else if (state[1].substr(0, 4) == 'beta') {
+            add =  - 40 - parseInt(state[1].substr(4));
+        } else if (state[1].substr(0, 5) == 'alpha') {
+            add =  - 60 - parseInt(state[1].substr(5));
+        } else if (state[1].substr(0, 3) == 'dev') {
+            /* We don't handle dev, it's git snapshot */
+            add = 0;
+        }
+    }
+    // Parse version
+    var x = str.split('.');
+    // Use 0 for non existing parts
+    var maj = parseInt(x[0]) || 0;
+    var min = parseInt(x[1]) || 0;
+    var pat = parseInt(x[2]) || 0;
+    var hotfix = parseInt(x[3]) || 0;
+    return  maj * 100000000 + min * 1000000 + pat * 10000 + hotfix * 100 + add;
+}
+
+/**
+ * Indicates current available version on main page.
+ */
+function PMA_current_version() {
+    var current = parseVersionString('3.4.0'/*pmaversion*/);
+    var latest = parseVersionString(PMA_latest_version);
+    $('#li_pma_version').append(PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version);
+    if (latest > current) {
+        var message = $.sprintf(PMA_messages['strNewerVersion'], PMA_latest_version, PMA_latest_date);
+        if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
+            /* Security update */
+            klass = 'warning';
+        } else {
+            klass = 'notice';
+        }
+        $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
+    }
+}
+
+/**
  * for libraries/display_change_password.lib.php
  *     libraries/user_password.php
  *
@@ -2413,6 +2462,21 @@ $(document).ready(function() {
     $('#body_browse_foreigners').find('#pageselector').live('change', function() {
         $(this).closest("form").submit();
     });
+
+    /**
+     * Load version information asynchronously.
+     */
+    if ($('#li_pma_version').length > 0) {
+        (function() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://www.phpmyadmin.net/home_page/version.js';
+            s.onload = PMA_current_version;
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        })();
+    }
 
 }) // end of $(document).ready()
 
