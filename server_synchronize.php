@@ -1111,9 +1111,7 @@ if (isset($_REQUEST['synchronize_db'])) {
         }
 ?>
       <table id="serverconnection_<?php echo $type; ?>_remote" class="data">
-      <tr>
-	  <th colspan="2"><?php echo $database_header; ?></th>
-      </tr>
+      <caption class="tblHeaders"><?php echo $database_header; ?></caption>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
 	     <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
