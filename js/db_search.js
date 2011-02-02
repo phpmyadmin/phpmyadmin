@@ -36,18 +36,15 @@ $(document).ready(function() {
    $('#togglesearchformlink')
        .html(PMA_messages['strShowSearchCriteria'])
        .bind('click', function() {
-    	   var $link = $(this);
-    	   //prompt("'"+$link.text()+"'");
-    	   //prompt("'"+PMA_messages['strShowSearchCriteria']+"'");
-    	   $('#db_search_form').slideToggle();
-    	   if ($link.text() == PMA_messages['strHideSearchCriteria']) {
-               $link.text(PMA_messages['strShowSearchCriteria']);
-           } else {
-               $link.text(PMA_messages['strHideSearchCriteria']);
-           }
-           //var_dump("");
-           // avoid default click action
-           return false;
+            var $link = $(this);
+            $('#db_search_form').slideToggle();
+            if ($link.text() == PMA_messages['strHideSearchCriteria']) {
+                $link.text(PMA_messages['strShowSearchCriteria']);
+            } else {
+                $link.text(PMA_messages['strHideSearchCriteria']);
+            }
+            // avoid default click action
+            return false;
        });
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
@@ -56,7 +53,6 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      */
     $("#db_search_form.ajax").live('submit', function(event) {
-  	
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strSearching']);
@@ -69,19 +65,18 @@ $(document).ready(function() {
         }
 
         $.post($form.attr('action'), $form.serialize() + "&submit_search=" + $("#buttonGo").val(),  function(response) {
-        	if (typeof response == 'string') {
-        		// found results
-        		$("#searchresults").html(response);
-        		$("#sqlqueryresults").trigger('appendAnchor');
-        		$('#db_search_form').hide();
-        		$('#togglesearchformlink')
-        		// always start with the Show message
-        		.text(PMA_messages['strShowSearchCriteria'])
-        		$('#togglesearchformdiv')
-        		// now it's time to show the div containing the link 
-        		.show();
-        	}
-        	else {
+            if (typeof response == 'string') {
+                // found results
+                $("#searchresults").html(response);
+                $("#sqlqueryresults").trigger('appendAnchor');
+                $('#db_search_form').hide();
+                $('#togglesearchformlink')
+                    // always start with the Show message
+                    .text(PMA_messages['strShowSearchCriteria'])
+                $('#togglesearchformdiv')
+                    // now it's time to show the div containing the link 
+                    .show();
+            } else {
                 // error message (zero rows)
                 $("#sqlqueryresults").html(response['message']);
             }            
