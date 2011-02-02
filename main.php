@@ -357,9 +357,13 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
  * @param   string  $target special target for $url
  * @param   string  $a_id   id for the anchor, used for jQuery to hook in functions
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null)
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null, $class = null)
 {
-    echo '<li id="' . $id . '">';
+    echo '<li id="' . $id . '"';
+    if (null !== $class) {
+        echo ' class="' . $class . '"';
+    }
+    echo '>';
     if (null !== $url) {
         echo '<a href="' . $url . '"';
         if (null !== $target) {
