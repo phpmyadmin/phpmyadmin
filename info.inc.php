@@ -3,14 +3,13 @@
 /**
  * Theme information
  *
- * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Original
+ * @subpackage Graphite
  */
 
 /**
  *
  */
-$theme_name = 'Test';
-$theme_full_version = '3.4';
+$theme_name = 'Graphite'
+$theme_full_version = '0.9';
 ?>
