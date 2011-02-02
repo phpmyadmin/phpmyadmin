@@ -2007,8 +2007,9 @@ $(document).ready(function() {
      * Attach Ajax event handler for Change Password form submission
      *
      * @uses    PMA_ajaxShowMessage()
+     * @see $cfg['AjaxEnable']
      */
-    $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
+    $("#change_password_form.ajax").find('input[name=change_pw]').live('click', function(event) {
         event.preventDefault();
 
         /**
