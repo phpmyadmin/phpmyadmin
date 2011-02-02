@@ -4866,10 +4866,8 @@ msgid "Display chart"
 msgstr "Zobrazit graf"
 
 #: libraries/display_tbl.lib.php:2255
-#, fuzzy
-#| msgid "Create User"
 msgid "Create view"
-msgstr "Vytvořit uživatele"
+msgstr "Vytvořit pohled"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
