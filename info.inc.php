@@ -10,6 +10,6 @@
 /**
  *
  */
-$theme_name = 'Graphite'
+$theme_name = 'Graphite';
 $theme_full_version = '0.9';
 ?>
