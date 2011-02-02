@@ -171,6 +171,14 @@ function PMA_auth()
     require './libraries/header_meta_style.inc.php';
     require './libraries/header_scripts.inc.php';
     ?>
+<script type="text/javascript">
+//<![CDATA[
+// show login form in top frame
+if (top != self) {
+    window.top.location.href=location;
+}
+//]]>
+</script>
 </head>
 
 <body class="loginform">
