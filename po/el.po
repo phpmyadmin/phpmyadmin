@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-02 14:41+0100\n"
+"POT-Creation-Date: 2011-02-02 15:32+0100\n"
 "PO-Revision-Date: 2010-12-13 13:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "Αναζήτηση"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:519
-#: libraries/tbl_properties.inc.php:781 libraries/tbl_properties.inc.php:798
+#: libraries/tbl_properties.inc.php:783 libraries/tbl_properties.inc.php:798
 #: main.php:106 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
 #: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:665
 #: server_privileges.php:1705 server_privileges.php:2062
@@ -116,7 +116,7 @@ msgid "Database comment: "
 msgstr "Σχόλιο βάσης: "
 
 #: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1210
-#: libraries/tbl_properties.inc.php:723 tbl_operations.php:344
+#: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Σχόλια Πίνακα"
@@ -322,7 +322,7 @@ msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομέν�
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
-#: libraries/tbl_properties.inc.php:729 server_collations.php:53
+#: libraries/tbl_properties.inc.php:731 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:360 tbl_select.php:114
 #: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
 #: tbl_tracking.php:320
@@ -457,7 +457,7 @@ msgid "Del"
 msgstr "Διαγραφή"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:545 db_qbe.php:576
-#: libraries/tbl_properties.inc.php:778 server_privileges.php:298
+#: libraries/tbl_properties.inc.php:780 server_privileges.php:298
 #: tbl_change.php:937 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
 msgstr "Ή"
@@ -2077,8 +2077,8 @@ msgstr "Η λειτουργία %s έχει επηρρεαστεί από ένα
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: pmd_general.php:152 server_privileges.php:594 server_replication.php:313
-#: tbl_tracking.php:263
+#: libraries/tbl_properties.inc.php:634 pmd_general.php:152
+#: server_privileges.php:594 server_replication.php:313 tbl_tracking.php:263
 msgid "Structure"
 msgstr "Δομή"
 
@@ -2262,7 +2262,7 @@ msgstr "Επιτρέπεται στους χρήστες να προσαρμόσ
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
-#: libraries/tbl_properties.inc.php:775 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:215 tbl_change.php:1026 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
@@ -4930,6 +4930,12 @@ msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 msgid "Display chart"
 msgstr "Εμφάνιση διαγράμματος"
 
+#: libraries/display_tbl.lib.php:2255
+#, fuzzy
+#| msgid "Create User"
+msgid "Create view"
+msgstr "Δημιουργία Χρήστη"
+
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
@@ -6693,21 +6699,21 @@ msgstr ""
 "Δεν υπάρχει διαθέσιμη περιγραφή για αυτή τη μετατροπή.<br />Απευθύνθείτε "
 "στον δημιουργό της για να μάθετε τι κάνει η μετατροπή %s."
 
-#: libraries/tbl_properties.inc.php:725 server_engines.php:56
+#: libraries/tbl_properties.inc.php:727 server_engines.php:56
 #: tbl_operations.php:352
 msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
 
-#: libraries/tbl_properties.inc.php:754
+#: libraries/tbl_properties.inc.php:756
 msgid "PARTITION definition"
 msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
-#: libraries/tbl_properties.inc.php:779 tbl_structure.php:633
+#: libraries/tbl_properties.inc.php:781 tbl_structure.php:633
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Προσθήκη %s στήλης(ών)"
 
-#: libraries/tbl_properties.inc.php:783 tbl_structure.php:627
+#: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
 msgid "You have to add at least one column."
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα πεδίο."
 
@@ -9443,7 +9449,7 @@ msgstr "Προβλήματα με τα ευρετήρια στον πίνακα 
 msgid "Label"
 msgstr "Ετικέτα"
 
-#: tbl_addfield.php:185 tbl_alter.php:100 tbl_indexes.php:97
+#: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
