@@ -2265,7 +2265,7 @@ $(document).ready(function() {
 function menuResize()
 {
     var cnt = $('#topmenu');
-    var wmax = cnt.width() - 5; // 5 px margin for jumping menu in Chrome
+    var wmax = cnt.innerWidth() - 5; // 5 px margin for jumping menu in Chrome
     var submenu = cnt.find('.submenu');
     var submenu_w = submenu.outerWidth(true);
     var submenu_ul = submenu.find('ul');
