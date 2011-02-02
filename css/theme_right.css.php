@@ -705,9 +705,6 @@ div#tablestatistics table {
     margin-<?php echo $right; ?>: 0.5em;
 }
 
-div#tablestatistics table caption {
-    margin-<?php echo $right; ?>: 0.5em;
-}
 /* END table stats */
 
 
