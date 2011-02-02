@@ -288,7 +288,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
             $new_table_string .= '<th>';
             $new_table_string .= '<a href="sql.php' . PMA_generate_common_url($tbl_url_params) . '">'. $table . '</a>';
-            
+
             if (PMA_Tracker::isActive()) {
                 $truename = str_replace(' ', '&nbsp;', htmlspecialchars($table));
                 if (PMA_Tracker::isTracked($db, $truename)) {
@@ -313,7 +313,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $new_table_string .= '<td><a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
             $new_table_string .= urlencode('DROP TABLE ' . PMA_backquote($table));
             $new_table_string .= '">';
-            $new_table_string .= $titles['Drop']; 
+            $new_table_string .= $titles['Drop'];
             $new_table_string .= '</a></td>' . "\n";
 
             $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
@@ -362,7 +362,17 @@ if (isset($_REQUEST['do_save_data'])) {
 /**
  * Displays the form used to define the structure of the table
  */
+
+// This div is used to show the content(eg: create table form with more columns) fetched with AJAX subsequently.
+if($GLOBALS['is_ajax_request'] != true) {
+    echo('<div id="create_table_div">');
+}
+
 require './libraries/tbl_properties.inc.php';
 // Displays the footer
 require './libraries/footer.inc.php';
+
+if($GLOBALS['is_ajax_request'] != true) {
+    echo('</div>');
+}
 ?>

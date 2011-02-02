@@ -1845,7 +1845,14 @@ $(document).ready(function() {
 
         //User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
-            $("#create_table_dialog").html(data);
+            // if 'create_table_dialog' exists
+        	if ($("#create_table_dialog").length > 0) {
+            	$("#create_table_dialog").html(data);
+            }
+        	// if 'create_table_div' exists
+        	if ($("#create_table_div").length > 0) {
+        		$("#create_table_div").html(data);
+        	}            
         }) //end $.post()
 
     }) // end create table form (add fields)
