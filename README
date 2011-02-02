@@ -1,0 +1,16 @@
+Toba - themes for phpMyAdmin
+http://github.com/back2arie/Toba
+
+Tested on phpMyAdmin 3.4.0-beta2
+
+Tested browser:
+	- Mozilla Firefox 3.6.13
+	- Google Chrome 8.0.552.237
+	- Safari 5.0.2
+
+
+TODO
+	- check all element
+	- check jquery component
+	- clean css
+	- ...
