@@ -6424,7 +6424,7 @@ msgstr "Přidat tento SQL dotaz do oblíbených"
 
 #: libraries/sql_query_form.lib.php:343 sql.php:866
 msgid "Let every user access this bookmark"
-msgstr "Umožnit všem uživatelům používat tuto položku"
+msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
 #: libraries/sql_query_form.lib.php:349
 msgid "Replace existing bookmark of same name"
