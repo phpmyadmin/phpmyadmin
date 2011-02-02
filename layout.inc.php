@@ -67,9 +67,9 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
+$GLOBALS['cfg']['ThBackground']         = '#555';
 // table header and footer background
-$GLOBALS['cfg']['ThColor']              = '#000000';
+$GLOBALS['cfg']['ThColor']              = '#fff';
 // table data row background
 $GLOBALS['cfg']['BgOne']                = '#E5E5E5';
 // table data row background, alternate

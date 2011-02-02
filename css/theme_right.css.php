@@ -124,12 +124,21 @@ button {
     display:            inline;
 }
 
-table caption,
+table {
+    border-collapse:collapse;
+    margin: 0.2em;
+}
+
+table caption {
+    padding:            0.1em 0.5em 0.1em 0.5em;
+}
+
 table th,
 table td {
     padding:            0.1em 0.5em 0.1em 0.5em;
     margin:             0.1em;
     vertical-align:     top;
+    border: 1px solid black;
 }
 
 img,
@@ -142,20 +151,17 @@ button {
 
 /******************************************************************************/
 /* classes */
-div.tools {
-    border: 1px solid #000000;
-    padding: 0.2em;
-}
-
 div.tools,
 fieldset.tblFooters {
-    margin-top:         0;
-    margin-bottom:      0.5em;
-    /* avoid a thick line since this should be used under another fieldset */
-    border-top:         0;
-    text-align:         <?php echo $right; ?>;
-    float:              none;
+    margin:             0 1em 0 1em;
+    border:             2px solid #000;
+    border-top: none;
+    width: auto;
+    padding: 0.2em;
+    float: <?php echo $left; ?>;
     clear:              both;
+    -moz-border-radius: 0 0 0.5em 0.5em;
+    border-radius:      0 0 0.5em 0.5em;
 }
 
 fieldset .formelement {
@@ -511,23 +517,9 @@ div.tools,
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-
-.tblHeaders a:link,
-.tblHeaders a:active,
-.tblHeaders a:visited,
-div.tools a:link,
-div.tools a:visited,
-div.tools a:active,
-.tblFooters a:link,
-.tblFooters a:active,
-.tblFooters a:visited {
-    color:              #0000FF;
-}
-
-.tblHeaders a:hover,
-div.tools a:hover,
-.tblFooters a:hover {
-    color:              #FF0000;
+div.tools a {
+    display: inline-block;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
 }
 
 /* forbidden, no privilegs */
@@ -1226,13 +1218,14 @@ label.desc sup {
 }
 
 code.sql, div.sqlvalidate {
+    margin:             0.3em 0 0 0;
+    border:             2px solid;
+    padding:            0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius:      0.5em;
     display:            block;
-    padding:            0.3em;
-    margin-top:         0;
+    margin-top:         0.2em;
     margin-bottom:      0;
-    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
-    border-top:         0;
-    border-bottom:      0;
     max-height:         10em;
     overflow:           auto;
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
