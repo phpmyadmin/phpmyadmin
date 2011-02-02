@@ -168,7 +168,6 @@ if ($dontlimitchars) {
         <a href="./server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
             title="<?php __('Truncate Shown Queries'); ?>">
                 <img src="<?php echo $pmaThemeImage; ?>s_partialtext.png"
-                    width="50" height="20" border="0"
                     alt="<?php echo __('Truncate Shown Queries'); ?>" /></a>
     <?php
 } else {
