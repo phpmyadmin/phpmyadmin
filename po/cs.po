@@ -8769,7 +8769,7 @@ msgstr "Zobrazit graf dotazu"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
-msgstr "Poznámka: Generování dotazu může trvat dlouho."
+msgstr "Poznámka: Generování grafu dotazu může trvat dlouho."
 
 #: server_status.php:867
 msgid "Replication status"
