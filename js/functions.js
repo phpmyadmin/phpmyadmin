@@ -2411,6 +2411,17 @@ function PMA_getRowNumber(classlist) {
 }
 
 /**
+ * Changes status of slider
+ */
+function PMA_set_status_label(id) {
+    if ($('#' + id).css('display') == 'none') {
+        $('#anchor_status_' + id).text('+ ');
+    } else {
+        $('#anchor_status_' + id).text('- ');
+    }
+}
+
+/**
  * Vertical pointer
  */
 $(document).ready(function() {
@@ -2477,6 +2488,23 @@ $(document).ready(function() {
             x.parentNode.insertBefore(s, x);
         })();
     }
+
+    /**
+     * Slider effect.
+     */
+    $('.pma_auto_slider').each(function(idx, e) {
+        $('<span id="anchor_status_' + e.id + '"><span>')
+            .insertBefore(e);
+        PMA_set_status_label(e.id);
+
+        $('<a href="#' + e.id + '" id="anchor_' + e.id + '">' + e.title + '</a>')
+            .insertBefore(e)
+            .click(function() {
+                $('#' + e.id).toggle('clip');
+                PMA_set_status_label(e.id);
+                return false;
+            });
+    });
 
 }) // end of $(document).ready()
 

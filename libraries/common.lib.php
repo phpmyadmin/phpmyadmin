@@ -2524,42 +2524,7 @@ function PMA_generate_slider_effect($id, $message)
      * maybe by using an additional param, the id of the div to append to
      */
     ?>
-<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>
-    <script type="text/javascript">
-// <![CDATA[
-
-    function PMA_set_status_label_<?php echo $id; ?>() {
-        if ($('#<?php echo $id; ?>').css('display') == 'none') {
-            $('#anchor_status_<?php echo $id; ?>').text('+ ');
-        } else {
-            $('#anchor_status_<?php echo $id; ?>').text('- ');
-        }
-    }
-
-    $(document).ready(function() {
-
-        $('<span id="anchor_status_<?php echo $id; ?>"><span>')
-            .insertBefore('#<?php echo $id; ?>')
-
-        PMA_set_status_label_<?php echo $id; ?>();
-
-        $('<a href="#<?php echo $id; ?>" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
-            .insertBefore('#<?php echo $id; ?>')
-            .click(function() {
-                // The callback should be the 4th parameter but
-                // it only works as the second parameter;
-                // For the possible effects see http://jqueryui.com/demos/show
-                $('#<?php echo $id; ?>').toggle('clip', function() {
-                    PMA_set_status_label_<?php echo $id; ?>();
-                });
-                return false;
-            });
-    });
-    //]]>
-    </script>
-    <noscript>
-    <div id="<?php echo $id; ?>"></div>
-    </noscript>
+<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?> class="pma_auto_slider" title="<?php echo htmlspecialchars($message); ?>">
     <?php
 }
 
