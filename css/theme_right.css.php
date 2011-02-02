@@ -634,7 +634,10 @@ a.tabactive {
 }
 ul#topmenu .submenu {
     position:           relative;
-    display: inline-block !important; /* Need to override style in code */
+    display: none;
+}
+ul#topmenu .shown {
+    display: inline-block;
 }
 #topmenu .submenu ul {
     margin:             0;
