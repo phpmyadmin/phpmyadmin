@@ -24,6 +24,7 @@ PMA_checkParameters(array('db', 'table'));
  */
 require_once './libraries/tbl_common.php';
 require_once './libraries/tbl_info.inc.php';
+require_once './libraries/tbl_links.inc.php';
 
 $active_page = 'tbl_structure.php';
 
