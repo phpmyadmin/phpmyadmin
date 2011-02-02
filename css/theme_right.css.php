@@ -523,6 +523,9 @@ fieldset.confirmation legend {
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
+.tblHeaders a {
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?> !important;
+}
 
 div.tools,
 .tblFooters {
