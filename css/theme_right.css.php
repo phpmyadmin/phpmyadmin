@@ -407,6 +407,7 @@ div.notice,
 div.warning,
 div.error,
 div.footnotes {
+    clear: both;
     margin:             0.3em 0 0 0;
     border:             2px solid;
     padding:            0.5em;
