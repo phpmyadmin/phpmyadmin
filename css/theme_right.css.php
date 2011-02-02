@@ -105,6 +105,7 @@ textarea {
 }
 
 fieldset {
+    clear: both;
     margin-top:         1em;
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 2px;
     padding:            0.5em;
