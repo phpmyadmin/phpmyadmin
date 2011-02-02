@@ -611,6 +611,7 @@ form.login label {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     background: #ccc;
+    white-space: nowrap;
 }
 #topmenu li, #topmenu2 li {
     display: inline-block;
@@ -630,6 +631,10 @@ form.login label {
 a.tabactive {
     font-weight: bolder;
     background: #aaa;
+}
+ul#topmenu .submenu {
+    position:           relative;
+    display: inline-block !important; /* Need to override style in code */
 }
 #topmenu .submenu ul {
     margin:             0;
