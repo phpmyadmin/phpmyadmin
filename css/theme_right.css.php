@@ -1191,11 +1191,7 @@ li#li_user_preferences {
     float: <?php echo $left; ?>;
 }
 
-#div_table_order {
-    min-width: 48%;
-    float: <?php echo $left; ?>;
-}
-
+#div_table_order,
 #div_table_rename {
     min-width: 48%;
     float: <?php echo $left; ?>;
