@@ -163,7 +163,7 @@ button {
 /* classes */
 div.tools,
 fieldset.tblFooters {
-    margin:             0 1em 0 1em;
+    margin:             0 1em 1em 1em;
     border:             2px solid #000;
     border-top: none;
     width: auto;
