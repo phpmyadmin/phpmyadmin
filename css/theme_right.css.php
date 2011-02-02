@@ -607,7 +607,7 @@ form.login label {
 #topmenu, #topmenu2, #topmenu .submenu ul {
     list-style: none;
     padding: 0;
-    margin: 0.3em 0 0 0;
+    margin: 0.5em 0 0.5em 0;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     background: #ccc;
