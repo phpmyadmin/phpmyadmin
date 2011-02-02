@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 14:41+0100\n"
-"PO-Revision-Date: 2011-02-01 18:25+0100\n"
+"PO-Revision-Date: 2011-02-02 14:42+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1163,10 +1163,9 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:115
-#, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
-msgstr "Zkontrolovat nejnovější verzi"
+msgstr ", poslední stabilní verze:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
@@ -4246,7 +4245,7 @@ msgstr "Zkontrolovat nejnovější verzi"
 
 #: libraries/config/messages.inc.php:498
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Povolí kontrolu poslední verze phpMyAdmina na hlavní stránce"
 
 #: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
