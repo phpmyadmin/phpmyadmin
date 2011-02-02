@@ -2297,7 +2297,7 @@ function menuResize()
         for (var i = hide_start; i < li.length-1; i++) {
             $(li[i])[more_shown ? 'prependTo' : 'appendTo'](submenu_ul);
         }
-        submenu.show();
+        submenu.addClass('shown');
     } else if (more_shown) {
         w -= submenu_w;
         // nothing hidden, maybe something can be restored
@@ -2308,7 +2308,7 @@ function menuResize()
             if (w+submenu_w < wmax || (i == li2.length-1 && w < wmax)) {
                 $(li2[i]).insertBefore(submenu);
                 if (i == li2.length-1) {
-                    submenu.hide();
+                    submenu.removeClass('shown');
                 }
                 continue;
             }
@@ -2349,8 +2349,7 @@ $(function() {
             if ($(this).find('ul .tabactive').length == 0) {
                 $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
             }
-        })
-        .hide();
+        });
     topmenu.append(submenu);
 
     // populate submenu and register resize event

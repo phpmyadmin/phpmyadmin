@@ -692,6 +692,10 @@ ul#topmenu ul a {
 
 ul#topmenu .submenu {
     position:           relative;
+    display: none;
+}
+ul#topmenu .shown {
+    display: block;
 }
 
 ul#topmenu ul {
