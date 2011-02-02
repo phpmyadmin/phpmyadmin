@@ -141,6 +141,10 @@ table td {
     border: 1px solid black;
 }
 
+table.navigation td {
+    border: none;
+}
+
 img,
 input,
 select,
