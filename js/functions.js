@@ -1979,8 +1979,9 @@ $(document).ready(function() {
 
     /**
      * Attach Ajax event handler on the change password anchor
+     * @see $cfg['AjaxEnable']
      */
-    $('#change_password_anchor').live('click', function(event) {
+    $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         /**
