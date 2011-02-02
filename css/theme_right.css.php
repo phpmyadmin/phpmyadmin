@@ -391,6 +391,8 @@ div.footnotes {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     padding:            0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius:      0.5em;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
