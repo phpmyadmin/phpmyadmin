@@ -54,4 +54,9 @@ define('CUSTOM_HEADER_FILE', CONFIG_DIR . 'config.header.inc.php');
  * Filename of custom footer file.
  */
 define('CUSTOM_FOOTER_FILE', CONFIG_DIR . 'config.footer.inc.php');
+
+/**
+ * Default value for check for version upgrades.
+ */
+define('VERSION_CHECK_DEFAULT', true);
 ?>

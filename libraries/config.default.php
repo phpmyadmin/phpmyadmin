@@ -499,7 +499,7 @@ $cfg['AjaxEnable'] = true;
  *
  * @global boolean $cfg['VersionCheck']
  */
-$cfg['VersionCheck'] = true;
+$cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
 
 /**
  * maximum number of db's displayed in left frame and database list
