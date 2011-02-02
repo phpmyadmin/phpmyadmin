@@ -1262,6 +1262,7 @@ code.sql, div.sqlvalidate {
 
 .group h2 {
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    color:         <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
 }
