@@ -51,6 +51,7 @@ $(document).ready(function() {
      * (see $GLOBALS['cfg']['AjaxEnable'])
      *
      * @uses    PMA_ajaxShowMessage()
+     * @see     $GLOBALS['cfg']['AjaxEnable']
      */
     $("#db_search_form.ajax").live('submit', function(event) {
         event.preventDefault();

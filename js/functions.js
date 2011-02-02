@@ -1907,6 +1907,7 @@ $(document).ready(function() {
  * @uses    PMA_ajaxShowMessage()
  * @uses    window.parent.refreshNavigation()
  * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
     $("#drop_db_anchor").live('click', function(event) {
@@ -1935,10 +1936,11 @@ $(document).ready(function() {
  * display_create_database.lib.php is used, ie main.php and server_databases.php
  *
  * @uses    PMA_ajaxShowMessage()
+ * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
 
-    $('#create_database_form').live('submit', function(event) {
+    $('#create_database_form.ajax').live('submit', function(event) {
         event.preventDefault();
 
         $form = $(this);
@@ -1984,8 +1986,9 @@ $(document).ready(function() {
 
     /**
      * Attach Ajax event handler on the change password anchor
+     * @see $cfg['AjaxEnable']
      */
-    $('#change_password_anchor').live('click', function(event) {
+    $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -2011,8 +2014,9 @@ $(document).ready(function() {
      * Attach Ajax event handler for Change Password form submission
      *
      * @uses    PMA_ajaxShowMessage()
+     * @see $cfg['AjaxEnable']
      */
-    $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
+    $("#change_password_form.ajax").find('input[name=change_pw]').live('click', function(event) {
         event.preventDefault();
 
         /**

@@ -88,8 +88,13 @@ if ($server > 0
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             if ($cfg['ShowChgPassword']) {
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $conditional_class = 'ajax';
+                } else {
+                    $conditional_class = null;
+                }
                 PMA_printListItem(__('Change password'), 'li_change_password',
-                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor');
+                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
             }
         } // end if
         if (PMA_MYSQL_MAJOR_VERSION < 2009) {
@@ -360,8 +365,10 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
  * @param   string  $mysql_help_page  display a link to MySQL's manual
  * @param   string  $target special target for $url
  * @param   string  $a_id   id for the anchor, used for jQuery to hook in functions
+ * @param   string  $class  class for the li element
+ * @param   string  $a_class  class for the anchor element
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null, $class = null)
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null, $class = null, $a_class = null)
 {
     echo '<li id="' . $id . '"';
     if (null !== $class) {
@@ -375,6 +382,9 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
         }
         if (null != $a_id) {
             echo ' id="' . $a_id .'"';
+        }
+        if (null != $a_class) {
+            echo ' class="' . $a_class .'"';
         }
         echo '>';
     }
