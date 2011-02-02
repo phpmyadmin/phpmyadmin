@@ -69,7 +69,10 @@ $(document).ready(function() {
                 // found results
                 $("#searchresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
-                $('#db_search_form').hide();
+                $('#db_search_form')
+                    // workaround for Chrome problem (bug #3168569)
+                    .slideToggle()
+                    .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
                     .text(PMA_messages['strShowSearchCriteria'])
