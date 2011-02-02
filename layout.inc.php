@@ -36,16 +36,16 @@ $GLOBALS['cfg']['MainBackground']           = '#fff';
 //$GLOBALS['cfg']['MainBackground']       = '#F5F5F5 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
 
 // foreground (text) color of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
+$GLOBALS['cfg']['BrowsePointerColor']       = '#000';
 
 // background of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerBackground']  = '#CCFFCC';
+$GLOBALS['cfg']['BrowsePointerBackground']  = '#eef';
 
 // foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+$GLOBALS['cfg']['BrowseMarkerColor']        = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
+$GLOBALS['cfg']['BrowseMarkerBackground']   = '#FC9';
 
 /**
  * fonts
