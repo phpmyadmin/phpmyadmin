@@ -864,7 +864,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
-                $th_class = array(); 
+                $th_class = array();
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -964,25 +964,25 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
 
 /**
- * Prepares the display for a value 
+ * Prepares the display for a value
  *
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $value
  *
- * @return  string  the td 
+ * @return  string  the td
  */
 function PMA_buildValueDisplay($class, $condition_field, $value) {
     return '<td align="left"' . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
 }
 
 /**
- * Prepares the display for a null value 
+ * Prepares the display for a null value
  *
  * @param   string  $class
  * @param   string  $condition_field
  *
- * @return  string  the td 
+ * @return  string  the td
  */
 function PMA_buildNullDisplay($class, $condition_field) {
     // the null class is needed for inline editing
@@ -990,13 +990,13 @@ function PMA_buildNullDisplay($class, $condition_field) {
 }
 
 /**
- * Prepares the display for an empty value 
+ * Prepares the display for an empty value
  *
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $align
  *
- * @return  string  the td 
+ * @return  string  the td
  */
 function PMA_buildEmptyDisplay($class, $condition_field, $align = '') {
     return '<td ' . $align . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>';
@@ -1312,7 +1312,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                // reset $class from $inline_edit_class to just 'data' 
+                // reset $class from $inline_edit_class to just 'data'
                 // as we can't edit binary data
                 $class = 'data';
 
@@ -1353,13 +1353,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
                 $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
-                // reset $class from $inline_edit_class to 'data' 
+                // reset $class from $inline_edit_class to 'data'
                 // as we can't edit geometry data
                 $class = 'data';
                 $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);
                 unset($geometry_text);
 
-            // n o t   n u m e r i c   a n d   n o t   B L O B 
+            // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
@@ -2441,7 +2441,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @uses    htmlspecialchars 
+ * @uses    htmlspecialchars
  * @param   string  $del_url
  * @param   array   $is_display
  * @param   string  $row_no
@@ -2469,9 +2469,9 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 }
 
 /**
- * Generates an Edit link 
+ * Generates an Edit link
  *
- * @uses    PMA_linkOrButton() 
+ * @uses    PMA_linkOrButton()
  * @param   string  $edit_url
  * @param   string  $class
  * @param   string  $edit_str
@@ -2485,7 +2485,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
         $ret .= '<td class="' . $class . '" align="center" ' . ' >'
            . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE);
         /*
-         * Where clause for selecting this row uniquely is provided as 
+         * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
          */
         if(! empty($where_clause)) {
@@ -2497,9 +2497,9 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 }
 
 /**
- * Generates a Delete link 
+ * Generates a Delete link
  *
- * @uses    PMA_linkOrButton() 
+ * @uses    PMA_linkOrButton()
  * @param   string  $del_url
  * @param   string  $del_str
  * @param   string  $js_conf
@@ -2521,9 +2521,9 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
 }
 
 /**
- * Generates checkbox and links at some position (left or right) 
+ * Generates checkbox and links at some position (left or right)
  *
- * @uses    PMA_generateCheckboxForMulti() 
+ * @uses    PMA_generateCheckboxForMulti()
  * @uses    PMA_generateEditLink()
  * @uses    PMA_generateDeleteLink()
  * @param   string  $position
