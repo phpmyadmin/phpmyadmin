@@ -192,7 +192,7 @@ table tr.even th,
 .even {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
-tr.even th, tr.odd th {
+tr.even th, tr.odd th, fieldset th  {
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
