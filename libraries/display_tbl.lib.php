@@ -573,7 +573,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $url_params['display_text'] = 'F';
         }
 
-        $tmp_image = '<img class="fulltext" width="50" height="20"  src="' . $tmp_image_file . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '" />';
+        $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '" />';
         $tmp_url = 'sql.php' . PMA_generate_common_url($url_params);
         $full_or_partial_text_link = PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
         unset($tmp_image_file, $tmp_txt, $tmp_url, $tmp_image);
