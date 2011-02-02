@@ -1900,6 +1900,7 @@ $(document).ready(function() {
  * @uses    PMA_ajaxShowMessage()
  * @uses    window.parent.refreshNavigation()
  * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
     $("#drop_db_anchor").live('click', function(event) {
@@ -1928,10 +1929,11 @@ $(document).ready(function() {
  * display_create_database.lib.php is used, ie main.php and server_databases.php
  *
  * @uses    PMA_ajaxShowMessage()
+ * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
 
-    $('#create_database_form').live('submit', function(event) {
+    $('#create_database_form.ajax').live('submit', function(event) {
         event.preventDefault();
 
         $form = $(this);
