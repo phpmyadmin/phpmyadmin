@@ -1021,8 +1021,8 @@ if (isset($_REQUEST['synchronize_db'])) {
         if (isset($alter_str_array[$p])) {
             PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, $source_columns, $alter_str_array, $matching_tables_fields,
             $criteria, $matching_tables_keys, $target_tables_keys, $p, true);
-            unset($alter_str_array[$p]);        
-        }                                                           
+            unset($alter_str_array[$p]);
+        }
         if (! empty($add_column_array[$p])) {
             PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
             $trg_db, $trg_link, $src_db, $src_link);
