@@ -78,6 +78,9 @@ th {
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
+th a {
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?> !important;
+}
 
 a img {
     border:             0;
