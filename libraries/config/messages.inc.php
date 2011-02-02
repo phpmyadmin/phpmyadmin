@@ -495,6 +495,8 @@ $strConfigUserprefsDeveloperTab_name = __('Enable the Developer tab in settings'
 $strConfigVerboseMultiSubmit_desc = __('Show affected rows of each statement on multiple-statement queries. See libraries/import.lib.php for defaults on how many queries a statement may contain.');
 $strConfigVerboseMultiSubmit_name = __('Verbose multiple statements');
 $strConfigVersionCheckLink = __('Check for latest version');
+$strConfigVersionCheck_desc = __('Enables check for latest version on main phpMyAdmin page');
+$strConfigVersionCheck_name = __('Version check');
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations');
 $strConfigZipDump_name = __('ZIP');
 

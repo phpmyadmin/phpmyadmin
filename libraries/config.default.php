@@ -495,6 +495,13 @@ $cfg['ServerDefault'] = 1;
 $cfg['AjaxEnable'] = true;
 
 /**
+ * whether version check is active
+ *
+ * @global boolean $cfg['VersionCheck']
+ */
+$cfg['VersionCheck'] = true;
+
+/**
  * maximum number of db's displayed in left frame and database list
  *
  * @global integer $cfg['MaxDbList']

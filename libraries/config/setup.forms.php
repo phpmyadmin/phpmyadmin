@@ -121,6 +121,7 @@ $forms['Features']['Developer'] = array(
     'DBG/sql');
 $forms['Features']['Other_core_settings'] = array(
     'AjaxEnable',
+    'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
     'ErrorIconic',

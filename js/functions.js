@@ -2466,7 +2466,7 @@ $(document).ready(function() {
     /**
      * Load version information asynchronously.
      */
-    if ($('#li_pma_version').length > 0) {
+    if ($('.jsversioncheck').length > 0) {
         (function() {
             var s = document.createElement('script');
             s.type = 'text/javascript';

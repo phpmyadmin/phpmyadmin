@@ -209,7 +209,11 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 echo '<div class="group">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
-PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version');
+$clas = null;
+if ($GLOBALS['cfg']['VersionCheck']) {
+    $class = 'jsversioncheck';
+}
+PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version', null, null, null, null, $class);
 PMA_printListItem(__('Documentation'), 'li_pma_docs', 'Documentation.html', null, '_blank');
 PMA_printListItem(__('Wiki'), 'li_pma_wiki', PMA_linkURL('http://wiki.phpmyadmin.net/'), null, '_blank');
 
