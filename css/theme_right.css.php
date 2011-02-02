@@ -144,7 +144,7 @@ table td {
     border: 1px solid black;
 }
 
-table.navigation td {
+table.navigation td, #actions_panel table td {
     border: none;
 }
 
