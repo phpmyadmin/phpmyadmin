@@ -631,6 +631,8 @@ if (is_array($content_cells) && is_array($header_cells)) {
     //$empty_row = array_pop($content_cells);
 
     echo '<table id="table_columns">';
+    echo '<caption class="tblHeaders">' . __('Structure') . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
+
     if ($display_type == 'horizontal') {
         ?>
 <tr>
@@ -786,8 +788,6 @@ if ($action == 'tbl_create.php') {
 </fieldset>
 
 </form>
-
-<center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
 
 <div id="enum_editor">
 <a class="close_enum_editor"><?php echo __('Close'); ?></a>
