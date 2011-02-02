@@ -628,6 +628,10 @@ form.login label {
     background: #ddd;
     text-decoration: none;
 }
+#topmenu a.warning {
+    background: #ccc;
+    color: #666;
+}
 a.tabactive {
     font-weight: bolder;
     background: #aaa;
