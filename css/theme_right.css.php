@@ -604,172 +604,47 @@ form.login label {
 /* specific elements */
 
 /* topmenu */
-ul#topmenu, ul#topmenu2, ul.tabs {
-    font-weight:        bold;
-    list-style-type:    none;
-    margin:             0;
-    padding:            0;
+#topmenu, #topmenu2, #topmenu .submenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.3em 0 0 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background: #ccc;
 }
-
-ul#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    height: 2em;
-    clear: both;
-}
-
-ul#topmenu li, ul#topmenu2 li {
+#topmenu li, #topmenu2 li {
     display: inline-block;
-    margin:             0;
-    padding:            0;
-    vertical-align:     middle;
+    margin: 0;
+    padding: 0;
 }
-
-#topmenu img, #topmenu2 img {
-    vertical-align:     middle;
-    margin-<?php echo $right; ?>:       0.1em;
+#topmenu li a, #topmenu2 li a {
+    display: inline-block;
+    margin: 0;
+    padding: 0.2em;
+    min-height: 16px; /* To match icons */
 }
-
-/* default tab styles */
-ul#topmenu a, ul#topmenu span {
-    display:            inline-block;
-    margin:             0.2em 0.2em 0 0.2em;
-    padding:            0.2em 0.2em 0 0.2em;
-    white-space:        nowrap;
+#topmenu li a:hover, #topmenu2 li a:hover {
+    background: #ddd;
+    text-decoration: none;
 }
-
-ul#topmenu ul a {
-    margin:             0;
-    padding-bottom:     0.2em;
+a.tabactive {
+    font-weight: bolder;
+    background: #aaa;
 }
-
-ul#topmenu .submenu {
-    position:           relative;
-}
-
-ul#topmenu ul {
+#topmenu .submenu ul {
     margin:             0;
     padding:            0;
     position:           absolute;
-    right:              0;
+    <?php echo $right;?>:              0;
     list-style-type:    none;
-    display:            inline-block;
+    display:            none;
     border:             1px #666 solid;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
-    display:            inline-block;
-}
-
-ul#topmenu ul li {
-    width:              100%;
-}
-
-ul#topmenu2 a {
     display:            block;
-    margin:             0.1em;
-    padding:            0.2em;
-    white-space:        nowrap;
 }
 
-/* disabled tabs */
-ul#topmenu span.tab {
-    color:              #666666;
-}
-
-/* disabled drop/empty tabs */
-ul#topmenu span.tabcaution {
-    color:              #ff6666;
-}
-
-/* enabled drop/empty tabs */
-ul#topmenu a.tabcaution {
-    color:              #FF0000;
-}
-ul#topmenu a.tabcaution:hover {
-    color: #FFFFFF;
-    background-color:   #FF0000;
-}
-fieldset.caution a {
-    color:              #FF0000;
-}
-fieldset.caution a:hover {
-    color:              #ffffff;
-    background-color:   #FF0000;
-}
-
-<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
-/* active tab */
-ul#topmenu a.tabactive, ul#topmenu2 a.tabactive {
-    color:              black;
-}
-
-ul#topmenu {
-    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-<?php } else { ?>
-ul#topmenu {
-    margin-top:         0.5em;
-    padding:            0;
-    border-bottom:      1pt solid black;
-}
-
-/* default tab styles */
-ul#topmenu a, ul#topmenu span {
-    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    border:             0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-width:       1pt 1pt 0 1pt;
-    -moz-border-radius: 0.4em 0.4em 0 0;
-    border-radius:      0.4em 0.4em 0 0;
-}
-
-ul#topmenu ul a {
-    border-width:       1pt 0 0 0;
-    -moz-border-radius: 0;
-    border-radius:      0;
-}
-
-ul#topmenu ul li:first-child a {
-    border-width:       0;
-}
-
-/* enabled hover/active tabs */
-ul#topmenu > li > a:hover,
-ul#topmenu > li > .tabactive {
-    margin:             0;
-    padding:            0.2em 0.4em 0.2em 0.4em;
-    text-decoration:    none;
-}
-
-ul#topmenu ul a:hover,
-ul#topmenu ul .tabactive {
-    text-decoration:    none;
-}
-
-ul#topmenu a.tab:hover,
-ul#topmenu .tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-
-ul#topmenu2 a.tab:hover,
-ul#topmenu2 a.tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    -moz-border-radius: 0.3em;
-    border-radius:      0.3em;
-    text-decoration:    none;
-}
-
-/* to be able to cancel the bottom border, use <li class="active"> */
-ul#topmenu > li.active {
-     border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-
-/* disabled drop/empty tabs */
-ul#topmenu span.tab,
-a.warning,
-ul#topmenu span.tabcaution {
-    cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
-}
-<?php } ?>
 /* end topmenu */
 
 
@@ -1499,8 +1374,6 @@ a.close_enum_editor {
     margin: 5px 0px;
     float: top;
     width: 100%;
-}
-
 }
 
 #enum_editor_output {
