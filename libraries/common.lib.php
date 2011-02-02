@@ -2552,6 +2552,7 @@ function PMA_generate_slider_effect($id, $message)
                 $('#<?php echo $id; ?>').toggle('clip', function() {
                     PMA_set_status_label_<?php echo $id; ?>();
                 });
+                return false;
             });
     });
     //]]>
