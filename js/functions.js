@@ -1846,13 +1846,13 @@ $(document).ready(function() {
         //User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
             // if 'create_table_dialog' exists
-        	if ($("#create_table_dialog").length > 0) {
-            	$("#create_table_dialog").html(data);
+            if ($("#create_table_dialog").length > 0) {
+                $("#create_table_dialog").html(data);
             }
-        	// if 'create_table_div' exists
-        	if ($("#create_table_div").length > 0) {
-        		$("#create_table_div").html(data);
-        	}            
+            // if 'create_table_div' exists
+            if ($("#create_table_div").length > 0) {
+                $("#create_table_div").html(data);
+            }
         }) //end $.post()
 
     }) // end create table form (add fields)
@@ -2167,7 +2167,7 @@ $(document).ready(function() {
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
-	    var $table = $("table[id='tablestructure']");
+        var $table = $("table[id='tablestructure']");
         $table.find("td[class='browse']").remove();
         $table.find("td[class='primary']").remove();
         $table.find("td[class='unique']").remove();
@@ -2192,8 +2192,8 @@ $(document).ready(function() {
         // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
         // positioning an iframe directly on top of it
         var $after_field = $("select[name='after_field']");
-	    $("iframe[class='IE_hack']")
-		    .width($after_field.width())
+        $("iframe[class='IE_hack']")
+            .width($after_field.width())
             .height($after_field.height())
             .offset({
                 top: $after_field.offset().top,
@@ -2202,10 +2202,10 @@ $(document).ready(function() {
 
         // When "more" is hovered over, show the hidden actions
         $table.find("td[class='more_opts']")
-		    .mouseenter(function() {
+            .mouseenter(function() {
                 if($.browser.msie && $.browser.version == "6.0") {
                     $("iframe[class='IE_hack']")
-		                .show()
+                        .show()
                         .width($after_field.width()+4)
                         .height($after_field.height()+4)
                         .offset({
@@ -2220,8 +2220,8 @@ $(document).ready(function() {
                     var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
                     var top_offset_IE = $(this).offset().top + $(this).innerHeight();
                     $(this).children(".structure_actions_dropdown").offset({
-	                    top: top_offset_IE,
-	                    left: left_offset_IE });
+                        top: top_offset_IE,
+                        left: left_offset_IE });
                 }
             })
             .mouseleave(function() {
