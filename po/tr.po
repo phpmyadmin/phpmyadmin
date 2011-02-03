@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-03 13:36+0200\n"
+"PO-Revision-Date: 2011-02-03 13:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5186,7 +5186,7 @@ msgstr "İlgili Bağlantılar"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr "Barry Leslie'nin The PrimeBase Media Streaming Bloğu "
+msgstr "Barry Leslie'nin The PrimeBase Media Streaming Bloğu"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
