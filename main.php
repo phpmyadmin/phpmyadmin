@@ -214,7 +214,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 echo '<div class="group">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
-$clas = null;
+$class = null;
 if ($GLOBALS['cfg']['VersionCheck']) {
     $class = 'jsversioncheck';
 }
