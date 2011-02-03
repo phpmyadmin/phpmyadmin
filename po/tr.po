@@ -5356,7 +5356,7 @@ msgstr "Paul McCullagh'ın The PrimeBase XT Bloğu"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "The PrimeBase Media Streaming (PBMS) ana sayfası"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
