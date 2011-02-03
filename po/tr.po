@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-03 13:28+0200\n"
+"PO-Revision-Date: 2011-02-03 13:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2252,7 +2252,7 @@ msgstr "Sıfırla"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Ekran yenilemenin etkinliğini geliştirir"
 
 #: libraries/config/messages.inc.php:18
 #| msgid "Enabled"
