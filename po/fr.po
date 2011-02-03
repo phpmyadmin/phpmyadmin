@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-01-31 19:41+0200\n"
+"PO-Revision-Date: 2011-02-03 19:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1168,10 +1168,9 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:115
-#, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
-msgstr "Vérifier la présence d'une nouvelle version"
+msgstr ", dernière version stable :"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
