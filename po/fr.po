@@ -4909,10 +4909,9 @@ msgid "Display chart"
 msgstr "Afficher le graphique"
 
 #: libraries/display_tbl.lib.php:2255
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Créer un compte d'utilisateur"
+msgstr "Créer une vue"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
