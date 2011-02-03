@@ -261,6 +261,9 @@ table .value {
 table [class=value] {
     white-space:        normal;
 }
+table .tbl_size {
+    white-space:        nowrap;
+}
 
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
