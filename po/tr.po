@@ -5190,7 +5190,7 @@ msgstr "Barry Leslie'nin The PrimeBase Media Streaming Bloğu "
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "PrimeBase XT Ana Sayfası"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
