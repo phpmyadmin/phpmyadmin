@@ -1397,13 +1397,21 @@ a.close_enum_editor {
  */
 .structure_actions_dropdown {
     position: absolute;
-    padding: 3px;
+    padding: 0;
     display: none;
     z-index: 100;
+    border-collapse:collapse;
+    border: 1px solid #000;
+    padding: 0.2em;
 }
 
 .structure_actions_dropdown a {
     display: block;
+}
+
+.structure_actions_dropdown div {
+    margin: 0;
+    padding: 0;
 }
 
 td.more_opts {
@@ -1634,3 +1642,4 @@ fieldset .disabled-field td {
 #prefs_autoload {
     margin-bottom: 0.5em;
 }
+
