@@ -114,21 +114,30 @@ $(document).ready(function() {
     $('.drop_primary_key_index_anchor').live('click', function(event) {
         event.preventDefault();
 
+        $anchor = $(this);
+
         /**
-         * @var curr_row    Object containing reference to the current field's row
+         * @var $curr_row    Object containing reference to the current field's row
          */
-        var curr_row = $(this).parents('tr');
+        var $curr_row = $anchor.parents('tr');
+        /** @var    Number of columns in the key */
+        var rows = $anchor.parents('td').attr('rowspan') || 1;
+        /** @var    Rows that should be hidden */
+        var $rows_to_hide = $curr_row;
+        for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
+            $rows_to_hide = $rows_to_hide.add($last_row);
+        }
 
-        var question = $(curr_row).children('td').children('.drop_primary_key_index_msg').val();
+        var question = $curr_row.children('td').children('.drop_primary_key_index_msg').val();
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
 
             PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex']);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $(curr_row).hide("medium").remove();
+                    $rows_to_hide.hide("medium").remove();
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
