@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-04 23:43+0200\n"
+"PO-Revision-Date: 2011-02-04 23:45+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5226,7 +5226,7 @@ msgstr "Дополнительные ссылки"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "Блог Barry Leslie посвященный PrimeBase Media Streaming"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
