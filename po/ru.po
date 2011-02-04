@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-04 23:26+0200\n"
+"PO-Revision-Date: 2011-02-04 23:31+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4294,6 +4294,8 @@ msgstr "Проверить обновление"
 #: libraries/config/messages.inc.php:498
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
+"Включает возможность проверки последней версии phpMyAdmin на главной "
+"странице"
 
 #: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
