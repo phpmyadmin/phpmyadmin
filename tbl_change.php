@@ -43,6 +43,9 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
 }
+if (isset($_REQUEST['default_action'])) {
+    $default_action = $_REQUEST['default_action'];
+}
 
 /**
  * file listing
@@ -184,12 +187,18 @@ if (isset($where_clause)) {
             }
             unset($unique_condition, $tmp_clause_is_unique);
         }
+
     }
 } else {
     // no primary key given, just load first row - but what happens if table is empty?
     $insert_mode = true;
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
     $rows = array_fill(0, $cfg['InsertRows'], false);
+}
+
+// Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
+if (isset($default_action) && $default_action === 'insert') {
+    unset($where_clause, $where_clauses);
 }
 
 // retrieve keys into foreign fields, if any
@@ -488,6 +497,13 @@ foreach ($rows as $row_id => $vrow) {
 
                 $data            = $vrow[$field['Field']];
             } // end if... else...
+
+            //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
+            if (isset($default_action) && $default_action === 'insert') {
+                if ($field['Key'] === 'PRI' && strpos($field['Extra'], 'auto_increment') !== FALSE) {
+                    $data = $special_chars_encoded = $special_chars = NULL;
+                }
+            }
             // If a timestamp field value is not included in an update
             // statement MySQL auto-update it to the current timestamp;
             // however, things have changed since MySQL 4.1, so
