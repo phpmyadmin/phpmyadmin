@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-04 23:50+0200\n"
+"PO-Revision-Date: 2011-02-05 21:36+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5823,10 +5823,11 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Импортировать проценты в виде десятичных значений (12.00% в .12)"
+msgstr ""
+"Импортировать проценты в виде десятичных значений <i>(напр. 12.00% в "
+".12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
