@@ -6152,6 +6152,8 @@ msgstr "Шаги необходимые для установки дополни
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
+"Создайте необходимые таблицы с помощью скрипта "
+"<code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:154
 msgid "Create a pma user and give access to these tables."
