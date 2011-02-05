@@ -5345,7 +5345,7 @@ msgstr "Blog PrimeBase XT avtorja Paula McCullagha"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "Domača stran PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
