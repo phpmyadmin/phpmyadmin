@@ -6472,10 +6472,9 @@ msgid "Synchronize"
 msgstr "Синхронизировать"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "настройки"
+msgstr "Настройки"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 msgid "Source database"
