@@ -338,13 +338,17 @@ $(document).ready(function() {
      * Ajax Event handler for the display options
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
+     * @see         $cfg['AjaxEnable']
      */
-    $("#displayOptionsForm").live('submit', function(event) {
+    $("#displayOptionsForm.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        $.post($(this).attr('action'), $(this).serialize() + '&ajax_request=true' , function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
+        $form = $(this);
+
+        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function(data) {
+            $("#sqlqueryresults")
+             .html(data)
+             .trigger('appendAnchor');
         }) // end $.post()
     })
     //end displayOptionsForm handler
