@@ -2266,7 +2266,7 @@ msgstr "Ponastavi"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Izboljša učinkovitost osvežitve okna"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
