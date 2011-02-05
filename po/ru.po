@@ -6171,6 +6171,7 @@ msgstr ""
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Перезайдите в PhpMyAdmin, чтобы загрузить обновленный файл конфигурации."
 
 #: libraries/relation.lib.php:1179
 msgid "no description"
