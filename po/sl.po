@@ -9761,10 +9761,9 @@ msgid "An index has been added on %s"
 msgstr "Na %s je dodan indeks"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Prikaži različice"
+msgstr "Prikaži več dejanj"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
