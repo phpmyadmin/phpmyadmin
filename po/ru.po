@@ -5862,7 +5862,7 @@ msgstr "Нет"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Конвертировать в Кану"
 
 #: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
 #: tbl_structure.php:28 tbl_structure.php:152 tbl_structure.php:156
