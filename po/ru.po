@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 21:49+0200\n"
+"PO-Revision-Date: 2011-02-05 21:50+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6093,9 +6093,8 @@ msgstr "Выход"
 #: libraries/navigation_header.inc.php:111
 #: libraries/navigation_header.inc.php:112
 #: libraries/navigation_header.inc.php:114
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Модифицировать фрейм навигации"
+msgstr "Обновить фрейм навигации"
 
 #: libraries/plugin_interface.lib.php:336
 #, fuzzy
