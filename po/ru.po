@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 21:36+0200\n"
+"PO-Revision-Date: 2011-02-05 21:37+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5830,10 +5830,9 @@ msgstr ""
 ".12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
+msgstr "Импортировать денежные единицы <i>(напр. $5.00 в 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
