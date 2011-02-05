@@ -325,9 +325,12 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
-        $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
+        $anchor = $(this);
+
+        $.get($anchor.attr('href'), $anchor.serialize() + '&ajax_request=true', function(data) {
+            $("#sqlqueryresults")
+             .html(data)
+             .trigger('appendAnchor');
         }) // end $.get()
     })//end Sort results table
 
