@@ -269,6 +269,7 @@ $(document).ready(function() {
      * @memberOf    jQuery
      * @name        paginate_nav_button_click
      * @uses        PMA_ajaxShowMessage()
+     * @see         $cfg['AjaxEnable']
      */
     $("input[name=navig].ajax").live('click', function(event) {
         /** @lends jQuery */
@@ -293,11 +294,11 @@ $(document).ready(function() {
      * Paginate results with Page Selector dropdown
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
+     * @see         $cfg['AjaxEnable']
      */
     $("#pageselector").live('change', function(event) {
         var $the_form = $(this).parent("form");
 
-        // see $cfg['AjaxEnable']
         if ($(this).hasClass('ajax')) {
             event.preventDefault();
 
@@ -317,8 +318,9 @@ $(document).ready(function() {
      * Ajax Event handler for sorting the results table
      * @memberOf    jQuery
      * @name        table_results_sort_click
+     * @see         $cfg['AjaxEnable']
      */
-    $("#table_results").find("a[title=Sort]").live('click', function(event) {
+    $("#table_results.ajax").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage();

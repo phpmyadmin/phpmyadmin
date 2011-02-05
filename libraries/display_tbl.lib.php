@@ -623,7 +623,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
 
-    echo '<table id="table_results" class="data">' . "\n";
+    echo '<table id="table_results" class="data';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        echo ' ajax';
+    }
+    echo '">' . "\n";
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
      || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
         echo '<thead><tr>' . "\n";
