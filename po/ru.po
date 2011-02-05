@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 22:13+0200\n"
+"PO-Revision-Date: 2011-02-05 22:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6509,10 +6509,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Выполнить SQL-запрос(ы) к базе данных %s"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Названия столбцов"
+msgstr "Столбцы"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:854 sql.php:855 sql.php:872
 msgid "Bookmark this SQL query"
