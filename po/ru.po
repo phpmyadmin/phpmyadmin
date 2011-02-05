@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 21:51+0200\n"
+"PO-Revision-Date: 2011-02-05 21:52+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6142,7 +6142,7 @@ msgstr "История SQL-запросов"
 
 #: libraries/relation.lib.php:147
 msgid "User preferences"
-msgstr ""
+msgstr "Пользовательские настройки"
 
 #: libraries/relation.lib.php:151
 msgid "Quick steps to setup advanced features:"
