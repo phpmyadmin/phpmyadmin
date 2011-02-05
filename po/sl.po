@@ -5336,6 +5336,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
+"strani PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
