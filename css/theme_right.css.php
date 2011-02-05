@@ -1144,9 +1144,11 @@ code.sql, div.sqlvalidate {
 }
 
 .group {
-    border: 1px solid #000;
+    border: 2px solid #000;
     margin-bottom: 1em;
     padding: 0 0 0.5em 0;
+    -moz-border-radius: 0.5em;
+    border-radius:      0.5em;
 }
 
 .group h2 {
