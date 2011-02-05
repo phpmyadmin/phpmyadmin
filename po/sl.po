@@ -4260,7 +4260,7 @@ msgstr "Preveri za najnovejšo različico"
 
 #: libraries/config/messages.inc.php:498
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Omogoča preverjanje najnovejše različice na glavni strani phpMyAdmin"
 
 #: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
