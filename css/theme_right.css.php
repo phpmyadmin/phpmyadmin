@@ -1132,20 +1132,21 @@ code.sql, div.sqlvalidate {
 }
 
 #main_pane_left {
-    width:              60%;
+    width:              50%;
     float:              <?php echo $left; ?>;
     padding-top:        1em;
 }
 
 #main_pane_right {
-    margin-<?php echo $left; ?>: 60%;
+    margin-<?php echo $left; ?>: 50%;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
 }
 
 .group {
-    border-<?php echo $left; ?>: 0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    margin-bottom:      1em;
+    border: 1px solid #000;
+    margin-bottom: 1em;
+    padding: 0 0 0.5em 0;
 }
 
 .group h2 {
@@ -1153,6 +1154,7 @@ code.sql, div.sqlvalidate {
     color:         <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
+    border-bottom: 1px solid #000;
 }
 
 .group-cnt {
