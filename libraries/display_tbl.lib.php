@@ -540,7 +540,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     // Display options (if we are not in print view)
     if (! (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1')) {
-        echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm">';
+        echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm"';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax" ';
+        }
+        echo '>';
         $url_params = array(
             'db' => $db,
             'table' => $table,
@@ -623,7 +627,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
 
-    echo '<table id="table_results" class="data">' . "\n";
+    echo '<table id="table_results" class="data';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        echo ' ajax';
+    }
+    echo '">' . "\n";
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
      || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
         echo '<thead><tr>' . "\n";
