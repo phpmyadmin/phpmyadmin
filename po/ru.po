@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 21:59+0200\n"
+"PO-Revision-Date: 2011-02-05 22:01+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6171,7 +6171,7 @@ msgstr ""
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Перезайдите в PhpMyAdmin, чтобы загрузить обновленный файл конфигурации."
+"Перезайдите в phpMyAdmin, чтобы загрузить обновленный конфигурационный файл."
 
 #: libraries/relation.lib.php:1179
 msgid "no description"
