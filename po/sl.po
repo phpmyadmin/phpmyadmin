@@ -5177,7 +5177,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Domača stran PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
