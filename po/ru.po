@@ -6146,7 +6146,7 @@ msgstr "Пользовательские настройки"
 
 #: libraries/relation.lib.php:151
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Быстрые шаги для установки дополнительных функций:"
 
 #: libraries/relation.lib.php:153
 msgid ""
