@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 22:04+0200\n"
+"PO-Revision-Date: 2011-02-05 22:05+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6311,7 +6311,7 @@ msgstr "Данная страница не содержит таблиц!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "Ошибка при создании схемы:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:874
 #: libraries/schema/Pdf_Relation_Schema.class.php:1113
