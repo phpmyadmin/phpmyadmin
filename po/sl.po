@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 02:23+0200\n"
+"PO-Revision-Date: 2011-02-05 02:24+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4882,10 +4882,9 @@ msgid "Display chart"
 msgstr "Prikaži grafikon"
 
 #: libraries/display_tbl.lib.php:2255
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Ustvari uporabnika"
+msgstr "Ustvari pogled"
 
 #: libraries/display_tbl.lib.php:2386
 msgid "Link not found"
