@@ -5814,7 +5814,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1144
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Edite su estructura siguiendo el enlace «Estructura»"
 
 #: libraries/import.lib.php:1147
 #, fuzzy
