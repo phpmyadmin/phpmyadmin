@@ -1350,7 +1350,7 @@ msgstr "di"
 #. l10n: Short week day name
 #: js/messages.php:195 libraries/common.lib.php:1569
 msgid "Wed"
-msgstr "Wo"
+msgstr "wo"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1571
