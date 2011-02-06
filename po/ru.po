@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 21:37+0200\n"
+"PO-Revision-Date: 2011-02-06 21:39+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6744,7 +6744,6 @@ msgid "Event"
 msgstr "Событие"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
