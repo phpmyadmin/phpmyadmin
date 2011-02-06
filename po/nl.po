@@ -1340,7 +1340,7 @@ msgstr "zo"
 #. l10n: Short week day name
 #: js/messages.php:191 libraries/common.lib.php:1565
 msgid "Mon"
-msgstr "Ma"
+msgstr "ma"
 
 #. l10n: Short week day name
 #: js/messages.php:193 libraries/common.lib.php:1567
