@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 14:34+0200\n"
+"PO-Revision-Date: 2011-02-06 14:35+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1112,10 +1112,9 @@ msgid "Hide search criteria"
 msgstr "Verberg zoekcriteria"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show search criteria"
-msgstr "SQL-query veld tonen"
+msgstr "Toon zoek-criteria"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
