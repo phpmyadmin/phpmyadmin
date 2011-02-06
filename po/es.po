@@ -4711,10 +4711,9 @@ msgid "zipped"
 msgstr "comprimido con zip"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"Comprimido con gzip\""
+msgstr "comprimido con gzip"
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
