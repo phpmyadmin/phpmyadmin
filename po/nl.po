@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 15:33+0200\n"
+"PO-Revision-Date: 2011-02-06 15:34+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2873,6 +2873,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Browser titel balk tekst. Zie "
+"[a@Documentation.html#cfg_TitleTable]documentatie[/a] voor bruikbare codes."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
