@@ -1993,7 +1993,7 @@ msgstr "Tijd"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1362
 msgid "B"
-msgstr "Bytes"
+msgstr "B"
 
 #: libraries/common.lib.php:1362
 msgid "KiB"
