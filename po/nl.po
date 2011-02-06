@@ -806,7 +806,7 @@ msgstr "Plaats elke waarde in een log veld."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "Herstart invoegen en voeg nieuwe waarde toe"
+msgstr " + Herstart invoegen en voeg nieuwe waarde toe"
 
 #: enum_editor.php:67
 #, fuzzy
