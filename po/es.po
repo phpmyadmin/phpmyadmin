@@ -1878,7 +1878,7 @@ msgstr ""
 #: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "No se pudo cargar la configuración predeterminada desde: \"%1$s\""
+msgstr "No se pudo cargar la configuración predeterminada desde: «%1$s»"
 
 #: libraries/common.inc.php:592
 msgid ""
