@@ -1213,7 +1213,7 @@ msgstr "april"
 
 #: js/messages.php:143
 msgid "May"
-msgstr "Mei"
+msgstr "mei"
 
 #: js/messages.php:144
 msgid "June"
