@@ -1330,7 +1330,7 @@ msgstr "vrijdag"
 
 #: js/messages.php:185
 msgid "Saturday"
-msgstr "Zaterdag"
+msgstr "zaterdag"
 
 #. l10n: Short week day name
 #: js/messages.php:189 libraries/common.lib.php:1563
