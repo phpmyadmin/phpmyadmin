@@ -6343,10 +6343,10 @@ msgstr "Generar la contraseña"
 #: libraries/schema/Pdf_Relation_Schema.class.php:487
 #: libraries/schema/Svg_Relation_Schema.class.php:369
 #: libraries/schema/Visio_Relation_Schema.class.php:213
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "¡La tabla \"%s\" no existe!"
+msgstr "La tabla «%s» no existe."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
