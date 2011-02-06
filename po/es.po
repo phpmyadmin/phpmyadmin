@@ -953,7 +953,7 @@ msgstr "Clic para deseleccionar"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:156
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Los enunciados \\\"DROP DATABASE\\\" están deshabilitados."
+msgstr "Los enunciados «DROP DATABASE» están desactivados."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
