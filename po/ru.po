@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 21:36+0200\n"
+"PO-Revision-Date: 2011-02-06 21:37+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6735,10 +6735,9 @@ msgid "You have to add at least one column."
 msgstr "Необходимо добавить хотя бы одно поле."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "Добавить новый сервер"
+msgstr "+ Добавить новое значение"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
