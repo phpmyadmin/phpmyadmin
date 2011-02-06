@@ -2685,7 +2685,7 @@ msgstr "Fechas de creación/actualización/revisión"
 
 #: libraries/config/messages.inc.php:122
 msgid "Use delayed inserts"
-msgstr "Usar \"inserts\" con retraso"
+msgstr "Usar «inserts» con retraso"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
