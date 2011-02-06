@@ -1229,7 +1229,7 @@ msgstr "augustus"
 
 #: js/messages.php:147
 msgid "September"
-msgstr "September"
+msgstr "september"
 
 #: js/messages.php:148
 msgid "October"
