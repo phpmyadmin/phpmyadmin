@@ -4569,10 +4569,10 @@ msgid "Exporting databases from the current server"
 msgstr "Permite poner candados a las tablas para el proceso actual."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Crear nueva tabla en la base de datos %s"
+msgstr "Exportando tablas de la base de datos «%s»"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
