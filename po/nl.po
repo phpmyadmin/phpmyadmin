@@ -1400,7 +1400,7 @@ msgstr "vr"
 #. l10n: Minimal week day name
 #: js/messages.php:217
 msgid "Sa"
-msgstr "Za"
+msgstr "za"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:219
