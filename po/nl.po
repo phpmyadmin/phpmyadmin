@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 15:29+0200\n"
+"PO-Revision-Date: 2011-02-06 15:30+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -947,7 +947,7 @@ msgstr "Klik om te de-selecteren"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:156
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\"-opdrachten zijn niet mogelijk."
+msgstr "\"DROP DATABASE\"-opdrachten zijn uitgeschakeld."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
