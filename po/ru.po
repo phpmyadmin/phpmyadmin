@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 21:45+0200\n"
+"PO-Revision-Date: 2011-02-06 21:46+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6874,7 +6874,6 @@ msgstr ""
 "параметр - ширина и высота изображения в пикселях."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
