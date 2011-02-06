@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 15:34+0200\n"
+"PO-Revision-Date: 2011-02-06 15:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2272,7 +2272,7 @@ msgstr "Herstel"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Verbetert efficientie van schermverversing"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
