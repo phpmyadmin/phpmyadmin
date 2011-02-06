@@ -31,7 +31,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
     PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
 
     /**
-     * If in an Ajax request, generate the success message and use 
+     * If in an Ajax request, generate the success message and use
      * {@link PMA_ajaxResponse()} to send the output
      */
     if($GLOBALS['is_ajax_request'] == true) {
@@ -149,13 +149,29 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 <?php
 }
 
+$sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+
 // Get list of tables
 $table_list = PMA_getTableList($GLOBALS['db']);
 
 // For each table try to get the tracking version
 foreach ($table_list as $key => $value) {
-    if (PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1) {
-        $my_tables[] = $value['Name'];
+    // If $value is a table group.
+    if (array_key_exists(('is' . $sep . 'group'), $value) && $value['is' . $sep . 'group']) {
+        foreach ($value as $temp_table) {
+            // If $temp_table is a table with the value for 'Name' is set,
+            // rather than a propery of the table group.
+            if (array_key_exists('Name', $temp_table)) {
+                if (PMA_Tracker::getVersion($GLOBALS['db'], $temp_table['Name']) == -1) {
+                    $my_tables[] = $temp_table['Name'];
+                }
+            }
+        }
+    // If $value is a table.
+    } else {
+        if (PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1) {
+            $my_tables[] = $value['Name'];
+        }
     }
 }
 
