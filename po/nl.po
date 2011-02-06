@@ -1390,7 +1390,7 @@ msgstr "wo"
 #. l10n: Minimal week day name
 #: js/messages.php:213
 msgid "Th"
-msgstr "Do"
+msgstr "do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
