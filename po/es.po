@@ -1700,7 +1700,7 @@ msgstr "Elección del servidor"
 
 #: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "Las \"cookies\" deben estar habilitadas."
+msgstr "Las cookies deben estar activadas."
 
 #: libraries/auth/cookie.auth.lib.php:637
 #: libraries/auth/signon.auth.lib.php:180
