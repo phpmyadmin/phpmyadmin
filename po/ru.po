@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 22:16+0200\n"
+"PO-Revision-Date: 2011-02-06 21:59+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6601,7 +6601,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "В конец запроса была автоматически добавлена обратная кавычка!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
@@ -6638,7 +6638,6 @@ msgid "Length/Values"
 msgstr "Длина/значения"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6650,10 +6649,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"При создании полей типа &quot;enum&quot; и &quot;set&quot;, данные значения "
-"должны иметь формат: 'a','b','c'...<br />Символы обратной косой черты (\\) и "
-"одинарной кавычки (') необходимо экранировать (предварять) символом обратной "
-"косой черты, например: '\\\\xyz' или 'a\\'b'."
+"При создании полей типа \"enum\" или \"set\", данные значения должны иметь "
+"формат: 'a','b','c'...<br />Символы обратной косой черты (\"\\\") и одинарной "
+"кавычки (\"'\") необходимо экранировать (предварять) символом обратной косой "
+"черты, например: '\\\\xyz' или 'a\\'b'."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6690,14 +6689,13 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Много данных ENUM или SET?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Открыть расширенный редактор"
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6726,29 +6724,26 @@ msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:781 tbl_structure.php:633
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Добавить поле(я)"
+msgstr "Добавить %s поле(я)"
 
 #: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Необходимо добавить хотя бы одно поле."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "Добавить новый сервер"
+msgstr "+ Добавить новое значение"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
 msgstr "Событие"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6790,7 +6785,6 @@ msgid "Displays a link to download this image."
 msgstr "Отображает ссылку для загрузки изображения"
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 #| "formatted date. The first option is the offset (in hours) which will be "
@@ -6812,14 +6806,14 @@ msgid ""
 msgstr ""
 "Отображает поля типа TIME, TIMESTAMP, DATETIME или время в формате Unix, в "
 "виде форматированного вывода. Первый параметр прибавляет смещение, в часах "
-"(по умолчанию: 0). Второй параметр задает иное форматирование строки даты/"
-"времени. Третий параметр определяет установку локального (строка \"local\") "
-"или всемирного (строка \"utc\") времени. В соответствии с установленным "
-"третьим параметром формат даты должен иметь различные значения - для \"local"
-"\" смотрите описание функции PHP strftime(), для \"utc\" - gmdate()."
+"(по умолчанию: 0). Второй параметр задает иное форматирование строки "
+"даты/времени. Третий параметр определяет установку локального (строка "
+"\"local\") или всемирного (строка \"utc\") времени. В соответствии с "
+"установленным третьим параметром формат даты должен иметь различные значения "
+"- для \"local\" смотрите описание функции PHP strftime(), для \"utc\" - "
+"gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6855,7 +6849,6 @@ msgstr ""
 "(по умолчанию: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6867,7 +6860,6 @@ msgstr ""
 "htmlspecialchars(). Таким образом поле может содержать рабочий HTML-код."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6882,7 +6874,6 @@ msgstr ""
 "параметр - ширина и высота изображения в пикселях."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6900,6 +6891,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Конвертирует сетевой адрес (IPv4) в стандартную строку с разделителем в виде "
+"точки."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
@@ -6920,16 +6913,14 @@ msgstr ""
 "(по умолчанию: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Другие настройки ядра"
+msgstr "Пользовательские настройки"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Изменения сохранены"
+msgstr "Настройки успешно сохранены"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -6937,6 +6928,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Ваши настройки будут сохранены только для текущей сессии. Для постоянного "
+"хранения требуется подключение модуля %sхранения настроек phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
 #, fuzzy

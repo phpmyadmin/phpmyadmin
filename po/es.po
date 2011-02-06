@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-01-06 20:03+0200\n"
-"Last-Translator:  <gaspy@totaki.com>\n"
+"PO-Revision-Date: 2011-02-06 16:30+0200\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -276,7 +276,6 @@ msgid "Database %s has been dropped."
 msgstr "La base de datos %s ha sido eliminada."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
 msgstr "Eliminar la base de datos (DROP)"
 
@@ -520,12 +519,12 @@ msgstr "como expresión regular"
 #: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Resultados de la búsqueda por \"<i>%s</i>\" %s:"
+msgstr "Resultados de la búsqueda para «<i>%s</i>» %s:"
 
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
 #: db_search.php:247
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
@@ -570,7 +569,7 @@ msgstr "Buscar en la base de datos"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Palabra(s) o valor(es) a buscar (comodín: \"%\"):"
+msgstr "Palabra(s) o valor(es) a buscar (comodín: «%»):"
 
 #: db_search.php:303
 msgid "Find:"
@@ -578,7 +577,7 @@ msgstr "Encontrado:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Palabras separadas por un espacio (\" \")."
+msgstr "Las palabras están separadas por un espacio (« »)."
 
 #: db_search.php:321
 msgid "Inside table(s):"
@@ -810,7 +809,7 @@ msgstr "Log de la base de datos"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Valores para la columna \"%s\""
+msgstr "Valores para la columna «%s»"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
@@ -826,7 +825,7 @@ msgstr "Salida"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "Copia y pega los valores unidos en el campo \"Longitud/Valores\""
+msgstr "Copia y pega los valores unidos en el campo «Longitud/Valores»"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -954,7 +953,7 @@ msgstr "Clic para deseleccionar"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:156
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Los enunciados \\\"DROP DATABASE\\\" están deshabilitados."
+msgstr "Los enunciados «DROP DATABASE» están desactivados."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
@@ -1701,7 +1700,7 @@ msgstr "Elección del servidor"
 
 #: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "Las \"cookies\" deben estar habilitadas."
+msgstr "Las cookies deben estar activadas."
 
 #: libraries/auth/cookie.auth.lib.php:637
 #: libraries/auth/signon.auth.lib.php:180
@@ -1879,7 +1878,7 @@ msgstr ""
 #: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "No se pudo cargar la configuración predeterminada desde: \"%1$s\""
+msgstr "No se pudo cargar la configuración predeterminada desde: «%1$s»"
 
 #: libraries/common.inc.php:592
 msgid ""
@@ -1892,7 +1891,7 @@ msgstr ""
 #: libraries/common.inc.php:622
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "No es válido el índice del servidor: \"%s\""
+msgstr "No es válido el índice del servidor: «%s»"
 
 #: libraries/common.inc.php:629
 #, php-format
@@ -2218,7 +2217,7 @@ msgstr "no disponible"
 #: libraries/config/FormDisplay.class.php:732
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" requiere la extensión %s"
+msgstr "«%s» requiere la extensión %s"
 
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
@@ -2686,7 +2685,7 @@ msgstr "Fechas de creación/actualización/revisión"
 
 #: libraries/config/messages.inc.php:122
 msgid "Use delayed inserts"
-msgstr "Usar \"inserts\" con retraso"
+msgstr "Usar «inserts» con retraso"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
@@ -4570,16 +4569,16 @@ msgid "Exporting databases from the current server"
 msgstr "Permite poner candados a las tablas para el proceso actual."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Crear nueva tabla en la base de datos %s"
+msgstr "Exportando tablas de la base de datos «%s»"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Crear nueva tabla en la base de datos %s"
+msgstr "Exportando filas de la tabla «%s»"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
@@ -4707,22 +4706,19 @@ msgid "None"
 msgstr "Ninguna"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"comprimido con zip\""
+msgstr "comprimido con zip"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"Comprimido con gzip\""
+msgstr "comprimido con gzip"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"Comprimido con bzip\""
+msgstr "comprimido con bzip"
 
 #: libraries/display_export.lib.php:326
 #, fuzzy
@@ -4779,14 +4775,14 @@ msgid "Importing into the current server"
 msgstr "El servidor MySQL no autorizó su ingreso"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "No hay bases de datos"
+msgstr "Importando en la base de datos «%s»"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "No hay bases de datos"
+msgstr "Importando en la tabla «%s»"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
@@ -5176,8 +5172,8 @@ msgid ""
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
 "Si este valor es superior a 1, se generan en paralelo los índices de las "
-"tablas MyISAM (cada índice con su propio proceso) durante el proceso \\"
-"\"Reparar mediante organización\\\"."
+"tablas MyISAM (cada índice con su propio proceso) durante el proceso "
+"«Reparar mediante ordenado»."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
@@ -5813,10 +5809,12 @@ msgstr ""
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
+"Cambie cualquiera de sus opciones pulsando el enlace de «Opciones» "
+"correspondiente"
 
 #: libraries/import.lib.php:1144
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Edite su estructura siguiendo el enlace «Estructura»"
 
 #: libraries/import.lib.php:1147
 #, fuzzy
@@ -6345,10 +6343,10 @@ msgstr "Generar la contraseña"
 #: libraries/schema/Pdf_Relation_Schema.class.php:487
 #: libraries/schema/Svg_Relation_Schema.class.php:369
 #: libraries/schema/Visio_Relation_Schema.class.php:213
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "¡La tabla \"%s\" no existe!"
+msgstr "La tabla «%s» no existe."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
@@ -6363,10 +6361,10 @@ msgstr "Configure las coordenadas para la tabla %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:849
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Esquema de la base de datos \"%s\" - Página %s"
+msgstr "Esquema de la base de datos «%s» - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #, fuzzy
@@ -6717,7 +6715,6 @@ msgid "Length/Values"
 msgstr "Longitud/Valores*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6729,18 +6726,18 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Si el tipo de campo es \"enum\" o \"set\", por favor ingrese los valores "
-"usando este formato: 'a','b','c'...<br />Si alguna vez necesita poner una "
-"barra invertida(\"\\\") o una comilla simple (\"'\") entre esos valores, "
-"siempre ponga una barra invertida. (Por ejemplo '\\\\xyz' o 'a\\'b')."
+"Si el tipo de campo es «enum» o «set», introduzca los valores usando este "
+"formato: «a»,«b»,«c»...<br />Si alguna vez necesita poner una barra "
+"invertida(«\\») o una comilla simple («'») entre esos valores, añada una "
+"barra invertida. (Por ejemplo «\\\\xyz» o «a\\'b»)."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
-"Para valores predeterminados, por favor ingrese solamente un valor, sin "
-"caracteres de escape \\\"\\\\\" ni comillas, usando este formato: a"
+"Para valores predeterminados, introduzca solamente un valor, sin caracteres "
+"de escape ni comillas, usando este formato: a"
 
 #: libraries/tbl_properties.inc.php:135
 #, php-format
@@ -6763,10 +6760,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Por favor ingrese los valores para las opciones de transformación usando "
-"este formato: 'a','b','c'...<br />Si alguna vez requiere insertar un "
-"Backslash (\"\\\") o comilla sencilla (\"'\") entre esos valores, use "
-"backslash (por ejemplo '\\\\xyz' o 'a\\'b')."
+"Introduzca los valores para las opciones de transformación usando este "
+"formato: «a»,«b»,«c»...<br />Si alguna vez requiere insertar una barra "
+"invertida («\\») o comilla sencilla («'») entre esos valores, añada una barra "
+"invertida (por ejemplo «\\\\xyz» o «a\\'b»)."
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"

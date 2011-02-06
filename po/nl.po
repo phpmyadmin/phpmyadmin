@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2010-12-25 22:12+0200\n"
-"Last-Translator: Herman van Rink <rink@initfour.nl>\n"
+"PO-Revision-Date: 2011-02-06 15:38+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -798,7 +798,7 @@ msgstr "Database-log"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Waarden voor het de kolom \"%s\""
+msgstr "Waarden voor kolom \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
@@ -806,17 +806,16 @@ msgstr "Plaats elke waarde in een log veld."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr " + Herstart invoegen en voeg nieuwe waarde toe"
 
 #: enum_editor.php:67
-#, fuzzy
 #| msgid "Output:"
 msgid "Output"
-msgstr "Uitvoer:"
+msgstr "Uitvoer"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopiëer en plak de samengevoegde gegevens in het \"Lengte/Waarden\" veld"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -948,7 +947,7 @@ msgstr "Klik om te de-selecteren"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:156
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\"-opdrachten zijn niet mogelijk."
+msgstr "\"DROP DATABASE\"-opdrachten zijn uitgeschakeld."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:254
 msgid "Do you really want to "
@@ -1109,13 +1108,12 @@ msgstr "Wijzig inline"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Verberg zoekcriteria"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show search criteria"
-msgstr "SQL-query veld tonen"
+msgstr "Toon zoek-criteria"
 
 #: js/messages.php:93 tbl_change.php:294 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1169,10 +1167,9 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:115
-#, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
-msgstr "Controleer de meest recente versie"
+msgstr " , meest recente versie :"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
@@ -1199,210 +1196,210 @@ msgstr "Vandaag"
 
 #: js/messages.php:139
 msgid "January"
-msgstr "Januari"
+msgstr "januari"
 
 #: js/messages.php:140
 msgid "February"
-msgstr "Februari"
+msgstr "februari"
 
 #: js/messages.php:141
 msgid "March"
-msgstr "Maart"
+msgstr "maart"
 
 #: js/messages.php:142
 msgid "April"
-msgstr "April"
+msgstr "april"
 
 #: js/messages.php:143
 msgid "May"
-msgstr "Mei"
+msgstr "mei"
 
 #: js/messages.php:144
 msgid "June"
-msgstr "Juni"
+msgstr "juni"
 
 #: js/messages.php:145
 msgid "July"
-msgstr "Juli"
+msgstr "juli"
 
 #: js/messages.php:146
 msgid "August"
-msgstr "Augustus"
+msgstr "augustus"
 
 #: js/messages.php:147
 msgid "September"
-msgstr "September"
+msgstr "september"
 
 #: js/messages.php:148
 msgid "October"
-msgstr "Oktober"
+msgstr "oktober"
 
 #: js/messages.php:149
 msgid "November"
-msgstr "November"
+msgstr "november"
 
 #: js/messages.php:150
 msgid "December"
-msgstr "December"
+msgstr "december"
 
 #. l10n: Short month name
 #: js/messages.php:154 libraries/common.lib.php:1538
 msgid "Jan"
-msgstr "Jan"
+msgstr "jan"
 
 #. l10n: Short month name
 #: js/messages.php:156 libraries/common.lib.php:1540
 msgid "Feb"
-msgstr "Feb"
+msgstr "feb"
 
 #. l10n: Short month name
 #: js/messages.php:158 libraries/common.lib.php:1542
 msgid "Mar"
-msgstr "Mar"
+msgstr "mrt"
 
 #. l10n: Short month name
 #: js/messages.php:160 libraries/common.lib.php:1544
 msgid "Apr"
-msgstr "Apr"
+msgstr "apr"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1546
 msgctxt "Short month name"
 msgid "May"
-msgstr "Mei"
+msgstr "mei"
 
 #. l10n: Short month name
 #: js/messages.php:164 libraries/common.lib.php:1548
 msgid "Jun"
-msgstr "Jun"
+msgstr "jun"
 
 #. l10n: Short month name
 #: js/messages.php:166 libraries/common.lib.php:1550
 msgid "Jul"
-msgstr "Jul"
+msgstr "jul"
 
 #. l10n: Short month name
 #: js/messages.php:168 libraries/common.lib.php:1552
 msgid "Aug"
-msgstr "Aug"
+msgstr "aug"
 
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1554
 msgid "Sep"
-msgstr "Sept"
+msgstr "sep"
 
 #. l10n: Short month name
 #: js/messages.php:172 libraries/common.lib.php:1556
 msgid "Oct"
-msgstr "Oct"
+msgstr "okt"
 
 #. l10n: Short month name
 #: js/messages.php:174 libraries/common.lib.php:1558
 msgid "Nov"
-msgstr "Nov"
+msgstr "nov"
 
 #. l10n: Short month name
 #: js/messages.php:176 libraries/common.lib.php:1560
 msgid "Dec"
-msgstr "Dec"
+msgstr "dec"
 
 #: js/messages.php:179
 msgid "Sunday"
-msgstr "Zondag"
+msgstr "zondag"
 
 #: js/messages.php:180
 msgid "Monday"
-msgstr "Maandag"
+msgstr "maandag"
 
 #: js/messages.php:181
 msgid "Tuesday"
-msgstr "Dinsdag"
+msgstr "dinsdag"
 
 #: js/messages.php:182
 msgid "Wednesday"
-msgstr "Woensdag"
+msgstr "woensdag"
 
 #: js/messages.php:183
 msgid "Thursday"
-msgstr "Donderdag"
+msgstr "donderdag"
 
 #: js/messages.php:184
 msgid "Friday"
-msgstr "Vrijdag"
+msgstr "vrijdag"
 
 #: js/messages.php:185
 msgid "Saturday"
-msgstr "Zaterdag"
+msgstr "zaterdag"
 
 #. l10n: Short week day name
 #: js/messages.php:189 libraries/common.lib.php:1563
 msgid "Sun"
-msgstr "Zo"
+msgstr "zo"
 
 #. l10n: Short week day name
 #: js/messages.php:191 libraries/common.lib.php:1565
 msgid "Mon"
-msgstr "Ma"
+msgstr "ma"
 
 #. l10n: Short week day name
 #: js/messages.php:193 libraries/common.lib.php:1567
 msgid "Tue"
-msgstr "Di"
+msgstr "di"
 
 #. l10n: Short week day name
 #: js/messages.php:195 libraries/common.lib.php:1569
 msgid "Wed"
-msgstr "Wo"
+msgstr "wo"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1571
 msgid "Thu"
-msgstr "Do"
+msgstr "do"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1573
 msgid "Fri"
-msgstr "Vr"
+msgstr "vr"
 
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1575
 msgid "Sat"
-msgstr "Za"
+msgstr "za"
 
 #. l10n: Minimal week day name
 #: js/messages.php:205
 msgid "Su"
-msgstr "Zo"
+msgstr "zo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:207
 msgid "Mo"
-msgstr "Ma"
+msgstr "ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:209
 msgid "Tu"
-msgstr "Di"
+msgstr "di"
 
 #. l10n: Minimal week day name
 #: js/messages.php:211
 msgid "We"
-msgstr "Wo"
+msgstr "wo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
 msgid "Th"
-msgstr "Do"
+msgstr "do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
 msgid "Fr"
-msgstr "Vr"
+msgstr "vr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
 msgid "Sa"
-msgstr "Za"
+msgstr "za"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:219
@@ -1423,13 +1420,13 @@ msgstr "Seconde"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr "Font formaat"
+msgstr "Lettertypegrootte"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Het geuploade bestand overschrijd de 'upload_max_filesize' optie uit uw php."
-"ini."
+"Het geuploade bestand is groter dan de 'upload_max_filesize' optie uit uw "
+"php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
@@ -1834,7 +1831,7 @@ msgstr "Toon statistieken"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr "Vergelijking van query uitvoer tijden ( in microseconden)"
+msgstr "Vergelijking van query-uitvoertijden (in microseconden)"
 
 #: libraries/chart.lib.php:83
 msgid "Query results"
@@ -1996,7 +1993,7 @@ msgstr "Tijd"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1362
 msgid "B"
-msgstr "Bytes"
+msgstr "B"
 
 #: libraries/common.lib.php:1362
 msgid "KiB"
@@ -2119,7 +2116,7 @@ msgstr ""
 
 #: libraries/common.lib.php:2984
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Er zijn geen bestanden om te uploaden"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2275,13 +2272,12 @@ msgstr "Herstel"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Verbetert efficientie van schermverversing"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable Ajax"
-msgstr "Ingeschakeld"
+msgstr "AJAX inschakelen"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -2876,6 +2872,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Browser titel balk tekst. Zie "
+"[a@Documentation.html#cfg_TitleTable]documentatie[/a] voor bruikbare codes."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
