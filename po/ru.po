@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-06 21:32+0200\n"
+"PO-Revision-Date: 2011-02-06 21:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6724,10 +6724,10 @@ msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:781 tbl_structure.php:633
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Добавить поле(я)"
+msgstr "Добавить %s поле(я)"
 
 #: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
 #, fuzzy
