@@ -2116,7 +2116,7 @@ msgstr ""
 
 #: libraries/common.lib.php:2984
 msgid "There are no files to upload"
-msgstr "Er zijn geen bestanden te uploaden"
+msgstr "Er zijn geen bestanden om te uploaden"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
