@@ -1209,7 +1209,7 @@ msgstr "maart"
 
 #: js/messages.php:142
 msgid "April"
-msgstr "April"
+msgstr "april"
 
 #: js/messages.php:143
 msgid "May"
