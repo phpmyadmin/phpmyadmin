@@ -577,7 +577,7 @@ msgstr "Encontrado:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Palabras separadas por un espacio (\" \")."
+msgstr "Palabras separadas por un espacio (« »)."
 
 #: db_search.php:321
 msgid "Inside table(s):"
