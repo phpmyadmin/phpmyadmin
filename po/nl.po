@@ -1355,7 +1355,7 @@ msgstr "wo"
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1571
 msgid "Thu"
-msgstr "Do"
+msgstr "do"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1573
