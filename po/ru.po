@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-05 22:16+0200\n"
+"PO-Revision-Date: 2011-02-06 21:21+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6601,7 +6601,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "В конец запроса была автоматически добавлена обратная кавычка!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
