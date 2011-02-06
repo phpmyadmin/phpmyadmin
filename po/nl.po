@@ -1217,7 +1217,7 @@ msgstr "mei"
 
 #: js/messages.php:144
 msgid "June"
-msgstr "Juni"
+msgstr "juni"
 
 #: js/messages.php:145
 msgid "July"
