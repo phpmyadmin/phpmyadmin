@@ -4775,9 +4775,9 @@ msgid "Importing into the current server"
 msgstr "El servidor MySQL no autorizó su ingreso"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "No hay bases de datos"
+msgstr "Importando en la base de datos «%s»"
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
