@@ -1365,7 +1365,7 @@ msgstr "vr"
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1575
 msgid "Sat"
-msgstr "Za"
+msgstr "za"
 
 #. l10n: Minimal week day name
 #: js/messages.php:205
