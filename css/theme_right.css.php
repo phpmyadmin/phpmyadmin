@@ -537,6 +537,9 @@ div.tools,
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
+.tblFooters a {
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+}
 div.tools a {
     display: inline-block;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
