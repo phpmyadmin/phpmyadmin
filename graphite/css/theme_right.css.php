@@ -1032,6 +1032,10 @@ li#li_flush_privileges {
 li#li_user_preferences {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
 }
+
+li#li_custom_color {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_color.png);
+}
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
