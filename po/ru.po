@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:27+0200\n"
+"PO-Revision-Date: 2011-02-07 22:30+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7285,7 +7285,6 @@ msgstr ""
 "Для выбора связи нажмите на точке соединения, как показано на картинке:"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7295,9 +7294,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Для того чтобы сделать столбец отображаемым, нажмите кнопку \"Выбор "
-"отображаемого столбца\" и выберите необходимый столбец. Отображаемые столбцы "
-"подсвечиваются розовым цветом."
+"Отображаемые столбцы подсвечиваются розовым цветом. Для того чтобы "
+"установить или снять отображаемый столбец, нажмите кнопку \"Выбор "
+"отображаемого столбца\" и выберите необходимый столбец."
 
 #: pmd_pdf.php:34
 #, fuzzy
