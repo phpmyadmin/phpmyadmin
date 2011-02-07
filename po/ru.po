@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:08+0200\n"
+"PO-Revision-Date: 2011-02-07 22:18+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7238,10 +7238,9 @@ msgid "Delete relation"
 msgstr "Удалить связь"
 
 #: pmd_general.php:461 pmd_general.php:520
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Связь удалена"
+msgstr "Оператор"
 
 #: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
 #: pmd_general.php:770
