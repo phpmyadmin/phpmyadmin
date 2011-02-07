@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:33+0200\n"
+"PO-Revision-Date: 2011-02-07 22:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7314,7 +7314,7 @@ msgstr "Страница"
 #: pmd_pdf.php:99
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Импорт с выбранной страницы"
+msgstr "Импортировать с выбранной страницы"
 
 #: pmd_pdf.php:100
 #| msgid "Export/Import to scale"
