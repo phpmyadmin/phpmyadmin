@@ -7115,6 +7115,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Поддержка JavaScript отсутствует в вашем браузере или отключена, некоторая "
+"функциональность PhpMyAdmin  будет отключена. Например, навигационный фрейм "
+"не будет обновляться автоматически."
 
 #: main.php:339
 #, php-format
