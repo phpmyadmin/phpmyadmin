@@ -1036,6 +1036,10 @@ li#li_user_preferences {
 li#li_custom_color {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_color.png);
 }
+
+li#li_select_fontsize {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_font.png);
+}
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
