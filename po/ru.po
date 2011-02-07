@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 21:55+0200\n"
+"PO-Revision-Date: 2011-02-07 21:56+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6969,7 +6969,7 @@ msgstr "Настройки внешнего вида"
 
 #: main.php:136
 msgid "Background color"
-msgstr ""
+msgstr "Цвет фона"
 
 #: main.php:137
 msgid "Choose..."
