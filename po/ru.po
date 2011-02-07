@@ -7150,10 +7150,9 @@ msgid "Filter"
 msgstr "Фильтр"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "имя таблицы"
+msgstr "фильтровать таблицы по имени"
 
 #: navigation.php:308 navigation.php:309
 #, fuzzy
