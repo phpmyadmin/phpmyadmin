@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:19+0200\n"
+"PO-Revision-Date: 2011-02-07 22:20+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7250,10 +7250,9 @@ msgstr "Кроме"
 
 #: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
 #: pmd_general.php:776
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "по запросу"
+msgstr "подзапрос"
 
 #: pmd_general.php:481 pmd_general.php:577
 #, fuzzy
