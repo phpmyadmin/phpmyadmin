@@ -6973,7 +6973,7 @@ msgstr "Цвет фона"
 
 #: main.php:137
 msgid "Choose..."
-msgstr ""
+msgstr "Выберите..."
 
 #: main.php:154 prefs_manage.php:274
 #, fuzzy
