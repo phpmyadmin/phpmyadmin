@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:30+0200\n"
+"PO-Revision-Date: 2011-02-07 22:31+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7299,9 +7299,8 @@ msgstr ""
 "отображаемого столбца\" и выберите необходимый столбец."
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "Таблица %1$s была создана."
+msgstr "Страница создана"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
