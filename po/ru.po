@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:07+0200\n"
+"PO-Revision-Date: 2011-02-07 22:08+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7155,7 +7155,6 @@ msgid "filter tables by name"
 msgstr "фильтровать таблицы по имени"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
