@@ -7300,7 +7300,7 @@ msgstr ""
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
-msgstr "Страница создана"
+msgstr "Страница успешно создана"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
