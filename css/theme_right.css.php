@@ -30,7 +30,8 @@ body {
     padding:            0;
     line-height: 		20px;
     margin:             0;
-    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    color: #333;
+    /*color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;*/
     background:         <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;
 }
 
@@ -63,7 +64,7 @@ a:active {
 
 a:hover {
     text-decoration:    underline;
-    color:              #FF0000;
+    color:              <?php echo $GLOBALS['cfg']['TableLinkColor'];?>;
 }
 
 dfn {
@@ -76,7 +77,7 @@ dfn:hover {
 }
 
 th {
-    font-weight:        bold;
+    font-weight:        normal;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
@@ -800,7 +801,7 @@ ul#topmenu ul .tabactive {
 ul#topmenu a.tab:hover,
 ul#topmenu .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 ul#topmenu2 a.tab:hover,
@@ -890,10 +891,9 @@ div#tablestatistics table caption {
 /* Heading */
 #serverinfo {
     font-weight:        bold;
-    
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     padding: 5px;
-    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background: <?php echo $GLOBALS['cfg']['HeaderBackground']; ?>;
     border: 1px solid #999;
 }
 
@@ -1317,19 +1317,16 @@ code.sql, div.sqlvalidate {
 }
 
 .group {
-    border: 0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    border: 0.3em solid <?php echo $GLOBALS['cfg']['HeaderBackground']; ?>;
     margin-bottom:      1em;
     margin-right:      1em;
-    /* Az */
-    /*background: <?php echo $GLOBALS['cfg']['TblContentBackground']; ?>;
-    padding: 5px;*/
 }
 
 .group h2 {
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['HeaderBackground']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
-    color: 				<?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    color: 				<?php echo $GLOBALS['cfg']['HeaderColor']; ?>;
 }
 
 .group ul {
@@ -1825,17 +1822,32 @@ fieldset .disabled-field td {
 
 /* Misc */
 #serverinfo a {
-	color: #FFFFFF;	
+	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor']; ?>;	
 } 
+
+#serverinfo a:hover {
+	color: <?php echo $GLOBALS['cfg']['TblContentBackground']; ?>;
+	text-decoration: none;
+}
+
+table.data thead a {
+	color: <?php echo $GLOBALS['cfg']['HeaderColor'];?>;
+	font-weight: normal;
+}
+
+table.data a {
+	color: <?php echo $GLOBALS['cfg']['TableLinkColor'];?>;
+}
 
 th a {
 	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor']; ?>;	
 }
 
-#serverinfo a:hover {
-	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor']; ?>;
+th label, .name, tr.odd th, tr.even th {
+	color: <?php echo $GLOBALS['cfg']['LabelColor'];?>;	
 }
 
-th label, .name, tr.odd th, tr.even th {
-	color: #333;	
+
+.ui-widget-header {
+	background: red;	
 }

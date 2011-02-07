@@ -41,7 +41,7 @@ a:link,
 a:visited,
 a:active {
     text-decoration:    none;
-    color:              #0000FF;
+    color:              <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor'];?>;
 }
 
 ul {
@@ -169,12 +169,7 @@ div#leftframelinks a img.icon {
     margin:             0;
     padding:            0.2em;
     border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-}
-
-div#leftframelinks a:hover img {
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
 /* serverlist */
@@ -275,14 +270,11 @@ div#left_tableList ul ul {
 }
 
 #NavFilter input {
-    border: 1px solid #999;
     padding: 2px 0;
     margin: 3px 0;
 }
 
 #clear_fast_filter {
-    background: white;
-    color: black;
     cursor: pointer;
     padding: 0;
     margin: 6px 5px 0 -23px;

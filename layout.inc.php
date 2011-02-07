@@ -7,6 +7,25 @@
  * @package phpMyAdmin-theme
  * @subpackage Original
  */
+ 
+ 
+/**
+ * Basic color 
+ * Define color here
+ */ 
+ 
+$color['one'] 	= '#D0E7F4'; 
+$color['two'] 	= '#4284B5';
+$color['three'] = '#F8FAFC';
+$color['four'] 	= '#0000FF';
+$color['five'] 	= '#000000';
+$color['six'] 	= '#FFFFFF';
+$color['seven'] = '#999999';
+$color['eight'] = '#3D7BC9';
+$color['nine'] 	= '#FEFEFE';
+$color['ten'] 	= '#333333';
+
+
 
 /**
  * navi frame
@@ -15,36 +34,35 @@
 $GLOBALS['cfg']['NaviWidth']                = 225;
 
 // foreground (text) color for the navi frame
-$GLOBALS['cfg']['NaviColor']                = '#000000';
+$GLOBALS['cfg']['NaviColor']                = $color['five'];
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']           = '#D0E7F4';
+$GLOBALS['cfg']['NaviBackground']           = $color['one'];
 
 // foreground (text) color of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerColor']         = '#F5F5F5';
+$GLOBALS['cfg']['NaviPointerColor']         = $color['nine'];
 // background of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerBackground']    = '#9999CC';
+$GLOBALS['cfg']['NaviPointerBackground']    = $color['two'];
 // text color of the selected database name (when showing the table list)
-$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#0000FF';
+$GLOBALS['cfg']['NaviDatabaseNameColor']    = $color['four'];
 
 /**
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']                = '#000000';
+$GLOBALS['cfg']['MainColor']                = $color['five'];
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#F8FAFC';
-//$GLOBALS['cfg']['MainBackground']       = '#F5F5F5 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
+$GLOBALS['cfg']['MainBackground']           = $color['three'];
 
 // foreground (text) color of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
+$GLOBALS['cfg']['BrowsePointerColor']       = $color['five'];
 
 // background of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerBackground']  = '#CCFFCC';
 
 // foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+$GLOBALS['cfg']['BrowseMarkerColor']        = $color['five'];
 
 // background of the marker (visually marks row by clicking on it) in browse mode
 $GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
@@ -69,13 +87,13 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#4284B5';
+$GLOBALS['cfg']['ThBackground']         = $color['two'];
 // table content color
-$GLOBALS['cfg']['TblContentBackground'] = '#FFFFFF';
+$GLOBALS['cfg']['TblContentBackground'] = $color['six'];
 // table header and footer background
-$GLOBALS['cfg']['ThColor']              = '#FEFEFE';
+$GLOBALS['cfg']['ThColor']              = $color['nine'];
 // table data row background
-$GLOBALS['cfg']['BgOne']                = '#D0E7F4';
+$GLOBALS['cfg']['BgOne']                = $color['one'];
 // table data row background, alternate
 $GLOBALS['cfg']['BgTwo']                = '#F5FAFC';
 
@@ -83,12 +101,22 @@ $GLOBALS['cfg']['BgTwo']                = '#F5FAFC';
 /**
  * misc
  */
+// div header 
+$GLOBALS['cfg']['HeaderBackground']     = $color['two']; 
+$GLOBALS['cfg']['HeaderColor']     		= $color['nine']; 
+  
 // link color
 $GLOBALS['cfg']['linkColor']            = '#21759B'; 
-// tableheader link color
-$GLOBALS['cfg']['TableHeaderlinkColor'] = 'aqua';
 
-$GLOBALS['cfg']['TopMenuBgColor']       = '#D0E7F4'; 
+// label color
+$GLOBALS['cfg']['LabelColor']           = $color['ten'];
+
+// tableheader link color
+$GLOBALS['cfg']['TableHeaderlinkColor'] = '#F5FAFC';
+
+$GLOBALS['cfg']['TableLinkColor'] 		= $color['eight'];
+
+$GLOBALS['cfg']['TopMenuBgColor']       = $color['one']; 
 
 // LightTabs
 //$GLOBALS['cfg']['LightTabs']            = '#333'; 
