@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:21+0200\n"
+"PO-Revision-Date: 2011-02-07 22:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7264,10 +7264,9 @@ msgid "New name"
 msgstr "Новое имя"
 
 #: pmd_general.php:486 pmd_general.php:701
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Создать"
+msgstr "Объединение"
 
 #: pmd_general.php:488 pmd_general.php:508 pmd_general.php:630
 #: pmd_general.php:643 pmd_general.php:706 pmd_general.php:760
