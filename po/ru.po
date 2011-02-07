@@ -7304,7 +7304,7 @@ msgstr "Страница успешно создана"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Ошибка создания страницы"
 
 #: pmd_pdf.php:89
 #, fuzzy
