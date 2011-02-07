@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-02 15:32+0100\n"
-"PO-Revision-Date: 2011-02-07 22:24+0200\n"
+"PO-Revision-Date: 2011-02-07 22:27+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7275,10 +7275,9 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: pmd_general.php:811
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Параметры таблицы"
+msgstr "Активные параметры"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
