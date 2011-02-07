@@ -7312,10 +7312,9 @@ msgid "Page"
 msgstr "Страница"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Импорт файлов"
+msgstr "Импорт с выбранной страницы"
 
 #: pmd_pdf.php:100
 #, fuzzy
