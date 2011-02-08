@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 23:58+0200\n"
+"PO-Revision-Date: 2011-02-09 00:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2727,8 +2727,8 @@ msgstr "Usar la opción ignore inserts"
 msgid "Maximal length of created query"
 msgstr "Longitud máxima de la consulta creada"
 
+# Used as description for SQL syntax Export Type (options are INSERT, UPDATE and REPLACE)
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 msgid "Export type"
 msgstr "Tipo de exportación"
 
