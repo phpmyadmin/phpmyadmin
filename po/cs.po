@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 13:56+0100\n"
+"PO-Revision-Date: 2011-02-08 17:10+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -115,6 +115,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Soubor %s nebyl nalezen, více informací naleznete na www.phpmyadmin.net."
 
 #: db_create.php:58
 #, php-format
@@ -6890,22 +6891,19 @@ msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
 #: main.php:227
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Vlastnosti"
+msgstr "Přispějte"
 
 #: main.php:228
-#, fuzzy
 #| msgid "Replication support"
 msgid "Get support"
-msgstr "podpora pro replikaci"
+msgstr "Získejte podporu"
 
 #: main.php:229
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Žádná změna"
+msgstr "Seznam změna"
 
 #: main.php:253
 msgid ""
