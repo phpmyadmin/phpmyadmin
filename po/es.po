@@ -2147,11 +2147,11 @@ msgstr "Ambos"
 msgid "Open"
 msgstr "Desplegados"
 
+# http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Close"
 msgid "Closed"
-msgstr "Cerrar"
+msgstr "Ocultos"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
