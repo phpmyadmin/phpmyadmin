@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 16:31+0100\n"
-"PO-Revision-Date: 2011-02-08 19:43+0200\n"
+"PO-Revision-Date: 2011-02-08 19:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2133,7 +2133,7 @@ msgstr "Aucun fichier n'est disponible pour le transfert"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Les deux"
 
 #: libraries/config.values.php:74
 msgid "Open"
