@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 00:30+0200\n"
+"PO-Revision-Date: 2011-02-09 00:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4001,7 +4001,6 @@ msgid "Statements to track"
 msgstr "Sentencias a rastrear"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4009,8 +4008,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Deje en blanco para no dar soporte [a@http://wiki.cihar.com/pma/relation]"
-"relation-links[/a], de manera predeterminada: [kbd]pma_relation[/kbd]"
+"Deje en blanco para eliminar soporte de rastreo de consultas SQL, valor "
+"sugerido: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "SQL query tracking table"
