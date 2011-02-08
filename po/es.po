@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 00:11+0200\n"
+"PO-Revision-Date: 2011-02-09 00:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3937,7 +3937,6 @@ msgid "PDF schema: table coordinates"
 msgstr "Esquema en PDF: tabla de coordenadas"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -3945,8 +3944,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Deje en blanco para no dar soporte [a@http://wiki.cihar.com/pma/relation]"
-"relation-links[/a], de manera predeterminada: [kbd]pma_relation[/kbd]"
+"Tabla para describir la presentación de las celdas, deje en blanco para "
+"quitar soporte, sugerido: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 #, fuzzy
