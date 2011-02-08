@@ -133,6 +133,7 @@
 - [interface] Add link to documentation for status variables.
 - [security] Redirect external links to avoid Referer leakage.
 - [interface] Default to not count tables in database.
+- patch #3172172 [interface] Shortcut for copying table row.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
