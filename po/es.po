@@ -3782,7 +3782,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:386
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabla de histórico de consultas SQL"
 
 #: libraries/config/messages.inc.php:387
 msgid "Hostname where MySQL server is running"
