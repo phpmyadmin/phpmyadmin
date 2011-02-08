@@ -1743,6 +1743,7 @@ $(document).ready(function() {
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
             if(data.success == true) {
+                $('#properties_message').html('');
                 PMA_ajaxShowMessage(data.message);
                 $("#create_table_dialog").dialog("close").remove();
 
@@ -1794,7 +1795,7 @@ $(document).ready(function() {
                 }
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                $('#properties_message').html(data.error);
             }
         }) // end $.post()
     }) // end create table form (save)
