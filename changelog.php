@@ -6,7 +6,15 @@
  * @version $Id$
  */
 
-$changelog = htmlspecialchars(file_get_contents('ChangeLog'));
+$filename = 'ChangeLog';
+
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+    $changelog = htmlspecialchars(file_get_contents($filename));
+} else {
+    echo "The $filename file is not available on this system, please visit www.phpmyadmin.net for more information.";
+    exit;
+}
 
 $replaces = array(
     '@(http://[./a-zA-Z0-9.-]*[/a-zA-Z0-9])@'
