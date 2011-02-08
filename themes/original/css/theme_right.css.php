@@ -1312,6 +1312,11 @@ code.sql, div.sqlvalidate {
     width: 98%;
 }
 
+textarea#partitiondefinition {
+    height:3em;
+}
+
+
 /* for elements that should be revealed only via js */
 .hide {
     display:            none;

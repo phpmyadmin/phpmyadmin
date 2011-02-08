@@ -786,7 +786,7 @@ if ($action == 'tbl_create.php') {
         />
 <?php } ?>
 </fieldset>
-
+<div id="properties_message"></div>
 </form>
 
 <div id="enum_editor">

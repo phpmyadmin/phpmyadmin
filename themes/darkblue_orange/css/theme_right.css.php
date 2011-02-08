@@ -15,7 +15,8 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
+    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : (
+        isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '82%'));?>;
 }
 
 input, select, textarea {
@@ -1358,6 +1359,10 @@ code.sql, div.sqlvalidate {
     padding: 0 0 0 0.5em;
     display: inline-block;
     width: 98%;
+}
+
+textarea#partitiondefinition {
+    height:3em;
 }
 
 /* for elements that should be revealed only via js */
