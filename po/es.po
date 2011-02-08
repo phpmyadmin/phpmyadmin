@@ -2146,7 +2146,7 @@ msgstr "Ambos"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: libraries/config.values.php:74
 #, fuzzy
