@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.11.2 (2011-02-08)
+- [security] Path disclosure, see PMASA-2011-1
+
 2.11.11.1 (2010-11-29)
 - bug #3115519 (private) [security] XSS on db search, see PMASA-2010-8
 
