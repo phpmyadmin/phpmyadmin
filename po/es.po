@@ -3558,10 +3558,9 @@ msgid "Query window height"
 msgstr "Altura de ventana de consulta"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Ventana de consulta"
+msgstr "Anchura de ventana de consulta (en píxeles)"
 
 #: libraries/config/messages.inc.php:342
 #, fuzzy
