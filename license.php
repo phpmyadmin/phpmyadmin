@@ -17,7 +17,7 @@ require './libraries/common.inc.php';
 /**
  *
  */
-header('Content-type: text/plain; charset=iso-8859-1');
+header('Content-type: text/plain; charset=utf-8');
 
 $filename = LICENSE_FILE;
 
