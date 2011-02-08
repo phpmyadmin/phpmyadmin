@@ -1117,7 +1117,7 @@ msgstr "Montrer zone SQL"
 
 #: js/messages.php:86
 msgid "Inline Edit"
-msgstr "Édition en place"
+msgstr "Éditer en place"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
