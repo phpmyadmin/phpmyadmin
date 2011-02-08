@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 01:04+0200\n"
+"PO-Revision-Date: 2011-02-09 01:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3948,10 +3948,9 @@ msgstr ""
 "quitar soporte, sugerido: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Mostrar la tabla con los campos"
+msgstr "Mostrar tabla de columnas"
 
 #: libraries/config/messages.inc.php:417
 msgid ""
