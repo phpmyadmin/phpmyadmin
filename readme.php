@@ -13,5 +13,13 @@
  *
  */
 header('Content-type: text/plain; charset=utf-8');
-readfile('README');
+
+$filename = 'README';
+
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+    readfile($filename);
+} else {
+    echo "The $filename file is not available on this system, please visit www.phpmyadmin.net for more information.";
+}
 ?>

@@ -13,5 +13,14 @@
  *
  */
 header('Content-type: text/plain; charset=iso-8859-1');
-readfile('LICENSE');
+
+$filename = 'LICENSE';
+
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+    readfile($filename);
+} else {
+    echo "The $filename file is not available on this system, please visit www.phpmyadmin.net for more information.";
+}
+
 ?>
