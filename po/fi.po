@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -7190,11 +7190,24 @@ msgstr "Wiki"
 msgid "Official Homepage"
 msgstr "phpMyAdminin kotisivut"
 
-#: main.php:233
-msgid "Mailing lists"
-msgstr ""
+#: main.php:227
+#, fuzzy
+#| msgid "Attributes"
+msgid "Contribute"
+msgstr "Attribuutit"
 
-#: main.php:258
+#: main.php:228
+#, fuzzy
+msgid "Get support"
+msgstr "Vienti"
+
+#: main.php:229
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Ei muutoksia"
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7205,7 +7218,7 @@ msgstr ""
 "(root ilman salasanaa). Tällaisin asetuksin MySQL-palvelin on altis "
 "hyökkäyksille. Tämä tietoturvariski on syytä korjata pikimmiten!"
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7215,7 +7228,7 @@ msgstr ""
 "valinta ei sovi yhteen phpMyAdminin kanssa ja saattaa johtaa tietojen "
 "katoamiseen!"
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7225,7 +7238,7 @@ msgstr ""
 "olevan käytössä. Ilman mbstring-laajennusta phpMyAdmin ei osaa jaotella "
 "merkkijonoja oikein, ja tästä saattaa koitua odottamattomia seurauksia."
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7237,7 +7250,7 @@ msgstr ""
 "phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi erääntyy "
 "nopeammin kuin phpMyAdminissa on määritetty."
 
-#: main.php:289
+#: main.php:284
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7253,11 +7266,11 @@ msgstr ""
 "phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi erääntyy "
 "nopeammin kuin phpMyAdminissa on määritetty."
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Asetustiedosto vaatii nyt salalausetta (blowfish_secret)."
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7267,7 +7280,7 @@ msgstr ""
 "hakemistossa. Sinun tulee poistaa kansio, kun phpMyAdminin asetukset on "
 "määritetty."
 
-#: main.php:314
+#: main.php:309
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7279,14 +7292,14 @@ msgstr ""
 "Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
 "Katso %slisätietoja%s."
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:344
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7295,7 +7308,7 @@ msgstr ""
 "PHP:n MySQL-kirjaston versio %s poikkeaa MySQL-palvelimen versiosta %s. "
 "Tästä voi koitua arvaamattomia seurauksia."
 
-#: main.php:356
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

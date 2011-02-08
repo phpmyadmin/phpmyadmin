@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: 2010-09-14 20:45+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -7365,11 +7365,24 @@ msgstr "Wiki"
 msgid "Official Homepage"
 msgstr "Hivatalos honlap"
 
-#: main.php:233
-msgid "Mailing lists"
-msgstr ""
+#: main.php:227
+#, fuzzy
+#| msgid "Attributes"
+msgid "Contribute"
+msgstr "Tulajdonságok"
 
-#: main.php:258
+#: main.php:228
+#, fuzzy
+msgid "Get support"
+msgstr "Exportálás"
+
+#: main.php:229
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Nincs változás"
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7381,7 +7394,7 @@ msgstr ""
 "MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott. "
 "Javítsa ezt a biztonsági rést."
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7390,7 +7403,7 @@ msgstr ""
 "Ön engedélyezte az mbstring.func_overload funkciót a PHP konfigurációban. Ez "
 "a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7401,7 +7414,7 @@ msgstr ""
 "tudja megfelelően felosztani a karakterláncokat, mely nem várt eredményhez "
 "vezethet."
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7413,7 +7426,7 @@ msgstr ""
 "phpMyAdminban beállított cookie érvényességénél, Emiatt a bejelentkezése a "
 "phpMyAdminban beállítottnál előbb fog lejárni."
 
-#: main.php:289
+#: main.php:284
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7429,13 +7442,13 @@ msgstr ""
 "phpMyAdminban beállított cookie érvényességénél, Emiatt a bejelentkezése a "
 "phpMyAdminban beállítottnál előbb fog lejárni."
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "A konfigurációs fájlnak egy titkos hozzáférési kódra (blowfish_secret) van "
 "szüksége."
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7444,7 +7457,7 @@ msgstr ""
 "A parancsfájl által használt [code]config[/code] könyvtár még létezik a "
 "phpMyAdmin könyvtárában. Távolítsa el a phpMyAdmin beállítása után."
 
-#: main.php:314
+#: main.php:309
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7456,14 +7469,14 @@ msgstr ""
 "A hivatkozott táblákkal történő munka kiegészítő funkciói inaktiválásra "
 "kerültek. Ha szeretné megtudni, hogy miért, kattintson %side%s."
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:344
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7472,7 +7485,7 @@ msgstr ""
 "A PHP MySQL függvénytár %s-s verziója eltér a MySQL szerver %s-s "
 "verziójától. Ez kiszámíthatatlan viselkedést okozhat."
 
-#: main.php:356
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

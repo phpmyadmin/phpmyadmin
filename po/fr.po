@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: 2011-02-03 19:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -6970,11 +6970,25 @@ msgstr "Wiki"
 msgid "Official Homepage"
 msgstr "Site officiel"
 
-#: main.php:233
-msgid "Mailing lists"
-msgstr "Listes de courriel"
+#: main.php:227
+#, fuzzy
+#| msgid "Attributes"
+msgid "Contribute"
+msgstr "Attributs"
 
-#: main.php:258
+#: main.php:228
+#, fuzzy
+#| msgid "Replication support"
+msgid "Get support"
+msgstr "Gestion de la réplication"
+
+#: main.php:229
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Pas de modifications"
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6986,7 +7000,7 @@ msgstr ""
 "serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce "
 "problème de sécurité."
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6996,7 +7010,7 @@ msgstr ""
 "option est incompatible avec phpMyAdmin et peut nuire au traitement des "
 "données !"
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7007,7 +7021,7 @@ msgstr ""
 "phpMyAdmin est incapable de gérer correctement les caractères et il peut en "
 "résulter des problèmes."
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7019,7 +7033,7 @@ msgstr ""
 "que la durée du cookie configurée dans phpMyAdmin; donc, votre session de "
 "travail expirera plus tôt."
 
-#: main.php:289
+#: main.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7028,13 +7042,13 @@ msgstr ""
 "LoginCookieValidity; donc, votre session de travail expirera plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Vous devez ajouter dans le fichier de configuration une phrase de passe "
 "secrète (blowfish_secret)."
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7044,7 +7058,7 @@ msgstr ""
 "présent dans votre répertoire phpMyAdmin. Vous devriez le supprimer quand "
 "vous aurez terminé la configuration de phpMyAdmin."
 
-#: main.php:314
+#: main.php:309
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7054,7 +7068,7 @@ msgstr ""
 "certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
 "cliquez %sici%s."
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7064,7 +7078,7 @@ msgstr ""
 "fonctions de phpMyAdmin seront manquantes. Par exemple le cadre de "
 "navigation ne sera pas mis à jour automatiquement."
 
-#: main.php:344
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7073,7 +7087,7 @@ msgstr ""
 "La version de votre bibliothèque MySQL (%s) de PHP diffère de la version de "
 "votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible."
 
-#: main.php:356
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -10094,6 +10108,9 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
+
+#~ msgid "Mailing lists"
+#~ msgstr "Listes de courriel"
 
 #, fuzzy
 #~| msgid "Yes"

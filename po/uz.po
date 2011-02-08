@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -7390,11 +7390,23 @@ msgstr "Вики"
 msgid "Official Homepage"
 msgstr " phpMyAdmin расмий веб-саҳифаси"
 
-#: main.php:233
-msgid "Mailing lists"
+#: main.php:227
+#, fuzzy
+#| msgid "Attributes"
+msgid "Contribute"
+msgstr "Атрибутлар"
+
+#: main.php:228
+msgid "Get support"
 msgstr ""
 
-#: main.php:258
+#: main.php:229
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Ўзгариш йўқ"
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7406,7 +7418,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7416,7 +7428,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7427,7 +7439,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7440,7 +7452,7 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:289
+#: main.php:284
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7457,13 +7469,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7473,7 +7485,7 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: main.php:314
+#: main.php:309
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7485,7 +7497,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7495,7 +7507,7 @@ msgstr ""
 "баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
 "янгиланиб турмайди."
 
-#: main.php:344
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7504,7 +7516,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: main.php:356
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

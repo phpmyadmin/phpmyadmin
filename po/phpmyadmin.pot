@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6481,11 +6481,19 @@ msgstr ""
 msgid "Official Homepage"
 msgstr ""
 
-#: main.php:233
-msgid "Mailing lists"
+#: main.php:227
+msgid "Contribute"
 msgstr ""
 
-#: main.php:258
+#: main.php:228
+msgid "Get support"
+msgstr ""
+
+#: main.php:229
+msgid "List of changes"
+msgstr ""
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6493,21 +6501,21 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6515,45 +6523,45 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:289
+#: main.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:314
+#: main.php:309
 #, possible-php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:344
+#: main.php:339
 #, possible-php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: main.php:356
+#: main.php:351
 #, possible-php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

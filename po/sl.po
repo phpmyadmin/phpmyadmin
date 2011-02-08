@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 16:31+0100\n"
+"POT-Creation-Date: 2011-02-08 17:09+0100\n"
 "PO-Revision-Date: 2011-02-05 02:27+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -6918,11 +6918,25 @@ msgstr "wiki"
 msgid "Official Homepage"
 msgstr "Uradna domača stran phpMyAdmin"
 
-#: main.php:233
-msgid "Mailing lists"
-msgstr "Poštni seznami"
+#: main.php:227
+#, fuzzy
+#| msgid "Attributes"
+msgid "Contribute"
+msgstr "Atributi"
 
-#: main.php:258
+#: main.php:228
+#, fuzzy
+#| msgid "Support"
+msgid "Get support"
+msgstr "Podpora"
+
+#: main.php:229
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Brez sprememb"
+
+#: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6934,7 +6948,7 @@ msgstr ""
 "privzetimi nastavitvami, zato je izpostavljen vdorom. Čimprej odpravite to "
 "varnostno luknjo tako, da uporabniku 'root' nastavite geslo."
 
-#: main.php:266
+#: main.php:261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6943,7 +6957,7 @@ msgstr ""
 "V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Ta možnost ni "
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
-#: main.php:274
+#: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6953,7 +6967,7 @@ msgstr ""
 "nabor znakov. Brez razširitve mbstring phpMyAdmin ni sposoben pravilno "
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
-#: main.php:282
+#: main.php:277
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6965,7 +6979,7 @@ msgstr ""
 "piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla "
 "prej, kot je določeno v phpMyAdminu."
 
-#: main.php:289
+#: main.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -6974,13 +6988,13 @@ msgstr ""
 "določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla prej, kot je "
 "določeno v phpMyAdminu."
 
-#: main.php:297
+#: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfiguracijski datoteki morate sedaj določiti skrivno geslo "
 "(blowfish_secret)."
 
-#: main.php:305
+#: main.php:300
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -6990,7 +7004,7 @@ msgstr ""
 "obstaja v vaši mapi phpMyAdmin. Priporočljivo jo je odstraniti, ko je "
 "phpMyAdmin enkrat že konfiguriran."
 
-#: main.php:314
+#: main.php:309
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7000,7 +7014,7 @@ msgstr ""
 "nekatere razširjene zmožnosti onemogočene. Če želite izvedeti zakaj, "
 "kliknite %stukaj%s."
 
-#: main.php:329
+#: main.php:324
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7010,7 +7024,7 @@ msgstr ""
 "nekatere funkcije phpMyAdmina manjkale. Na primer navigacijski okvir se ne "
 "bo osveževal samodejno."
 
-#: main.php:344
+#: main.php:339
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7019,7 +7033,7 @@ msgstr ""
 "Vaša PHP-knjižica MySQL različice %s se razlikuje od vašega strežnika MySQL "
 "različice %s. To lahko povzroči nepredvidljivo vedenje."
 
-#: main.php:356
+#: main.php:351
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -10001,6 +10015,9 @@ msgstr "Ime VIEW"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Preimenuj pogled v"
+
+#~ msgid "Mailing lists"
+#~ msgstr "Poštni seznami"
 
 #, fuzzy
 #~| msgid "Yes"
