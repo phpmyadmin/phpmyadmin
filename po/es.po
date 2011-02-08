@@ -3843,7 +3843,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:397
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "Esquema de PDF: tabla de páginas"
 
 #: libraries/config/messages.inc.php:398
 msgid ""
