@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 16:31+0100\n"
-"PO-Revision-Date: 2011-02-03 19:20+0200\n"
+"PO-Revision-Date: 2011-02-08 19:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -113,6 +113,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Le fichier %s n'est pas disponible sur ce serveur, veuillez visiter "
+"www.phpmyadmin.net pour plus d'informations."
 
 #: db_create.php:58
 #, php-format
@@ -10094,50 +10096,3 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "Oui"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgid "closed"
-#~ msgstr "Fermer"
-
-#~ msgid "to/from page"
-#~ msgstr "de/vers la page"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Désactiver les statistiques"
-
-#~ msgid "Start"
-#~ msgstr "Démarrer"
-
-#~ msgid "Stop"
-#~ msgstr "Arrêter"
-
-#~ msgid "Display table filter"
-#~ msgstr "Montrer le filtre de table"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Certaines fonctionnalités ayant trait aux tables reliées sont "
-#~ "désactivées. Pour une analyse du problème, cliquez %sici%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorer les doublons"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Exécuter la requête en signets"
-
-#~ msgid "No tables"
-#~ msgstr "Pas de table"
-
-#~ msgid "Field navigation using Ctrl+Arrows"
-#~ msgstr "Navigation des champs au moyen de Ctrl+flèches"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "Basculer la visibilité de la boîte de requêtes"
