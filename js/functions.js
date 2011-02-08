@@ -1482,31 +1482,6 @@ $(document).ready(function(){
 });
 
 /**
- * Function to process the plain HTML response from an Ajax request.  Inserts
- * the various HTML divisions from the response at the proper locations.  The
- * array relates the divisions to be inserted to their placeholders.
- *
- * @param   var divisions_map   an associative array of id names
- *
- * <code>
- * PMA_ajaxInsertResponse({'resultsTable':'resultsTable_response',
- *                         'profilingData':'profilingData_response'});
- * </code>
- *
- */
-
-function PMA_ajaxInsertResponse(divisions_map) {
-    $.each(divisions_map, function(key, value) {
-        var content_div = '#'+value;
-        var target_div = '#'+key;
-        var content = $(content_div).html();
-
-        //replace content of target_div with that from the response
-        $(target_div).html(content);
-    });
-};
-
-/**
  * Show a message on the top of the page for an Ajax request
  *
  * @param   var     message     string containing the message to be shown.
