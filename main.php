@@ -227,10 +227,10 @@ PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', PMA_linkURL('http:
 ?>
     <li><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
-        [<a href="<?php echo PMA_linkURL('http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi'); ?>"
-            target="_blank">Git</a>]
-        [<a href="<?php echo PMA_linkURL('http://sourceforge.net/mail/?group_id=23067'); ?>"
-            target="_blank"><?php echo __('Mailing lists'); ?></a>]
+        [<a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'); ?>"
+            target="_blank"><?php echo __('Contribute'); ?></a>]
+        [<a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'); ?>"
+            target="_blank"><?php echo __('Get support'); ?></a>]
         </bdo>
     </li>
     </ul>
