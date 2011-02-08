@@ -216,8 +216,6 @@ tr.even {
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
 /* marked table rows */
-td.marked,
-tr.marked th,
 tr.marked {
     background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
@@ -235,9 +233,7 @@ tr.marked {
 }
 
 /* hovered table rows */
-tr.odd:hover th,
-tr.even:hover th,
-tr.hover th {
+tr:hover {
     background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
