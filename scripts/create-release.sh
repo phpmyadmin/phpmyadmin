@@ -243,7 +243,11 @@ if [ $# -gt 0 ] ; then
                     else
                         # We update both branches here
                         # As it does not make sense to have older testing than stable
-                        mark_as_release $branch TESTING
+                        if echo $version | grep -q '^3\.3\.' ; then
+                            echo '* 3.3 branch, no TESTING update'
+                        else
+                            mark_as_release $branch TESTING
+                        fi
                         mark_as_release $branch STABLE
                     fi
                     git checkout master
