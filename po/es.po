@@ -3436,7 +3436,6 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 #| msgid "Show/Hide left menu"
 msgid "Show left delete link"
 msgstr "Ocultar/mostrar menú de borrado a la izquierda"
