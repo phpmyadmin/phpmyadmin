@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:55+0100\n"
+"POT-Creation-Date: 2011-02-08 16:31+0100\n"
 "PO-Revision-Date: 2010-07-21 14:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -106,6 +106,13 @@ msgstr "Kunne ikke skrive fil til disk."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
+msgstr ""
+
+#: changelog.php:32 license.php:28
+#, php-format
+msgid ""
+"The %s file is not available on this system, please visit www.phpmyadmin.net "
+"for more information."
 msgstr ""
 
 #: db_create.php:58
@@ -268,7 +275,7 @@ msgstr "Database %s er blevet kopieret til %s"
 msgid "Rename database to"
 msgstr "Omdøb database til"
 
-#: db_operations.php:404 server_processlist.php:56
+#: db_operations.php:404 server_processlist.php:64
 msgid "Command"
 msgstr "Kommando"
 
@@ -752,7 +759,7 @@ msgstr ""
 #: libraries/export/xml.php:258 libraries/header.inc.php:125
 #: libraries/header_printview.inc.php:57 server_databases.php:147
 #: server_privileges.php:1757 server_privileges.php:1818
-#: server_privileges.php:2076 server_processlist.php:55
+#: server_privileges.php:2076 server_processlist.php:63
 #: server_synchronize.php:1175 server_synchronize.php:1179
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
@@ -771,7 +778,7 @@ msgid "Updated"
 msgstr ""
 
 #: db_tracking.php:89 libraries/common.lib.php:1323
-#: libraries/server_links.inc.php:50 server_processlist.php:58
+#: libraries/server_links.inc.php:50 server_processlist.php:66
 #: tbl_tracking.php:590 test/theme.php:100
 msgid "Status"
 msgstr "Status"
@@ -2044,7 +2051,7 @@ msgid "Documentation"
 msgstr "Dokumentation"
 
 #: libraries/common.lib.php:585 libraries/header_printview.inc.php:60
-#: server_processlist.php:59 server_status.php:372
+#: server_processlist.php:67 server_status.php:372
 msgid "SQL query"
 msgstr "SQL-forespørgsel"
 
@@ -2100,7 +2107,7 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/common.lib.php:1324 libraries/tbl_triggers.lib.php:27
-#: server_processlist.php:57
+#: server_processlist.php:65
 msgid "Time"
 msgstr "Tid"
 
@@ -4697,7 +4704,7 @@ msgstr "Komprimering"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:511 server_privileges.php:1972 server_processlist.php:74
+#: pmd_general.php:511 server_privileges.php:1972 server_processlist.php:82
 msgid "None"
 msgstr "Ingen"
 
@@ -4947,7 +4954,7 @@ msgid "The row has been deleted"
 msgstr "Rækken er slettet!"
 
 #: libraries/display_tbl.lib.php:1219 libraries/display_tbl.lib.php:2068
-#: server_processlist.php:70 tbl_row_action.php:63
+#: server_processlist.php:78 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -5524,7 +5531,7 @@ msgstr "Tilgængelige MIME-typer"
 #: libraries/replication_gui.lib.php:331 server_privileges.php:738
 #: server_privileges.php:741 server_privileges.php:797
 #: server_privileges.php:1624 server_privileges.php:2167
-#: server_processlist.php:54 server_synchronize.php:1155
+#: server_processlist.php:62 server_synchronize.php:1155
 msgid "Host"
 msgstr "Vært"
 
@@ -6454,7 +6461,7 @@ msgstr "Server"
 msgid "Binary log"
 msgstr "Binær log"
 
-#: libraries/server_links.inc.php:59
+#: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
 msgstr "Processer"
 
@@ -6999,7 +7006,7 @@ msgstr "Protokolversion"
 
 #: main.php:178 server_privileges.php:1469 server_privileges.php:1623
 #: server_privileges.php:1747 server_privileges.php:2166
-#: server_processlist.php:53
+#: server_processlist.php:61
 msgid "User"
 msgstr "Bruger"
 
@@ -7472,13 +7479,13 @@ msgstr "Vælg binærlog til gennemsyn"
 msgid "Files"
 msgstr "Filer"
 
-#: server_binlog.php:169 server_binlog.php:171 server_processlist.php:48
-#: server_processlist.php:50
+#: server_binlog.php:169 server_binlog.php:171 server_processlist.php:56
+#: server_processlist.php:58
 msgid "Truncate Shown Queries"
 msgstr "Trunkér viste forespørgsler"
 
-#: server_binlog.php:177 server_binlog.php:179 server_processlist.php:48
-#: server_processlist.php:50
+#: server_binlog.php:177 server_binlog.php:179 server_processlist.php:56
+#: server_processlist.php:58
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -7982,19 +7989,19 @@ msgstr "database-specifik"
 msgid "wildcard"
 msgstr "jokertegn"
 
-#: server_processlist.php:21
+#: server_processlist.php:29
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Tråd %s blev stoppet."
 
-#: server_processlist.php:23
+#: server_processlist.php:31
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunne ikke dræbe tråden %s. Den er sandsynligvis allerede lukket."
 
-#: server_processlist.php:52
+#: server_processlist.php:60
 msgid "ID"
 msgstr "ID"
 
