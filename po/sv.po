@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-01-22 15:30+0200\n"
+"PO-Revision-Date: 2011-02-08 23:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Filen %s finns inte i detta system. För mer information gå till "
+"www.phpmyadmin.net"
 
 #: db_create.php:58
 #, php-format
@@ -9982,23 +9984,3 @@ msgstr "Ändra namn till"
 
 #~ msgid "Mailing lists"
 #~ msgstr "E-postlistor"
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "Ja"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgid "closed"
-#~ msgstr "Stäng"
-
-#~ msgid "to/from page"
-#~ msgstr "till/från sida"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Stäng av statistik"
-
-#, fuzzy
-#~ msgid "Start"
-#~ msgstr "Start"
