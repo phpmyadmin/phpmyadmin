@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 16:31+0100\n"
-"PO-Revision-Date: 2011-02-08 19:45+0200\n"
+"PO-Revision-Date: 2011-02-08 19:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4888,10 +4888,9 @@ msgid "Browser transformation"
 msgstr "Transformation"
 
 #: libraries/display_tbl.lib.php:1165
-#, fuzzy
 #| msgid "Copyright"
 msgid "Copy"
-msgstr "Copyright"
+msgstr "Copier"
 
 #: libraries/display_tbl.lib.php:1180 libraries/display_tbl.lib.php:1192
 msgid "The row has been deleted"
