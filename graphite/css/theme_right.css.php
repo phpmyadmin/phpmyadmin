@@ -192,14 +192,12 @@ button.mult_submit {
 }
 
 /* odd items 1,3,5,7,... */
-tr.odd th,
-.odd {
+tr.odd {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
-tr.even th,
-.even {
+tr.even {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 tr.even th, tr.odd th, fieldset th  {
@@ -207,9 +205,7 @@ tr.even th, tr.odd th, fieldset th  {
 }
 
 /* odd table rows 1,3,5,7,... */
-tr.odd th,
 tr.odd,
-tr.even th,
 tr.even {
     text-align:         <?php echo $left; ?>;
 }
@@ -224,9 +220,6 @@ tr.marked {
 
 <?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
 /* hovered items */
-.odd:hover,
-.even:hover,
-.hover,
 .structure_actions_dropdown {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
