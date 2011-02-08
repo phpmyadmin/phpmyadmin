@@ -3992,6 +3992,8 @@ msgstr "Agregar DROP VIEW"
 #: libraries/config/messages.inc.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Definir la lista de sentencias que la creación automática usa para nuevas "
+"versiones"
 
 #: libraries/config/messages.inc.php:424
 #, fuzzy
