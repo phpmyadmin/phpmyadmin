@@ -641,11 +641,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
      || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
         $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                  ? ' colspan="3"'
+                  ? ' colspan="4"'
                   : '';
     } else {
         $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                  ? ' rowspan="3"'
+                  ? ' rowspan="4"'
                   : '';
     }
 
@@ -1162,6 +1162,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $copy_url = 'tbl_change.php' . PMA_generate_common_url($_url_params + array('default_action' => 'insert'));
 
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
+                $copy_str = PMA_getIcon('b_insrow.png', __('Copy'), true);
 
                 // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
@@ -1225,7 +1226,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } // end if (1.3)
         } // end if (1)
 
@@ -1440,7 +1441,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -2482,19 +2483,44 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
  *
  * @uses    PMA_linkOrButton()
  * @param   string  $edit_url
- * @param   string  $copy_url
  * @param   string  $class
  * @param   string  $edit_str
  * @param   string  $where_clause
  * @param   string  $where_clause_html
  * @return  string  the generated HTML
  */
-function PMA_generateEditLink($edit_url, $copy_url, $class, $edit_str, $where_clause, $where_clause_html) {
+function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html) {
     $ret = '';
     if (! empty($edit_url)) {
         $ret .= '<td class="' . $class . '" align="center" ' . ' ><span class="nowrap">'
-           . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE) . '<span class="sep"> | </span>'
-           . PMA_linkOrButton($copy_url, __('Copy'), array(), FALSE);
+           . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE);
+        /*
+         * Where clause for selecting this row uniquely is provided as
+         * a hidden input. Used by jQuery scripts for handling inline editing
+         */
+        if(! empty($where_clause)) {
+            $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+        }
+        $ret .= '</span></td>';
+    }
+    return $ret;
+}
+
+/**
+ * Generates an Copy link
+ *
+ * @uses    PMA_linkOrButton()
+ * @param   string  $copy_url
+ * @param   string  $copy_str
+ * @param   string  $where_clause
+ * @param   string  $where_clause_html
+ * @return  string  the generated HTML
+ */
+function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html) {
+    $ret = '';
+    if (! empty($copy_url)) {
+        $ret .= '<td align="center" ' . ' ><span class="nowrap">'
+           . PMA_linkOrButton($copy_url, $copy_str, array(), FALSE);
         /*
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
@@ -2553,18 +2579,22 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * @param   string  $js_conf
  * @return  string  the generated HTML
  */
-function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $del_str, $js_conf) {
+function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf) {
     $ret = '';
 
     if ($position == 'left') {
         $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
 
-        $ret .= PMA_generateEditLink($edit_url, $copy_url, $class, $edit_str, $where_clause, $where_clause_html, '');
+        $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
+
+        $ret .= PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, '');
 
         $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, '', '');
 
     } elseif ($position == 'right') {
         $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, '', '');
+
+        $ret .= PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, '');
 
         $ret .= PMA_generateEditLink($edit_url, $copy_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 

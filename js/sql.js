@@ -74,7 +74,6 @@ function appendInlineAnchor() {
 
             $cloned_tr.find('td')
              .addClass('inline_edit_anchor')
-             .find('span.sep, a:last').remove().end()
              .find('a').attr('href', '#')
              .find('span')
              .text(' ' + PMA_messages['strInlineEdit'])
@@ -99,7 +98,6 @@ function appendInlineAnchor() {
             $img_object.attr('src', img_src);
 
             $cloned_anchor.addClass('inline_edit_anchor')
-            .find('span.sep, a:last').remove().end()
             .find('a').attr('href', '#')
             .find('span')
             .text(' ' + PMA_messages['strInlineEdit'])
@@ -110,8 +108,8 @@ function appendInlineAnchor() {
 
         $('#rowsDeleteForm').find('thead, tbody').find('th').each(function() {
             var $this_th = $(this);
-            if ($this_th.attr('colspan') == 3) {
-                $this_th.attr('colspan', '4')
+            if ($this_th.attr('colspan') == 4) {
+                $this_th.attr('colspan', '5')
             }
         });
     }
