@@ -665,39 +665,6 @@ ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
 
 /* end topmenu */
 
-
-/* Calendar */
-table.calendar {
-    width:              100%;
-}
-table.calendar td {
-    text-align:         center;
-}
-table.calendar td a {
-    display:            block;
-}
-
-table.calendar td a:hover {
-    background-color:   #CCFFCC;
-}
-
-table.calendar th {
-    background-color:   #D3DCE3;
-}
-
-table.calendar td.selected {
-    background-color:   #FFCC99;
-}
-
-img.calendar {
-    border:             none;
-}
-form.clock {
-    text-align:         center;
-}
-/* end Calendar */
-
-
 /* table stats */
 div#tablestatistics {
     border-bottom: 0.1em solid #669999;
