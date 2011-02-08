@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 01:02+0200\n"
+"PO-Revision-Date: 2011-02-09 01:03+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4115,7 +4115,7 @@ msgstr "Mostrar tipo de campos "
 
 #: libraries/config/messages.inc.php:444
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "Mostrar campos de función en el modo de edición/inserción"
 
 #: libraries/config/messages.inc.php:445
 msgid "Show function fields"
