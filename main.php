@@ -224,15 +224,10 @@ PMA_printListItem(__('Wiki'), 'li_pma_wiki', PMA_linkURL('http://wiki.phpmyadmin
 
 // does not work if no target specified, don't know why
 PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', PMA_linkURL('http://www.phpMyAdmin.net/'), null, '_blank');
+PMA_printListItem(__('Contribute'), 'li_pma_contribute', PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'), null, '_blank');
+PMA_printListItem(__('Get support'), 'li_pma_support', PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'), null, '_blank');
+PMA_printListItem(__('List of changes'), 'li_pma_changes', PMA_linkURL('changelog.php'), null, '_blank');
 ?>
-    <li><bdo xml:lang="en" dir="ltr">
-        [<a href="changelog.php" target="_blank">ChangeLog</a>]
-        [<a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'); ?>"
-            target="_blank"><?php echo __('Contribute'); ?></a>]
-        [<a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'); ?>"
-            target="_blank"><?php echo __('Get support'); ?></a>]
-        </bdo>
-    </li>
     </ul>
  </div>
 
