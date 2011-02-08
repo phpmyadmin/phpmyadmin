@@ -19,5 +19,14 @@ require('./libraries/vendor_config.php');
  *
  */
 header('Content-type: text/plain; charset=iso-8859-1');
-readfile(LICENSE_FILE);
+
+$filename = LICENSE_FILE;
+
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+    readfile($filename);
+} else {
+    echo "The $filename file is not available on this system, please visit www.phpmyadmin.net for more information.";
+}
+
 ?>
