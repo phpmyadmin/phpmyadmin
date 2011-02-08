@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:32+0100\n"
+"POT-Creation-Date: 2011-02-08 13:55+0100\n"
 "PO-Revision-Date: 2011-02-07 22:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -190,7 +190,8 @@ msgid "Comments"
 msgstr "Комментарии"
 
 #: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:385 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:263
@@ -205,7 +206,8 @@ msgid "No"
 msgstr "Нет"
 
 #: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:384 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
@@ -2115,17 +2117,17 @@ msgid "There are no files to upload"
 msgstr "Файлы для загрузки отсутствуют"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-msgid "both"
+msgid "Both"
 msgstr ""
 
 #: libraries/config.values.php:74
-msgid "open"
+msgid "Open"
 msgstr ""
 
 #: libraries/config.values.php:74
 #, fuzzy
 #| msgid "Close"
-msgid "closed"
+msgid "Closed"
 msgstr "Закрыть"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
@@ -10223,6 +10225,16 @@ msgstr "VIEW название"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Переименовать таблицу в"
+
+#, fuzzy
+#~| msgid "Yes"
+#~ msgid "yes"
+#~ msgstr "Да"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "closed"
+#~ msgstr "Закрыть"
 
 #~ msgid "to/from page"
 #~ msgstr "Страница"

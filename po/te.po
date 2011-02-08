@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:32+0100\n"
+"POT-Creation-Date: 2011-02-08 13:55+0100\n"
 "PO-Revision-Date: 2010-11-29 17:44+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -193,7 +193,8 @@ msgid "Comments"
 msgstr "వ్యాఖ్యలు"
 
 #: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:385 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:263
@@ -208,7 +209,8 @@ msgid "No"
 msgstr "కాదు"
 
 #: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:384 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
@@ -2138,17 +2140,17 @@ msgid "There are no files to upload"
 msgstr ""
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-msgid "both"
+msgid "Both"
 msgstr ""
 
 #: libraries/config.values.php:74
-msgid "open"
+msgid "Open"
 msgstr ""
 
 #: libraries/config.values.php:74
 #, fuzzy
 #| msgid "Close"
-msgid "closed"
+msgid "Closed"
 msgstr "మూసివేయి"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
@@ -9518,6 +9520,17 @@ msgstr "నామధేయమును చూపుము"
 msgid "Rename view to"
 msgstr ""
 
+#~ msgid "yes"
+#~ msgstr "అవును"
+
+#~ msgid "no"
+#~ msgstr "కాదు"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "closed"
+#~ msgstr "మూసివేయి"
+
 #~ msgid "Disable Statistics"
 #~ msgstr "గణాంకాలని అచేతనంచేయి"
 
@@ -9533,9 +9546,3 @@ msgstr ""
 #~| msgid "Table comments"
 #~ msgid "Display table filter"
 #~ msgstr "పట్టిక వ్యాఖ్యలు"
-
-#~ msgid "no"
-#~ msgstr "కాదు"
-
-#~ msgid "yes"
-#~ msgstr "అవును"

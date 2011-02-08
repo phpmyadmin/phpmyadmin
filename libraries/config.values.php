@@ -42,12 +42,12 @@ $cfg_db['LeftDefaultTabTable'] = array(
     'sql.php');          // browse page
 $cfg_db['LeftFrameDBSeparator'] = 'short_string';
 $cfg_db['LeftFrameTableSeparator'] = 'short_string';
-$cfg_db['NavigationBarIconic'] = array(true, false, 'both' => __('both'));
+$cfg_db['NavigationBarIconic'] = array(true => __('Yes'), false => __('No'), 'both' => __('Both'));
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
-$cfg_db['PropertiesIconic'] = array(true, false, 'both' => __('both'));
+$cfg_db['PropertiesIconic'] = array(true => __('Yes'), false => __('No'), 'both' => __('Both'));
 $cfg_db['DefaultTabServer'] = array(
     'main.php',                // the welcome page (recommended for multiuser setups)
     'server_databases.php',    // list of databases
@@ -71,7 +71,7 @@ $cfg_db['QueryWindowDefTab'] = array(
 	'files',   // Import files
 	'history', // SQL history
 	'full');   // All (SQL and SQL history)
-$cfg_db['InitialSlidersState'] = array('open' => __('open'), 'closed' => __('closed'));
+$cfg_db['InitialSlidersState'] = array('open' => __('Open'), 'closed' => __('Closed'));
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL

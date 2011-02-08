@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:32+0100\n"
+"POT-Creation-Date: 2011-02-08 13:55+0100\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -190,7 +190,8 @@ msgid "Comments"
 msgstr "설명(코멘트)"
 
 #: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:385 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:263
@@ -205,7 +206,8 @@ msgid "No"
 msgstr " 아니오 "
 
 #: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:384 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
@@ -2135,17 +2137,17 @@ msgid "There are no files to upload"
 msgstr ""
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-msgid "both"
+msgid "Both"
 msgstr ""
 
 #: libraries/config.values.php:74
-msgid "open"
+msgid "Open"
 msgstr ""
 
 #: libraries/config.values.php:74
 #, fuzzy
 #| msgid "Unclosed quote"
-msgid "closed"
+msgid "Closed"
 msgstr "따옴표(quote)가 닫히지 않았음"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
@@ -9720,6 +9722,10 @@ msgstr ""
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
 
+#, fuzzy
+#~ msgid "yes"
+#~ msgstr " 예 "
+
 #~ msgid "Disable Statistics"
 #~ msgstr "통계 숨기기"
 
@@ -9788,10 +9794,6 @@ msgstr "테이블 이름 바꾸기"
 #, fuzzy
 #~ msgid "PMA database"
 #~ msgstr "데이터베이스가 없습니다"
-
-#, fuzzy
-#~ msgid "yes"
-#~ msgstr " 예 "
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:32+0100\n"
+"POT-Creation-Date: 2011-02-08 13:55+0100\n"
 "PO-Revision-Date: 2011-02-08 13:33+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -192,7 +192,8 @@ msgid "Comments"
 msgstr "Komentáře"
 
 #: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:385 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:263
@@ -207,7 +208,8 @@ msgid "No"
 msgstr "Ne"
 
 #: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:384 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
@@ -2109,17 +2111,18 @@ msgid "There are no files to upload"
 msgstr "Nebyl zvolen žádný soubor pro nahrání"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-msgid "both"
-msgstr "obojí"
+msgid "Both"
+msgstr ""
 
 #: libraries/config.values.php:74
-msgid "open"
-msgstr "otevřené"
+msgid "Open"
+msgstr ""
 
 #: libraries/config.values.php:74
+#, fuzzy
 #| msgid "Close"
-msgid "closed"
-msgstr "zavřené"
+msgid "Closed"
+msgstr "Ukončit"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -9936,6 +9939,21 @@ msgstr "Jméno pohledu"
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
 
+#~ msgid "yes"
+#~ msgstr "ano"
+
+#~ msgid "no"
+#~ msgstr "ne"
+
+#~ msgid "both"
+#~ msgstr "obojí"
+
+#~ msgid "open"
+#~ msgstr "otevřené"
+
+#~ msgid "closed"
+#~ msgstr "zavřené"
+
 #~ msgid "to/from page"
 #~ msgstr "do/ze stránky"
 
@@ -10023,9 +10041,6 @@ msgstr "Přejmenovat pohled na"
 #~ msgid "Method"
 #~ msgstr "Způsob exportu"
 
-#~ msgid "no"
-#~ msgstr "ne"
-
 #~ msgid "Enter login options for signon authentication"
 #~ msgstr "Zadejte parametry pro autentizaci signon"
 
@@ -10042,6 +10057,3 @@ msgstr "Přejmenovat pohled na"
 #~ "Nastavení SQL dotazů, pro nastavení políček pro SQL dotazy si prohlédněte "
 #~ "nastavení [a@?page=form&amp;formset=main_frame#tab_Sql_box]navigačního "
 #~ "rámu[/a]"
-
-#~ msgid "yes"
-#~ msgstr "ano"

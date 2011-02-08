@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 13:32+0100\n"
+"POT-Creation-Date: 2011-02-08 13:55+0100\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -193,7 +193,8 @@ msgid "Comments"
 msgstr "Izohlar"
 
 #: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:385 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:263
@@ -208,7 +209,8 @@ msgid "No"
 msgstr "Yo‘q"
 
 #: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/config/FormDisplay.tpl.php:204
+#: libraries/Index.class.php:384 libraries/config.values.php:45
+#: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
 #: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
@@ -2269,17 +2271,17 @@ msgid "There are no files to upload"
 msgstr ""
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-msgid "both"
+msgid "Both"
 msgstr ""
 
 #: libraries/config.values.php:74
-msgid "open"
+msgid "Open"
 msgstr ""
 
 #: libraries/config.values.php:74
 #, fuzzy
 #| msgid "Close"
-msgid "closed"
+msgid "Closed"
 msgstr "Yopish"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
@@ -10739,6 +10741,17 @@ msgstr "Nom ko‘rinishi"
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
+#~ msgid "yes"
+#~ msgstr "to‘g‘ri"
+
+#~ msgid "no"
+#~ msgstr "yo‘q"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "closed"
+#~ msgstr "Yopish"
+
 #~ msgid "to/from page"
 #~ msgstr "Sahifa"
 
@@ -10832,9 +10845,6 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ msgid "Data Dictionary Format"
 #~ msgstr "Ma`lumotlar lug‘ati sahifasi yo‘nalishi"
 
-#~ msgid "no"
-#~ msgstr "yo‘q"
-
 #~ msgid "Enter login options for signon authentication"
 #~ msgstr "Autentifikatsiya usuli uchun login tanlovlarini kiritish"
 
@@ -10854,9 +10864,6 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ "SQL so‘rovlari sozlanishi, SQL so‘rovlari qutisini sozlash uchun qarang:  "
 #~ "[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigatsiya paneli[/a] "
 #~ "sozlanishlari"
-
-#~ msgid "yes"
-#~ msgstr "to‘g‘ri"
 
 #, fuzzy
 #~| msgid "Remove CRLF characters within fields"
