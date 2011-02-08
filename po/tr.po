@@ -4865,10 +4865,9 @@ msgid "Browser transformation"
 msgstr "Tarayıcı dönüşümü"
 
 #: libraries/display_tbl.lib.php:1165
-#, fuzzy
 #| msgid "Copyright"
 msgid "Copy"
-msgstr "Telif hakkı"
+msgstr "Kopyala"
 
 #: libraries/display_tbl.lib.php:1180 libraries/display_tbl.lib.php:1192
 msgid "The row has been deleted"
