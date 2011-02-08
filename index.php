@@ -152,9 +152,11 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     };
 // ]]>
 </script>
-<script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
-<script src="./js/update-location.js" type="text/javascript"></script>
-<script src="./js/common.js" type="text/javascript"></script>
+<?php
+echo PMA_includeJS('jquery/jquery-1.4.4.js');
+echo PMA_includeJS('update-location.js');
+echo PMA_includeJS('common.js');
+?>
 </head>
 <frameset cols="<?php
 if ($GLOBALS['text_dir'] === 'rtl') {
