@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 16:31+0100\n"
-"PO-Revision-Date: 2011-02-08 18:59+0200\n"
+"PO-Revision-Date: 2011-02-08 19:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2112,7 +2112,7 @@ msgstr "Göndermek için hiç dosya yok"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Her ikisi"
 
 #: libraries/config.values.php:74
 msgid "Open"
