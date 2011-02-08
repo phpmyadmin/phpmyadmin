@@ -3734,6 +3734,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Dejar en blanco para evitar el soporte de diseñador, sugerido: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:378
 msgid "Designer table"
