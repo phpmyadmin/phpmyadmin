@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 23:21+0200\n"
+"PO-Revision-Date: 2011-02-08 23:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5181,7 +5181,7 @@ msgstr "PrimeBase Media Streaming Blogg av Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "PrimeBase XT hemsida"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
