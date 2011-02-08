@@ -144,6 +144,9 @@
 - bug #3153409 [core] 0 row(s) affected 
 - bug #3155842 [core] Edit relational page and page number
 
+3.3.9.1 (2011-02-08)
+- [security] Path disclosure, see PMASA-2011-1
+
 3.3.9.0 (2011-01-03)
 - bug [doc] Fix references to MySQL doc
 - patch #3101490 Default function for TIMESTAMP, thanks to jirand - jirand
