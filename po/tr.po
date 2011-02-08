@@ -2116,7 +2116,7 @@ msgstr "Her ikisi"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Açık"
 
 #: libraries/config.values.php:74
 #| msgid "Close"
