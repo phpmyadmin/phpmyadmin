@@ -3640,7 +3640,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Dominio HTTP (Realm)"
 
 #: libraries/config/messages.inc.php:360
 msgid ""
