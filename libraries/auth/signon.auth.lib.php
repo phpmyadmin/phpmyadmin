@@ -131,6 +131,11 @@ function PMA_auth_check()
         if (!empty($pma_token)) {
             $_SESSION[' PMA_token '] = $pma_token;
         }
+
+        /**
+         * Clear user cache.
+         */
+        PMA_clearUserCache();
     }
 
     // Returns whether we get authentication settings or not

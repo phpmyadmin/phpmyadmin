@@ -2529,6 +2529,13 @@ function PMA_generate_slider_effect($id, $message)
 }
 
 /**
+ * Clears cache content which needs to be refreshed on user change.
+ */
+function PMA_clearUserCache() {
+    PMA_cacheUnset('is_superuser', true);
+}
+
+/**
  * Verifies if something is cached in the session
  *
  * @param string $var

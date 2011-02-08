@@ -596,6 +596,12 @@ function PMA_auth_set_user()
          * whether we come from a fresh cookie login
          */
         define('PMA_COMING_FROM_COOKIE_LOGIN', true);
+
+        /**
+         * Clear user cache.
+         */
+        PMA_clearUserCache();
+
         PMA_sendHeaderLocation($redirect_url . PMA_generate_common_url($url_params, '&'));
         exit();
     } // end if
