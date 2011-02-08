@@ -2414,6 +2414,8 @@ function PMA_set_status_label(id) {
  */
 function PMA_init_slider() {
     $('.pma_auto_slider').each(function(idx, e) {
+        if ($(e).hasClass('slider_init_done')) return;
+        $(e).addClass('slider_init_done');
         $('<span id="anchor_status_' + e.id + '"><span>')
             .insertBefore(e);
         PMA_set_status_label(e.id);
