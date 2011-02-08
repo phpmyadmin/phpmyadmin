@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-03 19:19+0200\n"
+"PO-Revision-Date: 2011-02-08 19:38+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"The %s file is not available on this system, please visit www.phpmyadmin.net "
+"for more information."
 
 #: db_create.php:58
 #, php-format
@@ -2108,17 +2110,16 @@ msgstr "There are no files to upload"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Both"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Open"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Close"
 msgid "Closed"
-msgstr "Close"
+msgstr "Closed"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -4829,10 +4830,9 @@ msgid "Browser transformation"
 msgstr "Browser transformation"
 
 #: libraries/display_tbl.lib.php:1165
-#, fuzzy
 #| msgid "Copyright"
 msgid "Copy"
-msgstr "Copyright"
+msgstr "Copy"
 
 #: libraries/display_tbl.lib.php:1180 libraries/display_tbl.lib.php:1192
 msgid "The row has been deleted"
