@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-06 16:30+0200\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2011-02-08 23:24+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"El archivo %s no está disponible en este sistema, favor de visitar "
+"www.phpmyadmin.net para más información"
 
 #: db_create.php:58
 #, php-format
@@ -10385,19 +10387,3 @@ msgstr "(VIEW) VER nombre"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a "
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "Sí"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgid "closed"
-#~ msgstr "Cerrar"
-
-#~ msgid "to/from page"
-#~ msgstr "página de/a la"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Desactivar las estadísticas"
