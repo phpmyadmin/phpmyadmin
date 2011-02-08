@@ -229,7 +229,8 @@ tr.marked {
 }
 
 /* hovered table rows */
-tr:hover th,
+tr.even:hover th,
+tr.odd:hover th,
 tr:hover {
     background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
