@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 23:42+0200\n"
+"PO-Revision-Date: 2011-02-08 23:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2137,8 +2137,8 @@ msgstr ""
 msgid "There are no files to upload"
 msgstr "No hay archivos para subir"
 
+# Used for http://www.phpmyadmin.net/documentation/Documentation.html#cfg_NavigationBarIconic
 #: libraries/config.values.php:45 libraries/config.values.php:50
-#, fuzzy
 msgid "Both"
 msgstr "Ambos"
 
