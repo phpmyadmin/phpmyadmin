@@ -3777,6 +3777,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"Dejar en blanco para evitar soporte de histórico de consultas SQL, sugerido: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:386
 msgid "SQL query history table"
