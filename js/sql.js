@@ -255,6 +255,7 @@ $(document).ready(function() {
                 if($("#togglequerybox").siblings(":visible").length > 0) {
                     $("#togglequerybox").trigger('click');
                 }
+                PMA_init_slider();
             }
         }) // end $.post()
     }) // end SQL Query submit
@@ -287,6 +288,7 @@ $(document).ready(function() {
         $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
+            PMA_init_slider();
         }) // end $.post()
     })// end Paginate results table
 
@@ -307,6 +309,7 @@ $(document).ready(function() {
             $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
+                PMA_init_slider();
             }) // end $.post()
         } else {
             $the_form.submit();
@@ -349,6 +352,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor');
+            PMA_init_slider();
         }) // end $.post()
     })
     //end displayOptionsForm handler
