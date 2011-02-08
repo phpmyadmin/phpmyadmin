@@ -3589,7 +3589,7 @@ msgstr "Repetir cabeceras"
 
 #: libraries/config/messages.inc.php:347
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Mostrar botón de ayuda en lugar de texto de documentación"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button"
