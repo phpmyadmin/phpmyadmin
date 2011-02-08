@@ -682,10 +682,10 @@ function PMA_linkURL($url) {
  * @return string HTML code for javascript inclusion.
  */
 function PMA_includeJS($url) {
-    if (strpos($js_script_file, '?') === FALSE) {
-        return '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
+    if (strpos($url, '?') === FALSE) {
+        return '<script src="./js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
     } else {
-        return '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
+        return '<script src="./js/' . $url . '" type="text/javascript"></script>' . "\n";
     }
 }
 ?>
