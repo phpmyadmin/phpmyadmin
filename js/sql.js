@@ -60,7 +60,7 @@ function appendInlineAnchor() {
 
     if (disp_mode == 'vertical') {
         // there can be one or two tr containing this class, depending
-        // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters 
+        // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters
         $('#table_results tr')
             .find('.edit_row_anchor')
             .removeClass('.edit_row_anchor')
@@ -205,7 +205,7 @@ $(document).ready(function() {
             return false;
         })
     }
-    
+
     /**
      * Ajax Event handler for 'SQL Query Submit'
      *
@@ -228,9 +228,9 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
-                // fade out previous success message, if any 
+                // fade out previous success message, if any
                 $('.success').fadeOut();
-                // show a message that stays on screen 
+                // show a message that stays on screen
                 $('#sqlqueryform').before(data.message);
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
@@ -245,7 +245,7 @@ $(document).ready(function() {
                 }
             }
             else if (data.success == false ) {
-                // show an error message that stays on screen 
+                // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
                 $('#sqlqueryresults').hide();
             }
@@ -278,7 +278,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
-        
+
         /**
          * @var $the_form    Object referring to the form element that paginates the results table
          */
@@ -402,7 +402,7 @@ $(document).ready(function() {
 
             // We need to retrieve the value from the server for truncated/relation fields
             // Find the field name
-            
+
             /**
              * @var this_field  Object referring to this field (<td>)
              */
@@ -526,8 +526,8 @@ $(document).ready(function() {
         event.preventDefault();
 
         /**
-         * @var $this_td    Object referring to the td containing the 
-         * "Inline Edit" link that was clicked to save the row that is 
+         * @var $this_td    Object referring to the td containing the
+         * "Inline Edit" link that was clicked to save the row that is
          * being edited
          *
          */
@@ -720,7 +720,7 @@ $(document).ready(function() {
                             new_value = $test_element.text();
                         }
 
-                        
+
                         if($this_sibling.is('.relation')) {
                             var field_name = getFieldName($this_sibling, disp_mode);
                             $.each(data.relations, function(key, value) {
@@ -729,7 +729,7 @@ $(document).ready(function() {
                                     return false;
                                 }
                             })
-                        } 
+                        }
                         if($this_sibling.is('.enum')) {
                             new_html = new_value;
                         }
@@ -772,14 +772,14 @@ $(document).ready(function() {
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
     $('.column_heading').live('hover', function() {
-        PMA_changeClassForColumn($(this), 'hover'); 
+        PMA_changeClassForColumn($(this), 'hover');
         });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
     $('.column_heading').live('click', function() {
-        PMA_changeClassForColumn($(this), 'marked'); 
+        PMA_changeClassForColumn($(this), 'marked');
         });
 })
 
