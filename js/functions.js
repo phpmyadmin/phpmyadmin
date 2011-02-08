@@ -2410,6 +2410,25 @@ function PMA_set_status_label(id) {
 }
 
 /**
+ * Initializes slider effect.
+ */
+function PMA_init_slider() {
+    $('.pma_auto_slider').each(function(idx, e) {
+        $('<span id="anchor_status_' + e.id + '"><span>')
+            .insertBefore(e);
+        PMA_set_status_label(e.id);
+
+        $('<a href="#' + e.id + '" id="anchor_' + e.id + '">' + e.title + '</a>')
+            .insertBefore(e)
+            .click(function() {
+                $('#' + e.id).toggle('clip');
+                PMA_set_status_label(e.id);
+                return false;
+            });
+    });
+}
+
+/**
  * Vertical pointer
  */
 $(document).ready(function() {
@@ -2480,19 +2499,7 @@ $(document).ready(function() {
     /**
      * Slider effect.
      */
-    $('.pma_auto_slider').each(function(idx, e) {
-        $('<span id="anchor_status_' + e.id + '"><span>')
-            .insertBefore(e);
-        PMA_set_status_label(e.id);
-
-        $('<a href="#' + e.id + '" id="anchor_' + e.id + '">' + e.title + '</a>')
-            .insertBefore(e)
-            .click(function() {
-                $('#' + e.id).toggle('clip');
-                PMA_set_status_label(e.id);
-                return false;
-            });
-    });
+    PMA_init_slider();
 
 }) // end of $(document).ready()
 
