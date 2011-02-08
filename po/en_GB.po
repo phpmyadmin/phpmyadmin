@@ -6890,10 +6890,9 @@ msgid "Contribute"
 msgstr "Contribute"
 
 #: main.php:228
-#, fuzzy
 #| msgid "Replication support"
 msgid "Get support"
-msgstr "Replication support"
+msgstr "Get support"
 
 #: main.php:229
 #, fuzzy
