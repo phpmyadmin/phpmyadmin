@@ -135,6 +135,7 @@
 - [interface] Default to not count tables in database.
 - patch #3172172 [interface] Shortcut for copying table row.
 - bug #3175227 [auth] Reset user cache on login.
+- rfe #3148361 [interface] Replace hard coded limit with $cfg['LimitChars'].
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,

@@ -899,8 +899,8 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
 
             } else {
-                // field size should be at least 4 and max 40
-                $fieldsize = min(max($field['len'], 4), 40);
+                // field size should be at least 4 and max $cfg['LimitChars']
+                $fieldsize = min(max($field['len'], 4), $cfg['LimitChars']);
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
