@@ -192,15 +192,17 @@ button.mult_submit {
 }
 
 /* odd items 1,3,5,7,... */
+tr.odd th,
 tr.odd {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
+tr.even th,
 tr.even {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
-fieldset th  {
+tr.even th, tr.odd th, fieldset th  {
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
@@ -212,6 +214,7 @@ tr.even {
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
 /* marked table rows */
+tr.marked th,
 tr.marked {
     background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
@@ -226,6 +229,7 @@ tr.marked {
 }
 
 /* hovered table rows */
+tr:hover th,
 tr:hover {
     background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
