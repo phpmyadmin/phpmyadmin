@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 00:59+0200\n"
+"PO-Revision-Date: 2011-02-09 01:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4105,6 +4105,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Si inicialmente se muestran los campos de tipo en el modo de "
+"edición/inserción o no"
 
 #: libraries/config/messages.inc.php:443
 #, fuzzy
