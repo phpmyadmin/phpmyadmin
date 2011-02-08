@@ -3475,6 +3475,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - es decir: orden descendente para columnas de tipo TIME, "
+"DATE, DATETIME y TIMESTAMP, ascendente en los demás casos"
 
 #: libraries/config/messages.inc.php:323
 msgid "Default sorting order"
