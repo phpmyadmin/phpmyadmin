@@ -14,18 +14,18 @@
  * Define color here
  */ 
  
-$color['one'] 	= '#D0E7F4'; 
-$color['two'] 	= '#4284B5';
-$color['three'] = '#F8FAFC';
-$color['four'] 	= '#0000FF';
-$color['five'] 	= '#000000';
-$color['six'] 	= '#FFFFFF';
-$color['seven'] = '#999999';
-$color['eight'] = '#3D7BC9';
-$color['nine'] 	= '#FEFEFE';
-$color['ten'] 	= '#333333';
-
-
+$color['one'] 		= '#D0E7F4'; 
+$color['two'] 		= '#4284B5';
+$color['three'] 	= '#F8FAFC';
+$color['four'] 		= '#0000FF';
+$color['five'] 		= '#000000';
+$color['six'] 		= '#FFFFFF';
+$color['seven'] 	= '#999999';
+$color['eight'] 	= '#386bcd';
+$color['nine'] 		= '#FEFEFE';
+$color['ten'] 		= '#333333';
+$color['eleven'] 	= '#F5FAFC';
+$color['twelve'] 	= '#7fcfe9';
 
 /**
  * navi frame
@@ -95,7 +95,7 @@ $GLOBALS['cfg']['ThColor']              = $color['nine'];
 // table data row background
 $GLOBALS['cfg']['BgOne']                = $color['one'];
 // table data row background, alternate
-$GLOBALS['cfg']['BgTwo']                = '#F5FAFC';
+$GLOBALS['cfg']['BgTwo']                = $color['eleven'];
 
 
 /**
@@ -112,7 +112,8 @@ $GLOBALS['cfg']['linkColor']            = '#21759B';
 $GLOBALS['cfg']['LabelColor']           = $color['ten'];
 
 // tableheader link color
-$GLOBALS['cfg']['TableHeaderlinkColor'] = '#F5FAFC';
+$GLOBALS['cfg']['TopMenuColor'] 		= $color['eleven'];
+$GLOBALS['cfg']['TableHeaderlinkColor'] = $color['one'];
 
 $GLOBALS['cfg']['TableLinkColor'] 		= $color['eight'];
 

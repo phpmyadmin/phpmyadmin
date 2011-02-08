@@ -77,7 +77,7 @@ dfn:hover {
 }
 
 th {
-    font-weight:        normal;
+    font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
@@ -134,7 +134,7 @@ table {
 table caption,
 table th,
 table td {
-    padding:            5px;
+    padding:            3px;
     margin:             0;
     vertical-align:     top;
 }
@@ -684,6 +684,7 @@ ul#topmenu ul a {
 }
 
 ul#topmenu .submenu {
+	display:			none;
     position:           relative;
 }
 
@@ -1830,9 +1831,13 @@ fieldset .disabled-field td {
 	text-decoration: none;
 }
 
+table.data {
+	margin: 0 5px 5px 0;	
+}
+
 table.data thead a {
-	color: <?php echo $GLOBALS['cfg']['HeaderColor'];?>;
-	font-weight: normal;
+	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor'];?>;
+	/*font-weight: normal;*/
 }
 
 table.data a {
@@ -1840,7 +1845,7 @@ table.data a {
 }
 
 th a {
-	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor']; ?>;	
+	color: <?php echo $GLOBALS['cfg']['TopMenuColor']; ?>;	
 }
 
 th label, .name, tr.odd th, tr.even th {
