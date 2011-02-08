@@ -1556,7 +1556,7 @@ function PMA_ajaxShowMessage(message, timeout) {
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
-function toggle_enum_notice(selectElement) {
+function showNoticeForEnum(selectElement) {
     var enum_notice_id = selectElement.attr("id").split("_")[1];
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
     var selectedType = selectElement.attr("value");
@@ -2041,13 +2041,13 @@ $(document).ready(function() {
     //
     // needs live() to work also in the Create Table dialog
     $("select[class='column_type']").live('change', function() {
-        toggle_enum_notice($(this));
+        showNoticeForEnum($(this));
     });
 });
 
 function PMA_verifyTypeOfAllColumns() {
     $("select[class='column_type']").each(function() {
-        toggle_enum_notice($(this));
+        showNoticeForEnum($(this));
     });
 }
 
