@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 00:07+0200\n"
+"PO-Revision-Date: 2011-02-09 00:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3583,10 +3583,9 @@ msgstr ""
 "Repetir cabecera cada X celdas, [kbd]0[/kbd] desactiva esta funcionalidad"
 
 #: libraries/config/messages.inc.php:346
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Reparar los procesos"
+msgstr "Repetir cabeceras"
 
 #: libraries/config/messages.inc.php:347
 msgid "Show help button instead of Documentation text"
