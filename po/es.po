@@ -4126,6 +4126,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Mostrar enlace a salida de "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:447
 msgid "Show phpinfo() link"
