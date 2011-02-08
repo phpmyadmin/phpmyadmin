@@ -4885,10 +4885,9 @@ msgid "Display chart"
 msgstr "Visa diagram"
 
 #: libraries/display_tbl.lib.php:2265
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Skapa Användare"
+msgstr "Skapa vy"
 
 #: libraries/display_tbl.lib.php:2396
 msgid "Link not found"
