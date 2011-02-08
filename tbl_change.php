@@ -387,7 +387,7 @@ foreach ($rows as $row_id => $vrow) {
             || stripos($table_fields[$i]['Type'], 'varbinary') === 0) {
                 $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
             } else {
-                $table_fields[$i]['is_binary'] = false; 
+                $table_fields[$i]['is_binary'] = false;
             }
 
             // If check to ensure types such as "enum('one','two','blob',..)" or
@@ -398,7 +398,7 @@ foreach ($rows as $row_id => $vrow) {
             || stripos($table_fields[$i]['Type'], 'longblob') === 0) {
                 $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
             } else {
-                $table_fields[$i]['is_blob'] = false; 
+                $table_fields[$i]['is_blob'] = false;
             }
 
             // If check to ensure types such as "enum('one','two','char',..)" or
@@ -407,7 +407,7 @@ foreach ($rows as $row_id => $vrow) {
             || stripos($table_fields[$i]['Type'], 'varchar') === 0) {
                 $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
             } else {
-                $table_fields[$i]['is_char'] = false; 
+                $table_fields[$i]['is_char'] = false;
             }
 
             $table_fields[$i]['first_timestamp'] = false;
@@ -899,8 +899,8 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
 
             } else {
-                // field size should be at least 4 and max 40
-                $fieldsize = min(max($field['len'], 4), 40);
+                // field size should be at least 4 and max $cfg['LimitChars']
+                $fieldsize = min(max($field['len'], 4), $cfg['LimitChars']);
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
