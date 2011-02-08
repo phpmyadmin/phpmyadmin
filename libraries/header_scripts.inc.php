@@ -47,11 +47,7 @@ $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
 // avoid loading twice a js file
 $GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
-    if (strpos($js_script_file, '?') === FALSE) {
-        echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
-    } else {
-        echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
-    }
+    echo PMA_includeJS($js_script_file);
 }
 ?>
 <script type="text/javascript">

@@ -673,4 +673,19 @@ function PMA_linkURL($url) {
         return './url.php?url=' . $url;
     }
 }
+
+/**
+ * Returns HTML code to include javascript file.
+ *
+ * @param string $url Location of javascript, relative to js/ folder.
+ *
+ * @return string HTML code for javascript inclusion.
+ */
+function PMA_includeJS($url) {
+    if (strpos($js_script_file, '?') === FALSE) {
+        return '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
+    } else {
+        return '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
+    }
+}
 ?>
