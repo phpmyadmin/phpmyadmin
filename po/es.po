@@ -3513,7 +3513,6 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "No permitir la edición de columnas BLOB y BINARIAS"
 
 #: libraries/config/messages.inc.php:331
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Proteger los campos binarios"
