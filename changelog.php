@@ -15,13 +15,19 @@ require('./libraries/vendor_config.php');
 /**
  * Read changelog.
  */
-if (substr(CHANGELOG_FILE, -3) == '.gz') {
-    ob_start();
-    readgzfile(CHANGELOG_FILE);
-    $changelog = ob_get_contents();
-    ob_end_clean();
+// Check if the Changelog file is available, some distributions remove these.
+if (is_readable(CHANGELOG_FILE)) {
+    if (substr(CHANGELOG_FILE, -3) == '.gz') {
+        ob_start();
+        readgzfile(CHANGELOG_FILE);
+        $changelog = ob_get_contents();
+        ob_end_clean();
+    } else {
+        $changelog = file_get_contents(CHANGELOG_FILE);
+    }
 } else {
-    $changelog = file_get_contents(CHANGELOG_FILE);
+    echo "The Changelog file is not available on this system, please visit www.phpmyadmin.net for more information.";
+    exit;
 }
 
 /**
