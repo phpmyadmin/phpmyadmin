@@ -9,7 +9,7 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.inc.php';
+require './libraries/common.inc.php';
 
 $filename = CHANGELOG_FILE;
 
