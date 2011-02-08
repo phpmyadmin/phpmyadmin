@@ -6896,10 +6896,9 @@ msgid "Official Homepage"
 msgstr "phpMyAdmin:s officiella hemsida"
 
 #: main.php:227
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attribut"
+msgstr "Bidra"
 
 #: main.php:228
 #, fuzzy
