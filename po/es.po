@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 23:47+0200\n"
+"PO-Revision-Date: 2011-02-08 23:51+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2303,9 +2303,10 @@ msgstr "Guardar"
 msgid "Reset"
 msgstr "Reiniciar"
 
+# Description of http://www.phpmyadmin.net/documentation/Documentation.html#cfg_AjaxEnable
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Mejora la eficiencia de las actualizaciones de pantalla"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
