@@ -2110,7 +2110,7 @@ msgstr "There are no files to upload"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Both"
 
 #: libraries/config.values.php:74
 msgid "Open"
