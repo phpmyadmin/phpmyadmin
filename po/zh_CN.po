@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 11:56+0100\n"
+"POT-Creation-Date: 2011-02-08 13:32+0100\n"
 "PO-Revision-Date: 2011-01-20 03:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -37,9 +37,9 @@ msgstr ""
 "无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
 "更新。"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2783
-#: libraries/common.lib.php:2790 libraries/common.lib.php:2965
-#: libraries/common.lib.php:2966 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2790
+#: libraries/common.lib.php:2797 libraries/common.lib.php:2972
+#: libraries/common.lib.php:2973 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "搜索"
@@ -489,8 +489,8 @@ msgstr "提交查询"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:639 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:182
+#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/signon.auth.lib.php:187
 msgid "Access denied"
 msgstr "拒绝访问"
 
@@ -521,8 +521,8 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
-#: db_search.php:254 libraries/common.lib.php:2785
-#: libraries/common.lib.php:2963 libraries/common.lib.php:2964
+#: db_search.php:254 libraries/common.lib.php:2792
+#: libraries/common.lib.php:2970 libraries/common.lib.php:2971
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
 msgid "Browse"
@@ -670,14 +670,14 @@ msgid "Print view"
 msgstr "打印预览"
 
 #: db_structure.php:508 db_structure.php:509 libraries/common.lib.php:1635
-#: libraries/common.lib.php:2972 libraries/common.lib.php:2973
+#: libraries/common.lib.php:2979 libraries/common.lib.php:2980
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "清空"
 
 #: db_structure.php:510 db_structure.php:511 db_tracking.php:104
 #: libraries/Index.class.php:487 libraries/common.lib.php:1636
-#: libraries/common.lib.php:2970 libraries/common.lib.php:2971
+#: libraries/common.lib.php:2977 libraries/common.lib.php:2978
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:252 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
@@ -1651,21 +1651,21 @@ msgstr "选择服务器"
 msgid "Cookies must be enabled past this point."
 msgstr "必须启用 Cookies 才能登录。"
 
-#: libraries/auth/cookie.auth.lib.php:637
-#: libraries/auth/signon.auth.lib.php:180
+#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/signon.auth.lib.php:185
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: libraries/auth/cookie.auth.lib.php:641
-#: libraries/auth/signon.auth.lib.php:184
+#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/signon.auth.lib.php:189
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "登录超时 (%s 秒未活动)，请重新登录"
 
-#: libraries/auth/cookie.auth.lib.php:651
-#: libraries/auth/cookie.auth.lib.php:653
-#: libraries/auth/signon.auth.lib.php:190
+#: libraries/auth/cookie.auth.lib.php:657
+#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/signon.auth.lib.php:195
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
 
@@ -2014,8 +2014,8 @@ msgstr "跳转到数据库“%s”。"
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
-#: libraries/common.lib.php:2781 libraries/common.lib.php:2788
-#: libraries/common.lib.php:2969 libraries/config/setup.forms.php:291
+#: libraries/common.lib.php:2788 libraries/common.lib.php:2795
+#: libraries/common.lib.php:2976 libraries/config/setup.forms.php:291
 #: libraries/config/setup.forms.php:328 libraries/config/setup.forms.php:362
 #: libraries/config/user_preferences.forms.php:193
 #: libraries/config/user_preferences.forms.php:230
@@ -2027,7 +2027,7 @@ msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 msgid "Structure"
 msgstr "结构"
 
-#: libraries/common.lib.php:2782 libraries/common.lib.php:2789
+#: libraries/common.lib.php:2789 libraries/common.lib.php:2796
 #: libraries/config/messages.inc.php:211 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:46 libraries/tbl_links.inc.php:58
@@ -2035,35 +2035,49 @@ msgstr "结构"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2784 libraries/common.lib.php:2967
-#: libraries/common.lib.php:2968 libraries/sql_query_form.lib.php:318
+#: libraries/common.lib.php:2791 libraries/common.lib.php:2974
+#: libraries/common.lib.php:2975 libraries/sql_query_form.lib.php:318
 #: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:67
 msgid "Insert"
 msgstr "插入"
 
-#: libraries/common.lib.php:2791 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2798 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:2917
+#: libraries/common.lib.php:2924
 msgid "Browse your computer:"
 msgstr "从计算机中上传："
 
-#: libraries/common.lib.php:2930
+#: libraries/common.lib.php:2937
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
-#: libraries/common.lib.php:2942 libraries/sql_query_form.lib.php:500
+#: libraries/common.lib.php:2949 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:956
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
-#: libraries/common.lib.php:2950
+#: libraries/common.lib.php:2957
 msgid "There are no files to upload"
 msgstr "没有可上传的文件"
+
+#: libraries/config.values.php:45 libraries/config.values.php:50
+msgid "both"
+msgstr ""
+
+#: libraries/config.values.php:74
+msgid "open"
+msgstr ""
+
+#: libraries/config.values.php:74
+#, fuzzy
+#| msgid "Close"
+msgid "closed"
+msgstr "关闭"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
