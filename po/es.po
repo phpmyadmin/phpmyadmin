@@ -3923,7 +3923,7 @@ msgstr "Habilitar SSL para conexión con el servidor SQL"
 
 #: libraries/config/messages.inc.php:412
 msgid "Use SSL"
-msgstr "Use SSL"
+msgstr "Usar SSL"
 
 #: libraries/config/messages.inc.php:413
 msgid ""
