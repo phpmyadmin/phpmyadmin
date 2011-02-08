@@ -3464,6 +3464,7 @@ msgstr "Barra de navegación mediante íconos"
 #: libraries/config/messages.inc.php:320
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
+"Utilizar búfer en salida de GZip para mayor velocidad en transferencias HTTP"
 
 #: libraries/config/messages.inc.php:321
 msgid "GZip output buffering"
