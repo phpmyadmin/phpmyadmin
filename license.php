@@ -10,13 +10,22 @@
  */
 
 /**
- * Load paths.
+ * Gets core libraries and defines some variables
  */
-require('./libraries/vendor_config.php');
+require_once './libraries/common.inc.php';
 
 /**
  *
  */
 header('Content-type: text/plain; charset=iso-8859-1');
-readfile(LICENSE_FILE);
+
+$filename = LICENSE_FILE;
+
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+    readfile($filename);
+} else {
+    printf(__('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'), $filename);
+}
+
 ?>

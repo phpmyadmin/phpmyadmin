@@ -7,20 +7,30 @@
  */
 
 /**
- * Load paths.
+ * Gets core libraries and defines some variables
  */
-require('./libraries/vendor_config.php');
+require_once './libraries/common.inc.php';
+
+$filename = CHANGELOG_FILE;
 
 /**
  * Read changelog.
  */
-if (substr(CHANGELOG_FILE, -3) == '.gz') {
-    ob_start();
-    readgzfile(CHANGELOG_FILE);
-    $changelog = ob_get_contents();
-    ob_end_clean();
+// Check if the file is available, some distributions remove these.
+if (is_readable($filename)) {
+
+    // Test if the if is in a compressed format
+    if (substr($filename, -3) == '.gz') {
+        ob_start();
+        readgzfile($filename);
+        $changelog = ob_get_contents();
+        ob_end_clean();
+    } else {
+        $changelog = file_get_contents($filename);
+    }
 } else {
-    $changelog = file_get_contents(CHANGELOG_FILE);
+    printf(__('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'), $filename);
+    exit;
 }
 
 /**
