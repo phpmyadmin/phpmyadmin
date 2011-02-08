@@ -3580,6 +3580,7 @@ msgstr "Motor de recodificación"
 #: libraries/config/messages.inc.php:345
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Repetir cabecera cada X celdas, [kbd]0[/kbd] desactiva esta funcionalidad"
 
 #: libraries/config/messages.inc.php:346
 #, fuzzy
