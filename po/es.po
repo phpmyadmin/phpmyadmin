@@ -3838,6 +3838,8 @@ msgstr "Contraseña para config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
+"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "PDF schema: pages table"
