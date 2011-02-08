@@ -3447,7 +3447,7 @@ msgstr "Ocultar/mostrar menú de modificación a la derecha"
 
 #: libraries/config/messages.inc.php:316
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Utilizar orden natural para ordenar nombres de tablas y bases de datos"
 
 #: libraries/config/messages.inc.php:317
 #, fuzzy
