@@ -3934,7 +3934,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:414
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Esquema en PDF: tabla de coordenadas"
 
 #: libraries/config/messages.inc.php:415
 #, fuzzy
