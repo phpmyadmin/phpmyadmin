@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-08 23:52+0200\n"
+"PO-Revision-Date: 2011-02-08 23:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2618,11 +2618,11 @@ msgstr "Columnas terminadas en"
 msgid "Lines terminated by"
 msgstr "Líneas terminadas en"
 
+# Used on libraries/export/csv.php to decide what level of compatibility needs due to excel version
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Edición Excel"
+msgstr "Versión de Excel"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
