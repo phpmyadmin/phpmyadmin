@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 00:05+0200\n"
+"PO-Revision-Date: 2011-02-09 00:06+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3450,10 +3450,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Utilizar orden natural para ordenar nombres de tablas y bases de datos"
 
 #: libraries/config/messages.inc.php:317
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Modificar el ORDER BY de la tabla"
+msgstr "Orden natural"
 
 #: libraries/config/messages.inc.php:318 libraries/config/messages.inc.php:328
 msgid "Use only icons, only text or both"
