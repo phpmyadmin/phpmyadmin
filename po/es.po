@@ -3443,7 +3443,7 @@ msgstr "Ocultar/mostrar menú de borrado a la izquierda"
 
 #: libraries/config/messages.inc.php:315
 msgid "Show right delete link"
-msgstr ""
+msgstr "Ocultar/mostrar menú de modificación a la derecha"
 
 #: libraries/config/messages.inc.php:316
 msgid "Use natural order for sorting table and database names"
