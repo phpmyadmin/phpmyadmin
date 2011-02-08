@@ -16,9 +16,7 @@ require_once './libraries/common.inc.php';
 
 // Cross-framing protection
 if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-?>
-<script src="./js/cross_framing_protection.js" type="text/javascript"></script>
-<?php
+    echo PMA_includeJS('cross_framing_protection.js');
 }
 // generate title
 $title = PMA_expandUserString(
