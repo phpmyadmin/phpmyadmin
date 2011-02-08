@@ -6903,7 +6903,7 @@ msgstr "Získejte podporu"
 #: main.php:229
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Seznam změna"
+msgstr "Seznam změn"
 
 #: main.php:253
 msgid ""
