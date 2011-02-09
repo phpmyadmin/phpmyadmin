@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:55+0200\n"
+"PO-Revision-Date: 2011-02-09 22:56+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1120,10 +1120,9 @@ msgid "Table must have at least one column"
 msgstr "کم سے کم ایک کالم ہونا لازمی ہے"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Create Table"
-msgstr "ٹیبلز استعمال کریں"
+msgstr "ٹیبل بنائیں"
 
 #: js/messages.php:81
 #, fuzzy
