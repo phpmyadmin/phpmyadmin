@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:25+0200\n"
+"PO-Revision-Date: 2011-02-09 22:26+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -687,7 +687,7 @@ msgstr "With selected:"
 #: server_databases.php:248 server_privileges.php:576
 #: server_privileges.php:1686 tbl_structure.php:548
 msgid "Check All"
-msgstr "چیک آل"
+msgstr "تمام چیک کریں"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2089
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
