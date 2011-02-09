@@ -3413,7 +3413,7 @@ msgstr "Prikaži povezave do vrstic tabele na levi strani"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Prikaži povezave do vrstic tabele na desni strani"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
