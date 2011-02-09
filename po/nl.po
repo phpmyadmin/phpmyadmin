@@ -4208,7 +4208,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin waarschuwing"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
