@@ -2083,7 +2083,6 @@ msgid "Open"
 msgstr "开启"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Close"
 msgid "Closed"
 msgstr "关闭"
