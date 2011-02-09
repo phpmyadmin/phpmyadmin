@@ -3937,7 +3937,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Voeg DROP TABLE toe"
 
 # "statement" hier vertalen is geen goed idee.
 #: libraries/config/messages.inc.php:422
