@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 17:09+0100\n"
+"POT-Creation-Date: 2011-02-09 07:56-0500\n"
 "PO-Revision-Date: 2011-02-05 02:27+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -352,7 +352,7 @@ msgid "Edit or export relational schema"
 msgstr "Uredi ali izvozi relacijsko shemo"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:486 libraries/db_structure.lib.php:37
+#: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
 #: libraries/export/pdf.php:100 libraries/export/xml.php:331
 #: libraries/header.inc.php:138 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1762 server_privileges.php:1818
@@ -626,8 +626,8 @@ msgstr "Sledenje ni aktivno."
 #: db_structure.php:379 libraries/display_tbl.lib.php:1952
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
@@ -733,7 +733,7 @@ msgstr "Slovar podatkov"
 msgid "Tracked tables"
 msgstr "Sledene tabele"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:480
+#: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
 #: libraries/export/sql.php:441 libraries/export/texytext.php:77
@@ -861,8 +861,8 @@ msgstr "Dump je shranjen v datoteko %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, oglejte si "
 "%sdokumentacijo%s za načine, kako obiti to omejitev."
@@ -1496,7 +1496,7 @@ msgid "Comment"
 msgstr "Pripomba"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:606
-#: libraries/common.lib.php:1136 libraries/config/messages.inc.php:460
+#: libraries/common.lib.php:1136 libraries/config/messages.inc.php:461
 #: libraries/display_tbl.lib.php:1164 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
@@ -1647,8 +1647,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -1894,7 +1894,7 @@ msgstr ""
 "Neveljavno ime gostitelja za strežnik %1$s. Prosim, preglejte svojo "
 "konfiguracijo."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:484
+#: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:174 test/theme.php:56
 msgid "Server"
 msgstr "Strežnik"
@@ -1948,7 +1948,7 @@ msgstr "MySQL je vrnil: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Ne morem se povezati s preverjalnikom SQL!"
 
-#: libraries/common.lib.php:1112 libraries/config/messages.inc.php:461
+#: libraries/common.lib.php:1112 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
 msgstr "Razloži stavek SQL"
 
@@ -1960,11 +1960,11 @@ msgstr "Preskoči razlago stavka SQL"
 msgid "Without PHP Code"
 msgstr "Brez kode PHP"
 
-#: libraries/common.lib.php:1152 libraries/config/messages.inc.php:463
+#: libraries/common.lib.php:1152 libraries/config/messages.inc.php:464
 msgid "Create PHP Code"
 msgstr "Ustvari kodo PHP"
 
-#: libraries/common.lib.php:1170 libraries/config/messages.inc.php:462
+#: libraries/common.lib.php:1170 libraries/config/messages.inc.php:463
 #: server_status.php:467
 msgid "Refresh"
 msgstr "Osveži"
@@ -1973,7 +1973,7 @@ msgstr "Osveži"
 msgid "Skip Validate SQL"
 msgstr "Preskoči preverjanje pravilnosti SQL stavka"
 
-#: libraries/common.lib.php:1182 libraries/config/messages.inc.php:465
+#: libraries/common.lib.php:1182 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
 msgstr "Preveri pravilnost stavka SQL"
 
@@ -2264,7 +2264,7 @@ msgid "Set value: %s"
 msgstr "Določi vrednost: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:350
 msgid "Restore default value"
 msgstr "Povrni privzeto vrednost"
 
@@ -3343,7 +3343,7 @@ msgid "Maximum displayed SQL length"
 msgstr "Največja dolžina prikazanega SQL"
 
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
 msgstr "Uporabniki ne morejo določiti višje vrednosti"
 
@@ -3404,38 +3404,44 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:314
-msgid "Show left delete link"
-msgstr "Pokaži levo povezavo za izbris"
+msgid "These are Edit, Inline edit, Copy and Delete links"
+msgstr ""
 
 #: libraries/config/messages.inc.php:315
-msgid "Show right delete link"
-msgstr "Pokaži desno povezavo za izbris"
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show table row links on left side"
+msgstr "Prikaži logotip v levem okvirju"
 
 #: libraries/config/messages.inc.php:316
+msgid "Show table row links on right side"
+msgstr ""
+
+#: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
 msgstr "Uporabi naravni vrstni red za razvrščanje tabel in imen zbirk podatkov"
 
-#: libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:318
 msgid "Natural order"
 msgstr "Naravni vrstni red"
 
-#: libraries/config/messages.inc.php:318 libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
 msgstr "Uporabi samo ikone, samo besedilo ali oboje"
 
-#: libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
 msgstr "Ikonska navigacijska vrstica"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "Uporabi izhod medpomnjenja GZip za povečano hitrost v prenosih HTTP"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:322
 msgid "GZip output buffering"
 msgstr "Izhod medpomnjenja GZip"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:323
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -3443,19 +3449,19 @@ msgstr ""
 "[kbd]SMART[/kbd] – tj. padajoči vrstni red za stolpce vrste TIME, DATE, "
 "DATETIME in TIMESTAMP, v naprotnem primeru naraščajoči vrstni red"
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
 msgstr "Privzet vrstni red"
 
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
 msgstr "Uporabi vztrajne povezave s podatkovnimi zbirkami MySQL"
 
-#: libraries/config/messages.inc.php:325
+#: libraries/config/messages.inc.php:326
 msgid "Persistent connections"
 msgstr "Vztrajne povezave"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:327
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -3465,23 +3471,23 @@ msgstr ""
 "podatkov Struktura, če katera od tabel, potrebnih za hrambo konfiguracije "
 "phpMyAdmin, ni bila najdena"
 
-#: libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
 msgstr "Ikonski posegi tabel"
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:331
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Prepreči urejanje stolpcev BLOB in BINARY"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:332
 msgid "Protect binary columns"
 msgstr "Zaščiti dvojiške stolpce"
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:333
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3491,107 +3497,107 @@ msgstr ""
 "(potrebuje hrambo konfiguracije phpMyAdmin). Če je onemogočeno, se za prikaz "
 "zgodovine poizvedb uporabi rutina JavaScript (ki se izgubi ob zaprtju okna)."
 
-#: libraries/config/messages.inc.php:333
+#: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
 msgstr "Trajna zgodovina poizvedb"
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
 msgstr "Koliko poizvedb je hranjenih v zgodovini"
 
-#: libraries/config/messages.inc.php:336
+#: libraries/config/messages.inc.php:337
 msgid "Query history length"
 msgstr "Dolžina zgodovine poizvedb"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
 msgstr "Zavihek, ki se prikaže ob odprtju novega okna za poizvedbe"
 
-#: libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
 msgstr "Privzet zavihek okna za poizvedbe"
 
-#: libraries/config/messages.inc.php:339
+#: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
 msgstr "Višina okna poizvedb (v slikovnih pikah)"
 
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:341
 msgid "Query window height"
 msgstr "Višina okna poizvedb"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:342
 msgid "Query window width (in pixels)"
 msgstr "Širina okna poizvedb (v slikovnih pikah)"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:343
 msgid "Query window width"
 msgstr "Širina okna poizvedb"
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
 msgstr "Določi katere funkcije bodo uporabljene za pretvorbo nabora znakov"
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
 msgstr "Pogon rekodiranja"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Ponovi glave vsakih X celic, [kbd]0[/kbd] dezaktivira to funkcijo"
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:347
 msgid "Repeat headers"
 msgstr "Ponovi glave"
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
 msgstr "Prikaži gumb za pomoč namesto besedila dokumentacije"
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:349
 msgid "Show help button"
 msgstr "Prikaži gumb za pomoč"
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
 msgstr "Mapa, kamor se lahko na strežnik shranijo izvozi"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:352
 msgid "Save directory"
 msgstr "Mapa za shranjevanje"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
 msgstr "Pustite prazno, če se ne uporablja"
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
 msgstr "Zaporedje overovitve gostitelja"
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
 msgstr "Pustite prazno za privzeto"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
 msgstr "Pravila overovitve gostitelja"
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
 msgstr "Dovoli prijave brez gesla"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:358
 msgid "Allow root login"
 msgstr "Dovoli prijavo root"
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "Ime področja HTTP Basic Auth, ki se prikaže med HTTP Auth"
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
 msgstr "Področje HTTP"
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:361
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -3601,19 +3607,19 @@ msgstr ""
 "SweKey[/a] (se ne nahaja v korenski mapi dokumentov; predlagano: /etc/swekey."
 "conf)"
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:362
 msgid "SweKey config file"
 msgstr "Konfiguracijska datoteka SweKey"
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:363
 msgid "Authentication method to use"
 msgstr "Način overovitve za uporabo"
 
-#: libraries/config/messages.inc.php:363 setup/frames/index.inc.php:114
+#: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
 msgstr "Vrsta overovitve"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:365
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -3621,11 +3627,11 @@ msgstr ""
 "Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]zaznamkov[/a]; predlagano: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
 msgstr "Tabela zaznamkov"
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:367
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -3633,32 +3639,32 @@ msgstr ""
 "Pustite prazno, če ne želite pripomb/vrst mime stolpcev; predlagano: [kbd]"
 "pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:368
 msgid "Column information table"
 msgstr "Tabela informacij stolpcev"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:369
 msgid "Compress connection to MySQL server"
 msgstr "Stisni povezavo s strežnikom MySQL"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:370
 msgid "Compress connection"
 msgstr "Stisni povezavo"
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 "Način povezave s strežnikom; pustite [kbd]tcp[/kbd], če niste prepričani"
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:372
 msgid "Connection type"
 msgstr "Vrsta povezave"
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:373
 msgid "Control user password"
 msgstr "Geslo krmilnega uporabnika"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:374
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -3666,19 +3672,19 @@ msgstr ""
 "Posebni uporabnik MySQL, konfiguriran z omejenimi dovoljenji; več informacij "
 "je na voljo na [a@http://wiki.phpmyadmin.net/pma/controluser]wikiji[/a]"
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:375
 msgid "Control user"
 msgstr "Krmilni uporabnik"
 
-#: libraries/config/messages.inc.php:375
+#: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
 msgstr "Preštej tabele med prikazovanjem seznama podatkovnih zbirk"
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:377
 msgid "Count tables"
 msgstr "Preštej tabele"
 
-#: libraries/config/messages.inc.php:377
+#: libraries/config/messages.inc.php:378
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -3686,11 +3692,11 @@ msgstr ""
 "Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
 "pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:379
 msgid "Designer table"
 msgstr "Tabela Oblikovalnika"
 
-#: libraries/config/messages.inc.php:379
+#: libraries/config/messages.inc.php:380
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -3698,27 +3704,27 @@ msgstr ""
 "Več informacij na [a@http://sf.net/support/tracker.php?aid=1849494]"
 "sledilniku hroščev PMA[/a] in[a@http://bugs.mysql.com/19588]hroščih MySQL[/a]"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:381
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Onemogoči uporabo INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr "Katera razširitev PHP naj se uporablja; uporabite mysqli, če je podprt"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:383
 msgid "PHP extension to use"
 msgstr "Razširitev PHP za uporabo"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Skrije zbirke podatkov, ki se ujemajo z običajnim izrazom (PCRE)"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:385
 msgid "Hide databases"
 msgstr "Skrij zbirke podatkov"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:386
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -3726,31 +3732,31 @@ msgstr ""
 "Pustite prazno, če ne želite podpore zgodovine poizvedb SQL; predlagano: "
 "[kbd]pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:387
 msgid "SQL query history table"
 msgstr "Tabela zgodovine poizvedb SQL"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
 msgstr "Ime gostitelja, kjer teče strežnik MySQL"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:389
 msgid "Server hostname"
 msgstr "Ime gostitelja strežnika"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:390
 msgid "Logout URL"
 msgstr "Odjavni URL"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
 msgstr "Poskusi se povezati brez gesla"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:392
 msgid "Connect without password"
 msgstr "Poveži se brez gesla"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:393
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -3764,30 +3770,30 @@ msgstr ""
 "v vrstnem redu in na koncu uporabite [kbd]*[/kbd] za prikaz preostalih v "
 "abecednem vrstnem redu."
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
 msgstr "Prikaži samo navedene zbirke podatkov"
 
-#: libraries/config/messages.inc.php:394 libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
 msgstr "Pustite prazno, če ne uporabljate overovitve config"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
 msgstr "Geslo za overovitev config"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Pustite prazno, če ne želite podpore PDF-sheme; predlagano: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
 msgstr "PDF-shema: tabele strani"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:399
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -3797,20 +3803,20 @@ msgstr ""
 "si [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] za vse informacije. "
 "Pustite prazno, če ne želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:400
 msgid "Database name"
 msgstr "Ime zbirke podatkov"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Vrata, na katera naj bo strežnik MySQL priključen; pustite prazno za privzeto"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:402
 msgid "Server port"
 msgstr "Vrata strežnika"
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:403
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -3818,19 +3824,19 @@ msgstr ""
 "Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relacijskih povezav[/a]; priporočeno: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:404
 msgid "Relation table"
 msgstr "Relacijska tabela"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
 msgstr "Ukaz SQL za pridobitev razpoložljivih zbirk podatkov"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
 msgstr "Ukaz SHOW DATABASES"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:407
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -3838,43 +3844,43 @@ msgstr ""
 "Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:408
 msgid "Signon session name"
 msgstr "Ime seje signon"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:409
 msgid "Signon URL"
 msgstr "URL signon"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Vtičnica na katero je povezan strežnik MySQL; pustite prazno za privzeto"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:411
 msgid "Server socket"
 msgstr "Vtičnica strežnika"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Omogoči SSL za povezavo s strežnikom MySQL"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:413
 msgid "Use SSL"
 msgstr "Uporabi SSL"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Pustite prazno, če ne želite podpore PDF-sheme; predlagano: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:415
 msgid "PDF schema: table coordinates"
 msgstr "PDF-shema: koordinate tabel"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:416
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -3882,11 +3888,11 @@ msgstr ""
 "Tabela za opisovanje prikaznih stolpcev; pustite prazno, če ne želite "
 "podpore; predlagano: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:417
 msgid "Display columns table"
 msgstr "Tabela prikaznih stolpcev"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:418
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -3894,11 +3900,11 @@ msgstr ""
 "Ali naj se stavek DROP DATABASE IF EXISTS doda kot prva vrstica v dnevnik "
 "pri ustvarjanju zbirke podatkov."
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:419
 msgid "Add DROP DATABASE"
 msgstr "Dodaj DROP DATABASE"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:420
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -3906,11 +3912,11 @@ msgstr ""
 "Ali naj se stavek DROP TABLE IF EXISTS doda kot prva vrstica v dnevnik pri "
 "ustvarjanju tabele."
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
 msgstr "Dodaj DROP TABLE"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:422
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -3918,21 +3924,21 @@ msgstr ""
 "Ali naj se stavek DROP VIEW IF EXISTS doda kot prva vrstica v dnevnik pri "
 "ustvarjanju pogleda."
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
 msgstr "Dodaj DROP VIEW"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Določi seznam stavkov, ki jih samodejno ustvarjanje uporabi za nove "
 "različice."
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:425
 msgid "Statements to track"
 msgstr "Izjave za sledenje"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -3940,22 +3946,22 @@ msgstr ""
 "Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
 "pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:427
 msgid "SQL query tracking table"
 msgstr "Tabela sledenja poizvedb SQL"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:428
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Ali naj mehanizem sledenja ustvari različice tabel in pogledov samodejno."
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:429
 msgid "Automatically create versions"
 msgstr "Samodejno ustvari različice"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:430
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
@@ -3963,15 +3969,15 @@ msgstr ""
 "Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
 "podatkov; predlagano: [kbd]pma_config[/kbd]"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
 msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:433
 msgid "User for config auth"
 msgstr "Uporabnik za overovitev config"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:434
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -3979,11 +3985,11 @@ msgstr ""
 "Onemogočite, če veste, da so vaše tabele pma_* ažurirane. To prepreči "
 "preverjanja združljivosti in tako poveča zmogljivost"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:435
 msgid "Verbose check"
 msgstr "Preverjanje razširitve"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:436
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -3991,19 +3997,19 @@ msgstr ""
 "Uporabniku prijazen opis tega strežnika. Pustite prazno, če se naj namesto "
 "tega prikaže ime gostitelja."
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
 msgstr "Razširjeno ime tega strežnika"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:438
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Ali se naj uporabniku prikaže gumb &quot;prikaži vse (vrstice)&quot;"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
 msgstr "Dovoli prikaz vseh vrstic"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:440
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -4013,33 +4019,33 @@ msgstr ""
 "kbd], saj je geslo vgrajeno v konfiguracijsko datoteko; to ne omejuje "
 "možnosti izvedbe enakega ukaza neposredno"
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:441
 msgid "Show password change form"
 msgstr "Pokaži obrazec za spremembo gesla"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:442
 msgid "Show create database form"
 msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr "Določa ali naj bodo v načinu urejanja/vstavljanja prikazane vrste polj"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:444
 msgid "Show field types"
 msgstr "Pokaži vrste polj"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
 msgstr "Prikaže polja funkcij v načinu urejanja/vstavljanja"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:446
 msgid "Show function fields"
 msgstr "Prikaži polja funkcij"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -4047,32 +4053,32 @@ msgstr ""
 "Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo.php]"
 "phpinfo()[/a]"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:448
 msgid "Show phpinfo() link"
 msgstr "Prikaži povezavo phpinfo()"
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:449
 msgid "Show detailed MySQL server information"
 msgstr "Prikaži podrobne informacije o strežniku MySQL"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:450
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Določi, ali se naj poizvedbe SQL, ki jih ustvari phpMyAdmin, prikažejo"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:451
 msgid "Show SQL queries"
 msgstr "Pokaži poizvedbe SQL"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Dovoli prikaz statistike zbirke podatkov in tabele (npr. poraba prostora)"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:453
 msgid "Show statistics"
 msgstr "Pokaži statistiko"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:454
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -4080,11 +4086,11 @@ msgstr ""
 "Če so zaslonski namigi omogočeni in ima zbirka podatkov določeno pripombo, "
 "bo to zamenjalo pripombo in pravo ime"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
 msgstr "Prikaži pripombo zbirke podatkov namesto njenega imena"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:456
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -4096,30 +4102,30 @@ msgstr ""
 "['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, sama "
 "imena tabel pa ostanejo nespremenjena"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:457
 msgid "Display table comment instead of its name"
 msgstr "Prikaži pripombo tabele namesto njenega imena"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:458
 msgid "Display table comments in tooltips"
 msgstr "Prikaži pripombe tabel v zaslonskih namigih"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:459
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Označi uporabljene tabele in omogoči prikaz zbirk podatkov z zaklenjenimi "
 "tabelami"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:460
 msgid "Skip locked tables"
 msgstr "Preskoči zaklenjene tabele"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
 msgstr "Potrebuje omogočen Preverjalnik SQL"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:62
 #: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
@@ -4129,7 +4135,7 @@ msgstr "Potrebuje omogočen Preverjalnik SQL"
 msgid "Password"
 msgstr "Geslo"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:468
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -4137,11 +4143,11 @@ msgstr ""
 "[strong]Opozorilo:[/strong] potrebuje nameščeno razširitev PHP SOAP ali PEAR "
 "SOAP"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
 msgstr "Omogoči Preverjalnik SQL"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:470
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -4149,12 +4155,12 @@ msgstr ""
 "Če imate uporabniško ime po meri, ga določite tukaj (privzeto [kbd]anonymous"
 "[/kbd])"
 
-#: libraries/config/messages.inc.php:470 tbl_tracking.php:405
+#: libraries/config/messages.inc.php:471 tbl_tracking.php:405
 #: tbl_tracking.php:456
 msgid "Username"
 msgstr "Uporabniško ime"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:472
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -4162,19 +4168,19 @@ msgstr ""
 "Predlagaj ime zbirke podatkov v obrazcu &quot;Ustvari zbirko podatkov&quot; "
 "(če je le mogoče) ali pusti besedilno polje prazno"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:473
 msgid "Suggest new database name"
 msgstr "Predlagaj novo ime zbirke podatkov"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "Na glavni strani se prikaže opozorilo, če je zaznan Suhosin"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
 msgstr "Opozorilo Suhosin"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -4182,11 +4188,11 @@ msgstr ""
 "Velikost besedilnega polja (stolpci) v načinu urejanja; vrednost bo povečana "
 "za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:477
 msgid "Textarea columns"
 msgstr "Stolpcev besedilnega polja"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:478
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -4194,31 +4200,31 @@ msgstr ""
 "Velikost besedilnega polja (vrstice) v načinu urejanja; vrednost bo povečana "
 "za polja poizvedb SQL (*2) in za okno poizvedbe (*1,25)"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:479
 msgid "Textarea rows"
 msgstr "Vrstic besedilnega polja"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
 msgstr "Naslov okna brskalnika, ko je izbrana zbirka podatkov"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
 msgstr "Naslov okna brskalnika, ko je ni izbrano nič"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:483
 msgid "Default title"
 msgstr "Privzeti naslov"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
 msgstr "Naslov okna brskalnika, ko je izbran strežnik"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
 msgstr "Naslov okna brskalnika, ko je izbrana tabela"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:488
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -4229,27 +4235,27 @@ msgstr ""
 "navaja, da naj phpMyAdmin zaupa glavi HTTP_X_FORWARDED_FOR (X-Forwarded-For) "
 "prihajajoči iz proxyja 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:489
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Seznam zaupanja vrednih proxyjev za sprejetje/zavrnitev IP"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:490
 msgid "Directory on server where you can upload files for import"
 msgstr "Mapa na strežniku, kamor lahko naložite datoteke za uvoz"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:491
 msgid "Upload directory"
 msgstr "Mapa za nalaganje"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
 msgstr "Dovoli iskanje po celotni zbirki podatkov"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:493
 msgid "Use database search"
 msgstr "Uporabi iskanje po zbirki podatkov"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:494
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -4257,11 +4263,11 @@ msgstr ""
 "Ko je onemogočeno, uporabniki ne morejo nastaviti katere koli od spodnjih "
 "možnosti, ne glede na potrditveno polje na desni"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:495
 msgid "Enable the Developer tab in settings"
 msgstr "Omogoči zavihek Razvijalec v nastavitvah"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:496
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -4271,19 +4277,19 @@ msgstr ""
 "si libraries/import.lib.php za privzete podatke o tem, koliko poizvedb lahko "
 "stavek vsebuje."
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:497
 msgid "Verbose multiple statements"
 msgstr "Zgosti večkratne stavke"
 
-#: libraries/config/messages.inc.php:497 setup/frames/index.inc.php:229
+#: libraries/config/messages.inc.php:498 setup/frames/index.inc.php:229
 msgid "Check for latest version"
 msgstr "Preveri za najnovejšo različico"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "Omogoča preverjanje najnovejše različice na glavni strani phpMyAdmin"
 
-#: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
+#: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
 #: setup/lib/index.lib.php:149 setup/lib/index.lib.php:157
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
@@ -4291,7 +4297,7 @@ msgstr "Omogoča preverjanje najnovejše različice na glavni strani phpMyAdmin"
 msgid "Version check"
 msgstr "Preverjanje različice"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -4299,7 +4305,7 @@ msgstr ""
 "Omogoči stiskanje [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 "za posege uvoza in izvoza"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:502
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -4620,8 +4626,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -5358,8 +5364,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -7756,8 +7762,8 @@ msgstr "Izbriši zbirke podatkov, ki imajo enako ime kot uporabniki."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -10015,6 +10021,12 @@ msgstr "Ime VIEW"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Preimenuj pogled v"
+
+#~ msgid "Show left delete link"
+#~ msgstr "Pokaži levo povezavo za izbris"
+
+#~ msgid "Show right delete link"
+#~ msgstr "Pokaži desno povezavo za izbris"
 
 #~ msgid "Mailing lists"
 #~ msgstr "Poštni seznami"

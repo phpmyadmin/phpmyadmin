@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-08 17:09+0100\n"
+"POT-Creation-Date: 2011-02-09 07:56-0500\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator:  <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -352,7 +352,7 @@ msgid "Edit or export relational schema"
 msgstr "Relaatioskeeman muokkaus tai vienti"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:486 libraries/db_structure.lib.php:37
+#: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
 #: libraries/export/pdf.php:100 libraries/export/xml.php:331
 #: libraries/header.inc.php:138 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1762 server_privileges.php:1818
@@ -621,11 +621,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:379 libraries/display_tbl.lib.php:1952
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
-"%sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
+"sohjeista%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -730,7 +730,7 @@ msgstr "Tietosanasto"
 msgid "Tracked tables"
 msgstr "Seurattavat taulut"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:480
+#: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
 #: libraries/export/sql.php:441 libraries/export/texytext.php:77
@@ -858,8 +858,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -1497,7 +1497,7 @@ msgid "Comment"
 msgstr "Kommentti"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:606
-#: libraries/common.lib.php:1136 libraries/config/messages.inc.php:460
+#: libraries/common.lib.php:1136 libraries/config/messages.inc.php:461
 #: libraries/display_tbl.lib.php:1164 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
@@ -1642,11 +1642,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
-"%1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
+"$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1889,7 +1889,7 @@ msgstr "Virheellinen palvelimen indeksi: %s"
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Palvelimella %1$s virheellinen nimi. Tarkista asetukset."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:484
+#: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:174 test/theme.php:56
 msgid "Server"
 msgstr "Palvelin"
@@ -1943,7 +1943,7 @@ msgstr "MySQL ilmoittaa: "
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL-validaattoriin ei voitu yhdistää"
 
-#: libraries/common.lib.php:1112 libraries/config/messages.inc.php:461
+#: libraries/common.lib.php:1112 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
 msgstr "Selitä SQL-kysely"
 
@@ -1955,11 +1955,11 @@ msgstr "Älä selitä SQL-kyselyä"
 msgid "Without PHP Code"
 msgstr "Kätke PHP-koodi"
 
-#: libraries/common.lib.php:1152 libraries/config/messages.inc.php:463
+#: libraries/common.lib.php:1152 libraries/config/messages.inc.php:464
 msgid "Create PHP Code"
 msgstr "Näytä PHP-koodi"
 
-#: libraries/common.lib.php:1170 libraries/config/messages.inc.php:462
+#: libraries/common.lib.php:1170 libraries/config/messages.inc.php:463
 #: server_status.php:467
 msgid "Refresh"
 msgstr "Päivitä"
@@ -1968,7 +1968,7 @@ msgstr "Päivitä"
 msgid "Skip Validate SQL"
 msgstr "Älä tarkista SQL-kyselyä"
 
-#: libraries/common.lib.php:1182 libraries/config/messages.inc.php:465
+#: libraries/common.lib.php:1182 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
 msgstr "Tarkista SQL-lause"
 
@@ -2258,7 +2258,7 @@ msgid "Set value: %s"
 msgstr "Aseta arvo: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:350
 msgid "Restore default value"
 msgstr "Palauta oletusarvo"
 
@@ -3405,7 +3405,7 @@ msgid "Maximum displayed SQL length"
 msgstr "Näytettävän SQL-kyselyn enimmäispituus"
 
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
 msgstr ""
 
@@ -3464,42 +3464,46 @@ msgid "Memory limit"
 msgstr "Muistirajoitus"
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
-#| msgid "Show/Hide left menu"
-msgid "Show left delete link"
-msgstr "Näytä/kätke vasen valikko"
-
-#: libraries/config/messages.inc.php:315
-msgid "Show right delete link"
+msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr ""
 
+#: libraries/config/messages.inc.php:315
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show table row links on left side"
+msgstr "Näytä vasemmassa kehyksessä logo"
+
 #: libraries/config/messages.inc.php:316
-msgid "Use natural order for sorting table and database names"
+msgid "Show table row links on right side"
 msgstr ""
 
 #: libraries/config/messages.inc.php:317
+msgid "Use natural order for sorting table and database names"
+msgstr ""
+
+#: libraries/config/messages.inc.php:318
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Lajittele taulu"
 
-#: libraries/config/messages.inc.php:318 libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia"
 
-#: libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
 msgstr "Navigointipalkki, jossa kuvakkeet"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "käytä Gzip-ulostulon puskurointia nopeuttaaksesi HTTP-siirtoja"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:322
 msgid "GZip output buffering"
 msgstr "GZip-ulostulon puskurointi"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:323
 #, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -3511,46 +3515,46 @@ msgstr ""
 "[kbd]SMART[/kbd] - eli laskeva järjestys kentille, joiden tyyppi on TIME, "
 "DATE, DATETIME tai TIMESTAMP; muulloin nouseva järjestys"
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
 msgstr "Oletuslajittelujärjestys"
 
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
 msgstr "Käytä MySQL-tietokantojen jatkuvia yhteyksiä"
 
-#: libraries/config/messages.inc.php:325
+#: libraries/config/messages.inc.php:326
 msgid "Persistent connections"
 msgstr "Jatkuvat yhteydet"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:327
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
 
-#: libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
 msgstr "Kuvakkeellisen taulun toiminnot"
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:331
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Estä BLOB- ja BINARY-kenttien muokkaus"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:332
 #, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Suojaa binäärikentät"
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:333
 #, fuzzy
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
@@ -3564,119 +3568,119 @@ msgstr ""
 "tarvitaan). Jos poistettu käytöstä, tämä käyttää JavaScript-rutiineja "
 "kyselyhistorian näyttämisessä (katoaa, kun ikkuna suljetaan)."
 
-#: libraries/config/messages.inc.php:333
+#: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
 msgstr "Pysyvä kyselyhistoria"
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
 msgstr "Kuinka monta kyselyä historiassa pidetään"
 
-#: libraries/config/messages.inc.php:336
+#: libraries/config/messages.inc.php:337
 msgid "Query history length"
 msgstr "Kyselyhistorian pituus"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
 msgstr "Uutta kyselyikkunaa avattaessa näytettävä välilehti"
 
-#: libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
 msgstr "Oletusarvoinen kyselyikkunavälilehti"
 
-#: libraries/config/messages.inc.php:339
+#: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:341
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
 msgstr "Kyselyikkuna"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:342
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Kyselyikkuna"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:343
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
 msgstr "Kyselyikkuna"
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
 msgstr "Valitse, mitä funktioita käytetään merkistömuunnoksessa"
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
 msgstr "Merkistön uudelleenkoodaus"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:347
 #, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Korjaa säikeet"
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
 msgstr ""
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:349
 msgid "Show help button"
 msgstr ""
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
 msgstr "Hakemisto, jonne viennit voi tallentaa palvelimella"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:352
 msgid "Save directory"
 msgstr "Tallennushakemisto"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
 msgstr "Jätä tyhjäksi, jos tätä ei käytetä"
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:354
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Palvelintodennuksen järjestys"
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
 msgstr "Käytä oletusarvoja jättämällä tyhjäksi"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:356
 #, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Palvelintodennuksen säännöt"
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
 msgstr "Salli kirjautumiset ilman salasanaa"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:358
 msgid "Allow root login"
 msgstr "Salli pääkäyttäjän kirjautuminen"
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
 msgstr ""
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:361
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -3685,19 +3689,19 @@ msgstr ""
 "[a@http://swekey.com]SweKey-laitteistotodennuksen[/a] asetustiedoston polku "
 "(ei dokumenttijuuressa; suositeltu: /etc/swekey.conf)"
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:362
 msgid "SweKey config file"
 msgstr "SweKey-asetustiedosto"
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:363
 msgid "Authentication method to use"
 msgstr "Käytettävä todennustyyppi"
 
-#: libraries/config/messages.inc.php:363 setup/frames/index.inc.php:114
+#: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
 msgstr "Todennustyyppi"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:365
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -3705,11 +3709,11 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/bookmark]"
 "kirjanmerkki[/a]tukea; oletusarvo: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
 msgstr "Kirjanmerkkitaulu"
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:367
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -3717,31 +3721,31 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä; "
 "oletusarvo: [kbd]pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:368
 msgid "Column information table"
 msgstr "Saraketietojen taulu"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:369
 msgid "Compress connection to MySQL server"
 msgstr "Pakkaa MySQL-palvelimen yhteys"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:370
 msgid "Compress connection"
 msgstr "Pakkaa yhteys"
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Kuinka palvelimeen yhdistetään; käytä tcp:tä, jos olet epävarma"
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:372
 msgid "Connection type"
 msgstr "Yhteystyyppi"
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:373
 msgid "Control user password"
 msgstr "Hallintakäyttäjän salasana"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:374
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -3750,19 +3754,19 @@ msgstr ""
 "lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/controluser]wikissä"
 "[/a]"
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:375
 msgid "Control user"
 msgstr "Hallintakäyttäjä"
 
-#: libraries/config/messages.inc.php:375
+#: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
 msgstr "Laske taulujen määrä, kun tietokantaluettelo näytetään"
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:377
 msgid "Count tables"
 msgstr "Laske taulujen määrä"
 
-#: libraries/config/messages.inc.php:377
+#: libraries/config/messages.inc.php:378
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -3770,11 +3774,11 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: [kbd]"
 "pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:379
 msgid "Designer table"
 msgstr "Suunnittelija-taulu"
 
-#: libraries/config/messages.inc.php:379
+#: libraries/config/messages.inc.php:380
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -3783,28 +3787,28 @@ msgstr ""
 "virheenjäljittimestä[/a] ja [a@http://bugs.mysql.com/19588]MySQL:n "
 "ohjelmavirheistä[/a]"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:381
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Poista INFORMATION_SCHEMA käytöstä"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Käytettävä PHP-laajennus; mysqli-laajennusta tulisi käyttää, jos sitä tuetaan"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:383
 msgid "PHP extension to use"
 msgstr "Käytettävä PHP-laajennus"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Piilota tietokannat, jotka vastaavat säännöllistä lauseketta (PCRE)"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:385
 msgid "Hide databases"
 msgstr "Piilota tietokannat"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:386
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -3812,31 +3816,31 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:387
 msgid "SQL query history table"
 msgstr "SQL-kyselyhistorian taulu"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL-palvelimen verkkonimi"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:389
 msgid "Server hostname"
 msgstr "Palvelimen verkkonimi"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:390
 msgid "Logout URL"
 msgstr "Uloskirjautumisen verkko-osoite"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
 msgstr "Yritä yhdistää ilman salasanaa"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:392
 msgid "Connect without password"
 msgstr "Yhdistä ilman salasanaa"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:393
 #, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
@@ -3852,30 +3856,30 @@ msgstr ""
 "koodinvaihtomerkin, mikäli haluat käyttää niiden todellista ilmentymää; "
 "käytä esimerkiksi 'oma\\_db' eikä 'oma_db'."
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
 msgstr "Näytä vain luetteloidut tietokannat"
 
-#: libraries/config/messages.inc.php:394 libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
 msgstr "Jätä tyhjäksi, jot et käytä config-todennusta"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
 msgstr "Config-todennuksen salasana"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
 msgstr "PDF-kaavio: sivujen taulu"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:399
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -3885,22 +3889,22 @@ msgstr ""
 "Katso täydet tiedot aiheesta [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]. Jätä tyhjäksi, jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:400
 #, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "tietokannan nimi"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Portti, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä tyhjäksi"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:402
 msgid "Server port"
 msgstr "Palvelinportti"
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:403
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -3908,19 +3912,19 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/relation]"
 "relaatiolinkki[/a]tukea; oletusarvo: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:404
 msgid "Relation table"
 msgstr "Relaatiotaulu"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
 msgstr "Mahdollisten tietokantojen noutoon käytettävä SQL-käsky"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES -käsky"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:407
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -3928,44 +3932,44 @@ msgstr ""
 "Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
 "a] esimerkit"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:408
 msgid "Signon session name"
 msgstr "Signon-istunnon nimi"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:409
 msgid "Signon URL"
 msgstr "Signon-kirjautumisen verkko-osoite"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Palvelinpistoke, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä "
 "tyhjäksi"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:411
 msgid "Server socket"
 msgstr "Palvelinpistoke"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Yhdistä MySQL-palvelimeen käyttäen SSL-yhteyttä"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:413
 msgid "Use SSL"
 msgstr "Käytä SSL-yhteyttä"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:415
 msgid "PDF schema: table coordinates"
 msgstr "PDF-kaavio: taulun koordinaatit"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:416
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
@@ -3977,53 +3981,53 @@ msgstr ""
 "Taulu, joka kuvaa näyttökentät; jätä tyhjäksi, jos et halua tukea; "
 "oletusarvo: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:417
 #, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Näyttökenttien taulu"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:418
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:419
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:420
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:422
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:425
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Tieto"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:426
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
@@ -4035,25 +4039,25 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:427
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL-kyselyhistorian taulu"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:428
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:429
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automaattinen palautuminen"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:430
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
@@ -4065,15 +4069,15 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:433
 msgid "User for config auth"
 msgstr "Config-todennuksen käyttäjä"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:434
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -4081,11 +4085,11 @@ msgstr ""
 "Poista käytöstä, mikäli tiedät pma_*-taulujesi olevan ajan tasalla. Tämä "
 "estää yhteensopivuustarkistukset ja lisää siten suorituskykyä."
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:435
 msgid "Verbose check"
 msgstr "Yksityiskohtainen tarkistus"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:436
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -4093,22 +4097,22 @@ msgstr ""
 "Käyttäjäystävällinen kuvaus tästä palvelimesta. Jätä tyhjäksi, jos haluat, "
 "että tässä lukee sen sijaan palvelimen verkkonimi."
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
 msgstr "Tämän palvelimen yksityiskohtainen nimi"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:438
 #, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Pitääkö käyttäjälle näyttää \"Näytä kaikki (tietueet)\" -painike"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
 msgstr "Salli kaikkien rivien näyttäminen"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:440
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -4118,35 +4122,35 @@ msgstr ""
 "todennusta käytettäessä, koska salasana lukee suoraan asetustiedostossa; "
 "tämä ei estä saman komennon suorittamista suoraan."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:441
 msgid "Show password change form"
 msgstr "Näytä salasananvaihtolomake"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:442
 msgid "Show create database form"
 msgstr "Näytä tietokannanluontilomake"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:444
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Näytä avoimet taulut"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
 msgstr "Näytä funktiokentät muokkaus- ja liäsystilassa"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:446
 msgid "Show function fields"
 msgstr "Näytä funktiokentät"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -4154,31 +4158,31 @@ msgstr ""
 "Näyät linkki [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]-"
 "käskyn tulosteeseen"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:448
 msgid "Show phpinfo() link"
 msgstr "Näytä phpinfo()-linkki"
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:449
 msgid "Show detailed MySQL server information"
 msgstr "Näytä MySQL-palvelimen tarkat tiedot"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:450
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Määrittele, pitääkö phpMyAdminin luomat SQL-kyselyt näyttää"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:451
 msgid "Show SQL queries"
 msgstr "Näytä SQL-kyselyt"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "Salli tietokannan ja taulun tilastojen (eli tilankäytön) näyttäminen"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:453
 msgid "Show statistics"
 msgstr "Näytä tilastot"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:454
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -4186,11 +4190,11 @@ msgstr ""
 "Jos työkaluvihjeet ovat päällä ja tietokannan kommentti on asetettu, tämä "
 "näyttää kommentin ja oikean nimen"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
 msgstr "Näytä tietokannan kommentti, ei nimi"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:456
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -4202,30 +4206,30 @@ msgstr ""
 "['LeftFrameTableSeparator']-asetuksen mukaisesti, jolloin vain kansiota "
 "kutsutaan aliaksena, itse taulun nimi pysyy muuttumattomana"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:457
 msgid "Display table comment instead of its name"
 msgstr "Näytä taulun kommentti, ei nimi"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:458
 msgid "Display table comments in tooltips"
 msgstr "Näytä taulun kommentit työkaluvihjeissä"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:459
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Merkitse käytetyt taulut ja mahdollista lukittuja tauluja sisältävien "
 "tietokantojen näyttäminen"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:460
 msgid "Skip locked tables"
 msgstr "Ohita lukitut taulut"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:62
 #: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
@@ -4235,28 +4239,28 @@ msgstr ""
 msgid "Password"
 msgstr "Salasana"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:468
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:470
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:470 tbl_tracking.php:405
+#: libraries/config/messages.inc.php:471 tbl_tracking.php:405
 #: tbl_tracking.php:456
 msgid "Username"
 msgstr "Käyttäjänimi"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:472
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -4264,65 +4268,65 @@ msgstr ""
 "Ehdota tietokannan nimeä &quot;Luo tietokanta&quot; -lomakkeessa "
 "(mahdollisuuksien mukaan) tai pidä tekstikenttä tyhjänä"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:473
 msgid "Suggest new database name"
 msgstr "Ehdota uuden tietokannan nimeä"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:477
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "CHAR-tekstikentän sarakkeet"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:478
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:479
 #, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "CHAR-tekstikentän rivit"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:483
 #, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
 msgstr "Oletusarvoinen tauluvälilehti"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:488
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -4334,39 +4338,39 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) -otsakkeeseen, joka tulee "
 "välipalvelimelta 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:489
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "Luotettujen välipalvelimien luettelo IP-osoitteden sallimista ja estämistä "
 "varten"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:490
 msgid "Directory on server where you can upload files for import"
 msgstr "Palvelimen hakemisto, jonne tuotavia tiedostoja voi lähettää"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:491
 msgid "Upload directory"
 msgstr "Lähetyshakemisto"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
 msgstr "Antaa hakea koko tietokannasta"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:493
 msgid "Use database search"
 msgstr "Käytä tietokantahakua"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:494
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:495
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:496
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -4375,19 +4379,19 @@ msgstr ""
 "Näytä monilausekyselyjen kaikki vaikuttuneet rivit. Katso libraries/import."
 "lib.php-tiedoston oletusarvoista, kuinka monta kyselyä lauseessa voi olla."
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:497
 msgid "Verbose multiple statements"
 msgstr "Yksityiskohtaiset peräkkäiset lauseet"
 
-#: libraries/config/messages.inc.php:497 setup/frames/index.inc.php:229
+#: libraries/config/messages.inc.php:498 setup/frames/index.inc.php:229
 msgid "Check for latest version"
 msgstr "Tarkista uusin versio"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:499 setup/lib/index.lib.php:118
+#: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
 #: setup/lib/index.lib.php:149 setup/lib/index.lib.php:157
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
@@ -4395,7 +4399,7 @@ msgstr ""
 msgid "Version check"
 msgstr "Version tarkistus"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -4403,7 +4407,7 @@ msgstr ""
 "Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/ZIP_"
 "(file_format)]ZIP[/a]-pakkausta"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:502
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -4766,8 +4770,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -5534,8 +5538,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8077,8 +8081,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -9653,9 +9657,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -10474,6 +10478,11 @@ msgstr "VIEW-arvon nimi"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
+
+#, fuzzy
+#~| msgid "Show/Hide left menu"
+#~ msgid "Show left delete link"
+#~ msgstr "Näytä/kätke vasen valikko"
 
 #, fuzzy
 #~| msgid "Yes"
