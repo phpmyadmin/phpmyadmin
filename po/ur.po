@@ -1112,7 +1112,7 @@ msgstr "ڈیٹا بیس کی نقل ہو رہی ہے"
 
 #: js/messages.php:74
 msgid "Changing Charset"
-msgstr ""
+msgstr "چارسیٹ تبدیل ہو رہا ہے"
 
 #: js/messages.php:75
 #, fuzzy
