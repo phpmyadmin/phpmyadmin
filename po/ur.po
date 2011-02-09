@@ -173,7 +173,7 @@ msgstr "قِسم"
 #: tbl_printview.php:142 tbl_structure.php:201 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Null"
-msgstr "منسوخ"
+msgstr "خالی"
 
 #: db_datadict.php:173 db_structure.php:460 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
