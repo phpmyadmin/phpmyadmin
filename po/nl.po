@@ -3423,7 +3423,7 @@ msgstr "Toon links naar tabelrijen aan de linker zijder"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr "Toon links naar tabelrijen aan de rechter kant"
+msgstr "Toon links naar tabelrijen aan de rechter zijde"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
