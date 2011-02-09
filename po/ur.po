@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:45+0200\n"
+"PO-Revision-Date: 2011-02-09 22:54+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1054,12 +1054,12 @@ msgstr ""
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "چنے ہوئے صارف حزف کیے جا رہے ہیں"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "بند"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
@@ -1069,29 +1069,29 @@ msgstr "منسوخ"
 
 #: js/messages.php:63
 msgid "Loading"
-msgstr ""
+msgstr "اُٹھا رہا ہے"
 
 #: js/messages.php:64
 msgid "Processing Request"
-msgstr ""
+msgstr "درخواست پرعمل کر رہا ہے"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "درخواست پرعمل کرتے ہوئے خلل کا سامنا ہے"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "کالم ختم کیے جا رہے ہیں"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "پرائمری کی شامل کر رہا ہے"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
 #: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
 #: pmd_general.php:722 pmd_general.php:785
 msgid "OK"
-msgstr ""
+msgstr "ٹھیک ہے"
 
 #: js/messages.php:71
 #, fuzzy
@@ -1100,20 +1100,18 @@ msgid "Renaming Databases"
 msgstr "ڈیٹا بیس کا نام بدلیں"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "ڈیٹا بیس کا نام بدلیں"
+msgstr "ڈیٹا بیس دوبارہ اُٹھائیں"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "ڈیٹا بیس کاپی کریں"
+msgstr "ڈیٹا بیس کی نقل ہو رہی ہے"
 
 #: js/messages.php:74
 msgid "Changing Charset"
-msgstr ""
+msgstr "چارسیٹ تبدیل ہو رہا ہے"
 
 #: js/messages.php:75
 #, fuzzy
