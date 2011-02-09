@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 21:30+0200\n"
+"PO-Revision-Date: 2011-02-09 21:31+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -453,7 +453,7 @@ msgstr "چھانٹیں"
 #: server_databases.php:148 server_databases.php:165 tbl_operations.php:257
 #: tbl_select.php:277
 msgid "Ascending"
-msgstr "چڑھتا ہوا"
+msgstr "بڑھتا ہوا"
 
 #: db_qbe.php:233 db_qbe.php:274 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:827
