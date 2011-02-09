@@ -626,7 +626,7 @@ msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
 #: db_structure.php:277 tbl_operations.php:658
 #, php-format
 msgid "Table %s has been emptied"
-msgstr " %s ٹیبل"
+msgstr "%s ٹیبل"
 
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
