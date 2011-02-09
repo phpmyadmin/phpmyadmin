@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-08 19:46+0200\n"
+"PO-Revision-Date: 2011-02-09 19:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3418,7 +3418,7 @@ msgstr "Limite mémoire"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
-msgstr ""
+msgstr "Il s'agit des liens Modifier, Éditer en place, Copier et Effacer"
 
 #: libraries/config/messages.inc.php:315
 #, fuzzy
@@ -10120,50 +10120,3 @@ msgstr "Changer le nom de la vue pour"
 
 #~ msgid "Mailing lists"
 #~ msgstr "Listes de courriel"
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "Oui"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgid "closed"
-#~ msgstr "Fermer"
-
-#~ msgid "to/from page"
-#~ msgstr "de/vers la page"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Désactiver les statistiques"
-
-#~ msgid "Start"
-#~ msgstr "Démarrer"
-
-#~ msgid "Stop"
-#~ msgstr "Arrêter"
-
-#~ msgid "Display table filter"
-#~ msgstr "Montrer le filtre de table"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Certaines fonctionnalités ayant trait aux tables reliées sont "
-#~ "désactivées. Pour une analyse du problème, cliquez %sici%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorer les doublons"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Exécuter la requête en signets"
-
-#~ msgid "No tables"
-#~ msgstr "Pas de table"
-
-#~ msgid "Field navigation using Ctrl+Arrows"
-#~ msgstr "Navigation des champs au moyen de Ctrl+flèches"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "Basculer la visibilité de la boîte de requêtes"
