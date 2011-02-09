@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 00:45+0200\n"
+"PO-Revision-Date: 2011-02-10 00:49+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3431,11 +3431,11 @@ msgstr "Límite de la memoria"
 msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
 
+# Defines where row-related links are located
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Mostrar el logo en la columna izquierda"
+msgstr "Mostrar enlaces a la izquierda de filas de tabla"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
