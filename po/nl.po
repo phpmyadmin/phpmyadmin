@@ -3354,7 +3354,7 @@ msgstr "Maximaal getoonden SQL lengte"
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Gebruiker kan geen hogere waarde instellen"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
