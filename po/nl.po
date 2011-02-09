@@ -2133,7 +2133,7 @@ msgstr "Beide"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Open"
 
 #: libraries/config.values.php:74
 #, fuzzy
