@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 19:15+0200\n"
+"PO-Revision-Date: 2011-02-09 19:16+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3529,7 +3529,7 @@ msgstr "Standaard query-venster tabblad"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr "Zoekvenster hoogte (in pixels)"
+msgstr "Query-vensterhoogte (in pixels)"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height"
