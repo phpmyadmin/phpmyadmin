@@ -728,7 +728,7 @@ msgstr "خالی"
 #: server_databases.php:252 tbl_structure.php:26 tbl_structure.php:150
 #: tbl_structure.php:151 tbl_structure.php:561
 msgid "Drop"
-msgstr "نکلالنا"
+msgstr "حذف"
 
 #: db_structure.php:512 db_structure.php:513 libraries/mult_submits.inc.php:41
 #: tbl_operations.php:583
