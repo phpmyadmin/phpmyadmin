@@ -4240,7 +4240,7 @@ msgstr "Titel van het browser scherm wanneer een database is geselecteerd"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Titel van het browser scherm wanneer niets geselecteerd is"
 
 #: libraries/config/messages.inc.php:483
 msgid "Default title"
