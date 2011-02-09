@@ -748,7 +748,7 @@ msgstr "ٹیبلز مرمت کریں"
 #: db_structure.php:518 db_structure.php:519 libraries/mult_submits.inc.php:56
 #: tbl_operations.php:603
 msgid "Analyze table"
-msgstr "ٹیبلز کا تجزیہ"
+msgstr "ٹیبل کا تجزیہ"
 
 #: db_structure.php:568 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
