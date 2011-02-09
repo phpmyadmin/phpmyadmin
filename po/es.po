@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 01:09+0200\n"
+"PO-Revision-Date: 2011-02-10 00:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -3429,7 +3429,7 @@ msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
-msgstr ""
+msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
 
 #: libraries/config/messages.inc.php:315
 #, fuzzy
@@ -10395,10 +10395,3 @@ msgstr "(VIEW) VER nombre"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a "
-
-#~| msgid "Show/Hide left menu"
-#~ msgid "Show left delete link"
-#~ msgstr "Ocultar/mostrar menú de borrado a la izquierda"
-
-#~ msgid "Show right delete link"
-#~ msgstr "Ocultar/mostrar menú de modificación a la derecha"
