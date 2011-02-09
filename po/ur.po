@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:54+0200\n"
+"PO-Revision-Date: 2011-02-09 22:57+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1114,30 +1114,27 @@ msgid "Changing Charset"
 msgstr "چارسیٹ تبدیل ہو رہا ہے"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
-msgstr "آپ کو کم از کم ایک کالم چننا ہو گا ڈسپے کیلئے۔"
+msgstr "کم سے کم ایک کالم ہونا لازمی ہے"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Create Table"
-msgstr "ٹیبلز استعمال کریں"
+msgstr "ٹیبل بنائیں"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "تلاش"
+msgstr "تلاش کر رہا ہے"
 
 #: js/messages.php:84
 msgid "Hide query box"
-msgstr ""
+msgstr "کیوری بکس چھپائیں"
 
 #: js/messages.php:85
 msgid "Show query box"
-msgstr ""
+msgstr "کیوری بکس دکھائیں"
 
 #: js/messages.php:86
 msgid "Inline Edit"
