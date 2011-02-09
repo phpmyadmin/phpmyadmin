@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-01-20 03:47+0200\n"
+"PO-Revision-Date: 2011-02-09 05:21+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -110,7 +110,7 @@ msgstr "打开远程 URL 失败"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "该系统不支持 %s 文件，请访问 www.phpmyadmin.net 查询更多信息。"
 
 #: db_create.php:58
 #, php-format
@@ -9620,67 +9620,3 @@ msgstr "将视图改名为"
 
 #~ msgid "Mailing lists"
 #~ msgstr "邮件列表"
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "是"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgid "closed"
-#~ msgstr "关闭"
-
-#~ msgid "to/from page"
-#~ msgstr "到/从 页"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "禁用统计"
-
-#~ msgid "Start"
-#~ msgstr "开始"
-
-#~ msgid "Stop"
-#~ msgstr "停止"
-
-#~ msgid "Display table filter"
-#~ msgstr "显示数据表快速搜索框"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr "链接表的附加功能尚未激活。要查出原因，请点击%s此处%s。"
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "忽略重复行"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "执行书签中的查询"
-
-#~ msgid "No tables"
-#~ msgstr "没有表"
-
-#~ msgid "Field navigation using Ctrl+Arrows"
-#~ msgstr "使用 Ctrl + 方向键 进行字段浏览"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "显示/隐藏查询输入框"
-
-#~ msgid "SVG"
-#~ msgstr "SVG"
-
-#~ msgid "DIA"
-#~ msgstr "DIA"
-
-#~ msgid "VISIO"
-#~ msgstr "VISIO"
-
-#~ msgid "EPS"
-#~ msgstr "EPS"
-
-#~ msgid ""
-#~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#~ "enabled if your web server supports it"
-#~ msgstr ""
-#~ "若服务器支持，建议启用该[a@?page=form&amp;formset=features#tab_Security]选"
-#~ "项[/a]"
