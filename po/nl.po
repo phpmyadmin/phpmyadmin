@@ -4203,6 +4203,8 @@ msgstr "Stel een databasenaam voor"
 #: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Een waarschuwing wordt getoond op de hoofdpagina als Suhosin gedetecteerd "
+"wordt"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
