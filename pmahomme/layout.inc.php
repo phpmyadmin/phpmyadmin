@@ -4,7 +4,6 @@
  * configures general layout
  * for detailed layout configuration please refer to the css files
  *
- * @version $Id: layout.inc.php 10515 2007-07-22 16:22:54Z lem9 $
  * @package phpMyAdmin-theme
  * @subpackage Original
  */
@@ -19,12 +18,12 @@ $GLOBALS['cfg']['NaviWidth']                = 200;
 $GLOBALS['cfg']['NaviColor']                = '#000000';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']           = '#f3f3f3';
+$GLOBALS['cfg']['NaviBackground']           = '#D0DCE0';
 
 // foreground (text) color of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerColor']         = '#000000';
 // background of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerBackground']    = '#ddd';
+$GLOBALS['cfg']['NaviPointerBackground']    = '#9999CC';
 // text color of the selected database name (when showing the table list)
 $GLOBALS['cfg']['NaviDatabaseNameColor']    = '#0000FF';
 
@@ -32,10 +31,10 @@ $GLOBALS['cfg']['NaviDatabaseNameColor']    = '#0000FF';
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']                = '#555';
+$GLOBALS['cfg']['MainColor']                = '#000000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#fff';
+$GLOBALS['cfg']['MainBackground']           = '#F5F5F5';
 //$GLOBALS['cfg']['MainBackground']       = '#F5F5F5 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
 
 // foreground (text) color of the pointer in browse mode
@@ -58,7 +57,7 @@ $GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily']           = 'tahoma,arial';
+$GLOBALS['cfg']['FontFamily']           = 'sans-serif';
 /**
  * fixed width font family, used in textarea
  */
@@ -70,13 +69,13 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#ddd';
+$GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000000';
 // table data row background
-$GLOBALS['cfg']['BgOne']                = '#f3f3f3';
+$GLOBALS['cfg']['BgOne']                = '#E5E5E5';
 // table data row background, alternate
-$GLOBALS['cfg']['BgTwo']                = '#fff';
+$GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
 
 /**
  * query window

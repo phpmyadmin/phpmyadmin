@@ -3,7 +3,6 @@
 /**
  * navigation css file from theme Original
  *
- * @version $Id: theme_left.css.php 11409 2008-07-19 14:46:28Z lem9 $
  * @package phpMyAdmin-theme
  * @subpackage Original
  */
@@ -16,7 +15,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
+    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
 }
 
 input, select, textarea {
@@ -28,7 +27,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     background:         url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0% #f3f3f3;
-    border-right:		1px solid #aaa;
+    border-right:		1px solid #aaa;    
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0;
@@ -87,7 +86,6 @@ button {
 
 div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
-    padding:.3em;
 }
 div#pmalogo,
 div#leftframelinks,
@@ -97,30 +95,33 @@ div#databaseList {
 }
 
 ul#databaseList {
-    margin-bottom:      0.5em;
+    margin: 0.8em 0px;
     padding-bottom:     0.5em;
-    padding:20px 0;
-}
-
-#databaseList li {
-    list-style-type:none;
-    text-indent:29px;
-
+    padding-<?php echo $left; ?>:     0.3em;
+    font-style: italic;
 }
 
 ul#databaseList a {
     display: block;
     padding:5px;
+    font-style: normal;
 }
 
 div#navidbpageselector a,
 ul#databaseList a {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 5% 50% transparent;
+    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
     color:              #333;
 }
 
+ul#databaseList ul {
+    margin:0px;
+    padding:0px;
+}
+ul#databaseList li{    list-style:none;text-indent:20px;    margin:0px;
+    padding:0px;}
+
 ul#databaseList a:hover {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 5% 50% #e3e3e3;    
+    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% #e4e4e4;    
 }
 
 ul#databaseList li.selected a {
@@ -133,12 +134,14 @@ div#leftframelinks .icon {
     margin:             0;
 }
 
+div#reloadlink a img,
 div#leftframelinks a img.icon {
     margin:             10px 10px 0 0;
     padding:            0.2em;
+    border:             0px;
 }
 
-div#leftframelinks a:hover {
+div#leftframelinks a:hover img {
 
 }
 
@@ -156,12 +159,12 @@ div#leftframelinks a:hover {
     padding: 0;
 }
 
+div#left_tableList {margin:0px 10px;}
 div#left_tableList ul {
     list-style-type:    none;
     list-style-position: outside;
     margin:             0;
     padding:            0;
-    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
 }
 
 div#left_tableList ul ul {
@@ -169,15 +172,10 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    /* background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>; MH */
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
-
-#left_tableList{
-	display:none;
-}
-
 
 div#left_tableList a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -187,9 +185,10 @@ div#left_tableList a:hover {
 
 div#left_tableList li {
     margin:             0;
-    padding:            0;
+    padding:            5px 0;
     white-space:        nowrap;
 }
+
 select{
 -moz-border-radius:2px 2px 2px 2px;
 -moz-box-shadow:0 1px 2px #DDDDDD;
@@ -211,7 +210,7 @@ div#left_tableList > ul li.marked {
 <?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
 div#left_tableList > ul li:hover > a,
 div#left_tableList > ul li:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    background:         #e4e4e4;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
@@ -237,4 +236,29 @@ div#left_tableList ul ul {
 #serverinfo a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+#reloadlink {
+    clear: both;
+    float: <?php echo $right; ?>;
+    display: block;
+    padding: 1em;
+}
+
+#NavFilter {
+    display: none;
+}
+
+#clear_fast_filter {
+    background: white;
+    color: black;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    right: 3ex;
+}
+
+#fast_filter {
+    width: 85%;
+    padding: 0.1em;
 }
