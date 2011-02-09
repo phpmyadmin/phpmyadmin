@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:10+0200\n"
+"PO-Revision-Date: 2011-02-09 22:12+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -247,7 +247,7 @@ msgstr "پرنٹ"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr " ڈیٹا بیس کی ڈمپ (شیما) دیکھیں"
+msgstr " ڈیٹا بیس کی ڈمپ (سکیما) دیکھیں"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:48
 #: export.php:371 navigation.php:304
