@@ -191,7 +191,7 @@ msgstr "ابتدائی"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263 tbl_printview.php:147
 msgid "Links to"
-msgstr "لنک ٹو"
+msgstr "ربط بطرف"
 
 #: db_datadict.php:179 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
