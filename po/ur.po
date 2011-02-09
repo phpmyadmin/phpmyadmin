@@ -274,7 +274,7 @@ msgstr "ڈیٹا بیس %s کا نام %s میں تبدیل کر دیا گیا �
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Database %s has been copied to %s"
+msgstr "ڈیٹا بیس %s کا نام %s میں تبدیل کر دیا گیا ہے"
 
 #: db_operations.php:399
 msgid "Rename database to"
