@@ -6973,10 +6973,9 @@ msgid "Official Homepage"
 msgstr "Site officiel"
 
 #: main.php:227
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attributs"
+msgstr "Contribuer"
 
 #: main.php:228
 #, fuzzy
