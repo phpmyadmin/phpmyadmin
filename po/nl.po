@@ -4216,7 +4216,7 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 "Tekstveld grootte (kolommen) in aanpas modus, deze waarde wordt benadrukt "
-"voor SQL query tekstvelden (*2) en zoekveld (*1.25)"
+"weergegeven voor SQL query tekstvelden (*2) en voor het Query scherm (*1.25)"
 
 #: libraries/config/messages.inc.php:477
 msgid "Textarea columns"
