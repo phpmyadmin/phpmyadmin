@@ -3340,7 +3340,7 @@ msgstr "Groter tekstveld voor LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Use icons on main page"
-msgstr "Gebruikt iconen op hoofdpagina"
+msgstr "Gebruik iconen op hoofdpagina"
 
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of characters used when a SQL query is displayed"
