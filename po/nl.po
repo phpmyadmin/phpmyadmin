@@ -3564,7 +3564,7 @@ msgstr "Herhaal kopregels"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Toon helpknop in plaats van Documentatie tekst"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
