@@ -1556,7 +1556,7 @@ function PMA_ajaxShowMessage(message, timeout) {
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
-function showNoticeForEnum(selectElement) {
+function PMA_showNoticeForEnum(selectElement) {
     var enum_notice_id = selectElement.attr("id").split("_")[1];
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
     var selectedType = selectElement.attr("value");
@@ -1832,6 +1832,7 @@ $(document).ready(function() {
             if ($("#create_table_div").length > 0) {
                 $("#create_table_div").html(data);
             }
+            PMA_verifyTypeOfAllColumns();
         }) //end $.post()
 
     }) // end create table form (add fields)
@@ -2041,13 +2042,13 @@ $(document).ready(function() {
     //
     // needs live() to work also in the Create Table dialog
     $("select[class='column_type']").live('change', function() {
-        showNoticeForEnum($(this));
+        PMA_showNoticeForEnum($(this));
     });
 });
 
 function PMA_verifyTypeOfAllColumns() {
     $("select[class='column_type']").each(function() {
-        showNoticeForEnum($(this));
+        PMA_showNoticeForEnum($(this));
     });
 }
 
