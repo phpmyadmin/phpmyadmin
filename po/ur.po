@@ -520,7 +520,7 @@ msgstr "ایس کیو ایل کیوری <b>%s</b> ڈیٹابیس پر"
 
 #: db_qbe.php:957 libraries/common.lib.php:1160
 msgid "Submit Query"
-msgstr "Submit Query"
+msgstr "کیوری بھیجیں"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
