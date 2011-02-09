@@ -134,6 +134,7 @@ msgstr "ڈیٹا بیس رائے"
 msgid "Table comments"
 msgstr "ٹیبل کمنٹس"
 
+# db_datadict.php:169 db_qbe.php:197 libraries/Index.class.php:445 libraries/export/htmlword.php:247 libraries/export/latex.php:374 libraries/export/odt.php:301 libraries/export/texytext.php:226 libraries/schema/Pdf_Relation_Schema.class.php:1236 libraries/schema/Pdf_Relation_Schema.class.php:1257 libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273 tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139 tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197 tbl_tracking.php:267 tbl_tracking.php:318
 #: db_datadict.php:169 db_qbe.php:197 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
 #: libraries/export/odt.php:301 libraries/export/texytext.php:226
@@ -143,6 +144,7 @@ msgstr "ٹیبل کمنٹس"
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
+#, fuzzy
 #| msgid "Command"
 msgid "Column"
 msgstr "کالم"
