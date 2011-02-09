@@ -126,7 +126,7 @@ msgstr "   ڈیٹا بیس $1%s بن گئی ہے"
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
-msgstr "ڈیٹا بیس رائے"
+msgstr "ڈیٹا بیس رائے:"
 
 #: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1210
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
