@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 21:20+0200\n"
+"PO-Revision-Date: 2011-02-09 21:31+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -383,8 +383,9 @@ msgstr "ٹیبل"
 #: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
 #: tbl_structure.php:869
 msgid "Rows"
-msgstr ""
+msgstr "سطریں"
 
+# db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
 msgstr "ناپ"
@@ -416,43 +417,43 @@ msgid "Last check"
 msgstr "آخری دفعہ چیک"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s table(s)"
-msgstr[1] "%s table(s)"
+msgstr[0] "s% ٹیبل"
+msgstr[1] "s% ٹیبل"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1989 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Your SQL query has been executed successfully"
+msgstr "آپ کی کیوری کامیابی سے مکمل ہو چکی ہے"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
-msgstr "آپ کو کم از کم ایک کالم چننا ہو گا ڈسپے کیلئے۔"
+msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم چننا ہو گا"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "جائیں بطرف"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "ویژوئل بلڈر"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
 msgid "Sort"
-msgstr "چھانٹنا"
+msgstr "چھانٹیں"
 
 #: db_qbe.php:232 db_qbe.php:266 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:830
 #: server_databases.php:148 server_databases.php:165 tbl_operations.php:257
 #: tbl_select.php:277
 msgid "Ascending"
-msgstr "چڑھتا ہوا"
+msgstr "بڑھتا ہوا"
 
 #: db_qbe.php:233 db_qbe.php:274 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:827
