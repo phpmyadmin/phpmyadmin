@@ -3407,10 +3407,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "To so povezave Uredi, Uredi v vrstici, Kopiraj in Izbriši"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Prikaži logotip v levem okvirju"
+msgstr "Prikaži povezave do vrstic tabele na levi strani"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
