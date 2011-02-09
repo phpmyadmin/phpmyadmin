@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:27+0200\n"
+"PO-Revision-Date: 2011-02-09 22:28+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -738,7 +738,7 @@ msgstr "ٹیبل چیک کریں"
 #: db_structure.php:514 db_structure.php:515 libraries/mult_submits.inc.php:46
 #: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
 msgid "Optimize table"
-msgstr "ٹیبلز آپٹی مائز "
+msgstr "ٹیبلز آپٹی مائز"
 
 #: db_structure.php:516 db_structure.php:517 libraries/mult_submits.inc.php:51
 #: tbl_operations.php:613
