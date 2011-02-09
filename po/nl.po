@@ -4152,7 +4152,7 @@ msgstr "Herken vergrendelde tabellen"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
-msgstr "Vereist dat SQL Validator ingeschakeld is"
+msgstr "Vereist dat SQL Validator geactiveerd is"
 
 #: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
