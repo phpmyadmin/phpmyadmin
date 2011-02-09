@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 19:54+0200\n"
+"PO-Revision-Date: 2011-02-09 19:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6978,10 +6978,9 @@ msgid "Contribute"
 msgstr "Contribuer"
 
 #: main.php:228
-#, fuzzy
 #| msgid "Replication support"
 msgid "Get support"
-msgstr "Gestion de la réplication"
+msgstr "Obtenir de l'aide"
 
 #: main.php:229
 #, fuzzy
