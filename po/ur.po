@@ -693,7 +693,7 @@ msgstr "تمام چیک کریں"
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
 #: server_privileges.php:579 server_privileges.php:1690 tbl_structure.php:552
 msgid "Uncheck All"
-msgstr "ان چیک آل"
+msgstr "تمام ان-چیک کریں"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
