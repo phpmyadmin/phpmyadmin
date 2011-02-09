@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 01:15+0200\n"
+"PO-Revision-Date: 2011-02-10 01:16+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4239,11 +4239,15 @@ msgstr ""
 msgid "Textarea columns"
 msgstr "Columnas para las áreas de texto"
 
+# See translation string 813
 #: libraries/config/messages.inc.php:478
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Tamaño (en filas) del área de texto en el modo de edición, este valor será "
+"aumentado en áreas de texto para consultas SQL (x2) y en la venta de "
+"consultas (x1,25)"
 
 #: libraries/config/messages.inc.php:479
 #, fuzzy
