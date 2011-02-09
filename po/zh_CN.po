@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 09:20+0200\n"
+"PO-Revision-Date: 2011-02-09 09:28+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5032,7 +5032,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "PrimeBase XT 主页"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
