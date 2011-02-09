@@ -330,7 +330,7 @@ msgstr "شامل کریں %s"
 #: db_operations.php:502 libraries/config/messages.inc.php:117
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
-msgstr " AUTO_INCREMENTویلیو شامل کریں "
+msgstr " AUTO_INCREMENTویلیو شامل کریں"
 
 #: db_operations.php:506 tbl_operations.php:547
 msgid "Add constraints"
