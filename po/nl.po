@@ -4232,7 +4232,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:479
 msgid "Textarea rows"
-msgstr "Textarea regels"
+msgstr "Tekstveld regels"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
