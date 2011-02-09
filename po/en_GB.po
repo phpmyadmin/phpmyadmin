@@ -3384,10 +3384,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "These are Edit, Inline edit, Copy and Delete links"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Show logo in left frame"
+msgstr "Show table row links on left side"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
