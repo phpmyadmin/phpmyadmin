@@ -3399,7 +3399,7 @@ msgstr "Bunlar Düzenle, Sıralı düzenle, Kopyala ve Sil bağlantılarıdır"
 #: libraries/config/messages.inc.php:315
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Sol tarafta tablo satır bağlantılarını göster"
+msgstr "Tablo satır bağlantılarını sol tarafta göster"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
