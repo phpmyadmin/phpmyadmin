@@ -6923,10 +6923,9 @@ msgid "Official Homepage"
 msgstr "Uradna domača stran phpMyAdmin"
 
 #: main.php:227
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atributi"
+msgstr "Prispevaj"
 
 #: main.php:228
 #, fuzzy
