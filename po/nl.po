@@ -3920,6 +3920,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Of DROP DATABASE IF EXISTS opdracht toegevoegd wordt als eerste regel van de "
+"log als een database gemaakt wordt."
 
 #: libraries/config/messages.inc.php:419
 msgid "Add DROP DATABASE"
