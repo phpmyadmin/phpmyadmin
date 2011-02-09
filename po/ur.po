@@ -824,7 +824,7 @@ msgstr "سٹرکچر کی تصویر"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr "ان ٹریکڈ ٹیبلز"
+msgstr "ان ٹریکڈ ٹیبل"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
 #: tbl_structure.php:621
