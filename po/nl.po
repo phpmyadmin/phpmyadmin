@@ -4057,7 +4057,8 @@ msgstr "Toon formulier om een nieuwe database te creëren"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "Definieert of typ velden initieel getoond worden in bewerk/toevoeg mode"
+msgstr ""
+"Definiëert of type velden initiëel getoond worden in bewerk/toevoeg modus"
 
 #: libraries/config/messages.inc.php:444
 msgid "Show field types"
