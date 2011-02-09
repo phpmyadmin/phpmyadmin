@@ -3541,7 +3541,7 @@ msgstr "Query-vensterbreedte (in pixels)"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query window width"
-msgstr "Query-venster breedte"
+msgstr "Query-vensterbreedte"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
