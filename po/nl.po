@@ -3555,7 +3555,8 @@ msgstr "Hercoderings engine"
 
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr "Herhaal de kopregel elke X cellen, [kbd]0[/kbd] schakel dit uit"
+msgstr ""
+"Herhaal de kopregel elke X cellen, [kbd]0[/kbd] schakelt deze functie uit"
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat headers"
