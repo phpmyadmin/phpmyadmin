@@ -3158,7 +3158,7 @@ msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr "Initiële waarden van schuif-indexen"
+msgstr "Initiële waarde van schuif-indexen"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
