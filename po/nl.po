@@ -2676,7 +2676,7 @@ msgstr "Herinner bestandsnaam template"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Gebruik backticks (`) bij tabellen- en kolomnamen"
+msgstr "Gebruik backticks (`) bij tabel- en kolomnamen"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
