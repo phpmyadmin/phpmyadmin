@@ -2177,7 +2177,7 @@ msgstr "volledige invoegingen"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
-msgstr "Uitgebreide invoegingen"
+msgstr "uitgebreide invoegingen"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
