@@ -3560,7 +3560,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat headers"
-msgstr "Herhaal tabel koppen"
+msgstr "Herhaal tabelkopregels"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
