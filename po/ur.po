@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2010-05-14 12:35+0200\n"
-"Last-Translator:  <monymirza@gmail.com>\n"
+"PO-Revision-Date: 2011-02-09 21:00+0200\n"
+"Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1600
@@ -99,7 +99,7 @@ msgstr "یہ ویلیو استعمال کریں"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "بلاب سٹریمنگ سرور کانفیگر نہیں ہوا!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -9484,58 +9484,3 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Yes"
-#~ msgid "yes"
-#~ msgstr "ہاں"
-
-#, fuzzy
-#~| msgid "Table comments"
-#~ msgid "Display table filter"
-#~ msgstr "ٹیبل کمنٹس"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "پی ڈی ایف صفحوں کی تدوین کریں"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "ڈیٹا ڈکشنری فارمیٹ"
-
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "ویلیو شامل کریں AUTO_INCREMENT"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB Repository"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "فعال"
-
-#~ msgid "Disable"
-#~ msgstr "غیر فعال"
-
-#~ msgid "Damaged"
-#~ msgstr "ضرر"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "مرمت"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "غیر فعال"
-
-#~ msgid "Field"
-#~ msgstr "فیلڈ"
-
-#~ msgid "Records"
-#~ msgstr "ریکارڈز"
