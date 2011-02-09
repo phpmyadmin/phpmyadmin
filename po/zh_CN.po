@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-08 17:09+0100\n"
-"PO-Revision-Date: 2011-02-09 09:19+0200\n"
+"PO-Revision-Date: 2011-02-09 09:20+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6670,10 +6670,9 @@ msgid "Get support"
 msgstr "获取支持"
 
 #: main.php:229
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "无更改"
+msgstr "更新列表"
 
 #: main.php:253
 msgid ""
