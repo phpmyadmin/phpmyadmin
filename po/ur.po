@@ -446,7 +446,7 @@ msgstr "ویژوئل بلڈر"
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
 msgid "Sort"
-msgstr "چھانٹنا"
+msgstr "چھانٹیں"
 
 #: db_qbe.php:232 db_qbe.php:266 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:830
