@@ -4223,7 +4223,7 @@ msgstr "Mostrar advertencia en la página principal si se detecta Suhosin"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Advertencia Suhosin"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
