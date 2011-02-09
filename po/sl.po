@@ -6933,10 +6933,9 @@ msgid "Get support"
 msgstr "Prosi za podporo"
 
 #: main.php:229
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Brez sprememb"
+msgstr "Seznam sprememb"
 
 #: main.php:253
 msgid ""
