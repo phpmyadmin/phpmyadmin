@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 23:05+0200\n"
+"PO-Revision-Date: 2011-02-09 23:16+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -29,7 +29,7 @@ msgstr "سبھی دکھاو"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1111
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr "صفحہ نمبر"
+msgstr "صفحہ نمبر:"
 
 #: browse_foreigners.php:133
 msgid ""
