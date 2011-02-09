@@ -4219,7 +4219,7 @@ msgstr "Sugerir un nuevo nombre para la base de datos"
 
 #: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Mostrar advertencia en la página principal si se detecta Suhosin"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
