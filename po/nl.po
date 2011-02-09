@@ -3431,10 +3431,9 @@ msgstr ""
 "Gebruik natuurlijke volgorde voor het sorteren van tabel en database namen"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Wijzig het \"Sorteren op/Order by\" van de tabel"
+msgstr "Natuurlijke volgorde"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
