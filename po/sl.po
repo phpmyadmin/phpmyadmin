@@ -4864,7 +4864,7 @@ msgstr "Pretvorba z brskalnikom"
 
 #: libraries/display_tbl.lib.php:1165
 msgid "Copy"
-msgstr ""
+msgstr "Kopiraj"
 
 #: libraries/display_tbl.lib.php:1180 libraries/display_tbl.lib.php:1192
 msgid "The row has been deleted"
