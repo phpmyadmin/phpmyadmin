@@ -285,6 +285,7 @@ msgid "Command"
 msgstr "کمانڈ"
 
 #: db_operations.php:433
+#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "ڈیٹا بیس ختم کریں"
