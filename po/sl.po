@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Datoteka %s ni na voljo na tem sistemu; prosimo, za več informacij obiščite "
+"www.phpmyadmin.net."
 
 #: db_create.php:58
 #, php-format
