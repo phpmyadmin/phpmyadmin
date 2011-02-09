@@ -293,7 +293,7 @@ msgstr "ڈیٹا بیس ختم کریں"
 #: db_operations.php:445
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "ڈیٹا بیس %s ختم کر دیا گیا ہے"
 
 #: db_operations.php:450
 #, fuzzy
