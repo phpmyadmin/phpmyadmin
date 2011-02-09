@@ -4000,7 +4000,7 @@ msgstr "Gebruikersvoorkeuren opslagtabel"
 
 #: libraries/config/messages.inc.php:433
 msgid "User for config auth"
-msgstr " authenticatie"
+msgstr "Gebruiker voor 'config' authenticatie"
 
 #: libraries/config/messages.inc.php:434
 msgid ""
