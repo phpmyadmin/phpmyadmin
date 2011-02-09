@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 19:29+0200\n"
+"PO-Revision-Date: 2011-02-09 19:30+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3057,7 +3057,7 @@ msgstr "Waarschuwingen"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "Schakel enkele waarschuwingen uit getoond door phpMyAdmin"
+msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
