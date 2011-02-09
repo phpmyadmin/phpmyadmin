@@ -3537,7 +3537,7 @@ msgstr "Query-vensterhoogte"
 
 #: libraries/config/messages.inc.php:342
 msgid "Query window width (in pixels)"
-msgstr "Query-venster breedte (in pixels)"
+msgstr "Query-vensterbreedte (in pixels)"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query window width"
