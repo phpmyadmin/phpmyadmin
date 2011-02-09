@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:57+0200\n"
+"PO-Revision-Date: 2011-02-09 23:03+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -78,7 +78,7 @@ msgstr "تلاش"
 #: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
 #: tbl_tracking.php:506 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "جائو"
+msgstr "جاؤ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:441 tbl_tracking.php:314
@@ -122,7 +122,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "بن گئی ہے  %1$s ڈیٹا بیس"
+msgstr "   ڈیٹا بیس $1%s بن گئی ہے"
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
