@@ -631,7 +631,7 @@ msgstr "%s ٹیبل"
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
 msgid "View %s has been dropped"
-msgstr "ویو %s ختم ک دیا گیا"
+msgstr "ویو %s ختم کر دیا گیا"
 
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
