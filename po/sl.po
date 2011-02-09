@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 19:03+0200\n"
+"PO-Revision-Date: 2011-02-09 19:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3404,7 +3404,7 @@ msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
-msgstr ""
+msgstr "To so povezave Uredi, Uredi v vrstici, Kopiraj in Izbriši"
 
 #: libraries/config/messages.inc.php:315
 #, fuzzy
