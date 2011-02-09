@@ -385,6 +385,7 @@ msgstr "ٹیبل"
 msgid "Rows"
 msgstr "سطریں"
 
+# db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:188
 msgid "Size"
 msgstr "ناپ"
