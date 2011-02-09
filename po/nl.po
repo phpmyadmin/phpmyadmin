@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 19:35+0200\n"
+"PO-Revision-Date: 2011-02-09 19:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4236,7 +4236,7 @@ msgstr "Tekstveld regels"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titel van het browser scherm wanneer een database is geselecteerd"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
