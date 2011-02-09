@@ -1082,7 +1082,7 @@ msgstr "درخواست پرعمل کرتے ہوئے خلل کا سامنا ہے"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "کالم ختم کیے جا رہے ہیں"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
