@@ -421,8 +421,8 @@ msgstr "آخری دفعہ چیک"
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "s% ٹیبل"
-msgstr[1] "s% ٹیبل"
+msgstr[0] "%s ٹیبل"
+msgstr[1] "%s ٹیبل"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1989 libraries/sql_query_form.lib.php:140
@@ -578,8 +578,7 @@ msgid "Delete"
 msgstr "حزف"
 
 #: db_search.php:259
-#, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format, fuzzy
 msgid "Delete the matches for the %s table?"
 msgstr "اس ٹیبل کیلئے موافقات حذف کریں"
 
