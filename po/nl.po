@@ -2173,7 +2173,7 @@ msgstr "Uitgebreid - als bovenstaande maar zonder snel/uitgebreid keuze"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
-msgstr "Volledige invoegingen"
+msgstr "volledige invoegingen"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
