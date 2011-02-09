@@ -9398,10 +9398,9 @@ msgid "An index has been added on %s"
 msgstr "已将 %s 设为索引"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "查看版本"
+msgstr "显示更多操作"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
