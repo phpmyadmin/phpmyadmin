@@ -3482,7 +3482,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Er mist een phpMyAdmin configuratie opslag tabel"
+msgstr "phpMyAdmin configuratie opslag tabellen ontbreken"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
