@@ -115,6 +115,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"فائل s٪ موجود نہیں ہے، برائے مہربانی مزید معلومات کے لیے www.phpmyadmin.net "
+"پر جائیں"
 
 #: db_create.php:58
 #, php-format
