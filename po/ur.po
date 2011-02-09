@@ -1135,7 +1135,7 @@ msgstr "کیوری بکس چھپائیں"
 
 #: js/messages.php:85
 msgid "Show query box"
-msgstr ""
+msgstr "کیوری بکس دکھائیں"
 
 #: js/messages.php:86
 msgid "Inline Edit"
