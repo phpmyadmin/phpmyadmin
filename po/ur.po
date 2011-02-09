@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 21:18+0200\n"
+"PO-Revision-Date: 2011-02-09 21:20+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -363,10 +363,9 @@ msgstr ""
 "جاننے کے لیے %share%s کلک کریں۔"
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Edit or export relational schema"
-msgstr "دکھائیں PDF schema"
+msgstr "ریلیشنل سکیمہ کی تدوین اور برآمدگی کریں"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
