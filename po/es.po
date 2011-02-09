@@ -4168,7 +4168,7 @@ msgstr "Saltarse las tablas bloqueadas"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Requiere que el Validador SQL esté habilitado"
 
 #: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
