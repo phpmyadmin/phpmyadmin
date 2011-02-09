@@ -3428,6 +3428,7 @@ msgstr "Toon links naar tabelrijen aan de rechter zijde"
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
 msgstr ""
+"Gebruik natuurlijke volgorde voor het sorteren van tabel en database namen"
 
 #: libraries/config/messages.inc.php:318
 #, fuzzy
