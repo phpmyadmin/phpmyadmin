@@ -4256,7 +4256,7 @@ msgstr "Filas para para áreas de texto"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Título de la ventana al seleccionar una base de datos"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
