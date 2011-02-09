@@ -3393,6 +3393,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Schakel de standaard waarschuwing uit als mcrypt mist voor cookie "
+"authenticatie"
 
 #: libraries/config/messages.inc.php:311
 msgid "mcrypt warning"
