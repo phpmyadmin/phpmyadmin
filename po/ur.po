@@ -296,10 +296,9 @@ msgid "Database %s has been dropped."
 msgstr "ڈیٹا بیس %s ختم کر دیا گیا ہے"
 
 #: db_operations.php:450
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
-msgstr "ڈیٹا بیس کاپی کریں"
+msgstr "ڈیٹا بیس ختم کریں (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
