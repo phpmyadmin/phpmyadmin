@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-09 22:29+0200\n"
+"PO-Revision-Date: 2011-02-09 22:30+0200\n"
 "Last-Translator:  <danish_satti2002@yahoo.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -798,7 +798,7 @@ msgstr "عمل"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "اس ٹیبل کیلئے ٹریکنگ ڈیٹا حذف کریں "
+msgstr "اس ٹیبل کیلئے ٹریکنگ ڈیٹا حذف کریں"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
