@@ -9768,9 +9768,12 @@ msgstr ""
 "seleccione esto para dibujar el gráfico completo en una sola imagen."
 
 #: tbl_chart.php:166
+#, fuzzy
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Al dibujar un gráfico radar, todos los valores son normalizados a un rango "
+"[0..10]."
 
 #: tbl_chart.php:173
 msgid ""
