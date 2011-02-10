@@ -6664,10 +6664,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos %s"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Nombre de las columnas"
+msgstr "Columnas"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:854 sql.php:855 sql.php:872
 msgid "Bookmark this SQL query"
