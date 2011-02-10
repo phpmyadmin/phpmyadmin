@@ -6884,7 +6884,7 @@ msgstr "definición de la PARTICIÓN"
 #, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Añadir %s columna(s)"
+msgstr "Agregar %s columna(s)"
 
 #: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
 #, fuzzy
