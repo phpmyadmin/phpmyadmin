@@ -6002,6 +6002,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"El archivo XML especificado estaba incompleto o mal formado. Por favor "
+"corrija el problema e intente nuevamente."
 
 #: libraries/kanji-encoding.lib.php:142
 #, fuzzy
