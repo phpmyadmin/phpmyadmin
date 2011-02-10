@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 08:50+0200\n"
+"PO-Revision-Date: 2011-02-10 08:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5292,12 +5292,16 @@ msgstr ""
 msgid "Temp Log Threshold"
 msgstr "Umbral de registro temporal"
 
+# See translation string 1004
 #: libraries/engines/pbms.lib.php:51
 msgid ""
 "The maximum size of a temporary BLOB log file. You may use Kb, MB or GB to "
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Tamaño máximo de un archivo de registro BLOB temporal. Puedes usar Kb, MB o "
+"GB para indicar la unidad del valor. Se asume un valor en bytes si no se "
+"especifica unidad."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
