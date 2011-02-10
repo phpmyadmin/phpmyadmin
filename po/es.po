@@ -6437,9 +6437,8 @@ msgid "Internal relations"
 msgstr "Relaciones internas"
 
 #: libraries/schema/User_Schema.class.php:116
-#, fuzzy
 msgid "FOREIGN KEY"
-msgstr "RELACIÓN FORÁNEA"
+msgstr "CLAVE FORÁNEA"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
