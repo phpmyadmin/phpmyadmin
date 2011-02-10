@@ -7431,9 +7431,8 @@ msgid "Import from file"
 msgstr "Importar de un archivo"
 
 #: prefs_manage.php:245
-#, fuzzy
 msgid "Import from browser's storage"
-msgstr "Importar de almacenamiento del navegador"
+msgstr "Importar del almacenamiento del navegador"
 
 #: prefs_manage.php:248
 #, fuzzy
