@@ -9637,7 +9637,7 @@ msgstr "Insertar como una nueva fila"
 
 #: tbl_change.php:1053
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Agregar como nueva fila e ignorar errores"
 
 #: tbl_change.php:1054
 #, fuzzy
