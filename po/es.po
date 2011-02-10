@@ -7137,7 +7137,7 @@ msgstr "Color de segundo plano"
 
 #: main.php:142
 msgid "Choose..."
-msgstr ""
+msgstr "Elegir..."
 
 #: main.php:159 prefs_manage.php:274
 #, fuzzy
