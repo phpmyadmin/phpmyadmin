@@ -779,8 +779,7 @@ class PMA_Message
     /**
      * Displays the message in HTML
      *
-     * @uses    PMA_Message::getLevel()
-     * @uses    PMA_Message::getMessage()
+     * @uses    PMA_Message::getDisplay()
      * @uses    PMA_Message::isDisplayed()
      */
     public function display()
@@ -791,6 +790,9 @@ class PMA_Message
 
     /**
      * returns HTML code for displaying this message
+     *
+     * @uses    PMA_Message::getLevel()
+     * @uses    PMA_Message::getMessage()
      *
      * @return string whole message box
      */
