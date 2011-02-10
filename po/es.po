@@ -4645,7 +4645,7 @@ msgstr "Filas:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Volcar algunas filas"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
