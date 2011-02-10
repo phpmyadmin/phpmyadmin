@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:59+0200\n"
+"PO-Revision-Date: 2011-02-11 00:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9498,7 +9498,7 @@ msgstr ""
 "incluyendo usted."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9513,13 +9513,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Usted escogió el tipo de autenticación [kbd]config[/kbd] e incluyó nombre y "
-"contraseña para autenticar en forma automática que está bien para hacer "
-"pruebas en su máquina local pero no es una opción deseable para dar servicio "
-"al público. Cualquiera que conozca o adivine su URL de phpMyAdmin puede "
-"llegar directamente a su consola de phpMyAdmin. Cambie al [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]tipo de autenticación[/a] "
-"a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"Usted definió el tipo de autenticación [kbd]config[/kbd] e incluyó nombre de "
+"usuario y contraseña para autenticar en forma automática, lo que no es una "
+"opción deseable para servidores públicos. Cualquiera que conozca o adivine "
+"su URL de phpMyAdmin puede acceder directamente a su consola de phpMyAdmin. "
+"Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
