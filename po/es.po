@@ -9113,7 +9113,7 @@ msgstr "Diferencia de datos"
 
 #: server_synchronize.php:428 server_synchronize.php:871
 msgid "Add column(s)"
-msgstr ""
+msgstr "Agregar columna(s)"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Remove column(s)"
