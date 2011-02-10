@@ -6562,10 +6562,9 @@ msgid "Portrait"
 msgstr "Orientación vertical"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Creación"
+msgstr "Orientación"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
