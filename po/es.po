@@ -7611,8 +7611,9 @@ msgstr ""
 "ejemplo, utilizado %sscripts de configuración%s"
 
 #: prefs_manage.php:302
+#, fuzzy
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Guardar al almacenamiento del navegador"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
