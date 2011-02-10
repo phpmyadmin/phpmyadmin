@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:55+0200\n"
+"PO-Revision-Date: 2011-02-10 22:56+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7418,9 +7418,7 @@ msgstr "No se pudo importar la configuración"
 msgid "Configuration contains incorrect data for some fields."
 msgstr "La configuración contiene datos incorrectos para algunos campos"
 
-# should opening quotation mark be HTML-escaped?
 #: prefs_manage.php:128
-#, fuzzy
 msgid "Do you want to import remaining settings?"
 msgstr "¿Desea importar las configuraciones restantes?"
 
