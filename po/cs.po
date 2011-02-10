@@ -1103,7 +1103,7 @@ msgstr "Vyhledávám"
 
 #: js/messages.php:84
 msgid "Hide query box"
-msgstr "Schovat pole pro dotaz"
+msgstr "Skrýt pole pro dotaz"
 
 #: js/messages.php:85
 msgid "Show query box"
