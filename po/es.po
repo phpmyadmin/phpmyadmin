@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:16+0200\n"
+"PO-Revision-Date: 2011-02-10 09:17+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5551,9 +5551,11 @@ msgstr "Líneas terminadas en:"
 msgid "Replace NULL with:"
 msgstr "Reemplazar NULL con:"
 
+# "CR/LF" translation?
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
+#, fuzzy
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "Eliminar retornos de carro/alimentaciones de línea en las columnas"
 
 #: libraries/export/excel.php:32
 #, fuzzy
