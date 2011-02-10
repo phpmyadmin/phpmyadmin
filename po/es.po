@@ -8069,9 +8069,8 @@ msgstr ""
 "Este servidor está configurado como maestro en un proceso de replicación."
 
 #: server_replication.php:182 server_status.php:407
-#, fuzzy
 msgid "Show master status"
-msgstr "Mostrar el estado del esclavo"
+msgstr "Mostrar el estado del maestro"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
