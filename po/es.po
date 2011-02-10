@@ -2425,7 +2425,7 @@ msgid ""
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
 "Comprima archivos exportados con gzip/bzip2 sobre la marcha sin necesidad de "
-"mucha memoria; si halla problemas con archivos comprimidos con gzip/bzip2  "
+"mucha memoria; si halla problemas con archivos comprimidos con gzip/bzip2 "
 "deshabilite esta opción"
 
 #: libraries/config/messages.inc.php:40
