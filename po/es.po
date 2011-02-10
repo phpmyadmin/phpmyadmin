@@ -5900,9 +5900,8 @@ msgid "settings"
 msgstr "configuración"
 
 #: libraries/import.lib.php:1169
-#, fuzzy
 msgid "Go to table"
-msgstr "No hay bases de datos"
+msgstr "Ir a la tabla"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
