@@ -1769,7 +1769,7 @@ msgstr "Fallo al obtener la información del BLOB PBMS:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr "Fallo en get BLOB Content-Type:"
+msgstr "Fallo en get BLOB Content-Type"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
