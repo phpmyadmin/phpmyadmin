@@ -5872,7 +5872,7 @@ msgstr "MySQL ha devuelto un valor vacío (i.e., cero columnas)."
 #: libraries/import.lib.php:1141
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Las siguientes estructureas fueron creadas o alteradas. Puedes:"
 
 #: libraries/import.lib.php:1142
 msgid "View a structure`s contents by clicking on its name"
