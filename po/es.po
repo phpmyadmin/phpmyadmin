@@ -7140,10 +7140,9 @@ msgid "Choose..."
 msgstr "Elegir..."
 
 #: main.php:159 prefs_manage.php:274
-#, fuzzy
 #| msgid "Other core settings"
 msgid "More settings"
-msgstr "Otros parámetros cruciales"
+msgstr "Más configuraciones"
 
 #: main.php:176
 msgid "Protocol version"
