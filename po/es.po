@@ -8105,7 +8105,7 @@ msgstr ""
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Replicar todas las bases de datos; ignorar:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
