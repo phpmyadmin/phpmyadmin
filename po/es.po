@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:16+0200\n"
+"PO-Revision-Date: 2011-02-10 22:17+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6428,7 +6428,6 @@ msgid "Page name"
 msgstr "Nombre de página"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Diseño automático basado en:"
