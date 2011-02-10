@@ -2535,7 +2535,7 @@ msgstr "Agrupar los errores"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr "Mostrar iconos para los mensajes de información, error  y advertencia"
+msgstr "Mostrar iconos para los mensajes de información, error y advertencia"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
