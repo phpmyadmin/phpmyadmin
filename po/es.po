@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:27+0200\n"
+"PO-Revision-Date: 2011-02-10 22:28+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7960,7 +7960,8 @@ msgstr "Añadir privilegios a esta base de datos"
 #: server_privileges.php:2040
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Los comodines _ y % deben acompañarse de \\ para usarlos de manera literal"
+"Los comodines _ y % deben acompañarse del caracter de escape \\ para usarlos "
+"de manera literal"
 
 #: server_privileges.php:2043
 msgid "Add privileges on the following table"
