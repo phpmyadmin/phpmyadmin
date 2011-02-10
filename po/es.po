@@ -7476,9 +7476,8 @@ msgstr ""
 "mostrar\", luego dé clic en el nombre apropiado del campo."
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "La Tabla %1$s se creó."
+msgstr "Se creó la página"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
