@@ -5690,6 +5690,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Incluye una marca temporal de cuando la base de datos fue creada, modificada "
+"por última vez y revisada por última vez"
 
 #: libraries/export/sql.php:65
 msgid ""
