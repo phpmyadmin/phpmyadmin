@@ -9915,10 +9915,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Vaciar el caché de la tabla (FLUSH)"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Volcar la base de datos para la tabla"
+msgstr "Borrar datos o tabla"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
