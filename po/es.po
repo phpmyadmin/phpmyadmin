@@ -6833,7 +6833,7 @@ msgid ""
 msgstr ""
 "Mostrar un enlace para descargar los datos binarios de la columna. Se pude "
 "utilizar la primera opción para el nombre del archivo o utilizar la segunda "
-"opción como el nombre de la columna que contiene el nombre de archivo. Se se "
+"opción como el nombre de la columna que contiene el nombre de archivo. Si se "
 "usa esta última, la primer opción tiene que ser una cadena vacía."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
