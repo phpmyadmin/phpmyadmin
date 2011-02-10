@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:31+0200\n"
+"PO-Revision-Date: 2011-02-10 10:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7618,6 +7618,7 @@ msgstr "Guardar al almacenamiento del navegador"
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
+"La configuración será guardada en el almacenamiento local del navegador."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
