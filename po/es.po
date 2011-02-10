@@ -8166,9 +8166,8 @@ msgid "Full start"
 msgstr "Inicio completo"
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full stop"
-msgstr "Texto completo"
+msgstr "Parada completa"
 
 #: server_replication.php:324
 msgid "Reset slave"
