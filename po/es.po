@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:50+0200\n"
+"PO-Revision-Date: 2011-02-10 21:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4986,10 +4986,9 @@ msgid "Print view (with full texts)"
 msgstr "Previsualización para imprimir (documento completo)"
 
 #: libraries/display_tbl.lib.php:2246 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Mostrar esquema PDF"
+msgstr "Mostrar gráfico"
 
 #: libraries/display_tbl.lib.php:2265
 msgid "Create view"
