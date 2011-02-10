@@ -7992,8 +7992,7 @@ msgstr "Ninguna"
 
 #: server_privileges.php:2136
 msgid "Create database with same name and grant all privileges"
-msgstr ""
-"Crear base de datos con el mismo nombre y otorgue todos los privilegios"
+msgstr "Crear base de datos con el mismo nombre y otorgar todos los privilegios"
 
 #: server_privileges.php:2137
 msgid "Grant all privileges on wildcard name (username\\_%)"
