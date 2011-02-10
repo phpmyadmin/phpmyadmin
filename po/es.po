@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:52+0200\n"
+"PO-Revision-Date: 2011-02-10 22:55+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1145,7 +1145,7 @@ msgstr "Por favor, seleccione la clave primaria o una clave única"
 
 #: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr "Elegir el campo a mostrar"
+msgstr "Elegir la columna a mostrar"
 
 #: js/messages.php:102
 msgid "Add an option for column "
