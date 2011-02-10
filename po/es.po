@@ -6759,7 +6759,7 @@ msgstr "FIN DEL VOLCADO"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Agregar comilla invertida al final de la consulta automáticamente"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
