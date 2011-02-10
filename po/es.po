@@ -7568,7 +7568,7 @@ msgstr "¿Desea importar las configuraciones restantes?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Guradado el: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
