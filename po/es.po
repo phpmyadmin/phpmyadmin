@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:32+0200\n"
+"PO-Revision-Date: 2011-02-10 10:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7644,10 +7644,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "La tabla <b>%s</b> no fue hallada o no fue definida en %s"
 
 #: schema_export.php:45
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "¡La tabla \"%s\" no existe!"
+msgstr "El archivo no existe"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
