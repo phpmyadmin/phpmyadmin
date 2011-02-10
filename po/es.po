@@ -4793,6 +4793,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"El archivo que está siendo importado es más grande que el tamaño máximo "
+"permitido o este es un fallo conocido en los navegadores basados en WebKit "
+"(Safari, Google Chrome, Arora etc.)"
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
