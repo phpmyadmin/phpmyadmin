@@ -3395,7 +3395,7 @@ msgstr "Visa tabellrader som länkar på vänster sida"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Visa tabellrader som länkar på höger sida"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
