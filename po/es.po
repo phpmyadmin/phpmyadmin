@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:19+0200\n"
+"PO-Revision-Date: 2011-02-10 10:20+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7265,6 +7265,9 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"El directorio [code]config[/code], utilizado por el script de instalación, "
+"aún existe en el directorio phpMyAdmin. Deberías de eliminarlo una vez que "
+"phpMyAdmin fue configurado."
 
 #: main.php:309
 #, fuzzy, php-format
