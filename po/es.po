@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:18+0200\n"
+"PO-Revision-Date: 2011-02-10 22:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6782,9 +6782,10 @@ msgctxt "for default"
 msgid "None"
 msgstr "Ninguna"
 
+# Corresponds to user-defined option for default value of a TIMESTAMP field
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
-msgstr "Como fuera definido:"
+msgstr "Personalizado:"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
