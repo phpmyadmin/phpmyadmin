@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 20:59+0200\n"
+"PO-Revision-Date: 2011-02-10 21:00+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -859,7 +859,7 @@ msgstr "El servidor web no tiene permiso para guardar el archivo %s."
 #: export.php:664
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Su archivo (MySQL dump) ha sido guardado con el nombre %s."
+msgstr "El volcado ha sido guardado al archivo %s."
 
 #: import.php:58
 #, php-format
