@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 03:27+0200\n"
+"PO-Revision-Date: 2011-02-10 03:28+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4372,10 +4372,9 @@ msgid "Config authentication"
 msgstr "Autenticación por configuración"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Orden en que se autentica el Host"
+msgstr "Autenticación por cookie"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
