@@ -5590,10 +5590,9 @@ msgid "(continued)"
 msgstr "(continúa)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Estructura de la tabla __TABLE__"
+msgstr "Estructura de la tabla @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
