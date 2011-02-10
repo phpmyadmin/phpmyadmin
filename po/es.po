@@ -4779,6 +4779,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Desplácese hacia abajo para rellenar las opciones del formato elegido e "
+"ignore las opciones de los demás formatos"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
