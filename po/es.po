@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:56+0200\n"
+"PO-Revision-Date: 2011-02-10 23:57+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9472,6 +9472,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Si se utiliza autenticación por cookie y el %salmacenamiento de cookie de "
+"sesión%s no es 0, la %svalidez de la cookie de sesión%s debe ser definida a "
+"un valor menor o igual al mismo."
 
 #: setup/lib/index.lib.php:266
 #, fuzzy, php-format
