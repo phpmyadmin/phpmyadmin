@@ -6892,10 +6892,9 @@ msgid "You have to add at least one column."
 msgstr "Debe agregar al menos una columna."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a new value"
-msgstr "Añadir un nuevo servidor"
+msgstr "+ Agregar un nuevo valor"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
