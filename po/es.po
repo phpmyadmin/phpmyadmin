@@ -7325,8 +7325,8 @@ msgstr "Opciones activas"
 msgid "To select relation, click :"
 msgstr "Para seleccionar la relación, pulse en:"
 
+# See translation string 202
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7336,9 +7336,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"El campo Display se halla en color rosado. Para activar o desactivar un "
-"campo como un campo Display, dé clic en el ícono \"Seleccione el campo a "
-"mostrar\", luego dé clic en el nombre apropiado del campo."
+"La columna mostrada se halla en color rosado. Para activar o desactivar una "
+"columna para mostrar, pulse en el ícono \"Elegir la columna a mostrar\" y "
+"luego pulse en el nombre de columna apropiado."
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
