@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-10 10:38+0100\n"
+"POT-Creation-Date: 2011-02-10 14:02+0100\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -1833,6 +1833,10 @@ msgstr ""
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
+msgstr ""
+
+#: libraries/bookmark.lib.php:83
+msgid "shared"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:25

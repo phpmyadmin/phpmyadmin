@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-10 10:38+0100\n"
+"POT-Creation-Date: 2011-02-10 14:02+0100\n"
 "PO-Revision-Date: 2011-02-07 22:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -1777,6 +1777,10 @@ msgstr "Загрузить файл"
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Невозможно открыть файл: %s"
+
+#: libraries/bookmark.lib.php:83
+msgid "shared"
+msgstr ""
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
