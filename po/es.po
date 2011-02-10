@@ -7415,7 +7415,7 @@ msgstr "Eliminar la relación"
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "La relación fue eliminada"
+msgstr "Operador de relación"
 
 #: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
 #: pmd_general.php:770
