@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:13+0200\n"
+"PO-Revision-Date: 2011-02-10 22:14+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6233,7 +6233,6 @@ msgid "User preferences"
 msgstr "Preferencias de usuario"
 
 #: libraries/relation.lib.php:151
-#, fuzzy
 msgid "Quick steps to setup advanced features:"
 msgstr "Pasos rápidos para configurar funcionalidades avanzadas:"
 
