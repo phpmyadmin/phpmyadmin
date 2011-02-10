@@ -6841,9 +6841,11 @@ msgstr ""
 "invertida («\\») o comilla sencilla («'») entre esos valores, añada una barra "
 "invertida (por ejemplo «\\\\xyz» o «a\\'b»)."
 
+# no question marks or both? opening question mark as escaped HTML?
 #: libraries/tbl_properties.inc.php:371
+#, fuzzy
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Datos ENUM o SET demasiado largos"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
