@@ -9163,7 +9163,7 @@ msgstr "La base de datos objetivo fue sincronizada con la base de datos fuente."
 
 #: server_synchronize.php:1001
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Se ejecutaron las siguentes consultas:"
 
 #: server_synchronize.php:1118
 msgid "Enter manually"
