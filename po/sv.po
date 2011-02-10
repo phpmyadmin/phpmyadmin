@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 19:02+0200\n"
+"PO-Revision-Date: 2011-02-10 19:05+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9272,7 +9272,7 @@ msgstr "Bläddra bland främmande värden"
 #: sql.php:127
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Använd bokmärke \"% s\" som standard webbläsarfråga."
 
 #: sql.php:572 tbl_replace.php:380
 #, php-format
