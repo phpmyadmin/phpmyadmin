@@ -4683,10 +4683,10 @@ msgid "Output:"
 msgstr "Salida:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Guardar en el servidor, en el directorio %s "
+msgstr "Guardar en el servidor en el directorio <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
 #, fuzzy
