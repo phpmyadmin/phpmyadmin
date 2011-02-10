@@ -4894,10 +4894,9 @@ msgid "%d is not valid row number."
 msgstr "%d no es un número de fila válido."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "filas empezando de"
+msgstr "fila(s) iniciando en la fila #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
