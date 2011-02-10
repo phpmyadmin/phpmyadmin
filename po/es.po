@@ -5848,9 +5848,8 @@ msgid "Views"
 msgstr "Vistas"
 
 #: libraries/export/xml.php:47
-#, fuzzy
 msgid "Export contents"
-msgstr "Exportar las opciones predeterminadas"
+msgstr "Exportar contenidos"
 
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
