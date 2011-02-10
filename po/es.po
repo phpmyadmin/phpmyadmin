@@ -5980,6 +5980,8 @@ msgstr "¡Este plugin no tiene soporte para importaciones comprimidas!"
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Importar porcentakes como decimales propios <i>(por ejemplo: 12.00% como "
+".12)</i>"
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
