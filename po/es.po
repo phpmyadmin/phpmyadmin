@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:10+0200\n"
+"PO-Revision-Date: 2011-02-10 10:11+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7005,14 +7005,16 @@ msgstr ""
 "asegurando que aparezca completa en una sola línea."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Mantiene el formato original del campo. No se puede hacer Escape."
+msgstr ""
+"Miestra el contenido de la columna como es, sin pasarlo por "
+"htmlspecialchars(). Esto quiere decir que se asume que la columna contiene "
+"HTML válido."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
