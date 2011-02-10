@@ -9167,7 +9167,7 @@ msgstr "Se ejecutaron las siguentes consultas:"
 
 #: server_synchronize.php:1118
 msgid "Enter manually"
-msgstr ""
+msgstr "Ingresar manualmente:"
 
 #: server_synchronize.php:1119
 #, fuzzy
