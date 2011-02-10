@@ -9544,10 +9544,9 @@ msgstr ""
 "este sistema."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
-msgstr "Usted debe usar conexiones SSL si su servidor web lo tiene"
+msgstr "Debe usar conexiones SSL si su servidor web lo soporta."
 
 #: setup/lib/index.lib.php:306
 #, fuzzy
