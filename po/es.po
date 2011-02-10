@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:26+0200\n"
+"PO-Revision-Date: 2011-02-10 23:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8151,7 +8151,7 @@ msgstr ""
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Ver la tabla de estado del esclavo"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
