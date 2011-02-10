@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:01+0200\n"
+"PO-Revision-Date: 2011-02-10 21:04+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5522,10 +5522,9 @@ msgstr "Edición Excel:"
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Opciones para visualizar las bases de datos"
+msgstr "Opciones para volcado de datos"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:946 libraries/export/texytext.php:123
