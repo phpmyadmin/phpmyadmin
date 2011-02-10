@@ -4602,10 +4602,9 @@ msgid "Create table on database %s"
 msgstr "Crear nueva tabla en la base de datos %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Número de campos"
+msgstr "Número de columnas"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
