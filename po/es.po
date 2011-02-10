@@ -8989,6 +8989,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"Para más información sobre el estado de replicación en el servidor, por "
+"favor visita la <a href=\"#replication\">sección sobre replicación</a>."
 
 #: server_status.php:509
 msgid ""
