@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 18:58+0200\n"
+"PO-Revision-Date: 2011-02-10 18:59+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3431,7 +3431,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
-msgstr "Default sorteringsordning"
+msgstr "Förvald sorteringsordning"
 
 #: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
