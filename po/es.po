@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:29+0200\n"
+"PO-Revision-Date: 2011-02-10 22:30+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7281,8 +7281,8 @@ msgstr "Número de tablas"
 msgid "Delete relation"
 msgstr "Eliminar la relación"
 
+# Relation refers to actual mathematical operations not the DB-related term
 #: pmd_general.php:461 pmd_general.php:520
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Operador de relación"
