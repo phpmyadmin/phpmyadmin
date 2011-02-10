@@ -6501,7 +6501,7 @@ msgstr "Nombre de página"
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Diseño automático"
+msgstr "Diseño automático basado en:"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
