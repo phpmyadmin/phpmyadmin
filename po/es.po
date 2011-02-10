@@ -9532,7 +9532,7 @@ msgstr ""
 "este sistema."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
@@ -9540,8 +9540,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]la descompresión Zip[/"
-"a] requiere funciones (%s) que no están disponibles en este sistema."
+"%sLa descompresión Zip%s requiere funciones (%s) que no están disponibles en "
+"este sistema."
 
 #: setup/lib/index.lib.php:296
 #, fuzzy
