@@ -8200,7 +8200,7 @@ msgstr "Identificación"
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Error desconocido"
 
 #: server_replication.php:56
 #, php-format
