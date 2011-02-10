@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 10:38+0100\n"
-"PO-Revision-Date: 2011-02-09 14:40+0100\n"
+"PO-Revision-Date: 2011-02-10 11:23+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9253,7 +9253,7 @@ msgstr "Projít hodnoty cizích klíčů"
 #: sql.php:127
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
 #: sql.php:572 tbl_replace.php:380
 #, php-format
@@ -9275,7 +9275,7 @@ msgstr "Proběhlo zkontrolování SQL"
 #: sql.php:831
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problémy s indexy v tabulce `%s`"
+msgstr "Problémy s indexy v tabulce „%s\""
 
 #: sql.php:863
 msgid "Label"
