@@ -7431,9 +7431,8 @@ msgid "subquery"
 msgstr "sub-consulta"
 
 #: pmd_general.php:481 pmd_general.php:577
-#, fuzzy
 msgid "Rename to"
-msgstr "Cambiar el nombre de la tabla a"
+msgstr "Cambiar el nombre a"
 
 #: pmd_general.php:483 pmd_general.php:582
 #, fuzzy
