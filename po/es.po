@@ -7131,8 +7131,9 @@ msgid "Appearance Settings"
 msgstr "Configuraciones de apariencia"
 
 #: main.php:141
+#, fuzzy
 msgid "Background color"
-msgstr ""
+msgstr "Color de segundo plano"
 
 #: main.php:142
 msgid "Choose..."
