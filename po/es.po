@@ -9077,9 +9077,8 @@ msgid "Replication status"
 msgstr "Estado de replicación"
 
 #: server_synchronize.php:92
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "No pudo conectarse con un servidor MySQL"
+msgstr "No pudo conectarse a la fuente"
 
 #: server_synchronize.php:95
 #, fuzzy
