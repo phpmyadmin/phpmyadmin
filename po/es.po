@@ -8198,6 +8198,8 @@ msgstr "Manejo de errores:"
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"¡Omitir errores podría llevar a que el esclavo y maestro no estén "
+"sincronizados!"
 
 #: server_replication.php:342
 msgid "Skip current error"
