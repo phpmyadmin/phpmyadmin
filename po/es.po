@@ -7319,9 +7319,8 @@ msgid "Clear"
 msgstr "Limpiar"
 
 #: navigation.php:277
-#, fuzzy
 msgid "Filter"
-msgstr "Archivos"
+msgstr "Filtrar"
 
 #: navigation.php:277
 #, fuzzy
