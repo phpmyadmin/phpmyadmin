@@ -6384,6 +6384,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Sólo los esclavos iniciados con la opción --report-host=host_name son "
+"visibles en esta lista"
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
 msgid "Add slave replication user"
