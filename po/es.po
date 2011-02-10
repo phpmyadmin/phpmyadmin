@@ -8074,7 +8074,7 @@ msgstr "Mostrar el estado del maestro"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Mostrar esclavos conectados"
 
 #: server_replication.php:208
 #, php-format
