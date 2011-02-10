@@ -8205,7 +8205,7 @@ msgstr "Error desconocido"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "No se pudo conectar al maestro %s."
 
 #: server_replication.php:63
 msgid ""
