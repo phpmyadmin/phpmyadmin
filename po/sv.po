@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 18:53+0200\n"
+"PO-Revision-Date: 2011-02-10 18:54+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3399,7 +3399,7 @@ msgstr "Visa tabellrader som länkar på höger sida"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
-msgstr "Använd naturliga ordningen för sortering av tabell och databas namn"
+msgstr "Använd naturlig ordning vid sortering av tabell- och databasnamn"
 
 #: libraries/config/messages.inc.php:318
 msgid "Natural order"
