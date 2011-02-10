@@ -4273,7 +4273,7 @@ msgstr "Título de la ventana cuando se ha seleccionado un servidor"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Título de la ventana cuando se ha seleccionado un tabla"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
