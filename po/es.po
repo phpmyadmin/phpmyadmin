@@ -4648,7 +4648,7 @@ msgstr "Personalizado - mostrar todas las opciones de configuración posibles"
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Base(s) de datos"
+msgstr "Base(s) de datos:"
 
 #: libraries/display_export.lib.php:139
 #| msgid "Tables"
