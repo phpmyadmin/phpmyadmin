@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:41+0200\n"
+"PO-Revision-Date: 2011-02-10 23:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9070,7 +9070,7 @@ msgstr "Mostrar gráfico de consultas"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Nota: generar el gráfico de consultas puede tomar un largo tiempo."
 
 #: server_status.php:867
 #, fuzzy
