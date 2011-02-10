@@ -958,6 +958,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         }
     }
 
+    if (isset($GLOBALS['using_bookmark_message'])) {
+        $GLOBALS['using_bookmark_message']->display();
+        unset($GLOBALS['using_bookmark_message']);
+    }
+
     // Corrects the tooltip text via JS if required
     // @todo this is REALLY the wrong place to do this - very unexpected here
     if (! $is_view && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {

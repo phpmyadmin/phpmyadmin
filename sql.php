@@ -124,6 +124,8 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
         'label');
 
     if (! empty($book_sql_query)) {
+        $GLOBALS['using_bookmark_message'] = PMA_message::notice(__('Using bookmark "%s" as default browse query'));
+        $GLOBALS['using_bookmark_message']->addParam($table);
         $sql_query = $book_sql_query;
     } else {
         $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
