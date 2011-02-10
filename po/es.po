@@ -7031,8 +7031,8 @@ msgstr ""
 "La primera opción es una URL prefijo como \"http://www.example.com/\". La "
 "segunda y tercera opción son el ancho y alto en píxeles respectivamente."
 
+# Per IANA's regulations example domains MUST be example.com
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -7042,9 +7042,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Muestra un enlace, el campo contiene el nombre del archivo; la primera "
-"opción es un prefijo como \"http://dominio.com/\", la segunda opción es un "
-"título para el enlace."
+"Muestra un enlace, la columna contiene el nombre del archivo. La primera "
+"opción es una URL prefijo como \"http://www.example.com/\". La segunda opción "
+"es el título para el enlace."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
