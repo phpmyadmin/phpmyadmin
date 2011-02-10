@@ -8193,7 +8193,7 @@ msgstr "Parar hilo IO sólamente"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Manejo de errores:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
