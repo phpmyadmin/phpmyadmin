@@ -7426,10 +7426,9 @@ msgstr "Excepto"
 
 #: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
 #: pmd_general.php:776
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "en la consulta"
+msgstr "sub-consulta"
 
 #: pmd_general.php:481 pmd_general.php:577
 #, fuzzy
