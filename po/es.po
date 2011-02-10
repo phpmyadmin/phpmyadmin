@@ -8162,9 +8162,8 @@ msgid "Control slave:"
 msgstr "Controlar esclavo:"
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full start"
-msgstr "Texto completo"
+msgstr "Inicio completo"
 
 #: server_replication.php:323
 #, fuzzy
