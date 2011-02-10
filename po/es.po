@@ -9751,8 +9751,9 @@ msgid "Stacked"
 msgstr "Apilado"
 
 #: tbl_chart.php:147
+#, fuzzy
 msgid "Multi"
-msgstr ""
+msgstr "Múltiple"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
