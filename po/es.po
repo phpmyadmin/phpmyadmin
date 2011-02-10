@@ -5529,7 +5529,7 @@ msgstr "Opciones para volcado de datos"
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:946 libraries/export/texytext.php:123
 msgid "Dumping data for table"
-msgstr "Volcar la base de datos para la tabla"
+msgstr "Volcado de datos para la tabla"
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
 #: libraries/export/sql.php:850 libraries/export/texytext.php:170
