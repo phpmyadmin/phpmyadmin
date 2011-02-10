@@ -1619,3 +1619,27 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+#togglequerybox {
+    clear: both;
+    display: block;
+    margin:             0 1em 1em 1em;
+    border:             2px solid #000;
+    width: auto;
+    padding: 0.2em;
+    clear:              both;
+    -moz-border-radius: 0.5em;
+    border-radius:      0.5em;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    <?php if ($GLOBALS['cfg']['PropertiesIconic']) { ?>
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_sql.png);
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 5px 50%;
+    padding:            0.2em 0.2em 0.2em 25px;
+        <?php } else { ?>
+    background-position: 97% 50%;
+    padding:            0.2em 25px 0.2em 0.2em;
+        <?php } ?>
+    <?php } ?>
+}
