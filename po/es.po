@@ -5928,10 +5928,9 @@ msgstr ""
 "entre comillas."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Nombre de las columnas"
+msgstr "Nombre de las columnas:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
