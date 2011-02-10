@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 02:53+0200\n"
+"PO-Revision-Date: 2011-02-10 04:16+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3314,10 +3314,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "它们是编辑、快速编辑、复制和删除链接"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "在左侧框架中显示 logo"
+msgstr "在数据左侧显示操作链接"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
