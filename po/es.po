@@ -9571,7 +9571,7 @@ msgstr ""
 #: sql.php:80 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Mostrar los valores extranjeros"
+msgstr "Mostrar los valores foráneos"
 
 #: sql.php:127
 #, php-format, fuzzy
