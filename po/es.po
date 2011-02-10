@@ -9104,9 +9104,8 @@ msgid "not present"
 msgstr "ausente"
 
 #: server_synchronize.php:422 server_synchronize.php:865
-#, fuzzy
 msgid "Structure Difference"
-msgstr "Estructura para la vista"
+msgstr "Diferencia de estructura"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 #, fuzzy
