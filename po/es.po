@@ -9159,7 +9159,7 @@ msgstr ""
 
 #: server_synchronize.php:940
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "La base de datos objetivo fue sincronizada con la base de datos fuente."
 
 #: server_synchronize.php:1001
 msgid "The following queries have been executed:"
