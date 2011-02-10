@@ -4825,6 +4825,7 @@ msgstr ""
 "Se agotó el tiempo de ejecución en la importación previa; si lo reenvía "
 "continuará desde la posición %d."
 
+# not too fond of "script" and "break transactions"
 #: libraries/display_import.lib.php:221
 #, fuzzy
 #| msgid ""
