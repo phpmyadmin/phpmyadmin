@@ -5714,7 +5714,7 @@ msgstr "Agregar sentencias:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Opciones <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
 msgid ""
