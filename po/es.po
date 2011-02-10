@@ -7422,7 +7422,7 @@ msgstr "Operador de relación"
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Exportar"
+msgstr "Excepto"
 
 #: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
 #: pmd_general.php:776
