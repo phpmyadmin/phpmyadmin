@@ -6849,7 +6849,7 @@ msgstr "Datos ENUM o SET demasiado largos"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Obtener más espacio de edición"
 
 #: libraries/tbl_properties.inc.php:396
 #, fuzzy
