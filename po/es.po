@@ -5786,6 +5786,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Volcar columnas binarias en notación hexadecimal <i>(por ejemplo \"abc\" sería "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
