@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 06:06+0200\n"
+"PO-Revision-Date: 2011-02-10 06:09+0200\n"
 "Last-Translator:  <aburamesino@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2623,7 +2623,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "Kirimkan ke"
+msgstr "Simpan file dalam format"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 #, fuzzy
