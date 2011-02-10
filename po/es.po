@@ -6250,7 +6250,6 @@ msgid "Reload navigation frame"
 msgstr "Recargar el marco de navegación"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Este formato no tiene opciones"
