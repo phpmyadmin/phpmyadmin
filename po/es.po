@@ -594,7 +594,7 @@ msgstr "En la(s) tabla(s):"
 
 #: db_search.php:351
 msgid "Inside column:"
-msgstr "Dentro de la columna"
+msgstr "Dentro de la columna:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
