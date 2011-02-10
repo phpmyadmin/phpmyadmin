@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:35+0200\n"
+"PO-Revision-Date: 2011-02-10 09:36+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5895,8 +5895,9 @@ msgid "Go to database"
 msgstr "Ir a la base de datos"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#, fuzzy
 msgid "settings"
-msgstr ""
+msgstr "configuración"
 
 #: libraries/import.lib.php:1169
 #, fuzzy
