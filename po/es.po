@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:04+0200\n"
+"PO-Revision-Date: 2011-02-10 22:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5831,6 +5831,7 @@ msgstr "Edite su estructura siguiendo el enlace «Estructura»"
 msgid "Go to database"
 msgstr "Ir a la base de datos"
 
+# This needs a bug opened due to way of building string not translation-friendly
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #, fuzzy
 msgid "settings"
