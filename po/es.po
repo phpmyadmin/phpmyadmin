@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:01+0200\n"
+"PO-Revision-Date: 2011-02-10 09:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5491,7 +5491,7 @@ msgstr "Tamaño que puede crecer el archivo del apuntador de filas (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr "Contaje de archivos bitácora"
+msgstr "Cantidad de archivos de registro"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
