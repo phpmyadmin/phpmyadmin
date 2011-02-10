@@ -7188,9 +7188,8 @@ msgid "Contribute"
 msgstr "Contribuir"
 
 #: main.php:228
-#, fuzzy
 msgid "Get support"
-msgstr "Exportar"
+msgstr "Obtener soporte"
 
 #: main.php:229
 #, fuzzy
