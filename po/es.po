@@ -7074,10 +7074,9 @@ msgstr ""
 "haya truncamiento (Predeterminado: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Otros parámetros cruciales"
+msgstr "Administrar tu configuración"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
