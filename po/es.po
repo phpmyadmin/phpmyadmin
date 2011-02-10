@@ -7126,10 +7126,9 @@ msgid "MySQL connection collation"
 msgstr "Cotejamiento de las conexiones MySQL"
 
 #: main.php:121
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Otros parámetros cruciales"
+msgstr "Configuraciones de apariencia"
 
 #: main.php:141
 msgid "Background color"
