@@ -9713,8 +9713,9 @@ msgid "Y Axis label"
 msgstr "Etiqueta del eje Y"
 
 #: tbl_chart.php:112
+#, fuzzy
 msgid "Area margins"
-msgstr ""
+msgstr "Márgenes de área"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
