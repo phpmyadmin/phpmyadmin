@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 08:00+0200\n"
+"PO-Revision-Date: 2011-02-10 08:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4846,10 +4846,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "No está permitido subir archivos a este servidor."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Importación parcial"
+msgstr "Importación parcial:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
