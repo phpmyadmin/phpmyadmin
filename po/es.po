@@ -7507,7 +7507,7 @@ msgstr "Crear una página y exportar a ella"
 #, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nombre de usuario"
+msgstr "Nuevo nombre de página"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
