@@ -8086,9 +8086,8 @@ msgstr ""
 "¿Desea <a href=\"%s\">configurarlo</a>?"
 
 #: server_replication.php:215
-#, fuzzy
 msgid "Master configuration"
-msgstr "Configuración del servidor"
+msgstr "Configuración del maestro"
 
 #: server_replication.php:216
 msgid ""
