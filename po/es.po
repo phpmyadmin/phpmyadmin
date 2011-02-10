@@ -7560,7 +7560,9 @@ msgstr "No se pudo importar la configuración"
 msgid "Configuration contains incorrect data for some fields."
 msgstr "La configuración contiene datos incorrectos para algunos campos"
 
+# should opening quotation mark be HTML-escaped?
 #: prefs_manage.php:128
+#, fuzzy
 msgid "Do you want to import remaining settings?"
 msgstr "¿Desea importar las configuraciones restantes?"
 
