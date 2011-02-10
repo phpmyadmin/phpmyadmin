@@ -9099,8 +9099,9 @@ msgid "Data Synchronization"
 msgstr "Sincronización de datos"
 
 #: server_synchronize.php:398 server_synchronize.php:837
+#, fuzzy
 msgid "not present"
-msgstr ""
+msgstr "ausente"
 
 #: server_synchronize.php:422 server_synchronize.php:865
 #, fuzzy
