@@ -8180,7 +8180,7 @@ msgstr "Iniciar hilo SQL sólamente"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Parar hilo SQL sólamente"
 
 #: server_replication.php:331
 #, fuzzy
