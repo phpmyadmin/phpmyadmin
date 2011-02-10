@@ -7712,7 +7712,7 @@ msgstr "Replicación maestra"
 #: server_databases.php:175 server_replication.php:246
 #, fuzzy
 msgid "Slave replication"
-msgstr "Configuración del servidor"
+msgstr "Replicación esclava"
 
 #: server_databases.php:258 server_databases.php:259
 msgid "Enable Statistics"
