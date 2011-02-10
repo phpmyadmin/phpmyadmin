@@ -5530,7 +5530,7 @@ msgstr "Columnas separadas por:"
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Campos encerrados por"
+msgstr "Columnas encerradas por:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
