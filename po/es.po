@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:33+0200\n"
+"PO-Revision-Date: 2011-02-10 10:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8160,9 +8160,9 @@ msgstr ""
 "Otorgue todos los privilegios al nombre que contiene comodín (username\\_%)"
 
 #: server_privileges.php:2140
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Revisar los privilegios para la base de datos &quot;%s&quot;."
+msgstr "Otorgar todos los privilegios para la base de datos &quot;%s&quot;."
 
 #: server_privileges.php:2163
 #, php-format
