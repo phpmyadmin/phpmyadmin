@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 05:55+0200\n"
+"PO-Revision-Date: 2011-02-10 05:56+0200\n"
 "Last-Translator:  <aburamesino@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1081,7 +1081,7 @@ msgstr "Menghapus Kolom"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr " Tambahkan Primary Key"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
 #: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
