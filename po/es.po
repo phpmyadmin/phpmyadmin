@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:14+0200\n"
+"PO-Revision-Date: 2011-02-10 22:15+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6394,9 +6394,8 @@ msgid "This page does not contain any tables!"
 msgstr "Esta página no contiene ninguna tabla"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
-#, fuzzy
 msgid "SCHEMA ERROR: "
-msgstr "Error de esquema:"
+msgstr "ERROR DE ESQUEMA:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:874
 #: libraries/schema/Pdf_Relation_Schema.class.php:1113
