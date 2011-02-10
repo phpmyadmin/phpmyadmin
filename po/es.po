@@ -7323,10 +7323,9 @@ msgid "Filter"
 msgstr "Filtrar"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
-msgstr "Modificar el ORDER BY de la tabla"
+msgstr "filtar tablas por nombre"
 
 #: navigation.php:308 navigation.php:309
 #, fuzzy
