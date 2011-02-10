@@ -4603,7 +4603,7 @@ msgstr "Número de columnas"
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"No se cargaron los plugins de exportación.  Por favor, ¡revise su "
+"No se cargaron los plugins de exportación. Por favor, ¡revise su "
 "instalación!"
 
 #: libraries/display_export.lib.php:87
