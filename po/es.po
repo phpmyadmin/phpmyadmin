@@ -7458,7 +7458,7 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Se puende definir más configuraciones modificando config.inc.php. Por "
+"Se pueden definir más configuraciones modificando config.inc.php. Por "
 "ejemplo, utilizado %sscripts de configuración%s"
 
 #: prefs_manage.php:302
