@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:11+0200\n"
+"PO-Revision-Date: 2011-02-10 22:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5940,12 +5940,12 @@ msgstr ""
 "El archivo XML especificado estaba incompleto o mal formado. Por favor "
 "corrija el problema e intente nuevamente."
 
+# male gender due to referring to encoding modes
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "Ninguna"
+msgstr "Ninguno"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
