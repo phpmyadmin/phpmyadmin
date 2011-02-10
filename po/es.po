@@ -9671,10 +9671,10 @@ msgstr ""
 "a cualquier parte"
 
 #: tbl_change.php:1131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Reinicie la inserción con %s filas"
+msgstr "Continuar inserción con %s filas"
 
 #: tbl_chart.php:56
 #, fuzzy
