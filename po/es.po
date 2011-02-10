@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 03:03+0200\n"
+"PO-Revision-Date: 2011-02-10 03:04+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4317,8 +4317,9 @@ msgstr ""
 "opciones situadas más abajo, sin importar la casilla de la derecha"
 
 #: libraries/config/messages.inc.php:495
+#, fuzzy
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Habilitar la pestaña Developer en la configuración"
 
 #: libraries/config/messages.inc.php:496
 msgid ""
