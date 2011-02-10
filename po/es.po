@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 02:57+0200\n"
+"PO-Revision-Date: 2011-02-10 02:59+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4276,12 +4276,17 @@ msgid "Title of browser window when a table is selected"
 msgstr "Título de la ventana cuando se ha seleccionado un tabla"
 
 #: libraries/config/messages.inc.php:488
+#, fuzzy
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
+"Ingresar proxies como [kbd]IP: cabecera HTTP confiable[/kbd]. El siguiente "
+"ejemplo especifica que phpMyAdmin debe confiar una cabecera "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente del proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:489
 msgid "List of trusted proxies for IP allow/deny"
