@@ -2916,7 +2916,7 @@ msgid ""
 msgstr ""
 "Especificar el texto de la barra de título del navegador. Consulte la "
 "[a@Documentation.html#cfg_TitleTable]documentación[/a] para ver las palabras "
-"mágicas que podrán ser usadas para obtener valores especiales"
+"mágicas que podrán ser usadas para obtener valores especiales."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
