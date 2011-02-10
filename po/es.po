@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 01:53+0200\n"
+"PO-Revision-Date: 2011-02-10 02:55+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4263,10 +4263,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Título de la ventana al no haber nada seleccionado"
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Ceja predeterminada de la tabla"
+msgstr "Título predeterminado"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
