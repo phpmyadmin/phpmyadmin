@@ -6457,10 +6457,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Esquema de la base de datos «%s» - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "El archivo %s no contiene ninguna Id de llave"
+msgstr "Esta página no contiene ninguna tabla"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
