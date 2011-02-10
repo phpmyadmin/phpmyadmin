@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:58+0200\n"
+"PO-Revision-Date: 2011-02-10 09:59+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6647,7 +6647,7 @@ msgstr "Servidor remoto"
 
 #: libraries/server_synchronize.lib.php:1344
 msgid "Difference"
-msgstr ""
+msgstr "Diferencia"
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1110
 #, fuzzy
