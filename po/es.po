@@ -3996,7 +3996,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Si el mecanismo de rastreo crea versiones para tablas y vistas "
+"Si el mecanismo de seguimiento crea versiones para tablas y vistas "
 "automáticamente o no"
 
 #: libraries/config/messages.inc.php:429
