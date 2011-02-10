@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:20+0200\n"
+"PO-Revision-Date: 2011-02-10 21:41+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4917,11 +4917,12 @@ msgstr "Textos completos"
 msgid "Relational key"
 msgstr "Clave relacional"
 
+# This is part of the display options but I'm not sure what it does (thus not sure how to translate it)
 #: libraries/display_tbl.lib.php:590
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Campo que muestra las relaciones"
+msgstr "Columna de muestra relacional"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents"
