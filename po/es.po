@@ -6979,9 +6979,7 @@ msgstr ""
 msgid "Could not save configuration"
 msgstr "No se pudo guardar la configuración"
 
-# Open quotation mark should be HTML escaped?
 #: libraries/user_preferences.lib.php:308
-#, fuzzy
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
