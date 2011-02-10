@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:59+0200\n"
+"PO-Revision-Date: 2011-02-10 10:00+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6789,7 +6789,7 @@ msgstr "La tabla, ¡parece estar vacía!"
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Rastreo de %s.%s activado."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
