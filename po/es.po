@@ -563,7 +563,7 @@ msgstr "Borrar"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "¿ Eliminar las coincidencias para la tabla %s ?"
+msgstr "¿Eliminar las coincidencias para la tabla %s?"
 
 #: db_search.php:272
 #, php-format
