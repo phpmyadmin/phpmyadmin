@@ -8140,7 +8140,7 @@ msgstr "¡El hilo SQL esclavo no está ejecutando!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "¡El hilo IO escalvo no está ejecutando!"
 
 #: server_replication.php:303
 msgid ""
