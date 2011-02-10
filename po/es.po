@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:44+0200\n"
+"PO-Revision-Date: 2011-02-10 23:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9141,7 +9141,7 @@ msgstr "Agregar fila(s)"
 
 #: server_synchronize.php:444 server_synchronize.php:888
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "¿Desea eliminar todas las filas existentes en las tablas objetivo?"
 
 #: server_synchronize.php:447 server_synchronize.php:892
 msgid "Apply Selected Changes"
