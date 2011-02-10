@@ -69,10 +69,25 @@ function PMA_Bookmark_getList($db)
 
     $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
             . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
-            . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
-            . '      OR user = \'\')'
+            . ' AND user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
             . ' ORDER BY label';
-    return PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
+    $per_user = PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
+
+    $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
+            . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
+            . ' AND user = \'\''
+            . ' ORDER BY label';
+    $global = PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
+
+    foreach($global as $key => $val) {
+        $global[$key] = $val . ' (' . __('shared') . ')';
+    }
+
+    $ret = $global + $per_user;
+
+    asort($ret);
+
+    return $ret;
 } // end of the 'PMA_Bookmark_getList()' function
 
 
