@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:30+0200\n"
+"PO-Revision-Date: 2011-02-10 22:35+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -665,7 +665,7 @@ msgstr "Para los elementos que están marcados:"
 #: server_databases.php:248 server_privileges.php:576
 #: server_privileges.php:1686 tbl_structure.php:548
 msgid "Check All"
-msgstr "Marcar todos/as"
+msgstr "Marcar todos"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2089
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
