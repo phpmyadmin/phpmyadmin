@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:08+0200\n"
+"PO-Revision-Date: 2011-02-10 22:11+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5927,10 +5927,10 @@ msgstr "Importar monedas <i>(por ejemplo: $5.00 como 5.00)</i>"
 msgid "SQL compatibility mode:"
 msgstr "Modalidad SQL compatible:"
 
+# Activates use of compatibility mode http://dev.mysql.com/doc/refman/5.0/en/server-sql-mode.html#sqlmode_no_auto_value_on_zero
 #: libraries/import/sql.php:42
-#, fuzzy
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "No utilizar <code>AUTO_INCREMENT</code> para valores cero"
+msgstr "No utilizar <code>AUTO_INCREMENT</code> con el valor 0"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
