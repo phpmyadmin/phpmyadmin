@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:26+0200\n"
+"PO-Revision-Date: 2011-02-10 09:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5739,7 +5739,7 @@ msgstr "Sentencias <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Función a utilizar al volcar datos:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
