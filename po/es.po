@@ -5891,9 +5891,8 @@ msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Edite su estructura siguiendo el enlace «Estructura»"
 
 #: libraries/import.lib.php:1147
-#, fuzzy
 msgid "Go to database"
-msgstr "No hay bases de datos"
+msgstr "Ir a la base de datos"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
