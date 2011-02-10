@@ -10071,7 +10071,7 @@ msgstr "Agregar índice único"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Agregar índice FULLTEXT"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
