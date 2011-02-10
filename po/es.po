@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:33+0200\n"
+"PO-Revision-Date: 2011-02-10 09:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5843,10 +5843,9 @@ msgid "Object creation options (all are recommended)"
 msgstr "Opciones de creación de objetos (todas son recomendadas)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Visualizar"
+msgstr "Vistas"
 
 #: libraries/export/xml.php:47
 #, fuzzy
