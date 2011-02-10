@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:30+0200\n"
+"PO-Revision-Date: 2011-02-10 10:31+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7600,12 +7600,15 @@ msgstr "Esta funcionalidad no está soportada por tu navegador"
 msgid "Merge with current configuration"
 msgstr "Combinar con la configuración actual"
 
+# I still don't like translating "script"
 #: prefs_manage.php:277
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Se puende definir más configuraciones modificando config.inc.php. Por "
+"ejemplo, utilizado %sscripts de configuración%s"
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
