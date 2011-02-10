@@ -8183,10 +8183,9 @@ msgid "Stop SQL Thread only"
 msgstr "Parar hilo SQL sólamente"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Únicamente la estructura "
+msgstr "Iniciar hilo IO sólamente"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
