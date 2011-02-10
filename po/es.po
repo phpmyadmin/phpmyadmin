@@ -5743,7 +5743,7 @@ msgstr "Función a utilizar al volcar datos:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintáxis a utilizar al insertar datos:"
 
 #: libraries/export/sql.php:154
 msgid ""
