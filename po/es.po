@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 20:58+0200\n"
+"PO-Revision-Date: 2011-02-10 20:59+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -240,7 +240,7 @@ msgstr "Imprimir"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Ver el volcado esquema de la base de datos"
+msgstr "Ver el volcado (esquema) de la base de datos"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:48
 #: export.php:371 navigation.php:304
