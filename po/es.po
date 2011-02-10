@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 10:15+0200\n"
+"PO-Revision-Date: 2011-02-10 10:16+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7093,10 +7093,9 @@ msgstr ""
 "permanentemente necesita de %salmacenamiento de configuración phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "No se puede cargar o guardar una configuración"
+msgstr "No se pudo guardar la configuración"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
