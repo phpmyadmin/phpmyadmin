@@ -3528,7 +3528,7 @@ msgstr ""
 "Activar si se desea histórico de consultas basado en base de datos (necesita "
 "de almacenamiento de configuración phpMyAdmin). Cuando desactivado, utiliza "
 "rutinas JavaScript para mostrar el histórico de consultas (olvidado al "
-"cerrar la ventana)"
+"cerrar la ventana)."
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
