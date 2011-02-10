@@ -7435,10 +7435,9 @@ msgid "Rename to"
 msgstr "Cambiar el nombre a"
 
 #: pmd_general.php:483 pmd_general.php:582
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Nombre de usuario"
+msgstr "Nuevo nombre"
 
 #: pmd_general.php:486 pmd_general.php:701
 #, fuzzy
