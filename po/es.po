@@ -7323,7 +7323,7 @@ msgstr "Opciones activas"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr "Para seleccionar la relación, dé clic en:"
+msgstr "Para seleccionar la relación, pulse en:"
 
 #: pmd_help.php:28
 #, fuzzy
