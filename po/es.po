@@ -7581,8 +7581,10 @@ msgid "Import from browser's storage"
 msgstr "Importar de almacenamiento del navegador"
 
 #: prefs_manage.php:248
+#, fuzzy
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Se importarán las configuraciones del almacenamiento local del navegador"
 
 #: prefs_manage.php:254
 #, fuzzy
