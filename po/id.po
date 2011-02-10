@@ -114,7 +114,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"File % tidak ditemukan dalam sistem ini, mohon kunjungi www.phpmyadmin.net "
+"File %s tidak ditemukan dalam sistem ini, mohon kunjungi www.phpmyadmin.net "
 "untuk informasi lebih lanjut."
 
 #: db_create.php:58
