@@ -6356,9 +6356,8 @@ msgid "User name"
 msgstr "Nombre de usuario"
 
 #: libraries/replication_gui.lib.php:105
-#, fuzzy
 msgid "Master status"
-msgstr "Mostrar el estado del esclavo"
+msgstr "Estado del maestro"
 
 #: libraries/replication_gui.lib.php:107
 #, fuzzy
