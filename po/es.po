@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:52+0200\n"
+"PO-Revision-Date: 2011-02-10 21:54+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10215,7 +10215,7 @@ msgstr "Declaración de manipulación de datos"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr "Volcado SQL (descarga de fichero)"
+msgstr "Volcado SQL (descarga de archivo)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
