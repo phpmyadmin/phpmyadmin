@@ -4367,10 +4367,9 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Orden en que se autentica el Host"
+msgstr "Autenticación por configuración"
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
