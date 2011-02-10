@@ -9073,9 +9073,8 @@ msgid "Note: Generating the query chart can take a long time."
 msgstr "Nota: generar el gráfico de consultas puede tomar un largo tiempo."
 
 #: server_status.php:867
-#, fuzzy
 msgid "Replication status"
-msgstr "Replicación"
+msgstr "Estado de replicación"
 
 #: server_synchronize.php:92
 #, fuzzy
