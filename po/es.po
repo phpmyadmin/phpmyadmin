@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 00:05+0200\n"
+"PO-Revision-Date: 2011-02-11 00:06+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9621,7 +9621,7 @@ msgstr "Debido a su longitud,<br /> esta columna podría no ser editable"
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
-msgstr "Remueva la referencia al repositorio BLOB"
+msgstr "Eliminar referencia al repositorio BLOB"
 
 #: tbl_change.php:875
 msgid "Binary - do not edit"
