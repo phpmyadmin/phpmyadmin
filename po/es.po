@@ -1012,7 +1012,7 @@ msgstr "¡Ésto no es un número!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
-msgstr "¡¡El nombre del servidor está vacío!!"
+msgstr "¡El nombre del servidor está vacío!"
 
 #: js/messages.php:49
 msgid "The user name is empty!"
