@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:51+0200\n"
+"PO-Revision-Date: 2011-02-10 09:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6437,7 +6437,7 @@ msgstr "Generar la contraseña"
 #: libraries/schema/Visio_Relation_Schema.class.php:213
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr "La tabla «%s» no existe."
+msgstr "La tabla %s no existe."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
