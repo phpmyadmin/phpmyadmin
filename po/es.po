@@ -6299,8 +6299,9 @@ msgid "User preferences"
 msgstr "Preferencias de usuario"
 
 #: libraries/relation.lib.php:151
+#, fuzzy
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Pasos rápidos para configurar funcionalidades avanzadas:"
 
 #: libraries/relation.lib.php:153
 msgid ""
