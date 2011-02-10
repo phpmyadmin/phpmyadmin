@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 03:28+0200\n"
+"PO-Revision-Date: 2011-02-10 03:31+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4381,11 +4381,11 @@ msgstr "Autenticación por cookie"
 msgid "HTTP authentication"
 msgstr "Autenticación por HTTP"
 
+# Description of signon value for configuration described at http://www.phpmyadmin.net/documentation/Documentation.html#cfg_Servers_auth_type
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Orden en que se autentica el Host"
+msgstr "Autenticación por sesión"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
