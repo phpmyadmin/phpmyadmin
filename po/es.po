@@ -7627,6 +7627,8 @@ msgstr "Se reemplazarán las configuraciones existentes"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Se pueden reiniciar todas las configuraciones y devolverlas a sus valores "
+"predeterminados."
 
 #: querywindow.php:93
 msgid "Import files"
