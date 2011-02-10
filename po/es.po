@@ -4689,10 +4689,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Guardar en el servidor en el directorio <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Enviar (genera un archivo descargable)"
+msgstr "Guardar salida a un archivo"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
