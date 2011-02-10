@@ -6337,7 +6337,7 @@ msgstr "Configuración de esclavo"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Cambiar o reconfigurar el servidor maestro"
 
 #: libraries/replication_gui.lib.php:54
 msgid ""
