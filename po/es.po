@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 08:52+0200\n"
+"PO-Revision-Date: 2011-02-10 08:56+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5307,11 +5307,16 @@ msgstr ""
 msgid "Max Keep Alive"
 msgstr ""
 
+# translation of "flag"? translation of "keep-alive"?
 #: libraries/engines/pbms.lib.php:56
+#, fuzzy
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Tiempo de espera para conexiones inactivas configuradas con \"keep-alive\". "
+"Pasado este tiempo se cerrará la conexión. El tiempo de esperar es en "
+"milisegundos (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
