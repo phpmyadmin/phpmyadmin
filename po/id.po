@@ -1852,7 +1852,7 @@ msgstr " Memainkan file suara"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr "Video View"
+msgstr " Lihat Video"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
