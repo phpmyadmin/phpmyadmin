@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:04+0200\n"
+"PO-Revision-Date: 2011-02-10 21:06+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5753,7 +5753,7 @@ msgstr "Funciones"
 
 #: libraries/export/sql.php:683
 msgid "Constraints for dumped tables"
-msgstr "Filtros para las tablas descargadas (dump)"
+msgstr "Restricciones para tablas volcadas"
 
 #: libraries/export/sql.php:692
 msgid "Constraints for table"
