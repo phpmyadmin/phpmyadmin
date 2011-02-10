@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:37+0200\n"
+"PO-Revision-Date: 2011-02-10 09:38+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5944,6 +5944,9 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Columna inválida (%s) especificada. Verifica que los nombres de las columnas "
+"están escritos correctamente, separados por comas y no encerrados entre "
+"comillas."
 
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
