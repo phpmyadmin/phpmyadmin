@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:23+0200\n"
+"PO-Revision-Date: 2011-02-10 23:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8123,12 +8123,16 @@ msgstr ""
 "Ahora agrega las siguientes líneas al final de la sección [mysqld] del "
 "archivo my.cnf y luego reinicia el servidor MySQL."
 
+# See translation string 4
 #: server_replication.php:228
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"Una vez reiniciado el servidor MySQL, pulsa el botón \"Continuar\". A "
+"continuación deberás ver un mensaje informando que el servidor <b>está</b> "
+"configurado como maestro"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
