@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 16:16+0200\n"
+"PO-Revision-Date: 2011-02-10 16:19+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9312,7 +9312,7 @@ msgstr "Prebrskaj tuje vrednosti"
 #: sql.php:127
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
 #: sql.php:572 tbl_replace.php:380
 #, php-format
