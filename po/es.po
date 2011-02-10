@@ -9780,6 +9780,8 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Notar que no todas las tablas de resultados pueden ser graficadas. Ver <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
