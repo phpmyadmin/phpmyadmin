@@ -8211,7 +8211,7 @@ msgstr "Omitir siguiente"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "errores."
 
 #: server_replication.php:361
 #, php-format
