@@ -8969,6 +8969,8 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Este servidor MySQL trabaja como <b>maestro</b> y <b>esclavo</b> en un "
+"proceso de <b>replicación</b>."
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
