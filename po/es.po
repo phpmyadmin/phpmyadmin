@@ -4704,7 +4704,7 @@ msgstr "@SERVER@ se convertirá en el nombre de servidor"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ se convertirá en el nombre de la base de datos"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
