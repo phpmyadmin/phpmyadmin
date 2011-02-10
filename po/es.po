@@ -9182,7 +9182,7 @@ msgstr "Configuración: %s"
 
 #: server_synchronize.php:1163
 msgid "Socket"
-msgstr ""
+msgstr "Zócalo"
 
 #: server_synchronize.php:1209
 msgid ""
