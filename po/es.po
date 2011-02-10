@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 22:02+0200\n"
+"PO-Revision-Date: 2011-02-10 22:03+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5486,10 +5486,9 @@ msgid "Columns enclosed with:"
 msgstr "Columnas encerradas entre:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Columnas escapadas con:"
+msgstr "Caracter de escape de columnas:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 msgid "Lines terminated with:"
