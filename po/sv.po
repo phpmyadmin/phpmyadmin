@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 18:51+0200\n"
+"PO-Revision-Date: 2011-02-10 18:52+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -3389,10 +3389,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Dessa är redigera, infogad redigering, kopiera och ta bort länkar"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Visa logo i vänster ram"
+msgstr "Visa tabellrader som länkar på  vänster sida"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
