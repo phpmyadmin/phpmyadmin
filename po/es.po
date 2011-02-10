@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 21:59+0200\n"
+"PO-Revision-Date: 2011-02-10 22:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5259,9 +5259,11 @@ msgstr ""
 "GB para indicar la unidad del valor. Se asume un valor en bytes si no se "
 "especifica unidad."
 
+# Any other suggestion for "keep-alive"?
 #: libraries/engines/pbms.lib.php:55
+#, fuzzy
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Máxima señal de actvidad"
 
 # translation of "flag"? translation of "keep-alive"?
 #: libraries/engines/pbms.lib.php:56
