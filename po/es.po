@@ -6632,9 +6632,8 @@ msgid "Settings"
 msgstr "Opciones de relación general"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
-#, fuzzy
 msgid "Source database"
-msgstr "Buscar en la base de datos"
+msgstr "Base de datos de origen"
 
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
