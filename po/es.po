@@ -4672,7 +4672,7 @@ msgstr "Número de campos"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Fila con la que comenzar:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
