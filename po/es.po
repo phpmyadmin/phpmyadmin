@@ -4498,9 +4498,8 @@ msgstr "La base de datos, ¡parece estar vacía!"
 
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:143
 #: libraries/tbl_links.inc.php:90
-#, fuzzy
 msgid "Tracking"
-msgstr "Rastreo"
+msgstr "Seguimiento"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
