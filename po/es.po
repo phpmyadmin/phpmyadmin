@@ -6462,8 +6462,9 @@ msgid "This page does not contain any tables!"
 msgstr "Esta página no contiene ninguna tabla"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
+#, fuzzy
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "Error de esquema:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:874
 #: libraries/schema/Pdf_Relation_Schema.class.php:1113
