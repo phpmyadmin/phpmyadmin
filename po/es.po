@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-09 07:56-0500\n"
-"PO-Revision-Date: 2011-02-10 09:49+0200\n"
+"PO-Revision-Date: 2011-02-10 09:50+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6360,9 +6360,8 @@ msgid "Master status"
 msgstr "Estado del maestro"
 
 #: libraries/replication_gui.lib.php:107
-#, fuzzy
 msgid "Slave status"
-msgstr "Mostrar el estado del esclavo"
+msgstr "Estado del esclavo"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
 #: server_status.php:769 server_variables.php:51
