@@ -9121,7 +9121,7 @@ msgstr "Eliminar columna(s)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Modificar columna(s)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Remove index(s)"
