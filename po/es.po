@@ -7171,7 +7171,7 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Su versión de librería PHP MySQL  %s es distinta de aquella de su versión de "
+"Su versión de librería PHP MySQL %s es distinta de aquella de su versión de "
 "servidor MySQL %s. Esto puede ocasionar un comportamiento impredecible."
 
 #: main.php:351
