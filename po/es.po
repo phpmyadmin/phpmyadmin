@@ -7552,10 +7552,9 @@ msgstr ""
 "No se pudo guardar la configuración, el formulario enviado contiene errores"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "No fue posible cargar la configuración predeterminada desde: \"%1$s\""
+msgstr "No se pudo importar la configuración"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
