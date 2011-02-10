@@ -8062,7 +8062,7 @@ msgstr "No se pudo cambiar maestro"
 #: server_replication.php:72
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "El servidor maestro fue cambiado exitosamente a %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
