@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 23:45+0200\n"
+"PO-Revision-Date: 2011-02-10 23:46+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9154,6 +9154,8 @@ msgstr "Sincronizar bases de datos"
 #: server_synchronize.php:462
 msgid "Selected target tables have been synchronized with source tables."
 msgstr ""
+"Las tablas objetivo seleccionadas fueron sincronizadas con las tablas "
+"fuente."
 
 #: server_synchronize.php:940
 msgid "Target database has been synchronized with source database"
