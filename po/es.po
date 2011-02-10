@@ -8155,7 +8155,7 @@ msgstr "Ver la tabla de estado del esclavo"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sincronizar bases de datos con el maestro"
 
 #: server_replication.php:320
 #, fuzzy
