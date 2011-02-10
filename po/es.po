@@ -9145,7 +9145,7 @@ msgstr "¿Desea eliminar todas las filas existentes en las tablas objetivo?"
 
 #: server_synchronize.php:447 server_synchronize.php:892
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Aplicar los cambios seleccionados"
 
 #: server_synchronize.php:449 server_synchronize.php:894
 msgid "Synchronize Databases"
