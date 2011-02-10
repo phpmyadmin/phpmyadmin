@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-10 20:38+0200\n"
+"PO-Revision-Date: 2011-02-10 20:39+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4314,10 +4314,10 @@ msgstr ""
 "Cuando esta desactivado, los usuarios no pueden establecer ninguna de las "
 "opciones situadas más abajo, sin importar la casilla de la derecha"
 
+# see translation string 529
 #: libraries/config/messages.inc.php:495
-#, fuzzy
 msgid "Enable the Developer tab in settings"
-msgstr "Habilitar la pestaña Developer en la configuración"
+msgstr "Habilitar la pestaña Desarrolladores en la configuración"
 
 #: libraries/config/messages.inc.php:496
 msgid ""
