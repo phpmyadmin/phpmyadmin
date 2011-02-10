@@ -7823,7 +7823,6 @@ msgid "Do not change the password"
 msgstr "No cambiar la contraseña"
 
 #: server_privileges.php:842 server_privileges.php:2303
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Usuario(s) no encontrado(s)."
