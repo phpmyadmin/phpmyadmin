@@ -5822,6 +5822,7 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:136
+#, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Statt <code>INSERT</code>-Schlüsselwort benutze:"
 
