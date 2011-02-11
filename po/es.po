@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 02:23+0200\n"
+"PO-Revision-Date: 2011-02-11 02:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -118,7 +118,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "La base de datos %1$s se creó."
+msgstr "La base de datos %1$s ha sido creada."
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
