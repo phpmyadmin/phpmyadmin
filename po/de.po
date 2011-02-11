@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:27+0200\n"
+"PO-Revision-Date: 2011-02-11 20:28+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3963,10 +3963,9 @@ msgstr ""
 "für keien Unterstützung. Vorschlag: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "Datenbank-Name"
+msgstr "Datenbankname"
 
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
