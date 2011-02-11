@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:08+0200\n"
+"PO-Revision-Date: 2011-02-11 20:09+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3356,7 +3356,7 @@ msgstr "Trennzeichen für Tabellen-Baum"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL auf die der Link des Logos im Navigations-Frame zeigt"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
