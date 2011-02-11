@@ -1776,7 +1776,7 @@ msgstr "Authentifiziere ..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS Fehler"
 
 #: libraries/blobstreaming.lib.php:267
 #| msgid "Page creation failed"
