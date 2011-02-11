@@ -9073,7 +9073,7 @@ msgstr "Выполнены следующие запросы:"
 
 #: server_synchronize.php:1118
 msgid "Enter manually"
-msgstr ""
+msgstr "Ввести вручную"
 
 #: server_synchronize.php:1119
 #, fuzzy
