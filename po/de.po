@@ -4825,7 +4825,7 @@ msgstr "Vorlage für den Dateinamen:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ wird durch den Servernamen ersetzt"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
