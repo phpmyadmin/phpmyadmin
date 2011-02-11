@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:50+0200\n"
+"PO-Revision-Date: 2011-02-11 20:51+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4534,7 +4534,7 @@ msgstr "XLS Mappe für Excel 97-2003"
 #: libraries/config/user_preferences.forms.php:249
 #: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
 msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX Mappe"
+msgstr "XLSX Mappe für Excel 2007 und neuer"
 
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:158
