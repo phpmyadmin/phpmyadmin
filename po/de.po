@@ -1851,10 +1851,9 @@ msgid "Jump to database"
 msgstr "Springe zu Datenbank"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Master Replikation"
+msgstr "Nicht repliziert"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
