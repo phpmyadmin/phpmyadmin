@@ -5017,7 +5017,7 @@ msgstr "Anzahl der am Anfang zu überspringenden Einträge (Abfragen)"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Formatspezifische Optionen:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
