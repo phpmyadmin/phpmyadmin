@@ -2296,7 +2296,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL-Validator ist deaktiviert"
 
 #: libraries/config/FormDisplay.class.php:764
 #| msgid "PHP extension to use"
