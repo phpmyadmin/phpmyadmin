@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:01+0200\n"
+"PO-Revision-Date: 2011-02-11 21:03+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4836,7 +4836,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4846,9 +4846,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Dieser Wert wird mit %1$sstrftime%2$s geparst, Sie können also Platzhalter "
+"Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
-"durchgeführt: %3$s. Der übrige Text bleibt unberührt."
+"durchgeführt: %3$s. Der übrige Text bleibt unberührt. Für weitere "
+"Informationen lesen Sie die %4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
