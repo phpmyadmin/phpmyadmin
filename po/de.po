@@ -2330,7 +2330,7 @@ msgstr "Voreingestellten Wert wiederherstellen"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Erlaube den Benutzern diesen Wert anzupassen"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
