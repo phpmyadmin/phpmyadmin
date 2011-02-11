@@ -6436,7 +6436,7 @@ msgstr "Nombre de página"
 #: libraries/schema/User_Schema.class.php:103
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Diseño automático basado en:"
+msgstr "Diseño automático basado en"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
