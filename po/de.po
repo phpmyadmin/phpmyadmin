@@ -4320,6 +4320,8 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
+"[strong]Warnung:[/strong] erfordert das die PHP SOAP Erweiterung oder PEAR "
+"SOAP installiert ist"
 
 #: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
