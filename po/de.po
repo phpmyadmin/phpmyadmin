@@ -5823,7 +5823,7 @@ msgstr ""
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Statt <code>INSERT</code> Schlüsselwort benutze:"
+msgstr "Statt <code>INSERT</code>-Schlüsselwort benutze:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
