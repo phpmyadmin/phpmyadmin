@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:56+0200\n"
+"PO-Revision-Date: 2011-02-11 19:57+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2902,7 +2902,7 @@ msgstr "Generieren"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Gängige Optionen setzen"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
