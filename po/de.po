@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:08+0200\n"
+"PO-Revision-Date: 2011-02-11 21:09+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4940,10 +4940,9 @@ msgstr ""
 "sind nicht verfügbar."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen."
+msgstr "Importiere in den aktuell ausgewählten Server"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
