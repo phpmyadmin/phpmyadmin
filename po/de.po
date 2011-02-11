@@ -3602,7 +3602,7 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"Standardhinweis der Datenbank Struktur-Detailansicht unterdrücken, wenn eine "
+"Standardhinweis der Datenbankstruktur-Detailansicht unterdrücken, wenn eine "
 "erforderliche Tabelle der phpMyAdmin Konfiguration nicht gefunden werden "
 "kann"
 
