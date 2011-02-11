@@ -4356,6 +4356,7 @@ msgstr "Schlage einen neuen Datenbank-Namen vor"
 #: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Wenn Suhosin detektiert wird, erscheint ein Warnhinweis auf der Hauptseite"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
