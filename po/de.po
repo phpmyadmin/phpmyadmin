@@ -974,7 +974,6 @@ msgid "Dropping Event"
 msgstr "Ereignis wird gelöscht"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Prozedur wird gelöscht"
