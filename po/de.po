@@ -3694,10 +3694,9 @@ msgstr ""
 "Kopfzeilen alle n Zellen anzeigen, [kbd]0[/kbd] deaktiviert diese Option"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Reparaturprozess"
+msgstr "Kopfzeilen wiederholen"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
