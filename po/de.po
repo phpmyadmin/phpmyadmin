@@ -3452,7 +3452,6 @@ msgid "Login cookie validity"
 msgstr "Login Cookie Gültigkeit"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Verdoppele Größe für LONGTEXT Spalten"
 
