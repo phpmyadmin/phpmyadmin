@@ -4985,7 +4985,7 @@ msgstr "Das Hochladen von Dateien ist auf diesem Server nicht erlaubt."
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Partieller Import"
+msgstr "Partieller Import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
