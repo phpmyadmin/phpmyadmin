@@ -4394,7 +4394,7 @@ msgstr "Titelleiste des Browserfensters wenn eine Datenbank ausgewählt ist"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr "Titelzeile des Browserfensters wenn nichts ausgewählt ist"
+msgstr "Titelleiste des Browserfensters wenn nichts ausgewählt ist"
 
 #: libraries/config/messages.inc.php:483
 #| msgid "Default table tab"
