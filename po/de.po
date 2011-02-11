@@ -3474,7 +3474,7 @@ msgstr "Zeichen Maximum beim SQL Befehl anzeigen"
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr "Benutzer dürfen keinen grösseren Wert setzten"
+msgstr "Benutzer dürfen keinen größeren Wert setzen"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
