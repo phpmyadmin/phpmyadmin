@@ -3663,7 +3663,7 @@ msgstr "Voreingestelltes Tab für Abfragefenster"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Höhe des Abfragefensters (in Pixeln)"
 
 #: libraries/config/messages.inc.php:341
 #, fuzzy
