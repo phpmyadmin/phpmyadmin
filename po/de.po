@@ -4774,7 +4774,7 @@ msgstr "Standard-Exporteinstellungen anpassen"
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Datenbank(en):"
+msgstr "Datenbanken:"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
