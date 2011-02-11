@@ -1894,7 +1894,7 @@ msgstr "Zur Diagrammdarstellung ist die GD Erweiterung erforderlich."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Für Diagramm-Hinweise wird ein JSON Encoder benötigt."
 
 #: libraries/common.inc.php:576
 msgid ""
