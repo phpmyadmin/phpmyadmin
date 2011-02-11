@@ -1789,7 +1789,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr "Fehler beim Lesen des BLOB Content-Types"
+msgstr "Fehler beim Lesen des BLOB Content-Typs"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
