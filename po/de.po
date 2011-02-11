@@ -4814,10 +4814,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Speichere auf dem Server im Verzeichnis <b>%s</b>"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Senden"
+msgstr "Speichere Ausgabe in Datei"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
