@@ -5080,10 +5080,9 @@ msgid "Partial texts"
 msgstr "Gekürzte Texte"
 
 #: libraries/display_tbl.lib.php:563 libraries/display_tbl.lib.php:576
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "vollständige Textfelder"
+msgstr "Vollständige Texte"
 
 #: libraries/display_tbl.lib.php:589
 msgid "Relational key"
