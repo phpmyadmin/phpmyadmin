@@ -8104,7 +8104,6 @@ msgid "Error management:"
 msgstr "Управление ошибками:"
 
 #: server_replication.php:340
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
