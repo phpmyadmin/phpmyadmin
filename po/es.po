@@ -7455,13 +7455,13 @@ msgstr "Combinar con la configuración actual"
 
 # I still don't like translating "script"
 #: prefs_manage.php:277
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 "Se pueden definir más configuraciones modificando config.inc.php. Por "
-"ejemplo, utilizado %sscripts de configuración%s"
+"ejemplo, utilizado %sscripts de configuración%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
