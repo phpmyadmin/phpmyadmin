@@ -2475,6 +2475,7 @@ msgstr ""
 "deaktivieren."
 
 #: libraries/config/messages.inc.php:40
+#, fuzzy
 msgid "Compress on the fly"
 msgstr "&quot;On the fly&quot;-Komprimieren"
 
