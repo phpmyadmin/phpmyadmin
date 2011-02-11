@@ -2901,6 +2901,7 @@ msgid "General"
 msgstr "Generieren"
 
 #: libraries/config/messages.inc.php:166
+#, fuzzy
 msgid "Set some commonly used options"
 msgstr "Gängige Optionen setzen"
 
