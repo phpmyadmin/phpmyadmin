@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:53+0200\n"
+"PO-Revision-Date: 2011-02-11 19:54+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2770,7 +2770,7 @@ msgstr "SQL-Kompatibilitätsmodus"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Zu verwendende Syntax beim Hinzufügen von Daten"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
