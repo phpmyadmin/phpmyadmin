@@ -4803,7 +4803,7 @@ msgstr "Anzahl der Felder"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Anfangszeile:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
