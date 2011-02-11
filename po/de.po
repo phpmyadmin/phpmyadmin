@@ -4861,10 +4861,9 @@ msgid "Character set of the file:"
 msgstr "Zeichencodierung der Datei:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Kompression"
+msgstr "Komprimierung:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:933 libraries/tbl_properties.inc.php:578
