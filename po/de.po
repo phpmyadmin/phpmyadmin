@@ -2451,7 +2451,7 @@ msgstr "Spaltenanzahl der CHAR/VARCHAR-Textfelder"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr "CHAR Textfeldspalten"
+msgstr "CHAR-Textfeldspalten"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
