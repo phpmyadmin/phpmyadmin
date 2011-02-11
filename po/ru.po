@@ -8882,10 +8882,9 @@ msgstr ""
 "<b>репликации</b>."
 
 #: server_status.php:488
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Данный сервер настроен головным в процессе репликации."
+msgstr "Данный сервер настроен <b>головным</b> в процессе <b>репликации</b>."
 
 #: server_status.php:490
 #, fuzzy
