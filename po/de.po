@@ -986,7 +986,7 @@ msgstr "Trackingdaten werden gelöscht"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Primary Key/Index wird gelöscht"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
