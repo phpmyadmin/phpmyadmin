@@ -2498,7 +2498,7 @@ msgstr "Nachfrage bei DROP-queries"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL Debugger"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
