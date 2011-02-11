@@ -4303,7 +4303,7 @@ msgstr "Überspringe gesperrte Tabellen"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Erfordert das der SQL Validator aktiviert ist"
 
 #: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
