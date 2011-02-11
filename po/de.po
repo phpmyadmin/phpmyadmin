@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:12+0200\n"
+"PO-Revision-Date: 2011-02-11 21:14+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5075,10 +5075,9 @@ msgid "Options"
 msgstr "Optionen"
 
 #: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:572
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "gekürzte Textfelder"
+msgstr "Gekürzte Texte"
 
 #: libraries/display_tbl.lib.php:563 libraries/display_tbl.lib.php:576
 #, fuzzy
