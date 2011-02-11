@@ -4979,7 +4979,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr "Das hochladen von Dateien ist auf diesem Server nicht erlaubt."
+msgstr "Das Hochladen von Dateien ist auf diesem Server nicht erlaubt."
 
 #: libraries/display_import.lib.php:208
 #, fuzzy
