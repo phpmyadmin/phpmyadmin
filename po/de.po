@@ -4397,10 +4397,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Titelzeile des Browserfensters wenn nichts ausgewählt ist"
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Standardtab bei Tabellen"
+msgstr "Standardtitel"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
