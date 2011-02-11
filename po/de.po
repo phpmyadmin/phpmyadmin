@@ -3691,6 +3691,7 @@ msgstr "Umwandlungs Engine"
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Kopfzeilen alle X Zellen anzeigen, [kbd]0[/kbd] deaktiviert diese Option"
 
 #: libraries/config/messages.inc.php:347
 #, fuzzy
