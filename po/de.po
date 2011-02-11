@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:57+0200\n"
+"PO-Revision-Date: 2011-02-11 20:58+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4750,10 +4750,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportiere Tabellen der Datenbank \"%s\""
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Neue Tabelle in Datenbank %s erstellen"
+msgstr "Exportiere Zeilen aus Tabelle \"%s\""
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
