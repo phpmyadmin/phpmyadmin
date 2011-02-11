@@ -8046,7 +8046,7 @@ msgstr "Подчиненный SQL поток не запущен!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Подчиненный поток ввода-вывода не запущен!"
 
 #: server_replication.php:303
 msgid ""
