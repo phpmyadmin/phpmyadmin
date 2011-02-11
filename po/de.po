@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:55+0200\n"
+"PO-Revision-Date: 2011-02-11 20:56+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4741,7 +4741,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Erlaubt die Sperrung bestimmter Tabellen."
+msgstr "Exportiere die Datenbanken des aktuell ausgewählten Servers"
 
 #: libraries/display_export.lib.php:89
 #, php-format
