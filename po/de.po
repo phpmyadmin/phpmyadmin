@@ -2211,7 +2211,7 @@ msgstr "Struktur und Daten"
 #: libraries/config.values.php:99
 #, fuzzy
 msgid "Quick - display only the minimal options to configure"
-msgstr "Schnell - Zeige nur die Minimal-Konfigurationsoptionen"
+msgstr "Schnell – Zeige nur die Minimal-Konfigurationsoptionen"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
