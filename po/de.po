@@ -3270,7 +3270,6 @@ msgid "Partial import: skip queries"
 msgstr "Teilimport: Überspringe Anfragen"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "AUTO_INCREMENT nicht für Nullwerte verwenden"
