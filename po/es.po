@@ -4680,7 +4680,7 @@ msgstr "Guardar salida a un archivo"
 
 #: libraries/display_export.lib.php:227
 msgid "File name template:"
-msgstr "Plantilla del nombre del archivo"
+msgstr "Plantilla del nombre del archivo:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
