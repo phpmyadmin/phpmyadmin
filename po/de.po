@@ -4359,7 +4359,7 @@ msgstr "Warnhinweis auf der Hauptseite, wenn Suhosin erkannt wird"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin Warnhinweis"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
