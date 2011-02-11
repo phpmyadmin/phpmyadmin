@@ -3704,7 +3704,7 @@ msgstr "Hilfe-Button anstelle des Hilfetexts anzeigen"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "Hilfe-Button anzeigen"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
