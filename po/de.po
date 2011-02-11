@@ -2389,8 +2389,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime Passphrase zum Verschlüsseln der Cookies bei [kbd]cookie[/kbd]-"
-"Authentifizierung"
+"Geheime Passphrase zum Verschlüsseln der Cookies bei "
+"[kbd]Cookie[/kbd]-Authentifizierung"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
