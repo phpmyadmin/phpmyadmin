@@ -4961,7 +4961,7 @@ msgstr "Importiere in die Tabelle \"%s\""
 #, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Zu importierende Datei"
+msgstr "Zu importierende Datei:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
