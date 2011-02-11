@@ -9173,7 +9173,7 @@ msgstr "Se ejecutaron las siguentes consultas:"
 
 #: server_synchronize.php:1118
 msgid "Enter manually"
-msgstr "Ingresar manualmente:"
+msgstr "Ingresar manualmente"
 
 #: server_synchronize.php:1119
 #| msgid "Insecure connection"
