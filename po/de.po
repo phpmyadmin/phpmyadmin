@@ -4407,7 +4407,7 @@ msgstr "Titelzeile des Browserfensters wenn ein Server ausgewählt ist"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
-msgstr "Kopfzeile des Browserfensters wenn eine Tabelle ausgewählt ist"
+msgstr "Titelleiste des Browserfensters wenn eine Tabelle ausgewählt ist"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
