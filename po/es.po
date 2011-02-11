@@ -4039,7 +4039,7 @@ msgstr "Revisión detallada"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "Nombre del servidor donde el servidor SQL se está ejecutando"
+msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
 
 #: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
