@@ -2023,6 +2023,7 @@ msgid "Validate SQL"
 msgstr "SQL validieren"
 
 #: libraries/common.lib.php:1242
+#, fuzzy
 msgid "Inline edit of this query"
 msgstr "Inline-Bearbeiten dieses SQL-Befehls"
 
