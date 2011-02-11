@@ -9076,10 +9076,9 @@ msgid "Enter manually"
 msgstr "Ввести вручную"
 
 #: server_synchronize.php:1119
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Небезопасное соединение"
+msgstr "Текущее соединение"
 
 #: server_synchronize.php:1148
 #, fuzzy, php-format
