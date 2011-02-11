@@ -95,12 +95,13 @@ function PMA_Bookmark_getList($db)
  * @param   mixed     the id of the bookmark to get
  * @param   string    which field to look up the $id
  * @param   boolean  TRUE: get all bookmarks regardless of the owning user
+ * @param   boolean   whether to ignore bookmarks with no user
  *
  * @return  string    the sql query
  *
  * @access  public
  */
-function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = FALSE)
+function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = FALSE, $exact_user_match = FALSE)
 {
     global $controllink;
 
@@ -111,10 +112,18 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = FAL
     }
 
     $query = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
-        . ($action_bookmark_all? '' : ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
-        . '      OR user = \'\')')
-        . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
+        . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\'';
+
+    if (!$action_bookmark_all) {
+        $query .= ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\'';
+        if (!$exact_user_match) {
+            $query .= ' OR user = \'\'';
+        }
+        $query .= ')';
+    }
+
+    $query .= ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
+
     return PMA_DBI_fetch_value($query, 0, 0, $controllink);
 } // end of the 'PMA_Bookmark_get()' function
 
