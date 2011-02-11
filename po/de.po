@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 18:52+0200\n"
+"PO-Revision-Date: 2011-02-11 18:53+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -971,7 +971,7 @@ msgstr "Sie sind dabei eine komplette Datenbank zu ZERSTÖREN!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Ereignis wird gelöscht"
 
 #: js/messages.php:33
 #, fuzzy
