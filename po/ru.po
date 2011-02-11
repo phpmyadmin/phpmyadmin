@@ -8095,10 +8095,9 @@ msgid "Start IO Thread only"
 msgstr "Запустить только поток ввода-вывода"
 
 #: server_replication.php:333
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "IO только поток %s"
+msgstr "Остановить только поток ввода-вывода"
 
 #: server_replication.php:338
 msgid "Error management:"
