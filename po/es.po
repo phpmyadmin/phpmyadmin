@@ -4774,7 +4774,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr "El archivo está siendo procesado, favor de ser paciente"
+msgstr "El archivo está siendo procesado, favor de ser paciente."
 
 #: libraries/display_import.lib.php:98
 msgid ""
