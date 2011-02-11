@@ -509,7 +509,7 @@ msgstr "Ejecutar la consulta"
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:187
 msgid "Access denied"
-msgstr "Acceso denegado "
+msgstr "Acceso denegado"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
