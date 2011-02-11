@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 02:20+0200\n"
+"PO-Revision-Date: 2011-02-11 02:21+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5988,7 +5988,7 @@ msgstr "Juego de caracteres"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:549
 msgid "Binary"
-msgstr " Binario "
+msgstr " Binario"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
