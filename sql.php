@@ -54,7 +54,7 @@ if (isset($fields['dbase'])) {
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddslashes($table) . '\'',
-        'label');
+        'label', FALSE, TRUE);
 
     if (! empty($book_sql_query)) {
         $sql_query = $book_sql_query;
