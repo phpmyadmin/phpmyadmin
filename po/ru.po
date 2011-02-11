@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:23+0200\n"
+"PO-Revision-Date: 2011-02-11 19:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8080,10 +8080,9 @@ msgid "Reset slave"
 msgstr "Сбросить подчиненный сервер"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "SQL только поток %s"
+msgstr "Начать только SQL поток"
 
 #: server_replication.php:328
 #, fuzzy
