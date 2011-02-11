@@ -33,7 +33,7 @@ function PMA_config_get_validators()
             // not in setup script: load additional validators for user preferences
             // we need oryginal config values not overwritten by user preferences, creating a new PMA_Config
             // instance is a better idea than hacking into its code
-            $org_cfg = new PMA_Config(CONFIG_FILE);
+            $org_cfg = $cf->getOrgConfigObj();
             $uvs = $cf->getDbEntry('_userValidators', array());
             foreach ($uvs as $field => $uv_list) {
                 $uv_list = (array)$uv_list;
