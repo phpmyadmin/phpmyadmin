@@ -9809,7 +9809,7 @@ msgstr "Mostrar volcado (esquema) de la tabla"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "El nombre de la clave primaria debe ser \\\"PRIMARY\\\""
+msgstr "¡El nombre de la clave primaria debe ser \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
