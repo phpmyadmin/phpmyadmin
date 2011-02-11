@@ -2829,7 +2829,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr "Sortierreihenfolge für FOREIN KEY Dropdownfelder"
+msgstr "Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
