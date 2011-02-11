@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 18:53+0200\n"
+"PO-Revision-Date: 2011-02-11 18:54+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -979,10 +979,9 @@ msgid "Dropping Procedure"
 msgstr "Prozedur wird gelöscht"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Lösche die Verlaufsdaten"
+msgstr "Trackingdaten werden gelöscht"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
