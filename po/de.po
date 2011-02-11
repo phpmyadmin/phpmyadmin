@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:17+0200\n"
+"PO-Revision-Date: 2011-02-11 21:18+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5663,7 +5663,7 @@ msgstr "Excel-Ausgabe"
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Anzeigeoptionen für Datenbank"
+msgstr "Datenexport-Optionen"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:946 libraries/export/texytext.php:123
