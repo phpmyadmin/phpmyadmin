@@ -2265,7 +2265,7 @@ msgstr "Ungültiger Wert"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Wert muss gleich oder kleiner als %s sein"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
