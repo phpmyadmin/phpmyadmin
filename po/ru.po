@@ -7382,7 +7382,7 @@ msgstr "Настройки будут сохранены в локальное �
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Текущие настройки будут перезаписаны!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
