@@ -8973,10 +8973,9 @@ msgid "Query type"
 msgstr "Тип запроса"
 
 #: server_status.php:721 server_status.php:722
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query chart"
-msgstr "SQL Запрос"
+msgstr "Вывести график запроса"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
