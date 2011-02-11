@@ -2568,7 +2568,7 @@ msgstr "Server als Liste anzeigen"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr "SQL Abfragen in einem Popup-Fenster bearbeiten"
+msgstr "SQL-Abfragen in einem Popup-Fenster bearbeiten"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
