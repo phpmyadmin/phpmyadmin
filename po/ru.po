@@ -7337,10 +7337,9 @@ msgid "Saved on: @DATE@"
 msgstr "Сохранено: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Импорт файлов"
+msgstr "Импорт из файла"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
