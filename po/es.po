@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 02:24+0200\n"
+"PO-Revision-Date: 2011-02-11 02:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3176,7 +3176,7 @@ msgstr "Importación parcial: saltarse las consultas"
 
 #: libraries/config/messages.inc.php:258
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "No usar AUTO_INCREMENT para valores iguales a cero"
+msgstr "No utilizar AUTO_INCREMENT para los valores iguales a cero"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
