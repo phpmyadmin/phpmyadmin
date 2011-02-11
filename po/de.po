@@ -5628,10 +5628,9 @@ msgid "Columns enclosed with:"
 msgstr "Spalten eingeschlossen von:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Felder escaped von"
+msgstr "Spalten eingeschlossen mit:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
