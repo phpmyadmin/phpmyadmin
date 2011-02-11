@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 18:57+0200\n"
+"PO-Revision-Date: 2011-02-11 18:59+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7269,10 +7269,9 @@ msgid "Export to selected page"
 msgstr "Экспортировать на выбранную страницу"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Создать новый индекс"
+msgstr "Создать страницу и экспортировать в нее"
 
 #: pmd_pdf.php:111
 #, fuzzy
