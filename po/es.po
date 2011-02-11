@@ -4001,7 +4001,7 @@ msgid ""
 "automatically."
 msgstr ""
 "Si el mecanismo de seguimiento crea versiones para tablas y vistas "
-"automáticamente o no"
+"automáticamente o no."
 
 #: libraries/config/messages.inc.php:429
 msgid "Automatically create versions"
