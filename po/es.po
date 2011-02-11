@@ -10153,7 +10153,7 @@ msgstr "Se ha creado la versión %s, se ha activado el seguimiento para %s.%s."
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr "Se ha desactivado el seguimiento para %s.%s, versión %s"
+msgstr "Se ha desactivado el seguimiento para %s.%s, versión %s."
 
 #: tbl_tracking.php:198
 #, php-format
