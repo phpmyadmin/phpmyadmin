@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 05:46+0200\n"
+"PO-Revision-Date: 2011-02-11 05:47+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9747,7 +9747,7 @@ msgstr "Tipo de barra"
 #: tbl_chart.php:146
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Apilado"
+msgstr "Apiladas"
 
 # It is the opposite of "stacked"
 #: tbl_chart.php:147
