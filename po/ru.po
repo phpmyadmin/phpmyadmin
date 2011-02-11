@@ -3430,7 +3430,7 @@ msgstr "Вывести ссылки слева"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Вывести ссылки справа"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
