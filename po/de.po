@@ -1138,10 +1138,9 @@ msgid "Inline Edit"
 msgstr "Inline"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
-msgstr "SQL-Querybox"
+msgstr "Suchkriterien ausblenden"
 
 #: js/messages.php:90
 #, fuzzy
