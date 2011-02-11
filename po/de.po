@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 20:41+0200\n"
+"PO-Revision-Date: 2011-02-11 20:42+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4390,7 +4390,7 @@ msgstr "CHAR Textfeldzeilen"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Kopfzeile des Browserfensters wenn eine Datenbank ausgewählt ist"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
