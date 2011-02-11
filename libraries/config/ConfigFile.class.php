@@ -21,6 +21,12 @@ class ConfigFile
     private $cfg;
 
     /**
+     * Stores original PMA_Config object, not modified by user preferences
+     * @var PMA_Config
+     */
+    private $orgCfgObject;
+
+    /**
      * Stores allowed values for non-standard fields
      * @var array
      */
@@ -75,6 +81,9 @@ class ConfigFile
         require './libraries/config.default.php';
         $cfg['fontsize'] = '82%';
 
+        // create PMA_Config to read config.inc.php values
+        $this->orgCfgObject = new PMA_Config(CONFIG_FILE);
+
         // load additional config information
         $cfg_db = &$this->cfgDb;
         require './libraries/config.values.php';
@@ -103,6 +112,16 @@ class ConfigFile
             self::$_instance = new ConfigFile();
         }
         return self::$_instance;
+    }
+
+    /**
+     * Returns PMA_Config without user preferences applied
+     * 
+     * @return PMA_Config
+     */
+    public function getOrgConfigObj()
+    {
+        return $this->orgCfgObject;
     }
 
     /**
@@ -174,7 +193,6 @@ class ConfigFile
     /**
      * Sets config value
      *
-     * @uses $GLOBALS['cfg']
      * @uses PMA_array_read()
      * @uses PMA_array_remove()
      * @uses PMA_array_write()
@@ -194,9 +212,10 @@ class ConfigFile
         // remove if the path isn't protected and it's empty or has a default value
         if (!isset($this->persistKeys[$canonical_path])) {
             $default_value = $this->getDefault($canonical_path);
-            // check $GLOBALS['cfg'] to allow overwriting options set in config.inc.php with default value
-            $current_global = PMA_array_read($canonical_path, $GLOBALS['cfg']);
-            if (($value === $default_value && (defined('PMA_SETUP') || $current_global === $default_value))
+            // we need oryginal config values not overwritten by user preferences
+            // to allow for overwriting options set in config.inc.php with default values
+            $instance_default_value = PMA_array_read($canonical_path, $this->orgCfgObject->settings);
+            if (($value === $default_value && (defined('PMA_SETUP') || $instance_default_value === $default_value))
                     || (empty($value) && empty($default_value) && (defined('PMA_SETUP') || empty($current_global)))) {
                 PMA_array_remove($path, $_SESSION[$this->id]);
                 return;
