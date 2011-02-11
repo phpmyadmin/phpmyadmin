@@ -2602,7 +2602,7 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Die Anzahl der Sekunden, welche ein Script zur Ausführung benötigen darf"
+"Die Anzahl der Sekunden, welche ein Script zur Ausführung benötigen darf "
 "([kbd]0[/kbd] für unbegrenzt)"
 
 #: libraries/config/messages.inc.php:67
