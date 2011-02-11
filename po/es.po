@@ -6376,7 +6376,7 @@ msgstr "Generar la contraseña"
 #: libraries/schema/Visio_Relation_Schema.class.php:213
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr "La tabla %s no existe."
+msgstr "La tabla %s no existe"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
