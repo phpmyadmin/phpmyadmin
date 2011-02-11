@@ -1879,7 +1879,7 @@ msgstr "Zeige Statistik"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "Vergleich der Abfragedauer (in Mikrosekunden)"
 
 #: libraries/chart.lib.php:83
 #, fuzzy
