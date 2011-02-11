@@ -3026,6 +3026,7 @@ msgid "Authentication"
 msgstr "Authentifikationstyp"
 
 #: libraries/config/messages.inc.php:197
+#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Authentifikationseinstellungen"
