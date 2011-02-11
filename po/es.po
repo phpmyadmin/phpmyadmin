@@ -4482,7 +4482,7 @@ msgstr "La dirección IP es incorrecta: %s"
 #: libraries/core.lib.php:262
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "No se encontró la extensión %s. Por favor revisa la configuración PHP"
+msgstr "No se encontró la extensión %s. Por favor revisa la configuración PHP."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:481
