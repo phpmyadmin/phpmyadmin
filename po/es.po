@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 02:22+0200\n"
+"PO-Revision-Date: 2011-02-11 02:23+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8008,7 +8008,7 @@ msgstr ""
 #: server_privileges.php:2140
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Otorgar todos los privilegios para la base de datos &quot;%s&quot;."
+msgstr "Otorgar todos los privilegios para la base de datos &quot;%s&quot;"
 
 #: server_privileges.php:2163
 #, php-format
