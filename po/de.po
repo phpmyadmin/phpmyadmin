@@ -4403,7 +4403,7 @@ msgstr "Standardtitel"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
-msgstr "Kopfzeile des Browserfensters wenn ein Server ausgewählt ist"
+msgstr "Titelzeile des Browserfensters wenn ein Server ausgewählt ist"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
