@@ -10317,4 +10317,4 @@ msgstr "(VIEW) VER nombre"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr "Cambiar el nombre de la vista a "
+msgstr "Cambiar el nombre de la vista a"
