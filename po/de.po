@@ -1035,6 +1035,7 @@ msgid "Create User"
 msgstr "Erzeuge Benutzer"
 
 #: js/messages.php:54
+#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Benutzerrechte werden neu geladen"
