@@ -6854,7 +6854,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Muestra un thumbnail que puede abrirse mediante un clic; opciones: width, "
-"height en píxeles (mantiene la proporción original)"
+"height en píxeles (mantiene la proporción original)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
