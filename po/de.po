@@ -4833,7 +4833,7 @@ msgstr ", @DATABASE@ wird durch den Datenbanknamen ersetzt"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
