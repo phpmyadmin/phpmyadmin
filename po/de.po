@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:14+0200\n"
+"PO-Revision-Date: 2011-02-11 21:15+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5363,14 +5363,11 @@ msgid "Garbage Threshold"
 msgstr "Müll-Grenzwert"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"Der Prozentsatz an Müll in einer Logdatei bevor sie komprimiert wird. Der "
-"Wert kann zwischen 1 und 99 liegen, Voreinstellung ist 50."
+msgstr "Der Prozentsatz an Müll in einer Logdatei bevor sie komprimiert wird."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1159
