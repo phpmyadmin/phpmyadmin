@@ -6645,7 +6645,7 @@ msgid ""
 msgstr ""
 "Parece haber un error en su consulta de SQL. La salida generada por el "
 "servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a "
-"diagnosticar el problema."
+"diagnosticar el problema"
 
 #: libraries/sqlparser.lib.php:169
 msgid ""
