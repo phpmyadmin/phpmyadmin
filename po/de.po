@@ -1991,7 +1991,7 @@ msgstr "MySQL meldet: "
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Verbindungsaufbau zu SQL-Validator schlug fehl"
 
 #: libraries/common.lib.php:1117 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
