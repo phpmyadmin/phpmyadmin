@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:28+0200\n"
+"PO-Revision-Date: 2011-02-11 19:29+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8892,7 +8892,6 @@ msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "Данный сервер настроен <b>подчиненным</b> в процессе <b>репликации</b>."
 
 #: server_status.php:492
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -8901,9 +8900,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Данный MySQL сервер работает, как %s в процессе <b>репликации</b>. Для "
-"получения подробной информации о состоянии репликации сервера, пожалуйста, "
-"перейдите в <a href=\"#replication\">раздел репликации</a>."
+"Для получения подробной информации о состоянии репликации сервера, "
+"пожалуйста, перейдите в <a href=\"#replication\">раздел репликации</a>."
 
 #: server_status.php:509
 msgid ""
