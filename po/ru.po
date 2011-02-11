@@ -8085,10 +8085,9 @@ msgid "Start SQL Thread only"
 msgstr "Запустить только SQL поток"
 
 #: server_replication.php:328
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "SQL только поток %s"
+msgstr "Остановить только SQL поток"
 
 #: server_replication.php:331
 #, fuzzy
