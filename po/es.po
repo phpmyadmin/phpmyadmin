@@ -9408,7 +9408,7 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%la compresión y descompresión Bzip2%s requiere funciones (%s) que no están "
+"%sLa compresión y descompresión Bzip2%s requiere funciones (%s) que no están "
 "disponibles en este sistema."
 
 #: setup/lib/index.lib.php:255
