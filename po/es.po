@@ -7088,7 +7088,7 @@ msgstr ""
 "le recomienda corregir esta brecha de seguridad. Por ejemplo, desde la "
 "página de inicio de phpMyAdmin seleccione Privilegios y agregue la "
 "contraseña a root@localhost. Deberá escribir la misma contraseña en "
-"config.inc.php de phpMyAdmin"
+"config.inc.php de phpMyAdmin."
 
 #: main.php:261
 msgid ""
