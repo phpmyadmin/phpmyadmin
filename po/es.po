@@ -9752,7 +9752,7 @@ msgstr "Apiladas"
 # It is the opposite of "stacked"
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr "Múltiples"
+msgstr "Separadas"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
