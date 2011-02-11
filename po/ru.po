@@ -8082,7 +8082,7 @@ msgstr "Сбросить подчиненный сервер"
 #: server_replication.php:326
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "Начать только SQL поток"
+msgstr "Запустить только SQL поток"
 
 #: server_replication.php:328
 #, fuzzy
