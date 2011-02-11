@@ -4782,10 +4782,9 @@ msgid "Table(s):"
 msgstr "Tabellen:"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Zeilen"
+msgstr "Zeilen:"
 
 #: libraries/display_export.lib.php:157
 #, fuzzy
