@@ -4502,10 +4502,9 @@ msgid "Config authentication"
 msgstr "Config-Authentifizierung"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Host Authentifikationsreihenfolge"
+msgstr "Cookie-Authentifizierung"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
