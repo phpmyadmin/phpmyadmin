@@ -3676,10 +3676,9 @@ msgid "Query window width (in pixels)"
 msgstr "Breite des Abfragefensters (in Pixeln)"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Abfragefenster"
+msgstr "Breite des Abfragefensters"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
