@@ -5164,10 +5164,9 @@ msgid "Display chart"
 msgstr "PDF-Schema anzeigen"
 
 #: libraries/display_tbl.lib.php:2265
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Erzeuge Benutzer"
+msgstr "Erzeuge View"
 
 #: libraries/display_tbl.lib.php:2396
 msgid "Link not found"
