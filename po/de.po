@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:00+0200\n"
+"PO-Revision-Date: 2011-02-11 21:01+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4819,10 +4819,9 @@ msgid "Save output to a file"
 msgstr "Speichere Ausgabe in Datei"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Dateinamenskonvention"
+msgstr "Vorlage für den Dateinamen"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
