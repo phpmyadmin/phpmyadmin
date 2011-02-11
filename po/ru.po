@@ -9084,7 +9084,7 @@ msgstr "Текущее соединение"
 #, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Конфигурационный файл: %s"
+msgstr "Настройки: %s"
 
 #: server_synchronize.php:1163
 msgid "Socket"
