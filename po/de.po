@@ -5813,7 +5813,7 @@ msgstr "Angaben"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> Optionen:"
 
 #: libraries/export/sql.php:123
 msgid ""
