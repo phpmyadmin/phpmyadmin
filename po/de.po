@@ -2812,7 +2812,7 @@ msgstr "Zeit des Exports in UTC"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr "Sicher Verbindung während der Nutzung von phpMyAdmin erzwingen"
+msgstr "Sichere Verbindung während der Nutzung von phpMyAdmin erzwingen"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
