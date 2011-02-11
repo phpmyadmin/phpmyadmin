@@ -5773,6 +5773,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Kommentare anzeigen <i>(beinhaltet Informationen wie Export zeitstempel, PHP "
+"Version und Serverversion)</i>"
 
 #: libraries/export/sql.php:35
 #, fuzzy
