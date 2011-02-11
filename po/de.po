@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 21:10+0200\n"
+"PO-Revision-Date: 2011-02-11 21:11+0200\n"
 "Last-Translator:  <typo3@dirk-weise.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4969,12 +4969,13 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Datei kann komprimiert (%s) oder unkomprimiert sein."
 
 #: libraries/display_import.lib.php:158
+#, fuzzy
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
 "Der Dateiname einer komprimierten Datei muss mit "
-"<b>.[format].[compression]</b> enden. Beispiel: <b>.sql.zip</b>"
+"<b>.[Format].[Komprimierung]</b> enden. Beispiel: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
