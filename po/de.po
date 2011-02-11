@@ -4371,10 +4371,9 @@ msgstr ""
 "Abfragefenster (x 1,25)"
 
 #: libraries/config/messages.inc.php:477
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR Textfeldspalten"
+msgstr "Textfeldspalten"
 
 #: libraries/config/messages.inc.php:478
 msgid ""
