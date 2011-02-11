@@ -4515,7 +4515,7 @@ msgstr "HTTP-Authentifizierung"
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Host Authentifikationsreihenfolge"
+msgstr "Signon-Authentifizierung"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
