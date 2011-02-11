@@ -7439,7 +7439,7 @@ msgstr "Importar del almacenamiento del navegador"
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
-"Se importarán las configuraciones del almacenamiento local del navegador"
+"Se importarán las configuraciones del almacenamiento local del navegador."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
