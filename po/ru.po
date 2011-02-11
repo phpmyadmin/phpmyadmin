@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:27+0200\n"
+"PO-Revision-Date: 2011-02-11 19:28+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8887,10 +8887,9 @@ msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr "Данный сервер настроен <b>головным</b> в процессе <b>репликации</b>."
 
 #: server_status.php:490
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Данный сервер настроен головным в процессе репликации."
+msgstr "Данный сервер настроен <b>подчиненным</b> в процессе <b>репликации</b>."
 
 #: server_status.php:492
 #, fuzzy
