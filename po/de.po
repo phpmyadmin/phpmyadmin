@@ -1187,10 +1187,9 @@ msgid "Change Password"
 msgstr "Passwort ändern"
 
 #: js/messages.php:110 tbl_structure.php:471
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "Mo"
+msgstr "Mehr"
 
 #: js/messages.php:113 setup/lib/index.lib.php:158
 #, php-format
