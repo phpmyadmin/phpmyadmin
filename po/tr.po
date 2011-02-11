@@ -1138,7 +1138,7 @@ msgstr "Göstermek için sütun seçin"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr "Sütun için bir seçenek ekle"
+msgstr "Sütun için bir seçenek ekle "
 
 #: js/messages.php:105
 msgid "Generate password"
