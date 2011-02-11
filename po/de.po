@@ -1810,7 +1810,7 @@ msgstr "Datei herunterladen"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Die Datei %s konnte nicht geöffnet werden"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
