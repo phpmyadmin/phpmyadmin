@@ -4263,7 +4263,7 @@ msgstr "Título de la ventana al seleccionar una base de datos"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr "Título de la ventana al no haber nada seleccionado"
+msgstr "Título de la ventana cuando no hay nada seleccionado"
 
 #: libraries/config/messages.inc.php:483
 msgid "Default title"
