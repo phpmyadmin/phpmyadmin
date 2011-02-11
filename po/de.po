@@ -4601,7 +4601,7 @@ msgstr "Kein phpMyAdmin-Hilfsuser angegeben, obwohl pmadb verwendet wird"
 #: libraries/config/validate.lib.php:280
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
-"Passwort des phpMyAdmin Hilfsusers ist leer, obwohl pmadb verwendet wird"
+"Passwort des phpMyAdmin Control-users ist leer, obwohl pmadb verwendet wird"
 
 #: libraries/config/validate.lib.php:367
 #, php-format
