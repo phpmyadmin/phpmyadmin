@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 19:33+0200\n"
+"PO-Revision-Date: 2011-02-11 19:37+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9261,7 +9261,7 @@ msgid "Unparsable version string"
 msgstr "Строка версии не поддаётся разбору"
 
 #: setup/lib/index.lib.php:162
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
@@ -9269,8 +9269,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Вы используете подверсию, запустите [kbd]обновление svn[/kbd] :-)[br]"
-"Последняя стабильная версия %s, выпущена %s."
+"Вы используете Git версию, запустите [kbd]git pull[/kbd] :-)[br]Последняя "
+"стабильная версия %s, выпущена %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
