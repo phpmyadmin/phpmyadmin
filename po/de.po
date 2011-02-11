@@ -4811,7 +4811,7 @@ msgstr "Alle Datensätze exportieren"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Ausgabe:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, fuzzy, php-format
