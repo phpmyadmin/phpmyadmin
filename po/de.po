@@ -4763,7 +4763,7 @@ msgstr "Exporttyp"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
-msgstr "Schnell - nur notwendige Optionen anzeigen"
+msgstr "Schnell – nur notwendige Optionen anzeigen"
 
 #: libraries/display_export.lib.php:129
 #, fuzzy
