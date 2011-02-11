@@ -3700,7 +3700,7 @@ msgstr "Kopfzeilen wiederholen"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr "Hilfe-Button anstelle des Texts anzeigen"
+msgstr "Hilfe-Button anstelle des Hilfetexts anzeigen"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
