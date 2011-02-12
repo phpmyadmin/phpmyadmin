@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 13:09+0200\n"
+"PO-Revision-Date: 2011-02-12 13:12+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4725,6 +4725,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Onderaan kunnen de opties van het geselecteerde formaat ingevuld worden, de "
+"opties voor de andere formaten kunnen genegeerd worden."
 
 # Is er een betere vertaling voor 'encoding' ?
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
