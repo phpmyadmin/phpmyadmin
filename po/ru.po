@@ -9633,10 +9633,9 @@ msgid "Legend margins"
 msgstr "Отступы подписи"
 
 #: tbl_chart.php:134
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "Мар"
+msgstr "Столбец"
 
 #: tbl_chart.php:135
 msgid "Line"
