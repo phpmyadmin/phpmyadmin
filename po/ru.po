@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 21:16+0200\n"
+"PO-Revision-Date: 2011-02-12 21:18+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9930,10 +9930,9 @@ msgstr ""
 "помощью внешнего ключа (FOREIGN KEY)."
 
 #: tbl_relation.php:410
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Лимит внешних ключей"
+msgstr "Ограничение внешнего ключа"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
