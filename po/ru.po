@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 21:15+0200\n"
+"PO-Revision-Date: 2011-02-12 21:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9917,10 +9917,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Внутренние связи"
+msgstr "Внутренняя связь"
 
 #: tbl_relation.php:404
 msgid ""
