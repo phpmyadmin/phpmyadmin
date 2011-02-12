@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 13:14+0200\n"
+"PO-Revision-Date: 2011-02-12 13:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4819,7 +4819,7 @@ msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Formaatspecifieke opties:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
