@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 19:21+0200\n"
+"PO-Revision-Date: 2011-02-12 19:22+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9552,9 +9552,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Вставить в виде новой строки и игнорировать появляющиеся ошибки"
 
 #: tbl_change.php:1054
-#, fuzzy
 msgid "Show insert query"
-msgstr "Отображает SQL-запрос"
+msgstr "Отобразить запрос вставки"
 
 #: tbl_change.php:1065
 msgid "and then"
