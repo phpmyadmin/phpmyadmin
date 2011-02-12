@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 17:49+0200\n"
+"PO-Revision-Date: 2011-02-12 17:54+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9358,6 +9358,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sДлительность cookie авторизации%s более 1440 секунд может вызывать "
+"случайные сбросы сессии, если %ssession.gc_maxlifetime%s менее данного "
+"значения (текущее значение %d)."
 
 #: setup/lib/index.lib.php:262
 #, fuzzy, php-format
