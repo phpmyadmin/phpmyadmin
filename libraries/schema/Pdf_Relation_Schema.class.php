@@ -1114,7 +1114,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $z = 0;
         foreach ($alltables as $table) {
             $z++;
-            $pdf->SetAutoPageBreak(true);
+            $pdf->SetAutoPageBreak(true, 15);
             $pdf->addpage($GLOBALS['orientation']);
             $pdf->Bookmark($table);
             $pdf->SetAlias('{' . sprintf("%02d", $z) . '}', $pdf->PageNo()) ;
