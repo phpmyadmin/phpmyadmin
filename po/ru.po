@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 21:25+0200\n"
+"PO-Revision-Date: 2011-02-12 21:28+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10004,10 +10004,9 @@ msgid "An index has been added on %s"
 msgstr "Был добавлен индекс для %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Показать версии"
+msgstr "Показать больше операций"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
