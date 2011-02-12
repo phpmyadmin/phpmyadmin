@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 17:48+0200\n"
+"PO-Revision-Date: 2011-02-12 17:49+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9339,7 +9339,7 @@ msgstr ""
 "поддерживает."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9348,9 +9348,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Создание и распаковка "
-"GZip архивов[/a] требует наличия функций (%s), которые недоступны на данной "
-"системе."
+"%sСоздание и распаковка GZip архивов%s требует наличия функций (%s), которые "
+"недоступны на данной системе."
 
 #: setup/lib/index.lib.php:260
 #, php-format
