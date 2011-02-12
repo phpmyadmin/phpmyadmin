@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 17:54+0200\n"
+"PO-Revision-Date: 2011-02-12 17:55+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9363,7 +9363,7 @@ msgstr ""
 "значения (текущее значение %d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
 #| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
@@ -9372,10 +9372,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Время действия cookie "
-"идентификации[/a] не должно превышать 1800 секунд (30 минут). Установка "
-"значения более 1800 может оказаться небезопасным в связи с возможным "
-"использованием сессии другим лицом."
+"%sВремя действия cookie идентификации%s не должно превышать 1800 секунд (30 "
+"минут). Установка значения более 1800 может оказаться небезопасным в связи с "
+"возможным использованием сессии другим лицом."
 
 #: setup/lib/index.lib.php:264
 #, php-format
