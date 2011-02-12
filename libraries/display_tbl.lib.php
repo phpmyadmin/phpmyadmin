@@ -2596,7 +2596,7 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
         $ret .= PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, '');
 
-        $ret .= PMA_generateEditLink($edit_url, $copy_url, $class, $edit_str, $where_clause, $where_clause_html, '');
+        $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
         $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_right', '', '', '');
     }
