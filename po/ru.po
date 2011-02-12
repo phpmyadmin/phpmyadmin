@@ -9622,7 +9622,7 @@ msgstr "Подпись для оси X"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Подпись для оси Y"
 
 #: tbl_chart.php:112
 msgid "Area margins"
