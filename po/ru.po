@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 21:22+0200\n"
+"PO-Revision-Date: 2011-02-12 21:23+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9978,7 +9978,7 @@ msgstr "Добавить уникальный индекс"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Добавить полнотекстовый индекс"
 
 #: tbl_structure.php:384
 #, fuzzy
