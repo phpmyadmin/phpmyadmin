@@ -9965,7 +9965,7 @@ msgstr "Обзор уникальных значений"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
-msgstr ""
+msgstr "Добавить первичный ключ"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 #, fuzzy
