@@ -4730,7 +4730,6 @@ msgstr ""
 
 # Is er een betere vertaling voor 'encoding' ?
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
 msgstr "Omzetting van de codering"
