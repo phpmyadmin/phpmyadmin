@@ -9646,10 +9646,9 @@ msgid "Radar"
 msgstr "Радиальная"
 
 #: tbl_chart.php:138
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "ПБ"
+msgstr "Круговая"
 
 #: tbl_chart.php:144
 #, fuzzy
