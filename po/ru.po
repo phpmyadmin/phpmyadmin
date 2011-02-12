@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 19:26+0200\n"
+"PO-Revision-Date: 2011-02-12 19:29+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9626,7 +9626,7 @@ msgstr "Подпись для оси Y"
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Отступы от краев"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
