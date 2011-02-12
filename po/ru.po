@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 18:00+0200\n"
+"PO-Revision-Date: 2011-02-12 18:01+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9407,7 +9407,7 @@ msgstr ""
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
@@ -9422,12 +9422,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Вы установили [kbd]config[/kbd] идентификацию и ввели имя полльзователя с "
+"Вы установили [kbd]config[/kbd] идентификацию и ввели имя пользователя с "
 "паролем для автоматического входа, что крайне не рекомендуется для рабочего "
 "хоста. Любой, кто сможет узнать ссылку к phpMyAdmin сможет напрямую попасть "
-"в панель управления. Установите [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]тип идентификации[/a] в [kbd]cookie[/kbd] или [kbd]http[/"
-"kbd]."
+"в панель управления. Установите %sтип идентификации%s в [kbd]cookie[/kbd] "
+"или [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
