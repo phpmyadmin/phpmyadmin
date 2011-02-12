@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 17:58+0200\n"
+"PO-Revision-Date: 2011-02-12 18:00+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9387,7 +9387,7 @@ msgstr ""
 "в меньшее или равное значение."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9401,12 +9401,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]идентификация по "
-"хосту[/a] и [a@?page=form&amp;formset=features#tab_Security]список "
-"доверенных прокси серверов[/a]. Однако, защита по IP может быть ненадежной, "
-"если ваш IP не является выделенным и кроме вас принадлежит тысячам "
-"пользователей того же Интернет Провайдера."
+"При необходимости используйте дополнительные настройки безопасности - %"
+"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"защита по IP может быть ненадежной, если ваш IP не является выделенным и "
+"кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
