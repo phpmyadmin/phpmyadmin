@@ -1961,7 +1961,7 @@ msgstr "Анализ SQL запроса"
 
 #: libraries/common.lib.php:1120
 msgid "Skip Explain SQL"
-msgstr "Убрать анализ"
+msgstr "Убрать анализ SQL"
 
 #: libraries/common.lib.php:1154
 msgid "Without PHP Code"
