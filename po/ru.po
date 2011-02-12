@@ -9610,7 +9610,7 @@ msgstr "Ширина"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Высота"
 
 #: tbl_chart.php:98
 msgid "Title"
