@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 21:37+0200\n"
+"PO-Revision-Date: 2011-02-12 21:39+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5705,7 +5705,7 @@ msgstr "MIME-ТИПЫ ТАБЛИЦЫ"
 
 #: libraries/export/sql.php:804
 msgid "RELATIONS FOR TABLE"
-msgstr "Связи таблицы"
+msgstr "СВЯЗИ ТАБЛИЦЫ"
 
 #: libraries/export/sql.php:861 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
