@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 17:47+0200\n"
+"PO-Revision-Date: 2011-02-12 17:48+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9331,11 +9331,12 @@ msgstr ""
 "другого пользователя сервера."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"Вы должны использовать SSL соединение, если ваш веб-сервер его поддерживает"
+"Вы должны использовать %sSSL соединение%s, если ваш веб-сервер его "
+"поддерживает."
 
 #: setup/lib/index.lib.php:258
 #, fuzzy, php-format
