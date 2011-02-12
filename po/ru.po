@@ -9429,7 +9429,7 @@ msgstr ""
 "или [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9437,8 +9437,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Создание Zip архивов[/"
-"a] требует наличия функций (%s), которые недоступны на данной системе."
+"%sСоздание Zip архивов%s требует наличия функций (%s), которые недоступны на "
+"данной системе."
 
 #: setup/lib/index.lib.php:272
 #, fuzzy, php-format
