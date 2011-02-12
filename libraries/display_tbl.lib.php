@@ -1473,7 +1473,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= PMA_generateEditLink($edit_url, $copy_url, $alternating_color_class . ' ' . $edit_anchor_class . $vertical_class, $edit_str, $where_clause, $where_clause_html);
+            $vertical_display['edit'][$row_no]   .= PMA_generateEditLink($edit_url, $alternating_color_class . ' ' . $edit_anchor_class . $vertical_class, $edit_str, $where_clause, $where_clause_html);
         } else {
             unset($vertical_display['edit'][$row_no]);
         }
@@ -2559,6 +2559,7 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
 
 /**
  * Generates checkbox and links at some position (left or right)
+ * (only called for horizontal mode)
  *
  * @uses    PMA_generateCheckboxForMulti()
  * @uses    PMA_generateEditLink()
