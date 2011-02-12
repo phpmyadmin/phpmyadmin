@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-12 18:04+0200\n"
+"PO-Revision-Date: 2011-02-12 19:04+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9470,11 +9470,10 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Вы разрешаете соединение с сервером без пароля."
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
 msgstr ""
-"Ключ кодирования слишком короткий, он должен содержать не менее 8 символов"
+"Ключ кодирования слишком короткий, он должен содержать не менее 8 символов."
 
 #: setup/lib/index.lib.php:358
 #, fuzzy
