@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-13 20:50+0200\n"
+"PO-Revision-Date: 2011-02-13 20:51+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4616,7 +4616,7 @@ msgstr "Обычный - отображать все возможные наст
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
-msgstr "Базы данных:"
+msgstr "База(ы) данных:"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
