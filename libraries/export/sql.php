@@ -183,6 +183,66 @@ if (! isset($sql_backquotes)) {
 }
 
 /**
+ * Exports routines (procedures and functions) 
+ *
+ * @param   string      $db 
+ *
+ * @return  bool        Whether it suceeded
+ */
+function PMA_exportRoutines($db) {
+    global $crlf;
+
+    $text = '';
+    $delimiter = '$$';
+
+    $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+    $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+
+    if ($procedure_names || $function_names) {
+        $text .= $crlf
+          . 'DELIMITER ' . $delimiter . $crlf;
+    }
+
+    if ($procedure_names) {
+        $text .=
+            PMA_exportComment()
+          . PMA_exportComment(__('Procedures'))
+          . PMA_exportComment();
+
+        foreach($procedure_names as $procedure_name) {
+            if (! empty($GLOBALS['sql_drop_table'])) {
+                $text .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
+            }
+            $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
+        }
+    }
+
+    if ($function_names) {
+        $text .=
+            PMA_exportComment()
+          . PMA_exportComment(__('Functions'))
+          . PMA_exportComment();
+
+        foreach($function_names as $function_name) {
+            if (! empty($GLOBALS['sql_drop_table'])) {
+                $text .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
+            }
+            $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
+        }
+    }
+
+    if ($procedure_names || $function_names) {
+        $text .= 'DELIMITER ;' . $crlf;
+    }
+
+    if (! empty($text)) {
+        return PMA_exportOutputHandler($text);
+    } else {
+        return false;
+    }
+}
+
+/**
  * Possibly outputs comment
  *
  * @param   string      Text of comment
@@ -375,54 +435,6 @@ function PMA_exportDBCreate($db)
         $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
     }
 
-    if ($result && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
-        $text = '';
-        $delimiter = '$$';
-
-        $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
-        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
-
-        if ($procedure_names || $function_names) {
-            $text .= $crlf
-              . 'DELIMITER ' . $delimiter . $crlf;
-        }
-
-        if ($procedure_names) {
-            $text .=
-                PMA_exportComment()
-              . PMA_exportComment(__('Procedures'))
-              . PMA_exportComment();
-
-            foreach($procedure_names as $procedure_name) {
-                if (! empty($GLOBALS['sql_drop_table'])) {
-		    $text .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
-                }
-                $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
-            }
-        }
-
-        if ($function_names) {
-            $text .=
-                PMA_exportComment()
-              . PMA_exportComment(__('Functions'))
-              . PMA_exportComment();
-
-            foreach($function_names as $function_name) {
-                if (! empty($GLOBALS['sql_drop_table'])) {
-		    $text .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
-                }
-                $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
-            }
-        }
-
-        if ($procedure_names || $function_names) {
-            $text .= 'DELIMITER ;' . $crlf;
-        }
-
-        if (! empty($text)) {
-            $result = PMA_exportOutputHandler($text);
-        }
-    }
     return $result;
 }
 

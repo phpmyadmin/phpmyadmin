@@ -458,6 +458,10 @@ if ($export_type == 'server') {
             if (!PMA_exportDBCreate($current_db)) {
                 break 2;
             }
+            if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
+                PMA_exportRoutines($current_db);
+            }
+
             $tables = PMA_DBI_get_tables($current_db);
             $views = array();
             foreach ($tables as $table) {
@@ -506,6 +510,11 @@ if ($export_type == 'server') {
     if (!PMA_exportDBHeader($db)) {
         break;
     }
+
+    if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
+            PMA_exportRoutines($db);
+    }
+
     $i = 0;
     $views = array();
     // $tables contains the choices from the user (via $table_select)
