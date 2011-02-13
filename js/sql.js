@@ -82,8 +82,12 @@ function appendInlineAnchor() {
             $cloned_tr.insertAfter($this_tr);
         });
 
-        $("#table_results").find('tr').find(':checkbox').closest('tr').find('th')
-         .attr('rowspan', '4');
+        $('#rowsDeleteForm').find('tbody').find('th').each(function() {
+            var $this_th = $(this);
+            if ($this_th.attr('rowspan') == 4) {
+                $this_th.attr('rowspan', '5');
+            }
+        });
     }
     else {
         $('.edit_row_anchor').each(function() {
