@@ -2320,9 +2320,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Включение данного параметра позволяет странице расположенной на другом "
-"домене вызвать phpMyAdmin внутри фрейма, что является потенциальной [strong]"
-"дырой в безопасности[/strong] допуская возможность XFS (Cross Frame "
-"Seripting)."
+"домене вызвать phpMyAdmin внутри фрейма, что является потенциальной "
+"[strong]дырой в безопасности[/strong] допуская возможность XFS (Cross Frame "
+"Scripting)."
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
