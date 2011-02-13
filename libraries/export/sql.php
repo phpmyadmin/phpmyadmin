@@ -375,7 +375,7 @@ function PMA_exportDBCreate($db)
         $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
     }
 
-    if ($result && isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
+    if ($result && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
         $text = '';
         $delimiter = '$$';
 
