@@ -1074,6 +1074,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     }
     $row_no                         = 0;
     $vertical_display['edit']       = array();
+    $vertical_display['copy']       = array();
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
@@ -1398,8 +1399,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && PMA_contains_nonprintable_ascii($row[$i])) {
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
-                            	$row[$i] = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
-							}
+                                $row[$i] = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
+                            }
                         } else {
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
@@ -1455,6 +1456,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         //    output
         if (!isset($vertical_display['edit'][$row_no])) {
             $vertical_display['edit'][$row_no]       = '';
+            $vertical_display['copy'][$row_no]       = '';
             $vertical_display['delete'][$row_no]     = '';
             $vertical_display['row_delete'][$row_no] = '';
         }
@@ -1476,6 +1478,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $vertical_display['edit'][$row_no]   .= PMA_generateEditLink($edit_url, $alternating_color_class . ' ' . $edit_anchor_class . $vertical_class, $edit_str, $where_clause, $where_clause_html);
         } else {
             unset($vertical_display['edit'][$row_no]);
+        }
+
+        if (isset($copy_url)) {
+            $vertical_display['copy'][$row_no]   .= PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $alternating_color_class . $vertical_class);
+        } else {
+            unset($vertical_display['copy'][$row_no]);
         }
 
         if (isset($del_url)) {
@@ -1547,6 +1555,24 @@ function PMA_displayVerticalTable()
         echo '</tr>' . "\n";
     } // end if
 
+    // Displays "copy" link at top if required
+    if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
+        echo '<tr>' . "\n";
+        if (!is_array($vertical_display['row_delete'])) {
+            echo $vertical_display['textbtn'];
+        }
+        $foo_counter = 0;
+        foreach ($vertical_display['copy'] as $val) {
+            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '    <th></th>' . "\n";
+            }
+
+            echo $val;
+            $foo_counter++;
+        } // end while
+        echo '</tr>' . "\n";
+    } // end if
+
     // Displays "delete" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
@@ -1608,6 +1634,24 @@ function PMA_displayVerticalTable()
         }
         $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
+            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th></th>' . "\n";
+            }
+
+            echo $val;
+            $foo_counter++;
+        } // end while
+        echo '</tr>' . "\n";
+    } // end if
+
+    // Displays "copy" link at bottom if required
+    if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
+        echo '<tr>' . "\n";
+        if (!is_array($vertical_display['row_delete'])) {
+            echo $vertical_display['textbtn'];
+        }
+        $foo_counter = 0;
+        foreach ($vertical_display['copy'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th></th>' . "\n";
             }
@@ -1744,7 +1788,7 @@ function PMA_displayTable_checkConfigParams()
         // display_binary_as_hex config option
         if (isset($GLOBALS['cfg']['DisplayBinaryAsHex']) && true === $GLOBALS['cfg']['DisplayBinaryAsHex']) {
             $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex'] = true;
-		}
+        }
     }
 
     if (isset($_REQUEST['display_blob'])) {
@@ -2516,10 +2560,14 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
  * @param   string  $where_clause_html
  * @return  string  the generated HTML
  */
-function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html) {
+function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class) {
     $ret = '';
     if (! empty($copy_url)) {
-        $ret .= '<td align="center" ' . ' ><span class="nowrap">'
+        $ret .= '<td ';
+        if (! empty($class)) {
+            $ret .= 'class="' . $class . '" ';
+        }
+        $ret .= 'align="center" ' . ' ><span class="nowrap">'
            . PMA_linkOrButton($copy_url, $copy_str, array(), FALSE);
         /*
          * Where clause for selecting this row uniquely is provided as
@@ -2564,6 +2612,7 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * @uses    PMA_generateCheckboxForMulti()
  * @uses    PMA_generateEditLink()
  * @uses    PMA_generateDeleteLink()
+ * @uses    PMA_generateCopyLink()
  * @param   string  $position
  * @param   string  $del_url
  * @param   array   $is_display
