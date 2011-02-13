@@ -109,7 +109,7 @@ function appendInlineAnchor() {
         $('#rowsDeleteForm').find('thead, tbody').find('th').each(function() {
             var $this_th = $(this);
             if ($this_th.attr('colspan') == 4) {
-                $this_th.attr('colspan', '5')
+                $this_th.attr('colspan', '5');
             }
         });
     }
