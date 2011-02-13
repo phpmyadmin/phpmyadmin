@@ -4620,7 +4620,7 @@ msgstr "База(ы) данных:"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
-msgstr "Таблицы:"
+msgstr "Таблица(ы):"
 
 #: libraries/display_export.lib.php:149
 msgid "Rows:"
