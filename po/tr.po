@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-11 11:33+0200\n"
+"PO-Revision-Date: 2011-02-13 12:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2282,7 +2282,7 @@ msgstr "Ekran yenilemenin etkinliğini geliştirir"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
-msgstr "Ajax Etkin"
+msgstr "Ajax etkin"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
