@@ -813,9 +813,14 @@ ul#topmenu ul a {
     margin:             0;
     
 }
-
+/* MH added for hide/show more menu */
 ul#topmenu .submenu {
-    position:           relative;
+	display:	none;
+    position:	relative;
+}
+
+#topmenu .shown {
+    display: inline-block;
 }
 
 ul#topmenu ul {
@@ -1021,6 +1026,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-bottom: 0.5em;
     margin-<?php echo $right; ?>: 0.5em;
+    width:99%;
 }
 
 div#tablestatistics table caption {
