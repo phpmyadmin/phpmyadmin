@@ -9722,7 +9722,7 @@ msgstr "Gebied marges"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Legende marges"
 
 #: tbl_chart.php:134
 #, fuzzy
