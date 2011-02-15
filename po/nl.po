@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-15 21:25+0200\n"
+"PO-Revision-Date: 2011-02-15 21:26+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7402,10 +7402,9 @@ msgstr "Het verstuurde formulier bevat fouten"
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: \"%1$s\""
+msgstr "Standaard configuratiebestand kon niet geladen worden"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
