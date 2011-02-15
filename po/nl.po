@@ -7400,7 +7400,6 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
 "Het verstuurde formulier bevat fouten, voorkeuren werden niet opgeslagen"
 
-# 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
