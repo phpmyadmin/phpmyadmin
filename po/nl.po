@@ -6975,7 +6975,7 @@ msgstr "Achtergrondkleur"
 
 #: main.php:142
 msgid "Choose..."
-msgstr ""
+msgstr "Kies..."
 
 #: main.php:159 prefs_manage.php:274
 #, fuzzy
