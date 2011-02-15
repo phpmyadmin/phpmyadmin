@@ -1964,16 +1964,34 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         if ($sorted_column_index !== false) {
             // fetch first row of the result set
             $row = PMA_DBI_fetch_row($dt_result);
-            $column_for_first_row = substr($row[$sorted_column_index], 0, $GLOBALS['cfg']['LimitChars']);
+            // initializing default arguments
+            $default_function = 'default_function';
+            $transform_function = $default_function;
+            $transform_options = array();
+            // check for non printable sorted row data
+            $meta = $fields_meta[$sorted_column_index];
+            if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
+                $column_for_first_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, NULL);
+            } else {
+                $column_for_first_row = $row[$sorted_column_index];
+            }
+            $column_for_first_row = strtoupper(substr($column_for_first_row, 0, $GLOBALS['cfg']['LimitChars']));
             // fetch last row of the result set
             PMA_DBI_data_seek($dt_result, $num_rows - 1);
             $row = PMA_DBI_fetch_row($dt_result);
-            $column_for_last_row = substr($row[$sorted_column_index], 0, $GLOBALS['cfg']['LimitChars']);
+            // check for non printable sorted row data
+            $meta = $fields_meta[$sorted_column_index];
+            if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
+                $column_for_last_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, NULL);
+            } else {
+                $column_for_last_row = $row[$sorted_column_index];
+            }
+            $column_for_last_row = strtoupper(substr($column_for_last_row, 0, $GLOBALS['cfg']['LimitChars']));
             // reset to first row for the loop in PMA_displayTableBody()
             PMA_DBI_data_seek($dt_result, 0);
             // we could also use here $sort_expression_nodirection
             $sorted_column_message = ' [' . htmlspecialchars($sort_column) . ': <strong>' . htmlspecialchars($column_for_first_row) . ' - ' . htmlspecialchars($column_for_last_row) . '</strong>]';
-            unset($row, $column_for_first_row, $column_for_last_row);
+            unset($row, $column_for_first_row, $column_for_last_row, $meta, $default_function, $transform_function, $transform_options);
         }
         unset($sorted_column_index, $sort_table, $sort_column);
     }
