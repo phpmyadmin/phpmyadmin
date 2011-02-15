@@ -7471,6 +7471,7 @@ msgstr "Bestaande instellingen zullen overschreven worden!"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Je kan al je instellingen resetten en terugzetten op de standaardwaarden."
 
 #: querywindow.php:93
 msgid "Import files"
