@@ -5611,7 +5611,7 @@ msgstr "In plaats van <code>INSERT</code> opdrachten, gebruik:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> uitdrukkingen"
+msgstr "<code>INSERT DELAYED</code> opdrachten"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
