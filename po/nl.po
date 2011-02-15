@@ -8172,10 +8172,9 @@ msgid "Start SQL Thread only"
 msgstr "Start enkel de SQL Thread"
 
 #: server_replication.php:328
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "%s de SQL Thread"
+msgstr "Stop enkel de SQL Thread"
 
 #: server_replication.php:331
 #, fuzzy
