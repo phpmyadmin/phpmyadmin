@@ -239,8 +239,7 @@ class PMA_PDF extends TCPDF
         if ($with_doc) {
             $this->SetY(-15);
             $this->SetFont($this->_ff, '', 14);
-            $this->setFooterFont($this->_ff);
-            $this->Cell(0, 6, __('Page number:') . ' ' . $this->PageNo() . '/{nb}', 'T', 0, 'C');
+            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
             $this->Cell(0, 6, PMA_localisedDate(), 0, 1, 'R');
             $this->SetY(20);
         }
@@ -857,6 +856,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
         $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
         $pdf->SetFont($this->_ff, '', 14);
+        $pdf->setFooterFont(array($this->_ff, '', 14));
         $pdf->SetAutoPageBreak('auto');
         $alltables = $this->getAllTables($db,$this->pageNumber);
 
