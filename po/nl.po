@@ -9743,10 +9743,9 @@ msgid "Pie"
 msgstr "Taart"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Query-type"
+msgstr "Balktype"
 
 #: tbl_chart.php:146
 #, fuzzy
