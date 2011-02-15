@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-15 21:21+0200\n"
+"PO-Revision-Date: 2011-02-15 21:22+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6613,7 +6613,7 @@ msgstr "Einde RAW"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Voeg automatisch een aanhalingsteken toe aan het einde van de query!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
