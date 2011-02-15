@@ -9758,7 +9758,7 @@ msgstr "Meerdere"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Doorlopende afbeelding"
 
 #: tbl_chart.php:155
 msgid ""
