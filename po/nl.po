@@ -7497,7 +7497,7 @@ msgstr "Selecteer de te bekijken binaire log"
 
 #: server_binlog.php:122 server_status.php:387
 msgid "Files"
-msgstr "bestanden"
+msgstr "Bestanden"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:56
 #: server_processlist.php:58
