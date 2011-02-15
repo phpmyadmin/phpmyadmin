@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-15 21:52+0200\n"
+"PO-Revision-Date: 2011-02-15 21:53+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -8177,10 +8177,9 @@ msgid "Stop SQL Thread only"
 msgstr "Stop enkel de SQL Thread"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "%s de IO Thread"
+msgstr "Start enkel de IO Thread"
 
 #: server_replication.php:333
 #, fuzzy
