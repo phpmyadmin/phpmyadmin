@@ -7457,7 +7457,7 @@ msgstr ""
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Opslaan in de browseropslag"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
