@@ -652,9 +652,9 @@ ul#topmenu, ul#topmenu2, ul.tabs {
 }
 
 ul#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    height: 2em;
-    clear: both;
+    margin: 0;
+    background: <?php echo $GLOBALS['cfg']['TopMenuBgColor']; ?>;
+    border-top: 3px solid <?php echo $GLOBALS['cfg']['LabelColor']; ?>;
 }
 
 ul#topmenu li, ul#topmenu2 li {
@@ -663,6 +663,11 @@ ul#topmenu li, ul#topmenu2 li {
     padding:            0;
     vertical-align:     middle;
     border-right: 1px solid #333;
+}
+
+ul#topmenu2 li {
+	padding: 0 3px;
+	border: none;
 }
 
 #topmenu img, #topmenu2 img {
@@ -723,14 +728,14 @@ ul#topmenu span.tabcaution {
     color:              #ff6666;
 }
 
-/* enabled drop/empty tabs */
+/* enabled drop/empty tabs 
 ul#topmenu a.tabcaution {
     color:              #FF0000;
 }
 ul#topmenu a.tabcaution:hover {
     color: #FFFFFF;
     background-color:   #FF0000;
-}
+}*/
 fieldset.caution a {
     color:              #FF0000;
 }
@@ -770,9 +775,10 @@ ul#topmenu > li {
 ul#topmenu a, ul#topmenu span {
     background-color:   <?php echo $GLOBALS['cfg']['TopMenuBgColor']; ?>;
     padding: 5px;
+    margin: 0;
     /*border:             0px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-width:       1pt 1pt 0 1pt;*/
-    /*-moz-border-radius: 0.4em 0.4em 0 0;
+    border-width:       1pt 1pt 0 1pt;
+    -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;*/
 }
 
@@ -789,8 +795,7 @@ ul#topmenu ul li:first-child a {
 /* enabled hover/active tabs */
 ul#topmenu > li > a:hover,
 ul#topmenu > li > .tabactive {
-    margin:             0;
-    /*padding:            0.2em 0.4em 0.2em 0.4em;*/
+	padding: 5px;
     text-decoration:    none;
 }
 
@@ -802,7 +807,7 @@ ul#topmenu ul .tabactive {
 ul#topmenu a.tab:hover,
 ul#topmenu .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-    /*padding: 5px;*/
+    padding: 5px;
 }
 
 ul#topmenu2 a.tab:hover,
@@ -1610,6 +1615,8 @@ iframe.IE_hack {
 }
 
 .config-form ul.tabs li {
+	background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+	border: 1px solid <?php echo $GLOBALS['cfg']['LabelColor']; ?>;
     float: <?php echo $left; ?>;
 }
 
@@ -1619,7 +1626,6 @@ iframe.IE_hack {
     padding:          0.1em 0.4em;
     white-space:      nowrap;
     text-decoration:  none;
-    border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-bottom:    none;
 }
 
@@ -1631,7 +1637,8 @@ iframe.IE_hack {
 }
 
 .config-form ul.tabs li a.active {
-    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['HeaderBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['TblContentBackground']; ?>
 }
 
 .config-form fieldset {
@@ -1835,7 +1842,7 @@ table.data {
 	margin: 0 5px 5px 0;	
 }
 
-table.data thead a {
+table.data thead a, table.insertRowTable thead a {
 	color: <?php echo $GLOBALS['cfg']['TableHeaderlinkColor'];?>;
 	/*font-weight: normal;*/
 }

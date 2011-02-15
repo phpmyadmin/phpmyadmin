@@ -169,7 +169,11 @@ div#leftframelinks a img.icon {
     margin:             0;
     padding:            0.2em;
     border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
+div#leftframelinks a img.icon:hover {
+	background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* serverlist */
