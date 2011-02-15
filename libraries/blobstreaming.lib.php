@@ -471,13 +471,9 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
 //------------
 function PMA_BS_IsHiddenTable($table)
 {
-    switch ($table) {
-        case 'pbms_repository' :
-        case 'pbms_reference' :
-        case 'pbms_metadata' :
-        case 'pbms_metadata_header' :
-        case 'pbms_dump' :
-            return TRUE;
+    if ($table === 'pbms_repository' || $table === 'pbms_reference' || $table === 'pbms_metadata'
+    || $table === 'pbms_metadata_header' || $table === 'pbms_dump') {
+        return TRUE;
     }
     return FALSE;
 }
