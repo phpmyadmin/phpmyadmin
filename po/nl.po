@@ -6696,7 +6696,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "ENUM of SET data te lang?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
