@@ -225,9 +225,9 @@ class PMA_PDF extends TCPDF
              . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_query_as_controluser($test_query);
             $pages = @PMA_DBI_fetch_assoc($test_rs);
-            $this->SetFont('', 'B', 14);
+            $this->SetFont($this->_ff, 'B', 14);
             $this->Cell(0, 6, ucfirst($pages['page_descr']), 'B', 1, 'C');
-            $this->SetFont('', '');
+            $this->SetFont($this->_ff, '');
             $this->Ln();
         }
     }
@@ -238,8 +238,8 @@ class PMA_PDF extends TCPDF
         global $with_doc;
         if ($with_doc) {
             $this->SetY(-15);
-            $this->SetFont('', '', 14);
-            $this->Cell(0, 6, __('Page number:') . ' ' . $this->PageNo() . '/{nb}', 'T', 0, 'C');
+            $this->SetFont($this->_ff, '', 14);
+            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
             $this->Cell(0, 6, PMA_localisedDate(), 0, 1, 'R');
             $this->SetY(20);
         }
@@ -567,7 +567,7 @@ class Table_Stats
             $this->width = max($this->width, $pdf->GetStringWidth($field));
         }
         $this->width += $pdf->GetStringWidth('  ');
-        $pdf->SetFont($fontSize, 'B');
+        $pdf->SetFont($this->_ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
@@ -575,7 +575,7 @@ class Table_Stats
         while ($this->width < $pdf->GetStringWidth($this->_getTitle())) {
             $this->width += 5;
         }
-        $pdf->SetFont($fontSize, '');
+        $pdf->SetFont($this->_ff, '', $fontSize);
     }
 
     /**
@@ -602,7 +602,7 @@ class Table_Stats
         global $pdf, $withDoc;
 
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
-        $pdf->SetFont($fontSize, 'B');
+        $pdf->SetFont($this->_ff, 'B', $fontSize);
         if ($setColor) {
             $pdf->SetTextColor(200);
             $pdf->SetFillColor(0, 0, 128);
@@ -615,7 +615,7 @@ class Table_Stats
 
         $pdf->PMA_PDF_cellScale($this->width, $this->heightCell, $this->_getTitle(), 1, 1, 'C', $setColor, $pdf->PMA_links['doc'][$this->_tableName]['-']);
         $pdf->PMA_PDF_setXScale($this->x);
-        $pdf->SetFont($fontSize, '');
+        $pdf->SetFont($this->_ff, '', $fontSize);
         $pdf->SetTextColor(0);
         $pdf->SetFillColor(255);
 
@@ -856,6 +856,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
         $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
         $pdf->SetFont($this->_ff, '', 14);
+        $pdf->setFooterFont(array($this->_ff, '', 14));
         $pdf->SetAutoPageBreak('auto');
         $alltables = $this->getAllTables($db,$this->pageNumber);
 
@@ -1120,9 +1121,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetAlias('{' . sprintf("%02d", $z) . '}', $pdf->PageNo()) ;
             $pdf->PMA_links['RT'][$table]['-'] = $pdf->AddLink();
             $pdf->SetLink($pdf->PMA_links['doc'][$table]['-'], -1);
-            $pdf->SetFont('', 'B', 18);
+            $pdf->SetFont($this->_ff, 'B', 18);
             $pdf->Cell(0, 8, $z . ' ' . $table, 1, 1, 'C', 0, $pdf->PMA_links['RT'][$table]['-']);
-            $pdf->SetFont('', '', 8);
+            $pdf->SetFont($this->_ff, '', 8);
             $pdf->ln();
 
             $cfgRelation = PMA_getRelationsParam();
@@ -1231,7 +1232,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->Ln();
             }
 
-            $pdf->SetFont('', 'B');
+            $pdf->SetFont($this->_ff, 'B');
             if (isset($orientation) && $orientation == 'L') {
                 $pdf->Cell(25, 8, ucfirst(__('Column')), 1, 0, 'C');
                 $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
@@ -1265,7 +1266,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->Cell(30, 8, 'MIME', 1, 1, 'C');
                 $pdf->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
             }
-            $pdf->SetFont('', '');
+            $pdf->SetFont($this->_ff, '');
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $type = $row['Type'];
@@ -1334,7 +1335,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 }
                 $pdf->Row($pdf_row, $links);
             } // end while
-            $pdf->SetFont('', '', 14);
+            $pdf->SetFont($this->_ff, '', 14);
             PMA_DBI_free_result($result);
         } //end each
     }

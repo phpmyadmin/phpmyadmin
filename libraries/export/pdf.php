@@ -129,7 +129,8 @@ class PMA_PDF extends TCPDF
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             //Page number
-            $this->Cell(0, 10, __('Page number:') .' '.$this->PageNo() .'/{nb}', 'T', 0, 'C');
+            $this->setFooterFont(PMA_PDF_FONT, '', 14);
+            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
 
             // set footerset
             $this->footerset[$this->page] = 1;
@@ -403,6 +404,7 @@ function PMA_exportHeader()
     $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
     $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
     $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
+    $pdf->setFooterFont(array(PMA_PDF_FONT, '', 11.5));
     $pdf->AliasNbPages();
     $pdf->Open();
 
