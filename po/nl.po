@@ -9685,7 +9685,6 @@ msgid "Chart generated successfully."
 msgstr "De privileges zijn succesvol vernieuwd"
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -9693,8 +9692,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Bij benadering. Zie [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/"
-"a]"
+"Het resultaat van deze query kan niet gebruikt worden voor een grafiek. Zie "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
