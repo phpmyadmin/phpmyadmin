@@ -265,7 +265,7 @@ class PMA_File
      */
     function setUploadedFromTblChangeRequest($key, $rownumber)
     {
-        if (! isset($_FILES['fields_upload']) && ! isset($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])) {
+        if (! isset($_FILES['fields_upload'])  || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])) {
             return false;
         }
         $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
