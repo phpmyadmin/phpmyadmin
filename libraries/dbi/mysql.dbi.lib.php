@@ -63,12 +63,12 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             ? false
             : true;
     } else {
-	  $server_port   = (empty($cfg['Server']['port']))
-                   ? ''
-                   : ':' . (int)$cfg['Server']['port'];
-	  $server_socket = (empty($cfg['Server']['socket']))
-                   ? ''
-                   : ':' . $cfg['Server']['socket'];
+        $server_port   = (empty($cfg['Server']['port']))
+            ? ''
+            : ':' . (int)$cfg['Server']['port'];
+        $server_socket = (empty($cfg['Server']['socket']))
+            ? ''
+            : ':' . $cfg['Server']['socket'];
     }
 
     if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
@@ -97,11 +97,11 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 
       // Retry with empty password if we're allowed to
         if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
-	        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
+            $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
         }
     } else {
         if (!isset($server['host'])) {
-	        $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant);
+            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant);
         } else {
             $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
         }
