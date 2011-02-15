@@ -9754,7 +9754,7 @@ msgstr "Opgestapeld"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Meerdere"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
