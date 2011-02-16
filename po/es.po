@@ -3626,7 +3626,7 @@ msgstr "Permitir inicio de sesión sin contraseña"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
-msgstr "Permitir el login como root"
+msgstr "Permitir el inicio de sesión como root"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
