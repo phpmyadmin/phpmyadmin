@@ -9448,9 +9448,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"%sLa validez de las cookies de sesión%s mayores a 1440 segundos pueden "
-"causar invalidaciones de sesión aleatorias si %ssession.gc_maxlifetime%s es "
-"menor que su valor (actualmente %d)."
+"%sLa validez de las cookies de inicio de sesión%s mayores a 1440 segundos "
+"pueden causar invalidaciones de sesión aleatorias si %"
+"ssession.gc_maxlifetime%s es menor que su valor (actualmente %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
