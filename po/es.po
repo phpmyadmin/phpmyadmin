@@ -5819,7 +5819,7 @@ msgstr "Ver los contenidos de una estructura pulsando en su nombre"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
-"Cambie cualquiera de sus opciones pulsando el enlace de «Opciones» "
+"Cambie cualquiera de sus opciones pulsando el enlace \"Opciones\" "
 "correspondiente"
 
 #: libraries/import.lib.php:1144
