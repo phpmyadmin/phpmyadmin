@@ -1367,7 +1367,6 @@ msgid "Dec"
 msgstr "දෙසැම්බර්"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "ඉරිදා"
