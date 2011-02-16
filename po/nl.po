@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:46+0200\n"
+"PO-Revision-Date: 2011-02-16 20:47+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10015,10 +10015,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Selecteer velden (tenminste 1):"
+msgstr "Selecteer velden (tenminste één):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
