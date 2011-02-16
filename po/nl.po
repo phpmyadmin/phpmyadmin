@@ -9656,10 +9656,9 @@ msgid "Continue insertion with %s rows"
 msgstr "Herstart het invoegen met %s rijen"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "De privileges zijn succesvol vernieuwd"
+msgstr "De grafiek werd succesvol aangemaakt."
 
 #: tbl_chart.php:59
 #| msgid ""
