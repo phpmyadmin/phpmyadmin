@@ -8962,10 +8962,11 @@ msgstr ""
 "proces."
 
 #: server_status.php:490
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Deze server is ingesteld als master in een replicatie proces."
+msgstr ""
+"Deze MySQL server is ingesteld als <b>slave</b> in een <b>replicatie</b> "
+"proces."
 
 # Er moet een betere vertaling voor "replication" zijn. "Nadoen"?
 # "Deze MySQL-server functioneert als %s in een <b>replicatie</b> proces." weggehaald.
