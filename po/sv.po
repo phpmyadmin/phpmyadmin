@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:38+0200\n"
+"PO-Revision-Date: 2011-02-16 21:39+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -452,7 +452,7 @@ msgstr "Visa"
 
 #: db_qbe.php:323
 msgid "Criteria"
-msgstr "Villkor"
+msgstr "Kriterier"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:550 db_qbe.php:581
 msgid "Ins"
