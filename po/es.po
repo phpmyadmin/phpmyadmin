@@ -6726,7 +6726,7 @@ msgstr ""
 "Si el tipo de campo es \"enum\" o \"set\", introduzca los valores usando este "
 "formato: 'a','b','c'...<br />Si alguna vez necesita poner una barra "
 "invertida (\"\\\") o una comilla simple (\"'\") entre esos valores, añada una "
-"barra invertida. (Por ejemplo '\\\\xyz' o 'a\\'b')."
+"barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
