@@ -4607,7 +4607,7 @@ msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
-msgstr "Databases"
+msgstr "Database(s):"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
