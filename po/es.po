@@ -5412,7 +5412,7 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"El porcentaje de chatarra en un archivo bitácora de datos antes de ser "
+"El porcentaje de chatarra en un archivo de registro de datos antes de ser "
 "compactado. Este es un valor entre 1 y 99. El valor predeterminado es 50."
 
 #: libraries/engines/pbxt.lib.php:62
