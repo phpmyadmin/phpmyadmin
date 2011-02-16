@@ -8611,8 +8611,9 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"El número de key blocks en el key cache que han cambiado pero que aún no han "
-"sido vaciados al disco. Antes se conocía como Not_flushed_key_blocks."
+"El número de bloques clave en el caché de claves que han cambiado pero que "
+"aún no han sido volcados al disco. Antes se conocía como "
+"Not_flushed_key_blocks."
 
 #: server_status.php:111
 msgid ""
