@@ -9631,10 +9631,10 @@ msgstr ""
 "om vrijuit te navigeren"
 
 #: tbl_change.php:1131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Herstart het invoegen met %s rijen"
+msgstr "Herstart invoegen met %s rijen"
 
 #: tbl_chart.php:56
 #| msgid "The privileges were reloaded successfully."
