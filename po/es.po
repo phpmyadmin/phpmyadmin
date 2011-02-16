@@ -3316,7 +3316,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
-msgstr "Eliminar todas las cookies al salir"
+msgstr "Eliminar todas las cookies al finalizar sesión"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
