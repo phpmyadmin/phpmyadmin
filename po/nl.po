@@ -6611,7 +6611,7 @@ msgstr "END CUT"
 
 #: libraries/sqlparser.lib.php:175
 msgid "BEGIN RAW"
-msgstr "Begin RAW"
+msgstr "BEGIN RAW"
 
 #: libraries/sqlparser.lib.php:179
 msgid "END RAW"
