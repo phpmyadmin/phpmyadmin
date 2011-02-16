@@ -1909,7 +1909,7 @@ msgstr "No es válido el índice del servidor: «%s»"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"El nombre del host no es válido para el servidor %1$s. Por favor, revise su "
+"El nombre del host no es válido para el servidor %1$s. Por favor revise su "
 "configuración."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
