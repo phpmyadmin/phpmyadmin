@@ -8130,7 +8130,7 @@ msgstr "Slave IO Thread niet actief!"
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "Server is ingesteld als slave in een replicatie proces."
+msgstr "Server is ingesteld als slave in een replicatie proces. Wilt u:"
 
 #: server_replication.php:306
 msgid "See slave status table"
