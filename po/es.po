@@ -9983,7 +9983,7 @@ msgstr "Estadísticas de la fila"
 
 #: tbl_printview.php:366 tbl_structure.php:820
 msgid "Statements"
-msgstr "Enunciado"
+msgstr "Sentencias"
 
 #: tbl_printview.php:377 tbl_structure.php:832
 msgid "static"
