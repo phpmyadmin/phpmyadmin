@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 18:15+0200\n"
+"PO-Revision-Date: 2011-02-16 18:16+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3532,7 +3532,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
-msgstr "Bitácora permanente de consultas"
+msgstr "Histórico permanente de consultas"
 
 #: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
