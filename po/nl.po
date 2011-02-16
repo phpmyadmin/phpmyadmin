@@ -6912,10 +6912,9 @@ msgstr ""
 "teruggegeven (Standaard: ...) ."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Overige instellingen"
+msgstr "Beheer uw instellingen"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
