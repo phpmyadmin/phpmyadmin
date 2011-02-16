@@ -8117,8 +8117,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Ahora agrega las siguientes líneas al final de la sección [mysqld] del "
-"archivo my.cnf y luego reinicia el servidor MySQL."
+"Ahora agregue las siguientes líneas al final de la sección [mysqld] del "
+"archivo my.cnf y luego reinicie el servidor MySQL."
 
 # See translation string 4
 #: server_replication.php:228
