@@ -8746,8 +8746,8 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Het aantal joins zonder sleutel, dat na elke rij controleert op het gebruik "
-"van een sleutel. Indien dit geen 0 is, is het aan te raden om het gebruik "
-"van indexen te controleren."
+"van een sleutel. (Indien dit geen 0 is, is het aan te raden om het gebruik "
+"van indexen te controleren.)"
 
 #: server_status.php:136
 msgid ""
