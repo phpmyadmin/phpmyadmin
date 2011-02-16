@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:11+0200\n"
+"PO-Revision-Date: 2011-02-16 19:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7509,9 +7509,10 @@ msgstr "Truncar las consultas que ya se han mostrado"
 msgid "Show Full Queries"
 msgstr "Mostrar las consultas enteras"
 
+# It is about binary logs, not about login names
 #: server_binlog.php:199
 msgid "Log name"
-msgstr "Nombre con el cual se registró"
+msgstr "Nombre del registro"
 
 #: server_binlog.php:200
 msgid "Position"
