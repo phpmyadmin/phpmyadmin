@@ -9585,10 +9585,9 @@ msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
 #: sql.php:594
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Valideer SQL"
+msgstr "Gevalideerde SQL"
 
 #: sql.php:831
 #, php-format
