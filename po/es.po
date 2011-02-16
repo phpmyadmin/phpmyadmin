@@ -7949,6 +7949,7 @@ msgstr ""
 msgid "Add privileges on the following table"
 msgstr "Añadir privilegios a esta tabla"
 
+# Login refers to the user account not the act of logging in
 #: server_privileges.php:2100
 msgid "Change Login Information / Copy User"
 msgstr "Cambiar la información de la cuenta / Copiar el usuario"
