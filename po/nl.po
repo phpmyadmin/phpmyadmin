@@ -5045,7 +5045,7 @@ msgstr "Pagina's in gebruik"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr "Latched pages"
+msgstr "Latched pagina's"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
