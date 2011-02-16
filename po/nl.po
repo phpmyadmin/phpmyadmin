@@ -5083,8 +5083,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"Het standaard pointerformaat in bytes, te gebruiken in de 'CREATE TABLE'-"
-"opdracht voor MyISAM-tabellen, als de 'MAX_ROWS'-optie niet is opgegeven"
+"Het standaard pointerformaat in bytes, te gebruiken in de CREATE TABLE-"
+"opdracht voor MyISAM-tabellen, als de MAX_ROWS-optie niet is opgegeven."
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
