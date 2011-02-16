@@ -8265,7 +8265,7 @@ msgid ""
 "(probably duplicate key)."
 msgstr ""
 "El número de filas escritas con INSERT DELAYED en los cuales ocurrió algún "
-"error (probablemente una llave duplicada)."
+"error (probablemente una clave duplicada)."
 
 #: server_status.php:52
 msgid ""
