@@ -6778,8 +6778,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Toont een klikbare miniatuurweergave; opties: maximale breedte en hoogte in "
-"pixels (behoudt de originele verhouding)"
+"Toont een klikbare miniatuurweergave. opties: maximale breedte en hoogte in "
+"pixels (behoudt de originele verhouding)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
