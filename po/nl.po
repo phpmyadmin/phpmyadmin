@@ -4039,7 +4039,7 @@ msgstr ""
 "Let op: Deze functie heeft niet de verwachte werking wanneer u gebruik maakt "
 "van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in het "
 "configuratiebestand staat opgeslagen; dit beperkt echter niet de "
-"mogelijkheid om het bijbehorende SQL-commando handmatig uit te voeren."
+"mogelijkheid om het bijbehorende SQL-commando handmatig uit te voeren"
 
 #: libraries/config/messages.inc.php:441
 msgid "Show password change form"
