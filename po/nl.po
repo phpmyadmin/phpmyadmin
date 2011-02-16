@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:50+0200\n"
+"PO-Revision-Date: 2011-02-16 19:51+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9549,9 +9549,7 @@ msgstr "Voor betere prestaties kunt u het best mysqli gebruiken."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
-"U staat het toe dat een gebruiker die geen wachtwoord heeft ingesteld kan "
-"inloggen"
+msgstr "U staat het toe dat een gebruiker zonder wachtwoord kan inloggen."
 
 #: setup/lib/index.lib.php:351
 #, fuzzy
