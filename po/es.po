@@ -3536,7 +3536,7 @@ msgstr "Histórico permanente de consultas"
 
 #: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
-msgstr "Cuántas consultas se guardan en la bitácora"
+msgstr "Cuántas consultas se guardan en el histórico"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
