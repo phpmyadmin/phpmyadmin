@@ -35,7 +35,7 @@ msgid ""
 "cross-window updates."
 msgstr ""
 "Het doelvenster kon niet worden bijgewerkt. Misschien heeft u het venster "
-"afgesloten of uw browser blokkeert bijwerkingen van uw venster"
+"afgesloten of uw browser blokkeert bijwerkingen van uw venster."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2795
 #: libraries/common.lib.php:2802 libraries/common.lib.php:2977
