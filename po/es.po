@@ -8654,7 +8654,7 @@ msgstr "El número de solicitudes para escribir un bloque de claves a la caché.
 
 #: server_status.php:116
 msgid "The number of physical writes of a key block to disk."
-msgstr "El número de escrituras físicas a un key block al disco."
+msgstr "El número de escrituras físicas de un bloque de claves al disco."
 
 #: server_status.php:117
 msgid ""
