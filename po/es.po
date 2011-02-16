@@ -8692,7 +8692,7 @@ msgstr "El número de archivos que están abiertos."
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "El número de flujos de datos que están abiertos (usado principalmente para "
-"alimentar a los logs)."
+"registros)."
 
 #: server_status.php:122
 msgid "The number of tables that are open."
