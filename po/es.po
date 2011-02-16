@@ -10001,7 +10001,8 @@ msgstr " Tamaño de la fila "
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-"Ocurrió un error al crear la llave extranjera en %1$s (revise los data types)"
+"Ocurrió un error al crear la clave foránea en %1$s (revise los tipos de "
+"dato)"
 
 #: tbl_relation.php:402
 msgid "Internal relation"
