@@ -3346,7 +3346,7 @@ msgstr "Gebruik iconen op hoofdpagina"
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
-"Maximaal aantal karakters dat wordt gebruikt bij het nonen van een SQL-query."
+"Maximaal aantal karakters dat wordt gebruikt bij het nonen van een SQL-query"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum displayed SQL length"
