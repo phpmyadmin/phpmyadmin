@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:41+0200\n"
+"PO-Revision-Date: 2011-02-16 20:44+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9845,7 +9845,7 @@ msgstr "De tabelnaam is leeg!"
 
 #: tbl_operations.php:246
 msgid "Alter table order by"
-msgstr "Wijzig het \"Sorteren op/Order by\" van de tabel"
+msgstr "Sorteer de tabel volgens"
 
 #: tbl_operations.php:255
 msgid "(singly)"
