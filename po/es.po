@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:00+0200\n"
+"PO-Revision-Date: 2011-02-16 19:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3354,7 +3354,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr "Validez del cookie usado para el Login"
+msgstr "Validez del cookie usado para el inicio de sesión"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
