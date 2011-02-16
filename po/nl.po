@@ -9779,7 +9779,7 @@ msgstr "Bekijk een dump (schema) van tabel"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "De naam van de primaire sleutel moet PRIMARY zijn!"
+msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
