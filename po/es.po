@@ -3622,7 +3622,7 @@ msgstr "Reglas de autorización del Host"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
-msgstr "Permitir identificación sin contraseña"
+msgstr "Permitir inicio de sesión sin contraseña"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
