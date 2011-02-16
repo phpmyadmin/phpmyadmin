@@ -412,7 +412,7 @@ msgstr[1] "%s tabellen"
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Uw SQL-query is succesvol uitgevoerd."
+msgstr "Uw SQL-query is succesvol uitgevoerd"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
