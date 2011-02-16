@@ -3323,7 +3323,7 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Define si el login anterior se debe recordar o no en la modalidad "
+"Define si el inicio de sesión anterior se debe recordar o no en la modalidad "
 "autenticación mediante cookie"
 
 #: libraries/config/messages.inc.php:292
