@@ -6615,7 +6615,7 @@ msgstr "BEGIN RAW"
 
 #: libraries/sqlparser.lib.php:179
 msgid "END RAW"
-msgstr "Einde RAW"
+msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
