@@ -4617,7 +4617,7 @@ msgstr "Exportando tablas de la base de datos \"%s\""
 #: libraries/display_export.lib.php:91
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exportando filas de la tabla «%s»"
+msgstr "Exportando filas de la tabla \"%s\""
 
 #: libraries/display_export.lib.php:97
 #| msgid "Export type"
