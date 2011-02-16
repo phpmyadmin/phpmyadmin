@@ -5041,7 +5041,7 @@ msgstr "Pages te schonen"
 
 #: libraries/engines/innodb.lib.php:204
 msgid "Busy pages"
-msgstr "Busy pages"
+msgstr "Pagina's in gebruik"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
