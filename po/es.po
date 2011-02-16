@@ -5339,7 +5339,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr "Tamaño del caché de la bitácora"
+msgstr "Tamaño del caché de registro"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
