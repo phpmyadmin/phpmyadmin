@@ -2713,7 +2713,7 @@ msgstr "Utilizar inserciones con retraso"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr "Deshabilitar la revisión de las llaves extranjeras (foreign keys)"
+msgstr "Deshabilitar la revisión de las claves foráneas (foreign keys)"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
