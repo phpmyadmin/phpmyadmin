@@ -5021,7 +5021,7 @@ msgstr "Buffer Pool Gebruik"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
-msgstr "pages"
+msgstr "pagina's"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Free pages"
