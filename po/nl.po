@@ -1756,7 +1756,7 @@ msgstr "PBMS connectie mislukt:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "PBMS BLOB info ophalen mislukt"
+msgstr "PBMS BLOB info ophalen mislukt:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
