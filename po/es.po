@@ -9462,8 +9462,8 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sLa validez de las cookies de inicio de sesión%s deben definirse a 1800 "
-"seconds (30 minutos) como máximo. Valores mayores a 1800 pueden representar "
+"%sLa validez de la cookie de inicio de sesión%s debe definirse a 1800 "
+"segundos (30 minutos) como máximo. Valores mayores a 1800 pueden representar "
 "un riesgo a la seguridad tal como la suplantación."
 
 #: setup/lib/index.lib.php:264
