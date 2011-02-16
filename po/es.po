@@ -8538,7 +8538,7 @@ msgstr "El número de escrituras fsyncs hechas al archivo de registro."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
-msgstr "El número de fsyncs pendientes al archivo log."
+msgstr "El número de fsyncs pendientes al archivo de registro."
 
 #: server_status.php:95
 msgid "Pending log file writes."
