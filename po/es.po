@@ -2759,7 +2759,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr "Orden de despliegue de las llaves extranjeras"
+msgstr "Orden de despliegue de las claves foráneas"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
