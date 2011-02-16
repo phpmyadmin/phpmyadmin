@@ -629,7 +629,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor, refiérase a la %"
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
 "sdocumentation%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
