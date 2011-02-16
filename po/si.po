@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:41+0200\n"
+"PO-Revision-Date: 2011-02-16 19:47+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -544,12 +544,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" %s සඳහා සෙවීම් ප්‍රතිළුල:"
 
 #: db_search.php:247
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s match(es) inside table <i>%s</i>"
-msgstr[1] "%s match(es) inside table <i>%s</i>"
+msgstr[0] "<i>%s</i> වගූව තූල ගැලපීම් %s කි."
+msgstr[1] "<i>%s</i> වගූව තූල ගැලපීම් %s කි."
 
 #: db_search.php:254 libraries/common.lib.php:2797
 #: libraries/common.lib.php:2975 libraries/common.lib.php:2976
