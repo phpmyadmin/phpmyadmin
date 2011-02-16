@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:04+0200\n"
+"PO-Revision-Date: 2011-02-16 20:05+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10096,10 +10096,9 @@ msgid "An index has been added on %s"
 msgstr "Een index is toegevoegd aan %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Versies weergeven"
+msgstr "Geef meer acties weer"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
