@@ -10004,7 +10004,7 @@ msgstr ""
 #: tbl_relation.php:410
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Vreemde sleutel limiet"
+msgstr "Vreemde sleutel (FOREIGN KEY) beperking"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
