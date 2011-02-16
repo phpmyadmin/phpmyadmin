@@ -9514,10 +9514,11 @@ msgid ""
 "http[/kbd]."
 msgstr ""
 "Usted definió el tipo de autenticación [kbd]config[/kbd] e incluyó nombre de "
-"usuario y contraseña para autenticar en forma automática, lo que no es una "
-"opción deseable para servidores públicos. Cualquiera que conozca o adivine "
-"su URL de phpMyAdmin puede acceder directamente a su consola de phpMyAdmin. "
-"Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"usuario y contraseña para iniciar sesión en forma automática, lo que no es "
+"una opción deseable para servidores públicos. Cualquiera que conozca o "
+"adivine su URL de phpMyAdmin puede acceder directamente a su consola de "
+"phpMyAdmin. Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o "
+"[kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
