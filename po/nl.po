@@ -8088,7 +8088,7 @@ msgstr ""
 "Deze server is niet ingesteld als master in een replicatie proces. U kunt "
 "kiezen om alle databases te repliceren en enkele te negeren (handig indien u "
 "de meerderheid van uw databases wil repliceren) of u kiest ervoor om alleen "
-"enkele geselecteerde databases te repliceren."
+"enkele geselecteerde databases te repliceren:"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
