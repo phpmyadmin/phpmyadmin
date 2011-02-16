@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:29+0200\n"
+"PO-Revision-Date: 2011-02-16 21:31+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -271,7 +271,7 @@ msgstr "Databas %s har kopierats till %s"
 
 #: db_operations.php:399
 msgid "Rename database to"
-msgstr "Döp om databasen till"
+msgstr "Byt namn på databasen till"
 
 #: db_operations.php:404 server_processlist.php:64
 msgid "Command"
