@@ -8258,8 +8258,8 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
-"El número de tablas temporales in-memory creadas automáticamente por el "
-"servidor mientras se ejecutaban los enunciados."
+"El número de tablas temporales en memoria creadas automáticamente por el "
+"servidor mientras se ejecutaban las sentencias."
 
 #: server_status.php:51
 msgid ""
