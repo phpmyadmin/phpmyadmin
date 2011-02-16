@@ -3348,7 +3348,9 @@ msgstr "Almacenamiento de cookies de inicio de sesión"
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Define cuánto dura (en segundos) un cookie de login, como válido"
+msgstr ""
+"Define por cuánto tiempo (en segundos) es válido un cookie de inicio de "
+"sesión"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
