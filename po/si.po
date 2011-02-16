@@ -1383,7 +1383,7 @@ msgstr "අගහරු‍වදා"
 
 #: js/messages.php:182
 msgid "Wednesday"
-msgstr ""
+msgstr "බදාදා"
 
 #: js/messages.php:183
 msgid "Thursday"
