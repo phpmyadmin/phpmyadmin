@@ -8119,9 +8119,9 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Nadat u bovenstaande regels aan uw instellingen heeft toegevoegd en de MySQL-"
-"server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
-"krijgen dat de server is ingesteld als master."
+"Nadat u bovenstaande regels aan uw instellingen heeft toegevoegd en de "
+"MySQL-server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
+"krijgen dat de server <b>is</b> ingesteld als master."
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
