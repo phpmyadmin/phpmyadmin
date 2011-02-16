@@ -4778,7 +4778,7 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Favor de ser paciente, el archivo está siendo cargado. Los detalles de la "
+"Por favor sea paciente, el archivo está siendo cargado. Los detalles de la "
 "carga no están disponibles."
 
 #: libraries/display_import.lib.php:129
