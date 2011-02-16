@@ -10017,7 +10017,7 @@ msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 #: tbl_select.php:233
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Selecteer velden (tenminste één):"
+msgstr "Selecteer velden (minstens één):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
