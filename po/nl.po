@@ -4024,7 +4024,7 @@ msgstr "Uitgebreide naam voor deze server"
 
 #: libraries/config/messages.inc.php:438
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Of er een &quot;Toon alle (rijen)&quot; knop moet worden getoond."
+msgstr "Of er een &quot;Toon alle (rijen)&quot; knop moet worden getoond"
 
 #: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
