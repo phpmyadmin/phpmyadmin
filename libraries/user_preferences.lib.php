@@ -68,8 +68,9 @@ function PMA_load_userprefs()
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
     $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
+
     return array(
-        'config_data' => $row ? unserialize($row['config_data']) : array(),
+        'config_data' => $row ? (array)json_decode($row['config_data']) : array(),
         'mtime' => $row ? $row['ts'] : time(),
         'type' => 'db');
 }
@@ -122,7 +123,7 @@ function PMA_save_userprefs(array $config_array)
           WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
 
     $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
-    $config_data = serialize($config_array);
+    $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '
             UPDATE ' . $query_table . '
