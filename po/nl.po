@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:36+0200\n"
+"PO-Revision-Date: 2011-02-16 19:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9416,12 +9416,10 @@ msgid ""
 msgstr "Deze waarde dient extra goed gecontroleerd te worden"
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
-"U kunt het beste een HTTPS verbinding gebruiken wanneer uw webserver dit "
-"ondersteund"
+msgstr "Deze %soptie%s wordt best geactiveerd als uw webserver dit ondersteunt."
 
 #: setup/lib/index.lib.php:258
 #, fuzzy, php-format
