@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:12+0200\n"
+"PO-Revision-Date: 2011-02-16 21:13+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7213,10 +7213,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Importeer/Exporteer coördinaten voor PDF-schema"
 
 #: pmd_general.php:121
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Query uitvoeren"
+msgstr "Query opbouwen"
 
 #: pmd_general.php:126
 msgid "Move Menu"
