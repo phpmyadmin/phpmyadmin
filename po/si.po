@@ -1506,7 +1506,7 @@ msgstr "උඩුගත කෙරුනු ගොනුව php.ini හි upload
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "උඩුගත කෙරුනු ගොනුව HTML පෝරමයෙහි සඳහන්  MAX_FILE_SIZE අගය ඉක්මවයි."
+msgstr "උඩුගත කෙරුනු ගොනුව HTML පෝරමයෙහි සඳහන් MAX_FILE_SIZE අගය ඉක්මවයි."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
