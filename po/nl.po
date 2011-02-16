@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:13+0200\n"
+"PO-Revision-Date: 2011-02-16 21:14+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7255,10 +7255,9 @@ msgid "subquery"
 msgstr "sub-query"
 
 #: pmd_general.php:481 pmd_general.php:577
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Hernoem view naar"
+msgstr "Hernoem naar"
 
 #: pmd_general.php:483 pmd_general.php:582
 #, fuzzy
