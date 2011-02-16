@@ -8495,7 +8495,7 @@ msgstr "Het aantal pagina's dat werd geschreven voor doublewrite operaties."
 
 #: server_status.php:89
 msgid "The number of doublewrite operations that have been performed."
-msgstr "Het aantal uitgevoerde doublewrite operaties"
+msgstr "Het aantal uitgevoerde doublewrite operaties."
 
 #: server_status.php:90
 msgid ""
