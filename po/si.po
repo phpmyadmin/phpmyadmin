@@ -1130,9 +1130,8 @@ msgid "Table must have at least one column"
 msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් තිබිය යුතුයි."
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
-msgstr "නව පිටුවක් සාදන්න"
+msgstr "වගුවක් සාදන්න"
 
 #: js/messages.php:81
 #, fuzzy
