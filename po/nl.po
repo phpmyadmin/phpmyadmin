@@ -4800,7 +4800,7 @@ msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 "Tijdslimiet voor de import is verlopen, na het opnieuw versturen zal er "
-"hervat worden vanaf positie %d"
+"hervat worden vanaf positie %d."
 
 #: libraries/display_import.lib.php:221
 msgid ""
