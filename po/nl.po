@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:17+0200\n"
+"PO-Revision-Date: 2011-02-16 21:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7958,7 +7958,6 @@ msgid "Database for user"
 msgstr "Database voor gebruiker"
 
 #: server_privileges.php:2135
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
