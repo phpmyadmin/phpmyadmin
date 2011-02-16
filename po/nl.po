@@ -6848,7 +6848,7 @@ msgstr ""
 "zal de output omzetten door middel van htmlspecialchars() (Standaard is 1). "
 "Een vierde parameter, wanneer ingesteld als 1 zal NOWRAP aan de content cell "
 "toevoegen, zodat de gehele output getoond zal worden zonder te "
-"herstructureren (Standaard 1)"
+"herstructureren (Standaard 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 #| msgid ""
