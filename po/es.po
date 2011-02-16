@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 17:48+0200\n"
+"PO-Revision-Date: 2011-02-16 17:49+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -836,7 +836,7 @@ msgstr "Copia y pega los valores unidos en el campo «Longitud/Valores»"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "El formato de exportación seleccionado ¡debe grabarse en el archivo!"
+msgstr "¡El formato de exportación seleccionado debe grabarse en el archivo!"
 
 #: export.php:164 export.php:189 export.php:662
 #, php-format
