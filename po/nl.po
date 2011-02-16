@@ -2381,7 +2381,7 @@ msgstr ""
 "Definieert welk type HTML element zal worden gebruikt voor CHAR en VARCHAR "
 "velden; [kbd]input[/kbd] - maakt het mogelijk om de invoer lengte te "
 "beperken, [kbd]textarea[/kbd] - maakt het mogelijk om meerdere regels in te "
-"vullen."
+"vullen"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
