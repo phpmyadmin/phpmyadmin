@@ -8283,7 +8283,7 @@ msgstr "El número de filas INSERT DELAYED escritas."
 
 #: server_status.php:54
 msgid "The number of executed FLUSH statements."
-msgstr "El número de enunciados FLUSH ejecutados."
+msgstr "El número de sentencias FLUSH ejecutadas."
 
 #: server_status.php:55
 msgid "The number of internal COMMIT statements."
