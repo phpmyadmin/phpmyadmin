@@ -6524,7 +6524,7 @@ msgstr "Servidor actual"
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
 msgid "Binary log"
-msgstr "Log binario"
+msgstr "Registro binario"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
