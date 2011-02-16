@@ -8980,7 +8980,7 @@ msgid ""
 "this MySQL server since its startup."
 msgstr ""
 "<b>Serververkeer</b>: Netwerkverkeer van deze MySQL-server, sinds deze is "
-"gestart"
+"gestart."
 
 #: server_status.php:514
 msgid "Traffic"
