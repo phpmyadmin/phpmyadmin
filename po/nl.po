@@ -4380,7 +4380,7 @@ msgstr "Excel 2007 XLSX Werkboek"
 #: libraries/config/user_preferences.forms.php:258 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Open Document rekenblad"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
