@@ -9871,10 +9871,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Maak de tabel leeg (FLUSH)"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder data of tabel"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
