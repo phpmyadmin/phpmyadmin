@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 21:12+0200\n"
+"PO-Revision-Date: 2011-02-16 21:13+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1809,10 +1809,9 @@ msgid "PBMS error"
 msgstr ""
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "MySQL සම්බන්ධතා collation"
+msgstr "PBMS සම්බන්ධතාවය අසමත් විය."
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
