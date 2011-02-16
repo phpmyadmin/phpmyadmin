@@ -4793,7 +4793,7 @@ msgstr "Importando en la base de datos \"%s\""
 #: libraries/display_import.lib.php:133
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Importando en la tabla «%s»"
+msgstr "Importando en la tabla \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
