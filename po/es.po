@@ -8236,7 +8236,8 @@ msgstr ""
 #: server_status.php:47
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
-"El número de transacciones que usaron el cache de log binario temporal."
+"El número de transacciones que usaron el cache temporal de registros "
+"binarios."
 
 #: server_status.php:48
 msgid ""
