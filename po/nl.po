@@ -4611,7 +4611,7 @@ msgstr "Database(s):"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
-msgstr "Tabellen"
+msgstr "Tabel(len):"
 
 #: libraries/display_export.lib.php:149
 msgid "Rows:"
