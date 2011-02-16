@@ -8913,11 +8913,10 @@ msgid "Show processes"
 msgstr "Laat processen zien"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
-msgstr "Herstel"
+msgstr "Reset"
 
 #: server_status.php:476
 #, php-format
