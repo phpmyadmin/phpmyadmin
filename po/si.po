@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:12+0200\n"
+"PO-Revision-Date: 2011-02-16 20:13+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1134,10 +1134,9 @@ msgid "Create Table"
 msgstr "වගුවක් සාදන්න"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "සෙවීම"
+msgstr "සොයමින්"
 
 #: js/messages.php:84
 #, fuzzy
