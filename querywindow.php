@@ -115,10 +115,10 @@ if ($GLOBALS['cfg']['PropertiesIconic']) {
         . '" />';
 
     if ('both' === $GLOBALS['cfg']['PropertiesIconic']) {
-        $titles['Change'] .= __('Change');
+        $titles['Change'] .= __('Change') . ' ';
     }
 } else {
-    $titles['Change'] = __('Change');
+    $titles['Change'] = __('Change') . ' ';
 }
 
 $url_query = PMA_generate_common_url($db, $table);
