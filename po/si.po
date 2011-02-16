@@ -1435,7 +1435,6 @@ msgstr "සෙනසුරාදා"
 
 #. l10n: Minimal week day name
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "ඉරිදා"
