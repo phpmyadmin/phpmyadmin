@@ -8372,7 +8372,7 @@ msgstr ""
 
 #: server_status.php:64
 msgid "The number of internal ROLLBACK statements."
-msgstr "El número de enunciados ROLLBACK internos."
+msgstr "El número de sentencias ROLLBACK internas."
 
 #: server_status.php:65
 msgid "The number of requests to update a row in a table."
