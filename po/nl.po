@@ -7383,7 +7383,7 @@ msgstr "Fout bij het opslaan van coördinaten voor de Designer."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "Wijzigingen opgeslagen."
+msgstr "Wijzigingen werden opgeslagen"
 
 #: prefs_forms.php:78
 #| msgid "Submitted form contains errors"
