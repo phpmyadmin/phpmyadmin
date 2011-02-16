@@ -4612,7 +4612,7 @@ msgstr "Exportar bases de datos del servidor actual"
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Exportando tablas de la base de datos «%s»"
+msgstr "Exportando tablas de la base de datos \"%s\""
 
 #: libraries/display_export.lib.php:91
 #, php-format
