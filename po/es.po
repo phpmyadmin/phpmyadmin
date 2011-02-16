@@ -8620,8 +8620,8 @@ msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"El número de bloques sin usar en el key cache. Puede usar este valor para "
-"determinar cuánto del key cache está en uso."
+"El número de bloques sin usar en el caché de claves. Puede usar este valor "
+"para determinar cuánto del caché de claves está en uso."
 
 #: server_status.php:112
 msgid ""
