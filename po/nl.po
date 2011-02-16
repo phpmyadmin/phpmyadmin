@@ -1931,7 +1931,7 @@ msgstr "du"
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "en"
+msgstr "du"
 
 #: libraries/common.lib.php:424 libraries/common.lib.php:426
 #: libraries/common.lib.php:428 libraries/common.lib.php:444
