@@ -10070,7 +10070,7 @@ msgstr "Voeg een unieke index toe"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Voeg een FULLTEXT index toe"
 
 #: tbl_structure.php:384
 #, fuzzy
