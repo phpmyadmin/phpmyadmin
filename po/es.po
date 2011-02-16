@@ -3107,7 +3107,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
-msgstr "Ignore errores múltiples en los enunciados"
+msgstr "Ignore errores en sentencias múltiples"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
