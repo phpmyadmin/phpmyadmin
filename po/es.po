@@ -7493,7 +7493,7 @@ msgstr "El archivo no existe"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
-msgstr "Seleccionar el log binario que desea examinar"
+msgstr "Seleccionar el registro binario que desea examinar"
 
 #: server_binlog.php:122 server_status.php:387
 msgid "Files"
