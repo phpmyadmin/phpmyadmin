@@ -9783,7 +9783,7 @@ msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
-msgstr "Kan index niet naar PRIMARY hernoemen"
+msgstr "Kan index niet naar PRIMARY hernoemen!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
