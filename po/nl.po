@@ -1954,7 +1954,7 @@ msgstr "MySQL retourneerde: "
 
 #: libraries/common.lib.php:1076
 msgid "Failed to connect to SQL validator!"
-msgstr "Er kan geen verbinding worden gemaakt met de SQL-validator"
+msgstr "Er kan geen verbinding worden gemaakt met de SQL-validator!"
 
 #: libraries/common.lib.php:1117 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
