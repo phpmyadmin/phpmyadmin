@@ -10257,11 +10257,10 @@ msgid "Available transformations"
 msgstr "Beschikbare transformaties"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Omschrijving"
 
 #: user_password.php:48
 msgid "You don't have sufficient privileges to be here right now!"
