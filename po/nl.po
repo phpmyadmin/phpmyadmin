@@ -6931,10 +6931,9 @@ msgstr ""
 "te bewaren is %sphpMyAdmin configuratie opslag%s vereist."
 
 #: libraries/user_preferences.lib.php:141
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Laden en opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Opslaan van het configuratiebestand is niet mogelijk"
 
 #: libraries/user_preferences.lib.php:308
 msgid ""
