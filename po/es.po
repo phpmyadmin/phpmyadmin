@@ -7814,7 +7814,7 @@ msgstr ""
 
 #: server_privileges.php:715
 msgid "Login Information"
-msgstr "Información de inicio de sesión"
+msgstr "Información de la cuenta"
 
 #: server_privileges.php:809
 msgid "Do not change the password"
