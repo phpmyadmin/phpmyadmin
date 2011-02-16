@@ -6696,8 +6696,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-"100, b,'c'...<br />Wanneer u een backslash (\"\") of een enkele quote "
-"(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
+"100, b,'c'...<br />Wanneer u een backslash (\"\\\\\") of een enkele quote (\"'\") "
+"moet invoegen in deze waardes, plaats er dan een backslash voor "
 "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:371
