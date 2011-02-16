@@ -10068,7 +10068,7 @@ msgstr "Index(en) toepassen"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
-msgstr ""
+msgstr "Voeg een unieke index toe"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
