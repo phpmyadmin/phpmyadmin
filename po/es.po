@@ -8328,7 +8328,7 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"El número de solicitudes hechas para leer la siguiente fila en un orden "
+"El número de solicitudes hechas para leer la siguiente fila en un orden de "
 "clave. Este se incrementa si usted está consultando una columna índice con "
 "un limitante de rango o si usted está haciendo un escaneo del índice."
 
