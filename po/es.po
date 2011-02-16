@@ -894,7 +894,7 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"No se recibieron datos para importar. O no se envió el nombre del archivo, o "
+"No se recibieron datos para importar. O no se envió el nombre del archivo o "
 "el tamaño del archivo excedió el máximo permitido por su configuración PHP. "
 "Ver [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
