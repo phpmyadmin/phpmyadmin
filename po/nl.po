@@ -5004,7 +5004,7 @@ msgid ""
 "tables."
 msgstr ""
 "De grootte van de geheugenbuffer dat InnoDB gebruikt voor het cachen van "
-"data en indexen van zijn tabellen"
+"data en indexen van zijn tabellen."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
