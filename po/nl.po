@@ -6908,7 +6908,7 @@ msgstr ""
 "een offset van de hoeveelheid tekst die terug wordt gegeven. Wanneer leeg, "
 "zal alle overgebleven tekst worden teruggeven. De derde optie definieert "
 "welke karakters worden toegevoegd aan de output wanneer een substring wordt "
-"teruggegeven (Standaard: ...) ."
+"teruggegeven (Standaard: \"...\") ."
 
 #: libraries/user_preferences.inc.php:32
 #| msgid "Other core settings"
