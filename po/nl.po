@@ -4483,7 +4483,7 @@ msgstr "Query opbouwen"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
 msgid "Designer"
-msgstr "Designer"
+msgstr "Ontwerper"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:64
 #: server_privileges.php:118 server_privileges.php:1819
