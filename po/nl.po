@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:46+0200\n"
+"PO-Revision-Date: 2011-02-16 19:48+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9470,7 +9470,7 @@ msgstr ""
 "kleiner of gelijk is."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - [a@?"
 #| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
@@ -9484,12 +9484,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Indien toch noodzakelijk gebruik dan tevens [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server_config]machine authenticatie[/a] "
-"instellingen en [a@?page=form&amp;formset=features#tab_Security]vertrouwde "
-"proxy servers[/a]. Echter, IP-adres gebaseerde beveiliging is mogelijk niet "
-"betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt, waar "
-"ook vele andere klanten gebruik van maken."
+"Indien toch noodzakelijk gebruik dan tevens %smachine authenticatie%s "
+"instellingen en %svertrouwde proxy servers%s. Echter, IP-adres gebaseerde "
+"beveiliging is mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk "
+"van uw provider komt, waar ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
