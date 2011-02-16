@@ -10060,10 +10060,9 @@ msgid "Add primary key"
 msgstr "Voeg een primaire sleutel toe"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Index(en) toepassen"
+msgstr "Voeg index(en) toe"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
