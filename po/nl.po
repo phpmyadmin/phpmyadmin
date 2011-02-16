@@ -4004,7 +4004,7 @@ msgid ""
 "compatibility checks and thereby increases performance"
 msgstr ""
 "Schakel dit uit wanneer u zeker weet dat uw pma_* tabellen up-to-date zijn. "
-"Dit voorkomt compatibiliteitscontroles en verbeterd daarmee de prestaties."
+"Dit voorkomt compatibiliteitscontroles en verbeterd daarmee de prestaties"
 
 #: libraries/config/messages.inc.php:435
 msgid "Verbose check"
