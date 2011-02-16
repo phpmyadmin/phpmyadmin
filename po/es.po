@@ -8337,9 +8337,9 @@ msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
-"El número de solicitudes hechas para leer la fila previa en un orden clave. "
-"Este método de lectura se usa principalmente para optimizar a ORDER BY ... "
-"DESC."
+"El número de solicitudes hechas para leer la fila previa en un orden de "
+"clave. Este método de lectura se usa principalmente para optimizar a ORDER "
+"BY ... DESC."
 
 #: server_status.php:62
 msgid ""
