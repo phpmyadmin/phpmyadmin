@@ -1106,7 +1106,7 @@ msgstr "OK"
 #: js/messages.php:71
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "බවට දත්තගබඩාවේ නම වෙනස් කෙරෙමින්"
+msgstr "දත්තගබඩාවේ නම වෙනස් කෙරෙමින්"
 
 #: js/messages.php:72
 #, fuzzy
