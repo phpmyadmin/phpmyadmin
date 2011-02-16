@@ -8546,7 +8546,7 @@ msgstr "Escrituras pendientes al archivo de registro."
 
 #: server_status.php:96
 msgid "The number of bytes written to the log file."
-msgstr "El número de bytes escritos al archivo log."
+msgstr "El número de bytes escritos al archivo de registro."
 
 #: server_status.php:97
 msgid "The number of pages created."
