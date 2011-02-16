@@ -8127,7 +8127,7 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Una vez reiniciado el servidor MySQL, pulsa el botón \"Continuar\". A "
+"Una vez reiniciado el servidor MySQL, pulse el botón \"Continuar\". A "
 "continuación deberás ver un mensaje informando que el servidor <b>está</b> "
 "configurado como maestro"
 
