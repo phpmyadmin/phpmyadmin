@@ -3118,7 +3118,7 @@ msgid ""
 "table) and only SQL is always available"
 msgstr ""
 "Standaard formaat; deze lijst is afhankelijk van de locatie (database, "
-"tabel), enkel SQL is altijd beschikbaar."
+"tabel), enkel SQL is altijd beschikbaar"
 
 #: libraries/config/messages.inc.php:244
 msgid "Format of imported file"
