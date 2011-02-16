@@ -5388,7 +5388,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Umbral de la bitácora de datos"
+msgstr "Umbral del registro de datos"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
