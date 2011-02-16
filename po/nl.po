@@ -8117,7 +8117,7 @@ msgid ""
 msgstr ""
 "Nadat u bovenstaande regels aan uw instellingen heeft toegevoegd en de "
 "MySQL-server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
-"krijgen dat de server <b>is</b> ingesteld als master."
+"krijgen dat de server <b>is</b> ingesteld als master"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
