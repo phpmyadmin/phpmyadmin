@@ -8288,7 +8288,7 @@ msgstr "El número de sentencias FLUSH ejecutadas."
 
 #: server_status.php:55
 msgid "The number of internal COMMIT statements."
-msgstr "El número de enunciados COMMIT internos."
+msgstr "El número de sentencias COMMIT internas."
 
 #: server_status.php:56
 msgid "The number of times a row was deleted from a table."
