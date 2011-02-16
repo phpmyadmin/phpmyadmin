@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 18:23+0200\n"
+"PO-Revision-Date: 2011-02-16 18:26+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1749,7 +1749,7 @@ msgstr "La autenticación de hardware fracasó"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr "No se ha conectado una llave de autenticación válida"
+msgstr "No se ha conectado una clave de autenticación válida"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
