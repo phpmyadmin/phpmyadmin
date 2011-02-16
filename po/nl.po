@@ -5327,7 +5327,7 @@ msgid ""
 "buffers of this size). The default is 1MB."
 msgstr ""
 "De grootte van de globale transactie log buffer (de engine reserveert 2 "
-"buffers van dit formaat). De standaard is 1M"
+"buffers van dit formaat). Standaard is dit 1MB."
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
