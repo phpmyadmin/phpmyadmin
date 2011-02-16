@@ -1482,7 +1482,7 @@ msgstr "සති"
 
 #: js/messages.php:221
 msgid "Hour"
-msgstr ""
+msgstr "පැය"
 
 #: js/messages.php:222
 #, fuzzy
