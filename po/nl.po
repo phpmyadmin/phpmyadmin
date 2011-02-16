@@ -10021,7 +10021,7 @@ msgstr "Selecteer velden (minstens één):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Zoek condities toevoegen (het \"where\" gedeelte van de query):"
+msgstr "Zoekcondities toevoegen (het \"where\" gedeelte van de query):"
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
