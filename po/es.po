@@ -8650,7 +8650,7 @@ msgstr ""
 
 #: server_status.php:115
 msgid "The number of requests to write a key block to the cache."
-msgstr "El número de solicitudes para escribir un key block al cache."
+msgstr "El número de solicitudes para escribir un bloque de claves a la caché."
 
 #: server_status.php:116
 msgid "The number of physical writes of a key block to disk."
