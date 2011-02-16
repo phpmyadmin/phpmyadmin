@@ -6962,10 +6962,9 @@ msgid "MySQL connection collation"
 msgstr "MySQL verbindingscollatie"
 
 #: main.php:121
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Overige instellingen"
+msgstr "Opmaak instellingen"
 
 #: main.php:141
 msgid "Background color"
