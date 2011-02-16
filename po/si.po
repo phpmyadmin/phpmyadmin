@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:47+0200\n"
+"PO-Revision-Date: 2011-02-16 19:52+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -968,7 +968,7 @@ msgstr "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr ""
+msgstr "තේරීමට ක්ලික් කරන්න"
 
 #: js/messages.php:26
 msgid "Click to unselect"
