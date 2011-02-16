@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 17:59+0200\n"
+"PO-Revision-Date: 2011-02-16 18:00+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1903,7 +1903,7 @@ msgstr ""
 #: libraries/common.inc.php:622
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "No es válido el índice del servidor: «%s»"
+msgstr "Índice de servidor inválido: %s"
 
 #: libraries/common.inc.php:629
 #, php-format
