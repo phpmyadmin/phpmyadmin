@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:39+0200\n"
+"PO-Revision-Date: 2011-02-16 19:40+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9422,7 +9422,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "Deze %soptie%s wordt best geactiveerd als uw webserver dit ondersteunt."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9431,9 +9431,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip compressie en "
-"decompressie[/a] vereisen de functies (%s) welke niet beschikbaar zijn op "
-"dit systeem."
+"%sGZip compressie en decompressie%s vereisen de functies (%s) welke niet "
+"beschikbaar zijn op dit systeem."
 
 #: setup/lib/index.lib.php:260
 #, php-format
