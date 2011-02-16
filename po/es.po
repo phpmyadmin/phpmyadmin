@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 18:38+0200\n"
+"PO-Revision-Date: 2011-02-16 18:39+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4885,7 +4885,7 @@ msgstr "en modo %s y repetir los encabezados cada %s celdas"
 
 #: libraries/display_tbl.lib.php:510
 msgid "Sort by key"
-msgstr "Organizar según la clave"
+msgstr "Ordenar según la clave"
 
 #: libraries/display_tbl.lib.php:557 libraries/export/codegen.php:40
 #: libraries/export/csv.php:31 libraries/export/excel.php:36
