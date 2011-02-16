@@ -6155,8 +6155,7 @@ msgstr "Toon kolom commentaar"
 #: libraries/relation.lib.php:126
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
-"Raadpleeg de Documentatie over hoe u uw Column_comments tabel bijwerkt."
+msgstr "Raadpleeg de documentatie over hoe u uw column_comments tabel bijwerkt"
 
 #: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
 msgid "Bookmarked SQL query"
