@@ -5567,8 +5567,7 @@ msgstr ""
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Voeg een commentaar toe in de header (\n"
-" om regels af te breken):"
+"Voeg een commentaar toe in de header (\\n om regels af te breken):"
 
 #: libraries/export/sql.php:37
 msgid ""
