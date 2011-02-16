@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 18:09+0200\n"
+"PO-Revision-Date: 2011-02-16 18:10+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2561,7 +2561,7 @@ msgstr "Enviar (genera un archivo descargable)"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 msgid "Character set of the file"
-msgstr "Juego de caracteres del archivo"
+msgstr "Conjunto de caracteres del archivo"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:829
