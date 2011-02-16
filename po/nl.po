@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:28+0200\n"
+"PO-Revision-Date: 2011-02-16 20:29+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6603,7 +6603,7 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:171
 msgid "BEGIN CUT"
-msgstr "Begin KNIP"
+msgstr "BEGIN CUT"
 
 #: libraries/sqlparser.lib.php:173
 msgid "END CUT"
