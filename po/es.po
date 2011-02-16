@@ -3569,7 +3569,7 @@ msgstr "Anchura de ventana de consulta"
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
-"Seleccione cuáles funciones se usarán para la conversión del juego de "
+"Seleccione cuáles funciones se usarán para la conversión del conjunto de "
 "caracteres"
 
 #: libraries/config/messages.inc.php:345
