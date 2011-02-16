@@ -9940,7 +9940,7 @@ msgstr "Verwijder partitionering"
 
 #: tbl_operations.php:756
 msgid "Check referential integrity:"
-msgstr "Controleer referentiële integriteit"
+msgstr "Controleer referentiële integriteit:"
 
 #: tbl_printview.php:72
 msgid "Show tables"
