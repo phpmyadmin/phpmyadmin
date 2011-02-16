@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 17:57+0200\n"
+"PO-Revision-Date: 2011-02-16 17:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -586,7 +586,7 @@ msgstr "Encontrado:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Las palabras están separadas por un espacio (« »)."
+msgstr "Las palabras están separadas por un espacio (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
