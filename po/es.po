@@ -8913,7 +8913,7 @@ msgstr "Delayed inserts"
 
 #: server_status.php:381
 msgid "Key cache"
-msgstr "Cache principal"
+msgstr "Caché de claves"
 
 #: server_status.php:382
 msgid "Joins"
