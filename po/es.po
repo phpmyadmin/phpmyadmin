@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 18:51+0200\n"
+"PO-Revision-Date: 2011-02-16 18:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8530,7 +8530,7 @@ msgstr "El número de solicitudes de escritura al log."
 
 #: server_status.php:92
 msgid "The number of physical writes to the log file."
-msgstr "El número de escrituras físicas al archivo log."
+msgstr "El número de escrituras físicas al archivo de registro."
 
 #: server_status.php:93
 msgid "The number of fsync() writes done to the log file."
