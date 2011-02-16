@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:34+0200\n"
+"PO-Revision-Date: 2011-02-16 20:35+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1396,7 +1396,7 @@ msgstr "සිකුරාදා"
 
 #: js/messages.php:185
 msgid "Saturday"
-msgstr ""
+msgstr "සෙනසුරාදා"
 
 #. l10n: Short week day name
 #: js/messages.php:189 libraries/common.lib.php:1568
