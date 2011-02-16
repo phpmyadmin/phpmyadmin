@@ -3082,7 +3082,7 @@ msgid ""
 "if one of the queries failed"
 msgstr ""
 "Indien ingeschakeld gaat phpMyAdmin door met het uitvoeren van queries als "
-"een query uit een meervoudige opdracht een fout oplevert."
+"een query uit een meervoudige opdracht een fout oplevert"
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
