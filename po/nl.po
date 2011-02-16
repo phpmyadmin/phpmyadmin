@@ -2307,7 +2307,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Indien ingeschakeld kan de gebruiker elke MySQL-server opgeven op het login "
-"formulier voor cookie authenticatie."
+"formulier voor cookie authenticatie"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
