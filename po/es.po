@@ -1740,7 +1740,7 @@ msgstr ""
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr "El archivo %s no contiene ninguna Id de llave"
+msgstr "El archivo %s no contiene ningún id de clave "
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
