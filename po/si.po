@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 19:52+0200\n"
+"PO-Revision-Date: 2011-02-16 19:55+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1061,10 +1061,9 @@ msgid "Reloading Privileges"
 msgstr "Reloading the privileges"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත් කරන්න"
+msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත් කෙරෙමින්"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
