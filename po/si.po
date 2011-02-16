@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:03+0200\n"
+"PO-Revision-Date: 2011-02-16 20:07+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1104,10 +1104,9 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "බවට දත්තගබඩාවේ නම වෙනස් කරන්න"
+msgstr "බවට දත්තගබඩාවේ නම වෙනස් කෙරෙමින්"
 
 #: js/messages.php:72
 #, fuzzy
