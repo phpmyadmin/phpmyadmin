@@ -1142,7 +1142,7 @@ msgstr "Seleccione la clave foránea (foreign key)"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
-msgstr "Por favor, seleccione la clave primaria o una clave única"
+msgstr "Por favor seleccione la clave primaria o una clave única"
 
 #: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
