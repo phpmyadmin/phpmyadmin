@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-16 20:10+0200\n"
+"PO-Revision-Date: 2011-02-16 20:11+0200\n"
 "Last-Translator:  <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1120,10 +1120,9 @@ msgid "Copying Database"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "අක්ෂර කට්ටලය"
+msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින්"
 
 #: js/messages.php:75
 #, fuzzy
