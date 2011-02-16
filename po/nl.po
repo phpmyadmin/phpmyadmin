@@ -7260,10 +7260,9 @@ msgid "Rename to"
 msgstr "Hernoem naar"
 
 #: pmd_general.php:483 pmd_general.php:582
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Gebruikersnaam"
+msgstr "Nieuwe naam"
 
 #: pmd_general.php:486 pmd_general.php:701
 #, fuzzy
