@@ -10081,7 +10081,7 @@ msgstr "Se ha eliminado la columna %s"
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "Se añadió una clave primaria en %s"
+msgstr "Se agregó una clave primaria en %s"
 
 #: tbl_structure.php:423 tbl_structure.php:438 tbl_structure.php:453
 #: tbl_structure.php:496 tbl_structure.php:509 tbl_structure.php:522
