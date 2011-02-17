@@ -9833,7 +9833,7 @@ msgstr "දර්ශනය කිරීමේ අනුපිළිවෙල:"
 
 #: tbl_structure.php:160 tbl_structure.php:164
 msgid "Browse distinct values"
-msgstr "එකිනෙකට වෙනස් අගයන් බ්‍රවුස් කරන්න"
+msgstr "එකිනෙකට වෙනස් අගයන් පිරික්සන්න"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
