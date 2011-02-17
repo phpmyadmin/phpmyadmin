@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 07:38+0200\n"
+"PO-Revision-Date: 2011-02-17 07:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1174,7 +1174,7 @@ msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ �
 #: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "පෙන්වීම සඳහා ක්ෂේත්‍රයක් ‍තෝරාගන්න"
+msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න"
 
 # අභිරුචිය = option. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:102
