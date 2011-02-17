@@ -1620,7 +1620,7 @@ msgstr "tómelo"
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "¡No se halló la plantilla de interfaz (theme) predeterminada %s!"
+msgstr "¡No se halló el tema predeterminado %s!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
