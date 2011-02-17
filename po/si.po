@@ -5763,9 +5763,10 @@ msgstr ""
 msgid "Go to database"
 msgstr "දත්තගබඩා නොමැත"
 
+# සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
-msgstr ""
+msgstr "සිටුවම්"
 
 #: libraries/import.lib.php:1169
 #, fuzzy
