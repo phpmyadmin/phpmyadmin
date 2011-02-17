@@ -5052,7 +5052,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
-msgstr "Total de memoria del búfer"
+msgstr "Reservorio de búfers"
 
 #: libraries/engines/innodb.lib.php:135 server_status.php:432
 msgid "InnoDB Status"
