@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 05:26+0200\n"
+"PO-Revision-Date: 2011-02-17 05:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8991,7 +8991,7 @@ msgstr ""
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "සැකිල්ල සමමුහුර්ත කරණය"
 
 #: server_synchronize.php:270
 msgid "Data Synchronization"
