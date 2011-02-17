@@ -1507,7 +1507,7 @@ msgstr "තාවකාලික ෆෝල්ඩරයක් නැතිවී 
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "ගොනුව ඩිස්කයට පිටපත් කිරීම අසාර්ථක විය."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
