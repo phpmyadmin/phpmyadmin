@@ -448,22 +448,6 @@ function PMA_showDocu($anchor) {
 } // end of the 'PMA_showDocu()' function
 
 /**
- * Returns a link to the PHP documentation
- *
- * @param string  anchor in documentation
- *
- * @return  string  the URL
- *
- * @access  public
- */
-function PMA_getPHPDocLink($target) {
-    /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
-    $lang = _pgettext('PHP documentation language', 'en');
-
-    return 'http://php.net/manual/' . $lang . '/' . $target;
-}
-
-/**
  * Displays a link to the PHP documentation
  *
  * @param string  anchor in documentation

@@ -251,6 +251,22 @@ function PMA_fatalError($error_message, $message_args = null)
 }
 
 /**
+ * Returns a link to the PHP documentation
+ *
+ * @param string  anchor in documentation
+ *
+ * @return  string  the URL
+ *
+ * @access  public
+ */
+function PMA_getPHPDocLink($target) {
+    /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
+    $lang = _pgettext('PHP documentation language', 'en');
+
+    return 'http://php.net/manual/' . $lang . '/' . $target;
+}
+
+/**
  * Warn or fail on missing extension.
  *
  * @param string $extension Extension name
