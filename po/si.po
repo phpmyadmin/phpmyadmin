@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 05:50+0200\n"
+"PO-Revision-Date: 2011-02-17 05:52+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4993,7 +4993,7 @@ msgstr "Link not found"
 
 #: libraries/engines/bdb.lib.php:20 main.php:221
 msgid "Version information"
-msgstr "Version information"
+msgstr "අනුවාදය පිළිබඳ තොරතුරු"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
