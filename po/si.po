@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:28+0200\n"
+"PO-Revision-Date: 2011-02-17 04:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -803,10 +803,10 @@ msgstr "අනුවාද"
 msgid "Tracking report"
 msgstr ""
 
+# සැණරුව = snapshot. Source: Glossary of Information Technology terms - ICTA
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Structure only"
+msgstr "සැකිල්ලේ සැණරුව"
 
 #: db_tracking.php:181
 #, fuzzy
