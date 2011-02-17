@@ -8440,9 +8440,8 @@ msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
-"El número de lecturas lógicas que InnoDB no pudo satisfacer de la memoria "
-"(búfer) de tránsito común y donde fue necesario hacer lectura de página "
-"sencilla."
+"El número de lecturas lógicas que InnoDB no pudo satisfacer la reserva de "
+"búfers y donde fue necesario hacer lectura de página sencilla."
 
 #: server_status.php:78
 msgid ""
