@@ -8394,9 +8394,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"El número de páginas aseguradas en la memoria (búfer) de tránsito común "
-"InnoDB. Estas son páginas en fase de lectura o escritura o que no pueden ser "
-"vaciadas o removidas por alguna otra razón."
+"El número de páginas aseguradas en la reserva de búfers InnoDB. Estas son "
+"páginas en fase de lectura o escritura o que no pueden ser vaciadas o "
+"removidas por alguna otra razón."
 
 #: server_status.php:72
 msgid ""
