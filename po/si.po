@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 07:58+0200\n"
+"PO-Revision-Date: 2011-02-17 07:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1876,7 +1876,7 @@ msgstr "අනුරූ නොකරණ ලද"
 #: libraries/build_html_for_db.lib.php:136
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "අනුරූ කරණය කරන ලද"
+msgstr "අනුරූ කරණ ලද"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
