@@ -1400,7 +1400,7 @@ msgstr "සදුදා"
 #. l10n: Short week day name
 #: js/messages.php:193 libraries/common.lib.php:1572
 msgid "Tue"
-msgstr "අගහරු‍වදා"
+msgstr "අඟහරු‍වදා"
 
 #. l10n: Short week day name
 #: js/messages.php:195 libraries/common.lib.php:1574
