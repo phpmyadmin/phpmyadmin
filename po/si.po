@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 05:57+0200\n"
+"PO-Revision-Date: 2011-02-17 05:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2043,10 +2043,9 @@ msgid "Inline edit of this query"
 msgstr ""
 
 #: libraries/common.lib.php:1244
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "යන්ත්‍රයන්"
+msgstr "පේළිගත"
 
 #: libraries/common.lib.php:1308 libraries/common.lib.php:1324
 msgid "Profiling"
