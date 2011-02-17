@@ -404,11 +404,11 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
                 if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
                     /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('$mysql_5_1_doc_lang', 'en');
+                    $lang = _pgettext('MySQL 5.1 documentation language', 'en');
                 } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                     $mysql = '5.0';
                     /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
-                    $lang = _pgettext('$mysql_5_0_doc_lang', 'en');
+                    $lang = _pgettext('MySQL 5.0 documentation language', 'en');
                 }
             }
             $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';

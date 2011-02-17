@@ -1869,14 +1869,14 @@ msgstr "最大限制：%s %s"
 #. l10n: Language to use for MySQL 5.1 documentation, please use only
 #. languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-msgctxt "$mysql_5_1_doc_lang"
+msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "zh"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only
 #. languages which do exist in official documentation.
 #: libraries/common.lib.php:411
-msgctxt "$mysql_5_0_doc_lang"
+msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "zh"
 
@@ -1894,7 +1894,7 @@ msgstr "文档"
 #. l10n: Language to use for PHP documentation, please use only languages
 #. which do exist in official documentation.
 #: libraries/common.lib.php:461
-#| msgctxt "$mysql_5_1_doc_lang"
+#| msgctxt "MySQL 5.1 documentation language"
 #| msgid "en"
 msgctxt "PHP documentation language"
 msgid "en"

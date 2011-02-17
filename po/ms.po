@@ -1994,7 +1994,7 @@ msgstr ""
 #. languages which do exist in official documentation.
 #: libraries/common.lib.php:407
 #, fuzzy
-msgctxt "$mysql_5_1_doc_lang"
+msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "Hantar"
 
@@ -2002,7 +2002,7 @@ msgstr "Hantar"
 #. languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 #, fuzzy
-msgctxt "$mysql_5_0_doc_lang"
+msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "Hantar"
 
