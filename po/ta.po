@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-17 10:59+0100\n"
+"POT-Creation-Date: 2011-02-17 11:03+0100\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -1920,9 +1920,6 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-#, fuzzy
-#| msgctxt "MySQL 5.1 documentation language"
-#| msgid "en"
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"

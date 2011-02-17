@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-17 10:59+0100\n"
+"POT-Creation-Date: 2011-02-17 11:03+0100\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -2004,24 +2004,21 @@ msgstr "Maksimālais izmērs: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-#, fuzzy
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "Nosūtīts"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "Nosūtīts"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
-#, fuzzy
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "Nosūtīts"
+msgstr "en"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448

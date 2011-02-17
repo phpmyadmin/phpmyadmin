@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-17 10:59+0100\n"
+"POT-Creation-Date: 2011-02-17 11:03+0100\n"
 "PO-Revision-Date: 2011-02-15 21:11+0200\n"
 "Last-Translator: <jandd@debian.org>\n"
 "Language-Team: german <de@li.org>\n"
@@ -1938,18 +1938,15 @@ msgstr "Maximale Dateigröße: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:407
-#, fuzzy
-#| msgctxt "MySQL 5.1 documentation language"
-#| msgid "en"
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "de"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "de"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
