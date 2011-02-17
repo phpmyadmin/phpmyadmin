@@ -5762,7 +5762,7 @@ msgstr "RELACIONES PARA LA TABLA"
 #: libraries/export/sql.php:873 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
-msgstr "(Evento) desencadenante"
+msgstr "Disparadores"
 
 #: libraries/export/sql.php:885
 msgid "Structure for view"
