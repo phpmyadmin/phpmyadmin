@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 08:08+0200\n"
+"PO-Revision-Date: 2011-02-17 08:20+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2769,7 +2769,7 @@ msgstr "ප්‍රමාද කරන ලද ඇතුල් කිරීම �
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr "අන්‍ය යතුරු පරීක්ෂා අක්‍රිය කරන්න"
+msgstr "අන්‍ය මූල පරීක්ෂා අක්‍රිය කරන්න"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
