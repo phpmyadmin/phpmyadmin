@@ -7568,7 +7568,7 @@ msgstr "Ver el volcado (schema) de la base de datos"
 
 #: server_privileges.php:31 server_privileges.php:273
 msgid "Includes all privileges except GRANT."
-msgstr "Incluye todos los privilegios excepto GRANT (CONCEDER)."
+msgstr "Incluye todos los privilegios excepto GRANT."
 
 #: server_privileges.php:32 server_privileges.php:199
 #: server_privileges.php:522
