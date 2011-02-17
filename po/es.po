@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-17 13:57+0200\n"
+"PO-Revision-Date: 2011-02-17 13:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8460,7 +8460,7 @@ msgstr ""
 
 #: server_status.php:79
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "El número de escrituras hechas a la memoria de tránsito común InnoDB."
+msgstr "El número de escrituras hechas a la reserva de búfers InnoDB."
 
 #: server_status.php:80
 msgid "The number of fsync() operations so far."
