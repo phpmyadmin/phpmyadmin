@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-16 19:13+0200\n"
+"PO-Revision-Date: 2011-02-17 13:44+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1138,7 +1138,7 @@ msgstr "Seleccione la clave referenciada"
 
 #: js/messages.php:97
 msgid "Select Foreign Key"
-msgstr "Seleccione la clave foránea (foreign key)"
+msgstr "Seleccione la clave foránea"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
