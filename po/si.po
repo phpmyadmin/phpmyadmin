@@ -489,10 +489,9 @@ msgid "Add/Delete criteria rows"
 msgstr "නිර්ණායක පේළියක් එක් කරන්න/ඉවත් කරන්න."
 
 #: db_qbe.php:619
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "තීර එක් කරන්න/ඉවත් කරන්න"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
