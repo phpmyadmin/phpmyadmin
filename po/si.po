@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 05:59+0200\n"
+"PO-Revision-Date: 2011-02-17 06:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6479,10 +6479,9 @@ msgid "Synchronize"
 msgstr "සමමුහුර්ත කරන්න"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "General relation features"
+msgstr "සිටුවම්"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
 #, fuzzy
