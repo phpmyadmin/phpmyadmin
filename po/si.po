@@ -793,7 +793,7 @@ msgstr "සක්‍රිය"
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr ""
+msgstr "අක්‍රිය"
 
 #: db_tracking.php:134
 #, fuzzy
