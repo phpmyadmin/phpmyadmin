@@ -5092,7 +5092,7 @@ msgstr "Páginas vinculadas"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
-msgstr "Actividad de la memoria (búfer) de tránsito común"
+msgstr "Actividad de la reserva de búfers"
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
