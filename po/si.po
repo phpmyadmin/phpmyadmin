@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:08+0200\n"
+"PO-Revision-Date: 2011-02-17 04:09+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -287,9 +287,8 @@ msgid "Database %s has been dropped."
 msgstr "%s දත්තගබඩාව හලන ලදි."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "දත්තගබඩාව හලන්න. (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
