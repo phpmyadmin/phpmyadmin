@@ -8910,7 +8910,7 @@ msgstr "Vínculos (Joins)"
 
 #: server_status.php:384
 msgid "Sorting"
-msgstr "Organizando (sorting)"
+msgstr "Ordenación"
 
 #: server_status.php:386
 msgid "Transaction coordinator"
