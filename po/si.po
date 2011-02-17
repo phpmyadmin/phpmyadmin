@@ -2349,7 +2349,7 @@ msgstr ""
 #: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
-msgstr "සේව් කරන්න"
+msgstr "සුරකින්න"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:146
