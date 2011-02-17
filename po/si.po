@@ -4627,10 +4627,10 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "සර්වරයේ %s ඩිරෙක්ටරියේ සේව් කරන්න"
+msgstr "සර්වරයේ %s ඩිරෙක්ටරියේ සුරකින්න"
 
 #: libraries/display_export.lib.php:206
 #, fuzzy
