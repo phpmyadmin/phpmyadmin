@@ -1196,10 +1196,9 @@ msgid "Change Password"
 msgstr "මුරපදය වෙනස් කරන්න"
 
 #: js/messages.php:110 tbl_structure.php:471
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "සදුදා"
+msgstr "තවත්"
 
 #: js/messages.php:113 setup/lib/index.lib.php:158
 #, php-format
