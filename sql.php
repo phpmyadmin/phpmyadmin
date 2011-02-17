@@ -364,7 +364,6 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     }
 
     // Measure query time.
-    // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
     $querytime_before = array_sum(explode(' ', microtime()));
 
     $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
