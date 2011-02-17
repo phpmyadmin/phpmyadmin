@@ -830,7 +830,7 @@ msgstr "\"%s\" තීරුව සඳහා අගයන්"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
