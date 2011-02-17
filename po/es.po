@@ -8814,7 +8814,7 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
-"El número de pasadas de fusión (merge) que el algoritmo organizar ha debido "
+"El número de pasadas de combinación que el algoritmo organizar ha debido "
 "hacer. Si este valor es grande, debe considerar incrementar el valor de la "
 "varible de sistema sort_buffer_size."
 
