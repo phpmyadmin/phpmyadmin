@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 06:59+0200\n"
+"PO-Revision-Date: 2011-02-17 07:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -868,7 +868,7 @@ msgstr "The web server does not have permission to save the file %s."
 #: export.php:664
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "%s ගොනුවට නික්ෂේප දත්ත සේව් කරන ලදි."
+msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකින ලදි."
 
 #: import.php:58
 #, php-format
