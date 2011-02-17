@@ -4855,7 +4855,7 @@ msgstr "තිරස් (rotated headers)"
 
 #: libraries/display_tbl.lib.php:316
 msgid "vertical"
-msgstr "vertical"
+msgstr "සිරස්"
 
 #: libraries/display_tbl.lib.php:322
 #, php-format
