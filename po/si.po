@@ -1833,7 +1833,7 @@ msgstr "%s ගොනුව විවෘත කිරීමට නොහැකි
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "හවුල්"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
