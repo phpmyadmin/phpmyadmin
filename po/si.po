@@ -7360,7 +7360,7 @@ msgstr ""
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "වෙනස් කිරීම් සේව් කරන ලදි"
+msgstr "වෙනස් කිරීම් සුරකින ලදි"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
