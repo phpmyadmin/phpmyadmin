@@ -9810,7 +9810,7 @@ msgstr "Copiar la tabla a (base de datos<b>.</b>tabla):"
 
 #: tbl_operations.php:560
 msgid "Switch to copied table"
-msgstr "Cambiar (switch) a la tabla copiada"
+msgstr "Cambiar a la tabla copiada"
 
 #: tbl_operations.php:572
 msgid "Table maintenance"
