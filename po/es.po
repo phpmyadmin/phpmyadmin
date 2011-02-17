@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-17 13:49+0200\n"
+"PO-Revision-Date: 2011-02-17 13:50+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5060,7 +5060,7 @@ msgstr "Estado del InnoDB"
 
 #: libraries/engines/innodb.lib.php:163
 msgid "Buffer Pool Usage"
-msgstr "Total de memoria del búfer consumido"
+msgstr "Uso del reservorio de búfers"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
