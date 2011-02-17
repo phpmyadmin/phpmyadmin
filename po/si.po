@@ -1876,7 +1876,7 @@ msgstr "අනුරූ නොකරන ලද"
 #: libraries/build_html_for_db.lib.php:136
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "අනුරූ කරණ ලද"
+msgstr "අනුරූ කරන ලද"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
