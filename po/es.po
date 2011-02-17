@@ -3704,7 +3704,8 @@ msgstr "Conexión de compresión"
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"Cómo conectar con el servidor, mantenga el tcp en caso de no estar seguro"
+"Cómo conectar con el servidor, mantenga el valor [kbd]tcp[/kbd] en caso de "
+"no estar seguro"
 
 #: libraries/config/messages.inc.php:372
 msgid "Connection type"
