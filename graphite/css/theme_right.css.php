@@ -889,7 +889,7 @@ div#queryboxcontainer div#bookmarkoptions {
 /* end querybox */
 
 /* main page */
-#maincontainer {
+.pmagroup {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
