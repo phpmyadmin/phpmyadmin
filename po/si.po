@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:30+0200\n"
+"PO-Revision-Date: 2011-02-17 04:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -820,9 +820,8 @@ msgid "Track table"
 msgstr "වගුව පරීක්ෂා කරන්න"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "දත්තගබඩාව"
+msgstr "දත්තගබඩා ලොගය"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
