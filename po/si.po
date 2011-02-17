@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:09+0200\n"
+"PO-Revision-Date: 2011-02-17 04:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -407,12 +407,12 @@ msgid "Last check"
 msgstr "අවසන් පරීක්ෂාව"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s table(s)"
-msgstr[1] "%s table(s)"
+msgstr[0] "%s වගු"
+msgstr[1] "%s වගු"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:1989 libraries/sql_query_form.lib.php:140
