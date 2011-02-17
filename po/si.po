@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:50+0200\n"
+"PO-Revision-Date: 2011-02-17 04:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1162,9 +1162,10 @@ msgstr "අත්හැර දමන්න"
 msgid "Select referenced key"
 msgstr ""
 
+# ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:97
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "ප්‍රාථමික මූලය තෝරන්න."
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
