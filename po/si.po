@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:55+0200\n"
+"PO-Revision-Date: 2011-02-17 04:58+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1169,7 +1169,7 @@ msgstr "ප්‍රාථමික මූලය තෝරන්න."
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක්  තෝරන්න."
 
 #: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
 #| msgid "Choose field to display"
