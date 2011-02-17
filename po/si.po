@@ -1432,7 +1432,7 @@ msgstr "ඉරිදා"
 #: js/messages.php:207
 #| msgid "Mon"
 msgid "Mo"
-msgstr "සදුදා"
+msgstr "සඳුදා"
 
 #. l10n: Minimal week day name
 #: js/messages.php:209
