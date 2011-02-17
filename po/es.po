@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-17 13:51+0200\n"
+"PO-Revision-Date: 2011-02-17 13:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8412,7 +8412,7 @@ msgstr ""
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
-msgstr "Tamaño total de la memoria (búfer) de tránsito común, en páginas."
+msgstr "Tamaño total de la reserva de búfers, en páginas."
 
 #: server_status.php:74
 msgid ""
