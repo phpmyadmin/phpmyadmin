@@ -7753,7 +7753,7 @@ msgstr ""
 #: server_privileges.php:64 server_privileges.php:208
 #: server_privileges.php:542
 msgid "Allows creating and dropping triggers"
-msgstr "Permite crear y eliminar un evento desencadenante"
+msgstr "Permite crear y eliminar un disparador"
 
 #: server_privileges.php:65 server_privileges.php:189
 #: server_privileges.php:452 server_privileges.php:512
