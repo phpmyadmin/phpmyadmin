@@ -5554,7 +5554,7 @@ msgstr "Descripción de la tabla (continúa)"
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
 msgid "Display foreign key relationships"
-msgstr "Mostrar relaciones de clave foránea (foreign keys)"
+msgstr "Mostrar relaciones de clave foránea"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 msgid "Display comments"
