@@ -260,7 +260,7 @@ function PMA_fatalError($error_message, $message_args = null)
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
     $message = sprintf(__('The %s extension is missing. Please check your PHP configuration.'),
-        sprintf('[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]', $extension));
+        '[a@' . PMA_getPHPDocLink('book.' . $extension . '.php') . '@Documentation][em]' . $extension . '[/em][/a]');
     if ($extra != '') {
         $message .= ' ' . $extra;
     }
