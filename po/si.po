@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 06:56+0200\n"
+"PO-Revision-Date: 2011-02-17 06:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3069,7 +3069,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
 msgstr "SQL විමසුම"
 
