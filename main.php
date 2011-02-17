@@ -199,7 +199,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         if ($server > 0) {
             PMA_printListItem(__('MySQL client version') . ': ' . PMA_DBI_get_client_info(),
                 'li_mysql_client_version');
-            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension'],
+            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension'] . ' ' . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension');
         }
     }
@@ -211,7 +211,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     echo ' </div>';
 }
 
-echo '<div class="group">';
+echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;

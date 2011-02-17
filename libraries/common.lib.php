@@ -448,6 +448,28 @@ function PMA_showDocu($anchor) {
 } // end of the 'PMA_showDocu()' function
 
 /**
+ * Displays a link to the PHP documentation
+ *
+ * @param string  anchor in documentation
+ *
+ * @return  string  the html link
+ *
+ * @access  public
+ */
+function PMA_showPHPDocu($target) {
+    /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
+    $lang = _pgettext('PHP documentation language', 'en');
+
+    $url = 'http://php.net/manual/' . $lang . '/' . $target;
+
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        return '<a href="' . $url . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+    } else {
+        return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
+    }
+} // end of the 'PMA_showPHPDocu()' function
+
+/**
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
  * @uses    $GLOBALS['footnotes']
