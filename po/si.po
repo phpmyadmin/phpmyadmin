@@ -766,7 +766,7 @@ msgstr "සාදන ලදි"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "යාවත්කාලීන කරන ලදි"
 
 #: db_tracking.php:89 libraries/common.lib.php:1328
 #: libraries/server_links.inc.php:50 server_processlist.php:66
