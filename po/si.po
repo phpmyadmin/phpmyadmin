@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 07:13+0200\n"
+"PO-Revision-Date: 2011-02-17 07:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2895,9 +2895,8 @@ msgid "Import"
 msgstr "ආනයනය"
 
 #: libraries/config/messages.inc.php:168
-#, fuzzy
 msgid "Import defaults"
-msgstr "ගොනු ආනයනය"
+msgstr "ආනයන පෙරනිමි"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
