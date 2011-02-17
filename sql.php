@@ -395,9 +395,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
              * HTML header.
              */
 
-            if($GLOBALS['is_ajax_request'] != true) {
-                require_once './libraries/header.inc.php';
-            }
+            require_once './libraries/header.inc.php';
             $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
@@ -768,6 +766,7 @@ else {
             }
         }
         else {
+            require_once './libraries/header.inc.php';
             //we don't need to buffer the output in PMA_showMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;
