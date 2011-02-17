@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 07:37+0200\n"
+"PO-Revision-Date: 2011-02-17 07:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1121,7 +1121,7 @@ msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත�
 
 #: js/messages.php:76
 msgid "Create Table"
-msgstr "වගුවක් සාදන්න"
+msgstr "වගුව සාදන්න"
 
 #: js/messages.php:81
 #| msgid "Search"
