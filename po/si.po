@@ -4928,7 +4928,7 @@ msgstr "Browser transformation"
 
 #: libraries/display_tbl.lib.php:1165
 msgid "Copy"
-msgstr ""
+msgstr "පිටපත් කරන්න"
 
 #: libraries/display_tbl.lib.php:1180 libraries/display_tbl.lib.php:1192
 msgid "The row has been deleted"
