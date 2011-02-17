@@ -5060,7 +5060,7 @@ msgstr "Estado del InnoDB"
 
 #: libraries/engines/innodb.lib.php:163
 msgid "Buffer Pool Usage"
-msgstr "Uso del reservorio de búfers"
+msgstr "Uso de la reserva de búfers"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
