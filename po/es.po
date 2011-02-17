@@ -2329,8 +2329,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Si el usuario habilitado puede elegir cualquier servidor MySQL en el "
-"formulario de inicio de sesión para la autenticación con cookies (cookie "
-"auth)"
+"formulario de inicio de sesión para la autenticación con cookies"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
