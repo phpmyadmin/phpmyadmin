@@ -2564,7 +2564,7 @@ msgstr "Tiempo máximo de ejecución"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "Enviar (genera un archivo descargable)"
+msgstr "Guardar como archivo"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 msgid "Character set of the file"
