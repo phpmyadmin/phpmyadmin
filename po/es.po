@@ -8381,8 +8381,8 @@ msgstr "El número de páginas actualmente sucias."
 #: server_status.php:69
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
-"El número de páginas en la memoria (búfer) de tránsito común que se ha "
-"solicitado sean vaciadas."
+"El número de páginas de la reserva de búfers que se ha solicitado sean "
+"vaciadas."
 
 #: server_status.php:70
 msgid "The number of free pages."
