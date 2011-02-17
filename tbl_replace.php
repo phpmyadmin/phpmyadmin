@@ -325,7 +325,9 @@ if ($is_insert && count($value_sets) > 0) {
     // No change -> move back to the calling script
     $message = PMA_Message::success(__('No change'));
     $active_page = $goto_include;
-    require_once './libraries/header.inc.php';
+    if(!$GLOBALS['is_ajax_request'] == true) {
+        require_once './libraries/header.inc.php';
+    }
     require './' . PMA_securePath($goto_include);
     exit;
 }
