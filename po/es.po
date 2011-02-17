@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-17 13:45+0200\n"
+"PO-Revision-Date: 2011-02-17 13:46+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1972,7 +1972,7 @@ msgstr "No pudo conectarse a un validador de SQL!"
 
 #: libraries/common.lib.php:1140 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
-msgstr "Explicar SQL (Explain)"
+msgstr "Explicar SQL"
 
 #: libraries/common.lib.php:1143
 msgid "Skip Explain SQL"
