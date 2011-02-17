@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 08:39+0200\n"
+"PO-Revision-Date: 2011-02-17 08:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9354,7 +9354,7 @@ msgstr ""
 #: sql.php:80 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "අන්‍ය අගයන් බ්‍රවුස් කරන්න"
+msgstr "අන්‍ය අගයන් පිරික්සන්න"
 
 #: sql.php:127
 #, php-format
