@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
@@ -7,12 +7,11 @@ msgstr ""
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -31,13 +30,13 @@ msgstr "Broj stranice:"
 
 #: browse_foreigners.php:133
 msgid ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"The target browser window could not be updated. Maybe you have closed "
+"the parent window, or your browser's security settings are configured "
+"to block cross-window updates."
 msgstr ""
-"Ciljani prozor preglednika nije bilo moguće osvježiti. Možda ste zatvorili "
-"nadređeni prozor ili su postavke sigurnosti vašeg preglednika konfigurirane "
-"za blokiranje ažuriranja preko više prozora."
+"Ciljani prozor preglednika nije bilo moguće osvježiti. Možda ste "
+"zatvorili nadređeni prozor ili su postavke sigurnosti vašeg "
+"preglednika konfigurirane za blokiranje ažuriranja preko više prozora."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2817
 #: libraries/common.lib.php:2824 libraries/common.lib.php:2999
@@ -112,8 +111,8 @@ msgstr ""
 #: changelog.php:32 license.php:28
 #, php-format
 msgid ""
-"The %s file is not available on this system, please visit www.phpmyadmin.net "
-"for more information."
+"The %s file is not available on this system, please visit "
+"www.phpmyadmin.net for more information."
 msgstr ""
 
 #: db_create.php:58
@@ -349,14 +348,14 @@ msgstr "Uspoređivanje"
 #: db_operations.php:556
 #, fuzzy, php-format
 #| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#| "The additional features for working with linked tables have "
+#| "been deactivated. To find out why click %shere%s."
 msgid ""
-"The phpMyAdmin configuration storage has been deactivated. To find out why "
-"click %shere%s."
+"The phpMyAdmin configuration storage has been deactivated. To find out "
+"why click %shere%s."
 msgstr ""
-"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-"saznali razloge, pritisnite %sovdje%s."
+"Dodatne osobine za rad s relacijski tablicama su isključene. Kako "
+"biste saznali razloge, pritisnite %sovdje%s."
 
 #: db_operations.php:589
 #, fuzzy
@@ -645,10 +644,11 @@ msgstr ""
 #: db_structure.php:379 libraries/display_tbl.lib.php:2014
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to "
+"%sdocumentation%s."
 msgstr ""
-"Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
+"Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite "
+"%sdokumentaciju%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -871,10 +871,11 @@ msgstr "Nema dovoljno prostora za spremanje datoteke %s."
 #: export.php:307
 #, php-format
 msgid ""
-"File %s already exists on server, change filename or check overwrite option."
+"File %s already exists on server, change filename or check overwrite "
+"option."
 msgstr ""
-"Datoteka %s već postoji na poslužitelju. Promijenite naziv ili označite "
-"opciju za prepisivanje."
+"Datoteka %s već postoji na poslužitelju. Promijenite naziv ili "
+"označite opciju za prepisivanje."
 
 #: export.php:311 export.php:315
 #, php-format
@@ -889,8 +890,8 @@ msgstr "Izbacivanje je spremljeno u datoteku %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to "
+"%sdocumentation%s for ways to workaround this limit."
 msgstr ""
 "Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte "
 "%sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
@@ -905,22 +906,23 @@ msgstr "Datoteku nije moguće pročitati"
 #: libraries/File.class.php:705 libraries/File.class.php:713
 #, php-format
 msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
+"You attempted to load file with unsupported compression (%s). Either "
+"support for it is not implemented or disabled by your configuration."
 msgstr ""
-"Pokušali ste učitati datoteku s nepodržanim načinom komprimiranja (%s). "
-"Takva podrška još nije implementirana ili je onemogućena u vašoj "
-"konfiguraciji."
+"Pokušali ste učitati datoteku s nepodržanim načinom komprimiranja "
+"(%s). Takva podrška još nije implementirana ili je onemogućena u vašoj"
+" konfiguraciji."
 
 #: import.php:336
 msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"No data was received to import. Either no file name was submitted, or "
+"the file size exceeded the maximum size permitted by your PHP "
+"configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
 msgstr ""
-"Nisu primljeni nikakvi podaci za uvoz. Ili nije dat naziv datoteke ili "
-"veličina datoteke prelazi najveću dopuštenu veličinu od strane vaše PHP "
-"konfiguracije. Pogledajte ČPP 1.16."
+"Nisu primljeni nikakvi podaci za uvoz. Ili nije dat naziv datoteke ili"
+" veličina datoteke prelazi najveću dopuštenu veličinu od strane vaše "
+"PHP konfiguracije. Pogledajte ČPP 1.16."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -946,20 +948,21 @@ msgstr "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
 
 #: import.php:423
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please resubmit "
+"same file and import will resume."
 msgstr ""
-"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo podnesite "
-"istu datoteku i uvoz će nastaviti."
+"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo "
+"podnesite istu datoteku i uvoz će nastaviti."
 
 #: import.php:425
 msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
+"However on last run no data has been parsed, this usually means "
+"phpMyAdmin won't be able to finish this import unless you increase php "
+"time limits."
 msgstr ""
-"Ipak, pri posljednjem prijelazu nikakvi podaci nisu bili raščlanjeni. To "
-"znači da phpMyAdmin neće biti u mogućnosti završiti ovaj uvoz sve dok ne "
-"povećate vremenska ograničenja unutar php."
+"Ipak, pri posljednjem prijelazu nikakvi podaci nisu bili raščlanjeni. "
+"To znači da phpMyAdmin neće biti u mogućnosti završiti ovaj uvoz sve "
+"dok ne povećate vremenska ograničenja unutar php."
 
 #: import_status.php:30 libraries/common.lib.php:676
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
@@ -969,8 +972,8 @@ msgstr "Nazad"
 #: index.php:185
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"phpMyAdmin je jednostavniji za upotrebu s preglednikom koji <b>podržava "
-"okvire</b>."
+"phpMyAdmin je jednostavniji za upotrebu s preglednikom koji "
+"<b>podržava okvire</b>."
 
 #: js/messages.php:25 server_synchronize.php:343 server_synchronize.php:355
 #: server_synchronize.php:371 server_synchronize.php:378
@@ -1548,16 +1551,16 @@ msgstr "Veličina fonta"
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Učitana datoteka nadmašuje uputu upload_max_filesize (najveća veličina "
-"datoteke) u datoteci php.ini."
+"Učitana datoteka nadmašuje uputu upload_max_filesize (najveća veličina"
+" datoteke) u datoteci php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was "
+"specified in the HTML form."
 msgstr ""
-"Učitana datoteka nadmašuje uputu MAX_FILE_SIZE (najveća veličina datoteke), "
-"određenu u HTML obliku."
+"Učitana datoteka nadmašuje uputu MAX_FILE_SIZE (najveća veličina "
+"datoteke), određenu u HTML obliku."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
@@ -1581,8 +1584,8 @@ msgstr "Nepoznata pogreška tijekom učitavanja datoteke."
 
 #: libraries/File.class.php:559
 msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Error moving the uploaded file, see "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "Pogreška tijekom premještanja učitane datoteke. Pogledajte ČPP 1.11"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
@@ -1633,10 +1636,11 @@ msgstr "Index %s je odbačen"
 #: libraries/Index.class.php:579
 #, php-format
 msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
+"The indexes %1$s and %2$s seem to be equal and one of them could "
+"possibly be removed."
 msgstr ""
-"Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je ukloniti."
+"Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je "
+"ukloniti."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1677,7 +1681,8 @@ msgstr[1] "Umetnuto redaka: %1$d."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
-"There is no detailed status information available for this storage engine."
+"There is no detailed status information available for this storage "
+"engine."
 msgstr "Za ovaj pogon pohranjivanje ne postoje raspoloživi podaci."
 
 #: libraries/StorageEngine.class.php:354
@@ -1760,23 +1765,23 @@ msgstr "Dobro došli u %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use"
+" the %1$ssetup script%2$s to create one."
 msgstr ""
-"Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu možete "
-"upotrijebiti naredbu %1$ssetup script%2$s"
+"Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu "
+"možete upotrijebiti naredbu %1$ssetup script%2$s"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
-"phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
-"connection. You should check the host, username and password in your "
-"configuration and make sure that they correspond to the information given by "
-"the administrator of the MySQL server."
+"phpMyAdmin tried to connect to the MySQL server, and the server "
+"rejected the connection. You should check the host, username and "
+"password in your configuration and make sure that they correspond to "
+"the information given by the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin pokušao je uspostaviti vezu s MySQL poslužiteljem, ali je "
-"poslužitelj odbio povezivanje. U datoteci config.inc.php provjerite naziv "
-"računala, korisničko ime i lozinku, te provjerite da se odgovaraju podacima "
-"koje vam je dao administrator MySQL poslužitelja."
+"poslužitelj odbio povezivanje. U datoteci config.inc.php provjerite "
+"naziv računala, korisničko ime i lozinku, te provjerite da se "
+"odgovaraju podacima koje vam je dao administrator MySQL poslužitelja."
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Log in"
@@ -1817,7 +1822,8 @@ msgstr "Od ovog mjesta potrebno je omogućiti kolačiće."
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:185
 msgid ""
-"Login without a password is forbidden by configuration (see AllowNoPassword)"
+"Login without a password is forbidden by configuration (see "
+"AllowNoPassword)"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:647
@@ -1981,18 +1987,19 @@ msgstr ""
 #: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
+"happen if PHP finds a parse error in it or PHP cannot find the file.<br"
+" />Please call the configuration file directly using the link below and"
+" read the PHP error message(s) that you receive. In most cases a quote "
+"or a semicolon is missing somewhere.<br />If you receive a blank page, "
+"everything is fine."
 msgstr ""
-"phpMyAdmin nije mogao pročitati vašu konfiguracijsku datoteku!<br />Mogući "
-"razlog je ako PHP pronađe pogrešku u njezinom raščlanjivanju ili ako PHP ne "
-"može pronaći datoteku.<br />Potrebno je izravno pozvati konfiguracijsku "
-"datoteku putem donje veze i proučiti prikazane PHP poruke o pogreškama. U "
-"većini slučajeva na nekom mjestu nedostaje znak navodnika ili točke-zareza."
-"<br />Ako se prikaže prazna stranica, sve je u redu."
+"phpMyAdmin nije mogao pročitati vašu konfiguracijsku datoteku!<br "
+"/>Mogući razlog je ako PHP pronađe pogrešku u njezinom raščlanjivanju "
+"ili ako PHP ne može pronaći datoteku.<br />Potrebno je izravno pozvati"
+" konfiguracijsku datoteku putem donje veze i proučiti prikazane PHP "
+"poruke o pogreškama. U većini slučajeva na nekom mjestu nedostaje znak"
+" navodnika ili točke-zareza.<br />Ako se prikaže prazna stranica, sve "
+"je u redu."
 
 #: libraries/common.inc.php:587
 #, fuzzy, php-format
@@ -2005,8 +2012,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Direktiva <tt>$cfg['PmaAbsoluteUri']</tt> MORA BITI postavljena u vašoj "
-"konfiguracijskoj datoteci!"
+"Direktiva <tt>$cfg['PmaAbsoluteUri']</tt> MORA BITI postavljena u "
+"vašoj konfiguracijskoj datoteci!"
 
 #: libraries/common.inc.php:622
 #, fuzzy, php-format
@@ -2040,14 +2047,16 @@ msgstr "Trebali biste nadograditi na %s %s ili kasniju."
 msgid "Max: %s%s"
 msgstr "Najv: %s%s"
 
-#. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
+#. l10n: Language to use for MySQL 5.1 documentation, please use only
+#. languages which do exist in official documentation.
 #: libraries/common.lib.php:407
 #, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Poslano"
 
-#. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
+#. l10n: Language to use for MySQL 5.0 documentation, please use only
+#. languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 #, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
@@ -2065,12 +2074,12 @@ msgstr "Poslano"
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
+#. l10n: Language to use for PHP documentation, please use only languages
+#. which do exist in official documentation.
 #: libraries/common.lib.php:461
-#, fuzzy
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "Poslano"
+msgstr "en"
 
 #: libraries/common.lib.php:607 libraries/header_printview.inc.php:60
 #: server_processlist.php:67 server_status.php:372
@@ -2172,7 +2181,8 @@ msgstr "."
 msgid "."
 msgstr ","
 
-#. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
+#. l10n: See http://www.php.net/manual/en/function.strftime.php to define the
+#. format string
 #: libraries/common.lib.php:1606
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -2446,7 +2456,8 @@ msgstr "Omogućeno"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
-"If enabled user can enter any MySQL server in login form for cookie auth"
+"If enabled user can enter any MySQL server in login form for cookie "
+"auth"
 msgstr ""
 
 #: libraries/config/messages.inc.php:20
@@ -2456,9 +2467,9 @@ msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
-"Enabling this allows a page located on a different domain to call phpMyAdmin "
-"inside a frame, and is a potential [strong]security hole[/strong] allowing "
-"cross-frame scripting attacks"
+"Enabling this allows a page located on a different domain to call "
+"phpMyAdmin inside a frame, and is a potential [strong]security "
+"hole[/strong] allowing cross-frame scripting attacks"
 msgstr ""
 
 #: libraries/config/messages.inc.php:22
@@ -2507,9 +2518,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Defines which type of editing controls should be used for CHAR and VARCHAR "
-"columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in columns"
+"Defines which type of editing controls should be used for CHAR and "
+"VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+"[kbd]textarea[/kbd] - allows newlines in columns"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -2538,8 +2549,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:39
 msgid ""
-"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
-"you encounter problems with created gzip/bzip2 files disable this feature"
+"Compress gzip/bzip2 exports on the fly without the need for much "
+"memory; if you encounter problems with created gzip/bzip2 files disable"
+" this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:40
@@ -2553,8 +2565,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:42
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
-"when you're about to lose data"
+"Whether a warning (&quot;Are your really sure...&quot;) should be "
+"displayed when you're about to lose data"
 msgstr ""
 
 #: libraries/config/messages.inc.php:43
@@ -2661,8 +2673,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:66
 msgid ""
-"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-"limit)"
+"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for "
+"no limit)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
@@ -2885,8 +2897,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:147
 msgid ""
-"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-"the referenced data, [kbd]id[/kbd] is the key value"
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] "
+"is the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
 
 #: libraries/config/messages.inc.php:148
@@ -3051,9 +3063,9 @@ msgstr "Broj stranice:"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[a@Documentation.html#cfg_TitleTable]documentation[/a] for magic "
+"strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:191
@@ -3074,8 +3086,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Please note that phpMyAdmin is just a user interface and its features do not "
-"limit MySQL"
+"Please note that phpMyAdmin is just a user interface and its features "
+"do not limit MySQL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -3099,8 +3111,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:199
 msgid ""
-"Advanced server configuration, do not change these options unless you know "
-"what they are for"
+"Advanced server configuration, do not change these options unless you "
+"know what they are for"
 msgstr ""
 
 #: libraries/config/messages.inc.php:200
@@ -3113,9 +3125,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:202
 msgid ""
-"Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"Configure phpMyAdmin configuration storage to gain access to additional"
+" features, see [a@Documentation.html#linked-tables]phpMyAdmin "
+"configuration storage[/a] in documentation"
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
@@ -3124,8 +3136,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:204
 msgid ""
-"Tracking of changes made in database. Requires the phpMyAdmin configuration "
-"storage."
+"Tracking of changes made in database. Requires the phpMyAdmin "
+"configuration storage."
 msgstr ""
 
 #: libraries/config/messages.inc.php:205
@@ -3175,9 +3187,10 @@ msgstr "SQL povijest"
 #: libraries/config/messages.inc.php:218
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
-"[strong]all SQL statements are stored anonymously for statistical purposes[/"
-"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+"[strong]all SQL statements are stored anonymously for statistical "
+"purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:219
@@ -3223,8 +3236,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:229
 msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations"
+"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+"import and export operations"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
@@ -3237,8 +3250,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:232
 msgid ""
-"If enabled, phpMyAdmin continues computing multiple-statement queries even "
-"if one of the queries failed"
+"If enabled, phpMyAdmin continues computing multiple-statement queries "
+"even if one of the queries failed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:233
@@ -3248,13 +3261,13 @@ msgstr ""
 #: libraries/config/messages.inc.php:234
 #, fuzzy
 msgid ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
-"transactions."
+"Allow interrupt of import in case script detects it is close to time "
+"limit. This might be good way to import large files, however it can "
+"break transactions."
 msgstr ""
 "Dopusti prekid uvoza u slučaju da skripta otkrije blizinu vremenskog "
-"ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali može "
-"prekinuti transakcije."
+"ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali"
+" može prekinuti transakcije."
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
@@ -3369,8 +3382,8 @@ msgstr "Predložak naziva datoteka"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
-"Only light version; display databases in a tree (determined by the separator "
-"defined below)"
+"Only light version; display databases in a tree (determined by the "
+"separator defined below)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:273
@@ -3408,8 +3421,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:281
 msgid ""
-"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-"([kbd]new[/kbd])"
+"Open the linked page in the main window ([kbd]main[/kbd]) or in a new "
+"one ([kbd]new[/kbd])"
 msgstr ""
 
 #: libraries/config/messages.inc.php:282
@@ -3434,7 +3447,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:287
 msgid ""
-"Maximum number of characters shown in any non-numeric column on browse view"
+"Maximum number of characters shown in any non-numeric column on browse "
+"view"
 msgstr ""
 
 #: libraries/config/messages.inc.php:288
@@ -3443,9 +3457,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:289
 msgid ""
-"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
-"only occurs for the current server. Setting this to FALSE makes it easy to "
-"forget to log out from other servers when connected to multiple servers."
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, "
+"logout only occurs for the current server. Setting this to FALSE makes "
+"it easy to forget to log out from other servers when connected to "
+"multiple servers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:290
@@ -3464,10 +3479,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid ""
-"Defines how long (in seconds) a login cookie should be stored in browser. "
-"The default of 0 means that it will be kept for the existing session only, "
-"and will be deleted as soon as you close the browser window. This is "
-"recommended for non-trusted environments."
+"Defines how long (in seconds) a login cookie should be stored in "
+"browser. The default of 0 means that it will be kept for the existing "
+"session only, and will be deleted as soon as you close the browser "
+"window. This is recommended for non-trusted environments."
 msgstr ""
 
 #: libraries/config/messages.inc.php:294
@@ -3519,8 +3534,8 @@ msgstr "Nema baza podataka"
 #: libraries/config/messages.inc.php:305
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
-"shown."
+"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links "
+"will be shown."
 msgstr ""
 
 #: libraries/config/messages.inc.php:306
@@ -3547,8 +3562,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid ""
-"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)"
+"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd]"
+" ([kbd]0[/kbd] for no limit)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:313
@@ -3596,8 +3611,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:323
 msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
-"DATETIME and TIMESTAMP, ascending order otherwise"
+"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, "
+"DATE, DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 
 #: libraries/config/messages.inc.php:324
@@ -3637,9 +3652,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:333
 msgid ""
-"Enable if you want DB-based query history (requires phpMyAdmin configuration "
-"storage). If disabled, this utilizes JS-routines to display query history "
-"(lost by window close)."
+"Enable if you want DB-based query history (requires phpMyAdmin "
+"configuration storage). If disabled, this utilizes JS-routines to "
+"display query history (lost by window close)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:334
@@ -3754,8 +3769,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:361
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
-"authentication[/a] (not located in your document root; suggested: /etc/"
-"swekey.conf)"
+"authentication[/a] (not located in your document root; suggested: "
+"/etc/swekey.conf)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:362
@@ -3772,8 +3787,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:365
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
+"Leave blank for no "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] support, "
+"suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:366
@@ -3782,8 +3798,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:367
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma_column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:368
@@ -3813,8 +3829,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:374
 msgid ""
-"A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"A special MySQL user configured with limited permissions, more "
+"information available on "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:375
@@ -3832,8 +3849,8 @@ msgstr "Nema tablica"
 
 #: libraries/config/messages.inc.php:378
 msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-"kbd]"
+"Leave blank for no Designer support, suggested: "
+"[kbd]pma_designer_coords[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:379
@@ -3843,8 +3860,9 @@ msgstr "Defragmentiraj tablicu"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
-"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"More information on "
+"[a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] "
+"and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
@@ -3871,8 +3889,8 @@ msgstr "Nema baza podataka"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
+"Leave blank for no SQL query history support, suggested: "
+"[kbd]pma_history[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:387
@@ -3902,11 +3920,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:393
 msgid ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"You can use MySQL wildcard characters (% and _), escape them if you "
+"want to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and "
+"not [kbd]'my_db'[/kbd]. Using this option you can sort database list, "
+"just enter their names in order and use [kbd]*[/kbd] at the end to show"
+" the rest in alphabetical order."
 msgstr ""
 
 #: libraries/config/messages.inc.php:394
@@ -3923,7 +3941,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:397
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:398
@@ -3932,9 +3951,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:399
 msgid ""
-"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
-"no support. Suggested: [kbd]phpmyadmin[/kbd]"
+"Database used for relations, bookmarks, and PDF features. See "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete "
+"information. Leave blank for no support. Suggested: "
+"[kbd]phpmyadmin[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:400
@@ -3954,8 +3974,8 @@ msgstr "ID poslužitelja"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:404
@@ -3973,8 +3993,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:407
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:408
@@ -4004,7 +4024,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:414
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma_table_coords[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:415
@@ -4025,8 +4046,8 @@ msgstr "Prikazivanje stupca komentara"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
-"Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
-"the log when creating a database."
+"Whether a DROP DATABASE IF EXISTS statement will be added as first line"
+" to the log when creating a database."
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
@@ -4035,8 +4056,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid ""
-"Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
-"log when creating a table."
+"Whether a DROP TABLE IF EXISTS statement will be added as first line to"
+" the log when creating a table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
@@ -4045,8 +4066,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
-"log when creating a view."
+"Whether a DROP VIEW IF EXISTS statement will be added as first line to "
+"the log when creating a view."
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
@@ -4065,8 +4086,8 @@ msgstr "Izjave"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma_tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:427
@@ -4087,8 +4108,8 @@ msgstr "Rad s automatskim povratom"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_config[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma_config[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:431
@@ -4101,8 +4122,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:434
 msgid ""
-"Disable if you know that your pma_* tables are up to date. This prevents "
-"compatibility checks and thereby increases performance"
+"Disable if you know that your pma_* tables are up to date. This "
+"prevents compatibility checks and thereby increases performance"
 msgstr ""
 
 #: libraries/config/messages.inc.php:435
@@ -4130,8 +4151,9 @@ msgstr ""
 #: libraries/config/messages.inc.php:440
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
-"authentication mode because the password is hard coded in the configuration "
-"file; this does not limit the ability to execute the same command directly"
+"authentication mode because the password is hard coded in the "
+"configuration file; this does not limit the ability to execute the same"
+" command directly"
 msgstr ""
 
 #: libraries/config/messages.inc.php:441
@@ -4144,8 +4166,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:443
 msgid ""
-"Defines whether or not type fields should be initially displayed in edit/"
-"insert mode"
+"Defines whether or not type fields should be initially displayed in "
+"edit/insert mode"
 msgstr ""
 
 #: libraries/config/messages.inc.php:444
@@ -4164,8 +4186,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:447
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output"
+"Shows link to "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] output"
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
@@ -4196,8 +4218,8 @@ msgstr "Statistike redova"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"If tooltips are enabled and a database comment is set, this will flip the "
-"comment and the real name"
+"If tooltips are enabled and a database comment is set, this will flip "
+"the comment and the real name"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -4206,10 +4228,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the $cfg"
-"['LeftFrameTableSeparator'] directive, so only the folder is called like the "
-"alias, the table name itself stays unchanged"
+"When setting this to [kbd]nested[/kbd], the alias of the table name is "
+"only used to split/nest the tables according to the "
+"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called"
+" like the alias, the table name itself stays unchanged"
 msgstr ""
 
 #: libraries/config/messages.inc.php:457
@@ -4222,7 +4244,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:459
 msgid ""
-"Mark used tables and make it possible to show databases with locked tables"
+"Mark used tables and make it possible to show databases with locked "
+"tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
@@ -4246,8 +4269,8 @@ msgstr "Lozinka"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
-"[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-"installed"
+"[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to "
+"be installed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:469
@@ -4256,8 +4279,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:470
 msgid ""
-"If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
-"kbd])"
+"If you have a custom username, specify it here (defaults to "
+"[kbd]anonymous[/kbd])"
 msgstr ""
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:405
@@ -4286,8 +4309,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:476
 msgid ""
-"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2) and for query window (*1.25)"
+"Textarea size (columns) in edit mode, this value will be emphasized for"
+" SQL query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:477
@@ -4298,8 +4321,8 @@ msgstr "Dodaj/Izbriši stupce polja"
 
 #: libraries/config/messages.inc.php:478
 msgid ""
-"Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2) and for query window (*1.25)"
+"Textarea size (rows) in edit mode, this value will be emphasized for "
+"SQL query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:479
@@ -4329,10 +4352,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:488
 msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
+"example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR "
+"(X-Forwarded-For) header coming from the proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:489
@@ -4358,8 +4381,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:494
 msgid ""
-"When disabled, users cannot set any of the options below, regardless of the "
-"checkbox on the right"
+"When disabled, users cannot set any of the options below, regardless of"
+" the checkbox on the right"
 msgstr ""
 
 #: libraries/config/messages.inc.php:495
@@ -4368,9 +4391,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:496
 msgid ""
-"Show affected rows of each statement on multiple-statement queries. See "
-"libraries/import.lib.php for defaults on how many queries a statement may "
-"contain."
+"Show affected rows of each statement on multiple-statement queries. See"
+" libraries/import.lib.php for defaults on how many queries a statement "
+"may contain."
 msgstr ""
 
 #: libraries/config/messages.inc.php:497
@@ -4395,8 +4418,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:501
 msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations"
+"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+"compression for import and export operations"
 msgstr ""
 
 #: libraries/config/messages.inc.php:502
@@ -4558,8 +4581,8 @@ msgstr "Vrsta povratka"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1900
 msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+"May be approximate. See "
+"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 msgstr "Može biti približno. Pogledajte ČPP 3.11"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
@@ -4576,7 +4599,8 @@ msgstr "Poslužitelj ne odgovara"
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
-"(ili priključak lokalnog MySQL poslužitelja nije ispravno konfiguriran)"
+"(ili priključak lokalnog MySQL poslužitelja nije ispravno "
+"konfiguriran)"
 
 #: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:700
 msgid "Details..."
@@ -4743,17 +4767,20 @@ msgstr ""
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
 #| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is."
+#| "This value is interpreted using %1$sstrftime%2$s, so you can "
+#| "use time formatting strings. Additionally the following "
+#| "transformations will happen: %3$s. Other text will be kept as "
+#| "is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will "
+"happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
+"details."
 msgstr ""
-"Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
-"naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
-"preoblikovanja: \"%3$s\". Ostatak teksta bit će zadržan u izvornom obliku."
+"Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete "
+"upotrijebiti naredbe oblikovanja vremena. Dodatno se mogu dogoditi "
+"sljedeća preoblikovanja: \"%3$s\". Ostatak teksta bit će zadržan u "
+"izvornom obliku."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -4815,8 +4842,8 @@ msgstr "Opcije preoblikovanja"
 
 #: libraries/display_export.lib.php:337
 msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
+"Scroll down to fill in the options for the selected format and ignore "
+"the options for other formats."
 msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
@@ -4826,9 +4853,9 @@ msgstr "MySQL verzija klijenta"
 
 #: libraries/display_import.lib.php:66
 msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+"The file being uploaded is probably larger than the maximum allowed "
+"size or this is a known bug in webkit based (Safari, Google Chrome, "
+"Arora etc.) browsers."
 msgstr ""
 
 #: libraries/display_import.lib.php:76
@@ -4837,8 +4864,8 @@ msgstr ""
 
 #: libraries/display_import.lib.php:98
 msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
+"Please be patient, the file is being uploaded. Details about the upload"
+" are not available."
 msgstr ""
 
 #: libraries/display_import.lib.php:129
@@ -4887,7 +4914,8 @@ msgstr "Djelomičan uvoz"
 #: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
+"Previous import timed out, after resubmitting will continue from "
+"position %d."
 msgstr ""
 "Vrijeme prethodnog uvoza je isteklo. Nakon ponovno podnošenja bit će "
 "nastavljeno od položaja %d."
@@ -4895,17 +4923,17 @@ msgstr ""
 #: libraries/display_import.lib.php:221
 #, fuzzy
 #| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
+#| "Allow the interruption of an import in case the script detects"
+#| " it is close to the PHP timeout limit. This might be good way "
+#| "to import large files, however it can break transactions."
 msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"Allow the interruption of an import in case the script detects it is "
+"close to the PHP timeout limit. <i>(This might be good way to import "
+"large files, however it can break transactions.)</i>"
 msgstr ""
 "Dopusti prekid uvoza u slučaju da skripta otkrije blizinu vremenskog "
-"ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali može "
-"prekinuti transakcije."
+"ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali"
+" može prekinuti transakcije."
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
@@ -5093,11 +5121,11 @@ msgstr "Korak autoproširenja"
 
 #: libraries/engines/innodb.lib.php:30
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
-"when it becomes full."
+" The increment size for extending the size of an autoextending "
+"tablespace when it becomes full."
 msgstr ""
-" Veličina koraka za proširivanje veličine automatski proširujućeg prostora "
-"tablice u slučaju njezinog ispunjavanja."
+" Veličina koraka za proširivanje veličine automatski proširujućeg "
+"prostora tablice u slučaju njezinog ispunjavanja."
 
 #: libraries/engines/innodb.lib.php:34
 msgid "Buffer pool size"
@@ -5105,11 +5133,11 @@ msgstr "Veličina međuspremnika"
 
 #: libraries/engines/innodb.lib.php:35
 msgid ""
-"The size of the memory buffer InnoDB uses to cache data and indexes of its "
-"tables."
+"The size of the memory buffer InnoDB uses to cache data and indexes of "
+"its tables."
 msgstr ""
-"Veličina memorijskog međuspremnika koju InnoDB upotrebljava za privremenu "
-"pohranu podataka i indeksa svojih tablica."
+"Veličina memorijskog međuspremnika koju InnoDB upotrebljava za "
+"privremenu pohranu podataka i indeksa svojih tablica."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
@@ -5185,11 +5213,12 @@ msgstr "Veličina pokazatelja podataka"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
-"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
-"tables when no MAX_ROWS option is specified."
+"The default pointer size in bytes, to be used by CREATE TABLE for "
+"MyISAM tables when no MAX_ROWS option is specified."
 msgstr ""
-"Zadana veličina pokazatelja podataka u bajtovima, koju će upotrijebiti "
-"naredba CREATE TABLE za MyISAM tablice ako opcija MAX_ROWS nije određena."
+"Zadana veličina pokazatelja podataka u bajtovima, koju će upotrijebiti"
+" naredba CREATE TABLE za MyISAM tablice ako opcija MAX_ROWS nije "
+"određena."
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
@@ -5197,11 +5226,11 @@ msgstr "Rad s automatskim povratom"
 
 #: libraries/engines/myisam.lib.php:28
 msgid ""
-"The mode for automatic recovery of crashed MyISAM tables, as set via the --"
-"myisam-recover server startup option."
+"The mode for automatic recovery of crashed MyISAM tables, as set via "
+"the --myisam-recover server startup option."
 msgstr ""
-"Način rada za automatski povrat srušenih MyISAM tablica, na način kojim je "
-"određen putem opcije --myisam-recover."
+"Način rada za automatski povrat srušenih MyISAM tablica, na način "
+"kojim je određen putem opcije --myisam-recover."
 
 #: libraries/engines/myisam.lib.php:31
 msgid "Maximum size for temporary sort files"
@@ -5209,13 +5238,13 @@ msgstr "Najveća veličina datoteke za privremeno preslagivanje"
 
 #: libraries/engines/myisam.lib.php:32
 msgid ""
-"The maximum size of the temporary file MySQL is allowed to use while re-"
-"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
-"INFILE)."
+"The maximum size of the temporary file MySQL is allowed to use while "
+"re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD "
+"DATA INFILE)."
 msgstr ""
-"Najveća veličina privremene datoteke koju MySQL smije upotrijebiti tijekom "
-"ponovne izrade MyISAM indeksa (tijekom izvođenja naredbi REPAIR TABLE, ALTER "
-"TABLE ili LOAD DATA INFILE)."
+"Najveća veličina privremene datoteke koju MySQL smije upotrijebiti "
+"tijekom ponovne izrade MyISAM indeksa (tijekom izvođenja naredbi "
+"REPAIR TABLE, ALTER TABLE ili LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
@@ -5223,13 +5252,13 @@ msgstr "Najveća veličina privremenih datoteka pri izradi indeksa"
 
 #: libraries/engines/myisam.lib.php:37
 msgid ""
-"If the temporary file used for fast MyISAM index creation would be larger "
-"than using the key cache by the amount specified here, prefer the key cache "
-"method."
+"If the temporary file used for fast MyISAM index creation would be "
+"larger than using the key cache by the amount specified here, prefer "
+"the key cache method."
 msgstr ""
-"Ako bi privremena datoteka za brzu izradu MyISAM indeksa mogla biti veća od "
-"pohrane ključeva, uz ovdje navedenu vrijednost, preferiraj način pohrane "
-"ključeva."
+"Ako bi privremena datoteka za brzu izradu MyISAM indeksa mogla biti "
+"veća od pohrane ključeva, uz ovdje navedenu vrijednost, preferiraj "
+"način pohrane ključeva."
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
@@ -5238,7 +5267,8 @@ msgstr "Popravi grane"
 #: libraries/engines/myisam.lib.php:42
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
-"parallel (each index in its own thread) during the repair by sorting process."
+"parallel (each index in its own thread) during the repair by sorting "
+"process."
 msgstr ""
 "Ako je ova vrijednost veća od 1, MyISAM indeksi tablica izrađuju se "
 "paralelno (svaki indeks unutar vlastite grane) tijekom popravka putem "
@@ -5250,12 +5280,12 @@ msgstr "Veličina međuspremnika preslagivanja"
 
 #: libraries/engines/myisam.lib.php:47
 msgid ""
-"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
-"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
+"The buffer that is allocated when sorting MyISAM indexes during a "
+"REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
-"Međuspremnik koji je predodređen za potrebe preslagivanja MyISAM indeksa "
-"tijekom naredbe REPAIR TABLE ili tijekom izrade indeksa naredbama CREATE "
-"INDEX ili ALTER TABLE."
+"Međuspremnik koji je predodređen za potrebe preslagivanja MyISAM "
+"indeksa tijekom naredbe REPAIR TABLE ili tijekom izrade indeksa "
+"naredbama CREATE INDEX ili ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
 #, fuzzy
@@ -5266,12 +5296,13 @@ msgstr "Najveća veličina otpada"
 #: libraries/engines/pbms.lib.php:31
 #, fuzzy
 #| msgid ""
-#| "The percentage of garbage in a data log file before it is compacted. This "
-#| "is a value between 1 and 99. The default is 50."
+#| "The percentage of garbage in a data log file before it is "
+#| "compacted. This is a value between 1 and 99. The default is "
+#| "50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Postotak otpada u datoteci zapisnika podataka prije sređivanja. Vrijednost "
-"može biti od 1 do 99. Zadana vrijednost je 50."
+"Postotak otpada u datoteci zapisnika podataka prije sređivanja. "
+"Vrijednost može biti od 1 do 99. Zadana vrijednost je 50."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1159
@@ -5281,8 +5312,8 @@ msgstr "Presloži"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
-"The port for the PBMS stream-based communications. Setting this value to 0 "
-"will disable HTTP communication with the daemon."
+"The port for the PBMS stream-based communications. Setting this value "
+"to 0 will disable HTTP communication with the daemon."
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
@@ -5291,9 +5322,9 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
-"The maximum size of a BLOB repository file. You may use Kb, MB or GB to "
-"indicate the unit of the value. A value in bytes is assumed when no unit is "
-"specified."
+"The maximum size of a BLOB repository file. You may use Kb, MB or GB to"
+" indicate the unit of the value. A value in bytes is assumed when no "
+"unit is specified."
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:45
@@ -5302,8 +5333,9 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
-"The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
-"after this time, unless they are referenced by a record in the database."
+"The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is "
+"removed after this time, unless they are referenced by a record in the "
+"database."
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
@@ -5314,9 +5346,9 @@ msgstr "Najveća veličina datoteke zapisnika"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
-"The maximum size of a temporary BLOB log file. You may use Kb, MB or GB to "
-"indicate the unit of the value. A value in bytes is assumed when no unit is "
-"specified."
+"The maximum size of a temporary BLOB log file. You may use Kb, MB or GB"
+" to indicate the unit of the value. A value in bytes is assumed when no"
+" unit is specified."
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:55
@@ -5325,8 +5357,9 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
-"The timeout for inactive connection with the keep-alive flag set. After this "
-"time the connection will be closed. The time-out is in milliseconds (1/1000)."
+"The timeout for inactive connection with the keep-alive flag set. After"
+" this time the connection will be closed. The time-out is in "
+"milliseconds (1/1000)."
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
@@ -5366,12 +5399,13 @@ msgstr "Veličina pohrane indeksa"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
-"This is the amount of memory allocated to the index cache. Default value is "
-"32MB. The memory allocated here is used only for caching index pages."
+"This is the amount of memory allocated to the index cache. Default "
+"value is 32MB. The memory allocated here is used only for caching index"
+" pages."
 msgstr ""
-"Količina memorije dodijeljena međuspremniku indeksa. Zadana vrijednost je 32 "
-"MB. Ovdje dodijeljena memorija koristi se samo za međupohranjivanje stranica "
-"indeksa."
+"Količina memorije dodijeljena međuspremniku indeksa. Zadana vrijednost"
+" je 32 MB. Ovdje dodijeljena memorija koristi se samo za "
+"međupohranjivanje stranica indeksa."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
@@ -5379,14 +5413,14 @@ msgstr "Veličina pohrane zapisa"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
-"This is the amount of memory allocated to the record cache used to cache "
-"table data. The default value is 32MB. This memory is used to cache changes "
-"to the handle data (.xtd) and row pointer (.xtr) files."
+"This is the amount of memory allocated to the record cache used to "
+"cache table data. The default value is 32MB. This memory is used to "
+"cache changes to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"Količina memorije dodijeljena međuspremniku zapisnika koja se koristi za "
-"međuspremanje podataka tablice. Zadana vrijednost je 32 MB. Ova se memorija "
-"upotrebljava za međuspremanje izmjena u datotekama rukovanim podacima (.xtd) "
-"pokazivača retka (.xtr)."
+"Količina memorije dodijeljena međuspremniku zapisnika koja se koristi "
+"za međuspremanje podataka tablice. Zadana vrijednost je 32 MB. Ova se "
+"memorija upotrebljava za međuspremanje izmjena u datotekama rukovanim "
+"podacima (.xtd) pokazivača retka (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -5394,11 +5428,11 @@ msgstr "Veličina pohrane zapisnika"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
-"The amount of memory allocated to the transaction log cache used to cache on "
-"transaction log data. The default is 16MB."
+"The amount of memory allocated to the transaction log cache used to "
+"cache on transaction log data. The default is 16MB."
 msgstr ""
-"Količina memorije dodijeljena međuspremniku zapisnika transakcija. Zadana "
-"vrijednost je 16 MB."
+"Količina memorije dodijeljena međuspremniku zapisnika transakcija. "
+"Zadana vrijednost je 16 MB."
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
@@ -5406,11 +5440,11 @@ msgstr "Najveća veličina datoteke zapisnika"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid ""
-"The size of a transaction log before rollover, and a new log is created. The "
-"default value is 16MB."
+"The size of a transaction log before rollover, and a new log is "
+"created. The default value is 16MB."
 msgstr ""
-"Veličina zapisnika transakcija prije povrata i izrade novog zapisnika. "
-"Zadana vrijednost je 16 MB."
+"Veličina zapisnika transakcija prije povrata i izrade novog zapisnika."
+" Zadana vrijednost je 16 MB."
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
@@ -5421,8 +5455,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Veličina globalnog međuspremnika zapisnika transakcija (pogon dodjeljuje 2 "
-"međuspremnika ove veličine). Zadana vrijednost je 1 MB."
+"Veličina globalnog međuspremnika zapisnika transakcija (pogon "
+"dodjeljuje 2 međuspremnika ove veličine). Zadana vrijednost je 1 MB."
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
@@ -5430,11 +5464,11 @@ msgstr "Učestalost točke provjere"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid ""
-"The amount of data written to the transaction log before a checkpoint is "
-"performed. The default value is 24MB."
+"The amount of data written to the transaction log before a checkpoint "
+"is performed. The default value is 24MB."
 msgstr ""
-"Količina podataka zapisana u zapisnik transakcija prije izvođenja točke "
-"provjere. Zadana vrijednost je 24 MB."
+"Količina podataka zapisana u zapisnik transakcija prije izvođenja "
+"točke provjere. Zadana vrijednost je 24 MB."
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
@@ -5442,15 +5476,16 @@ msgstr "Najveća veličina zapisnika podataka"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
-"The maximum size of a data log file. The default value is 64MB. PBXT can "
-"create a maximum of 32000 data logs, which are used by all tables. So the "
-"value of this variable can be increased to increase the total amount of data "
-"that can be stored in the database."
+"The maximum size of a data log file. The default value is 64MB. PBXT "
+"can create a maximum of 32000 data logs, which are used by all tables. "
+"So the value of this variable can be increased to increase the total "
+"amount of data that can be stored in the database."
 msgstr ""
-"Najveća dopuštena veličina datoteke zapisnika podataka. Zadana vrijednost je "
-"64 MB. PBXT može izraditi najviše 32.000 zapisnika koje koriste sve tablice. "
-"Vrijednost ove varijable može se povećati kako bi se povećao ukupan broj "
-"podataka koji se mogu pohraniti u bazu podataka."
+"Najveća dopuštena veličina datoteke zapisnika podataka. Zadana "
+"vrijednost je 64 MB. PBXT može izraditi najviše 32.000 zapisnika koje "
+"koriste sve tablice. Vrijednost ove varijable može se povećati kako bi"
+" se povećao ukupan broj podataka koji se mogu pohraniti u bazu "
+"podataka."
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
@@ -5458,11 +5493,11 @@ msgstr "Najveća veličina otpada"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
+"The percentage of garbage in a data log file before it is compacted. "
+"This is a value between 1 and 99. The default is 50."
 msgstr ""
-"Postotak otpada u datoteci zapisnika podataka prije sređivanja. Vrijednost "
-"može biti od 1 do 99. Zadana vrijednost je 50."
+"Postotak otpada u datoteci zapisnika podataka prije sređivanja. "
+"Vrijednost može biti od 1 do 99. Zadana vrijednost je 50."
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
@@ -5470,13 +5505,13 @@ msgstr "Veličina međuspremnika zapisnika"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
-"The size of the buffer used when writing a data log. The default is 256MB. "
-"The engine allocates one buffer per thread, but only if the thread is "
-"required to write a data log."
+"The size of the buffer used when writing a data log. The default is "
+"256MB. The engine allocates one buffer per thread, but only if the "
+"thread is required to write a data log."
 msgstr ""
 "Veličina međuspremnika tijekom zapisivanja podataka zapisnika. Zadana "
-"vrijednost je 256 MB. Pogon dodjeljuje jedan međuspremnik po grani, ali samo "
-"ako je grana potrebna za zapisivanje zapisnika podataka."
+"vrijednost je 256 MB. Pogon dodjeljuje jedan međuspremnik po grani, "
+"ali samo ako je grana potrebna za zapisivanje zapisnika podataka."
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
@@ -5501,14 +5536,14 @@ msgstr "Najveći broj datoteka zapisnika"
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
-"system will maintain. If the number of logs exceeds this value then old logs "
-"will be deleted, otherwise they are renamed and given the next highest "
-"number."
+"system will maintain. If the number of logs exceeds this value then old"
+" logs will be deleted, otherwise they are renamed and given the next "
+"highest number."
 msgstr ""
-"Broj datoteka zapisnika transakcija (pbxt/system/xlog*.xt) koje će sustav "
-"održavati. Ako broj zapisnika premašuje ovu vrijednost, stari zapisnici bit "
-"će izbrisani. U protivnom se preimenuju i daje im se sljedeći veći redni "
-"broj."
+"Broj datoteka zapisnika transakcija (pbxt/system/xlog*.xt) koje će "
+"sustav održavati. Ako broj zapisnika premašuje ovu vrijednost, stari "
+"zapisnici bit će izbrisani. U protivnom se preimenuju i daje im se "
+"sljedeći veći redni broj."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -5680,8 +5715,8 @@ msgstr ""
 
 #: libraries/export/sql.php:33
 msgid ""
-"Display comments <i>(includes info such as export timestamp, PHP version, "
-"and server version)</i>"
+"Display comments <i>(includes info such as export timestamp, PHP "
+"version, and server version)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:35
@@ -5692,13 +5727,14 @@ msgstr "Dodaj prilagođeni komentar u zaglavlje (\"\\n\" razdvaja retke)"
 
 #: libraries/export/sql.php:37
 msgid ""
-"Include a timestamp of when databases were created, last updated, and last "
-"checked"
+"Include a timestamp of when databases were created, last updated, and "
+"last checked"
 msgstr ""
 
 #: libraries/export/sql.php:65
 msgid ""
-"Database system or older MySQL server to maximize output compatibility with:"
+"Database system or older MySQL server to maximize output compatibility "
+"with:"
 msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
@@ -5720,8 +5756,8 @@ msgstr ""
 
 #: libraries/export/sql.php:123
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters or keywords)</i>"
+"Enclose table and field names with backquotes <i>(Protects field and "
+"table names formed with special characters or keywords)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:136
@@ -5746,40 +5782,40 @@ msgstr ""
 
 #: libraries/export/sql.php:154
 msgid ""
-"include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-"&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
-"(1,2,3)</code>"
+"include column names in every <code>INSERT</code> statement <br /> "
+"&nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 msgstr ""
 
 #: libraries/export/sql.php:155
 msgid ""
-"insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-"&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
-"(7,8,9)</code>"
+"insert multiple rows in every <code>INSERT</code> statement<br /> "
+"&nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES "
+"(1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
 #: libraries/export/sql.php:156
 msgid ""
-"both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO"
+" tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
 #: libraries/export/sql.php:157
 msgid ""
-"neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-"tbl_name VALUES (1,2,3)</code>"
+"neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
 #: libraries/export/sql.php:167
 msgid ""
-"Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
-"0x616263)</i>"
+"Dump binary columns in hexadecimal notation <i>(for example, \"abc\" "
+"becomes 0x616263)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:171
 msgid ""
-"Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
-"reloaded between servers in different time zones)</i>"
+"Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be "
+"dumped and reloaded between servers in different time zones)</i>"
 msgstr ""
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
@@ -5858,7 +5894,8 @@ msgstr "MySQL je vratio prazan komplet rezultata (npr. nula redova)."
 
 #: libraries/import.lib.php:1141
 msgid ""
-"The following structures have either been created or altered. Here you can:"
+"The following structures have either been created or altered. Here you "
+"can:"
 msgstr ""
 
 #: libraries/import.lib.php:1142
@@ -5866,8 +5903,7 @@ msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
 #: libraries/import.lib.php:1143
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+msgid "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1144
@@ -5895,15 +5931,15 @@ msgstr ""
 #: libraries/import/csv.php:37 libraries/import/ods.php:26
 #: libraries/import/xls.php:24 libraries/import/xlsx.php:24
 msgid ""
-"The first line of the file contains the table column names <i>(if this is "
-"unchecked, the first line will become part of the data)</i>"
+"The first line of the file contains the table column names <i>(if this "
+"is unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
 #: libraries/import/csv.php:39
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
-"database, list the corresponding column names here. Column names must be "
-"separated by commas and not enclosed in quotations."
+"database, list the corresponding column names here. Column names must "
+"be separated by commas and not enclosed in quotations."
 msgstr ""
 
 #: libraries/import/csv.php:41
@@ -5974,8 +6010,8 @@ msgstr ""
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
+"The XML file specified was either malformed or incomplete. Please "
+"correct the issue and try again."
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:142
@@ -6255,9 +6291,11 @@ msgstr "Prikazivanje stupca komentara"
 
 #: libraries/relation.lib.php:126
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments "
+"table"
 msgstr ""
-"Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments."
+"Pogledajte dokumentaciju radi uputa o ažuriranju tablice "
+"column_comments."
 
 #: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
 msgid "Bookmarked SQL query"
@@ -6277,7 +6315,8 @@ msgstr ""
 
 #: libraries/relation.lib.php:153
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the "
+"<code>script/create_tables.sql</code>."
 msgstr ""
 
 #: libraries/relation.lib.php:154
@@ -6286,8 +6325,9 @@ msgstr ""
 
 #: libraries/relation.lib.php:155
 msgid ""
-"Enable advanced features in configuration file (<code>config.inc.php</"
-"code>), for example by starting from <code>config.sample.inc.php</code>."
+"Enable advanced features in configuration file "
+"(<code>config.inc.php</code>), for example by starting from "
+"<code>config.sample.inc.php</code>."
 msgstr ""
 
 #: libraries/relation.lib.php:156
@@ -6308,8 +6348,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:54
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
-"not, please add the following line into [mysqld] section:"
+"Make sure, you have unique server-id in your configuration file "
+"(my.cnf). If not, please add the following line into [mysqld] section:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
@@ -6348,8 +6388,8 @@ msgstr "ID poslužitelja"
 
 #: libraries/replication_gui.lib.php:194
 msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
+"Only slaves started with the --report-host=host_name option are visible"
+" in this list."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
@@ -6385,8 +6425,8 @@ msgstr "Upotrijebi tablicu poslužitelja"
 
 #: libraries/replication_gui.lib.php:333 server_privileges.php:799
 msgid ""
-"When Host table is used, this field is ignored and values stored in Host "
-"table are used instead."
+"When Host table is used, this field is ignored and values stored in "
+"Host table are used instead."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:362
@@ -6539,11 +6579,11 @@ msgstr "Veličina papira"
 
 #: libraries/schema/User_Schema.class.php:444
 msgid ""
-"The current page has references to tables that no longer exist. Would you "
-"like to delete those references?"
+"The current page has references to tables that no longer exist. Would "
+"you like to delete those references?"
 msgstr ""
-"Trenutna stranica sadrži reference prema tablicama koje više ne postoje. "
-"Želite li izbrisati te reference?"
+"Trenutna stranica sadrži reference prema tablicama koje više ne "
+"postoje. Želite li izbrisati te reference?"
 
 #: libraries/schema/User_Schema.class.php:469
 msgid "Toggle scratchboard"
@@ -6682,33 +6722,36 @@ msgstr "mapa učitavanja web poslužitelja"
 
 #: libraries/sqlparser.lib.php:134
 msgid ""
-"There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"There seems to be an error in your SQL query. The MySQL server error "
+"output below, if there is any, may also help you in diagnosing the "
+"problem"
 msgstr ""
 "Izgleda da postoji pogreška u vašem SQL upitu. Ispis pogreške MySQL "
 "poslužitelja može vam pomoći u dijagnosticiranju problema."
 
 #: libraries/sqlparser.lib.php:169
 msgid ""
-"There is a chance that you may have found a bug in the SQL parser. Please "
-"examine your query closely, and check that the quotes are correct and not "
-"mis-matched. Other possible failure causes may be that you are uploading a "
-"file with binary outside of a quoted text area. You can also try your query "
-"on the MySQL command line interface. The MySQL server error output below, if "
-"there is any, may also help you in diagnosing the problem. If you still have "
-"problems or if the parser fails where the command line interface succeeds, "
-"please reduce your SQL query input to the single query that causes problems, "
-"and submit a bug report with the data chunk in the CUT section below:"
+"There is a chance that you may have found a bug in the SQL parser. "
+"Please examine your query closely, and check that the quotes are "
+"correct and not mis-matched. Other possible failure causes may be that "
+"you are uploading a file with binary outside of a quoted text area. You"
+" can also try your query on the MySQL command line interface. The MySQL"
+" server error output below, if there is any, may also help you in "
+"diagnosing the problem. If you still have problems or if the parser "
+"fails where the command line interface succeeds, please reduce your SQL"
+" query input to the single query that causes problems, and submit a bug"
+" report with the data chunk in the CUT section below:"
 msgstr ""
-"Postoji mogućnost da ste pronašli nedostatak u SQL raščlanjivaču. Temeljito "
-"proučite vaš upit i provjerite ispravan unos navodnika. Jedan od mogućih "
-"razloga je i da ste učitali datoteku s binarnim vrijednosti izvan prostora s "
-"navodnicima. Vaš upit također možete provjeriti u naredbenom retku MySQL-a. "
-"Ispis pogreške MySQL poslužitelja može vam pomoći u dijagnosticiranju "
-"problema. Ako i dalje postoje problemi ili ako raščlanjivač ne uspijeva u "
-"zadacima koji uspijevaju u naredbenom retku, suzite svoj unos SQL upita na "
-"samo onaj upit koji izaziva probleme i podnesite prijavu o nedostatku "
-"zajedno s dijelom podatka u donjem odjeljku CUT:"
+"Postoji mogućnost da ste pronašli nedostatak u SQL raščlanjivaču. "
+"Temeljito proučite vaš upit i provjerite ispravan unos navodnika. "
+"Jedan od mogućih razloga je i da ste učitali datoteku s binarnim "
+"vrijednosti izvan prostora s navodnicima. Vaš upit također možete "
+"provjeriti u naredbenom retku MySQL-a. Ispis pogreške MySQL "
+"poslužitelja može vam pomoći u dijagnosticiranju problema. Ako i dalje"
+" postoje problemi ili ako raščlanjivač ne uspijeva u zadacima koji "
+"uspijevaju u naredbenom retku, suzite svoj unos SQL upita na samo onaj"
+" upit koji izaziva probleme i podnesite prijavu o nedostatku zajedno s"
+" dijelom podatka u donjem odjeljku CUT:"
 
 #: libraries/sqlparser.lib.php:171
 msgid "BEGIN CUT"
@@ -6746,10 +6789,12 @@ msgstr "Nepoznat niz interpunkcija"
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
-"installed the necessary PHP extensions as described in the %sdocumentation%s."
+"installed the necessary PHP extensions as described in the "
+"%sdocumentation%s."
 msgstr ""
-"SQL validator nije bilo moguće pokrenuti. Provjerite jeste li instalirali "
-"potrebna PHP proširenja, na način opisan u %sdokumentaciji%s."
+"SQL validator nije bilo moguće pokrenuti. Provjerite jeste li "
+"instalirali potrebna PHP proširenja, na način opisan u "
+"%sdokumentaciji%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6767,28 +6812,29 @@ msgstr "Duljina/Vrijednosti"
 #: libraries/tbl_properties.inc.php:104
 #, fuzzy
 #| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
+#| "If field type is \"enum\" or \"set\", please enter the values "
+#| "using this format: 'a','b','c'...<br />If you ever need to put"
+#| " a backslash (\"\\\") or a single quote (\"'\") amongst those "
+#| "values, precede it with a backslash (for example '\\\\xyz' or "
+#| "'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
-"a single quote (\"'\") amongst those values, precede it with a backslash "
-"(for example '\\\\xyz' or 'a\\'b')."
+"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
+"or a single quote (\"'\") amongst those values, precede it with a "
+"backslash (for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ako je vrata polja \"enum\" ili \"set\", unesite vrijednosti u sljedećem "
-"obliku: 'a','B','c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\"
-"\") or a single quote (\"'\") amongst those values, precede it with a "
+"obliku: 'a','B','c'...<br />Ako je potrebno unijeti lijevu kosu crtu "
+"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
 "backslash (for example '\\\\xyz' or 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
+"For default values, please enter just a single value, without backslash"
+" escaping or quotes, using this format: a"
 msgstr ""
-"Za zadane vrijednosti unesite samo jednu vrijednost, bez kosih crta ili "
-"navodnika, u sljedećem obliku: a"
+"Za zadane vrijednosti unesite samo jednu vrijednost, bez kosih crta "
+"ili navodnika, u sljedećem obliku: a"
 
 #: libraries/tbl_properties.inc.php:135
 #, php-format
@@ -6805,15 +6851,15 @@ msgstr "Opcije preoblikovanja"
 
 #: libraries/tbl_properties.inc.php:144
 msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
+"Please enter the values for transformation options using this format: "
+"'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash "
+"(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-"100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
-"jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka stavite "
-"lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
+"Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: "
+"'a', 100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\")"
+" ili jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
+"stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
@@ -6837,11 +6883,11 @@ msgstr "Kako je definirano:"
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
 msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
+"No description is available for this transformation.<br />Please ask "
+"the author what %s does."
 msgstr ""
-"Za ovo preoblikovanje ne postoji raspoloživ opis.<br />Molimo da od autora "
-"zatražite objašnjenje rada %s ."
+"Za ovo preoblikovanje ne postoji raspoloživ opis.<br />Molimo da od "
+"autora zatražite objašnjenje rada %s ."
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
 #: tbl_operations.php:352
@@ -6876,20 +6922,22 @@ msgstr "Događaj"
 #: libraries/transformations/application_octetstream__download.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
+#| "Displays a link to download the binary data of the field. You "
+#| "can use the first option to specify the filename, or use the "
+#| "second option as the name of a field which contains the "
+#| "filename. If you use the second option, you need to set the "
+#| "first option to the empty string."
 msgid ""
-"Displays a link to download the binary data of the column. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a column which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
+"Displays a link to download the binary data of the column. You can use "
+"the first option to specify the filename, or use the second option as "
+"the name of a column which contains the filename. If you use the second"
+" option, you need to set the first option to the empty string."
 msgstr ""
 "Prikazuje vezu prema preuzimanju binarnih podataka polja. Možete "
-"upotrijebiti prvu opciju kako biste sami odredili naziv datoteke ili drugu "
-"opciju kako biste upotrijebili naziv polja koje sadrži naziv datoteke. Ako "
-"upotrijebite drugu opciju, u prvu opciju morate unijeti prazan niz."
+"upotrijebiti prvu opciju kako biste sami odredili naziv datoteke ili "
+"drugu opciju kako biste upotrijebili naziv polja koje sadrži naziv "
+"datoteke. Ako upotrijebite drugu opciju, u prvu opciju morate unijeti "
+"prazan niz."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -6897,17 +6945,17 @@ msgid ""
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
 "Prikazuje podatke u heksadecimalnom obliku. Opcionalan prvi parametar "
-"određuje koliko često će prazna mjesta biti dodavana (zadana vrijednost je "
-"2)."
+"određuje koliko često će prazna mjesta biti dodavana (zadana "
+"vrijednost je 2)."
 
 #: libraries/transformations/image_jpeg__inline.inc.php:9
 #: libraries/transformations/image_png__inline.inc.php:9
 msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
+"Displays a clickable thumbnail. The options are the maximum width and "
+"height in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i "
-"visina u pikselima. Izvorne proporcije su očuvane."
+"Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i"
+" visina u pikselima. Izvorne proporcije su očuvane."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
@@ -6916,111 +6964,120 @@ msgstr "Prikazuje vezu za preuzimanje ove slike."
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
+#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp"
+#| " field as formatted date. The first option is the offset (in "
+#| "hours) which will be added to the timestamp (Default: 0). Use "
+#| "second option to specify a different date/time format string. "
+#| "Third option determines whether you want to see local date or "
+#| "UTC one (use \"local\" or \"utc\" strings) for that. According to "
+#| "that, date format has different value - for \"local\" see the "
+#| "documentation for PHP's strftime() function and for \"utc\" it "
+#| "is done using gmdate() function."
 msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column "
+"as formatted date. The first option is the offset (in hours) which will"
+" be added to the timestamp (Default: 0). Use second option to specify a"
+" different date/time format string. Third option determines whether you"
+" want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
+"that. According to that, date format has different value - for \"local\" "
+"see the documentation for PHP's strftime() function and for \"utc\" it is"
+" done using gmdate() function."
 msgstr ""
 "Polja TIME (vrijeme), TIMESTAMP (vremenska oznaka), DATETIME (datum i "
-"vrijeme) ili brojčanu uniksoidnu oznaku vremena prikazuje kao oblikovani "
-"datum. Prva opcija je odmak (u satima) koji će biti pridodan vremenskoj "
-"oznaci (zadano: 0). Druga opcije određuje drukčiji oblik izražavanja datuma "
-"i vremena. Treća opcija određuje želite li prikazati lokalni datum ili u "
-"skladu s UTC (upotrijebite izraz \"local\" ili \"utc\"). Sukladno tome, "
-"oblik datuma ima različite vrijednosti - za opciju \"local\" pogledajte "
-"dokumentaciju o upotrebi PHP funkcije strftime(), a za \"utc\" pogledajte "
-"dokumentaciju o upotrebi funkcije gmdate()."
+"vrijeme) ili brojčanu uniksoidnu oznaku vremena prikazuje kao "
+"oblikovani datum. Prva opcija je odmak (u satima) koji će biti "
+"pridodan vremenskoj oznaci (zadano: 0). Druga opcije određuje drukčiji"
+" oblik izražavanja datuma i vremena. Treća opcija određuje želite li "
+"prikazati lokalni datum ili u skladu s UTC (upotrijebite izraz \"local\""
+" ili \"utc\"). Sukladno tome, oblik datuma ima različite vrijednosti - "
+"za opciju \"local\" pogledajte dokumentaciju o upotrebi PHP funkcije "
+"strftime(), a za \"utc\" pogledajte dokumentaciju o upotrebi funkcije "
+"gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
+#| "LINUX ONLY: Launches an external application and feeds it the "
+#| "field data via standard input. Returns the standard output of "
+#| "the application. The default is Tidy, to pretty-print HTML "
+#| "code. For security reasons, you have to manually edit the file"
+#| " libraries/transformations/text_plain__external.inc.php and "
+#| "list the tools you want to make available. The first option is"
+#| " then the number of the program you want to use and the second"
+#| " option is the parameters for the program. The third option, "
+#| "if set to 1, will convert the output using htmlspecialchars() "
+#| "(Default 1). The fourth option, if set to 1, will prevent "
+#| "wrapping and ensure that the output appears all on one line "
+#| "(Default 1)."
 msgid ""
-"LINUX ONLY: Launches an external application and feeds it the column data "
-"via standard input. Returns the standard output of the application. The "
-"default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
+"LINUX ONLY: Launches an external application and feeds it the column "
+"data via standard input. Returns the standard output of the "
+"application. The default is Tidy, to pretty-print HTML code. For "
+"security reasons, you have to manually edit the file "
+"libraries/transformations/text_plain__external.inc.php and list the "
+"tools you want to make available. The first option is then the number "
+"of the program you want to use and the second option is the parameters "
+"for the program. The third option, if set to 1, will convert the output"
+" using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one "
+"line (Default 1)."
 msgstr ""
-"SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja putem "
-"standardnog unosa. Vraća standardan ispis aplikacije. Zadana aplikacija je "
-"Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih razloga morate ručno "
-"urediti datoteku libraries/transformations/text_plain__external.inc.php i "
-"izraditi popis alata koje želite učiniti raspoloživim. Prva opcija će biti "
-"redni broj programa kojeg želite upotrebljavati a druga opcija su parametri "
-"programa. Ako je treća opcija postavljena na vrijednost 1, pretvorit će "
-"ispis pomoću htmlspecialchars(), (zadano: 1). Ako je četvrta opcija "
-"postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa "
-"u jednom retku (zadano: 1)."
+"SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja "
+"putem standardnog unosa. Vraća standardan ispis aplikacije. Zadana "
+"aplikacija je Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih "
+"razloga morate ručno urediti datoteku "
+"libraries/transformations/text_plain__external.inc.php i izraditi "
+"popis alata koje želite učiniti raspoloživim. Prva opcija će biti "
+"redni broj programa kojeg želite upotrebljavati a druga opcija su "
+"parametri programa. Ako je treća opcija postavljena na vrijednost 1, "
+"pretvorit će ispis pomoću htmlspecialchars(), (zadano: 1). Ako je "
+"četvrta opcija postavljena na vrijednost 1, spriječit će omatanje i "
+"osigurati prikaz ispisa u jednom retku (zadano: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+#| "Displays the contents of the field as-is, without running it "
+#| "through htmlspecialchars(). That is, the field is assumed to "
+#| "contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
-"htmlspecialchars(). That is, the column is assumed to contain valid HTML."
+"htmlspecialchars(). That is, the column is assumed to contain valid "
+"HTML."
 msgstr ""
-"Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja kroz "
-"htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne sadrži valjani "
-"HTML kod."
+"Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja "
+"kroz htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne "
+"sadrži valjani HTML kod."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
+#| "Displays an image and a link; the field contains the filename."
+#| " The first option is a URL prefix like "
+#| "\"http://www.example.com/\". The second and third options are "
+#| "the width and the height in pixels."
 msgid ""
-"Displays an image and a link; the column contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
+"Displays an image and a link; the column contains the filename. The "
+"first option is a URL prefix like \"http://www.example.com/\". The second"
+" and third options are the width and the height in pixels."
 msgstr ""
-"Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je URL "
-"prefiks, poput \"http://www.example.com/\". Druga i treća opcija "
+"Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je "
+"URL prefiks, poput \"http://www.example.com/\". Druga i treća opcija "
 "predstavljaju širinu i visinu u pikselima."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #, fuzzy
 #| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
+#| "Displays a link; the field contains the filename. The first "
+#| "option is a URL prefix like \"http://www.example.com/\". The "
+#| "second option is a title for the link."
 msgid ""
-"Displays a link; the column contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
+"Displays a link; the column contains the filename. The first option is "
+"a URL prefix like \"http://www.example.com/\". The second option is a "
+"title for the link."
 msgstr ""
-"Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, "
-"poput \"http://www.example.com/\". Druga opcija je naziv veze."
+"Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL "
+"prefiks, poput \"http://www.example.com/\". Druga opcija je naziv veze."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -7034,16 +7091,17 @@ msgstr "Oblikuje tekst kao SQL upit s naglašavanjem sintakse."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"Displays a part of a string. The first option is the number of "
+"characters to skip from the beginning of the string (Default 0). The "
+"second option is the number of characters to return (Default: until end"
+" of string). The third option is the string to append and/or prepend "
+"when truncation occurs (Default: \"...\")."
 msgstr ""
-"Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno preskočiti, "
-"od početka niza (zadano: 0). Druga opcija je broj znakova za povrat (zadano: "
-"do završetka niza). Treća opcija  je niz koji je potrebno pridodati iza "
-"završetka i/ili prije početka kad započne srezivanje (zadano: \"...\")."
+"Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno "
+"preskočiti, od početka niza (zadano: 0). Druga opcija je broj znakova "
+"za povrat (zadano: do završetka niza). Treća opcija  je niz koji je "
+"potrebno pridodati iza završetka i/ili prije početka kad započne "
+"srezivanje (zadano: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
 #, fuzzy
@@ -7072,8 +7130,8 @@ msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+"Your browser has phpMyAdmin configuration for this domain. Would you "
+"like to import it for current session?"
 msgstr ""
 
 #: libraries/zip_extension.lib.php:25
@@ -7170,47 +7228,50 @@ msgstr "Bez izmjena"
 #: main.php:253
 msgid ""
 "Your configuration file contains settings (root with no password) that "
-"correspond to the default MySQL privileged account. Your MySQL server is "
-"running with this default, is open to intrusion, and you really should fix "
-"this security hole by setting a password for user 'root'."
+"correspond to the default MySQL privileged account. Your MySQL server "
+"is running with this default, is open to intrusion, and you really "
+"should fix this security hole by setting a password for user 'root'."
 msgstr ""
-"Vaša konfiguracijska datoteka sadrži postavke (root korisnik bez lozinke) "
-"koja odgovara zadanom privilegiranom nalogu MySQL-a. Vaš MySQL poslužitelj "
-"pokrenut je sa zadanim postavkama i kao takav otvoren je upadima. Potrebno "
-"je ispraviti ovaj sigurnosni nedostatak."
+"Vaša konfiguracijska datoteka sadrži postavke (root korisnik bez "
+"lozinke) koja odgovara zadanom privilegiranom nalogu MySQL-a. Vaš "
+"MySQL poslužitelj pokrenut je sa zadanim postavkama i kao takav "
+"otvoren je upadima. Potrebno je ispraviti ovaj sigurnosni nedostatak."
 
 #: main.php:261
 msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
+"You have enabled mbstring.func_overload in your PHP configuration. This"
+" option is incompatible with phpMyAdmin and might cause some data to be"
+" corrupted!"
 msgstr ""
-"Omogućili ste funkciju mbstring.func_overload u vašoj PHP konfiguraciji. Ova "
-"opcija nije kompatibilna s programom phpMyAdmin i može prouzrokovati "
-"oštećivanje nekih podataka!"
+"Omogućili ste funkciju mbstring.func_overload u vašoj PHP "
+"konfiguraciji. Ova opcija nije kompatibilna s programom phpMyAdmin i "
+"može prouzrokovati oštećivanje nekih podataka!"
 
 #: main.php:269
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
-"multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
-"split strings correctly and it may result in unexpected results."
+"multibyte charset. Without the mbstring extension phpMyAdmin is unable "
+"to split strings correctly and it may result in unexpected results."
 msgstr ""
-"PHP proširenje mbstring nije pronađeno i izgleda da upotrebljavate multibyte "
-"tablicu znakova. Bez proširenja mbstring, phpMyAdmin nije u mogućnosti "
-"pravilno razdjeljivati naredbe i može doći do neočekivanih rezultata."
+"PHP proširenje mbstring nije pronađeno i izgleda da upotrebljavate "
+"multibyte tablicu znakova. Bez proširenja mbstring, phpMyAdmin nije u "
+"mogućnosti pravilno razdjeljivati naredbe i može doći do neočekivanih "
+"rezultata."
 
 #: main.php:277
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
-"validity configured in phpMyAdmin, because of this, your login will expire "
+"Your PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity "
+"configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
 #: main.php:284
 msgid ""
-"Login cookie store is lower than cookie validity configured in phpMyAdmin, "
-"because of this, your login will expire sooner than configured in phpMyAdmin."
+"Login cookie store is lower than cookie validity configured in "
+"phpMyAdmin, because of this, your login will expire sooner than "
+"configured in phpMyAdmin."
 msgstr ""
 
 #: main.php:292
@@ -7219,47 +7280,48 @@ msgstr "Konfiguracijska datoteka potražuje tajnu lozinku (blowfish_secret)."
 
 #: main.php:300
 msgid ""
-"Directory [code]config[/code], which is used by the setup script, still "
-"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
-"has been configured."
+"Directory [code]config[/code], which is used by the setup script, still"
+" exists in your phpMyAdmin directory. You should remove it once "
+"phpMyAdmin has been configured."
 msgstr ""
 
 #: main.php:309
 #, fuzzy, php-format
 #| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#| "The additional features for working with linked tables have "
+#| "been deactivated. To find out why click %shere%s."
 msgid ""
-"The phpMyAdmin configuration storage is not completely configured, some "
-"extended features have been deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage is not completely configured, some"
+" extended features have been deactivated. To find out why click "
+"%shere%s."
 msgstr ""
-"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-"saznali razloge, pritisnite %sovdje%s."
+"Dodatne osobine za rad s relacijski tablicama su isključene. Kako "
+"biste saznali razloge, pritisnite %sovdje%s."
 
 #: main.php:324
 msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
+"Javascript support is missing or disabled in your browser, some "
+"phpMyAdmin functionality will be missing. For example navigation frame "
+"will not refresh automatically."
 msgstr ""
 
 #: main.php:339
 #, php-format
 msgid ""
-"Your PHP MySQL library version %s differs from your MySQL server version %s. "
-"This may cause unpredictable behavior."
+"Your PHP MySQL library version %s differs from your MySQL server "
+"version %s. This may cause unpredictable behavior."
 msgstr ""
-"Verzija %s vaše PHP MySQL biblioteke razlikuje se oda vaše verzije %s MySQL "
-"poslužitelja. Ovo bi moglo prouzrokovati nepredviđeno ponašanje."
+"Verzija %s vaše PHP MySQL biblioteke razlikuje se oda vaše verzije %s "
+"MySQL poslužitelja. Ovo bi moglo prouzrokovati nepredviđeno ponašanje."
 
 #: main.php:351
 #, php-format
 msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
+"Server running with Suhosin. Please refer to %sdocumentation%s for "
+"possible issues."
 msgstr ""
-"Poslužitelj pokrenut sa Suhosin. Proučite %sdokumentaciju%s radi mogućih "
-"problema."
+"Poslužitelj pokrenut sa Suhosin. Proučite %sdokumentaciju%s radi "
+"mogućih problema."
 
 #: navigation.php:187 server_databases.php:267 server_synchronize.php:1187
 msgid "No databases"
@@ -7422,17 +7484,18 @@ msgstr "Za odabir relacije pritisnite:"
 #: pmd_help.php:28
 #, fuzzy
 #| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
+#| "The display field is shown in pink. To set/unset a field as "
+#| "the display field, click the \"Choose field to display\" icon, "
+#| "then click on the appropriate field name."
 msgid ""
-"The display column is shown in pink. To set/unset a column as the display "
-"column, click the \"Choose column to display\" icon, then click on the "
-"appropriate column name."
+"The display column is shown in pink. To set/unset a column as the "
+"display column, click the \"Choose column to display\" icon, then click "
+"on the appropriate column name."
 msgstr ""
-"Polje pregledavanja prikazano je u rozoj boji. Kako biste za polje odabrali "
-"ili uklonili opciju polja za prikazivanje pritisnite ikonu \"Odaberite polje "
-"za prikazivanje\", a zatim pritisnite odgovarajući naziv polja."
+"Polje pregledavanja prikazano je u rozoj boji. Kako biste za polje "
+"odabrali ili uklonili opciju polja za prikazivanje pritisnite ikonu "
+"\"Odaberite polje za prikazivanje\", a zatim pritisnite odgovarajući "
+"naziv polja."
 
 #: pmd_pdf.php:34
 #, fuzzy
@@ -7560,8 +7623,8 @@ msgstr ""
 #: prefs_manage.php:277
 #, php-format
 msgid ""
-"You can set more settings by modifying config.inc.php, eg. by using %sSetup "
-"script%s."
+"You can set more settings by modifying config.inc.php, eg. by using "
+"%sSetup script%s."
 msgstr ""
 
 #: prefs_manage.php:302
@@ -7672,8 +7735,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Napomena: Omogućavanja statistika baze podataka može prouzrokovati izuzetno "
-"velik promet između web poslužitelja i MySQL poslužitelja."
+"Napomena: Omogućavanja statistika baze podataka može prouzrokovati "
+"izuzetno velik promet između web poslužitelja i MySQL poslužitelja."
 
 #: server_engines.php:47
 msgid "Storage Engines"
@@ -7758,9 +7821,11 @@ msgstr "Dopušta uvoz i izvoz podataka iz datoteka."
 
 #: server_privileges.php:46 server_privileges.php:547
 msgid ""
-"Allows adding users and privileges without reloading the privilege tables."
+"Allows adding users and privileges without reloading the privilege "
+"tables."
 msgstr ""
-"Dopušta dodavanje korisnika i privilegija bez ponovnog učitavanja tablica."
+"Dopušta dodavanje korisnika i privilegija bez ponovnog učitavanja "
+"tablica."
 
 #: server_privileges.php:47 server_privileges.php:198
 #: server_privileges.php:523
@@ -7781,22 +7846,24 @@ msgstr "Dopušta zaključavanje tablica u trenutnoj grani."
 #: server_privileges.php:655
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
-"Ograničava broj novih povezivanja koje korisnik može otvoriti, po satu."
+"Ograničava broj novih povezivanja koje korisnik može otvoriti, po "
+"satu."
 
 #: server_privileges.php:51 server_privileges.php:641
 #: server_privileges.php:643
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Ograničava broj upita koje korisnik može poslati poslužitelju, po satu."
+"Ograničava broj upita koje korisnik može poslati poslužitelju, po "
+"satu."
 
 #: server_privileges.php:52 server_privileges.php:647
 #: server_privileges.php:649
 msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
+"Limits the number of commands that change any table or database the "
+"user may execute per hour."
 msgstr ""
-"Ograničava broj naredbi koje korisnik može pokrenuti, a čija je namjena "
-"mijenjanje bilo koje tablice ili baze podataka, po satu."
+"Ograničava broj naredbi koje korisnik može pokrenuti, a čija je "
+"namjena mijenjanje bilo koje tablice ili baze podataka, po satu."
 
 #: server_privileges.php:53 server_privileges.php:659
 #: server_privileges.php:661
@@ -7817,14 +7884,15 @@ msgstr "Nema učinka u ovoj verziji MySQL-a."
 #: server_privileges.php:552
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Dopušta ponovno učitavanje postavki poslužitelja i pražnjenje privremene "
-"pohrane poslužitelja."
+"Dopušta ponovno učitavanje postavki poslužitelja i pražnjenje "
+"privremene pohrane poslužitelja."
 
 #: server_privileges.php:57 server_privileges.php:205
 #: server_privileges.php:559
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Dopušta korisnik postavljanje upita o lokaciji potčinjenih i gospodara."
+"Dopušta korisnik postavljanje upita o lokaciji potčinjenih i "
+"gospodara."
 
 #: server_privileges.php:58 server_privileges.php:204
 #: server_privileges.php:560
@@ -7855,12 +7923,12 @@ msgstr "Dopušta gašenje poslužitelja."
 #: server_privileges.php:550
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
+"required for most administrative operations like setting global "
+"variables or killing threads of other users."
 msgstr ""
-"Dopušta povezivanje čak i kad je dostignut najveći broj veza. Potrebno za "
-"većinu administrativnih operacija poput postavljanja općih varijabli ili "
-"eliminiranje grana drugih korisnika."
+"Dopušta povezivanje čak i kad je dostignut najveći broj veza. Potrebno"
+" za većinu administrativnih operacija poput postavljanja općih "
+"varijabli ili eliminiranje grana drugih korisnika."
 
 #: server_privileges.php:64 server_privileges.php:208
 #: server_privileges.php:542
@@ -8017,15 +8085,16 @@ msgstr "Ispusti baze podataka koje imaju iste nazive i korisnike."
 #: server_privileges.php:1728
 #, php-format
 msgid ""
-"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
-"tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+"privilege tables. The content of these tables may differ from the "
+"privileges the server uses, if they have been changed manually. In this"
+" case, you should %sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin preuzima korisničke privilegije izravno iz MySQL "
-"tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih tablica "
-"može se razlikovati od privilegija koje upotrebljava poslužitelj. U tom je "
-"slučaju potrebno %sponovo učitati privilegije%s prije nastavljanja rada."
+"tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih "
+"tablica može se razlikovati od privilegija koje upotrebljava "
+"poslužitelj. U tom je slučaju potrebno %sponovo učitati privilegije%s "
+"prije nastavljanja rada."
 
 #: server_privileges.php:1781
 msgid "The selected user was not found in the privilege table."
@@ -8042,8 +8111,8 @@ msgstr "Dodaj privilegije za sljedeće baze podataka"
 #: server_privileges.php:2040
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Kako bi se mogli upotrebljavati u doslovnom smislu, džokerima \\_ i \\% mora "
-"prethoditi znak \\"
+"Kako bi se mogli upotrebljavati u doslovnom smislu, džokerima \\_ i \\% "
+"mora prethoditi znak \\"
 
 #: server_privileges.php:2043
 msgid "Add privileges on the following table"
@@ -8067,7 +8136,8 @@ msgstr " ... izbriši starog iz korisničkih tablica."
 
 #: server_privileges.php:2107
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+" ... revoke all active privileges from the old one and delete it "
+"afterwards."
 msgstr " ... opozovi sve aktivne privilegije iz stare i potom je izbriši."
 
 #: server_privileges.php:2108
@@ -8075,7 +8145,8 @@ msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... izbriši starog iz korisničkih tablica i potom ponovo učitaj privilegije."
+" ... izbriši starog iz korisničkih tablica i potom ponovo učitaj "
+"privilegije."
 
 #: server_privileges.php:2131
 msgid "Database for user"
@@ -8126,7 +8197,8 @@ msgstr "Grana %s uspješno je prekinuta."
 #: server_processlist.php:31
 #, php-format
 msgid ""
-"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
+"phpMyAdmin was unable to kill thread %s. It probably has already been "
+"closed."
 msgstr "phpMyAdmin nije mogao ugasiti granu %s. Vjerojatno je već zatvorena."
 
 #: server_processlist.php:60
@@ -8144,7 +8216,8 @@ msgstr ""
 
 #: server_replication.php:63
 msgid ""
-"Unable to read master log position. Possible privilege problem on master."
+"Unable to read master log position. Possible privilege problem on "
+"master."
 msgstr ""
 
 #: server_replication.php:69
@@ -8172,8 +8245,8 @@ msgstr ""
 #: server_replication.php:208
 #, php-format
 msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
+"This server is not configured as master in a replication process. Would"
+" you like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
 #: server_replication.php:215
@@ -8182,11 +8255,11 @@ msgstr ""
 
 #: server_replication.php:216
 msgid ""
-"This server is not configured as master server in a replication process. You "
-"can choose from either replicating all databases and ignoring certain "
-"(useful if you want to replicate majority of databases) or you can choose to "
-"ignore all databases by default and allow only certain databases to be "
-"replicated. Please select the mode:"
+"This server is not configured as master server in a replication "
+"process. You can choose from either replicating all databases and "
+"ignoring certain (useful if you want to replicate majority of "
+"databases) or you can choose to ignore all databases by default and "
+"allow only certain databases to be replicated. Please select the mode:"
 msgstr ""
 
 #: server_replication.php:219
@@ -8204,15 +8277,15 @@ msgstr "Odaberite bazu podataka"
 
 #: server_replication.php:226
 msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
+"Now, add the following lines at the end of [mysqld] section in your "
+"my.cnf and please restart the MySQL server afterwards."
 msgstr ""
 
 #: server_replication.php:228
 msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"Once you restarted MySQL server, please click on Go button. Afterwards,"
+" you should see a message informing you, that this server <b>is</b> "
+"configured as master"
 msgstr ""
 
 #: server_replication.php:291
@@ -8225,7 +8298,8 @@ msgstr ""
 
 #: server_replication.php:303
 msgid ""
-"Server is configured as slave in a replication process. Would you like to:"
+"Server is configured as slave in a replication process. Would you like "
+"to:"
 msgstr ""
 
 #: server_replication.php:306
@@ -8297,36 +8371,38 @@ msgstr ""
 #: server_replication.php:361
 #, php-format
 msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
+"This server is not configured as slave in a replication process. Would "
+"you like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
 #: server_status.php:46
 msgid ""
-"The number of transactions that used the temporary binary log cache but that "
-"exceeded the value of binlog_cache_size and used a temporary file to store "
-"statements from the transaction."
+"The number of transactions that used the temporary binary log cache but"
+" that exceeded the value of binlog_cache_size and used a temporary file"
+" to store statements from the transaction."
 msgstr ""
-"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik pohrane, "
-"ali su nadmašile vrijednost binlog_cache_size i upotrijebile privremenu "
-"datoteku za pohranjivanje izjava transakcija."
+"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik "
+"pohrane, ali su nadmašile vrijednost binlog_cache_size i upotrijebile "
+"privremenu datoteku za pohranjivanje izjava transakcija."
 
 #: server_status.php:47
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
-"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik pohrane."
+"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik "
+"pohrane."
 
 #: server_status.php:48
 msgid ""
-"The number of temporary tables on disk created automatically by the server "
-"while executing statements. If Created_tmp_disk_tables is big, you may want "
-"to increase the tmp_table_size  value to cause temporary tables to be memory-"
-"based instead of disk-based."
+"The number of temporary tables on disk created automatically by the "
+"server while executing statements. If Created_tmp_disk_tables is big, "
+"you may want to increase the tmp_table_size  value to cause temporary "
+"tables to be memory-based instead of disk-based."
 msgstr ""
-"Broj privremenih tablica koje poslužitelj automatski izrađuje na disku "
-"tijekom izvršavanja izjava. Ako je stavka Created_tmp_disk_tables velika, "
-"moglo bi biti potrebno da povećate vrijednost tmp_table_size, kako biste "
-"privremene tablice smjestili u radnu memoriju, a ne na tvrdi disk."
+"Broj privremenih tablica koje poslužitelj automatski izrađuje na disku"
+" tijekom izvršavanja izjava. Ako je stavka Created_tmp_disk_tables "
+"velika, moglo bi biti potrebno da povećate vrijednost tmp_table_size, "
+"kako biste privremene tablice smjestili u radnu memoriju, a ne na "
+"tvrdi disk."
 
 #: server_status.php:49
 msgid "How many temporary files mysqld has created."
@@ -8334,27 +8410,27 @@ msgstr "Koliko je privremenih tablica izradio mysqld."
 
 #: server_status.php:50
 msgid ""
-"The number of in-memory temporary tables created automatically by the server "
-"while executing statements."
+"The number of in-memory temporary tables created automatically by the "
+"server while executing statements."
 msgstr ""
-"Broj privremenih tablica u memoriji koje je poslužitelj automatski izradio "
-"tijekom izvršavanja izjava."
+"Broj privremenih tablica u memoriji koje je poslužitelj automatski "
+"izradio tijekom izvršavanja izjava."
 
 #: server_status.php:51
 msgid ""
-"The number of rows written with INSERT DELAYED for which some error occurred "
-"(probably duplicate key)."
+"The number of rows written with INSERT DELAYED for which some error "
+"occurred (probably duplicate key)."
 msgstr ""
-"Broj redaka upisanih pomoću naredbe INSERT DELAYED, a kod kojih je došlo do "
-"neke vrste pogreške (vjerojatan razlog je udvojen ključ)."
+"Broj redaka upisanih pomoću naredbe INSERT DELAYED, a kod kojih je "
+"došlo do neke vrste pogreške (vjerojatan razlog je udvojen ključ)."
 
 #: server_status.php:52
 msgid ""
-"The number of INSERT DELAYED handler threads in use. Every different table "
-"on which one uses INSERT DELAYED gets its own thread."
+"The number of INSERT DELAYED handler threads in use. Every different "
+"table on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"Broj hvatište grana INSERT DELAYED u upotrebi. Svaka druga tablica na koju "
-"se primjeni INSERT DELAYED dobiva vlastitu granu."
+"Broj hvatište grana INSERT DELAYED u upotrebi. Svaka druga tablica na "
+"koju se primjeni INSERT DELAYED dobiva vlastitu granu."
 
 #: server_status.php:53
 msgid "The number of INSERT DELAYED rows written."
@@ -8374,73 +8450,79 @@ msgstr "Brojka koja prokazuje koliko puta je redak bio izbrisan iz tablice."
 
 #: server_status.php:57
 msgid ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
+"The MySQL server can ask the NDB Cluster storage engine if it knows "
+"about a table with a given name. This is called discovery. "
+"Handler_discover indicates the number of time tables have been "
+"discovered."
 msgstr ""
-"MySQL poslužitelj može upitati pogon pohranjivanja NDB skupine, zna li za "
-"tablicu s traženim nazivom. Ovaj se postupak naziva otkrivanje. "
+"MySQL poslužitelj može upitati pogon pohranjivanja NDB skupine, zna li"
+" za tablicu s traženim nazivom. Ovaj se postupak naziva otkrivanje. "
 "Handler_discover naznačuje koliko je puta tablica bila otkrivenom."
 
 #: server_status.php:58
 msgid ""
-"The number of times the first entry was read from an index. If this is high, "
-"it suggests that the server is doing a lot of full index scans; for example, "
-"SELECT col1 FROM foo, assuming that col1 is indexed."
+"The number of times the first entry was read from an index. If this is "
+"high, it suggests that the server is doing a lot of full index scans; "
+"for example, SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"Brojka koja prokazuje koliko puta je prvi unos bio čitan iz indeksa. Velik "
-"broj je pokazatelj da poslužitelj izvodi mnogo potpunih pretraživanja "
-"indeksa, npr. SELECT col1 FROM foo, pri čemu je col1 indeksiran."
+"Brojka koja prokazuje koliko puta je prvi unos bio čitan iz indeksa. "
+"Velik broj je pokazatelj da poslužitelj izvodi mnogo potpunih "
+"pretraživanja indeksa, npr. SELECT col1 FROM foo, pri čemu je col1 "
+"indeksiran."
 
 #: server_status.php:59
 msgid ""
-"The number of requests to read a row based on a key. If this is high, it is "
-"a good indication that your queries and tables are properly indexed."
+"The number of requests to read a row based on a key. If this is high, "
+"it is a good indication that your queries and tables are properly "
+"indexed."
 msgstr ""
-"Broj zahtjeva za čitanje retka zasnovan na ključu. Velik broj je pokazatelj "
-"da su vaši upiti i tablice pravilno indeksirani."
+"Broj zahtjeva za čitanje retka zasnovan na ključu. Velik broj je "
+"pokazatelj da su vaši upiti i tablice pravilno indeksirani."
 
 #: server_status.php:60
 msgid ""
 "The number of requests to read the next row in key order. This is "
-"incremented if you are querying an index column with a range constraint or "
-"if you are doing an index scan."
+"incremented if you are querying an index column with a range constraint"
+" or if you are doing an index scan."
 msgstr ""
-"Broj zahtjeva za čitanje sljedećeg retka u redoslijedu ključa. Ovaj se broj "
-"povećava ako izvodite upite stupca indeksa s ograničenjem opsega ili ako "
-"izvodite pretraživanje indeksa."
+"Broj zahtjeva za čitanje sljedećeg retka u redoslijedu ključa. Ovaj se"
+" broj povećava ako izvodite upite stupca indeksa s ograničenjem opsega"
+" ili ako izvodite pretraživanje indeksa."
 
 #: server_status.php:61
 msgid ""
-"The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"The number of requests to read the previous row in key order. This read"
+" method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
-"Broj zahtjeva za čitanje prethodnog retka u redoslijedu ključa. Ovaj način "
-"čitanja uglavnom se upotrebljava za optimiziranje opcije ORDER BY ... DESC."
+"Broj zahtjeva za čitanje prethodnog retka u redoslijedu ključa. Ovaj "
+"način čitanja uglavnom se upotrebljava za optimiziranje opcije ORDER "
+"BY ... DESC."
 
 #: server_status.php:62
 msgid ""
-"The number of requests to read a row based on a fixed position. This is high "
-"if you are doing a lot of queries that require sorting of the result. You "
-"probably have a lot of queries that require MySQL to scan whole tables or "
-"you have joins that don't use keys properly."
+"The number of requests to read a row based on a fixed position. This is"
+" high if you are doing a lot of queries that require sorting of the "
+"result. You probably have a lot of queries that require MySQL to scan "
+"whole tables or you have joins that don't use keys properly."
 msgstr ""
-"Broj zahtjeva za čitanje retka zasnovanog na fiksnom položaju. Ovaj iznos je "
-"velik ako izvodite mnogo upita koji zahtjevaju preslagivanje rezultata. "
-"Vjerojatno imate mnogo upita koji zahtijevaju da MySQL pretražuje cjelokupne "
-"tablice ili imate spojeve koji ne upotrebljavaju ključ na pravilan način."
+"Broj zahtjeva za čitanje retka zasnovanog na fiksnom položaju. Ovaj "
+"iznos je velik ako izvodite mnogo upita koji zahtjevaju preslagivanje "
+"rezultata. Vjerojatno imate mnogo upita koji zahtijevaju da MySQL "
+"pretražuje cjelokupne tablice ili imate spojeve koji ne upotrebljavaju"
+" ključ na pravilan način."
 
 #: server_status.php:63
 msgid ""
-"The number of requests to read the next row in the data file. This is high "
-"if you are doing a lot of table scans. Generally this suggests that your "
-"tables are not properly indexed or that your queries are not written to take "
-"advantage of the indexes you have."
+"The number of requests to read the next row in the data file. This is "
+"high if you are doing a lot of table scans. Generally this suggests "
+"that your tables are not properly indexed or that your queries are not "
+"written to take advantage of the indexes you have."
 msgstr ""
-"Broj zahtjeva za čitanje sljedećeg retka u datoteci s podacima. Ovaj broj je "
-"velik ako izvodite mnogo pretraživanja tablice. Općenito, ovaj iznos "
-"naznačuje da vaša tablice nisu pravilno indeksirane ili da vaši upiti nisu "
-"napisani na način koji iskorištava prednosti raspoloživih indeksa."
+"Broj zahtjeva za čitanje sljedećeg retka u datoteci s podacima. Ovaj "
+"broj je velik ako izvodite mnogo pretraživanja tablice. Općenito, ovaj"
+" iznos naznačuje da vaša tablice nisu pravilno indeksirane ili da vaši"
+" upiti nisu napisani na način koji iskorištava prednosti raspoloživih "
+"indeksa."
 
 #: server_status.php:64
 msgid "The number of internal ROLLBACK statements."
@@ -8465,7 +8547,8 @@ msgstr "Broj stranica koje su trenutno 'dirty'."
 #: server_status.php:69
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
-"Broj stranica međuspremnika za koje je podnesen zahtjev za pražnjenjem."
+"Broj stranica međuspremnika za koje je podnesen zahtjev za "
+"pražnjenjem."
 
 #: server_status.php:70
 msgid "The number of free pages."
@@ -8473,25 +8556,26 @@ msgstr "Broj slobodnih stranica."
 
 #: server_status.php:71
 msgid ""
-"The number of latched pages in InnoDB buffer pool. These are pages currently "
-"being read or written or that can't be flushed or removed for some other "
-"reason."
+"The number of latched pages in InnoDB buffer pool. These are pages "
+"currently being read or written or that can't be flushed or removed for"
+" some other reason."
 msgstr ""
-"Broj vezanih stranica u InnoDB međuspremniku. Ove se stranice trenutno "
-"čitaju ili zapisuju, ili ih nije moguće isprazniti ili ukloniti iz nekog "
-"drugog razloga."
+"Broj vezanih stranica u InnoDB međuspremniku. Ove se stranice trenutno"
+" čitaju ili zapisuju, ili ih nije moguće isprazniti ili ukloniti iz "
+"nekog drugog razloga."
 
 #: server_status.php:72
 msgid ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
+"The number of pages busy because they have been allocated for "
+"administrative overhead such as row locks or the adaptive hash index. "
+"This value can also be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 "Broj stranica koje su zauzete jer su dodijeljene za administrativna "
-"prepunjenja, poput zaključavanja redaka ili adaptivni indeks presjeka. Ovu "
-"je vrijednost moguće izračunati i kao Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+"prepunjenja, poput zaključavanja redaka ili adaptivni indeks presjeka."
+" Ovu je vrijednost moguće izračunati i kao "
+"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
+"Innodb_buffer_pool_pages_data."
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
@@ -8499,19 +8583,20 @@ msgstr "Ukupna veličina međuspremnika, u stranicama."
 
 #: server_status.php:74
 msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
+"The number of \"random\" read-aheads InnoDB initiated. This happens when "
+"a query is to scan a large portion of a table but in random order."
 msgstr ""
-"Broj \"nasumičnih\" pripremnih čitanja koje je InnoDB inicijalizirao. Događa "
-"se kad upit mora pretražiti veliki dio tablice, ali nasumičnim redoslijedom."
+"Broj \"nasumičnih\" pripremnih čitanja koje je InnoDB inicijalizirao. "
+"Događa se kad upit mora pretražiti veliki dio tablice, ali nasumičnim "
+"redoslijedom."
 
 #: server_status.php:75
 msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
+"The number of sequential read-aheads InnoDB initiated. This happens "
+"when InnoDB does a sequential full table scan."
 msgstr ""
-"Broj slijednih pripremnih čitanja koje je inicijalizirao InnoDB. Ovo se "
-"događa kad InnoDB izvodi potpuno pretraživanje tablice."
+"Broj slijednih pripremnih čitanja koje je inicijalizirao InnoDB. Ovo "
+"se događa kad InnoDB izvodi potpuno pretraživanje tablice."
 
 #: server_status.php:76
 msgid "The number of logical read requests InnoDB has done."
@@ -8519,25 +8604,26 @@ msgstr "Broj logičkih zahtjeva za čitanjem koje je obavio InnoDB."
 
 #: server_status.php:77
 msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
+"The number of logical reads that InnoDB could not satisfy from buffer "
+"pool and had to do a single-page read."
 msgstr ""
-"Broj logičkih čitanja koje InnoDB nije mogao zadovoljiti iz međuspremnik i "
-"morao je izvesti čitanje po jedne stranice."
+"Broj logičkih čitanja koje InnoDB nije mogao zadovoljiti iz "
+"međuspremnik i morao je izvesti čitanje po jedne stranice."
 
 #: server_status.php:78
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
+"However, if it's necessary to read or create a page and no clean pages "
+"are available, it's necessary to wait for pages to be flushed first. "
+"This counter counts instances of these waits. If the buffer pool size "
+"was set properly, this value should be small."
 msgstr ""
-"Uobičajeno, zapisivanja u InnoDB međuspremnik izvode se u pozadini. Ipak, "
-"ako je potrebno iščitati ili izraditi stranicu, a nema raspoložive prazne "
-"stranice, bit će potrebno pričekati pražnjenje stranice. Ovaj brojač "
-"prikazuje stanje ovog čekanja. Ako je veličina međuspremnika pravilno "
-"postavljena, ova bi vrijednost trebala biti malenom."
+"Uobičajeno, zapisivanja u InnoDB međuspremnik izvode se u pozadini. "
+"Ipak, ako je potrebno iščitati ili izraditi stranicu, a nema "
+"raspoložive prazne stranice, bit će potrebno pričekati pražnjenje "
+"stranice. Ovaj brojač prikazuje stanje ovog čekanja. Ako je veličina "
+"međuspremnika pravilno postavljena, ova bi vrijednost trebala biti "
+"malenom."
 
 #: server_status.php:79
 msgid "The number writes done to the InnoDB buffer pool."
@@ -8578,23 +8664,23 @@ msgstr "Količina podataka zapisanih do ovog trenutka, u bajtovima."
 #: server_status.php:88
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
-"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih za "
-"ovu potrebu."
+"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih"
+" za ovu potrebu."
 
 #: server_status.php:89
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
-"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih za "
-"ovu potrebu."
+"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih"
+" za ovu potrebu."
 
 #: server_status.php:90
 msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
+"The number of waits we had because log buffer was too small and we had "
+"to wait for it to be flushed before continuing."
 msgstr ""
 "Broj čekanja koja su se dogodila zbog nedovoljno velikog zapisnika "
-"međuspremnika, te je bilo potrebno čekati njegovo pražnjenje prije nastavka "
-"rada."
+"međuspremnika, te je bilo potrebno čekati njegovo pražnjenje prije "
+"nastavka rada."
 
 #: server_status.php:91
 msgid "The number of log write requests."
@@ -8626,12 +8712,13 @@ msgstr "Broj izrađenih stranica."
 
 #: server_status.php:98
 msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
+"The compiled-in InnoDB page size (default 16KB). Many values are "
+"counted in pages; the page size allows them to be easily converted to "
+"bytes."
 msgstr ""
-"Izrađena veličina InnoDB stranice (zadana vrijednost je 16kB). Mnoge se "
-"vrijednosti prebrojavaju u stranicama. Veličina stranice dopušta njihovo "
-"jednostavno pretvaranje u bajtove."
+"Izrađena veličina InnoDB stranice (zadana vrijednost je 16kB). Mnoge "
+"se vrijednosti prebrojavaju u stranicama. Veličina stranice dopušta "
+"njihovo jednostavno pretvaranje u bajtove."
 
 #: server_status.php:99
 msgid "The number of pages read."
@@ -8652,7 +8739,8 @@ msgstr "Prosječno vrijeme postizanja zaključanosti retka, u milisekundama."
 #: server_status.php:103
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
-"Ukupno vrijeme utrošeno na postizanja zaključanosti retka, u milisekundama."
+"Ukupno vrijeme utrošeno na postizanja zaključanosti retka, u "
+"milisekundama."
 
 #: server_status.php:104
 msgid "The maximum time to acquire a row lock, in milliseconds."
@@ -8680,28 +8768,30 @@ msgstr "Broj ažuriranih redaka u InnoDB tablicama."
 
 #: server_status.php:110
 msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+"The number of key blocks in the key cache that have changed but haven't"
+" yet been flushed to disk. It used to be known as "
+"Not_flushed_key_blocks."
 msgstr ""
-"Broj ključnih blokova u pohrani ključeva koji su izmijenjeni ali još nisu "
-"ispražnjeni na disk. Nekoć se nazivalo: Not_flushed_key_blocks."
+"Broj ključnih blokova u pohrani ključeva koji su izmijenjeni ali još "
+"nisu ispražnjeni na disk. Nekoć se nazivalo: Not_flushed_key_blocks."
 
 #: server_status.php:111
 msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
+"The number of unused blocks in the key cache. You can use this value to"
+" determine how much of the key cache is in use."
 msgstr ""
 "Broj neiskorištenih blokova u pohrani ključeva. Ovu vrijednost možete "
-"upotrijebiti za određivanje veličine pohrane ključeva koja je u upotrebi."
+"upotrijebiti za određivanje veličine pohrane ključeva koja je u "
+"upotrebi."
 
 #: server_status.php:112
 msgid ""
-"The number of used blocks in the key cache. This value is a high-water mark "
-"that indicates the maximum number of blocks that have ever been in use at "
-"one time."
+"The number of used blocks in the key cache. This value is a high-water "
+"mark that indicates the maximum number of blocks that have ever been in"
+" use at one time."
 msgstr ""
-"Broj iskorištenih blokova u pohrani ključeva. Ova je vrijednost oznaka "
-"gornje razine koja označuje najveći broj blokova koji su ikad bili u "
+"Broj iskorištenih blokova u pohrani ključeva. Ova je vrijednost oznaka"
+" gornje razine koja označuje najveći broj blokova koji su ikad bili u "
 "istovremenoj upotrebi."
 
 #: server_status.php:113
@@ -8710,14 +8800,14 @@ msgstr "Broj zahtjeva za čitanje ključnog bloka iz pohrane."
 
 #: server_status.php:114
 msgid ""
-"The number of physical reads of a key block from disk. If Key_reads is big, "
-"then your key_buffer_size value is probably too small. The cache miss rate "
-"can be calculated as Key_reads/Key_read_requests."
+"The number of physical reads of a key block from disk. If Key_reads is "
+"big, then your key_buffer_size value is probably too small. The cache "
+"miss rate can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"Broj fizičkih čitanja ključnih blokova s diska. Ako je iznos Key_reads "
-"velik, vjerojatno je vaša vrijednost key_buffer_size premala. Stupanj "
-"promašivanja pohrane moguće je izračunati putem naredbi Key_reads/"
-"Key_read_requests."
+"Broj fizičkih čitanja ključnih blokova s diska. Ako je iznos Key_reads"
+" velik, vjerojatno je vaša vrijednost key_buffer_size premala. Stupanj"
+" promašivanja pohrane moguće je izračunati putem naredbi "
+"Key_reads/Key_read_requests."
 
 #: server_status.php:115
 msgid "The number of requests to write a key block to the cache."
@@ -8730,12 +8820,14 @@ msgstr "Broj fizičkih zapisivanja ključnih blokova na disk. "
 #: server_status.php:117
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
-"same query. The default value of 0 means that no query has been compiled yet."
+"optimizer. Useful for comparing the cost of different query plans for "
+"the same query. The default value of 0 means that no query has been "
+"compiled yet."
 msgstr ""
-"Ukupan trošak posljednjeg složenog upita, izračunat od strane optimizatora "
-"upita. Korisno za uspoređivanje troškova različitih planova upita za isti "
-"upit. Zadana vrijednost je 0 i podrazumijeva da još nema složenog upita."
+"Ukupan trošak posljednjeg složenog upita, izračunat od strane "
+"optimizatora upita. Korisno za uspoređivanje troškova različitih "
+"planova upita za isti upit. Zadana vrijednost je 0 i podrazumijeva da "
+"još nema složenog upita."
 
 #: server_status.php:118
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8743,11 +8835,11 @@ msgstr "Broj redaka koji čekaju svoje upisivanje u red čekanja INSERT DELAYED.
 
 #: server_status.php:119
 msgid ""
-"The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
+"The number of tables that have been opened. If opened tables is big, "
+"your table cache value is probably too small."
 msgstr ""
-"Broj tablica koje su otvorene. Ako je iznos otvorenih tablica velik, vaša "
-"vrijednost za pohranu tablica vjerojatno je premala."
+"Broj tablica koje su otvorene. Ako je iznos otvorenih tablica velik, "
+"vaša vrijednost za pohranu tablica vjerojatno je premala."
 
 #: server_status.php:120
 msgid "The number of files that are open."
@@ -8756,7 +8848,8 @@ msgstr "Broj otvorenih datoteka."
 #: server_status.php:121
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"Broj otvorenih protoka (uglavnom se upotrebljava za vođenje zapisnika)."
+"Broj otvorenih protoka (uglavnom se upotrebljava za vođenje "
+"zapisnika)."
 
 #: server_status.php:122
 msgid "The number of tables that are open."
@@ -8781,23 +8874,23 @@ msgstr "Broj upita pridodanih u pohranu."
 #: server_status.php:127
 msgid ""
 "The number of queries that have been removed from the cache to free up "
-"memory for caching new queries. This information can help you tune the query "
-"cache size. The query cache uses a least recently used (LRU) strategy to "
-"decide which queries to remove from the cache."
+"memory for caching new queries. This information can help you tune the "
+"query cache size. The query cache uses a least recently used (LRU) "
+"strategy to decide which queries to remove from the cache."
 msgstr ""
-"Broj upita koji su uklonjeni iz pohrane radi oslobađanja memorije za potrebe "
-"pohranjivanja novih upita. Ovaj vam podatak može pomoći pri podešavanju "
-"veličine pohrane upita. Pohrana upita upotrebljava strategiju posljednjeg "
-"nedavno upotrebljavanog (LRU - least recently used) radi odlučivanja koje će "
-"upite ukloniti iz pohrane."
+"Broj upita koji su uklonjeni iz pohrane radi oslobađanja memorije za "
+"potrebe pohranjivanja novih upita. Ovaj vam podatak može pomoći pri "
+"podešavanju veličine pohrane upita. Pohrana upita upotrebljava "
+"strategiju posljednjeg nedavno upotrebljavanog (LRU - least recently "
+"used) radi odlučivanja koje će upite ukloniti iz pohrane."
 
 #: server_status.php:128
 msgid ""
-"The number of non-cached queries (not cachable, or not cached due to the "
-"query_cache_type setting)."
+"The number of non-cached queries (not cachable, or not cached due to "
+"the query_cache_type setting)."
 msgstr ""
-"Broj upita koji nisu pohranjeni (nisu za pohranu ili nisu pohranjeni zbog "
-"postavke query_cache_type)."
+"Broj upita koji nisu pohranjeni (nisu za pohranu ili nisu pohranjeni "
+"zbog postavke query_cache_type)."
 
 #: server_status.php:129
 msgid "The number of queries registered in the cache."
@@ -8818,33 +8911,35 @@ msgstr "Stanje replikacije sigurnosti protiv otkaza (još nije implementirano)."
 
 #: server_status.php:133
 msgid ""
-"The number of joins that do not use indexes. If this value is not 0, you "
-"should carefully check the indexes of your tables."
+"The number of joins that do not use indexes. If this value is not 0, "
+"you should carefully check the indexes of your tables."
 msgstr ""
-"Broj spojeva koji ne upotrebljavaju indekse. Ako ovaj iznos nije 0, bit će "
-"potrebno da pažljivo provjerite indekse vaših tablica."
+"Broj spojeva koji ne upotrebljavaju indekse. Ako ovaj iznos nije 0, "
+"bit će potrebno da pažljivo provjerite indekse vaših tablica."
 
 #: server_status.php:134
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
-"Broj spojeva koji nad referentnom tablicom upotrebljavaju opseg traženja."
+"Broj spojeva koji nad referentnom tablicom upotrebljavaju opseg "
+"traženja."
 
 #: server_status.php:135
 msgid ""
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, you should carefully check the indexes of your tables.)"
+"The number of joins without keys that check for key usage after each "
+"row. (If this is not 0, you should carefully check the indexes of your "
+"tables.)"
 msgstr ""
-"Broj spojeva bez ključeva koji provjeravaju upotrebu ključa nakon svakog "
-"retka. (Ako ovaj iznos nije 0, bit će potrebno da pažljivo provjerite "
-"indekse vaših tablica."
+"Broj spojeva bez ključeva koji provjeravaju upotrebu ključa nakon "
+"svakog retka. (Ako ovaj iznos nije 0, bit će potrebno da pažljivo "
+"provjerite indekse vaših tablica."
 
 #: server_status.php:136
 msgid ""
-"The number of joins that used ranges on the first table. (It's normally not "
-"critical even if this is big.)"
+"The number of joins that used ranges on the first table. (It's normally"
+" not critical even if this is big.)"
 msgstr ""
-"Broj spojeva koji su upotrijebili opsege nad prvom tablicom. (Općenito nije "
-"kritično ako je ovaj iznos velik.)"
+"Broj spojeva koji su upotrijebili opsege nad prvom tablicom. (Općenito"
+" nije kritično ako je ovaj iznos velik.)"
 
 #: server_status.php:137
 msgid "The number of joins that did a full scan of the first table."
@@ -8853,46 +8948,49 @@ msgstr "Broj spojeva koji su izveli potpuno pretraživanje prve tablice."
 #: server_status.php:138
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
-"Broj privremenih tablica koje su trenutno otvorene od strane potčinjene SQL "
-"grane."
+"Broj privremenih tablica koje su trenutno otvorene od strane "
+"potčinjene SQL grane."
 
 #: server_status.php:139
 msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
-"retried transactions."
+"Total (since startup) number of times the replication slave SQL thread "
+"has retried transactions."
 msgstr ""
-"Ukupna količina (od pokretanja) ponovnih pokušaja transakcija od strane "
-"replikacijske potčinjene SQL grane."
+"Ukupna količina (od pokretanja) ponovnih pokušaja transakcija od "
+"strane replikacijske potčinjene SQL grane."
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
-"Uključeno (ON) ako je ovaj poslužitelj potčinjen i povezan na gospodara."
+"Uključeno (ON) ako je ovaj poslužitelj potčinjen i povezan na "
+"gospodara."
 
 #: server_status.php:141
 msgid ""
-"The number of threads that have taken more than slow_launch_time seconds to "
-"create."
+"The number of threads that have taken more than slow_launch_time "
+"seconds to create."
 msgstr ""
-"Broj grana kojima je bilo potrebno više vremena za izradu, nego što je to "
-"definirano u slow_launch_time (sporo vrijeme pokretanja), u sekundama."
+"Broj grana kojima je bilo potrebno više vremena za izradu, nego što je"
+" to definirano u slow_launch_time (sporo vrijeme pokretanja), u "
+"sekundama."
 
 #: server_status.php:142
 msgid ""
-"The number of queries that have taken more than long_query_time seconds."
+"The number of queries that have taken more than long_query_time "
+"seconds."
 msgstr ""
-"Broj upita kojima je bilo potrebno više vremena nego što je to definirano u "
-"long_query_time (dugo vrijeme upita), u sekundama."
+"Broj upita kojima je bilo potrebno više vremena nego što je to "
+"definirano u long_query_time (dugo vrijeme upita), u sekundama."
 
 #: server_status.php:143
 msgid ""
-"The number of merge passes the sort algorithm has had to do. If this value "
-"is large, you should consider increasing the value of the sort_buffer_size "
-"system variable."
+"The number of merge passes the sort algorithm has had to do. If this "
+"value is large, you should consider increasing the value of the "
+"sort_buffer_size system variable."
 msgstr ""
-"Broj prolaza udruživanja koje je algoritam za preslagivanje morao izvesti. "
-"Ako je ovaj iznos velik, razmotrite mogućnost povećanja vrijednosti "
-"sistemske varijable sort_buffer_size."
+"Broj prolaza udruživanja koje je algoritam za preslagivanje morao "
+"izvesti. Ako je ovaj iznos velik, razmotrite mogućnost povećanja "
+"vrijednosti sistemske varijable sort_buffer_size."
 
 #: server_status.php:144
 msgid "The number of sorts that were done with ranges."
@@ -8912,25 +9010,27 @@ msgstr "Količina trenutno postignutih zaključavanja tablica."
 
 #: server_status.php:148
 msgid ""
-"The number of times that a table lock could not be acquired immediately and "
-"a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
-"tables or use replication."
+"The number of times that a table lock could not be acquired immediately"
+" and a wait was needed. If this is high, and you have performance "
+"problems, you should first optimize your queries, and then either split"
+" your table or tables or use replication."
 msgstr ""
-"Količina zaključavanja tablica koji nisu mogli biti trenutno postignuti i "
-"bilo je potrebno određeno čekanje. Ako je ovaj iznos visok i ako imate "
-"problema s performansama, bit će potrebno da prvo optimizirate svoje upite i "
-"potom ili podijelite svoje tablice ili upotrijebite replikaciju."
+"Količina zaključavanja tablica koji nisu mogli biti trenutno "
+"postignuti i bilo je potrebno određeno čekanje. Ako je ovaj iznos "
+"visok i ako imate problema s performansama, bit će potrebno da prvo "
+"optimizirate svoje upite i potom ili podijelite svoje tablice ili "
+"upotrijebite replikaciju."
 
 #: server_status.php:149
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
-"calculated as Threads_created/Connections. If this value is red you should "
-"raise your thread_cache_size."
+"calculated as Threads_created/Connections. If this value is red you "
+"should raise your thread_cache_size."
 msgstr ""
-"Broj grana u pohrani grana. Stupanj pogodaka u pohrani može se izračunati "
-"kao Threads_created/Connections. Ako je ovaj iznos prikazan crvenom bojom, "
-"bit će potrebno da povećate svoju vrijednost thread_cache_size."
+"Broj grana u pohrani grana. Stupanj pogodaka u pohrani može se "
+"izračunati kao Threads_created/Connections. Ako je ovaj iznos prikazan"
+" crvenom bojom, bit će potrebno da povećate svoju vrijednost "
+"thread_cache_size."
 
 #: server_status.php:150
 msgid "The number of currently open connections."
@@ -8938,15 +9038,15 @@ msgstr "Broj trenutno otvorenih veza."
 
 #: server_status.php:151
 msgid ""
-"The number of threads created to handle connections. If Threads_created is "
-"big, you may want to increase the thread_cache_size value. (Normally this "
-"doesn't give a notable performance improvement if you have a good thread "
-"implementation.)"
+"The number of threads created to handle connections. If Threads_created"
+" is big, you may want to increase the thread_cache_size value. "
+"(Normally this doesn't give a notable performance improvement if you "
+"have a good thread implementation.)"
 msgstr ""
-"Broj grana izrađenih za rukovanje vezama. Ako je iznos Threads_created "
-"velik, moglo bi biti potrebno da povećate vrijednost thread_cache_size. "
-"(Uobičajeno, ako imate dobru implementaciju grana, ova opcija neće pružiti "
-"primjetna poboljšanja performansi.)"
+"Broj grana izrađenih za rukovanje vezama. Ako je iznos Threads_created"
+" velik, moglo bi biti potrebno da povećate vrijednost "
+"thread_cache_size. (Uobičajeno, ako imate dobru implementaciju grana, "
+"ova opcija neće pružiti primjetna poboljšanja performansi.)"
 
 #: server_status.php:152
 msgid "The number of threads that are not sleeping."
@@ -9030,8 +9130,8 @@ msgstr "Ovaj MySQL poslužitelj radi tijekom %s. Pokrenut je %s."
 
 #: server_status.php:486
 msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
+"This MySQL server works as <b>master</b> and <b>slave</b> in "
+"<b>replication</b> process."
 msgstr ""
 
 #: server_status.php:488
@@ -9044,17 +9144,17 @@ msgstr ""
 
 #: server_status.php:492
 msgid ""
-"For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"For further information about replication status on the server, please "
+"visit the <a href=#replication>replication section</a>."
 msgstr ""
 
 #: server_status.php:509
 msgid ""
-"<b>Server traffic</b>: These tables show the network traffic statistics of "
-"this MySQL server since its startup."
+"<b>Server traffic</b>: These tables show the network traffic statistics"
+" of this MySQL server since its startup."
 msgstr ""
-"<b>Promet poslužitelja</b>: Ove tablice prikazuju statistike mrežnog prometa "
-"na ovom MySQL poslužitelju od trenutka njegovog pokretanja."
+"<b>Promet poslužitelja</b>: Ove tablice prikazuju statistike mrežnog "
+"prometa na ovom MySQL poslužitelju od trenutka njegovog pokretanja."
 
 #: server_status.php:514
 msgid "Traffic"
@@ -9062,12 +9162,12 @@ msgstr "Promet"
 
 #: server_status.php:514
 msgid ""
-"On a busy server, the byte counters may overrun, so those statistics as "
-"reported by the MySQL server may be incorrect."
+"On a busy server, the byte counters may overrun, so those statistics as"
+" reported by the MySQL server may be incorrect."
 msgstr ""
-"Na zaposlenom poslužitelju brojač bajtova mogao bi preletjeti svoj raspon "
-"prikaza, pri čemu bi statistike koje prikazuje MySQL poslužitelj mogle biti "
-"netočne."
+"Na zaposlenom poslužitelju brojač bajtova mogao bi preletjeti svoj "
+"raspon prikaza, pri čemu bi statistike koje prikazuje MySQL "
+"poslužitelj mogle biti netočne."
 
 #: server_status.php:515 server_status.php:560 server_status.php:625
 #: server_status.php:683
@@ -9101,10 +9201,11 @@ msgstr "Prekinuto"
 #: server_status.php:616
 #, php-format
 msgid ""
-"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
-"server."
+"<b>Query statistics</b>: Since its startup, %s queries have been sent "
+"to the server."
 msgstr ""
-"<b>Statistike upita</b>: Od pokretanja poslužitelju je upućeno %s upita."
+"<b>Statistike upita</b>: Od pokretanja poslužitelju je upućeno %s "
+"upita."
 
 #: server_status.php:626
 msgid "per minute"
@@ -9241,8 +9342,8 @@ msgstr ""
 
 #: server_synchronize.php:1209
 msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
+"Target database will be completely synchronized with source database. "
+"Source database will remain unchanged."
 msgstr ""
 
 #: server_variables.php:34
@@ -9267,9 +9368,10 @@ msgstr ""
 
 #: setup/frames/index.inc.php:50
 msgid ""
-"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"Please create web server writable folder [em]config[/em] in phpMyAdmin "
+"top level directory as described in "
+"[a@Documentation.html#setup_script]documentation[/a]. Otherwise you "
+"will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:57
@@ -9281,8 +9383,8 @@ msgstr ""
 #: setup/frames/index.inc.php:60
 #, php-format
 msgid ""
-"If your server is also configured to accept HTTPS requests follow [a@%s]this "
-"link[/a] to use a secure connection."
+"If your server is also configured to accept HTTPS requests follow "
+"[a@%s]this link[/a] to use a secure connection."
 msgstr ""
 
 #: setup/frames/index.inc.php:64
@@ -9378,13 +9480,14 @@ msgstr "Prikaži boju"
 
 #: setup/lib/index.lib.php:119
 msgid ""
-"Neither URL wrapper nor CURL is available. Version check is not possible."
+"Neither URL wrapper nor CURL is available. Version check is not "
+"possible."
 msgstr ""
 
 #: setup/lib/index.lib.php:126
 msgid ""
-"Reading of version failed. Maybe you're offline or the upgrade server does "
-"not respond."
+"Reading of version failed. Maybe you're offline or the upgrade server "
+"does not respond."
 msgstr ""
 
 #: setup/lib/index.lib.php:143
@@ -9398,8 +9501,8 @@ msgstr ""
 #: setup/lib/index.lib.php:162
 #, php-format
 msgid ""
-"You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
-"version is %s, released on %s."
+"You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest "
+"stable version is %s, released on %s."
 msgstr ""
 
 #: setup/lib/index.lib.php:165
@@ -9409,30 +9512,32 @@ msgstr ""
 #: setup/lib/index.lib.php:250
 #, php-format
 msgid ""
-"This %soption%s should be disabled as it allows attackers to bruteforce "
-"login to any MySQL server. If you feel this is necessary, use %strusted "
-"proxies list%s. However, IP-based protection may not be reliable if your IP "
-"belongs to an ISP where thousands of users, including you, are connected to."
+"This %soption%s should be disabled as it allows attackers to bruteforce"
+" login to any MySQL server. If you feel this is necessary, use "
+"%strusted proxies list%s. However, IP-based protection may not be "
+"reliable if your IP belongs to an ISP where thousands of users, "
+"including you, are connected to."
 msgstr ""
 
 #: setup/lib/index.lib.php:252
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled cookie "
+"authentication, so a key was automatically generated for you. It is "
+"used to encrypt cookies; you don't need to remember it."
 msgstr ""
 
 #: setup/lib/index.lib.php:253
 #, php-format
 msgid ""
-"%sBzip2 compression and decompression%s requires functions (%s) which are "
-"unavailable on this system."
+"%sBzip2 compression and decompression%s requires functions (%s) which "
+"are unavailable on this system."
 msgstr ""
 
 #: setup/lib/index.lib.php:255
 msgid ""
-"This value should be double checked to ensure that this directory is neither "
-"world accessible nor readable or writable by other users on your server."
+"This value should be double checked to ensure that this directory is "
+"neither world accessible nor readable or writable by other users on "
+"your server."
 msgstr ""
 
 #: setup/lib/index.lib.php:256
@@ -9443,63 +9548,64 @@ msgstr ""
 #: setup/lib/index.lib.php:258
 #, php-format
 msgid ""
-"%sGZip compression and decompression%s requires functions (%s) which are "
-"unavailable on this system."
+"%sGZip compression and decompression%s requires functions (%s) which "
+"are unavailable on this system."
 msgstr ""
 
 #: setup/lib/index.lib.php:260
 #, php-format
 msgid ""
-"%sLogin cookie validity%s greater than 1440 seconds may cause random session "
-"invalidation if %ssession.gc_maxlifetime%s is lower than its value "
-"(currently %d)."
+"%sLogin cookie validity%s greater than 1440 seconds may cause random "
+"session invalidation if %ssession.gc_maxlifetime%s is lower than its "
+"value (currently %d)."
 msgstr ""
 
 #: setup/lib/index.lib.php:262
 #, php-format
 msgid ""
-"%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
-"most. Values larger than 1800 may pose a security risk such as impersonation."
+"%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at"
+" most. Values larger than 1800 may pose a security risk such as "
+"impersonation."
 msgstr ""
 
 #: setup/lib/index.lib.php:264
 #, php-format
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using cookie authentication and %sLogin cookie store%s is not 0, "
+"%sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: setup/lib/index.lib.php:266
 #, php-format
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%shost authentication%s settings and %strusted proxies list%s. However,"
+" IP-based protection may not be reliable if your IP belongs to an ISP "
+"where thousands of users, including you, are connected to."
 msgstr ""
 
 #: setup/lib/index.lib.php:268
 #, php-format
 msgid ""
-"You set the [kbd]config[/kbd] authentication type and included username and "
-"password for auto-login, which is not a desirable option for live hosts. "
-"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"You set the [kbd]config[/kbd] authentication type and included username"
+" and password for auto-login, which is not a desirable option for live "
+"hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
+"access your phpMyAdmin panel. Set %sauthentication type%s to "
+"[kbd]cookie[/kbd] or [kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:270
 #, php-format
 msgid ""
-"%sZip compression%s requires functions (%s) which are unavailable on this "
-"system."
+"%sZip compression%s requires functions (%s) which are unavailable on "
+"this system."
 msgstr ""
 
 #: setup/lib/index.lib.php:272
 #, php-format
 msgid ""
-"%sZip decompression%s requires functions (%s) which are unavailable on this "
-"system."
+"%sZip decompression%s requires functions (%s) which are unavailable on "
+"this system."
 msgstr ""
 
 #: setup/lib/index.lib.php:296
@@ -9571,10 +9677,13 @@ msgstr "Funkcija"
 
 #: tbl_change.php:752
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
+#| msgid ""
+#| " Because of its length,<br /> this field might not be editable"
+#| " "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
-" Zbog svoje duljine,<br /> uređivanje ovog polja možda neće biti moguće "
+" Zbog svoje duljine,<br /> uređivanje ovog polja možda neće biti "
+"moguće "
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
@@ -9623,10 +9732,11 @@ msgstr "Uredi sljedeći redak"
 
 #: tbl_change.php:1093
 msgid ""
-"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+"Use TAB key to move from value to value, or CTRL+arrows to move "
+"anywhere"
 msgstr ""
-"Pomoću tipke TAB premještate se od jedne vrijednost do druge vrijednost, "
-"odnosno s tipkama CTRL+Strelice za premještanje bilo kamo"
+"Pomoću tipke TAB premještate se od jedne vrijednost do druge "
+"vrijednost, odnosno s tipkama CTRL+Strelice za premještanje bilo kamo"
 
 #: tbl_change.php:1131
 #, fuzzy, php-format
@@ -9643,11 +9753,11 @@ msgstr "Privilegije su uspješno učitane."
 #: tbl_chart.php:59
 #, fuzzy
 #| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
+#| "May be approximate. See "
+#| "[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 msgid ""
-"The result of this query can't be used for a chart. See [a@./Documentation."
-"html#faq6_29@Documentation]FAQ 6.29[/a]"
+"The result of this query can't be used for a chart. See "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr "Može biti približno. Pogledajte ČPP 3.11"
 
 #: tbl_chart.php:90
@@ -9720,19 +9830,20 @@ msgstr ""
 
 #: tbl_chart.php:155
 msgid ""
-"For compatibility reasons the chart image is segmented by default, select "
-"this to draw the whole chart in one image."
+"For compatibility reasons the chart image is segmented by default, "
+"select this to draw the whole chart in one image."
 msgstr ""
 
 #: tbl_chart.php:166
 msgid ""
-"When drawing a radar chart all values are normalized to a range [0..10]."
+"When drawing a radar chart all values are normalized to a range "
+"[0..10]."
 msgstr ""
 
 #: tbl_chart.php:173
 msgid ""
-"Note that not every result table can be put to the chart. See <a href=\"./"
-"Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+"Note that not every result table can be put to the chart. See <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
 
 #: tbl_chart.php:181
@@ -9783,9 +9894,11 @@ msgstr "Vrsta indeksa:"
 
 #: tbl_indexes.php:182
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary "
+"key!)"
 msgstr ""
-"(\"PRIMARY\" <b>mora biti</b> naziv i <b>samo naziv</b> primarnog ključa!)"
+"(\"PRIMARY\" <b>mora biti</b> naziv i <b>samo naziv</b> primarnog "
+"ključa!)"
 
 #: tbl_indexes.php:249
 #, php-format
@@ -9961,7 +10074,8 @@ msgstr " Veličina retka "
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-"Pogreška tijekom izrade stranog ključa na %1$s (provjerite vrste podataka)"
+"Pogreška tijekom izrade stranog ključa na %1$s (provjerite vrste "
+"podataka)"
 
 #: tbl_relation.php:402
 #, fuzzy
@@ -9974,7 +10088,8 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"Interna relacija nije potrebna ako postoji odgovarajuća relacija FOREIGN KEY."
+"Interna relacija nije potrebna ako postoji odgovarajuća relacija "
+"FOREIGN KEY."
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
@@ -10119,8 +10234,8 @@ msgstr ""
 
 #: tbl_tracking.php:215
 msgid ""
-"You can execute the dump by creating and using a temporary database. Please "
-"ensure that you have the privileges to do so."
+"You can execute the dump by creating and using a temporary database. "
+"Please ensure that you have the privileges to do so."
 msgstr ""
 
 #: tbl_tracking.php:216
@@ -10227,11 +10342,11 @@ msgstr "Izradi relaciju"
 #: themes.php:31
 #, php-format
 msgid ""
-"No themes support; please check your configuration and/or your themes in "
-"directory %s."
+"No themes support; please check your configuration and/or your themes "
+"in directory %s."
 msgstr ""
-"Podrška za teme ne postoji. Provjerite vašu konfiguraciju i/ili vaše teme u "
-"mapi %s."
+"Podrška za teme ne postoji. Provjerite vašu konfiguraciju i/ili vaše "
+"teme u mapi %s."
 
 #: themes.php:41
 msgid "Get more themes!"
@@ -10243,7 +10358,8 @@ msgstr "Raspoložive MIME vrste"
 
 #: transformation_overview.php:37
 msgid ""
-"MIME types printed in italics do not have a separate transformation function"
+"MIME types printed in italics do not have a separate transformation "
+"function"
 msgstr "MIME vrste ispisane kurzivom nemaju posebnu funkciju preoblikovanja"
 
 #: transformation_overview.php:42
@@ -10274,12 +10390,9 @@ msgstr "Naziv prikaza"
 msgid "Rename view to"
 msgstr "Preimenuj tablicu u"
 
-#, fuzzy
-#~| msgid "Show/Hide left menu"
 #~ msgid "Show left delete link"
 #~ msgstr "Prikaži/sakrij lijevi izbornik"
 
-#, fuzzy
 #~ msgid "yes"
 #~ msgstr "Da"
 
@@ -10289,12 +10402,9 @@ msgstr "Preimenuj tablicu u"
 #~ msgid "Disable Statistics"
 #~ msgstr "Onemogući statistike"
 
-#, fuzzy
 #~ msgid "Start"
 #~ msgstr "Sub"
 
-#, fuzzy
-#~| msgid "Displaying Column Comments"
 #~ msgid "Display table filter"
 #~ msgstr "Prikazivanje stupca komentara"
 
@@ -10302,8 +10412,8 @@ msgstr "Preimenuj tablicu u"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-#~ "saznali razloge, pritisnite %sovdje%s."
+#~ "Dodatne osobine za rad s relacijski tablicama su isključene. Kako "
+#~ "biste saznali razloge, pritisnite %sovdje%s."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Ignoriraj istovjetne redove"
@@ -10314,45 +10424,30 @@ msgstr "Preimenuj tablicu u"
 #~ msgid "No tables"
 #~ msgstr "Nema tablica"
 
-#, fuzzy
-#~| msgid "CSV"
 #~ msgid "SVG"
 #~ msgstr "CSV"
 
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
 #~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
+#~ "Enter each value in a separate field, enclosed in single quotes. If you"
+#~ " ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or "
+#~ "'a\\'b')."
 #~ msgstr ""
-#~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-#~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
-#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
+#~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: "
+#~ "'a', 100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\")"
+#~ " ili jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
 #~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
-#, fuzzy
-#~| msgid ""
-#~| "Please enter the values for transformation options using this format: "
-#~| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or "
-#~| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#~| "(for example '\\\\xyz' or 'a\\'b')."
 #~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ "Enter each value in a separate field. If you ever need to put a "
+#~ "backslash (\"\\\") or a single quote (\"'\") amongst those values, precede "
+#~ "it with a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-#~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
-#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
+#~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: "
+#~ "'a', 100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\")"
+#~ " ili jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
 #~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
-#, fuzzy
 #~ msgid "New table"
 #~ msgstr "Nema tablica"
 
@@ -10368,17 +10463,12 @@ msgstr "Preimenuj tablicu u"
 #~ msgid "Data Dictionary Format"
 #~ msgstr "Oblikovanje rječnika podataka"
 
-#, fuzzy
 #~ msgid "PMA database"
 #~ msgstr "Nema baza podataka"
 
-#, fuzzy
-#~| msgid "Add AUTO_INCREMENT value"
 #~ msgid "<code>AUTO_INCREMENT</code>"
 #~ msgstr "Dodaj vrijednost AUTO_INCREMENT"
 
-#, fuzzy
-#~| msgid "Dump %s row(s) starting at record # %s"
 #~ msgid "Dump %s row(s) starting at row # %s"
 #~ msgstr "Izbaci %s redaka, počevši od zapisa # %s."
 
@@ -10391,11 +10481,9 @@ msgstr "Preimenuj tablicu u"
 #~ msgid "Add into comments"
 #~ msgstr "Dodaj u komentare"
 
-#, fuzzy
 #~ msgid "Export triggers"
 #~ msgstr "Vrsta izvoza"
 
-#, fuzzy
 #~ msgid "Export views"
 #~ msgstr "Vrsta izvoza"
 
@@ -10408,29 +10496,20 @@ msgstr "Preimenuj tablicu u"
 #~ msgid "Interface"
 #~ msgstr "Sučelje"
 
-#, fuzzy
-#~| msgid "Table name"
 #~ msgid "Table removal"
 #~ msgstr "Naziv tablice"
 
-#, fuzzy
-#~| msgid "Enabled"
 #~ msgctxt "BLOB repository"
 #~ msgid "Enabled"
 #~ msgstr "Omogućeno"
 
-#, fuzzy
 #~ msgid "Disable"
 #~ msgstr "Onemogućeno"
 
-#, fuzzy
-#~| msgid "Repair"
 #~ msgctxt "BLOB repository"
 #~ msgid "Repair"
 #~ msgstr "Popravi"
 
-#, fuzzy
-#~| msgid "Disabled"
 #~ msgctxt "BLOB repository"
 #~ msgid "Disabled"
 #~ msgstr "Onemogućeno"
@@ -10439,23 +10518,24 @@ msgstr "Preimenuj tablicu u"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation]"
-#~ "[em]%1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+#~ "Nije moguće učitati proširenje "
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] . Provjerite "
+#~ "svoju PHP konfiguraciju."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenja iconv ili recode potrebna za pretvaranje "
-#~ "znakova. Potrebno je konfigurirati PHP radi omogućavanja ovih proširenja "
-#~ "ili unutar phpMyAdmin onemogućiti pretvaranje znakova."
+#~ "Nije moguće učitati proširenja iconv ili recode potrebna za "
+#~ "pretvaranje znakova. Potrebno je konfigurirati PHP radi omogućavanja "
+#~ "ovih proširenja ili unutar phpMyAdmin onemogućiti pretvaranje znakova."
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "Nije moguće upotrijebiti funkcije iconv, libiconv ili recode_string, iako "
-#~ "izgleda da su sva potrebna proširenja učitana. Provjerite svoju PHP "
-#~ "konfiguraciju."
+#~ "Nije moguće upotrijebiti funkcije iconv, libiconv ili recode_string, "
+#~ "iako izgleda da su sva potrebna proširenja učitana. Provjerite svoju "
+#~ "PHP konfiguraciju."
