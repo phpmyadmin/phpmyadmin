@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-10 14:02+0100\n"
-"PO-Revision-Date: 2011-02-17 04:18+0200\n"
+"PO-Revision-Date: 2011-02-17 04:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -600,10 +600,9 @@ msgid "Inside table(s):"
 msgstr "වගු(ව) තුල:"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "වගු(ව) තුල:"
+msgstr "තීරය තුල:"
 
 #: db_structure.php:59
 #, fuzzy
