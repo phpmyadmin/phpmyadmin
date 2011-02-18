@@ -423,18 +423,23 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
                             . '?' . $common_url_query; ?>', 'main');
                         return false;">
                     <?php
-                    if ($GLOBALS['text_dir'] === 'rtl') {
-                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    // Might be unset if CountTables directive is false
+                    if (isset($db['num_tables'])) {
+                        if ($GLOBALS['text_dir'] === 'rtl') {
+                            echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                        }
                     }
                     echo htmlspecialchars($db['disp_name']);
-                    if ($GLOBALS['text_dir'] === 'ltr') {
-                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    if (isset($db['num_tables'])) {
+                        if ($GLOBALS['text_dir'] === 'ltr') {
+                            echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                        }
                     }
                     ?>
                 </a>
                 <?php
             } else {
-                // with only 1 db available we dont need to refresh left frame
+                // with only 1 db available we dont need to refresh navi frame
                 // on db selection, only phpmain
                 ?>
                 <a href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
@@ -442,12 +447,16 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
                     id="<?php echo htmlspecialchars($db['name']); ?>"
                     title="<?php echo htmlspecialchars($db['comment']); ?>">
                     <?php
-                    if ($GLOBALS['text_dir'] === 'rtl') {
-                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    if (isset($db['num_tables'])) {
+                        if ($GLOBALS['text_dir'] === 'rtl') {
+                            echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                        }
                     }
                     echo htmlspecialchars($db['disp_name']);
-                    if ($GLOBALS['text_dir'] === 'ltr') {
-                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    if (isset($db['num_tables'])) {
+                        if ($GLOBALS['text_dir'] === 'ltr') {
+                            echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                        }
                     }
                     ?>
                 </a>
