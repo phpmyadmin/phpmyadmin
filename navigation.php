@@ -453,7 +453,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
                 </a>
                 <?php
             }
-            if ($db['num_tables']) {
+            if (($GLOBALS['cfg']['Server']['CountTables'] === false) || $db['num_tables']) {
                 if (isset($tables_full[$db['name']])) {
                     $tables = PMA_getTableList($db['name'], $tables_full[$db['name']]);
                 } elseif (isset($tables_full[strtolower($db['name'])])) {
