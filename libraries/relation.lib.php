@@ -22,7 +22,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 {
-    // Avoid caching of the number of rows affected; for example, this function 
+    // Avoid caching of the number of rows affected; for example, this function
     // is called for tracking purposes but we want to display the correct number
     // of rows affected by the original query, not by the query generated for
     // tracking.
@@ -759,10 +759,6 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
 function PMA_getHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
-
-    if (isset($_SESSION['sql_history'])) {
-        return array_reverse($_SESSION['sql_history']);
-    }
 
     if (! $cfgRelation['historywork']) {
         return false;
