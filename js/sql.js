@@ -643,12 +643,16 @@ $(document).ready(function() {
          */
         var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
 
-        $.each(params_to_submit, function(key, value) {
-            if(value.length == 0) {
-                value = 'NULL'
-            }
-           sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
-        })
+        // $.each() not used here since it cause problems when there is a column 
+        // in the table with the name 'length'. See bug #3184827
+        var value;
+        for (var key in params_to_submit) {
+        	value = params_to_submit[key];
+        	if (value.length == 0) {
+        		value = 'NULL';
+        	}
+        	sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
+        }
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + PMA_urldecode(where_clause);
