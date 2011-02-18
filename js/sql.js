@@ -649,9 +649,10 @@ $(document).ready(function() {
         for (var key in params_to_submit) {
         	value = params_to_submit[key];
         	if (value.length == 0) {
-        		value = 'NULL';
+        		sql_query += ' ' + key + "=NULL, ";
+        	} else {
+        		sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
         	}
-        	sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
         }
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
