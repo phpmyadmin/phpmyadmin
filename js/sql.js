@@ -230,10 +230,17 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
-                // fade out previous success message, if any
+                // fade out previous messages, if any
                 $('.success').fadeOut();
+                $('.sqlquery_message').fadeOut();
                 // show a message that stays on screen
                 $('#sqlqueryform').before(data.message);
+                // and display the query
+                $('<div class="sqlquery_message"></div>')
+                 .html(data.sql_query)
+                 .insertBefore('#sqlqueryform');
+                // unnecessary div that came from data.sql_query
+                $('.notice').remove();
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
