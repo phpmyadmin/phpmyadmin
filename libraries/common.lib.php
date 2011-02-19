@@ -2935,11 +2935,15 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
         $response = array_merge($response, $extra_data);
     }
 
-    // Set the Content-Type header to JSON so that jQuery parses the response correctly
-    if(!isset($GLOBALS['is_header_sent'])) {
-        header('Cache-Control: no-cache');
-        header("Content-Type: application/json");
-    }
+    // Set the Content-Type header to JSON so that jQuery parses the 
+    // response correctly.
+    //
+    // At this point, other headers might have been sent;
+    // even if $GLOBALS['is_header_sent'] is true,
+    // we have to send these additional headers.
+    header('Cache-Control: no-cache');
+    header("Content-Type: application/json");
+
     echo json_encode($response);
     exit;
 }
