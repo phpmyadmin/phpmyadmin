@@ -1234,11 +1234,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         // 2. Displays the rows' values
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $meta    = $fields_meta[$i];
+            $not_null_class = $meta->not_null ? 'not_null' : '';
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $alternating_color_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.

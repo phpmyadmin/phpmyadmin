@@ -425,14 +425,45 @@ $(document).ready(function() {
              * @see getFieldName()
              */
             var field_name = getFieldName($this_field, disp_mode);
+            /**
+             * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
+             */
+            var relation_curr_value = $this_field.find('a').text();
+            /**
+             * @var enum_curr_value String current value of the field (for fields that are of type enum).
+             */
+            var enum_curr_value = $this_field.text();
+
+            if($this_field.is(':not(.not_null)')){
+            	// add a checkbox to mark null for all the field that are nullable.
+            	$this_field.html('<div>Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
+            	// check the 'checkbox_null_<field_name>' if the value is null
+            	if($this_field.is('.null')) {
+            		$('.checkbox_null_' + field_name).attr('checked', true);
+            	}
+
+            	// if 'chechbox_null_<field_name>' is clicked empty the select/editor.
+            	$('.checkbox_null_' + field_name).bind('click', function(e) {
+            		if ($this_field.is('.enum, .set')) {
+            			$this_field.find('select').selectedIndex = -1;
+            		} else if ($this_field.is('.relation')) {
+            			$this_field.find('select').attr('value', '');
+            		} else {
+            			$this_field.find('textarea').empty();
+            		}
+            	})
+
+            } else {
+            	$this_field.html('');
+            }
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
             if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
-                $this_field.html('<textarea>'+data_value+'</textarea>')
-                .append('<span class="original_data">'+data_value+'</span>');
+                $this_field.append('<textarea>'+data_value+'</textarea>');
+                $this_field.append('<span class="original_data">'+data_value+'</span>');
                 $(".original_data").hide();
             }
             else if($this_field.is('.truncated, .transformed')) {
@@ -453,8 +484,8 @@ $(document).ready(function() {
                     'inline_edit' : true
                 }, function(data) {
                     if(data.success == true) {
-                        $this_field.html('<textarea>'+data.value+'</textarea>')
-                        .append('<span class="original_data">'+data_value+'</span>');
+                        $this_field.append('<textarea>'+data.value+'</textarea>');
+                        $this_field.append('<span class="original_data">'+data_value+'</span>');
                         $(".original_data").hide();
                     }
                     else {
@@ -467,11 +498,6 @@ $(document).ready(function() {
                 //handle relations
 
                 /**
-                 * @var curr_value  String containing the current value of this relational field
-                 */
-                var curr_value = $this_field.find('a').text();
-
-                /**
                  * @var post_params Object containing parameters for the POST request
                  */
                 var post_params = {
@@ -481,22 +507,18 @@ $(document).ready(function() {
                         'table' : window.parent.table,
                         'column' : field_name,
                         'token' : window.parent.token,
-                        'curr_value' : curr_value
+                        'curr_value' : relation_curr_value
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.html(data.dropdown)
-                    .append('<span class="original_data">'+data_value+'</span>');
+                    $this_field.append(data.dropdown);
+                    $this_field.append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
             }
             else if($this_field.is('.enum')) {
                 /** @lends jQuery */
                 //handle enum fields
-                /**
-                 * @var curr_value  String containing the current value of this relational field
-                 */
-                var curr_value = $this_field.text();
 
                 /**
                  * @var post_params Object containing parameters for the POST request
@@ -508,19 +530,19 @@ $(document).ready(function() {
                         'table' : window.parent.table,
                         'column' : field_name,
                         'token' : window.parent.token,
-                        'curr_value' : curr_value
+                        'curr_value' : enum_curr_value
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.html(data.dropdown)
-                    .append('<span class="original_data">'+data_value+'</span>');
+                	$this_field.append(data.dropdown);
+                    $this_field.append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
             }
             else if($this_field.is('.null')) {
                 //handle null fields
-                $this_field.html('<textarea></textarea>')
-                .append('<span class="original_data">NULL</span>');
+            	$this_field.append('<textarea></textarea>');
+                $this_field.append('<span class="original_data">NULL</span>');
                 $(".original_data").hide();
             }
         })
@@ -581,10 +603,6 @@ $(document).ready(function() {
 
         // Collect values of all fields to submit, we don't know which changed
         /**
-         * @var params_to_submit    Array containing the name/value pairs of all fields
-         */
-        var params_to_submit = {};
-        /**
          * @var relation_fields Array containing the name/value pairs of relational fields
          */
         var relation_fields = {};
@@ -596,6 +614,11 @@ $(document).ready(function() {
          * @var transformation_fields   Boolean, if there are any transformed fields in this row
          */
         var transformation_fields = false;
+
+        /**
+         * @var sql_query String containing the SQL query to update this row
+         */
+        var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
 
         $input_siblings.each(function() {
             /** @lends jQuery */
@@ -617,50 +640,43 @@ $(document).ready(function() {
             if($this_field.is('.transformed')) {
                 transformation_fields =  true;
             }
+            /**
+             * @var is_null String capturing whether 'checkbox_null_<field_name>' is checked.
+             */
+            var is_null = $this_field.find('input:checkbox').is(':checked');
+            var value;
 
-            if($this_field.is(":not(.relation, .enum)")) {
-                this_field_params[field_name] = $this_field.find('textarea').val();
-                if($this_field.is('.transformed')) {
-                    $.extend(transform_fields, this_field_params);
-                }
+            if (is_null) {
+            	sql_query += ' ' + field_name + "=NULL , ";
+            } else {
+	            if($this_field.is(":not(.relation, .enum)")) {
+	                this_field_params[field_name] = $this_field.find('textarea').val();                
+	                if($this_field.is('.transformed')) {
+	                    $.extend(transform_fields, this_field_params);
+	                }                
+	            }
+	            else {
+	                // results from a drop-down
+	                $test_element = $this_field.find('select');
+	                if ($test_element.length != 0) {
+	                    this_field_params[field_name] = $test_element.val();
+	                }
+	
+	                // results from Browse foreign value
+	                $test_element = $this_field.find('span.curr_value');
+	                if ($test_element.length != 0) {
+	                    this_field_params[field_name] = $test_element.text();
+	                }
+	
+	                if($this_field.is('.relation')) {
+	                    $.extend(relation_fields, this_field_params);
+	                }
+	            }
+	
+	            sql_query += ' ' + field_name + "='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
             }
-            else {
-                // results from a drop-down
-                $test_element = $this_field.find('select');
-                if ($test_element.length != 0) {
-                    this_field_params[field_name] = $test_element.val();
-                }
-
-                // results from Browse foreign value
-                $test_element = $this_field.find('span.curr_value');
-                if ($test_element.length != 0) {
-                    this_field_params[field_name] = $test_element.text();
-                }
-
-                if($this_field.is('.relation')) {
-                    $.extend(relation_fields, this_field_params);
-                }
-            }
-
-            $.extend(params_to_submit, this_field_params);
         })
 
-        /**
-         * @var sql_query   String containing the SQL query to update this row
-         */
-        var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
-
-        // $.each() not used here since it cause problems when there is a column 
-        // in the table with the name 'length'. See bug #3184827
-        var value;
-        for (var key in params_to_submit) {
-        	value = params_to_submit[key];
-        	if (value.length == 0) {
-        		sql_query += ' ' + key + "=NULL, ";
-        	} else {
-        		sql_query += ' ' + key + "='" + value.replace(/'/g, "''") + "' , ";
-        	}
-        }
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + PMA_urldecode(where_clause);
@@ -702,57 +718,65 @@ $(document).ready(function() {
                 $input_siblings.each(function() {
                     // Inline edit post has been successful.
                     $this_sibling = $(this);
-                    if($this_sibling.is(':not(.relation, .enum)')) {
-                        /**
-                         * @var new_html    String containing value of the data field after edit
-                         */
-                        var new_html = $this_sibling.find('textarea').val();
-
-                        if($this_sibling.is('.transformed')) {
-                            var field_name = getFieldName($this_sibling, disp_mode);
-                            $.each(data.transformations, function(key, value) {
-                                if(key == field_name) {
-                                    if($this_sibling.is('.text_plain, .application_octetstream')) {
-                                        new_html = value;
-                                        return false;
-                                    }
-                                    else {
-                                        var new_value = $this_sibling.find('textarea').val();
-                                        new_html = $(value).append(new_value);
-                                        return false;
-                                    }
-                                }
-                            })
-                        }
+                    
+                    var is_null = $this_sibling.find('input:checkbox').is(':checked');
+                    if (is_null) {
+                    	$this_sibling.html('NULL');
+                    	$this_sibling.addClass('null');
+                    } else {
+                    	$this_sibling.removeClass('null');
+	                    if($this_sibling.is(':not(.relation, .enum)')) {
+	                        /**
+	                         * @var new_html    String containing value of the data field after edit
+	                         */
+	                        var new_html = $this_sibling.find('textarea').val();
+	
+	                        if($this_sibling.is('.transformed')) {
+	                            var field_name = getFieldName($this_sibling, disp_mode);
+	                            $.each(data.transformations, function(key, value) {
+	                                if(key == field_name) {
+	                                    if($this_sibling.is('.text_plain, .application_octetstream')) {
+	                                        new_html = value;
+	                                        return false;
+	                                    }
+	                                    else {
+	                                        var new_value = $this_sibling.find('textarea').val();
+	                                        new_html = $(value).append(new_value);
+	                                        return false;
+	                                    }
+	                                }
+	                            })
+	                        }
+	                    }
+	                    else {
+	                        var new_html = '';
+	                        var new_value = '';
+	                        $test_element = $this_sibling.find('select');
+	                        if ($test_element.length != 0) {
+	                            new_value = $test_element.val();
+	                        }
+	
+	                        $test_element = $this_sibling.find('span.curr_value');
+	                        if ($test_element.length != 0) {
+	                            new_value = $test_element.text();
+	                        }
+	
+	
+	                        if($this_sibling.is('.relation')) {
+	                            var field_name = getFieldName($this_sibling, disp_mode);
+	                            $.each(data.relations, function(key, value) {
+	                                if(key == field_name) {
+	                                    new_html = $(value).append(new_value);
+	                                    return false;
+	                                }
+	                            })
+	                        }
+	                        if($this_sibling.is('.enum')) {
+	                            new_html = new_value;
+	                        }
+	                    }
+	                    $this_sibling.html(new_html);
                     }
-                    else {
-                        var new_html = '';
-                        var new_value = '';
-                        $test_element = $this_sibling.find('select');
-                        if ($test_element.length != 0) {
-                            new_value = $test_element.val();
-                        }
-
-                        $test_element = $this_sibling.find('span.curr_value');
-                        if ($test_element.length != 0) {
-                            new_value = $test_element.text();
-                        }
-
-
-                        if($this_sibling.is('.relation')) {
-                            var field_name = getFieldName($this_sibling, disp_mode);
-                            $.each(data.relations, function(key, value) {
-                                if(key == field_name) {
-                                    new_html = $(value).append(new_value);
-                                    return false;
-                                }
-                            })
-                        }
-                        if($this_sibling.is('.enum')) {
-                            new_html = new_value;
-                        }
-                    }
-                    $this_sibling.html(new_html);
                 })
             }
             else {
