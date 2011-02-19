@@ -212,6 +212,7 @@ $(document).ready(function() {
                 width: 800,
                 // height is a workaround for this Chrome problem:
                 // http://bugs.jqueryui.com/ticket/4671
+                // also it's interesting to be able to scroll this window
                 height: 600,
                 modal: true,
                 buttons: button_options
@@ -322,6 +323,7 @@ $(document).ready(function() {
             .append(data)
             .dialog({
                 width: 900,
+                height: 600,
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
