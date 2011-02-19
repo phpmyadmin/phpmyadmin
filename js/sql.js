@@ -442,6 +442,18 @@ $(document).ready(function() {
                     $('.checkbox_null_' + field_name).attr('checked', true);
                 }
 
+                // if the select/editor is changed un-check the 'checkbox_null_<field_name>'.
+                if ($this_field.is('.enum, .set')) {
+                    var $editor = $this_field.find('select');
+                } else if ($this_field.is('.relation')) {
+                    var $editor = $this_field.find('select');
+                } else {
+                    var $editor = $this_field.find('textarea');
+                }
+                $editor.live('change', function(e) { 
+                    $('.checkbox_null_' + field_name).attr('checked', false);
+                })
+
                 // if 'chechbox_null_<field_name>' is clicked empty the select/editor.
                 $('.checkbox_null_' + field_name).bind('click', function(e) {
                     if ($this_field.is('.enum, .set')) {
