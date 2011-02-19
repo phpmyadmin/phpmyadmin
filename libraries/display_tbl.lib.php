@@ -1234,11 +1234,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         // 2. Displays the rows' values
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $meta    = $fields_meta[$i];
+            $not_null_class = $meta->not_null ? 'not_null' : '';
+            $relation_class = isset($map[$meta->name]) ? 'relation' : '';
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $alternating_color_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -2426,7 +2428,6 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
     $result = ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . (isset($map[$meta->name]) ? ' relation' : '')
     . $enum_class . $mime_type_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
