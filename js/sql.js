@@ -203,6 +203,10 @@ $(document).ready(function() {
             $link.siblings().slideToggle("fast");
             if ($link.text() == PMA_messages['strHideQueryBox']) {
                 $link.text(PMA_messages['strShowQueryBox']);
+                // cheap trick to add a spacer between the menu tabs
+                // and "Show query box"; feel free to improve!
+                $('#togglequerybox_spacer').remove();
+                $link.before('<br id="togglequerybox_spacer" />');
             } else {
                 $link.text(PMA_messages['strHideQueryBox']);
             }
