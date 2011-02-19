@@ -224,9 +224,9 @@ $(document).ready(function() {
         $form = $(this);
         PMA_ajaxShowMessage();
 
-	    if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-        	$form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-	    }
+        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        }
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
@@ -435,26 +435,26 @@ $(document).ready(function() {
             var enum_curr_value = $this_field.text();
 
             if($this_field.is(':not(.not_null)')){
-            	// add a checkbox to mark null for all the field that are nullable.
-            	$this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
-            	// check the 'checkbox_null_<field_name>' if the value is null
-            	if($this_field.is('.null')) {
-            		$('.checkbox_null_' + field_name).attr('checked', true);
-            	}
+                // add a checkbox to mark null for all the field that are nullable.
+                $this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
+                // check the 'checkbox_null_<field_name>' if the value is null
+                if($this_field.is('.null')) {
+                    $('.checkbox_null_' + field_name).attr('checked', true);
+                }
 
-            	// if 'chechbox_null_<field_name>' is clicked empty the select/editor.
-            	$('.checkbox_null_' + field_name).bind('click', function(e) {
-            		if ($this_field.is('.enum, .set')) {
-            			$this_field.find('select').selectedIndex = -1;
-            		} else if ($this_field.is('.relation')) {
-            			$this_field.find('select').attr('value', '');
-            		} else {
-            			$this_field.find('textarea').empty();
-            		}
-            	})
+                // if 'chechbox_null_<field_name>' is clicked empty the select/editor.
+                $('.checkbox_null_' + field_name).bind('click', function(e) {
+                    if ($this_field.is('.enum, .set')) {
+                        $this_field.find('select').selectedIndex = -1;
+                    } else if ($this_field.is('.relation')) {
+                        $this_field.find('select').attr('value', '');
+                    } else {
+                        $this_field.find('textarea').empty();
+                    }
+                })
 
             } else {
-            	$this_field.html('<div class="null_div"></div>');
+                $this_field.html('<div class="null_div"></div>');
             }
 
             // In each input sibling, wrap the current value in a textarea
@@ -534,14 +534,14 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                	$this_field.append(data.dropdown);
+                    $this_field.append(data.dropdown);
                     $this_field.append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
             }
             else if($this_field.is('.null')) {
                 //handle null fields
-            	$this_field.append('<textarea></textarea>');
+                $this_field.append('<textarea></textarea>');
                 $this_field.append('<span class="original_data">NULL</span>');
                 $(".original_data").hide();
             }
@@ -647,33 +647,33 @@ $(document).ready(function() {
             var value;
 
             if (is_null) {
-            	sql_query += ' ' + field_name + "=NULL , ";
+                sql_query += ' ' + field_name + "=NULL , ";
             } else {
-	            if($this_field.is(":not(.relation, .enum)")) {
-	                this_field_params[field_name] = $this_field.find('textarea').val();                
-	                if($this_field.is('.transformed')) {
-	                    $.extend(transform_fields, this_field_params);
-	                }                
-	            }
-	            else {
-	                // results from a drop-down
-	                $test_element = $this_field.find('select');
-	                if ($test_element.length != 0) {
-	                    this_field_params[field_name] = $test_element.val();
-	                }
-	
-	                // results from Browse foreign value
-	                $test_element = $this_field.find('span.curr_value');
-	                if ($test_element.length != 0) {
-	                    this_field_params[field_name] = $test_element.text();
-	                }
-	
-	                if($this_field.is('.relation')) {
-	                    $.extend(relation_fields, this_field_params);
-	                }
-	            }
-	
-	            sql_query += ' ' + field_name + "='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
+                if($this_field.is(":not(.relation, .enum)")) {
+                    this_field_params[field_name] = $this_field.find('textarea').val();
+                    if($this_field.is('.transformed')) {
+                        $.extend(transform_fields, this_field_params);
+                    }
+                }
+                else {
+                    // results from a drop-down
+                    $test_element = $this_field.find('select');
+                    if ($test_element.length != 0) {
+                        this_field_params[field_name] = $test_element.val();
+                    }
+
+                    // results from Browse foreign value
+                    $test_element = $this_field.find('span.curr_value');
+                    if ($test_element.length != 0) {
+                        this_field_params[field_name] = $test_element.text();
+                    }
+
+                    if($this_field.is('.relation')) {
+                        $.extend(relation_fields, this_field_params);
+                    }
+                }
+
+                sql_query += ' ' + field_name + "='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
             }
         })
 
@@ -718,64 +718,63 @@ $(document).ready(function() {
                 $input_siblings.each(function() {
                     // Inline edit post has been successful.
                     $this_sibling = $(this);
-                    
+
                     var is_null = $this_sibling.find('input:checkbox').is(':checked');
                     if (is_null) {
-                    	$this_sibling.html('NULL');
-                    	$this_sibling.addClass('null');
+                        $this_sibling.html('NULL');
+                        $this_sibling.addClass('null');
                     } else {
-                    	$this_sibling.removeClass('null');
-	                    if($this_sibling.is(':not(.relation, .enum)')) {
-	                        /**
-	                         * @var new_html    String containing value of the data field after edit
-	                         */
-	                        var new_html = $this_sibling.find('textarea').val();
-	
-	                        if($this_sibling.is('.transformed')) {
-	                            var field_name = getFieldName($this_sibling, disp_mode);
-	                            $.each(data.transformations, function(key, value) {
-	                                if(key == field_name) {
-	                                    if($this_sibling.is('.text_plain, .application_octetstream')) {
-	                                        new_html = value;
-	                                        return false;
-	                                    }
-	                                    else {
-	                                        var new_value = $this_sibling.find('textarea').val();
-	                                        new_html = $(value).append(new_value);
-	                                        return false;
-	                                    }
-	                                }
-	                            })
-	                        }
-	                    }
-	                    else {
-	                        var new_html = '';
-	                        var new_value = '';
-	                        $test_element = $this_sibling.find('select');
-	                        if ($test_element.length != 0) {
-	                            new_value = $test_element.val();
-	                        }
-	
-	                        $test_element = $this_sibling.find('span.curr_value');
-	                        if ($test_element.length != 0) {
-	                            new_value = $test_element.text();
-	                        }
-	
-	
-	                        if($this_sibling.is('.relation')) {
-	                            var field_name = getFieldName($this_sibling, disp_mode);
-	                            $.each(data.relations, function(key, value) {
-	                                if(key == field_name) {
-	                                    new_html = $(value).append(new_value);
-	                                    return false;
-	                                }
-	                            })
-	                        }
-	                        if($this_sibling.is('.enum')) {
-	                            new_html = new_value;
-	                        }
-	                    }
-	                    $this_sibling.html(new_html);
+                        $this_sibling.removeClass('null');
+                        if($this_sibling.is(':not(.relation, .enum)')) {
+                            /**
+                             * @var new_html    String containing value of the data field after edit
+                             */
+                            var new_html = $this_sibling.find('textarea').val();
+
+                            if($this_sibling.is('.transformed')) {
+                                var field_name = getFieldName($this_sibling, disp_mode);
+                                $.each(data.transformations, function(key, value) {
+                                    if(key == field_name) {
+                                        if($this_sibling.is('.text_plain, .application_octetstream')) {
+                                            new_html = value;
+                                            return false;
+                                        }
+                                        else {
+                                            var new_value = $this_sibling.find('textarea').val();
+                                            new_html = $(value).append(new_value);
+                                            return false;
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                        else {
+                            var new_html = '';
+                            var new_value = '';
+                            $test_element = $this_sibling.find('select');
+                            if ($test_element.length != 0) {
+                                new_value = $test_element.val();
+                            }
+
+                            $test_element = $this_sibling.find('span.curr_value');
+                            if ($test_element.length != 0) {
+                                new_value = $test_element.text();
+                            }
+
+                            if($this_sibling.is('.relation')) {
+                                var field_name = getFieldName($this_sibling, disp_mode);
+                                $.each(data.relations, function(key, value) {
+                                    if(key == field_name) {
+                                        new_html = $(value).append(new_value);
+                                        return false;
+                                    }
+                                })
+                            }
+                            if($this_sibling.is('.enum')) {
+                                new_html = new_value;
+                            }
+                        }
+                        $this_sibling.html(new_html);
                     }
                 })
             }
