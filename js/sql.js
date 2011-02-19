@@ -192,12 +192,15 @@ $(document).ready(function() {
     if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
         $('<a id="togglequerybox"></a>')
         .html(PMA_messages['strHideQueryBox'])
-        .appendTo("#sqlqueryform");
+        .appendTo("#sqlqueryform")
+        // initially hidden because at this point, nothing else
+        // appears under the link
+        .hide();
 
         // Attach the toggling of the query box visibility to a click
         $("#togglequerybox").bind('click', function() {
             var $link = $(this)
-            $link.siblings().slideToggle("medium");
+            $link.siblings().slideToggle("fast");
             if ($link.text() == PMA_messages['strHideQueryBox']) {
                 $link.text(PMA_messages['strShowQueryBox']);
             } else {
@@ -263,6 +266,7 @@ $(document).ready(function() {
                 $('#sqlqueryresults').show();
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
+                $('#togglequerybox').show();
                 if($("#togglequerybox").siblings(":visible").length > 0) {
                     $("#togglequerybox").trigger('click');
                 }
