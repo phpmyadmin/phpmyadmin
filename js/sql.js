@@ -436,7 +436,7 @@ $(document).ready(function() {
 
             if($this_field.is(':not(.not_null)')){
             	// add a checkbox to mark null for all the field that are nullable.
-            	$this_field.html('<div>Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
+            	$this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
             	// check the 'checkbox_null_<field_name>' if the value is null
             	if($this_field.is('.null')) {
             		$('.checkbox_null_' + field_name).attr('checked', true);
@@ -454,7 +454,7 @@ $(document).ready(function() {
             	})
 
             } else {
-            	$this_field.html('');
+            	$this_field.html('<div class="null_div"></div>');
             }
 
             // In each input sibling, wrap the current value in a textarea
