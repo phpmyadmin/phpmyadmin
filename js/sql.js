@@ -452,24 +452,36 @@ $(document).ready(function() {
 
                 // if the select/editor is changed un-check the 'checkbox_null_<field_name>'.
                 if ($this_field.is('.enum, .set')) {
-                    var $editor = $this_field.find('select');
+                    $this_field.find('select').live('change', function(e) {
+                        $('.checkbox_null_' + field_name).attr('checked', false);
+                    })
                 } else if ($this_field.is('.relation')) {
-                    var $editor = $this_field.find('select');
+                    $this_field.find('select').live('change', function(e) {
+                        $('.checkbox_null_' + field_name).attr('checked', false);
+                    })
+                    $this_field.find('.browse_foreign').live('click', function(e) {
+                        $('.checkbox_null_' + field_name).attr('checked', false);
+                    })
                 } else {
-                    var $editor = $this_field.find('textarea');
+                    $this_field.find('textarea').live('keypress', function(e) {
+                        $('.checkbox_null_' + field_name).attr('checked', false);
+                    })
                 }
-                $editor.live('change', function(e) { 
-                    $('.checkbox_null_' + field_name).attr('checked', false);
-                })
 
                 // if 'chechbox_null_<field_name>' is clicked empty the select/editor.
                 $('.checkbox_null_' + field_name).bind('click', function(e) {
                     if ($this_field.is('.enum, .set')) {
                         $this_field.find('select').selectedIndex = -1;
                     } else if ($this_field.is('.relation')) {
-                        $this_field.find('select').attr('value', '');
+                        // if the dropdown is there to select the foreign value
+                        if ($this_field.find('select').length > 0) {
+                            $this_field.find('select').attr('value', '');
+                        // if foriegn value is selected by browsing foreing values
+                        } else {
+                            $this_field.find('span.curr_value').empty();
+                        }
                     } else {
-                        $this_field.find('textarea').empty();
+                        $this_field.find('textarea').val('');
                     }
                 })
 
