@@ -1,17 +1,15 @@
 # phpMyAdmin translation.
 # Copyright (C) 2003 - 2011 phpMyAdmin devel team
 # This file is distributed under the same license as the phpMyAdmin package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-02-10 14:03+0100\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Malayalam <ml@li.org>\n"
+"Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
