@@ -79,7 +79,7 @@ if (! empty($_SESSION['debug'])) {
     }
 
     echo '<div>';
-    echo count($_SESSION['debug']['queries']) . ' queries executed'
+    echo count($_SESSION['debug']['queries']) . ' queries executed '
         . $sum_exec . ' times in ' . $sum_time . ' seconds';
     echo '<pre>';
     print_r($_SESSION['debug']);
