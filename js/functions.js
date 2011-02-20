@@ -831,6 +831,14 @@ function checkTableEditForm(theForm, fieldsCnt)
         return false;
     }
 
+    // at least this section is under jQuery
+    if ($("input.textfield[name='table']").val() == "") {
+        alert(PMA_messages['strFormEmpty']);
+        $("input.textfield[name='table']").focus();
+        return false;
+    }
+
+
     return true;
 } // enf of the 'checkTableEditForm()' function
 
