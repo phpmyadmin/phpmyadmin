@@ -163,6 +163,7 @@ div.null_div {
     height: 20px;
     text-align: center;
     font-style:normal;
+    min-width:50px;
 }
 
 fieldset .formelement {

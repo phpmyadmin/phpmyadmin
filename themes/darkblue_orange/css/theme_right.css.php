@@ -176,6 +176,13 @@ fieldset.tblFooters {
     clear:              both;
 }
 
+div.null_div {
+    height: 20px;
+    text-align: center;
+    font-style:normal;
+    min-width:60px;
+}
+
 fieldset .formelement {
     float:              <?php echo $left; ?>;
     margin-<?php echo $right; ?>:       0.5em;
@@ -258,6 +265,14 @@ tr.condition td,
 td.condition,
 th.condition {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+}
+
+/**
+ * cells with the value NULL
+ */
+td.null {
+    font-style: italic;
+    text-align: <?php echo $right; ?>;
 }
 
 table .value {
