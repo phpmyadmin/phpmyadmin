@@ -65,6 +65,9 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
+// Needed for generation of Inline Edit anchors
+$GLOBALS['js_include'][] = 'sql.js';
+
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
     $GLOBALS['js_include'][] = 'tbl_change.js';
