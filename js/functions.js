@@ -2016,11 +2016,7 @@ $(document).ready(function() {
 
         $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
             if(data.success == true) {
-
-                PMA_ajaxShowMessage(data.message);
-
                 $("#topmenucontainer").after(data.sql_query);
-
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
             }

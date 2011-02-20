@@ -110,7 +110,7 @@ if (isset($_REQUEST['nopass'])) {
         $message = PMA_Message::success(__('The profile has been updated.'));
 
         if($GLOBALS['is_ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query, 'success');
+            $extra_data['sql_query'] = PMA_showMessage($message, $sql_query, 'success');
             PMA_ajaxResponse($message, true, $extra_data);
         }
 
