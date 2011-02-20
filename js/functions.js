@@ -1753,7 +1753,10 @@ $(document).ready(function() {
             if(data.success == true) {
                 $('#properties_message').html('');
                 PMA_ajaxShowMessage(data.message);
-                $("#create_table_dialog").dialog("close").remove();
+                // Only if the create table dialog (distinct panel) exists
+                if ($("#create_table_dialog").length > 0) {
+                    $("#create_table_dialog").dialog("close").remove();
+                }
 
                 /**
                  * @var tables_table    Object referring to the <tbody> element that holds the list of tables
