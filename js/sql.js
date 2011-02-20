@@ -410,6 +410,7 @@ $(document).ready(function() {
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
+            var this_row_index = $(this).parent().index();
             var $input_siblings = $(this).parent('tr').find('.inline_edit');
             var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
@@ -444,32 +445,32 @@ $(document).ready(function() {
 
             if($this_field.is(':not(.not_null)')){
                 // add a checkbox to mark null for all the field that are nullable.
-                $this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name +'"></div>');
-                // check the 'checkbox_null_<field_name>' if the value is null
+                $this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name + '_' + this_row_index +'"></div>');
+                // check the 'checkbox_null_<field_name>_<row_index>' if the corresponding value is null
                 if($this_field.is('.null')) {
-                    $('.checkbox_null_' + field_name).attr('checked', true);
+                    $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', true);
                 }
 
-                // if the select/editor is changed un-check the 'checkbox_null_<field_name>'.
+                // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
                 if ($this_field.is('.enum, .set')) {
                     $this_field.find('select').live('change', function(e) {
-                        $('.checkbox_null_' + field_name).attr('checked', false);
+                        $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
                     })
                 } else if ($this_field.is('.relation')) {
                     $this_field.find('select').live('change', function(e) {
-                        $('.checkbox_null_' + field_name).attr('checked', false);
+                        $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
                     })
                     $this_field.find('.browse_foreign').live('click', function(e) {
-                        $('.checkbox_null_' + field_name).attr('checked', false);
+                        $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
                     })
                 } else {
                     $this_field.find('textarea').live('keypress', function(e) {
-                        $('.checkbox_null_' + field_name).attr('checked', false);
+                        $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
                     })
                 }
 
-                // if 'chechbox_null_<field_name>' is clicked empty the select/editor.
-                $('.checkbox_null_' + field_name).bind('click', function(e) {
+                // if 'chechbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
+                $('.checkbox_null_' + field_name + '_' + this_row_index).bind('click', function(e) {
                     if ($this_field.is('.enum, .set')) {
                         $this_field.find('select').selectedIndex = -1;
                     } else if ($this_field.is('.relation')) {
@@ -673,7 +674,7 @@ $(document).ready(function() {
                 transformation_fields =  true;
             }
             /**
-             * @var is_null String capturing whether 'checkbox_null_<field_name>' is checked.
+             * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
             var is_null = $this_field.find('input:checkbox').is(':checked');
             var value;
