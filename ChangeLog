@@ -147,6 +147,7 @@
 - bug #3153409 [core] 0 row(s) affected 
 - bug #3155842 [core] Edit relational page and page number
 - [security] Minor security fixes, see PMASA-2010-9 and PMASA-2010-10
+- [lang] German update, thanks to to jannicars@users.sourceforge.net.
 
 3.3.9.2 (2011-02-11)
 - [security] SQL injection, see PMASA-2011-2
