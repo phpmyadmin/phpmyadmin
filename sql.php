@@ -616,7 +616,7 @@ if (0 == $num_rows || $is_affected) {
 
             foreach( $rel_fields as $rel_field => $rel_field_value) {
 
-                $where_comparison = '=' . $rel_field_value;
+                $where_comparison = "='" . $rel_field_value . "'";
                 $_url_params = array(
                     'db'    => $map[$rel_field]['foreign_db'],
                     'table' => $map[$rel_field]['foreign_table'],
