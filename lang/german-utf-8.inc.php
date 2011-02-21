@@ -60,6 +60,7 @@ $strAllTableSameWidth = 'Sollen alle Tabellen mit der gleichen Breite angezeigt 
 $strAlterOrderBy = 'Tabelle sortieren nach';
 $strAnalyze = 'Analysieren';
 $strAnalyzeTable = 'Analysiere Tabelle';
+$strAndSmall = 'und';
 $strAndThen = 'und dann';
 $strAnd = 'und';
 $strAngularLinks = 'Winklige Verbindung';
@@ -413,6 +414,7 @@ $strImportNoticePt2 = 'Zum Anzeigen einer Struktur einfach auf den Namen klicken
 $strImportNoticePt3 = 'Zum Ändern der Einstellungen auf das entsprechende "Optionen" klicken';
 $strImportNoticePt4 = 'Zum Ändern der Struktur auf das entsprechenden "Struktur" klicken';
 $strImportODSCurrency = 'Währungen importieren ($5.00 zu 5.00)';
+$strImportODS = 'Öffne Dokument Tabelle';
 $strImportODSPercents = 'Prozentwerte importieren (12.00% wird zu .12)';
 $strImportProceedingFile = 'Bitte Geduld, die Datei wird abgearbeitet.';
 $strImportSuccessfullyFinished = 'Der Import wurde erfolgreich abgeschlossen, %d Abfragen wurden ausgeführt.';
@@ -781,6 +783,8 @@ $strReplicationSelectDatabases = 'Bitte Datenbank auswählen';
 $strReplicationServernConfiguredMaster = 'Dieser Server ist als nicht Master in einem Replikations-Prozess konfiguriert. Möchten Sie ihn <a href="%s">konfigurieren</a>?';
 $strReplicationShowConnectedSlavesNote = 'Nur Slaves, die mit der Option --report-host=host_name gestartet wurden, sind in dieser Liste sichtbar';
 $strReplicationShowConnectedSlaves = 'Zeige verbundene Slaves';
+$strReplicationShowMasterStatus = 'Zeige Haupt Status';
+$strReplicationSkippingErrorWarn = 'Errror überspringen kann dazu führen, dass die Master- und Slave Server nicht mehr abgeglichen sind!';
 $strReplicationSlaveConfiguration = 'Slave-Konfiguration';
 $strReplicationSlaveConfigured = 'Dieser Server ist als Slave in eienem Replikations Prozess konfiguriert. Möchten Sie:';
 $strReplicationSlaveErrorManagement = 'Fehlerbehandlung:';
@@ -796,6 +800,7 @@ $strReplicationSlaveSkipNext = 'Überspringe nächsten';
 $strReplicationSlave = 'Slave Replikation';
 $strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread läuft nicht!';
 $strReplicationSlaveSQLThread = 'Nur SQL Thread %s';
+$strReplicationStatusInfo = 'Dieser MySQL Server arbeitet als ein %s in <b>Replication</b> Prozess. Für weitere Informationen über den Replication Status auf dem Server, besuche bitte die <a href="#replication">Replication Abteilung</a>.';
 $strReplicationStatus_master = 'Master-Status';
 $strReplicationStatus = 'Replikations-Status';
 $strReplicationStatus_slave = 'Slave-Status';
@@ -1016,6 +1021,7 @@ $strSetupImport_allow_interrupt_desc = 'Unterbrechungen bei Import erlauben, fal
 $strSetupImport_allow_interrupt_name = 'Teilweiser Import: Unterbrechung erlauben';
 $strSetupImport_format_desc = 'Voreingestelltes Format. Bitte beachten, dass diese Liste vom Ort abhängt (Datenbank, Tabelle) und nur SQL immer verfügbar ist';
 $strSetupImport_format_name = 'Dateiformat';
+$strSetupImport_skip_queries_desc = 'Anzahl von Einträgen (Abfragen) zum überspringen vom Start';
 $strSetupImport_skip_queries_name = 'Teilimport: Überspringe Anfragen';
 $strSetupInsecureConnectionMsg1 = 'Sie benutzen keine sichere Verbindung. Alle Daten (einschließlich sensitiver Information wie Passwörter) werden unverschlüsselt übertragen!';
 $strSetupInsecureConnectionMsg2 = 'Falls Ihr Server HTTPS Anfragen akzeptiert, folgen Sie [a@%s]diesem Link[/a] um eine sichere Verbindung zu benutzen.';
@@ -1064,6 +1070,7 @@ $strSetupMaxTableList_desc = 'Maximale Anzahl der in einer Tabellenliste angezei
 $strSetupMaxTableList_name = 'Tabellen Maximum';
 $strSetupMemoryLimit_desc = 'Anzahl der Bytes, welche ein Script zur Ausführung benötigen darf, z.B. [kbd]32M[/kbd]  ([kbd]0[/kbd] für unbegrenzt)';
 $strSetupMemoryLimit_name = 'Speicher Limit';
+$strSetupNavigationBarIconic_desc = 'Benutze nur Icons, nur Text oder beides';
 $strSetupNavigationBarIconic_name = 'Navigationsleiste mit Icons';
 $strSetupNewServer = 'Neuer Server';
 $strSetupNoServers = 'Es sind keine Server konfiguriert';
@@ -1135,7 +1142,9 @@ $strSetupServers_host_name = 'Hostname';
 $strSetupServers_LogoutURL_name = 'Logout URL';
 $strSetupServers_nopassword_desc = 'Versuche ohne Passwort zu verbinden';
 $strSetupServers_nopassword_name = 'Ohne Passwort verbinden';
+$strSetupServers_only_db_desc = 'Du kannst MySQL Platzhalter Symbole (% und _) benutzen, entferne sie falls du wörtliche Instanzen benutzen möchtest, z.B. nutze \'my\_db\' und nicht \'my_db\'';
 $strSetupServers_only_db_name = 'Nur aufgelistete Datenbanken zeigen';
+$strSetupServers_password_desc = 'Lass dies leer falls nicht, benutze config auth';
 $strSetupServers_password_name = 'Passwort für config Authentifikation';
 $strSetupServers_pdf_pages_desc = 'Leer lassen für keine PDF Schema Unterstützung, Vorschlag: [kbd]pma_pdf_pages[/kbd]';
 $strSetupServers_pdf_pages_name = 'PDF Pages Table';
@@ -1193,6 +1202,7 @@ $strSetupSQLQuery_Edit_name = 'Bearbeiten';
 $strSetupSQLQuery_Explain_name = 'SQL erklären';
 $strSetupSQLQuery_Refresh_name = 'Aktualisieren';
 $strSetupSQLQuery_ShowAsPHP_name = 'PHP-Code erzeugen';
+$strSetupSQLQuery_Validate_name = 'Validiere SQL';
 $strSetupSuggestDBName_desc = 'Schlage (wenn möglich) einen Datenbank-Namen im &quot;Create Database&quot; Formular vor oder lasse das Textfeld leer';
 $strSetupSuggestDBName_name = 'Schlage einen neuen Datenbank-Namen vor';
 $strSetupTrue = 'Ja';
@@ -1392,6 +1402,7 @@ $strStrucData = 'Struktur und Daten';
 $strStrucExcelCSV = 'CSV-Daten für MS Excel';
 $strStrucOnly = 'Nur Struktur';
 $strStructPropose = 'Tabellenstruktur analysieren';
+$strStructureDiff = 'Struktur Unterschiede' ;
 $strStructureForView = 'Struktur des Views';
 $strStructureLC = 'Struktur';
 $strStructure = 'Struktur';
@@ -1415,6 +1426,7 @@ $strTableAddColumn = 'Spalte(n) einfügen';
 $strTableAlreadyExists = 'Die Tabelle %s existiert bereits!';
 $strTableAlterColumn = 'Spalte(n) ändern';
 $strTableAlteredSuccessfully = 'Die Tabelle %1$s wurde erfolgreich geändert';
+$strTableAlterIndex = 'Ändere index(e)';
 $strTableApplyIndex = 'Index/Indices anwenden';
 $strTableComments = 'Tabellen-Kommentar';
 $strTableDeleteRows = 'Möchten Sie alle vorhergehenden zeilen aus den Ziel-Tabellen löschen?';
@@ -1608,22 +1620,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
-
-$strAndSmall = 'und';
-
-$strImportODS = 'Öffne Dokument Tabelle';
-
-$strReplicationShowMasterStatus = 'Zeige Haupt Status';
-$strReplicationSkippingErrorWarn = 'Errror überspringen kann dazu führen, dass die Master- und Slave Server nicht mehr abgeglichen sind!';
-$strReplicationStatusInfo = 'Dieser MySQL Server arbeitet als ein %s in <b>Replication</b> Prozess. Für weitere Informationen über den Replication Status auf dem Server, besuche bitte die <a href="#replication">Replication Abteilung</a>.';
-
-$strSetupImport_skip_queries_desc = 'Anzahl von Einträgen (Abfragen) zum überspringen vom Start';
-$strSetupNavigationBarIconic_desc = 'Benutze nur Icons, nur Text oder beides';
-$strSetupServers_only_db_desc = 'Du kannst MySQL Platzhalter Symbole (% und _) benutzen, entferne sie falls du wörtliche Instanzen benutzen möchtest, z.B. nutze \'my\_db\' und nicht \'my_db\'';
-$strSetupServers_password_desc = 'Lass dies leer falls nicht, benutze config auth';
-$strSetupSQLQuery_Validate_name = 'Validiere SQL';
-$strStructureDiff = 'Struktur Unterschiede' ;
-
-$strTableAlterIndex = 'Ändere index(e)';
 
 ?>
