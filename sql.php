@@ -100,7 +100,7 @@ if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) 
 
     $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
 
-    $dropdown = '';
+    $dropdown = '<option value="">&nbsp;</option>';
     foreach($values as $value) {
         $dropdown .= '<option value="' . htmlspecialchars($value) . '"';
         if($value == $_REQUEST['curr_value']) {

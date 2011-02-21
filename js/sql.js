@@ -476,7 +476,7 @@ $(document).ready(function() {
                 // if 'chechbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
                 $('.checkbox_null_' + field_name + '_' + this_row_index).bind('click', function(e) {
                     if ($this_field.is('.enum, .set')) {
-                        $this_field.find('select').selectedIndex = -1;
+                        $this_field.find('select').attr('value', '');
                     } else if ($this_field.is('.relation')) {
                         // if the dropdown is there to select the foreign value
                         if ($this_field.find('select').length > 0) {
