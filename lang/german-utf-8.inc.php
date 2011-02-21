@@ -1609,22 +1609,21 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-// To translate:
-$strAndSmall = 'and';  //to translate
+$strAndSmall = 'und';
 
-$strImportODS = 'Open Document Spreadsheet';  //to translate
+$strImportODS = 'Öffne Dokument Tabelle';
 
-$strReplicationShowMasterStatus = 'Show master status';  //to translate
-$strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
-$strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
+$strReplicationShowMasterStatus = 'Zeige Haupt Status';
+$strReplicationSkippingErrorWarn = 'Errror überspringen kann dazu führen, dass die Master- und Slave Server nicht mehr abgeglichen sind!';
+$strReplicationStatusInfo = 'Dieser MySQL Server arbeitet als ein %s in <b>Replication</b> Prozess. Für weitere Informationen über den Replication Status auf dem Server, besuche bitte die <a href="#replication">Replication Abteilung</a>.';
 
-$strSetupImport_skip_queries_desc = 'Number of records (queries) to skip from start';  //to translate
-$strSetupNavigationBarIconic_desc = 'Use only icons, only text or both';  //to translate
-$strSetupServers_only_db_desc = 'You can use MySQL wildcard characters (% and _), escape them if you want to use their literal instances, i.e. use \'my\_db\' and not \'my_db\'';  //to translate
-$strSetupServers_password_desc = 'Leave empty if not using config auth';  //to translate
-$strSetupSQLQuery_Validate_name = 'Validate SQL';  //to translate
-$strStructureDiff = 'Structure Difference' ;  //to translate
+$strSetupImport_skip_queries_desc = 'Anzahl von Einträgen (Abfragen) zum überspringen vom Start';
+$strSetupNavigationBarIconic_desc = 'Benutze nur Icons, nur Text oder beides';
+$strSetupServers_only_db_desc = 'Du kannst MySQL Platzhalter Symbole (% und _) benutzen, entferne sie falls du wörtliche Instanzen benutzen möchtest, z.B. nutze \'my\_db\' und nicht \'my_db\'';
+$strSetupServers_password_desc = 'Lass dies leer falls nicht, benutze config auth';
+$strSetupSQLQuery_Validate_name = 'Validiere SQL';
+$strStructureDiff = 'Struktur Unterschiede' ;
 
-$strTableAlterIndex = 'Alter index(s)';  //to translate
+$strTableAlterIndex = 'Ändere index(e)';
 
 ?>
