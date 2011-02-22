@@ -4934,10 +4934,9 @@ msgid "Browser transformation"
 msgstr "Μετατροπή περιηγητή"
 
 #: libraries/display_tbl.lib.php:1166
-#, fuzzy
 #| msgid "Copyright"
 msgid "Copy"
-msgstr "Πνευματικά Δικαιώματα"
+msgstr "Αντιγραφή"
 
 #: libraries/display_tbl.lib.php:1181 libraries/display_tbl.lib.php:1193
 msgid "The row has been deleted"
