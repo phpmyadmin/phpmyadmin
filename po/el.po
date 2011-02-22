@@ -7312,10 +7312,9 @@ msgid "Export to selected page"
 msgstr "Εξαγωγή σε επιλεγμένη σελίδα"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Δημιουργία νέου ευρετηρίου"
+msgstr "Δημιουργία μιας σελίδας και εξαγωγή σε αυτή"
 
 #: pmd_pdf.php:111
 #, fuzzy
