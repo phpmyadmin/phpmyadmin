@@ -129,7 +129,7 @@ msgstr "Commento al Database: "
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr "Commenti sulla tabella"
+msgstr "Commenti alla tabella"
 
 #: db_datadict.php:169 db_qbe.php:197 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
