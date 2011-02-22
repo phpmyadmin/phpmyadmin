@@ -2138,7 +2138,7 @@ msgstr ""
 
 #: libraries/common.lib.php:2985
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
