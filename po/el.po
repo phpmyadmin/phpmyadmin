@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2010-12-13 13:42+0200\n"
+"PO-Revision-Date: 2011-02-22 23:41+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Το αρχείο %s δεν είναι διαθέσιμο σε αυτό το σύστημα. παρακαλούμε "
+"επισκεφτείτε το www.phpmyadmin.net για περισσότερες πληροφορίες."
 
 #: db_create.php:58
 #, php-format
