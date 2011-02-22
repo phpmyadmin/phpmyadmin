@@ -280,7 +280,7 @@ msgstr "Comando"
 
 #: db_operations.php:433
 msgid "Remove database"
-msgstr "Rinomina il DataBase in"
+msgstr "Rimuovi database"
 
 #: db_operations.php:445
 #, php-format
