@@ -9485,7 +9485,7 @@ msgstr "Αναζήτηση μη διακριτών τιμών"
 #: sql.php:127
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
 #: sql.php:570 tbl_replace.php:380
 #, php-format
