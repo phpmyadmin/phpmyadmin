@@ -7022,10 +7022,9 @@ msgid "Contribute"
 msgstr "Συνεισφορά"
 
 #: main.php:228
-#, fuzzy
 #| msgid "Replication support"
 msgid "Get support"
-msgstr "Αναφορά αναπαραγωγής"
+msgstr "Λάβετε υποστήριξη"
 
 #: main.php:229
 #, fuzzy
