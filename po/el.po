@@ -1117,7 +1117,7 @@ msgstr "Εσωτερική Επεξεργασία"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Απόκρυψη κριτηρίων αναζήτησης"
 
 #: js/messages.php:90
 #, fuzzy
