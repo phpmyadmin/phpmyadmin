@@ -485,7 +485,7 @@ msgstr "Aggiungi/Cancella criterio di riga"
 
 #: db_qbe.php:619
 msgid "Add/Delete columns"
-msgstr "Aggiungi/Cancella campo"
+msgstr "Aggiungi/Cancella colonne"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
