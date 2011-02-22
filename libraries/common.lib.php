@@ -101,9 +101,8 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
         $include_box = true;
     }
 
-    if ($include_box) {
-        $button .= '<span class="nowrap">';
-    }
+    // Always use a span (we rely on this in js/sql.js)
+    $button .= '<span class="nowrap">';
 
     if ($include_icon) {
         $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
@@ -119,9 +118,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
         $button .= $alternate;
     }
 
-    if ($include_box) {
-        $button .= '</span>';
-    }
+    $button .= '</span>';
 
     return $button;
 }
