@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-22 18:42+0200\n"
+"PO-Revision-Date: 2011-02-22 18:43+0200\n"
 "Last-Translator:  <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -289,7 +289,7 @@ msgstr "Il Database %s è stato eliminato."
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
-msgstr "Calcella il database (DROP)"
+msgstr "Cancella il database (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
