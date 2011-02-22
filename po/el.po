@@ -823,10 +823,9 @@ msgid "+ Restart insertion and add a new value"
 msgstr "Επανεκκίνηση εισαγωγής και προσθήκη μιας νέας τιμής"
 
 #: enum_editor.php:67
-#, fuzzy
 #| msgid "Output:"
 msgid "Output"
-msgstr "Εξαγόμενο:"
+msgstr "Εξαγόμενο"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
