@@ -9955,10 +9955,9 @@ msgid "Add primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Εφαρμογή ευρετηρίου(ων)"
+msgstr "Προσθήκη ευρετηρίου"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
