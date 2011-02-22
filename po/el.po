@@ -820,7 +820,7 @@ msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδ�
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "Επανεκκίνηση εισαγωγής και προσθήκη μιας νέας τιμής"
 
 #: enum_editor.php:67
 #, fuzzy
