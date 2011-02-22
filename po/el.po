@@ -7027,10 +7027,9 @@ msgid "Get support"
 msgstr "Λάβετε υποστήριξη"
 
 #: main.php:229
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Χωρίς αλλαγή"
+msgstr "Λίστα αλλαγών"
 
 #: main.php:253
 msgid ""
