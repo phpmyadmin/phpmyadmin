@@ -2142,7 +2142,7 @@ msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Και τα δύο"
 
 #: libraries/config.values.php:74
 msgid "Open"
