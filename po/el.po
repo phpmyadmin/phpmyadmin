@@ -3444,7 +3444,7 @@ msgstr "Προβολή συνδέσμων γραμμής πίνακα στην �
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Προβολή συνδέσμων γραμμής πίνακα στη δεξιά πλευρά"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
