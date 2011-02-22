@@ -9989,10 +9989,9 @@ msgid "An index has been added on %s"
 msgstr "Ένα ευρετήριο προστέθηκε στο %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Εμφάνιση εκδόσεων"
+msgstr "Προβολή περισσοτέρων δράσεων"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
