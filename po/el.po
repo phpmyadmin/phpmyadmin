@@ -2308,7 +2308,7 @@ msgstr "Επαναφορά"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Βελτιώνει την αποτελεσματικότητα με την ανανέωση της οθόνης"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
