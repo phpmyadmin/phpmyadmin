@@ -5288,7 +5288,7 @@ msgstr "Το Ιστολόγιο του PrimeBase Media Streaming από τον B
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Ιστοσελίδα PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
