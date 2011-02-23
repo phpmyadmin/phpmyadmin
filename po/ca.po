@@ -9849,7 +9849,6 @@ msgid "Browse distinct values"
 msgstr "Navega per valors diferents"
 
 #: tbl_structure.php:165 tbl_structure.php:166
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
 msgstr "Afegir clau principal"
