@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-23 09:15+0200\n"
+"PO-Revision-Date: 2011-02-23 09:16+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3422,10 +3422,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Aixó són enllaços a Edició, Edició en línia, Copia i Esborrat"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Mostra el logo al marc esquerre"
+msgstr "Mostra enllaç de nombre de files a la taula al marc esquerre"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
