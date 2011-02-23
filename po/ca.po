@@ -2136,7 +2136,7 @@ msgstr "No hi ha cap arxiu per pujar"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Ambdós"
 
 #: libraries/config.values.php:74
 msgid "Open"
