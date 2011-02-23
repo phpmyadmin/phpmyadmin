@@ -94,7 +94,7 @@ function appendInlineAnchor() {
     else {
         $('.edit_row_anchor').each(function() {
 
-            $this_td = $(this)
+            var $this_td = $(this);
             $this_td.removeClass('edit_row_anchor');
 
             var $cloned_anchor = $this_td.clone();
