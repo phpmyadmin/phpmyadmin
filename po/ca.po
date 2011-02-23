@@ -2132,7 +2132,7 @@ msgstr "No està disponible el directori indicat per pujar arxius"
 
 #: libraries/common.lib.php:2985
 msgid "There are no files to upload"
-msgstr ""
+msgstr "No hi ha cap arxiu per pujar"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
