@@ -7266,10 +7266,9 @@ msgid "Import from selected page"
 msgstr "Importar des de la pàgina seleccionada"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Exporta/Importa a escala"
+msgstr "Exporta a la pàgina seleccionada"
 
 #: pmd_pdf.php:102
 #, fuzzy
