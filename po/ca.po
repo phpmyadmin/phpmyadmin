@@ -1117,10 +1117,9 @@ msgid "Hide search criteria"
 msgstr "Amaga el criteri de cerca"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Show search criteria"
-msgstr "Mostrar gràfic de consultes"
+msgstr "Mostrar criteri de cerca"
 
 #: js/messages.php:93 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
