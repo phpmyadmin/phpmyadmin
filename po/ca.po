@@ -9888,10 +9888,9 @@ msgid "An index has been added on %s"
 msgstr "S'ha afegit un índex a %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Mostra versions"
+msgstr "Mostra més accions"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
