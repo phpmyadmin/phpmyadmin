@@ -6988,10 +6988,9 @@ msgid "Get support"
 msgstr "Obtenir suport"
 
 #: main.php:229
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Sense canvis"
+msgstr "Llista de canvis"
 
 #: main.php:253
 msgid ""
