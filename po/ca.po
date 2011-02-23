@@ -3428,7 +3428,7 @@ msgstr "Mostra enllaç de nombre de files a la taula al marc esquerre"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Mostra enllaç de nombre de files a la taula al marc dret"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
