@@ -2582,7 +2582,7 @@ msgstr "Domyślna zakładka tabeli"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Domyślnie pokaż treść kolumn binarnych jako wartość HEX"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:601
 msgid "Show binary contents as HEX"
