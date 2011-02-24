@@ -2704,7 +2704,7 @@ msgstr "Zamiana NULL na"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Usuń znaki nowej lini z kolumn"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
