@@ -5690,6 +5690,8 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"keine der beiden obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; "
+"Beispiel: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
