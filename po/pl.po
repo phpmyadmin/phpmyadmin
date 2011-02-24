@@ -1082,7 +1082,7 @@ msgstr "Przetwarzanie wywołania"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Błąd przetwarzania wywołania"
 
 #: js/messages.php:66
 msgid "Dropping Column"
