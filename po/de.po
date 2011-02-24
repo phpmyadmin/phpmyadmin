@@ -10101,7 +10101,7 @@ msgstr "SQL Befehle exportiert."
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr "Version %s Schnapschuss (SQL code)"
+msgstr "Version %s Schnappschuss (SQL code)"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
