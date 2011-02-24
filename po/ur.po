@@ -1409,7 +1409,7 @@ msgstr "جمعرات"
 #. l10n: Minimal week day name
 #: js/messages.php:215
 msgid "Fr"
-msgstr ""
+msgstr "جمعہ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
