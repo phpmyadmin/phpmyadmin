@@ -10521,9 +10521,8 @@ msgid "VIEW name"
 msgstr "Nazwa widoku"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Zmień nazwę tabeli na"
+msgstr "Zmień nazwę perspektywy na"
 
 #~ msgid "Show left delete link"
 #~ msgstr "Pokaż/ukryj lewe menu"
