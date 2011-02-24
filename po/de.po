@@ -2129,9 +2129,9 @@ msgid "Browse your computer:"
 msgstr "Durchsuchen Sie ihren Computer:"
 
 #: libraries/common.lib.php:2965
-#, fuzzy, php-format
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Upload-Verzeichnis auf dem Webserver"
+msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
 
 #: libraries/common.lib.php:2977 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:956
