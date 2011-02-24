@@ -5835,7 +5835,7 @@ msgstr "Zapytania <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Funkcja eksportu danych:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
