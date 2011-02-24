@@ -955,7 +955,7 @@ msgstr "phpMyAdmin ایک <b>فریم صلاحیت</b> والے براؤزر ک�
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr "منتخب کرنے کیلئے کلک کریں"
+msgstr "انتخاب کے لیے کلک کریں"
 
 #: js/messages.php:26
 msgid "Click to unselect"
