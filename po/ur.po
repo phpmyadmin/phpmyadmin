@@ -1124,7 +1124,7 @@ msgstr "ان لائن تدوین"
 
 #: js/messages.php:89
 msgid "Hide search criteria"
-msgstr ""
+msgstr "تلاش کسوٹی چھپائیں"
 
 #: js/messages.php:90
 msgid "Show search criteria"
