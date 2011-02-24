@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:30+0200\n"
+"PO-Revision-Date: 2011-02-24 11:31+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1061,7 +1061,7 @@ msgstr "لوڈ کررہا ہے"
 
 #: js/messages.php:64
 msgid "Processing Request"
-msgstr "درخواست پرعمل کر رہا ہے"
+msgstr "فرمایش عمل کرتے ہوئے"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
