@@ -4103,7 +4103,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:427
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabela śledzenia zapytań SQL"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
