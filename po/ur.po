@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:32+0200\n"
+"PO-Revision-Date: 2011-02-24 11:33+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1088,7 +1088,7 @@ msgstr "کوائفیہ نام بدلا جارہا ہے"
 
 #: js/messages.php:72
 msgid "Reload Database"
-msgstr "ڈیٹا بیس دوبارہ اُٹھائیں"
+msgstr "کوائفیہ پھر لوڈ کریں"
 
 #: js/messages.php:73
 msgid "Copying Database"
