@@ -1465,7 +1465,7 @@ msgstr "مسل قسم کی وجہ سے اپ لوڈ روکا گیا۔"
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "اپ لوڈ مسل میں نامعلوم نقص ہے۔"
 
 #: libraries/File.class.php:559
 msgid ""
