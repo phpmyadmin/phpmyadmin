@@ -2210,7 +2210,7 @@ msgstr "Operacje"
 
 #: libraries/common.lib.php:2952
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Wyszukaj w komputerze"
 
 #: libraries/common.lib.php:2965
 #, fuzzy, php-format
