@@ -3474,7 +3474,7 @@ msgstr "Ważność ciasteczka logowania"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Większe pole edycji dla pola LONGTEXT"
 
 #: libraries/config/messages.inc.php:298
 msgid "Bigger textarea for LONGTEXT"
