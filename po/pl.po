@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 16:00+0200\n"
+"PO-Revision-Date: 2011-02-24 16:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -985,7 +985,7 @@ msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Usuwanie Zdarzenia"
 
 #: js/messages.php:33
 #, fuzzy
