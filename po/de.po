@@ -4873,9 +4873,8 @@ msgid "%d is not valid row number."
 msgstr "%d ist keine gültige Zeilennummer."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 msgid "row(s) starting from row #"
-msgstr "Datensätze, beginnend ab"
+msgstr "Datensätze, beginnend ab Reihe #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
