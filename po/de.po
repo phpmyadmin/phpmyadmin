@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 12:45+0200\n"
+"PO-Revision-Date: 2011-02-24 12:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1962,9 +1962,8 @@ msgid "MySQL said: "
 msgstr "MySQL meldet: "
 
 #: libraries/common.lib.php:1099
-#, fuzzy
 msgid "Failed to connect to SQL validator!"
-msgstr "Verbindungsaufbau zu SQL-Validator schlug fehl"
+msgstr "Verbindungsaufbau zu SQL-Validator schlug fehl!"
 
 #: libraries/common.lib.php:1140 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
