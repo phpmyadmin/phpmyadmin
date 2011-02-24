@@ -9054,6 +9054,8 @@ msgstr "SQL-Querybox"
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
 msgstr ""
+"Hinweis: Das Generieren des Abfragediagramms kann lange Zeit in Anspruch "
+"nehmen."
 
 #: server_status.php:867
 msgid "Replication status"
