@@ -1457,7 +1457,7 @@ msgstr "ایک عارضی پوشہ موجود نہیں ہے۔"
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "ڈسک پر مسل تحریر ناکام ہوا۔"
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
