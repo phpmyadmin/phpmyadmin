@@ -2189,7 +2189,7 @@ msgstr "Angepasst – Zeige alle möglichen Konfigurationsoptionen"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Angepasst – Wie oben, aber ohne die Schnell-/Angepasst-Auswahl"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
