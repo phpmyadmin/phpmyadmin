@@ -1870,7 +1870,14 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                     . implode(' ', $tag_params_strings)
                     . ' src="' . preg_replace(
                         '/^.*\ssrc="([^"]*)".*$/si', '\1', $message) . '"'
-                    . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />';
+                        . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />';
+                // Here we cannot obey PropertiesIconic completely as a
+                // generated link would have a length over LinkLengthLimit
+                // but we can at least show the message.
+                // If PropertiesIconic is false or 'both'
+                if ($GLOBALS['cfg']['PropertiesIconic'] !== true) {
+                    $ret .= ' ' . $displayed_message;
+                }
             }
         } else {
             $message = trim(strip_tags($message));

@@ -2590,7 +2590,7 @@ $cfg['CheckConfigurationPermissions'] = true;
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
  */
-$cfg['LinkLengthLimit'] = 1000;
+$cfg['LinkLengthLimit'] = 2000;
 
 /*******************************************************************************
  * SQL Parser Settings
