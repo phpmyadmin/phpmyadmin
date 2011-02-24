@@ -1427,7 +1427,7 @@ msgstr "گھنٹہ"
 
 #: js/messages.php:222
 msgid "Minute"
-msgstr ""
+msgstr "منٹ"
 
 #: js/messages.php:223
 msgid "Second"
