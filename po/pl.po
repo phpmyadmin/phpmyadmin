@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 16:19+0200\n"
+"PO-Revision-Date: 2011-02-24 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -6380,7 +6380,7 @@ msgstr "Szybkie ustawienia zaawansowanych funkcjonalności:"
 #: libraries/relation.lib.php:153
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
+msgstr "Utwórz wymagane tabele używając <code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:154
 msgid "Create a pma user and give access to these tables."
