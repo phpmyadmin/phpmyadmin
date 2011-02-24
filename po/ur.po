@@ -1208,7 +1208,7 @@ msgstr "اگلا"
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:136
 msgid "Today"
-msgstr ""
+msgstr "آج"
 
 #: js/messages.php:139
 msgid "January"
