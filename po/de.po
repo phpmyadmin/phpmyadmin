@@ -5748,7 +5748,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:30
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Optionen zum Anlegen von Objekten (alle werden empfohlen)"
 
 #: libraries/export/xml.php:40
 #, fuzzy
