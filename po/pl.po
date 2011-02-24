@@ -4338,7 +4338,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Ostrzeżenie Suhosin"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
