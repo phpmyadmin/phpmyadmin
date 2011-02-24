@@ -1394,7 +1394,7 @@ msgstr "پیر"
 #. l10n: Minimal week day name
 #: js/messages.php:209
 msgid "Tu"
-msgstr ""
+msgstr "منگل"
 
 #. l10n: Minimal week day name
 #: js/messages.php:211
