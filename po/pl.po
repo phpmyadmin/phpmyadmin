@@ -5827,7 +5827,7 @@ msgstr "Zamiast zapytań <code>INSERT</code> użyj:"
 
 #: libraries/export/sql.php:138
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "Zapytania <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
