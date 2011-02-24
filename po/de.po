@@ -9842,7 +9842,7 @@ msgstr "Lösche die Verlaufsdaten für diese Tabelle"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Tabelle leeren (TRUNCATE)"
 
 #: tbl_operations.php:682
 #, fuzzy
