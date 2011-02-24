@@ -1212,7 +1212,7 @@ msgstr "آج"
 
 #: js/messages.php:139
 msgid "January"
-msgstr ""
+msgstr "جنوری"
 
 #: js/messages.php:140
 msgid "February"
