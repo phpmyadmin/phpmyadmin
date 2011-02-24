@@ -4787,7 +4787,7 @@ msgstr "Liczba pól"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Wiersze od:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
