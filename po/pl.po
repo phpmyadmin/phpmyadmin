@@ -3534,6 +3534,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Wyłącz domyślne ostrzeżenie rozszerzenia mcrypt, które pojawia się przy "
+"autoryzacji ciasteczkami"
 
 #: libraries/config/messages.inc.php:311
 msgid "mcrypt warning"
