@@ -1359,7 +1359,7 @@ msgstr "پیر"
 #. l10n: Short week day name
 #: js/messages.php:193 libraries/common.lib.php:1595
 msgid "Tue"
-msgstr ""
+msgstr "منگل"
 
 #. l10n: Short week day name
 #: js/messages.php:195 libraries/common.lib.php:1597
