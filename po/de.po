@@ -5654,7 +5654,7 @@ msgstr ""
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Zu verwendende Syntax bei der Dateneingabe:"
 
 #: libraries/export/sql.php:154
 msgid ""
