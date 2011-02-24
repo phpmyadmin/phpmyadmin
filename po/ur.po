@@ -1321,7 +1321,7 @@ msgstr "دسمبر"
 
 #: js/messages.php:179
 msgid "Sunday"
-msgstr ""
+msgstr "اتوار"
 
 #: js/messages.php:180
 msgid "Monday"
