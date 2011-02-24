@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:39+0200\n"
+"PO-Revision-Date: 2011-02-24 11:40+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1154,7 +1154,7 @@ msgstr "کالم دکھانے کے لیے انتخاب کریں"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr ""
+msgstr "کالم کے لیے ایک اختیار اضافہ کریں"
 
 #: js/messages.php:105
 msgid "Generate password"
