@@ -8954,7 +8954,7 @@ msgid ""
 "b> process."
 msgstr ""
 "Dieser MySQL Server arbeitet als <b>Master</b> und <b>Slave</b> im "
-"<b>Replikations</b>-Process."
+"<b>Replikations</b>-Prozess."
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
