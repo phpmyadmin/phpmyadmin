@@ -959,7 +959,7 @@ msgstr "انتخاب کے لیے کلک کریں"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr "غیر منتخب کیلئے کلک کریں"
+msgstr "غیر منتخب کے لیے کلک کریں"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
