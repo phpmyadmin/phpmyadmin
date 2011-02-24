@@ -3375,7 +3375,7 @@ msgstr "Separator poziomów tabeli"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "Adres URL, który będzie wskazywany przez logo w ramce nawigacji"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
