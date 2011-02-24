@@ -1341,7 +1341,7 @@ msgstr "جمعرات"
 
 #: js/messages.php:184
 msgid "Friday"
-msgstr ""
+msgstr "جمعہ"
 
 #: js/messages.php:185
 msgid "Saturday"
