@@ -4821,7 +4821,7 @@ msgstr "@SERVER@ zostanie zastąpione aktualną nazwą serwera"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ zostanie zastąpione nazwą wybranej bazy danych"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
