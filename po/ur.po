@@ -1423,7 +1423,7 @@ msgstr "ہفتہ وار"
 
 #: js/messages.php:221
 msgid "Hour"
-msgstr ""
+msgstr "گھنٹہ"
 
 #: js/messages.php:222
 msgid "Minute"
