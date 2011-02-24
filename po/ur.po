@@ -1104,7 +1104,7 @@ msgstr "جدول میں کم از کم ایک کالم ہو"
 
 #: js/messages.php:76
 msgid "Create Table"
-msgstr "ٹیبل بنائیں"
+msgstr "جدول بنائیں"
 
 #: js/messages.php:81
 msgid "Searching"
