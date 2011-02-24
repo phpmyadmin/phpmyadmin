@@ -1618,12 +1618,13 @@ msgid "Error"
 msgstr "Błąd"
 
 #: libraries/Message.class.php:281
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "Zmodyfikowanych rekordów: %1$d."
 msgstr[1] "Zmodyfikowanych rekordów: %1$d."
+msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
 #: libraries/Message.class.php:300
 #, fuzzy, php-format
