@@ -1128,7 +1128,7 @@ msgstr "تلاش کسوٹی چھپائیں"
 
 #: js/messages.php:90
 msgid "Show search criteria"
-msgstr ""
+msgstr "تلاش کسوٹی دکھائیں"
 
 #: js/messages.php:93 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
