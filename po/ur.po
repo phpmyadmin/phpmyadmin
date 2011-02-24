@@ -1190,7 +1190,7 @@ msgstr ", حالیہ مستحکم نسخہ:"
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
 msgid "Done"
-msgstr ""
+msgstr "ہوچکا"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:132
