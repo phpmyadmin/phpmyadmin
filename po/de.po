@@ -9993,7 +9993,7 @@ msgstr "Eindeutigen Index hinzufügen"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT Index hinzufügen"
 
 #: tbl_structure.php:384
 msgctxt "None for default"
