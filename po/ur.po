@@ -1349,7 +1349,7 @@ msgstr "ہفتہ"
 #. l10n: Short week day name
 #: js/messages.php:189 libraries/common.lib.php:1591
 msgid "Sun"
-msgstr ""
+msgstr "اتوار"
 
 #. l10n: Short week day name
 #: js/messages.php:191 libraries/common.lib.php:1593
