@@ -9677,7 +9677,7 @@ msgstr "Gepackt"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Mehrfach"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
