@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:10+0200\n"
+"PO-Revision-Date: 2011-02-24 11:12+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -938,6 +938,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"بہرحال آخری دفعہ کوائف صرفی نہیں ہوا، اس کا مطلب ہے کہ phpMyAdmin اس درآمد "
+"کو اس وقت تک مکمل نہیں کرسکتا جب تک کہ php وقت حد کو آپ بڑھاتے نہیں۔"
 
 #: import_status.php:30 libraries/common.lib.php:677
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
