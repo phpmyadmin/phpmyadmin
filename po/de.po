@@ -6784,9 +6784,8 @@ msgid "Add %s column(s)"
 msgstr "%s Spalte(n) einfügen"
 
 #: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
-#, fuzzy
 msgid "You have to add at least one column."
-msgstr "Sie müssen mindestens ein Feld hinzufügen."
+msgstr "Sie müssen mindestens eine Spalte hinzufügen."
 
 #: libraries/tbl_properties.inc.php:797
 #, fuzzy
