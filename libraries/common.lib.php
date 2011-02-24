@@ -1876,7 +1876,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                 // but we can at least show the message.
                 // If PropertiesIconic is false or 'both'
                 if ($GLOBALS['cfg']['PropertiesIconic'] !== true) {
-                    $ret .= ' ' . $displayed_message;
+                    $ret .= ' <span class="clickprevimage">' . $displayed_message . '</span>';
                 }
             }
         } else {
