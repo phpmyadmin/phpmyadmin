@@ -9644,7 +9644,7 @@ msgstr "Beschriftung Y-Achse"
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Bereichsgrenzen"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
