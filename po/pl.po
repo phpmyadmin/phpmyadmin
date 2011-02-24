@@ -430,7 +430,7 @@ msgstr "Należy wybrać przynajmniej jedną kolumnę do wyświetlenia"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "Przełącz na"
 
 #: db_qbe.php:187
 msgid "visual builder"
