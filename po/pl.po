@@ -3539,7 +3539,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "mcrypt warning"
-msgstr ""
+msgstr "ostrzeżenie rozszerzenia mcrypt"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
