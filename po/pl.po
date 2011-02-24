@@ -2406,10 +2406,9 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Poprawia wydajność odświeżania strony"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable Ajax"
-msgstr "Włączone"
+msgstr "Włącz Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
