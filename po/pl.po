@@ -4451,7 +4451,7 @@ msgstr "Sprawdź, czy jest nowsza wersja"
 
 #: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Włącza sprawdzanie czy są aktualizacje phpMyAdmin"
 
 #: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
