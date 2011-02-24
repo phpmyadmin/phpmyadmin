@@ -7184,6 +7184,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Twoja przeglądarka przechowuje konfigurację phpMyAdmin dla tej domeny. "
+"Chcesz je zaimportować do tej sesji?"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
