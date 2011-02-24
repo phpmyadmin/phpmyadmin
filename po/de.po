@@ -9648,7 +9648,7 @@ msgstr "Bereichsgrenzen"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Legendenbereich"
 
 #: tbl_chart.php:134
 #, fuzzy
