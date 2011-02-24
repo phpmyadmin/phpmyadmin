@@ -6056,7 +6056,7 @@ msgstr "Ten moduł nie obsługuje skompresowanych importów!"
 
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "Importuj procenty jako dane \"po przecinku\" <i>np: 12.00% jako 0.12</i>"
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
