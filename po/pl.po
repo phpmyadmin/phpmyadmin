@@ -3664,7 +3664,7 @@ msgstr "Domyślna zakładka okna zapytań"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Wysokość pola zapytania (w pikselach)"
 
 #: libraries/config/messages.inc.php:341
 #, fuzzy
