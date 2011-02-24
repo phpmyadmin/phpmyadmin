@@ -1090,7 +1090,7 @@ msgstr "Usuwanie Kolumny"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Dodawanie klucza głównego"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
 #: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
