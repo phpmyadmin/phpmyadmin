@@ -6997,7 +6997,7 @@ msgstr "Sonstige Einstellungen"
 
 #: main.php:141
 msgid "Background color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #: main.php:142
 msgid "Choose..."
