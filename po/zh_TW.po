@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-11-05 14:13+0200\n"
 "Last-Translator: <terrytsai123@hotmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -113,9 +113,9 @@ msgid ""
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "資料庫 %s 已被刪除"
+msgstr "資料庫 %1$s 已建立"
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
@@ -136,10 +136,8 @@ msgstr "資料表註解文字"
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "欄位名稱"
+msgstr "欄位"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36

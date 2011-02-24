@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-12-02 14:49+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -354,10 +354,8 @@ msgstr ""
 "saznali zašto, kliknite %sovde%s."
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relaciona shema"
+msgstr "Uredi ili izvezi relacionu shemu"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -428,11 +426,11 @@ msgstr "Morate izabrati bar jednu kolonu za prikaz"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "Predji na"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "vizuelni kreator"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -572,12 +570,11 @@ msgid "Delete the matches for the %s table?"
 msgstr "Prikaz podataka tabele"
 
 #: db_search.php:272
-#, fuzzy, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Ukupno:</b> <i>%s</i> pogodaka"
-msgstr[1] "<b>Ukupno:</b> <i>%s</i> pogodaka"
+msgstr[1] "<b>Ukupno:</b> <i>%s</i> pogodak"
 msgstr[2] "<b>Ukupno:</b> <i>%s</i> pogodaka"
 
 #: db_search.php:295
@@ -601,10 +598,8 @@ msgid "Inside table(s):"
 msgstr "Unutar tabela:"
 
 #: db_search.php:351
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Unutar tabela:"
+msgstr "Unutar kolone::"
 
 #: db_structure.php:59
 #, fuzzy
@@ -629,11 +624,11 @@ msgstr "Tabela %s je odbačena"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Praćenje je aktivno."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Praćenje nije aktivno."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
@@ -9828,9 +9823,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:718
-#, fuzzy
 msgid "Repair"
-msgstr "Popravi tabelu"
+msgstr "Popravi"
 
 #: tbl_operations.php:730
 msgid "Remove partitioning"

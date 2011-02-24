@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2011-02-10 06:09+0200\n"
 "Last-Translator: <aburamesino@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -96,13 +96,11 @@ msgstr "gunakan nilai ini"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Tidak ada blob server streaming yang dikonfigurasi!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Gagal menulis file ke disk"
+msgstr "Gagal mengambil header"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -280,10 +278,8 @@ msgid "Command"
 msgstr "Perintah"
 
 #: db_operations.php:433
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Ubah nama database menjadi"
+msgstr "Hapus database"
 
 #: db_operations.php:445
 #, php-format
@@ -291,9 +287,8 @@ msgid "Database %s has been dropped."
 msgstr "Database %s telah dihapus."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Database tidak ditemukan"
+msgstr "Buang database (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
@@ -346,22 +341,17 @@ msgid "Collation"
 msgstr "Penyortiran"
 
 #: db_operations.php:556
-#, fuzzy, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Fasilitas penambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. "
-"Untuk mengetahui sebabnya silakan klik %sdisini%s."
+"Penyimpanan konfigurasi phpMyAdmin telah dinonaktifkan. Untuk mencari tahu "
+"mengapa klik %sdisini%s."
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Skema Relational"
+msgstr "Edit atau ekspor skema relasional"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -412,11 +402,10 @@ msgid "Last check"
 msgstr "Pemeriksaan terakhir"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "tabel %s"
+msgstr[0] "Tunggal% s tabelJamak% s tabel"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -431,11 +420,11 @@ msgstr "Sekurang-kurangnya satu kolom harus dipilih untuk ditampilkan"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "Beralih ke"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "Pembuat tampilan"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -541,11 +530,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Hasil pencarian untuk \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s catatan dalam tabel <i>%s</i>"
+msgstr[0] ""
+"Tunggal% s cocok dalam tabel% <i> s </ i>Jamaks% cocok dalam tabel% <i> s </ "
+"i>"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
@@ -567,17 +557,17 @@ msgid "Delete"
 msgstr "Hapus"
 
 #: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Hapus pelacakan data untuk tabel ini"
+msgstr "Hapus yang cocok untuk% s tabel?"
 
 #: db_search.php:272
-#, fuzzy, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Jumlah:</b> <i>%s</i> rekord"
+msgstr[0] ""
+"Tunggal<b> Total: </ b>% <i> s </ i> cocokJamak<b> Total: </ b>% <i> s </ i> "
+"cocok"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -824,11 +814,11 @@ msgstr "Log Database"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Nilai untuk kolom \"% s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Masukkan setiap nilai dalam bidang yang terpisah."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -844,7 +834,7 @@ msgstr ""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr " jenis ekspor yang diipilih harus disimpan dalam file!"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
@@ -900,6 +890,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"Tidak ada untuk di-import. Kemungkinan karena tidak ada file yang diambil "
+"atau ukuran file melebihi ukuran maksimum yang diizinkan oleh konfigurasi "
+"PHP Anda. Lihat [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -916,12 +909,12 @@ msgstr "Tampilkan bookmark"
 #: import.php:402 sql.php:810
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Bookmark % s dibuat"
 
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Impor telah berhasil menyelesaikan,%d query dieksekusi."
 
 #: import.php:423
 msgid ""
@@ -1733,6 +1726,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"anda mungkin belum membuat file konfigurasi. anda bisa menggunakan %1$ssetup "
+"script%2$s untuk membuatnya"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -76,7 +76,7 @@ msgstr "סע"
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:441 tbl_tracking.php:314
 msgid "Keyname"
-msgstr ""
+msgstr "שמות מפתח"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
@@ -9586,7 +9586,7 @@ msgstr "סדר תצוגה:"
 
 #: tbl_structure.php:160 tbl_structure.php:164
 msgid "Browse distinct values"
-msgstr ""
+msgstr "עיין בערכים נפרדים"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-07-22 02:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -610,10 +610,8 @@ msgid "Inside table(s):"
 msgstr "În interiorul tabelei(lor):"
 
 #: db_search.php:351
-#, fuzzy
-#| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "În cîmpul:"
+msgstr "In interiorul coloanei::"
 
 #: db_structure.php:59
 #, fuzzy
@@ -980,11 +978,11 @@ msgstr ""
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr ""
+msgstr "Click pentru a selecta"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Click pentru a deselecta"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:158
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1252,9 +1250,8 @@ msgstr "Ultima versiune"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
-#, fuzzy
 msgid "Done"
-msgstr "Date"
+msgstr "Gata"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:132
@@ -1279,42 +1276,32 @@ msgid "Today"
 msgstr "Total"
 
 #: js/messages.php:139
-#, fuzzy
-#| msgid "Binary"
 msgid "January"
-msgstr "Binar"
+msgstr "Ianuarie"
 
 #: js/messages.php:140
 msgid "February"
-msgstr ""
+msgstr "Februarie"
 
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Mar"
 msgid "March"
-msgstr "Mar"
+msgstr "Martie"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Apr"
 msgid "April"
-msgstr "Apr"
+msgstr "Aprilie"
 
 #: js/messages.php:143
 msgid "May"
 msgstr "Mai"
 
 #: js/messages.php:144
-#, fuzzy
-#| msgid "Jun"
 msgid "June"
-msgstr "Iun"
+msgstr "Iunie"
 
 #: js/messages.php:145
-#, fuzzy
-#| msgid "Jul"
 msgid "July"
-msgstr "Iul"
+msgstr "Iulie"
 
 #: js/messages.php:146
 #, fuzzy
@@ -1324,21 +1311,19 @@ msgstr "Aug"
 
 #: js/messages.php:147
 msgid "September"
-msgstr ""
+msgstr "Septembrie"
 
 #: js/messages.php:148
-#, fuzzy
-#| msgid "Oct"
 msgid "October"
-msgstr "Oct"
+msgstr "Octombrie"
 
 #: js/messages.php:149
 msgid "November"
-msgstr ""
+msgstr "Noiembrie"
 
 #: js/messages.php:150
 msgid "December"
-msgstr ""
+msgstr "Decembrie"
 
 #. l10n: Short month name
 #: js/messages.php:154 libraries/common.lib.php:1563

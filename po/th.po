@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
@@ -33,6 +33,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"ไม่สามารถเปลี่ยนแปลงข้อมูลของหน้าต่างเป้าหมายได้ อาจเป็นเพราะว่าคุณปิดหน้าต่างหลัก "
+"หรือสาเหตุจากการตั้งค่าความปลอดภัยให้ป้องกันการเปลี่ยนแปลงข้อมูลข้ามหน้าต่าง"
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2822
 #: libraries/common.lib.php:2829 libraries/common.lib.php:3008
@@ -92,15 +94,15 @@ msgstr "ใช้ค่านี้"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "ไม่มีการตั้งค่าของเซิร์ฟเวอร์บล็อบสตรีมมิ่ง"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "การดึงค่าส่วนหัวไม่สำเร็จ"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "เชื่อมต่อ url ปลายทางไม่สำเร็จ"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -252,19 +254,18 @@ msgid "Unselect All"
 msgstr "ไม่เลือกเลย"
 
 #: db_operations.php:41 tbl_create.php:48
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "ชื่อตารางยังว่างอยู่!"
+msgstr "ไม่มีชื่อฐานข้อมูล"
 
 #: db_operations.php:272
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
+msgstr "ฐานข้อมูล %s ได้ถูกเปลี่ยนชื่อเป็น %s"
 
 #: db_operations.php:276
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว."
+msgstr "คัดลอกฐานข้อมูล %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว"
 
 #: db_operations.php:399
 msgid "Rename database to"
@@ -275,10 +276,8 @@ msgid "Command"
 msgstr "คำสั่ง"
 
 #: db_operations.php:433
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "เอาฐานข้อมูลออก"
 
 #: db_operations.php:445
 #, php-format
@@ -286,14 +285,12 @@ msgid "Database %s has been dropped."
 msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "โยนฐานข้อมูลทิ้ง"
 
 #: db_operations.php:478
-#, fuzzy
 msgid "Copy database to"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "คัดลอกฐานข้อมูลเป็น"
 
 #: db_operations.php:485 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
@@ -309,14 +306,14 @@ msgstr "เฉพาะข้อมูล"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "สร้างฐานข้อมูลก่อนคัดลอก"
 
 #: db_operations.php:498 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:132 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "เพิ่ม %s"
 
 #: db_operations.php:502 libraries/config/messages.inc.php:117
 #: tbl_operations.php:296 tbl_operations.php:540
@@ -325,12 +322,11 @@ msgstr "เพิ่มค่า AUTO_INCREMENT"
 
 #: db_operations.php:506 tbl_operations.php:547
 msgid "Add constraints"
-msgstr ""
+msgstr "เพิ่ม constraints"
 
 #: db_operations.php:519
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "สลับไปที่ตารางที่ถูกทำสำเนาไว้"
+msgstr "สลับไปยังฐานข้อมูลที่ถูกทำสำเนาไว้"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -343,21 +339,15 @@ msgid "Collation"
 msgstr "การเรียงลำดับ"
 
 #: db_operations.php:556
-#, fuzzy, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%s"
+msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ได้ถูกระงับเอาไว้ คลิก %shere%s เพื่อหาสาเหตุ"
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "แก้ไข หรือส่งออก รีเลชันแนล สกีมา"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -428,11 +418,11 @@ msgstr "ต้องเลือกให้แสดงอย่างน้อ
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "สลับไปยัง"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "ตัวสร้างแบบวิชวล"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -603,10 +593,8 @@ msgid "Inside table(s):"
 msgstr "ในตาราง:"
 
 #: db_search.php:351
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "ในตาราง:"
+msgstr "ในคอลัมน์:"
 
 #: db_structure.php:59
 #, fuzzy
@@ -620,9 +608,9 @@ msgid "Table %s has been emptied"
 msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
 
 #: db_structure.php:286 tbl_operations.php:675
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "โยนฟิลด์ %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนวิว %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
@@ -631,11 +619,11 @@ msgstr "โยนตาราง %s ทิ้งไปเรียบร้อ�
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "การติดตามเริ่มทำงานแล้ว"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "หยุดการติดตามแล้ว"
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
@@ -647,14 +635,13 @@ msgstr ""
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
 msgid "View"
-msgstr ""
+msgstr "วิว"
 
 #: db_structure.php:444 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:383
-#, fuzzy
 msgid "Replication"
-msgstr "รีเลชัน"
+msgstr "การทำข้อมูลซ้ำไปไว้อีกที่หนึ่ง"
 
 #: db_structure.php:448
 msgid "Sum"
@@ -663,7 +650,7 @@ msgstr "ผลรวม"
 #: db_structure.php:455 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "เซิร์ฟเวอร์ MySQL นี้ใช้ storage engine ชื่อ %s เป็นค่าเริ่มต้น"
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2157 libraries/display_tbl.lib.php:2162
@@ -687,7 +674,7 @@ msgstr "ไม่เลือกเลย"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "ตรวจสอบตารางที่มี overhead"
 
 #: db_structure.php:502 db_structure.php:503
 #: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
@@ -746,7 +733,7 @@ msgstr "พจนานุกรมข้อมูล"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "ตารางที่ถูกติดตาม"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -763,7 +750,7 @@ msgstr "ฐานข้อมูล"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "เวอร์ชั่นล่าสุด"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 #, fuzzy
@@ -772,7 +759,7 @@ msgstr "สร้าง"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "ปรับปรุงแล้ว"
 
 #: db_tracking.php:89 libraries/common.lib.php:1348
 #: libraries/server_links.inc.php:50 server_processlist.php:66
@@ -789,55 +776,51 @@ msgstr "กระทำการ"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "ลบการติดตามตารางนี้"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr ""
+msgstr "ใช้งานได้"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr ""
+msgstr "ใช้งานไม่ได้"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "กระบวนการ"
+msgstr "รุ่น"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
-msgstr ""
+msgstr "รายงานผลการติดตาม"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างแบบคร่าวๆ"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "เลิกติดตามตาราง"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
 #: tbl_structure.php:621
-#, fuzzy
 msgid "Track table"
-msgstr "ตรวจสอบตาราง"
+msgstr "ติดตามตาราง"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "ฐานข้อมูล"
+msgstr "Log ของฐานข้อมูล"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "ป้อนค่าในช่องต่างๆ"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -853,23 +836,23 @@ msgstr ""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "ชนิดการส่งออกที่ถูกเลือกต้องถูกบันทึกลงไฟล์"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "พื้นที่ไม่เพียงพอที่จะบันทึกไฟล์ %s"
 
 #: export.php:307
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr ""
+msgstr "ให้เปลี่ยนชื่อไฟล์ หรือเลือกแบบเขียนทับไฟล์เดิม เพราะมีไฟล์ %s อยู่ในเซิร์ฟเวอร์อยู่แล้ว"
 
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาติ"
 
 #: export.php:673
 #, php-format

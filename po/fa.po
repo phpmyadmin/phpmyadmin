@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator: <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "دریافت سرصفحه ها مقدور نمی باشد"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -109,16 +109,17 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"فایل s% بر روی این سیستم موجود نمی باشد، جهت کسب اطلاعات بیشتر به وب سایت "
+"www.phpmyadmin.net مراجعه نمایید."
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "پايگاه داده %s حذف گرديد."
+msgstr "پايگاه داده s$% ایجاد شده است."
 
 #: db_datadict.php:48 db_operations.php:364
-#, fuzzy
 msgid "Database comment: "
-msgstr "توضيحات جدول"
+msgstr "توضيحات پایگاه داده:"
 
 #: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1211
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
@@ -135,10 +136,8 @@ msgstr "توضيحات جدول"
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "نام ستونها"
+msgstr "ستون"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -254,33 +253,30 @@ msgid "Unselect All"
 msgstr "عدم انتخاب همه"
 
 #: db_operations.php:41 tbl_create.php:48
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "نام جدول وارد نشده‌است !"
+msgstr "نام پایگاه داده وارد نشده‌ است!"
 
 #: db_operations.php:272
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "جدول %s به %s تغيير نام داده‌شد"
+msgstr "نام پایگاه داده s% به s% تغییر داده شد"
 
 #: db_operations.php:276
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "جدول %s به %s كپي شد."
+msgstr "پایگاه داده s% در s% کپی شد"
 
 #: db_operations.php:399
-#, fuzzy
 msgid "Rename database to"
-msgstr "بازناميدن جدول به"
+msgstr "تغییر نام پایگاه داده به"
 
 #: db_operations.php:404 server_processlist.php:64
 msgid "Command"
 msgstr "دستور"
 
 #: db_operations.php:433
-#, fuzzy
 msgid "Remove database"
-msgstr "بازناميدن جدول به"
+msgstr "حذف پایگاه داده"
 
 #: db_operations.php:445
 #, php-format
@@ -288,14 +284,12 @@ msgid "Database %s has been dropped."
 msgstr "پايگاه داده %s حذف گرديد."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "No databases"
+msgstr "حذف پایگاه داده"
 
 #: db_operations.php:478
-#, fuzzy
 msgid "Copy database to"
-msgstr "No databases"
+msgstr "کپی کردن پابگاه داده به"
 
 #: db_operations.php:485 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
@@ -311,7 +305,7 @@ msgstr "فقط داده‌ها"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "پیش از کپی پایگاه داده ایجاد شود"
 
 #: db_operations.php:498 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
@@ -323,15 +317,15 @@ msgstr "افزودن %s"
 #: db_operations.php:502 libraries/config/messages.inc.php:117
 #: tbl_operations.php:296 tbl_operations.php:540
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "مقدار افزایشی خودکار اضافه شود"
 
 #: db_operations.php:506 tbl_operations.php:547
 msgid "Add constraints"
-msgstr ""
+msgstr "اعمال محدودیت ها"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
-msgstr ""
+msgstr "تعویض به پایگاه داده ی کپی شده"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -356,10 +350,8 @@ msgstr ""
 "دليل آن %sاينجا%s را بزنيد ."
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Display PDF schema"
 msgid "Edit or export relational schema"
-msgstr "نمايش الگوي PDF"
+msgstr "ویرایش یا صدور نمای رابطه ای"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -392,16 +384,15 @@ msgstr "in use"
 #: libraries/export/sql.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1216 tbl_printview.php:431
 #: tbl_structure.php:901
-#, fuzzy
 msgid "Creation"
-msgstr "ساختن"
+msgstr "ایجاد"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1221 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr ""
+msgstr "آخرین به روز رسانی"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:601
@@ -411,11 +402,10 @@ msgid "Last check"
 msgstr ""
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول(ها)"
+msgstr[0] "s% جدولs% جداول"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -430,11 +420,11 @@ msgstr "شما حذاقل بايد يك ستون را براي نمايش انت
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "تعویض به"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "سازنده ی تصویری"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -493,10 +483,8 @@ msgid "Add/Delete criteria rows"
 msgstr "اضافه/حذف معيارها"
 
 #: db_qbe.php:619
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "اضافه يا حذف ستونها"
+msgstr "اضافه/حذف ستون ها"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
@@ -547,7 +535,7 @@ msgstr "نتيجه جستجوي \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] ""
+msgstr[0] "s% عبارت همتا در جدول <i>%s</i>s% عبارت همتا در جدول <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
@@ -569,10 +557,9 @@ msgid "Delete"
 msgstr "حذف"
 
 #: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "حذف داده‌هاي جدول"
+msgstr "داده های همتا در جدول s% حذف شوند؟"
 
 #: db_search.php:272
 #, php-format
@@ -601,16 +588,12 @@ msgid "Inside table(s):"
 msgstr "در جدول(هاي) :"
 
 #: db_search.php:351
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "در جدول(هاي) :"
+msgstr "در جدول:"
 
 #: db_structure.php:59
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "در اين پايگاه داده هيچ جدولي وجود ندارد ."
+msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 
 #: db_structure.php:277 tbl_operations.php:658
 #, php-format
@@ -618,9 +601,9 @@ msgid "Table %s has been emptied"
 msgstr "جدول %s خالي شد"
 
 #: db_structure.php:286 tbl_operations.php:675
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "ستون %s حذف گرديد"
+msgstr "نمای s% حذف گرديد."
 
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
@@ -629,11 +612,11 @@ msgstr "جدول %s حذف گرديد"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "پیگردی فعال می باشد."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "پیگردی فعال نمی باشد."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
@@ -641,6 +624,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"در این نما حداقل این تعداد از سطرها موجود می باشد. لطفاً به s%نوشتارs% مراجعه "
+"نمایید."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -763,13 +748,12 @@ msgid "Last version"
 msgstr "نسخه قبلی"
 
 #: db_tracking.php:87 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "ساختن"
+msgstr "ایجاد شده"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "به روز شده"
 
 #: db_tracking.php:89 libraries/common.lib.php:1348
 #: libraries/server_links.inc.php:50 server_processlist.php:66
@@ -791,12 +775,12 @@ msgstr ""
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr ""
+msgstr "فعال"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr ""
+msgstr "غیر فعال"
 
 #: db_tracking.php:134
 #, fuzzy
@@ -950,7 +934,7 @@ msgstr ""
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr ""
+msgstr "برای انتخاب کلیک کنبد"
 
 #: js/messages.php:26
 msgid "Click to unselect"
@@ -1051,7 +1035,7 @@ msgstr ""
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
 #: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
 msgid "Cancel"
-msgstr ""
+msgstr "لغو کردن"
 
 #: js/messages.php:63
 #, fuzzy
@@ -1384,7 +1368,7 @@ msgstr "چهارشنبه"
 
 #: js/messages.php:183
 msgid "Thursday"
-msgstr ""
+msgstr "پنجشنبه"
 
 #: js/messages.php:184
 #, fuzzy
@@ -1499,7 +1483,7 @@ msgstr " ثانیه"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr ""
+msgstr "اندازه حروف"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1669,7 +1653,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "پش دید موجود نمی باشد"
 
 #: libraries/Theme.class.php:383
 msgid "take it"
@@ -6300,7 +6284,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Portrait"
-msgstr ""
+msgstr "تصوير "
 
 #: libraries/schema/User_Schema.class.php:394
 #, fuzzy
@@ -9380,9 +9364,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:718
-#, fuzzy
 msgid "Repair"
-msgstr "مرمت جدول"
+msgstr "تعمیر"
 
 #: tbl_operations.php:730
 msgid "Remove partitioning"

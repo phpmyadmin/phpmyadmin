@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -10273,9 +10273,8 @@ msgid "VIEW name"
 msgstr "Naziv prikaza"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Preimenuj tablicu u"
+msgstr "Preimenuj prikaz u"
 
 #~ msgid "Show left delete link"
 #~ msgstr "Prikaži/sakrij lijevi izbornik"

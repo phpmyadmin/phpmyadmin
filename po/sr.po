@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -100,10 +100,8 @@ msgid "No blob streaming server configured!"
 msgstr ""
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Неуспело уписивање датотеке на диск."
+msgstr "Неуспело преузимање заглавља."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -117,9 +115,9 @@ msgid ""
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "База %s је одбачена."
+msgstr "База %s је креирана."
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
@@ -140,10 +138,8 @@ msgstr "Коментари табеле"
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "Имена колона"
+msgstr "Колона"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -281,10 +277,8 @@ msgid "Command"
 msgstr "Наредба"
 
 #: db_operations.php:433
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Преименуј базу у"
+msgstr "Уклони базу"
 
 #: db_operations.php:445
 #, php-format
@@ -292,9 +286,8 @@ msgid "Database %s has been dropped."
 msgstr "База %s је одбачена."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "База не постоји"
+msgstr "Одбаци базу (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
@@ -359,10 +352,8 @@ msgstr ""
 "сазнали зашто, кликните %sовде%s."
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Релациона схема"
+msgstr "Уреди или извези релациону схему"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37

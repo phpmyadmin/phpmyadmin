@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-12-17 14:46+0200\n"
 "Last-Translator: <morsa.h@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -34,6 +34,10 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"A janela de destino no seu Navegador não pôde ser actualizada. Talvez tenha "
+"fechado a janela que a originou, ou as configurações de segurança do seu "
+"navegador encontram-se definidas para não permitir actualizações entre "
+"janelas."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2822
 #: libraries/common.lib.php:2829 libraries/common.lib.php:3008
@@ -93,7 +97,7 @@ msgstr "Usar este valor"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Nenhum servidor de blob streaming configurado!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -101,7 +105,7 @@ msgstr "Erro ao obter cabeçalhos (headers)"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Falha ao abrir o URL remoto"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -310,7 +314,7 @@ msgstr "Criar a Base de Dados antes de copiar (CREATE DATABASE)"
 #: libraries/config/messages.inc.php:132 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Adicionar %s"
 
 #: db_operations.php:502 libraries/config/messages.inc.php:117
 #: tbl_operations.php:296 tbl_operations.php:540
@@ -332,21 +336,17 @@ msgstr "Mudar para a Base de Dados copiada"
 #: server_collations.php:65 tbl_operations.php:360 tbl_select.php:114
 #: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
 #: tbl_tracking.php:320
-#, fuzzy
 msgid "Collation"
-msgstr "Criação"
+msgstr "Agrupamento (Collation)"
 
 #: db_operations.php:556
-#, fuzzy, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"As Características adicionais para trabalhar com ligações entre Tabelas "
-"foram desactivadas. Para saber porquê carregue %saqui%s."
+"As configurações do phpMyAdmin para trabalhar com ligações entre Tabelas "
+"foram desactivadas. Para saber porquê carregue %shere%s."
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
@@ -670,7 +670,7 @@ msgstr "Nenhum"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Verificar tabelas com overhead"
 
 #: db_structure.php:502 db_structure.php:503
 #: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
@@ -728,9 +728,8 @@ msgid "Data Dictionary"
 msgstr "Dicionario de dados"
 
 #: db_tracking.php:79
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Verificar tabela"
+msgstr "Tabelas em tracking"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -746,18 +745,16 @@ msgid "Database"
 msgstr "Base de Dados"
 
 #: db_tracking.php:86
-#, fuzzy
 msgid "Last version"
-msgstr "Versão do servidor"
+msgstr "Última versão"
 
 #: db_tracking.php:87 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "Criar"
+msgstr "Criado"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "Actualizado"
 
 #: db_tracking.php:89 libraries/common.lib.php:1348
 #: libraries/server_links.inc.php:50 server_processlist.php:66
@@ -774,56 +771,51 @@ msgstr "Acções"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Apagar dados de tracking para esta tabela"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
 msgid "active"
-msgstr ""
+msgstr "activo"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr ""
+msgstr "inactivo"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "Operações"
+msgstr "Versões"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
-msgstr ""
+msgstr "Relatório de tracking"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Somente estrutura"
+msgstr "Snapshot da estrutura"
 
 #: db_tracking.php:181
-#, fuzzy
 msgid "Untracked tables"
-msgstr "Verificar tabela"
+msgstr "Tabelas sem tracking"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
 #: tbl_structure.php:621
-#, fuzzy
 msgid "Track table"
-msgstr "Verificar tabela"
+msgstr "Tracking à tabela"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "Base de Dados"
+msgstr "Log da Base de Dados"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Valores para a coluna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Introduza cada valor num campo separado."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -839,7 +831,7 @@ msgstr ""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "O tipo de export seleccionado tem de ser gravado em ficheiro!"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
@@ -870,6 +862,9 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Provavelmente tentou efectuar o importar um ficheiro demasiado grande. Por "
+"favor reveja a %sdocumentação%s para encontrar formas de contornar este "
+"limite."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -884,6 +879,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Tentou importar um ficheiro com uma compressão não suportada (%s). Ou o "
+"suporte não se encontra implementado ou está desabilitado na sua "
+"configuração."
 
 #: import.php:336
 msgid ""
@@ -891,10 +889,16 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"Não foram recebidos dados para importar. Ou não foi submetir um nome de "
+"ficheiro, ou o tamanho do ficheiro excede o tamanho máximo permitido pela "
+"sua configuração PHP. Veja [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Não foi possível carregar os import plugins, por favor verifique a sua "
+"instalação!"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
@@ -902,29 +906,34 @@ msgstr "Marcador apagado com sucesso."
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Mostrando Marcador"
 
 #: import.php:402 sql.php:810
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Marcador %s criado"
 
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Import terminou com sucesso, %d queries executados."
 
 #: import.php:423
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Script timeout atingido, se pretender concluir o import, por favor volte a "
+"submeter o mesmo ficheiro que o import continuará."
 
 #: import.php:425
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"No entanto, na última execussão não foram detectados dados, isto regra geral "
+"significa que o phpMyAdmin não conseguirá terminar este import, sem que se "
+"incremente os tempos de limite de php."
 
 #: import_status.php:30 libraries/common.lib.php:674
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
@@ -942,11 +951,11 @@ msgstr ""
 #: server_synchronize.php:737 server_synchronize.php:765
 #: server_synchronize.php:793 server_synchronize.php:805
 msgid "Click to select"
-msgstr ""
+msgstr "Clique para seleccionar"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Clique para deseleccionar"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:158
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -958,39 +967,38 @@ msgstr "Confirma : "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:241
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Evento de Drop"
 
 #: js/messages.php:33
-#, fuzzy
 msgid "Dropping Procedure"
-msgstr "Processos"
+msgstr "Procedimento de Drop"
 
 #: js/messages.php:35
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Permite inserir e substituir dados."
+msgstr "Apagando dados de tracking"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Apagando Chave Primária/Indice"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Esta operação poderá demorar. Deseja prosseguir?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Está prestes a DESACTIVAR um Repositório BLOB!"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Tem a certeza que pretender desactivar todas as referencias a BLOB para a "
+"Base de Dados %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1018,15 +1026,12 @@ msgstr ""
 "As palavras-passe são diferentes!\\nLembre-se de confirmar a palavra-passe!"
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Acrescenta um utilizador"
+msgstr "Adicionar um novo utilizador"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
-msgstr "Versão do servidor"
+msgstr "Criar Utilizador"
 
 #: js/messages.php:54
 #, fuzzy
@@ -1035,44 +1040,39 @@ msgid "Reloading Privileges"
 msgstr "A recarregar privilégios"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Remover utilizadores seleccionados"
+msgstr "Removendo os utilizadores seleccionados"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
 #: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "Local"
+msgstr "Carregando"
 
 #: js/messages.php:64
-#, fuzzy
-#| msgid "Processes"
 msgid "Processing Request"
-msgstr "Processos"
+msgstr "Processando Pedido"
 
 #: js/messages.php:65
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Erro a Processar Pedido"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Apagando Coluna"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Adicionando Chave Primária"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
 #: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
@@ -1081,56 +1081,44 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#, fuzzy
 msgid "Renaming Databases"
-msgstr "Renomeia a tabela para "
+msgstr "Renomeando Bases de Dados"
 
 #: js/messages.php:72
-#, fuzzy
 msgid "Reload Database"
-msgstr "Renomeia a tabela para "
+msgstr "Recarregar Base de Dados"
 
 #: js/messages.php:73
-#, fuzzy
 msgid "Copying Database"
-msgstr "Sem bases de dados"
+msgstr "Copiando Bases de Dados"
 
 #: js/messages.php:74
-#, fuzzy
-#| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Mapa de Caractere"
+msgstr "Mudando Mapa de Caracteres"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
-msgstr "Tem que escolher pelo menos uma coluna para mostrar"
+msgstr "A tabela terá que ter pelo menos uma coluna"
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
-msgstr "Criar uma Página nova"
+msgstr "Criar uma Tabela"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "Pesquisar"
+msgstr "Pesquisando"
 
 #: js/messages.php:84
-#, fuzzy
 msgid "Hide query box"
-msgstr "Comando SQL"
+msgstr "Esconder Caixa do query"
 
 #: js/messages.php:85
-#, fuzzy
 msgid "Show query box"
-msgstr "Comando SQL"
+msgstr "Mostrar Caixa do query"
 
 #: js/messages.php:86
 msgid "Inline Edit"
-msgstr ""
+msgstr "Editar em linha"
 
 #: js/messages.php:89
 #, fuzzy
@@ -1149,11 +1137,11 @@ msgstr "Ignora"
 
 #: js/messages.php:96
 msgid "Select referenced key"
-msgstr ""
+msgstr "Seleccione chave de referencia"
 
 #: js/messages.php:97
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Seleccione Foreign Key"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
@@ -1714,6 +1702,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"Provavelmente um ficheiro de configuração não foi criado. O %1$ssetup script"
+"%2$s pode ser utilizado para criar um."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -7228,29 +7218,27 @@ msgstr ""
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Erro: Relação já existe."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Erro: Relação não adicionada."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Relação FOREIGN KEY adicionada"
 
 #: pmd_relation_new.php:84
-#, fuzzy
 msgid "Internal relation added"
-msgstr "Relações internas"
+msgstr "Relação interna adicionada"
 
 #: pmd_relation_upd.php:55
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Vista de Relação"
+msgstr "Relação apagada"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Erro gravando as coordenadas para o Designer."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
@@ -9245,7 +9233,7 @@ msgstr "Voltar atrás"
 
 #: tbl_change.php:1082
 msgid "Edit next row"
-msgstr ""
+msgstr "Editar próxima coluna"
 
 #: tbl_change.php:1093
 msgid ""

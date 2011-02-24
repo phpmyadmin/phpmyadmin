@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2011-02-22 18:46+0200\n"
-"Last-Translator:  <rebeluca@gmail.com>\n"
+"Last-Translator: <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -403,12 +403,11 @@ msgid "Last check"
 msgstr "Ultimo controllo"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabella(e)"
-msgstr[1] "%s tabella(e)"
+msgstr[0] "%s tabella"
+msgstr[1] "%s tabelle"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -536,8 +535,8 @@ msgstr "Cerca i risultati per \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s corrispondenze nella tabella <i>%s</i>"
-msgstr[1] "%s corrisponde/ono nella tabella <i>%s</i>"
+msgstr[0] "%s corrispondenza nella tabella <i>%s</i>"
+msgstr[1] "%s corrispondenze nella tabella <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
@@ -559,17 +558,16 @@ msgid "Delete"
 msgstr "Elimina"
 
 #: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Eliminare le corrispondenze relative alla tabella %s?"
 
 #: db_search.php:272
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Totale:</b> <i>%s</i> corrispondenza/e"
-msgstr[1] "<b>Totale:</b> <i>%s</i> corrispondenza/e"
+msgstr[0] "<b>Totale:</b> <i>%s</i> corrispondenza"
+msgstr[1] "<b>Totale:</b> <i>%s</i> corrispondenze"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -974,13 +972,11 @@ msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intero DataBase!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Cancellazione Evento"
 
 #: js/messages.php:33
-#, fuzzy
-#| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedure"
+msgstr "Cancellazione Procedura"
 
 #: js/messages.php:35
 #, fuzzy
@@ -1049,7 +1045,7 @@ msgstr "Rimozione Utenti Selezionati"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
@@ -1071,11 +1067,11 @@ msgstr "Errore nel processare la richiesta"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Eliminazione colonna"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Aggiunta chiave primaria"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
 #: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
@@ -1084,28 +1080,20 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Rinomina il DataBase in"
+msgstr "Rinominazione dei Database"
 
 #: js/messages.php:72
-#, fuzzy
-#| msgid "Remove database"
 msgid "Reload Database"
-msgstr "Rinomina il DataBase in"
+msgstr "Ricarico database"
 
 #: js/messages.php:73
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Copia il Database in"
+msgstr "Sto copiando il Database"
 
 #: js/messages.php:74
-#, fuzzy
-#| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Set di caratteri"
+msgstr "Sto cambiando il charset"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
@@ -1116,20 +1104,16 @@ msgid "Create Table"
 msgstr "Crea tabella"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "Cerca"
+msgstr "Cercando"
 
 #: js/messages.php:84
-#, fuzzy
 msgid "Hide query box"
-msgstr "query SQL"
+msgstr "Nascondi riquadro query SQL"
 
 #: js/messages.php:85
-#, fuzzy
 msgid "Show query box"
-msgstr "query SQL"
+msgstr "Mostra riquadro query SQL"
 
 #: js/messages.php:86
 #, fuzzy
@@ -1170,7 +1154,7 @@ msgstr "Scegli il campo da mostrare"
 
 #: js/messages.php:102
 msgid "Add an option for column "
-msgstr ""
+msgstr "Aggiungi un'opzione alla colonna"
 
 #: js/messages.php:105
 msgid "Generate password"
@@ -1186,7 +1170,7 @@ msgstr "Cambia password"
 
 #: js/messages.php:110 tbl_structure.php:471
 msgid "More"
-msgstr ""
+msgstr "Più"
 
 #: js/messages.php:113 setup/lib/index.lib.php:158
 #, php-format
@@ -1763,7 +1747,7 @@ msgstr "Autenticazione..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Errore PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
@@ -1771,11 +1755,11 @@ msgstr "Creazione della pagina fallita"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "Impossibile ottenere informazioni su BLOB da parte del PBMS"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "Fallito il tentativo di ottenere il content-Type di BLOB"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1839,15 +1823,12 @@ msgid "Jump to database"
 msgstr "Vai al database"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 msgid "Not replicated"
-msgstr "Configurazione del server"
+msgstr "Non replicato"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
-#| msgid "Replication"
 msgid "Replicated"
-msgstr "Replicazione"
+msgstr "Replicato"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -1867,22 +1848,20 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Rapporto tempo esecuzione query (in microsecondi)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
-#| msgid "Query results operations"
 msgid "Query results"
-msgstr "Risultato delle operazioni di Query"
+msgstr "Risultati query"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Nessun tipo di dato trovato per il diagramma"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "L'estensione GD è richiesta per i diagrammi (grafici)"
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "L'encoder JSON è necessario per i tooltips grafici"
 
 #: libraries/common.inc.php:576
 msgid ""
@@ -2145,10 +2124,9 @@ msgid "Browse your computer:"
 msgstr "Cerca sul tuo computer:"
 
 #: libraries/common.lib.php:2973
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "directory di upload del web-server"
+msgstr "Seleziona dalla cartella di upload del server web <b>%s</b>"
 
 #: libraries/common.lib.php:2985 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:956
@@ -2204,7 +2182,7 @@ msgstr "Personalizzato - mostra tutte le possibili opzioni di configurazione"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personalizzato - come di sopram ma senza la scelta quick/custom"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
@@ -2218,21 +2196,21 @@ msgstr "Inserimento ritardato"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "entrambi i precedenti"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "nessuno di qielli sopra"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "Numero non \"positivo\""
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Non è un numero non negativo"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
@@ -2254,7 +2232,7 @@ msgstr "Il valore deve essere uguale o minore di %s"
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Dati mancanti per %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
@@ -2270,12 +2248,12 @@ msgstr "\"%s\" richiede l'estensione %s"
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "l'importazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "l'esportazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:757
 #, fuzzy
@@ -2283,18 +2261,19 @@ msgid "SQL Validator is disabled"
 msgstr "<b>$cfg['SQLValidator']['use']</b> boolean"
 
 #: libraries/config/FormDisplay.class.php:764
-#, fuzzy
 msgid "SOAP extension not found"
-msgstr "Estensioni PHP"
+msgstr "Estensione SOAP non trovata"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "massimo %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Questa impostazione è disabilitata, non sarà applicata alla tua "
+"configurazione"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2313,7 +2292,7 @@ msgstr "Ripristinare valori predefiniti"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permetti agli utenti di personalizzare questo valore"
 
 #: libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
@@ -2343,11 +2322,12 @@ msgstr "Abilitata"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Se abilitato l'utente potrà utilizzare l'autenticazione per mezzo di cookie "
+"con qualsiasi server MySQL inserito nel modulo di login"
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "Impossibile eseguire il login nel server MySQL"
+msgstr "Permetti il login a qualsiasi server MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -2355,6 +2335,10 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Abilitando questa opzione si permetterà l'integrazione di phpMyAdmin "
+"all'interno di pagine situate in altri domini; questa è una potenziale "
+"[strong]falla di sicurezza[/strong] che permetterebbe attacchi di cross-"
+"frame scripting"
 
 #: libraries/config/messages.inc.php:22
 #, fuzzy
@@ -2364,7 +2348,7 @@ msgstr "$cfg['AllowThirdPartyFraming'] boolean"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Mostra il link &quot;Drop database&quot; ai normali utenti"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
@@ -2378,7 +2362,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Evidenzia le righe selezionate"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
@@ -2386,17 +2370,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Evidenzia le righe al passaggio del mouse"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Evidenzia il puntatore"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Abilita la compressione [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] per "
+"operazioni di importazione ed esportazione."
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
@@ -2408,14 +2394,18 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Definisce quale tipo di casella di modifica si utilizzerà per modificare "
+"colonne CHAR e VARCHAR; [kbd]input[/kbd] - permette di limitare la lunghezza "
+"dell'input, [kbd]textarea[/kbd] - permette di inserire caratteri newline "
+"(andare a capo)"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Modifica di colonne CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Numero di colonne per caselle textarea di campi CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
@@ -2423,7 +2413,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Numero di righe per caselle textarea di campi CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
@@ -2431,17 +2421,20 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Controlla i permessi di accesso al file di configurazione"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Comprimi esportazioni gzip/bzip2 al volo senza la necessità di usare molta "
+"memoria; disattivare questa opzione in caso di problemi nella creazione di "
+"file gzip/bzip2"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Comprimi al volo"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
@@ -2453,25 +2446,28 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Visualizzazione di un messaggio di conferma in caso di lancio di comandi che "
+"eliminano dati"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Conferma query DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 msgid "Default display direction"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Orientamento del display"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]orizzontale[/kbd], [kbd]verticale[/kbd] oppure un numero che indica la "
+"massima quantità per cui verrà utilizzata la modalità verticale"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
@@ -2745,10 +2741,8 @@ msgid "Creation/Update/Check dates"
 msgstr "Creazione/Aggiornamento/Controllo dati"
 
 #: libraries/config/messages.inc.php:122
-#, fuzzy
-#| msgid "Delayed inserts"
 msgid "Use delayed inserts"
-msgstr "Inserimento ritardato"
+msgstr "Usa Inserimento ritardato"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
@@ -2935,7 +2929,7 @@ msgstr "Opzioni di visualizzazione tabelle"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Frame principale"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
@@ -3108,7 +3102,7 @@ msgstr "Schede"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Scegli come vuoi che le schede lavorino"
 
 #: libraries/config/messages.inc.php:223
 msgid "Text fields"
@@ -3279,15 +3273,16 @@ msgid "String that separates databases into different tree levels"
 msgstr "Stringa che separa i database in livelli dell'albero differenti"
 
 #: libraries/config/messages.inc.php:271
-#, fuzzy
 msgid "Database tree separator"
-msgstr "Nome file template"
+msgstr "Separatore dell'albero Database"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Solo per la versione light; visualizza i database in un albero (determinato "
+"dal separatore definito in basso)"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
@@ -3295,7 +3290,7 @@ msgstr "Visualizza i database in un albero"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Disabilitalo se vuoi vedere tutti i database immediatamente"
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
@@ -3589,7 +3584,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr ""
+msgstr "Scheda predefinita per la finestra query"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
@@ -3610,6 +3605,8 @@ msgstr "Larghezza finestra query"
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
+"Seleziona le funzioni che saranno usate per la conversione dell'insieme di "
+"caratteri"
 
 #: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
@@ -9731,7 +9728,7 @@ msgstr ""
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "Ridisegna"
 
 #: tbl_create.php:56
 #, php-format
@@ -10172,9 +10169,9 @@ msgid "SQL execution"
 msgstr ""
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Tipo di esportazione"
+msgstr "Esporta come %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
@@ -10267,9 +10264,8 @@ msgid "VIEW name"
 msgstr "Nome VISTA"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Rinomina la tabella in"
+msgstr "Rinomina la vista in"
 
 #~ msgid "Show left delete link"
 #~ msgstr "Mostra/nascondi il menù di sinistra"

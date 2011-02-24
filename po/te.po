@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-11-29 17:44+0200\n"
 "Last-Translator: <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
-msgstr ""
+msgstr "డేటాబేస్  వివరణ"
 
 #: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1211
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
@@ -247,15 +247,15 @@ msgstr ""
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:48
 #: export.php:371 navigation.php:304
 msgid "No tables found in database."
-msgstr ""
+msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
-msgstr ""
+msgstr "అన్నీ ఎంచుకో"
 
 #: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "అన్నీ ఎంచుకోవద్దు"
 
 # మొదటి అనువాదము
 #: db_operations.php:41 tbl_create.php:48
@@ -270,11 +270,11 @@ msgstr ""
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s డేటాబేస్ %s డేటాబేస్ కు కాపీ అయింది"
 
 #: db_operations.php:399
 msgid "Rename database to"
-msgstr ""
+msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
 
 # మొదటి అనువాదము
 #: db_operations.php:404 server_processlist.php:64
@@ -283,46 +283,44 @@ msgstr "ఆజ్ఞ"
 
 # మొదటి అనువాదము
 #: db_operations.php:433
-#, fuzzy
-#| msgid "Database"
 msgid "Remove database"
-msgstr "డేటాబేస్"
+msgstr "డేటాబేస్ తొలగించండి"
 
 #: db_operations.php:445
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "డేటాబేస్ ను తుడిచివేయి"
 
 #: db_operations.php:478
 msgid "Copy database to"
-msgstr ""
+msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
 #: db_operations.php:485 tbl_operations.php:530 tbl_tracking.php:382
 msgid "Structure only"
-msgstr ""
+msgstr "నిర్మాణం మాత్రమే"
 
 #: db_operations.php:486 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
-msgstr ""
+msgstr "నిర్మాణం, మరియు డేటా"
 
 #: db_operations.php:487 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
-msgstr ""
+msgstr "డేటా మాత్రమే"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "కాపీ చేయబోయే ముందు డేటాబేస్ సృష్టించు"
 
 #: db_operations.php:498 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:132 tbl_operations.php:538
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s cErcu"
 
 #: db_operations.php:502 libraries/config/messages.inc.php:117
 #: tbl_operations.php:296 tbl_operations.php:540
@@ -391,21 +389,21 @@ msgstr "వాడుకలో ఉన్నది"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1216 tbl_printview.php:431
 #: tbl_structure.php:901
 msgid "Creation"
-msgstr ""
+msgstr "సృష్టి"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1221 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr ""
+msgstr "చివరి మార్పు"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1226 tbl_printview.php:451
 #: tbl_structure.php:917
 msgid "Last check"
-msgstr ""
+msgstr "చివరి చూపు"
 
 #: db_printview.php:220 db_structure.php:439
 #, php-format
@@ -419,7 +417,7 @@ msgstr[1] ""
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "మీ SQL క్వెరీ విజయవంతంగా నిర్వహించబడింది"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
@@ -427,11 +425,11 @@ msgstr ""
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "దీనికి మారు"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "దృశ్య కల్పకం"
 
 # మొదటి అనువాదము
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
@@ -461,11 +459,11 @@ msgstr "చూపించు"
 
 #: db_qbe.php:323
 msgid "Criteria"
-msgstr ""
+msgstr "లక్షణాలు"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:550 db_qbe.php:581
 msgid "Ins"
-msgstr ""
+msgstr "చొప్పించు"
 
 #: db_qbe.php:380 db_qbe.php:462 db_qbe.php:547 db_qbe.php:578
 msgid "And"
@@ -473,7 +471,7 @@ msgstr "మరియు"
 
 #: db_qbe.php:389 db_qbe.php:470 db_qbe.php:552 db_qbe.php:583
 msgid "Del"
-msgstr ""
+msgstr "తొలగించు"
 
 # మొదటి అనువాదము
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:545 db_qbe.php:576
@@ -484,23 +482,23 @@ msgstr "లేదా"
 
 #: db_qbe.php:530
 msgid "Modify"
-msgstr ""
+msgstr "మార్చు"
 
 #: db_qbe.php:607
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "లక్షణాల వరుసలను చేర్చు/తొలగించు"
 
 #: db_qbe.php:619
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
-msgstr ""
+msgstr "క్వెరీ ని మార్చు"
 
 #: db_qbe.php:640
 msgid "Use Tables"
-msgstr ""
+msgstr "పట్టికల్ని వాడు"
 
 #: db_qbe.php:663
 #, php-format
@@ -509,18 +507,18 @@ msgstr ""
 
 #: db_qbe.php:957 libraries/common.lib.php:1185
 msgid "Submit Query"
-msgstr ""
+msgstr "క్వెరీ ని సమర్పించు"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:187
 msgid "Access denied"
-msgstr ""
+msgstr "యాక్సెస్  నిరోధించడమైనది"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
-msgstr ""
+msgstr "కనీసం ఒక్క పదం"
 
 #: db_search.php:65 db_search.php:308
 msgid "all words"

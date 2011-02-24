@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -555,10 +555,9 @@ msgid "Delete"
 msgstr "Poista"
 
 #: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Poista tämän taulun seurantatiedot"
+msgstr "Poista taulusta %s löytyneet tulokset?"
 
 #: db_search.php:272
 #, php-format
@@ -818,15 +817,15 @@ msgstr "Syötä arvot omiin kenttiinsä."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Aloita lisääminen alusta ja lisää uusi arvo"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Tulos"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopioi ja liitä yhdistetyt arvot \"Pituus/Arvot\" -kenttään"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -1553,8 +1552,8 @@ msgstr[1] "%1$d rivi(ä) poistettu."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rivi(ä) lisätty."
-msgstr[1] "%1$d rivi(ä) lisätty."
+msgstr[0] "%1$d rivi lisätty."
+msgstr[1] "%1$d riviä lisätty."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -2125,7 +2124,7 @@ msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 
 #: libraries/common.lib.php:2993
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
@@ -2441,7 +2440,7 @@ msgstr "Vahvista DROP-kyselyt"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Etsi virheitä SQL-kyselystä"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
@@ -2484,10 +2483,8 @@ msgid "Default table tab"
 msgstr "Oletusarvoinen tauluvälilehti"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Näytä binaarisisältö heksamuodossa"
+msgstr "Näytä binäärisisältö oletusarvoisesti heksamuodossa"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:601
 msgid "Show binary contents as HEX"
@@ -2511,7 +2508,7 @@ msgstr "Näytä palvelimet luettelona"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Muokkaa SQL-kyselyitä uudessa ikkunassa"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
@@ -2609,10 +2606,8 @@ msgid "Replace NULL by"
 msgstr "Korvaa NULL-merkki tällä:"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Poista kentistä CRLF-merkit"
+msgstr "Poista CRLF-merkit sarakkeista"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
@@ -2704,10 +2699,8 @@ msgid "Remember file name template"
 msgstr "Muista tiedostonimen pohja"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Pane taulujen ja sarakkeiden nimet lainausmerkkeihin"
+msgstr "Laita taulujen ja sarakkeiden nimet lainausmerkkeihin"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
@@ -2716,7 +2709,7 @@ msgstr "SQL-yhteensopiva tila"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Tietoa lisättäessä käytettävä syntaksi"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"

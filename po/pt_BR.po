@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-12-21 18:48+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -276,10 +276,8 @@ msgid "Command"
 msgstr "Comando"
 
 #: db_operations.php:433
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Renomear Banco de Dados para"
+msgstr "Remover Banco de Dados"
 
 #: db_operations.php:445
 #, php-format
@@ -287,9 +285,8 @@ msgid "Database %s has been dropped."
 msgstr "Banco de Dados %s foi eliminado."
 
 #: db_operations.php:450
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Sem bases"
+msgstr "Apagar o Banco de Dados (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
@@ -423,11 +420,11 @@ msgstr "Deve escolher pelo menos uma coluna para exibir"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "Mudar para"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "construtor visual"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -480,10 +477,8 @@ msgid "Modify"
 msgstr "Modificar"
 
 #: db_qbe.php:607
-#, fuzzy
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Adicionar/Remover critérios de busca"
+msgstr "Adicionar/Remover critérios de linha"
 
 #: db_qbe.php:619
 #, fuzzy
@@ -563,10 +558,9 @@ msgid "Delete"
 msgstr "Remover"
 
 #: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Extraindo dados da tabela"
+msgstr "Excluir correspondentes para a tabela %s?"
 
 #: db_search.php:272
 #, php-format
@@ -802,9 +796,8 @@ msgid "Tracking report"
 msgstr ""
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Somente estrutura"
+msgstr "Preview da estrutura"
 
 #: db_tracking.php:181
 #, fuzzy
@@ -832,11 +825,11 @@ msgstr "Digite cada valor em um campo separado"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Reiniciar a inserção e adicionar um novo valor"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Saída"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -10122,9 +10115,9 @@ msgid "SQL execution"
 msgstr ""
 
 #: tbl_tracking.php:515
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Tipo de exportação"
+msgstr "Exportar como %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
@@ -10217,9 +10210,8 @@ msgid "VIEW name"
 msgstr "Nome da VISÃO"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Renomear a tabela para "
+msgstr "Renomear a visão para "
 
 #~ msgid "Show left delete link"
 #~ msgstr "Exibir/Ocultar menu da esquerda"

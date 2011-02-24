@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2011-02-24 12:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -411,8 +411,8 @@ msgstr "آخری دفعہ چیک"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s ٹیبل"
-msgstr[1] "%s ٹیبل"
+msgstr[0] "%s جدول"
+msgstr[1] "%s جداول"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140

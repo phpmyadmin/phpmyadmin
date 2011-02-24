@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:37+0100\n"
+"POT-Creation-Date: 2011-02-24 15:48+0100\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator: <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -410,12 +410,11 @@ msgid "Last check"
 msgstr "Последна проверка"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s таблица(и)"
-msgstr[1] "%s таблица(и)"
+msgstr[0] "%s таблица"
+msgstr[1] "%s таблици"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
