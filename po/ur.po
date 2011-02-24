@@ -1224,7 +1224,7 @@ msgstr "مارچ"
 
 #: js/messages.php:142
 msgid "April"
-msgstr ""
+msgstr "اپریل"
 
 #: js/messages.php:143
 msgid "May"
