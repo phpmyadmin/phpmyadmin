@@ -7677,7 +7677,7 @@ msgstr "Inne kluczowe ustawienia"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Ta funkcjonalność nie jest dostępna w twojej przeglądarce"
 
 #: prefs_manage.php:263
 #, fuzzy
