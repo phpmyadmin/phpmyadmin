@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 16:11+0200\n"
+"PO-Revision-Date: 2011-02-24 16:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -3296,7 +3296,7 @@ msgstr "Nie używaj AUTO_INCREMENT dla wartości zerowych"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Początkowy stan pasków przesuwania"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
