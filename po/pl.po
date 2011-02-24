@@ -1190,10 +1190,9 @@ msgid "Add an option for column "
 msgstr "Dodaj opcję do kolumny"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Generuj hasło"
+msgstr "Wygeneruj hasło"
 
 #: js/messages.php:106 libraries/replication_gui.lib.php:365
 msgid "Generate"
