@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-10 18:17+0200\n"
-"Last-Translator: <danish_satti2002@yahoo.com>\n"
+"PO-Revision-Date: 2011-02-24 11:00+0200\n"
+"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -284,10 +284,9 @@ msgid "Command"
 msgstr "کمانڈ"
 
 #: db_operations.php:433
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "ڈیٹا بیس ختم کریں"
+msgstr "کوائفیہ ہٹائیں"
 
 #: db_operations.php:445
 #, php-format
