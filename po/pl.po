@@ -3191,7 +3191,7 @@ msgstr "Ostrzeżenie"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Wyłącz część ostrzeżeń wyświetlanych przez phpMyAdmin"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
