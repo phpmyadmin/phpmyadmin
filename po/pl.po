@@ -4424,6 +4424,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
+"Kiedy wyłączone, użytkownicy nie mogą zmienić żadnej z poniższych opcji , "
+"wyłączając zaznaczone po prawej"
 
 #: libraries/config/messages.inc.php:495
 msgid "Enable the Developer tab in settings"
