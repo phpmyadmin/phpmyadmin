@@ -2288,7 +2288,7 @@ msgstr "Rozszerzone dodania"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "oba powyższe"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
