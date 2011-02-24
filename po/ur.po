@@ -967,7 +967,7 @@ msgstr "\"DROP DATABASE\" بیانات نااہل ہیں۔"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:257
 msgid "Do you really want to "
-msgstr "کیا آپ یقیناً کرنا چاہتے ہیں"
+msgstr "کیا آپ واقعی چاہتے ہیں"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:242
 msgid "You are about to DESTROY a complete database!"
