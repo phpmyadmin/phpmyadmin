@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 12:00+0200\n"
-"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
+"PO-Revision-Date: 2011-02-24 12:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -37,9 +37,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"مطلوبہ براؤزر دریچہ تازہ نہیں کیا جاسکتا۔ ہوسکتا ہے کہ آپ نے اصل دریچہ بند "
+"کیا ہو یا آپ کے سلامتی ترتیبات پار دریچہ تازہ کاری میں رکاوٹ بن رہے ہوں۔"
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2818
 #: libraries/common.lib.php:2825 libraries/common.lib.php:3000
@@ -637,8 +636,6 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -658,7 +655,7 @@ msgstr "مجموعہ"
 #: db_structure.php:455 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s is the default storage engine on this MySQL server."
+msgstr ""
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2155 libraries/display_tbl.lib.php:2160
@@ -666,7 +663,7 @@ msgstr "%s is the default storage engine on this MySQL server."
 #: server_databases.php:251 server_privileges.php:1683 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
-msgstr "With selected:"
+msgstr ""
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2150
 #: server_databases.php:248 server_privileges.php:576
@@ -843,29 +840,28 @@ msgstr "مجموئی قیمت کو “Length/Values“ کے خانے میں چس
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "Selected export type has to be saved in file!"
+msgstr ""
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Insufficient space to save the file %s."
+msgstr ""
 
 #: export.php:307
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"File %s already exists on server, change filename or check overwrite option."
 
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "The web server does not have permission to save the file %s."
+msgstr ""
 
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump has been saved to file %s."
+msgstr ""
 
 #: import.php:58
 #, php-format
@@ -873,8 +869,6 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -889,8 +883,6 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
 
 #: import.php:336
 msgid ""
@@ -898,13 +890,10 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Could not load import plugins, please check your installation!"
+msgstr ""
 
 #: import.php:396
 msgid "The bookmark has been deleted."
