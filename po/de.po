@@ -9980,7 +9980,7 @@ msgstr "Zeige nur unterschiedliche Werte"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
-msgstr ""
+msgstr "Primärschlüssel hinzufügen"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 #, fuzzy
