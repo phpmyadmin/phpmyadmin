@@ -1492,7 +1492,7 @@ msgstr "Wk"
 
 #: js/messages.php:221
 msgid "Hour"
-msgstr ""
+msgstr "Godzina"
 
 #: js/messages.php:222
 #, fuzzy
