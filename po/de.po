@@ -1048,9 +1048,8 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "Lade"
+msgstr "Laden"
 
 #: js/messages.php:64
 msgid "Processing Request"
