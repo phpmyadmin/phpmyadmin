@@ -1399,7 +1399,7 @@ msgstr "منگل"
 #. l10n: Minimal week day name
 #: js/messages.php:211
 msgid "We"
-msgstr ""
+msgstr "بدھ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
