@@ -606,10 +606,9 @@ msgid "Inside table(s):"
 msgstr "Wewnątrz tabel(i):"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Wewnątrz pola:"
+msgstr "Wewnątrz kolumny:"
 
 #: db_structure.php:59
 #, fuzzy
