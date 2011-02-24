@@ -4429,7 +4429,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:495
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Włącz zakładkę Developerską w ustawieniach"
 
 #: libraries/config/messages.inc.php:496
 msgid ""
