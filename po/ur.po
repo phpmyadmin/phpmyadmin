@@ -1057,7 +1057,7 @@ msgstr "منسوخ کریں"
 
 #: js/messages.php:63
 msgid "Loading"
-msgstr "اُٹھا رہا ہے"
+msgstr "لوڈ کررہا ہے"
 
 #: js/messages.php:64
 msgid "Processing Request"
