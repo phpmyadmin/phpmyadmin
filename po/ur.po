@@ -975,7 +975,7 @@ msgstr "آپ ایک مکمل کوائفیہ کو DESTROY کررہے ہیں!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr "واقع کو چھوڑتے ہوئے"
+msgstr "واقع کو چھوڑا جارہا ہے"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
