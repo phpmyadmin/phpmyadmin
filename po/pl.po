@@ -1141,10 +1141,9 @@ msgid "Hide query box"
 msgstr "Ukryj okno zapytań"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "Okno zapytania SQL"
+msgstr "Pokaż okno zapytań"
 
 #: js/messages.php:86
 #, fuzzy
