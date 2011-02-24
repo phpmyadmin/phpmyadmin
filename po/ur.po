@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:16+0200\n"
+"PO-Revision-Date: 2011-02-24 11:18+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -979,7 +979,7 @@ msgstr "واقع کو چھوڑتے ہوئے"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
-msgstr ""
+msgstr "طریقہ چھوڑتے ہوئے"
 
 #: js/messages.php:35
 #, fuzzy
