@@ -8427,6 +8427,8 @@ msgstr "Błąd zarządzania:"
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Włącznie \"omijania błędów\" może powodować rozsynchronizowanie serwera master "
+"i slave!"
 
 #: server_replication.php:342
 msgid "Skip current error"
