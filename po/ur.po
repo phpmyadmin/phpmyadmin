@@ -1431,7 +1431,7 @@ msgstr "منٹ"
 
 #: js/messages.php:223
 msgid "Second"
-msgstr ""
+msgstr "سیکنڈ"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
