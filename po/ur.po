@@ -1232,7 +1232,7 @@ msgstr "مئی"
 
 #: js/messages.php:144
 msgid "June"
-msgstr ""
+msgstr "جون"
 
 #: js/messages.php:145
 msgid "July"
