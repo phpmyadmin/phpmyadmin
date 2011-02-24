@@ -1302,7 +1302,7 @@ msgstr "اگست"
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1582
 msgid "Sep"
-msgstr ""
+msgstr "ستمبر"
 
 #. l10n: Short month name
 #: js/messages.php:172 libraries/common.lib.php:1584
