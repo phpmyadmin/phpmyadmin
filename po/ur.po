@@ -1292,7 +1292,7 @@ msgstr "جون"
 #. l10n: Short month name
 #: js/messages.php:166 libraries/common.lib.php:1578
 msgid "Jul"
-msgstr ""
+msgstr "جولائی"
 
 #. l10n: Short month name
 #: js/messages.php:168 libraries/common.lib.php:1580
