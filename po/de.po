@@ -7438,7 +7438,7 @@ msgstr "Sonstige Einstellungen"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Dieses Feature wird von ihrem Webbrowser nicht unterstützt"
 
 #: prefs_manage.php:263
 #, fuzzy
