@@ -1034,7 +1034,7 @@ msgstr "نیا صارف اضافہ کریں"
 
 #: js/messages.php:53
 msgid "Create User"
-msgstr "صارف تخلیق کریں"
+msgstr "صارف بنائیں"
 
 #: js/messages.php:54
 msgid "Reloading Privileges"
