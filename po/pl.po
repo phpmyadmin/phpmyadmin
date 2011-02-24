@@ -577,12 +577,13 @@ msgid "Delete the matches for the %s table?"
 msgstr "Usuń wszystkie trafienia dla tabeli %s?"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>W sumie:</b> <i>%s</i> trafień"
-msgstr[1] "<b>W sumie:</b> <i>%s</i> trafień"
+msgstr[1] "<b>W sumie:</b> <i>%s</i> trafienia"
+msgstr[2] "<b>W sumie:</b> <i>%s</i> trafień"
 
 #: db_search.php:295
 msgid "Search in database"
