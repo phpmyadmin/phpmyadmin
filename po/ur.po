@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:47+0200\n"
+"PO-Revision-Date: 2011-02-24 11:50+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -604,10 +604,9 @@ msgid "Inside column:"
 msgstr "کالم کے اندر:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
+msgstr "کوائیفیہ میں کوئی جدول نہیں ملا"
 
 #: db_structure.php:277 tbl_operations.php:658
 #, php-format
