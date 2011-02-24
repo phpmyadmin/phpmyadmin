@@ -1944,7 +1944,7 @@ msgstr "Rozszerzenie GD jest wymagane, do generowania wykresów."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "Enkoder JSON jest potrzebny, dla dymków wykresów."
 
 #: libraries/common.inc.php:576
 msgid ""
