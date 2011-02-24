@@ -2806,7 +2806,7 @@ msgstr "Tryb zgodności SQL"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Składnia używana do wstawiania wierszy"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
