@@ -5847,6 +5847,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"dołączaj nazwy kolumn w każdym zapytaniu <code>INSERT</code> <br />&nbsp; "
+"&nbsp; &nbsp; Np: <code>INSERTI NTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
