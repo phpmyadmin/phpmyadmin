@@ -2233,7 +2233,7 @@ msgstr "Oba"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Otwórz"
 
 #: libraries/config.values.php:74
 #, fuzzy
