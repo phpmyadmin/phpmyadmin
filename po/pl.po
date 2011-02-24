@@ -4777,7 +4777,7 @@ msgstr "Rekordów"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Eksportuj wybrane wiersze"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
