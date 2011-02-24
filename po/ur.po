@@ -1374,7 +1374,7 @@ msgstr "جمعرات"
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1601
 msgid "Fri"
-msgstr ""
+msgstr "جمعہ"
 
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1603
