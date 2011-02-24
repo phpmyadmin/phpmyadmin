@@ -5672,6 +5672,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"mehrere Zeilen pro <code>INSERT</code> Schlüsselwort einfügen<br /> &nbsp; "
+"&nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
