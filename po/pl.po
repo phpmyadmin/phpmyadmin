@@ -2319,7 +2319,7 @@ msgstr "Nieprawidłowa wartość"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Wartość musi być mniejsza bądź równa %s"
 
 #: libraries/config/FormDisplay.class.php:535
 #, php-format
