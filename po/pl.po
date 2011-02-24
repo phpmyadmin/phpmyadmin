@@ -7563,7 +7563,7 @@ msgstr "Tabela %1$s została utworzona."
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Błąd tworzenia strony"
 
 #: pmd_pdf.php:89
 #, fuzzy
