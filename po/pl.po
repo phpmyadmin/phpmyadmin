@@ -1861,7 +1861,7 @@ msgstr "Ściągnij plik"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Nie udało się otworzyć pliku: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
