@@ -1069,7 +1069,7 @@ msgstr "فرمایش عمل کرتے ہوئے نقص ہے"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr "کالم ختم کیے جا رہے ہیں"
+msgstr "کالم چھوڑا جارہا ہے"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
