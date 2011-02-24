@@ -1477,7 +1477,7 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
-msgstr ""
+msgstr "کوئی اشاریہ موجود نہیں!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:310
