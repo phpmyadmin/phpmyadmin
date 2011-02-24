@@ -7698,7 +7698,7 @@ msgstr "Zapisz w pamięci przeglądarki"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Ustawienia zostaną zapisane w lokalnej pamięci przeglądarki."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
