@@ -3223,9 +3223,8 @@ msgid "Display servers selection"
 msgstr "Server-Auswahl anzeigen"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Maximale Anzahl der in einer Tabellenliste angezeigten Tabellen"
+msgstr "Minimale Anzahl der in einer Tabellenliste anzuzeigenden Tabellen"
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
