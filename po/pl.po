@@ -4357,6 +4357,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Wielkość pola textarea (wierszy) w trybie edycji. Wartość będzie powięszkona "
+"dla zapytań SQL (*@) i okna zapytań (*1.25)"
 
 #: libraries/config/messages.inc.php:479
 msgid "Textarea rows"
