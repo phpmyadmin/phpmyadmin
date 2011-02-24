@@ -9695,6 +9695,8 @@ msgstr ""
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Beim Zeichnen eines Radar-Diagramms werden alle Werte auf den Bereich "
+"[0..10] normalisiert."
 
 #: tbl_chart.php:173
 msgid ""
