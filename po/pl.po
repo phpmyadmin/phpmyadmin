@@ -1226,10 +1226,9 @@ msgstr ", ostatnia stabiln()a wersja:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Przekazanie darowizny"
+msgstr "Zakończ"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:132
