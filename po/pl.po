@@ -2225,7 +2225,7 @@ msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików"
 
 #: libraries/common.lib.php:2985
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Nie podałeś plików do wgrania na serwer"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
