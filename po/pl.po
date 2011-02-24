@@ -4595,7 +4595,7 @@ msgstr "pl"
 #: libraries/core.lib.php:278
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Brak rozszerzenia %s. Proszę sprawdzić konfigurację PHP."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:493
