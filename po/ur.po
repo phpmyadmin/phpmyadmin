@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:37+0200\n"
+"PO-Revision-Date: 2011-02-24 11:38+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1141,7 +1141,7 @@ msgstr "محولہ کلید منتخب کریں"
 
 #: js/messages.php:97
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "فارن کلید منتخب کریں"
 
 #: js/messages.php:98
 msgid "Please select the primary key or a unique key"
