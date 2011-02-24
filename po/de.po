@@ -9651,9 +9651,8 @@ msgid "Legend margins"
 msgstr "Legendenbereich"
 
 #: tbl_chart.php:134
-#, fuzzy
 msgid "Bar"
-msgstr "März"
+msgstr "Säule"
 
 #: tbl_chart.php:135
 msgid "Line"
