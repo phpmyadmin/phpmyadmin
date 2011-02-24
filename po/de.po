@@ -2679,9 +2679,8 @@ msgid "Relations"
 msgstr "Tabellenverknüpfungen"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 msgid "Export method"
-msgstr "Exporttyp"
+msgstr "Exportmethode"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
