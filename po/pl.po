@@ -1086,7 +1086,7 @@ msgstr "Błąd przetwarzania wywołania"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Usuwanie Kolumny"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
