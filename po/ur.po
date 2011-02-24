@@ -1203,7 +1203,7 @@ msgstr "پچھلا"
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
 msgid "Next"
-msgstr ""
+msgstr "اگلا"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:136
