@@ -1840,7 +1840,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "Pobieranie Content-Type dla pola BLOB nie udało się"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
