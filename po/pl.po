@@ -2903,7 +2903,7 @@ msgstr "Programista"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Ustawienia dla programistów phpMyAdmin"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
