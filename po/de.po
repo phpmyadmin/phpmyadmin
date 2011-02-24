@@ -9624,7 +9624,7 @@ msgstr ""
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Breite"
 
 #: tbl_chart.php:94
 msgid "Height"
