@@ -9667,9 +9667,8 @@ msgid "Pie"
 msgstr "Torte"
 
 #: tbl_chart.php:144
-#, fuzzy
 msgid "Bar type"
-msgstr "Abfrageart"
+msgstr "Säulentyp"
 
 #: tbl_chart.php:146
 #, fuzzy
