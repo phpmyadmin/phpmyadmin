@@ -1116,7 +1116,7 @@ msgstr "طلب خانہ چھپائیں"
 
 #: js/messages.php:85
 msgid "Show query box"
-msgstr "کیوری بکس دکھائیں"
+msgstr "طلب خانہ دکھائیں"
 
 #: js/messages.php:86
 msgid "Inline Edit"
