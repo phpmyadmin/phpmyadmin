@@ -1232,10 +1232,9 @@ msgstr "Zakończ"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Poprzednie"
+msgstr "Poprzedni"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:134 libraries/common.lib.php:2361
