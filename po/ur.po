@@ -1216,7 +1216,7 @@ msgstr "جنوری"
 
 #: js/messages.php:140
 msgid "February"
-msgstr ""
+msgstr "فروری"
 
 #: js/messages.php:141
 msgid "March"
