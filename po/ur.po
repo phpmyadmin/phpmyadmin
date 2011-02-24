@@ -1170,7 +1170,7 @@ msgstr "پاس ورڈ تبدیل کریں"
 
 #: js/messages.php:110 tbl_structure.php:471
 msgid "More"
-msgstr ""
+msgstr "مزید"
 
 #: js/messages.php:113 setup/lib/index.lib.php:158
 #, php-format
