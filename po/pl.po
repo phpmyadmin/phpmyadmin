@@ -4362,7 +4362,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:479
 msgid "Textarea rows"
-msgstr ""
+msgstr "Wierszy w polu textarea"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
