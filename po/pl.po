@@ -4073,7 +4073,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Dodaj DROP TABLE"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
