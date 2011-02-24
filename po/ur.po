@@ -1404,7 +1404,7 @@ msgstr "بدھ"
 #. l10n: Minimal week day name
 #: js/messages.php:213
 msgid "Th"
-msgstr ""
+msgstr "جمعرات"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
