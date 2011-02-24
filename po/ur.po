@@ -1047,7 +1047,7 @@ msgstr "منتخب صارفین ہٹائے جارہے ہیں"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr "بند"
+msgstr "بند کریں"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
