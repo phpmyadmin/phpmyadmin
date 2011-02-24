@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:29+0200\n"
+"PO-Revision-Date: 2011-02-24 11:30+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1042,7 +1042,7 @@ msgstr "استحقاق پھر لوڈ کرتے ہوئے"
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
-msgstr "چنے ہوئے صارف حزف کیے جا رہے ہیں"
+msgstr "منتخب صارفین ہٹائے جارہے ہیں"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:793
 #: tbl_tracking.php:245 tbl_tracking.php:373
