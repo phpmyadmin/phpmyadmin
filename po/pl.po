@@ -3569,7 +3569,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Użyj naturalnego sortowania tabel i baz danych"
 
 #: libraries/config/messages.inc.php:318
 #, fuzzy
