@@ -6956,6 +6956,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Die Benutzereinstellungen werden nur für die aktuelle Session gespeichert. "
+"Die permanente Specícherung erfordert %sphpMyAdmin Konfigurationsspeicher%s."
 
 #: libraries/user_preferences.lib.php:142
 #, fuzzy
