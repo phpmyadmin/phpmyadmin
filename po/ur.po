@@ -1389,7 +1389,7 @@ msgstr "اتوار"
 #. l10n: Minimal week day name
 #: js/messages.php:207
 msgid "Mo"
-msgstr ""
+msgstr "پیر"
 
 #. l10n: Minimal week day name
 #: js/messages.php:209
