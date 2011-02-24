@@ -434,7 +434,7 @@ msgstr "Przełącz na"
 
 #: db_qbe.php:187
 msgid "visual builder"
-msgstr ""
+msgstr "edytor graficzny"
 
 #: db_qbe.php:223 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
