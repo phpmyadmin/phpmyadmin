@@ -1053,7 +1053,7 @@ msgstr "بند کریں"
 #: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
 #: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
 msgid "Cancel"
-msgstr "منسوخ"
+msgstr "منسوخ کریں"
 
 #: js/messages.php:63
 msgid "Loading"
