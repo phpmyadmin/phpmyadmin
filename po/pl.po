@@ -838,7 +838,7 @@ msgstr "Wprowadź wartości w osobnych polach"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Zacznij od nowa i dodaj nową wartość"
 
 #: enum_editor.php:67
 msgid "Output"
