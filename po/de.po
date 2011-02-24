@@ -10165,7 +10165,7 @@ msgstr "Jetzt deaktivieren"
 #: tbl_tracking.php:647
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr "Aktiviere tracking mechanismus für %s.%s"
+msgstr "Tracking mechanismus für %s.%s aktivieren"
 
 #: tbl_tracking.php:649
 msgid "Activate now"
