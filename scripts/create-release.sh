@@ -139,7 +139,7 @@ rm -rf test
 rm -rf scripts/google-javascript-compiler/
 
 # Remove scripts which are not useful for user
-for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release ; do
+for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py ; do
     rm -f scripts/$s
 done
 
