@@ -4370,7 +4370,7 @@ msgstr "Tytuł okna, jeśli jest wybrana baza danych"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Tytuł okna, jeśli nic nie jest wybrane"
 
 #: libraries/config/messages.inc.php:483
 #, fuzzy
