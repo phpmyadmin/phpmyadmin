@@ -109,13 +109,13 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"فایل s% بر روی این سیستم موجود نمی باشد، جهت کسب اطلاعات بیشتر به وب سایت "
+"فایل %s بر روی این سیستم موجود نمی باشد، جهت کسب اطلاعات بیشتر به وب سایت "
 "www.phpmyadmin.net مراجعه نمایید."
 
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "پايگاه داده s$% ایجاد شده است."
+msgstr "پايگاه داده %1$s ایجاد شده است."
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
@@ -259,12 +259,12 @@ msgstr "نام پایگاه داده وارد نشده‌ است!"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "نام پایگاه داده s% به s% تغییر داده شد"
+msgstr "نام پایگاه داده %s به %s تغییر داده شد"
 
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "پایگاه داده s% در s% کپی شد"
+msgstr "پایگاه داده %s در %s کپی شد"
 
 #: db_operations.php:399
 msgid "Rename database to"
@@ -405,7 +405,7 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "s% جدولs% جداول"
+msgstr[0] "%s جدول"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -535,7 +535,7 @@ msgstr "نتيجه جستجوي \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "s% عبارت همتا در جدول <i>%s</i>s% عبارت همتا در جدول <i>%s</i>"
+msgstr[0] "%s عبارت همتا در جدول <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
@@ -559,7 +559,7 @@ msgstr "حذف"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "داده های همتا در جدول s% حذف شوند؟"
+msgstr "داده های همتا در جدول %s حذف شوند؟"
 
 #: db_search.php:272
 #, php-format
@@ -603,7 +603,7 @@ msgstr "جدول %s خالي شد"
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
 msgid "View %s has been dropped"
-msgstr "نمای s% حذف گرديد."
+msgstr "نمای %s حذف گرديد."
 
 #: db_structure.php:286 tbl_operations.php:675
 #, php-format
@@ -624,7 +624,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"در این نما حداقل این تعداد از سطرها موجود می باشد. لطفاً به s%نوشتارs% مراجعه "
+"در این نما حداقل این تعداد از سطرها موجود می باشد. لطفاً به %sنوشتار%s مراجعه "
 "نمایید."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138

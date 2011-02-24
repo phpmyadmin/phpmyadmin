@@ -405,7 +405,7 @@ msgstr "Pemeriksaan terakhir"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "Tunggal% s tabelJamak% s tabel"
+msgstr[0] "%s tabel"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -534,8 +534,7 @@ msgstr "Hasil pencarian untuk \"<i>%s</i>\" %s:"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] ""
-"Tunggal% s cocok dalam tabel% <i> s </ i>Jamaks% cocok dalam tabel% <i> s </ "
-"i>"
+"%s cocok dalam tabel <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
@@ -565,9 +564,7 @@ msgstr "Hapus yang cocok untuk% s tabel?"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-"Tunggal<b> Total: </ b>% <i> s </ i> cocokJamak<b> Total: </ b>% <i> s </ i> "
-"cocok"
+msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
 
 #: db_search.php:295
 msgid "Search in database"
