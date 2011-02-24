@@ -2342,7 +2342,7 @@ msgstr "\"%s\" wymaga rozszerzenia \"%s\""
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "import nie zadziała, brak funkcji (%s)"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
