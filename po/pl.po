@@ -3633,7 +3633,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:332
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Chroń kolumny binarne"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
