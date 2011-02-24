@@ -3418,7 +3418,7 @@ msgstr "Maksymalna liczba pokazywanych znaków zapytania SQL"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "Limit znaków w kolumnie"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
