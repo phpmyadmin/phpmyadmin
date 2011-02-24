@@ -1162,7 +1162,7 @@ msgstr "پاس ورڈ بنائیں"
 
 #: js/messages.php:106 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr ""
+msgstr "بنائیں"
 
 #: js/messages.php:107
 msgid "Change Password"
