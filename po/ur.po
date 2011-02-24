@@ -1148,10 +1148,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "ایک بنیادی یا منفرد کلید منتخب کریں"
 
 #: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Choose column to display"
-msgstr "آپ کو کم از کم ایک کالم چننا ہو گا ڈسپے کیلئے۔"
+msgstr "کالم دکھانے کے لیے انتخاب کریں"
 
 #: js/messages.php:102
 msgid "Add an option for column "
