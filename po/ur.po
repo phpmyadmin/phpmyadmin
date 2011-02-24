@@ -1137,7 +1137,7 @@ msgstr "نظر انداز کریں"
 
 #: js/messages.php:96
 msgid "Select referenced key"
-msgstr ""
+msgstr "محولہ کلید منتخب کریں"
 
 #: js/messages.php:97
 msgid "Select Foreign Key"
