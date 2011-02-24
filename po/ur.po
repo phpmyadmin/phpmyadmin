@@ -1329,7 +1329,7 @@ msgstr "پیر"
 
 #: js/messages.php:181
 msgid "Tuesday"
-msgstr ""
+msgstr "منگل"
 
 #: js/messages.php:182
 msgid "Wednesday"
