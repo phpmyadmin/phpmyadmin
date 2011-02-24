@@ -988,10 +988,9 @@ msgid "Dropping Event"
 msgstr "Usuwanie Zdarzenia"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedury"
+msgstr "Usuwanie Procedury"
 
 #: js/messages.php:35
 #, fuzzy
