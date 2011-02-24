@@ -7707,6 +7707,7 @@ msgstr "Istniejące ustawienia zostaną nadpisane!"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Możesz zresetować wszystkie ustawienia i przywrócić im wartości domyślne."
 
 #: querywindow.php:93
 msgid "Import files"
