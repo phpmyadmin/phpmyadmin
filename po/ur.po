@@ -1010,7 +1010,7 @@ msgstr "فارم میں قدر موجود نہیں!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr "یہ ایک نمبر نہیں ہے"
+msgstr "یہ ایک نمبر نہیں ہے!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
