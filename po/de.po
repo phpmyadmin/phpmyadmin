@@ -7468,7 +7468,7 @@ msgstr "Vorhandene Einstellungen werden überschrieben!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "Sie können alle Einstellungen auf die Defaultwerten zurücksetzen."
 
 #: querywindow.php:93
 msgid "Import files"
