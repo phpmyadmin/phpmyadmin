@@ -7416,7 +7416,7 @@ msgstr "Sollen die restlichen Einstellungen importiert werden?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Gespeichert am: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
