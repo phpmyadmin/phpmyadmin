@@ -1183,10 +1183,9 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:115
-#, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
-msgstr "آخری ورژن"
+msgstr ", حالیہ مستحکم نسخہ:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:130
