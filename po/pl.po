@@ -6537,7 +6537,7 @@ msgstr "Plik %s nie zawiera żadnego identyfikatora klucza"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "Błąd SCHEMA:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:875
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
