@@ -3020,6 +3020,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Określ tytuł. Przeczytaj szczegóły w "
+"[a@Documentation.html#cfg_TitleTable]dokumentacji[/a], żeby dowiedzieć się "
+"więcej."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
