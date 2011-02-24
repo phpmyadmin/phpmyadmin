@@ -1082,10 +1082,9 @@ msgid "OK"
 msgstr "ٹھیک ہے"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "ڈیٹا بیس کا نام بدلیں"
+msgstr "کوائفیہ نام بدلا جارہا ہے"
 
 #: js/messages.php:72
 msgid "Reload Database"
