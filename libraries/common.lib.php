@@ -2939,7 +2939,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
         $response = array_merge($response, $extra_data);
     }
 
-    // Set the Content-Type header to JSON so that jQuery parses the 
+    // Set the Content-Type header to JSON so that jQuery parses the
     // response correctly.
     //
     // At this point, other headers might have been sent;
@@ -3014,6 +3014,7 @@ function PMA_buildActionTitles() {
     $titles['NoDrop']     = PMA_getIcon('bd_drop.png', __('Drop'), true);
     $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'), true);
     $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'), true);
+    $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
     return $titles;
 }
 ?>
