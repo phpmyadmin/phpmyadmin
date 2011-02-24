@@ -2082,7 +2082,7 @@ msgstr "Sprawdź poprawność SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Szybka edycja tego zapytania"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
