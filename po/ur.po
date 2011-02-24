@@ -944,7 +944,7 @@ msgstr ""
 #: import_status.php:30 libraries/common.lib.php:677
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
 msgid "Back"
-msgstr ""
+msgstr "واپس"
 
 #: index.php:185
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
