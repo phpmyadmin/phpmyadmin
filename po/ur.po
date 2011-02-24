@@ -1092,7 +1092,7 @@ msgstr "کوائفیہ پھر لوڈ کریں"
 
 #: js/messages.php:73
 msgid "Copying Database"
-msgstr "ڈیٹا بیس کی نقل ہو رہی ہے"
+msgstr "کوائفیہ نقل کیا جارہا ہے"
 
 #: js/messages.php:74
 msgid "Changing Charset"
