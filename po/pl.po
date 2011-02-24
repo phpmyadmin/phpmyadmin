@@ -1120,10 +1120,9 @@ msgid "Changing Charset"
 msgstr "Kodowanie napisów"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "Tabela musi mieć przynajmniej jedno pole."
+msgstr "Tabela musi mieć przynajmniej jedną kolumnę"
 
 #: js/messages.php:76
 #, fuzzy
