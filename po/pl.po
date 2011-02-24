@@ -6384,7 +6384,7 @@ msgstr "Utwórz wymagane tabele używając <code>script/create_tables.sql</code>
 
 #: libraries/relation.lib.php:154
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Utwórz użytkownika pma i nadaj mu prawa do tych tabel."
 
 #: libraries/relation.lib.php:155
 msgid ""
