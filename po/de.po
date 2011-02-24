@@ -9703,6 +9703,9 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Anmerkung: nicht alle Ergebnistabellen können im Diagramm dargerstellt "
+"weren. Siehe <a href=\"./Documentation.html#faq6_29\" "
+"target=\"Documentation\">FAQ 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
