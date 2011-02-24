@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 15:59+0200\n"
+"PO-Revision-Date: 2011-02-24 16:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -571,10 +571,10 @@ msgid "Delete"
 msgstr "Usuń"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Usuń dane monitorujące tę tabelę"
+msgstr "Usuń wszystkie trafienia dla tabeli %s?"
 
 #: db_search.php:272
 #, fuzzy, php-format
