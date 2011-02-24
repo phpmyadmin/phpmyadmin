@@ -356,10 +356,9 @@ msgstr ""
 "dowiedzieć się, dlaczego - kliknij %stutaj%s."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Schemat relacyjny"
+msgstr "Edytuj lub eksportuj schemat relacji"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
