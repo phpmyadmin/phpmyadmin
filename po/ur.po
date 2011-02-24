@@ -1364,7 +1364,7 @@ msgstr "منگل"
 #. l10n: Short week day name
 #: js/messages.php:195 libraries/common.lib.php:1597
 msgid "Wed"
-msgstr ""
+msgstr "بدھ"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1599
