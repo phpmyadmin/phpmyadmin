@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-17 11:03+0100\n"
-"PO-Revision-Date: 2011-02-24 11:18+0200\n"
+"PO-Revision-Date: 2011-02-24 11:20+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -982,10 +982,9 @@ msgid "Dropping Procedure"
 msgstr "طریقہ چھوڑتے ہوئے"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "اس ٹیبل کیلئے ٹریکنگ ڈیٹا حذف کریں "
+msgstr "کھوج کوائف کو حذف کیا جارہا ہے"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
