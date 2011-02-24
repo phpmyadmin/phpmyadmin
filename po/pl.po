@@ -4366,7 +4366,7 @@ msgstr "Wierszy w polu textarea"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Tytuł okna, jeśli jest wybrana baza danych"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
