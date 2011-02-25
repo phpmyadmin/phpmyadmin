@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:44+0200\n"
+"PO-Revision-Date: 2011-02-25 08:45+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1584,7 +1584,7 @@ msgstr "غلط جدول نام"
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "جدول %1$s کو %2$s نام تبدیل کرتے ہوئے نقص ہے"
 
 #: libraries/Table.class.php:1129
 #, php-format
