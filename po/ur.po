@@ -1575,7 +1575,7 @@ msgstr "یہMySQL سرور میں %s اس ذخیرہ انجن کی معاونت 
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr ""
+msgstr "غلط کوائفیہ"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
