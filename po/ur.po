@@ -720,7 +720,7 @@ msgstr "جدول احسن کریں"
 #: db_structure.php:516 db_structure.php:517 libraries/mult_submits.inc.php:51
 #: tbl_operations.php:613
 msgid "Repair table"
-msgstr "ٹیبلز مرمت کریں"
+msgstr "جدول مرمت کریں"
 
 #: db_structure.php:518 db_structure.php:519 libraries/mult_submits.inc.php:56
 #: tbl_operations.php:603
