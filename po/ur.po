@@ -309,7 +309,7 @@ msgstr "ساخت اور کوائف"
 
 #: db_operations.php:487 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
-msgstr "صرف ڈیٹا"
+msgstr "کوائف صرف"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
