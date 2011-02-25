@@ -710,7 +710,7 @@ msgstr "چھوڑیں"
 #: db_structure.php:512 db_structure.php:513 libraries/mult_submits.inc.php:41
 #: tbl_operations.php:583
 msgid "Check table"
-msgstr "ٹیبل چیک کریں"
+msgstr "جدول پڑتال کریں"
 
 #: db_structure.php:514 db_structure.php:515 libraries/mult_submits.inc.php:46
 #: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
