@@ -1622,7 +1622,7 @@ msgstr "خیالیہ راہ اس خیالیہ %s کے لیے نہیں ملا!"
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
 msgid "Theme / Style"
-msgstr ""
+msgstr "خیالیہ / طرز"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
