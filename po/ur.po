@@ -405,7 +405,7 @@ msgstr "آخری دفعہ کی تازہ کاری"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1226 tbl_printview.php:451
 #: tbl_structure.php:917
 msgid "Last check"
-msgstr "آخری دفعہ چیک"
+msgstr "آخری دفعہ کی پڑتال"
 
 #: db_printview.php:220 db_structure.php:439
 #, php-format
