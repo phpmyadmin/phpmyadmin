@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 07:56+0200\n"
+"PO-Revision-Date: 2011-02-25 07:57+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -419,7 +419,7 @@ msgstr[1] "%s جداول"
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "آپ کی کیوری کامیابی سے مکمل ہو چکی ہے"
+msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
