@@ -1617,7 +1617,7 @@ msgstr "خیالیہ %s نیہں ملا!"
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "خیالیہ راہ اس خیالیہ %s کے لیے نہیں ملا!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
