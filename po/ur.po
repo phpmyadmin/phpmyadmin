@@ -293,7 +293,7 @@ msgstr "کوائفیہ %s چھوڑ دیا گیا ہے۔"
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
-msgstr "ڈیٹا بیس ختم کریں (DROP)"
+msgstr "کوائفیہ چھوڑیں (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
