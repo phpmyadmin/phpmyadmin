@@ -592,7 +592,7 @@ msgstr "الفاظ ایک خالی حرف سے جدا جدا ہیں (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
-msgstr "ٹیبلز کے اندر:"
+msgstr "جدول میں:"
 
 #: db_search.php:351
 msgid "Inside column:"
