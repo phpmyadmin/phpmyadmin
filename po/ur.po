@@ -1673,7 +1673,7 @@ msgstr "آپ ہوسٹ نام یا IP پتا اور دہانہ وقفوں سے ج
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
-msgstr ""
+msgstr "سرور:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
