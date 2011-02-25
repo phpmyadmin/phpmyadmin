@@ -493,7 +493,7 @@ msgstr "کالم اضافہ/حذف کریں"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
-msgstr "اپ ڈیٹ کیوری"
+msgstr "طلب تازہ کریں"
 
 #: db_qbe.php:640
 msgid "Use Tables"
