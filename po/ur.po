@@ -1508,7 +1508,7 @@ msgstr "بنیادی کلید چھوڑ دیا گیا ہے"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "اشاریہ %s چھوڑ دیا گیا ہے"
 
 #: libraries/Index.class.php:579
 #, php-format
