@@ -560,7 +560,7 @@ msgstr "براؤز"
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
-msgstr "حزف"
+msgstr "حذف"
 
 #: db_search.php:259
 #, php-format
