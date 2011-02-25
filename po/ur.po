@@ -276,7 +276,7 @@ msgstr "کوائفیہ %s نام %s میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:399
 msgid "Rename database to"
-msgstr "ڈیٹا بیس کا نام بدلیں"
+msgstr "کوائفیہ نام بدلیں"
 
 #: db_operations.php:404 server_processlist.php:64
 msgid "Command"
