@@ -272,7 +272,7 @@ msgstr "کوائفیہ %s() نام %s میں تبدیل ہوچکا ہے"
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "ڈیٹا بیس %s کا نام %s میں تبدیل کر دیا گیا ہے"
+msgstr "کوائفیہ %s نام %s میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:399
 msgid "Rename database to"
