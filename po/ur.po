@@ -1681,7 +1681,7 @@ msgstr "صارف نام:"
 
 #: libraries/auth/cookie.auth.lib.php:252
 msgid "Password:"
-msgstr ""
+msgstr "پاس ورڈ:"
 
 #: libraries/auth/cookie.auth.lib.php:259
 msgid "Server Choice"
