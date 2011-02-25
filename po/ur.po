@@ -596,7 +596,7 @@ msgstr "جدول میں:"
 
 #: db_search.php:351
 msgid "Inside column:"
-msgstr "کالم کے اندر:"
+msgstr "کالم میں:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
