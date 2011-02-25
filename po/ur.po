@@ -1602,7 +1602,7 @@ msgstr "کوئی پیش منظر دستیاب نہیں ہے۔"
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr ""
+msgstr "اسے لیں"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
