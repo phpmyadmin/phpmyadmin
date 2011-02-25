@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 07:35+0200\n"
+"PO-Revision-Date: 2011-02-25 07:37+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -540,8 +540,8 @@ msgstr "تلاش نتائج برائے \"<i>%s</i>\" %s"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "<i>%s</i> ٹیبل کے اندر موافق %s"
-msgstr[1] "<i>%s</i> ٹیبل کے اندر موافقات %s"
+msgstr[0] "<i>%s</i>جدول کے ساتھ مشابہ%s"
+msgstr[1] "<i>%s</i>جدول کے ساتھ مشابہات%s"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
