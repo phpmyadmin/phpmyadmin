@@ -1729,7 +1729,7 @@ msgstr "جائز توثیقی کلید پلگ نہیں ہے"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "توثیق کررہا ہے..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
