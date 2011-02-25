@@ -823,7 +823,7 @@ msgstr "ہر قدر جدا قطعہ میں داخل کریں۔"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ داخلہ دوبارہ شروع کریں اور نئی قیمت ڈالیں"
+msgstr "+ داخلہ پھر شروع کریں اور نئی قدر ڈالیں"
 
 #: enum_editor.php:67
 msgid "Output"
