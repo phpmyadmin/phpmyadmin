@@ -450,7 +450,7 @@ msgstr "صعودی"
 #: server_databases.php:148 server_databases.php:165 tbl_operations.php:258
 #: tbl_select.php:278
 msgid "Descending"
-msgstr "صعودی"
+msgstr "نزولی"
 
 #: db_qbe.php:287 db_tracking.php:91 libraries/display_tbl.lib.php:306
 #: tbl_change.php:278 tbl_tracking.php:591
