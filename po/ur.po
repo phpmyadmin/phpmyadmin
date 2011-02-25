@@ -793,7 +793,7 @@ msgstr "نسخے"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
-msgstr "ٹریکنگ ریپورٹ"
+msgstr "کھوج رپورٹ"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
 msgid "Structure snapshot"
