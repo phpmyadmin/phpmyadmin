@@ -313,7 +313,7 @@ msgstr "کوائف صرف"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr "کاپی سے پہلے ڈیٹا بیس بنائیں"
+msgstr "CREATE DATABASE نقل سے قبل"
 
 #: db_operations.php:498 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
