@@ -1677,7 +1677,7 @@ msgstr "سرور:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
-msgstr ""
+msgstr "صارف نام:"
 
 #: libraries/auth/cookie.auth.lib.php:252
 msgid "Password:"
