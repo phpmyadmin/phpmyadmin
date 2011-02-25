@@ -690,7 +690,7 @@ msgstr "برآمد"
 #: libraries/display_tbl.lib.php:2259 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
-msgstr "پرنٹ ویو"
+msgstr "چھپائی منظر"
 
 #: db_structure.php:508 db_structure.php:509 libraries/common.lib.php:1660
 #: libraries/common.lib.php:3015 libraries/common.lib.php:3016
