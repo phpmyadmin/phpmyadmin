@@ -250,7 +250,7 @@ msgstr "کوائفیہ کی ڈمپ (شجرہ) منظر کریں"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:48
 #: export.php:371 navigation.php:304
 msgid "No tables found in database."
-msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
+msgstr "کوائفیہ میں کوئی جدول نہیں مِلا۔"
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
