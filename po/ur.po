@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:12+0200\n"
+"PO-Revision-Date: 2011-02-25 08:13+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -785,7 +785,7 @@ msgstr "فعال"
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 #: tbl_tracking.php:604
 msgid "not active"
-msgstr "ایکٹو نہیں"
+msgstr "فعال نہیں ہے"
 
 #: db_tracking.php:134
 msgid "Versions"
