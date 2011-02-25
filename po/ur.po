@@ -584,7 +584,7 @@ msgstr "الفاظ یا قدروں کی تلاش برائے (wildcard: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
-msgstr "تلاش:"
+msgstr "ڈھونڈیں:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
