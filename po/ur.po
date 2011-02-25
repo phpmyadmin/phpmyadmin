@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:19+0200\n"
+"PO-Revision-Date: 2011-02-25 08:20+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -840,7 +840,7 @@ msgstr "منتخب برآمد قسم اس مسل میں محفوظ ہو!"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "مسل  %s محفوظ کرنے کے لیے ناکافی جگہ ہے۔"
 
 #: export.php:307
 #, php-format
