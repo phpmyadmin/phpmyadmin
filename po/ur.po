@@ -1633,7 +1633,7 @@ msgstr "جڑ نہیں سکتا: غلط ترتیبات۔"
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "%s میں خوش آمدید"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
