@@ -775,7 +775,7 @@ msgstr "عمل"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "اس ٹیبل کیلئے ٹریکنگ ڈیٹا حذف کریں"
+msgstr "اس جدول کے لیے کھوج کوائف حذف کریں"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 #: tbl_tracking.php:607
