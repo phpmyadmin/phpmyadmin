@@ -241,7 +241,7 @@ msgstr "ہاں"
 
 #: db_datadict.php:317 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr "پرنٹ"
+msgstr "چھاپیں"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
