@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:59+0200\n"
+"PO-Revision-Date: 2011-02-25 09:00+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1701,7 +1701,7 @@ msgstr "پاس ورڈ کے بغیر لاگ ان تشکیل میں ممنوع ہ�
 #: libraries/auth/signon.auth.lib.php:189
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبارہ لاگ ان کریں۔"
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
