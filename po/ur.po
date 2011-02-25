@@ -481,7 +481,7 @@ msgstr "یا"
 
 #: db_qbe.php:530
 msgid "Modify"
-msgstr "تبدیلیاں کریں"
+msgstr "ترمیم"
 
 #: db_qbe.php:607
 msgid "Add/Delete criteria rows"
