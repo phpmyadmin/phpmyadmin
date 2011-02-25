@@ -506,7 +506,7 @@ msgstr "کوائفیہ کے لیے <b>%s</b> SQL طلب"
 
 #: db_qbe.php:957 libraries/common.lib.php:1185
 msgid "Submit Query"
-msgstr "کیوری بھیجیں"
+msgstr "طلب بھیجیں"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
