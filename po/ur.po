@@ -305,7 +305,7 @@ msgstr "صرف ساخت"
 
 #: db_operations.php:486 tbl_operations.php:531 tbl_tracking.php:384
 msgid "Structure and data"
-msgstr "سٹرکچر اور ڈیٹا"
+msgstr "ساخت اور کوائف"
 
 #: db_operations.php:487 tbl_operations.php:532 tbl_tracking.php:383
 msgid "Data only"
