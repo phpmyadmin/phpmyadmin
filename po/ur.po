@@ -1707,7 +1707,7 @@ msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبا
 #: libraries/auth/cookie.auth.lib.php:659
 #: libraries/auth/signon.auth.lib.php:195
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
