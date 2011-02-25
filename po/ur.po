@@ -571,8 +571,8 @@ msgstr "اس جدول کے مشابہات حذف %s کریں؟"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>تمام:</b> <i>%s</i>  موافقات"
-msgstr[1] "<b>تمام:</b> <i>%s</i>  موافق"
+msgstr[0] "<b>تمام:</b> <i>%s</i>  مشابہ"
+msgstr[1] "<b>تمام:</b> <i>%s</i>  مشابہات"
 
 #: db_search.php:295
 msgid "Search in database"
