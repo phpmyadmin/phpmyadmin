@@ -872,7 +872,7 @@ msgstr ""
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
 msgid "File could not be read"
-msgstr "فائل پڑھی نہیں جا سکتی"
+msgstr "مسل قابل مطالعہ نہیں ہے"
 
 #: import.php:286 import.php:295 import.php:314 import.php:323
 #: libraries/File.class.php:681 libraries/File.class.php:689
