@@ -1598,7 +1598,7 @@ msgstr "اس خیالیہ %s کے لیے درست راہ نہیں ملا!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "کوئی پیش منظر دستیاب نہیں ہے۔"
 
 #: libraries/Theme.class.php:383
 msgid "take it"
