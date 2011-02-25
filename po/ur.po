@@ -343,7 +343,7 @@ msgstr "نقل شدہ کوائفیہ پر جائیں"
 #: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Collation"
-msgstr "کولیشن"
+msgstr "ترتیب"
 
 #: db_operations.php:556
 #, php-format
