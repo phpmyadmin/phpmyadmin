@@ -619,7 +619,7 @@ msgstr "جدول %s چھوڑا جاچکا ہے"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr "ٹریکنگ ایکٹو ہے"
+msgstr "کھوج فعال ہے۔"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
