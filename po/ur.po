@@ -280,7 +280,7 @@ msgstr "کوائفیہ نام بدلیں"
 
 #: db_operations.php:404 server_processlist.php:64
 msgid "Command"
-msgstr "کمانڈ"
+msgstr "حکم"
 
 #: db_operations.php:433
 msgid "Remove database"
