@@ -750,7 +750,7 @@ msgstr "کوائفیہ"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr "آخری ورژن"
+msgstr "آخری نسخہ"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 msgid "Created"
