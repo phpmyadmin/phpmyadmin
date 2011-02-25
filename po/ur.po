@@ -797,7 +797,7 @@ msgstr "کھوج رپورٹ"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
 msgid "Structure snapshot"
-msgstr "سٹرکچر کی تصویر"
+msgstr "ساخت تصویر"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
