@@ -746,7 +746,7 @@ msgstr "کھوج شدہ جداول"
 #: server_synchronize.php:1175 server_synchronize.php:1179
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
-msgstr "ڈیٹا بیس"
+msgstr "کوائفیہ"
 
 #: db_tracking.php:86
 msgid "Last version"
