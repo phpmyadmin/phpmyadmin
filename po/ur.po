@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 07:32+0200\n"
+"PO-Revision-Date: 2011-02-25 07:33+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -525,7 +525,7 @@ msgstr "تمام الفاظ"
 
 #: db_search.php:66 db_search.php:309
 msgid "the exact phrase"
-msgstr "برابر فقرہ"
+msgstr "بعین فقرہ"
 
 #: db_search.php:67 db_search.php:310
 msgid "as regular expression"
