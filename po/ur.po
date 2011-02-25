@@ -262,7 +262,7 @@ msgstr "تمام انتخاب ختم کریں"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr "ڈیٹا بیس کا نام خالی ہے!"
+msgstr "کوائفیہ نام خالی ہے!"
 
 #: db_operations.php:272
 #, php-format
