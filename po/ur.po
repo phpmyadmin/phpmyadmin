@@ -789,7 +789,7 @@ msgstr "فعال نہیں ہے"
 
 #: db_tracking.php:134
 msgid "Versions"
-msgstr "ورژن"
+msgstr "نسخے"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
 msgid "Tracking report"
