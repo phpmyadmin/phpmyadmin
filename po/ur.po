@@ -1499,7 +1499,7 @@ msgstr "تبصرہ"
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125 tbl_row_action.php:68
 msgid "Edit"
-msgstr ""
+msgstr "تدوین"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
