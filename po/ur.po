@@ -398,7 +398,7 @@ msgstr "بنائیں"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1221 tbl_printview.php:441
 #: tbl_structure.php:909
 msgid "Last update"
-msgstr "آخری دفعہ اپ ڈیٹ"
+msgstr "آخری دفعہ کی تازہ کاری"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:601
