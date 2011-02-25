@@ -1556,7 +1556,7 @@ msgstr[1] "%1$d صفیں داخل ہوئیں۔"
 #: libraries/StorageEngine.class.php:194
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "اس ذخیرہ انجن کے متعلق تفصیلی معلومات موجود نہیں ہیں۔"
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
