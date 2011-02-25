@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 09:01+0200\n"
+"PO-Revision-Date: 2011-02-25 09:02+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1716,7 +1716,7 @@ msgstr "غلط صارف نام/پاس ورڈ۔ ‏‏رسائی نہیں دی گ
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "مسل %s کلید آئی ڈی کا حامل نہیں ہے"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
