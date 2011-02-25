@@ -289,7 +289,7 @@ msgstr "کوائفیہ ہٹائیں"
 #: db_operations.php:445
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "ڈیٹا بیس %s ختم کر دیا گیا ہے."
+msgstr "کوائفیہ %s چھوڑ دیا گیا ہے۔"
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
