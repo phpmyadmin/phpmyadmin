@@ -1491,7 +1491,7 @@ msgstr "درجہ تعلق داری"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:273 tbl_tracking.php:322
 msgid "Comment"
-msgstr ""
+msgstr "تبصرہ"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:626
 #: libraries/common.lib.php:1161 libraries/config/messages.inc.php:461
