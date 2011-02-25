@@ -1612,7 +1612,7 @@ msgstr "طے شدہ خیالیہ %s نہیں ملا!"
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "خیالیہ %s نیہں ملا!"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
