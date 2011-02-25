@@ -83,7 +83,7 @@ msgstr "Proveď"
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:441 tbl_tracking.php:314
 msgid "Keyname"
-msgstr "Klíčový název"
+msgstr "Název klíče"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
