@@ -1566,7 +1566,7 @@ msgstr "%s اس MySQL سرور میں دستیاب ہے۔"
 #: libraries/StorageEngine.class.php:357
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s اس MySQL سرور کے لیے نااہل ہے۔"
 
 #: libraries/StorageEngine.class.php:361
 #, php-format
