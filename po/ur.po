@@ -121,7 +121,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "ڈیٹا بیس $1%s بن گئی ہے"
+msgstr "کوائفیہ $1%s بن گئی ہے۔"
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
