@@ -459,7 +459,7 @@ msgstr "دکھائیں"
 
 #: db_qbe.php:323
 msgid "Criteria"
-msgstr "معیار"
+msgstr "کسوٹی"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:550 db_qbe.php:581
 msgid "Ins"
