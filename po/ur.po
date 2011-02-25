@@ -623,7 +623,7 @@ msgstr "کھوج فعال ہے۔"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr "ٹریکنگ ایکٹو نہیں ہے"
+msgstr "کھوج غیر فعال ہے۔"
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
