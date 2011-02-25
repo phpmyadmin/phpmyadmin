@@ -254,7 +254,7 @@ msgstr "کوائفیہ میں کوئی جدول نہیں مِلا۔"
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
-msgstr "سارا منتخب کریں"
+msgstr "تمام منتخب کریں"
 
 #: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
