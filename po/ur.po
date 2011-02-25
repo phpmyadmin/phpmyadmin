@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 07:37+0200\n"
+"PO-Revision-Date: 2011-02-25 07:38+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -576,7 +576,7 @@ msgstr[1] "<b>تمام:</b> <i>%s</i>  مشابہات"
 
 #: db_search.php:295
 msgid "Search in database"
-msgstr "ڈیٹا بیس میں تلاش"
+msgstr "کوائفیہ میں تلاش کریں"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
