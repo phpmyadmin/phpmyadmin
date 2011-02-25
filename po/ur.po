@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:16+0200\n"
+"PO-Revision-Date: 2011-02-25 08:18+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -831,7 +831,7 @@ msgstr "ماحصل"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "مجموئی قیمت کو “Length/Values“ کے خانے میں چسپاں کریں"
+msgstr "جڑی ہوئی قدریں “Length/Values“ کے قطعہ میں جوڑیں"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
