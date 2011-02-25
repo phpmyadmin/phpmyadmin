@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 09:00+0200\n"
+"PO-Revision-Date: 2011-02-25 09:01+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1711,7 +1711,7 @@ msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "غلط صارف نام/پاس ورڈ۔ ‏‏رسائی نہیں دی گئی۔"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
