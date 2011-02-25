@@ -502,7 +502,7 @@ msgstr "جداول استعمال کریں"
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "ایس کیو ایل کیوری <b>%s</b> ڈیٹابیس پر"
+msgstr "کوائفیہ کے لیے <b>%s</b> SQL طلب"
 
 #: db_qbe.php:957 libraries/common.lib.php:1185
 msgid "Submit Query"
