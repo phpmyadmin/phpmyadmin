@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:46+0200\n"
+"PO-Revision-Date: 2011-02-25 08:47+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1594,7 +1594,7 @@ msgstr "جدول%s نام %s میں تبدیل ہوچکا ہے"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "اس خیالیہ %s کے لیے درست راہ نہیں ملا!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
