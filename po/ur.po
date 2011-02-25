@@ -1579,7 +1579,7 @@ msgstr "غلط کوائفیہ"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "غلط جدول نام"
 
 #: libraries/Table.class.php:1046
 #, php-format
