@@ -810,7 +810,7 @@ msgstr "جدول کھوج"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "ڈیٹا بیس لاگ"
+msgstr "کوائفیہ لاگ"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:794
 #, php-format
