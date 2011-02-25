@@ -1657,7 +1657,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Log in"
-msgstr ""
+msgstr "لاگ ان"
 
 #: libraries/auth/cookie.auth.lib.php:231
 #: libraries/auth/cookie.auth.lib.php:233
