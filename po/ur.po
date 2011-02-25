@@ -758,7 +758,7 @@ msgstr "بنایا"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr "اپ ڈیٹ کیا گیا"
+msgstr "تازہ کی گئی"
 
 #: db_tracking.php:89 libraries/common.lib.php:1348
 #: libraries/server_links.inc.php:50 server_processlist.php:66
