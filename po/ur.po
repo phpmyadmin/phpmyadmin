@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-25 08:07+0200\n"
+"PO-Revision-Date: 2011-02-25 08:09+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -674,7 +674,7 @@ msgstr "تمام غیر پڑتال کریں"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
-msgstr "اوورہیڈ ٹیبل چیک کریں"
+msgstr "اوور ہیڈ جداول کی پڑتال کریں"
 
 #: db_structure.php:502 db_structure.php:503
 #: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
