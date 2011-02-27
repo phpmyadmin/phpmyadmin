@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-27 17:41+0200\n"
+"PO-Revision-Date: 2011-02-27 17:42+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5030,7 +5030,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
-msgstr "Sutaisyti gijas"
+msgstr "Gijų skaičius remonto metu"
 
 #: libraries/engines/myisam.lib.php:42
 msgid ""
