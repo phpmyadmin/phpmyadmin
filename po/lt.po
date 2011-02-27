@@ -5037,8 +5037,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"Jei ši reikšmė yra didesnė už 1, vykdant Repair, rūšiavimo procesas MyISAM "
-"lentelių indeksus kuria lygegrečiai (kiekvieną indeksą savo gijoje)."
+"Jei ši reikšmė yra didesnė už 1, taisant lentelę rūšiavimo procesas MyISAM "
+"lentelių indeksus kuria lygiagrečiai (kiekvieną indeksą savo gijoje)."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
