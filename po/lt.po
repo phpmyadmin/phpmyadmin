@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-27 17:46+0200\n"
+"PO-Revision-Date: 2011-02-27 17:47+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -8704,7 +8704,7 @@ msgstr "Prisijungimai"
 
 #: server_status.php:566
 msgid "max. concurrent connections"
-msgstr "Daugiausiai lygiagrečių prisijungimų"
+msgstr "Daugiausia lygiagrečių prisijungimų"
 
 #: server_status.php:573
 msgid "Failed attempts"
