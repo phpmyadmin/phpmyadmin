@@ -7360,7 +7360,7 @@ msgstr "Pagrindinio serverio replikavimas"
 
 #: server_databases.php:175 server_replication.php:246
 msgid "Slave replication"
-msgstr "Pavaldžiojo serverio dauginimas (slave replication)"
+msgstr "Pavaldžiojo serverio replikavimas"
 
 #: server_databases.php:258 server_databases.php:259
 msgid "Enable Statistics"
