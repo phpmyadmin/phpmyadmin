@@ -2523,7 +2523,13 @@ $(document).ready(function() {
             return $('a').css('cursor');
         }) //todo: hover effect
         .live('click',function(e) {
-            $(this).parent().find('input:image').click();
+            $this_span = $(this);
+            if ($this_span.closest('td').is('.inline_edit_anchor')) {
+            // this would bind a second click event to the inline edit
+            // anchor and would disturb its behavior
+            } else {
+                $this_span.parent().find('input:image').click();
+            }
         });
 
 }) // end of $(document).ready()
