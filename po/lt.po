@@ -7356,7 +7356,7 @@ msgstr "Duomenų bazių statistika"
 #: server_databases.php:173 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr "Pagrindinio serverio dauginimas (master replication)"
+msgstr "Pagrindinio serverio replikavimas"
 
 #: server_databases.php:175 server_replication.php:246
 msgid "Slave replication"
