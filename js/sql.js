@@ -92,6 +92,7 @@ function appendInlineAnchor() {
         });
     }
     else {
+        // horizontal mode
         $('.edit_row_anchor').each(function() {
 
             var $this_td = $(this);
@@ -103,13 +104,26 @@ function appendInlineAnchor() {
             if ($img_object.length != 0) {
                 var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
                 $img_object.attr('src', img_src);
+                $cloned_anchor
+                 .find('a').attr('href', '#')
+                 .find('span')
+                 .text(' ' + PMA_messages['strInlineEdit']);
+                $cloned_anchor
+                 .find('span')
+                 .first()
+                 .prepend($img_object);
+            } else {
+                // the link was too big so <input type="image"> is there
+                $img_object = $cloned_anchor.find('input:image').attr('title', PMA_messages['strInlineEdit']);
+                var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
+                $img_object.attr('src', img_src);
+                $cloned_anchor
+                 .find('.clickprevimage')
+                 .text(' ' + PMA_messages['strInlineEdit']);
             }
 
-            $cloned_anchor.addClass('inline_edit_anchor')
-            .find('a').attr('href', '#')
-            .find('span')
-            .text(' ' + PMA_messages['strInlineEdit'])
-            .prepend($img_object);
+            $cloned_anchor
+             .addClass('inline_edit_anchor');
 
             $this_td.after($cloned_anchor);
         });
@@ -413,6 +427,7 @@ $(document).ready(function() {
              */
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
+        // horizontal mode
         else {
             var this_row_index = $(this).parent().index();
             var $input_siblings = $(this).parent('tr').find('.inline_edit');
