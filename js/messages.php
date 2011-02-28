@@ -79,6 +79,8 @@ $js_messages['strNo'] = __('No');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
+$js_messages['strBrowsing'] = __('Browsing');
+$js_messages['strDeleting'] = __('Deleting');
 
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');

@@ -249,16 +249,16 @@ if (isset($_REQUEST['submit_search'])) {
 
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
-            echo '<td>' . PMA_linkOrButton(
-                    'sql.php' . PMA_generate_common_url($this_url_params),
-                    __('Browse'), '') .  "</td>\n";
-
+             $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+             ?>
+            <td> <a name="browse_search" href="<?php echo $browse_result_path; ?>" onclick="loadResult('<?php echo $browse_result_path ?> ',' <?php echo  $each_table?> ' , '<?php echo PMA_generate_common_url($GLOBALS['db'], $each_table)?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Browse') ?></a>   </td>
+            <?php
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            echo '<td>' . PMA_linkOrButton(
-                    'sql.php' . PMA_generate_common_url($this_url_params),
-                    __('Delete'), sprintf(__('Delete the matches for the %s table?'), htmlspecialchars($each_table))) .  "</td>\n";
-
-        } else {
+            $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            ?>
+            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php echo __('Delete the matches for the '. $each_table . ' table?') ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
+            <?php
+         } else {
             echo '<td>&nbsp;</td>' . "\n"
                 .'<td>&nbsp;</td>' . "\n";
         }// end if else
@@ -359,6 +359,20 @@ $alter_select =
         id="buttonGo" />
 </fieldset>
 </form>
+
+<!-- These two table-image and table-link elements display the table name in browse search results  -->
+<div id='table-info'>
+<a class="item" id="table-link" ></a>
+</div>
+<div id="browse-results">
+<!-- this browse-results div is used to load the browse and delete results in the db search -->
+</div>
+<br class="clearfloat" />
+<div id="sqlqueryform">
+<!-- this sqlqueryform div is used to load the delete form in the db search -->
+</div>
+<!--  toggle query box link-->
+<a id="togglequerybox"></a>
 
 <?php
 /**
