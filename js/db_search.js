@@ -53,7 +53,7 @@ function deleteResult(result_path , msg , ajaxEnable){
                 $('#sqlqueryform').load(result_path + " '"+'#sqlqueryform' + "'");
                 $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
 
-                /** Refresh the the search results after the deletion */
+                /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo'). click();
                 //PMA_ajaxShowMessage(PMA_messages['strDeleting']);
                 /** Show the results of the deletion option */
@@ -82,7 +82,7 @@ $(document).ready(function() {
     /** Hide the table link in the initial search result */
     $("#table-info").prepend('<img id="table-image" src="./themes/original/img/s_tbl.png" />').hide();
 
-    /** Hide the brose and deleted results in the new search criteria */
+    /** Hide the browse and deleted results in the new search criteria */
     $('#buttonGo').click(function(){
         $("#table-info").hide();
         $('#browse-results').hide();
@@ -90,7 +90,7 @@ $(document).ready(function() {
         $('#togglequerybox').hide();
     });
     /**
-     * Prepare a div containing a link for toggle the seach form, otherwise it's incorrectly displayed
+     * Prepare a div containing a link for toggle the search form, otherwise it's incorrectly displayed
      * after a couple of clicks
      */
     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
