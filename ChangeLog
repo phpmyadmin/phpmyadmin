@@ -138,6 +138,8 @@
 - rfe #3148361 [interface] Replace hard coded limit with $cfg['LimitChars'].
 - bug #3177136 [interface] Indicate that bookmark is being used on browse.
 - [interface] Indicate shared bookmarks in interface.
+- patch #3176420 [Search] Ajaxify browse and delete criteria in DB Search,
+  thanks to Thilanka Kaushalya
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
