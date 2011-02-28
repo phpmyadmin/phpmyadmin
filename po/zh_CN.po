@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-02-24 15:48+0100\n"
-"PO-Revision-Date: 2011-02-28 18:45+0200\n"
+"PO-Revision-Date: 2011-02-28 18:52+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5043,7 +5043,7 @@ msgstr "相关链接"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "Barry 的 PrimeBase 开发博客 —— Barry Leslie 著"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
