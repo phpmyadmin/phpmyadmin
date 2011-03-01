@@ -2419,6 +2419,11 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
         $enum_class = ' enum';
     }
 
+    $set_class = '';
+    if(strpos($meta->flags, 'set') !== false) {
+        $set_class = ' set';
+    }
+
     $mime_type_class = '';
     if(isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
@@ -2428,7 +2433,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
     $result = ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $mime_type_class . '">';
+    . $enum_class . $set_class . $mime_type_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {

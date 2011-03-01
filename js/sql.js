@@ -458,9 +458,9 @@ $(document).ready(function() {
              */
             var relation_curr_value = $this_field.find('a').text();
             /**
-             * @var enum_curr_value String current value of the field (for fields that are of type enum).
+             * @var curr_value String current value of the field (for fields that are of type enum or set).
              */
-            var enum_curr_value = $this_field.text();
+            var curr_value = $this_field.text();
 
             if($this_field.is(':not(.not_null)')){
                 // add a checkbox to mark null for all the field that are nullable.
@@ -490,8 +490,13 @@ $(document).ready(function() {
 
                 // if 'chechbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
                 $('.checkbox_null_' + field_name + '_' + this_row_index).bind('click', function(e) {
-                    if ($this_field.is('.enum, .set')) {
+                    if ($this_field.is('.enum')) {
                         $this_field.find('select').attr('value', '');
+                    } else if ($this_field.is('.set')) {
+                        $this_field.find('select').find('option').each(function() {
+                            var $option = $(this);
+                            $option.attr('selected', false);
+                        })
                     } else if ($this_field.is('.relation')) {
                         // if the dropdown is there to select the foreign value
                         if ($this_field.find('select').length > 0) {
@@ -511,7 +516,7 @@ $(document).ready(function() {
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
-            if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .null)')) {
+            if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .set, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
                 $this_field.append('<textarea>'+data_value+'</textarea>');
@@ -582,11 +587,34 @@ $(document).ready(function() {
                         'table' : window.parent.table,
                         'column' : field_name,
                         'token' : window.parent.token,
-                        'curr_value' : enum_curr_value
+                        'curr_value' : curr_value
                 }
 
                 $.post('sql.php', post_params, function(data) {
                     $this_field.append(data.dropdown);
+                    $this_field.append('<span class="original_data">'+data_value+'</span>');
+                    $(".original_data").hide();
+                }) // end $.post()
+            }
+            else if($this_field.is('.set')) {
+                /** @lends jQuery */
+                //handle set fields
+
+                /**
+                 * @var post_params Object containing parameters for the POST request
+                 */
+                var post_params = {
+                        'ajax_request' : true,
+                        'get_set_values' : true,
+                        'db' : window.parent.db,
+                        'table' : window.parent.table,
+                        'column' : field_name,
+                        'token' : window.parent.token,
+                        'curr_value' : curr_value
+                }
+
+                $.post('sql.php', post_params, function(data) {
+                    $this_field.append(data.select);
                     $this_field.append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
                 }) // end $.post()
@@ -701,13 +729,17 @@ $(document).ready(function() {
             if (is_null) {
                 sql_query += ' ' + field_name + "=NULL , ";
             } else {
-                if($this_field.is(":not(.relation, .enum)")) {
+                if($this_field.is(":not(.relation, .enum, .set)")) {
                     this_field_params[field_name] = $this_field.find('textarea').val();
                     if($this_field.is('.transformed')) {
                         $.extend(transform_fields, this_field_params);
                     }
-                }
-                else {
+                } else if ($this_field.is('.set')) {
+                    $test_element = $this_field.find('select');
+                    this_field_params[field_name] = $test_element.map(function(){
+                        return $(this).val();
+                    }).get().join(",");
+                } else {
                     // results from a drop-down
                     $test_element = $this_field.find('select');
                     if ($test_element.length != 0) {
@@ -777,7 +809,7 @@ $(document).ready(function() {
                         $this_sibling.addClass('null');
                     } else {
                         $this_sibling.removeClass('null');
-                        if($this_sibling.is(':not(.relation, .enum)')) {
+                        if($this_sibling.is(':not(.relation, .enum, .set)')) {
                             /**
                              * @var new_html    String containing value of the data field after edit
                              */
@@ -821,9 +853,15 @@ $(document).ready(function() {
                                         return false;
                                     }
                                 })
-                            }
-                            if($this_sibling.is('.enum')) {
+                            } else if ($this_sibling.is('.enum')) {
                                 new_html = new_value;
+                            } else if ($this_sibling.is('.set')) {
+                                if (new_value != null) {
+                                    $.each(new_value, function(key, value) {
+                                        new_html = new_html + value + ',';
+                                    })
+                                    new_html = new_html.substring(0, new_html.length-1);
+                                }
                             }
                         }
                         $this_sibling.html(new_html);

@@ -115,6 +115,34 @@ if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) 
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
 
+/**
+ * Find possible values for set fields during inline edit.
+ */
+if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
+    $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
+
+    $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
+
+    $selected_values = explode(',', $_REQUEST['curr_value']);
+
+    $search = array('set', '(', ')', "'");
+    $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
+
+    $select = '';
+    foreach($values as $value) {
+        $select .= '<option value="' . htmlspecialchars($value) . '"';
+        if(in_array($value, $selected_values, true)) {
+            $select .= ' selected="selected"';
+        }
+        $select .= '>' . $value . '</option>';
+    }
+
+    $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
+    $select = '<select multiple="multiple" size="' . $select_size . '">' . $select . '</select>';
+
+    $extra_data['select'] = $select;
+    PMA_ajaxResponse(NULL, true, $extra_data);
+}
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
