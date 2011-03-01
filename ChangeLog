@@ -140,6 +140,7 @@
 - [interface] Indicate shared bookmarks in interface.
 - patch #3176420 [Search] Ajaxify browse and delete criteria in DB Search,
   thanks to Thilanka Kaushalya
+- [interface] New default theme pmahomme, dropped darkblue_orange theme.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
