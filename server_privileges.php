@@ -1430,7 +1430,7 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
          */
         $new_user_initial = strtoupper(substr($username, 0, 1));
         $new_user_initial_string = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&initial=' . $new_user_initial
-            .'>' . $new_user_initial . '</a>';
+            .'">' . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
