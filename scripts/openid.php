@@ -17,18 +17,10 @@
  */
 
 require_once 'OpenID/RelyingParty.php';
-require_once 'OpenID/Discover.php';
-require_once 'OpenID/Store.php';
-require_once 'OpenID/Extension/SREG10.php';
-require_once 'OpenID/Extension/SREG11.php';
-require_once 'OpenID/Extension/AX.php';
-require_once 'OpenID/Extension/UI.php';
-require_once 'OpenID/Extension/OAuth.php';
-require_once 'OpenID/Message.php';
-require_once 'OpenID/Observer/Log.php';
-require_once 'Net/URL2.php';
 
-/* Map of authenticated users to MySQL user/password pairs */
+/**
+ * Map of authenticated users to MySQL user/password pairs.
+ */
 $AUTH_MAP = array(
     'http://launchpad.net/~username' => array(
         'user' => 'root',
