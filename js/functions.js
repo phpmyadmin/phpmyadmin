@@ -1052,6 +1052,8 @@ function insertQuery(queryType) {
         query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
     } else if(queryType == "delete") {
         query = "DELETE FROM `" + table + "` WHERE 1";
+    } else if(queryType == "clear") {
+        query = '';
     }
     document.sqlform.sql_query.value = query;
     sql_box_locked = false;

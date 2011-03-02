@@ -294,6 +294,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         echo '<input type="button" value="UPDATE" id="update" class="sqlbutton" />';
         echo '<input type="button" value="DELETE" id="delete" class="sqlbutton" />';
     }
+    echo '<input type="button" value="' . __('Clear') . '" id="clear" class="sqlbutton" />';
     echo '</div>' . "\n";
 
     if (count($fields_list)) {
