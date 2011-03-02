@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:48+0100\n"
+"POT-Creation-Date: 2011-03-02 15:32+0100\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -59,8 +59,8 @@ msgstr "Meklēt"
 #: libraries/schema/User_Schema.class.php:176
 #: libraries/schema/User_Schema.class.php:410
 #: libraries/schema/User_Schema.class.php:449
-#: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
-#: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:519
+#: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:385
+#: libraries/sql_query_form.lib.php:455 libraries/sql_query_form.lib.php:520
 #: libraries/tbl_properties.inc.php:783 libraries/tbl_properties.inc.php:798
 #: main.php:111 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
 #: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:671
@@ -207,7 +207,7 @@ msgstr "Komentāri"
 #: server_privileges.php:1404 server_privileges.php:1415
 #: server_privileges.php:1655 server_privileges.php:1666
 #: server_privileges.php:1986 server_privileges.php:1991
-#: server_privileges.php:2285 sql.php:201 sql.php:262 tbl_printview.php:226
+#: server_privileges.php:2285 sql.php:229 sql.php:290 tbl_printview.php:226
 #: tbl_structure.php:373 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Nē"
@@ -227,7 +227,7 @@ msgstr "Nē"
 #: server_databases.php:76 server_privileges.php:1401
 #: server_privileges.php:1412 server_privileges.php:1652
 #: server_privileges.php:1666 server_privileges.php:1986
-#: server_privileges.php:1989 server_privileges.php:2285 sql.php:261
+#: server_privileges.php:1989 server_privileges.php:2285 sql.php:289
 #: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:373
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -517,7 +517,7 @@ msgstr "Izpildīt vaicājumu"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:187
+#: libraries/auth/signon.auth.lib.php:197
 msgid "Access denied"
 msgstr "Pieeja aizliegta"
 
@@ -557,23 +557,23 @@ msgstr[1] "%s rezultāti tabulā <i>%s</i>"
 msgid "Browse"
 msgstr "Apskatīt"
 
+#: db_search.php:259
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Delete the matches for the "
+msgstr "Dati tabulai"
+
 #: db_search.php:259 libraries/display_tbl.lib.php:1201
 #: libraries/display_tbl.lib.php:2132
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:447 pmd_general.php:424
+#: libraries/sql_query_form.lib.php:448 pmd_general.php:424
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Dzēst"
-
-#: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
-msgid "Delete the matches for the %s table?"
-msgstr "Dati tabulai"
 
 #: db_search.php:272
 #, fuzzy, php-format
@@ -919,7 +919,7 @@ msgstr "Ieraksts tika dzēsts."
 msgid "Showing bookmark"
 msgstr ""
 
-#: import.php:402 sql.php:810
+#: import.php:402 sql.php:838
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -962,15 +962,15 @@ msgstr ""
 msgid "Click to unselect"
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:158
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:186
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" komanda ir aizliegta."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:256
+#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
 msgid "Do you really want to "
 msgstr "Vai Jūs tiešām gribat "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:241
+#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:269
 msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 
@@ -1133,81 +1133,81 @@ msgstr "Izveidot jaunu lapu"
 msgid "Searching"
 msgstr "Meklēt"
 
-#: js/messages.php:84
+#: js/messages.php:86
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:85
+#: js/messages.php:87
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:86
+#: js/messages.php:88
 msgid "Inline Edit"
 msgstr ""
 
-#: js/messages.php:89
+#: js/messages.php:91
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:90
+#: js/messages.php:92
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:93 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: js/messages.php:96
+#: js/messages.php:98
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:97
+#: js/messages.php:99
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Izvēlieties, kuru lauku rādīt"
 
-#: js/messages.php:102
+#: js/messages.php:104
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:107
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:106 libraries/replication_gui.lib.php:365
+#: js/messages.php:108 libraries/replication_gui.lib.php:365
 #, fuzzy
 msgid "Generate"
 msgstr "Uzģenerēja"
 
-#: js/messages.php:107
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:110 tbl_structure.php:471
+#: js/messages.php:112 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "P"
 
-#: js/messages.php:113 setup/lib/index.lib.php:158
+#: js/messages.php:115 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1215,26 +1215,26 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:115
+#: js/messages.php:117
 msgid ", latest stable version:"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:130
+#: js/messages.php:132
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nav"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:132
+#: js/messages.php:134
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Iepriekšējie"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:134 libraries/common.lib.php:2365
+#: js/messages.php:136 libraries/common.lib.php:2365
 #: libraries/common.lib.php:2368 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1242,96 +1242,96 @@ msgid "Next"
 msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:136
+#: js/messages.php:138
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kopā"
 
-#: js/messages.php:139
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binārais"
 
-#: js/messages.php:140
+#: js/messages.php:142
 msgid "February"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:143
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:142
+#: js/messages.php:144
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:144
+#: js/messages.php:146
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jūn"
 
-#: js/messages.php:145
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jūl"
 
-#: js/messages.php:146
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:147
+#: js/messages.php:149
 msgid "September"
 msgstr ""
 
-#: js/messages.php:148
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "November"
 msgstr ""
 
-#: js/messages.php:150
+#: js/messages.php:152
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:154 libraries/common.lib.php:1563
+#: js/messages.php:156 libraries/common.lib.php:1563
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1565
+#: js/messages.php:158 libraries/common.lib.php:1565
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1567
+#: js/messages.php:160 libraries/common.lib.php:1567
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1569
+#: js/messages.php:162 libraries/common.lib.php:1569
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1571
+#: js/messages.php:164 libraries/common.lib.php:1571
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1339,176 +1339,176 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1573
+#: js/messages.php:166 libraries/common.lib.php:1573
 msgid "Jun"
 msgstr "Jūn"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1575
+#: js/messages.php:168 libraries/common.lib.php:1575
 msgid "Jul"
 msgstr "Jūl"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1577
+#: js/messages.php:170 libraries/common.lib.php:1577
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1579
+#: js/messages.php:172 libraries/common.lib.php:1579
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1581
+#: js/messages.php:174 libraries/common.lib.php:1581
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1583
+#: js/messages.php:176 libraries/common.lib.php:1583
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1585
+#: js/messages.php:178 libraries/common.lib.php:1585
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:179
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Sv"
 
-#: js/messages.php:180
+#: js/messages.php:182
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "P"
 
-#: js/messages.php:181
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "O"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:184
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pk"
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:189 libraries/common.lib.php:1588
+#: js/messages.php:191 libraries/common.lib.php:1588
 msgid "Sun"
 msgstr "Sv"
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1590
+#: js/messages.php:193 libraries/common.lib.php:1590
 msgid "Mon"
 msgstr "P"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1592
+#: js/messages.php:195 libraries/common.lib.php:1592
 msgid "Tue"
 msgstr "O"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1594
+#: js/messages.php:197 libraries/common.lib.php:1594
 msgid "Wed"
 msgstr "T"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1596
+#: js/messages.php:199 libraries/common.lib.php:1596
 msgid "Thu"
 msgstr "C"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1598
+#: js/messages.php:201 libraries/common.lib.php:1598
 msgid "Fri"
 msgstr "Pk"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1600
+#: js/messages.php:203 libraries/common.lib.php:1600
 msgid "Sat"
 msgstr "S"
 
 #. l10n: Minimal week day name
-#: js/messages.php:205
+#: js/messages.php:207
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:219
+#: js/messages.php:221
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:223
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:222
+#: js/messages.php:224
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lietošanā"
 
-#: js/messages.php:223
+#: js/messages.php:225
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1585,10 +1585,11 @@ msgid "Comment"
 msgstr "Komentāri"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:626
-#: libraries/common.lib.php:1161 libraries/config/messages.inc.php:461
-#: libraries/display_tbl.lib.php:1165 libraries/import.lib.php:1150
-#: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
-#: setup/frames/index.inc.php:125 tbl_row_action.php:68
+#: libraries/common.lib.php:1161 libraries/common.lib.php:3017
+#: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1165
+#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
+#: tbl_row_action.php:68
 msgid "Edit"
 msgstr "Labot"
 
@@ -1782,13 +1783,13 @@ msgid "Cookies must be enabled past this point."
 msgstr "\"Cookies\" ir jābūt atļautiem aiz šī punkta."
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:185
+#: libraries/auth/signon.auth.lib.php:195
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:189
+#: libraries/auth/signon.auth.lib.php:199
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
@@ -1796,7 +1797,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:195
+#: libraries/auth/signon.auth.lib.php:205
 msgid "Cannot log in to the MySQL server"
 msgstr "Nevar pieslēgties MySQL serverim"
 
@@ -2026,7 +2027,7 @@ msgstr "en"
 #: libraries/common.lib.php:466 libraries/config/FormDisplay.tpl.php:168
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
-#: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
+#: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
 #: main.php:222
 msgid "Documentation"
 msgstr "Dokumentācija"
@@ -2188,8 +2189,8 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/common.lib.php:2823 libraries/common.lib.php:3010
-#: libraries/common.lib.php:3011 libraries/sql_query_form.lib.php:318
-#: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:67
+#: libraries/common.lib.php:3011 libraries/sql_query_form.lib.php:319
+#: libraries/sql_query_form.lib.php:322 libraries/tbl_links.inc.php:67
 msgid "Insert"
 msgstr "Pievienot"
 
@@ -2209,7 +2210,7 @@ msgstr ""
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web servera augšupielādes direktorija"
 
-#: libraries/common.lib.php:2985 libraries/sql_query_form.lib.php:500
+#: libraries/common.lib.php:2985 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:956
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama"
@@ -4682,7 +4683,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
-#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:516
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:517
 msgid "Character set of the file:"
 msgstr "Tabulas kodējums:"
 
@@ -4946,7 +4947,7 @@ msgstr "Parādu rindas"
 msgid "total"
 msgstr "kopā"
 
-#: libraries/display_tbl.lib.php:2042 sql.php:591
+#: libraries/display_tbl.lib.php:2042 sql.php:619
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Vaicājums ilga %01.4f s"
@@ -4976,7 +4977,7 @@ msgstr "Rādīt PDF shēmu"
 msgid "Create view"
 msgstr "Servera versija"
 
-#: libraries/display_tbl.lib.php:2459
+#: libraries/display_tbl.lib.php:2464
 msgid "Link not found"
 msgstr "Links nav atrasts"
 
@@ -5709,7 +5710,7 @@ msgstr "SQL rezultāts"
 msgid "Generated by"
 msgstr "Uzģenerēja"
 
-#: libraries/import.lib.php:153 sql.php:587 tbl_change.php:179
+#: libraries/import.lib.php:153 sql.php:615 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
@@ -6115,7 +6116,7 @@ msgid ""
 msgstr ""
 "Lūdzu skatieties dokumentāciju par to, kā atjaunot 'Column_comments' tabulu"
 
-#: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
+#: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:411
 msgid "Bookmarked SQL query"
 msgstr "Saglabātie SQL vaicājumi"
 
@@ -6184,8 +6185,8 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:769 server_variables.php:51
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:423
+#: server_status.php:769 server_variables.php:52
 msgid "Variable"
 msgstr "Mainīgais"
 
@@ -6487,49 +6488,55 @@ msgstr "Izpildīt SQL vaicājumu(s) uz datubāzes %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Izpildīt SQL vaicājumu(s) uz datubāzes %s"
 
-#: libraries/sql_query_form.lib.php:301
+#: libraries/sql_query_form.lib.php:297 navigation.php:276
+#: setup/frames/index.inc.php:219
+#, fuzzy
+msgid "Clear"
+msgstr "Kalendārs"
+
+#: libraries/sql_query_form.lib.php:302
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Kolonnu nosaukumi"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:849 sql.php:850 sql.php:867
+#: libraries/sql_query_form.lib.php:337 sql.php:877 sql.php:878 sql.php:895
 msgid "Bookmark this SQL query"
 msgstr "Saglabāt šo SQL vaicājumu"
 
-#: libraries/sql_query_form.lib.php:343 sql.php:861
+#: libraries/sql_query_form.lib.php:344 sql.php:889
 msgid "Let every user access this bookmark"
 msgstr "Dot ikvienam lietotājam pieeju šai grāmatzīmei"
 
-#: libraries/sql_query_form.lib.php:349
+#: libraries/sql_query_form.lib.php:350
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:365
+#: libraries/sql_query_form.lib.php:366
 msgid "Do not overwrite this query from outside the window"
 msgstr "Nepārrakstīt šo vaicājumu ārpus šī loga"
 
-#: libraries/sql_query_form.lib.php:372
+#: libraries/sql_query_form.lib.php:373
 msgid "Delimiter"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:380
+#: libraries/sql_query_form.lib.php:381
 msgid " Show this query here again "
 msgstr " Rādīt šo vaicājumu šeit atkal "
 
-#: libraries/sql_query_form.lib.php:439
+#: libraries/sql_query_form.lib.php:440
 msgid "Submit"
 msgstr "Nosūtīt"
 
-#: libraries/sql_query_form.lib.php:443
+#: libraries/sql_query_form.lib.php:444
 msgid "View only"
 msgstr "Tikai apskatīt"
 
-#: libraries/sql_query_form.lib.php:491 prefs_manage.php:241
+#: libraries/sql_query_form.lib.php:492 prefs_manage.php:241
 msgid "Location of the text file"
 msgstr "Teksta faila atrašanās vieta"
 
-#: libraries/sql_query_form.lib.php:503 tbl_change.php:959
+#: libraries/sql_query_form.lib.php:504 tbl_change.php:959
 msgid "web server upload directory"
 msgstr "web servera augšupielādes direktorija"
 
@@ -7081,11 +7088,6 @@ msgstr ""
 #: navigation.php:187 server_databases.php:267 server_synchronize.php:1187
 msgid "No databases"
 msgstr "Nav datubāzu"
-
-#: navigation.php:276 setup/frames/index.inc.php:219
-#, fuzzy
-msgid "Clear"
-msgstr "Kalendārs"
 
 #: navigation.php:277
 msgid "Filter"
@@ -8942,11 +8944,11 @@ msgstr ""
 msgid "Server variables and settings"
 msgstr "Servera mainīgie un konfigurācija"
 
-#: server_variables.php:54
+#: server_variables.php:55
 msgid "Session value"
 msgstr "Sesijas vērtība"
 
-#: server_variables.php:54 server_variables.php:88
+#: server_variables.php:55 server_variables.php:89
 msgid "Global value"
 msgstr "Globālā vērtība"
 
@@ -9217,36 +9219,36 @@ msgstr ""
 msgid "Browse foreign values"
 msgstr "Pārlūkot ārējās vērtības"
 
-#: sql.php:126
+#: sql.php:154
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:563 tbl_replace.php:385
+#: sql.php:591 tbl_replace.php:385
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: sql.php:580
+#: sql.php:608
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:583 tbl_replace.php:359
+#: sql.php:611 tbl_replace.php:359
 msgid "Showing SQL query"
 msgstr ""
 
-#: sql.php:585
+#: sql.php:613
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Pārbaudīt SQL"
 
-#: sql.php:823
+#: sql.php:851
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problēmas ar indeksiem tabulā `%s`"
 
-#: sql.php:855
+#: sql.php:883
 msgid "Label"
 msgstr "Nosaukums"
 

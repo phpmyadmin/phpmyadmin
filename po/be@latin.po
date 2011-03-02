@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-02-24 15:48+0100\n"
+"POT-Creation-Date: 2011-03-02 15:32+0100\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
@@ -61,8 +61,8 @@ msgstr "Pošuk"
 #: libraries/schema/User_Schema.class.php:176
 #: libraries/schema/User_Schema.class.php:410
 #: libraries/schema/User_Schema.class.php:449
-#: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
-#: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:519
+#: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:385
+#: libraries/sql_query_form.lib.php:455 libraries/sql_query_form.lib.php:520
 #: libraries/tbl_properties.inc.php:783 libraries/tbl_properties.inc.php:798
 #: main.php:111 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
 #: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:671
@@ -211,7 +211,7 @@ msgstr "Kamentary"
 #: server_privileges.php:1404 server_privileges.php:1415
 #: server_privileges.php:1655 server_privileges.php:1666
 #: server_privileges.php:1986 server_privileges.php:1991
-#: server_privileges.php:2285 sql.php:201 sql.php:262 tbl_printview.php:226
+#: server_privileges.php:2285 sql.php:229 sql.php:290 tbl_printview.php:226
 #: tbl_structure.php:373 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Nie"
@@ -231,7 +231,7 @@ msgstr "Nie"
 #: server_databases.php:76 server_privileges.php:1401
 #: server_privileges.php:1412 server_privileges.php:1652
 #: server_privileges.php:1666 server_privileges.php:1986
-#: server_privileges.php:1989 server_privileges.php:2285 sql.php:261
+#: server_privileges.php:1989 server_privileges.php:2285 sql.php:289
 #: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:373
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -523,7 +523,7 @@ msgstr "Vykanać zapyt"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:187
+#: libraries/auth/signon.auth.lib.php:197
 msgid "Access denied"
 msgstr "U dostupie admoŭlena"
 
@@ -564,23 +564,23 @@ msgstr[2] "%s supadzieńniaŭ u tablicy %s"
 msgid "Browse"
 msgstr "Prahlad"
 
+#: db_search.php:259
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Delete the matches for the "
+msgstr "Damp dadzienych tablicy"
+
 #: db_search.php:259 libraries/display_tbl.lib.php:1201
 #: libraries/display_tbl.lib.php:2132
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:447 pmd_general.php:424
+#: libraries/sql_query_form.lib.php:448 pmd_general.php:424
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Vydalić"
-
-#: db_search.php:259
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
-msgid "Delete the matches for the %s table?"
-msgstr "Damp dadzienych tablicy"
 
 #: db_search.php:272
 #, fuzzy, php-format
@@ -935,7 +935,7 @@ msgstr "Zakładka była vydalenaja."
 msgid "Showing bookmark"
 msgstr "Pakazvajučy zakładku"
 
-#: import.php:402 sql.php:810
+#: import.php:402 sql.php:838
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Zakładka %s stvoranaja"
@@ -982,15 +982,15 @@ msgstr ""
 msgid "Click to unselect"
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:158
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:186
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Kamandy \"DROP DATABASE\" adklučanyja."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:256
+#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
 msgid "Do you really want to "
 msgstr "Ci sapraŭdy vy žadajecie "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:241
+#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:269
 msgid "You are about to DESTROY a complete database!"
 msgstr "Vy źbirajecie VYDALIĆ bazu dadzienych całkam!"
 
@@ -1156,86 +1156,86 @@ msgstr "Stvaryć tablicu"
 msgid "Searching"
 msgstr "Pošuk"
 
-#: js/messages.php:84
+#: js/messages.php:86
 #, fuzzy
 #| msgid "in query"
 msgid "Hide query box"
 msgstr "pa zapytu"
 
-#: js/messages.php:85
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show query box"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:86
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Mašyny"
 
-#: js/messages.php:89
+#: js/messages.php:91
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search criteria"
 msgstr "pa zapytu"
 
-#: js/messages.php:90
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:93 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignaravać"
 
-#: js/messages.php:96
+#: js/messages.php:98
 msgid "Select referenced key"
 msgstr "Vybierycie spasyłkavy kluč"
 
-#: js/messages.php:97
+#: js/messages.php:99
 msgid "Select Foreign Key"
 msgstr "Vybierycie źniešni kluč"
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Please select the primary key or a unique key"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: js/messages.php:99 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: js/messages.php:102
+#: js/messages.php:104
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:107
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Zgieneravać parol"
 
-#: js/messages.php:106 libraries/replication_gui.lib.php:365
+#: js/messages.php:108 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Zgieneravać"
 
-#: js/messages.php:107
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Źmianić parol"
 
-#: js/messages.php:110 tbl_structure.php:471
+#: js/messages.php:112 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pan"
 
-#: js/messages.php:113 setup/lib/index.lib.php:158
+#: js/messages.php:115 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1243,26 +1243,26 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:115
+#: js/messages.php:117
 msgid ", latest stable version:"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:130
+#: js/messages.php:132
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nijakaja"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:132
+#: js/messages.php:134
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Papiaredniaja staronka"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:134 libraries/common.lib.php:2365
+#: js/messages.php:136 libraries/common.lib.php:2365
 #: libraries/common.lib.php:2368 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1270,96 +1270,96 @@ msgid "Next"
 msgstr "Nastupnaja staronka"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:136
+#: js/messages.php:138
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ahułam"
 
-#: js/messages.php:139
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Dvajkovy"
 
-#: js/messages.php:140
+#: js/messages.php:142
 msgid "February"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:143
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Sak"
 
-#: js/messages.php:142
+#: js/messages.php:144
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Kra"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "May"
 msgstr "Tra"
 
-#: js/messages.php:144
+#: js/messages.php:146
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Čer"
 
-#: js/messages.php:145
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Lip"
 
-#: js/messages.php:146
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Žni"
 
-#: js/messages.php:147
+#: js/messages.php:149
 msgid "September"
 msgstr ""
 
-#: js/messages.php:148
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Kas"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "November"
 msgstr ""
 
-#: js/messages.php:150
+#: js/messages.php:152
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:154 libraries/common.lib.php:1563
+#: js/messages.php:156 libraries/common.lib.php:1563
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1565
+#: js/messages.php:158 libraries/common.lib.php:1565
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1567
+#: js/messages.php:160 libraries/common.lib.php:1567
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1569
+#: js/messages.php:162 libraries/common.lib.php:1569
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1571
+#: js/messages.php:164 libraries/common.lib.php:1571
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1367,178 +1367,178 @@ msgid "May"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1573
+#: js/messages.php:166 libraries/common.lib.php:1573
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1575
+#: js/messages.php:168 libraries/common.lib.php:1575
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1577
+#: js/messages.php:170 libraries/common.lib.php:1577
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1579
+#: js/messages.php:172 libraries/common.lib.php:1579
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1581
+#: js/messages.php:174 libraries/common.lib.php:1581
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1583
+#: js/messages.php:176 libraries/common.lib.php:1583
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1585
+#: js/messages.php:178 libraries/common.lib.php:1585
 msgid "Dec"
 msgstr "Śn"
 
-#: js/messages.php:179
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ndz"
 
-#: js/messages.php:180
+#: js/messages.php:182
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pan"
 
-#: js/messages.php:181
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Aŭt"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:184
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Piat"
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:189 libraries/common.lib.php:1588
+#: js/messages.php:191 libraries/common.lib.php:1588
 msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1590
+#: js/messages.php:193 libraries/common.lib.php:1590
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1592
+#: js/messages.php:195 libraries/common.lib.php:1592
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1594
+#: js/messages.php:197 libraries/common.lib.php:1594
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1596
+#: js/messages.php:199 libraries/common.lib.php:1596
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1598
+#: js/messages.php:201 libraries/common.lib.php:1598
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1600
+#: js/messages.php:203 libraries/common.lib.php:1600
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:205
+#: js/messages.php:207
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ndz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pan"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Aŭt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sier"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Cač"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Piat"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:219
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:221
+#: js/messages.php:223
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:222
+#: js/messages.php:224
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "vykarystoŭvajecca"
 
-#: js/messages.php:223
+#: js/messages.php:225
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1618,10 +1618,11 @@ msgid "Comment"
 msgstr "Kamentar"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:626
-#: libraries/common.lib.php:1161 libraries/config/messages.inc.php:461
-#: libraries/display_tbl.lib.php:1165 libraries/import.lib.php:1150
-#: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
-#: setup/frames/index.inc.php:125 tbl_row_action.php:68
+#: libraries/common.lib.php:1161 libraries/common.lib.php:3017
+#: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1165
+#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
+#: tbl_row_action.php:68
 msgid "Edit"
 msgstr "Redagavać"
 
@@ -1821,13 +1822,13 @@ msgid "Cookies must be enabled past this point."
 msgstr "Cookies musiać być uklučanymi paśla hetaha miesca."
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:185
+#: libraries/auth/signon.auth.lib.php:195
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:189
+#: libraries/auth/signon.auth.lib.php:199
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
@@ -1836,7 +1837,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:195
+#: libraries/auth/signon.auth.lib.php:205
 msgid "Cannot log in to the MySQL server"
 msgstr "Niemahčyma załahavacca na server MySQL"
 
@@ -2074,7 +2075,7 @@ msgstr "en"
 #: libraries/common.lib.php:466 libraries/config/FormDisplay.tpl.php:168
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
-#: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
+#: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
 #: main.php:222
 msgid "Documentation"
 msgstr "Dakumentacyja"
@@ -2240,8 +2241,8 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/common.lib.php:2823 libraries/common.lib.php:3010
-#: libraries/common.lib.php:3011 libraries/sql_query_form.lib.php:318
-#: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:67
+#: libraries/common.lib.php:3011 libraries/sql_query_form.lib.php:319
+#: libraries/sql_query_form.lib.php:322 libraries/tbl_links.inc.php:67
 msgid "Insert"
 msgstr "Ustavić"
 
@@ -2261,7 +2262,7 @@ msgstr ""
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "tečka web-servera dla zahruzki fajłaŭ"
 
-#: libraries/common.lib.php:2985 libraries/sql_query_form.lib.php:500
+#: libraries/common.lib.php:2985 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:956
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Niemahčyma adkryć paznačanuju vami tečku dla zahruzki fajłaŭ"
@@ -4748,7 +4749,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
-#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:516
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:517
 msgid "Character set of the file:"
 msgstr "Kadyroŭka fajła:"
 
@@ -5026,7 +5027,7 @@ msgstr "Pakazanyja zapisy"
 msgid "total"
 msgstr "usiaho"
 
-#: libraries/display_tbl.lib.php:2042 sql.php:591
+#: libraries/display_tbl.lib.php:2042 sql.php:619
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Zapyt vykonvaŭsia %01.4f sek"
@@ -5057,7 +5058,7 @@ msgstr "Pakazać PDF-schiemu"
 msgid "Create view"
 msgstr "Stvaryć"
 
-#: libraries/display_tbl.lib.php:2459
+#: libraries/display_tbl.lib.php:2464
 msgid "Link not found"
 msgstr "Suviaź nia znojdzienaja"
 
@@ -5849,7 +5850,7 @@ msgstr "SQL-vynik"
 msgid "Generated by"
 msgstr "Stvorany"
 
-#: libraries/import.lib.php:153 sql.php:587 tbl_change.php:179
+#: libraries/import.lib.php:153 sql.php:615 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL viarnuła pusty vynik (to bok nul radkoŭ)."
@@ -6256,7 +6257,7 @@ msgstr ""
 "Za infarmacyjaj jak abnavić tablicu column_comments źviarniciesia, kali "
 "łaska, da dakumentacyi"
 
-#: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
+#: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:411
 msgid "Bookmarked SQL query"
 msgstr "Zakładzieny SQL-zapyt"
 
@@ -6325,8 +6326,8 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:769 server_variables.php:51
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:423
+#: server_status.php:769 server_variables.php:52
 msgid "Variable"
 msgstr "Źmiennaja"
 
@@ -6628,49 +6629,54 @@ msgstr "Vykanać SQL-zapyt(y) na servery %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Vykanać SQL-zapyt(y) na bazie dadzienych %s"
 
-#: libraries/sql_query_form.lib.php:301
+#: libraries/sql_query_form.lib.php:297 navigation.php:276
+#: setup/frames/index.inc.php:219
+msgid "Clear"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:302
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Nazvy kalonak"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:849 sql.php:850 sql.php:867
+#: libraries/sql_query_form.lib.php:337 sql.php:877 sql.php:878 sql.php:895
 msgid "Bookmark this SQL query"
 msgstr "Dadać hety SQL-zapyt u zakładki"
 
-#: libraries/sql_query_form.lib.php:343 sql.php:861
+#: libraries/sql_query_form.lib.php:344 sql.php:889
 msgid "Let every user access this bookmark"
 msgstr "Dać kožnamu karystalniku dostup da hetaj zakładki"
 
-#: libraries/sql_query_form.lib.php:349
+#: libraries/sql_query_form.lib.php:350
 msgid "Replace existing bookmark of same name"
 msgstr "Zamianić isnuju zakładku z takim ža imiem"
 
-#: libraries/sql_query_form.lib.php:365
+#: libraries/sql_query_form.lib.php:366
 msgid "Do not overwrite this query from outside the window"
 msgstr "Nie pierazapisvajcie hety zapyt u inšych voknach"
 
-#: libraries/sql_query_form.lib.php:372
+#: libraries/sql_query_form.lib.php:373
 msgid "Delimiter"
 msgstr "Raździalalnik"
 
-#: libraries/sql_query_form.lib.php:380
+#: libraries/sql_query_form.lib.php:381
 msgid " Show this query here again "
 msgstr " Pakazać hety zapyt znoŭ "
 
-#: libraries/sql_query_form.lib.php:439
+#: libraries/sql_query_form.lib.php:440
 msgid "Submit"
 msgstr "Adpravić"
 
-#: libraries/sql_query_form.lib.php:443
+#: libraries/sql_query_form.lib.php:444
 msgid "View only"
 msgstr "Tolki prahlad"
 
-#: libraries/sql_query_form.lib.php:491 prefs_manage.php:241
+#: libraries/sql_query_form.lib.php:492 prefs_manage.php:241
 msgid "Location of the text file"
 msgstr "Miescaznachodžańnie tekstavaha fajła"
 
-#: libraries/sql_query_form.lib.php:503 tbl_change.php:959
+#: libraries/sql_query_form.lib.php:504 tbl_change.php:959
 msgid "web server upload directory"
 msgstr "tečka web-servera dla zahruzki fajłaŭ"
 
@@ -7267,10 +7273,6 @@ msgstr ""
 #: navigation.php:187 server_databases.php:267 server_synchronize.php:1187
 msgid "No databases"
 msgstr "Bazy dadzienych adsutničajuć"
-
-#: navigation.php:276 setup/frames/index.inc.php:219
-msgid "Clear"
-msgstr ""
 
 #: navigation.php:277
 msgid "Filter"
@@ -9261,11 +9263,11 @@ msgstr ""
 msgid "Server variables and settings"
 msgstr "Nałady i źmiennyja servera"
 
-#: server_variables.php:54
+#: server_variables.php:55
 msgid "Session value"
 msgstr "Značeńnie sesii"
 
-#: server_variables.php:54 server_variables.php:88
+#: server_variables.php:55 server_variables.php:89
 msgid "Global value"
 msgstr "Hlabalnaje značeńnie"
 
@@ -9532,36 +9534,36 @@ msgstr ""
 msgid "Browse foreign values"
 msgstr "Prahladzieć źniešnija značeńni"
 
-#: sql.php:126
+#: sql.php:154
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:563 tbl_replace.php:385
+#: sql.php:591 tbl_replace.php:385
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID ustaŭlenaha radku: %1$d"
 
-#: sql.php:580
+#: sql.php:608
 msgid "Showing as PHP code"
 msgstr "U vyhladzie PHP-kodu"
 
-#: sql.php:583 tbl_replace.php:359
+#: sql.php:611 tbl_replace.php:359
 msgid "Showing SQL query"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: sql.php:585
+#: sql.php:613
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Pravieryć SQL"
 
-#: sql.php:823
+#: sql.php:851
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Prablemy z indeksami dla tablicy `%s`"
 
-#: sql.php:855
+#: sql.php:883
 msgid "Label"
 msgstr "Mietka"
 
