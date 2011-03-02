@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_CachedObjectStorage
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_CachedObjectStorage
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_CachedObjectStorage_CacheBase {
 
@@ -98,9 +98,7 @@ class PHPExcel_CachedObjectStorage_CacheBase {
      *	@throws	Exception
      */
 	public function updateCacheData(PHPExcel_Cell $cell) {
-		$pCoord = $cell->getCoordinate();
-
-		return $this->addCacheData($pCoord,$cell);
+		return $this->addCacheData($cell->getCoordinate(),$cell);
 	}	//	function updateCacheData()
 
 
@@ -140,9 +138,9 @@ class PHPExcel_CachedObjectStorage_CacheBase {
 	 */
 	public function getSortedCellList() {
 		$sortKeys = array();
-		foreach ($this->_cellCache as $coord => $value) {
-			list($colNum,$rowNum) = sscanf($coord,'%[A-Z]%d');
-			$sortKeys[sprintf('%09d%3s',$rowNum,$colNum)] = $coord;
+		foreach (array_keys($this->_cellCache) as $coord) {
+			list($column,$row) = sscanf($coord,'%[A-Z]%d');
+			$sortKeys[sprintf('%09d%3s',$row,$column)] = $coord;
 		}
 		ksort($sortKeys);
 

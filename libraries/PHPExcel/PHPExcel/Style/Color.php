@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Style
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Style
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Style_Color implements PHPExcel_IComparable
 {
@@ -291,13 +291,78 @@ class PHPExcel_Style_Color implements PHPExcel_IComparable
 		return $this;
     }
 
-    /**
+	private static function _getColourComponent($RGB,$offset,$hex=true) {
+		$colour = substr($RGB,$offset,2);
+		if (!$hex)
+			$colour = hexdec($colour);
+		return $colour;
+	}
+
+	public static function getRed($RGB,$hex=true) {
+		if (strlen($RGB) == 8) {
+			return self::_getColourComponent($RGB,2,$hex);
+		} elseif (strlen($RGB) == 6) {
+			return self::_getColourComponent($RGB,0,$hex);
+		}
+	}
+
+	public static function getGreen($RGB,$hex=true) {
+		if (strlen($RGB) == 8) {
+			return self::_getColourComponent($RGB,4,$hex);
+		} elseif (strlen($RGB) == 6) {
+			return self::_getColourComponent($RGB,2,$hex);
+		}
+	}
+
+	public static function getBlue($RGB,$hex=true) {
+		if (strlen($RGB) == 8) {
+			return self::_getColourComponent($RGB,6,$hex);
+		} elseif (strlen($RGB) == 6) {
+			return self::_getColourComponent($RGB,4,$hex);
+		}
+	}
+
+	/**
+     * Adjust the brightness of a color
+     *
+     * @param	string		$hex	The colour as an RGB value (e.g. FF00CCCC or CCDDEE
+     * @param	float		$adjustPercentage	The percentage by which to adjust the colour as a float from -1 to 1
+     * @return	string		The adjusted colour as an RGB value (e.g. FF00CCCC or CCDDEE
+     */
+	public static function changeBrightness($hex, $adjustPercentage) {
+		$red	= self::getRed($hex,false);
+		$green	= self::getGreen($hex,false);
+		$blue	= self::getBlue($hex,false);
+		if ($adjustPercentage > 0) {
+			$red	+= (255 - $red) * $adjustPercentage;
+			$green	+= (255 - $green) * $adjustPercentage;
+			$blue	+= (255 - $blue) * $adjustPercentage;
+		} else {
+			$red	+= $red * $adjustPercentage;
+			$green	+= $green * $adjustPercentage;
+			$blue	+= $blue * $adjustPercentage;
+		}
+
+		if ($red < 0) $red = 0;
+		elseif ($red > 255) $red = 255;
+		if ($green < 0) $green = 0;
+		elseif ($green > 255) $green = 255;
+		if ($blue < 0) $blue = 0;
+		elseif ($blue > 255) $blue = 255;
+
+		return strtoupper(	str_pad(dechex($red), 2, '0', 0) .
+							str_pad(dechex($green), 2, '0', 0) .
+							str_pad(dechex($blue), 2, '0', 0)
+						 );
+	}
+
+	/**
      * Get indexed color
      *
      * @param	int		$pIndex
      * @return	PHPExcel_Style_Color
      */
-    public static function indexedColor($pIndex) {
+    public static function indexedColor($pIndex, $background=false) {
     	// Clean parameter
 		$pIndex = intval($pIndex);
 
@@ -374,7 +439,10 @@ class PHPExcel_Style_Color implements PHPExcel_IComparable
 			return new PHPExcel_Style_Color(self::$_indexedColors[$pIndex]);
 		}
 
-    	return new PHPExcel_Style_Color();
+		if ($background) {
+	    	return new PHPExcel_Style_Color('FFFFFFFF');
+		}
+    	return new PHPExcel_Style_Color('FF000000');
     }
 
 	/**
