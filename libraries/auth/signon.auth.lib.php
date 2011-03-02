@@ -63,6 +63,9 @@ function PMA_auth_check()
     /* Current port */
     $single_signon_port = $GLOBALS['cfg']['Server']['port'];
 
+    /* No configuration updates */
+    $single_signon_cfgupdate = array();
+
     /* Are we requested to do logout? */
     $do_logout = !empty($_REQUEST['old_usr']);
 
@@ -104,6 +107,10 @@ function PMA_auth_check()
             $single_signon_port = $_SESSION['PMA_single_signon_port'];
         }
 
+        if (isset($_SESSION['PMA_single_signon_cfgupdate'])) {
+            $single_signon_cfgupdate = $_SESSION['PMA_single_signon_cfgupdate'];
+        }
+
 
         /* Also get token as it is needed to access subpages */
         if (isset($_SESSION['PMA_single_signon_token'])) {
@@ -126,6 +133,9 @@ function PMA_auth_check()
 
         /* Set the single signon port */
         $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
+
+        /* Configuration update */
+        $GLOBALS['cfg']['Server'] = array_merge($GLOBALS['cfg']['Server'], $single_signon_cfgupdate);
 
         /* Restore our token */
         if (!empty($pma_token)) {

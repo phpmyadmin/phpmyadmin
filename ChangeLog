@@ -141,6 +141,7 @@
 - patch #3176420 [Search] Ajaxify browse and delete criteria in DB Search,
   thanks to Thilanka Kaushalya
 - [interface] New default theme pmahomme, dropped darkblue_orange theme.
+- rfe #2936155 [auth] Allow to pass additional parameters using signon method.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
