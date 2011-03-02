@@ -1269,7 +1269,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
         echo '</div>';
     }
-    echo '</div><br class="clearfloat" />' . "\n";
+    echo '</div>';
+    if ($GLOBALS['is_ajax_request'] === false) {
+        echo '<br class="clearfloat" />';
+    }
 
     // If we are in an Ajax request, we have most probably been called in
     // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
