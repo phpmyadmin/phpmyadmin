@@ -193,9 +193,9 @@ $(document).ready(function() {
                      .after(data.sql_query);
                                                                 
                      //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                     var notice_class = $("#topmenucontainer").next("div").find('.notice');
-                     if($(notice_class).text() == '') {
-                        $(notice_class).remove();
+                     var $notice_class = $("#topmenucontainer").next("div").find('.notice');
+                     if($notice_class.text() == '') {
+                        $notice_class.remove();
                      }
 
                      appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
