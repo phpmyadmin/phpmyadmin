@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-02 15:32+0100\n"
-"PO-Revision-Date: 2011-03-02 22:30+0200\n"
+"PO-Revision-Date: 2011-03-02 22:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -533,7 +533,7 @@ msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s eşleşme, <i>%s</i> tablosu içinde"
+msgstr[0] "%s benzeşme, <i>%s</i> tablosu içinde"
 
 #: db_search.php:254 libraries/common.lib.php:2824
 #: libraries/common.lib.php:3006 libraries/common.lib.php:3007
