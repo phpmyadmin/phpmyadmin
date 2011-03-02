@@ -53,6 +53,7 @@ h2 {
 }
 /* Hiding icons in the page titles, they just add clutter MH */
 h2 img{display:none;}
+h2 a img{display:inline;}
 /* Set all tables with data... to 100%, let it flow! */
 .data{width:100%}
 
