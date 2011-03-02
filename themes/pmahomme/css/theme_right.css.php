@@ -112,8 +112,8 @@ th {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
-    
-    
+
+
 }
 
 a img {
@@ -137,11 +137,11 @@ input[type=text]{
 	border-radius:2px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
-    
+
     box-shadow:0 1px 2px #ddd;
     -moz-box-shadow:0 1px 2px #ddd;
-    -webkit-box-shadow:0 1px 2px #ddd;    
-	
+    -webkit-box-shadow:0 1px 2px #ddd;
+
     background:url(./themes/pmahomme/img/input_bg.gif);
     border:1px solid #aaa;
     color:#555555;
@@ -154,11 +154,11 @@ input[type=password]{
 	border-radius:2px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
-    
+
     box-shadow:0 1px 2px #ddd;
     -moz-box-shadow:0 1px 2px #ddd;
-    -webkit-box-shadow:0 1px 2px #ddd;    
-    
+    -webkit-box-shadow:0 1px 2px #ddd;
+
 	background:url(./themes/pmahomme/img/input_bg.gif);
     border:1px solid #aaa;
     color:#555555;
@@ -175,13 +175,13 @@ input[type=submit]{
 	color: #111;
 	text-decoration: none;
 	background: #ddd;
-	
+
     border-radius: 12px;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
-	
+
 	text-shadow: 0px 1px 0px #fff;
-    
+
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
@@ -235,9 +235,9 @@ fieldset legend {
     -webkit-border-radius:2px;
     border:1px solid #aaa;
     background-color:   #fff;
-    -moz-box-shadow:3px 3px 15px #bbb;  
-    -webkit-box-shadow:3px 3px 15px #bbb;  
-    box-shadow:3px 3px 15px #bbb;    
+    -moz-box-shadow:3px 3px 15px #bbb;
+    -webkit-box-shadow:3px 3px 15px #bbb;
+    box-shadow:3px 3px 15px #bbb;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -271,11 +271,11 @@ select{
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
     border-radius:2px;
-    
+
     -moz-box-shadow:0 1px 2px #ddd;
-	-webkit-box-shadow:0 1px 2px #ddd;    
+	-webkit-box-shadow:0 1px 2px #ddd;
     box-shadow:0 1px 2px #ddd;
-    
+
     border:1px solid #aaa;
     color:#333333;
     padding:3px;
@@ -302,7 +302,7 @@ fieldset.tblFooters {
     clear:              both;
     -webkit-border-radius:0 0 4px 4px;
     -moz-border-radius:0 0 4px 4px;
-    border-radius: 0 0 4px 5px;    
+    border-radius: 0 0 4px 5px;
 }
 
 fieldset .formelement {
@@ -554,7 +554,7 @@ div.footnotes {
     -webkit-border-radius:5px;
     border-radius:5px;
     -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset;   
+    -webkit-box-shadow: 0px 1px 2px #fff inset;
 }
 
 .success {
@@ -775,7 +775,7 @@ ul#topmenu, ul#topmenu2, ul.tabs {
     list-style-type:    none;
     margin:             0;
     padding:            0;
-    
+
 }
 
 ul#topmenu2 {
@@ -787,7 +787,7 @@ ul#topmenu2 {
 ul#topmenu li, ul#topmenu2 li {
     float:              <?php echo $left; ?>;
     margin:             0;
-    /* padding:            4px; MH */ 
+    /* padding:            4px; MH */
     vertical-align:     middle;
 }
 
@@ -812,7 +812,7 @@ ul#topmenu a, ul#topmenu span {
 
 ul#topmenu ul a {
     margin:             0;
-    
+
 }
 /* MH added for hide/show more menu */
 ul#topmenu .submenu {
@@ -842,7 +842,7 @@ ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
     display:            block;
     font-weight:3em;
     background:#fff;
-    
+
 }
 
 ul#topmenu ul li {
@@ -857,9 +857,9 @@ ul#topmenu2 a {
     border:1px solid #ddd;
     border-radius: 20px;
     -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;        
+    -webkit-border-radius: 20px;
     background:#f2f2f2;
-    
+
 }
 
 /* disabled tabs */
@@ -924,22 +924,22 @@ ul#topmenu a, ul#topmenu span {
     border-width:       1pt 1pt 0 1pt;
     -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;
-   
-   MH 
+
+   MH
    */
 }
 
 ul#topmenu ul a {
     border-width:       1pt 0 0 0;
     -moz-border-radius: 0;
-    -webkit-border-radius: 0;    
+    -webkit-border-radius: 0;
     border-radius:      0;
-    
+
 }
 
 ul#topmenu ul li:first-child a {
     border-width:       0;
-    
+
 }
 
 /* enabled hover/active tabs */
@@ -1246,8 +1246,8 @@ div#querywindowcontainer fieldset {
     -webkit-border-radius:5px;
     border-radius:5px;
     -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset; 
-    box-shadow:0px 1px 2px #fff; inset; 
+    -webkit-box-shadow: 0px 1px 2px #fff inset;
+    box-shadow:0px 1px 2px #fff; inset;
     background:#9dcce8;
     color:#fff;
 }
@@ -1263,11 +1263,11 @@ div#querywindowcontainer fieldset {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-    
+
 	box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
-    
+
 }
 #sectionlinks a, #statuslinks a{
 	font-size:0.88em;
@@ -1293,7 +1293,7 @@ div#querywindowcontainer fieldset {
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
-#sectionlinks a:hover, #statuslinks a:hover{	
+#sectionlinks a:hover, #statuslinks a:hover{
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
@@ -1322,10 +1322,10 @@ textarea#sqlquery {
     /* height: 100%; */
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
-    border-raduis:4px    
+    border-raduis:4px
 	border:1px solid #aaa;
 	padding:5px;
-	font-family:inherit;    
+	font-family:inherit;
 }
 textarea#sql_query_edit{
     height:7em;
@@ -1478,12 +1478,12 @@ li#li_user_preferences {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    background:#f3f3f3;    
+    background:#f3f3f3;
     width: 100%;
     border-top: 0.1em solid silver;
     text-align: <?php echo $right; ?>;
-    
-    
+
+
 }
 
 #table_innodb_bufferpool_usage,
@@ -1562,17 +1562,17 @@ code.sql, div.sqlvalidate {
 }
 
 .group {
-  
+
     border:1px solid #999;
     background:#f3f3f3;
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
-    border-radius:4px;    
+    border-radius:4px;
     -moz-box-shadow:2px 2px 5px #ccc;
     -webkit-box-shadow:2px 2px 5px #ccc;
     box-shadow:3px 3px 10px #ddd;
-    margin-bottom:      1em;  
-    padding-bottom: 1em;  
+    margin-bottom:      1em;
+    padding-bottom: 1em;
 }
 
 .group h2 {
@@ -1649,7 +1649,7 @@ table#serverconnection_trg_local  {
     padding: 5px;   /** Keep a little space on the sides of the text */
     min-width: 70px;
     max-width: 350px;   /** This value might have to be changed */
-	
+
     z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index:1000) might hide this */
     text-align: center;
     display: inline;
@@ -1663,13 +1663,13 @@ table#serverconnection_trg_local  {
 
 /* MH additional styles */
 .ajax_notification{
-    margin-top:200px;background:#ffe57e;    
+    margin-top:200px;background:#ffe57e;
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    box-shadow: 0px 5px 90px #888;  
+    box-shadow: 0px 5px 90px #888;
     -moz-box-shadow: 0px 5px 90px #888;
-    -webkit-box-shadow: 0px 5px 90px #888;  
+    -webkit-box-shadow: 0px 5px 90px #888;
 }
 
 #loading_parent {
@@ -1716,13 +1716,13 @@ table#serverconnection_trg_local  {
 	color: #111;
 	text-decoration: none;
 	background: #ddd;
-	
+
     border-radius: 12px;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
-	
+
 	text-shadow: 0px 1px 0px #fff;
-    
+
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
