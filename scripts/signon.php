@@ -47,7 +47,7 @@ if (isset($_POST['user'])) {
 <body>
 <?php
 if (isset($_SESSION['PMA_single_signon_error_message'])) {
-    echo '<p class="error">' . $_SESSION['PMA_single_signon_port'] . '</p>';
+    echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
 }
 ?>
 <form action="signon.php" method="post">
