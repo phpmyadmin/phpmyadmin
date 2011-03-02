@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-02 15:32+0100\n"
-"PO-Revision-Date: 2011-03-02 20:13+0200\n"
+"PO-Revision-Date: 2011-03-02 20:16+0200\n"
 "Last-Translator:  <zippoxer@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
 "Language: he\n"
@@ -426,7 +426,7 @@ msgstr "עליך לבחור לפחות עמודה אחת לתצוגה"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "החלף ל"
 
 #: db_qbe.php:187
 msgid "visual builder"
