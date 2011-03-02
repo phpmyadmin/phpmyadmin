@@ -143,6 +143,7 @@
 - [interface] New default theme pmahomme, dropped darkblue_orange theme.
 - rfe #2936155 [auth] Allow to pass additional parameters using signon method.
 - rfe #1640812 [auth] Add example for OpenID authentication using signon method.
+- rfe #1312657 [dbi] Default to mysqli extension.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,

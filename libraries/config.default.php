@@ -135,7 +135,7 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
  *
  * @global string $cfg['Servers'][$i]['extension']
  */
-$cfg['Servers'][$i]['extension'] = 'mysql';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
 
 /**
  * Use compressed protocol for the MySQL connection (requires PHP >= 4.3.0)
