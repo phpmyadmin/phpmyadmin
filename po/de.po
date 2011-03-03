@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-03 07:17+0100\n"
-"PO-Revision-Date: 2011-02-24 12:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-03-03 15:46+0200\n"
+"Last-Translator:  <sven-cihar.com@incase.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1110,9 +1110,8 @@ msgid "Show query box"
 msgstr "SQL-Querybox anzeigen"
 
 #: js/messages.php:88
-#, fuzzy
 msgid "Inline Edit"
-msgstr "Inline"
+msgstr "Direkt bearbeiten"
 
 #: js/messages.php:91
 msgid "Hide search criteria"
@@ -10235,8 +10234,3 @@ msgstr "VIEW Name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "View umbenennen in"
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Treffer für Tabelle %s löschen?"
