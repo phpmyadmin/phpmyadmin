@@ -682,10 +682,10 @@ ul#topmenu ul a {
 
 ul#topmenu .submenu {
     position:           relative;
-    display: none;
+    display:            none;
 }
 ul#topmenu .shown {
-    display: block;
+    display:            block;
 }
 
 ul#topmenu ul {

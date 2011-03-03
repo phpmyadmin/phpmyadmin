@@ -831,12 +831,12 @@ ul#topmenu ul a {
 }
 /* MH added for hide/show more menu */
 ul#topmenu .submenu {
-	display:	none;
-    position:	relative;
+    display:	        none;
+    position:	        relative;
 }
 
-#topmenu .shown {
-    display: inline-block;
+ul#topmenu .shown {
+    display:            inline-block;
 }
 
 ul#topmenu ul {
