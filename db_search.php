@@ -256,7 +256,7 @@ if (isset($_REQUEST['submit_search'])) {
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
             ?>
-            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php echo __('Delete the matches for the '. $each_table . ' table?') ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
+            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php printf(__('Delete the matches for the %s table?'), . $each_table ); ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
             <?php
          } else {
             echo '<td>&nbsp;</td>' . "\n"
