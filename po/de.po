@@ -2388,7 +2388,6 @@ msgstr ""
 "Eingabelänge, [kbd]textarea[/kbd] - erlaubt Zeilenumbrüche in Feldern"
 
 #: libraries/config/messages.inc.php:33
-#, fuzzy
 msgid "CHAR columns editing"
 msgstr "Bearbeitung von CHAR-Felder"
 
