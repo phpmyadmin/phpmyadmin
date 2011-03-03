@@ -2174,7 +2174,6 @@ msgid "Quick - display only the minimal options to configure"
 msgstr "Schnell – Zeige nur die minimalen Konfigurationsoptionen"
 
 #: libraries/config.values.php:100
-#, fuzzy
 msgid "Custom - display all possible options to configure"
 msgstr "Angepasst – Zeige alle möglichen Konfigurationsoptionen"
 
