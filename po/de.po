@@ -2135,7 +2135,6 @@ msgid "The directory you set for upload work cannot be reached"
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
 
 #: libraries/common.lib.php:2996
-#, fuzzy
 msgid "There are no files to upload"
 msgstr "Es sind keine Dateien zum Upload vorhanden"
 
