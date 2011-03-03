@@ -2191,7 +2191,7 @@ msgstr "Erweiterte 'INSERT's"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "Beide der Obigen"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
