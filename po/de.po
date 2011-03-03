@@ -2139,7 +2139,6 @@ msgid "There are no files to upload"
 msgstr "Es sind keine Dateien zum Upload vorhanden"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
-#, fuzzy
 msgid "Both"
 msgstr "Beide"
 
