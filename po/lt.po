@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-03 07:17+0100\n"
+"POT-Creation-Date: 2011-03-05 14:23-0500\n"
 "PO-Revision-Date: 2011-02-27 17:53+0200\n"
 "Last-Translator: Rytis SlatkeviÄius <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -623,11 +623,11 @@ msgstr "Sekimas yra neaktyvus."
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
-"%sdokumentacijoje%s."
+"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos %"
+"sdokumentacijoje%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -862,11 +862,11 @@ msgstr "Atvaizdis įrašytas faile %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti "
-"%sdokumentaciją%s būdams kaip apeiti šį apribojimą."
+"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti %"
+"sdokumentaciją%s būdams kaip apeiti šį apribojimą."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1112,60 +1112,73 @@ msgstr "Rodyti užklausos laukelį"
 msgid "Inline Edit"
 msgstr "Redaguoti čia"
 
-#: js/messages.php:91
+#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
+#: libraries/schema/User_Schema.class.php:317
+#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
+#: tbl_relation.php:563
+msgid "Save"
+msgstr "Išsaugoti"
+
+#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:159
+#: tbl_change.php:315 tbl_change.php:321
+msgid "Hide"
+msgstr "Paslėpti"
+
+#: js/messages.php:93
 #, fuzzy
 #| msgid "Hide query box"
 msgid "Hide search criteria"
 msgstr "Slėpti užklausos laukelį"
 
-#: js/messages.php:92
+#: js/messages.php:94
 #, fuzzy
 #| msgid "Show query box"
 msgid "Show search criteria"
 msgstr "Rodyti užklausos laukelį"
 
-#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignoruoti"
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Select referenced key"
 msgstr "Pasirinkite siejamą raktą"
 
-#: js/messages.php:99
+#: js/messages.php:101
 msgid "Select Foreign Key"
 msgstr "Pasirinkti Foreign Key"
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "Please select the primary key or a unique key"
 msgstr "Prašome pasirinkti pirminį raktą arba unikalųjį raktą"
 
-#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Pasirinkite laukus peržiūrai"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:109
 msgid "Generate password"
 msgstr "Generuoti slaptažodį"
 
-#: js/messages.php:108 libraries/replication_gui.lib.php:365
+#: js/messages.php:110 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Generuoti"
 
-#: js/messages.php:109
+#: js/messages.php:111
 msgid "Change Password"
 msgstr "Pakeisti slaptažodį"
 
-#: js/messages.php:112 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:471
 msgid "More"
 msgstr "Daugiau"
 
-#: js/messages.php:115 setup/lib/index.lib.php:158
+#: js/messages.php:117 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1175,24 +1188,24 @@ msgstr ""
 "atnaujinimą. Naujausia versija yra %s, išleista %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:117
+#: js/messages.php:119
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Patikrinti ar naujausia versija"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:132
+#: js/messages.php:134
 msgid "Done"
 msgstr "Atlikta"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:134
+#: js/messages.php:136
 msgid "Prev"
 msgstr "Ankstesnis"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:136 libraries/common.lib.php:2368
+#: js/messages.php:138 libraries/common.lib.php:2368
 #: libraries/common.lib.php:2371 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1200,231 +1213,231 @@ msgid "Next"
 msgstr "Kitas"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:138
+#: js/messages.php:140
 msgid "Today"
 msgstr "Šiandien"
 
-#: js/messages.php:141
+#: js/messages.php:143
 msgid "January"
 msgstr "sausio"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "February"
 msgstr "vasario"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "March"
 msgstr "kovo"
 
-#: js/messages.php:144
+#: js/messages.php:146
 msgid "April"
 msgstr "balandžio"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "May"
 msgstr "Geg"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "June"
 msgstr "birželio"
 
-#: js/messages.php:147
+#: js/messages.php:149
 msgid "July"
 msgstr "liepos"
 
-#: js/messages.php:148
+#: js/messages.php:150
 msgid "August"
 msgstr "rugpjūčio"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "September"
 msgstr "rugsėjo"
 
-#: js/messages.php:150
+#: js/messages.php:152
 msgid "October"
 msgstr "spalio"
 
-#: js/messages.php:151
+#: js/messages.php:153
 msgid "November"
 msgstr "lapkričio"
 
-#: js/messages.php:152
+#: js/messages.php:154
 msgid "December"
 msgstr "gruodžio"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1566
+#: js/messages.php:158 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "Sau"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1568
+#: js/messages.php:160 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "Vas"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1570
+#: js/messages.php:162 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "Kov"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1572
+#: js/messages.php:164 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "Bal"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1574
+#: js/messages.php:166 libraries/common.lib.php:1574
 msgctxt "Short month name"
 msgid "May"
 msgstr "Geg"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1576
+#: js/messages.php:168 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "Bir"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1578
+#: js/messages.php:170 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "Lie"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1580
+#: js/messages.php:172 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "Rgp"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1582
+#: js/messages.php:174 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "Rgs"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1584
+#: js/messages.php:176 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "Spa"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1586
+#: js/messages.php:178 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "Lap"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1588
+#: js/messages.php:180 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "Grd"
 
-#: js/messages.php:181
+#: js/messages.php:183
 msgid "Sunday"
 msgstr "Sekmadienis"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Monday"
 msgstr "Pirmadienis"
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Tuesday"
 msgstr "Antradienis"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Wednesday"
 msgstr "Trečiadienis"
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Thursday"
 msgstr "Ketvirtadienis"
 
-#: js/messages.php:186
+#: js/messages.php:188
 msgid "Friday"
 msgstr "Penktadienis"
 
-#: js/messages.php:187
+#: js/messages.php:189
 msgid "Saturday"
 msgstr "Šeštadienis"
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "Sek"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1593
+#: js/messages.php:195 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "Pir"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1595
+#: js/messages.php:197 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "Ant"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1597
+#: js/messages.php:199 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "Tre"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1599
+#: js/messages.php:201 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "Ket"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1601
+#: js/messages.php:203 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "Pen"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1603
+#: js/messages.php:205 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "Šeš"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 msgid "Su"
 msgstr "Sk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 msgid "Mo"
 msgstr "Pr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 msgid "Tu"
 msgstr "An"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 msgid "We"
 msgstr "Tr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 msgid "Th"
 msgstr "Kt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 msgid "Fr"
 msgstr "Pn"
 
 #. l10n: Minimal week day name
-#: js/messages.php:219
+#: js/messages.php:221
 msgid "Sa"
 msgstr "Št"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:221
+#: js/messages.php:223
 msgid "Wk"
 msgstr "Sav."
 
-#: js/messages.php:223
+#: js/messages.php:225
 msgid "Hour"
 msgstr "Valanda"
 
-#: js/messages.php:224
+#: js/messages.php:226
 msgid "Minute"
 msgstr "Minutė"
 
-#: js/messages.php:225
+#: js/messages.php:227
 msgid "Second"
 msgstr "Sekundės"
 
@@ -1648,8 +1661,8 @@ msgstr "Jūs naudojate %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Jūs dar turbūt nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
@@ -2285,14 +2298,6 @@ msgstr "Atstatyti numatytąsias reikšmes"
 msgid "Allow users to customize this value"
 msgstr "Leisti naudotojams adaptuoti šią reikšmę"
 
-#: libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
-#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
-#: tbl_relation.php:563
-msgid "Save"
-msgstr "Išsaugoti"
-
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:146
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
@@ -2577,13 +2582,13 @@ msgid "Put columns names in the first row"
 msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:238
-#: libraries/config/messages.inc.php:245 libraries/import/csv.php:73
+#: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 msgid "Columns enclosed by"
 msgstr "Stulpeliai apskliausti"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
-#: libraries/config/messages.inc.php:246 libraries/import/csv.php:77
+#: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
 msgid "Columns escaped by"
 msgstr "Prieš stulpelių spec. simbolius"
@@ -2601,13 +2606,13 @@ msgid "Remove CRLF characters within columns"
 msgstr "Pašalinti CRLF simbolius laukeliuose"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
+#: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 msgid "Columns terminated by"
 msgstr "Laukai baigiasi"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
-#: libraries/import/csv.php:81 libraries/import/ldi.php:43
+#: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
 msgstr "Eilutės baigiasi"
 
@@ -4575,8 +4580,8 @@ msgstr ", @TABLE@ taps lentelės pavadinimu"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi Jūs galite "
 "keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
@@ -4803,11 +4808,6 @@ msgstr "Rodyti dvejetainį turinį"
 #: libraries/display_tbl.lib.php:599
 msgid "Show BLOB contents"
 msgstr "Rodyti BLOB turinį"
-
-#: libraries/display_tbl.lib.php:609 pmd_general.php:159 tbl_change.php:315
-#: tbl_change.php:321
-msgid "Hide"
-msgstr "Paslėpti"
 
 #: libraries/display_tbl.lib.php:609 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
@@ -5273,8 +5273,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5659,13 +5659,13 @@ msgstr ""
 msgid "Column names: "
 msgstr "Stulpelių vardai:"
 
-#: libraries/import/csv.php:60 libraries/import/csv.php:72
-#: libraries/import/csv.php:76 libraries/import/csv.php:80
+#: libraries/import/csv.php:61 libraries/import/csv.php:74
+#: libraries/import/csv.php:79 libraries/import/csv.php:84
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Negalimas parametras CSV importavimui: %s"
 
-#: libraries/import/csv.php:121
+#: libraries/import/csv.php:131
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -5674,12 +5674,12 @@ msgstr ""
 "Blogai nurodyti stulpeliai (%s)! Įsitikinkite, kad stulpelių vardai parašyti "
 "gerai, atskirti kableliais ir apskliausti (apimti, aptverti) kabutėmis."
 
-#: libraries/import/csv.php:179 libraries/import/csv.php:426
+#: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 
-#: libraries/import/csv.php:314
+#: libraries/import/csv.php:324
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neteisingas stulpelių skaičius CSV įvedimo eilutėje %d."
@@ -7718,8 +7718,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
@@ -9135,9 +9135,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "

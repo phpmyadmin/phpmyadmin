@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-03 07:17+0100\n"
+"POT-Creation-Date: 2011-03-05 14:23-0500\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -641,8 +641,8 @@ msgstr ""
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
@@ -882,8 +882,8 @@ msgstr "Damps tika saglabāts failā %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
@@ -1147,67 +1147,80 @@ msgstr "SQL vaicājums"
 msgid "Inline Edit"
 msgstr ""
 
-#: js/messages.php:91
+#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
+#: libraries/schema/User_Schema.class.php:317
+#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
+#: tbl_relation.php:563
+msgid "Save"
+msgstr "Saglabāt"
+
+#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:159
+#: tbl_change.php:315 tbl_change.php:321
+msgid "Hide"
+msgstr ""
+
+#: js/messages.php:93
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:92
+#: js/messages.php:94
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL vaicājums"
 
-#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:99
+#: js/messages.php:101
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Izvēlieties, kuru lauku rādīt"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:108 libraries/replication_gui.lib.php:365
+#: js/messages.php:110 libraries/replication_gui.lib.php:365
 #, fuzzy
 msgid "Generate"
 msgstr "Uzģenerēja"
 
-#: js/messages.php:109
+#: js/messages.php:111
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:112 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "P"
 
-#: js/messages.php:115 setup/lib/index.lib.php:158
+#: js/messages.php:117 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1215,26 +1228,26 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:117
+#: js/messages.php:119
 msgid ", latest stable version:"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:132
+#: js/messages.php:134
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nav"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:134
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Iepriekšējie"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:136 libraries/common.lib.php:2368
+#: js/messages.php:138 libraries/common.lib.php:2368
 #: libraries/common.lib.php:2371 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1242,96 +1255,96 @@ msgid "Next"
 msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:138
+#: js/messages.php:140
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kopā"
 
-#: js/messages.php:141
+#: js/messages.php:143
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binārais"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "February"
 msgstr ""
 
-#: js/messages.php:143
+#: js/messages.php:145
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:144
+#: js/messages.php:146
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:146
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jūn"
 
-#: js/messages.php:147
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jūl"
 
-#: js/messages.php:148
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "September"
 msgstr ""
 
-#: js/messages.php:150
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:151
+#: js/messages.php:153
 msgid "November"
 msgstr ""
 
-#: js/messages.php:152
+#: js/messages.php:154
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1566
+#: js/messages.php:158 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1568
+#: js/messages.php:160 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1570
+#: js/messages.php:162 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1572
+#: js/messages.php:164 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1574
+#: js/messages.php:166 libraries/common.lib.php:1574
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1339,176 +1352,176 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1576
+#: js/messages.php:168 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "Jūn"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1578
+#: js/messages.php:170 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "Jūl"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1580
+#: js/messages.php:172 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1582
+#: js/messages.php:174 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1584
+#: js/messages.php:176 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1586
+#: js/messages.php:178 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1588
+#: js/messages.php:180 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:181
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Sv"
 
-#: js/messages.php:182
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "P"
 
-#: js/messages.php:183
+#: js/messages.php:185
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "O"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:186
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pk"
 
-#: js/messages.php:187
+#: js/messages.php:189
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "Sv"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1593
+#: js/messages.php:195 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "P"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1595
+#: js/messages.php:197 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "O"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1597
+#: js/messages.php:199 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "T"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1599
+#: js/messages.php:201 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "C"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1601
+#: js/messages.php:203 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "Pk"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1603
+#: js/messages.php:205 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "S"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:219
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:221
+#: js/messages.php:223
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:223
+#: js/messages.php:225
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:224
+#: js/messages.php:226
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lietošanā"
 
-#: js/messages.php:225
+#: js/messages.php:227
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1730,8 +1743,8 @@ msgstr "Laipni lūgti %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2380,14 +2393,6 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
-#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
-#: tbl_relation.php:563
-msgid "Save"
-msgstr "Saglabāt"
-
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:146
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
@@ -2657,7 +2662,7 @@ msgid "Put columns names in the first row"
 msgstr "Likt kolonnu nosaukumus pirmajā rindā"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:238
-#: libraries/config/messages.inc.php:245 libraries/import/csv.php:73
+#: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 #, fuzzy
 #| msgid "Fields enclosed by"
@@ -2665,7 +2670,7 @@ msgid "Columns enclosed by"
 msgstr "Lauki iekļauti iekš"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
-#: libraries/config/messages.inc.php:246 libraries/import/csv.php:77
+#: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
 #, fuzzy
 #| msgid "Fields escaped by"
@@ -2685,7 +2690,7 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
+#: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 #, fuzzy
 #| msgid "Lines terminated by"
@@ -2693,7 +2698,7 @@ msgid "Columns terminated by"
 msgstr "Rindas atdalītas ar"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
-#: libraries/import/csv.php:81 libraries/import/ldi.php:43
+#: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
 msgstr "Rindas atdalītas ar"
 
@@ -4674,8 +4679,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -4910,11 +4915,6 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show BLOB contents"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:609 pmd_general.php:159 tbl_change.php:315
-#: tbl_change.php:321
-msgid "Hide"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:609 libraries/relation.lib.php:123
@@ -5368,8 +5368,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5770,25 +5770,25 @@ msgstr ""
 msgid "Column names: "
 msgstr "Kolonnu nosaukumi"
 
-#: libraries/import/csv.php:60 libraries/import/csv.php:72
-#: libraries/import/csv.php:76 libraries/import/csv.php:80
+#: libraries/import/csv.php:61 libraries/import/csv.php:74
+#: libraries/import/csv.php:79 libraries/import/csv.php:84
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/import/csv.php:121
+#: libraries/import/csv.php:131
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/import/csv.php:179 libraries/import/csv.php:426
+#: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/import/csv.php:314
+#: libraries/import/csv.php:324
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
@@ -7833,13 +7833,13 @@ msgstr "Dzēst datubāzes, kurām ir tādi paši vārdi, kā lietotājiem."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Piezīme: phpMyAdmin saņem lietotāju privilēģijas pa taisno no MySQL "
 "privilēģiju tabilām. Šo tabulu saturs var atšķirties no privilēģijām, ko "
-"lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams "
-"%spārlādēt privilēģijas%s pirms Jūs turpināt."
+"lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams %"
+"spārlādēt privilēģijas%s pirms Jūs turpināt."
 
 #: server_privileges.php:1781
 msgid "The selected user was not found in the privilege table."

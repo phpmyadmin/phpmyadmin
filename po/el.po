@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-03 07:17+0100\n"
+"POT-Creation-Date: 2011-03-05 14:23-0500\n"
 "PO-Revision-Date: 2011-02-22 23:59+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -622,11 +622,11 @@ msgstr "Η παρακολούθηση δεν είναι ενεργοποιημέ
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -860,11 +860,11 @@ msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1114,56 +1114,69 @@ msgstr "Προβολή παραθύρου ερωτήματος SQL"
 msgid "Inline Edit"
 msgstr "Εσωτερική Επεξεργασία"
 
-#: js/messages.php:91
+#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
+#: libraries/schema/User_Schema.class.php:317
+#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
+#: tbl_relation.php:563
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:159
+#: tbl_change.php:315 tbl_change.php:321
+msgid "Hide"
+msgstr "Απόκρυψη"
+
+#: js/messages.php:93
 msgid "Hide search criteria"
 msgstr "Απόκρυψη κριτηρίων αναζήτησης"
 
-#: js/messages.php:92
+#: js/messages.php:94
 msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
-#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Παράληψη"
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Select referenced key"
 msgstr "Επιλέξτε αναφερθέν κλειδί"
 
-#: js/messages.php:99
+#: js/messages.php:101
 msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
-#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Επιλέξτε στήλη για εμφάνιση"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "Add an option for column "
 msgstr "Προσθήκη επιλογής για τη στήλη "
 
-#: js/messages.php:107
+#: js/messages.php:109
 msgid "Generate password"
 msgstr "Δημιουργία Κωδικού Πρόσβασης"
 
-#: js/messages.php:108 libraries/replication_gui.lib.php:365
+#: js/messages.php:110 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Παραγωγή"
 
-#: js/messages.php:109
+#: js/messages.php:111
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:112 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:471
 msgid "More"
 msgstr "Περισσότερα"
 
-#: js/messages.php:115 setup/lib/index.lib.php:158
+#: js/messages.php:117 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1173,22 +1186,22 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:117
+#: js/messages.php:119
 msgid ", latest stable version:"
 msgstr ". τελευταία έκδοση:"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:132
+#: js/messages.php:134
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:134
+#: js/messages.php:136
 msgid "Prev"
 msgstr "Προηγούμενο"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:136 libraries/common.lib.php:2368
+#: js/messages.php:138 libraries/common.lib.php:2368
 #: libraries/common.lib.php:2371 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1196,231 +1209,231 @@ msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:138
+#: js/messages.php:140
 msgid "Today"
 msgstr "Σήμερα"
 
-#: js/messages.php:141
+#: js/messages.php:143
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "February"
 msgstr "Φεβρουαρίου"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:144
+#: js/messages.php:146
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:147
+#: js/messages.php:149
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:148
+#: js/messages.php:150
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "September"
 msgstr "Σεπτεμβρίου"
 
-#: js/messages.php:150
+#: js/messages.php:152
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:151
+#: js/messages.php:153
 msgid "November"
 msgstr "Νοεμβρίου"
 
-#: js/messages.php:152
+#: js/messages.php:154
 msgid "December"
 msgstr "Δεκεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1566
+#: js/messages.php:158 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "Ιαν"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1568
+#: js/messages.php:160 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "Φεβ"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1570
+#: js/messages.php:162 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "Μαρ"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1572
+#: js/messages.php:164 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "Απρ"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1574
+#: js/messages.php:166 libraries/common.lib.php:1574
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μάη"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1576
+#: js/messages.php:168 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "Ιουν"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1578
+#: js/messages.php:170 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "Ιουλ"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1580
+#: js/messages.php:172 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "Αυγ"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1582
+#: js/messages.php:174 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "Σεπ"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1584
+#: js/messages.php:176 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "Οκτ"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1586
+#: js/messages.php:178 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "Νοε"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1588
+#: js/messages.php:180 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "Δεκ"
 
-#: js/messages.php:181
+#: js/messages.php:183
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Thursday"
 msgstr "Πέμπτη"
 
-#: js/messages.php:186
+#: js/messages.php:188
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:187
+#: js/messages.php:189
 msgid "Saturday"
 msgstr "Σάββατο"
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1593
+#: js/messages.php:195 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "Δευ"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1595
+#: js/messages.php:197 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "Τρί"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1597
+#: js/messages.php:199 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "Τετ"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1599
+#: js/messages.php:201 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "Πέμ"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1601
+#: js/messages.php:203 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "Παρ"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1603
+#: js/messages.php:205 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "Σάβ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 msgid "Su"
 msgstr "Κυ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 msgid "Mo"
 msgstr "Δε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 msgid "Tu"
 msgstr "Τρ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 msgid "We"
 msgstr "Τε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 msgid "Th"
 msgstr "Πε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 msgid "Fr"
 msgstr "Πα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:219
+#: js/messages.php:221
 msgid "Sa"
 msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:221
+#: js/messages.php:223
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:223
+#: js/messages.php:225
 msgid "Hour"
 msgstr "Ώρα"
 
-#: js/messages.php:224
+#: js/messages.php:226
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: js/messages.php:225
+#: js/messages.php:227
 msgid "Second"
 msgstr "Δευτερόλεπτο"
 
@@ -1646,8 +1659,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -2289,14 +2302,6 @@ msgstr "Επαναφορά προεπιλεγμένης τιμής"
 msgid "Allow users to customize this value"
 msgstr "Επιτρέπεται στους χρήστες να προσαρμόσουν αυτή την τιμή"
 
-#: libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
-#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
-#: tbl_relation.php:563
-msgid "Save"
-msgstr "Αποθήκευση"
-
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:146
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
@@ -2580,13 +2585,13 @@ msgid "Put columns names in the first row"
 msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:238
-#: libraries/config/messages.inc.php:245 libraries/import/csv.php:73
+#: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 msgid "Columns enclosed by"
 msgstr "Στήλες που περικλείονται από"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
-#: libraries/config/messages.inc.php:246 libraries/import/csv.php:77
+#: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
 msgid "Columns escaped by"
 msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής "
@@ -2604,13 +2609,13 @@ msgid "Remove CRLF characters within columns"
 msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στήλες"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
+#: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 msgid "Columns terminated by"
 msgstr "Στήλες που τελειώνουν με"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
-#: libraries/import/csv.php:81 libraries/import/ldi.php:43
+#: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
 msgstr "Γραμμές που τελειώνουν σε"
 
@@ -4686,8 +4691,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -4916,11 +4921,6 @@ msgstr "Εμφάνιση δυαδικών περιεχομένων"
 #: libraries/display_tbl.lib.php:599
 msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
-
-#: libraries/display_tbl.lib.php:609 pmd_general.php:159 tbl_change.php:315
-#: tbl_change.php:321
-msgid "Hide"
-msgstr "Απόκρυψη"
 
 #: libraries/display_tbl.lib.php:609 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
@@ -5266,8 +5266,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην "
-"%sΙστοσελίδα του PrimeBase Media Streaming%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην %"
+"sΙστοσελίδα του PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -5436,11 +5436,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
-"%sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
+"sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -5832,13 +5832,13 @@ msgstr ""
 msgid "Column names: "
 msgstr "Ονόματα στηλών: "
 
-#: libraries/import/csv.php:60 libraries/import/csv.php:72
-#: libraries/import/csv.php:76 libraries/import/csv.php:80
+#: libraries/import/csv.php:61 libraries/import/csv.php:74
+#: libraries/import/csv.php:79 libraries/import/csv.php:84
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Μη έγκυρη παράμετρος στο εισαχθέν CSV: %s"
 
-#: libraries/import/csv.php:121
+#: libraries/import/csv.php:131
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -5847,12 +5847,12 @@ msgstr ""
 "Ορίστηκε μη έγκυρη στήλη (%s)! Σιγουρευτείτε ότι τα ονόματα στηλών ορίζονται "
 "σωστά, χωρίζονται με κόμμα δεν περιέχονται σε εισαγωγικά."
 
-#: libraries/import/csv.php:179 libraries/import/csv.php:426
+#: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Μη έγκυρη μορφή στο εισαχθέν CSV στη γραμμή %d."
 
-#: libraries/import/csv.php:314
+#: libraries/import/csv.php:324
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Μη έγκυρο πλήθος πεδίων στο εισαχθέν CSV στη γραμμή %d."
@@ -7102,8 +7102,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
-"%sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
+"sεδώ%s."
 
 #: main.php:324
 msgid ""
@@ -7851,8 +7851,8 @@ msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -9367,8 +9367,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
-"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime%"
+"s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format

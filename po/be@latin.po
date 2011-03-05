@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-03 07:17+0100\n"
+"POT-Creation-Date: 2011-03-05 14:23-0500\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
-"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: be@latin\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -649,11 +649,11 @@ msgstr ""
 #: db_structure.php:379 libraries/display_tbl.lib.php:2016
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
-"%sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
+"sdakumentacyi%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -888,8 +888,8 @@ msgstr "Damp zachavany ŭ fajł %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -908,8 +908,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
-"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
+"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:336
@@ -1174,68 +1174,81 @@ msgstr "U vyhladzie SQL-zapytu"
 msgid "Inline Edit"
 msgstr "Mašyny"
 
-#: js/messages.php:91
+#: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
+#: libraries/schema/User_Schema.class.php:317
+#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
+#: tbl_relation.php:563
+msgid "Save"
+msgstr "Zachavać"
+
+#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:159
+#: tbl_change.php:315 tbl_change.php:321
+msgid "Hide"
+msgstr "Schavać"
+
+#: js/messages.php:93
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search criteria"
 msgstr "pa zapytu"
 
-#: js/messages.php:92
+#: js/messages.php:94
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:95 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignaravać"
 
-#: js/messages.php:98
+#: js/messages.php:100
 msgid "Select referenced key"
 msgstr "Vybierycie spasyłkavy kluč"
 
-#: js/messages.php:99
+#: js/messages.php:101
 msgid "Select Foreign Key"
 msgstr "Vybierycie źniešni kluč"
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "Please select the primary key or a unique key"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: js/messages.php:101 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Zgieneravać parol"
 
-#: js/messages.php:108 libraries/replication_gui.lib.php:365
+#: js/messages.php:110 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Zgieneravać"
 
-#: js/messages.php:109
+#: js/messages.php:111
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Źmianić parol"
 
-#: js/messages.php:112 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pan"
 
-#: js/messages.php:115 setup/lib/index.lib.php:158
+#: js/messages.php:117 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1243,26 +1256,26 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:117
+#: js/messages.php:119
 msgid ", latest stable version:"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:132
+#: js/messages.php:134
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nijakaja"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:134
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Papiaredniaja staronka"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:136 libraries/common.lib.php:2368
+#: js/messages.php:138 libraries/common.lib.php:2368
 #: libraries/common.lib.php:2371 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1270,96 +1283,96 @@ msgid "Next"
 msgstr "Nastupnaja staronka"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:138
+#: js/messages.php:140
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ahułam"
 
-#: js/messages.php:141
+#: js/messages.php:143
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Dvajkovy"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "February"
 msgstr ""
 
-#: js/messages.php:143
+#: js/messages.php:145
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Sak"
 
-#: js/messages.php:144
+#: js/messages.php:146
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Kra"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "May"
 msgstr "Tra"
 
-#: js/messages.php:146
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Čer"
 
-#: js/messages.php:147
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Lip"
 
-#: js/messages.php:148
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Žni"
 
-#: js/messages.php:149
+#: js/messages.php:151
 msgid "September"
 msgstr ""
 
-#: js/messages.php:150
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Kas"
 
-#: js/messages.php:151
+#: js/messages.php:153
 msgid "November"
 msgstr ""
 
-#: js/messages.php:152
+#: js/messages.php:154
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:156 libraries/common.lib.php:1566
+#: js/messages.php:158 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1568
+#: js/messages.php:160 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1570
+#: js/messages.php:162 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1572
+#: js/messages.php:164 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1574
+#: js/messages.php:166 libraries/common.lib.php:1574
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1367,178 +1380,178 @@ msgid "May"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1576
+#: js/messages.php:168 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1578
+#: js/messages.php:170 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1580
+#: js/messages.php:172 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1582
+#: js/messages.php:174 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1584
+#: js/messages.php:176 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1586
+#: js/messages.php:178 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1588
+#: js/messages.php:180 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "Śn"
 
-#: js/messages.php:181
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ndz"
 
-#: js/messages.php:182
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pan"
 
-#: js/messages.php:183
+#: js/messages.php:185
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Aŭt"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:186
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Piat"
 
-#: js/messages.php:187
+#: js/messages.php:189
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:191 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1593
+#: js/messages.php:195 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1595
+#: js/messages.php:197 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1597
+#: js/messages.php:199 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1599
+#: js/messages.php:201 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1601
+#: js/messages.php:203 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1603
+#: js/messages.php:205 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:207
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ndz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pan"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Aŭt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sier"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Cač"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Piat"
 
 #. l10n: Minimal week day name
-#: js/messages.php:219
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:221
+#: js/messages.php:223
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:223
+#: js/messages.php:225
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:224
+#: js/messages.php:226
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "vykarystoŭvajecca"
 
-#: js/messages.php:225
+#: js/messages.php:227
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1767,8 +1780,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -2431,14 +2444,6 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
-#: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:215 tbl_change.php:1048 tbl_indexes.php:246
-#: tbl_relation.php:563
-msgid "Save"
-msgstr "Zachavać"
-
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 main.php:146
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
@@ -2709,7 +2714,7 @@ msgid "Put columns names in the first row"
 msgstr "Paznačyć nazvy paloŭ u pieršym radku"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:238
-#: libraries/config/messages.inc.php:245 libraries/import/csv.php:73
+#: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 #, fuzzy
 #| msgid "Fields enclosed by"
@@ -2717,7 +2722,7 @@ msgid "Columns enclosed by"
 msgstr "Pali ŭziatyja ŭ"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
-#: libraries/config/messages.inc.php:246 libraries/import/csv.php:77
+#: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
 #, fuzzy
 #| msgid "Fields escaped by"
@@ -2737,7 +2742,7 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:250 libraries/import/csv.php:61
+#: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 #, fuzzy
 #| msgid "Lines terminated by"
@@ -2745,7 +2750,7 @@ msgid "Columns terminated by"
 msgstr "Radki padzielenyja"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
-#: libraries/import/csv.php:81 libraries/import/ldi.php:43
+#: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
 msgstr "Radki padzielenyja"
 
@@ -4737,8 +4742,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -4991,11 +4996,6 @@ msgstr ""
 #: libraries/display_tbl.lib.php:599
 msgid "Show BLOB contents"
 msgstr ""
-
-#: libraries/display_tbl.lib.php:609 pmd_general.php:159 tbl_change.php:315
-#: tbl_change.php:321
-msgid "Hide"
-msgstr "Schavać"
 
 #: libraries/display_tbl.lib.php:609 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
@@ -5508,8 +5508,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5909,25 +5909,25 @@ msgstr ""
 msgid "Column names: "
 msgstr "Nazvy kalonak"
 
-#: libraries/import/csv.php:60 libraries/import/csv.php:72
-#: libraries/import/csv.php:76 libraries/import/csv.php:80
+#: libraries/import/csv.php:61 libraries/import/csv.php:74
+#: libraries/import/csv.php:79 libraries/import/csv.php:84
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Niedapuščalny paremetar dla impartu dadzienych u CSV: %s"
 
-#: libraries/import/csv.php:121
+#: libraries/import/csv.php:131
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/import/csv.php:179 libraries/import/csv.php:426
+#: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Niekarektny farmat CSV-dadzienych u radku %d."
 
-#: libraries/import/csv.php:314
+#: libraries/import/csv.php:324
 #, fuzzy, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
@@ -6752,8 +6752,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
-"%sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
+"sdakumentacyi%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6945,8 +6945,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
-"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
+"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -8025,8 +8025,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "
