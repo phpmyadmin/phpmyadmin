@@ -415,40 +415,38 @@ $(document).ready(function() {
         // for "hide", button the original data to be restored is present in .original_data
         // looping through all columns or rows, to find the required data and then storing it in an array.
 
-        if(disp_mode!='vertical'){
-            $(this).children('span.nowrap').children('a').children('span.nowrap').empty();
-            $(this).children('span.nowrap').children('a').children('span.nowrap').text("submit");
-        }
-        else {
+        var $this_children = $(this).children('span.nowrap').children('a').children('span.nowrap');
+        if (disp_mode != 'vertical'){
+            $this_children.empty();
+            $this_children.text("submit");
+        } else {
            // vertical 
-             data_vt=$(this).children('span.nowrap').children('a').children('span.nowrap').html();
-            $(this).children('span.nowrap').children('a').children('span.nowrap').text("submit");
+            data_vt = $this_children.html();
+            $this_children.text("submit");
         }
        
-        if(disp_mode!='vertical'){
-        $(this).append('<br/><br/><a id="hide">hide</a>');
-        $('#table_results tbody tr td a#hide').click(function(){
-
-            $(this).siblings('span.nowrap').children('a').children('span.nowrap').empty();
-            $(this).siblings('span.nowrap').children('a').children('span.nowrap').text("Inline Edit");
-            var $this_hide = $(this).parent();
-            $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
-            $this_hide.removeClass("inline_edit_active").addClass("inline_edit_anchor");
-            var obh_cols=$this_hide.siblings().length;
-            var txt=[];
-            for(var i=4;i<obh_cols;i++){
-                txt[i-4]=$this_hide.siblings("td:eq("+i+")").children(' .original_data').text();
-            }
-            for (var i=4;i<obh_cols;i++){
-                $this_hide.siblings("td:eq("+i+")").empty();
-                $this_hide.siblings("td:eq("+i+")").append(txt[i-4]);
-            }
-            $(this).prev().prev().remove();
-            $(this).prev().remove();
-            $(this).remove();
-            });
-        }
-        else {
+        if (disp_mode != 'vertical'){
+            $(this).append('<br/><br/><a id="hide">hide</a>');
+            $('#table_results tbody tr td a#hide').click(function(){
+                $this_children = $(this).siblings('span.nowrap').children('a').children('span.nowrap');
+                $this_children.empty();
+                $this_children.text("Inline Edit");
+                var $this_hide = $(this).parent();
+                $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
+                var last_column = $this_hide.siblings().length;
+                var txt=[];
+                for(var i=4; i < last_column; i++){
+                    txt[i-4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').text();
+                }
+                for (var i=4; i < last_column; i++){
+                    $this_hide.siblings("td:eq(" + i + ")").empty();
+                    $this_hide.siblings("td:eq(" + i + ")").append(txt[i-4]);
+                }
+                $(this).prev().prev().remove();
+                $(this).prev().remove();
+                $(this).remove();
+                });
+        } else {
             var txt=[];
             var rows=$(this).parent().siblings().length;;
 
@@ -463,20 +461,19 @@ $(document).ready(function() {
                     var $this_row=$(this).parent().parent();
                     //alert(pos);
                     if(parseInt(pos)%2==0){
-                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
-                    }
-                    else {
-                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    } else {
+                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
                     }
 
                     for( var i=6;i<=rows+2;i++){
                          txt[i-6]=$this_row.siblings("tr:eq("+i+") td:eq("+pos+") span.original_data").text();
-                         }
+                    }
                     for (var i=6;i<=rows+2;i++){ 
                          $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
                          $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt[i-6]);
@@ -742,8 +739,7 @@ $(document).ready(function() {
              * @var where_clause    String containing the WHERE clause to select this row
              */
             var where_clause = $this_td.parents('tbody').find('tr').find('.where_clause:nth('+this_td_index+')').val();
-        }
-        else {
+        } else {
             var $input_siblings = $this_td.parent('tr').find('.inline_edit');
             var where_clause = $this_td.parent('tr').find('.where_clause').val();
         }
@@ -870,7 +866,7 @@ $(document).ready(function() {
                             'submit_type' : 'save'
                           };
 
-        // if inline_edit is successfuly, we need to go back to default view
+        // if inline_edit is successful, we need to go back to default view
          var $del_hide=$(this).parent();
          var $chg_submit=$(this);
 
