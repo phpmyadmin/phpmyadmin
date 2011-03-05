@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-03 07:17+0100\n"
-"PO-Revision-Date: 2011-02-28 18:54+0200\n"
+"PO-Revision-Date: 2011-03-04 09:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3925,9 +3925,7 @@ msgstr "显示函数列"
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
-msgstr ""
-"显示 [a@http://php.net/manual/function.phpinfo.php]phpinfo() (外链，英文)[/"
-"a] 输出的链接"
+msgstr "显示 [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 输出的链接"
 
 #: libraries/config/messages.inc.php:448
 msgid "Show phpinfo() link"
@@ -8436,9 +8434,7 @@ msgstr "此 MySQL 服务器正以<b>从</b>服务器运行于<b>复制</b>进程
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
-msgstr ""
-"要获得更多关于此服务器的复制状态，请查看<a href=\"#replication\">复制状态信息"
-"</a>。"
+msgstr "要获得更多关于此服务器的复制状态，请查看<a href=#replication>复制状态信息</a>。"
 
 #: server_status.php:509
 msgid ""
@@ -8654,9 +8650,9 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"请在 phpMyAdmin 的根文件夹下创建[a@../Documentation.html#setup_script]文档[/"
-"a]中所述的网站服务器可以写入的 [em]config[/em] 文件夹。否则你只能下载或显示配"
-"置。"
+"请在 phpMyAdmin 的根文件夹下创建 "
+"[a@Documentation.html#setup_script]文档[/a]中所述的网站服务器可以写入的 [em]config[/em] "
+"文件夹。否则你只能下载或显示配置。"
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -9625,17 +9621,3 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "删除 %s 表中所有匹配的记录？"
-
-#~ msgid "Show left delete link"
-#~ msgstr "显示左侧删除链接"
-
-#~ msgid "Show right delete link"
-#~ msgstr "显示右侧删除链接"
-
-#~ msgid "Mailing lists"
-#~ msgstr "邮件列表"
