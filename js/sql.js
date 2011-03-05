@@ -437,7 +437,7 @@ $(document).ready(function() {
                 var last_column = $this_hide.siblings().length;
                 var txt=[];
                 for(var i=4; i < last_column; i++){
-                    txt[i-4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').text();
+                    txt[i-4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
                 }
                 for (var i=4; i < last_column; i++){
                     $this_hide.siblings("td:eq(" + i + ")").empty();
@@ -473,7 +473,7 @@ $(document).ready(function() {
                     }
 
                     for( var i=6;i<=rows+2;i++){
-                         txt[i-6]=$this_row.siblings("tr:eq("+i+") td:eq("+pos+") span.original_data").text();
+                         txt[i-6]=$this_row.siblings("tr:eq("+i+") td:eq("+pos+") span.original_data").html();
                     }
                     for (var i=6;i<=rows+2;i++){ 
                          $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
