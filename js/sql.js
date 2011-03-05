@@ -13,6 +13,7 @@
  * @param string str
  * @return string the URL-decoded string
  */
+var data_vt;
 function PMA_urldecode(str) {
     return decodeURIComponent(str.replace(/\+/g, '%20'));
 }
@@ -408,8 +409,84 @@ $(document).ready(function() {
     $(".inline_edit_anchor").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
-
         $(this).removeClass('inline_edit_anchor').addClass('inline_edit_active');
+
+        // adding submit and hide buttons to inline edit <td>
+        // for "hide", button the original data to be restored is present in .original_data
+        // looping through all columns or rows, to find the required data and then storing it in an array.
+
+        if(disp_mode!='vertical'){
+            $(this).children('span.nowrap').children('a').children('span.nowrap').empty();
+            $(this).children('span.nowrap').children('a').children('span.nowrap').text("submit");
+        }
+        else {
+           // vertical 
+             data_vt=$(this).children('span.nowrap').children('a').children('span.nowrap').html();
+            $(this).children('span.nowrap').children('a').children('span.nowrap').text("submit");
+        }
+       
+        if(disp_mode!='vertical'){
+        $(this).append('<br/><br/><a id="hide">hide</a>');
+        $('#table_results tbody tr td a#hide').click(function(){
+
+            $(this).siblings('span.nowrap').children('a').children('span.nowrap').empty();
+            $(this).siblings('span.nowrap').children('a').children('span.nowrap').text("Inline Edit");
+            var $this_hide = $(this).parent();
+            $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
+            $this_hide.removeClass("inline_edit_active").addClass("inline_edit_anchor");
+            var obh_cols=$this_hide.siblings().length;
+            var txt=[];
+            for(var i=4;i<obh_cols;i++){
+                txt[i-4]=$this_hide.siblings("td:eq("+i+")").children(' .original_data').text();
+            }
+            for (var i=4;i<obh_cols;i++){
+                $this_hide.siblings("td:eq("+i+")").empty();
+                $this_hide.siblings("td:eq("+i+")").append(txt[i-4]);
+            }
+            $(this).prev().prev().remove();
+            $(this).prev().remove();
+            $(this).remove();
+            });
+        }
+        else {
+            var txt=[];
+            var rows=$(this).parent().siblings().length;;
+
+            $(this).append('<br/><br/><a id="hide">hide</a>');
+            $('#table_results tbody tr td a#hide').click(function(){
+                  
+                    var pos=$(this).parent().index();
+                    var $chg_submit=$(this).parent().children('span.nowrap').children('a').children('span.nowrap');
+                    $chg_submit.empty();
+                    $chg_submit.append(data_vt);
+                    
+                    var $this_row=$(this).parent().parent();
+                    //alert(pos);
+                    if(parseInt(pos)%2==0){
+                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+
+                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+                    }
+                    else {
+                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+
+                        $this_row.siblings("tr:eq(3) td:eq("+pos+")").removeClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_"+pos+" vpointer vmarker inline_edit_anchor");
+
+                    }
+
+                    for( var i=6;i<=rows+2;i++){
+                         txt[i-6]=$this_row.siblings("tr:eq("+i+") td:eq("+pos+") span.original_data").text();
+                         }
+                    for (var i=6;i<=rows+2;i++){ 
+                         $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
+                         $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt[i-6]);
+                    }
+                    $(this).prev().remove();
+                    $(this).prev().remove();
+                    $(this).remove();
+                        
+                    });
+        }
 
         // Initialize some variables
         if(disp_mode == 'vertical') {
@@ -636,8 +713,9 @@ $(document).ready(function() {
      * @see         PMA_ajaxShowMessage()
      * @see         getFieldName()
      */
-    $(".inline_edit_active").live('click', function(event) {
+    $(".inline_edit_active span a").live('click', function(event) {
         /** @lends jQuery */
+
         event.preventDefault();
 
         /**
@@ -646,8 +724,7 @@ $(document).ready(function() {
          * being edited
          *
          */
-        var $this_td = $(this);
-
+        var $this_td = $(this).parent().parent();
         var $test_element = ''; // to test the presence of a element
 
         // Initialize variables
@@ -705,7 +782,7 @@ $(document).ready(function() {
             /**
              * @var this_field  Object referring to this field (<td>)
              */
-            var $this_field = $(this);
+                var $this_field = $(this);
             /**
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
@@ -756,7 +833,6 @@ $(document).ready(function() {
                         $.extend(relation_fields, this_field_params);
                     }
                 }
-
                 sql_query += ' ' + field_name + "='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
             }
         })
@@ -794,8 +870,24 @@ $(document).ready(function() {
                             'submit_type' : 'save'
                           };
 
+        // if inline_edit is successfuly, we need to go back to default view
+         var $del_hide=$(this).parent();
+         var $chg_submit=$(this);
+
         $.post('tbl_replace.php', post_params, function(data) {
             if(data.success == true) {
+                // deleting the hide button if my query was successful
+                // remove <br><br><a> tags 
+                 for ( var i=0;i<=2;i++) { $del_hide.next().remove(); }
+                 if(disp_mode!='vertical'){
+                     $chg_submit.empty();
+                     $chg_submit.text("Inline Edit");
+                 }
+                 else {
+                     $chg_submit.children('span.nowrap').empty();
+                     $chg_submit.children('span.nowrap').append(data_vt);
+                 }
+
                 PMA_ajaxShowMessage(data.message);
                 $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
 
