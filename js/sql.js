@@ -772,7 +772,7 @@ $(document).ready(function() {
         /**
          * @var sql_query String containing the SQL query to update this row
          */
-        var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
+        var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
 
         $input_siblings.each(function() {
             /** @lends jQuery */
@@ -801,7 +801,7 @@ $(document).ready(function() {
             var value;
 
             if (is_null) {
-                sql_query += ' ' + field_name + "=NULL , ";
+                sql_query += ' `' + field_name + "`=NULL , ";
             } else {
                 if($this_field.is(":not(.relation, .enum, .set)")) {
                     this_field_params[field_name] = $this_field.find('textarea').val();
@@ -830,7 +830,7 @@ $(document).ready(function() {
                         $.extend(relation_fields, this_field_params);
                     }
                 }
-                sql_query += ' ' + field_name + "='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
+                sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
             }
         })
 
