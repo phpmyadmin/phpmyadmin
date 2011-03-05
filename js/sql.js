@@ -418,19 +418,20 @@ $(document).ready(function() {
         var $this_children = $(this).children('span.nowrap').children('a').children('span.nowrap');
         if (disp_mode != 'vertical'){
             $this_children.empty();
-            $this_children.text("submit");
+            $this_children.text(PMA_messages['strSave']);
         } else {
            // vertical 
             data_vt = $this_children.html();
-            $this_children.text("submit");
+            $this_children.text(PMA_messages['strSave']);
         }
        
+        var hide_link = '<br /><br /><a id="hide">' + PMA_messages['strHide'] + '</a>';
         if (disp_mode != 'vertical'){
-            $(this).append('<br/><br/><a id="hide">hide</a>');
+            $(this).append(hide_link);
             $('#table_results tbody tr td a#hide').click(function(){
                 $this_children = $(this).siblings('span.nowrap').children('a').children('span.nowrap');
                 $this_children.empty();
-                $this_children.text("Inline Edit");
+                $this_children.text(PMA_messages['strInlineEdit']);
                 var $this_hide = $(this).parent();
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
                 var last_column = $this_hide.siblings().length;
@@ -450,7 +451,7 @@ $(document).ready(function() {
             var txt=[];
             var rows=$(this).parent().siblings().length;;
 
-            $(this).append('<br/><br/><a id="hide">hide</a>');
+            $(this).append(hide_link);
             $('#table_results tbody tr td a#hide').click(function(){
                   
                     var pos=$(this).parent().index();
@@ -877,7 +878,7 @@ $(document).ready(function() {
                  for ( var i=0;i<=2;i++) { $del_hide.next().remove(); }
                  if(disp_mode!='vertical'){
                      $chg_submit.empty();
-                     $chg_submit.text("Inline Edit");
+                     $chg_submit.text(PMA_messages['strInlineEdit']);
                  }
                  else {
                      $chg_submit.children('span.nowrap').empty();
