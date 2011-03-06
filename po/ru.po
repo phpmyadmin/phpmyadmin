@@ -7651,7 +7651,7 @@ msgstr "Разрешает выборку данных."
 #: server_privileges.php:60 server_privileges.php:200
 #: server_privileges.php:554
 msgid "Gives access to the complete list of databases."
-msgstr "Разрешает доступ к полному списку баз данных"
+msgstr "Разрешает доступ к полному списку баз данных."
 
 #: server_privileges.php:61 server_privileges.php:211
 #: server_privileges.php:213 server_privileges.php:526
