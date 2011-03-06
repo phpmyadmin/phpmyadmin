@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-07 01:15+0200\n"
+"PO-Revision-Date: 2011-03-07 01:16+0200\n"
 "Last-Translator:  <hjortholm@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -486,7 +486,6 @@ msgid "Modify"
 msgstr "Ret"
 
 #: db_qbe.php:607
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Tilføj/Slet kriterie-række"
