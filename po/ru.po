@@ -7520,7 +7520,7 @@ msgstr "Разрешает создание хранимых процедур."
 
 #: server_privileges.php:36 server_privileges.php:521
 msgid "Allows creating new tables."
-msgstr "Разрешает создание новых таблиц"
+msgstr "Разрешает создание новых таблиц."
 
 #: server_privileges.php:37 server_privileges.php:202
 #: server_privileges.php:525
