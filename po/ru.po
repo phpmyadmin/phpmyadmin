@@ -6880,7 +6880,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Форматирует текст в виде SQL запроса с подсветкой синтаксиса"
+msgstr "Форматирует текст в виде SQL запроса с подсветкой синтаксиса."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
