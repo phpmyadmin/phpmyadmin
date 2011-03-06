@@ -4142,8 +4142,8 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "При выборе [kbd]nested[/kbd], комментарий таблицы будет выведен только у "
-"корневого значения, разделенных указанной в директиве $cfg"
-"['LeftFrameTableSeparator'] строкой, таблиц."
+"корневого значения, разделенных указанной в директиве "
+"$cfg['LeftFrameTableSeparator'] строкой, таблиц"
 
 #: libraries/config/messages.inc.php:457
 msgid "Display table comment instead of its name"
