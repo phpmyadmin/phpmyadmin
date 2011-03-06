@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-06 17:51+0200\n"
+"PO-Revision-Date: 2011-03-06 17:52+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7561,7 +7561,7 @@ msgstr "Разрешает настройку отложенных событи�
 #: server_privileges.php:44 server_privileges.php:217
 #: server_privileges.php:529
 msgid "Allows executing stored routines."
-msgstr "Разрешает выполнение хранимых процедур"
+msgstr "Разрешает выполнение хранимых процедур."
 
 #: server_privileges.php:45 server_privileges.php:196
 #: server_privileges.php:516
