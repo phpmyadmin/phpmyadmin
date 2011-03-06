@@ -362,7 +362,7 @@ msgstr "Редакция или экспорт схемы связей"
 #: server_privileges.php:2082 server_synchronize.php:421
 #: server_synchronize.php:864 tbl_tracking.php:586 test/theme.php:74
 msgid "Table"
-msgstr "Таблица "
+msgstr "Таблица"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
