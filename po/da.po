@@ -356,10 +356,9 @@ msgstr ""
 "at se hvorfor, klik %sher%s."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relationel skematik"
+msgstr "Editer eller eksporter relations skema"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
