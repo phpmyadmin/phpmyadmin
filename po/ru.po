@@ -9636,7 +9636,7 @@ msgstr "Отобразить дамп (схему) таблицы"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Имя первичного индекса должно быть PRIMARY!"
+msgstr "Имя первичного индекса должно быть \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
