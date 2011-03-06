@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-06 17:53+0200\n"
+"PO-Revision-Date: 2011-03-06 17:54+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7646,7 +7646,7 @@ msgstr "Необходимо для подчиненных серверов пр
 #: server_privileges.php:59 server_privileges.php:187
 #: server_privileges.php:446 server_privileges.php:510
 msgid "Allows reading data."
-msgstr "Разрешает выборку данных"
+msgstr "Разрешает выборку данных."
 
 #: server_privileges.php:60 server_privileges.php:200
 #: server_privileges.php:554
