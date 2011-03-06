@@ -1738,7 +1738,7 @@ $(document).ready(function() {
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
-    $("#create_table_form.ajax input[name=do_save_data]").live('click', function(event) {
+    $("#create_table_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -1746,71 +1746,88 @@ $(document).ready(function() {
          */
         var $form = $("#create_table_form");
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
-            if(data.success == true) {
-                $('#properties_message').html('');
-                PMA_ajaxShowMessage(data.message);
-                // Only if the create table dialog (distinct panel) exists
-                if ($("#create_table_dialog").length > 0) {
-                    $("#create_table_dialog").dialog("close").remove();
-                }
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
 
-                /**
-                 * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                 */
-                var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
-                // this is the first table created in this db
-                if (tables_table.length == 0) {
-                    if (window.parent && window.parent.frame_content) {
-                        window.parent.frame_content.location.reload();
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            // OK, form passed validation step
+            if ($form.hasClass('ajax')) {
+                PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+                if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+                    $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+                }
+                //User wants to submit the form
+                $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
+                    if(data.success == true) {
+                        $('#properties_message').html('');
+                        PMA_ajaxShowMessage(data.message);
+                        // Only if the create table dialog (distinct panel) exists
+                        if ($("#create_table_dialog").length > 0) {
+                            $("#create_table_dialog").dialog("close").remove();
+                        }
+
+                        /**
+                         * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                         */
+                        var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+                        // this is the first table created in this db
+                        if (tables_table.length == 0) {
+                            if (window.parent && window.parent.frame_content) {
+                                window.parent.frame_content.location.reload();
+                            }
+                        } else {
+                            /**
+                             * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                             */
+                            var curr_last_row = $(tables_table).find('tr:last');
+                            /**
+                             * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                             */
+                            var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                            /**
+                             * @var curr_last_row_index Index of {@link curr_last_row}
+                             */
+                            var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                            /**
+                             * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                             */
+                            var new_last_row_index = curr_last_row_index + 1;
+                            /**
+                             * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                             */
+                            var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                            //append to table
+                            $(data.new_table_string)
+                             .find('input:checkbox')
+                             .val(new_last_row_id)
+                             .end()
+                             .appendTo(tables_table);
+
+                            //Sort the table
+                            $(tables_table).PMA_sort_table('th');
+                        }
+
+                        //Refresh navigation frame as a new table has been added
+                        if (window.parent && window.parent.frame_navigation) {
+                            window.parent.frame_navigation.location.reload();
+                        }
+                    } else {
+                        $('#properties_message').html(data.error);
                     }
-                } else {
-                    /**
-                     * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                     */
-                    var curr_last_row = $(tables_table).find('tr:last');
-                    /**
-                     * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                     */
-                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                    /**
-                     * @var curr_last_row_index Index of {@link curr_last_row}
-                     */
-                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                    /**
-                     * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                     */
-                    var new_last_row_index = curr_last_row_index + 1;
-                    /**
-                     * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                     */
-                    var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
-
-                    //append to table
-                    $(data.new_table_string)
-                     .find('input:checkbox')
-                     .val(new_last_row_id)
-                     .end()
-                     .appendTo(tables_table);
-
-                    //Sort the table
-                    $(tables_table).PMA_sort_table('th');
-                }
-
-                //Refresh navigation frame as a new table has been added
-                if (window.parent && window.parent.frame_navigation) {
-                    window.parent.frame_navigation.location.reload();
-                }
-            }
+                }) // end $.post()
+            } // end if ($form.hasClass('ajax')
             else {
-                $('#properties_message').html(data.error);
+                // non-Ajax submit
+                $form.append('<input type="hidden" name="do_save_data" value="save" />');
+                $form.submit();
             }
-        }) // end $.post()
+        } // end if (checkTableEditForm() )
     }) // end create table form (save)
 
     /**

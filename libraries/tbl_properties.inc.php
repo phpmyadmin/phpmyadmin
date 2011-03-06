@@ -774,8 +774,7 @@ if ($action == 'tbl_create.php') {
 ?>
 
 <fieldset class="tblFooters">
-    <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>"
-        onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
+    <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
     <?php echo __('Or'); ?>
     <?php echo sprintf(__('Add %s column(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
