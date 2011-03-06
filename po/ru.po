@@ -5016,7 +5016,7 @@ msgid ""
 "tables."
 msgstr ""
 "Размер буфера памяти, который InnoDB использует для кеширования данных и "
-"индексов своих таблиц"
+"индексов своих таблиц."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
