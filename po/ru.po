@@ -7578,7 +7578,7 @@ msgstr ""
 #: server_privileges.php:47 server_privileges.php:198
 #: server_privileges.php:523
 msgid "Allows creating and dropping indexes."
-msgstr "Разрешает создание и удаление индексов"
+msgstr "Разрешает создание и удаление индексов."
 
 #: server_privileges.php:48 server_privileges.php:188
 #: server_privileges.php:449 server_privileges.php:511
