@@ -1844,7 +1844,7 @@ msgstr "Реплицировано"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Проверить привилегии для базы данных &quot;%s&quot;"
+msgstr "Проверить привилегии для базы данных &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
