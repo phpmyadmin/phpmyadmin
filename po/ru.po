@@ -7656,7 +7656,7 @@ msgstr "Разрешает доступ к полному списку баз д
 #: server_privileges.php:61 server_privileges.php:211
 #: server_privileges.php:213 server_privileges.php:526
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Разрешает вывод запроса создающего представление (SHOW CREATE VIEW)"
+msgstr "Разрешает вывод запроса создающего представление (SHOW CREATE VIEW)."
 
 #: server_privileges.php:62 server_privileges.php:194
 #: server_privileges.php:553
