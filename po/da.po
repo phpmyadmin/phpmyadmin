@@ -429,7 +429,7 @@ msgstr "Du skal vælge mindst en kolonne der skal vises"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "skift til"
 
 #: db_qbe.php:187
 msgid "visual builder"
