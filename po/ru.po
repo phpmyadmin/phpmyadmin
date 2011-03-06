@@ -7683,7 +7683,7 @@ msgstr "Разрешает создание и удаление триггеро
 #: server_privileges.php:65 server_privileges.php:189
 #: server_privileges.php:452 server_privileges.php:512
 msgid "Allows changing data."
-msgstr "Разрешает изменение данных"
+msgstr "Разрешает изменение данных."
 
 #: server_privileges.php:66 server_privileges.php:267
 msgid "No privileges."
