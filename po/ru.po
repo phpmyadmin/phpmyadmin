@@ -7566,7 +7566,7 @@ msgstr "Разрешает выполнение хранимых процеду�
 #: server_privileges.php:45 server_privileges.php:196
 #: server_privileges.php:516
 msgid "Allows importing data from and exporting data into files."
-msgstr "Разрешает импорт и экспорт данных в файлы"
+msgstr "Разрешает импорт и экспорт данных в файлы."
 
 #: server_privileges.php:46 server_privileges.php:547
 msgid ""
