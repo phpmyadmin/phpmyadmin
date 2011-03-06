@@ -7661,7 +7661,7 @@ msgstr "Разрешает вывод запроса создающего пре
 #: server_privileges.php:62 server_privileges.php:194
 #: server_privileges.php:553
 msgid "Allows shutting down the server."
-msgstr "Разрешает остановку сервера"
+msgstr "Разрешает остановку сервера."
 
 #: server_privileges.php:63 server_privileges.php:201
 #: server_privileges.php:550
