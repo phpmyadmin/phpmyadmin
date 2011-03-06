@@ -7616,7 +7616,7 @@ msgstr ""
 #: server_privileges.php:53 server_privileges.php:659
 #: server_privileges.php:661
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Максимальное количество одновременных подключений одного пользователя"
+msgstr "Максимальное количество одновременных подключений одного пользователя."
 
 #: server_privileges.php:54 server_privileges.php:195
 #: server_privileges.php:551
