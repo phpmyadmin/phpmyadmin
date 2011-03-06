@@ -7542,7 +7542,7 @@ msgstr "Разрешает создание новых представлени�
 #: server_privileges.php:40 server_privileges.php:190
 #: server_privileges.php:513
 msgid "Allows deleting data."
-msgstr "Разрешает удаление данных"
+msgstr "Разрешает удаление данных."
 
 #: server_privileges.php:41 server_privileges.php:192
 #: server_privileges.php:524
