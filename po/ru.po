@@ -9665,7 +9665,7 @@ msgstr "Тип индекса&nbsp;:"
 #: tbl_indexes.php:182
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(Имя &quot;PRIMARY&quot; должен иметь <b>только</b> первичный индекс!)"
+msgstr "(Имя \"PRIMARY\" должен иметь <b>только</b> первичный индекс!)"
 
 #: tbl_indexes.php:249
 #, php-format
