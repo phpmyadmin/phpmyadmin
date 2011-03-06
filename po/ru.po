@@ -7602,7 +7602,7 @@ msgstr ""
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Максимальное количество запросов, которые пользователь может отправить в "
-"течение часа"
+"течение часа."
 
 #: server_privileges.php:52 server_privileges.php:647
 #: server_privileges.php:649
