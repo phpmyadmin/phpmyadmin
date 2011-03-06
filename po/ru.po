@@ -2978,8 +2978,8 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Настройка phpMyAdmin для установки расширенных возможностей. Смотрите в "
-"документации раздел описывающий [a@../Documentation.html#linked-tables]"
-"хранение конфигурации[/a]"
+"документации раздел описывающий [a@../Documentation.html#linked-"
+"tables]хранение конфигурации[/a]"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
