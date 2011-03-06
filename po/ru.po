@@ -263,7 +263,7 @@ msgstr "Не указано имя базы данных!"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "База данных `%s` переименована в `%s`."
+msgstr "База данных %s переименована в %s"
 
 #: db_operations.php:276
 #, php-format
