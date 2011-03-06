@@ -438,10 +438,13 @@ $(document).ready(function() {
                 var txt=[];
                 for(var i=4; i < last_column; i++){
                     txt[i-4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
+                    
                 }
                 for (var i=4; i < last_column; i++){
-                    $this_hide.siblings("td:eq(" + i + ")").empty();
-                    $this_hide.siblings("td:eq(" + i + ")").append(txt[i-4]);
+                    if($this_hide.siblings("td:eq(" + i + ")").children().length !=0){
+                        $this_hide.siblings("td:eq(" + i + ")").empty();
+                        $this_hide.siblings("td:eq(" + i + ")").append(txt[i-4]);
+                    }
                 }
                 $(this).prev().prev().remove();
                 $(this).prev().remove();
@@ -878,7 +881,8 @@ $(document).ready(function() {
                  for ( var i=0;i<=2;i++) { $del_hide.next().remove(); }
                  if(disp_mode!='vertical'){
                      $chg_submit.empty();
-                     $chg_submit.text(PMA_messages['strInlineEdit']);
+                     $chg_submit.html('<span class="nowrap"></span>');
+                     $chg_submit.children('span.nowrap').text(PMA_messages['strInlineEdit']);
                  }
                  else {
                      $chg_submit.children('span.nowrap').empty();
