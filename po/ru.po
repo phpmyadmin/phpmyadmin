@@ -1154,7 +1154,7 @@ msgstr "Выберите внешний ключ"
 msgid "Please select the primary key or a unique key"
 msgstr ""
 "Выберите поле являющееся первичным (PRIMARY), или уникальным (UNIQUE) "
-"индексом!"
+"индексом"
 
 #: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
 msgid "Choose column to display"
