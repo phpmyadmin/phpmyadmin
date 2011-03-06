@@ -7531,7 +7531,7 @@ msgstr "Разрешает создание временных таблиц."
 #: server_privileges.php:561
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Разрешает создание, удаление и переименование учетных записей пользователей"
+"Разрешает создание, удаление и переименование учетных записей пользователей."
 
 #: server_privileges.php:39 server_privileges.php:206
 #: server_privileges.php:210 server_privileges.php:533
