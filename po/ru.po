@@ -4988,7 +4988,7 @@ msgstr "Домашний каталог для данных"
 
 #: libraries/engines/innodb.lib.php:23
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr "Общая часть пути к каталогу для всех файлов данных InnoDB"
+msgstr "Общая часть пути к каталогу для всех файлов данных InnoDB."
 
 #: libraries/engines/innodb.lib.php:26
 msgid "Data files"
