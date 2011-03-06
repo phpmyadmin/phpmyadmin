@@ -7626,7 +7626,7 @@ msgstr "Разрешает просмотр процессов всех поль
 #: server_privileges.php:55 server_privileges.php:197
 #: server_privileges.php:455 server_privileges.php:557
 msgid "Has no effect in this MySQL version."
-msgstr "Не доступно в данной версии MySQL!"
+msgstr "Не доступно в данной версии MySQL."
 
 #: server_privileges.php:56 server_privileges.php:193
 #: server_privileges.php:552
