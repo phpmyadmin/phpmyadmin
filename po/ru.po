@@ -1699,7 +1699,7 @@ msgstr "Вы можете ввести хост/IP адрес и порт раз
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
-msgstr "Сервер"
+msgstr "Сервер:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
