@@ -7754,7 +7754,7 @@ msgstr "Были изменены привилегии для %s."
 #: server_privileges.php:1223
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "Отменены привилегии для %s."
+msgstr "Отменены привилегии для %s"
 
 #: server_privileges.php:1259
 #, php-format
