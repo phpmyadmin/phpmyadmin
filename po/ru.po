@@ -7537,7 +7537,7 @@ msgstr ""
 #: server_privileges.php:210 server_privileges.php:533
 #: server_privileges.php:537
 msgid "Allows creating new views."
-msgstr "Разрешает создание новых представлений (CREATE VIEW)"
+msgstr "Разрешает создание новых представлений (CREATE VIEW)."
 
 #: server_privileges.php:40 server_privileges.php:190
 #: server_privileges.php:513
