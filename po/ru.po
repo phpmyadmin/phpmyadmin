@@ -1614,7 +1614,7 @@ msgstr "Ошибка при переименовании таблицы %1$s в 
 #: libraries/Table.class.php:1129
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "Таблица `%s` была переименована в `%s`."
+msgstr "Таблица %s была переименована в %s"
 
 #: libraries/Theme.class.php:160
 #, php-format
