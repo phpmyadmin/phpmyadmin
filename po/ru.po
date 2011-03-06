@@ -7631,7 +7631,7 @@ msgstr "Не доступно в данной версии MySQL."
 #: server_privileges.php:56 server_privileges.php:193
 #: server_privileges.php:552
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Разрешает перезагрузку настроек сервера и очистку его кешей"
+msgstr "Разрешает перезагрузку настроек сервера и очистку его кешей."
 
 #: server_privileges.php:57 server_privileges.php:205
 #: server_privileges.php:559
