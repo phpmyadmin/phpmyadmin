@@ -7506,7 +7506,7 @@ msgstr "Разрешает изменение структуры существ�
 #: server_privileges.php:33 server_privileges.php:215
 #: server_privileges.php:528
 msgid "Allows altering and dropping stored routines."
-msgstr "Разрешает изменение и удаление хранимых процедур"
+msgstr "Разрешает изменение и удаление хранимых процедур."
 
 #: server_privileges.php:34 server_privileges.php:191
 #: server_privileges.php:521
