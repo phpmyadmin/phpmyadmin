@@ -7595,7 +7595,7 @@ msgstr "Разрешает блокировку таблиц для текуще
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Максимальное количество новых подключений, которые пользователь может "
-"установить в течение часа"
+"установить в течение часа."
 
 #: server_privileges.php:51 server_privileges.php:641
 #: server_privileges.php:643
