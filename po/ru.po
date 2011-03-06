@@ -5564,7 +5564,7 @@ msgstr "(Создание отчета содержащего данные од�
 
 #: libraries/export/pdf.php:24
 msgid "Report title:"
-msgstr "Заголовок отчета"
+msgstr "Заголовок отчета:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
