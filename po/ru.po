@@ -7511,7 +7511,7 @@ msgstr "Разрешает изменение и удаление хранимы
 #: server_privileges.php:34 server_privileges.php:191
 #: server_privileges.php:521
 msgid "Allows creating new databases and tables."
-msgstr "Разрешает создание новых баз данных и таблиц"
+msgstr "Разрешает создание новых баз данных и таблиц."
 
 #: server_privileges.php:35 server_privileges.php:214
 #: server_privileges.php:527
