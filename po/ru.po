@@ -7516,7 +7516,7 @@ msgstr "Разрешает создание новых баз данных и т
 #: server_privileges.php:35 server_privileges.php:214
 #: server_privileges.php:527
 msgid "Allows creating stored routines."
-msgstr "Разрешает создание хранимых процедур"
+msgstr "Разрешает создание хранимых процедур."
 
 #: server_privileges.php:36 server_privileges.php:521
 msgid "Allows creating new tables."
