@@ -7573,7 +7573,7 @@ msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Разрешает добавление пользователей и привилегий без перезагрузки таблиц "
-"привилегий"
+"привилегий."
 
 #: server_privileges.php:47 server_privileges.php:198
 #: server_privileges.php:523
