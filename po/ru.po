@@ -7583,7 +7583,7 @@ msgstr "Разрешает создание и удаление индексов
 #: server_privileges.php:48 server_privileges.php:188
 #: server_privileges.php:449 server_privileges.php:511
 msgid "Allows inserting and replacing data."
-msgstr "Разрешает вставку и замену данных"
+msgstr "Разрешает вставку и замену данных."
 
 #: server_privileges.php:49 server_privileges.php:203
 #: server_privileges.php:556
