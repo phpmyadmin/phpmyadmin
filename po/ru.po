@@ -7636,7 +7636,7 @@ msgstr "Разрешает перезагрузку настроек серве�
 #: server_privileges.php:57 server_privileges.php:205
 #: server_privileges.php:559
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Разрешает запрашивать местонахождение головного и подчиненных серверов"
+msgstr "Разрешает запрашивать местонахождение головного и подчиненных серверов."
 
 #: server_privileges.php:58 server_privileges.php:204
 #: server_privileges.php:560
