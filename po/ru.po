@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-06 17:31+0200\n"
+"PO-Revision-Date: 2011-03-06 17:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2092,7 +2092,7 @@ msgstr "Конец"
 #: libraries/common.lib.php:2444
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Перейти к базе данных &quot;%s&quot;"
+msgstr "Перейти к базе данных &quot;%s&quot;."
 
 #: libraries/common.lib.php:2463
 #, php-format
