@@ -7551,7 +7551,7 @@ msgstr "Разрешает удаление баз данных и таблиц.
 
 #: server_privileges.php:42 server_privileges.php:524
 msgid "Allows dropping tables."
-msgstr "Разрешает удаление таблиц"
+msgstr "Разрешает удаление таблиц."
 
 #: server_privileges.php:43 server_privileges.php:207
 #: server_privileges.php:541
