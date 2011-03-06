@@ -7687,7 +7687,7 @@ msgstr "Разрешает изменение данных."
 
 #: server_privileges.php:66 server_privileges.php:267
 msgid "No privileges."
-msgstr "Нет привилегий"
+msgstr "Нет привилегий."
 
 #: server_privileges.php:309 server_privileges.php:310
 msgctxt "None privileges"
