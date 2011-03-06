@@ -419,8 +419,7 @@ msgstr "SQL-запрос был успешно выполнен"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
-msgstr ""
-"Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы."
+msgstr "Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы"
 
 #: db_qbe.php:183
 msgid "Switch to"
