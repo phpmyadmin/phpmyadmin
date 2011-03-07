@@ -1764,7 +1764,9 @@ $(document).ready(function() {
                 //User wants to submit the form
                 $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
                     if(data.success == true) {
-                        $('#properties_message').html('');
+                        $('#properties_message')
+                         .removeClass('error')
+                         .html('');
                         PMA_ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
                         if ($("#create_table_dialog").length > 0) {
@@ -1818,7 +1820,9 @@ $(document).ready(function() {
                             window.parent.frame_navigation.location.reload();
                         }
                     } else {
-                        $('#properties_message').html(data.error);
+                        $('#properties_message')
+                         .addClass('error')
+                         .html(data.error);
                     }
                 }) // end $.post()
             } // end if ($form.hasClass('ajax')
