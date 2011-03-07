@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-03 15:56+0200\n"
-"Last-Translator:  <sven-cihar.com@incase.de>\n"
+"PO-Revision-Date: 2011-03-07 11:17+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1158,7 +1158,7 @@ msgstr "Anzuzeigende Spalte auswählen"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Option hinzufügen zu Spalte"
 
 #: js/messages.php:109
 msgid "Generate password"
