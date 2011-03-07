@@ -1158,7 +1158,7 @@ msgstr "Anzuzeigende Spalte auswählen"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr "Option hinzufügen zu Spalte"
+msgstr "Option hinzufügen zu Spalte "
 
 #: js/messages.php:109
 msgid "Generate password"
