@@ -815,7 +815,7 @@ msgstr "Werte für die Spalte \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:795
 msgid "Enter each value in a separate field."
-msgstr "Jeden Wert in ein eigenes Feld eingeben."
+msgstr "Jeden Wert in einem eigenen Feld eingeben."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
