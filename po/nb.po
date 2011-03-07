@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-01 13:57+0200\n"
-"Last-Translator:  <paalfe@gmail.com>\n"
+"PO-Revision-Date: 2011-03-07 11:21+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1784,7 +1784,7 @@ msgstr "Kunne ikke åpne fil: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "delt"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
@@ -10185,51 +10185,3 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Slett treffene for %s tabellen?"
-
-#~ msgid "Show left delete link"
-#~ msgstr "Skjul/Vis venstre meny"
-
-#~ msgid "yes"
-#~ msgstr "Ja"
-
-#~ msgid "closed"
-#~ msgstr "Lukk"
-
-#~ msgid "to/from page"
-#~ msgstr "til/fra side"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Slå av statistikk"
-
-#~ msgid "Start"
-#~ msgstr "Start"
-
-#~ msgid "Stop"
-#~ msgstr "Stopp"
-
-#~ msgid "Display table filter"
-#~ msgstr "Vis databaser i et tre"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Tilleggsfunksjonene for å kunne jobbe med koblede tabeller er deaktivert. "
-#~ "For å finne ut hvorfor, klikk %sher%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorer dupliserte rader"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Utfør lagret spørring"
-
-#~ msgid "No tables"
-#~ msgstr "Ingen tabeller"
-
-#~ msgid "Toggle Query Box Visibility"
-#~ msgstr "Slå av/på visning av spørreboks"

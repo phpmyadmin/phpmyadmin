@@ -1764,7 +1764,9 @@ $(document).ready(function() {
                 //User wants to submit the form
                 $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
                     if(data.success == true) {
-                        $('#properties_message').html('');
+                        $('#properties_message')
+                         .removeClass('error')
+                         .html('');
                         PMA_ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
                         if ($("#create_table_dialog").length > 0) {
@@ -1802,11 +1804,9 @@ $(document).ready(function() {
                              */
                             var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
 
+                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
                             //append to table
                             $(data.new_table_string)
-                             .find('input:checkbox')
-                             .val(new_last_row_id)
-                             .end()
                              .appendTo(tables_table);
 
                             //Sort the table
@@ -1818,7 +1818,9 @@ $(document).ready(function() {
                             window.parent.frame_navigation.location.reload();
                         }
                     } else {
-                        $('#properties_message').html(data.error);
+                        $('#properties_message')
+                         .addClass('error')
+                         .html(data.error);
                     }
                 }) // end $.post()
             } // end if ($form.hasClass('ajax')

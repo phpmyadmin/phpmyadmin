@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2010-07-21 14:55+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-03-07 01:17+0200\n"
+"Last-Translator:  <hjortholm@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1600
@@ -106,7 +106,7 @@ msgstr "Kunne ikke skrive fil til disk."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Fejl ved åbning af ekstern URL"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -118,7 +118,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Database %1$s er oprettet,"
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
@@ -139,10 +139,9 @@ msgstr "Tabel kommentarer"
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Kolonnenavne"
+msgstr "Kolonnenavn"
 
 #: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -280,10 +279,9 @@ msgid "Command"
 msgstr "Kommando"
 
 #: db_operations.php:433
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Omdøb database til"
+msgstr "Fjern database"
 
 #: db_operations.php:445
 #, php-format
@@ -291,10 +289,9 @@ msgid "Database %s has been dropped."
 msgstr "Database %s er slettet."
 
 #: db_operations.php:450
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
-msgstr "Kopiér database til"
+msgstr "Drop databasen (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
@@ -359,10 +356,9 @@ msgstr ""
 "at se hvorfor, klik %sher%s."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relationel skematik"
+msgstr "Editer eller eksporter relations skema"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -413,12 +409,12 @@ msgid "Last check"
 msgstr "Sidste check"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabel(ler)"
-msgstr[1] "%s tabel(ler)"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabeller"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
@@ -433,7 +429,7 @@ msgstr "Du skal vælge mindst en kolonne der skal vises"
 
 #: db_qbe.php:183
 msgid "Switch to"
-msgstr ""
+msgstr "skift til"
 
 #: db_qbe.php:187
 msgid "visual builder"
@@ -490,16 +486,14 @@ msgid "Modify"
 msgstr "Ret"
 
 #: db_qbe.php:607
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Tilføj/Slet kriterie-række"
 
 #: db_qbe.php:619
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Tilføj/Slet felt-kolonne"
+msgstr "Tilføj/Slet kolonner"
 
 #: db_qbe.php:632 db_qbe.php:657
 msgid "Update Query"
@@ -547,12 +541,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Søgeresultater for \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s hit(s) i tabel <i>%s</i>"
-msgstr[1] "%s hit(s) i tabel <i>%s</i>"
+msgstr[0] "%s hit i tabel <i>%s</i>"
+msgstr[1] "%s hits i tabel <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2827
 #: libraries/common.lib.php:3009 libraries/common.lib.php:3010
@@ -10151,133 +10145,3 @@ msgstr "VIEW navn"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Dumping data for table"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Data dump for tabellen"
-
-#~ msgid "Show left delete link"
-#~ msgstr "Vis/skjul venstre menu"
-
-#~ msgid "yes"
-#~ msgstr "Ja"
-
-#~ msgid "to/from page"
-#~ msgstr "til/fra side"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Slå Statistikker fra"
-
-#~ msgid "Display table filter"
-#~ msgstr "Viser kolonne-kommentarer"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "De ekstra features for at arbejde med linkede tabeller er deaktiveret. "
-#~ "For at se hvorfor, klik %sher%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignorér gentagne rækker"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Udfør forespørgsel iflg. bogmærke"
-
-#~ msgid "No tables"
-#~ msgstr "Ingen tabeller"
-
-#~ msgid "SVG"
-#~ msgstr "CSV (kommasepareret)"
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Indtast værdier for transformationsindstillinger ud fra følgende format: "
-#~ "'a', 100, b,'c'...<br />Skulle du få brug for at indsætte en backslash "
-#~ "(\"\\\") eller en apostrof (\"'\") i værdierne, backslash det (for "
-#~ "eksempel '\\\\xyz' eller 'a\\'b')."
-
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Indtast værdier for transformationsindstillinger ud fra følgende format: "
-#~ "'a', 100, b,'c'...<br />Skulle du få brug for at indsætte en backslash "
-#~ "(\"\\\") eller en apostrof (\"'\") i værdierne, backslash det (for "
-#~ "eksempel '\\\\xyz' eller 'a\\'b')."
-
-#~ msgid "server name"
-#~ msgstr "servernavn"
-
-#~ msgid "database name"
-#~ msgstr "databasenavn"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Redigér PDF-sider"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Data Dictionary-format"
-
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Tilføj AUTO_INCREMENT værdi"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Dump %s rækker startende med række %s."
-
-#~ msgid "remember template"
-#~ msgstr "husk skabelonen"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "Importeret fil-komprimering vil blive automatisk registreret fra: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Tilføj til kommentarer"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Ugyldig kolonne (%s) angivet!"
-
-#~ msgid "Table removal"
-#~ msgstr "Tabelnavn"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Slået til"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Reparer tabel"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Slået fra"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Kan ikke indlæse [a@http://php.net/%1$s@Dokumentation][em]%1$s[/em][/a] "
-#~ "udvidelsen. Tjek venligst din PHP-konfiguration."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Kan ikke indlæse iconv eller omkode nødvendig udvidelse til tegnsæt-"
-#~ "konvertering, konfigurer PHP til at tillade brug af disse udvidelser "
-#~ "eller slå tegnsæt-konvertering fra i phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Kan ikke bruge iconv ejheller libiconv eller recode_string funktionen "
-#~ "omend udvidelsen ser ud til at være indlæst. Check din PHP-konfiguration."
