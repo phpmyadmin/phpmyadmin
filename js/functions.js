@@ -1804,11 +1804,9 @@ $(document).ready(function() {
                              */
                             var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
 
+                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
                             //append to table
                             $(data.new_table_string)
-                             .find('input:checkbox')
-                             .val(new_last_row_id)
-                             .end()
                              .appendTo(tables_table);
 
                             //Sort the table
