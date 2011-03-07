@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-07 11:18+0200\n"
+"PO-Revision-Date: 2011-03-07 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -288,7 +288,7 @@ msgstr "Datenbank %s wurde gelöscht."
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
-msgstr "Lösche die Datenbank (DROP)"
+msgstr "Datenbank löschen (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
