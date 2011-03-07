@@ -55,7 +55,6 @@ if (isset($GLOBALS['db'])) {
 }
 require_once './libraries/header_scripts.inc.php';
 ?>
-    <script src="js/messages.php<?php echo PMA_generate_common_url($params); ?>" type="text/javascript"></script>
     <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
     <script src="pmd/scripts/history.js" type="text/javascript"></script>
 	<script src="pmd/scripts/move.js" type="text/javascript"></script>
