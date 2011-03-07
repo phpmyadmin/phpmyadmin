@@ -436,11 +436,22 @@ $(document).ready(function() {
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
                 var last_column = $this_hide.siblings().length;
                 var txt=[];
+                var blob_index=[];
+                var k=0;
                 for(var i=4; i < last_column; i++){
+                    if($this_hide.siblings("td:eq(" + i + ")").children('a:eq(0)').length  ){
+                        blob_index[k]=i;
+                        k=k+1;
+                        continue;
+                    }
                     txt[i-4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
-                    
                 }
+                k=0;
                 for (var i=4; i < last_column; i++){
+                    if ( blob_index[k]==i){
+                                k=k+1;
+                                continue;
+                    }
                     if($this_hide.siblings("td:eq(" + i + ")").children().length !=0){
                         $this_hide.siblings("td:eq(" + i + ")").empty();
                         $this_hide.siblings("td:eq(" + i + ")").append(txt[i-4]);
@@ -474,11 +485,22 @@ $(document).ready(function() {
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
                     }
-
+                    var blob_index=[];
+                    var k=0;
                     for( var i=6;i<=rows+2;i++){
-                         txt[i-6]=$this_row.siblings("tr:eq("+i+") td:eq("+pos+") span.original_data").html();
+                         if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") a:eq(0)").length !=0 ){
+                             blob_index[k]=i;
+                             k=k+1;
+                             continue;
+                         }
+                         txt[i-6]=$this_row.siblings("tr:eq(" + i + ") td:eq("+pos+") span.original_data").html();
                     }
+                    k=0;
                     for (var i=6;i<=rows+2;i++){ 
+                        if(blob_index[k]==i){
+                            k=k+1;
+                            continue;
+                        }
                          $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
                          $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt[i-6]);
                     }
