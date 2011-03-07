@@ -54,7 +54,8 @@ h2 {
 /* Hiding icons in the page titles, they just add clutter MH */
 h2 img{display:none;}
 h2 a img{display:inline;}
-/* Set all tables with data... to 100%, let it flow! */
+
+/* Set all tables with data... to 100% MH */
 .data{width:100%}
 
 h3 {
@@ -249,7 +250,7 @@ button {
 table caption,
 table th,
 table td {
-    padding:            0.8em;
+    padding:            0.5em;
     margin:             0.1em;
     vertical-align:     top;
     text-shadow:0 1px 0 #FFFFFF;
