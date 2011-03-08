@@ -2192,7 +2192,7 @@ msgstr "دونوں بالا"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "بالا میں سے کوئی بھی نہیں"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
