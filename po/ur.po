@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-02-25 09:05+0200\n"
+"PO-Revision-Date: 2011-03-08 06:53+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1760,7 +1760,7 @@ msgstr "PBMS حاصل کریں BLOB معلومات ناکام ہوا:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "get BLOB Content-Type ناکام ہوا"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -9485,8 +9485,3 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "اس جدول کے مشابہات حذف %s کریں؟"
