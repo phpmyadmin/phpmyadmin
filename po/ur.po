@@ -1980,7 +1980,7 @@ msgstr "PHP کوڈ بنائیں"
 #: libraries/common.lib.php:1195 libraries/config/messages.inc.php:463
 #: server_status.php:467
 msgid "Refresh"
-msgstr ""
+msgstr "تازہ کریں"
 
 #: libraries/common.lib.php:1204
 msgid "Skip Validate SQL"
