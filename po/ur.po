@@ -1912,7 +1912,7 @@ msgstr "غلط توثیقی طریق تشکیل میں دیا گیا ہے:"
 #: libraries/common.inc.php:929
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "آپ درجہ فزوں کریں  %s %s یا بعد کی۔"
 
 #: libraries/common.lib.php:142
 #, php-format
