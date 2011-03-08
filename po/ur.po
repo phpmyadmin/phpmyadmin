@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:15+0200\n"
+"PO-Revision-Date: 2011-03-08 11:16+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1833,7 +1833,7 @@ msgstr "نقل ہوا"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr ""
+msgstr "کوائفیہ استحقاق کی پڑتال کریں &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
