@@ -1951,7 +1951,7 @@ msgstr "دستاویزات"
 #: libraries/common.lib.php:605 libraries/header_printview.inc.php:60
 #: server_processlist.php:67 server_status.php:372
 msgid "SQL query"
-msgstr ""
+msgstr "SQL طلب"
 
 #: libraries/common.lib.php:641
 msgid "MySQL said: "
