@@ -2055,7 +2055,7 @@ msgstr "%B %d, %Y پر %I:%M %p"
 #: libraries/common.lib.php:1924
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s دن, %s گھنٹے, %s اور %s سیکنڈ"
 
 #: libraries/common.lib.php:2338 libraries/common.lib.php:2341
 #: libraries/display_tbl.lib.php:288 server_status.php:751
