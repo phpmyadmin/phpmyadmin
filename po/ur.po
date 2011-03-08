@@ -2114,7 +2114,7 @@ msgstr "داخل کریں"
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
-msgstr ""
+msgstr "عملیات"
 
 #: libraries/common.lib.php:2963
 msgid "Browse your computer:"
