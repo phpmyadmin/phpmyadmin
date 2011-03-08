@@ -2066,7 +2066,7 @@ msgstr "شروع"
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr ""
+msgstr "پچھلا"
 
 #: libraries/common.lib.php:2369 libraries/common.lib.php:2372
 #: libraries/display_tbl.lib.php:351
