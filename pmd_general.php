@@ -27,6 +27,13 @@ $hidden           = "hidden";
     <link rel="shortcut icon" href="pmd/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css" />
     <title>Designer</title>
+<?php
+$params = array('lang' => $GLOBALS['lang']);
+if (isset($GLOBALS['db'])) {
+    $params['db'] = $GLOBALS['db'];
+}
+require_once './libraries/header_scripts.inc.php';
+?>
     <script type="text/javascript">
     // <![CDATA[
 <?php
@@ -48,14 +55,6 @@ echo '
 ?>
     // ]]>
     </script>
-<?php
-$params = array('lang' => $GLOBALS['lang']);
-if (isset($GLOBALS['db'])) {
-    $params['db'] = $GLOBALS['db'];
-}
-require_once './libraries/header_scripts.inc.php';
-?>
-    <script src="js/messages.php<?php echo PMA_generate_common_url($params); ?>" type="text/javascript"></script>
     <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
     <script src="pmd/scripts/history.js" type="text/javascript"></script>
 	<script src="pmd/scripts/move.js" type="text/javascript"></script>
