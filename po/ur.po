@@ -2144,7 +2144,7 @@ msgstr "کھولیں"
 
 #: libraries/config.values.php:74
 msgid "Closed"
-msgstr ""
+msgstr "بند ہوا"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
