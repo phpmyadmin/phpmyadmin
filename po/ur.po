@@ -2022,7 +2022,7 @@ msgstr "میگا بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "GiB"
-msgstr ""
+msgstr "گیگا بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "TiB"
