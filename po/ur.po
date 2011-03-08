@@ -2102,7 +2102,7 @@ msgstr "ساخت"
 #: libraries/server_links.inc.php:46 libraries/tbl_links.inc.php:58
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:3013
 #: libraries/common.lib.php:3014 libraries/sql_query_form.lib.php:319
