@@ -1988,7 +1988,7 @@ msgstr "SQL جواز کاری چھوڑیں"
 
 #: libraries/common.lib.php:1207 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
-msgstr ""
+msgstr "SQL کی توثیق کریں"
 
 #: libraries/common.lib.php:1262
 msgid "Inline edit of this query"
