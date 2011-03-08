@@ -2213,7 +2213,7 @@ msgstr "ایک درست دہانہ ہندسہ نہیں ہے"
 #: libraries/config/FormDisplay.class.php:565
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "نادرست قدر"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
