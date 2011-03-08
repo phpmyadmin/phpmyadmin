@@ -1823,7 +1823,7 @@ msgstr "کوائفیہ جائیں"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "نقل نہیں ہوا"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
