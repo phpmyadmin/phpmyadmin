@@ -1967,7 +1967,7 @@ msgstr "SQL کی تفصیل بتائیں"
 
 #: libraries/common.lib.php:1140
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "SQL وضاحت کو چھوڑیں"
 
 #: libraries/common.lib.php:1174
 msgid "Without PHP Code"
