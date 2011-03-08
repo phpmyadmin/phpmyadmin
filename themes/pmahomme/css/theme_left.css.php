@@ -172,7 +172,6 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    /* background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>; MH */
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
@@ -202,7 +201,7 @@ background:url(./themes/pmahomme/img/input_bg.gif);
 /* marked items */
 div#left_tableList > ul li.marked > a,
 div#left_tableList > ul li.marked {
-    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    background: #e4e4e4;;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>

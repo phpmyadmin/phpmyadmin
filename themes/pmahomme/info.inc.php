@@ -8,7 +8,7 @@
  */
 
 /**
- *
+ * If you have problems or questions about this theme email mikehomme@users.sourceforge.net
  */
 $theme_name = 'pmahomme';
 $theme_full_version = '1.1';
