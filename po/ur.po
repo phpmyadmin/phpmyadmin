@@ -1853,7 +1853,7 @@ msgstr "طلب نتائج"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "چارٹ سے متعلق کوئی کوائف نہیں ملا۔"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
