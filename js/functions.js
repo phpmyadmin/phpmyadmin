@@ -2000,13 +2000,13 @@ $(document).ready(function() {
      * Attach Ajax event handler on the change password anchor
      * @see $cfg['AjaxEnable']
      */
-    $('#change_password_anchor.obh').live('click',function(event) {
+    $('#change_password_anchor.dialog_active').live('click',function(event) {
         event.preventDefault();
         return false;
         });
     $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
-        $(this).removeClass('ajax').addClass('obh');
+        $(this).removeClass('ajax').addClass('dialog_active');
         /**
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
          */
@@ -2019,7 +2019,7 @@ $(document).ready(function() {
                 width: 600,
                 close: function(ev,ui) {$(this).remove();}, 
                 buttons : button_options,
-                beforeClose: function(ev,ui){ $('#change_password_anchor.obh').removeClass('obh').addClass('ajax')}
+                beforeClose: function(ev,ui){ $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax')}
             })
             .append(data);
             displayPasswordGenerateButton();
@@ -2055,7 +2055,7 @@ $(document).ready(function() {
                 $("#topmenucontainer").after(data.sql_query);
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
-                $('#change_password_anchor.obh').removeClass('obh').addClass('ajax');
+                $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
             }
             else {
                 PMA_ajaxShowMessage(data.error);
