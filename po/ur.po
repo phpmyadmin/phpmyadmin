@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:32+0200\n"
+"PO-Revision-Date: 2011-03-08 11:33+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1907,7 +1907,7 @@ msgstr "سرور"
 
 #: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "غلط توثیقی طریق تشکیل میں دیا گیا ہے:"
 
 #: libraries/common.inc.php:929
 #, php-format
