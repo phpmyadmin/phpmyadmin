@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:38+0200\n"
+"PO-Revision-Date: 2011-03-08 11:39+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2000,7 +2000,7 @@ msgstr "ان لائن"
 
 #: libraries/common.lib.php:1331 libraries/common.lib.php:1347
 msgid "Profiling"
-msgstr ""
+msgstr "تفصیلات"
 
 #: libraries/common.lib.php:1352 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:65
