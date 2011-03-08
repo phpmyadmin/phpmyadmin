@@ -1984,7 +1984,7 @@ msgstr "تازہ کریں"
 
 #: libraries/common.lib.php:1204
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "SQL جواز کاری چھوڑیں"
 
 #: libraries/common.lib.php:1207 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
