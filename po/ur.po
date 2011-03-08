@@ -1955,7 +1955,7 @@ msgstr "SQL طلب"
 
 #: libraries/common.lib.php:641
 msgid "MySQL said: "
-msgstr ""
+msgstr "MySQL نے کہا:"
 
 #: libraries/common.lib.php:1096
 msgid "Failed to connect to SQL validator!"
