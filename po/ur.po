@@ -2034,7 +2034,7 @@ msgstr "پیٹا بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "EiB"
-msgstr ""
+msgstr "ایگزا بائٹ"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1428
