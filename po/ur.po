@@ -2039,7 +2039,7 @@ msgstr "ایگزا بائٹ"
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1428
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1430
