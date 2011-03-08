@@ -2005,7 +2005,7 @@ msgstr "تفصیلات"
 #: libraries/common.lib.php:1352 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:65
 msgid "Time"
-msgstr ""
+msgstr "وقت"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1390
