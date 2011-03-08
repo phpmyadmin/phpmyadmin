@@ -2229,7 +2229,7 @@ msgstr "کوائف نہیں ملا برائے %s"
 #: libraries/config/FormDisplay.class.php:727
 #: libraries/config/FormDisplay.class.php:731
 msgid "unavailable"
-msgstr ""
+msgstr "دستیاب نہیں ہے"
 
 #: libraries/config/FormDisplay.class.php:728
 #: libraries/config/FormDisplay.class.php:732
