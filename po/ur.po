@@ -2128,7 +2128,7 @@ msgstr "ویب سرور اپ لوڈ پوشہ سے منتخب کریں <b>%s</b>:
 #: libraries/common.lib.php:2988 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:956
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
+msgstr "اپ لوڈ کام کے لیے سیٹ کیا گیا پوشہ قابل رسائی نہیں ہے"
 
 #: libraries/common.lib.php:2996
 msgid "There are no files to upload"
