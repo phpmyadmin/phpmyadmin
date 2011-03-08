@@ -1772,7 +1772,7 @@ msgstr "آڈیو چلائیں"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "ویڈیو دکھائیں"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
