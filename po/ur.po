@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:50+0200\n"
+"PO-Revision-Date: 2011-03-08 11:51+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2081,7 +2081,7 @@ msgstr "کوائفیہ میں جائیں &quot;%s&quot;."
 #: libraries/common.lib.php:2463
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s ایک نامعلوم نقص سے کام متاثر ہوا, دیکھیں %s"
 
 #: libraries/common.lib.php:2823 libraries/common.lib.php:2830
 #: libraries/common.lib.php:3015 libraries/config/setup.forms.php:291
