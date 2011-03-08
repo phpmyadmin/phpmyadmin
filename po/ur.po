@@ -2071,7 +2071,7 @@ msgstr "پچھلا"
 #: libraries/common.lib.php:2369 libraries/common.lib.php:2372
 #: libraries/display_tbl.lib.php:351
 msgid "End"
-msgstr ""
+msgstr "اختتام"
 
 #: libraries/common.lib.php:2444
 #, php-format
