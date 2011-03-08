@@ -1810,7 +1810,7 @@ msgstr "کوائف"
 #: server_databases.php:205 server_status.php:540 server_status.php:601
 #: server_status.php:624 tbl_printview.php:348 tbl_structure.php:788
 msgid "Total"
-msgstr ""
+msgstr "میزان"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:774
