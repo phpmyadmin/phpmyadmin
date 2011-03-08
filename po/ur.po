@@ -2010,7 +2010,7 @@ msgstr "وقت"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1390
 msgid "B"
-msgstr ""
+msgstr "بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "KiB"
