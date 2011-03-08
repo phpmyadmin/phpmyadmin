@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:37+0200\n"
+"PO-Revision-Date: 2011-03-08 11:38+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1984,7 +1984,7 @@ msgstr "تازہ کریں"
 
 #: libraries/common.lib.php:1204
 msgid "Skip Validate SQL"
-msgstr "SQL جواز کاری چھوڑیں"
+msgstr "SQL توثیق چھوڑیں"
 
 #: libraries/common.lib.php:1207 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
