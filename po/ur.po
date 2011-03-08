@@ -2136,7 +2136,7 @@ msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "دونوں"
 
 #: libraries/config.values.php:74
 msgid "Open"
