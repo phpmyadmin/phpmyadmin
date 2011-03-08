@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:45+0200\n"
+"PO-Revision-Date: 2011-03-08 11:46+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2055,7 +2055,7 @@ msgstr "%B %d, %Y پر %I:%M %p"
 #: libraries/common.lib.php:1924
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s دن, %s گھنٹے, %s اور %s سیکنڈ"
+msgstr "%s دن, %s گھنٹے, %s منٹ اور%s سیکنڈ"
 
 #: libraries/common.lib.php:2338 libraries/common.lib.php:2341
 #: libraries/display_tbl.lib.php:288 server_status.php:751
