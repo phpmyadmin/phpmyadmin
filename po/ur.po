@@ -1903,7 +1903,7 @@ msgstr "سرور کے لیے ہوسٹ نام غلط ہے %1$s. اپنے تشکی
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:174 test/theme.php:56
 msgid "Server"
-msgstr ""
+msgstr "سرور"
 
 #: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
