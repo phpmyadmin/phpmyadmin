@@ -2180,7 +2180,7 @@ msgstr "مخصوص - بالا ی طرح لیکن سریع/مخصوص انتخا�
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
-msgstr ""
+msgstr "داخل کرنا مکمل ہوا"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
