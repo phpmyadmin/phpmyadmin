@@ -1935,7 +1935,7 @@ msgstr "انگریزی"
 #: libraries/common.lib.php:412
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "انگریزی"
 
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
