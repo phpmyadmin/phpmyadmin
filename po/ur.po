@@ -2018,7 +2018,7 @@ msgstr "کلو بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "MiB"
-msgstr ""
+msgstr "میگا بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "GiB"
