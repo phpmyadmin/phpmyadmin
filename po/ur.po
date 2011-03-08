@@ -1929,7 +1929,7 @@ msgstr "انگریزی"
 #: libraries/common.lib.php:408
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "انگریزی"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:412
