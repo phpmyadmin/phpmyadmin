@@ -1893,7 +1893,7 @@ msgstr ""
 #: libraries/common.inc.php:622
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "غلط سرور اشاریہ: %s"
 
 #: libraries/common.inc.php:629
 #, php-format
