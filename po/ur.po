@@ -1791,7 +1791,7 @@ msgstr "حصہ دارانہ"
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
 #: server_status.php:385
 msgid "Tables"
-msgstr ""
+msgstr "جداول"
 
 #: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:300
 #: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:367
