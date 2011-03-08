@@ -1996,7 +1996,7 @@ msgstr "اس طلب کی ان لائن تدوین"
 
 #: libraries/common.lib.php:1264
 msgid "Inline"
-msgstr ""
+msgstr "ان لائن"
 
 #: libraries/common.lib.php:1331 libraries/common.lib.php:1347
 msgid "Profiling"
