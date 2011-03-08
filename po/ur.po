@@ -1971,7 +1971,7 @@ msgstr "SQL وضاحت کو چھوڑیں"
 
 #: libraries/common.lib.php:1174
 msgid "Without PHP Code"
-msgstr ""
+msgstr "PHP کوڈ کے بغیر"
 
 #: libraries/common.lib.php:1177 libraries/config/messages.inc.php:464
 msgid "Create PHP Code"
