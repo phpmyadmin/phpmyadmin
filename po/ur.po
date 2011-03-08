@@ -1826,10 +1826,9 @@ msgid "Not replicated"
 msgstr "نقل نہیں ہوا"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "لپیٹنا"
+msgstr "نقل ہوا"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
