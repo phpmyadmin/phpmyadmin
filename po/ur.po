@@ -2014,7 +2014,7 @@ msgstr "بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "KiB"
-msgstr ""
+msgstr "کلو بائٹ"
 
 #: libraries/common.lib.php:1390
 msgid "MiB"
