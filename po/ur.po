@@ -1992,7 +1992,7 @@ msgstr "SQL کی توثیق کریں"
 
 #: libraries/common.lib.php:1262
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "اس طلب کی ان لائن تدوین"
 
 #: libraries/common.lib.php:1264
 msgid "Inline"
