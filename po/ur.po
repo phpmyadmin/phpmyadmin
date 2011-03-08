@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-08 11:33+0200\n"
+"PO-Revision-Date: 2011-03-08 11:34+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -1946,7 +1946,7 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
 #: main.php:222
 msgid "Documentation"
-msgstr ""
+msgstr "دستاویزات"
 
 #: libraries/common.lib.php:605 libraries/header_printview.inc.php:60
 #: server_processlist.php:67 server_status.php:372
