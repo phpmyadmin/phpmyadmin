@@ -2060,7 +2060,7 @@ msgstr "%s دن, %s گھنٹے, %s منٹ اور%s سیکنڈ"
 #: libraries/common.lib.php:2338 libraries/common.lib.php:2341
 #: libraries/display_tbl.lib.php:288 server_status.php:751
 msgid "Begin"
-msgstr ""
+msgstr "شروع"
 
 #: libraries/common.lib.php:2339 libraries/common.lib.php:2342
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
