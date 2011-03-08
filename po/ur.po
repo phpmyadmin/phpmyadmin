@@ -2140,7 +2140,7 @@ msgstr "دونوں"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "کھولیں"
 
 #: libraries/config.values.php:74
 msgid "Closed"
