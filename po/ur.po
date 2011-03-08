@@ -1849,7 +1849,7 @@ msgstr "طلب چلت وقت موازنہ (مائیکروسیکنڈ میں)"
 
 #: libraries/chart.lib.php:83
 msgid "Query results"
-msgstr ""
+msgstr "طلب نتائج"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
