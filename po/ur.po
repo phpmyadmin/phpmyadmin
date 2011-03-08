@@ -2076,7 +2076,7 @@ msgstr "اختتام"
 #: libraries/common.lib.php:2444
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "کوائفیہ میں جائیں &quot;%s&quot;."
 
 #: libraries/common.lib.php:2463
 #, php-format
