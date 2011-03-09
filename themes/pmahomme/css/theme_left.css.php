@@ -136,7 +136,7 @@ div#leftframelinks .icon {
 
 div#reloadlink a img,
 div#leftframelinks a img.icon {
-    margin:             10px 10px 0 0;
+    margin:             10px 2px 0 0;
     padding:            0.2em;
     border:             0px;
 }
@@ -201,7 +201,7 @@ background:url(./themes/pmahomme/img/input_bg.gif);
 /* marked items */
 div#left_tableList > ul li.marked > a,
 div#left_tableList > ul li.marked {
-    background: #e4e4e4;;
+    background: #e4e4e4;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
