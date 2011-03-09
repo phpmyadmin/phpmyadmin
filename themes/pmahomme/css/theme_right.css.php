@@ -113,7 +113,7 @@ dfn:hover {
 th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
-    background:         #333;
+    background:         #f3f3f3;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
