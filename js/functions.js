@@ -1821,6 +1821,8 @@ $(document).ready(function() {
                         $('#properties_message')
                          .addClass('error')
                          .html(data.error);
+                        // scroll to the div containing the error message
+                        $('#properties_message')[0].scrollIntoView();
                     }
                 }) // end $.post()
             } // end if ($form.hasClass('ajax')
