@@ -286,14 +286,21 @@ $(document).ready(function() {
             }
             else {
                 // real results are returned
-                $('#sqlqueryresults').show();
-                $("#sqlqueryresults").html(data);
-                $("#sqlqueryresults").trigger('appendAnchor');
-                $('#togglequerybox').show();
-                if($("#togglequerybox").siblings(":visible").length > 0) {
-                    $("#togglequerybox").trigger('click');
+                $received_data = $(data);
+                $zero_row_results = $received_data.find('textarea[name="sql_query"]');
+                // if zero rows are returned from the query execution
+                if ($zero_row_results.length > 0) {
+                    $('#sqlquery').val($zero_row_results.val());
+                } else {
+                    $('#sqlqueryresults').show();
+                    $("#sqlqueryresults").html(data);
+                    $("#sqlqueryresults").trigger('appendAnchor');
+                    $('#togglequerybox').show();
+                    if($("#togglequerybox").siblings(":visible").length > 0) {
+                        $("#togglequerybox").trigger('click');
+                    }
+                    PMA_init_slider();
                 }
-                PMA_init_slider();
             }
         }) // end $.post()
     }) // end SQL Query submit
