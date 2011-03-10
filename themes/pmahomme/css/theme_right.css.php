@@ -4,7 +4,7 @@
  * main css file from theme Original
  *
  * @package phpMyAdmin-theme
- * @subpackage Original
+ * @subpackage pmahomme
  */
 
 // unplanned execution path
@@ -1591,6 +1591,10 @@ code.sql, div.sqlvalidate {
     padding: 0 0 0 0.5em;
     display: inline-block;
     width: 98%;
+}
+
+textarea#partitiondefinition {
+    height:3em;
 }
 
 /* for elements that should be revealed only via js */

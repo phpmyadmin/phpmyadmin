@@ -4,7 +4,7 @@
  * Theme information
  *
  * @package phpMyAdmin-theme
- * @subpackage Original
+ * @subpackage pmahomme
  */
 
 /**
