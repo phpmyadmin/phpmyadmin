@@ -5,7 +5,7 @@
  * for detailed layout configuration please refer to the css files
  *
  * @package phpMyAdmin-theme
- * @subpackage Original
+ * @subpackage pmahomme
  */
 
 /**
