@@ -998,10 +998,14 @@ function PMA_changeClassForColumn($this_th, newclass) {
     var th_index = $this_th.index();
     // .eq() is zero-based
     th_index--;
-    var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data');
-    $tr_with_data.each(function() {
-        $(this).find('td.data:eq('+th_index+')').toggleClass(newclass);
-    });
+    var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
+    if ($this_th.data('has_class_'+newclass)) {
+        $tds.removeClass(newclass);
+        $this_th.data('has_class_'+newclass, false);
+    } else {
+        $tds.addClass(newclass);
+        $this_th.data('has_class_'+newclass, true);
+    }
 }
 
 $(document).ready(function() {
