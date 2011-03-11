@@ -277,6 +277,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             PMA_syncDisplayHeaderSource($src_db);
             $odd_row = false;
+
             /**
             * Display the matching tables' names and difference, first
             */
@@ -339,8 +340,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 */
                 if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
 
-                   echo '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="29"  height="29"
-                   alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                   echo '<img class="icon struct_img" src="' . $pmaThemeImage . 'new_struct.jpg" width="29"  height="29"
+                   alt="' . __('Click to select') . '"
                    onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" .$num_insert_cols .
                    "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'"
                    . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
@@ -351,8 +352,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 if (isset($update_array[$i]) || isset($insert_array[$i])) {
                     if (isset($update_array[$i][0][$matching_tables_keys[$i][0]]) || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
 
-                        echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                        alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                        echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
+                        alt="' . __('Click to select') . '"
                          onclick="showDetails('. "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
                          "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';
                     }
@@ -367,15 +368,15 @@ if ((isset($_REQUEST['submit_connect']))) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
                 echo '<td> + ' . htmlspecialchars($source_tables_uncommon[$j]) . '</td> ';
 
-                echo '<td align="center"><img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
-                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                echo '<td align="center"><img class="icon struct_img" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
+                alt="' . __('Click to select') . '"
                 onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,'
                 . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>';
 
                 if ($row_count[$j] > 0)
                 {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                    alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                    echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
+                    alt="' . __('Click to select') . '"
                     onclick="showDetails(' . "'UD" . $j . "','" . null . "','" . $row_count[$j] . "','" . null .
                     "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
                 }
@@ -733,8 +734,8 @@ if (isset($_REQUEST['Table_ids'])) {
         }
 
         if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
-            echo '<img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
-            alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+            echo '<img class="icon struct_img" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
+            alt="' . __('Click to select') . '" 
             onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" . $num_insert_cols . "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'" .',
             this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
         }
@@ -761,8 +762,8 @@ if (isset($_REQUEST['Table_ids'])) {
 
             if ((isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]]))
                 || (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
+                alt="' . __('Click to select') . '"
                 onclick="showDetails(' . "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
                 "','" . null . "','" . null . "','" . null . "'" .', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';
             }
@@ -789,8 +790,8 @@ if (isset($_REQUEST['Table_ids'])) {
         */
         if (!(in_array($j, $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$j])) {
-                echo '<img class="icon" src="' . $pmaThemeImage  . 'new_struct.jpg" width="29"  height="29"
-                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                echo '<img class="icon struct_img" src="' . $pmaThemeImage  . 'new_struct.jpg" width="29"  height="29"
+                alt="' . __('Click to select') . '"
                 onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>' .' ';
             }
         } else {
@@ -801,8 +802,8 @@ if (isset($_REQUEST['Table_ids'])) {
         */
         if (!(in_array($j, $uncommon_table_data_diff))) {
             if (isset($row_count[$j]) && ($row_count > 0)) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
+                alt="' . __('Click to select') . '" 
                 onclick="showDetails(' . "'UD" . $j . "','" . null ."','" . $row_count[$j] ."','"
                 . null . "','" . null . "','" . null . "'" . ', this ,' . "'". htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
             }
