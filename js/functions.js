@@ -2131,15 +2131,16 @@ function PMA_init_slider() {
     $('.pma_auto_slider').each(function(idx, e) {
         if ($(e).hasClass('slider_init_done')) return;
         $(e).addClass('slider_init_done');
-        $('<span id="anchor_status_' + e.id + '"><span>')
+        $('<span id="anchor_status_' + e.id + '"></span>')
             .insertBefore(e);
         PMA_set_status_label(e.id);
 
         $('<a href="#' + e.id + '" id="anchor_' + e.id + '">' + e.title + '</a>')
             .insertBefore(e)
             .click(function() {
-                $('#' + e.id).toggle('clip');
-                PMA_set_status_label(e.id);
+                $('#' + e.id).toggle('clip', function() {
+                    PMA_set_status_label(e.id);
+                });
                 return false;
             });
     });
