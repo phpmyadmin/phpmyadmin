@@ -356,6 +356,7 @@ table tr.even {
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
 /* marked table rows */
 td.marked,
+table tr.marked td,
 table tr.marked th,
 table tr.marked {
     background:  url(./themes/pmahomme/img/marked_bg.png) repeat-x #b6c6d7;
