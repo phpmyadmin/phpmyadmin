@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.4, 2010-08-26
+ * @version	1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_ReferenceHelper
 {
@@ -137,7 +137,8 @@ class PHPExcel_ReferenceHelper
 				if ($cell->getDataType() == PHPExcel_Cell_DataType::TYPE_FORMULA) {
 					// Formula should be adjusted
 					$pSheet->getCell($newCoordinates)
-						   ->setValue($this->updateFormulaReferences($cell->getValue(), $pBefore, $pNumCols, $pNumRows, $pSheet->getTitle()));
+						   ->setValue($this->updateFormulaReferences($cell->getValue(),
+						   					$pBefore, $pNumCols, $pNumRows, $pSheet->getTitle()));
 				} else {
 					// Formula should not be adjusted
 					$pSheet->getCell($newCoordinates)->setValue($cell->getValue());
@@ -145,6 +146,16 @@ class PHPExcel_ReferenceHelper
 
 				// Clear the original cell
 				$pSheet->getCell($cell->getCoordinate())->setValue('');
+
+			} else {
+				/*	We don't need to update styles for rows/columns before our insertion position,
+						but we do still need to adjust any formulae	in those cells					*/
+				if ($cell->getDataType() == PHPExcel_Cell_DataType::TYPE_FORMULA) {
+					// Formula should be adjusted
+					$cell->setValue($this->updateFormulaReferences($cell->getValue(),
+										$pBefore, $pNumCols, $pNumRows, $pSheet->getTitle()));
+				}
+
 			}
 		}
 
@@ -248,6 +259,14 @@ class PHPExcel_ReferenceHelper
 			}
 		}
 
+		// Update worksheet: comments
+		$aComments = $pSheet->getComments();
+		$aNewComments = array(); // the new array of all comments
+		foreach ($aComments as $key => &$value) {
+			$newReference = $this->updateCellReference($key, $pBefore, $pNumCols, $pNumRows);
+			$aNewComments[$newReference] = $value;
+		}
+		$pSheet->setComments($aNewComments); // replace the comments array
 
 		// Update worksheet: hyperlinks
 		$aHyperlinkCollection = array_reverse($pSheet->getHyperlinkCollection(), true);
@@ -348,9 +367,10 @@ class PHPExcel_ReferenceHelper
 	public function updateFormulaReferences($pFormula = '', $pBefore = 'A1', $pNumCols = 0, $pNumRows = 0, $sheetName = '') {
 		//	Update cell references in the formula
 		$formulaBlocks = explode('"',$pFormula);
-		foreach($formulaBlocks as $i => &$formulaBlock) {
-			//	Ignore blocks that were enclosed in quotes (even entries in the $formulaBlocks array after the explode)
-			if (($i % 2) == 0) {
+		$i = false;
+		foreach($formulaBlocks as &$formulaBlock) {
+			//	Ignore blocks that were enclosed in quotes (alternating entries in the $formulaBlocks array after the explode)
+			if ($i = !$i) {
 				$adjustCount = 0;
 				$newCellTokens = $cellTokens = array();
 				//	Search for row ranges (e.g. 'Sheet1'!3:5 or 3:5) with or without $ absolutes (e.g. $3:5)
@@ -525,7 +545,7 @@ class PHPExcel_ReferenceHelper
 	/**
 	 * Update cell range
 	 *
-	 * @param	string	$pCellRange			Cell range
+	 * @param	string	$pCellRange			Cell range	(e.g. 'B2:D4', 'B:C' or '2:3')
 	 * @param	int		$pBefore			Insert before this one
 	 * @param	int		$pNumCols			Number of columns to increment
 	 * @param	int		$pNumRows			Number of rows to increment
@@ -536,9 +556,19 @@ class PHPExcel_ReferenceHelper
 		if (strpos($pCellRange,':') !== false || strpos($pCellRange, ',') !== false) {
 			// Update range
 			$range = PHPExcel_Cell::splitRange($pCellRange);
-			for ($i = 0; $i < count($range); ++$i) {
-				for ($j = 0; $j < count($range[$i]); ++$j) {
-					$range[$i][$j] = $this->_updateSingleCellReference($range[$i][$j], $pBefore, $pNumCols, $pNumRows);
+			$ic = count($range);
+			for ($i = 0; $i < $ic; ++$i) {
+				$jc = count($range[$i]);
+				for ($j = 0; $j < $jc; ++$j) {
+					if (ctype_alpha($range[$i][$j])) {
+						$r = PHPExcel_Cell::coordinateFromString($this->_updateSingleCellReference($range[$i][$j].'1', $pBefore, $pNumCols, $pNumRows));
+						$range[$i][$j] = $r[0];
+					} elseif(ctype_digit($range[$i][$j])) {
+						$r = PHPExcel_Cell::coordinateFromString($this->_updateSingleCellReference('A'.$range[$i][$j], $pBefore, $pNumCols, $pNumRows));
+						$range[$i][$j] = $r[1];
+					} else {
+						$range[$i][$j] = $this->_updateSingleCellReference($range[$i][$j], $pBefore, $pNumCols, $pNumRows);
+					}
 				}
 			}
 
@@ -562,29 +592,17 @@ class PHPExcel_ReferenceHelper
 	private function _updateSingleCellReference($pCellReference = 'A1', $pBefore = 'A1', $pNumCols = 0, $pNumRows = 0) {
 		if (strpos($pCellReference, ':') === false && strpos($pCellReference, ',') === false) {
 			// Get coordinates of $pBefore
-			$beforeColumn	= 'A';
-			$beforeRow		= 1;
 			list($beforeColumn, $beforeRow) = PHPExcel_Cell::coordinateFromString( $pBefore );
 
-			// Get coordinates
-			$newColumn	= 'A';
-			$newRow	= 1;
+			// Get coordinates of $pCellReference
 			list($newColumn, $newRow) = PHPExcel_Cell::coordinateFromString( $pCellReference );
 
-			// Make sure the reference can be used
-			if ($newColumn == '' && $newRow == '')
-			{
-				return $pCellReference;
-			}
-
 			// Verify which parts should be updated
-			$updateColumn = (PHPExcel_Cell::columnIndexFromString($newColumn) >= PHPExcel_Cell::columnIndexFromString($beforeColumn))
-							&& (strpos($newColumn, '$') === false)
-							&& (strpos($beforeColumn, '$') === false);
+			$updateColumn = (($newColumn{0} != '$') && ($beforeColumn{0} != '$') &&
+							 PHPExcel_Cell::columnIndexFromString($newColumn) >= PHPExcel_Cell::columnIndexFromString($beforeColumn));
 
-			$updateRow = ($newRow >= $beforeRow)
-							&& (strpos($newRow, '$') === false)
-							&& (strpos($beforeRow, '$') === false);
+			$updateRow = (($newRow{0} != '$') && ($beforeRow{0} != '$') &&
+						  $newRow >= $beforeRow);
 
 			// Create new column reference
 			if ($updateColumn) {

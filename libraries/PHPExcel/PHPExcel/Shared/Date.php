@@ -3,7 +3,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,9 +21,9 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.4, 2010-08-26
+ * @version	1.7.6, 2011-02-27
  */
 
 
@@ -32,7 +32,7 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Shared_Date
 {
@@ -220,7 +220,7 @@ class PHPExcel_Shared_Date
 	}	//	function isDateTimeFormat()
 
 
-	private static	$possibleDateFormatCharacters = 'ymdHis';
+	private static	$possibleDateFormatCharacters = 'ymdHs';
 
 	/**
 	 * Is a given number format code a date/time?
@@ -256,8 +256,24 @@ class PHPExcel_Shared_Date
 				return true;
 		}
 
+		//	Typically number, currency or accounting (or occasionally fraction) formats
+		if ((substr($pFormatCode,0,1) == '_') || (substr($pFormatCode,0,2) == '0 ')) {
+			return false;
+		}
 		// Try checking for any of the date formatting characters that don't appear within square braces
 		if (preg_match('/(^|\])[^\[]*['.self::$possibleDateFormatCharacters.']/i',$pFormatCode)) {
+			//	We might also have a format mask containing quoted strings...
+			//		we don't want to test for any of our characters within the quoted blocks
+			if (strpos($pFormatCode,'"') !== false) {
+				$i = false;
+				foreach(explode('"',$pFormatCode) as $subVal) {
+					//	Only test in alternate array entries (the non-quoted blocks)
+					if (($i = !$i) && (preg_match('/(^|\])[^\[]*['.self::$possibleDateFormatCharacters.']/i',$subVal))) {
+						return true;
+					}
+				}
+				return false;
+			}
 			return true;
 		}
 
@@ -273,31 +289,27 @@ class PHPExcel_Shared_Date
 	 * @return	float|false		Excel date/time serial value
 	 */
 	public static function stringToExcel($dateValue = '') {
-		// restrict to dates and times like these because date_parse accepts too many strings
-		// '2009-12-31'
-		// '2009-12-31 15:59'
-		// '2009-12-31 15:59:10'
-		if (!preg_match('/^\d{4}\-\d{1,2}\-\d{1,2}( \d{1,2}:\d{1,2}(:\d{1,2})?)?$/', $dateValue)) {
+		if (strlen($dateValue) < 2)
 			return false;
+		if (!preg_match('/^(\d{1,4}[ \.\/\-][A-Z]{3,9}([ \.\/\-]\d{1,4})?|[A-Z]{3,9}[ \.\/\-]\d{1,4}([ \.\/\-]\d{1,4})?|\d{1,4}[ \.\/\-]\d{1,4}([ \.\/\-]\d{1,4})?)( \d{1,2}:\d{1,2}(:\d{1,2})?)?$/iu', $dateValue))
+			return false;
+
+		$dateValueNew = PHPExcel_Calculation_DateTime::DATEVALUE($dateValue);
+
+		if ($dateValueNew === PHPExcel_Calculation_Functions::VALUE()) {
+			return false;
+		} else {
+			if (strpos($dateValue, ':') !== false) {
+				$timeValue = PHPExcel_Calculation_DateTime::TIMEVALUE($dateValue);
+				if ($timeValue === PHPExcel_Calculation_Functions::VALUE()) {
+					return false;
+				}
+				$dateValueNew += $timeValue;
+			}
+			return $dateValueNew;
 		}
 
-		// now try with date_parse
-		$PHPDateArray = date_parse($dateValue);
 
-		if ($PHPDateArray['error_count'] == 0) {
-			$year = $PHPDateArray['year'] !== false ? $PHPDateArray['year'] : self::getExcelCalendar();
-			$month = $PHPDateArray['month'] !== false ? $PHPDateArray['month'] : 1;
-			$day = $PHPDateArray['day'] !== false ? $PHPDateArray['day'] : 0;
-			$hour = $PHPDateArray['hour'] !== false ? $PHPDateArray['hour'] : 0;
-			$minute = $PHPDateArray['minute'] !== false ? $PHPDateArray['minute'] : 0;
-			$second = $PHPDateArray['second'] !== false ? $PHPDateArray['second'] : 0;
-
-			$excelDateValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year, $month, $day, $hour, $minute, $second);
-
-			return $excelDateValue;
-		}
-
-		return false;
 	}
 
 }

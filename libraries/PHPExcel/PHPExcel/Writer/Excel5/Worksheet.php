@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Worksheet (used as the base for this class):
@@ -66,7 +66,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 {
@@ -242,26 +242,23 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$this->_outline_on			= 1;
 
 		// calculate values for DIMENSIONS record
-		$this->_firstRowIndex    =  0;
-		$this->_lastRowIndex     = -1;
-		$this->_firstColumnIndex =  0;
-		$this->_lastColumnIndex  = -1;
-
+		$col = $row = array();
 		foreach ($this->_phpSheet->getCellCollection(false) as $cellID) {
-			preg_match('/^(\w+)(\d+)$/U',$cellID,$matches);
-			list(,$col,$row) = $matches;
-			$column = PHPExcel_Cell::columnIndexFromString($col) - 1;
-
-			// Don't break Excel!
-			if ($row + 1 > 65536 or $column + 1 > 256) {
-				break;
-			}
-
-			$this->_firstRowIndex    = min($this->_firstRowIndex, $row);
-			$this->_lastRowIndex     = max($this->_lastRowIndex, $row);
-			$this->_firstColumnIndex = min($this->_firstColumnIndex, $column);
-			$this->_lastColumnIndex  = max($this->_lastColumnIndex, $column);
+			list($c,$r) = sscanf($cellID,'%[A-Z]%d');
+			$row[$r] = $r;
+			$col[$c] = strlen($c).$c;
 		}
+		// Determine lowest and highest column and row
+		$this->_firstRowIndex	= (count($row) > 0) ? min($row) : 1;
+		$this->_lastRowIndex	= (count($row) > 0) ? max($row) : 1;
+		if ($this->_firstRowIndex > 65535) $this->_firstRowIndex = 65535;
+		if ($this->_lastRowIndex > 65535) $this->_lastRowIndex = 65535;
+
+		$this->_firstColumnIndex	= (count($col) > 0) ? PHPExcel_Cell::columnIndexFromString(substr(min($col),1)) : 1;
+		$this->_lastColumnIndex		= (count($col) > 0) ? PHPExcel_Cell::columnIndexFromString(substr(max($col),1)) : 1;
+
+		if ($this->_firstColumnIndex > 255) $this->_firstColumnIndex = 255;
+		if ($this->_lastColumnIndex > 255) $this->_lastColumnIndex = 255;
 
 		$this->_countCellStyleXfs = count($phpSheet->getParent()->getCellStyleXfCollection());
 	}
@@ -293,8 +290,9 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$this->_phpSheet->calculateColumnWidths();
 
 		// Column dimensions
+		$maxCol = PHPExcel_Cell::columnIndexFromString($this->_phpSheet->getHighestColumn()) -1;
 		$columnDimensions = $this->_phpSheet->getColumnDimensions();
-		for ($i = 0; $i < 256; ++$i) {
+		for ($i = 0; $i <= $maxCol; ++$i) {
 			$hidden = 0;
 			$level = 0;
 			$xfIndex = 15; // there are 15 cell style Xfs
@@ -530,14 +528,12 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$firstCellCoordinates = PHPExcel_Cell::coordinateFromString($firstCell); // e.g. array(0, 1)
 		$lastCellCoordinates  = PHPExcel_Cell::coordinateFromString($lastCell);  // e.g. array(1, 6)
 
-		$data = pack('vvvv',
+		return(pack('vvvv',
 			$firstCellCoordinates[1] - 1,
 			$lastCellCoordinates[1] - 1,
 			PHPExcel_Cell::columnIndexFromString($firstCellCoordinates[0]) - 1,
 			PHPExcel_Cell::columnIndexFromString($lastCellCoordinates[0]) - 1
-		);
-
-		return $data;
+		));
 	}
 
 	/**
@@ -853,8 +849,8 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$unknown   = 0x0000;			  // Must be zero
 
 		// Strip the '=' or '@' sign at the beginning of the formula string
-		if (preg_match("/^=/", $formula)) {
-			$formula = preg_replace("/(^=)/", "", $formula);
+		if ($formula{0} == '=') {
+			$formula = substr($formula,1);
 		} else {
 			// Error handling
 			$this->_writeString($row, $col, 'Unrecognised character for formula');

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category	PHPExcel
  * @package		PHPExcel_Writer
- * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright	Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version		1.7.4, 2010-08-26
+ * @version		1.7.6, 2011-02-27
  */
 
 
@@ -35,7 +35,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/PDF/tcpdf.php';
  *
  * @category	PHPExcel
  * @package		PHPExcel_Writer
- * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright	Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	/**
@@ -245,9 +245,11 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 		if (is_null($this->getSheetIndex())) {
 			$orientation = ($this->_phpExcel->getSheet(0)->getPageSetup()->getOrientation() == PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE) ? 'L' : 'P';
 			$printPaperSize = $this->_phpExcel->getSheet(0)->getPageSetup()->getPaperSize();
+			$printMargins = $this->_phpExcel->getSheet(0)->getPageMargins();
 		} else {
 			$orientation = ($this->_phpExcel->getSheet($this->getSheetIndex())->getPageSetup()->getOrientation() == PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE) ? 'L' : 'P';
 			$printPaperSize = $this->_phpExcel->getSheet($this->getSheetIndex())->getPageSetup()->getPaperSize();
+			$printMargins = $this->_phpExcel->getSheet($this->getSheetIndex())->getPageMargins();
 		}
 
 		//	Override Page Orientation
@@ -267,8 +269,16 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 
 		// Create PDF
 		$pdf = new TCPDF($orientation, 'pt', $paperSize);
+		$pdf->setFontSubsetting(false);
+		//	Set margins, converting inches to points (using 72 dpi)
+		$pdf->SetMargins($printMargins->getLeft() * 72,$printMargins->getTop() * 72,$printMargins->getRight() * 72);
+		$pdf->SetAutoPageBreak(true,$printMargins->getBottom() * 72);
+//		$pdf->setHeaderMargin($printMargins->getHeader() * 72);
+//		$pdf->setFooterMargin($printMargins->getFooter() * 72);
+
 		$pdf->setPrintHeader(false);
 		$pdf->setPrintFooter(false);
+
 		$pdf->AddPage();
 
 		// Set the appropriate font
