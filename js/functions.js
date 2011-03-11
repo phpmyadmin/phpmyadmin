@@ -594,10 +594,27 @@ $(document).ready(function() {
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         //do not trigger when clicked on anchor or inside input element (in inline editing mode) with exception of the first checkbox
-        if (!jQuery(e.target).is('a, a *, :input:not([name^="rows_to_delete"])')) {
-            var $tr = $(this);
+        if ($(e.target).is('a, a *')) {
+            return;
+        }
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $tr.find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            if (checked) {
+                $tr.addClass('marked');
+            } else {
+                $tr.removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
             $tr.toggleClass('marked');
-            $tr.children().toggleClass('marked');
         }
     });
 
