@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.4, 2010-08-26
+ * @version	1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 {
@@ -40,7 +40,7 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 	 *
 	 * @var boolean
 	 */
-	private $_preCalculateFormulas;
+	private $_preCalculateFormulas	= true;
 
 	/**
 	 * PHPExcel object
@@ -54,28 +54,28 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 	 *
 	 * @var integer
 	 */
-	private $_BIFF_version;
+	private $_BIFF_version	= 0x0600;
 
 	/**
 	 * Total number of shared strings in workbook
 	 *
 	 * @var int
 	 */
-	private $_str_total;
+	private $_str_total		= 0;
 
 	/**
 	 * Number of unique shared strings in workbook
 	 *
 	 * @var int
 	 */
-	private $_str_unique;
+	private $_str_unique	= 0;
 
 	/**
 	 * Array of unique shared strings in workbook
 	 *
 	 * @var array
 	 */
-	private $_str_table;
+	private $_str_table		= array();
 
 	/**
 	 * Color cache. Mapping between RGB value and color index.
@@ -105,15 +105,9 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 	 * @param	PHPExcel	$phpExcel	PHPExcel object
 	 */
 	public function __construct(PHPExcel $phpExcel) {
-		$this->_preCalculateFormulas = true;
 		$this->_phpExcel		= $phpExcel;
-		$this->_BIFF_version	= 0x0600;
 
-		$this->_str_total       = 0;
-		$this->_str_unique      = 0;
-		$this->_str_table       = array();
-		$this->_parser          = new PHPExcel_Writer_Excel5_Parser($this->_BIFF_version);
-
+		$this->_parser			= new PHPExcel_Writer_Excel5_Parser($this->_BIFF_version);
 	}
 
 	/**
@@ -395,9 +389,8 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 
 					case 1: // GIF, not supported by BIFF8, we convert to PNG
 						$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-						$imageResource = imagecreatefromgif($filename);
 						ob_start();
-						imagepng($imageResource);
+						imagepng(imagecreatefromgif($filename));
 						$blipData = ob_get_contents();
 						ob_end_clean();
 						break;
@@ -414,9 +407,8 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 
 					case 6: // Windows DIB (BMP), we convert to PNG
 						$blipType = PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE::BLIPTYPE_PNG;
-						$imageResource = PHPExcel_Shared_Drawing::imagecreatefrombmp($filename);
 						ob_start();
-						imagepng($imageResource);
+						imagepng(PHPExcel_Shared_Drawing::imagecreatefrombmp($filename));
 						$blipData = ob_get_contents();
 						ob_end_clean();
 						break;

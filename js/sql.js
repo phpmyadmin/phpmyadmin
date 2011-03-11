@@ -286,14 +286,21 @@ $(document).ready(function() {
             }
             else {
                 // real results are returned
-                $('#sqlqueryresults').show();
-                $("#sqlqueryresults").html(data);
-                $("#sqlqueryresults").trigger('appendAnchor');
-                $('#togglequerybox').show();
-                if($("#togglequerybox").siblings(":visible").length > 0) {
-                    $("#togglequerybox").trigger('click');
+                $received_data = $(data);
+                $zero_row_results = $received_data.find('textarea[name="sql_query"]');
+                // if zero rows are returned from the query execution
+                if ($zero_row_results.length > 0) {
+                    $('#sqlquery').val($zero_row_results.val());
+                } else {
+                    $('#sqlqueryresults').show();
+                    $("#sqlqueryresults").html(data);
+                    $("#sqlqueryresults").trigger('appendAnchor');
+                    $('#togglequerybox').show();
+                    if($("#togglequerybox").siblings(":visible").length > 0) {
+                        $("#togglequerybox").trigger('click');
+                    }
+                    PMA_init_slider();
                 }
-                PMA_init_slider();
             }
         }) // end $.post()
     }) // end SQL Query submit
@@ -998,10 +1005,14 @@ function PMA_changeClassForColumn($this_th, newclass) {
     var th_index = $this_th.index();
     // .eq() is zero-based
     th_index--;
-    var $tr_with_data = $this_th.closest('table').find('tbody tr ').has('td.data');
-    $tr_with_data.each(function() {
-        $(this).find('td.data:eq('+th_index+')').toggleClass(newclass);
-    });
+    var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
+    if ($this_th.data('has_class_'+newclass)) {
+        $tds.removeClass(newclass);
+        $this_th.data('has_class_'+newclass, false);
+    } else {
+        $tds.addClass(newclass);
+        $this_th.data('has_class_'+newclass, true);
+    }
 }
 
 $(document).ready(function() {

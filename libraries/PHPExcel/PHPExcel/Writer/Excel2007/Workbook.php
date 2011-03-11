@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_WriterPart
 {
@@ -321,14 +321,14 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 		// Create absolute coordinate and write as raw text
 		$range = PHPExcel_Cell::splitRange($pNamedRange->getRange());
 		for ($i = 0; $i < count($range); $i++) {
-			$range[$i][0] = '\'' . str_replace("'", "''", $pNamedRange->getWorksheet()->getTitle()) . '\'!' . PHPExcel_Cell::absoluteCoordinate($range[$i][0]);
+			$range[$i][0] = '\'' . str_replace("'", "''", $pNamedRange->getWorksheet()->getTitle()) . '\'!' . PHPExcel_Cell::absoluteReference($range[$i][0]);
 			if (isset($range[$i][1])) {
-				$range[$i][1] = PHPExcel_Cell::absoluteCoordinate($range[$i][1]);
+				$range[$i][1] = PHPExcel_Cell::absoluteReference($range[$i][1]);
 			}
 		}
 		$range = PHPExcel_Cell::buildRange($range);
 
-		$objWriter->writeRaw($range);
+		$objWriter->writeRawData($range);
 
 		$objWriter->endElement();
 	}
@@ -357,7 +357,7 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 			$range[1] = PHPExcel_Cell::absoluteCoordinate($range[1]);
 			$range = implode(':', $range);
 
-			$objWriter->writeRaw('\'' . str_replace("'", "''", $pSheet->getTitle()) . '\'!' . $range);
+			$objWriter->writeRawData('\'' . str_replace("'", "''", $pSheet->getTitle()) . '\'!' . $range);
 
 			$objWriter->endElement();
 		}
@@ -400,7 +400,7 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 				$settingString .= '\'' . str_replace("'", "''", $pSheet->getTitle()) . '\'!$' . $repeat[0] . ':$' . $repeat[1];
 			}
 
-			$objWriter->writeRaw($settingString);
+			$objWriter->writeRawData($settingString);
 
 			$objWriter->endElement();
 		}
@@ -430,12 +430,12 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 
 			$chunks = array();
 			foreach ($printArea as $printAreaRect) {
-				$printAreaRect[0] = PHPExcel_Cell::absoluteCoordinate($printAreaRect[0]);
-				$printAreaRect[1] = PHPExcel_Cell::absoluteCoordinate($printAreaRect[1]);
+				$printAreaRect[0] = PHPExcel_Cell::absoluteReference($printAreaRect[0]);
+				$printAreaRect[1] = PHPExcel_Cell::absoluteReference($printAreaRect[1]);
 				$chunks[] = '\'' . str_replace("'", "''", $pSheet->getTitle()) . '\'!' . implode(':', $printAreaRect);
 			}
 
-			$objWriter->writeRaw(implode(',', $chunks));
+			$objWriter->writeRawData(implode(',', $chunks));
 
 			$objWriter->endElement();
 		}

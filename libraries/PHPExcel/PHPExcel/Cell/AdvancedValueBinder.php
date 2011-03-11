@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,10 +20,20 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
+
+
+/** PHPExcel root directory */
+if (!defined('PHPEXCEL_ROOT')) {
+	/**
+	 * @ignore
+	 */
+	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+}
 
 
 /**
@@ -31,7 +41,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Cell_AdvancedValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 {
@@ -54,14 +64,27 @@ class PHPExcel_Cell_AdvancedValueBinder extends PHPExcel_Cell_DefaultValueBinder
 
 		// Style logic - strings
 		if ($dataType === PHPExcel_Cell_DataType::TYPE_STRING && !$value instanceof PHPExcel_RichText) {
+			//	Test for booleans using locale-setting
+			if ($value == PHPExcel_Calculation::getTRUE()) {
+				$cell->setValueExplicit( True, PHPExcel_Cell_DataType::TYPE_BOOL);
+				return true;
+			} elseif($value == PHPExcel_Calculation::getFALSE()) {
+				$cell->setValueExplicit( False, PHPExcel_Cell_DataType::TYPE_BOOL);
+				return true;
+			}
+
+			// Check for number in scientific format
+			if (preg_match('/^'.PHPExcel_Calculation::CALCULATION_REGEXP_NUMBER.'$/', $value)) {
+				$cell->setValueExplicit( (float) $value, PHPExcel_Cell_DataType::TYPE_NUMERIC);
+				return true;
+			}
+
 			// Check for percentage
 			if (preg_match('/^\-?[0-9]*\.?[0-9]*\s?\%$/', $value)) {
 				// Convert value to number
 				$cell->setValueExplicit( (float)str_replace('%', '', $value) / 100, PHPExcel_Cell_DataType::TYPE_NUMERIC);
-
 				// Set style
 				$cell->getParent()->getStyle( $cell->getCoordinate() )->getNumberFormat()->setFormatCode( PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE );
-
 				return true;
 			}
 
@@ -69,13 +92,10 @@ class PHPExcel_Cell_AdvancedValueBinder extends PHPExcel_Cell_DefaultValueBinder
 			if (preg_match('/^(\d|[0-1]\d|2[0-3]):[0-5]\d$/', $value)) {
 				list($h, $m) = explode(':', $value);
 				$days = $h / 24 + $m / 1440;
-
 				// Convert value to number
 				$cell->setValueExplicit($days, PHPExcel_Cell_DataType::TYPE_NUMERIC);
-
 				// Set style
 				$cell->getParent()->getStyle( $cell->getCoordinate() )->getNumberFormat()->setFormatCode( PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME3 );
-
 				return true;
 			}
 
@@ -83,29 +103,24 @@ class PHPExcel_Cell_AdvancedValueBinder extends PHPExcel_Cell_DefaultValueBinder
 			if (preg_match('/^(\d|[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d$/', $value)) {
 				list($h, $m, $s) = explode(':', $value);
 				$days = $h / 24 + $m / 1440 + $s / 86400;
-
 				// Convert value to number
 				$cell->setValueExplicit($days, PHPExcel_Cell_DataType::TYPE_NUMERIC);
-
 				// Set style
 				$cell->getParent()->getStyle( $cell->getCoordinate() )->getNumberFormat()->setFormatCode( PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME4 );
-
 				return true;
 			}
 
 			// Check for datetime, e.g. '2008-12-31', '2008-12-31 15:59', '2008-12-31 15:59:10'
-			if (($v = PHPExcel_Shared_Date::stringToExcel($value)) !== false) {
-				// Convert value to Excel date
-				$cell->setValueExplicit($v, PHPExcel_Cell_DataType::TYPE_NUMERIC);
-
-				// Set style. Either there is a time part or not. Look for ':'
+			if (($d = PHPExcel_Shared_Date::stringToExcel($value)) !== false) {
+				// Convert value to number
+				$cell->setValueExplicit($d, PHPExcel_Cell_DataType::TYPE_NUMERIC);
+				// Determine style. Either there is a time part or not. Look for ':'
 				if (strpos($value, ':') !== false) {
 					$formatCode = 'yyyy-mm-dd h:mm';
 				} else {
 					$formatCode = 'yyyy-mm-dd';
 				}
 				$cell->getParent()->getStyle( $cell->getCoordinate() )->getNumberFormat()->setFormatCode($formatCode);
-
 				return true;
 			}
 
@@ -113,10 +128,8 @@ class PHPExcel_Cell_AdvancedValueBinder extends PHPExcel_Cell_DefaultValueBinder
 			if (strpos($value, "\n") !== false) {
 				$value = PHPExcel_Shared_String::SanitizeUTF8($value);
 				$cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
-
 				// Set style
 				$cell->getParent()->getStyle( $cell->getCoordinate() )->getAlignment()->setWrapText(true);
-
 				return true;
 			}
 		}

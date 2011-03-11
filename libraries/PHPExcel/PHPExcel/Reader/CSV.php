@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -33,12 +33,6 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
 	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
-	PHPExcel_Autoloader::Register();
-	PHPExcel_Shared_ZipStreamWrapper::register();
-	// check mbstring.func_overload
-	if (ini_get('mbstring.func_overload') & 2) {
-		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-	}
 }
 
 /**
@@ -46,7 +40,7 @@ if (!defined('PHPEXCEL_ROOT')) {
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 {
@@ -56,7 +50,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	@access	private
 	 *	@var	string
 	 */
-	private $_inputEncoding;
+	private $_inputEncoding	= 'UTF-8';
 
 	/**
 	 *	Delimiter
@@ -64,7 +58,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	@access	private
 	 *	@var string
 	 */
-	private $_delimiter;
+	private $_delimiter		= ',';
 
 	/**
 	 *	Enclosure
@@ -72,7 +66,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	@access	private
 	 *	@var	string
 	 */
-	private $_enclosure;
+	private $_enclosure		= '"';
 
 	/**
 	 *	Line ending
@@ -80,7 +74,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	@access	private
 	 *	@var	string
 	 */
-	private $_lineEnding;
+	private $_lineEnding	= PHP_EOL;
 
 	/**
 	 *	Sheet index to read
@@ -88,7 +82,24 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	@access	private
 	 *	@var	int
 	 */
-	private $_sheetIndex;
+	private $_sheetIndex	= 0;
+
+	/**
+	 *	Load rows contiguously
+	 *
+	 *	@access	private
+	 *	@var	int
+	 */
+	private $_contiguous	= false;
+
+
+	/**
+	 *	Row counter for loading rows contiguously
+	 *
+	 *	@access	private
+	 *	@var	int
+	 */
+	private $_contiguousRow	= -1;
 
 	/**
 	 *	PHPExcel_Reader_IReadFilter instance
@@ -102,12 +113,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 *	Create a new PHPExcel_Reader_CSV
 	 */
 	public function __construct() {
-		$this->_inputEncoding = 'UTF-8';
-		$this->_delimiter 	= ',';
-		$this->_enclosure 	= '"';
-		$this->_lineEnding 	= PHP_EOL;
-		$this->_sheetIndex 	= 0;
-		$this->_readFilter 	= new PHPExcel_Reader_DefaultReadFilter();
+		$this->_readFilter		= new PHPExcel_Reader_DefaultReadFilter();
 	}	//	function __construct()
 
 	/**
@@ -223,36 +229,63 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 				fgets($fileHandle, 4) == "\xEF\xBB\xBF" ?
 					fseek($fileHandle, 3) : fseek($fileHandle, 0);
 				break;
+			case 'UTF-16LE':
+				fgets($fileHandle, 3) == "\xFF\xFE" ?
+					fseek($fileHandle, 2) : fseek($fileHandle, 0);
+				break;
+			case 'UTF-16BE':
+				fgets($fileHandle, 3) == "\xFE\xFF" ?
+					fseek($fileHandle, 2) : fseek($fileHandle, 0);
+				break;
+			case 'UTF-32LE':
+				fgets($fileHandle, 5) == "\xFF\xFE\x00\x00" ?
+					fseek($fileHandle, 4) : fseek($fileHandle, 0);
+				break;
+			case 'UTF-32BE':
+				fgets($fileHandle, 5) == "\x00\x00\xFE\xFF" ?
+					fseek($fileHandle, 4) : fseek($fileHandle, 0);
+				break;
 			default:
 				break;
 		}
 
-		// Loop through file
-		$currentRow = 0;
-		$rowData = array();
+		$escapeEnclosures = array( "\\" . $this->_enclosure,
+								   $this->_enclosure . $this->_enclosure
+								 );
+
+		// Set our starting row based on whether we're in contiguous mode or not
+		$currentRow = 1;
+		if ($this->_contiguous) {
+			$currentRow = ($this->_contiguousRow == -1) ? $objPHPExcel->getActiveSheet()->getHighestRow(): $this->_contiguousRow;
+		}
+
+		// Loop through each line of the file in turn
 		while (($rowData = fgetcsv($fileHandle, 0, $this->_delimiter, $this->_enclosure)) !== FALSE) {
-			++$currentRow;
-			$rowDataCount = count($rowData);
-			for ($i = 0; $i < $rowDataCount; ++$i) {
-				$columnLetter = PHPExcel_Cell::stringFromColumnIndex($i);
-				if ($rowData[$i] != '' && $this->_readFilter->readCell($columnLetter, $currentRow)) {
+			$columnLetter = 'A';
+			foreach($rowData as $rowDatum) {
+				if ($rowDatum != '' && $this->_readFilter->readCell($columnLetter, $currentRow)) {
 					// Unescape enclosures
-					$rowData[$i] = str_replace("\\" . $this->_enclosure, $this->_enclosure, $rowData[$i]);
-					$rowData[$i] = str_replace($this->_enclosure . $this->_enclosure, $this->_enclosure, $rowData[$i]);
+					$rowDatum = str_replace($escapeEnclosures, $this->_enclosure, $rowDatum);
 
 					// Convert encoding if necessary
 					if ($this->_inputEncoding !== 'UTF-8') {
-						$rowData[$i] = PHPExcel_Shared_String::ConvertEncoding($rowData[$i], 'UTF-8', $this->_inputEncoding);
+						$rowDatum = PHPExcel_Shared_String::ConvertEncoding($rowDatum, 'UTF-8', $this->_inputEncoding);
 					}
 
 					// Set cell value
-					$objPHPExcel->getActiveSheet()->getCell($columnLetter . $currentRow)->setValue($rowData[$i]);
+					$objPHPExcel->getActiveSheet()->getCell($columnLetter . $currentRow)->setValue($rowDatum);
 				}
+				++$columnLetter;
 			}
+			++$currentRow;
 		}
 
 		// Close file
 		fclose($fileHandle);
+
+		if ($this->_contiguous) {
+			$this->_contiguousRow = $currentRow;
+		}
 
 		// Return
 		return $objPHPExcel;
@@ -348,4 +381,31 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 		$this->_sheetIndex = $pValue;
 		return $this;
 	}	//	function setSheetIndex()
+
+	/**
+	 *	Set Contiguous
+	 *
+	 *	@access	public
+	 *	@param string $pValue Input encoding
+	 */
+	public function setContiguous($contiguous = false)
+	{
+		$this->_contiguous = (bool)$contiguous;
+		if (!$contiguous) {
+			$this->_contiguousRow	= -1;
+		}
+
+		return $this;
+	}	//	function setInputEncoding()
+
+	/**
+	 *	Get Contiguous
+	 *
+	 *	@access	public
+	 *	@return boolean
+	 */
+	public function getContiguous() {
+		return $this->_contiguous;
+	}	//	function getSheetIndex()
+
 }

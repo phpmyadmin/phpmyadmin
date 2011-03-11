@@ -126,6 +126,9 @@ foreach ($js_messages as $name => $js_message) {
 /* Calendar */
 echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage'] . 'b_calendar.png' . "';\n";
 
+/* Image path */
+echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
+
 /* Version */
 echo "var pmaversion = '" . PMA_VERSION . "';\n";
 

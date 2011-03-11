@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -33,12 +33,6 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
 	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
-	PHPExcel_Autoloader::Register();
-	PHPExcel_Shared_ZipStreamWrapper::register();
-	// check mbstring.func_overload
-	if (ini_get('mbstring.func_overload') & 2) {
-		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-	}
 }
 
 /**
@@ -46,7 +40,7 @@ if (!defined('PHPEXCEL_ROOT')) {
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 {
@@ -55,35 +49,14 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	 *
 	 * @var string
 	 */
-	private $_inputEncoding;
-
-	/**
-	 * Delimiter
-	 *
-	 * @var string
-	 */
-	private $_delimiter;
-
-	/**
-	 * Enclosure
-	 *
-	 * @var string
-	 */
-	private $_enclosure;
-
-	/**
-	 * Line ending
-	 *
-	 * @var string
-	 */
-	private $_lineEnding;
+	private $_inputEncoding	= 'ANSI';
 
 	/**
 	 * Sheet index to read
 	 *
 	 * @var int
 	 */
-	private $_sheetIndex;
+	private $_sheetIndex 	= 0;
 
 	/**
 	 * Formats
@@ -110,11 +83,6 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	 * Create a new PHPExcel_Reader_SYLK
 	 */
 	public function __construct() {
-		$this->_inputEncoding = 'ANSI';
-		$this->_delimiter 	= ';';
-		$this->_enclosure 	= '"';
-		$this->_lineEnding 	= PHP_EOL;
-		$this->_sheetIndex 	= 0;
 		$this->_readFilter 	= new PHPExcel_Reader_DefaultReadFilter();
 	}
 
@@ -302,9 +270,10 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 						case 'E' :	$cellDataFormula = '='.substr($rowDatum,1);
 									//	Convert R1C1 style references to A1 style references (but only when not quoted)
 									$temp = explode('"',$cellDataFormula);
-									foreach($temp as $key => &$value) {
+									$key = false;
+									foreach($temp as &$value) {
 										//	Only count/replace in alternate array entries
-										if (($key % 2) == 0) {
+										if ($key = !$key) {
 											preg_match_all('/(R(\[?-?\d*\]?))(C(\[?-?\d*\]?))/',$value, $cellReferences,PREG_SET_ORDER+PREG_OFFSET_CAPTURE);
 											//	Reverse the matches array, otherwise all our offsets will become incorrect if we modify our way
 											//		through the formula from left to right. Reversing means that we work right to left.through
@@ -421,69 +390,6 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 
 		// Return
 		return $objPHPExcel;
-	}
-
-	/**
-	 * Get delimiter
-	 *
-	 * @return string
-	 */
-	public function getDelimiter() {
-		return $this->_delimiter;
-	}
-
-	/**
-	 * Set delimiter
-	 *
-	 * @param	string	$pValue		Delimiter, defaults to ,
-	 * @return PHPExcel_Reader_SYLK
-	 */
-	public function setDelimiter($pValue = ',') {
-		$this->_delimiter = $pValue;
-		return $this;
-	}
-
-	/**
-	 * Get enclosure
-	 *
-	 * @return string
-	 */
-	public function getEnclosure() {
-		return $this->_enclosure;
-	}
-
-	/**
-	 * Set enclosure
-	 *
-	 * @param	string	$pValue		Enclosure, defaults to "
-	 * @return PHPExcel_Reader_SYLK
-	 */
-	public function setEnclosure($pValue = '"') {
-		if ($pValue == '') {
-			$pValue = '"';
-		}
-		$this->_enclosure = $pValue;
-		return $this;
-	}
-
-	/**
-	 * Get line ending
-	 *
-	 * @return string
-	 */
-	public function getLineEnding() {
-		return $this->_lineEnding;
-	}
-
-	/**
-	 * Set line ending
-	 *
-	 * @param	string	$pValue		Line ending, defaults to OS line ending (PHP_EOL)
-	 * @return PHPExcel_Reader_SYLK
-	 */
-	public function setLineEnding($pValue = PHP_EOL) {
-		$this->_lineEnding = $pValue;
-		return $this;
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Comment implements PHPExcel_IComparable
 {
@@ -91,6 +91,13 @@ class PHPExcel_Comment implements PHPExcel_IComparable
 	 */
 	private $_fillColor;
 
+	/**
+	 * Alignment
+	 *
+	 * @var string
+	 */
+	private $_alignment;
+
     /**
      * Create a new PHPExcel_Comment
      *
@@ -99,9 +106,10 @@ class PHPExcel_Comment implements PHPExcel_IComparable
     public function __construct()
     {
     	// Initialise variables
-    	$this->_author		  = 'Author';
-    	$this->_text		  = new PHPExcel_RichText();
-    	$this->_fillColor     = new PHPExcel_Style_Color('FFFFFFE1');
+    	$this->_author		= 'Author';
+    	$this->_text		= new PHPExcel_RichText();
+    	$this->_fillColor	= new PHPExcel_Style_Color('FFFFFFE1');
+		$this->_alignment	= PHPExcel_Style_Alignment::HORIZONTAL_GENERAL;
     }
 
     /**
@@ -253,6 +261,26 @@ class PHPExcel_Comment implements PHPExcel_IComparable
         return $this->_fillColor;
     }
 
+    /**
+     * Set Alignment
+     *
+     * @param string $pValue
+     * @return PHPExcel_Comment
+     */
+    public function setAlignment($pValue = PHPExcel_Style_Alignment::HORIZONTAL_GENERAL) {
+		$this->_alignment = $pValue;
+		return $this;
+    }
+
+    /**
+     * Get Alignment
+     *
+     * @return string
+     */
+    public function getAlignment() {
+		return $this->_alignment;
+    }
+
 	/**
 	 * Get hash code
 	 *
@@ -268,6 +296,7 @@ class PHPExcel_Comment implements PHPExcel_IComparable
     		. $this->_marginTop
     		. ($this->_visible ? 1 : 0)
     		. $this->_fillColor->getHashCode()
+    		. $this->_alignment
     		. __CLASS__
     	);
     }

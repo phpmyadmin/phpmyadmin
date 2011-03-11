@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,36 +31,33 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Worksheet_SheetView
 {
 	/**
 	 * ZoomScale
-	 * 
+	 *
 	 * Valid values range from 10 to 400.
 	 *
 	 * @var int
 	 */
-	private $_zoomScale;
+	private $_zoomScale			= 100;
 
 	/**
 	 * ZoomScaleNormal
-	 * 
+	 *
 	 * Valid values range from 10 to 400.
 	 *
 	 * @var int
 	 */
-	private $_zoomScaleNormal;
+	private $_zoomScaleNormal	= 100;
 
     /**
      * Create a new PHPExcel_Worksheet_SheetView
      */
     public function __construct()
     {
-    	// Initialise values
-    	$this->_zoomScale 				= 100;
-    	$this->_zoomScaleNormal 		= 100;
     }
 
 	/**
@@ -91,7 +88,7 @@ class PHPExcel_Worksheet_SheetView
 		}
 		return $this;
 	}
-	
+
 	/**
 	 * Get ZoomScaleNormal
 	 *
