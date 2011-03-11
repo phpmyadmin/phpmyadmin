@@ -401,22 +401,26 @@ var row_class = 'even';
 
 function showDetails(i, update_size, insert_size, remove_size, insert_index, remove_index, img_obj, table_name)
 {
-    // The path of the image is split to facilitate comparison
-    var relative_path = (img_obj.src).split("themes/");
+    // a jQuery object
+    var $img = $(img_obj);
+
+    $img.toggleClass('selected');
 
     // The image source is changed when the showDetails function is called.
-    if (relative_path[1] == 'original/img/new_data_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";
-        img_obj.alt = PMA_messages['strClickToUnselect'];  //only for IE browser
-    } else if (relative_path[1] == 'original/img/new_struct_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_struct_selected_hovered.jpg";
-        img_obj.alt = PMA_messages['strClickToUnselect'];
-    } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_struct_hovered.jpg";
-        img_obj.alt = PMA_messages['strClickToSelect'];
-    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_data_hovered.jpg";
-        img_obj.alt = PMA_messages['strClickToSelect'];
+    if ($img.hasClass('selected')) {
+        if ($img.hasClass('struct_img')) {
+            $img.attr('src', pmaThemeImage + 'new_struct_selected.jpg');
+        }
+        if ($img.hasClass('data_img')) {
+            $img.attr('src', pmaThemeImage + 'new_data_selected.jpg');
+        }
+    } else {
+        if ($img.hasClass('struct_img')) {
+            $img.attr('src', pmaThemeImage + 'new_struct.jpg');
+        }
+        if ($img.hasClass('data_img')) {
+            $img.attr('src', pmaThemeImage + 'new_data.jpg');
+        }
     }
 
     var div = document.getElementById("list");
@@ -430,8 +434,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         row_class = 'even';
     }
     // If the red or green button against a table name is pressed then append a new row to show the details of differences of this table.
-    if ((relative_path[1] != 'original/img/new_struct_selected_hovered.jpg') && (relative_path[1] != 'original/img/new_data_selected_hovered.jpg')) {
-
+    if ($img.hasClass('selected')) {
         var newRow = document.createElement("tr");
         newRow.setAttribute("class", row_class);
         newRow.className = row_class;
@@ -469,7 +472,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         insert_rows.align = "center";
 
         var tick_image = document.createElement("img");
-        tick_image.src = "./themes/original/img/s_success.png";
+        tick_image.src = pmaThemeImage + "s_success.png";
 
         if (update_size == '' && insert_size == '' && remove_size == '') {
           /**
@@ -562,7 +565,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         }
         table_body.appendChild(newRow);
 
-    } else if ((relative_path[1] != 'original/img/new_struct_hovered.jpg') && (relative_path[1] != 'original/img/new_data_hovered.jpg')) {
+    } else {
       //The case when the row showing the details need to be removed from the table i.e. the difference button is deselected now.
         var table_rows = table_body.getElementsByTagName("tr");
         var j;
@@ -586,35 +589,6 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
                 table_rows[index].className = "even";           // for IE browser
             }
         }
-    }
-}
-
-/**
- * Changes the image on hover effects
- *
- * @param   img_obj   the image object whose source needs to be changed
- *
- */
-function change_Image(img_obj)
-{
-     var relative_path = (img_obj.src).split("themes/");
-
-    if (relative_path[1] == 'original/img/new_data.jpg') {
-        img_obj.src = "./themes/original/img/new_data_hovered.jpg";
-    } else if (relative_path[1] == 'original/img/new_struct.jpg') {
-        img_obj.src = "./themes/original/img/new_struct_hovered.jpg";
-    } else if (relative_path[1] == 'original/img/new_struct_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_struct.jpg";
-    } else if (relative_path[1] == 'original/img/new_data_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_data.jpg";
-    } else if (relative_path[1] == 'original/img/new_data_selected.jpg') {
-        img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";
-    } else if(relative_path[1] == 'original/img/new_struct_selected.jpg') {
-        img_obj.src = "./themes/original/img/new_struct_selected_hovered.jpg";
-    } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_struct_selected.jpg";
-    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {
-        img_obj.src = "./themes/original/img/new_data_selected.jpg";
     }
 }
 

@@ -23,5 +23,54 @@ $(document).ready(function() {
             $(this).closest('tbody').find('.server-pass').val('');
             $(this).closest('tbody').find('.server-db').val(parts[4])
         }
-        });
+    });
+
+    $('.struct_img').hover( 
+        // pmaThemeImage comes from js/messages.php
+        function() {
+            // mouse enters the element
+            var $img = $(this);
+            $img.addClass('hover');
+            if ($img.hasClass('selected')) {
+                $img.attr('src', pmaThemeImage + 'new_struct_selected_hovered.jpg');
+            } else {
+                $img.attr('src', pmaThemeImage + 'new_struct_hovered.jpg');
+            }
+        },
+        function() {
+            // mouse leaves the element
+            var $img = $(this);
+            $img.removeClass('hover');
+            if ($img.hasClass('selected')) {
+                $img.attr('src', pmaThemeImage + 'new_struct_selected.jpg');
+            } else {
+                $img.attr('src', pmaThemeImage + 'new_struct.jpg');
+            }
+        }
+    );
+
+    $('.data_img').hover( 
+        // pmaThemeImage comes from js/messages.php
+        function() {
+            // mouse enters the element
+            var $img = $(this);
+            $img.addClass('hover');
+            if ($img.hasClass('selected')) {
+                $img.attr('src', pmaThemeImage + 'new_data_selected_hovered.jpg');
+            } else {
+                $img.attr('src', pmaThemeImage + 'new_data_hovered.jpg');
+            }
+        },
+        function() {
+            // mouse leaves the element
+            var $img = $(this);
+            $img.removeClass('hover');
+            if ($img.hasClass('selected')) {
+                $img.attr('src', pmaThemeImage + 'new_data_selected.jpg');
+            } else {
+                $img.attr('src', pmaThemeImage + 'new_data.jpg');
+            }
+        }
+    );
+
 });
