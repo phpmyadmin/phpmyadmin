@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -33,34 +33,31 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
 	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
-	PHPExcel_Autoloader::Register();
-	PHPExcel_Shared_ZipStreamWrapper::register();
-	// check mbstring.func_overload
-	if (ini_get('mbstring.func_overload') & 2) {
-		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-	}
 }
 
 /**
- * PHPExcel_Reader_Excel2007
+ *	PHPExcel_Reader_Excel2007
  *
- * @category   PHPExcel
- * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ *	@category	PHPExcel
+ *	@package	PHPExcel_Reader
+ *	@copyright	Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 {
 	/**
-	 * Read data only?
+	 *	Read data only?
+	 *	Identifies whether the Reader should only read data values for cells, and ignore any formatting information;
+	 *		or whether it should read both data and formatting
 	 *
-	 * @var boolean
+	 *	@var	boolean
 	 */
 	private $_readDataOnly = false;
 
 	/**
-	 * Restict which sheets should be loaded?
+	 *	Restrict which sheets should be loaded?
+	 *	This property holds an array of worksheet names to be loaded. If null, then all worksheets will be loaded.
 	 *
-	 * @var array
+	 *	@var array of string
 	 */
 	private $_loadSheetsOnly = null;
 
@@ -71,23 +68,40 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	 */
 	private $_readFilter = null;
 
-
+	/**
+	 * PHPExcel_ReferenceHelper instance
+	 *
+	 * @var PHPExcel_ReferenceHelper
+	 */
 	private $_referenceHelper = null;
 
 	/**
-	 * Read data only?
+	 * PHPExcel_Reader_Excel2007_Theme instance
 	 *
-	 * @return boolean
+	 * @var PHPExcel_Reader_Excel2007_Theme
+	 */
+	private static $_theme = null;
+
+
+	/**
+	 *	Read data only?
+	 *		If this is true, then the Reader will only read data values for cells, it will not read any formatting information.
+	 *		If false (the default) it will read data and formatting.
+	 *
+	 *	@return	boolean
 	 */
 	public function getReadDataOnly() {
 		return $this->_readDataOnly;
 	}
 
 	/**
-	 * Set read data only
+	 *	Set read data only
+	 *		Set to true, to advise the Reader only to read data values for cells, and to ignore any formatting information.
+	 *		Set to false (the default) to advise the Reader to read both data and formatting for cells.
 	 *
-	 * @param boolean $pValue
-	 * @return PHPExcel_Reader_Excel2007
+	 *	@param	boolean	$pValue
+	 *
+	 *	@return	PHPExcel_Reader_Excel2007
 	 */
 	public function setReadDataOnly($pValue = false) {
 		$this->_readDataOnly = $pValue;
@@ -95,9 +109,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	}
 
 	/**
-	 * Get which sheets to load
+	 *	Get which sheets to load
+	 *		Returns either an array of worksheet names (the list of worksheets that should be loaded), or a null
+	 *			indicating that all worksheets in the workbook should be loaded.
 	 *
-	 * @return mixed
+	 *	@return mixed
 	 */
 	public function getLoadSheetsOnly()
 	{
@@ -105,10 +121,13 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	}
 
 	/**
-	 * Set which sheets to load
+	 *	Set which sheets to load
 	 *
-	 * @param mixed $value
-	 * @return PHPExcel_Reader_Excel2007
+	 *	@param mixed $value
+	 *		This should be either an array of worksheet names to be loaded, or a string containing a single worksheet name.
+	 *		If NULL, then it tells the Reader to read all worksheets in the workbook
+	 *
+	 *	@return PHPExcel_Reader_Excel2007
 	 */
 	public function setLoadSheetsOnly($value = null)
 	{
@@ -118,9 +137,10 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	}
 
 	/**
-	 * Set all sheets to load
+	 *	Set all sheets to load
+	 *		Tells the Reader to load all worksheets from the workbook.
 	 *
-	 * @return PHPExcel_Reader_Excel2007
+	 *	@return PHPExcel_Reader_Excel2007
 	 */
 	public function setLoadAllSheets()
 	{
@@ -174,39 +194,47 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
+		$xl = false;
 		// Load file
 		$zip = new ZipArchive;
 		if ($zip->open($pFilename) === true) {
 			// check if it is an OOXML archive
 			$rels = simplexml_load_string($this->_getFromZipArchive($zip, "_rels/.rels"));
+			foreach ($rels->Relationship as $rel) {
+				switch ($rel["Type"]) {
+					case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument":
+						if (basename($rel["Target"]) == 'workbook.xml') {
+							$xl = true;
+						}
+						break;
 
+				}
+			}
 			$zip->close();
-
-			return ($rels !== false);
 		}
 
-		return false;
+		return $xl;
 	}
 
-	private function _castToBool($c) {
+	private static function _castToBool($c) {
 //		echo 'Initial Cast to Boolean<br />';
 		$value = isset($c->v) ? (string) $c->v : null;
 		if ($value == '0') {
-			$value = false;
+			return false;
 		} elseif ($value == '1') {
-			$value = true;
+			return true;
 		} else {
-			$value = (bool)$c->v;
+			return (bool)$c->v;
 		}
 		return $value;
 	}	//	function _castToBool()
 
-	private function _castToError($c) {
+	private static function _castToError($c) {
 //		echo 'Initial Cast to Error<br />';
 		return isset($c->v) ? (string) $c->v : null;;
 	}	//	function _castToError()
 
-	private function _castToString($c) {
+	private static function _castToString($c) {
 //		echo 'Initial Cast to String<br />';
 		return isset($c->v) ? (string) $c->v : null;;
 	}	//	function _castToString()
@@ -216,7 +244,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 //		echo '$c->f is '.$c->f.'<br />';
 		$cellDataType 		= 'f';
 		$value 				= "={$c->f}";
-		$calculatedValue 	= $this->$castBaseType($c);
+		$calculatedValue 	= self::$castBaseType($c);
 
 		// Shared formula?
 		if (isset($c->f['t']) && strtolower((string)$c->f['t']) == 'shared') {
@@ -275,16 +303,47 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 			$contents = $archive->getFromName(substr($fileName, 1));
 		}
 
-		/*
-		if (strpos($contents, '<?xml') !== false && strpos($contents, '<?xml') !== 0)
-		{
-			$contents = substr($contents, strpos($contents, '<?xml'));
-		}
-		var_dump($fileName);
-		var_dump($contents);
-		*/
 		return $contents;
 	}
+
+	/**
+	 * Reads names of the worksheets from a file, without parsing the whole file to a PHPExcel object
+	 *
+	 * @param 	string 		$pFilename
+	 * @throws 	Exception
+	 */
+	public function listWorksheetNames($pFilename)
+	{
+		// Check if file exists
+		if (!file_exists($pFilename)) {
+			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+		}
+
+		$worksheetNames = array();
+
+		$zip = new ZipArchive;
+		$zip->open($pFilename);
+
+		$rels = simplexml_load_string($this->_getFromZipArchive($zip, "_rels/.rels")); //~ http://schemas.openxmlformats.org/package/2006/relationships");
+		foreach ($rels->Relationship as $rel) {
+			switch ($rel["Type"]) {
+				case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument":
+					$xmlWorkbook = simplexml_load_string($this->_getFromZipArchive($zip, "{$rel['Target']}"));  //~ http://schemas.openxmlformats.org/spreadsheetml/2006/main");
+
+					if ($xmlWorkbook->sheets) {
+						foreach ($xmlWorkbook->sheets->sheet as $eleSheet) {
+							// Check if sheet should be skipped
+							$worksheetNames[] = (string) $eleSheet["name"];
+						}
+					}
+			}
+		}
+
+		$zip->close();
+
+		return $worksheetNames;
+	}
+
 
 	/**
 	 * Loads PHPExcel from file
@@ -308,6 +367,44 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 		}
 		$zip = new ZipArchive;
 		$zip->open($pFilename);
+
+		//	Read the theme first, because we need the colour scheme when reading the styles
+		$wbRels = simplexml_load_string($this->_getFromZipArchive($zip, "xl/_rels/workbook.xml.rels")); //~ http://schemas.openxmlformats.org/package/2006/relationships");
+		foreach ($wbRels->Relationship as $rel) {
+			switch ($rel["Type"]) {
+				case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme":
+					$themeOrderArray = array('lt1','dk1','lt2','dk2');
+					$themeOrderAdditional = count($themeOrderArray);
+
+					$xmlTheme = simplexml_load_string($this->_getFromZipArchive($zip, "xl/{$rel['Target']}"));
+					if (is_object($xmlTheme)) {
+						$xmlThemeName = $xmlTheme->attributes();
+						$xmlTheme = $xmlTheme->children("http://schemas.openxmlformats.org/drawingml/2006/main");
+						$themeName = (string)$xmlThemeName['name'];
+
+						$colourScheme = $xmlTheme->themeElements->clrScheme->attributes();
+						$colourSchemeName = (string)$colourScheme['name'];
+						$colourScheme = $xmlTheme->themeElements->clrScheme->children("http://schemas.openxmlformats.org/drawingml/2006/main");
+
+						$themeColours = array();
+						foreach ($colourScheme as $k => $xmlColour) {
+							$themePos = array_search($k,$themeOrderArray);
+							if ($themePos === false) {
+								$themePos = $themeOrderAdditional++;
+							}
+							if (isset($xmlColour->sysClr)) {
+								$xmlColourData = $xmlColour->sysClr->attributes();
+								$themeColours[$themePos] = $xmlColourData['lastClr'];
+							} elseif (isset($xmlColour->srgbClr)) {
+								$xmlColourData = $xmlColour->srgbClr->attributes();
+								$themeColours[$themePos] = $xmlColourData['val'];
+							}
+						}
+						self::$_theme = new PHPExcel_Reader_Excel2007_Theme($themeName,$colourSchemeName,$themeColours);
+					}
+					break;
+			}
+		}
 
 		$rels = simplexml_load_string($this->_getFromZipArchive($zip, "_rels/.rels")); //~ http://schemas.openxmlformats.org/package/2006/relationships");
 		foreach ($rels->Relationship as $rel) {
@@ -345,8 +442,19 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 				case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/custom-properties":
 					$xmlCore = simplexml_load_string($this->_getFromZipArchive($zip, "{$rel['Target']}"));
 					if (is_object($xmlCore)) {
-						$xmlCore->registerXPathNamespace("vt", "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes");
 						$docProps = $excel->getProperties();
+						foreach ($xmlCore as $xmlProperty) {
+							$cellDataOfficeAttributes = $xmlProperty->attributes();
+							if (isset($cellDataOfficeAttributes['name'])) {
+								$propertyName = (string) $cellDataOfficeAttributes['name'];
+								$cellDataOfficeChildren = $xmlProperty->children('http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes');
+								$attributeType = $cellDataOfficeChildren->getName();
+								$attributeValue = (string) $cellDataOfficeChildren->{$attributeType};
+								$attributeValue = PHPExcel_DocumentProperties::convertProperty($attributeValue,$attributeType);
+								$attributeType = PHPExcel_DocumentProperties::convertPropertyType($attributeType);
+								$docProps->setCustomProperty($propertyName,$attributeValue,$attributeType);
+							}
+						}
 					}
 				break;
 
@@ -418,7 +526,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 
 							// add style to cellXf collection
 							$objStyle = new PHPExcel_Style;
-							$this->_readStyle($objStyle, $style);
+							self::_readStyle($objStyle, $style);
 							$excel->addCellXf($objStyle);
 						}
 
@@ -445,7 +553,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 
 							// add style to cellStyleXf collection
 							$objStyle = new PHPExcel_Style;
-							$this->_readStyle($objStyle, $cellStyle);
+							self::_readStyle($objStyle, $cellStyle);
 							$excel->addCellStyleXf($objStyle);
 						}
 					}
@@ -455,7 +563,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 						if ($xmlStyles->dxfs) {
 							foreach ($xmlStyles->dxfs->dxf as $dxf) {
 								$style = new PHPExcel_Style;
-								$this->_readStyle($style, $dxf);
+								self::_readStyle($style, $dxf);
 								$dxfs[] = $style;
 							}
 						}
@@ -467,7 +575,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 									if (isset($cellStyles[intval($cellStyle['xfId'])])) {
 										// Set default style
 										$style = new PHPExcel_Style;
-										$this->_readStyle($style, $cellStyles[intval($cellStyle['xfId'])]);
+										self::_readStyle($style, $cellStyles[intval($cellStyle['xfId'])]);
 
 										// normal style, currently not using it for anything
 									}
@@ -710,7 +818,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 											case "b":
 	//											echo 'Boolean<br />';
 												if (!isset($c->f)) {
-													$value = $this->_castToBool($c);
+													$value = self::_castToBool($c);
 												} else {
 													// Formula
 													$this->_castToFormula($c,$r,$cellDataType,$value,$calculatedValue,$sharedFormulas,'_castToBool');
@@ -730,7 +838,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 											case "e":
 	//											echo 'Error<br />';
 												if (!isset($c->f)) {
-													$value = $this->_castToError($c);
+													$value = self::_castToError($c);
 												} else {
 													// Formula
 													$this->_castToFormula($c,$r,$cellDataType,$value,$calculatedValue,$sharedFormulas,'_castToError');
@@ -743,7 +851,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	//											echo 'Default<br />';
 												if (!isset($c->f)) {
 	//												echo 'Not a Formula<br />';
-													$value = $this->_castToString($c);
+													$value = self::_castToString($c);
 												} else {
 	//												echo 'Treat as Formula<br />';
 													// Formula
@@ -1267,7 +1375,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 									// Extract range
 									$extractedRange = (string)$definedName;
 									$extractedRange = preg_replace('/\'(\w+)\'\!/', '', $extractedRange);
-									$extractedRange = str_replace('$', '', $extractedRange);
+									if (($spos = strpos($extractedRange,'!')) !== false) {
+										$extractedRange = substr($extractedRange,0,$spos).str_replace('$', '', substr($extractedRange,$spos));
+									} else {
+										$extractedRange = str_replace('$', '', $extractedRange);
+									}
 
 									// Valid range?
 									if (stripos((string)$definedName, '#REF!') !== false || $extractedRange == '') {
@@ -1330,7 +1442,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 								// Extract range
 								$extractedRange = (string)$definedName;
 								$extractedRange = preg_replace('/\'(\w+)\'\!/', '', $extractedRange);
-								$extractedRange = str_replace('$', '', $extractedRange);
+								if (($spos = strpos($extractedRange,'!')) !== false) {
+									$extractedRange = substr($extractedRange,0,$spos).str_replace('$', '', substr($extractedRange,$spos));
+								} else {
+									$extractedRange = str_replace('$', '', $extractedRange);
+								}
 
 								// Valid range?
 								if (stripos((string)$definedName, '#REF!') !== false || $extractedRange == '') {
@@ -1407,18 +1523,34 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 
 		}
 
+		$zip->close();
+
 		return $excel;
 	}
 
-	private function _readColor($color) {
+	private static function _readColor($color, $background=false) {
 		if (isset($color["rgb"])) {
 			return (string)$color["rgb"];
 		} else if (isset($color["indexed"])) {
-			return PHPExcel_Style_Color::indexedColor($color["indexed"])->getARGB();
+			return PHPExcel_Style_Color::indexedColor($color["indexed"],$background)->getARGB();
+		} else if (isset($color["theme"])) {
+			if (!is_null(self::$_theme)) {
+				$returnColour = self::$_theme->getColourByIndex((int)$color["theme"]);
+				if (isset($color["tint"])) {
+					$tintAdjust = (float) $color["tint"];
+					$returnColour = PHPExcel_Style_Color::changeBrightness($returnColour, $tintAdjust);
+				}
+				return 'FF'.$returnColour;
+			}
 		}
+
+		if ($background) {
+			return 'FFFFFFFF';
+		}
+		return 'FF000000';
 	}
 
-	private function _readStyle($docStyle, $style) {
+	private static function _readStyle($docStyle, $style) {
 		// format code
 		if (isset($style->numFmt)) {
 			$docStyle->getNumberFormat()->setFormatCode($style->numFmt);
@@ -1437,7 +1569,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 			if (isset($style->font->strike)) {
 				$docStyle->getFont()->setStrikethrough(!isset($style->font->strike["val"]) || $style->font->strike["val"] == 'true' || $style->font->strike["val"] == '1');
 			}
-			$docStyle->getFont()->getColor()->setARGB($this->_readColor($style->font->color));
+			$docStyle->getFont()->getColor()->setARGB(self::_readColor($style->font->color));
 
 			if (isset($style->font->u) && !isset($style->font->u["val"])) {
 				$docStyle->getFont()->setUnderline(PHPExcel_Style_Font::UNDERLINE_SINGLE);
@@ -1460,21 +1592,23 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 		if (isset($style->fill)) {
 			if ($style->fill->gradientFill) {
 				$gradientFill = $style->fill->gradientFill[0];
-				$docStyle->getFill()->setFillType((string) $gradientFill["type"]);
+				if(!empty($gradientFill["type"])) {
+					$docStyle->getFill()->setFillType((string) $gradientFill["type"]);
+				}
 				$docStyle->getFill()->setRotation(floatval($gradientFill["degree"]));
 				$gradientFill->registerXPathNamespace("sml", "http://schemas.openxmlformats.org/spreadsheetml/2006/main");
-				$docStyle->getFill()->getStartColor()->setARGB($this->_readColor( self::array_item($gradientFill->xpath("sml:stop[@position=0]"))->color) );
-				$docStyle->getFill()->getEndColor()->setARGB($this->_readColor( self::array_item($gradientFill->xpath("sml:stop[@position=1]"))->color) );
+				$docStyle->getFill()->getStartColor()->setARGB(self::_readColor( self::array_item($gradientFill->xpath("sml:stop[@position=0]"))->color) );
+				$docStyle->getFill()->getEndColor()->setARGB(self::_readColor( self::array_item($gradientFill->xpath("sml:stop[@position=1]"))->color) );
 			} elseif ($style->fill->patternFill) {
 				$patternType = (string)$style->fill->patternFill["patternType"] != '' ? (string)$style->fill->patternFill["patternType"] : 'solid';
 				$docStyle->getFill()->setFillType($patternType);
 				if ($style->fill->patternFill->fgColor) {
-					$docStyle->getFill()->getStartColor()->setARGB($this->_readColor($style->fill->patternFill->fgColor));
+					$docStyle->getFill()->getStartColor()->setARGB(self::_readColor($style->fill->patternFill->fgColor,true));
 				} else {
 					$docStyle->getFill()->getStartColor()->setARGB('FF000000');
 				}
 				if ($style->fill->patternFill->bgColor) {
-					$docStyle->getFill()->getEndColor()->setARGB($this->_readColor($style->fill->patternFill->bgColor));
+					$docStyle->getFill()->getEndColor()->setARGB(self::_readColor($style->fill->patternFill->bgColor,true));
 				}
 			}
 		}
@@ -1498,11 +1632,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 			} elseif ($diagonalUp == true && $diagonalDown == true) {
 				$docStyle->getBorders()->setDiagonalDirection(PHPExcel_Style_Borders::DIAGONAL_BOTH);
 			}
-			$this->_readBorder($docStyle->getBorders()->getLeft(), $style->border->left);
-			$this->_readBorder($docStyle->getBorders()->getRight(), $style->border->right);
-			$this->_readBorder($docStyle->getBorders()->getTop(), $style->border->top);
-			$this->_readBorder($docStyle->getBorders()->getBottom(), $style->border->bottom);
-			$this->_readBorder($docStyle->getBorders()->getDiagonal(), $style->border->diagonal);
+			self::_readBorder($docStyle->getBorders()->getLeft(), $style->border->left);
+			self::_readBorder($docStyle->getBorders()->getRight(), $style->border->right);
+			self::_readBorder($docStyle->getBorders()->getTop(), $style->border->top);
+			self::_readBorder($docStyle->getBorders()->getBottom(), $style->border->bottom);
+			self::_readBorder($docStyle->getBorders()->getDiagonal(), $style->border->diagonal);
 		}
 
 		// alignment
@@ -1543,12 +1677,12 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 		}
 	}
 
-	private function _readBorder($docBorder, $eleBorder) {
+	private static function _readBorder($docBorder, $eleBorder) {
 		if (isset($eleBorder["style"])) {
 			$docBorder->setBorderStyle((string) $eleBorder["style"]);
 		}
 		if (isset($eleBorder->color)) {
-			$docBorder->getColor()->setARGB($this->_readColor($eleBorder->color));
+			$docBorder->getColor()->setARGB(self::_readColor($eleBorder->color));
 		}
 	}
 
@@ -1574,7 +1708,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 					}
 
 					if (isset($run->rPr->color)) {
-						$objText->getFont()->setColor( new PHPExcel_Style_Color( $this->_readColor($run->rPr->color) ) );
+						$objText->getFont()->setColor( new PHPExcel_Style_Color( self::_readColor($run->rPr->color) ) );
 					}
 
 					if ( (isset($run->rPr->b["val"]) && ((string) $run->rPr->b["val"] == 'true' || (string) $run->rPr->b["val"] == '1'))
@@ -1623,11 +1757,9 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	}
 
 	private static function toCSSArray($style) {
-		$style = str_replace("\r", "", $style);
-		$style = str_replace("\n", "", $style);
+		$style = str_replace(array("\r","\n"), "", $style);
 
 		$temp = explode(';', $style);
-
 		$style = array();
 		foreach ($temp as $item) {
 			$item = explode(':', $item);

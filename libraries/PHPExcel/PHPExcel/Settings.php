@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Settings
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 /** PHPExcel root directory */
@@ -32,17 +32,45 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../');
 	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
-	PHPExcel_Autoloader::Register();
-	PHPExcel_Shared_ZipStreamWrapper::register();
-	// check mbstring.func_overload
-	if (ini_get('mbstring.func_overload') & 2) {
-		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-	}
 }
 
 
 class PHPExcel_Settings
 {
+	/**	constants */
+	const PCLZIP		= 'PHPExcel_Shared_ZipArchive';
+	const ZIPARCHIVE	= 'ZipArchive';
+
+
+	private static $_zipClass	= self::ZIPARCHIVE;
+
+
+	/**
+	 * Set the Zip Class to use (PCLZip or ZipArchive)
+	 *
+	 * @param	 string	$zipClass			PHPExcel_Settings::PCLZip or PHPExcel_Settings::ZipArchive
+	 * @return	 boolean					Success or failure
+	 */
+	public static function setZipClass($zipClass) {
+		if (($zipClass == self::PCLZIP) ||
+			($zipClass == self::ZIPARCHIVE)) {
+			self::$_zipClass = $zipClass;
+			return True;
+		}
+		return False;
+	}	//	function setZipClass()
+
+
+	/**
+	 * Return the Zip Class to use (PCLZip or ZipArchive)
+	 *
+	 * @return	 string						Zip Class to use	- PHPExcel_Settings::PCLZip or PHPExcel_Settings::ZipArchive
+	 */
+	public static function getZipClass() {
+		return self::$_zipClass;
+	}	//	function getZipClass()
+
+
 	public static function getCacheStorageMethod() {
 		return PHPExcel_CachedObjectStorageFactory::$_cacheStorageMethod;
 	}	//	function getCacheStorageMethod()

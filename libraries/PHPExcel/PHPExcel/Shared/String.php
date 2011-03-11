@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2010 PHPExcel
+ * Copyright (c) 2006 - 2011 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.4, 2010-08-26
+ * @version    1.7.6, 2011-02-27
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2011 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Shared_String
 {
@@ -68,6 +68,13 @@ class PHPExcel_Shared_String
 	 * @var string
 	 */
 	private static $_thousandsSeparator;
+
+	/**
+	 * Currency code
+	 *
+	 * @var string
+	 */
+	private static $_currencyCode;
 
 	/**
 	 * Is mbstring extension avalable?
@@ -303,7 +310,7 @@ class PHPExcel_Shared_String
 
 		// Sometimes iconv_substr('A', 0, 1, 'UTF-8') just returns false in PHP 5.2.0
 		// we cannot use iconv in that case either (http://bugs.php.net/bug.php?id=37773)
-		if (!@iconv('UTF-8', 'UTF-16LE', 'x')) {
+		if (!@iconv_substr('A', 0, 1, 'UTF-8')) {
 			self::$_isIconvEnabled = false;
 			return false;
 		}
@@ -322,6 +329,15 @@ class PHPExcel_Shared_String
 		return true;
 	}
 
+	public static function buildCharacterSets() {
+		if(empty(self::$_controlCharacters)) {
+			self::_buildControlCharacters();
+		}
+		if(empty(self::$_SYLKCharacters)) {
+			self::_buildSYLKCharacters();
+		}
+	}
+
 	/**
 	 * Convert from OpenXML escaped control character to PHP control character
 	 *
@@ -337,10 +353,6 @@ class PHPExcel_Shared_String
 	 * @return 	string
 	 */
 	public static function ControlCharacterOOXML2PHP($value = '') {
-		if(empty(self::$_controlCharacters)) {
-			self::_buildControlCharacters();
-		}
-
 		return str_replace( array_keys(self::$_controlCharacters), array_values(self::$_controlCharacters), $value );
 	}
 
@@ -359,10 +371,6 @@ class PHPExcel_Shared_String
 	 * @return 	string
 	 */
 	public static function ControlCharacterPHP2OOXML($value = '') {
-		if(empty(self::$_controlCharacters)) {
-			self::_buildControlCharacters();
-		}
-
 		return str_replace( array_values(self::$_controlCharacters), array_keys(self::$_controlCharacters), $value );
 	}
 
@@ -491,7 +499,7 @@ class PHPExcel_Shared_String
 		// else, no conversion
 		return $value;
 	}
-	
+
 	/**
 	 * Decode UTF-16 encoded strings.
 	 *
@@ -533,18 +541,15 @@ class PHPExcel_Shared_String
 	public static function CountCharacters($value, $enc = 'UTF-8')
 	{
 		if (self::getIsIconvEnabled()) {
-			$count = iconv_strlen($value, $enc);
-			return $count;
+			return iconv_strlen($value, $enc);
 		}
 
 		if (self::getIsMbstringEnabled()) {
-			$count = mb_strlen($value, $enc);
-			return $count;
+			return mb_strlen($value, $enc);
 		}
 
 		// else strlen
-		$count = strlen($value);
-		return $count;
+		return strlen($value);
 	}
 
 	/**
@@ -558,18 +563,15 @@ class PHPExcel_Shared_String
 	public static function Substring($pValue = '', $pStart = 0, $pLength = 0)
 	{
 		if (self::getIsIconvEnabled()) {
-			$string = iconv_substr($pValue, $pStart, $pLength, 'UTF-8');
-			return $string;
+			return iconv_substr($pValue, $pStart, $pLength, 'UTF-8');
 		}
 
 		if (self::getIsMbstringEnabled()) {
-			$string = mb_substr($pValue, $pStart, $pLength, 'UTF-8');
-			return $string;
+			return mb_substr($pValue, $pStart, $pLength, 'UTF-8');
 		}
 
 		// else substr
-		$string = substr($pValue, $pStart, $pLength);
-		return $string;
+		return substr($pValue, $pStart, $pLength);
 	}
 
 
@@ -602,9 +604,8 @@ class PHPExcel_Shared_String
 			$localeconv = localeconv();
 			self::$_decimalSeparator = $localeconv['decimal_point'] != ''
 				? $localeconv['decimal_point'] : $localeconv['mon_decimal_point'];
-				
-			if (self::$_decimalSeparator == '')
-			{
+
+			if (self::$_decimalSeparator == '') {
 				// Default to .
 				self::$_decimalSeparator = '.';
 			}
@@ -651,6 +652,38 @@ class PHPExcel_Shared_String
 	}
 
 	/**
+	 *	Get the currency code. If it has not yet been set explicitly, try to obtain the
+	 *		symbol information from locale.
+	 *
+	 * @return string
+	 */
+	public static function getCurrencyCode()
+	{
+		if (!isset(self::$_currencyCode)) {
+			$localeconv = localeconv();
+			self::$_currencyCode = $localeconv['currency_symbol'] != ''
+				? $localeconv['currency_symbol'] : $localeconv['int_curr_symbol'];
+
+			if (self::$_currencyCode == '') {
+				// Default to $
+				self::$_currencyCode = '$';
+			}
+		}
+		return self::$_currencyCode;
+	}
+
+	/**
+	 *	Set the currency code. Only used by PHPExcel_Style_NumberFormat::toFormattedString()
+	 *		to format output by PHPExcel_Writer_HTML and PHPExcel_Writer_PDF
+	 *
+	 *	@param string $pValue Character for currency code
+	 */
+	public static function setCurrencyCode($pValue = '$')
+	{
+		self::$_currencyCode = $pValue;
+	}
+
+	/**
 	 * Convert SYLK encoded string to UTF-8
 	 *
 	 * @param string $pValue
@@ -661,10 +694,6 @@ class PHPExcel_Shared_String
 		// If there is no escape character in the string there is nothing to do
 		if (strpos($pValue, '') === false) {
 			return $pValue;
-		}
-
-		if(empty(self::$_SYLKCharacters)) {
-			self::_buildSYLKCharacters();
 		}
 
 		foreach (self::$_SYLKCharacters as $k => $v) {
