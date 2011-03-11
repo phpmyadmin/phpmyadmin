@@ -57,7 +57,6 @@ h2 a img{display:inline;}
 
 
 .data{
-width:100%;
 margin: 0 0 12px 0;
 
 }
