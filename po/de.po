@@ -7102,13 +7102,14 @@ msgstr ""
 "vorhanden. Sie sollten es nach der Konfiguration von phpMyAdmin entfernen."
 
 #: main.php:309
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
-"s um herauszufinden warum."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht vollständig konfiguriert, "
+"einige erweiterte Funktionen wurden deaktiviert. Klicken Sie %shier%s, um "
+"herauszufinden warum."
 
 #: main.php:324
 msgid ""
