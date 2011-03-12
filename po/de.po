@@ -6379,9 +6379,8 @@ msgid "Create a page"
 msgstr "Neue Seite erstellen"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 msgid "Page name"
-msgstr "Seite:"
+msgstr "Seitenname"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
