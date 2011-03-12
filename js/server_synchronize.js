@@ -254,50 +254,51 @@ function ApplySelectedChanges(token)
     location.href += append_string;
 }
 
-/**
-* Displays an error message if any text field
-* is left empty other than the port field.
-*
-* @param  string   the form name
-* @param  object   the form
-*
-* @return  boolean  whether the form field is empty or not
-*/
-function validateConnection(form_name, form_obj)
-{
-    var check = true;
-    var src_hostfilled = true;
-    var trg_hostfilled = true;
 
-    for (var i=1; i<form_name.elements.length; i++)
-    {
-        // All the text fields are checked excluding the port field because the default port can be used.
-        if ((form_name.elements[i].type == 'text') && (form_name.elements[i].name != 'src_port') && (form_name.elements[i].name != 'trg_port')) {
-            check = emptyFormElements(form_obj, form_name.elements[i].name);
-            if (check==false) {
-                element = form_name.elements[i].name;
-                if (form_name.elements[i].name == 'src_host') {
-                    src_hostfilled = false;
-                    continue;
-                }
-                if (form_name.elements[i].name == 'trg_host') {
-                    trg_hostfilled = false;
-                    continue;
-                }
-                if ((form_name.elements[i].name == 'src_socket' && src_hostfilled==false) || (form_name.elements[i].name == 'trg_socket' && trg_hostfilled==false))
-                    break;
-                else
-                    continue;
-            }
+/**
+ * Validates a partial form (source part or target part) 
+ *
+ * @param   which   'src' or 'trg' 
+ * @return  boolean  whether the partial form is valid 
+ *
+ */
+function validateSourceOrTarget(which) 
+{
+    var partial_form_is_ok = true;
+
+    if ($("#" + which + "_type").val() != 'cur') {
+        // did not choose "current connection"
+        if ($("input[name='" + which + "_username']").val() == ''
+            || $("input[name='" + which + "_pass']").val() == ''
+            || $("input[name='" + which + "_db']").val() == ''
+            // must have at least a host or a socket
+            || ($("input[name='" + which + "_host']").val() == ''
+                && $("input[name='" + which + "_socket']").val() == '')    
+            // port can be empty
+                ) {
+            partial_form_is_ok = false; 
         }
     }
-    if (!check) {
-        form_obj.reset();
-        element.select();
-        alert(PMA_messages['strFormEmpty']);
-        element.focus();
+    return partial_form_is_ok;
+} 
+/**
+* Displays an error message if any text field
+* is left empty other than the port field, unless
+* we are dealing with the "current connection" choice
+*
+* @return  boolean  whether the form is valid 
+*/
+function validateConnectionParams()
+{
+    var form_is_ok = true;
+
+    if (! validateSourceOrTarget('src') || ! validateSourceOrTarget('trg')) {
+        form_is_ok = false;
     }
-    return check;
+    if (! form_is_ok) {
+        alert(PMA_messages['strFormEmpty']);
+    }
+    return form_is_ok;
 }
 
 $(document).ready(function() {
@@ -369,4 +370,9 @@ $(document).ready(function() {
         }
     );
 
+    $('#buttonGo').click(function(event) {
+        if (! validateConnectionParams()) {
+            event.preventDefault();
+        }
+    });
 });
