@@ -3914,12 +3914,11 @@ msgid "PDF schema: table coordinates"
 msgstr "Table Coords Table"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Tabelle zur Beschreibung der Anzeigefelder, leer lassen für keine "
+"Tabelle zur Beschreibung der Anzeigespalten, leer lassen für keine "
 "Unterstützung; Vorschlag: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
