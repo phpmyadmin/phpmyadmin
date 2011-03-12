@@ -9555,9 +9555,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Einfügen mit %s Zeilen fortfahren"
 
 #: tbl_chart.php:56
-#, fuzzy
 msgid "Chart generated successfully."
-msgstr "Die Benutzerprofile wurden neu geladen."
+msgstr "Diagramm erfolgreich generiert."
 
 #: tbl_chart.php:59
 #, fuzzy
