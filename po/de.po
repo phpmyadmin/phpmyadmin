@@ -2944,9 +2944,8 @@ msgid "Authentication"
 msgstr "Authentifizierung"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 msgid "Authentication settings"
-msgstr "Authentifikationseinstellungen"
+msgstr "Authentifizierungseinstellungen"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
