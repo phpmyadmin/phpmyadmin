@@ -448,7 +448,7 @@ $(document).ready(function() {
                 var blob_index = [];
                 var k = 0;
                 for(var i = 4; i < last_column; i++){
-                    if($this_hide.siblings("td:eq(" + i + ")").children('a:eq(0)').length  ){
+                    if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false){
                         blob_index[k] = i;
                         k++;
                         continue;
@@ -497,7 +497,7 @@ $(document).ready(function() {
                     var blob_index = [];
                     var k = 0;
                     for( var i = 6; i <= rows + 2; i++){
-                         if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") a:eq(0)").length !=0 ){
+                         if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false){
                              blob_index[k] = i;
                              k++;
                              continue;
