@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:09+0200\n"
+"PO-Revision-Date: 2011-03-12 16:10+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7396,9 +7396,8 @@ msgid "This feature is not supported by your web browser"
 msgstr "Dieses Feature wird von ihrem Webbrowser nicht unterstützt"
 
 #: prefs_manage.php:263
-#, fuzzy
 msgid "Merge with current configuration"
-msgstr "Serverkonfiguration"
+msgstr "Mit aktueller Konfiguration zusammenführen"
 
 #: prefs_manage.php:277
 #, php-format
