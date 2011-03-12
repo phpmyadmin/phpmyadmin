@@ -423,34 +423,36 @@ $(document).ready(function() {
         // looping through all columns or rows, to find the required data and then storing it in an array.
 
         var $this_children = $(this).children('span.nowrap').children('a').children('span.nowrap');
-        if (disp_mode != 'vertical'){
+        if (disp_mode != 'vertical') {
             $this_children.empty();
             $this_children.text(PMA_messages['strSave']);
         } else {
-           // vertical 
+            // vertical 
             data_vt = $this_children.html();
             $this_children.text(PMA_messages['strSave']);
         }
        
         var hide_link = '<br /><br /><a id="hide">' + PMA_messages['strHide'] + '</a>';
-        if (disp_mode != 'vertical'){
+        if (disp_mode != 'vertical') {
             $(this).append(hide_link);
-            $('#table_results tbody tr td a#hide').click(function(){
+            $('#table_results tbody tr td a#hide').click(function() {
                 $this_children = $(this).siblings('span.nowrap').children('a').children('span.nowrap');
                 $this_children.empty();
                 $this_children.text(PMA_messages['strInlineEdit']);
+
                 var $this_hide = $(this).parent();
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
                 $this_hide.parent().removeClass("hover");
                 $this_hide.siblings().removeClass("hover");
+
                 var last_column = $this_hide.siblings().length;
                 var txt = '';
-                for(var i = 4; i < last_column; i++){
-                    if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false){
+                for(var i = 4; i < last_column; i++) {
+                    if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
                     txt = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
-                    if($this_hide.siblings("td:eq(" + i + ")").children().length !=0){
+                    if($this_hide.siblings("td:eq(" + i + ")").children().length != 0) {
                         $this_hide.siblings("td:eq(" + i + ")").empty();
                         $this_hide.siblings("td:eq(" + i + ")").append(txt);
                     }
@@ -458,22 +460,20 @@ $(document).ready(function() {
                 $(this).prev().prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
-                });
+            });
         } else {
-            var txt='';
-            var rows=$(this).parent().siblings().length;;
+            var txt = '';
+            var rows = $(this).parent().siblings().length;
 
             $(this).append(hide_link);
-            $('#table_results tbody tr td a#hide').click(function(){
-                  
-                    var pos=$(this).parent().index();
-                    var $chg_submit=$(this).parent().children('span.nowrap').children('a').children('span.nowrap');
+            $('#table_results tbody tr td a#hide').click(function() {
+                    var pos = $(this).parent().index();
+                    var $chg_submit = $(this).parent().children('span.nowrap').children('a').children('span.nowrap');
                     $chg_submit.empty();
                     $chg_submit.append(data_vt);
-                    
-                    var $this_row=$(this).parent().parent();
-                    //alert(pos);
-                    if(parseInt(pos)%2==0){
+
+                    var $this_row = $(this).parent().parent();
+                    if(parseInt(pos) % 2 == 0) {
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
@@ -481,21 +481,19 @@ $(document).ready(function() {
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
-
                     }
                     for( var i = 6; i <= rows + 2; i++){
-                        if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false){
+                        if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                             continue;
                         }
-                        txt = $this_row.siblings("tr:eq(" + i + ") td:eq("+pos+") span.original_data").html();
-                        $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
-                        $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt);
+                        txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") span.original_data").html();
+                        $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
+                        $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
                     }
                     $(this).prev().remove();
                     $(this).prev().remove();
                     $(this).remove();
-                        
-                    });
+            });
         }
 
         // Initialize some variables
