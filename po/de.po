@@ -9787,9 +9787,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Tabelle leeren (TRUNCATE)"
 
 #: tbl_operations.php:682
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Gehe zur Datenbank"
+msgstr "Tabelle löschen (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
