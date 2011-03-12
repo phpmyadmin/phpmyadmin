@@ -6383,9 +6383,8 @@ msgid "Page name"
 msgstr "Seitenname"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 msgid "Automatic layout based on"
-msgstr "Automatische Anordnung"
+msgstr "Automatische Anordnung basierend auf"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
