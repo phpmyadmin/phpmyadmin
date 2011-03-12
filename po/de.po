@@ -4789,7 +4789,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Das Hochladen von Dateien ist auf diesem Server nicht erlaubt."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 msgid "Partial Import:"
 msgstr "Teilweiser Import:"
 
