@@ -7224,7 +7224,6 @@ msgid "New name"
 msgstr "Neuer Name"
 
 #: pmd_general.php:486 pmd_general.php:701
-#, fuzzy
 msgid "Aggregate"
 msgstr "Anlegen"
 
