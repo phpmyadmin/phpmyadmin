@@ -1365,9 +1365,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
                 $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
-                // reset $class from $inline_edit_class to 'data'
-                // as we can't edit geometry data
-                $class = 'data';
+
+                // remove 'inline_edit' from $class as we can't edit geometry data.
+                $class = str_replace('inline_edit', '', $class);
                 $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);
                 unset($geometry_text);
 
