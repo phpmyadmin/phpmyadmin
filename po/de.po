@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:34+0200\n"
+"PO-Revision-Date: 2011-03-12 15:35+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4721,9 +4721,8 @@ msgid "bzipped"
 msgstr "BZip-komprimiert"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 msgid "View output as text"
-msgstr "Ausgabe als Text ansehen"
+msgstr "Ausgabe als Text anzeigen"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
