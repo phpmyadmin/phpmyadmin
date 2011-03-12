@@ -9340,14 +9340,13 @@ msgstr ""
 "unterstützt."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip-Kompression und "
-"Dekompression[/a] benötigt Funktionen (%s), welche auf diesem System nicht "
-"verfügbar sind."
+"%sGZip-Komprimierung und Dekomprimierung%s benötigt Funktionen (%s), die auf "
+"diesem System nicht verfügbar sind."
 
 #: setup/lib/index.lib.php:260
 #, php-format
