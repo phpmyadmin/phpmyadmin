@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:11+0200\n"
+"PO-Revision-Date: 2011-03-12 16:12+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9140,14 +9140,14 @@ msgid "Cannot load or save configuration"
 msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen."
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Bitte erstellen Sie den Ordner [em]config[/em] im phpMyAdmin-"
-"hauptverzeichnis, und setzen Sie der Berechtigungen entsprechend. Ansonsten "
+"Bitte erstellen Sie einen vom Webserver beschreibbaren Ordner "
+"[em]config[/em] im phpMyAdmin-Hauptverzeichnis wie in der "
+"[a@Documentation.html#setup_script]Dokumentation[/a] beschrieben. Ansonsten "
 "können Sie die Konfiguration nur herunterladen bzw. anzeigen."
 
 #: setup/frames/index.inc.php:57
