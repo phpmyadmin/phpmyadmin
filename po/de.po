@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:03+0200\n"
+"PO-Revision-Date: 2011-03-12 16:05+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7078,15 +7078,13 @@ msgstr ""
 "Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
 
 #: main.php:284
-#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] ist niedriger als "
-"die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre "
-"Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Der Logincookiespeicher ist niedriger als die Ablaufzeit von Cookies, die in "
+"phpMyAdmin eingestellt ist, daher wird Ihre Anmeldung eher ablaufen als in "
+"phpMyAdmin konfiguriert."
 
 #: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
