@@ -7245,9 +7245,8 @@ msgstr "Ausnahme"
 
 #: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
 #: pmd_general.php:776
-#, fuzzy
 msgid "subquery"
-msgstr "in der Abfrage"
+msgstr "Unterabfrage"
 
 #: pmd_general.php:481 pmd_general.php:577
 #, fuzzy
