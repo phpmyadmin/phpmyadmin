@@ -9445,7 +9445,6 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Schlüssel ist zu kurz, er muss mindestens 8 Zeichen lang sein."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
