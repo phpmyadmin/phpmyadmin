@@ -5821,6 +5821,7 @@ msgstr ""
 "Anführungsstrichen eingeschlossen sein."
 
 #: libraries/import/csv.php:41
+#, fuzzy
 msgid "Column names: "
 msgstr "Spaltennamen:"
 
