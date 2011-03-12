@@ -1325,9 +1325,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                // reset $class from $inline_edit_class to just 'data'
-                // as we can't edit binary data
-                $class = 'data';
+                // remove 'inline_edit' from $class as we can't edit binary data.
+                $class = str_replace('inline_edit', '', $class);
 
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
