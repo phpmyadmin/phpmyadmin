@@ -9550,7 +9550,7 @@ msgstr ""
 "beliebig bewegen"
 
 #: tbl_change.php:1131
-#, fuzzy, php-format
+#, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Einfügen mit %s Zeilen neu starten"
 
