@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:01+0200\n"
+"PO-Revision-Date: 2011-03-12 16:02+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6880,15 +6880,14 @@ msgstr ""
 "die Breite des Bildes, die dritte Option die Höhe in Pixeln."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option "
-"ist ein Präfix vor dem eigentlichen Feldinhalt wie \"http://www.domain.com"
-"\". Zweite Option ist der darzustellende Titel des Links"
+"Zeigt einen Link an; die Spalte enthlt den Dateinamen. Die erste Option ist "
+"ein Präfix, wie \"http://www.domain.com\". Zweite Option ist der "
+"darzustellende Titel des Links."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
