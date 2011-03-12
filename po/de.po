@@ -2637,7 +2637,7 @@ msgstr "Schablone für Tabellennamen"
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
 msgid "Dump table"
-msgstr "Tabelle dumpen"
+msgstr "Tabelle exportieren"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
