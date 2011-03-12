@@ -2687,6 +2687,7 @@ msgid "Remember file name template"
 msgstr "Schablone für Dateinamen merken"
 
 #: libraries/config/messages.inc.php:118
+#, fuzzy
 msgid "Enclose table and column names with backquotes"
 msgstr "Tabellen- und Feldnamen mit einfachen Anführungszeichen umschließen"
 
