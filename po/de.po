@@ -3545,7 +3545,7 @@ msgstr "Angezeigter Tab beim Öffnen eines neuen Abfragefensters"
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr "Voreingestelltes Tab für Abfragefenster"
+msgstr "Voreingestellter Tab für Abfragefenster"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
