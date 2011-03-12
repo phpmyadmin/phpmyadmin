@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:20+0200\n"
+"PO-Revision-Date: 2011-03-12 16:21+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9418,13 +9418,13 @@ msgstr ""
 "zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip Dekomprimierung[/a] "
-"benötigt die Funktionen (%s) die auf dem System nicht zur Verfügung stehen."
+"%sZip-Dekomprimierung%s benötigt Funktionen (%s), die auf diesem System "
+"nicht zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:296
 #, fuzzy
