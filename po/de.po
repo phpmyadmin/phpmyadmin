@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:33+0200\n"
+"PO-Revision-Date: 2011-03-12 15:34+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4244,9 +4244,8 @@ msgstr ""
 "für Textfelder bei SQL-Abfragen (x 2) und Abfragefenster (x 1,25)"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 msgid "Textarea rows"
-msgstr "CHAR Textfeldzeilen"
+msgstr "Textfeldzeilen"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
