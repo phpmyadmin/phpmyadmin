@@ -467,32 +467,32 @@ $(document).ready(function() {
 
             $(this).append(hide_link);
             $('#table_results tbody tr td a#hide').click(function() {
-                    var pos = $(this).parent().index();
-                    var $chg_submit = $(this).parent().children('span.nowrap').children('a').children('span.nowrap');
-                    $chg_submit.empty();
-                    $chg_submit.append(data_vt);
+                var pos = $(this).parent().index();
+                var $chg_submit = $(this).parent().children('span.nowrap').children('a').children('span.nowrap');
+                $chg_submit.empty();
+                $chg_submit.append(data_vt);
 
-                    var $this_row = $(this).parent().parent();
-                    if(parseInt(pos) % 2 == 0) {
-                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                var $this_row = $(this).parent().parent();
+                if(parseInt(pos) % 2 == 0) {
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
-                    } else {
-                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                } else {
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                        $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                }
+                for( var i = 6; i <= rows + 2; i++){
+                    if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
+                        continue;
                     }
-                    for( var i = 6; i <= rows + 2; i++){
-                        if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
-                            continue;
-                        }
-                        txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") span.original_data").html();
-                        $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
-                        $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
-                    }
-                    $(this).prev().remove();
-                    $(this).prev().remove();
-                    $(this).remove();
+                    txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") span.original_data").html();
+                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
+                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
+                }
+                $(this).prev().remove();
+                $(this).prev().remove();
+                $(this).remove();
             });
         }
 
