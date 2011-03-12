@@ -4965,9 +4965,8 @@ msgid "Print view (with full texts)"
 msgstr "Druckansicht (vollständige Textfelder)"
 
 #: libraries/display_tbl.lib.php:2310 tbl_chart.php:81
-#, fuzzy
 msgid "Display chart"
-msgstr "PDF-Schema anzeigen"
+msgstr "Diagramm anzeigen"
 
 #: libraries/display_tbl.lib.php:2329
 msgid "Create view"
