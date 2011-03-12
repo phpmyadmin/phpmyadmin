@@ -6447,7 +6447,6 @@ msgid "Unknown language: %1$s."
 msgstr "Unbekannte Sprache: \"%1$s\"."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 msgid "Current Server"
 msgstr "Aktueller Server"
 
