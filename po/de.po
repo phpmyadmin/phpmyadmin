@@ -4595,9 +4595,8 @@ msgstr ""
 "Export-Plugins konnten nicht geladen werden, bitte Installation überprüfen!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 msgid "Exporting databases from the current server"
-msgstr "Exportiere die Datenbanken des aktuell ausgewählten Servers"
+msgstr "Datenbanken des aktuell ausgewählten Servers exportieren"
 
 #: libraries/display_export.lib.php:89
 #, php-format
