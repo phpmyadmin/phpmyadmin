@@ -3985,7 +3985,6 @@ msgid "Automatically create versions"
 msgstr "Versionen automatisch erzeugen"
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
