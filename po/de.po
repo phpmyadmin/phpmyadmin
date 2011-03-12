@@ -9968,9 +9968,8 @@ msgid "Propose table structure"
 msgstr "Tabellenstruktur analysieren"
 
 #: tbl_structure.php:631
-#, fuzzy
 msgid "Add column"
-msgstr "Spalte(n) einfügen"
+msgstr "Spalte hinzufügen"
 
 #: tbl_structure.php:645
 msgid "At End of Table"
