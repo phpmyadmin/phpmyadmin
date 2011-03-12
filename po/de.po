@@ -5618,9 +5618,8 @@ msgstr ""
 "Tabellennamen, die aus Sonderzeichen oder reservierten Wörtern bestehen)</i>"
 
 #: libraries/export/sql.php:136
-#, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Statt <code>INSERT</code>-Schlüsselwort benutze:"
+msgstr "Statt <code>INSERT</code>-Befehlen benutze:"
 
 #: libraries/export/sql.php:138
 #, fuzzy
