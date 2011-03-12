@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:21+0200\n"
+"PO-Revision-Date: 2011-03-12 16:22+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9457,7 +9457,7 @@ msgstr "Fremdschlüsselwerte ansehen"
 #: sql.php:154
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Lesezeichen \"%s\" wird als Standard-Anzeigeabfrage verwendet."
 
 #: sql.php:591 tbl_replace.php:385
 #, php-format
