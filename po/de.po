@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:20+0200\n"
+"PO-Revision-Date: 2011-03-12 15:21+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2969,15 +2969,14 @@ msgid "Configuration storage"
 msgstr "Konfigurationsspeicher"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Konfigurieren Sie eine phpMyAdmin-Datenbank um zusätzliche Features zu "
-"erhalten, siehe [a@../Documentation.html#linked-tables]linked-tables "
-"infrastructure[/a]"
+"Konfigurieren Sie einen phpMyAdmin-Konfigurationsspeicher, um zusätzliche "
+"Features zu erhalten, siehe [a@../Documentation.html#linked-tables"
+"]phpMyAdmin-Konfigurationsspeicher[/a] in der Dokumentation"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
