@@ -3071,6 +3071,7 @@ msgid "Texy! text"
 msgstr "Texy! Text"
 
 #: libraries/config/messages.inc.php:227
+#, fuzzy
 msgid "Warnings"
 msgstr "Warnungen"
 
