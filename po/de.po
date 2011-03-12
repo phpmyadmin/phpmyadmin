@@ -8113,9 +8113,8 @@ msgid "Reset slave"
 msgstr "Slave zurücksetzen"
 
 #: server_replication.php:326
-#, fuzzy
 msgid "Start SQL Thread only"
-msgstr "Nur SQL Thread %s"
+msgstr "Nur SQL-Thread starten"
 
 #: server_replication.php:328
 #, fuzzy
