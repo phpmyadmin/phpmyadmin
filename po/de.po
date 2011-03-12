@@ -6478,7 +6478,6 @@ msgid "Synchronize"
 msgstr "Gleiche ab"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 msgid "Settings"
 msgstr "Einstellungen"
 
