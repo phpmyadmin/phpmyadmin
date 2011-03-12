@@ -9432,9 +9432,8 @@ msgstr ""
 "Sie sollten SSL-Verbindungen benutzen, wenn Ihr Webserver es unterstützt."
 
 #: setup/lib/index.lib.php:306
-#, fuzzy
 msgid "You should use mysqli for performance reasons."
-msgstr "Sie sollten mysqli wegen der Performance benutzen"
+msgstr "Aus Performancegründen sollten Sie mysqli verwenden."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
