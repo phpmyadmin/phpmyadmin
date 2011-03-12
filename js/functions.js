@@ -594,7 +594,7 @@ $(document).ready(function() {
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         //do not trigger when clicked on anchor or inside input element (in inline editing mode) with exception of the first checkbox
-        if ($(e.target).is('a, a *')) {
+        if ($(e.target).parents('tr').find('td:nth(2)').hasClass('inline_edit_active')) {
             return;
         }
         // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
