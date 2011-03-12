@@ -5558,6 +5558,7 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Erstellt einen Report mit den Daten einer Tabelle)"
 
 #: libraries/export/pdf.php:24
+#, fuzzy
 msgid "Report title:"
 msgstr "Titel des Reports:"
 
