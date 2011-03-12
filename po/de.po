@@ -3062,6 +3062,7 @@ msgid "Text fields"
 msgstr "Textfelder"
 
 #: libraries/config/messages.inc.php:224
+#, fuzzy
 msgid "Customize text input fields"
 msgstr "Texteingabefelder anpassen"
 
