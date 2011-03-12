@@ -9940,9 +9940,9 @@ msgid "None"
 msgstr "kein(e)"
 
 #: tbl_structure.php:397
-#, fuzzy, php-format
+#, php-format
 msgid "Column %s has been dropped"
-msgstr "Die Tabelle %s wurde gelöscht."
+msgstr "Spalte %s wurde gelöscht"
 
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
