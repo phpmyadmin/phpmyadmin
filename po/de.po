@@ -5502,9 +5502,8 @@ msgid "Object creation options"
 msgstr "Objekterstellungsoptionen"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 msgid "Table caption (continued)"
-msgstr "Tabellenbeschriftung"
+msgstr "Tabellenbeschriftung (2)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
