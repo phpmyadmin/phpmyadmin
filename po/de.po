@@ -3429,7 +3429,6 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Dies sind Bearbeitungs-, Inline-Bearbeitungs-, Kopier- und Löschlinks"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 msgid "Show table row links on left side"
 msgstr "Links zu Tabellenzeilen auf der linken Seite anzeigen"
 
