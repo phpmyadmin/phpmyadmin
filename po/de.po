@@ -5870,9 +5870,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Dieses Plugin unterstützt keine Kompression!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Prozentwerte importieren (12.00% wird zu .12)"
+msgstr ""
+"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% zu "
+".12)</i>"
 
 #: libraries/import/ods.php:29
 #, fuzzy
