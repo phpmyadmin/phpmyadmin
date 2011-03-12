@@ -5876,9 +5876,8 @@ msgstr ""
 ".12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Währungen importieren ($5.00 zu 5.00)"
+msgstr "Währungen importieren <i>(z.B. $5.00 zu 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
