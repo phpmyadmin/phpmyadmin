@@ -6935,9 +6935,8 @@ msgstr ""
 "Die permanente Specícherung erfordert %sphpMyAdmin Konfigurationsspeicher%s."
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 msgid "Could not save configuration"
-msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen."
+msgstr "Fehler beim Speichern der Konfiguration"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
