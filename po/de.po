@@ -5423,6 +5423,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the %"
 "sPrimeBase XT Home Page%s."
 msgstr ""
+"Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
+"XT-Website%s verfügbar."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
