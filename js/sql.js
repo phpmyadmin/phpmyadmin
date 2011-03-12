@@ -444,26 +444,15 @@ $(document).ready(function() {
                 $this_hide.parent().removeClass("hover");
                 $this_hide.siblings().removeClass("hover");
                 var last_column = $this_hide.siblings().length;
-                var txt = [];
-                var blob_index = [];
-                var k = 0;
+                var txt = '';
                 for(var i = 4; i < last_column; i++){
                     if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false){
-                        blob_index[k] = i;
-                        k++;
                         continue;
                     }
-                    txt[i - 4] = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
-                }
-                k = 0;
-                for (var i = 4; i < last_column; i++){
-                    if ( blob_index[k] == i){
-                        k++;
-                        continue;
-                    }
+                    txt = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
                     if($this_hide.siblings("td:eq(" + i + ")").children().length !=0){
                         $this_hide.siblings("td:eq(" + i + ")").empty();
-                        $this_hide.siblings("td:eq(" + i + ")").append(txt[i-4]);
+                        $this_hide.siblings("td:eq(" + i + ")").append(txt);
                     }
                 }
                 $(this).prev().prev().remove();
@@ -471,7 +460,7 @@ $(document).ready(function() {
                 $(this).remove();
                 });
         } else {
-            var txt=[];
+            var txt='';
             var rows=$(this).parent().siblings().length;;
 
             $(this).append(hide_link);
@@ -494,24 +483,13 @@ $(document).ready(function() {
                         $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
 
                     }
-                    var blob_index = [];
-                    var k = 0;
                     for( var i = 6; i <= rows + 2; i++){
-                         if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false){
-                             blob_index[k] = i;
-                             k++;
-                             continue;
-                         }
-                         txt[i - 6] = $this_row.siblings("tr:eq(" + i + ") td:eq("+pos+") span.original_data").html();
-                    }
-                    k = 0;
-                    for (var i = 6; i <= rows + 2; i++){ 
-                        if(blob_index[k] == i){
-                            k++;
+                        if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false){
                             continue;
                         }
+                        txt = $this_row.siblings("tr:eq(" + i + ") td:eq("+pos+") span.original_data").html();
                         $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").empty();
-                        $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt[ i - 6]);
+                        $this_row.siblings("tr:eq("+i+") td:eq("+pos+")").append(txt);
                     }
                     $(this).prev().remove();
                     $(this).prev().remove();
