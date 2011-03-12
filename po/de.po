@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:31+0200\n"
+"PO-Revision-Date: 2011-03-12 15:32+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3922,9 +3922,8 @@ msgstr ""
 "Unterstützung; Vorschlag: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 msgid "Display columns table"
-msgstr "Table Info Table"
+msgstr "Tabelle für Anzeigespalten"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
