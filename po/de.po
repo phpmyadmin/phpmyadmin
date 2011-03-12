@@ -4074,9 +4074,8 @@ msgstr ""
 "werden"
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 msgid "Show field types"
-msgstr "Zeige Feld-Typen"
+msgstr "Feld-Typen anzeigen"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
