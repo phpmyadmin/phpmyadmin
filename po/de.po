@@ -5259,9 +5259,8 @@ msgstr ""
 "The PrimeBase Media Streaming%s verfügbar."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 msgid "Related Links"
-msgstr "Tabellenverknüpfungen"
+msgstr "Weiterführende Links"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
