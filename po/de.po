@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-07 11:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-03-12 15:14+0200\n"
+"Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1769,7 +1769,7 @@ msgstr "PBMS Verbindung fehlgeschlagen:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS: Infos über BLOB nicht erhalten: "
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
