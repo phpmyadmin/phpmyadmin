@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:15+0200\n"
+"PO-Revision-Date: 2011-03-12 15:16+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2687,9 +2687,8 @@ msgid "Remember file name template"
 msgstr "Schablone für Dateinamen merken"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 msgid "Enclose table and column names with backquotes"
-msgstr "Tabellen- und Feldnamen in einfachen Anführungszeichen "
+msgstr "Tabellen- und Feldnamen mit einfachen Anführungszeichen umschließen"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
