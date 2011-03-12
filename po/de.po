@@ -4904,9 +4904,8 @@ msgid "Relational key"
 msgstr "Relationaler Schlüssel"
 
 #: libraries/display_tbl.lib.php:590
-#, fuzzy
 msgid "Relational display column"
-msgstr "Relationaler Wert"
+msgstr "Relationaler Anzeigespalte"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents"
