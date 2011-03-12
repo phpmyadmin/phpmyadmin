@@ -4384,7 +4384,6 @@ msgstr "Open Document Kalkulationstabelle"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
-#, fuzzy
 msgid "Quick"
 msgstr "Schnell"
 
