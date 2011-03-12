@@ -9427,10 +9427,9 @@ msgstr ""
 "nicht zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 msgid "You should use SSL connections if your web server supports it."
 msgstr ""
-"Sie sollten SSL Verbindungen benutzen, wenn Ihr Webserver es unterstützt"
+"Sie sollten SSL-Verbindungen benutzen, wenn Ihr Webserver es unterstützt."
 
 #: setup/lib/index.lib.php:306
 #, fuzzy
