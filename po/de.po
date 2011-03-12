@@ -2940,7 +2940,6 @@ msgid "Authentication"
 msgstr "Authentifizierung"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 msgid "Authentication settings"
 msgstr "Authentifizierungseinstellungen"
 
