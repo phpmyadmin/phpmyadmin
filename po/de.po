@@ -4777,7 +4777,6 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Datei kann komprimiert (%s) oder unkomprimiert sein."
 
 #: libraries/display_import.lib.php:158
-#, fuzzy
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
