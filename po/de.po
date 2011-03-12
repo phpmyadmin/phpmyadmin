@@ -6966,7 +6966,7 @@ msgstr "Zeichensatz / Kollation der MySQL-Verbindung"
 
 #: main.php:121
 msgid "Appearance Settings"
-msgstr "Anzeige Einstellungen"
+msgstr "Anzeige-Einstellungen"
 
 #: main.php:141
 msgid "Background color"
