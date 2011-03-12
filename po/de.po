@@ -5602,9 +5602,8 @@ msgid "Add %s statement"
 msgstr "%s-Befehl hinzufügen"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 msgid "Add statements:"
-msgstr "Angaben"
+msgstr "Befehle hinzufügen:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
