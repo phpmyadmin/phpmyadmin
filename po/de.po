@@ -9779,9 +9779,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "Leeren des Tabellencaches (\"FLUSH\")"
 
 #: tbl_operations.php:647
-#, fuzzy
 msgid "Delete data or table"
-msgstr "Lösche die Verlaufsdaten für diese Tabelle"
+msgstr "Daten oder Tabelle löschen"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
