@@ -3537,7 +3537,7 @@ msgstr "Anzahl der Abfragen in der Historie"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr "Länge der Abfragehistori"
+msgstr "Länge des Abfrageverlaufs"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
