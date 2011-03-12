@@ -4405,9 +4405,8 @@ msgstr "Schnell"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 msgid "Custom"
-msgstr "Angepasst"
+msgstr "Benutzerdefiniert"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
