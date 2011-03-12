@@ -6977,9 +6977,8 @@ msgid "Choose..."
 msgstr "Auswahl..."
 
 #: main.php:159 prefs_manage.php:274
-#, fuzzy
 msgid "More settings"
-msgstr "Einstellungen"
+msgstr "Weitere Einstellungen"
 
 #: main.php:176
 msgid "Protocol version"
