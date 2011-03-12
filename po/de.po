@@ -3024,9 +3024,8 @@ msgid "SQL queries settings"
 msgstr "Einstellungen für SQL-Abfragen"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 msgid "SQL Validator"
-msgstr "SQL-Verlaufsprotokoll"
+msgstr "SQL-Validator"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
