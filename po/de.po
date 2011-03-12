@@ -6965,9 +6965,8 @@ msgid "MySQL connection collation"
 msgstr "Zeichensatz / Kollation der MySQL-Verbindung"
 
 #: main.php:121
-#, fuzzy
 msgid "Appearance Settings"
-msgstr "Sonstige Einstellungen"
+msgstr "Anzeige Einstellungen"
 
 #: main.php:141
 msgid "Background color"
