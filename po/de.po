@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:08+0200\n"
+"PO-Revision-Date: 2011-03-12 16:09+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7360,9 +7360,8 @@ msgstr ""
 "Fehler."
 
 #: prefs_manage.php:80
-#, fuzzy
 msgid "Could not import configuration"
-msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
+msgstr "Fehler beim Importieren der Konfiguration"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
