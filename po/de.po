@@ -5737,6 +5737,7 @@ msgid "Object creation options (all are recommended)"
 msgstr "Optionen zum Anlegen von Objekten (alle werden empfohlen)"
 
 #: libraries/export/xml.php:40
+#, fuzzy
 msgid "Views"
 msgstr "Ansichten"
 
