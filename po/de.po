@@ -3592,7 +3592,7 @@ msgstr "Leer lassen, wenn unbenutzt"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
-msgstr "Host-Autorisationsreihenfolge"
+msgstr "Host-Autorisierungsreihenfolge"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
