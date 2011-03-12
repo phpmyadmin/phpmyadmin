@@ -5575,10 +5575,10 @@ msgstr ""
 "Version und Serverversion)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen Zeilenumbruch)"
+"Individuelle Kommentare für den Kopfbereich (\n"
+" erzeugt einen Zeilenumbruch):"
 
 #: libraries/export/sql.php:37
 msgid ""
