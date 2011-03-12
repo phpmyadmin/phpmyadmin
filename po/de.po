@@ -4768,7 +4768,6 @@ msgid "Importing into the table \"%s\""
 msgstr "Importiere in die Tabelle \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 msgid "File to Import:"
 msgstr "Zu importierende Datei:"
 
