@@ -5141,7 +5141,6 @@ msgstr ""
 "REPAIR oder ausführt oder Indizes mit CREATE INDEX oder ALTER TABLE erzeugt."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 msgid "Garbage Threshold"
 msgstr "Müll-Grenzwert"
 
