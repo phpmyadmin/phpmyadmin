@@ -3471,12 +3471,11 @@ msgid "GZip output buffering"
 msgstr "GZip Ausgabepufferung"
 
 #: libraries/config/messages.inc.php:323
-#, fuzzy
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] -d.h. absteigende Sortierung für die Feldtypen TIME, DATE, "
+"[kbd]SMART[/kbd] - d.h. absteigende Sortierung für die Feldtypen TIME, DATE, "
 "DATETIME und TIMESTAMP, aufsteigende Sortierung für die anderen Feldtypen"
 
 #: libraries/config/messages.inc.php:324
