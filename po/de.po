@@ -4353,7 +4353,6 @@ msgid "HTTP authentication"
 msgstr "HTTP-Authentifizierung"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 msgid "Signon authentication"
 msgstr "Signon-Authentifizierung"
 
