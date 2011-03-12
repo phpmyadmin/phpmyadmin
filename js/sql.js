@@ -441,6 +441,8 @@ $(document).ready(function() {
                 $this_children.text(PMA_messages['strInlineEdit']);
                 var $this_hide = $(this).parent();
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
+                $this_hide.parent().removeClass("hover");
+                $this_hide.siblings().removeClass("hover");
                 var last_column = $this_hide.siblings().length;
                 var txt = [];
                 var blob_index = [];
@@ -919,7 +921,9 @@ $(document).ready(function() {
                  }
 
                 PMA_ajaxShowMessage(data.message);
-                $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
+                $this_td.removeClass('inline_edit_active hover').addClass('inline_edit_anchor');
+                $this_td.parent().removeClass('hover')
+                $this_td.siblings().removeClass('hover');
 
                 $input_siblings.each(function() {
                     // Inline edit post has been successful.
