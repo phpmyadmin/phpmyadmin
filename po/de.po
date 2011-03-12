@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:18+0200\n"
+"PO-Revision-Date: 2011-03-12 16:19+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9380,19 +9380,18 @@ msgstr ""
 "einen niedrigeren Wert gesetzt sein."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Falls Sie es für nötig halten, benutzen Sie die zusätzlichen Schutz "
-"Einstellungen - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]"
-"Host Authentifikation[/a] und [a@?page=form&amp;"
-"formset=features#tab_Security]Vertrauenswürdige Proxies Liste[/a]. IP "
-"Basierter Schutz kann unzuverlässig sein, wenn die IP einem ISP gehört, mit "
-"dem tausende Benutzer, einschließlich Ihnen, verbunden sind."
+"Falls Sie es für nötig halten, benutzen Sie die zusätzlichen Schutz-"
+"Einstellungen - %sHost Authentifizierung%s und die %sListe "
+"vertrauenswürdiger Proxys%s. IP-basierter Schutz kann unzuverlässig sein, "
+"wenn Ihre IP einem ISP gehört, mit dem tausende Benutzer, einschließlich "
+"Ihnen, verbunden sind."
 
 #: setup/lib/index.lib.php:268
 #, fuzzy, php-format
