@@ -3599,9 +3599,8 @@ msgid "Leave blank for defaults"
 msgstr "Leer lassen, um Voreinstellungen zu verwenden."
 
 #: libraries/config/messages.inc.php:356
-#, fuzzy
 msgid "Host authorization rules"
-msgstr "Host-Autorisationsregeln"
+msgstr "Host-Autorisierungsregeln"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
