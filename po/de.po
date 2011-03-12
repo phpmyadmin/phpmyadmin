@@ -7209,6 +7209,7 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export Koordinaten für das PDF Schema"
 
 #: pmd_general.php:121
+#, fuzzy
 msgid "Build Query"
 msgstr "Abfrage erstellen"
 
