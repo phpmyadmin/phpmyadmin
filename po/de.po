@@ -7440,9 +7440,8 @@ msgstr ""
 "Kofigurationsdatei %s nicht gesetzt."
 
 #: schema_export.php:45
-#, fuzzy
 msgid "File doesn't exist"
-msgstr "Die Tabelle \"%s\" existiert nicht!"
+msgstr "Datei existiert nicht."
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
