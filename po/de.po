@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:49+0200\n"
+"PO-Revision-Date: 2011-03-12 15:50+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5614,6 +5614,8 @@ msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Tabellen- und Feldnamen in Backticks einschließen <i>(Schützt Feld- und "
+"Tabellennamen, die aus Sonderzeichen oder reservierten Wörtern bestehen)</i>"
 
 #: libraries/export/sql.php:136
 #, fuzzy
