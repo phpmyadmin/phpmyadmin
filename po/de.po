@@ -6956,9 +6956,8 @@ msgid "Error in ZIP archive:"
 msgstr "Fehler im ZIP-Archiv:"
 
 #: main.php:68
-#, fuzzy
 msgid "General Settings"
-msgstr "Allgemeine Verknüpfungsfunktionen"
+msgstr "Allgemeine Einstellungen"
 
 #: main.php:105
 msgid "MySQL connection collation"
