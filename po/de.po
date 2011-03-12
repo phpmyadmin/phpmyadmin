@@ -7148,9 +7148,8 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:277
-#, fuzzy
 msgid "filter tables by name"
-msgstr "Tabelle sortieren nach"
+msgstr "Tabellen nach Namen filtern"
 
 #: navigation.php:308 navigation.php:309
 msgctxt "short form"
