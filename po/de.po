@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:53+0200\n"
+"PO-Revision-Date: 2011-03-12 15:54+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5880,9 +5880,8 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Währungen importieren <i>(z.B. $5.00 zu 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 msgid "SQL compatibility mode:"
-msgstr "SQL-Kompatibilitätsmodus"
+msgstr "SQL-Kompatibilitätsmodus:"
 
 #: libraries/import/sql.php:42
 #, fuzzy
