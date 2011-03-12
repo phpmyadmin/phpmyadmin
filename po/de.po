@@ -7268,7 +7268,6 @@ msgid "Import from selected page"
 msgstr "Import von ausgewählter Seite"
 
 #: pmd_pdf.php:100
-#, fuzzy
 msgid "Export to selected page"
 msgstr "Export zu der ausgewählten Seite"
 
