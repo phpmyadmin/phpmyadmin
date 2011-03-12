@@ -7260,7 +7260,6 @@ msgid "Page creation failed"
 msgstr "Seitenerstellung fehlgeschlagen"
 
 #: pmd_pdf.php:89
-#, fuzzy
 msgid "Page"
 msgstr "Seite"
 
