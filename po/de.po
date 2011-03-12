@@ -3443,7 +3443,7 @@ msgstr "Links zu Tabellenzeilen auf der linken Seite anzeigen"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Lunks zu Tabellenzeilen auf der rechten Seite anzeigen"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
