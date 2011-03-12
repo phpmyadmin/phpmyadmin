@@ -4770,9 +4770,8 @@ msgstr ""
 "sind nicht verfügbar."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 msgid "Importing into the current server"
-msgstr "Importiere in den aktuell ausgewählten Server"
+msgstr "In den aktuell ausgewählten Server importieren"
 
 #: libraries/display_import.lib.php:131
 #, php-format
