@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:35+0200\n"
+"PO-Revision-Date: 2011-03-12 15:36+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4820,14 +4820,14 @@ msgstr ""
 "fortgesetzt."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Abbruch wenn die maximale Scriptlaufzeit erreicht wird. Damit ist es möglich "
-"große Dateien zu importieren, allerdings kann es Transaktionen zerstören."
+"Abbruch, wenn die maximale PHP-Scriptlaufzeit erreicht wird. <i>(Damit ist "
+"es möglich, große Dateien zu importieren, allerdings kann es Transaktionen "
+"zerstören.)</i>"
 
 #: libraries/display_import.lib.php:228
 #, fuzzy
