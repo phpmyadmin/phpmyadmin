@@ -7414,7 +7414,7 @@ msgstr "Im Browserspeicher speichern"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Einstellungen werden in Ihrem lokalen Browserspeicher gespeichert."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
