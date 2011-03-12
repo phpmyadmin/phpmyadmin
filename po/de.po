@@ -8121,9 +8121,8 @@ msgid "Stop SQL Thread only"
 msgstr "Nur SQL-Thread stoppen"
 
 #: server_replication.php:331
-#, fuzzy
 msgid "Start IO Thread only"
-msgstr "Nur IO Thread %s"
+msgstr "Nur Ein-/Ausgabethread starten"
 
 #: server_replication.php:333
 #, fuzzy
