@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:19+0200\n"
+"PO-Revision-Date: 2011-03-12 16:20+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9394,7 +9394,7 @@ msgstr ""
 "Ihnen, verbunden sind."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -9402,12 +9402,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Sie haben die [kbd]config[/kbd] Authentifikation gewählt und einen "
-"Benutzernamen und Passwort für Auto-Login eingegeben, was für live Hosts "
-"nicht Wünschenswert ist. Jeder, der Ihre phpMyAdmin URL kennt oder errät "
-"kann direckt auf Ihre phpMyAdmin Oberfläche zugreifen. Setzen Sie den [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]Authentifikationstyp[/a] "
-"auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
+"Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
+"Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
+"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, fuzzy, php-format
