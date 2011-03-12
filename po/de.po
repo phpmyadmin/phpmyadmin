@@ -9414,8 +9414,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sZip-Komprimierung%s benötigt Funktionen (%s), die auf dem System nicht zur "
-"Verfügung stehen."
+"%sZip-Komprimierung%s benötigt Funktionen (%s), die auf diesem System nicht "
+"zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:272
 #, fuzzy, php-format
