@@ -6870,16 +6870,14 @@ msgstr ""
 "Spalte gültiges HTML enthält."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu "
-"darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen "
-"Feldinhalt wie \"http://www.domain.com\". Zweite Option ist die Breite des "
-"Bildes, die dritte Option die Höhe des Bildes in Pixeln."
+"Zeigt ein Bild und einen Link; die Spalte enthält den Dateinamen. Die erste "
+"Option ist ein URL-Präfix, wie \"http://www.domain.com\". Zweite Option ist "
+"die Breite des Bildes, die dritte Option die Höhe in Pixeln."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #, fuzzy
