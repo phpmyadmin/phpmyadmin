@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 16:14+0200\n"
+"PO-Revision-Date: 2011-03-12 16:15+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9333,10 +9333,11 @@ msgstr ""
 "keine Schreibrechte haben."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"Sie sollten SSL Verbindungen benutzen, wenn Ihr Webserver es unterstützt"
+"Diese %sOption%s sollte aktiviert werden, falls Ihr Webserver sie "
+"unterstützt."
 
 #: setup/lib/index.lib.php:258
 #, fuzzy, php-format
