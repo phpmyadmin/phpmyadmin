@@ -5516,9 +5516,8 @@ msgstr "Kommentare anzeigen"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 msgid "Display MIME types"
-msgstr "Verfügbare MIME-Typen"
+msgstr "MIME-Typen anzeigen"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
