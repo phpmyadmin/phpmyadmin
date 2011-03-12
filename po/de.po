@@ -8995,9 +8995,8 @@ msgid "Query type"
 msgstr "Abfrageart"
 
 #: server_status.php:721 server_status.php:722
-#, fuzzy
 msgid "Show query chart"
-msgstr "SQL-Querybox"
+msgstr "Abfragediagramm anzeigen"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
