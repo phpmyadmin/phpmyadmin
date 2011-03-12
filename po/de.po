@@ -9899,9 +9899,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Suche über Beispielwerte (\"query by example\") (Platzhalter: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 msgid "Select columns (at least one):"
-msgstr "Felder auswählen (min. eines):"
+msgstr "Spalen auswählen (min. eines):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
