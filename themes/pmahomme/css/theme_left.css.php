@@ -101,6 +101,10 @@ ul#databaseList {
     font-style: italic;
 }
 
+ul#databaseList span {
+    padding: 5px;
+}
+
 ul#databaseList a {
     display: block;
     padding:5px;
