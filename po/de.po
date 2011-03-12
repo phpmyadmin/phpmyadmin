@@ -5219,6 +5219,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Die maximale Größe einer temporären BLOB-Logdatei. Sie können Kb, MB oder GB "
+"verwenden, um die Einheit des Wertes anzugeben. Ist keine Einheit "
+"angegeben, wird von einem Byte-Wert ausgegangen."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
