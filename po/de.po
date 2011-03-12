@@ -9615,9 +9615,8 @@ msgid "Bar type"
 msgstr "Säulentyp"
 
 #: tbl_chart.php:146
-#, fuzzy
 msgid "Stacked"
-msgstr "Gepackt"
+msgstr "Gestapelt"
 
 #: tbl_chart.php:147
 msgid "Multi"
