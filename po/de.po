@@ -7249,9 +7249,8 @@ msgid "subquery"
 msgstr "Unterabfrage"
 
 #: pmd_general.php:481 pmd_general.php:577
-#, fuzzy
 msgid "Rename to"
-msgstr "View umbenennen in"
+msgstr "Umbenennen nach"
 
 #: pmd_general.php:483 pmd_general.php:582
 #, fuzzy
