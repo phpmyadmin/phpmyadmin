@@ -3291,10 +3291,11 @@ msgid "Light tabs"
 msgstr "Light Tabs"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Maximal dargestellte Zeichenzahl bei Anzeige einer SQL-Abfrage"
+msgstr ""
+"Maximal dargestellte Zeichenzahl bei Anzeige einer nicht-numerischen Spalte "
+"in einer SQL-Abfrage"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
