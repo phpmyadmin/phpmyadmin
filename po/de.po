@@ -5498,9 +5498,8 @@ msgstr "Struktur der Tabelle @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 msgid "Object creation options"
-msgstr "Umwandlungsoptionen"
+msgstr "Objekterstellungsoptionen"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #, fuzzy
