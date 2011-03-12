@@ -7207,7 +7207,6 @@ msgstr "Beziehungsoperator"
 
 #: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
 #: pmd_general.php:770
-#, fuzzy
 msgid "Except"
 msgstr "Ausnahme"
 
