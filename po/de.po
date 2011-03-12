@@ -6350,7 +6350,7 @@ msgstr "Diese Seite enthält keine Tabellen!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA-FEHLER: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:875
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
