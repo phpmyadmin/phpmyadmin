@@ -7020,9 +7020,8 @@ msgid "Official Homepage"
 msgstr "Offizielle Homepage "
 
 #: main.php:227
-#, fuzzy
 msgid "Contribute"
-msgstr "Attribute"
+msgstr "Mitmachen"
 
 #: main.php:228
 #, fuzzy
