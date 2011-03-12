@@ -7441,7 +7441,7 @@ msgstr ""
 
 #: schema_export.php:45
 msgid "File doesn't exist"
-msgstr "Datei existiert nicht."
+msgstr "Datei existiert nicht"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
