@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-12 15:32+0200\n"
+"PO-Revision-Date: 2011-03-12 15:33+0200\n"
 "Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4037,11 +4037,10 @@ msgid "Verbose name of this server"
 msgstr "Serverbezeichnung"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Ob dem Benutzer ein &quot;show all (records)&quot; Button angezeigt werden "
-"soll"
+"Ob dem Benutzer eine Schaltfläche &bdquo;Alle (Zeilen) anzeigen&rdquo; "
+"angezeigt werden soll"
 
 #: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
