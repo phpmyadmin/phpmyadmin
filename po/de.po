@@ -7276,15 +7276,14 @@ msgid "To select relation, click :"
 msgstr "Um eine Relation auszuwählen, klicken Sie :"
 
 #: pmd_help.php:28
-#, fuzzy
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Das Anzeigefeld wird in rosa angezeigt. Um ein Feld anzeigen zu lassen oder "
-"nicht, klicken Sie auf das \"Anzeige-Wahl-Bild\", dann auf den passenden "
-"Feldnamen."
+"Die Anzeigespalte wird in rosa angezeigt. Um eine Spalte als Anzeigespalte "
+"anzeigen zu lassen oder nicht, klicken Sie auf das Symbol \"Anzeigespalte "
+"wählen\", dann auf den passenden Spaltennamen."
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
