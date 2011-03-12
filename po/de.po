@@ -7353,9 +7353,10 @@ msgid "Modifications have been saved"
 msgstr "Änderungen gespeichert."
 
 #: prefs_forms.php:78
-#, fuzzy
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Ausgefülltes Formular enthält Fehler"
+msgstr ""
+"Einstellungen können nicht gespeichert werden, ausgefülltes Formular enthält "
+"Fehler."
 
 #: prefs_manage.php:80
 #, fuzzy
