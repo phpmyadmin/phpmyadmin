@@ -7234,9 +7234,8 @@ msgid "Delete relation"
 msgstr "Verknüpfung löschen"
 
 #: pmd_general.php:461 pmd_general.php:520
-#, fuzzy
 msgid "Relation operator"
-msgstr "Verknüpfung gelöscht"
+msgstr "Beziehungsoperator"
 
 #: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
 #: pmd_general.php:770
