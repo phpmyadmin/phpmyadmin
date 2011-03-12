@@ -4355,7 +4355,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 msgid "Config authentication"
 msgstr "Config-Authentifizierung"
 
