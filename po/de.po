@@ -4244,6 +4244,7 @@ msgstr ""
 "für Textfelder bei SQL-Abfragen (x 2) und Abfragefenster (x 1,25)"
 
 #: libraries/config/messages.inc.php:479
+#, fuzzy
 msgid "Textarea rows"
 msgstr "Textfeldzeilen"
 
