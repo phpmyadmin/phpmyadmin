@@ -7388,9 +7388,8 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "Einstellungen werden aus Ihrem lokalen Browserspeicher importiert."
 
 #: prefs_manage.php:254
-#, fuzzy
 msgid "You have no saved settings!"
-msgstr "Sonstige Einstellungen"
+msgstr "Sie haben keine gespeicherten Einstellungen!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
