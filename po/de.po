@@ -6918,9 +6918,8 @@ msgstr ""
 "(Standard: ...)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 msgid "Manage your settings"
-msgstr "Sonstige Einstellungen"
+msgstr "Deine Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #, fuzzy
