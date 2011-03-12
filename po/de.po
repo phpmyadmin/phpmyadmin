@@ -5622,9 +5622,8 @@ msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Statt <code>INSERT</code>-Befehlen benutze:"
 
 #: libraries/export/sql.php:138
-#, fuzzy
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> Schlüsselworte"
+msgstr "<code>INSERT DELAYED</code>-Befehle"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
