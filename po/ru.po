@@ -7857,7 +7857,7 @@ msgstr ""
 
 #: server_privileges.php:2043
 msgid "Add privileges on the following table"
-msgstr " Добавить привилегии на следующую таблицу"
+msgstr "Добавить привилегии на следующую таблицу"
 
 #: server_privileges.php:2100
 msgid "Change Login Information / Copy User"
