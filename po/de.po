@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-07 11:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-03-12 16:31+0200\n"
+"Last-Translator:  <mynetx@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1769,7 +1769,7 @@ msgstr "PBMS Verbindung fehlgeschlagen:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS: Infos über BLOB nicht erhalten: "
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -1798,7 +1798,7 @@ msgstr "Die Datei %s konnte nicht geöffnet werden"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "freigegeben"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
@@ -2536,9 +2536,8 @@ msgid "Show icons for warning, error and information messages"
 msgstr "Icons für Warnhinweise, Fehlermeldungen und Informationen anzeigen"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
 msgid "Iconic errors"
-msgstr "Fehler ignorieren"
+msgstr "Fehler als Symbole"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
@@ -2637,9 +2636,8 @@ msgstr "Schablone für Tabellennamen"
 #: libraries/config/messages.inc.php:140 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 msgid "Dump table"
-msgstr "%s Tabelle"
+msgstr "Tabelle exportieren"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -2688,9 +2686,8 @@ msgid "Remember file name template"
 msgstr "Schablone für Dateinamen merken"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 msgid "Enclose table and column names with backquotes"
-msgstr "Tabellen- und Feldnamen in einfachen Anführungszeichen "
+msgstr "Tabellen- und Feldnamen mit Backticks umschließen"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
@@ -2778,9 +2775,8 @@ msgstr "Anzeigemodus anpassen"
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 msgid "Customize default options"
-msgstr "Standard-Exporteinstellungen anpassen"
+msgstr "Standard-Einstellungen anpassen"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
@@ -2824,9 +2820,8 @@ msgid "General"
 msgstr "Allgemein"
 
 #: libraries/config/messages.inc.php:166
-#, fuzzy
 msgid "Set some commonly used options"
-msgstr "Gängige Optionen setzen"
+msgstr "Einige oft verwendete Optionen setzen"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2885,7 +2880,7 @@ msgstr "Hauptframe"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
@@ -2941,14 +2936,12 @@ msgid "Basic settings"
 msgstr "Grundeinstellungen"
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 msgid "Authentication"
-msgstr "Authentifikationstyp"
+msgstr "Authentifizierung"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 msgid "Authentication settings"
-msgstr "Authentifikationseinstellungen"
+msgstr "Authentifizierungseinstellungen"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
@@ -2971,15 +2964,14 @@ msgid "Configuration storage"
 msgstr "Konfigurationsspeicher"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Konfigurieren Sie eine phpMyAdmin-Datenbank um zusätzliche Features zu "
-"erhalten, siehe [a@../Documentation.html#linked-tables]linked-tables "
-"infrastructure[/a]"
+"Konfigurieren Sie einen phpMyAdmin-Konfigurationsspeicher, um zusätzliche "
+"Features zu erhalten, siehe [a@../Documentation.html#linked-tables"
+"]phpMyAdmin-Konfigurationsspeicher[/a] in der Dokumentation"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
@@ -3023,14 +3015,12 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Angezeigte Links in SQL-Querybox ändern"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "SQL-Abfragen"
+msgstr "Einstellungen für SQL-Abfragen"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 msgid "SQL Validator"
-msgstr "SQL-Verlaufsprotokoll"
+msgstr "SQL-Prüfung"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
@@ -3062,23 +3052,20 @@ msgid "Choose how you want tabs to work"
 msgstr "Wählen Sie wie die Tabs funktionieren sollen"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 msgid "Text fields"
-msgstr "Textfeld verwenden"
+msgstr "Textfelder"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 msgid "Customize text input fields"
-msgstr "Exportoptionen anpassen"
+msgstr "Texteingabefelder anpassen"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
 msgstr "Texy! Text"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 msgid "Warnings"
-msgstr "Warnung"
+msgstr "Warnungen"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
@@ -3183,7 +3170,7 @@ msgstr "AUTO_INCREMENT nicht für Nullwerte verwenden"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Anfangswert für Schieberegler"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
@@ -3296,14 +3283,15 @@ msgid "Light tabs"
 msgstr "Light Tabs"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Maximal dargestellte Zeichenzahl bei Anzeige einer SQL-Abfrage"
+msgstr ""
+"Maximal dargestellte Zeichenzahl bei Anzeige einer nicht-numerischen Spalte "
+"in einer SQL-Abfrage"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "Zeichen pro Spalte begrenzen"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
@@ -3441,13 +3429,12 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Dies sind Bearbeitungs-, Inline-Bearbeitungs-, Kopier- und Löschlinks"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 msgid "Show table row links on left side"
-msgstr "Logo im linken Frame anzeigen"
+msgstr "Links zu Tabellenzeilen auf der linken Seite anzeigen"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Links zu Tabellenzeilen auf der rechten Seite anzeigen"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
@@ -3475,13 +3462,12 @@ msgid "GZip output buffering"
 msgstr "GZip Ausgabepufferung"
 
 #: libraries/config/messages.inc.php:323
-#, fuzzy
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] -d.h. absteigende Sortierung für die Feldtypen TIME, DATE, "
-"DATETIME und TIMESTAMP, aufsteigende Sortierung für die anderen Feldtypen"
+"[kbd]SMART[/kbd] - d.h. absteigende Sortierung für die Feldtypen TIME, DATE, "
+"DATETIME und TIMESTAMP, sonst aufsteigende Sortierung"
 
 #: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
@@ -3506,33 +3492,30 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
 msgstr "Tabellenbearbeitung mittels Icons"
 
 #: libraries/config/messages.inc.php:331
-#, fuzzy
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Verbiete Änderungen an BLOB und BINARY Feldern"
+msgstr "Änderungen an BLOB und BINARY Feldern verbieten"
 
 #: libraries/config/messages.inc.php:332
-#, fuzzy
 msgid "Protect binary columns"
-msgstr "Schütze BINARY Felder"
+msgstr "BINARY-Felder schützen"
 
 #: libraries/config/messages.inc.php:333
-#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Einschalten, wenn Datenbankbasierte Abfragehistorien gewünscht werden "
-"(erfordert pmadb). Wenn ausgeschaltet, werden JS-Routinen zur Darstellung "
-"der Abfragehistorien, die beim Schließen des Fensters verloern gehen, "
-"eingesetzt, "
+"Einschalten, wenn ein datenbankbasierter Abfrageverlauf gewünscht wird "
+"(erfordert phpMyAdmin-Konfigurationsspeicher). Wenn ausgeschaltet, werden "
+"JS-Routinen zur Darstellung des Abfrageverlaufs eingesetzt (sie gehen beim "
+"Schließen des Fensters verloren)."
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
@@ -3544,15 +3527,15 @@ msgstr "Anzahl der Abfragen in der Historie"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr "Länge der Abfragehistori"
+msgstr "Länge des Abfrageverlaufs"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
-msgstr "Angezeigtes Tab beim Öffnen eines neuen Abfragefensters"
+msgstr "Angezeigter Tab beim Öffnen eines neuen Abfragefensters"
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr "Voreingestelltes Tab für Abfragefenster"
+msgstr "Voreingestellter Tab für Abfragefenster"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
@@ -3608,18 +3591,16 @@ msgid "Leave blank if not used"
 msgstr "Leer lassen, wenn unbenutzt"
 
 #: libraries/config/messages.inc.php:354
-#, fuzzy
 msgid "Host authorization order"
-msgstr "Host Authentifikationsreihenfolge"
+msgstr "Host-Autorisierungsreihenfolge"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
 msgstr "Leer lassen, um Voreinstellungen zu verwenden."
 
 #: libraries/config/messages.inc.php:356
-#, fuzzy
 msgid "Host authorization rules"
-msgstr "Host Authentifikationsregeln"
+msgstr "Host-Autorisierungsregeln"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
@@ -3799,7 +3780,6 @@ msgid "Connect without password"
 msgstr "Ohne Passwort verbinden"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -3809,7 +3789,7 @@ msgid ""
 msgstr ""
 "MySQL Wildcard-Symbole (% und _) sind möglich, mit \\ wird die urspüngliche "
 "Bedeutung wiederhergestellt, d.h. 'my\\_db' und nicht 'my_db'. Mit dieser "
-"Optionen können Datanbanklisten sortiert werden; geben Sie ihre Namen "
+"Optionen können Datenbanklisten sortiert werden; geben Sie ihre Namen "
 "sortiert ein und nutzen Sie am Ende [kbd]*[/kbd], um die übrigen in "
 "alphabetischer Reihenfolge anzuzeigen."
 
@@ -3923,18 +3903,16 @@ msgid "PDF schema: table coordinates"
 msgstr "Table Coords Table"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Tabelle zur Beschreibung der Anzeigefelder, leer lassen für keine "
+"Tabelle zur Beschreibung der Anzeigespalten, leer lassen für keine "
 "Unterstützung; Vorschlag: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 msgid "Display columns table"
-msgstr "Table Info Table"
+msgstr "Tabelle für Anzeigespalten"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -4007,7 +3985,6 @@ msgid "Automatically create versions"
 msgstr "Versionen automatisch erzeugen"
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
@@ -4048,11 +4025,10 @@ msgid "Verbose name of this server"
 msgstr "Serverbezeichnung"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Ob dem Benutzer ein &quot;show all (records)&quot; Button angezeigt werden "
-"soll"
+"Ob dem Benutzer eine Schaltfläche &bdquo;Alle (Zeilen) anzeigen&rdquo; "
+"angezeigt werden soll"
 
 #: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
@@ -4082,11 +4058,12 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Definiert, ob Typen-Felder anfänglich im Bearbeiten/Einfügen-Modus angezeigt "
+"werden"
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 msgid "Show field types"
-msgstr "Zeige Feld-Typen"
+msgstr "Feld-Typen anzeigen"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
@@ -4201,12 +4178,12 @@ msgid "Enable SQL Validator"
 msgstr "SQL-Validator aktivieren"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Benutzerdefinierten Benutzernamen angeben (Standard ist [kbd]anonymous[/kbd])"
+"Falls Sie einen benutzerdefinierten Benutzernamen haben, hier angeben "
+"(Standard ist [kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4254,9 +4231,8 @@ msgstr ""
 "für Textfelder bei SQL-Abfragen (x 2) und Abfragefenster (x 1,25)"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 msgid "Textarea rows"
-msgstr "CHAR Textfeldzeilen"
+msgstr "Textfeldzeilen"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
@@ -4365,7 +4341,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 msgid "Config authentication"
 msgstr "Config-Authentifizierung"
 
@@ -4378,7 +4353,6 @@ msgid "HTTP authentication"
 msgstr "HTTP-Authentifizierung"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 msgid "Signon authentication"
 msgstr "Signon-Authentifizierung"
 
@@ -4410,15 +4384,13 @@ msgstr "Open Document Kalkulationstabelle"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
-#, fuzzy
 msgid "Quick"
 msgstr "Schnell"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 msgid "Custom"
-msgstr "Angepasst"
+msgstr "Benutzerdefiniert"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
@@ -4607,9 +4579,8 @@ msgstr ""
 "Export-Plugins konnten nicht geladen werden, bitte Installation überprüfen!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 msgid "Exporting databases from the current server"
-msgstr "Exportiere die Datenbanken des aktuell ausgewählten Servers"
+msgstr "Datenbanken des aktuell ausgewählten Servers exportieren"
 
 #: libraries/display_export.lib.php:89
 #, php-format
@@ -4734,9 +4705,8 @@ msgid "bzipped"
 msgstr "BZip-komprimiert"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 msgid "View output as text"
-msgstr "Ausgabe als Text ansehen"
+msgstr "Ausgabe als Text anzeigen"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
@@ -4784,9 +4754,8 @@ msgstr ""
 "sind nicht verfügbar."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 msgid "Importing into the current server"
-msgstr "Importiere in den aktuell ausgewählten Server"
+msgstr "In den aktuell ausgewählten Server importieren"
 
 #: libraries/display_import.lib.php:131
 #, php-format
@@ -4799,7 +4768,6 @@ msgid "Importing into the table \"%s\""
 msgstr "Importiere in die Tabelle \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 msgid "File to Import:"
 msgstr "Zu importierende Datei:"
 
@@ -4809,20 +4777,18 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Datei kann komprimiert (%s) oder unkomprimiert sein."
 
 #: libraries/display_import.lib.php:158
-#, fuzzy
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"Der Dateiname einer komprimierten Datei muss mit <b>.[Format].[Komprimierung]"
-"</b> enden. Beispiel: <b>.sql.zip</b>"
+"Der Dateiname einer komprimierten Datei muss mit "
+"<b>.[Format].[Komprimierung]</b> enden. Beispiel: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr "Das Hochladen von Dateien ist auf diesem Server nicht erlaubt."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 msgid "Partial Import:"
 msgstr "Teilweiser Import:"
 
@@ -4835,19 +4801,18 @@ msgstr ""
 "fortgesetzt."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Abbruch wenn die maximale Scriptlaufzeit erreicht wird. Damit ist es möglich "
-"große Dateien zu importieren, allerdings kann es Transaktionen zerstören."
+"Abbruch, wenn die maximale PHP-Scriptlaufzeit erreicht wird. <i>(Damit ist "
+"es möglich, große Dateien zu importieren, allerdings kann es Transaktionen "
+"zerstören.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Anzahl der am Anfang zu überspringenden Einträge (Abfragen)"
+msgstr "Anzahl der am Anfang zu überspringenden Zeilen:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -4919,9 +4884,8 @@ msgid "Relational key"
 msgstr "Relationaler Schlüssel"
 
 #: libraries/display_tbl.lib.php:590
-#, fuzzy
 msgid "Relational display column"
-msgstr "Relationaler Wert"
+msgstr "Relationale Anzeigespalte"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents"
@@ -4981,9 +4945,8 @@ msgid "Print view (with full texts)"
 msgstr "Druckansicht (vollständige Textfelder)"
 
 #: libraries/display_tbl.lib.php:2310 tbl_chart.php:81
-#, fuzzy
 msgid "Display chart"
-msgstr "PDF-Schema anzeigen"
+msgstr "Diagramm anzeigen"
 
 #: libraries/display_tbl.lib.php:2329
 msgid "Create view"
@@ -5178,7 +5141,6 @@ msgstr ""
 "REPAIR oder ausführt oder Indizes mit CREATE INDEX oder ALTER TABLE erzeugt."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 msgid "Garbage Threshold"
 msgstr "Müll-Grenzwert"
 
@@ -5196,10 +5158,12 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Der Port für die PBMS streambasierte Kommunikation. Wird dieser Wert auf 0 "
+"gesetzt, wird HTTP-Kommunikation mit dem Dienst deaktiviert."
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Repository-Grenzwert"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -5207,21 +5171,26 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Die maximale Größe einer Datei für ein BLOB-Repository. Sie können Kb, MB "
+"oder GB verwenden, um die Einheit des Wertes anzugeben. Ist keine Einheit "
+"angegeben, wird von Bytes ausgegangen."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Temp Blob-Timeout"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Das Zeitfenster in Sekunden für temporäre BLOBs. Nach dieser Zeitspanne "
+"werden hochgeladene BLOB-Daten entfernt, es sei denn, auf sie wird in einem "
+"Datenbankeintrag verwiesen."
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 msgid "Temp Log Threshold"
-msgstr "Logdatei Grenzwert"
+msgstr "Temp-Logdatei-Grenzwert"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -5229,26 +5198,35 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Die maximale Größe einer temporären BLOB-Logdatei. Sie können Kb, MB oder GB "
+"verwenden, um die Einheit des Wertes anzugeben. Ist keine Einheit "
+"angegeben, wird von einem Byte-Wert ausgegangen."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Max. Keep-Alive"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Das Zeitfenster für inaktive Verbindungen mit gesetztem Keep-Alive-Flag. "
+"Nach dieser Zeitspanne wird die Verbindung geschlossen. Das Zeitfenster ist "
+"in Millisekunden (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Metadaten-Header"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Eine mit \";\" getrennte Liste von Metadaten-Headern, die verwendet werden, um "
+"die Tabelle pbms_metadata_header zu initialisieren, wenn eine Datenbank "
+"erstellt wird."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
@@ -5256,19 +5234,20 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"Dokumentation und weitere Informationen über PBMS sind auf der %sWebsite von "
+"The PrimeBase Media Streaming%s verfügbar."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 msgid "Related Links"
-msgstr "Tabellenverknüpfungen"
+msgstr "Weiterführende Links"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "The PrimeBase Media Streaming-Blog von Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Website von PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -5423,14 +5402,16 @@ msgid ""
 "Documentation and further information about PBXT can be found on the %"
 "sPrimeBase XT Home Page%s."
 msgstr ""
+"Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
+"XT-Website%s verfügbar."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "The PrimeBase XT-Blog von Paul McCullagh"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "The PrimeBase Media Streaming (PBMS)-Website"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
@@ -5441,7 +5422,6 @@ msgid "Columns enclosed with:"
 msgstr "Spalten eingeschlossen von:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 msgid "Columns escaped with:"
 msgstr "Spalten escaped mit:"
 
@@ -5461,14 +5441,12 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr "CRLF-Zeichen aus Feldern entfernen"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 msgid "Excel edition:"
-msgstr "Excel-Ausgabe"
+msgstr "Excel-Ausgabe:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 msgid "Data dump options"
 msgstr "Datenexport-Optionen"
 
@@ -5496,31 +5474,26 @@ msgstr "Struktur der Tabelle @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 msgid "Object creation options"
-msgstr "Umwandlungsoptionen"
+msgstr "Objekterstellungsoptionen"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 msgid "Table caption (continued)"
-msgstr "Tabellenbeschriftung"
+msgstr "Tabellenbeschriftung (2)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 msgid "Display foreign key relationships"
-msgstr "Fremdschlüsselüberprüfung deaktivieren"
+msgstr "Fremdschlüssel-Beziehungen anzeigen"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 msgid "Display comments"
-msgstr "Darstellung von Spaltenkommentaren"
+msgstr "Kommentare anzeigen"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 msgid "Display MIME types"
-msgstr "Verfügbare MIME-Typen"
+msgstr "MIME-Typen anzeigen"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
@@ -5561,9 +5534,8 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Erstellt einen Report mit den Daten einer Tabelle)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 msgid "Report title:"
-msgstr "Titel des Reports"
+msgstr "Titel des Reports:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -5578,10 +5550,10 @@ msgstr ""
 "Version und Serverversion)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen Zeilenumbruch)"
+"Individuelle Kommentare für den Kopfbereich (\n"
+" erzeugt einen Zeilenumbruch):"
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5600,14 +5572,13 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s statement"
-msgstr "Angaben"
+msgstr "%s-Befehl hinzufügen"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 msgid "Add statements:"
-msgstr "Angaben"
+msgstr "Befehle hinzufügen:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
@@ -5618,16 +5589,16 @@ msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Tabellen- und Feldnamen in Backticks einschließen <i>(Schützt Feld- und "
+"Tabellennamen, die aus Sonderzeichen oder reservierten Wörtern bestehen)</i>"
 
 #: libraries/export/sql.php:136
-#, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Statt <code>INSERT</code>-Schlüsselwort benutze:"
+msgstr "Statt <code>INSERT</code>-Befehlen benutze:"
 
 #: libraries/export/sql.php:138
-#, fuzzy
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> Schlüsselworte"
+msgstr "<code>INSERT DELAYED</code>-Befehle"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
@@ -5635,7 +5606,7 @@ msgstr "<code>INSERT IGNORE</code> Schlüsselworte"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Beim Exportieren von Daten zu verwendende Funktion:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
@@ -5683,12 +5654,17 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Binäre Spalten in hexadezimaler Schreibweise exportieren <i>(zum Beispiel "
+"wird aus &bdquo;abc&rdquo; 0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"TIMESTAMP-Spalten als UTC exportieren <i>(damit können TIMESTAMP-Spalten ex- "
+"und importiert werden, auch wenn die Server in verschiedenen Zeitzonen "
+"sind)</i>"
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5736,9 +5712,8 @@ msgid "Object creation options (all are recommended)"
 msgstr "Optionen zum Anlegen von Objekten (alle werden empfohlen)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 msgid "Views"
-msgstr "Ansicht"
+msgstr "Ansichten"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -5820,9 +5795,8 @@ msgstr ""
 "Anführungsstrichen eingeschlossen sein."
 
 #: libraries/import/csv.php:41
-#, fuzzy
 msgid "Column names: "
-msgstr "Spaltennamen"
+msgstr "Spaltennamen: "
 
 #: libraries/import/csv.php:61 libraries/import/csv.php:74
 #: libraries/import/csv.php:79 libraries/import/csv.php:84
@@ -5846,9 +5820,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Ungültiges Format in Zeile %d."
 
 #: libraries/import/csv.php:324
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Ungültige Anzahl an Feldern in Zeile %d."
+msgstr "Ungültige Anzahl an Spalten im CSV-Import in Zeile %d."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
@@ -5869,24 +5843,22 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Dieses Plugin unterstützt keine Kompression!"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Prozentwerte importieren (12.00% wird zu .12)"
+msgstr ""
+"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% zu "
+".12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Währungen importieren ($5.00 zu 5.00)"
+msgstr "Währungen importieren <i>(z.B. $5.00 zu 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 msgid "SQL compatibility mode:"
-msgstr "SQL-Kompatibilitätsmodus"
+msgstr "SQL-Kompatibilitätsmodus:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "AUTO_INCREMENT nicht für Nullwerte verwenden"
+msgstr "<code>AUTO_INCREMENT</code> nicht für Nullwerte verwenden"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
@@ -6346,13 +6318,12 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema der Datenbank \"%s\" - Seite %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 msgid "This page does not contain any tables!"
-msgstr "Die Datei %s enthält keine Schlüsselnummer"
+msgstr "Diese Seite enthält keine Tabellen!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA-FEHLER: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:875
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
@@ -6381,14 +6352,12 @@ msgid "Create a page"
 msgstr "Neue Seite erstellen"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 msgid "Page name"
-msgstr "Seite:"
+msgstr "Seitenname"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 msgid "Automatic layout based on"
-msgstr "Automatische Anordnung"
+msgstr "Automatische Anordnung basierend auf"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
@@ -6396,25 +6365,23 @@ msgstr "Interne Beziehungen"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
 msgstr "Bitte wählen Sie die zu bearbeitende Seite."
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 msgid "Select page"
-msgstr "Tabellenauswahl"
+msgstr "Seite auswählen"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
 msgstr "Tabellenauswahl"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 msgid "Display relational schema"
-msgstr "Beziehungsschema"
+msgstr "Beziehungsschema anzeigen"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
@@ -6449,9 +6416,8 @@ msgid "Portrait"
 msgstr "Hochformat"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 msgid "Orientation"
-msgstr "Erzeugt am"
+msgstr "Ausrichtung"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
@@ -6481,7 +6447,6 @@ msgid "Unknown language: %1$s."
 msgstr "Unbekannte Sprache: \"%1$s\"."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 msgid "Current Server"
 msgstr "Aktueller Server"
 
@@ -6513,7 +6478,6 @@ msgid "Synchronize"
 msgstr "Gleiche ab"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -6650,7 +6614,7 @@ msgstr "ENDE DER AUSGABE"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Am Ende der Abfrage automatisch ergänzter Backtick!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
@@ -6778,9 +6742,8 @@ msgid "You have to add at least one column."
 msgstr "Sie müssen mindestens eine Spalte hinzufügen."
 
 #: libraries/tbl_properties.inc.php:797
-#, fuzzy
 msgid "+ Add a new value"
-msgstr "Neuen Server hinzufügen"
+msgstr "+ Neuen Wert hinzufügen"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -6822,7 +6785,6 @@ msgid "Displays a link to download this image."
 msgstr "Einen Link zum Bild anzeigen, z. B. zum Download von BLOB-Daten."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
-#, fuzzy
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -6833,18 +6795,17 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Zeigt ein TIME-, TIMESTAMP-, DATETIME- oder numerisches Unixtimestamp-Feld "
-"als formatiertes Datum. Die erste Option ist der Offset (in Stunden), der "
-"zum Timestamp (Vorgabe: 0) hinzugefügt wird. Benutzen Sie die zweite Option, "
-"um einen abweichenden Datum-/Zeit-Format-String vorzugeben. Die dritte "
-"Option bestimmt, ob Sie das lokale oder das UTC Datum/Zeit dafür zeigen "
-"wollen (benutzen Sie \"local\" oder \"utc\"). Dementsprechend hat das "
-"Datumsformat verschiedene Werte - für \"lokal\" siehe die PHP Dokumentation "
-"für die strftime() Funktion und für \"utc\" wird es mittels der gmdate() "
-"Funktion konvertiert."
+"Zeigt eine TIME-, TIMESTAMP-, DATETIME- oder numerisches Unixtimestamp-"
+"Spalte als formatiertes Datum an. Die erste Option ist der Offset (in "
+"Stunden), der zum Timestamp hinzugefügt wird (Vorgabe: 0). Verwenden Sie die "
+"zweite Option, um eine abweichende Datum-/Zeit-Format-Zeichenkette "
+"anzugeben. Die dritte Option bestimmt, ob Sie das lokale Datum oder das "
+"entsprechende UTC-Datum sehen wollen (\"local\" oder \"utc\" verwenden). "
+"Dementsprechend hat das Datumsformat verschiedene Werte - für \"lokal\" siehe "
+"die PHP Dokumentation für die strftime() Funktion und für \"utc\" wird es "
+"mittels der gmdate() Funktion konvertiert."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6857,50 +6818,47 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"Nur für LINUX: Startet ein externes Programm und verwendet die Daten des "
-"Feldes für die Standardeingabe. Stellt innerhalb von phpMyAdmin die "
-"Standardausgabe des externen Programmes dar. Die Voreinstellung wurde für "
-"Tidy optimiert, um HTML code optisch zu formatieren. Aus Sicherheitsgründen "
-"müssen Sie die Datei libraries/transformations/text_plain__external.inc.php "
-"von Hand bearbeiten um weitere Programme hinzuzufügen. Die erste Option ist "
-"die Nummer des dort hinterlegten Programmes und die zweite Option legt die "
-"Parameter für das externe Programm fest. Die dritte Option bestimmt, falls "
-"auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird "
-"(Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein "
-"NOWRAP-Parameter der Tabellenzelle hinzugefügt wird um einen automatischen "
-"Umbruch der Standardausgabe zu verhindern (Standard: 1)"
+"NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
+"Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
+"zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
+"formatieren. Aus Sicherheitsgründen müssen Sie die Datei "
+"libraries/transformations/text_plain__external.inc.php von Hand bearbeiten, "
+"um weitere Programme verfügbar zu machen. Die erste Option ist die Nummer "
+"des dort hinterlegten Programmes und die zweite Option legt die Parameter "
+"für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 "
+"gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: "
+"1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter "
+"der Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
+"Standardausgabe zu verhindern (Standard: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Behält Ursprungsformatierung des Feldes bei. Kein Escaping oder "
-"Umlautwandlung wird durchgeführt."
+"Behält Ursprungsformatierung der Spalte bei. Kein Escaping oder "
+"Umlautwandlung wird durchgeführt. Das heißt, es wird angenommen, dass die "
+"Spalte gültiges HTML enthält."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu "
-"darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen "
-"Feldinhalt wie \"http://www.domain.com\". Zweite Option ist die Breite des "
-"Bildes, die dritte Option die Höhe des Bildes in Pixeln."
+"Zeigt ein Bild und einen Link; die Spalte enthält den Dateinamen. Die erste "
+"Option ist ein URL-Präfix, wie \"http://www.domain.com\". Zweite Option ist "
+"die Breite des Bildes, die dritte Option die Höhe in Pixeln."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option "
-"ist ein Präfix vor dem eigentlichen Feldinhalt wie \"http://www.domain.com"
-"\". Zweite Option ist der darzustellende Titel des Links"
+"Zeigt einen Link an; die Spalte enthlt den Dateinamen. Die erste Option ist "
+"ein Präfix, wie \"http://www.domain.com\". Zweite Option ist der "
+"darzustellende Titel des Links."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -6931,14 +6889,12 @@ msgstr ""
 "(Standard: ...)."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 msgid "Manage your settings"
-msgstr "Sonstige Einstellungen"
+msgstr "Deine Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 msgid "Configuration has been saved"
-msgstr "Änderungen gespeichert."
+msgstr "Die Konfiguration wurde gespeichert"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -6950,9 +6906,8 @@ msgstr ""
 "Die permanente Specícherung erfordert %sphpMyAdmin Konfigurationsspeicher%s."
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 msgid "Could not save configuration"
-msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen."
+msgstr "Fehler beim Speichern der Konfiguration"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
@@ -6972,18 +6927,16 @@ msgid "Error in ZIP archive:"
 msgstr "Fehler im ZIP-Archiv:"
 
 #: main.php:68
-#, fuzzy
 msgid "General Settings"
-msgstr "Allgemeine Verknüpfungsfunktionen"
+msgstr "Allgemeine Einstellungen"
 
 #: main.php:105
 msgid "MySQL connection collation"
 msgstr "Zeichensatz / Kollation der MySQL-Verbindung"
 
 #: main.php:121
-#, fuzzy
 msgid "Appearance Settings"
-msgstr "Sonstige Einstellungen"
+msgstr "Anzeige-Einstellungen"
 
 #: main.php:141
 msgid "Background color"
@@ -6994,9 +6947,8 @@ msgid "Choose..."
 msgstr "Auswahl..."
 
 #: main.php:159 prefs_manage.php:274
-#, fuzzy
 msgid "More settings"
-msgstr "Einstellungen"
+msgstr "Weitere Einstellungen"
 
 #: main.php:176
 msgid "Protocol version"
@@ -7037,19 +6989,16 @@ msgid "Official Homepage"
 msgstr "Offizielle Homepage "
 
 #: main.php:227
-#, fuzzy
 msgid "Contribute"
-msgstr "Attribute"
+msgstr "Mitmachen"
 
 #: main.php:228
-#, fuzzy
 msgid "Get support"
-msgstr "Exportieren"
+msgstr "Unterstützung erhalten"
 
 #: main.php:229
-#, fuzzy
 msgid "List of changes"
-msgstr "Keine Änderung"
+msgstr "Liste der Änderungen"
 
 #: main.php:253
 msgid ""
@@ -7098,15 +7047,13 @@ msgstr ""
 "Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
 
 #: main.php:284
-#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] ist niedriger als "
-"die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre "
-"Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Der Logincookiespeicher ist niedriger als die Ablaufzeit von Cookies, die in "
+"phpMyAdmin eingestellt ist, daher wird Ihre Anmeldung eher ablaufen als in "
+"phpMyAdmin konfiguriert."
 
 #: main.php:292
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -7124,13 +7071,14 @@ msgstr ""
 "vorhanden. Sie sollten es nach der Konfiguration von phpMyAdmin entfernen."
 
 #: main.php:309
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
-"s um herauszufinden warum."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht vollständig konfiguriert, "
+"einige erweiterte Funktionen wurden deaktiviert. Klicken Sie %shier%s, um "
+"herauszufinden warum."
 
 #: main.php:324
 msgid ""
@@ -7169,9 +7117,8 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:277
-#, fuzzy
 msgid "filter tables by name"
-msgstr "Tabelle sortieren nach"
+msgstr "Tabellen nach Namen filtern"
 
 #: navigation.php:308 navigation.php:309
 msgctxt "short form"
@@ -7231,9 +7178,8 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export Koordinaten für das PDF Schema"
 
 #: pmd_general.php:121
-#, fuzzy
 msgid "Build Query"
-msgstr "SQL-Befehl ausführen"
+msgstr "Abfrage erstellen"
 
 #: pmd_general.php:126
 msgid "Move Menu"
@@ -7256,34 +7202,28 @@ msgid "Delete relation"
 msgstr "Verknüpfung löschen"
 
 #: pmd_general.php:461 pmd_general.php:520
-#, fuzzy
 msgid "Relation operator"
-msgstr "Verknüpfung gelöscht"
+msgstr "Beziehungsoperator"
 
 #: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
 #: pmd_general.php:770
-#, fuzzy
 msgid "Except"
-msgstr "Exportieren"
+msgstr "Ausnahme"
 
 #: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
 #: pmd_general.php:776
-#, fuzzy
 msgid "subquery"
-msgstr "in der Abfrage"
+msgstr "Unterabfrage"
 
 #: pmd_general.php:481 pmd_general.php:577
-#, fuzzy
 msgid "Rename to"
-msgstr "View umbenennen in"
+msgstr "Umbenennen nach"
 
 #: pmd_general.php:483 pmd_general.php:582
-#, fuzzy
 msgid "New name"
-msgstr "Benutzername"
+msgstr "Neuer Name"
 
 #: pmd_general.php:486 pmd_general.php:701
-#, fuzzy
 msgid "Aggregate"
 msgstr "Anlegen"
 
@@ -7294,24 +7234,22 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:811
-#, fuzzy
 msgid "Active options"
-msgstr "Tabellenoptionen"
+msgstr "Aktive Optionen"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
 msgstr "Um eine Relation auszuwählen, klicken Sie :"
 
 #: pmd_help.php:28
-#, fuzzy
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Das Anzeigefeld wird in rosa angezeigt. Um ein Feld anzeigen zu lassen oder "
-"nicht, klicken Sie auf das \"Anzeige-Wahl-Bild\", dann auf den passenden "
-"Feldnamen."
+"Die Anzeigespalte wird in rosa angezeigt. Um eine Spalte als Anzeigespalte "
+"anzeigen zu lassen oder nicht, klicken Sie auf das Symbol \"Anzeigespalte "
+"wählen\", dann auf den passenden Spaltennamen."
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
@@ -7322,29 +7260,24 @@ msgid "Page creation failed"
 msgstr "Seitenerstellung fehlgeschlagen"
 
 #: pmd_pdf.php:89
-#, fuzzy
 msgid "Page"
-msgstr "Seiten"
+msgstr "Seite"
 
 #: pmd_pdf.php:99
-#, fuzzy
 msgid "Import from selected page"
-msgstr "Dateiimport"
+msgstr "Import von ausgewählter Seite"
 
 #: pmd_pdf.php:100
-#, fuzzy
 msgid "Export to selected page"
-msgstr "Export/Import skalieren"
+msgstr "Export zu der ausgewählten Seite"
 
 #: pmd_pdf.php:102
-#, fuzzy
 msgid "Create a page and export to it"
-msgstr "Neuen Index anlegen"
+msgstr "Eine Seite anlegen und dahin exportieren"
 
 #: pmd_pdf.php:111
-#, fuzzy
 msgid "New page name: "
-msgstr "Benutzername"
+msgstr "Name der neuen Seite: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7383,14 +7316,14 @@ msgid "Modifications have been saved"
 msgstr "Änderungen gespeichert."
 
 #: prefs_forms.php:78
-#, fuzzy
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Ausgefülltes Formular enthält Fehler"
+msgstr ""
+"Einstellungen können nicht gespeichert werden, ausgefülltes Formular enthält "
+"Fehler."
 
 #: prefs_manage.php:80
-#, fuzzy
 msgid "Could not import configuration"
-msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
+msgstr "Fehler beim Importieren der Konfiguration"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
@@ -7405,31 +7338,28 @@ msgid "Saved on: @DATE@"
 msgstr "Gespeichert am: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 msgid "Import from file"
-msgstr "Dateiimport"
+msgstr "Import aus Datei"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Import aus Browserspeicher"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Einstellungen werden aus Ihrem lokalen Browserspeicher importiert."
 
 #: prefs_manage.php:254
-#, fuzzy
 msgid "You have no saved settings!"
-msgstr "Sonstige Einstellungen"
+msgstr "Sie haben keine gespeicherten Einstellungen!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
 msgstr "Dieses Feature wird von ihrem Webbrowser nicht unterstützt"
 
 #: prefs_manage.php:263
-#, fuzzy
 msgid "Merge with current configuration"
-msgstr "Serverkonfiguration"
+msgstr "Mit aktueller Konfiguration zusammenführen"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7442,11 +7372,11 @@ msgstr ""
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Im Browserspeicher speichern"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Einstellungen werden in Ihrem lokalen Browserspeicher gespeichert."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -7472,9 +7402,8 @@ msgstr ""
 "Kofigurationsdatei %s nicht gesetzt."
 
 #: schema_export.php:45
-#, fuzzy
 msgid "File doesn't exist"
-msgstr "Die Tabelle \"%s\" existiert nicht!"
+msgstr "Datei existiert nicht"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
@@ -8146,24 +8075,20 @@ msgid "Reset slave"
 msgstr "Slave zurücksetzen"
 
 #: server_replication.php:326
-#, fuzzy
 msgid "Start SQL Thread only"
-msgstr "Nur SQL Thread %s"
+msgstr "Nur SQL-Thread starten"
 
 #: server_replication.php:328
-#, fuzzy
 msgid "Stop SQL Thread only"
-msgstr "Nur SQL Thread %s"
+msgstr "Nur SQL-Thread stoppen"
 
 #: server_replication.php:331
-#, fuzzy
 msgid "Start IO Thread only"
-msgstr "Nur IO Thread %s"
+msgstr "Nur Ein-/Ausgabethread starten"
 
 #: server_replication.php:333
-#, fuzzy
 msgid "Stop IO Thread only"
-msgstr "Nur IO Thread %s"
+msgstr "Nur Ein-/Ausgabethread stoppen"
 
 #: server_replication.php:338
 msgid "Error management:"
@@ -9032,9 +8957,8 @@ msgid "Query type"
 msgstr "Abfrageart"
 
 #: server_status.php:721 server_status.php:722
-#, fuzzy
 msgid "Show query chart"
-msgstr "SQL-Querybox"
+msgstr "Abfragediagramm anzeigen"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
@@ -9178,14 +9102,14 @@ msgid "Cannot load or save configuration"
 msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen."
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Bitte erstellen Sie den Ordner [em]config[/em] im phpMyAdmin-"
-"hauptverzeichnis, und setzen Sie der Berechtigungen entsprechend. Ansonsten "
+"Bitte erstellen Sie einen vom Webserver beschreibbaren Ordner "
+"[em]config[/em] im phpMyAdmin-Hauptverzeichnis wie in der "
+"[a@Documentation.html#setup_script]Dokumentation[/a] beschrieben. Ansonsten "
 "können Sie die Konfiguration nur herunterladen bzw. anzeigen."
 
 #: setup/frames/index.inc.php:57
@@ -9318,28 +9242,28 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Sie benutzen Git Version, run [kbd]git pull[/kbd] :-)[br]Neueste 'stable' "
-"Version ist %s, vom %s."
+"Sie benutzen die Git-Version, führen Sie [kbd]git pull[/kbd] aus :-)[br]Die "
+"neueste stabile Version ist %s, veröffentlicht am %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
 msgstr "Keine neuere stabile Version verfügbar"
 
 #: setup/lib/index.lib.php:250
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %strusted "
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Diese [a@?page=form&amp;formset=features#tab_Security]Option[/a]This [a@?"
-"page=form&amp;formset=features#tab_Security]option[/a] sollte deaktiviert "
-"sein, weil sie Angreifern erlaubt Bruteforce-Attacken auf beliebige (auch "
-"fremde) MySQL-Servern durchzuführen. Wenn Sie der Meinung sind, dass diese "
-"Option unbedingt notwendig ist, sollten Sie die [a@?page=form&amp;"
-"formset=features#tab_Security]trusted proxy list[/a] verwenden. IP-basierte "
-"Regeln sind aber nie wirklich ausreichend."
+"Diese %sOption%s sollte deaktiviert sein, weil sie Angreifern erlaubt, "
+"Bruteforce-Attacken auf beliebige (auch fremde) MySQL-Server durchzuführen. "
+"Wenn Sie der Meinung sind, dass diese Option unbedingt notwendig ist, "
+"sollten Sie die %sListe für vertrauenswürdige Proxies%s verwenden. IP-"
+"basierte Regeln sind aber nie wirklich ausreichend, besonders wenn Ihre IP "
+"zu einem Internetdienstanbieter gehört, mit dem tausende Kunden, Sie "
+"eingeschlossen, verbunden sind."
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -9353,14 +9277,13 @@ msgstr ""
 "gemerkt werden."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2-Kompression und "
-"Dekompression[/a] benötigt Funktionen (%s), welche auf diesem System nicht "
-"verfügbar sind."
+"%sBzip2-Komprimierung und Dekomprimierung%s benötigt Funktionen (%s), die "
+"auf diesem System nicht verfügbar sind."
 
 #: setup/lib/index.lib.php:255
 msgid ""
@@ -9372,20 +9295,20 @@ msgstr ""
 "keine Schreibrechte haben."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"Sie sollten SSL Verbindungen benutzen, wenn Ihr Webserver es unterstützt"
+"Diese %sOption%s sollte aktiviert werden, falls Ihr Webserver sie "
+"unterstützt."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip-Kompression und "
-"Dekompression[/a] benötigt Funktionen (%s), welche auf diesem System nicht "
-"verfügbar sind."
+"%sGZip-Komprimierung und Dekomprimierung%s benötigt Funktionen (%s), die auf "
+"diesem System nicht verfügbar sind."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -9394,16 +9317,19 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sLogincookie-Gültigkeit%s größer als 1440 Sekunden kann zufälligen Ablauf "
+"von Sitzungen verursachen, falls %ssession.gc_maxlifetime%s niedriger ist "
+"als dieser Wert (aktuell %d)."
 
 #: setup/lib/index.lib.php:262
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] sollte "
-"maximal auf 1800 Sekunden (30 minutes) gesetzt sein. Werte größer 1800 "
-"könnten ein Sicherheitsrisiko darstellen z.B. durch Imitation."
+"%sLogincookie-Gültigkeit%s sollte maximal auf 1800 Sekunden (30 Minuten) "
+"gesetzt sein. Werte größer als 1800 könnten ein Sicherheitsrisiko darstellen "
+"z.B. durch Leute, die sich als Sie ausgeben."
 
 #: setup/lib/index.lib.php:264
 #, php-format
@@ -9411,24 +9337,26 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Falls Sie Cookie-Authentifizierung verwenden und der %sLogincookiespeicher%s "
+"ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s auf den gleichen oder "
+"einen niedrigeren Wert gesetzt sein."
 
 #: setup/lib/index.lib.php:266
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Falls Sie es für nötig halten, benutzen Sie die zusätzlichen Schutz "
-"Einstellungen - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]"
-"Host Authentifikation[/a] und [a@?page=form&amp;"
-"formset=features#tab_Security]Vertrauenswürdige Proxies Liste[/a]. IP "
-"Basierter Schutz kann unzuverlässig sein, wenn die IP einem ISP gehört, mit "
-"dem tausende Benutzer, einschließlich Ihnen, verbunden sind."
+"Falls Sie es für nötig halten, benutzen Sie die zusätzlichen Schutz-"
+"Einstellungen - %sHost Authentifizierung%s und die %sListe "
+"vertrauenswürdiger Proxys%s. IP-basierter Schutz kann unzuverlässig sein, "
+"wenn Ihre IP einem ISP gehört, mit dem tausende Benutzer, einschließlich "
+"Ihnen, verbunden sind."
 
 #: setup/lib/index.lib.php:268
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -9436,53 +9364,48 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Sie haben die [kbd]config[/kbd] Authentifikation gewählt und einen "
-"Benutzernamen und Passwort für Auto-Login eingegeben, was für live Hosts "
-"nicht Wünschenswert ist. Jeder, der Ihre phpMyAdmin URL kennt oder errät "
-"kann direckt auf Ihre phpMyAdmin Oberfläche zugreifen. Setzen Sie den [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]Authentifikationstyp[/a] "
-"auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
+"Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
+"Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
+"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip Komprimierung[/a] "
-"benötigt die Funktionen (%s) die auf dem System nicht zur Verfügung stehen."
+"%sZip-Komprimierung%s benötigt Funktionen (%s), die auf diesem System nicht "
+"zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip Dekomprimierung[/a] "
-"benötigt die Funktionen (%s) die auf dem System nicht zur Verfügung stehen."
+"%sZip-Dekomprimierung%s benötigt Funktionen (%s), die auf diesem System "
+"nicht zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:296
-#, fuzzy
 msgid "You should use SSL connections if your web server supports it."
 msgstr ""
-"Sie sollten SSL Verbindungen benutzen, wenn Ihr Webserver es unterstützt"
+"Sie sollten SSL-Verbindungen benutzen, wenn Ihr Webserver es unterstützt."
 
 #: setup/lib/index.lib.php:306
-#, fuzzy
 msgid "You should use mysqli for performance reasons."
-msgstr "Sie sollten mysqli wegen der Performance benutzen"
+msgstr "Aus Performancegründen sollten Sie mysqli verwenden."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
 msgstr "Sie erlauben Verbindungen mit dem Server ohne Passwort."
 
 #: setup/lib/index.lib.php:351
-#, fuzzy
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "Schlüssel ist zu kurz, er muss mindestens 8 Zeichen lang sein."
 
 #: setup/lib/index.lib.php:358
-#, fuzzy
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
@@ -9495,7 +9418,7 @@ msgstr "Fremdschlüsselwerte ansehen"
 #: sql.php:154
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Lesezeichen \"%s\" wird als Standard-Anzeigeabfrage verwendet."
 
 #: sql.php:591 tbl_replace.php:385
 #, php-format
@@ -9511,9 +9434,8 @@ msgid "Showing SQL query"
 msgstr "Ansicht als SQL Abfrage"
 
 #: sql.php:613
-#, fuzzy
 msgid "Validated SQL"
-msgstr "SQL validieren"
+msgstr "Geprüftes SQL"
 
 #: sql.php:851
 #, php-format
@@ -9534,9 +9456,8 @@ msgid "Function"
 msgstr "Funktion"
 
 #: tbl_change.php:752
-#, fuzzy
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr "Wegen seiner Länge ist dieses<br />Feld vielleicht nicht editierbar."
+msgstr " Wegen seiner Länge ist dieses<br />Feld vielleicht nicht editierbar "
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
@@ -9590,22 +9511,21 @@ msgstr ""
 "beliebig bewegen"
 
 #: tbl_change.php:1131
-#, fuzzy, php-format
+#, php-format
 msgid "Continue insertion with %s rows"
-msgstr "Einfügen mit %s Zeilen neu starten"
+msgstr "Einfügen mit %s Zeilen fortfahren"
 
 #: tbl_chart.php:56
-#, fuzzy
 msgid "Chart generated successfully."
-msgstr "Die Benutzerprofile wurden neu geladen."
+msgstr "Diagramm erfolgreich generiert."
 
 #: tbl_chart.php:59
-#, fuzzy
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Es kann sich hierbei um Näherungswerte handeln. Bitte lesen Sie auch FAQ 3.11"
+"Das Ergebnis dieser Abfrage kann nicht für ein Diagramm verwendet werden. "
+"Siehe [a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
@@ -9656,9 +9576,8 @@ msgid "Bar type"
 msgstr "Säulentyp"
 
 #: tbl_chart.php:146
-#, fuzzy
 msgid "Stacked"
-msgstr "Gepackt"
+msgstr "Gestapelt"
 
 #: tbl_chart.php:147
 msgid "Multi"
@@ -9666,7 +9585,7 @@ msgstr "Mehrfach"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Fortlaufendes Bild"
 
 #: tbl_chart.php:155
 msgid ""
@@ -9821,18 +9740,16 @@ msgid "Flush the table (FLUSH)"
 msgstr "Leeren des Tabellencaches (\"FLUSH\")"
 
 #: tbl_operations.php:647
-#, fuzzy
 msgid "Delete data or table"
-msgstr "Lösche die Verlaufsdaten für diese Tabelle"
+msgstr "Daten oder Tabelle löschen"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
 msgstr "Tabelle leeren (TRUNCATE)"
 
 #: tbl_operations.php:682
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Gehe zur Datenbank"
+msgstr "Tabelle löschen (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
@@ -9943,9 +9860,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Suche über Beispielwerte (\"query by example\") (Platzhalter: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 msgid "Select columns (at least one):"
-msgstr "Felder auswählen (min. eines):"
+msgstr "Spalten auswählen (min. eines):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -9968,9 +9884,8 @@ msgid "Add primary key"
 msgstr "Primärschlüssel hinzufügen"
 
 #: tbl_structure.php:167 tbl_structure.php:168
-#, fuzzy
 msgid "Add index"
-msgstr "Index/Indices anwenden"
+msgstr "Index hinzufügen"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
@@ -9986,9 +9901,9 @@ msgid "None"
 msgstr "kein(e)"
 
 #: tbl_structure.php:397
-#, fuzzy, php-format
+#, php-format
 msgid "Column %s has been dropped"
-msgstr "Die Tabelle %s wurde gelöscht."
+msgstr "Spalte %s wurde gelöscht"
 
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
@@ -10002,9 +9917,8 @@ msgid "An index has been added on %s"
 msgstr "Ein Index wurde in %s erzeugt"
 
 #: tbl_structure.php:471
-#, fuzzy
 msgid "Show more actions"
-msgstr "Zeige Versionen"
+msgstr "Weitere Aktionen anzeigen"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
@@ -10015,9 +9929,8 @@ msgid "Propose table structure"
 msgstr "Tabellenstruktur analysieren"
 
 #: tbl_structure.php:631
-#, fuzzy
 msgid "Add column"
-msgstr "Spalte(n) einfügen"
+msgstr "Spalte hinzufügen"
 
 #: tbl_structure.php:645
 msgid "At End of Table"
