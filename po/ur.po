@@ -2249,7 +2249,7 @@ msgstr "برآمد کارآمد نہیں ہے ایک عمل موجود نہیں 
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr "SQL توثیق کار نااہل ہے"
+msgstr "SQL توثیق کار غیرفعال ہے"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
