@@ -593,7 +593,7 @@ $(document).ready(function() {
      * this behavior.
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
-        //do not trigger when clicked on anchor or inside input element (in inline editing mode) with exception of the first checkbox
+        // do not trigger when clicked on anchor
         if ($(e.target).is('a, a *')) {
             return;
         }
