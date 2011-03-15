@@ -2294,10 +2294,9 @@ msgid "Improves efficiency of screen refresh"
 msgstr "سکرین تازہ کاری کارکردگی بہتربناتا ہے"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enable"
 msgid "Enable Ajax"
-msgstr "فعال"
+msgstr "AJAX فعال کریں"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
