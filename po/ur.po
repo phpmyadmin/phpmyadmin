@@ -2287,7 +2287,7 @@ msgstr "صارفین کو اس قدر کے مخصوص کرنے کی اجازت �
 #: libraries/schema/User_Schema.class.php:470 main.php:146
 #: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
 msgid "Reset"
-msgstr ""
+msgstr "دوبارہ سیٹ کریں"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
