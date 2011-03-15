@@ -416,7 +416,7 @@ $(document).ready(function() {
     $(".inline_edit_anchor").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
-        $(this).removeClass('inline_edit_anchor').addClass('inline_edit_active');
+        $(this).removeClass('inline_edit_anchor').addClass('inline_edit_active').parent('tr').addClass('noclick');
 
         // adding submit and hide buttons to inline edit <td>
         // for "hide", button the original data to be restored is present in .original_data
@@ -442,7 +442,7 @@ $(document).ready(function() {
 
                 var $this_hide = $(this).parent();
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
-                $this_hide.parent().removeClass("hover");
+                $this_hide.parent().removeClass("hover noclick");
                 $this_hide.siblings().removeClass("hover");
 
                 var last_column = $this_hide.siblings().length;
@@ -898,7 +898,7 @@ $(document).ready(function() {
 
                 PMA_ajaxShowMessage(data.message);
                 $this_td.removeClass('inline_edit_active hover').addClass('inline_edit_anchor');
-                $this_td.parent().removeClass('hover')
+                $this_td.parent().removeClass('hover noclick');
                 $this_td.siblings().removeClass('hover');
 
                 $input_siblings.each(function() {
