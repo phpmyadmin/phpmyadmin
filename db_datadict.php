@@ -70,8 +70,6 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     /**
      * Gets table informations
      */
-    // The 'show table' statement works correct since 3.23.03
-    $num_rows     = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_ROWS');
     $show_comment = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_COMMENT');
 
     /**
