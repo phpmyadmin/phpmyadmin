@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-15 10:14+0200\n"
+"PO-Revision-Date: 2011-03-15 10:15+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2249,7 +2249,7 @@ msgstr "برآمد کارآمد نہیں ہے ایک عمل موجود نہیں 
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL توثیق کار نااہل ہے"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
