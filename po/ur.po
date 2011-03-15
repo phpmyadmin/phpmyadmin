@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-05 14:23-0500\n"
-"PO-Revision-Date: 2011-03-15 11:04+0200\n"
+"PO-Revision-Date: 2011-03-15 11:05+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2325,7 +2325,7 @@ msgstr "تیسرے فریق فریم کاری کی اجازت دیں"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "دکھائیں &quot;چھوڑیں کوائف&quot; عام صارفین سے ربط کریں"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
