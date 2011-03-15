@@ -212,7 +212,7 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
         $value['Info'] = PMA_substr($value['Info'], 0, $GLOBALS['cfg']['LimitChars']) . '...';
     }
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td>&nbsp;<?php echo $value['Log_name']; ?>&nbsp;</td>
     <td align="right">&nbsp;<?php echo $value['Pos']; ?>&nbsp;</td>
     <td>&nbsp;<?php echo $value['Event_type']; ?>&nbsp;</td>

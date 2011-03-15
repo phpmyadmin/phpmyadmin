@@ -123,7 +123,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']);
         $delete_link = 'db_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
         ?>
-        <tr class="<?php echo $style;?>">
+        <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
             <td><?php echo htmlspecialchars($version_data['table_name']);?></td>
             <td><?php echo $version_data['version'];?></td>
@@ -202,7 +202,7 @@ if (isset($my_tables)) {
             }
             $my_link .= __('Track table') . '</a>';
         ?>
-            <tr class="<?php echo $style;?>">
+            <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>
             <td><?php echo $my_link;?></td>
             </tr>

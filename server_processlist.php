@@ -74,7 +74,7 @@ while($process = PMA_DBI_fetch_assoc($result)) {
     $url_params['kill'] = $process['Id'];
     $kill_process = 'server_processlist.php' . PMA_generate_common_url($url_params);
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
     <td class="value"><?php echo $process['Id']; ?></td>
     <td><?php echo $process['User']; ?></td>

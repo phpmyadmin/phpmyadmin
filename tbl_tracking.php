@@ -278,7 +278,7 @@ if (isset($_REQUEST['snapshot'])) {
     $style = 'odd';
     foreach($columns as $field_index => $field) {
 ?>
-        <tr class="<?php echo $style; ?>">
+        <tr class="noclick <?php echo $style; ?>">
             <?php
             if ($field['Key'] == 'PRI') {
                 echo '<td><b><u>' . $field['Field'] . '</u></b></td>' . "\n";
@@ -336,7 +336,7 @@ if (isset($_REQUEST['snapshot'])) {
                 $str_packed = __('No');
             }
 ?>
-            <tr class="<?php echo $style; ?>">
+            <tr class="noclick <?php echo $style; ?>">
                 <td><b><?php echo $index['Key_name'];?></b></td>
                 <td><?php echo $index['Index_type'];?></td>
                 <td><?php echo $str_unique;?></td>
@@ -420,7 +420,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
-                <tr class="<?php echo $style; ?>">
+                <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
                     <td><small><?php echo $entry['date'];?></small></td>
                     <td><small><?php echo $entry['username']; ?></small></td>
@@ -471,7 +471,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
-                <tr class="<?php echo $style; ?>">
+                <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>
                     <td><small><?php echo $entry['date']; ?></small></td>
                     <td><small><?php echo $entry['username']; ?></small></td>
@@ -608,7 +608,7 @@ if ($last_version > 0) {
             $tracking_active = true;
         }
     ?>
-        <tr class="<?php echo $style;?>">
+        <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($version['db_name']);?></td>
             <td><?php echo htmlspecialchars($version['table_name']);?></td>
             <td><?php echo $version['version'];?></td>

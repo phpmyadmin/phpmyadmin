@@ -516,7 +516,7 @@ foreach ($sections as $section_name => $section) {
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="noclick odd">
     <th class="name"><?php echo __('Received'); ?></th>
     <td class="value"><?php echo
         implode(' ',
@@ -526,7 +526,7 @@ foreach ($sections as $section_name => $section) {
             PMA_formatByteDown(
                 $server_status['Bytes_received'] * $hour_factor, 2, 1)); ?></td>
 </tr>
-<tr class="even">
+<tr class="noclick even">
     <th class="name"><?php echo __('Sent'); ?></th>
     <td class="value"><?php echo
         implode(' ',
@@ -536,7 +536,7 @@ foreach ($sections as $section_name => $section) {
             PMA_formatByteDown(
                 $server_status['Bytes_sent'] * $hour_factor, 2, 1)); ?></td>
 </tr>
-<tr class="odd">
+<tr class="noclick odd">
     <th class="name"><?php echo __('Total'); ?></th>
     <td class="value"><?php echo
         implode(' ',
@@ -562,14 +562,14 @@ foreach ($sections as $section_name => $section) {
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="noclick odd">
     <th class="name"><?php echo __('max. concurrent connections'); ?></th>
     <td class="value"><?php echo
         PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
     <td class="value">--- </td>
     <td class="value">--- </td>
 </tr>
-<tr class="even">
+<tr class="noclick even">
     <th class="name"><?php echo __('Failed attempts'); ?></th>
     <td class="value"><?php echo
         PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
@@ -583,7 +583,7 @@ foreach ($sections as $section_name => $section) {
             0, 2) . '%'
       : '--- '; ?></td>
 </tr>
-<tr class="odd">
+<tr class="noclick odd">
     <th class="name"><?php echo __('Aborted'); ?></th>
     <td class="value"><?php echo
         PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
@@ -597,7 +597,7 @@ foreach ($sections as $section_name => $section) {
             0, 2) . '%'
       : '--- '; ?></td>
 </tr>
-<tr class="even">
+<tr class="noclick even">
     <th class="name"><?php echo __('Total'); ?></th>
     <td class="value"><?php echo
         PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
@@ -628,7 +628,7 @@ foreach ($sections as $section_name => $section) {
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="noclick odd">
     <td class="value"><?php echo
         PMA_formatNumber($server_status['Questions'], 4, 0); ?></td>
     <td class="value"><?php echo
@@ -697,7 +697,7 @@ foreach ($used_queries as $name => $value) {
     $name = str_replace('Com_', '', $name);
     $name = str_replace('_', ' ', $name);
 ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
             <th class="name"><?php echo htmlspecialchars($name); ?></th>
             <td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
             <td class="value"><?php echo
@@ -799,7 +799,7 @@ if (! empty($section['title'])) {
         foreach ($section['vars'] as $name => $value) {
             $odd_row = !$odd_row;
 ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
             <th class="name"><?php echo htmlspecialchars($name) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
             </th>
             <td class="value"><?php

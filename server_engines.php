@@ -65,7 +65,7 @@ if (empty($_REQUEST['engine'])
      */
     $odd_row = true;
     foreach (PMA_StorageEngine::getStorageEngines() as $engine => $details) {
-        echo '<tr class="'
+        echo '<tr class="noclick '
            . ($odd_row ? 'odd' : 'even')
            . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
                 ? ' disabled'
@@ -83,7 +83,7 @@ if (empty($_REQUEST['engine'])
     $PMA_Config = $GLOBALS['PMA_Config'];
     if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
         // Special case for PBMS daemon which is not listed as an engine
-        echo '<tr class="'
+        echo '<tr class="noclick '
             . ($odd_row ? 'odd' : 'even')
             .  '">' . "\n"
             . '    <td><a href="./server_engines.php'
@@ -91,7 +91,7 @@ if (empty($_REQUEST['engine'])
             . '            '  . "PBMS\n"
             . '        </a></td>' . "\n"
             . '    <td>' . htmlspecialchars("PrimeBase MediaStream (PBMS) daemon") . '</td>' . "\n"
-            . '</tr>' . "\n";  
+            . '</tr>' . "\n";
     }
 
    unset($odd_row, $engine, $details);

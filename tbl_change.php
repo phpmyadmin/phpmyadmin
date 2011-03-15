@@ -457,7 +457,7 @@ foreach ($rows as $row_id => $vrow) {
             $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
         }
         ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
             <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center">
                 <?php echo $field['Field_title']; ?>
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>

@@ -62,7 +62,7 @@ echo __('Session value') . ' / ' . __('Global value');
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
     ?>
-<tr class="<?php
+<tr class="noclick <?php
     echo $odd_row ? 'odd' : 'even';
     if ($serverVarsGlobal[$name] !== $value) {
         echo ' marked';

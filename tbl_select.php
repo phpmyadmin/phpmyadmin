@@ -122,7 +122,7 @@ if (!isset($param) || $param[0] == '') {
 
     for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
             <td><?php echo $fields_type[$i]; ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>

@@ -37,7 +37,7 @@ if ($triggers) {
     foreach ($triggers as $trigger) {
         $drop_and_create = $trigger['drop'] . $delimiter . "\n" . $trigger['create'] . "\n";
 
-        echo sprintf('<tr class="%s">
+        echo sprintf('<tr class="noclick %s">
                               <td><strong>%s</strong></td>
                               <td>%s</td>
                               <td>%s</td>
