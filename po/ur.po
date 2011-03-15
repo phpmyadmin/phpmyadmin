@@ -2245,7 +2245,7 @@ msgstr "درآمد کارآمد نہیں ہے ایک عمل موجود نہیں 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "برآمد کارآمد نہیں ہے ایک عمل موجود نہیں ہے (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
