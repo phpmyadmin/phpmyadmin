@@ -2253,7 +2253,7 @@ msgstr "SQL توثیق کار نااہل ہے"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "SOAP توسیع نہیں ملا"
 
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
