@@ -413,28 +413,30 @@ $(document).ready(function() {
      * @see         PMA_ajaxShowMessage()
      * @see         getFieldName()
      */
-    $(".inline_edit_anchor").live('click', function(event) {
+    $(".inline_edit_anchor span a").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
-        $(this).removeClass('inline_edit_anchor').addClass('inline_edit_active').parent('tr').addClass('noclick');
+
+        var $edit_td = $(this).parents('td');
+        $edit_td.removeClass('inline_edit_anchor').addClass('inline_edit_active').parent('tr').addClass('noclick');
 
         // adding submit and hide buttons to inline edit <td>
         // for "hide", button the original data to be restored is present in .original_data
         // looping through all columns or rows, to find the required data and then storing it in an array.
 
-        var $this_children = $(this).children('span.nowrap').children('a').children('span.nowrap');
+        var $this_children = $edit_td.children('span.nowrap').children('a').children('span.nowrap');
         if (disp_mode != 'vertical') {
             $this_children.empty();
             $this_children.text(PMA_messages['strSave']);
         } else {
-            // vertical 
+            // vertical
             data_vt = $this_children.html();
             $this_children.text(PMA_messages['strSave']);
         }
-       
+
         var hide_link = '<br /><br /><a id="hide">' + PMA_messages['strHide'] + '</a>';
         if (disp_mode != 'vertical') {
-            $(this).append(hide_link);
+            $edit_td.append(hide_link);
             $('#table_results tbody tr td a#hide').click(function() {
                 $this_children = $(this).siblings('span.nowrap').children('a').children('span.nowrap');
                 $this_children.empty();
@@ -463,9 +465,9 @@ $(document).ready(function() {
             });
         } else {
             var txt = '';
-            var rows = $(this).parent().siblings().length;
+            var rows = $edit_td.parent().siblings().length;
 
-            $(this).append(hide_link);
+            $edit_td.append(hide_link);
             $('#table_results tbody tr td a#hide').click(function() {
                 var pos = $(this).parent().index();
                 var $chg_submit = $(this).parent().children('span.nowrap').children('a').children('span.nowrap');
@@ -502,21 +504,21 @@ $(document).ready(function() {
              * @var this_row_index  Index of the current <td> in the parent <tr>
              *                      Current <td> is the inline edit anchor.
              */
-            var this_row_index = $(this).index();
+            var this_row_index = $edit_td.index();
             /**
              * @var $input_siblings  Object referring to all inline editable events from same row
              */
-            var $input_siblings = $(this).parents('tbody').find('tr').find('.inline_edit:nth('+this_row_index+')');
+            var $input_siblings = $edit_td.parents('tbody').find('tr').find('.inline_edit:nth('+this_row_index+')');
             /**
              * @var where_clause    String containing the WHERE clause to select this row
              */
-            var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
+            var where_clause = $edit_td.parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         // horizontal mode
         else {
-            var this_row_index = $(this).parent().index();
-            var $input_siblings = $(this).parent('tr').find('.inline_edit');
-            var where_clause = $(this).parent('tr').find('.where_clause').val();
+            var this_row_index = $edit_td.parent().index();
+            var $input_siblings = $edit_td.parent('tr').find('.inline_edit');
+            var where_clause = $edit_td.parent('tr').find('.where_clause').val();
         }
 
         $input_siblings.each(function() {
@@ -884,7 +886,7 @@ $(document).ready(function() {
         $.post('tbl_replace.php', post_params, function(data) {
             if(data.success == true) {
                 // deleting the hide button if my query was successful
-                // remove <br><br><a> tags 
+                // remove <br><br><a> tags
                  for ( var i=0;i<=2;i++) { $del_hide.next().remove(); }
                  if(disp_mode!='vertical'){
                      $chg_submit.empty();
