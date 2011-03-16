@@ -345,7 +345,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"De phpMyAdmin configuratie opslag is uitgeschakeld. Om te weten te komen "
+"De phpMyAdmin configuratie-opslag is uitgeschakeld. Om te weten te komen "
 "waarom klik %shier%s."
 
 #: db_operations.php:589
