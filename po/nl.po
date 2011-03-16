@@ -4445,8 +4445,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Er is geen signon URL opgegeven terwijl u gebruik maakt van het "
-"authenticatie type [kbd]signon[/kbd]"
+"Lege signon URL wanneer u gebruik maakt van het authenticatie type signon"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
