@@ -8041,7 +8041,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Voeg nu de onderstaande regels aan uw my.cnf toe en herstart uw MySQL-server."
+"Voeg nu de onderstaande regels aan de [mysqld] sectie van uw my.cnf toe en "
+"herstart uw MySQL-server."
 
 #: server_replication.php:228
 msgid ""
