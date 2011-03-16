@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-16 11:54+0100\n"
-"PO-Revision-Date: 2011-03-16 19:39+0200\n"
+"PO-Revision-Date: 2011-03-16 19:40+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -424,7 +424,7 @@ msgstr "Overschakelen naar"
 
 #: db_qbe.php:183
 msgid "visual builder"
-msgstr "designer met query opbouw mogelijkheden"
+msgstr "visuele opbouwer"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
