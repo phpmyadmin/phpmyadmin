@@ -194,7 +194,7 @@ msgstr "Verwijst naar"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1265
 #: libraries/tbl_properties.inc.php:128 tbl_printview.php:149
 msgid "Comments"
-msgstr "Commentaar"
+msgstr "Opmerkingen"
 
 #: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
