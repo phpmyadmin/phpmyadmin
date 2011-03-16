@@ -9469,7 +9469,7 @@ msgstr "Functie"
 
 #: tbl_change.php:752
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr "  Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
+msgstr " Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
