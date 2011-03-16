@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-16 11:54+0100\n"
-"PO-Revision-Date: 2011-03-16 20:12+0200\n"
+"PO-Revision-Date: 2011-03-16 20:13+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -8449,7 +8449,7 @@ msgstr "Het aantal fsync() schrijf operaties uitgevoerd op het log bestand."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
-msgstr "Het aantal momenteel openstaande fsync() operaties op het logbestand."
+msgstr "Het aantal momenteel openstaande fsync operaties op het logbestand."
 
 #: server_status.php:95
 msgid "Pending log file writes."
