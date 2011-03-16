@@ -5888,7 +5888,7 @@ msgid ""
 "the issue and try again."
 msgstr ""
 "Het XML-bestand was beschadigd of onvolledig. Repareer het bestand en "
-"probeer opnieuw. "
+"probeer opnieuw."
 
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
