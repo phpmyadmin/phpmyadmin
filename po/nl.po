@@ -8704,7 +8704,7 @@ msgid ""
 "retried transactions."
 msgstr ""
 "Het totaal aantal transacties dat moest worden herhaald door de replicatie "
-"slave SQL thread, sinds het opstarten van de server."
+"slave SQL thread (sinds het opstarten van de server)."
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
