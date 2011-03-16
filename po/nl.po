@@ -424,7 +424,7 @@ msgstr "Overschakelen naar"
 
 #: db_qbe.php:183
 msgid "visual builder"
-msgstr "visuele opbouwer"
+msgstr "visuele query opbouwer"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
