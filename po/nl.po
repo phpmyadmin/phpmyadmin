@@ -4112,8 +4112,8 @@ msgstr "Toon SQL-queries"
 #: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Maakt het mogelijk om statistieken over o.a. het ruimtegebruik van databases "
-"en tabellen te tonen"
+"Maakt het mogelijk om statistieken van databases en tabellen te tonen (over "
+"o.a. het ruimtegebruik)"
 
 #: libraries/config/messages.inc.php:453
 msgid "Show statistics"
