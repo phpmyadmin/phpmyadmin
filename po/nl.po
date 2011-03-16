@@ -506,7 +506,7 @@ msgstr "Query uitvoeren"
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:197
 msgid "Access denied"
-msgstr "Toegang geweigerd "
+msgstr "Toegang geweigerd"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
