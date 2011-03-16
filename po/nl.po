@@ -5074,7 +5074,7 @@ msgstr "Lees missers"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Write waits"
-msgstr "Schrijfvertragingen (write waits)"
+msgstr "Schrijfvertragingen"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
