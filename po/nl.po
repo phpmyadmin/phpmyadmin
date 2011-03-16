@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-16 11:54+0100\n"
-"PO-Revision-Date: 2011-03-16 20:14+0200\n"
+"PO-Revision-Date: 2011-03-16 20:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3375,7 +3375,7 @@ msgstr "Gebruiker kan geen hogere waarde instellen"
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Het maximale    aantal databases dat wordt getoond in het linker frame en de "
+"Het maximale aantal databases dat wordt getoond in het linker frame en de "
 "database lijst"
 
 #: libraries/config/messages.inc.php:304
