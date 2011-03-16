@@ -4125,7 +4125,7 @@ msgid ""
 "comment and the real name"
 msgstr ""
 "Indien tooltips zijn ingeschakeld en er een database opmerking aanwezig is, "
-"wisselt dit de opmerking en de werkelijke naam om "
+"wisselt dit de opmerking en de werkelijke naam om"
 
 #: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
