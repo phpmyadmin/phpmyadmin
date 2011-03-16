@@ -27,6 +27,11 @@ require './libraries/server_links.inc.php';
 
 
 /**
+ * Required to display documentation links
+ */
+require './libraries/server_variables_doc.php';
+
+/**
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
@@ -55,6 +60,7 @@ $serverVarsGlobal = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 echo __('Session value') . ' / ' . __('Global value');
 ?>
     </th>
+    <th><?php echo __('Documentation'); ?></th>
 </tr>
 </thead>
 <tbody>
@@ -79,6 +85,10 @@ foreach ($serverVars as $name => $value) {
         $is_numeric = false;
     }
     ?></td>
+    <td class="value"><?php
+    if (isset($VARIABLE_DOC_LINKS[$name]))    // To display variable documentation link
+        echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], 1, $VARIABLE_DOC_LINKS[$name][2]."_".$VARIABLE_DOC_LINKS[$name][0]);
+    ?></td>
     <?php
     if ($serverVarsGlobal[$name] !== $value) {
         ?>
@@ -94,6 +104,7 @@ foreach ($serverVars as $name => $value) {
         echo htmlspecialchars($serverVarsGlobal[$name]);
     }
     ?></td>
+    <td class="value"></td>
     <?php } ?>
 </tr>
     <?php
