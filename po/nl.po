@@ -9451,7 +9451,7 @@ msgstr "Gevalideerde SQL"
 #: sql.php:851
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problemen met de index(en) van de tabel `%s`"
+msgstr "Problemen met de indexen van de tabel `%s`"
 
 #: sql.php:883
 msgid "Label"
