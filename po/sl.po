@@ -1,16 +1,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-beta4-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-05 14:23-0500\n"
+"POT-Creation-Date: 2011-03-16 11:54+0100\n"
 "PO-Revision-Date: 2011-02-10 16:19+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -62,13 +62,13 @@ msgstr "Iskanje"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:385
 #: libraries/sql_query_form.lib.php:455 libraries/sql_query_form.lib.php:520
-#: libraries/tbl_properties.inc.php:783 libraries/tbl_properties.inc.php:798
+#: libraries/tbl_properties.inc.php:782 libraries/tbl_properties.inc.php:797
 #: main.php:111 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
 #: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:671
 #: server_privileges.php:1711 server_privileges.php:2068
 #: server_privileges.php:2115 server_privileges.php:2155
 #: server_replication.php:233 server_replication.php:316
-#: server_replication.php:347 server_synchronize.php:1205 tbl_change.php:331
+#: server_replication.php:347 server_synchronize.php:1206 tbl_change.php:331
 #: tbl_change.php:1096 tbl_change.php:1133 tbl_indexes.php:252
 #: tbl_operations.php:262 tbl_operations.php:299 tbl_operations.php:501
 #: tbl_operations.php:563 tbl_operations.php:733 tbl_select.php:290
@@ -124,13 +124,13 @@ msgstr "Zbirka podatkov %1$s je ustvarjena."
 msgid "Database comment: "
 msgstr "Pripomba zbirke podatkov: "
 
-#: db_datadict.php:160 libraries/schema/Pdf_Relation_Schema.class.php:1211
+#: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1211
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Pripomba tabele"
 
-#: db_datadict.php:169 db_qbe.php:197 libraries/Index.class.php:445
+#: db_datadict.php:167 db_qbe.php:193 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
 #: libraries/export/odt.php:301 libraries/export/texytext.php:226
 #: libraries/schema/Pdf_Relation_Schema.class.php:1237
@@ -142,7 +142,7 @@ msgstr "Pripomba tabele"
 msgid "Column"
 msgstr "Stolpec"
 
-#: db_datadict.php:170 db_printview.php:104 libraries/Index.class.php:442
+#: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
 #: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:248
 #: libraries/export/latex.php:374 libraries/export/odt.php:304
@@ -157,7 +157,7 @@ msgstr "Stolpec"
 msgid "Type"
 msgstr "Vrsta"
 
-#: db_datadict.php:172 libraries/Index.class.php:448
+#: db_datadict.php:170 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:374
 #: libraries/export/odt.php:307 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1240
@@ -168,7 +168,7 @@ msgstr "Vrsta"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:173 db_structure.php:460 libraries/export/htmlword.php:250
+#: db_datadict.php:171 db_structure.php:460 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
 #: libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
@@ -178,7 +178,7 @@ msgstr "Null"
 msgid "Default"
 msgstr "Privzeto"
 
-#: db_datadict.php:177 libraries/export/htmlword.php:252
+#: db_datadict.php:175 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
@@ -186,7 +186,7 @@ msgstr "Privzeto"
 msgid "Links to"
 msgstr "Povezave z"
 
-#: db_datadict.php:179 db_printview.php:110
+#: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129 libraries/export/htmlword.php:255
 #: libraries/export/latex.php:379 libraries/export/odt.php:319
@@ -197,7 +197,7 @@ msgstr "Povezave z"
 msgid "Comments"
 msgstr "Pripombe"
 
-#: db_datadict.php:262 js/messages.php:78 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -213,7 +213,7 @@ msgstr "Pripombe"
 msgid "No"
 msgstr "Ne"
 
-#: db_datadict.php:262 js/messages.php:77 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:77 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -234,7 +234,7 @@ msgstr "Ne"
 msgid "Yes"
 msgstr "Da"
 
-#: db_datadict.php:317 db_printview.php:264 tbl_printview.php:495
+#: db_datadict.php:315 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
 msgstr "Natisni"
 
@@ -358,8 +358,8 @@ msgstr "Uredi ali izvozi relacijsko shemo"
 #: libraries/export/pdf.php:100 libraries/export/xml.php:331
 #: libraries/header.inc.php:138 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1762 server_privileges.php:1818
-#: server_privileges.php:2082 server_synchronize.php:421
-#: server_synchronize.php:864 tbl_tracking.php:586 test/theme.php:74
+#: server_privileges.php:2082 server_synchronize.php:422
+#: server_synchronize.php:865 tbl_tracking.php:586 test/theme.php:74
 msgid "Table"
 msgstr "Tabela"
 
@@ -411,7 +411,7 @@ msgstr[2] "%s tabele"
 msgstr[3] "%s tabel"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:2053 libraries/sql_query_form.lib.php:140
+#: libraries/display_tbl.lib.php:2052 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -425,82 +425,82 @@ msgstr "Za prikaz morate izbrati morate vsaj en stolpec"
 msgid "Switch to"
 msgstr "Preklopi na"
 
-#: db_qbe.php:187
+#: db_qbe.php:183
 msgid "visual builder"
 msgstr "vidni graditelj"
 
-#: db_qbe.php:223 libraries/db_structure.lib.php:95
+#: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
 msgid "Sort"
 msgstr "Razvrsti"
 
-#: db_qbe.php:232 db_qbe.php:266 libraries/db_structure.lib.php:102
+#: db_qbe.php:228 db_qbe.php:262 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:521 libraries/display_tbl.lib.php:830
 #: server_databases.php:148 server_databases.php:165 tbl_operations.php:257
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: db_qbe.php:233 db_qbe.php:274 libraries/db_structure.lib.php:110
+#: db_qbe.php:229 db_qbe.php:270 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:526 libraries/display_tbl.lib.php:827
 #: server_databases.php:148 server_databases.php:165 tbl_operations.php:258
 #: tbl_select.php:278
 msgid "Descending"
 msgstr "Padajoče"
 
-#: db_qbe.php:287 db_tracking.php:91 libraries/display_tbl.lib.php:306
+#: db_qbe.php:283 db_tracking.php:91 libraries/display_tbl.lib.php:306
 #: tbl_change.php:278 tbl_tracking.php:591
 msgid "Show"
 msgstr "Pokaži"
 
-#: db_qbe.php:323
+#: db_qbe.php:319
 msgid "Criteria"
 msgstr "Kriteriji"
 
-#: db_qbe.php:376 db_qbe.php:458 db_qbe.php:550 db_qbe.php:581
+#: db_qbe.php:372 db_qbe.php:454 db_qbe.php:546 db_qbe.php:577
 msgid "Ins"
 msgstr "Vstavi"
 
-#: db_qbe.php:380 db_qbe.php:462 db_qbe.php:547 db_qbe.php:578
+#: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
 msgstr "In"
 
-#: db_qbe.php:389 db_qbe.php:470 db_qbe.php:552 db_qbe.php:583
+#: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
 msgstr "Briši"
 
-#: db_qbe.php:393 db_qbe.php:474 db_qbe.php:545 db_qbe.php:576
-#: libraries/tbl_properties.inc.php:780 server_privileges.php:304
+#: db_qbe.php:389 db_qbe.php:470 db_qbe.php:541 db_qbe.php:572
+#: libraries/tbl_properties.inc.php:779 server_privileges.php:304
 #: tbl_change.php:959 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
 msgstr "Ali"
 
-#: db_qbe.php:530
+#: db_qbe.php:526
 msgid "Modify"
 msgstr "Spremeni"
 
-#: db_qbe.php:607
+#: db_qbe.php:603
 msgid "Add/Delete criteria rows"
 msgstr "Dodaj/Odstrani vrstice meril"
 
-#: db_qbe.php:619
+#: db_qbe.php:615
 msgid "Add/Delete columns"
 msgstr "Dodaj/Odstrani stolpce"
 
-#: db_qbe.php:632 db_qbe.php:657
+#: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
 msgstr "Osveži poizvedbo"
 
-#: db_qbe.php:640
+#: db_qbe.php:636
 msgid "Use Tables"
 msgstr "Uporabi tabele"
 
-#: db_qbe.php:663
+#: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 
-#: db_qbe.php:957 libraries/common.lib.php:1185
+#: db_qbe.php:953 libraries/common.lib.php:1185
 msgid "Submit Query"
 msgstr "Izvedi poizvedbo"
 
@@ -554,12 +554,12 @@ msgid "Delete the matches for the %s table?"
 msgstr "Izbrišem zadetke v tabeli %s?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1201
-#: libraries/display_tbl.lib.php:2132
+#: libraries/display_tbl.lib.php:2131
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:303
-#: libraries/sql_query_form.lib.php:448 pmd_general.php:424
+#: libraries/sql_query_form.lib.php:448 pmd_general.php:423
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 #: tbl_row_action.php:62
 msgid "Delete"
@@ -625,11 +625,11 @@ msgstr "Sledenje je aktivno."
 msgid "Tracking is not active."
 msgstr "Sledenje ni aktivno."
 
-#: db_structure.php:379 libraries/display_tbl.lib.php:2016
+#: db_structure.php:379 libraries/display_tbl.lib.php:2015
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
@@ -653,20 +653,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s je privzet skladiščni pogon na tem strežniku MySQL."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
-#: libraries/display_tbl.lib.php:2157 libraries/display_tbl.lib.php:2162
+#: libraries/display_tbl.lib.php:2156 libraries/display_tbl.lib.php:2161
 #: libraries/mult_submits.inc.php:15 server_databases.php:246
 #: server_databases.php:251 server_privileges.php:1683 tbl_structure.php:545
 #: tbl_structure.php:554
 msgid "With selected:"
 msgstr "Z označenim:"
 
-#: db_structure.php:486 libraries/display_tbl.lib.php:2152
+#: db_structure.php:486 libraries/display_tbl.lib.php:2151
 #: server_databases.php:248 server_privileges.php:576
 #: server_privileges.php:1686 tbl_structure.php:548
 msgid "Check All"
 msgstr "Označi vse"
 
-#: db_structure.php:490 libraries/display_tbl.lib.php:2153
+#: db_structure.php:490 libraries/display_tbl.lib.php:2152
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
 #: server_privileges.php:579 server_privileges.php:1690 tbl_structure.php:552
 msgid "Uncheck All"
@@ -678,7 +678,7 @@ msgstr "Preveri prekoračene"
 
 #: db_structure.php:502 db_structure.php:503
 #: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2170 libraries/display_tbl.lib.php:2304
+#: libraries/display_tbl.lib.php:2169 libraries/display_tbl.lib.php:2303
 #: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1377 setup/frames/menu.inc.php:21
@@ -687,7 +687,7 @@ msgid "Export"
 msgstr "Izvozi"
 
 #: db_structure.php:504 db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2259 libraries/mult_submits.inc.php:27
+#: libraries/display_tbl.lib.php:2258 libraries/mult_submits.inc.php:27
 #: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Pogled za tiskanje"
@@ -743,7 +743,7 @@ msgstr "Sledene tabele"
 #: libraries/header_printview.inc.php:57 server_databases.php:147
 #: server_privileges.php:1757 server_privileges.php:1818
 #: server_privileges.php:2076 server_processlist.php:63
-#: server_synchronize.php:1175 server_synchronize.php:1179
+#: server_synchronize.php:1176 server_synchronize.php:1180
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
 msgstr "Zbirka podatkov"
@@ -812,12 +812,12 @@ msgstr "Sledi tabeli"
 msgid "Database Log"
 msgstr "Dnevnik zbirke podatkov"
 
-#: enum_editor.php:21 libraries/tbl_properties.inc.php:794
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
 msgstr "Vrednosti za stolpec \"%s\""
 
-#: enum_editor.php:22 libraries/tbl_properties.inc.php:795
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
 msgstr "Vnesite vsako vrednost v svoje polje."
 
@@ -863,8 +863,8 @@ msgstr "Dump je shranjen v datoteko %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, oglejte si "
 "%sdokumentacijo%s za načine, kako obiti to omejitev."
@@ -944,10 +944,10 @@ msgstr "Nazaj"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin je prijaznejši z brskalnikom, ki <b>podpira okvirje</b>."
 
-#: js/messages.php:25 server_synchronize.php:343 server_synchronize.php:355
-#: server_synchronize.php:371 server_synchronize.php:378
-#: server_synchronize.php:737 server_synchronize.php:765
-#: server_synchronize.php:793 server_synchronize.php:805
+#: js/messages.php:25 server_synchronize.php:344 server_synchronize.php:356
+#: server_synchronize.php:372 server_synchronize.php:379
+#: server_synchronize.php:738 server_synchronize.php:766
+#: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
 msgstr "Kliknite za označitev"
 
@@ -1038,14 +1038,14 @@ msgstr "Ponovno nalaganje privilegijev"
 msgid "Removing Selected Users"
 msgstr "Odstranjevanje izbranih uporabnikov"
 
-#: js/messages.php:56 libraries/tbl_properties.inc.php:793
+#: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
 msgstr "Zapri"
 
-#: js/messages.php:60 libraries/tbl_properties.inc.php:798 pmd_general.php:389
-#: pmd_general.php:426 pmd_general.php:546 pmd_general.php:594
-#: pmd_general.php:670 pmd_general.php:724 pmd_general.php:787
+#: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
+#: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
+#: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -1069,9 +1069,9 @@ msgstr "Brisanje stolpca"
 msgid "Adding Primary Key"
 msgstr "Dodajanje primarnega ključa"
 
-#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:387
-#: pmd_general.php:544 pmd_general.php:592 pmd_general.php:668
-#: pmd_general.php:722 pmd_general.php:785
+#: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:386
+#: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
+#: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "V redu"
 
@@ -1123,7 +1123,7 @@ msgstr "Urejanje v vrstici"
 msgid "Save"
 msgstr "Shrani"
 
-#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:159
+#: js/messages.php:90 libraries/display_tbl.lib.php:609 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Skrij"
@@ -1153,7 +1153,7 @@ msgstr "Izberite tuji ključ"
 msgid "Please select the primary key or a unique key"
 msgstr "Prosimo, izberite primarni ključ ali unikatni ključ"
 
-#: js/messages.php:103 pmd_general.php:88 tbl_relation.php:545
+#: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Izberite stolpec za prikaz"
 
@@ -1192,17 +1192,17 @@ msgid ", latest stable version:"
 msgstr ", zadnja ustaljena različica:"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:134
+#: js/messages.php:137
 msgid "Done"
 msgstr "Končano"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:136
+#: js/messages.php:139
 msgid "Prev"
 msgstr "Prejšnji"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:138 libraries/common.lib.php:2368
+#: js/messages.php:141 libraries/common.lib.php:2368
 #: libraries/common.lib.php:2371 libraries/display_tbl.lib.php:336
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:893
@@ -1210,231 +1210,231 @@ msgid "Next"
 msgstr "Naslednji"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:140
+#: js/messages.php:143
 msgid "Today"
 msgstr "Danes"
 
-#: js/messages.php:143
+#: js/messages.php:146
 msgid "January"
 msgstr "januar"
 
-#: js/messages.php:144
+#: js/messages.php:147
 msgid "February"
 msgstr "februar"
 
-#: js/messages.php:145
+#: js/messages.php:148
 msgid "March"
 msgstr "marec"
 
-#: js/messages.php:146
+#: js/messages.php:149
 msgid "April"
 msgstr "april"
 
-#: js/messages.php:147
+#: js/messages.php:150
 msgid "May"
 msgstr "maj"
 
-#: js/messages.php:148
+#: js/messages.php:151
 msgid "June"
 msgstr "junij"
 
-#: js/messages.php:149
+#: js/messages.php:152
 msgid "July"
 msgstr "julij"
 
-#: js/messages.php:150
+#: js/messages.php:153
 msgid "August"
 msgstr "avgust"
 
-#: js/messages.php:151
+#: js/messages.php:154
 msgid "September"
 msgstr "september"
 
-#: js/messages.php:152
+#: js/messages.php:155
 msgid "October"
 msgstr "oktober"
 
-#: js/messages.php:153
+#: js/messages.php:156
 msgid "November"
 msgstr "november"
 
-#: js/messages.php:154
+#: js/messages.php:157
 msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:158 libraries/common.lib.php:1566
+#: js/messages.php:161 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:160 libraries/common.lib.php:1568
+#: js/messages.php:163 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1570
+#: js/messages.php:165 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1572
+#: js/messages.php:167 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1574
+#: js/messages.php:169 libraries/common.lib.php:1574
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1576
+#: js/messages.php:171 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1578
+#: js/messages.php:173 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1580
+#: js/messages.php:175 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "avg"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1582
+#: js/messages.php:177 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1584
+#: js/messages.php:179 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1586
+#: js/messages.php:181 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1588
+#: js/messages.php:183 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "dec"
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "Sunday"
 msgstr "nedelja"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "Monday"
 msgstr "ponedeljek"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "Tuesday"
 msgstr "torek"
 
-#: js/messages.php:186
+#: js/messages.php:189
 msgid "Wednesday"
 msgstr "sreda"
 
-#: js/messages.php:187
+#: js/messages.php:190
 msgid "Thursday"
 msgstr "četrtek"
 
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Friday"
 msgstr "petek"
 
-#: js/messages.php:189
+#: js/messages.php:192
 msgid "Saturday"
 msgstr "sobota"
 
 #. l10n: Short week day name
-#: js/messages.php:193 libraries/common.lib.php:1591
+#: js/messages.php:196 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "ned"
 
 #. l10n: Short week day name
-#: js/messages.php:195 libraries/common.lib.php:1593
+#: js/messages.php:198 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "pon"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1595
+#: js/messages.php:200 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1597
+#: js/messages.php:202 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "sre"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1599
+#: js/messages.php:204 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "čet"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1601
+#: js/messages.php:206 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "pet"
 
 #. l10n: Short week day name
-#: js/messages.php:205 libraries/common.lib.php:1603
+#: js/messages.php:208 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "sob"
 
 #. l10n: Minimal week day name
-#: js/messages.php:209
+#: js/messages.php:212
 msgid "Su"
 msgstr "ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:211
+#: js/messages.php:214
 msgid "Mo"
 msgstr "po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Tu"
 msgstr "to"
 
 #. l10n: Minimal week day name
-#: js/messages.php:215
+#: js/messages.php:218
 msgid "We"
 msgstr "sr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:217
+#: js/messages.php:220
 msgid "Th"
 msgstr "če"
 
 #. l10n: Minimal week day name
-#: js/messages.php:219
+#: js/messages.php:222
 msgid "Fr"
 msgstr "pe"
 
 #. l10n: Minimal week day name
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Sa"
 msgstr "so"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Wk"
 msgstr "ted."
 
-#: js/messages.php:225
+#: js/messages.php:228
 msgid "Hour"
 msgstr "Ura"
 
-#: js/messages.php:226
+#: js/messages.php:229
 msgid "Minute"
 msgstr "Minuta"
 
-#: js/messages.php:227
+#: js/messages.php:230
 msgid "Second"
 msgstr "Sekunda"
 
@@ -1663,8 +1663,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -1958,7 +1958,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:222
+#: main.php:222 server_variables.php:63
 msgid "Documentation"
 msgstr "Dokumentacija"
 
@@ -2105,7 +2105,7 @@ msgstr "Na funkcionalnost %s vpliva znan hrošč, glej %s"
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
-#: libraries/tbl_properties.inc.php:634 pmd_general.php:152
+#: libraries/tbl_properties.inc.php:634 pmd_general.php:151
 #: server_privileges.php:600 server_replication.php:313 tbl_tracking.php:263
 msgid "Structure"
 msgstr "Struktura"
@@ -4146,7 +4146,7 @@ msgstr "Potrebuje omogočen Preverjalnik SQL"
 #: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
 #: libraries/replication_gui.lib.php:351 server_privileges.php:803
 #: server_privileges.php:807 server_privileges.php:818
-#: server_privileges.php:1625 server_synchronize.php:1171
+#: server_privileges.php:1625 server_synchronize.php:1172
 msgid "Password"
 msgstr "Geslo"
 
@@ -4481,7 +4481,7 @@ msgstr "Rutina"
 msgid "Return type"
 msgstr "Vrnjena vrsta"
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1902
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1901
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4647,8 +4647,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -4670,7 +4670,7 @@ msgstr "Stiskanje:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:511 server_privileges.php:1972 server_processlist.php:82
+#: pmd_general.php:510 server_privileges.php:1972 server_processlist.php:82
 msgid "None"
 msgstr "Brez"
 
@@ -4888,51 +4888,51 @@ msgstr "Kopiraj"
 msgid "The row has been deleted"
 msgstr "Vrstica je izbrisana"
 
-#: libraries/display_tbl.lib.php:1220 libraries/display_tbl.lib.php:2132
+#: libraries/display_tbl.lib.php:1220 libraries/display_tbl.lib.php:2131
 #: server_processlist.php:78 tbl_row_action.php:63
 msgid "Kill"
 msgstr "Prekini proces"
 
-#: libraries/display_tbl.lib.php:2006
+#: libraries/display_tbl.lib.php:2005
 msgid "in query"
 msgstr "v poizvedbi"
 
-#: libraries/display_tbl.lib.php:2024
+#: libraries/display_tbl.lib.php:2023
 msgid "Showing rows"
 msgstr "Prikazujem vrstice"
 
-#: libraries/display_tbl.lib.php:2034
+#: libraries/display_tbl.lib.php:2033
 msgid "total"
 msgstr "skupaj"
 
-#: libraries/display_tbl.lib.php:2042 sql.php:619
+#: libraries/display_tbl.lib.php:2041 sql.php:619
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Poizvedba je potrebovala %01.4f s"
 
-#: libraries/display_tbl.lib.php:2165 libraries/mult_submits.inc.php:112
+#: libraries/display_tbl.lib.php:2164 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Spremeni"
 
-#: libraries/display_tbl.lib.php:2238
+#: libraries/display_tbl.lib.php:2237
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: libraries/display_tbl.lib.php:2266
+#: libraries/display_tbl.lib.php:2265
 msgid "Print view (with full texts)"
 msgstr "Pogled za tiskanje (s polnimi besedili)"
 
-#: libraries/display_tbl.lib.php:2310 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2309 tbl_chart.php:81
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
-#: libraries/display_tbl.lib.php:2329
+#: libraries/display_tbl.lib.php:2328
 msgid "Create view"
 msgstr "Ustvari pogled"
 
-#: libraries/display_tbl.lib.php:2464
+#: libraries/display_tbl.lib.php:2463
 msgid "Link not found"
 msgstr "Povezave ni mogoče najti"
 
@@ -5128,7 +5128,7 @@ msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr "Odstotek smeti v shrambni datoteki, preden je ta stisnjena."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
-#: server_synchronize.php:1159
+#: server_synchronize.php:1160
 msgid "Port"
 msgstr "Vrata"
 
@@ -5380,8 +5380,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -5485,7 +5485,7 @@ msgstr "Prikaži vrste MIME"
 #: libraries/replication_gui.lib.php:331 server_privileges.php:738
 #: server_privileges.php:741 server_privileges.php:797
 #: server_privileges.php:1624 server_privileges.php:2167
-#: server_processlist.php:62 server_synchronize.php:1155
+#: server_processlist.php:62 server_synchronize.php:1156
 msgid "Host"
 msgstr "Gostitelj"
 
@@ -5808,7 +5808,7 @@ msgid "DocSQL"
 msgstr "DocSQL"
 
 #: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:617
-#: server_synchronize.php:426 server_synchronize.php:869
+#: server_synchronize.php:427 server_synchronize.php:870
 msgid "Table name"
 msgstr "Ime tabele"
 
@@ -6186,7 +6186,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
 #: libraries/replication_gui.lib.php:261 server_privileges.php:718
 #: server_privileges.php:721 server_privileges.php:728
-#: server_synchronize.php:1167
+#: server_synchronize.php:1168
 msgid "User name"
 msgstr "Uporabniško ime"
 
@@ -6199,12 +6199,12 @@ msgid "Slave status"
 msgstr "Stanje podrejenca"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:423
-#: server_status.php:769 server_variables.php:52
+#: server_status.php:769 server_variables.php:57
 msgid "Variable"
 msgstr "Spremenljivka"
 
-#: libraries/replication_gui.lib.php:117 pmd_general.php:477
-#: pmd_general.php:536 pmd_general.php:659 pmd_general.php:776
+#: libraries/replication_gui.lib.php:117 pmd_general.php:476
+#: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:770 tbl_change.php:325 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:821
 msgid "Value"
@@ -6446,8 +6446,8 @@ msgstr "Nabori znakov"
 msgid "Engines"
 msgstr "Pogoni"
 
-#: libraries/server_links.inc.php:95 server_synchronize.php:1090
-#: server_synchronize.php:1098
+#: libraries/server_links.inc.php:95 server_synchronize.php:1091
+#: server_synchronize.php:1099
 msgid "Synchronize"
 msgstr "Sinhroniziraj"
 
@@ -6455,7 +6455,7 @@ msgstr "Sinhroniziraj"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1108
+#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1109
 msgid "Source database"
 msgstr "Izvorna zbirka podatkov"
 
@@ -6473,7 +6473,7 @@ msgstr "Oddaljeni strežnik"
 msgid "Difference"
 msgstr "Razlika"
 
-#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1110
+#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1111
 msgid "Target database"
 msgstr "Ciljna zbirka podatkov"
 
@@ -6700,16 +6700,16 @@ msgstr "Pogon skladiščenja"
 msgid "PARTITION definition"
 msgstr "Definicija PARTITION"
 
-#: libraries/tbl_properties.inc.php:781 tbl_structure.php:633
+#: libraries/tbl_properties.inc.php:780 tbl_structure.php:633
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Dodaj %s stolpec(-cev)"
 
-#: libraries/tbl_properties.inc.php:785 tbl_structure.php:627
+#: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
 msgid "You have to add at least one column."
 msgstr "Dodati morate vsaj en stolpec."
 
-#: libraries/tbl_properties.inc.php:797
+#: libraries/tbl_properties.inc.php:796
 msgid "+ Add a new value"
 msgstr "+ Dodaj novo vrednost"
 
@@ -7063,7 +7063,7 @@ msgstr ""
 "Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s za "
 "morebitna vprašanja."
 
-#: navigation.php:187 server_databases.php:267 server_synchronize.php:1187
+#: navigation.php:187 server_databases.php:267 server_synchronize.php:1188
 msgid "No databases"
 msgstr "Brez zbirk podatkov"
 
@@ -7084,111 +7084,111 @@ msgstr "Ustvari tabelo"
 msgid "Please select a database"
 msgstr "Prosimo, izberite zbirko podatkov"
 
-#: pmd_general.php:75
+#: pmd_general.php:74
 msgid "Show/Hide left menu"
 msgstr "Pokaži/Skrij levi meni"
 
-#: pmd_general.php:79
+#: pmd_general.php:78
 msgid "Save position"
 msgstr "Shrani položaj"
 
-#: pmd_general.php:82 server_synchronize.php:427 server_synchronize.php:870
+#: pmd_general.php:81 server_synchronize.php:428 server_synchronize.php:871
 msgid "Create table"
 msgstr "Ustvari tabelo"
 
-#: pmd_general.php:85 pmd_general.php:353
+#: pmd_general.php:84 pmd_general.php:352
 msgid "Create relation"
 msgstr "Ustvari razmerje"
 
-#: pmd_general.php:91
+#: pmd_general.php:90
 msgid "Reload"
 msgstr "Osveži"
 
-#: pmd_general.php:94
+#: pmd_general.php:93
 msgid "Help"
 msgstr "Pomoč"
 
-#: pmd_general.php:98
+#: pmd_general.php:97
 msgid "Angular links"
 msgstr "Oglate povezave"
 
-#: pmd_general.php:98
+#: pmd_general.php:97
 msgid "Direct links"
 msgstr "Neposredne povezave"
 
-#: pmd_general.php:102
+#: pmd_general.php:101
 msgid "Snap to grid"
 msgstr "Pripni na mrežo"
 
-#: pmd_general.php:106
+#: pmd_general.php:105
 msgid "Small/Big All"
 msgstr "Skrči/razširi vse"
 
-#: pmd_general.php:110
+#: pmd_general.php:109
 msgid "Toggle small/big"
 msgstr "Preklopi majhno/veliko"
 
-#: pmd_general.php:115 pmd_pdf.php:80
+#: pmd_general.php:114 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Uvozi/Izvozi koordinate za PDF-shemo"
 
-#: pmd_general.php:121
+#: pmd_general.php:120
 msgid "Build Query"
 msgstr "Zgradi poizvedbo"
 
-#: pmd_general.php:126
+#: pmd_general.php:125
 msgid "Move Menu"
 msgstr "Premakni meni"
 
-#: pmd_general.php:138
+#: pmd_general.php:137
 msgid "Hide/Show all"
 msgstr "Skrij/Pokaži vse"
 
-#: pmd_general.php:142
+#: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
 msgstr "Skrij/Pokaži tabele brez razmerij"
 
-#: pmd_general.php:182
+#: pmd_general.php:181
 msgid "Number of tables"
 msgstr "Število tabel"
 
-#: pmd_general.php:419
+#: pmd_general.php:418
 msgid "Delete relation"
 msgstr "Izbriši razmerje"
 
-#: pmd_general.php:461 pmd_general.php:520
+#: pmd_general.php:460 pmd_general.php:519
 msgid "Relation operator"
 msgstr "Operator razmerja"
 
-#: pmd_general.php:471 pmd_general.php:530 pmd_general.php:653
-#: pmd_general.php:770
+#: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
+#: pmd_general.php:769
 msgid "Except"
 msgstr "Razen"
 
-#: pmd_general.php:477 pmd_general.php:536 pmd_general.php:659
-#: pmd_general.php:776
+#: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
+#: pmd_general.php:775
 msgid "subquery"
 msgstr "podpoizvedba"
 
-#: pmd_general.php:481 pmd_general.php:577
+#: pmd_general.php:480 pmd_general.php:576
 msgid "Rename to"
 msgstr "Preimenuj v"
 
-#: pmd_general.php:483 pmd_general.php:582
+#: pmd_general.php:482 pmd_general.php:581
 msgid "New name"
 msgstr "Novo ime"
 
-#: pmd_general.php:486 pmd_general.php:701
+#: pmd_general.php:485 pmd_general.php:700
 msgid "Aggregate"
 msgstr "Agregat"
 
-#: pmd_general.php:488 pmd_general.php:508 pmd_general.php:630
-#: pmd_general.php:643 pmd_general.php:706 pmd_general.php:760
+#: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
+#: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
 #: tbl_select.php:115
 msgid "Operator"
 msgstr "Operator"
 
-#: pmd_general.php:811
+#: pmd_general.php:810
 msgid "Active options"
 msgstr "Dejavne možnosti"
 
@@ -7773,8 +7773,8 @@ msgstr "Izbriši zbirke podatkov, ki imajo enako ime kot uporabniki."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -8912,89 +8912,89 @@ msgstr "Sinhronizacija strukture"
 msgid "Data Synchronization"
 msgstr "Sinhronizacija podatkov"
 
-#: server_synchronize.php:398 server_synchronize.php:837
+#: server_synchronize.php:399 server_synchronize.php:838
 msgid "not present"
 msgstr "ni prisotno"
 
-#: server_synchronize.php:422 server_synchronize.php:865
+#: server_synchronize.php:423 server_synchronize.php:866
 msgid "Structure Difference"
 msgstr "Razlika zgradbe"
 
-#: server_synchronize.php:423 server_synchronize.php:866
+#: server_synchronize.php:424 server_synchronize.php:867
 msgid "Data Difference"
 msgstr "Razlika podatkov"
 
-#: server_synchronize.php:428 server_synchronize.php:871
+#: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
 msgstr "Dodaj stolpec(-ce)"
 
-#: server_synchronize.php:429 server_synchronize.php:872
+#: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
 msgstr "Odstrani stolpec(-ce)"
 
-#: server_synchronize.php:430 server_synchronize.php:873
+#: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
 msgstr "Spremeni stolpec(-ce)"
 
-#: server_synchronize.php:431 server_synchronize.php:874
+#: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
 msgstr "Odstrani indeks(e)"
 
-#: server_synchronize.php:432 server_synchronize.php:875
+#: server_synchronize.php:433 server_synchronize.php:876
 msgid "Apply index(s)"
 msgstr "Uveljavi indeks(e)"
 
-#: server_synchronize.php:433 server_synchronize.php:876
+#: server_synchronize.php:434 server_synchronize.php:877
 msgid "Update row(s)"
 msgstr "Posodobi vrstico(-e)"
 
-#: server_synchronize.php:434 server_synchronize.php:877
+#: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
 msgstr "Vstavi vrstico(-e)"
 
-#: server_synchronize.php:444 server_synchronize.php:888
+#: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Ali želite izbrisati vse prejšnje vrstice iz ciljnih tabel?"
 
-#: server_synchronize.php:447 server_synchronize.php:892
+#: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
 msgstr "Uporabi izbrane spremembe"
 
-#: server_synchronize.php:449 server_synchronize.php:894
+#: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
 msgstr "Sinhroniziraj zbirke podatkov"
 
-#: server_synchronize.php:462
+#: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
 
-#: server_synchronize.php:940
+#: server_synchronize.php:941
 msgid "Target database has been synchronized with source database"
 msgstr ""
 "Ciljna zbirka podatkov je bila sinhronizirana z izvorno zbirko podatkov"
 
-#: server_synchronize.php:1001
+#: server_synchronize.php:1002
 msgid "The following queries have been executed:"
 msgstr "Izvedene so bile naslednje poizvedbe:"
 
-#: server_synchronize.php:1118
+#: server_synchronize.php:1119
 msgid "Enter manually"
 msgstr "Vnesite ročno"
 
-#: server_synchronize.php:1119
+#: server_synchronize.php:1120
 msgid "Current connection"
 msgstr "Trenutna povezava"
 
-#: server_synchronize.php:1148
+#: server_synchronize.php:1149
 #, php-format
 msgid "Configuration: %s"
 msgstr "Konfiguracija: %s"
 
-#: server_synchronize.php:1163
+#: server_synchronize.php:1164
 msgid "Socket"
 msgstr "Vtičnica"
 
-#: server_synchronize.php:1209
+#: server_synchronize.php:1210
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -9002,15 +9002,15 @@ msgstr ""
 "Ciljna podatkovna zbirka bo popolnoma sinhronizirana z izvorno podatkovno "
 "zbirko. Izvorna podatkovna zbirka bo ostala nespremenjena."
 
-#: server_variables.php:34
+#: server_variables.php:39
 msgid "Server variables and settings"
 msgstr "Spremenljivke in nastavitve strežnika"
 
-#: server_variables.php:55
+#: server_variables.php:60
 msgid "Session value"
 msgstr "Vrednost seje"
 
-#: server_variables.php:55 server_variables.php:89
+#: server_variables.php:60 server_variables.php:99
 msgid "Global value"
 msgstr "Skupna vrednost"
 
