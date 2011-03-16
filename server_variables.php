@@ -87,7 +87,7 @@ foreach ($serverVars as $name => $value) {
     ?></td>
     <td class="value"><?php
     if (isset($VARIABLE_DOC_LINKS[$name]))    // To display variable documentation link
-        echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], 1, $VARIABLE_DOC_LINKS[$name][2]."_".$VARIABLE_DOC_LINKS[$name][0]);
+        echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
     ?></td>
     <?php
     if ($serverVarsGlobal[$name] !== $value) {
