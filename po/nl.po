@@ -3747,7 +3747,7 @@ msgstr "PHP-extensie"
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 "Verberg databases die aan de hier opgegeven reguliere expressie (PCRE) "
-"voldoen "
+"voldoen"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
