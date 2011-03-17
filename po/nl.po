@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-16 11:54+0100\n"
-"PO-Revision-Date: 2011-03-01 14:26+0200\n"
+"PO-Revision-Date: 2011-03-16 20:18+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -121,7 +121,7 @@ msgstr "Database %1$s is aangemaakt."
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
-msgstr "Database commentaar: "
+msgstr "Database opmerking: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1211
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
@@ -139,7 +139,7 @@ msgstr "Tabelopmerkingen"
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
 #: tbl_tracking.php:267 tbl_tracking.php:318
 msgid "Column"
-msgstr "Kolom "
+msgstr "Kolom"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -183,7 +183,7 @@ msgstr "Standaardwaarde"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264 tbl_printview.php:147
 msgid "Links to"
-msgstr "Gelinkt naar"
+msgstr "Verwijst naar"
 
 #: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -194,7 +194,7 @@ msgstr "Gelinkt naar"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1265
 #: libraries/tbl_properties.inc.php:128 tbl_printview.php:149
 msgid "Comments"
-msgstr "Commentaar"
+msgstr "Opmerkingen"
 
 #: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
@@ -283,7 +283,7 @@ msgstr "Verwijder database"
 #: db_operations.php:445
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Database %s is vervallen."
+msgstr "Database %s is verwijderd."
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
@@ -327,7 +327,7 @@ msgstr "Voeg beperkingen toe"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
-msgstr "Schakel naar de gekopieerde database"
+msgstr "Overschakelen naar de gekopieerde database"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -345,7 +345,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"De phpMyAdmin configuratie opslag is uitgeschakeld. Om te weten te komen "
+"De phpMyAdmin configuratie-opslag is uitgeschakeld. Om te weten te komen "
 "waarom klik %shier%s."
 
 #: db_operations.php:589
@@ -424,7 +424,7 @@ msgstr "Overschakelen naar"
 
 #: db_qbe.php:183
 msgid "visual builder"
-msgstr "designer met query opbouw mogelijkheden"
+msgstr "visuele query opbouwer"
 
 #: db_qbe.php:219 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:868
@@ -478,7 +478,7 @@ msgstr "Aanpassen"
 
 #: db_qbe.php:603
 msgid "Add/Delete criteria rows"
-msgstr "Toevoegen/Verwijderen Criteria Rij"
+msgstr "Toevoegen/Verwijderen criterium-rijen"
 
 #: db_qbe.php:615
 msgid "Add/Delete columns"
@@ -506,7 +506,7 @@ msgstr "Query uitvoeren"
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:197
 msgid "Access denied"
-msgstr "Toegang geweigerd "
+msgstr "Toegang geweigerd"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
@@ -817,7 +817,7 @@ msgstr "Plaats elke waarde in een log veld."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr " + Herstart invoegen en voeg nieuwe waarde toe"
+msgstr "+ Herstart invoegen en voeg nieuwe waarde toe"
 
 #: enum_editor.php:67
 msgid "Output"
@@ -958,7 +958,7 @@ msgstr "Klik om te de-selecteren"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:186
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\"-opdrachten zijn uitgeschakeld."
+msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
 msgid "Do you really want to "
@@ -2258,12 +2258,12 @@ msgstr "\"%s\" vereist de %s extensie"
 #: libraries/config/FormDisplay.class.php:746
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "importeren is niet mogelijk, de functie %s ontbreekt"
+msgstr "importeren is niet mogelijk, functie ontbreekt (%s)"
 
 #: libraries/config/FormDisplay.class.php:750
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr "exporteren is niet mogelijk, de functie %s ontbreekt"
+msgstr "exporteren is niet mogelijk, functie ontbreekt (%s)"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
@@ -2933,8 +2933,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
-"Bedenk dat phpMyAdmin enkel een gebruikersinterface is, en dat zijn functies "
-"niet direct MySQL beperken. "
+"Bedenk dat phpMyAdmin enkel een gebruikersinterface is, en dat zijn "
+"functionaliteit MySQL niet beperkt"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
@@ -3375,7 +3375,7 @@ msgstr "Gebruiker kan geen hogere waarde instellen"
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Het maximale    aantal databases dat wordt getoond in het linker frame en de "
+"Het maximale aantal databases dat wordt getoond in het linker frame en de "
 "database lijst"
 
 #: libraries/config/messages.inc.php:304
@@ -3518,8 +3518,8 @@ msgid ""
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-query historie wordt bijgehouden in een "
 "database (vereist phpMyAdmin configuratie opslag). Indien uitgeschakeld "
-"worden JS-routines gebruikt die niet bewaard worden bij het sluiten van het "
-"venster."
+"worden JS-routines gebruikt om query geschiedenis te tonen (deze gaat "
+"verloren bij het sluiten van het venster)."
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
@@ -3747,7 +3747,7 @@ msgstr "PHP-extensie"
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 "Verberg databases die aan de hier opgegeven reguliere expressie (PCRE) "
-"voldoen "
+"voldoen"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
@@ -4097,7 +4097,7 @@ msgstr "Toon phpinfo() link"
 
 #: libraries/config/messages.inc.php:449
 msgid "Show detailed MySQL server information"
-msgstr "Toon gedetailleerde MySQL-server informatie "
+msgstr "Toon gedetailleerde MySQL-server informatie"
 
 #: libraries/config/messages.inc.php:450
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -4112,8 +4112,8 @@ msgstr "Toon SQL-queries"
 #: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Maakt het mogelijk om statistieken over o.a. het ruimtegebruik van databases "
-"en tabellen te tonen"
+"Maakt het mogelijk om statistieken van databases en tabellen te tonen (over "
+"o.a. het schijfgebruik)"
 
 #: libraries/config/messages.inc.php:453
 msgid "Show statistics"
@@ -4125,7 +4125,7 @@ msgid ""
 "comment and the real name"
 msgstr ""
 "Indien tooltips zijn ingeschakeld en er een database opmerking aanwezig is, "
-"wisselt dit de opmerking en de werkelijke naam om "
+"wisselt dit de opmerking en de werkelijke naam om"
 
 #: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
@@ -4205,7 +4205,8 @@ msgid ""
 "possible) or keep the text field empty"
 msgstr ""
 "Doe (indien mogelijk) een suggestie voor de naam van de aan te maken "
-"database in het hiervoor bestemde formulier, anders blijft het veld leeg. "
+"database in het &quote;Nieuwe database aanmaken&quot; formulier, of laat het "
+"veld leeg"
 
 #: libraries/config/messages.inc.php:473
 msgid "Suggest new database name"
@@ -4433,21 +4434,18 @@ msgstr "Er kan geen verbinding worden gemaakt met de server"
 
 #: libraries/config/validate.lib.php:234
 msgid "Empty username while using config authentication method"
-msgstr ""
-"Leeg het gebruikersnaam veld bij het gebruik van het authenticatie type [kbd]"
-"config[/kbd]"
+msgstr "Lege gebruikersnaam bij gebruik van het authenticatie type config"
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
-"Er is geen signon sessie naam opgegeven terwijl u gebruik maakt van het "
-"authenticatie type [kbd]signon[/kbd]"
+"Lege signon sessie naam wanneer u gebruik maakt van het authenticatie type "
+"signon"
 
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Er is geen signon URL opgegeven terwijl u gebruik maakt van het "
-"authenticatie type [kbd]signon[/kbd]"
+"Lege signon URL wanneer u gebruik maakt van het authenticatie type signon"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -4639,7 +4637,7 @@ msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr "Dump alle rijen"
+msgstr "Verwijder sommige rij(en)"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
@@ -5003,7 +5001,7 @@ msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"De hoeveelheid waarmee een zelfgroeiende tabelruimte groeit wanneer deze "
+" De hoeveelheid waarmee een zelfgroeiende tabelruimte groeit wanneer deze "
 "dreigt vol te raken (Autoextend increment)."
 
 #: libraries/engines/innodb.lib.php:34
@@ -5076,7 +5074,7 @@ msgstr "Lees missers"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Write waits"
-msgstr "Schrijfvertragingen (write waits)"
+msgstr "Schrijfvertragingen"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
@@ -5887,7 +5885,7 @@ msgid ""
 "the issue and try again."
 msgstr ""
 "Het XML-bestand was beschadigd of onvolledig. Repareer het bestand en "
-"probeer opnieuw. "
+"probeer opnieuw."
 
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
@@ -5930,7 +5928,7 @@ msgstr "Karakterset"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:549
 msgid "Binary"
-msgstr " Binair "
+msgstr "Binair"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -6793,12 +6791,12 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Toont een klikbare miniatuurweergave. opties: maximale breedte en hoogte in "
-"pixels (behoudt de originele verhouding)."
+"Toont een klikbare miniatuurweergave. Opties zijn maximale breedte en hoogte "
+"in pixels. De originele verhouding wordt behouden."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Toont een link naar deze afbeelding (directe blob download, i.e.)."
+msgstr "Toont een link om deze afbeelding te downloaden."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
@@ -6895,10 +6893,10 @@ msgid ""
 msgstr ""
 "Toont alleen een stuk van een string. De eerst optie is een offset om te "
 "bepalen waar de output van uw tekst start (Standaard 0). De tweede optie is "
-"een offset van de hoeveelheid tekst die terug wordt gegeven. Wanneer leeg, "
-"zal alle overgebleven tekst worden teruggeven. De derde optie definieert "
-"welke karakters worden toegevoegd aan de output wanneer een substring wordt "
-"teruggegeven (Standaard: \"...\")."
+"een offset van de hoeveelheid tekst die terug wordt gegeven (Standaard : tot "
+"het einde van de string). De derde optie definieert welke karakters worden "
+"toegevoegd aan de output wanneer een substring wordt teruggegeven "
+"(Standaard: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
@@ -7250,7 +7248,7 @@ msgstr "Actieve opties"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr "Klik om een relatie te selecteren:"
+msgstr "Klik om een relatie te selecteren :"
 
 #: pmd_help.php:28
 msgid ""
@@ -7311,7 +7309,7 @@ msgstr "Fout: Relatie niet toegevoegd."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr "Vreemde sleutel(FOREIGN KEY) relatie toegevoegd"
+msgstr "FOREIGN KEY relatie toegevoegd"
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
@@ -8043,7 +8041,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Voeg nu de onderstaande regels aan uw my.cnf toe en herstart uw MySQL-server."
+"Voeg nu de onderstaande regels aan de [mysqld] sectie van uw my.cnf toe en "
+"herstart uw MySQL-server."
 
 #: server_replication.php:228
 msgid ""
@@ -8250,7 +8249,7 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"Het aantal leesopdrachten voor de volgende rij in de sleutel volgorde.  Dit "
+"Het aantal leesopdrachten voor de volgende rij in de sleutel volgorde. Dit "
 "wordt verhoogd wanneer u een index kolom raadpleegt met een bereik beperking "
 "of bij het doen van een index scan."
 
@@ -8450,7 +8449,7 @@ msgstr "Het aantal fsync() schrijf operaties uitgevoerd op het log bestand."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
-msgstr "Het aantal momenteel openstaande fsync() operaties op het logbestand."
+msgstr "Het aantal momenteel openstaande fsync operaties op het logbestand."
 
 #: server_status.php:95
 msgid "Pending log file writes."
@@ -8705,7 +8704,7 @@ msgid ""
 "retried transactions."
 msgstr ""
 "Het totaal aantal transacties dat moest worden herhaald door de replicatie "
-"slave SQL thread, sinds het opstarten van de server."
+"slave SQL thread (sinds het opstarten van de server)."
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -9452,7 +9451,7 @@ msgstr "Gevalideerde SQL"
 #: sql.php:851
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problemen met de index(en) van de tabel `%s`"
+msgstr "Problemen met de indexen van de tabel `%s`"
 
 #: sql.php:883
 msgid "Label"
@@ -9469,7 +9468,7 @@ msgstr "Functie"
 
 #: tbl_change.php:752
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr "  Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
+msgstr " Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
@@ -9477,7 +9476,7 @@ msgstr "Verwijder BLOB Bewaarplaats Referentie"
 
 #: tbl_change.php:875
 msgid "Binary - do not edit"
-msgstr " Binair - niet aanpassen "
+msgstr "Binair - niet aanpassen"
 
 #: tbl_change.php:923
 msgid "Upload to BLOB repository"
@@ -9839,7 +9838,7 @@ msgstr "Lengte van de rij"
 
 #: tbl_printview.php:411 tbl_structure.php:885
 msgid " Row size "
-msgstr " Grootte van de rij"
+msgstr " Grootte van de rij "
 
 #: tbl_relation.php:276
 #, php-format
@@ -9856,12 +9855,12 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"Een interne relatie is niet noodzakelijk wanneer er reeds een vreemde sleutel"
-"(FOREIGN KEY) relatie bestaat."
+"Een interne relatie is niet noodzakelijk wanneer er reeds een FOREIGN KEY "
+"relatie bestaat."
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr "Vreemde sleutel (FOREIGN KEY) beperking"
+msgstr "FOREIGN KEY beperking"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
@@ -9897,7 +9896,7 @@ msgstr "Voeg een primaire sleutel toe"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add index"
-msgstr "Voeg index(en) toe"
+msgstr "Voeg index toe"
 
 #: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add unique index"
@@ -10146,14 +10145,3 @@ msgstr "VIEW-naam"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Hernoem view naar"
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Verwijder gevonden rijen voor de tabel %s?"
-
-#~ msgid "Show left delete link"
-#~ msgstr "Toon linker edit/delete links"
-
-#~ msgid "Show right delete link"
-#~ msgstr "Toon rechter edit/delete links"

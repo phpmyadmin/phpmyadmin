@@ -12,7 +12,7 @@ define('PMA_COLORPICKER', true);
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'colorpicker/js/colorpicker.js';
-$GLOBALS['js_include'][] = 'main_custom_color.js';
+//$GLOBALS['js_include'][] = 'main_custom_color.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 
@@ -137,6 +137,8 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo '</li>';
 
     // see js/main_custom_color.js
+    /*
+     * deactivated for 3.4.0-rc1
     echo '<li id="li_custom_color" class="hide">';
     echo __('Background color') . ': ';
     echo '<input type="submit" name="custom_color_choose" value="' . __('Choose...') . '" />';
@@ -146,6 +148,7 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<input type="submit" name="custom_color_reset" value="' . __('Reset') . '" />';
     echo '</form>';
     echo '</li>';
+     */
 }
 echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();
