@@ -474,16 +474,13 @@ $(document).ready(function() {
                 $chg_submit.empty();
                 $chg_submit.append(data_vt);
 
-                var $this_row = $(this).parent().parent();
-                if(parseInt(pos) % 2 == 0) {
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd row_" + pos + " vpointer vmarker inline_edit_anchor");
+                var $this_row = $(this).parents('tr');
+                // changing inline_edit_active to inline_edit_anchor
+                $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("inline_edit_active").addClass("inline_edit_anchor");
 
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd row_" + pos + " vpointer vmarker inline_edit_anchor");
-                } else {
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even row_" + pos + " vpointer vmarker inline_edit_active").addClass("even row_" + pos + " vpointer vmarker inline_edit_anchor");
+                // removing marked and hover classes.
+                $this_row.parent('tbody').find('tr').find("td:eq(" + pos + ")").removeClass("marked hover");
 
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even row_" + pos + " vpointer vmarker inline_edit_anchor");
-                }
                 for( var i = 6; i <= rows + 2; i++){
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
@@ -899,9 +896,17 @@ $(document).ready(function() {
                  }
 
                 PMA_ajaxShowMessage(data.message);
-                $this_td.removeClass('inline_edit_active hover').addClass('inline_edit_anchor');
-                $this_td.parent().removeClass('hover noclick');
-                $this_td.siblings().removeClass('hover');
+
+                // changing inline_edit_active to inline_edit_anchor
+                $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
+
+                // removing hover, marked and noclick classes
+                $this_td.parent('tr').removeClass('noclick');
+                if(disp_mode != 'vertical') {
+                    $this_td.parent('tr').removeClass('hover').find('td').removeClass('hover');
+                } else {
+                    $this_td.parents('tbody').find('tr').find('td:eq(' + $this_td.index() + ')').removeClass('marked');
+                }
 
                 $input_siblings.each(function() {
                     // Inline edit post has been successful.
