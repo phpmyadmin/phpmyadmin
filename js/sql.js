@@ -64,7 +64,7 @@ function appendInlineAnchor() {
         // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters
         $('#table_results tr')
             .find('.edit_row_anchor')
-            .removeClass('.edit_row_anchor')
+            .removeClass('edit_row_anchor')
             .parent().each(function() {
             var $this_tr = $(this);
             var $cloned_tr = $this_tr.clone();
@@ -476,13 +476,13 @@ $(document).ready(function() {
 
                 var $this_row = $(this).parent().parent();
                 if(parseInt(pos) % 2 == 0) {
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd row_" + pos + " vpointer vmarker inline_edit_active").addClass("odd row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("odd row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("odd row_" + pos + " vpointer vmarker inline_edit_anchor");
                 } else {
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even row_" + pos + " vpointer vmarker inline_edit_active").addClass("even row_" + pos + " vpointer vmarker inline_edit_anchor");
 
-                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even edit_row_anchor row_" + pos + " vpointer vmarker inline_edit_anchor");
+                    $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("even row_" + pos + " vpointer vmarker inline_edit_active hover").addClass("even row_" + pos + " vpointer vmarker inline_edit_anchor");
                 }
                 for( var i = 6; i <= rows + 2; i++){
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
