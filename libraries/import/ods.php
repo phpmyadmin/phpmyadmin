@@ -74,7 +74,14 @@ $xml = simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
 
 unset($buffer);
 
-$sheets = $xml->children('office', true)->{'body'}->{'spreadsheet'}->children('table', true);
+if ($xml === FALSE) {
+    $sheets = array();
+    /* TODO: this message should be improved later, used existing because of string freeze */
+    $message = PMA_Message::error(__('Error in Processing Request'));
+    $error = TRUE;
+} else {
+    $sheets = $xml->children('office', true)->{'body'}->{'spreadsheet'}->children('table', true);
+}
 
 $tables = array();
 
