@@ -53,10 +53,10 @@ if (! empty($submit_mult)
         // coming from table structure view - do something with selected columns/fileds
         $selected     = $selected_fld;
         switch ($submit_mult) {
-            case __('Drop'):
+            case 'drop':
                 $what     = 'drop_fld';
                 break;
-            case __('Primary'):
+            case 'primary':
                 // Gets table primary key
                 PMA_DBI_select_db($db);
                 $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
@@ -78,25 +78,25 @@ if (! empty($submit_mult)
                     $what = 'primary_fld';
                 }
                 break;
-            case __('Index'):
+            case 'index':
                 unset($submit_mult);
                 $query_type = 'index_fld';
                 $mult_btn   = __('Yes');
                 break;
-            case __('Unique'):
+            case 'unique':
                 unset($submit_mult);
                 $query_type = 'unique_fld';
                 $mult_btn   = __('Yes');
                 break;
-            case __('Fulltext'):
+            case 'ftext':
                 unset($submit_mult);
                 $query_type = 'fulltext_fld';
                 $mult_btn   = __('Yes');
                 break;
-            case __('Change'):
+            case 'change':
                 require './tbl_alter.php';
                 break;
-            case __('Browse'):
+            case 'browse':
                 // this should already be handled by tbl_structure.php
         }
     } else {

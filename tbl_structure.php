@@ -554,19 +554,19 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 <i><?php echo __('With selected:'); ?></i>
 
 <?php
-PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', __('Browse'), 'b_browse.png');
+PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', __('Browse'), 'b_browse.png', 'browse');
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', __('Change'), 'b_edit.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', __('Drop'), 'b_drop.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', __('Change'), 'b_edit.png', 'change');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', __('Drop'), 'b_drop.png', 'drop');
     if ('ARCHIVE' != $tbl_type) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', __('Primary'), 'b_primary.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', __('Unique'), 'b_unique.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', __('Primary'), 'b_primary.png', 'primary');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', __('Unique'), 'b_unique.png', 'unique');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png', 'index');
     }
 
     if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png', 'ftext');
     }
 }
 ?>
