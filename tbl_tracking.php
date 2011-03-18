@@ -601,11 +601,12 @@ if ($last_version > 0) {
         } else {
             $version_status = __('not active');
         }
-        if (($version['version'] == $last_version) && ($version_status == __('not active'))) {
-            $tracking_active = false;
-        }
-        if (($version['version'] == $last_version) && ($version_status == __('active'))) {
-            $tracking_active = true;
+        if ($version['version'] == $last_version){
+            if ($version['tracking_active'] == 1) {
+                $tracking_active = true;
+            } else {
+                $tracking_active = false;
+            }
         }
     ?>
         <tr class="noclick <?php echo $style;?>">
