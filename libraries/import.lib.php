@@ -908,13 +908,13 @@ $import_notice = NULL;
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = NULL, $options = NULL) {
     /* Take care of the options */
-    if (isset($options['db_collation'])) {
+    if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
     } else {
         $collation = "utf8_general_ci";
     }
     
-    if (isset($options['db_charset'])) {
+    if (isset($options['db_charset']) && ! is_null($options['db_charset'])) {
         $charset = $options['db_charset'];
     } else {
         $charset = "utf8";
