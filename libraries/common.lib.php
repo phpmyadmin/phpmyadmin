@@ -1660,10 +1660,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
 
     // determine additionnal style-class
     if (empty($tab['class'])) {
-        if ($tab['text'] == __('Empty')
-            || $tab['text'] == __('Drop')) {
-            $tab['class'] = 'caution';
-        } elseif (! empty($tab['active'])
+        if (! empty($tab['active'])
          || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
             $tab['class'] = 'active';
         } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
