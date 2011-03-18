@@ -303,10 +303,10 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
+        <span class="nowrap"><input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
         <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
         <?php echo __('row(s) starting from row #') . "\n"; ?>
-        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
+        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" /></span>
         <br />
     <?php
     // Display mode (horizontal/vertical and repeat headers)
@@ -317,9 +317,8 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
     $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
     unset($choices);
 
-    $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
-            . '           ';
-    echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
+    $param2 = '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />';
+    echo '<span class="nowrap">' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "</span>";
     ?>
     </form>
 </td>
