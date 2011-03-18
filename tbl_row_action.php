@@ -69,10 +69,6 @@ switch($submit_mult) {
         break;
 }
 
-$GLOBALS['js_include'][] = 'tbl_change.js';
-
-require_once './libraries/header.inc.php';
-
 if (!empty($submit_mult)) {
     switch($submit_mult) {
         case 'row_edit':
