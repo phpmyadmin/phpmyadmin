@@ -2161,13 +2161,13 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             .'<i>' . __('With selected:') . '</i>' . "\n";
 
         PMA_buttonOrImage('submit_mult', 'mult_submit',
-            'submit_mult_change', __('Change'), 'b_edit.png');
+            'submit_mult_change', __('Change'), 'b_edit.png', 'edit');
         PMA_buttonOrImage('submit_mult', 'mult_submit',
-            'submit_mult_delete', $delete_text, 'b_drop.png');
+            'submit_mult_delete', $delete_text, 'b_drop.png', 'delete');
         if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT') {
             PMA_buttonOrImage('submit_mult', 'mult_submit',
                 'submit_mult_export', __('Export'),
-                'b_tblexport.png');
+                'b_tblexport.png', 'export');
         }
         echo "\n";
 

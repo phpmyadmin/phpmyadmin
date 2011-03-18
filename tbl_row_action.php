@@ -55,17 +55,16 @@ switch($submit_mult) {
         // leave as is
         break;
 
-    case __('Export'):
+    case 'export':
         $submit_mult = 'row_export';
         break;
 
-    case __('Delete'):
-    case __('Kill'):
+    case 'delete':
         $submit_mult = 'row_delete';
         break;
 
     default:
-    case __('Edit'):
+    case 'edit':
         $submit_mult = 'row_edit';
         break;
 }
