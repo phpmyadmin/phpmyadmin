@@ -30,35 +30,19 @@ if (! empty($submit_mult)
            $selected = $selected_tbl;
            switch ($submit_mult) {
                case 'drop_db':
-                   $what = 'drop_db';
+               case 'drop_tbl':
+               case 'empty_tbl':
+                   $what = $submit_mult;
                    break;
-               case __('Drop'):
-                   $what = 'drop_tbl';
-                   break;
-               case __('Empty'):
-                   $what = 'empty_tbl';
-                   break;
-               case __('Check table'):
+               case 'check_tbl':
+               case 'optimize_tbl':
+               case 'repair_tbl':
+               case 'analyze_tbl':
+                   $query_type = $submit_mult;
                    unset($submit_mult);
-                   $query_type = 'check_tbl';
                    $mult_btn   = __('Yes');
                    break;
-               case __('Optimize table'):
-                   unset($submit_mult);
-                   $query_type = 'optimize_tbl';
-                   $mult_btn   = __('Yes');
-                   break;
-               case __('Repair table'):
-                   unset($submit_mult);
-                   $query_type = 'repair_tbl';
-                   $mult_btn   = __('Yes');
-                   break;
-               case __('Analyze table'):
-                   unset($submit_mult);
-                   $query_type = 'analyze_tbl';
-                   $mult_btn   = __('Yes');
-                   break;
-               case __('Export'):
+               case 'export':
                    unset($submit_mult);
                    require('db_export.php');
                    exit;

@@ -499,23 +499,23 @@ $checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
 <?php
 echo '    <option value="' . __('With selected:') . '" selected="selected">'
      . __('With selected:') . '</option>' . "\n";
-echo '    <option value="' . __('Export') . '" >'
+echo '    <option value="export" >'
      . __('Export') . '</option>' . "\n";
 echo '    <option value="' . __('Print view') . '" >'
     . __('Print view') . '</option>' . "\n";
 
 if (!$db_is_information_schema) {
-    echo '    <option value="' . __('Empty') . '" >'
+    echo '    <option value="empty_tbl" >'
          . __('Empty') . '</option>' . "\n";
-    echo '    <option value="' . __('Drop') . '" >'
+    echo '    <option value="drop_tbl" >'
          . __('Drop') . '</option>' . "\n";
-    echo '    <option value="' . __('Check table') . '" >'
+    echo '    <option value="check_tbl" >'
          . __('Check table') . '</option>' . "\n";
-    echo '    <option value="' . __('Optimize table') . '" >'
+    echo '    <option value="optimize_tbl" >'
          . __('Optimize table') . '</option>' . "\n";
-    echo '    <option value="' . __('Repair table') . '" >'
+    echo '    <option value="repair_tbl" >'
          . __('Repair table') . '</option>' . "\n";
-    echo '    <option value="' . __('Analyze table') . '" >'
+    echo '    <option value="analyze_tbl" >'
          . __('Analyze table') . '</option>' . "\n";
 }
 ?>
