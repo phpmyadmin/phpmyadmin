@@ -100,7 +100,7 @@ if (! empty($submit_mult)
                 // this should already be handled by tbl_structure.php
         }
     } else {
-        // coming from borwsing - do something with selected rows
+        // coming from browsing - do something with selected rows
         $what = 'row_delete';
         $selected = $rows_to_delete;
     }
