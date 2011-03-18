@@ -19,6 +19,7 @@
  * @access  public
  */
 function PMA_auth() {
+    unset($_SESSION['LAST_SIGNON_URL']);
     if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
         PMA_fatalError('You must set SignonURL!');
     } elseif (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
@@ -54,8 +55,16 @@ function PMA_auth_check()
 {
     global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
+    /* Check if we're using same sigon server */
+    if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $GLOBALS['cfg']['Server']['SignonURL']) {
+        return false;
+    }
+
     /* Session name */
     $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
+
+    /* Login URL */
+    $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
 
     /* Current host */
     $single_signon_host = $GLOBALS['cfg']['Server']['host'];
@@ -150,8 +159,10 @@ function PMA_auth_check()
 
     // Returns whether we get authentication settings or not
     if (empty($PHP_AUTH_USER)) {
+        unset($_SESSION['LAST_SIGNON_URL']);
         return false;
     } else {
+        $_SESSION['LAST_SIGNON_URL'] = $GLOBALS['cfg']['Server']['SignonURL'];
         return true;
     }
 } // end of the 'PMA_auth_check()' function
