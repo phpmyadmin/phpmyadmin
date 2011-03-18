@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-16 11:54+0100\n"
+"POT-Creation-Date: 2011-03-18 14:56+0100\n"
 "PO-Revision-Date: 2010-10-21 01:36+0200\n"
 "Last-Translator: Nobin নবীন <nobin@cyberbogra.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -200,7 +200,7 @@ msgstr "মন্তব্যসমূহ"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:263
+#: libraries/mult_submits.inc.php:247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1404 server_privileges.php:1415
@@ -216,11 +216,10 @@ msgstr "না"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
-#: libraries/mult_submits.inc.php:54 libraries/mult_submits.inc.php:59
-#: libraries/mult_submits.inc.php:91 libraries/mult_submits.inc.php:100
-#: libraries/mult_submits.inc.php:105 libraries/mult_submits.inc.php:110
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
+#: libraries/mult_submits.inc.php:43 libraries/mult_submits.inc.php:75
+#: libraries/mult_submits.inc.php:84 libraries/mult_submits.inc.php:89
+#: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:246
+#: libraries/mult_submits.inc.php:257
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1401
@@ -417,7 +416,7 @@ msgstr[1] "%s table(s)"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2052 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
+#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:130
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Your SQL query has been executed successfully"
@@ -551,8 +550,7 @@ msgstr[1] "%s match(es) inside table <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2827
 #: libraries/common.lib.php:3009 libraries/common.lib.php:3010
-#: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
-#: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
+#: libraries/tbl_links.inc.php:48 tbl_structure.php:557
 msgid "Browse"
 msgstr "ব্রাউজ করুন"
 
@@ -570,7 +568,6 @@ msgstr "টেবিল এর জন্য ডাটা ডাম্পিং �
 #: libraries/schema/User_Schema.class.php:303
 #: libraries/sql_query_form.lib.php:448 pmd_general.php:423
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
-#: tbl_row_action.php:62
 msgid "Delete"
 msgstr "মুছে ফেল"
 
@@ -688,54 +685,46 @@ msgstr "Uncheck All"
 msgid "Check tables having overhead"
 msgstr "ওভারহেড সহ টেবিল পরীক্ষা কর"
 
-#: db_structure.php:502 db_structure.php:503
-#: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2169 libraries/display_tbl.lib.php:2303
-#: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
+#: db_structure.php:503 libraries/config/messages.inc.php:161
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2169
+#: libraries/display_tbl.lib.php:2303 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1377 setup/frames/menu.inc.php:21
-#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Export"
 
-#: db_structure.php:504 db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2258 libraries/mult_submits.inc.php:27
-#: tbl_structure.php:583 tbl_structure.php:585
+#: db_structure.php:505 db_structure.php:561
+#: libraries/display_tbl.lib.php:2258 tbl_structure.php:583
+#: tbl_structure.php:585
 msgid "Print view"
 msgstr "Print view"
 
-#: db_structure.php:508 db_structure.php:509 libraries/common.lib.php:1663
-#: libraries/common.lib.php:3018 libraries/common.lib.php:3019
-#: libraries/mult_submits.inc.php:38
+#: db_structure.php:509 libraries/common.lib.php:3018
+#: libraries/common.lib.php:3019
 msgid "Empty"
 msgstr "খালি"
 
-#: db_structure.php:510 db_structure.php:511 db_tracking.php:104
-#: libraries/Index.class.php:487 libraries/common.lib.php:1664
+#: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3016 libraries/common.lib.php:3017
-#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
-#: server_databases.php:252 tbl_structure.php:26 tbl_structure.php:150
-#: tbl_structure.php:151 tbl_structure.php:561
+#: server_databases.php:252 tbl_structure.php:150 tbl_structure.php:151
+#: tbl_structure.php:561
 msgid "Drop"
 msgstr "মুছে ফেল"
 
-#: db_structure.php:512 db_structure.php:513 libraries/mult_submits.inc.php:41
-#: tbl_operations.php:583
+#: db_structure.php:513 tbl_operations.php:583
 msgid "Check table"
 msgstr "টেবিল পরীক্ষা কর"
 
-#: db_structure.php:514 db_structure.php:515 libraries/mult_submits.inc.php:46
-#: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
+#: db_structure.php:515 tbl_operations.php:623 tbl_structure.php:801
+#: tbl_structure.php:803
 msgid "Optimize table"
 msgstr "টেবিল অপটিমাইজ করুন"
 
-#: db_structure.php:516 db_structure.php:517 libraries/mult_submits.inc.php:51
-#: tbl_operations.php:613
+#: db_structure.php:517 tbl_operations.php:613
 msgid "Repair table"
 msgstr "টেবিল রিপেয়ার করুন"
 
-#: db_structure.php:518 db_structure.php:519 libraries/mult_submits.inc.php:56
-#: tbl_operations.php:603
+#: db_structure.php:519 tbl_operations.php:603
 msgid "Analyze table"
 msgstr "টেবিল বিশ্লেষণ কর"
 
@@ -793,12 +782,10 @@ msgid "Delete tracking data for this table"
 msgstr ""
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
-#: tbl_tracking.php:607
 msgid "active"
 msgstr ""
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
-#: tbl_tracking.php:604
 msgid "not active"
 msgstr ""
 
@@ -807,11 +794,11 @@ msgstr ""
 msgid "Versions"
 msgstr "পারসিয়ান"
 
-#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
+#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
 msgstr ""
 
-#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
+#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 #, fuzzy
 msgid "Structure snapshot"
 msgstr "Structure only"
@@ -976,11 +963,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" statements are disabled."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
+#: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:284
 msgid "Do you really want to "
 msgstr "আপনি কি সত্যি চান?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:269
+#: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:269
 msgid "You are about to DESTROY a complete database!"
 msgstr "আপনি একটি সম্পূর্ন ডাটাবেজ প্রায় মুছে ফেলছেন"
 
@@ -1086,7 +1073,7 @@ msgstr "লোকাল"
 msgid "Processing Request"
 msgstr "Processes"
 
-#: js/messages.php:65
+#: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr ""
 
@@ -1590,8 +1577,7 @@ msgstr "No index defined!"
 msgid "Indexes"
 msgstr "ইন্ডেস্ক সমূহ"
 
-#: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
-#: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
+#: libraries/Index.class.php:443 libraries/tbl_properties.inc.php:522
 #: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
 #: tbl_tracking.php:316
 msgid "Unique"
@@ -1615,7 +1601,6 @@ msgstr "মন্তব্যসমূহ"
 #: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1165
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
-#: tbl_row_action.php:68
 msgid "Edit"
 msgstr "সম্পাদনা কর"
 
@@ -2017,7 +2002,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Invalid hostname for server %1$s. Please review your configuration."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
-#: libraries/header.inc.php:115 main.php:174 test/theme.php:56
+#: libraries/header.inc.php:115 main.php:177 test/theme.php:56
 msgid "Server"
 msgstr "সার্ভার"
 
@@ -2060,7 +2045,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:222 server_variables.php:63
+#: main.php:225 server_variables.php:63
 msgid "Documentation"
 msgstr "বর্ণনা"
 
@@ -2170,7 +2155,7 @@ msgstr "."
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y at %I:%M %p"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1921
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s দিন, %s মাস, %s মিনিট and %s সেকেণ্ড"
@@ -2414,8 +2399,8 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 main.php:146
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
+#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: prefs_manage.php:325 tbl_change.php:1097
 msgid "Reset"
 msgstr "রিসেট করুন"
 
@@ -5006,7 +4991,7 @@ msgid "The row has been deleted"
 msgstr "সারিটি মুছে ফেলা হয়েছে"
 
 #: libraries/display_tbl.lib.php:1220 libraries/display_tbl.lib.php:2131
-#: server_processlist.php:78 tbl_row_action.php:63
+#: server_processlist.php:78
 msgid "Kill"
 msgstr "Kill"
 
@@ -5027,9 +5012,8 @@ msgstr "মোট"
 msgid "Query took %01.4f sec"
 msgstr "Query took %01.4f sec"
 
-#: libraries/display_tbl.lib.php:2164 libraries/mult_submits.inc.php:112
-#: querywindow.php:114 querywindow.php:118 querywindow.php:121
-#: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
+#: libraries/display_tbl.lib.php:2164 querywindow.php:114 querywindow.php:118
+#: querywindow.php:121 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Change"
 
@@ -5056,7 +5040,7 @@ msgstr "Server version"
 msgid "Link not found"
 msgstr "লিংক পাওয়া যায়নি"
 
-#: libraries/engines/bdb.lib.php:20 main.php:221
+#: libraries/engines/bdb.lib.php:20 main.php:224
 msgid "Version information"
 msgstr "Version information"
 
@@ -5598,7 +5582,7 @@ msgid "Generation Time"
 msgstr "তৈরী করার জন্য সময়"
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
-#: libraries/export/xml.php:111 main.php:175
+#: libraries/export/xml.php:111 main.php:178
 msgid "Server version"
 msgstr "Server version"
 
@@ -5944,26 +5928,7 @@ msgstr "কোনটিই নয়"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
-#: tbl_structure.php:28 tbl_structure.php:152 tbl_structure.php:156
-#: tbl_structure.php:563
-msgid "Primary"
-msgstr "প্রাথমিক"
-
-#: libraries/mult_submits.inc.php:97 libraries/tbl_properties.inc.php:115
-#: libraries/tbl_properties.inc.php:528 tbl_printview.php:323
-#: tbl_structure.php:30 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:565 tbl_structure.php:765
-msgid "Index"
-msgstr "ইন্ডেস্ক"
-
-#: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
-#: tbl_structure.php:34 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:569
-msgid "Fulltext"
-msgstr "Fulltext"
-
-#: libraries/mult_submits.inc.php:435 tbl_replace.php:329
+#: libraries/mult_submits.inc.php:419 tbl_replace.php:329
 msgid "No change"
 msgstr "No change"
 
@@ -6750,6 +6715,12 @@ msgstr ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 
+#: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
+#: tbl_printview.php:323 tbl_structure.php:153 tbl_structure.php:157
+#: tbl_structure.php:565 tbl_structure.php:765
+msgid "Index"
+msgstr "ইন্ডেস্ক"
+
 #: libraries/tbl_properties.inc.php:135
 #, php-format
 msgid ""
@@ -6793,6 +6764,16 @@ msgstr "কোনটিই নয়"
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
 msgstr ""
+
+#: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
+#: tbl_structure.php:156 tbl_structure.php:563
+msgid "Primary"
+msgstr "প্রাথমিক"
+
+#: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
+#: tbl_structure.php:159 tbl_structure.php:569
+msgid "Fulltext"
+msgstr "Fulltext"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
@@ -7055,76 +7036,68 @@ msgstr "MySQL connection collation"
 msgid "Appearance Settings"
 msgstr ""
 
-#: main.php:141
-msgid "Background color"
-msgstr ""
-
-#: main.php:142
-msgid "Choose..."
-msgstr ""
-
-#: main.php:159 prefs_manage.php:274
+#: main.php:162 prefs_manage.php:274
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
 msgstr "General relation features"
 
-#: main.php:176
+#: main.php:179
 msgid "Protocol version"
 msgstr "Protocol version"
 
-#: main.php:178 server_privileges.php:1469 server_privileges.php:1623
+#: main.php:181 server_privileges.php:1469 server_privileges.php:1623
 #: server_privileges.php:1747 server_privileges.php:2166
 #: server_processlist.php:61
 msgid "User"
 msgstr "User"
 
-#: main.php:182
+#: main.php:185
 msgid "MySQL charset"
 msgstr "MySQL charset"
 
-#: main.php:194
+#: main.php:197
 msgid "Web server"
 msgstr ""
 
-#: main.php:200
+#: main.php:203
 msgid "MySQL client version"
 msgstr "MySQL client version"
 
-#: main.php:202
+#: main.php:205
 #, fuzzy
 msgid "PHP extension"
 msgstr "PHP Version"
 
-#: main.php:208
+#: main.php:211
 msgid "Show PHP information"
 msgstr "Show PHP information"
 
-#: main.php:223
+#: main.php:226
 msgid "Wiki"
 msgstr ""
 
-#: main.php:226
+#: main.php:229
 msgid "Official Homepage"
 msgstr "Official phpMyAdmin Homepage"
 
-#: main.php:227
+#: main.php:230
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Attributes"
 
-#: main.php:228
+#: main.php:231
 msgid "Get support"
 msgstr ""
 
-#: main.php:229
+#: main.php:232
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "No change"
 
-#: main.php:253
+#: main.php:256
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7136,7 +7109,7 @@ msgstr ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole."
 
-#: main.php:261
+#: main.php:264
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7146,7 +7119,7 @@ msgstr ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 
-#: main.php:269
+#: main.php:272
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7156,7 +7129,7 @@ msgstr ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 
-#: main.php:277
+#: main.php:280
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7164,25 +7137,25 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:284
+#: main.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:292
+#: main.php:295
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "The configuration file now needs a secret passphrase (blowfish_secret)."
 
-#: main.php:300
+#: main.php:303
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:309
+#: main.php:312
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7194,21 +7167,21 @@ msgstr ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 
-#: main.php:324
+#: main.php:327
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:339
+#: main.php:342
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: main.php:351
+#: main.php:354
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -10115,38 +10088,38 @@ msgstr ""
 msgid "Version"
 msgstr "পারসিয়ান"
 
-#: tbl_tracking.php:634
+#: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
-#: tbl_tracking.php:636
+#: tbl_tracking.php:637
 msgid "Deactivate now"
 msgstr ""
 
-#: tbl_tracking.php:647
+#: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
-#: tbl_tracking.php:649
+#: tbl_tracking.php:650
 msgid "Activate now"
 msgstr ""
 
-#: tbl_tracking.php:662
+#: tbl_tracking.php:663
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
-#: tbl_tracking.php:666
+#: tbl_tracking.php:667
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: tbl_tracking.php:674
+#: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: tbl_tracking.php:682
+#: tbl_tracking.php:683
 #, fuzzy
 msgid "Create version"
 msgstr "Server version"

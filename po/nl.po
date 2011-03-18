@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-16 11:54+0100\n"
+"POT-Creation-Date: 2011-03-18 14:56+0100\n"
 "PO-Revision-Date: 2011-03-16 20:18+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -201,7 +201,7 @@ msgstr "Opmerkingen"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:263
+#: libraries/mult_submits.inc.php:247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1404 server_privileges.php:1415
@@ -217,11 +217,10 @@ msgstr "Nee"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
-#: libraries/mult_submits.inc.php:54 libraries/mult_submits.inc.php:59
-#: libraries/mult_submits.inc.php:91 libraries/mult_submits.inc.php:100
-#: libraries/mult_submits.inc.php:105 libraries/mult_submits.inc.php:110
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
+#: libraries/mult_submits.inc.php:43 libraries/mult_submits.inc.php:75
+#: libraries/mult_submits.inc.php:84 libraries/mult_submits.inc.php:89
+#: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:246
+#: libraries/mult_submits.inc.php:257
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1401
@@ -409,7 +408,7 @@ msgstr[1] "%s tabellen"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2052 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
+#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:130
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Uw SQL-query is succesvol uitgevoerd"
@@ -538,8 +537,7 @@ msgstr[1] "%s overeenkomsten in de tabel <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2827
 #: libraries/common.lib.php:3009 libraries/common.lib.php:3010
-#: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
-#: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
+#: libraries/tbl_links.inc.php:48 tbl_structure.php:557
 msgid "Browse"
 msgstr "Verkennen"
 
@@ -556,7 +554,6 @@ msgstr "Verwijder gevonden rijen voor de tabel %s?"
 #: libraries/schema/User_Schema.class.php:303
 #: libraries/sql_query_form.lib.php:448 pmd_general.php:423
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
-#: tbl_row_action.php:62
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -670,54 +667,46 @@ msgstr "Deselecteer alles"
 msgid "Check tables having overhead"
 msgstr "Selecteer tabellen met overhead"
 
-#: db_structure.php:502 db_structure.php:503
-#: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2169 libraries/display_tbl.lib.php:2303
-#: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
+#: db_structure.php:503 libraries/config/messages.inc.php:161
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2169
+#: libraries/display_tbl.lib.php:2303 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1377 setup/frames/menu.inc.php:21
-#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Exporteer"
 
-#: db_structure.php:504 db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2258 libraries/mult_submits.inc.php:27
-#: tbl_structure.php:583 tbl_structure.php:585
+#: db_structure.php:505 db_structure.php:561
+#: libraries/display_tbl.lib.php:2258 tbl_structure.php:583
+#: tbl_structure.php:585
 msgid "Print view"
 msgstr "Afdrukken"
 
-#: db_structure.php:508 db_structure.php:509 libraries/common.lib.php:1663
-#: libraries/common.lib.php:3018 libraries/common.lib.php:3019
-#: libraries/mult_submits.inc.php:38
+#: db_structure.php:509 libraries/common.lib.php:3018
+#: libraries/common.lib.php:3019
 msgid "Empty"
 msgstr "Legen"
 
-#: db_structure.php:510 db_structure.php:511 db_tracking.php:104
-#: libraries/Index.class.php:487 libraries/common.lib.php:1664
+#: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3016 libraries/common.lib.php:3017
-#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
-#: server_databases.php:252 tbl_structure.php:26 tbl_structure.php:150
-#: tbl_structure.php:151 tbl_structure.php:561
+#: server_databases.php:252 tbl_structure.php:150 tbl_structure.php:151
+#: tbl_structure.php:561
 msgid "Drop"
 msgstr "Verwijderen"
 
-#: db_structure.php:512 db_structure.php:513 libraries/mult_submits.inc.php:41
-#: tbl_operations.php:583
+#: db_structure.php:513 tbl_operations.php:583
 msgid "Check table"
 msgstr "Controleer tabel"
 
-#: db_structure.php:514 db_structure.php:515 libraries/mult_submits.inc.php:46
-#: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
+#: db_structure.php:515 tbl_operations.php:623 tbl_structure.php:801
+#: tbl_structure.php:803
 msgid "Optimize table"
 msgstr "Optimaliseer tabel"
 
-#: db_structure.php:516 db_structure.php:517 libraries/mult_submits.inc.php:51
-#: tbl_operations.php:613
+#: db_structure.php:517 tbl_operations.php:613
 msgid "Repair table"
 msgstr "Repareer tabel"
 
-#: db_structure.php:518 db_structure.php:519 libraries/mult_submits.inc.php:56
-#: tbl_operations.php:603
+#: db_structure.php:519 tbl_operations.php:603
 msgid "Analyze table"
 msgstr "Analyseer tabel"
 
@@ -772,12 +761,10 @@ msgid "Delete tracking data for this table"
 msgstr "Verwijder tracking data voor deze tabel"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
-#: tbl_tracking.php:607
 msgid "active"
 msgstr "ingeschakeld"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
-#: tbl_tracking.php:604
 msgid "not active"
 msgstr "niet actief"
 
@@ -785,11 +772,11 @@ msgstr "niet actief"
 msgid "Versions"
 msgstr "Versies"
 
-#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
+#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
 msgstr "Tracking-rapport"
 
-#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
+#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 msgid "Structure snapshot"
 msgstr "Structuur-snapshot"
 
@@ -960,11 +947,11 @@ msgstr "Klik om te de-selecteren"
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
+#: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:284
 msgid "Do you really want to "
 msgstr "Weet u zeker dat u dit wilt "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:269
+#: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:269
 msgid "You are about to DESTROY a complete database!"
 msgstr "U staat op het punt een complete database te VERWIJDEREN!"
 
@@ -1058,7 +1045,7 @@ msgstr "Laden"
 msgid "Processing Request"
 msgstr "Bezig met verwerken"
 
-#: js/messages.php:65
+#: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr "Fout tijdens het verwerken van de opdracht"
 
@@ -1496,8 +1483,7 @@ msgstr "Geen index gedefinieerd!"
 msgid "Indexes"
 msgstr "Indexen"
 
-#: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
-#: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
+#: libraries/Index.class.php:443 libraries/tbl_properties.inc.php:522
 #: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
 #: tbl_tracking.php:316
 msgid "Unique"
@@ -1520,7 +1506,6 @@ msgstr "Opmerking"
 #: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1165
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
-#: tbl_row_action.php:68
 msgid "Edit"
 msgstr "Wijzig"
 
@@ -1918,7 +1903,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
-#: libraries/header.inc.php:115 main.php:174 test/theme.php:56
+#: libraries/header.inc.php:115 main.php:177 test/theme.php:56
 msgid "Server"
 msgstr "Server"
 
@@ -1961,7 +1946,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:222 server_variables.php:63
+#: main.php:225 server_variables.php:63
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -2071,7 +2056,7 @@ msgstr ","
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y om %H:%M"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1921
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagen, %s uren, %s minuten en %s seconden"
@@ -2304,8 +2289,8 @@ msgid "Allow users to customize this value"
 msgstr "Sta gebruikers toe deze waarde aan te passen"
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 main.php:146
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
+#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: prefs_manage.php:325 tbl_change.php:1097
 msgid "Reset"
 msgstr "Herstel"
 
@@ -4927,7 +4912,7 @@ msgid "The row has been deleted"
 msgstr "De rij is verwijderd"
 
 #: libraries/display_tbl.lib.php:1220 libraries/display_tbl.lib.php:2131
-#: server_processlist.php:78 tbl_row_action.php:63
+#: server_processlist.php:78
 msgid "Kill"
 msgstr "stop proces"
 
@@ -4948,9 +4933,8 @@ msgstr "totaal"
 msgid "Query took %01.4f sec"
 msgstr "Query duurde %01.4f sec"
 
-#: libraries/display_tbl.lib.php:2164 libraries/mult_submits.inc.php:112
-#: querywindow.php:114 querywindow.php:118 querywindow.php:121
-#: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
+#: libraries/display_tbl.lib.php:2164 querywindow.php:114 querywindow.php:118
+#: querywindow.php:121 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "Veranderen"
 
@@ -4974,7 +4958,7 @@ msgstr "VIEW aanmaken"
 msgid "Link not found"
 msgstr "Link niet gevonden"
 
-#: libraries/engines/bdb.lib.php:20 main.php:221
+#: libraries/engines/bdb.lib.php:20 main.php:224
 msgid "Version information"
 msgstr "Versie informatie"
 
@@ -5540,7 +5524,7 @@ msgid "Generation Time"
 msgstr "Genereertijd"
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
-#: libraries/export/xml.php:111 main.php:175
+#: libraries/export/xml.php:111 main.php:178
 msgid "Server version"
 msgstr "Serverversie"
 
@@ -5898,26 +5882,7 @@ msgstr "Geen"
 msgid "Convert to Kana"
 msgstr "Zet om naar Kana"
 
-#: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
-#: tbl_structure.php:28 tbl_structure.php:152 tbl_structure.php:156
-#: tbl_structure.php:563
-msgid "Primary"
-msgstr "Primaire sleutel"
-
-#: libraries/mult_submits.inc.php:97 libraries/tbl_properties.inc.php:115
-#: libraries/tbl_properties.inc.php:528 tbl_printview.php:323
-#: tbl_structure.php:30 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:565 tbl_structure.php:765
-msgid "Index"
-msgstr "Index"
-
-#: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
-#: tbl_structure.php:34 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:569
-msgid "Fulltext"
-msgstr "Volledige tekst"
-
-#: libraries/mult_submits.inc.php:435 tbl_replace.php:329
+#: libraries/mult_submits.inc.php:419 tbl_replace.php:329
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -6687,6 +6652,12 @@ msgstr ""
 "Voer voor standaard waarden aub een enkele waarde in, zonder backslash of "
 "aanhalingstekens, gebruik makend van dit formaat: a"
 
+#: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
+#: tbl_printview.php:323 tbl_structure.php:153 tbl_structure.php:157
+#: tbl_structure.php:565 tbl_structure.php:765
+msgid "Index"
+msgstr "Index"
+
 #: libraries/tbl_properties.inc.php:135
 #, php-format
 msgid ""
@@ -6729,6 +6700,16 @@ msgstr "Geen"
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
 msgstr "Als aangegeven:"
+
+#: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
+#: tbl_structure.php:156 tbl_structure.php:563
+msgid "Primary"
+msgstr "Primaire sleutel"
+
+#: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
+#: tbl_structure.php:159 tbl_structure.php:569
+msgid "Fulltext"
+msgstr "Volledige tekst"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
@@ -6948,69 +6929,61 @@ msgstr "MySQL verbindingscollatie"
 msgid "Appearance Settings"
 msgstr "Opmaak instellingen"
 
-#: main.php:141
-msgid "Background color"
-msgstr "Achtergrondkleur"
-
-#: main.php:142
-msgid "Choose..."
-msgstr "Kies..."
-
-#: main.php:159 prefs_manage.php:274
+#: main.php:162 prefs_manage.php:274
 msgid "More settings"
 msgstr "Overige instellingen"
 
-#: main.php:176
+#: main.php:179
 msgid "Protocol version"
 msgstr "Protocolversie"
 
-#: main.php:178 server_privileges.php:1469 server_privileges.php:1623
+#: main.php:181 server_privileges.php:1469 server_privileges.php:1623
 #: server_privileges.php:1747 server_privileges.php:2166
 #: server_processlist.php:61
 msgid "User"
 msgstr "Gebruiker"
 
-#: main.php:182
+#: main.php:185
 msgid "MySQL charset"
 msgstr "MySQL Karakterset"
 
-#: main.php:194
+#: main.php:197
 msgid "Web server"
 msgstr "Web server"
 
-#: main.php:200
+#: main.php:203
 msgid "MySQL client version"
 msgstr "MySQL-client versie"
 
-#: main.php:202
+#: main.php:205
 msgid "PHP extension"
 msgstr "PHP uitbreiding"
 
-#: main.php:208
+#: main.php:211
 msgid "Show PHP information"
 msgstr "Laat informatie over PHP zien"
 
-#: main.php:223
+#: main.php:226
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:226
+#: main.php:229
 msgid "Official Homepage"
 msgstr "Officiële phpMyAdmin Website"
 
-#: main.php:227
+#: main.php:230
 msgid "Contribute"
 msgstr "Bijdragen"
 
-#: main.php:228
+#: main.php:231
 msgid "Get support"
 msgstr "Ondersteuning krijgen"
 
-#: main.php:229
+#: main.php:232
 msgid "List of changes"
 msgstr "Lijst met wijzigingen"
 
-#: main.php:253
+#: main.php:256
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7022,7 +6995,7 @@ msgstr ""
 "met deze standaard waardes, en is open voor ongewilde toegang. Het wordt dus "
 "aangeraden dit op te lossen."
 
-#: main.php:261
+#: main.php:264
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7032,7 +7005,7 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige data "
 "corrupt raakt!"
 
-#: main.php:269
+#: main.php:272
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7042,7 +7015,7 @@ msgstr ""
 "karakterset te gebruiken. Zonder de mbstring extensie kan phpMyAdmin strings "
 "niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
-#: main.php:277
+#: main.php:280
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7054,7 +7027,7 @@ msgstr ""
 "ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
-#: main.php:284
+#: main.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7063,13 +7036,13 @@ msgstr ""
 "ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
-#: main.php:292
+#: main.php:295
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Het configuratiebestand heeft nu een geheime wachtwoordzin nodig "
 "(blowfish_secret)."
 
-#: main.php:300
+#: main.php:303
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7079,7 +7052,7 @@ msgstr ""
 "nog in de phpMyAdmin directory. Het kan beter worden verwijderd zodra "
 "phpMyAdmin is geconfigureerd."
 
-#: main.php:309
+#: main.php:312
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7089,7 +7062,7 @@ msgstr ""
 "uitgebreide mogelijkheden zijn uitgeschakeld. Om te weten te komen waarom "
 "klik %shier%s."
 
-#: main.php:324
+#: main.php:327
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7100,7 +7073,7 @@ msgstr ""
 "beschikbaar zijn. Zo zal bijvoorbeeld het navigatieframe zich niet "
 "automatisch vernieuwen."
 
-#: main.php:339
+#: main.php:342
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7109,7 +7082,7 @@ msgstr ""
 "Uw PHP MySQL bibliotheek versie %s verschilt van uw MySQL-server versie %s. "
 "Dit kan onvoorspelbaar gedrag veroorzaken."
 
-#: main.php:351
+#: main.php:354
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -10062,38 +10035,38 @@ msgstr "Versies weergeven"
 msgid "Version"
 msgstr "Versie"
 
-#: tbl_tracking.php:634
+#: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Tracking uitschakelen voor %s.%s"
 
-#: tbl_tracking.php:636
+#: tbl_tracking.php:637
 msgid "Deactivate now"
 msgstr "Nu uitschakelen"
 
-#: tbl_tracking.php:647
+#: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Tracking inschakelen voor %s.%s"
 
-#: tbl_tracking.php:649
+#: tbl_tracking.php:650
 msgid "Activate now"
 msgstr "Nu inschakelen"
 
-#: tbl_tracking.php:662
+#: tbl_tracking.php:663
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Versie %s van %s.%s aanmaken"
 
-#: tbl_tracking.php:666
+#: tbl_tracking.php:667
 msgid "Track these data definition statements:"
 msgstr "Deze definitie-statements tracken:"
 
-#: tbl_tracking.php:674
+#: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
 msgstr "Deze manipulatie-statements tracken:"
 
-#: tbl_tracking.php:682
+#: tbl_tracking.php:683
 msgid "Create version"
 msgstr "Versie aanmaken"
 
@@ -10145,3 +10118,9 @@ msgstr "VIEW-naam"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Hernoem view naar"
+
+#~ msgid "Background color"
+#~ msgstr "Achtergrondkleur"
+
+#~ msgid "Choose..."
+#~ msgstr "Kies..."

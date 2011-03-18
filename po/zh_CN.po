@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-03-16 11:54+0100\n"
+"POT-Creation-Date: 2011-03-18 14:56+0100\n"
 "PO-Revision-Date: 2011-03-04 09:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -199,7 +199,7 @@ msgstr "注释"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:263
+#: libraries/mult_submits.inc.php:247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1404 server_privileges.php:1415
@@ -215,11 +215,10 @@ msgstr "否"
 #: libraries/config.values.php:50 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
 #: libraries/export/odt.php:375 libraries/export/texytext.php:304
-#: libraries/mult_submits.inc.php:44 libraries/mult_submits.inc.php:49
-#: libraries/mult_submits.inc.php:54 libraries/mult_submits.inc.php:59
-#: libraries/mult_submits.inc.php:91 libraries/mult_submits.inc.php:100
-#: libraries/mult_submits.inc.php:105 libraries/mult_submits.inc.php:110
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
+#: libraries/mult_submits.inc.php:43 libraries/mult_submits.inc.php:75
+#: libraries/mult_submits.inc.php:84 libraries/mult_submits.inc.php:89
+#: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:246
+#: libraries/mult_submits.inc.php:257
 #: libraries/schema/Pdf_Relation_Schema.class.php:1319
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1401
@@ -404,7 +403,7 @@ msgstr[0] "%s 张表"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2052 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:131
+#: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:130
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 语句已成功运行"
@@ -532,8 +531,7 @@ msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
 #: db_search.php:254 libraries/common.lib.php:2827
 #: libraries/common.lib.php:3009 libraries/common.lib.php:3010
-#: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
-#: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:557
+#: libraries/tbl_links.inc.php:48 tbl_structure.php:557
 msgid "Browse"
 msgstr "浏览"
 
@@ -550,7 +548,6 @@ msgstr "删除 %s 表中所有匹配的记录？"
 #: libraries/schema/User_Schema.class.php:303
 #: libraries/sql_query_form.lib.php:448 pmd_general.php:423
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
-#: tbl_row_action.php:62
 msgid "Delete"
 msgstr "删除"
 
@@ -662,54 +659,46 @@ msgstr "全不选"
 msgid "Check tables having overhead"
 msgstr "仅选择多余"
 
-#: db_structure.php:502 db_structure.php:503
-#: libraries/config/messages.inc.php:161 libraries/db_links.inc.php:56
-#: libraries/display_tbl.lib.php:2169 libraries/display_tbl.lib.php:2303
-#: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:69
+#: db_structure.php:503 libraries/config/messages.inc.php:161
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2169
+#: libraries/display_tbl.lib.php:2303 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1377 setup/frames/menu.inc.php:21
-#: tbl_row_action.php:58
 msgid "Export"
 msgstr "导出"
 
-#: db_structure.php:504 db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2258 libraries/mult_submits.inc.php:27
-#: tbl_structure.php:583 tbl_structure.php:585
+#: db_structure.php:505 db_structure.php:561
+#: libraries/display_tbl.lib.php:2258 tbl_structure.php:583
+#: tbl_structure.php:585
 msgid "Print view"
 msgstr "打印预览"
 
-#: db_structure.php:508 db_structure.php:509 libraries/common.lib.php:1663
-#: libraries/common.lib.php:3018 libraries/common.lib.php:3019
-#: libraries/mult_submits.inc.php:38
+#: db_structure.php:509 libraries/common.lib.php:3018
+#: libraries/common.lib.php:3019
 msgid "Empty"
 msgstr "清空"
 
-#: db_structure.php:510 db_structure.php:511 db_tracking.php:104
-#: libraries/Index.class.php:487 libraries/common.lib.php:1664
+#: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3016 libraries/common.lib.php:3017
-#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
-#: server_databases.php:252 tbl_structure.php:26 tbl_structure.php:150
-#: tbl_structure.php:151 tbl_structure.php:561
+#: server_databases.php:252 tbl_structure.php:150 tbl_structure.php:151
+#: tbl_structure.php:561
 msgid "Drop"
 msgstr "删除"
 
-#: db_structure.php:512 db_structure.php:513 libraries/mult_submits.inc.php:41
-#: tbl_operations.php:583
+#: db_structure.php:513 tbl_operations.php:583
 msgid "Check table"
 msgstr "检查表"
 
-#: db_structure.php:514 db_structure.php:515 libraries/mult_submits.inc.php:46
-#: tbl_operations.php:623 tbl_structure.php:801 tbl_structure.php:803
+#: db_structure.php:515 tbl_operations.php:623 tbl_structure.php:801
+#: tbl_structure.php:803
 msgid "Optimize table"
 msgstr "优化表"
 
-#: db_structure.php:516 db_structure.php:517 libraries/mult_submits.inc.php:51
-#: tbl_operations.php:613
+#: db_structure.php:517 tbl_operations.php:613
 msgid "Repair table"
 msgstr "修复表"
 
-#: db_structure.php:518 db_structure.php:519 libraries/mult_submits.inc.php:56
-#: tbl_operations.php:603
+#: db_structure.php:519 tbl_operations.php:603
 msgid "Analyze table"
 msgstr "分析表"
 
@@ -764,12 +753,10 @@ msgid "Delete tracking data for this table"
 msgstr "删除追踪数据"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
-#: tbl_tracking.php:607
 msgid "active"
 msgstr "启用"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
-#: tbl_tracking.php:604
 msgid "not active"
 msgstr "禁用"
 
@@ -777,11 +764,11 @@ msgstr "禁用"
 msgid "Versions"
 msgstr "版本"
 
-#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:618
+#: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
 msgstr "追踪报告"
 
-#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:618
+#: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 msgid "Structure snapshot"
 msgstr "结构快照"
 
@@ -935,11 +922,11 @@ msgstr "点击取消"
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已经禁用删除数据库 (“DROP DATABASE”) 语句。"
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:284
+#: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:284
 msgid "Do you really want to "
 msgstr "您真的要"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:269
+#: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:269
 msgid "You are about to DESTROY a complete database!"
 msgstr "您将要删除一个完整的数据库！"
 
@@ -1031,7 +1018,7 @@ msgstr "正在加载"
 msgid "Processing Request"
 msgstr "正在处理请求"
 
-#: js/messages.php:65
+#: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr "处理请求时发生错误"
 
@@ -1461,8 +1448,7 @@ msgstr "没有已定义的索引！"
 msgid "Indexes"
 msgstr "索引"
 
-#: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
-#: libraries/tbl_properties.inc.php:522 tbl_structure.php:32
+#: libraries/Index.class.php:443 libraries/tbl_properties.inc.php:522
 #: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
 #: tbl_tracking.php:316
 msgid "Unique"
@@ -1485,7 +1471,6 @@ msgstr "注释"
 #: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1165
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
-#: tbl_row_action.php:68
 msgid "Edit"
 msgstr "编辑"
 
@@ -1864,7 +1849,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
-#: libraries/header.inc.php:115 main.php:174 test/theme.php:56
+#: libraries/header.inc.php:115 main.php:177 test/theme.php:56
 msgid "Server"
 msgstr "服务器"
 
@@ -1907,7 +1892,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:222 server_variables.php:63
+#: main.php:225 server_variables.php:63
 msgid "Documentation"
 msgstr "文档"
 
@@ -2015,7 +2000,7 @@ msgstr "."
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %m 月 %d 日 %H:%M"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1921
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
@@ -2246,8 +2231,8 @@ msgid "Allow users to customize this value"
 msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 main.php:146
-#: prefs_manage.php:320 prefs_manage.php:325 tbl_change.php:1097
+#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: prefs_manage.php:325 tbl_change.php:1097
 msgid "Reset"
 msgstr "重置"
 
@@ -4725,7 +4710,7 @@ msgid "The row has been deleted"
 msgstr "已删除该行"
 
 #: libraries/display_tbl.lib.php:1220 libraries/display_tbl.lib.php:2131
-#: server_processlist.php:78 tbl_row_action.php:63
+#: server_processlist.php:78
 msgid "Kill"
 msgstr "杀死"
 
@@ -4746,9 +4731,8 @@ msgstr "总计"
 msgid "Query took %01.4f sec"
 msgstr "查询花费 %01.4f 秒"
 
-#: libraries/display_tbl.lib.php:2164 libraries/mult_submits.inc.php:112
-#: querywindow.php:114 querywindow.php:118 querywindow.php:121
-#: tbl_structure.php:24 tbl_structure.php:149 tbl_structure.php:560
+#: libraries/display_tbl.lib.php:2164 querywindow.php:114 querywindow.php:118
+#: querywindow.php:121 tbl_structure.php:149 tbl_structure.php:560
 msgid "Change"
 msgstr "修改"
 
@@ -4772,7 +4756,7 @@ msgstr "新建视图"
 msgid "Link not found"
 msgstr "找不到链接"
 
-#: libraries/engines/bdb.lib.php:20 main.php:221
+#: libraries/engines/bdb.lib.php:20 main.php:224
 msgid "Version information"
 msgstr "版本信息"
 
@@ -5292,7 +5276,7 @@ msgid "Generation Time"
 msgstr "生成日期"
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
-#: libraries/export/xml.php:111 main.php:175
+#: libraries/export/xml.php:111 main.php:178
 msgid "Server version"
 msgstr "服务器版本"
 
@@ -5631,26 +5615,7 @@ msgstr "无"
 msgid "Convert to Kana"
 msgstr "转换为假名"
 
-#: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
-#: tbl_structure.php:28 tbl_structure.php:152 tbl_structure.php:156
-#: tbl_structure.php:563
-msgid "Primary"
-msgstr "主键"
-
-#: libraries/mult_submits.inc.php:97 libraries/tbl_properties.inc.php:115
-#: libraries/tbl_properties.inc.php:528 tbl_printview.php:323
-#: tbl_structure.php:30 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:565 tbl_structure.php:765
-msgid "Index"
-msgstr "索引"
-
-#: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
-#: tbl_structure.php:34 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:569
-msgid "Fulltext"
-msgstr "全文搜索"
-
-#: libraries/mult_submits.inc.php:435 tbl_replace.php:329
+#: libraries/mult_submits.inc.php:419 tbl_replace.php:329
 msgid "No change"
 msgstr "无更改"
 
@@ -6398,6 +6363,12 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr "对于默认值，请只输入单个值，不要加反斜杠或引号，请用此格式：a"
 
+#: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
+#: tbl_printview.php:323 tbl_structure.php:153 tbl_structure.php:157
+#: tbl_structure.php:565 tbl_structure.php:765
+msgid "Index"
+msgstr "索引"
+
 #: libraries/tbl_properties.inc.php:135
 #, php-format
 msgid ""
@@ -6435,6 +6406,16 @@ msgstr "无"
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
 msgstr "定义："
+
+#: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
+#: tbl_structure.php:156 tbl_structure.php:563
+msgid "Primary"
+msgstr "主键"
+
+#: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
+#: tbl_structure.php:159 tbl_structure.php:569
+msgid "Fulltext"
+msgstr "全文搜索"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
@@ -6628,69 +6609,61 @@ msgstr "MySQL 连接校对"
 msgid "Appearance Settings"
 msgstr "外观设置"
 
-#: main.php:141
-msgid "Background color"
-msgstr "背景色"
-
-#: main.php:142
-msgid "Choose..."
-msgstr "选择 ..."
-
-#: main.php:159 prefs_manage.php:274
+#: main.php:162 prefs_manage.php:274
 msgid "More settings"
 msgstr "更多设置"
 
-#: main.php:176
+#: main.php:179
 msgid "Protocol version"
 msgstr "协议版本"
 
-#: main.php:178 server_privileges.php:1469 server_privileges.php:1623
+#: main.php:181 server_privileges.php:1469 server_privileges.php:1623
 #: server_privileges.php:1747 server_privileges.php:2166
 #: server_processlist.php:61
 msgid "User"
 msgstr "用户"
 
-#: main.php:182
+#: main.php:185
 msgid "MySQL charset"
 msgstr "MySQL 字符集"
 
-#: main.php:194
+#: main.php:197
 msgid "Web server"
 msgstr "网站服务器"
 
-#: main.php:200
+#: main.php:203
 msgid "MySQL client version"
 msgstr "MySQL 客户端版本"
 
-#: main.php:202
+#: main.php:205
 msgid "PHP extension"
 msgstr "PHP 扩展"
 
-#: main.php:208
+#: main.php:211
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: main.php:223
+#: main.php:226
 msgid "Wiki"
 msgstr "维基 (Wiki) (外链，英文)"
 
-#: main.php:226
+#: main.php:229
 msgid "Official Homepage"
 msgstr "官方主页 (外链，英文)"
 
-#: main.php:227
+#: main.php:230
 msgid "Contribute"
 msgstr "贡献"
 
-#: main.php:228
+#: main.php:231
 msgid "Get support"
 msgstr "获取支持"
 
-#: main.php:229
+#: main.php:232
 msgid "List of changes"
 msgstr "更新列表"
 
-#: main.php:253
+#: main.php:256
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6701,7 +6674,7 @@ msgstr ""
 "务器使用默认值运行当然没有问题，不过这样的话，被入侵的可能性会很大，我们强烈"
 "建议您应该立即给 'root' 用户设置一个密码来补上这个安全漏洞。"
 
-#: main.php:261
+#: main.php:264
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6710,7 +6683,7 @@ msgstr ""
 "PHP 配置中已启用了 mbstring.func_overload 。这个选项和 phpMyAdmin 不兼容，可"
 "能会导致一些数据损坏！"
 
-#: main.php:269
+#: main.php:272
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6719,7 +6692,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩"
 "展的 phpMyAdmin 不能正确分割字符串，可能产生意想不到的结果。"
 
-#: main.php:277
+#: main.php:280
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6731,7 +6704,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:284
+#: main.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -6739,11 +6712,11 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:292
+#: main.php:295
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
-#: main.php:300
+#: main.php:303
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -6752,7 +6725,7 @@ msgstr ""
 "安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin 已经安装配置"
 "好，请立即删除该文件夹。"
 
-#: main.php:309
+#: main.php:312
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -6760,7 +6733,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin 高级功能未全部设置，部分功能不可用。要查出原因请%s点这里%s。"
 
-#: main.php:324
+#: main.php:327
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -6769,7 +6742,7 @@ msgstr ""
 "你的浏览器不支持或禁用了 Javascript，部分 phpMyAdmin 功能将不可用。如导航框架"
 "将不能自动刷新。"
 
-#: main.php:339
+#: main.php:342
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -6778,7 +6751,7 @@ msgstr ""
 "你的 PHP MySQL 库版本 %s 和你的 MySQL 服务器版本 %s 不同。这可能造成一些未知"
 "的问题。"
 
-#: main.php:351
+#: main.php:354
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -9545,38 +9518,38 @@ msgstr "查看版本"
 msgid "Version"
 msgstr "版本"
 
-#: tbl_tracking.php:634
+#: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "禁用 %s.%s 的追踪"
 
-#: tbl_tracking.php:636
+#: tbl_tracking.php:637
 msgid "Deactivate now"
 msgstr "立即禁用"
 
-#: tbl_tracking.php:647
+#: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "启用 %s.%s 的追踪"
 
-#: tbl_tracking.php:649
+#: tbl_tracking.php:650
 msgid "Activate now"
 msgstr "立即启用"
 
-#: tbl_tracking.php:662
+#: tbl_tracking.php:663
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "为 %2$s.%3$s 创建版本 %1$s"
 
-#: tbl_tracking.php:666
+#: tbl_tracking.php:667
 msgid "Track these data definition statements:"
 msgstr "追踪下列数据定义语句:"
 
-#: tbl_tracking.php:674
+#: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
 msgstr "追踪下列数据操作语句:"
 
-#: tbl_tracking.php:682
+#: tbl_tracking.php:683
 msgid "Create version"
 msgstr "创建版本"
 
@@ -9624,3 +9597,9 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid "Background color"
+#~ msgstr "背景色"
+
+#~ msgid "Choose..."
+#~ msgstr "选择 ..."
