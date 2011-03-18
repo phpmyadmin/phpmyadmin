@@ -148,6 +148,7 @@
 - [core] Update library PHPExcel to version 1.7.6
 - bug #3206876 [core] Work without mbstring installed.
 - rfe #3196075, patch #3212068 [interface] Add links to variables documentation.
+- bug #3208723 [import] Fix import of utf-8 XML files.
 
 3.3.10.0 (not yet released)
 - patch #3147400 [structure] Aria table size printed as unknown,
