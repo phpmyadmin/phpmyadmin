@@ -501,7 +501,7 @@ echo '    <option value="' . __('With selected:') . '" selected="selected">'
      . __('With selected:') . '</option>' . "\n";
 echo '    <option value="export" >'
      . __('Export') . '</option>' . "\n";
-echo '    <option value="' . __('Print view') . '" >'
+echo '    <option value="print" >'
     . __('Print view') . '</option>' . "\n";
 
 if (!$db_is_information_schema) {

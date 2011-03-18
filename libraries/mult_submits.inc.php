@@ -24,7 +24,7 @@ if (! empty($submit_mult)
         $what         = 'drop_db';
     } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
         // coming from database structure view - do something with selected tables
-        if ($submit_mult == __('Print view')) {
+        if ($submit_mult == 'print') {
             require './tbl_printview.php';
         } else {
            $selected = $selected_tbl;
