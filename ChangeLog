@@ -5,7 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
-3.3.10.0 (not yet released)
+3.3.11.0 (not yet released)
+
+3.3.10.0 (2011-03-19)
 - patch #3147400 [structure] Aria table size printed as unknown,
   thanks to erickoh75 - erickoh75
 - patch #3150164 [structure] Ordering by size gives incorrect results,
