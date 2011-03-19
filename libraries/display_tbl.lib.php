@@ -289,74 +289,6 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         PMA_displayTableNavigationOneButton('&lt;', __('Previous'), $pos_prev, $html_sql_query);
 
     } // end move back
-    ?>
-<td>
-    &nbsp;&nbsp;&nbsp;
-</td>
-<td align="center">
-<?php // if displaying a VIEW, $unlim_num_rows could be zero because
-      // of $cfg['MaxExactCountViews']; in this case, avoid passing
-      // the 5th parameter to checkFormElementInRange()
-      // (this means we can't validate the upper limit ?>
-    <form action="sql.php" method="post"
-onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
-        <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
-        <?php echo __('row(s) starting from row #') . "\n"; ?>
-        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
-        <br />
-    <?php
-    // Display mode (horizontal/vertical and repeat headers)
-    $choices = array(
-        'horizontal'        => __('horizontal'),
-        'horizontalflipped' => __('horizontal (rotated headers)'),
-        'vertical'          => __('vertical'));
-    $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
-    unset($choices);
-
-    $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
-            . '           ';
-    echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
-    ?>
-    </form>
-</td>
-<td>
-    &nbsp;&nbsp;&nbsp;
-</td>
-    <?php
-    // Move to the next page or to the last one
-    if (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows) && $num_rows >= $_SESSION['tmp_user_values']['max_rows']
-        && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
-
-        // display the Next button
-        PMA_displayTableNavigationOneButton('&gt;',
-            __('Next'),
-            $pos_next,
-            $html_sql_query);
-
-        // prepare some options for the End button
-        if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
-            $input_for_real_end = '<input id="real_end_input" type="hidden" name="find_real_end" value="1" />';
-            // no backquote around this message
-            $onclick = '';
-        } else {
-            $input_for_real_end = $onclick = '';
-        }
-
-        // display the End button
-        PMA_displayTableNavigationOneButton('&gt;&gt;',
-            __('End'),
-            @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']),
-            $html_sql_query,
-            'onsubmit="return ' . (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['tmp_user_values']['max_rows']) ? 'true' : 'false') . '"',
-            $input_for_real_end,
-            $onclick
-            );
-    } // end move toward
-
 
     //page redirection
     // (unless we are showing all records)
@@ -366,9 +298,6 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 
         if ($nbTotalPage > 1){ //if2
        ?>
-   <td>
-       &nbsp;&nbsp;&nbsp;
-   </td>
    <td>
         <?php
             $_url_params = array(
@@ -403,9 +332,6 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         echo "\n";
         ?>
 <td>
-    &nbsp;&nbsp;&nbsp;
-</td>
-<td>
     <form action="sql.php" method="post">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
@@ -417,11 +343,69 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 </td>
         <?php
     } // end show all
-    echo "\n";
+
+    // Move to the next page or to the last one
+    if (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows) && $num_rows >= $_SESSION['tmp_user_values']['max_rows']
+        && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
+
+        // display the Next button
+        PMA_displayTableNavigationOneButton('&gt;',
+            __('Next'),
+            $pos_next,
+            $html_sql_query);
+
+        // prepare some options for the End button
+        if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
+            $input_for_real_end = '<input id="real_end_input" type="hidden" name="find_real_end" value="1" />';
+            // no backquote around this message
+            $onclick = '';
+        } else {
+            $input_for_real_end = $onclick = '';
+        }
+
+        // display the End button
+        PMA_displayTableNavigationOneButton('&gt;&gt;',
+            __('End'),
+            @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']),
+            $html_sql_query,
+            'onsubmit="return ' . (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['tmp_user_values']['max_rows']) ? 'true' : 'false') . '"',
+            $input_for_real_end,
+            $onclick
+            );
+    } // end move toward
     ?>
 </tr>
 </table>
 
+<?php // if displaying a VIEW, $unlim_num_rows could be zero because
+      // of $cfg['MaxExactCountViews']; in this case, avoid passing
+      // the 5th parameter to checkFormElementInRange()
+      // (this means we can't validate the upper limit ?>
+<div>
+    <form action="sql.php" method="post"
+onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
+        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
+        <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
+        <?php echo __('row(s) starting from row #') . "\n"; ?>
+        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
+    <?php
+    // Display mode (horizontal/vertical and repeat headers)
+    $choices = array(
+        'horizontal'        => __('horizontal'),
+        'horizontalflipped' => __('horizontal (rotated headers)'),
+        'vertical'          => __('vertical'));
+    $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
+    unset($choices);
+
+    $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
+            . '           ';
+    echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
+    ?>
+    </form>
+</div>
     <?php
 } // end of the 'PMA_displayTableNavigation()' function
 
