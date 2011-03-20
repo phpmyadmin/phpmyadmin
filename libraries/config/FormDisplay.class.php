@@ -468,7 +468,10 @@ class FormDisplay
             // (allows to skip 0 == 'string' equalling to true) or identity (for string-string)
             if (($vk == $value && !(is_numeric($value_cmp) xor is_numeric($vk)))
                     || $vk === $value) {
-                settype($value, gettype($vk));
+                // keep boolean value as boolean
+                if (!is_bool($value)) {
+                    settype($value, gettype($vk));
+                }
                 return true;
             }
         }
@@ -561,6 +564,12 @@ class FormDisplay
                         }
                         break;
                     case 'select':
+                        // special treatment for NavigationBarIconic and PropertiesIconic
+                        if ($key === 'NavigationBarIconic' || $key === 'PropertiesIconic') {
+                            if ($_POST[$key] !== 'both') {
+                                settype($_POST[$key], 'boolean');
+                            }
+                        }
                         if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
                             $this->errors[$work_path][] = __('Incorrect value');
                             $result = false;
