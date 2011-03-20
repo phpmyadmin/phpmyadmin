@@ -35,10 +35,15 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysql';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
-/* User for advanced features */
+/*
+ * phpMyAdmin configuration storage settings.
+ */
+
+/* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controluser'] = 'pma';
 // $cfg['Servers'][$i]['controlpass'] = 'pmapass';
-/* Advanced phpMyAdmin features */
+
+/* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 // $cfg['Servers'][$i]['bookmarktable'] = 'pma_bookmark';
 // $cfg['Servers'][$i]['relation'] = 'pma_relation';
@@ -119,7 +124,7 @@ $cfg['SaveDir'] = '';
  * Set to true if you want DB-based query history.If false, this utilizes
  * JS-routines to display query history (lost by window close)
  *
- * This requires advanced features enabled, see above.
+ * This requires configuration storage enabled, see above.
  * default = false
  */
 //$cfg['QueryHistoryDB'] = true;
