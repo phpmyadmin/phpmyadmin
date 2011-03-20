@@ -3403,7 +3403,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Define quanto tempo (em segundos) um cookie de sessão é válido"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
