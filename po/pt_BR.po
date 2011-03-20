@@ -3255,9 +3255,8 @@ msgid "How many rows can be inserted at one time"
 msgstr "Quantas linhas podem ser inseridas de uma vez"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 msgid "Number of inserted rows"
-msgstr "O número de linhas ordenadas."
+msgstr "Número de linhas inseridas"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
