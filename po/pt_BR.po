@@ -3062,9 +3062,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:205
-#, fuzzy
 msgid "Customize export options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Personalizar opções de exportação"
 
 #: libraries/config/messages.inc.php:207
 #, fuzzy
