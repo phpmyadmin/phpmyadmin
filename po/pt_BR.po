@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-20 22:12+0200\n"
+"PO-Revision-Date: 2011-03-20 22:13+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9929,7 +9929,7 @@ msgstr "Navegador distingue valores"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
-msgstr ""
+msgstr "Adicionar chave primária"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add index"
