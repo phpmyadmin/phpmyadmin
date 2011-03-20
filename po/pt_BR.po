@@ -1373,7 +1373,7 @@ msgstr "Quarta"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "Quinta"
 
 #: js/messages.php:191
 #, fuzzy
