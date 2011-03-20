@@ -3778,6 +3778,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
+"Qual extensão do PHP utilizar: você deveria utilizar mysqli se suportado"
 
 #: libraries/config/messages.inc.php:383
 #, fuzzy
