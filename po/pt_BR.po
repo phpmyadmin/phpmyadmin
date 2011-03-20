@@ -9248,7 +9248,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
-msgstr ""
+msgstr "Exibir"
 
 #: setup/frames/index.inc.php:216
 msgid "Load"
