@@ -2542,7 +2542,7 @@ msgstr "Renomear Banco de Dados para"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Mostrar conteúdo binário como HEX por padrão"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:601
 msgid "Show binary contents as HEX"
