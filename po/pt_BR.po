@@ -2482,7 +2482,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
 msgid "Configuration file"
-msgstr ""
+msgstr "Arquivo de configuração"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
