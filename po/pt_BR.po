@@ -9276,7 +9276,7 @@ msgstr "Adicionar novo usuário"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
