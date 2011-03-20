@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-10 22:33+0200\n"
-"Last-Translator:  <cadusk@yahoo.com.br>\n"
+"PO-Revision-Date: 2011-03-20 22:03+0200\n"
+"Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -782,7 +782,7 @@ msgstr "Versões"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
-msgstr ""
+msgstr "Relatório de rastreamento"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 msgid "Structure snapshot"
