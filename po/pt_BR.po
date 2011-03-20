@@ -3589,7 +3589,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr "Tamanho da janela de consultas (em pixels)"
+msgstr "Altura da janela de consultas (em pixels)"
 
 #: libraries/config/messages.inc.php:341
 #, fuzzy
