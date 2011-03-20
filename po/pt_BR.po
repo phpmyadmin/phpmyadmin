@@ -1830,7 +1830,7 @@ msgstr "Executar áudio"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "Visualizar vídeo"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
