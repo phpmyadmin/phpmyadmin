@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-20 22:31+0200\n"
+"PO-Revision-Date: 2011-03-20 22:32+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9212,7 +9212,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:88 setup/frames/menu.inc.php:15
 msgid "Overview"
-msgstr ""
+msgstr "Visão geral"
 
 #: setup/frames/index.inc.php:96
 msgid "Show hidden messages (#MSG_COUNT)"
