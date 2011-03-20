@@ -4231,9 +4231,8 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 msgid "Default title"
-msgstr "Renomear Banco de Dados para"
+msgstr "Título padrão"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
