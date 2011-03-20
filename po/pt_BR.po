@@ -3870,9 +3870,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 msgid "Server port"
-msgstr "ID do Servidor"
+msgstr "Porta do servidor"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
