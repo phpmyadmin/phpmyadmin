@@ -9423,7 +9423,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "Você deveria utilizar conexões SSL se o seu servidor web suportar."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
