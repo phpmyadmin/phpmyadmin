@@ -3577,7 +3577,7 @@ msgstr "Quantas consultas são mantidas no histórico"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr ""
+msgstr "Tamanho do histórico de consultas"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
