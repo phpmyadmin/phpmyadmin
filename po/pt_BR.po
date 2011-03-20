@@ -9090,7 +9090,7 @@ msgstr "Estrutura para visualizar"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
-msgstr ""
+msgstr "Adicionar coluna(s)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
