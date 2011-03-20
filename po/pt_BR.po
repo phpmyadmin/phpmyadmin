@@ -9244,7 +9244,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
-msgstr ""
+msgstr "Fim de linha"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
