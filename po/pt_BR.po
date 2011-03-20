@@ -3506,7 +3506,7 @@ msgstr "Alterar tabela ordenada por"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Usar apenas ícones, apenas texto ou ambos"
 
 #: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
