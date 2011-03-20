@@ -4599,10 +4599,9 @@ msgid "Database(s):"
 msgstr "Banco de Dados"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabelas"
+msgstr "Tabela(s)"
 
 #: libraries/display_export.lib.php:149
 #, fuzzy
