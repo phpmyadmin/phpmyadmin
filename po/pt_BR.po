@@ -2338,7 +2338,7 @@ msgstr "Versão do PHP"
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
