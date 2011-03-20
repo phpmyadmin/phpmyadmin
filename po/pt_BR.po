@@ -2249,7 +2249,7 @@ msgstr "Personalizado - exibir todas as opções possíveis para configurar"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personalizado - como acima, mas sem a escolha rápida/personalizado."
 
 #: libraries/config.values.php:119
 #, fuzzy
