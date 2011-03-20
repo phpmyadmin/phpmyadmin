@@ -4915,7 +4915,7 @@ msgstr "Esquema relacional"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents"
-msgstr ""
+msgstr "Mostrar conteúdo binário"
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show BLOB contents"
