@@ -4801,7 +4801,7 @@ msgstr "ve %s režimu a opakovat hlavičky po %s řádcích"
 
 #: libraries/display_tbl.lib.php:510
 msgid "Sort by key"
-msgstr "Setřídit podle klíče"
+msgstr "Seřadit podle klíče"
 
 #: libraries/display_tbl.lib.php:557 libraries/export/codegen.php:40
 #: libraries/export/csv.php:31 libraries/export/excel.php:36
