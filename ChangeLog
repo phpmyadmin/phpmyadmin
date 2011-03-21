@@ -151,7 +151,9 @@
 - bug #3208723 [import] Fix import of utf-8 XML files.
 - bug #3039384 [auth] Force signon auth on signon URL change.
 
-3.3.10.0 (not yet released)
+3.3.11.0 (not yet released)
+
+3.3.10.0 (2011-03-19)
 - patch #3147400 [structure] Aria table size printed as unknown,
   thanks to erickoh75 - erickoh75
 - patch #3150164 [structure] Ordering by size gives incorrect results,
