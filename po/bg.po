@@ -4611,7 +4611,7 @@ msgstr ""
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Бази данни:"
+msgstr "База(и) данни:"
 
 #: libraries/display_export.lib.php:139
 #| msgid "Tables"
