@@ -2577,10 +2577,9 @@ msgstr "Поставяне имената на полетата в първи р
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:238
 #: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Полетата са оградени с"
+msgstr "Колоните са оградени с"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
