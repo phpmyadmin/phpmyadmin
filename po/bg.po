@@ -581,7 +581,7 @@ msgstr "Търсене в базата от данни"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Думи или стойности за търсене (знак за заместване: \"%\"):"
+msgstr "Дума(и) или стойност(и) за търсене (знак за заместване: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
