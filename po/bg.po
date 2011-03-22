@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:56+0200\n"
+"PO-Revision-Date: 2011-03-22 10:57+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1991,7 +1991,7 @@ msgstr ""
 #: libraries/common.inc.php:929
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "Трябва да ъпгрейднете към %s %s или по-късно."
+msgstr "Осъвременете до %s %s или по-нова."
 
 #: libraries/common.lib.php:142
 #, php-format
