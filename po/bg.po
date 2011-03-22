@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 11:14+0200\n"
+"PO-Revision-Date: 2011-03-22 11:15+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9922,7 +9922,7 @@ msgstr "Не разполагате с права, за да се намират
 
 #: user_password.php:110
 msgid "The profile has been updated."
-msgstr "Профила беше обновен."
+msgstr "Профилът беше обновен."
 
 #: view_create.php:141
 msgid "VIEW name"
