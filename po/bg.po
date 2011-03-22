@@ -3766,9 +3766,8 @@ msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 msgid "Server hostname"
-msgstr "име на сървъра"
+msgstr ""
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
