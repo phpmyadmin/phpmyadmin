@@ -6550,7 +6550,7 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
-msgstr "Незатворени кавички"
+msgstr "Незатворена кавичка"
 
 #: libraries/sqlparser.lib.php:518
 msgid "Invalid Identifer"
