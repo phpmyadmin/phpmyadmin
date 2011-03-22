@@ -570,12 +570,12 @@ msgid "Delete"
 msgstr "Изтриване"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Общо:</b> <i>%s</i> съвпадение(я)"
-msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадение(я)"
+msgstr[0] "<b>Общо:</b> <i>%s</i> съвпадение"
+msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадения"
 
 #: db_search.php:295
 msgid "Search in database"
