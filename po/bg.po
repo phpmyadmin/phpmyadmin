@@ -2849,9 +2849,8 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:175
-#, fuzzy
 msgid "Databases display options"
-msgstr "Опции за експортиране на база от данни"
+msgstr "Опции за показване на база данни"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
