@@ -9584,7 +9584,7 @@ msgstr "Проверка на интегритета на връзките"
 
 #: tbl_printview.php:72
 msgid "Show tables"
-msgstr "Покажи таблиците"
+msgstr "Показване таблици"
 
 #: tbl_printview.php:307 tbl_structure.php:748
 msgid "Space usage"
