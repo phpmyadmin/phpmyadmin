@@ -2882,10 +2882,9 @@ msgid "Microsoft Office"
 msgstr ""
 
 #: libraries/config/messages.inc.php:185
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "Документация"
+msgstr "Отваряне на документ"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
