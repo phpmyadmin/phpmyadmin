@@ -7251,10 +7251,9 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Конфигурацията по подразбиране не може да бъде заредена от: \"%1$s\""
+msgstr "Конфигурацията не може да бъде импортирана"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
