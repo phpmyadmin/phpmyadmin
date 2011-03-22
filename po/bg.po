@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:52+0200\n"
+"PO-Revision-Date: 2011-03-22 10:53+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -910,7 +910,7 @@ msgstr "Показалец %s беше създаден успешно"
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Импортирането приключи успещно. Бяха изпълнени %d заявки."
+msgstr "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
 #: import.php:423
 msgid ""
