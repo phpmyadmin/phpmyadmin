@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:28+0200\n"
+"PO-Revision-Date: 2011-03-22 12:29+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1012,9 +1012,8 @@ msgid "Add a New User"
 msgstr "Добавяне нов потребител"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
-msgstr "Версия на сървъра"
+msgstr "Създаване на потребител"
 
 #: js/messages.php:54
 #, fuzzy
