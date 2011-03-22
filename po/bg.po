@@ -1037,9 +1037,8 @@ msgid "Cancel"
 msgstr ""
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "Локален"
+msgstr "Зареждане"
 
 #: js/messages.php:64
 #, fuzzy
