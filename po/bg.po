@@ -786,9 +786,8 @@ msgid "Tracking report"
 msgstr ""
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Само структурата"
+msgstr ""
 
 #: db_tracking.php:181
 msgid "Untracked tables"
