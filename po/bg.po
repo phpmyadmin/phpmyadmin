@@ -4746,9 +4746,8 @@ msgid "Full texts"
 msgstr "Пълни текстове"
 
 #: libraries/display_tbl.lib.php:589
-#, fuzzy
 msgid "Relational key"
-msgstr "Релационна схема"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:590
 #, fuzzy
