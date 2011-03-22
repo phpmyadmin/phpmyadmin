@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:19+0200\n"
+"PO-Revision-Date: 2011-03-22 12:20+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9217,7 +9217,7 @@ msgstr "Връщане към тази страница"
 
 #: tbl_change.php:1082
 msgid "Edit next row"
-msgstr "редактиране на следващия ред"
+msgstr "Редакция на следващия ред"
 
 #: tbl_change.php:1093
 msgid ""
