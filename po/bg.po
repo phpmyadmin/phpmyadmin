@@ -3119,10 +3119,9 @@ msgstr "Използване на ключовата дума LOCAL"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Поставяне имената на полетата на първия ред"
+msgstr "Имена на колони в първи ред"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
