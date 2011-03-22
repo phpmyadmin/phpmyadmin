@@ -7824,8 +7824,8 @@ msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... изтриване на стария от таблицата на потребителите и след това "
-"презареждане на привилегиите."
+" ... изтриване на стария от таблицата с потребители и след това презареждане "
+"на привилегиите."
 
 #: server_privileges.php:2131
 msgid "Database for user"
