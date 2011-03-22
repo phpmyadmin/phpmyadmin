@@ -4836,9 +4836,8 @@ msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:26
-#, fuzzy
 msgid "Data files"
-msgstr "Само данните"
+msgstr "Файлове с данни"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "Autoextend increment"
