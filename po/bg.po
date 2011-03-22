@@ -5721,9 +5721,8 @@ msgstr ""
 
 #: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:617
 #: server_synchronize.php:427 server_synchronize.php:870
-#, fuzzy
 msgid "Table name"
-msgstr "име на таблицата"
+msgstr "Име на таблица"
 
 #: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
