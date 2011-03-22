@@ -2765,7 +2765,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 msgid "Overwrite existing file(s)"
-msgstr "Препокриване на съществуващите файлове"
+msgstr "Препокриване на съществуващите файл(ове)"
 
 #: libraries/config/messages.inc.php:116
 #, fuzzy
