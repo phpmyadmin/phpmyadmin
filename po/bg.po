@@ -1127,9 +1127,8 @@ msgid "Hide search criteria"
 msgstr ""
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Show search criteria"
-msgstr "SQL заявка"
+msgstr ""
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
