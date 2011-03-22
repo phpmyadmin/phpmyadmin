@@ -5302,10 +5302,9 @@ msgid "Display foreign key relationships"
 msgstr ""
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Показване на коментари към Колоните"
+msgstr "Показване коментари"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
