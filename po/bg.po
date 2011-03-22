@@ -6476,7 +6476,7 @@ msgstr "Разделител"
 
 #: libraries/sql_query_form.lib.php:381
 msgid " Show this query here again "
-msgstr " Показване на заявката отново"
+msgstr "  Показване на заявката отново "
 
 #: libraries/sql_query_form.lib.php:440
 msgid "Submit"
