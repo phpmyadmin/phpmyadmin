@@ -2976,9 +2976,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:205
-#, fuzzy
 msgid "Customize export options"
-msgstr "Опции за експортиране на база от данни"
+msgstr ""
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
