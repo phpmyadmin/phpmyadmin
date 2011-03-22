@@ -6120,9 +6120,8 @@ msgid "Value"
 msgstr "Стойност"
 
 #: libraries/replication_gui.lib.php:175 server_binlog.php:202
-#, fuzzy
 msgid "Server ID"
-msgstr "Сървър"
+msgstr "Сървър идентификатор"
 
 #: libraries/replication_gui.lib.php:194
 msgid ""
