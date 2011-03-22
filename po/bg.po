@@ -4668,10 +4668,9 @@ msgid "bzipped"
 msgstr "bzip-нато"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Изпращане"
+msgstr ""
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
