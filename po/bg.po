@@ -1119,9 +1119,8 @@ msgid "Searching"
 msgstr "Търсене"
 
 #: js/messages.php:86
-#, fuzzy
 msgid "Hide query box"
-msgstr "SQL заявка"
+msgstr ""
 
 #: js/messages.php:87
 #, fuzzy
