@@ -4732,9 +4732,8 @@ msgstr "Сортиране по ключ"
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:230
 #: tbl_structure.php:845
-#, fuzzy
 msgid "Options"
-msgstr "Операции"
+msgstr "Настройки"
 
 #: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:572
 #, fuzzy
