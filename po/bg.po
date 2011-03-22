@@ -5831,7 +5831,7 @@ msgstr "Набор от знаци"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:549
 msgid "Binary"
-msgstr " Двоично "
+msgstr "Двоично"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
