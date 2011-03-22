@@ -9238,7 +9238,7 @@ msgstr ""
 #: sql.php:78 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Преглеждане на външните(foreign) стойности"
+msgstr "Преглеждане на чуждите стойности"
 
 #: sql.php:154
 #, php-format
