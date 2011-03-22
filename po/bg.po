@@ -4691,10 +4691,9 @@ msgid "Format:"
 msgstr "Формат:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Опции на трансформацията"
+msgstr ""
 
 #: libraries/display_export.lib.php:337
 msgid ""
