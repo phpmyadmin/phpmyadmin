@@ -6850,7 +6850,6 @@ msgstr ""
 "пиксели, третата е височината."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6861,7 +6860,7 @@ msgid ""
 "the link."
 msgstr ""
 "Показва връзката на полето съдържащо файлово име; първата опция е префикс "
-"като \"http://domain.com/\", втората опция е заглавието на връзката."
+"като \"http://www.example.com/\", втората опция е заглавието на връзката."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
