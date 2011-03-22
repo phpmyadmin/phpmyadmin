@@ -6379,9 +6379,8 @@ msgstr "Сървър"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
-#, fuzzy
 msgid "Binary log"
-msgstr " Двоично "
+msgstr "Двоичен дневник"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
