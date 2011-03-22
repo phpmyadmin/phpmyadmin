@@ -473,7 +473,7 @@ msgstr "Изтрий"
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:304
 #: tbl_change.php:959 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
-msgstr "или"
+msgstr "Или"
 
 #: db_qbe.php:526
 msgid "Modify"
