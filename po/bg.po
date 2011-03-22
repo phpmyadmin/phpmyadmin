@@ -1857,9 +1857,8 @@ msgid "Check Privileges"
 msgstr "Проверка на привилегиите"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 msgid "Query statistics"
-msgstr "Статистика за редовете"
+msgstr "Статистика за заявките"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
