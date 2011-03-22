@@ -551,10 +551,10 @@ msgid "Browse"
 msgstr "Прелистване"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Дъмп (схема) на данните в таблицата"
+msgstr ""
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1201
 #: libraries/display_tbl.lib.php:2131
