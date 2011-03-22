@@ -1113,7 +1113,6 @@ msgid "Create Table"
 msgstr "Създай нова Страница"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Търсене"
