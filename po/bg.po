@@ -603,10 +603,9 @@ msgid "Inside column:"
 msgstr "В колона:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "В базата от данни няма таблици."
+msgstr "В базата данни няма таблици"
 
 #: db_structure.php:277 tbl_operations.php:658
 #, php-format
