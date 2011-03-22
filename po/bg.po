@@ -7173,9 +7173,8 @@ msgid ""
 msgstr ""
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "Таблицата %s беше изтрита"
+msgstr "Страница беше създадена"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
