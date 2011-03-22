@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2010-06-11 17:28+0200\n"
-"Last-Translator: <stanprog@stanprog.com>\n"
+"PO-Revision-Date: 2011-03-22 10:00+0200\n"
+"Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1600
@@ -26,7 +26,7 @@ msgstr "Покажи всички"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1112
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr "Номер на страницата:"
+msgstr "Номер на страница:"
 
 #: browse_foreigners.php:133
 msgid ""
@@ -10002,149 +10002,3 @@ msgstr "Име на ИЗГЛЕД-а"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Преименуване на изгледа на"
-
-#, fuzzy
-#~| msgid "Dumping data for table"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Дъмп (схема) на данните в таблицата"
-
-#~ msgid "yes"
-#~ msgstr "да"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Забрани статистика"
-
-#~ msgid "Start"
-#~ msgstr "сб"
-
-#~ msgid "Display table filter"
-#~ msgstr "Показване на коментари към Колоните"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Допълнителните възможности за работа със свързани (linked) таблици са "
-#~ "деактивирани. За да разберете защо кликнете %sтук%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Игнориране на дублиращите се редове"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Стартиране на запазена SQL-заявка"
-
-#~ msgid "No tables"
-#~ msgstr "Няма таблици"
-
-#~ msgid "SVG"
-#~ msgstr "CSV данни"
-
-#~ msgid ""
-#~ "Enter each value in a separate field, enclosed in single quotes. If you "
-#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
-#~ msgstr ""
-#~ "Моля въведете стойностите за опциите на трансформацията като използвате "
-#~ "следния формат: 'a', 100, b,'c'...<br />Ако трябва да поставите обратно "
-#~ "наклонена черта (\"\\\") или единична кавичка (\"'\") между тези "
-#~ "стойности, поставете пред тях допълнителна обратно наклонена черта "
-#~ "(например '\\\\xyz' или 'a\\'b')."
-
-#~ msgid ""
-#~ "Enter each value in a separate field. If you ever need to put a backslash "
-#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
-#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
-#~ msgstr ""
-#~ "Моля въведете стойностите за опциите на трансформацията като използвате "
-#~ "следния формат: 'a', 100, b,'c'...<br />Ако трябва да поставите обратно "
-#~ "наклонена черта (\"\\\") или единична кавичка (\"'\") между тези "
-#~ "стойности, поставете пред тях допълнителна обратно наклонена черта "
-#~ "(например '\\\\xyz' или 'a\\'b')."
-
-#~ msgid "New table"
-#~ msgstr "Няма таблици"
-
-#~ msgid "server name"
-#~ msgstr "име на сървъра"
-
-#~ msgid "database name"
-#~ msgstr "име на базата от данни"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "Редактиране на PDF Страници"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "Формат на речника на данните"
-
-#~ msgid "PMA database"
-#~ msgstr "Няма бази от данни"
-
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "Добавяне на AUTO_INCREMENT"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Дъмп-ни %s ред(а) като започнеш от ред # %s."
-
-#~ msgid "remember template"
-#~ msgstr "запомняне на шаблона"
-
-#~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "Компресията на файла за импортиране ще бъде автоматично избрана от: %s"
-
-#~ msgid "Add into comments"
-#~ msgstr "Добавяне в коментарите"
-
-#~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Невалидна колона (%s)!"
-
-#~ msgid "Actions"
-#~ msgstr "Действия"
-
-#~ msgid "Table removal"
-#~ msgstr "име на таблицата"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB хранилище"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Позволено"
-
-#~ msgid "Disable"
-#~ msgstr "Забранено"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Поправяне на таблицата"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Забранено"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "не мога да заредя разширението %s,<br />моля проверете конфигурацията на "
-#~ "PHP"
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Не може да се заредят iconv или recode разширенията необходими за "
-#~ "конвертиране на набора от знаци, конфигурирайте PHP така, че да позволява "
-#~ "използване на тези разширения или отменете конвертирането на набора от "
-#~ "знаци в phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Не може да се използва нито iconv нито libiconv нито recode_string "
-#~ "функцията докато протоколите за разширенията са заредени. Проверете "
-#~ "конфигурацията на PHP."
