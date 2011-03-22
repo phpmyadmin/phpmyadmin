@@ -4750,10 +4750,9 @@ msgid "Relational key"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:590
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Релационна схема"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents"
