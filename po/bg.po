@@ -4828,10 +4828,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Брой записи(завки), които да бъдат пропуснати от началото"
+msgstr "Брой редове, които да бъдат пропуснати от началото:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
