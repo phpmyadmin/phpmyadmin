@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:40+0200\n"
+"PO-Revision-Date: 2011-03-22 10:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9714,9 +9714,8 @@ msgid "Display order:"
 msgstr "Подреждане по:"
 
 #: tbl_structure.php:160 tbl_structure.php:164
-#, fuzzy
 msgid "Browse distinct values"
-msgstr "Преглеждане на външните(foreign) стойности"
+msgstr "Преглеждане на уникалните стойности"
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
