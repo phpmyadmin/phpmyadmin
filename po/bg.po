@@ -4702,9 +4702,8 @@ msgid ""
 msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "Версия на клиента за MySQL"
+msgstr ""
 
 #: libraries/display_import.lib.php:66
 msgid ""
