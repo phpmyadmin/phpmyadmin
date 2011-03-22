@@ -9213,7 +9213,7 @@ msgstr "Друг нов ред"
 
 #: tbl_change.php:1074
 msgid "Go back to this page"
-msgstr "връщане към тази страница"
+msgstr "Връщане към тази страница"
 
 #: tbl_change.php:1082
 msgid "Edit next row"
