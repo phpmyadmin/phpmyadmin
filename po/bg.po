@@ -7616,9 +7616,8 @@ msgstr ""
 
 #: server_privileges.php:64 server_privileges.php:208
 #: server_privileges.php:542
-#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr "Позволява създаване и премахване на индекси."
+msgstr "Позволява създаване и премахване на тригери"
 
 #: server_privileges.php:65 server_privileges.php:189
 #: server_privileges.php:452 server_privileges.php:512
