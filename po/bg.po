@@ -6663,7 +6663,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
 #: tbl_structure.php:156 tbl_structure.php:563
 msgid "Primary"
-msgstr "PRIMARY"
+msgstr "Primary"
 
 #: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
 #: tbl_structure.php:159 tbl_structure.php:569
