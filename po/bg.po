@@ -2626,9 +2626,8 @@ msgid "Server name template"
 msgstr "Шаблон за име на сървър"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "Шаблон на файловото име"
+msgstr "Шаблон за име на таблица"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
