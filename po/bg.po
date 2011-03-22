@@ -6165,10 +6165,10 @@ msgstr "Генериране на парола"
 #: libraries/schema/Pdf_Relation_Schema.class.php:487
 #: libraries/schema/Svg_Relation_Schema.class.php:369
 #: libraries/schema/Visio_Relation_Schema.class.php:213
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Таблица \"%s\" не съществува!"
+msgstr "Таблицата %s не съществува!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
