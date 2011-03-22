@@ -3254,10 +3254,9 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Брой на отвотените таблици."
+msgstr ""
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
