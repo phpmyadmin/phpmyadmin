@@ -2524,7 +2524,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:54
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Показване на двоични данни по подразбиране в шестнадесетичен вид"
+msgstr "Показване на двоичните данни по подразбиране в шестнадесетичен вид"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:601
 msgid "Show binary contents as HEX"
