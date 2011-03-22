@@ -4879,7 +4879,7 @@ msgstr "Показване на записи"
 
 #: libraries/display_tbl.lib.php:2033
 msgid "total"
-msgstr "Общо"
+msgstr "общо"
 
 #: libraries/display_tbl.lib.php:2041 sql.php:619
 #, php-format
