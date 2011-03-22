@@ -2997,9 +2997,8 @@ msgid "SQL queries"
 msgstr "SQL заявкаи"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 msgid "SQL Query box"
-msgstr "SQL заявка"
+msgstr ""
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
