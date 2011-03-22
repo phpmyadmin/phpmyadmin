@@ -1021,10 +1021,9 @@ msgid "Reloading Privileges"
 msgstr "Презареждане на привилегиите"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Отстраняване на избраните потребители"
+msgstr "Изтриване на маркираните потребители"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
