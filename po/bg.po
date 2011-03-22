@@ -9664,7 +9664,7 @@ msgstr "В края на таблицата"
 
 #: tbl_structure.php:646
 msgid "At Beginning of Table"
-msgstr "в началото на таблицата"
+msgstr "В началото на таблицата"
 
 #: tbl_structure.php:647
 #, php-format
