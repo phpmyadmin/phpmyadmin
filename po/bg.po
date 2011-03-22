@@ -4658,10 +4658,9 @@ msgid "zipped"
 msgstr "zip-нато"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip-нато\""
+msgstr "gzip-нато"
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
