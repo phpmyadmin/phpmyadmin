@@ -7501,7 +7501,7 @@ msgstr "Хранилища на данни"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Преглед на схемата на базата от данни"
+msgstr "Преглед на схемата (дъмп) на базата от данни"
 
 #: server_privileges.php:31 server_privileges.php:273
 msgid "Includes all privileges except GRANT."
