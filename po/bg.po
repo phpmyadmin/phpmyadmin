@@ -9378,7 +9378,7 @@ msgstr "Схема (дъмп) на таблицата"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Името на първичния ключ трябва да е PRIMARY!"
+msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
