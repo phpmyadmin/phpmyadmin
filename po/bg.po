@@ -2993,9 +2993,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
-msgstr "SQL заявка"
+msgstr "SQL заявкаи"
 
 #: libraries/config/messages.inc.php:212
 #, fuzzy
