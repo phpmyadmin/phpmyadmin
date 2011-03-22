@@ -2518,10 +2518,9 @@ msgid "Edit in window"
 msgstr "редакция в прозорец"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Покажи възможностите"
+msgstr "Показване на грешки"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
