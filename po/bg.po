@@ -3191,7 +3191,7 @@ msgstr "Формат на импортирания файл"
 
 #: libraries/config/messages.inc.php:248 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
-msgstr "Използване на ключовата дума LOCAL "
+msgstr "Използване на ключовата дума LOCAL"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
