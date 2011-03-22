@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:58+0200\n"
+"PO-Revision-Date: 2011-03-22 11:08+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1600
 msgid "Show all"
-msgstr "Покажи всички"
+msgstr "Показване всички"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2329
 #: libraries/display_tbl.lib.php:392 libraries/export/pdf.php:133
