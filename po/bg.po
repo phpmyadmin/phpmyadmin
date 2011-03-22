@@ -210,7 +210,7 @@ msgstr "Коментари"
 #: server_privileges.php:2285 sql.php:229 sql.php:290 tbl_printview.php:226
 #: tbl_structure.php:373 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
-msgstr "не"
+msgstr "Не"
 
 #: db_datadict.php:260 js/messages.php:77 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
