@@ -6238,10 +6238,9 @@ msgid "Create a page"
 msgstr "Създай нова Страница"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Номер на страницата:"
+msgstr "Име на страница"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
