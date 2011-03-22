@@ -9918,7 +9918,7 @@ msgstr "Описание"
 
 #: user_password.php:48
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "В момента не разполагате с достатъчно права, за да се намирате тук!"
+msgstr "Не разполагате с права, за да се намирате тук!"
 
 #: user_password.php:110
 msgid "The profile has been updated."
