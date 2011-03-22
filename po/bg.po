@@ -3612,7 +3612,7 @@ msgstr "Прозорец за заявки"
 #: libraries/config/messages.inc.php:342
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Ширина на прозорец за заявки (в пиксели)"
+msgstr "Ширина на прозорецът за заявки (в пиксели)"
 
 #: libraries/config/messages.inc.php:343
 #, fuzzy
