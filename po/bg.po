@@ -2785,9 +2785,8 @@ msgid "Enclose export in a transaction"
 msgstr "Изолиране на експорта в транзакция"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Тип на експортирането"
+msgstr ""
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
