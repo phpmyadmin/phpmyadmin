@@ -9847,7 +9847,7 @@ msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
 msgstr ""
-"Няма поддръжка на теми. Моля, проверете конфигурацията и/или темите, в папка "
+"Няма поддръжка на теми, моля, проверете конфигурацията и/или темите в папка "
 "%s."
 
 #: themes.php:41
