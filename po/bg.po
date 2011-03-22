@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:03+0200\n"
+"PO-Revision-Date: 2011-03-22 10:04+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -183,7 +183,7 @@ msgstr "По подразбиране"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264 tbl_printview.php:147
 msgid "Links to"
-msgstr "Сочи към"
+msgstr "Свързана към"
 
 #: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
