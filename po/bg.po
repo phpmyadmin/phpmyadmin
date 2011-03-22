@@ -6558,7 +6558,7 @@ msgstr "Невалиден идентификатор"
 
 #: libraries/sqlparser.lib.php:635
 msgid "Unknown Punctuation String"
-msgstr "Непозната пунктуация на стринг"
+msgstr "Непознат пунктуационен низ"
 
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
