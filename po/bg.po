@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:30+0200\n"
+"PO-Revision-Date: 2011-03-22 12:31+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1073,10 +1073,9 @@ msgid "Reload Database"
 msgstr "Презареждане на база данни"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Копиране на базата от данни в"
+msgstr "Копиране на база данни"
 
 #: js/messages.php:74
 #, fuzzy
