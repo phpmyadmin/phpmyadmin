@@ -9247,7 +9247,7 @@ msgstr ""
 
 #: tbl_change.php:875
 msgid "Binary - do not edit"
-msgstr "Двоично - не се редактира "
+msgstr "Двоично - не се редактира"
 
 #: tbl_change.php:923
 msgid "Upload to BLOB repository"
