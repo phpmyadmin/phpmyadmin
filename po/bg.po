@@ -26,7 +26,7 @@ msgstr "Показване всички"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1112
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr "Номер на страница:"
+msgstr "Страница номер:"
 
 #: browse_foreigners.php:133
 msgid ""
