@@ -3490,10 +3490,9 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Прозорец за заявки"
+msgstr "Височина на прозореца за заявки"
 
 #: libraries/config/messages.inc.php:342
 #| msgid "Query window"
