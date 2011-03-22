@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:36+0200\n"
+"PO-Revision-Date: 2011-03-22 12:37+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2682,9 +2682,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Препокриване на съществуващите файл(ове)"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Шаблон на файловото име"
+msgstr "Запомняне на шаблона за име на файл"
 
 #: libraries/config/messages.inc.php:118
 #, fuzzy
