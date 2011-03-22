@@ -9669,7 +9669,7 @@ msgstr "В началото на таблицата"
 #: tbl_structure.php:647
 #, php-format
 msgid "After %s"
-msgstr "след %s"
+msgstr "След %s"
 
 #: tbl_structure.php:686
 #, fuzzy, php-format
