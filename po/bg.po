@@ -1016,7 +1016,6 @@ msgid "Create User"
 msgstr "Създаване на потребител"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Презареждане на привилегиите"
