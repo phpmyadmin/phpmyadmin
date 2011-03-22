@@ -2016,10 +2016,9 @@ msgid "Inline edit of this query"
 msgstr ""
 
 #: libraries/common.lib.php:1264
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Хранилища"
+msgstr ""
 
 #: libraries/common.lib.php:1331 libraries/common.lib.php:1347
 msgid "Profiling"
