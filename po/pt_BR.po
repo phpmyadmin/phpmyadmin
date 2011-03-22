@@ -959,7 +959,7 @@ msgstr "Você está prestes à DESTRUIR completamente o Banco de Dados!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Remoção de eventos"
 
 #: js/messages.php:33
 #, fuzzy
