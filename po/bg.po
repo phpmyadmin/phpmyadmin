@@ -1727,7 +1727,7 @@ msgstr "Можете да въведете хост/IP адрес и порт, �
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
-msgstr "Сървър"
+msgstr "Сървър:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
