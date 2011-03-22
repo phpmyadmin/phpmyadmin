@@ -819,7 +819,7 @@ msgstr "Saída"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Copie e cole os valores concatenados na coluna \"Tamanho/Valores\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
