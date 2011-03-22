@@ -6949,7 +6949,7 @@ msgstr ""
 
 #: main.php:229
 msgid "Official Homepage"
-msgstr "Официалната уеб страница на phpMyAdmin "
+msgstr "Официалната страница на phpMyAdmin"
 
 #: main.php:230
 #, fuzzy
