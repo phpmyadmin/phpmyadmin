@@ -748,9 +748,8 @@ msgid "Last version"
 msgstr ""
 
 #: db_tracking.php:87 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "Създай"
+msgstr "Създаден"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
@@ -782,9 +781,8 @@ msgid "not active"
 msgstr ""
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "Персийски"
+msgstr "Версии"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
@@ -1198,10 +1196,9 @@ msgid "Change Password"
 msgstr "Смяна на паролата"
 
 #: js/messages.php:114 tbl_structure.php:471
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "пн"
+msgstr "Още"
 
 #: js/messages.php:117 setup/lib/index.lib.php:158
 #, php-format
@@ -1224,10 +1221,9 @@ msgstr "Няма"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Предишен"
+msgstr "Преден"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:141 libraries/common.lib.php:2368
@@ -1239,13 +1235,11 @@ msgstr "Следващ"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:143
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Общо"
+msgstr "Днес"
 
 #: js/messages.php:146
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr " Двоично "
@@ -1255,13 +1249,11 @@ msgid "February"
 msgstr ""
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "март"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "април"
@@ -1271,19 +1263,16 @@ msgid "May"
 msgstr "май"
 
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "юни"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "юли"
 
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "август"
@@ -1293,7 +1282,6 @@ msgid "September"
 msgstr ""
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "октомври"
@@ -1328,7 +1316,6 @@ msgstr "април"
 
 #. l10n: Short month name
 #: js/messages.php:169 libraries/common.lib.php:1574
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1370,22 +1357,19 @@ msgid "Dec"
 msgstr "декември"
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "нд"
+msgstr "неделя"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "пн"
+msgstr "понеделник"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "вт"
+msgstr "вторник"
 
 #: js/messages.php:189
 msgid "Wednesday"
@@ -1396,10 +1380,9 @@ msgid "Thursday"
 msgstr ""
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "пт"
+msgstr "петък"
 
 #: js/messages.php:192
 msgid "Saturday"
@@ -1442,49 +1425,42 @@ msgstr "сб"
 
 #. l10n: Minimal week day name
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "нд"
 
 #. l10n: Minimal week day name
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "пн"
 
 #. l10n: Minimal week day name
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "вт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "ср"
 
 #. l10n: Minimal week day name
 #: js/messages.php:220
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "чт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "пт"
 
 #. l10n: Minimal week day name
 #: js/messages.php:224
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "сб"
@@ -1499,16 +1475,14 @@ msgid "Hour"
 msgstr ""
 
 #: js/messages.php:229
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "Заето"
+msgstr "минута"
 
 #: js/messages.php:230
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "на секунда"
+msgstr "секунда"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1574,9 +1548,8 @@ msgid "Cardinality"
 msgstr "Кардиналност"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:273 tbl_tracking.php:322
-#, fuzzy
 msgid "Comment"
-msgstr "Коментари"
+msgstr "Коментар"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:626
 #: libraries/common.lib.php:1161 libraries/common.lib.php:3020
@@ -4616,10 +4589,9 @@ msgid "Table(s):"
 msgstr "Таблица(и):"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Редове"
+msgstr "Редове:"
 
 #: libraries/display_export.lib.php:157
 #| msgid "Dump all rows"
@@ -5689,7 +5661,6 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
 msgstr "Изглед"
@@ -5839,7 +5810,6 @@ msgid ""
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7255,10 +7225,9 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "страници"
+msgstr "Страница"
 
 #: pmd_pdf.php:99
 #, fuzzy
@@ -7417,9 +7386,8 @@ msgid "Select binary log to view"
 msgstr "Изберете двоичен журнал за преглед"
 
 #: server_binlog.php:122 server_status.php:387
-#, fuzzy
 msgid "Files"
-msgstr "Полета"
+msgstr "Файлове"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:56
 #: server_processlist.php:58
@@ -7697,7 +7665,6 @@ msgid "No privileges."
 msgstr "Няма привилегии."
 
 #: server_privileges.php:309 server_privileges.php:310
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -7904,7 +7871,6 @@ msgid "Database for user"
 msgstr "База от данни за потребителя"
 
 #: server_privileges.php:2135
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
@@ -8019,9 +7985,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: server_replication.php:223
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Моля изберете база от данни"
+msgstr "Изберете база данни:"
 
 #: server_replication.php:226
 msgid ""
@@ -8549,7 +8514,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: server_status.php:131
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Изчистване"
@@ -8731,7 +8695,6 @@ msgid "Show processes"
 msgstr "MySQL процеси"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -9040,9 +9003,8 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:216
-#, fuzzy
 msgid "Load"
-msgstr "Локален"
+msgstr "Зареждане"
 
 #: setup/frames/index.inc.php:227
 #, fuzzy
@@ -9608,9 +9570,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:718
-#, fuzzy
 msgid "Repair"
-msgstr "Поправяне на таблицата"
+msgstr "Поправяне"
 
 #: tbl_operations.php:730
 msgid "Remove partitioning"
@@ -9690,10 +9651,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Изпълняване на \"заявка по шаблон\" (знак за  заместване: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Избор на поле (поне едно):"
+msgstr "Избор на колона (поне една):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -9728,7 +9688,6 @@ msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:384
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -9846,9 +9805,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Данни"
+msgstr "Дата"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
@@ -9952,7 +9910,6 @@ msgid "Available transformations"
 msgstr "Достъпни трансформации"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
