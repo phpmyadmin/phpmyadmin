@@ -7434,7 +7434,7 @@ msgstr "%s бази от данни бяха изтрити успешно."
 
 #: server_databases.php:100
 msgid "Databases statistics"
-msgstr " Статистика за базите данни"
+msgstr "Статистика за базите данни"
 
 #: server_databases.php:173 server_replication.php:179
 #: server_replication.php:207
