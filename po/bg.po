@@ -593,7 +593,7 @@ msgstr "Думите трябва да се разделят с интервал
 
 #: db_search.php:321
 msgid "Inside table(s):"
-msgstr "В таблиците:"
+msgstr "В таблица(и)те:"
 
 #: db_search.php:351
 #| msgid "Inside table(s):"
