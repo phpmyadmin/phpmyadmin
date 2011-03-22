@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 10:31+0200\n"
+"PO-Revision-Date: 2011-03-22 10:32+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5438,7 +5438,7 @@ msgstr "Опции за експортиране на база от данни"
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:958 libraries/export/texytext.php:123
 msgid "Dumping data for table"
-msgstr "Дъмп (схема) на данните в таблицата"
+msgstr "Ссхема на данните от таблица"
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
 #: libraries/export/sql.php:862 libraries/export/texytext.php:170
