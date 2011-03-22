@@ -1108,9 +1108,8 @@ msgid "Table must have at least one column"
 msgstr "Таблицата трябва да има поне една колона."
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
-msgstr "Създай нова Страница"
+msgstr "Създабане Таблица"
 
 #: js/messages.php:81
 #| msgid "Search"
