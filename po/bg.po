@@ -741,7 +741,7 @@ msgstr ""
 #: server_synchronize.php:1176 server_synchronize.php:1180
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
-msgstr "БД"
+msgstr "База данни"
 
 #: db_tracking.php:86
 msgid "Last version"
