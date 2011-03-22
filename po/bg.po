@@ -9660,7 +9660,7 @@ msgstr "Добавяне колона"
 
 #: tbl_structure.php:645
 msgid "At End of Table"
-msgstr "в края на таблицата"
+msgstr "В края на таблицата"
 
 #: tbl_structure.php:646
 msgid "At Beginning of Table"
