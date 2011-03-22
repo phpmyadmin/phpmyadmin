@@ -4540,10 +4540,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Експортиране на таблици от база данни \"%s\""
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Създаване на нова таблица в БД %s"
+msgstr "Експортиране на редове от таблица \"%s\""
 
 #: libraries/display_export.lib.php:97
 #| msgid "Export type"
