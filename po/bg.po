@@ -4091,10 +4091,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:477
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "Добави/изтрий колона по критерий"
+msgstr ""
 
 #: libraries/config/messages.inc.php:478
 msgid ""
