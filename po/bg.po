@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:08+0200\n"
+"PO-Revision-Date: 2011-03-22 12:09+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -801,9 +801,8 @@ msgid "Track table"
 msgstr "Проверка на таблицата"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "БД"
+msgstr "Дневник на база данни"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
