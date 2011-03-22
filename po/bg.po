@@ -6794,7 +6794,7 @@ msgid ""
 "the link."
 msgstr ""
 "Показва връзката на полето съдържащо файлово име; първата опция е префикс "
-"като \"http://www.example.com/\", втората опция е заглавието на връзката."
+"като \"http://www.example.com/\". Втората опция е заглавието на връзката."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
