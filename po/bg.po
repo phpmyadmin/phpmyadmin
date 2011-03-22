@@ -4996,9 +4996,8 @@ msgid "Pages containing data"
 msgstr "Страници съдържащи данни"
 
 #: libraries/engines/innodb.lib.php:198
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "Кеша на таблица %s беше изчистен"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:204
 msgid "Busy pages"
