@@ -4847,10 +4847,9 @@ msgid "%d is not valid row number."
 msgstr "%d не е валиден номер на ред."
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "реда започвайки от"
+msgstr "ред(ове) започвайки от №"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
