@@ -9590,7 +9590,7 @@ msgstr "Добавяне на условие за търсене (съдържа
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
-msgstr "редове на страница"
+msgstr "Брой редове на страница"
 
 #: tbl_select.php:264
 msgid "Display order:"
