@@ -9458,7 +9458,7 @@ msgstr "Таблицата %s беше изтрита"
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
-msgstr "Схема на таблицата"
+msgstr "Схема (дъмп) на таблицата"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
