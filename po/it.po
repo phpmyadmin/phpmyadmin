@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-02-22 18:46+0200\n"
-"Last-Translator: <rebeluca@gmail.com>\n"
+"PO-Revision-Date: 2011-03-22 14:22+0200\n"
+"Last-Translator:  <gliporace@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -588,7 +588,7 @@ msgstr "Nella/e tabella/e:"
 
 #: db_search.php:351
 msgid "Inside column:"
-msgstr "Campi contenuti:"
+msgstr "Nella colonna:"
 
 #: db_structure.php:59
 #, fuzzy
@@ -10241,42 +10241,3 @@ msgstr "Nome VISTA"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rinomina la vista in"
-
-#, fuzzy
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Eliminare le corrispondenze relative alla tabella %s?"
-
-#~ msgid "Show left delete link"
-#~ msgstr "Mostra/nascondi il menù di sinistra"
-
-#~ msgid "yes"
-#~ msgstr "Sì"
-
-#~ msgid "to/from page"
-#~ msgstr "da/per pagina"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "Disabilita le Statistiche"
-
-#~ msgid "Start"
-#~ msgstr "Avvio"
-
-#~ msgid "Display table filter"
-#~ msgstr "Visualizza filtri colonne"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "Le caratteristiche aggiuntive sono state disattivate per funzionare con "
-#~ "le tabelle linkate. Per scoprire perché clicca %squi%s."
-
-#~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignora le righe duplicate"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Esegue la query dalle preferite"
-
-#~ msgid "No tables"
-#~ msgstr "Nessuna Tabella"
