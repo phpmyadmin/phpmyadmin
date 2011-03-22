@@ -2686,10 +2686,9 @@ msgid "Remember file name template"
 msgstr "Запомняне на шаблона за име на файл"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Използване на обратни кавички около имена на таблици и полета"
+msgstr "Ограждане на имената на таблици и полета с обратни кавички"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
