@@ -7811,7 +7811,7 @@ msgstr "... запазване на стария."
 
 #: server_privileges.php:2106
 msgid " ... delete the old one from the user tables."
-msgstr " ... изтриване на стария от таблицата на потребителите."
+msgstr " ... изтриване на стария от таблицата с потребители."
 
 #: server_privileges.php:2107
 msgid ""
