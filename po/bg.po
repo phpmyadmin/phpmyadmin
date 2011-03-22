@@ -7305,7 +7305,7 @@ msgstr "Импортиране на файлове"
 
 #: querywindow.php:104
 msgid "All"
-msgstr "всички"
+msgstr "Всички"
 
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
