@@ -2955,10 +2955,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:189
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Номер на страницата:"
+msgstr ""
 
 #: libraries/config/messages.inc.php:190
 msgid ""
