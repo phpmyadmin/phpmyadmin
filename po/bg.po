@@ -380,7 +380,7 @@ msgstr "Размер"
 #: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:636
 #: libraries/export/sql.php:976
 msgid "in use"
-msgstr "Заето"
+msgstr "зает"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:591
