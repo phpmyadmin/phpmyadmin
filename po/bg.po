@@ -811,7 +811,7 @@ msgstr "Стойности за колоната \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Въведете всяка стойност в отделно поле."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
