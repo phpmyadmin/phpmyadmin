@@ -1101,9 +1101,8 @@ msgid "Hide query box"
 msgstr ""
 
 #: js/messages.php:87
-#, fuzzy
 msgid "Show query box"
-msgstr "SQL заявка"
+msgstr ""
 
 #: js/messages.php:88
 #, fuzzy
