@@ -5297,10 +5297,9 @@ msgstr "Заглавие на таблицата (продължение)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Забраняване на проверките за външен ключ"
+msgstr ""
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #, fuzzy
