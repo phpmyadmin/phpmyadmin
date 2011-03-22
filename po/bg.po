@@ -2544,7 +2544,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:61
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "редактиране в прозорец"
+msgstr "редакция в прозорец"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
