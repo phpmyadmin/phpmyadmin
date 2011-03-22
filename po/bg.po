@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:09+0200\n"
+"PO-Revision-Date: 2011-03-22 12:10+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1739,7 +1739,7 @@ msgstr "Избор на сървър"
 
 #: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "Оттук нататък са необходими \"Cookies\"."
+msgstr "Оттук нататък са необходими бисквитки."
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:195
