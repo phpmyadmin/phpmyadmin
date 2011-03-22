@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:12+0200\n"
+"PO-Revision-Date: 2011-03-22 12:13+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6183,10 +6183,10 @@ msgstr "Моля конфигурирайте координатите за та
 #: libraries/schema/Pdf_Relation_Schema.class.php:849
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Схемата на база от данни \"%s\" - Страница %s"
+msgstr "Схема на база данни %s - страница %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
