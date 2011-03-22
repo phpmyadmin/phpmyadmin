@@ -5835,7 +5835,7 @@ msgstr "речник"
 
 #: libraries/mysql_charsets.lib.php:261
 msgid "phone book"
-msgstr "Телефонен бележник"
+msgstr "телефонен бележник"
 
 #: libraries/mysql_charsets.lib.php:264
 msgid "Hungarian"
