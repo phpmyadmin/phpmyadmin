@@ -420,9 +420,10 @@ $(document).ready(function() {
         var $edit_td = $(this).parents('td');
         $edit_td.removeClass('inline_edit_anchor').addClass('inline_edit_active').parent('tr').addClass('noclick');
 
-        // adding submit and hide buttons to inline edit <td>
-        // for "hide", button the original data to be restored is present in .original_data
-        // looping through all columns or rows, to find the required data and then storing it in an array.
+        // Adding submit and hide buttons to inline edit <td>.
+        // For "hide" button the original data to be restored is 
+        //  kept in the jQuery data element 'original_data' inside the <td>.
+        // Looping through all columns or rows, to find the required data and then storing it in an array.
 
         var $this_children = $edit_td.children('span.nowrap').children('a').children('span.nowrap');
         if (disp_mode != 'vertical') {
@@ -453,7 +454,7 @@ $(document).ready(function() {
                     if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_hide.siblings("td:eq(" + i + ")").children(' .original_data').html();
+                    txt = $this_hide.siblings("td:eq(" + i + ")").data('original_data');
                     if($this_hide.siblings("td:eq(" + i + ")").children().length != 0) {
                         $this_hide.siblings("td:eq(" + i + ")").empty();
                         $this_hide.siblings("td:eq(" + i + ")").append(txt);
@@ -485,7 +486,7 @@ $(document).ready(function() {
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ") span.original_data").html();
+                    txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").data('original_data');
                     $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
                     $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
                 }
@@ -572,7 +573,7 @@ $(document).ready(function() {
                     })
                 }
 
-                // if 'chechbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
+                // if 'checkbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
                 $('.checkbox_null_' + field_name + '_' + this_row_index).bind('click', function(e) {
                     if ($this_field.is('.enum')) {
                         $this_field.find('select').attr('value', '');
@@ -604,8 +605,7 @@ $(document).ready(function() {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
                 $this_field.append('<textarea>'+data_value+'</textarea>');
-                $this_field.append('<span class="original_data">'+data_value+'</span>');
-                $(".original_data").hide();
+                $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.truncated, .transformed')) {
                 /** @lends jQuery */
@@ -626,8 +626,7 @@ $(document).ready(function() {
                 }, function(data) {
                     if(data.success == true) {
                         $this_field.append('<textarea>'+data.value+'</textarea>');
-                        $this_field.append('<span class="original_data">'+data_value+'</span>');
-                        $(".original_data").hide();
+                        $this_field.data('original_data', data_value);
                     }
                     else {
                         PMA_ajaxShowMessage(data.error);
@@ -653,8 +652,7 @@ $(document).ready(function() {
 
                 $.post('sql.php', post_params, function(data) {
                     $this_field.append(data.dropdown);
-                    $this_field.append('<span class="original_data">'+data_value+'</span>');
-                    $(".original_data").hide();
+                    $this_field.data('original_data', data_value);
                 }) // end $.post()
             }
             else if($this_field.is('.enum')) {
@@ -676,8 +674,7 @@ $(document).ready(function() {
 
                 $.post('sql.php', post_params, function(data) {
                     $this_field.append(data.dropdown);
-                    $this_field.append('<span class="original_data">'+data_value+'</span>');
-                    $(".original_data").hide();
+                    $this_field.data('original_data', data_value);
                 }) // end $.post()
             }
             else if($this_field.is('.set')) {
@@ -699,15 +696,13 @@ $(document).ready(function() {
 
                 $.post('sql.php', post_params, function(data) {
                     $this_field.append(data.select);
-                    $this_field.append('<span class="original_data">'+data_value+'</span>');
-                    $(".original_data").hide();
+                    $this_field.data('original_data', data_value);
                 }) // end $.post()
             }
             else if($this_field.is('.null')) {
                 //handle null fields
                 $this_field.append('<textarea></textarea>');
-                $this_field.append('<span class="original_data">NULL</span>');
-                $(".original_data").hide();
+                $this_field.data('original_data', 'NULL');
             }
         })
     }) // End On click, replace the current field with an input/textarea
