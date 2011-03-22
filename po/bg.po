@@ -3230,9 +3230,8 @@ msgid "How many rows can be inserted at one time"
 msgstr ""
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 msgid "Number of inserted rows"
-msgstr "Брой на сортираните редове."
+msgstr "Брой на добавените редове"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
