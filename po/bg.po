@@ -2233,10 +2233,9 @@ msgid "complete inserts"
 msgstr "пълни INSERT-и"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Разширени INSERT-и"
+msgstr "разширени INSERT-и"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
