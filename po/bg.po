@@ -7748,7 +7748,7 @@ msgstr "Дадени"
 #: server_privileges.php:1696 server_privileges.php:1720
 #: server_privileges.php:2125 server_privileges.php:2314
 msgid "Add a new User"
-msgstr "Добавяне на нов потребител."
+msgstr "Добавяне на нов потребител"
 
 #: server_privileges.php:1701
 msgid "Remove selected users"
