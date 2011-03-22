@@ -4999,9 +4999,8 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1160
-#, fuzzy
 msgid "Port"
-msgstr "Сортиране"
+msgstr "Порт"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
