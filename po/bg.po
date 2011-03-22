@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 11:25+0200\n"
+"PO-Revision-Date: 2011-03-22 11:26+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5345,10 +5345,9 @@ msgid "Columns enclosed with:"
 msgstr "Колоните са оградени от:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Представка на специалните знаци"
+msgstr "Колоните са избегнати с:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
