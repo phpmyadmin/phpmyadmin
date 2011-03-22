@@ -6664,10 +6664,9 @@ msgid "Add %s column(s)"
 msgstr "Добавяне на %s колони(а)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Трябва да добавите поне едно поле."
+msgstr "Трябва да добавите поне една колона."
 
 #: libraries/tbl_properties.inc.php:796
 msgid "+ Add a new value"
