@@ -4914,7 +4914,7 @@ msgstr "в запитването"
 
 #: libraries/display_tbl.lib.php:2023
 msgid "Showing rows"
-msgstr "Показване на записи "
+msgstr "Показване на записи"
 
 #: libraries/display_tbl.lib.php:2033
 msgid "total"
