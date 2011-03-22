@@ -7246,10 +7246,9 @@ msgid "Create a page and export to it"
 msgstr "Създай нов индекс"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Потребителско име"
+msgstr ""
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
