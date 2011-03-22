@@ -5286,10 +5286,9 @@ msgstr "Структура на таблица @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Опции на трансформацията"
+msgstr ""
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #| msgid "Table caption"
