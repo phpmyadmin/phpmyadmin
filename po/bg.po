@@ -7339,7 +7339,7 @@ msgstr "всички"
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "таблица  <b>%s</b> не е намерена или не е установена в %s"
+msgstr "таблица <b>%s</b> не е намерена или не е установена в %s"
 
 #: schema_export.php:45
 #| msgid "The \"%s\" table doesn't exist!"
