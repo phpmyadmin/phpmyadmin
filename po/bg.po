@@ -9541,7 +9541,7 @@ msgstr ""
 
 #: tbl_operations.php:756
 msgid "Check referential integrity:"
-msgstr "Проверка на интегритета на връзките"
+msgstr "Проверка на интегритета на връзките:"
 
 #: tbl_printview.php:72
 msgid "Show tables"
