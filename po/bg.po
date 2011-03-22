@@ -1098,10 +1098,9 @@ msgid "Changing Charset"
 msgstr "Набор от знаци"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "Таблицата трябва да има поне една колона."
+msgstr "Таблицата трябва да има поне една колона"
 
 #: js/messages.php:76
 msgid "Create Table"
