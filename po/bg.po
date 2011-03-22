@@ -1347,7 +1347,7 @@ msgstr "ное"
 #. l10n: Short month name
 #: js/messages.php:183 libraries/common.lib.php:1588
 msgid "Dec"
-msgstr "декември"
+msgstr "дек"
 
 #: js/messages.php:186
 #| msgid "Sun"
