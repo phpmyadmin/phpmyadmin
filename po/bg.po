@@ -5350,10 +5350,9 @@ msgid "Columns escaped with:"
 msgstr "Колоните са избегнати с:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Редовете завършват с"
+msgstr "Редовете завършват с:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
