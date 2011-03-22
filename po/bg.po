@@ -4609,10 +4609,9 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Бази от данни"
+msgstr "Бази данни:"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
