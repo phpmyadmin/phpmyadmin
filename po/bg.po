@@ -2937,9 +2937,8 @@ msgid "Authentication"
 msgstr "Удостоверяване"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 msgid "Authentication settings"
-msgstr "Репликация"
+msgstr "Настройки по удостоверяване"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
