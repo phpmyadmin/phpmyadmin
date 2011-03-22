@@ -1548,11 +1548,10 @@ msgid "Unknown error in file upload."
 msgstr ""
 
 #: libraries/File.class.php:559
-#, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Може да има приблизителна стойност. Виж FAQ 3.11"
+msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
