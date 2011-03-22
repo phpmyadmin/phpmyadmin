@@ -8983,9 +8983,8 @@ msgid "Edit server"
 msgstr ""
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "Добавяне на нов потребител."
+msgstr "Добавяне на нов сървър"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
