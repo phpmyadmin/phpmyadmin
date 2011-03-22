@@ -6831,14 +6831,13 @@ msgstr ""
 "така че целия изход ще бъде показан без преформатиране (По подразбиране е 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Запазва оригиналното форматиране на полето."
+msgstr ""
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
