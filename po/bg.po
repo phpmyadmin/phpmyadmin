@@ -1078,10 +1078,9 @@ msgid "Copying Database"
 msgstr "Копиране на база данни"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Набор от знаци"
+msgstr "Промяна на знаков набор"
 
 #: js/messages.php:75
 #| msgid "Table must have at least one column."
