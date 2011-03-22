@@ -463,7 +463,7 @@ msgstr "Вмъкни"
 
 #: db_qbe.php:376 db_qbe.php:458 db_qbe.php:543 db_qbe.php:574
 msgid "And"
-msgstr "и"
+msgstr "И"
 
 #: db_qbe.php:385 db_qbe.php:466 db_qbe.php:548 db_qbe.php:579
 msgid "Del"
