@@ -5469,10 +5469,9 @@ msgid "Object creation options"
 msgstr "Опции на трансформацията"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Заглавие на таблицата"
+msgstr "Заглавие на таблицата (продължение)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
