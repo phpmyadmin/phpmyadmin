@@ -3954,10 +3954,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Показване на отворените теблици"
+msgstr "Показване типовете полета"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
