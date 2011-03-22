@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:49+0200\n"
+"PO-Revision-Date: 2011-03-22 12:50+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4948,9 +4948,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/myisam.lib.php:31
-#, fuzzy
 msgid "Maximum size for temporary sort files"
-msgstr "Максимален размер на временните файлове при създаване на индекс"
+msgstr "Максимален размер на временните файлове за сортиране"
 
 #: libraries/engines/myisam.lib.php:32
 msgid ""
