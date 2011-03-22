@@ -5765,10 +5765,9 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Режим на съвместимост на SQL"
+msgstr "Режим на съвместимост на SQL:"
 
 #: libraries/import/sql.php:42
 #| msgid "Do not use AUTO_INCREMENT for zero values"
