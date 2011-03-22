@@ -2228,10 +2228,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Пълни INSERT-и"
+msgstr "пълни INSERT-и"
 
 #: libraries/config.values.php:120
 #, fuzzy
