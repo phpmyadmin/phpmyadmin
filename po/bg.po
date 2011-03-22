@@ -6547,7 +6547,6 @@ msgid "Length/Values"
 msgstr "Дължина/Стойност*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6559,10 +6558,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Ако типа на полето е \"enum\" или \"set\", моля въведете стойностите "
-"използвайки този формат: 'a','b','c'...<br />Ако е необходимо да сложите "
-"обратна черта (\"\\\") или апостроф (\"'\") между тези стойности, сложите "
-"обратна черта пред тях (например:  '\\\\xyz' или 'a\\'b')."
+"Ако типа на полето е \"enum\" или \"set\", моля въведете стойностите използвайки "
+"този формат: 'a','b','c'...<br />Ако е необходимо да сложите обратна черта "
+"(\"\\\") или апостроф (\"'\") между тези стойности, сложите обратна черта пред "
+"тях (например:  '\\\\xyz' или 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
