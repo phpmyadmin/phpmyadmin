@@ -6660,7 +6660,7 @@ msgstr ""
 #, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Добавяне на %s колони(а)"
+msgstr "Добавяне на %s колона(и)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
 #| msgid "You have to add at least one field."
