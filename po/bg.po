@@ -247,7 +247,7 @@ msgstr "В базата от данни няма таблици."
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
-msgstr "Маркиране на всички"
+msgstr "Маркиране всички"
 
 #: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
