@@ -8006,10 +8006,9 @@ msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Само структурата"
+msgstr ""
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
