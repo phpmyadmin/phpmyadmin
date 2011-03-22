@@ -2015,7 +2015,7 @@ msgstr "Пропусни Explain SQL"
 
 #: libraries/common.lib.php:1174
 msgid "Without PHP Code"
-msgstr "без PHP код"
+msgstr "Без PHP код"
 
 #: libraries/common.lib.php:1177 libraries/config/messages.inc.php:464
 msgid "Create PHP Code"
