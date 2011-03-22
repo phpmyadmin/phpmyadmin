@@ -3643,9 +3643,8 @@ msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/config/messages.inc.php:377
-#, fuzzy
 msgid "Count tables"
-msgstr "Няма таблици"
+msgstr "Брой таблици"
 
 #: libraries/config/messages.inc.php:378
 msgid ""
