@@ -2528,7 +2528,7 @@ msgstr "Показване на двоичните данни по подраз�
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:601
 msgid "Show binary contents as HEX"
-msgstr "Показване на двоичните данни в шестнадесетичен (HEX) вид"
+msgstr "Показване на двоичните данни в шестнадесетичен вид"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
