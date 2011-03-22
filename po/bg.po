@@ -4759,10 +4759,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "На този сървър не е позволени качване на файлове."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Частично импортиране"
+msgstr "Частично импортиране:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
