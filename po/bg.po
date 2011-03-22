@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-22 12:42+0200\n"
+"PO-Revision-Date: 2011-03-22 12:43+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -3621,9 +3621,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 msgid "Connection type"
-msgstr "Конекции"
+msgstr "Тип връзки"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
