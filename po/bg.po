@@ -3244,10 +3244,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Брой записи(завки), които да бъдат пропуснати от началото"
+msgstr "Брой заявки, които да бъдат пропуснати от началото"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
