@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-02 22:32+0200\n"
+"PO-Revision-Date: 2011-03-22 17:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4891,7 +4891,7 @@ msgstr "sorgu içerisinde"
 
 #: libraries/display_tbl.lib.php:2023
 msgid "Showing rows"
-msgstr "Satırlar gösteriliyor"
+msgstr "Gösterilen satırlar"
 
 #: libraries/display_tbl.lib.php:2033
 msgid "total"
@@ -10031,16 +10031,3 @@ msgstr "Görünümü yeniden şuna adlandır"
 
 #~ msgid "Choose..."
 #~ msgstr "Seçin..."
-
-#~| msgid "Delete the matches for the %s table?"
-#~ msgid "Delete the matches for the "
-#~ msgstr "Şunun için benzeşenleri sil: "
-
-#~ msgid "Show left delete link"
-#~ msgstr "Sol silme bağlantısını göster"
-
-#~ msgid "Show right delete link"
-#~ msgstr "Sağ silme bağlantısını göster"
-
-#~ msgid "Mailing lists"
-#~ msgstr "Postalama listesi"
