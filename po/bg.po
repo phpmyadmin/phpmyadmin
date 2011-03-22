@@ -2829,9 +2829,8 @@ msgid "Import"
 msgstr "Импортиране"
 
 #: libraries/config/messages.inc.php:168
-#, fuzzy
 msgid "Import defaults"
-msgstr "Импортиране на файлове"
+msgstr ""
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
