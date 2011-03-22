@@ -9464,10 +9464,9 @@ msgid "Table %s has been flushed"
 msgstr "Кеша на таблица %s беше изчистен"
 
 #: tbl_operations.php:638
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Изчистване на кеша на таблицата (\"FLUSH\")"
+msgstr "Изпразване кеша на таблицата (FLUSH)"
 
 #: tbl_operations.php:647
 #| msgid "Dumping data for table"
