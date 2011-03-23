@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 17:43+0200\n"
+"PO-Revision-Date: 2011-03-23 17:44+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9702,7 +9702,7 @@ msgstr "Opções da tabela"
 
 #: tbl_operations.php:337
 msgid "Rename table to"
-msgstr "Renomear a tabela para "
+msgstr "Renomear a tabela para"
 
 #: tbl_operations.php:513
 msgid "Copy table to (database<b>.</b>table):"
