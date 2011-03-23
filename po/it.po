@@ -1150,7 +1150,7 @@ msgstr "Seleziona la chiave primaria o una chiave univoca"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr "Scegli il campo da mostrare"
+msgstr "Scegli la colonna da mostrare"
 
 #: js/messages.php:106
 msgid "Add an option for column "
