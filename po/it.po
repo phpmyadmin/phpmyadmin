@@ -1015,7 +1015,7 @@ msgstr "La password non coincide!"
 
 #: js/messages.php:52
 msgid "Add a New User"
-msgstr "Aggiungi un nuovo utente"
+msgstr "Aggiungi un nuovo Utente"
 
 #: js/messages.php:53
 msgid "Create User"
