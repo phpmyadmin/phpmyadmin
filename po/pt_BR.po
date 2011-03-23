@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 18:29+0200\n"
+"PO-Revision-Date: 2011-03-23 18:30+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9382,7 +9382,7 @@ msgstr "Você deveria utilizar mysqli por questões de desempenho."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Você permite a conexão com o servidor sem uma senha."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
