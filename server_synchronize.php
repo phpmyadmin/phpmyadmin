@@ -1153,7 +1153,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 	  </td>
       </tr>
 	<tr class="even toggler remote-server">
-	    <td><?php echo __('Host'); ?></td>
+	    <td><?php echo __('Server'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" /></td>
 	</tr>
 	<tr class="odd toggler remote-server">
