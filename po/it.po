@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 16:54+0200\n"
+"PO-Revision-Date: 2011-03-23 16:55+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -845,7 +845,7 @@ msgstr "Il server web non possiede i privilegi per salvare il file %s."
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Il dump è stato salvato sul file %s."
+msgstr "Il dump è stato salvato nel file %s."
 
 #: import.php:58
 #, php-format
