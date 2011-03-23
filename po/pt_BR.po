@@ -9607,7 +9607,7 @@ msgstr "Redesenhar"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Tabela %s já existe!"
+msgstr "A tabela %s já existe!"
 
 #: tbl_create.php:242
 #, php-format
