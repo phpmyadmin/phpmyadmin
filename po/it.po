@@ -2183,7 +2183,7 @@ msgstr "Personalizzato - mostra tutte le possibili opzioni di configurazione"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Personalizzato - come di sopram ma senza la scelta quick/custom"
+msgstr "Personalizzato - come sopra ma senza la scelta quick/custom"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
