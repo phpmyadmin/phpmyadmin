@@ -809,7 +809,7 @@ msgstr "Inserisci ogni valore in un campo separato"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Riavviare l'inserimento e aggiungere un nuovo valore"
 
 #: enum_editor.php:67
 msgid "Output"
