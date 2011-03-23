@@ -1092,7 +1092,7 @@ msgstr "Crea tabella"
 
 #: js/messages.php:81
 msgid "Searching"
-msgstr "Cercando"
+msgstr "Ricerca in corso"
 
 #: js/messages.php:86
 msgid "Hide query box"
