@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 18:28+0200\n"
+"PO-Revision-Date: 2011-03-23 18:29+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9364,11 +9364,13 @@ msgstr ""
 "seu sistema."
 
 #: setup/lib/index.lib.php:272
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sA descompressão ZIP%s necessita de funções (%s) que não estão disponíveis "
+"no seu sistema."
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
