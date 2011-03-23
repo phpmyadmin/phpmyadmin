@@ -1122,6 +1122,7 @@ msgid "Hide"
 msgstr "Nascondi"
 
 #: js/messages.php:93
+#, fuzzy
 msgid "Hide search criteria"
 msgstr "Nascondi criteri di ricerca"
 
