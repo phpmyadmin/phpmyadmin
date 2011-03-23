@@ -896,7 +896,7 @@ msgstr "Il bookmark è stato cancellato."
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr "Mostrando i segnalibri"
+msgstr "Visualizzazione segnalibri"
 
 #: import.php:402 sql.php:838
 #, php-format
