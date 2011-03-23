@@ -1752,7 +1752,7 @@ msgstr "Errore PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr "Creazione della pagina fallita"
+msgstr "Connessione PBMS fallita"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
