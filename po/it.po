@@ -2293,7 +2293,7 @@ msgstr "Ripristinare valori predefiniti"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr "Permetti agli utenti di personalizzare questo valore"
+msgstr "Consente agli utenti di personalizzare questo valore"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
