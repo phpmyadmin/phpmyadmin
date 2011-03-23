@@ -778,6 +778,8 @@ $(document).ready(function() {
          */
         var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
 
+        var need_to_post = false;
+
         $input_siblings.each(function() {
             /** @lends jQuery */
             /**
@@ -806,6 +808,7 @@ $(document).ready(function() {
 
             if (is_null) {
                 sql_query += ' `' + field_name + "`=NULL , ";
+                need_to_post = true;
             } else {
                 if($this_field.is(":not(.relation, .enum, .set)")) {
                     this_field_params[field_name] = $this_field.find('textarea').val();
@@ -834,7 +837,10 @@ $(document).ready(function() {
                         $.extend(relation_fields, this_field_params);
                     }
                 }
-                sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
+                if (this_field_params[field_name] != $this_field.data('original_data')) {
+                    sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "' , ";
+                    need_to_post = true;
+                }
             }
         })
 
@@ -852,11 +858,16 @@ $(document).ready(function() {
          */
         var transform_fields_list = $.param(transform_fields);
 
-        // Make the Ajax post after setting all parameters
-        /**
-         * @var post_params Object containing parameters for the POST request
-         */
-        var post_params = {'ajax_request' : true,
+        // if inline_edit is successful, we need to go back to default view
+        var $del_hide=$(this).parent();
+        var $chg_submit=$(this);
+
+        if (need_to_post) {
+            // Make the Ajax post after setting all parameters
+            /**
+             * @var post_params Object containing parameters for the POST request
+             */
+            var post_params = {'ajax_request' : true,
                             'sql_query' : sql_query,
                             'disp_direction' : disp_mode,
                             'token' : window.parent.token,
@@ -871,113 +882,126 @@ $(document).ready(function() {
                             'submit_type' : 'save'
                           };
 
-        // if inline_edit is successful, we need to go back to default view
-         var $del_hide=$(this).parent();
-         var $chg_submit=$(this);
-
-        $.post('tbl_replace.php', post_params, function(data) {
-            if(data.success == true) {
-                // deleting the hide button if my query was successful
-                // remove <br><br><a> tags
-                 for ( var i=0;i<=2;i++) { $del_hide.next().remove(); }
-                 if(disp_mode!='vertical'){
-                     $chg_submit.empty();
-                     $chg_submit.html('<span class="nowrap"></span>');
-                     $chg_submit.children('span.nowrap').text(PMA_messages['strInlineEdit']);
-                 }
-                 else {
-                     $chg_submit.children('span.nowrap').empty();
-                     $chg_submit.children('span.nowrap').append(data_vt);
-                 }
-
-                PMA_ajaxShowMessage(data.message);
-
-                // changing inline_edit_active to inline_edit_anchor
-                $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
-
-                // removing hover, marked and noclick classes
-                $this_td.parent('tr').removeClass('noclick');
-                if(disp_mode != 'vertical') {
-                    $this_td.parent('tr').removeClass('hover').find('td').removeClass('hover');
+            $.post('tbl_replace.php', post_params, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode);
                 } else {
-                    $this_td.parents('tbody').find('tr').find('td:eq(' + $this_td.index() + ')').removeClass('marked');
-                }
-
-                $input_siblings.each(function() {
-                    // Inline edit post has been successful.
-                    $this_sibling = $(this);
-
-                    var is_null = $this_sibling.find('input:checkbox').is(':checked');
-                    if (is_null) {
-                        $this_sibling.html('NULL');
-                        $this_sibling.addClass('null');
-                    } else {
-                        $this_sibling.removeClass('null');
-                        if($this_sibling.is(':not(.relation, .enum, .set)')) {
-                            /**
-                             * @var new_html    String containing value of the data field after edit
-                             */
-                            var new_html = $this_sibling.find('textarea').val();
-
-                            if($this_sibling.is('.transformed')) {
-                                var field_name = getFieldName($this_sibling, disp_mode);
-                                $.each(data.transformations, function(key, value) {
-                                    if(key == field_name) {
-                                        if($this_sibling.is('.text_plain, .application_octetstream')) {
-                                            new_html = value;
-                                            return false;
-                                        }
-                                        else {
-                                            var new_value = $this_sibling.find('textarea').val();
-                                            new_html = $(value).append(new_value);
-                                            return false;
-                                        }
-                                    }
-                                })
-                            }
-                        }
-                        else {
-                            var new_html = '';
-                            var new_value = '';
-                            $test_element = $this_sibling.find('select');
-                            if ($test_element.length != 0) {
-                                new_value = $test_element.val();
-                            }
-
-                            $test_element = $this_sibling.find('span.curr_value');
-                            if ($test_element.length != 0) {
-                                new_value = $test_element.text();
-                            }
-
-                            if($this_sibling.is('.relation')) {
-                                var field_name = getFieldName($this_sibling, disp_mode);
-                                $.each(data.relations, function(key, value) {
-                                    if(key == field_name) {
-                                        new_html = $(value).append(new_value);
-                                        return false;
-                                    }
-                                })
-                            } else if ($this_sibling.is('.enum')) {
-                                new_html = new_value;
-                            } else if ($this_sibling.is('.set')) {
-                                if (new_value != null) {
-                                    $.each(new_value, function(key, value) {
-                                        new_html = new_html + value + ',';
-                                    })
-                                    new_html = new_html.substring(0, new_html.length-1);
-                                }
-                            }
-                        }
-                        $this_sibling.html(new_html);
-                    }
-                })
-            }
-            else {
-                PMA_ajaxShowMessage(data.error);
-            };
-        }) // end $.post()
+                    PMA_ajaxShowMessage(data.error);
+                };
+            }) // end $.post()
+        } else {
+            // no posting was done but still need to display the row
+            // in its previous format
+            PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, '', disp_mode);
+        }
     }) // End After editing, clicking again should post data
 }, 'top.frame_content') // end $(document).ready()
+
+
+/**
+ * Visually put back the row in the state it was before entering Inline edit 
+ *
+ * (when called in the situation where no posting was done, the data
+ * parameter is empty) 
+ */
+function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode) {
+
+    // deleting the hide button
+    // remove <br><br><a> tags
+    for ( var i = 0; i <= 2; i++) {
+        $del_hide.next().remove();
+    }
+    if(disp_mode != 'vertical'){
+        $chg_submit.empty();
+        $chg_submit.html('<span class="nowrap"></span>');
+        $chg_submit.children('span.nowrap').text(PMA_messages['strInlineEdit']);
+    } else {
+        $chg_submit.children('span.nowrap').empty();
+        $chg_submit.children('span.nowrap').append(data_vt);
+    }
+
+    // changing inline_edit_active to inline_edit_anchor
+    $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
+
+    // removing hover, marked and noclick classes
+    $this_td.parent('tr').removeClass('noclick');
+    if(disp_mode != 'vertical') {
+        $this_td.parent('tr').removeClass('hover').find('td').removeClass('hover');
+    } else {
+        $this_td.parents('tbody').find('tr').find('td:eq(' + $this_td.index() + ')').removeClass('marked');
+    }
+
+    $input_siblings.each(function() {
+        // Inline edit post has been successful.
+        $this_sibling = $(this);
+
+        var is_null = $this_sibling.find('input:checkbox').is(':checked');
+        if (is_null) {
+            $this_sibling.html('NULL');
+            $this_sibling.addClass('null');
+        } else {
+            $this_sibling.removeClass('null');
+            if($this_sibling.is(':not(.relation, .enum, .set)')) {
+                /**
+                 * @var new_html    String containing value of the data field after edit
+                 */
+                var new_html = $this_sibling.find('textarea').val();
+
+                if($this_sibling.is('.transformed')) {
+                    var field_name = getFieldName($this_sibling, disp_mode);
+                    if (typeof data.transformations != 'undefined') {
+                        $.each(data.transformations, function(key, value) {
+                            if(key == field_name) {
+                                if($this_sibling.is('.text_plain, .application_octetstream')) {
+                                    new_html = value;
+                                    return false;
+                                } else {
+                                    var new_value = $this_sibling.find('textarea').val();
+                                    new_html = $(value).append(new_value);
+                                    return false;
+                                }
+                            }
+                        })
+                    }
+                }
+            } else {
+                var new_html = '';
+                var new_value = '';
+                $test_element = $this_sibling.find('select');
+                if ($test_element.length != 0) {
+                    new_value = $test_element.val();
+                }
+                $test_element = $this_sibling.find('span.curr_value');
+                if ($test_element.length != 0) {
+                    new_value = $test_element.text();
+                }
+
+                if($this_sibling.is('.relation')) {
+                    var field_name = getFieldName($this_sibling, disp_mode);
+                    if (typeof data.relations != 'undefined') {
+                        $.each(data.relations, function(key, value) {
+                            if(key == field_name) {
+                                new_html = $(value).append(new_value);
+                                return false;
+                            }
+                        })
+                    }
+                } else if ($this_sibling.is('.enum')) {
+                    new_html = new_value;
+                } else if ($this_sibling.is('.set')) {
+                    if (new_value != null) {
+                        $.each(new_value, function(key, value) {
+                            new_html = new_html + value + ',';
+                        })
+                        new_html = new_html.substring(0, new_html.length-1);
+                    }
+                }
+            }
+            $this_sibling.html(new_html);
+        }
+    })
+}
 
 /**
  * Starting from some th, change the class of all td under it
