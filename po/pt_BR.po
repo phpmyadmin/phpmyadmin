@@ -9433,7 +9433,7 @@ msgstr "A tabela %1$s foi alterada com sucesso"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
-msgstr "Funções"
+msgstr "Função"
 
 #: tbl_change.php:752
 #| msgid " Because of its length,<br /> this field might not be editable "
