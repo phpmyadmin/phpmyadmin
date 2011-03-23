@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 16:51+0200\n"
+"PO-Revision-Date: 2011-03-23 16:52+0200\n"
 "Last-Translator: Giovanni Uccio <giovanni.uccio@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -783,7 +783,7 @@ msgstr "Rapporto tracking"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 msgid "Structure snapshot"
-msgstr "Solo struttura"
+msgstr "snapshot della struttura"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
