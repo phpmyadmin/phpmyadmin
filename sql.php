@@ -63,8 +63,17 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
     $column = $_REQUEST['column'];
     $foreigners = PMA_getForeigners($db, $table, $column);
 
+    $display_field = PMA_getDisplayField($foreigners[$column][foreign_db], $foreigners[$column][foreign_table]);
+
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
+    if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
+        && (isset($display_field) && strlen($display_field)
+        && (isset($_REQUEST['relation_key_or_display_column']) && $_REQUEST['relation_key_or_display_column']))) {
+            $curr_value = $_REQUEST['relation_key_or_display_column'];
+    } else {
+        $curr_value = $_REQUEST['curr_value'];
+    }
     if ($foreignData['disp_row'] == null) {
         //Handle the case when number of values is more than $cfg['ForeignKeyMaxLimit']
         $_url_params = array(
@@ -78,7 +87,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
                     .'>' . __('Browse foreign values') . '</a>';
     }
     else {
-        $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $_REQUEST['curr_value'], $cfg['ForeignKeyMaxLimit']);
+        $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $curr_value, $cfg['ForeignKeyMaxLimit']);
         $dropdown = '<select>' . $dropdown . '</select>';
     }
 

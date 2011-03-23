@@ -543,6 +543,11 @@ $(document).ready(function() {
              */
             var relation_curr_value = $this_field.find('a').text();
             /**
+             * @var relation_key_or_display_column String relational key if in 'Relational display column' mode,
+             * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
+             */
+            var relation_key_or_display_column = $this_field.find('a').attr('title');
+            /**
              * @var curr_value String current value of the field (for fields that are of type enum or set).
              */
             var curr_value = $this_field.text();
@@ -647,7 +652,8 @@ $(document).ready(function() {
                         'table' : window.parent.table,
                         'column' : field_name,
                         'token' : window.parent.token,
-                        'curr_value' : relation_curr_value
+                        'curr_value' : relation_curr_value,
+                        'relation_key_or_display_column' : relation_key_or_display_column
                 }
 
                 $.post('sql.php', post_params, function(data) {
