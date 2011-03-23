@@ -5507,7 +5507,7 @@ msgstr "Afficher les types MIME"
 #: server_privileges.php:1624 server_privileges.php:2167
 #: server_processlist.php:62 server_synchronize.php:1156
 msgid "Host"
-msgstr "Serveur"
+msgstr "Client"
 
 #: libraries/export/latex.php:144 libraries/export/sql.php:342
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
@@ -6246,7 +6246,7 @@ msgstr "Entrez une valeur"
 
 #: libraries/replication_gui.lib.php:304 server_privileges.php:771
 msgid "Any host"
-msgstr "Tout serveur"
+msgstr "Tout client"
 
 #: libraries/replication_gui.lib.php:308 server_privileges.php:775
 msgid "Local"
