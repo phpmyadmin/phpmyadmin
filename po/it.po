@@ -853,8 +853,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Stai probabilmente cercando di caricare sul server un file troppo grosso. "
-"Fai riferimento alla documentazione %sdocumentation%s Per i modi di aggirare "
+"Stai probabilmente cercando di caricare sul server un file troppo grande. "
+"Fai riferimento alla documentazione %sdocumentation%s se desideri aggirare "
 "questo limite."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
