@@ -1975,7 +1975,7 @@ msgstr "Non Spiegare SQL"
 
 #: libraries/common.lib.php:1174
 msgid "Without PHP Code"
-msgstr "senza codice PHP"
+msgstr "Senza codice PHP"
 
 #: libraries/common.lib.php:1177 libraries/config/messages.inc.php:464
 msgid "Create PHP Code"
