@@ -10048,9 +10048,8 @@ msgid "Show versions"
 msgstr "Exibir versões"
 
 #: tbl_tracking.php:587
-#, fuzzy
 msgid "Version"
-msgstr "Pérsa"
+msgstr "Versão"
 
 #: tbl_tracking.php:635
 #, php-format
