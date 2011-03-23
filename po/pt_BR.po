@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-03-23 02:45+0200\n"
+"PO-Revision-Date: 2011-03-23 18:32+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -9319,18 +9319,22 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:270
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sA compressão ZIP%s necessita de funções (%s) que não estão disponíveis no "
+"seu sistema."
 
 #: setup/lib/index.lib.php:272
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sA descompressão ZIP%s necessita de funções (%s) que não estão disponíveis "
+"no seu sistema."
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
@@ -9342,7 +9346,7 @@ msgstr "Você deveria utilizar mysqli por questões de desempenho."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Você permite a conexão com o servidor sem uma senha."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
@@ -9350,7 +9354,7 @@ msgstr "A chave é muito curta, você deveria ter pelo menos 8 caracteres."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "A chave deve conter letras, números, [em]e[/em] caracteres especiais."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -9376,10 +9380,9 @@ msgid "Showing SQL query"
 msgstr "Exibindo consulta SQL"
 
 #: sql.php:622
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Validar SQL"
+msgstr "SQL validado"
 
 #: sql.php:860
 #, php-format
@@ -9397,13 +9400,12 @@ msgstr "A tabela %1$s foi alterada com sucesso"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
-msgstr "Funções"
+msgstr "Função"
 
 #: tbl_change.php:752
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Por causa da sua largura,<br /> esse campo pode não ser editável "
+msgstr "Por causa da sua largura,<br /> esse campo pode não ser editável"
 
 #: tbl_change.php:869
 msgid "Remove BLOB Repository Reference"
@@ -9411,7 +9413,7 @@ msgstr ""
 
 #: tbl_change.php:875
 msgid "Binary - do not edit"
-msgstr " Binário - não edite "
+msgstr "Binário - não edite"
 
 #: tbl_change.php:923
 msgid "Upload to BLOB repository"
@@ -9423,7 +9425,7 @@ msgstr "Inserir como um novo registro"
 
 #: tbl_change.php:1053
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Inserir como uma linha nova e ignorar erros"
 
 #: tbl_change.php:1054
 #, fuzzy
@@ -9545,13 +9547,15 @@ msgstr ""
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Imagem contínua"
 
 #: tbl_chart.php:155
 msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
 msgstr ""
+"Por questões de compatibilidade a imagem do gráfico é segmentada por padrão, "
+"selecione este para desenhar o gráfico inteiro em uma imagem."
 
 #: tbl_chart.php:166
 msgid ""
@@ -9571,7 +9575,7 @@ msgstr "Redesenhar"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Tabela %s já existe!"
+msgstr "A tabela %s já existe!"
 
 #: tbl_create.php:242
 #, php-format
@@ -9666,7 +9670,7 @@ msgstr "Opções da tabela"
 
 #: tbl_operations.php:337
 msgid "Rename table to"
-msgstr "Renomear a tabela para "
+msgstr "Renomear a tabela para"
 
 #: tbl_operations.php:513
 msgid "Copy table to (database<b>.</b>table):"
@@ -9696,19 +9700,17 @@ msgid "Flush the table (FLUSH)"
 msgstr "Limpar a tabela (\"LIMPAR\")"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Extraindo dados da tabela"
+msgstr "Remover dados ou tabela"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
 msgstr "Esvaziar a tabela (TRUNCATE)"
 
 #: tbl_operations.php:682
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Sem bases"
+msgstr "Remover a tabela (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
@@ -9919,7 +9921,7 @@ msgstr "Criar um índice em&nbsp;%s&nbsp;colunas"
 
 #: tbl_structure.php:848
 msgid "partitioned"
-msgstr "Particionado"
+msgstr "particionado"
 
 #: tbl_tracking.php:109
 #, php-format
@@ -9943,7 +9945,7 @@ msgstr ""
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Instruções SQL executadas."
 
 #: tbl_tracking.php:215
 msgid ""
@@ -9956,8 +9958,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr "Comente estas duas linhas se você não precisa delas."
 
 #: tbl_tracking.php:225
+#, fuzzy
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "Instruções SQL exportadas. Por favor copie a saída ou execute."
 
 #: tbl_tracking.php:256
 #, php-format
@@ -9974,9 +9977,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Dados"
+msgstr "Data"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
@@ -9999,8 +10001,9 @@ msgid "This option will replace your table and contained data."
 msgstr "Esta opção irá substituir sua tabela e os dados nela contidos."
 
 #: tbl_tracking.php:503
+#, fuzzy
 msgid "SQL execution"
-msgstr ""
+msgstr "Execução SQL"
 
 #: tbl_tracking.php:515
 #, php-format
@@ -10012,18 +10015,17 @@ msgid "Show versions"
 msgstr "Exibir versões"
 
 #: tbl_tracking.php:587
-#, fuzzy
 msgid "Version"
-msgstr "Pérsa"
+msgstr "Versão"
 
 #: tbl_tracking.php:635
-#, php-format
+#, php-format, fuzzy
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Desativar rastreamento para %s.%s"
 
 #: tbl_tracking.php:637
 msgid "Deactivate now"
-msgstr ""
+msgstr "Desativar agora"
 
 #: tbl_tracking.php:648
 #, php-format
