@@ -588,7 +588,7 @@ msgstr "Nella/e tabella/e:"
 
 #: db_search.php:351
 msgid "Inside column:"
-msgstr "Nella colonna:"
+msgstr "All'interno della  colonna:"
 
 #: db_structure.php:59
 #, fuzzy
