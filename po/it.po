@@ -951,7 +951,7 @@ msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:284
 msgid "Do you really want to "
-msgstr "Confermi: "
+msgstr "Vuoi veramente"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:269
 msgid "You are about to DESTROY a complete database!"
