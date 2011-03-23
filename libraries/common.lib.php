@@ -661,6 +661,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     $_SESSION['Import_message']['message'] = $error_msg_output;
 
     if ($exit) {
+       /**
+        * If in an Ajax request
+        * - avoid displaying a Back link 
+        * - use PMA_ajaxResponse() to transmit the message and exit
+        */
+       if($GLOBALS['is_ajax_request'] == true) {
+           PMA_ajaxResponse($error_msg_output, false);
+       }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
@@ -675,16 +683,10 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '</fieldset>' . "\n\n";
        }
 
-        /**
-         * If in an Ajax request, don't just echo and exit.  Use PMA_ajaxResponse()
-         */
-        if($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($error_msg_output, false);
-        }
-        echo $error_msg_output;
-        /**
-         * display footer and exit
-         */
+       echo $error_msg_output;
+       /**
+        * display footer and exit
+        */
        require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
