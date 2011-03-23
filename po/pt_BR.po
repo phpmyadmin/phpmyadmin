@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-18 14:56+0100\n"
-"PO-Revision-Date: 2011-03-23 16:51+0200\n"
+"PO-Revision-Date: 2011-03-23 17:43+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9742,9 +9742,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Esvaziar a tabela (TRUNCATE)"
 
 #: tbl_operations.php:682
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Sem bases"
+msgstr "Remover a tabela (DROP)"
 
 #: tbl_operations.php:703
 msgid "Partition maintenance"
