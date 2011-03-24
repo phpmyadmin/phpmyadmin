@@ -1165,8 +1165,8 @@ $strZip = '„arhivat”';
 // To translate:
 $strAndSmall = 'and';  //to translate
 
-$strClickToSelect = 'Click to select';  //to translate
-$strClickToUnselect = 'Click to unselect';  //to translate
+$strClickToSelect = 'Click pentru a selecta';
+$strClickToUnselect = 'Click pentru a deselecta';
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
 $strCouldNotConnectSource = 'Could not connect to the source';  //to translate
 $strCouldNotConnectTarget = 'Could not connect to the target';  //to translate

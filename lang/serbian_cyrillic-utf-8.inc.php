@@ -1048,7 +1048,7 @@ $strCurrentServer = 'Current server';  //to translate
 $strCustomColor = 'Custom color';  //to translate
 $strCheck = 'Check';  //to translate
 
-$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strDatabaseHasBeenCreated = 'База %s је креирана.';
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate

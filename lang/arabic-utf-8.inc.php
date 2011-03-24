@@ -776,7 +776,7 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strCustomColor = 'Custom color';  //to translate
 $strCzechSlovak = 'Czech-Slovak';  //to translate
 
-$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strDatabaseHasBeenCreated = 'تم إنشاء قاعدة بيانات %1$s.';
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate
