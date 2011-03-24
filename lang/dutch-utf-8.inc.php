@@ -258,8 +258,8 @@ $strDelimiter = 'Scheidingsteken';
 $strDelOld = 'De huidige pagina heeft referenties met tabellen die niet langer bestaan. Wilt u deze referenties verwijderen?';
 $strDescending = 'Aflopend';
 $strDescription = 'Beschrijving';
-$strDesigner = 'Ontwerper';
 $strDesignerHelpDisplayField = 'Het \'weer te geven veld\' van een tabel heeft een roze achtergrond. Om dit te wijzigen, klik het "Kies weer te geven veld" icoon gevolgd door het weer te geven veld.';
+$strDesigner = 'Ontwerper';
 $strDetails = 'Details...';
 $strDictionary = 'Woordenboek';
 $strDifference = 'Verschil';
@@ -791,6 +791,7 @@ $strReplicationSlaveChangeMaster = 'Wijzig master server';
 $strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread niet actief!';
 $strReplicationSlaveIOThread = '%s de IO Thread';
 $strReplicationSlaveNotConfigured = 'Deze server is niet ingesteld als slave in een replicatie proces. Wilt u dit nu <a href="%s">instellen</a>?';
+$strReplicationSlaveReset = 'Reset slave';
 $strReplicationSlaveSeeStatus = 'Slave status tabel';
 $strReplicationSlaveSkipCurrentError = 'Sla de huidige error over';
 $strReplicationSlaveSkipNextErrors = 'errors over.';
@@ -1506,10 +1507,10 @@ $strTrackingThCreated = 'Aangemaakt';
 $strTrackingThLastVersion = 'Laatste versie';
 $strTrackingThUpdated = 'Bijgewerkt';
 $strTrackingThVersion = 'Versie';
+$strTracking = 'Traceren';
 $strTrackingTrackDDStatements = 'Deze definitie-statements tracken:';
 $strTrackingTrackDMStatements = 'Deze manipulatie-statements tracken:';
 $strTrackingTrackedTables = 'Tabellen met tracker';
-$strTracking = 'Traceren';
 $strTrackingTrackTable = 'Tabel tracken';
 $strTrackingUntrackedTables = 'Tabellen zonder tracker';
 $strTrackingUsername = 'Gebruikersnaam';
@@ -1618,9 +1619,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet.';
 $strZip = '"Gezipt"';
-
-// To translate:
-
-$strReplicationSlaveReset = 'Reset slave';
 
 ?>

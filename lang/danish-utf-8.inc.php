@@ -187,6 +187,7 @@ $strDanish = 'Dansk';
 $strDatabase = 'Database';
 $strDatabaseEmpty = 'Databasenavnet er tomt!';
 $strDatabaseExportOptions = 'Database eksportindstillinger';
+$strDatabaseHasBeenCreated = 'Database %1$s er oprettet,';
 $strDatabaseHasBeenDropped = 'Database %s er slettet.';
 $strDatabases = 'Databaser';
 $strDatabasesDropped = '%s databaser er blevet droppet korrekt.';
@@ -1044,7 +1045,6 @@ $strCurrentServer = 'Current server';  //to translate
 $strCustomColor = 'Custom color';  //to translate
 $strCheck = 'Check';  //to translate
 
-$strDatabaseHasBeenCreated = 'Database %1$s er oprettet,';
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate

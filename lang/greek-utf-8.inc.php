@@ -782,6 +782,7 @@ $strReplicationSlaveConfiguration = 'Ρύθμιση δευτερεύοντος';
 $strReplicationSlaveConfigured = 'Ο διακομιστής ρυθμίστηκε ως δευτερεύων σε μια διαδικασία αναπαραγωγής. Θέλετε να:';
 $strReplicationSlaveErrorManagement = 'Διαχείριση σφάλματος:';
 $strReplicationSlaveChangeMaster = 'Αλλαγή ή επαναρύθμιση του πρωτεύοντος διακομιστή';
+$strReplicationSlaveIOThreadNotRunning = 'Το δευτερεύον IO SQL δεν τρέχει!';
 $strReplicationSlaveIOThread = 'Διεργασία IO %s μόνο';
 $strReplicationSlaveNotConfigured = 'Αυτός ο διακομιστής δεν ρυθμίστηκε ως δευτερεύων σε μια διαδικασία αναπαραγωγής. Θέλετε να τον <a href="%s">ρυθμίσετε</a>;';
 $strReplicationSlaveReset = 'Επαναφορά δευτερεύοντος';
@@ -789,6 +790,7 @@ $strReplicationSlaveSeeStatus = 'Δείτε τον πίνακα κατάστασ
 $strReplicationSlaveSkipCurrentError = 'Παράβλεψη τρέχοντος σφάλματος';
 $strReplicationSlaveSkipNextErrors = 'σφάλματα.';
 $strReplicationSlaveSkipNext = 'Παράβλεψη επόμενου';
+$strReplicationSlaveSQLThreadNotRunning = 'Το δευτερεύον νήμα SQL δεν τρέχει!';
 $strReplicationSlaveSQLThread = 'Διεργασία SQL %s μόνο';
 $strReplicationSlave = 'Δευτερεύουσα αναπαραγωγή';
 $strReplicationStatusInfo = 'Αυτός ο διακομιστής MySQL λειτουργεί ως %s στη διαδικασία <b>αναπαραγωγής</b>. Για περισσότερες πληροφορίες για την κατάσταση αναπαραγωγής στο διακομιστή, επισκευτείτε τον <a href="#replication">τομέα αναπαραγωγής</a>.';
@@ -1613,10 +1615,5 @@ $strYes = 'Ναι';
 
 $strZeroRemovesTheLimit = 'Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός.';
 $strZip = 'συμπίεση «zip»';
-
-// To translate:
-
-$strReplicationSlaveIOThreadNotRunning = 'Το δευτερεύον IO SQL δεν τρέχει!';
-$strReplicationSlaveSQLThreadNotRunning = 'Το δευτερεύον νήμα SQL δεν τρέχει!';
 
 ?>

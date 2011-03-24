@@ -186,6 +186,7 @@ $strChoosePage = 'Изаберите страну коју мењате';
 $strDanish = 'Дански';
 $strDatabaseEmpty = 'Име базе није задато!';
 $strDatabaseExportOptions = 'Опције за извоз базе';
+$strDatabaseHasBeenCreated = 'База %s је креирана.';
 $strDatabaseHasBeenDropped = 'База %s је одбачена.';
 $strDatabasesDropped = '%s база је успешно одбачено.';
 $strDatabasesStatsDisable = 'Искључи статистике';
@@ -1048,7 +1049,6 @@ $strCurrentServer = 'Current server';  //to translate
 $strCustomColor = 'Custom color';  //to translate
 $strCheck = 'Check';  //to translate
 
-$strDatabaseHasBeenCreated = 'База %s је креирана.';
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate

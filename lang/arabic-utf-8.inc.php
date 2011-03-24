@@ -174,6 +174,7 @@ $strChoosePage = 'رجاء اختر صفحة لتعديلها';
 $strDanish = 'الدنمركية';
 $strDatabaseEmpty = 'إسم قاعدة البيانات خالي!';
 $strDatabaseExportOptions = 'خيارات تصدير قاعدة بيانات';
+$strDatabaseHasBeenCreated = 'تم إنشاء قاعدة بيانات %1$s.';
 $strDatabaseHasBeenDropped = 'قاعدة بيانات %s محذوفه.';
 $strDatabasesDropped = 'تم حذف قواعد البيانات %s بنجاح.';
 $strDatabasesStatsDisable = 'أوقف الإحصائيات';
@@ -776,7 +777,6 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strCustomColor = 'Custom color';  //to translate
 $strCzechSlovak = 'Czech-Slovak';  //to translate
 
-$strDatabaseHasBeenCreated = 'تم إنشاء قاعدة بيانات %1$s.';
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate

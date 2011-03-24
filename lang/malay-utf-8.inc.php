@@ -208,6 +208,7 @@ $strLogout = 'Log keluar';
 $strLogPassword = 'Katalaluan:';
 $strLogUsername = 'Namapengguna:';
 
+$strMIME_description = 'Keterangan';
 $strModifications = 'Pengubahsuaian telah disimpan';
 $strModifyIndexTopic = 'Ubahsuai indeks';
 $strModify = 'Ubahsuai';
@@ -761,7 +762,6 @@ $strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP con
 $strMediaWiki = 'MediaWiki Table';  //to translate
 $strMIME_available_mime = 'Available MIME-types';//to translate
 $strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_description = 'Keterangan';
 $strMIME_MIMEtype = 'MIME-type';//to translate
 $strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
 $strMIME_transformation = 'Browser transformation';//to translate

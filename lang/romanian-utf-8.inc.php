@@ -133,6 +133,8 @@ $strCardinality = 'Cardinalitate';
 $strCaseInsensitive = 'insensibil la registru';
 $strCaseSensitive = 'sensibil la registru';
 $strCentralEuropean = 'European de est';
+$strClickToSelect = 'Click pentru a selecta';
+$strClickToUnselect = 'Click pentru a deselecta';
 $strColComFeat = 'Arată comentariile coloanei';
 $strCollation = 'Interclasare';
 $strColumnNames = 'Denumirile coloanelor';
@@ -1165,8 +1167,6 @@ $strZip = '„arhivat”';
 // To translate:
 $strAndSmall = 'and';  //to translate
 
-$strClickToSelect = 'Click pentru a selecta';
-$strClickToUnselect = 'Click pentru a deselecta';
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
 $strCouldNotConnectSource = 'Could not connect to the source';  //to translate
 $strCouldNotConnectTarget = 'Could not connect to the target';  //to translate

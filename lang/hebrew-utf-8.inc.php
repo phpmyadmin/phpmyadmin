@@ -79,6 +79,7 @@ $strBookmarkLabel = 'תווית';
 $strBookmarkQuery = 'שאילתות SQL מועדפות';
 $strBookmarkThis = 'הכנס שאילתת SQL זאת למועדפים';
 $strBookmarkView = 'ראה רק';
+$strBrowseDistinctValues = 'עיין בערכים נפרדים';
 $strBrowse = 'עיון';
 $strBulgarian = 'בולגרית';
 $strBusyPages = 'עמודים עסוקים';
@@ -250,6 +251,7 @@ $strGenerate = 'ייצור';
 $strGenTime = 'זמן ייצור';
 $strGeorgian = 'גרוזינית';
 $strGerman = 'גרמנית';
+$strGetMoreThemes = 'השג סגנונות נוספים.';
 $strGlobalPrivileges = 'הרשאות גלובליות';
 $strGlobalValue = 'ערך גלובלי';
 $strGlobal = 'עולמי';
@@ -300,6 +302,7 @@ $strJumpToDB = 'קפיצה אל מאגר נתונים &quot;%s&quot;.';
 $strJustDelete = 'רק תמחק את המשתמשים מטבלאות ההרשאות.';
 
 $strKeepPass = 'אל תשנה את הסיסמא';
+$strKeyname = 'שמות מפתח';
 
 $strLatexCaption = 'כותרת טבלה';
 $strLatexContent = 'תוכן של טבלה __TABLE__';
@@ -607,6 +610,7 @@ $strViewDump = 'ראיית הוצאה (תבנית) של טבלה';
 
 $strWelcome = 'ברוך הבא אל %s';
 $strWildcard = 'תו כללי';
+$strWindowNotFound = 'עדכון חלון הדפדפן הנבחר נכשל.';
 $strWithChecked = 'עם הנבחרים:';
 $strWriteRequests = 'בקשות כתיבה';
 $strWrongUser = 'שם משתמש/סיסמה שגויים. הגישה נדחתה.';
@@ -642,7 +646,6 @@ $strBLOBRepositoryRepair = 'Repair';  //to translate
 $strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
 $strBookmarkCreated = 'Bookmark %s created';  //to translate
 $strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
-$strBrowseDistinctValues = 'עיין בערכים נפרדים';
 $strBrowseForeignValues = 'Browse foreign values';  //to translate
 $strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
 $strBufferPool = 'Buffer Pool';  //to translate
@@ -728,7 +731,6 @@ $strFullStart = 'Full start';  //to translate
 $strFullStop = 'Full stop';  //to translate
 $strFunctions = 'Functions';  //to translate
 
-$strGetMoreThemes = 'השג סגנונות נוספים.';
 $strGoToDatabase = 'Go to database';  //to translate
 $strGoToTable = 'Go to table';  //to translate
 $strGoToView = 'Go to view';  //to translate
@@ -787,7 +789,6 @@ $strJoins = 'Joins';  //to translate
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.';  //to translate
 
 $strKeyCache = 'Key cache';  //to translate
-$strKeyname = 'שמות מפתח';
 $strKill = 'Kill';  //to translate
 $strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 $strKorean = 'Korean';  //to translate
@@ -1624,7 +1625,6 @@ $strWebServerUploadDirectory = 'web server upload directory';  //to translate
 $strWebServer = 'Web server';  //to translate
 $strWestEuropean = 'West European';  //to translate
 $strWiki = 'Wiki';  //to translate
-$strWindowNotFound = 'עדכון חלון הדפדפן הנבחר נכשל.';
 
 $strXMLError = 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.';  //to translate
 $strXMLExportContents = 'Export contents';  //to translate
