@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-03-25 15:48+0200\n"
-"Last-Translator:  <wiltave@gmail.com>\n"
+"PO-Revision-Date: 2011-03-25 20:32+0200\n"
+"Last-Translator:  <a3157130@jnxjn.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -85,8 +85,9 @@ msgstr "Nome chave"
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:771
+#, fuzzy
 msgid "Description"
-msgstr "Descrição"
+msgstr "Descrição "
 
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
