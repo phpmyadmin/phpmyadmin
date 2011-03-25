@@ -103,6 +103,7 @@ $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
+$js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the layout. They will be lost if you don\'t save them.Do you want to continue?');
 
 /* Visual query builder (pmd/scripts/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
