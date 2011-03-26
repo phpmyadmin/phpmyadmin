@@ -9817,7 +9817,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "Obter mais temas!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
