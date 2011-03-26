@@ -121,6 +121,8 @@ if (!$is_superuser) {
     require './libraries/footer.inc.php';
 }
 
+$random_n = mt_rand(0,1000000); // a random number that will be appended to the id of the user forms
+
 /**
  * Escapes wildcard in a database+table specification
  * before using it in a GRANT statement.
@@ -325,6 +327,8 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
  */
 function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
 {
+    global $random_n;
+
     if ($db == '*') {
         $table = '*';
     }
@@ -572,10 +576,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
                     ? __('Database-specific privileges')
                     : __('Table-specific privileges'))) . "\n"
            . '        (<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm\', true); return false;">'
+            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
             . __('Check All') . '</a> /' . "\n"
            . '        <a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm\', false); return false;">'
+            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
            . '    </legend>' . "\n"
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n"
@@ -1783,7 +1787,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             //require './libraries/footer.inc.php';
         }
 
-        echo '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
+        echo '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n";
         $_params = array(
             'username' => $username,
             'hostname' => $hostname,
@@ -2124,7 +2128,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usradd.png') . __('Add a new User') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n"
+       . '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n"
        . PMA_generate_common_hidden_inputs('', '');
     PMA_displayLoginInformationFields('new');
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
