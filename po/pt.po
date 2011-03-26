@@ -9802,9 +9802,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: tbl_tracking.php:683
-#, fuzzy
 msgid "Create version"
-msgstr "Versão do servidor"
+msgstr "Criar versão"
 
 #: themes.php:31
 #, php-format
