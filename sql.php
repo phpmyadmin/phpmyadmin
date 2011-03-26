@@ -709,8 +709,8 @@ if (0 == $num_rows || $is_affected) {
             }
         }
 
-        if(isset($GLOBALS['display_query'])) {
-            $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+        if ($cfg['ShowSQL']) {
+            $extra_data['result_query'] = PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
         }
         if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
             $extra_data['reload'] = 1;

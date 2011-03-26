@@ -891,6 +891,13 @@ $(document).ready(function() {
             $.post('tbl_replace.php', post_params, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    // remove possible previous feedback message
+                    $('#result_query').remove();
+                    if (typeof data.result_query != 'undefined') {
+                        // display feedback
+                        $('#sqlqueryresults').prepend('<div id="result_query" align="left"></div>');
+                        $('#result_query').prepend(data.result_query);
+                    }
                     PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode);
                 } else {
                     PMA_ajaxShowMessage(data.error);
