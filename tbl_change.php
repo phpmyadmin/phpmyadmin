@@ -537,6 +537,9 @@ foreach ($rows as $row_id => $vrow) {
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
         $tabindex = $idindex;
 
+        // These GIS data types are not yet supported.
+        $no_support_types = array('geometry', 'point', 'linestring', 'polygon', 'multipoint', 'multilinestring', 'multipolygon', 'geometrycollection');
+
         // The function column
         // -------------------
         // We don't want binary data to be destroyed
@@ -547,7 +550,7 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
              || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo '        <td align="center">' . __('Binary') . '</td>' . "\n";
-            } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set') || 'geometry' == $field['pma_type']) {
+            } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set') || in_array($field['pma_type'], $no_support_types)) {
                 echo '        <td align="center">--</td>' . "\n";
             } else {
                 ?>
@@ -965,7 +968,7 @@ foreach ($rows as $row_id => $vrow) {
             } // end if (web-server upload directory)
         } // end elseif (binary or blob)
 
-        elseif ('geometry' == $field['pma_type']) {
+        elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
         }
         else {
