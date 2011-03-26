@@ -9820,6 +9820,7 @@ msgid "Get more themes!"
 msgstr "Obter mais temas!"
 
 #: transformation_overview.php:24
+#, fuzzy
 msgid "Available MIME types"
 msgstr "MIME-types disponíveis"
 
