@@ -45,9 +45,9 @@ if (PMA_isValid($_REQUEST['new_name'])) {
         } else {
             $message = PMA_Message::error(__('Can\'t copy table to same one!'));
         }
-        $goto = './tbl_operations.php';
+        $result = false;
     } else {
-        PMA_Table::moveCopy($db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
+        $result = PMA_Table::moveCopy($db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
             $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table');
 
         if (isset($_REQUEST['submit_move'])) {
@@ -66,23 +66,18 @@ if (PMA_isValid($_REQUEST['new_name'])) {
             $table     = $_REQUEST['new_name'];
         }
         $reload = 1;
-
-        $disp_query = $sql_query;
-        $disp_message = $message;
-        unset($sql_query, $message);
-
-        $goto = $cfg['DefaultTabTable'];
     }
 } else {
     /**
      * No new name for the table!
      */
     $message = PMA_Message::error(__('The table name is empty!'));
-    $goto = './tbl_operations.php';
+    $result = false;
 }
 
 /**
  * Back to the calling script
  */
-require $goto;
+$_message = $message;
+unset($message);
 ?>

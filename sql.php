@@ -932,5 +932,7 @@ window.onload = function()
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+if(!isset($_REQUEST['table_maintenance'])) {
+    require './libraries/footer.inc.php';
+}
 ?>

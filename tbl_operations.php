@@ -64,6 +64,20 @@ $reread_info = false;
 $table_alters = array();
 
 /**
+ * If the table has to be moved to some other database
+ */
+if(isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
+    $_message = '';
+    require_once './tbl_move_copy.php';
+}
+/**
+ * If the table has to be maintained
+ */
+if(isset($_REQUEST['table_maintenance'])) {
+    require_once './sql.php';
+    unset($result);
+}
+/**
  * Updates table comment, type and options if required
  */
 if (isset($_REQUEST['submitoptions'])) {
@@ -266,7 +280,7 @@ unset($columns);
 
 <!-- Move table -->
 <div id="div_table_rename">
-<form method="post" action="tbl_move_copy.php"
+<form method="post" action="tbl_operations.php"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -505,7 +519,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 
 <!-- Copy table -->
 <div id="div_table_copy">
-<form method="post" action="tbl_move_copy.php"
+<form method="post" action="tbl_operations.php"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -577,9 +591,12 @@ if (isset($possible_row_formats[$tbl_type])) {
 if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     if ($is_myisam_or_aria || $is_innodb) {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'CHECK TABLE ' . PMA_backquote($GLOBALS['table'])));
+            array(
+                'sql_query' => 'CHECK TABLE ' . PMA_backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                ));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Check table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE'); ?>
     </li>
@@ -597,9 +614,12 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     }
     if ($is_myisam_or_aria || $is_berkeleydb) {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'ANALYZE TABLE ' . PMA_backquote($GLOBALS['table'])));
+            array(
+                'sql_query' => 'ANALYZE TABLE ' . PMA_backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                ));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Analyze table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE');?>
     </li>
@@ -607,9 +627,12 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     }
     if ($is_myisam_or_aria) {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table'])));
+            array(
+                'sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                ));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Repair table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE'); ?>
     </li>
@@ -617,9 +640,12 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     }
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table'])));
+            array(
+                'sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                ));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Optimize table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE'); ?>
     </li>
