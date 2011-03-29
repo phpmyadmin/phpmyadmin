@@ -4,7 +4,7 @@
 #
 
 # More documentation about making a release is available at:
-# http://wiki.phpmyadmin.net/pma/Devel:Releasing
+# http://wiki.phpmyadmin.net/pma/Releasing
 
 # Fail on undefined variables
 set -u

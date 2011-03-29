@@ -773,7 +773,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  * Determines if the column types are int, decimal, or string
  *
  *
- * @link http://wiki.phpmyadmin.net/pma/Devel:Import
+ * @link http://wiki.phpmyadmin.net/pma/Import
  *
  * @todo    Handle the error case more elegantly
  *
@@ -881,7 +881,7 @@ $import_notice = NULL;
  * as necessary, as well as insert all the data.
  *
  *
- * @link http://wiki.phpmyadmin.net/pma/Devel:Import
+ * @link http://wiki.phpmyadmin.net/pma/Import
  *
  * @access  public
  *
