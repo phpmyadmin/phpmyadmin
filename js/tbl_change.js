@@ -400,6 +400,13 @@ $(document).ready(function() {
                                 $changed_element.closest('tr').find('span.column_type').html()
                                 );
                         });
+                        if ($this_element.is('.datefield') || $this_element.is('.datetimefield')) {
+                            // we now need to remove the remainings of the datepicker
+                            // from the element that we cloned
+                            $this_element.removeClass('hasDatepicker').next().remove();
+                            // and bind a new datepicker
+                            PMA_addDatepicker($this_element);
+                        }
                     }
 
                     if ($this_element.is('.checkbox_null')) {
