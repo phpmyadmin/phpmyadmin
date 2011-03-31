@@ -1233,9 +1233,9 @@ function PMA_ajaxShowMessage(message, timeout) {
             $('<span id="loading" class="ajax_notification"></span>')
             .appendTo("#loading_parent")
             .html(msg)
-            .slideDown('medium')
+            .fadeIn('medium')
             .delay(to)
-            .slideUp('medium', function(){
+            .fadeOut('medium', function(){
                 $(this)
                 .html("") //Clear the message
                 .hide();
@@ -1248,14 +1248,16 @@ function PMA_ajaxShowMessage(message, timeout) {
         $("#loading")
         .clearQueue()
         .html(msg)
-        .slideDown('medium')
+        .fadeIn('medium')
         .delay(to)
-        .slideUp('medium', function() {
+        .fadeOut('medium', function() {
             $(this)
             .html("")
             .hide();
         })
     }
+	
+	return $("#loading");
 }
 
 /**
@@ -1389,7 +1391,7 @@ $(document).ready(function() {
         var button_options_error = {};
         button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
 
-        PMA_ajaxShowMessage();
+        var msgbox = PMA_ajaxShowMessage();
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
             $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
         }
@@ -1418,7 +1420,10 @@ $(document).ready(function() {
                     open: PMA_verifyTypeOfAllColumns,
                     buttons : button_options
                 }); // end dialog options
-            }
+            }            
+            msgbox.clearQueue().fadeOut('medium', function() {
+                $(this).hide();
+            });
         }) // end $.get()
 
         // empty table name and number of columns from the minimal form
@@ -1546,7 +1551,7 @@ $(document).ready(function() {
          */
         var $form = $("#create_table_form");
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
             $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
         }
@@ -1562,6 +1567,10 @@ $(document).ready(function() {
                 $("#create_table_div").html(data);
             }
             PMA_verifyTypeOfAllColumns();
+            
+            msgbox.clearQueue().fadeOut('medium', function() {
+                $(this).hide();
+            });
         }) //end $.post()
 
     }) // end create table form (add fields)
@@ -1744,7 +1753,7 @@ $(document).ready(function() {
          */
         var this_value = $(this).val();
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
 
         $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
@@ -1753,6 +1762,10 @@ $(document).ready(function() {
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
                 $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
+            
+                msgbox.clearQueue().fadeOut('medium', function() {
+                    $(this).hide();
+                });
             }
             else {
                 PMA_ajaxShowMessage(data.error);

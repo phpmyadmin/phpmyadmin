@@ -91,7 +91,7 @@ $(document).ready(function() {
     $("#copy_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
 
         var $form = $(this);
         
@@ -119,6 +119,10 @@ $(document).ready(function() {
             else {
                 $('#topmenucontainer').after(data.error);
             }
+            
+            msgbox.clearQueue().fadeOut('medium', function() {
+                $(this).hide();
+            });
         }) // end $.get
     }) // end copy database
 

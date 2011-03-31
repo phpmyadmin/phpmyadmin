@@ -58,7 +58,7 @@ $(document).ready(function() {
 
         // empty previous search results while we are waiting for new results
         $("#sqlqueryresults").empty();
-        PMA_ajaxShowMessage(PMA_messages['strSearching']);
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
 	    // add this hidden field just once 
 	    if (! $search_form.find('input:hidden').is('#ajax_request_hidden')) {
@@ -84,6 +84,10 @@ $(document).ready(function() {
                 // error message (zero rows)
                 $("#sqlqueryresults").html(response['message']);
             }
-        })
+            
+            msgbox.clearQueue().fadeOut('medium', function() {
+                $(this).hide();
+            });
+        }) // end $.post()
     })
 }, 'top.frame_content'); // end $(document).ready()
