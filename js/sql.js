@@ -635,7 +635,7 @@ $(document).ready(function() {
                 /**
                  * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
                  */
-                var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
+                var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
 
                 // Make the Ajax call and get the data, wrap it and insert it
                 $.post('sql.php', {
