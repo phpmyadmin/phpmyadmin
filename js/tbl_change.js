@@ -387,8 +387,11 @@ $(document).ready(function() {
                     $this_element.attr('name', new_name);
 
                     if ($this_element.is('.textfield')) {
+                        // do not remove the 'value' attribute for ENUM columns
+                        if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
+                            $this_element.attr('value', '');
+                        }
                         $this_element
-                        .attr('value', '')
                         .unbind('change')
                         // Remove onchange attribute that was placed
                         // by tbl_change.php; it refers to the wrong row index
