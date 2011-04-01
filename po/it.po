@@ -1785,7 +1785,7 @@ msgstr "Non riesco ad aprire il file: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "condiviso"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
@@ -2141,11 +2141,11 @@ msgstr ""
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Entrambi"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Apri"
 
 #: libraries/config.values.php:74
 #, fuzzy
@@ -2801,7 +2801,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
-msgstr ""
+msgstr "Modalitá "
 
 #: libraries/config/messages.inc.php:152
 #, fuzzy
@@ -2826,7 +2826,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "Sviluppatore"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
@@ -2834,7 +2834,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "Modalitá di modifica"
 
 #: libraries/config/messages.inc.php:160
 #, fuzzy
@@ -4193,15 +4193,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:473
 msgid "Suggest new database name"
-msgstr ""
+msgstr "Suggerisci un nuovo nome per il database"
 
 #: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Mostra un avviso sulla pagina principale se Suhosin é stato trovato"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Avviso Suhosin"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
@@ -4320,7 +4320,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 #, fuzzy
@@ -4373,7 +4373,7 @@ msgstr "Foglio di calcolo nel formato Open Document"
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
-msgstr ""
+msgstr "Veloce"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
@@ -4687,10 +4687,9 @@ msgid "Character set of the file:"
 msgstr "Set di caratteri del file:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compressione"
+msgstr "Compressione:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:512
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
@@ -5927,7 +5926,7 @@ msgstr "Nessuno"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Converti a Kana"
 
 #: libraries/mult_submits.inc.php:419 tbl_replace.php:329
 msgid "No change"
@@ -6191,7 +6190,7 @@ msgstr "Storico dell'SQL"
 
 #: libraries/relation.lib.php:147
 msgid "User preferences"
-msgstr ""
+msgstr "Impostazioni utente"
 
 #: libraries/relation.lib.php:151
 msgid "Quick steps to setup advanced features:"
@@ -6762,7 +6761,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Piú spazio per la modifica"
 
 #: libraries/tbl_properties.inc.php:396
 #, fuzzy
@@ -7499,7 +7498,7 @@ msgstr ""
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Non hai alcuna impostazione salvata!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -8096,7 +8095,7 @@ msgstr "ID"
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Errore sconosciuto"
 
 #: server_replication.php:56
 #, php-format
@@ -8248,11 +8247,11 @@ msgstr ""
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Salta il prossimo"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "errori."
 
 #: server_replication.php:361
 #, php-format
@@ -9370,7 +9369,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Non é disponibile nessuna nuova versione stabile."
 
 #: setup/lib/index.lib.php:250
 #, php-format
@@ -9482,7 +9481,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "La chiave é troppo corta, deve essere almeno 8 caratteri."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -9618,15 +9617,15 @@ msgstr "Può essere approssimato. Vedere FAQ 3.11"
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Larghezza"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Altezza"
 
 #: tbl_chart.php:98
 msgid "Title"
-msgstr ""
+msgstr "Titolo"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
@@ -9652,7 +9651,7 @@ msgstr "Mar"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "Linea"
 
 #: tbl_chart.php:136
 msgid "Radar"
@@ -10118,9 +10117,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "Dati"
+msgstr "Data"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
@@ -10140,11 +10138,11 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Questa opzione sostituerá la tua tabbella e i dati contenuti."
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "Esecuzione SQL"
 
 #: tbl_tracking.php:515
 #, php-format
@@ -10153,7 +10151,7 @@ msgstr "Esporta come %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Mostra versioni"
 
 #: tbl_tracking.php:587
 msgid "Version"
