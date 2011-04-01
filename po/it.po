@@ -4314,9 +4314,8 @@ msgid "Cookie authentication"
 msgstr "<b>Modalità di autenticazione 'cookie':</b>"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 msgid "HTTP authentication"
-msgstr "Tipo di autenticazione"
+msgstr "Autenticazione HTTP"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
