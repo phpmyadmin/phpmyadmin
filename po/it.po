@@ -1752,7 +1752,7 @@ msgstr "Connessione PBMS fallita:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "Impossibile ottenere informazioni su BLOB da parte del PBMS"
+msgstr "Impossibile ottenere informazioni su BLOB da parte del PBMS:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
