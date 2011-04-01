@@ -2479,9 +2479,8 @@ msgid "Tab that is displayed when entering a server"
 msgstr "Tabulazione da visualizzare dopo l'ingresso nel server"
 
 #: libraries/config/messages.inc.php:51
-#, fuzzy
 msgid "Default server tab"
-msgstr "Server predefinito"
+msgstr "Tabulazione predefinita per il server"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
