@@ -2486,9 +2486,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr "Tabulazione da visualizzare dopo l'ingresso nella tabbella"
 
 #: libraries/config/messages.inc.php:53
-#, fuzzy
 msgid "Default table tab"
-msgstr "Rinomina il DataBase in"
+msgstr "Tabulazione predefinita per le tabbelle"
 
 #: libraries/config/messages.inc.php:54
 #, fuzzy
