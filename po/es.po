@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 23:08+0200\n"
+"PO-Revision-Date: 2011-04-01 23:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2195,7 +2195,7 @@ msgstr "Personalizado - como el anterior, pero sin elegir rápido/personalizado"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
-msgstr "completar los INSERTS"
+msgstr "INSERTs completos"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
