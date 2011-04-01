@@ -804,7 +804,7 @@ msgstr "Valore per la colonna \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr "Inserisci ogni valore in un campo separato"
+msgstr "Inserisci ogni valore in un campo separato."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
