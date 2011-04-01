@@ -2496,7 +2496,7 @@ msgstr "Mostra contenuti binari come esadecimali"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
-msgstr "Mostra contenuti binati come esadecimali"
+msgstr "Mostra contenuti binari come esadecimali"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
