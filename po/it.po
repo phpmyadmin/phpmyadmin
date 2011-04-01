@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:34+0200\n"
+"PO-Revision-Date: 2011-04-01 13:37+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2931,6 +2931,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Specifica il testo per la barra del titolo. Puoi consultare la "
+"[a@Documentation.html#cfg_TitleTable]documentazione[/a] per vedere delle "
+"stringhe che possono essere utilizzate per ottenere dei valori speciali."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
