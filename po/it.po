@@ -931,7 +931,7 @@ msgstr "Indietro"
 
 #: index.php:185
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin funziona meglio con browser che <b>supportano i frames</b>"
+msgstr "phpMyAdmin funziona meglio con browser che <b>supportano i frames</b>."
 
 #: js/messages.php:25 server_synchronize.php:344 server_synchronize.php:356
 #: server_synchronize.php:372 server_synchronize.php:379
