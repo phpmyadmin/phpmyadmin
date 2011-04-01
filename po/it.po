@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:22+0200\n"
+"PO-Revision-Date: 2011-04-01 13:23+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2700,9 +2700,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Sovrascrivi file(s) esistente/i"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Nome file template"
+msgstr "Ricorda il modello per i nomi dei file"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
