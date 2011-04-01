@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:12+0200\n"
+"PO-Revision-Date: 2011-04-01 13:14+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2514,9 +2514,10 @@ msgstr "Mostra i server in una lista invece di un menu a tendina"
 msgid "Display servers as a list"
 msgstr "Visualizza i server in una lista"
 
+# ma come si dice "popup"?
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Modifica le query SQL in una finestra separata"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
