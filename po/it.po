@@ -2796,9 +2796,8 @@ msgstr "Personalizza frame principale"
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 msgid "Customize default options"
-msgstr "Personalizza le opzioni di esportazione"
+msgstr "Personalizza le opzioni predefinite"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
