@@ -2783,6 +2783,7 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: libraries/config/messages.inc.php:151
+#, fuzzy
 msgid "Browse mode"
 msgstr "Modalitá "
 
