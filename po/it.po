@@ -2642,9 +2642,8 @@ msgid "Server name template"
 msgstr "Modello per nomi dei server"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "Nome file template"
+msgstr "Modello per nomi delle tabbelle"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
