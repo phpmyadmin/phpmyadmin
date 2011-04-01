@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:55+0200\n"
+"PO-Revision-Date: 2011-04-01 13:56+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4626,10 +4626,9 @@ msgid "Save output to a file"
 msgstr "Salva con nome..."
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Nome file template"
+msgstr "Modello per nomi dei file:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
