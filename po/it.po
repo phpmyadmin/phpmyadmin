@@ -1851,7 +1851,7 @@ msgstr "Risultati query"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr "Nessun tipo di dato trovato per il diagramma"
+msgstr "Nessun tipo di dato trovato per il diagramma."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
