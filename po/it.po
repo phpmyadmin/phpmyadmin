@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:45+0200\n"
+"PO-Revision-Date: 2011-04-01 13:46+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3094,10 +3094,9 @@ msgid "Texy! text"
 msgstr "Testo! testo"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "Attenzione"
+msgstr "Avviso"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
