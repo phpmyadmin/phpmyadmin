@@ -2692,7 +2692,7 @@ msgstr "Recordar el nombre de la plantilla del archivo"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Encerrar nombres de tabla y columna con comillas"
+msgstr "Encerrar nombres de tabla y columna con comillas invertidas"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
