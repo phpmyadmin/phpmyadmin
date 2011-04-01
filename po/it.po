@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:30+0200\n"
+"PO-Revision-Date: 2011-04-01 13:31+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2828,9 +2828,8 @@ msgid "Export defaults"
 msgstr "Esporta i predefiniti"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 msgid "Customize default export options"
-msgstr "Personalizza le opzioni di esportazione"
+msgstr "Personalizza le opzioni di esportazione predefinite"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
