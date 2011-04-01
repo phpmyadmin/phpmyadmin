@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 13:25+0200\n"
+"PO-Revision-Date: 2011-04-01 13:27+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2749,7 +2749,7 @@ msgstr "Tipo di esportazione"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
-msgstr "Includi export in una transazione"
+msgstr "Includi esportazione in una transazione"
 
 #: libraries/config/messages.inc.php:137
 #, fuzzy
