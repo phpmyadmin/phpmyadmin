@@ -2125,7 +2125,7 @@ msgstr "Cerca sul tuo computer:"
 #: libraries/common.lib.php:2978
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Selezionare dalla cartella di upload del server web <b>%s</b>"
+msgstr "Selezionare dalla cartella di upload del server web <b>%s</b>:"
 
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:956
