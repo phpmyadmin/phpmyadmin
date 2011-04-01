@@ -114,7 +114,7 @@ msgid ""
 "for more information."
 msgstr ""
 "Il file %s non è disponibile sul sistema, visita www.phpmyadmin.net per "
-"maggiori informazioni"
+"maggiori informazioni."
 
 #: db_create.php:58
 #, php-format
