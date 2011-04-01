@@ -2466,7 +2466,6 @@ msgid "Display direction for altering/creating columns"
 msgstr ""
 
 #: libraries/config/messages.inc.php:48
-#, fuzzy
 msgid "Tab that is displayed when entering a database"
 msgstr "Tabulazione da visualizzare dopo l'ingresso nel database"
 
