@@ -2820,9 +2820,8 @@ msgid "Edit mode"
 msgstr "Modalitá di modifica"
 
 #: libraries/config/messages.inc.php:160
-#, fuzzy
 msgid "Customize edit mode"
-msgstr "Personalizza frame principale"
+msgstr "Personalizza la modalitá di modifica"
 
 #: libraries/config/messages.inc.php:162
 #, fuzzy
