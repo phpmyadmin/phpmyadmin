@@ -1859,7 +1859,7 @@ msgstr "L'estensione GD è richiesta per i diagrammi (grafici)."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "L'encoder JSON è necessario per i tooltips grafici"
+msgstr "L'encoder JSON è necessario per i tooltips grafici."
 
 #: libraries/common.inc.php:576
 msgid ""
