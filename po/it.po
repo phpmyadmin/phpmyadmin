@@ -3216,7 +3216,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:263
 #, fuzzy
 msgid "Number of inserted rows"
-msgstr "Il numero di righe ordinate."
+msgstr "Il numero di righe ordinate"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
