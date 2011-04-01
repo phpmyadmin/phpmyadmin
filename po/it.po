@@ -3035,9 +3035,8 @@ msgid "SQL queries"
 msgstr "query SQL"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 msgid "SQL Query box"
-msgstr "query SQL"
+msgstr "Riquadro per query SQL"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
