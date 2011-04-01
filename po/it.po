@@ -2512,7 +2512,7 @@ msgstr "Mostra i server in una lista invece di un menu a tendina"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Visualizza i server in una lista"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
