@@ -3107,7 +3107,7 @@ msgid ""
 "and export operations"
 msgstr ""
 "Abilita compressione [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per le "
-"operazioni di importazione ed esportazione."
+"operazioni di importazione ed esportazione"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
