@@ -2824,9 +2824,8 @@ msgid "Customize edit mode"
 msgstr "Personalizza la modalitá di modifica"
 
 #: libraries/config/messages.inc.php:162
-#, fuzzy
 msgid "Export defaults"
-msgstr "Importa file"
+msgstr "Esporta i predefiniti"
 
 #: libraries/config/messages.inc.php:163
 #, fuzzy
