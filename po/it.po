@@ -2557,7 +2557,7 @@ msgstr "Massimo tempo di esecuzione"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "Salva con nome..."
+msgstr "Salva con nome"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 #, fuzzy
