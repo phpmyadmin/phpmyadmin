@@ -2137,7 +2137,7 @@ msgstr "La directory impostata per l'upload non può essere trovata"
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Nessun file da caricare"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
@@ -2399,7 +2399,7 @@ msgstr "Numero di colonne per caselle textarea di campi CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Campi con aree di testo CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
@@ -2407,7 +2407,7 @@ msgstr "Numero di righe per caselle textarea di campi CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Righe con aree di testo CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
@@ -2699,7 +2699,7 @@ msgstr "Ricorda il modello per i nomi dei file"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Racchiudi i nomi di tabelle e di campi con virgolette"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
@@ -7302,7 +7302,7 @@ msgstr "Le modifiche sono state salvate"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Impossibile salvare le impostazioni, il form conteneva degli errori"
 
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: %1$s"
