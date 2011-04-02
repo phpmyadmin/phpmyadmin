@@ -2779,9 +2779,8 @@ msgid "Browse mode"
 msgstr "Modalitá di navigazione"
 
 #: libraries/config/messages.inc.php:152
-#, fuzzy
 msgid "Customize browse mode"
-msgstr "Personalizza frame principale"
+msgstr "Personalizza modalità di navigazione"
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
