@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:18+0200\n"
+"PO-Revision-Date: 2011-04-02 23:19+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4501,10 +4501,10 @@ msgid "Exporting databases from the current server"
 msgstr "Esportazione dei database dal server corrente in corso"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Sto esportando le tabelle nel database \"%s\""
+msgstr "Esportazione delle tabelle dal database \"%s\" in corso"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
