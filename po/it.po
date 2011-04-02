@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 13:21+0200\n"
+"PO-Revision-Date: 2011-04-02 13:24+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -6907,7 +6907,6 @@ msgstr ""
 "output sarà mostrato senza essere riformattato (Predefinito: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6915,8 +6914,9 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Preserva l'originale formattazione del campo. Nessun Escaping viene "
-"applicato."
+"Preserva il contenuto originale del campo, senza processarlo con "
+"htmlspecialchars(). Vale a dire, é presupposto che il campo contiene valido "
+"codice HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
