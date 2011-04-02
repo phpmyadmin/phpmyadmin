@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:56+0200\n"
+"PO-Revision-Date: 2011-04-02 23:58+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9198,7 +9198,7 @@ msgstr "O formulário submetido contém erros"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Tentar reverter campos errôneos para os seus valores padrões"
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
