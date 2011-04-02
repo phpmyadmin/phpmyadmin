@@ -1303,7 +1303,7 @@ msgstr "Set"
 #. l10n: Short month name
 #: js/messages.php:179 libraries/common.lib.php:1586
 msgid "Oct"
-msgstr "ott"
+msgstr "Ott"
 
 #. l10n: Short month name
 #: js/messages.php:181 libraries/common.lib.php:1588
