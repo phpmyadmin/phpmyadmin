@@ -3028,9 +3028,8 @@ msgstr "Personalizza frame principale"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
-msgstr "query SQL"
+msgstr "Query SQL"
 
 #: libraries/config/messages.inc.php:212
 msgid "SQL Query box"
