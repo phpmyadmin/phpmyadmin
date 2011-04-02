@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:44+0200\n"
+"PO-Revision-Date: 2011-04-02 23:50+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9054,7 +9054,7 @@ msgstr ""
 
 #: server_synchronize.php:1002
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "As seguintes consultas foram executadas:"
 
 #: server_synchronize.php:1119
 msgid "Enter manually"
