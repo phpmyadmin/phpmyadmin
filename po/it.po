@@ -9614,10 +9614,9 @@ msgid "Pie"
 msgstr "A torta"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Tipo di Query"
+msgstr "Tipo di barre"
 
 #: tbl_chart.php:146
 #, fuzzy
