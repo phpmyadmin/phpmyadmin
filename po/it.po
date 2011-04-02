@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:02+0200\n"
+"PO-Revision-Date: 2011-04-02 23:03+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2556,9 +2556,8 @@ msgid "Save as file"
 msgstr "Salva con nome"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Set di caratteri del file"
+msgstr "Codifica dei caratteri del file"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:829
