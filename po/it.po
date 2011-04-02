@@ -8763,8 +8763,8 @@ msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"Numero di processi che hanno impiegato più di \"slow_launch_time\" secondi "
-"per partire."
+"Numero di processi che hanno impiegato più di slow_launch_time secondi per "
+"partire."
 
 #: server_status.php:142
 msgid ""
