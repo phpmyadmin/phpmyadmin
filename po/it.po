@@ -4632,7 +4632,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4644,7 +4644,8 @@ msgid ""
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
-"le seguenti trasformazioni: %3$s. Il testo rimanente resterà invariato."
+"le seguenti trasformazioni: %3$s. Il testo rimanente resterà invariato. Vedi "
+"la %4$sFAQ%5$s per i dettagli."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
