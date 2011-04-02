@@ -3590,6 +3590,7 @@ msgid "Recoding engine"
 msgstr ""
 
 #: libraries/config/messages.inc.php:346
+#, fuzzy
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 
