@@ -1174,6 +1174,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Una nuova versione di phpMyAdmin è disponibile e dovresti considerarne "
+"l'aggiornamento. La versione più recente è la %s, rilasciata il %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
