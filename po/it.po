@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 13:12+0200\n"
+"PO-Revision-Date: 2011-04-02 13:13+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2258,9 +2258,8 @@ msgid "export will not work, missing function (%s)"
 msgstr "l'esportazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:757
-#, fuzzy
 msgid "SQL Validator is disabled"
-msgstr "<b>$cfg['SQLValidator']['use']</b> boolean"
+msgstr "Il Validator SQL é disattivato"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
