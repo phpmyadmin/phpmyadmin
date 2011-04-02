@@ -4821,10 +4821,9 @@ msgid "Partial texts"
 msgstr "Testi parziali"
 
 #: libraries/display_tbl.lib.php:547 libraries/display_tbl.lib.php:560
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Testo completo"
+msgstr "Testi completi"
 
 #: libraries/display_tbl.lib.php:573
 msgid "Relational key"
