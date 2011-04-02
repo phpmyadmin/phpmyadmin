@@ -9134,7 +9134,7 @@ msgstr "Exibir mensagens escondidas (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:136
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Não existem servidores configurados"
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
