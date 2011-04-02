@@ -4706,10 +4706,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Use light version"
 msgid "Encoding Conversion:"
-msgstr "Usa versione leggera"
+msgstr "Conversione di Codifica:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
