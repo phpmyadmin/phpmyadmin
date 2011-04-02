@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 13:26+0200\n"
+"PO-Revision-Date: 2011-04-02 13:27+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -9581,14 +9581,15 @@ msgid "Chart generated successfully."
 msgstr "I privilegi sono stati ricaricati con successo."
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
-msgstr "Può essere approssimato. Vedere FAQ 3.11"
+msgstr ""
+"Il risultato di questa query non puó essere utilizzto per produrre un "
+"diagramma. Vedi [a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
