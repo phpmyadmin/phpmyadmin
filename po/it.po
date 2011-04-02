@@ -8916,7 +8916,7 @@ msgstr "Riavvia"
 #: server_status.php:476
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr "Questo server MySQL sta girando da %s. E' stato avviato il %s."
+msgstr "Questo server MySQL sta girando da %s. É stato avviato il %s."
 
 #: server_status.php:486
 msgid ""
