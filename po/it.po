@@ -6278,10 +6278,10 @@ msgstr "Prego, configurare le coordinate per la tabella %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema del database \"%s\" - Pagina %s"
+msgstr "Schema del database %s - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 #| msgid "File %s does not contain any key id"
