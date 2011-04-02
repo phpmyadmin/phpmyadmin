@@ -966,10 +966,9 @@ msgid "Dropping Procedure"
 msgstr "Cancellazione Procedura"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Cancella dati di tracciamento"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
