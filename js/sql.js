@@ -248,7 +248,7 @@ $(document).ready(function() {
         $('.error').remove();
 
         $form = $(this);
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
             $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
@@ -302,10 +302,8 @@ $(document).ready(function() {
                     PMA_init_slider();
                 }
             }
+            PMA_ajaxRemoveMessage($msgbox);
 
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
         }) // end $.post()
     }) // end SQL Query submit
 
@@ -325,7 +323,7 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         /**
          * @var $the_form    Object referring to the form element that paginates the results table
@@ -339,9 +337,7 @@ $(document).ready(function() {
             $("#sqlqueryresults").trigger('appendAnchor');
             PMA_init_slider();
             
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
+            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.post()
     })// end Paginate results table
 
@@ -357,16 +353,13 @@ $(document).ready(function() {
         if ($(this).hasClass('ajax')) {
             event.preventDefault();
 
-            var msgbox = PMA_ajaxShowMessage();
+            var $msgbox = PMA_ajaxShowMessage();
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 PMA_init_slider();
-            
-                msgbox.clearQueue().fadeOut('medium', function() {
-                    $(this).hide();
-                });
+                PMA_ajaxRemoveMessage($msgbox); 
             }) // end $.post()
         } else {
             $the_form.submit();
@@ -383,7 +376,7 @@ $(document).ready(function() {
     $("#table_results.ajax").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         $anchor = $(this);
 
@@ -391,10 +384,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor');
-
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
+            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     })//end Sort results table
 

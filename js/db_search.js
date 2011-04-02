@@ -138,7 +138,7 @@ $(document).ready(function() {
     $("#db_search_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching']);
         // jQuery object to reuse
         $form = $(this);
 
@@ -167,10 +167,7 @@ $(document).ready(function() {
                 $("#sqlqueryresults").html(response['message']);
             }
 
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
-
+            PMA_ajaxRemoveMessage($msgbox);
         })
     })
 }, 'top.frame_content'); // end $(document).ready()
