@@ -3703,9 +3703,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:379
-#, fuzzy
 msgid "Designer table"
-msgstr "Deframmenta la tabella"
+msgstr "Tabbella di design assistito"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
