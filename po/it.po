@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:30+0200\n"
+"PO-Revision-Date: 2011-04-02 23:31+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -6297,10 +6297,9 @@ msgid "Select Tables"
 msgstr "Seleziona Tables"
 
 #: libraries/schema/User_Schema.class.php:346
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Schema relazionale"
+msgstr "Visualizza lo schema relazionale"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
