@@ -284,7 +284,7 @@ msgstr "Rimuovi database"
 #: db_operations.php:445
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Il Database %s è stato eliminato."
+msgstr "Il database %s è stato eliminato."
 
 #: db_operations.php:450
 msgid "Drop the database (DROP)"
