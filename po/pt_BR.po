@@ -9155,7 +9155,7 @@ msgstr "- nenhum -"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
-msgstr ""
+msgstr "Servidor padrão"
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
