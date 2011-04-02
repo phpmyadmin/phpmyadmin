@@ -1265,7 +1265,7 @@ function PMA_ajaxShowMessage(message, timeout) {
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
     $this_msgbox
-     .clearQueue()
+     .stop(true, true)
      .fadeOut('medium', function() {
         $this_msgbox.hide();
      });
