@@ -3729,9 +3729,8 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 msgid "Hide databases"
-msgstr "Nessun database"
+msgstr "Nascondi i database"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
