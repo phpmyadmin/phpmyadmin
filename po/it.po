@@ -4751,10 +4751,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Importazione nel database \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the table \"%s\""
-msgstr "Vai al database"
+msgstr "Importazione nella tabbella \"%s\""
 
 #: libraries/display_import.lib.php:139
 #| msgid "File to import"
