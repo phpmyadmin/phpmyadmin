@@ -7090,11 +7090,10 @@ msgid "filter tables by name"
 msgstr "filtra tabbelle in base al nome"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
-msgstr "Crea tabelle"
+msgstr "Crea tabella"
 
 #: navigation.php:313 navigation.php:485
 msgid "Please select a database"
