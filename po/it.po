@@ -7148,10 +7148,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Importa/esporta le coordinate per PDF schema"
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Invia Query"
+msgstr "Crea Query"
 
 #: pmd_general.php:125
 msgid "Move Menu"
