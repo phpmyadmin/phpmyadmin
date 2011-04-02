@@ -4772,10 +4772,9 @@ msgid "%d is not valid row number."
 msgstr "%d non è un numero valido di righe."
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "righe a partire da"
+msgstr "righe a partire da #"
 
 #: libraries/display_tbl.lib.php:397
 msgid "horizontal"
