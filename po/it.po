@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 13:28+0200\n"
+"PO-Revision-Date: 2011-04-02 13:30+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -123,7 +123,7 @@ msgstr "Il database %1$s è stato creato."
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
-msgstr "Commento al Database: "
+msgstr "Commento del database: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:344
