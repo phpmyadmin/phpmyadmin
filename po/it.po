@@ -913,7 +913,7 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"Superato il tempo limite per l'esecuzione dello script. Se vuoi portare a "
+"Superato il tempo limite per l'esecuzione dello script, se vuoi portare a "
 "termine l'importazione inoltra nuovamente il file ed il processo riprenderà."
 
 #: import.php:425
