@@ -9058,7 +9058,7 @@ msgstr "As seguintes consultas foram executadas:"
 
 #: server_synchronize.php:1119
 msgid "Enter manually"
-msgstr ""
+msgstr "Inserir manualmente"
 
 #: server_synchronize.php:1120
 msgid "Current connection"
