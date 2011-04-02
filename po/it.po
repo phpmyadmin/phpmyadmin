@@ -8089,9 +8089,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: server_replication.php:223
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Prego, selezionare un database"
+msgstr "Prego seleziona i database:"
 
 #: server_replication.php:226
 msgid ""
