@@ -4307,10 +4307,9 @@ msgstr "Veloce"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 #| msgid "Customization"
 msgid "Custom"
-msgstr "Personalizzazione"
+msgstr "Personalizzazato"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
