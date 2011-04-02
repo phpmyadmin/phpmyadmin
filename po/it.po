@@ -6621,7 +6621,7 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
-msgstr "Virgolette Non Chiuse"
+msgstr "Virgolette non chiuse"
 
 #: libraries/sqlparser.lib.php:518
 msgid "Invalid Identifer"
