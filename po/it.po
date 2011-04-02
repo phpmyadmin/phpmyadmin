@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 14:01+0200\n"
+"PO-Revision-Date: 2011-04-02 14:02+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -5853,10 +5853,9 @@ msgstr ""
 "Importa percentuali come valori decimali <i>(ad esempio 12.00% come .12)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importa valute ($5.00 to 5.00)"
+msgstr "Importa valute <i>(ad esempio $5.00 come 5.00)</i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
