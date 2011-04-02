@@ -9861,10 +9861,10 @@ msgid "After %s"
 msgstr "Dopo %s"
 
 #: tbl_structure.php:686
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Crea un indice su %s columns"
+msgstr "Crea un indice su &nbsp;%s&nbsp;campi"
 
 #: tbl_structure.php:848
 msgid "partitioned"
