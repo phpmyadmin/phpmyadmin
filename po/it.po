@@ -9037,7 +9037,7 @@ msgstr "al secondo"
 
 #: server_status.php:682
 msgid "Query type"
-msgstr "Tipo di Query"
+msgstr "Tipo di query"
 
 #: server_status.php:721 server_status.php:722
 #, fuzzy
