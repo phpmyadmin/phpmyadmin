@@ -4907,7 +4907,7 @@ msgstr "nella query"
 
 #: libraries/display_tbl.lib.php:2007
 msgid "Showing rows"
-msgstr "Visualizzazione record "
+msgstr "Mostrando i righi"
 
 #: libraries/display_tbl.lib.php:2017
 msgid "total"
