@@ -5566,11 +5566,11 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Aggiunge un commento personalizzato all'header (\\n per tornare a capo)"
+"Aggiunge un commento personalizzato al header (\n"
+" per tornare a capo):"
 
 #: libraries/export/sql.php:37
 msgid ""
