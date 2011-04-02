@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-01 23:14+0200\n"
+"PO-Revision-Date: 2011-04-02 11:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -3671,7 +3671,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
-msgstr "Haga un bookmark a la tabla"
+msgstr "Agregar tabla a favoritos"
 
 #: libraries/config/messages.inc.php:367
 msgid ""
