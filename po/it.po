@@ -7777,7 +7777,7 @@ msgstr "Privilegi relativi alle tabelle"
 #: server_privileges.php:439 server_privileges.php:581
 #: server_privileges.php:1627
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr "Nota: i nomi dei privilegi di MySQL sono in Inglese"
+msgstr " Nota: i nomi dei privilegi di MySQL sono in Inglese "
 
 #: server_privileges.php:570 server_privileges.php:1626
 msgid "Global privileges"
