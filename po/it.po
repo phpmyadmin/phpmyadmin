@@ -2490,7 +2490,7 @@ msgstr "Tabulazione predefinita per le tabbelle"
 #: libraries/config/messages.inc.php:54
 #| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
-msgstr "Mostra contenuti binari come esadecimali"
+msgstr "Mostra sempre contenuti binari come esadecimali"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
