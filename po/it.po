@@ -5091,7 +5091,6 @@ msgstr ""
 "REPAIR TABLE o nella creazione degli indici con CREATE INDEX o ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Dimensione del cestino"
