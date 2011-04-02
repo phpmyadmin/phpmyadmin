@@ -8676,7 +8676,7 @@ msgstr "Il numero di file che sono aperti."
 #: server_status.php:121
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"il numero di stream che sono aperti (usato principalmente per il logging)."
+"Il numero di stream che sono aperti (usato principalmente per il logging)."
 
 #: server_status.php:122
 msgid "The number of tables that are open."
