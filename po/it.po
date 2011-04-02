@@ -2502,7 +2502,7 @@ msgstr "Mostra i database come una lista invece di un menu a tendina"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Mostra i database come una lista"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
