@@ -6914,7 +6914,6 @@ msgstr ""
 "la seconda opzione è la larghezza in pixel, la terza è l'altezza."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6925,7 +6924,7 @@ msgid ""
 "the link."
 msgstr ""
 "Mostra un collegamento, il campo contiene il nome del file; la prima opzione "
-"è un prefisso come \"http://tuodominio.com/\", la seconda opzione è un "
+"è un prefisso come \"http://www.tuodominio.com/\", la seconda opzione è un "
 "titolo per il collegamento."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
