@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 11:09+0200\n"
+"PO-Revision-Date: 2011-04-02 11:10+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9479,8 +9479,7 @@ msgstr "Mostrar los valores foráneos"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
-"Utilizando el marcador \"%s\" como consulta predeterminada para examinar."
+msgstr "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
 #: sql.php:600 tbl_replace.php:385
 #, php-format
