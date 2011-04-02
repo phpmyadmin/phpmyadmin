@@ -1469,7 +1469,9 @@ msgstr "Errore sconosciuto nel caricamento del file."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Errore nello spostare il file caricato, vedi FAQ 1.11"
+msgstr ""
+"Errore nello spostare il file caricato, vedi "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
