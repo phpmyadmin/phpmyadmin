@@ -6834,7 +6834,6 @@ msgstr ""
 "PHP strftime(); per \"utc\" viene usata la funzione gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6868,7 +6867,7 @@ msgstr ""
 "programma. Il terzo parametro, se impostato a 1 convertirà l'output "
 "utilizzando htmlspecialchars() (Predefinito: 1). Un quarto parametro, se "
 "impostato a 1 inserirà un NOWRAP al contenuto della cella così che l'intero "
-"output sarà mostrato senza essere riformattato (Predefinito: 1)"
+"output sarà mostrato senza essere riformattato (Predefinito: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 #| msgid ""
