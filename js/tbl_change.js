@@ -336,6 +336,11 @@ $(document).ready(function() {
          */
         var target_rows = $("#insert_rows").val();
 
+        // remove all datepickers
+        $('.datefield,.datetimefield').each(function(){
+            $(this).datepicker('destroy');
+        });
+
         if(curr_rows < target_rows ) {
             while( curr_rows < target_rows ) {
 
@@ -400,13 +405,6 @@ $(document).ready(function() {
                                 $changed_element.closest('tr').find('span.column_type').html()
                                 );
                         });
-                        if ($this_element.is('.datefield') || $this_element.is('.datetimefield')) {
-                            // we now need to remove the remainings of the datepicker
-                            // from the element that we cloned
-                            $this_element.removeClass('hasDatepicker').next().remove();
-                            // and bind a new datepicker
-                            PMA_addDatepicker($this_element);
-                        }
                     }
 
                     if ($this_element.is('.checkbox_null')) {
@@ -479,11 +477,17 @@ $(document).ready(function() {
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
+                // update the IDs of textfields to ensure that they are unique
+                $(this).attr('id', "field_" + tabindex + "_3");
             });
         $('.control_at_footer')
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
+            });
+        // Add all the required datepickers back
+        $('.datefield,.datetimefield').each(function(){
+            PMA_addDatepicker($(this));
             });
         }
         else if( curr_rows > target_rows) {
