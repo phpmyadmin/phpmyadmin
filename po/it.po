@@ -7010,10 +7010,9 @@ msgid "Appearance Settings"
 msgstr "Impostazioni di base"
 
 #: main.php:162 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "impostazioni"
+msgstr "Ulteriori impostazioni"
 
 #: main.php:179
 msgid "Protocol version"
