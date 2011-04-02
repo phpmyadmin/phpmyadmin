@@ -6881,10 +6881,9 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "Impossibile caricare o salvare la configurazione"
+msgstr "Impossibile salvare la configurazione"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
