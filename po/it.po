@@ -3321,8 +3321,7 @@ msgstr ""
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Maximal number of Chars showed in any non-numeric field on browse view. Can "
-"be turned off by a toggle button on the browse page."
+"Maximum number of characters shown in any non-numeric column on browse view"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
