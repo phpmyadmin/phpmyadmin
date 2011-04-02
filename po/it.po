@@ -9145,10 +9145,10 @@ msgid "Current connection"
 msgstr "Connessione non sicura"
 
 #: server_synchronize.php:1149
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
-msgstr "Configurazione"
+msgstr "Configurazione: %s"
 
 #: server_synchronize.php:1164
 msgid "Socket"
