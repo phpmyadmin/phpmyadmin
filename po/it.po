@@ -3582,9 +3582,8 @@ msgid "Directory where exports can be saved on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 msgid "Save directory"
-msgstr "Home directory dei dati"
+msgstr "Salva cartella"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
