@@ -6177,7 +6177,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1175
 msgid "no description"
-msgstr "nessuna Description"
+msgstr "nessuna descrizione"
 
 #: libraries/replication_gui.lib.php:53
 #, fuzzy
