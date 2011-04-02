@@ -9843,8 +9843,7 @@ msgstr " Dimensione riga "
 #: tbl_relation.php:276
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
-"Errore nel creare una \"foreign key\" su %1$s (controlla il tipo di dati)"
+msgstr "Errore nel creare una foreign key su %1$s (controlla il tipo di dati)"
 
 #: tbl_relation.php:402
 #, fuzzy
