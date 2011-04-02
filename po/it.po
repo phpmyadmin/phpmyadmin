@@ -7081,9 +7081,8 @@ msgid "No databases"
 msgstr "Nessun database"
 
 #: navigation.php:277
-#, fuzzy
 msgid "Filter"
-msgstr "File"
+msgstr "Filtra"
 
 #: navigation.php:277
 #| msgid "Alter table order by"
