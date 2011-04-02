@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:35+0200\n"
+"PO-Revision-Date: 2011-04-02 23:47+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7036,7 +7036,7 @@ msgstr ""
 "di rimuoverla una volta configurato phpMyAdmin."
 
 #: main.php:312
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -7044,8 +7044,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Le caratteristiche aggiuntive sono state disattivate per funzionare con le "
-"tabelle linkate. Per scoprire perché clicca %squi%s."
+"La configurazione di phpMyAdmin non é completa, quindi alcune "
+"caratteristiche aggiuntive sono state disattivate. Per scoprire perché "
+"clicca %squi%s."
 
 #: main.php:327
 msgid ""
