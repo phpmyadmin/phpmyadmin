@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 14:49+0200\n"
+"PO-Revision-Date: 2011-04-02 14:50+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -6755,7 +6755,6 @@ msgid "Event"
 msgstr "Eventi"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6770,7 +6769,7 @@ msgstr ""
 "Visualizza un collegamento per trasferire i dati di un campo in formato "
 "binario.  La prima opzione è il nome del file binario. La seconda opzione è "
 "un nome di campo possibile di una riga della tabella che contiene il nome di "
-"schedario.  Se fornite una seconda opzione dovete avere la prima opzione "
+"schedario. Se fornite una seconda opzione dovete avere la prima opzione "
 "settata ad una stringa vuota."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
