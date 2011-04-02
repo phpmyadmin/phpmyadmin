@@ -328,7 +328,7 @@ msgstr "Aggiungi vincoli"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
-msgstr "Passare al Database copiato"
+msgstr "Passa al database copiato"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
