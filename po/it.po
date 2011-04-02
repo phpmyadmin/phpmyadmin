@@ -6958,10 +6958,9 @@ msgid "Official Homepage"
 msgstr "Home page ufficiale di phpMyAdmin"
 
 #: main.php:230
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attributi"
+msgstr "Contribuisci"
 
 #: main.php:231
 #, fuzzy
