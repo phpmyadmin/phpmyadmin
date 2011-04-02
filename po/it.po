@@ -257,7 +257,7 @@ msgstr "Deseleziona tutto"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr "Il nome del DataBase è vuoto!"
+msgstr "Il nome del database è vuoto!"
 
 #: db_operations.php:272
 #, php-format
