@@ -9970,10 +9970,9 @@ msgid "An index has been added on %s"
 msgstr "Un indice è stato aggiunto in %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "Mostra le info sul PHP"
+msgstr "Mostra piú azioni"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
