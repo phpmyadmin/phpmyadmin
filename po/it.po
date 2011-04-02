@@ -9638,7 +9638,7 @@ msgstr "Visualizza dump (schema) della tabella"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Il nome della chiave primaria deve essere... PRIMARY!"
+msgstr "Il nome della chiave primaria deve essere \"PRIMARY\"!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
