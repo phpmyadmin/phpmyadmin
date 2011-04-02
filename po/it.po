@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 13:27+0200\n"
+"PO-Revision-Date: 2011-04-02 13:28+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -9735,7 +9735,7 @@ msgstr ""
 #: tbl_indexes.php:249
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Aggiungi all'indice %s colonna/e"
+msgstr "Aggiungi all'indice &nbsp;%s&nbsp;colonna/e"
 
 #: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
 msgid "Column count has to be larger than zero."
