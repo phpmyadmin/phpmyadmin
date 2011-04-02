@@ -9169,7 +9169,7 @@ msgstr ""
 
 #: server_variables.php:39
 msgid "Server variables and settings"
-msgstr "Variabili e parametri del Server"
+msgstr "Variabili e impostazioni del server"
 
 #: server_variables.php:60
 msgid "Session value"
