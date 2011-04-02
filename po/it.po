@@ -3169,10 +3169,9 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importa valute ($5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:254
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importa percentuali come propri decimali (12.00% to .12)"
+msgstr "Importa percentuali come valori decimali (12.00% a .12)"
 
 #: libraries/config/messages.inc.php:255
 #| msgid "Number of records (queries) to skip from start"
