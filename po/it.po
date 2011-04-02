@@ -1663,8 +1663,9 @@ msgid ""
 msgstr ""
 "phpMyAdmin ha provato a connettersi al server MySQL, e il server ha "
 "rifiutato la connessione. Si dovrebbe controllare il nome dell'host, "
-"l'username e la password nel file config.inc.php ed assicurarsi che "
-"corrispondano alle informazioni fornite dall'amministratore del server MySQL."
+"l'username e la password nel file di configurazione ed assicurarsi che "
+"corrispondano alle informazioni fornite dall'amministratore del server "
+"MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Log in"
