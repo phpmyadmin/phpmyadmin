@@ -5492,10 +5492,9 @@ msgstr "Struttura della tabella __TABLE__"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Opzioni di Transformation"
+msgstr "Opzioni di creazione dell'oggetto"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
 #| msgid "Table caption"
