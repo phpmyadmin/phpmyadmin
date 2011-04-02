@@ -3004,9 +3004,8 @@ msgid "Customize export options"
 msgstr "Personalizza le opzioni di esportazione"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 msgid "Customize import defaults"
-msgstr "Personalizza le opzioni di importazione"
+msgstr "Personalizza le opzioni predefinite di importazione"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
