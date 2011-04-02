@@ -4198,9 +4198,8 @@ msgid "Directory on server where you can upload files for import"
 msgstr ""
 
 #: libraries/config/messages.inc.php:491
-#, fuzzy
 msgid "Upload directory"
-msgstr "Home directory dei dati"
+msgstr "Cartella dei upload"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
