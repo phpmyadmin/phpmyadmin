@@ -262,7 +262,7 @@ msgstr "Il nome del database è vuoto!"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Il DataBase %s è stato rinominato in %s"
+msgstr "Il database %s è stato rinominato a %s"
 
 #: db_operations.php:276
 #, php-format
