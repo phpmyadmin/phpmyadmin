@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-03 00:19+0200\n"
+"PO-Revision-Date: 2011-04-03 00:20+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2609,7 +2609,7 @@ msgstr "Sostituisci NULL con"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Rimuovi i caratteri CRLF dai campi"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
