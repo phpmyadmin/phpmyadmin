@@ -9202,7 +9202,7 @@ msgstr "Tentar reverter campos errôneos para os seus valores padrões"
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ignorar erros"
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Show form"
