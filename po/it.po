@@ -7875,7 +7875,6 @@ msgid "Database for user"
 msgstr "Database per l'utente"
 
 #: server_privileges.php:2135
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
