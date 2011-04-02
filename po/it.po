@@ -5596,9 +5596,8 @@ msgid "Add statements:"
 msgstr "Aggiungi istruzioni:"
 
 #: libraries/export/sql.php:111
-#, fuzzy
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>, VARIABLE as myname</code>"
+msgstr "opzioni di <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
 #, fuzzy
