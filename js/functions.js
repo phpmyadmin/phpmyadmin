@@ -1246,7 +1246,7 @@ function PMA_ajaxShowMessage(message, timeout) {
     else {
         //Otherwise, just show the div again after inserting the message
         $("#loading")
-        .clearQueue()
+        .stop(true, true)
         .html(msg)
         .fadeIn('medium')
         .delay(to)
