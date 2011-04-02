@@ -572,7 +572,7 @@ msgstr "Cerca nel database"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "parola/e o valore/i da cercare (carattere jolly: \"%\"):"
+msgstr "Parola/e o valore/i da cercare (carattere jolly: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
