@@ -3845,10 +3845,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"Base de datos usada para relaciones, bookmarks, y características de los "
+"Base de datos usada para relaciones, favoritos, y características de los "
 "PDF. Ver [a@http://wiki.cihar.com/pma/pmadb]pmadb[/a] para información "
-"completa. Deje en blanco para que no exita soporte. Predeterminado: [kbd]"
-"phpmyadmin[/kbd]"
+"completa. Deje en blanco para que no exita soporte. Predeterminado: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "Database name"
