@@ -4926,7 +4926,7 @@ msgstr "Visualizzazione record "
 
 #: libraries/display_tbl.lib.php:2017
 msgid "total"
-msgstr "Totali"
+msgstr "totale"
 
 #: libraries/display_tbl.lib.php:2025 sql.php:628
 #, php-format
