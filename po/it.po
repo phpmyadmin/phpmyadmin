@@ -271,7 +271,7 @@ msgstr "Il database %s è stato copiato a %s"
 
 #: db_operations.php:399
 msgid "Rename database to"
-msgstr "Rinomina il DataBase in"
+msgstr "Rinomina il database a"
 
 #: db_operations.php:404 server_processlist.php:64
 msgid "Command"
