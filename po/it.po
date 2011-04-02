@@ -9669,7 +9669,7 @@ msgstr "Modifica un indice"
 
 #: tbl_indexes.php:166
 msgid "Index name:"
-msgstr "Nome dell'indice :"
+msgstr "Nome dell'indice:"
 
 #: tbl_indexes.php:172
 msgid "Index type:"
