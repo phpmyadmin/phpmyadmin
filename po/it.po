@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 22:51+0200\n"
+"PO-Revision-Date: 2011-04-02 22:52+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1102,10 +1102,9 @@ msgid "Show query box"
 msgstr "Mostra riquadro query SQL"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr "Inline"
+msgstr "Modifica in linea"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
