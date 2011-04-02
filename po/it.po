@@ -6532,7 +6532,7 @@ msgstr "Delimitatori"
 
 #: libraries/sql_query_form.lib.php:381
 msgid " Show this query here again "
-msgstr "Mostra di nuovo questa query"
+msgstr " Mostra di nuovo questa query "
 
 #: libraries/sql_query_form.lib.php:440
 msgid "Submit"
