@@ -8053,7 +8053,7 @@ msgstr "Avvia solo il thread SQL"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Arresta solo il thread SQL"
 
 #: server_replication.php:331
 #| msgid "Structure only"
