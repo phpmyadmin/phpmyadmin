@@ -6975,7 +6975,7 @@ msgstr "Caratteristiche Generali di Relazione"
 
 #: main.php:105
 msgid "MySQL connection collation"
-msgstr "collation della connessione di MySQL"
+msgstr "Collation della connessione di MySQL"
 
 #: main.php:121
 #, fuzzy
