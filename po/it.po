@@ -1293,7 +1293,7 @@ msgstr "Lug"
 #. l10n: Short month name
 #: js/messages.php:175 libraries/common.lib.php:1582
 msgid "Aug"
-msgstr "ago"
+msgstr "Ago"
 
 #. l10n: Short month name
 #: js/messages.php:177 libraries/common.lib.php:1584
