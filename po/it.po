@@ -7365,7 +7365,7 @@ msgstr "Errore: relazione non aggiunta."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr "Relazione \"FOREIGN KEY\" aggiunta"
+msgstr "Relazione FOREIGN KEY aggiunta"
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
