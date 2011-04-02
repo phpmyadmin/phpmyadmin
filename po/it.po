@@ -4585,10 +4585,9 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Numero di campi"
+msgstr "Numero di campi:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
