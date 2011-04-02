@@ -6363,7 +6363,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
-msgstr "Prego scegliere una Page da modificare"
+msgstr "Prego scegli una pagina da modificare"
 
 #: libraries/schema/User_Schema.class.php:153
 #, fuzzy
