@@ -163,7 +163,7 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
@@ -224,10 +224,7 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
-            
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
+            PMA_ajaxRemoveMessage($msgbox);    
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -318,7 +315,7 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         $(this).parents('tr').addClass('current_row');
 
@@ -337,10 +334,7 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
-            
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
+            PMA_ajaxRemoveMessage($msgbox);    
         }) // end $.get()
     })
 
@@ -426,7 +420,7 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
@@ -441,11 +435,7 @@ $(document).ready(function() {
                 width : 500,
                 buttons: button_options
             });
-            
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
-
+            PMA_ajaxRemoveMessage($msgbox);            
         }) //end $.get
     }) //end export privileges
 
@@ -460,7 +450,7 @@ $(document).ready(function() {
     $("#initials_table.ajax").find("a").live('click', function(event) {
         event.preventDefault();
 
-        var msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
         $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
             // This form is not on screen when first entering Privileges
@@ -471,9 +461,7 @@ $(document).ready(function() {
              .after(data).show("medium")
              .siblings("h2").not(":first").remove();
 
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
+            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get
     })// end of the paginate users table
 
