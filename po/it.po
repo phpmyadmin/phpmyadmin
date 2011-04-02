@@ -4496,10 +4496,9 @@ msgstr ""
 "installazione!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Sto esportando i database dal server corrente"
+msgstr "Esportazione dei database dal server corrente in corso"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
