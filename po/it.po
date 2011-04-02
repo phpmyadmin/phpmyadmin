@@ -2259,7 +2259,7 @@ msgstr "l'esportazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
-msgstr "Il Validator SQL é disattivato"
+msgstr "Il Validatore SQL é disattivato"
 
 #: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
