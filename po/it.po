@@ -6838,7 +6838,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Mostra un link a questa immagine (download blob diretto, i.e.)."
+msgstr "Mostra un collegamento per scaricare quest'immagine."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 #, fuzzy
