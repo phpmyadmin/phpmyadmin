@@ -4665,10 +4665,9 @@ msgid "None"
 msgstr "Nessuno"
 
 #: libraries/display_export.lib.php:313
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"compresso con zip\""
+msgstr "compresso con zip"
 
 #: libraries/display_export.lib.php:315
 #, fuzzy
