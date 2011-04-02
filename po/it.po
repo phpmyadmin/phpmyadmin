@@ -8811,7 +8811,6 @@ msgid "Show processes"
 msgstr "Visualizza processi in esecuzione"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
