@@ -7190,9 +7190,8 @@ msgid "subquery"
 msgstr "subquery"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 msgid "Rename to"
-msgstr "Rinomina la tabella in"
+msgstr "Rinomina a"
 
 #: pmd_general.php:482 pmd_general.php:581
 #, fuzzy
