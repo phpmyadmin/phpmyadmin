@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:15+0200\n"
+"PO-Revision-Date: 2011-04-02 23:16+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4049,9 +4049,8 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:453
-#, fuzzy
 msgid "Show statistics"
-msgstr "Statistiche righe"
+msgstr "Mostra statistiche"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
