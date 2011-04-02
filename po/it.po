@@ -7767,7 +7767,7 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 "Permette altre connessioni, anche se è stato raggiunto il massimo numero di "
-"connessioni; Necessario per molte operazioni di amministrazione come il "
+"connessioni; necessario per molte operazioni di amministrazione come il "
 "settaggio di variabili globali o la cancellazione dei threads di altri "
 "utenti."
 
