@@ -2708,7 +2708,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr "Modo di compatibilità SQL"
+msgstr "Modalità di compatibilità SQL"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
