@@ -9498,7 +9498,7 @@ msgstr "Rimuovi le referenze al REPOSITORY BLOB"
 
 #: tbl_change.php:875
 msgid "Binary - do not edit"
-msgstr "Tipo di dato Binario - non modificare"
+msgstr "Dato binario - non modificare"
 
 #: tbl_change.php:923
 msgid "Upload to BLOB repository"
