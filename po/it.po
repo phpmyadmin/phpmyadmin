@@ -7348,10 +7348,9 @@ msgid "Page creation failed"
 msgstr "Creazione della pagina fallita"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "pagine"
+msgstr "Pagina"
 
 #: pmd_pdf.php:99
 #, fuzzy
