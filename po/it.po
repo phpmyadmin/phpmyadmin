@@ -786,7 +786,7 @@ msgstr "Snapshot della struttura"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr "Tabelle non rilevate"
+msgstr "Tabelle non monitorate"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
 #: tbl_structure.php:621
