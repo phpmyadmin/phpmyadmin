@@ -923,7 +923,7 @@ msgid ""
 msgstr ""
 "Nell'ultima esecuzione non è stato processato alcun dato. Solitamente questo "
 "evidenzia che il limite di tempo impostato nella configurazione è troppo "
-"basso per consentire a phpMyAdmin di terminare l'operazion"
+"basso per consentire a phpMyAdmin di terminare l'operazione."
 
 #: import_status.php:30 libraries/common.lib.php:682
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
