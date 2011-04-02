@@ -5712,7 +5712,7 @@ msgstr "Struttura per la vista"
 
 #: libraries/export/sql.php:894
 msgid "Stand-in structure for view"
-msgstr "Struttura Stand-in per le viste"
+msgstr "Struttura stand-in per le viste"
 
 #: libraries/export/xml.php:17 libraries/import/xml.php:21
 msgid "XML"
