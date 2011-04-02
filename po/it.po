@@ -3176,7 +3176,7 @@ msgstr "Non importare righe vuote"
 #: libraries/config/messages.inc.php:253
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importa valute ($5.00 to 5.00)"
+msgstr "Importa valute ($5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:254
 #, fuzzy
