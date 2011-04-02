@@ -3248,7 +3248,7 @@ msgstr "Stringa che separa i database in livelli dell'albero differenti"
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
-msgstr "Separatore dell'albero Database"
+msgstr "Separatore dell'albero database"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
