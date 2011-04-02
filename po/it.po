@@ -9611,9 +9611,9 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
-"Nota che non tutta la tabella dei risultati può essere inserita nel grafico "
-"guarda <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ "
-"6.29</a> "
+"Nota che non tutta la tabella dei risultati può essere inserita nel grafico. "
+"Vedi <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ "
+"6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
