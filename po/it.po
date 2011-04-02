@@ -2145,7 +2145,7 @@ msgstr "Entrambi"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr "Apri"
+msgstr "Aperto"
 
 #: libraries/config.values.php:74
 #| msgid "Unclosed quote"
