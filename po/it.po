@@ -6336,7 +6336,7 @@ msgstr "Verticale"
 #: libraries/schema/User_Schema.class.php:394
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Orientazione"
+msgstr "Orientamento"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
