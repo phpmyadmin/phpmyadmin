@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:50+0200\n"
+"PO-Revision-Date: 2011-04-02 23:51+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -9130,7 +9130,7 @@ msgstr "Visão geral"
 
 #: setup/frames/index.inc.php:96
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Exibir mensagens escondidas (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:136
 msgid "There are no configured servers"
