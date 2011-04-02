@@ -6697,7 +6697,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
-msgstr "Opzioni di Transformation"
+msgstr "Opzioni di transformazione"
 
 #: libraries/tbl_properties.inc.php:144
 msgid ""
