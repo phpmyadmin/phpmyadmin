@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 23:16+0200\n"
+"PO-Revision-Date: 2011-04-02 23:17+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4084,9 +4084,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 msgid "Skip locked tables"
-msgstr "Mostra le tabelle aperte"
+msgstr "Ignora le tabelle bloccate"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
