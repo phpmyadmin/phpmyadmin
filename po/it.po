@@ -1834,7 +1834,7 @@ msgstr "Replicato"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controlla i privilegi per il database \"%s\"."
+msgstr "Controlla i privilegi per il database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
