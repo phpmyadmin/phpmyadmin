@@ -6436,9 +6436,8 @@ msgstr "Esegui la/e query SQL sul database %s"
 
 #: libraries/sql_query_form.lib.php:297 navigation.php:276
 #: setup/frames/index.inc.php:219
-#, fuzzy
 msgid "Clear"
-msgstr "Calendario"
+msgstr "Cancella"
 
 #: libraries/sql_query_form.lib.php:302
 #, fuzzy
