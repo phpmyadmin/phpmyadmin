@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-02 14:02+0200\n"
+"PO-Revision-Date: 2011-04-02 14:18+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2055,7 +2055,7 @@ msgstr ","
 #: libraries/common.lib.php:1609
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B, %Y at %I:%M %p"
+msgstr "%B %d, %Y alle %H:%M"
 
 #: libraries/common.lib.php:1923
 #, php-format
