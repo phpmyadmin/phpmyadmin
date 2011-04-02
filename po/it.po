@@ -6910,10 +6910,9 @@ msgid "MySQL connection collation"
 msgstr "Collation della connessione di MySQL"
 
 #: main.php:121
-#, fuzzy
 #| msgid "Basic settings"
 msgid "Appearance Settings"
-msgstr "Impostazioni di base"
+msgstr "Impostazioni di Presentazione"
 
 #: main.php:162 prefs_manage.php:274
 #| msgid "settings"
