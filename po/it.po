@@ -4086,10 +4086,9 @@ msgstr ""
 "edit/insert mode"
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Mostra le tabelle aperte"
+msgstr "Mostra i tipi di campi"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
@@ -4793,13 +4792,15 @@ msgstr "File da importare:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Il file puó essere compresso (%s) o decompresso."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Il nome di un file compresso deve terminare in "
+"<b>.[formato].[compressione]</b>. Ad esempio: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -4840,7 +4841,7 @@ msgstr "Numero di righe da saltare dall'inizio:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Opzioni specifisce al formato:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
@@ -5523,10 +5524,9 @@ msgstr "Sottotitolo della tabella (continuato)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Disabilita i controlli sulle chiavi straniere"
+msgstr "Visualizza le relazioni delle chiavi esterne"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 #| msgid "Displaying Column Comments"
@@ -5633,13 +5633,13 @@ msgid "<code>CREATE TABLE</code> options:"
 msgstr "opzioni di <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
-#, fuzzy
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters or keywords)</i>"
+"Racchiudi i nomi dei campi e delle tabelle in virgolette ` <i>(Protegge i "
+"nomi dei campi e tabelle che contengono caratteri speciali or parole "
+"chiavi)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -5655,7 +5655,7 @@ msgstr "Istruzioni <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Funzione da utilizzare per il dumping dei dati:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
@@ -5686,24 +5686,32 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"emtrambi i precedenti<br /> &nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT "
+"INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"nessuno dei precedenti<br /> &nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Esegui il dump dei campi nella notazione esadecimale <i>(ad esempio, \"abc\" "
+"diventa 0x0616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Esegui il dump dei campi TIMESTAMP in UTC <i>(abilita il dump e la ricarica "
+"dei campi TIMESTAMP tra server in diversi fusi orari)</i>"
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5818,6 +5826,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"La prima linea del file contiene i nomi dei campi della tabella <i>(se "
+"quest'opzione non é attivata, la prima linea diventerá parte dei dati)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5825,6 +5835,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Se i dati in ogni riga non é nello stesso ordine come nel database, "
+"specifica i campi corrspondenti qui. I nomi dei campi devono essere separati "
+"da virgole e non racchiusi in virgolette."
 
 #: libraries/import/csv.php:41
 #| msgid "Column names"
@@ -5843,6 +5856,9 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Campo invalido (%s) specificato! Assicurati che i nomi dei campi sono "
+"scritti correttemente, sono separati da virgole e non racchiusi in "
+"virgolette."
 
 #: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
@@ -5899,6 +5915,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"Il file XML specificato era malformato o incompleto. Correggi questo "
+"problema e prova ancora."
 
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
@@ -6195,25 +6213,28 @@ msgstr ""
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Rieffettua il login in phpMyAdmin per caricare il file della configurazione "
+"aggiornato."
 
 #: libraries/relation.lib.php:1175
 msgid "no description"
 msgstr "nessuna descrizione"
 
 #: libraries/replication_gui.lib.php:53
-#, fuzzy
 msgid "Slave configuration"
-msgstr "Configurazione del server"
+msgstr "Configurazione slave"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Modifica o riconfigura il server master"
 
 #: libraries/replication_gui.lib.php:54
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Assicurati di avere un server-id unico nella file di configurazione "
+"(my.cnf). Altrimenti, aggiungi la linea seguente nella sezione [mysqld]:"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
@@ -6224,14 +6245,12 @@ msgid "User name"
 msgstr "Nome utente"
 
 #: libraries/replication_gui.lib.php:105
-#, fuzzy
 msgid "Master status"
-msgstr "Mostra lo stato degli slave"
+msgstr "Stato master"
 
 #: libraries/replication_gui.lib.php:107
-#, fuzzy
 msgid "Slave status"
-msgstr "Mostra lo stato degli slave"
+msgstr "Stato slave"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:423
 #: server_status.php:769 server_variables.php:57
@@ -6254,10 +6273,12 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Solo i slave eseguiti con l'opzione --report-host=host_name sono visibili in "
+"questa lista."
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Aggiungi un utente per replicazione slave"
 
 #: libraries/replication_gui.lib.php:256 server_privileges.php:723
 msgid "Any user"
@@ -6367,10 +6388,9 @@ msgid "Page name"
 msgstr "Nome della pagina"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Impaginazione automatica"
+msgstr "Impaginazione automatica basata su"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
@@ -6990,6 +7010,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Il tuo browser ha una configurazione di phpMyAdmin per questo dominio. Vuoi "
+"porvare ad importarlo nella sessione corrente?"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -7421,7 +7443,7 @@ msgstr "Vuoi importare le impostazioni rimanenti?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Salvato il: @DATE@"
 
 #: prefs_manage.php:239
 #| msgid "Import files"
@@ -7430,11 +7452,12 @@ msgstr "Importa dal file"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importa dalla memoria del browser"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Le impostazioni verranno importate dalla memoria locale del tuo browser."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -7442,7 +7465,7 @@ msgstr "Non hai alcuna impostazione salvata!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Questa funzionalitá non é supportata dal tuo browser"
 
 #: prefs_manage.php:263
 #| msgid "Server configuration"
@@ -7455,14 +7478,16 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Puoi impostare ulteriori impostazioni modificando config.inc.php, ad esempio "
+"via %sGli script di setup%s"
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Salva nella memoria del browser"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Le impostazioni verranno salvate nella memoria locale del tuo browser."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -7471,6 +7496,8 @@ msgstr "La impostazioni esistenti verranno sovrascritte!"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Puoi reimpostare tutte le tue configurazioni e ripristinarle ai valori "
+"predefiniti."
 
 #: querywindow.php:93
 msgid "Import files"
@@ -7547,14 +7574,12 @@ msgstr "Statistiche dei databases"
 
 #: server_databases.php:173 server_replication.php:179
 #: server_replication.php:207
-#, fuzzy
 msgid "Master replication"
-msgstr "Configurazione del server"
+msgstr "Replicazione master"
 
 #: server_databases.php:175 server_replication.php:246
-#, fuzzy
 msgid "Slave replication"
-msgstr "Configurazione del server"
+msgstr "Replicazione slave"
 
 #: server_databases.php:258 server_databases.php:259
 msgid "Enable Statistics"
@@ -8034,34 +8059,35 @@ msgstr "Errore sconosciuto"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Impossibile stabilire la connessione al master %s."
 
 #: server_replication.php:63
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Impossibile leggere il log posizionale del master. É possibile che ci siano "
+"dei problemi di permessi sul master."
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr ""
+msgstr "Impossibile modificare il master"
 
 #: server_replication.php:72
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Il server master modificato a %s con successo"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Questo server é configurato come master in un processo di replicazione"
 
 #: server_replication.php:182 server_status.php:407
-#, fuzzy
 msgid "Show master status"
-msgstr "Mostra lo stato degli slave"
+msgstr "Mostra lo stato del master"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Mostra i slave connessi"
 
 #: server_replication.php:208
 #, php-format
@@ -8069,11 +8095,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Questo server non é configurato come master in un processo di replicazione. "
+"Vorresti <a href=\"%s\">configurarlo ora</a>?"
 
 #: server_replication.php:215
-#, fuzzy
 msgid "Master configuration"
-msgstr "Configurazione del server"
+msgstr "Configurazione del master"
 
 #: server_replication.php:216
 msgid ""
@@ -8086,11 +8113,11 @@ msgstr ""
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Replica tutti i database; Ignora:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Ignora tutti i database; Replica:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
@@ -8108,23 +8135,27 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"Dopo aver riavviato il server MySQL, prego clacca sul pulsante Vai. Dovresti "
+"quindi vedere un messaggio che ti informerá che questo server <b>é</b> "
+"configurato come master"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Thread slave SQL non é in esecuzione!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Thread slave IO non é in esecuzione!"
 
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Il server é configurato come slave in un processo di replicazione. Vuoi:"
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Vedi la tabella di stato dello slave"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
@@ -8132,7 +8163,7 @@ msgstr "Sincronizza i database con il master"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr ""
+msgstr "Controlla slave:"
 
 #: server_replication.php:323
 msgid "Full start"
@@ -8144,7 +8175,7 @@ msgstr "Pieno spegnimento"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Reimposta lo slave"
 
 #: server_replication.php:326
 #| msgid "Structure only"
@@ -8166,15 +8197,16 @@ msgstr "Arresta solo il thread IO"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Gestione degli errori: "
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Ignorare gli errori potrebbe far mandare il master e slave fuori sincronia"
 
 #: server_replication.php:342
 msgid "Skip current error"
-msgstr ""
+msgstr "Salta l'errore corrente"
 
 #: server_replication.php:343
 msgid "Skip next"
@@ -8190,6 +8222,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Questo server non é configurato come slave in un processo di replicazione. "
+"Vorresti <a href=\"%s\">configurarlo ora</a>?"
 
 #: server_status.php:46
 msgid ""
@@ -8930,20 +8964,28 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Questo server MySQL funziona come un <b>master</b> e <b>slave</b> nel "
+"processo di <b>replicazione</b>."
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Questo server MySQL funziona come un <b>master</b> nel processo di "
+"<b>replicazione</b>."
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Questo server MySQL funziona come un <b>slave</b> nel processo di "
+"<b>replicazione</b>."
 
 #: server_status.php:492
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"Per ulteriori informazioni a riguardo lo stato di replicazione su questo "
+"server, prego vedi la <a href=#replication>seztione sulla replicazione</a>."
 
 #: server_status.php:509
 msgid ""
@@ -9022,7 +9064,7 @@ msgstr "Mostra il diagramma della query"
 
 #: server_status.php:723
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Nota: La creazione del diagramma potrebbe richiedere un lungo tempo."
 
 #: server_status.php:867
 msgid "Replication status"
@@ -9093,6 +9135,7 @@ msgstr "Inserisci riga/righe"
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr ""
+"Vorresti rimuovere tutte le righe precedenti dalle tabelle di destinazione?"
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
@@ -9111,6 +9154,7 @@ msgstr ""
 #: server_synchronize.php:941
 msgid "Target database has been synchronized with source database"
 msgstr ""
+"Il database di destinazione é stato sincronizzato con il database di origine"
 
 #: server_synchronize.php:1002
 msgid "The following queries have been executed:"
@@ -9118,7 +9162,7 @@ msgstr "Le seguenti query sono state eseguite:"
 
 #: server_synchronize.php:1119
 msgid "Enter manually"
-msgstr ""
+msgstr "Inserisci manualmente"
 
 #: server_synchronize.php:1120
 #| msgid "Insecure connection"
@@ -9133,13 +9177,15 @@ msgstr "Configurazione: %s"
 
 #: server_synchronize.php:1164
 msgid "Socket"
-msgstr ""
+msgstr "Socket"
 
 #: server_synchronize.php:1210
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Il database di destinazione verrá completamente sicronizzato con il database "
+"di origine. Il database di origine non verrá modificato."
 
 #: server_variables.php:39
 msgid "Server variables and settings"
@@ -9207,7 +9253,7 @@ msgstr "Lingua predefinita"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
-msgstr ""
+msgstr "lascia la scelta all'utente"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
@@ -9219,7 +9265,7 @@ msgstr "Server predefinito"
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
-msgstr ""
+msgstr "Fine del file"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
@@ -9555,11 +9601,11 @@ msgstr "Titolo"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
-msgstr ""
+msgstr "Etichetta per l'asse X"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Etichetta per l'asse X"
 
 #: tbl_chart.php:112
 msgid "Area margins"
@@ -9593,10 +9639,9 @@ msgid "Bar type"
 msgstr "Tipo di barre"
 
 #: tbl_chart.php:146
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Compresso"
+msgstr "Sovrapposti"
 
 #: tbl_chart.php:147
 msgid "Multi"
@@ -9611,6 +9656,8 @@ msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
 msgstr ""
+"Per ragioni di compatibilitá il diagramma é segmentato di default, seleziona "
+"questo per creare l'intero diagramma in un immagine."
 
 #: tbl_chart.php:166
 msgid ""
@@ -9756,10 +9803,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Ricarica la tabella (FLUSH)"
 
 #: tbl_operations.php:647
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Rimouvi la tabella o i dati"
 
 #: tbl_operations.php:662
 msgid "Empty the table (TRUNCATE)"
