@@ -6803,7 +6803,7 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "Visualizza un collegamento per trasferire i dati di un campo in formato "
-"binario.  La prima opzione è il nome del file binario, o la seconda opzione "
+"binario. La prima opzione è il nome del file binario, o la seconda opzione "
 "per specificare il campo che contiene il nome del file. Se fornite la "
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
