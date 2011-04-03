@@ -8202,7 +8202,7 @@ msgstr "Gestione degli errori: "
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
-"Ignorare gli errori potrebbe far mandare il master e slave fuori sincronia"
+"Ignorare gli errori potrebbe far mandare il master e slave fuori sincronia!"
 
 #: server_replication.php:342
 msgid "Skip current error"
