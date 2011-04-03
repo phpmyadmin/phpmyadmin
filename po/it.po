@@ -8215,7 +8215,7 @@ msgid ""
 msgstr ""
 "Il numero delle tabelle temporanee create automaticamente sul disco dal "
 "server mentre esegue i comandi. Se il valore Created_tmp_disk_tables è "
-"grande, potresti voler aumentare il valore tmp_table_size, per fare im modo "
+"grande, potresti voler aumentare il valore  tmp_table_size, per fare im modo "
 "che le tabelle temporanee siano memory-based anzichè disk-based."
 
 #: server_status.php:49
