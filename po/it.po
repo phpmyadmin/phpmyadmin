@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-03 22:56+0200\n"
+"PO-Revision-Date: 2011-04-03 22:57+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -8197,7 +8197,7 @@ msgstr "Arresta solo il thread IO"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr "Gestione degli errori: "
+msgstr "Gestione degli errori:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
