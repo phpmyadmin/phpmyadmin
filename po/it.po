@@ -8079,7 +8079,7 @@ msgstr "Il server master modificato a %s con successo"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr "Questo server é configurato come master in un processo di replicazione"
+msgstr "Questo server é configurato come master in un processo di replicazione."
 
 #: server_replication.php:182 server_status.php:407
 msgid "Show master status"
