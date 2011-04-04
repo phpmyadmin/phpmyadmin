@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-04 22:58+0200\n"
+"PO-Revision-Date: 2011-04-04 23:00+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4164,10 +4164,13 @@ msgid "Show statistics"
 msgstr "Mostra statistiche"
 
 #: libraries/config/messages.inc.php:454
+#, fuzzy
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
+"Se i tooltip sono abilitati e un commento del database è impostato, questo "
+"capovolgerá il commento e il nome reale"
 
 #: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
