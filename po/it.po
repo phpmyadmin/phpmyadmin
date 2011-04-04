@@ -4360,7 +4360,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:497
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Instruzioni multiple verbose"
 
 #: libraries/config/messages.inc.php:498 setup/frames/index.inc.php:229
 msgid "Check for latest version"
