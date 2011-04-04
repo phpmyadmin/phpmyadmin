@@ -4488,7 +4488,8 @@ msgstr ""
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Rimuovi l'URL di signon per l'utilizzo del metodo di autenticazione signon"
+"Rimuovi l'URL di signon durante l'utilizzo del metodo di autenticazione "
+"signon"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
