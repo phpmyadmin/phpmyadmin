@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-04 23:13+0200\n"
+"PO-Revision-Date: 2011-04-04 23:14+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4322,6 +4322,7 @@ msgstr "Lista dei proxy di fiducia per filtarre gli IP, accetta/rifiuta"
 #: libraries/config/messages.inc.php:490
 msgid "Directory on server where you can upload files for import"
 msgstr ""
+"La cartella sul server dove é possibile caricare i file per l'importazione"
 
 #: libraries/config/messages.inc.php:491
 msgid "Upload directory"
