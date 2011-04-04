@@ -4492,7 +4492,7 @@ msgstr ""
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Rimuovi l'utente di controllo di phpMyAdmin durante l'utilizzo di pmadb"
 
 #: libraries/config/validate.lib.php:280
 msgid "Empty phpMyAdmin control user password while using pmadb"
