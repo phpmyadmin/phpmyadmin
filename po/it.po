@@ -9405,7 +9405,7 @@ msgstr "Il modulo inviato contiene degli errori"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Cerca di reimpostare i campi errati con i loro valori predefiniti"
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
@@ -9419,12 +9419,16 @@ msgstr "Visualizza form"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
+"Né URL wrapper, né CURL sono disponibili. Impossibile effettuare il "
+"controllo della versione."
 
 #: setup/lib/index.lib.php:126
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"La lettura della versione é fallita. É possibile che sei offline o che il "
+"server degli aggiornamenti non risponde."
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
@@ -9432,7 +9436,7 @@ msgstr "Ricevuto una stringa di versione invalida dal server"
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Stringa della versione non interpretabile"
 
 #: setup/lib/index.lib.php:162
 #, php-format
@@ -9455,6 +9459,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"Questa %sopzione%s dovrebbe essere disabilitata siccome rende possibili gli "
+"attacchi bruteforce di login a qualunque server MySQL. Se credi che sia "
+"necessario, usa %sla lista dei proxy di fiducia%s. Comunque, la protezione a "
+"base di IP potrebbe non essere affidabile se il tuo IP appartiene ad un ISP "
+"dove migliaia di utenti, incluso te, sono connessi."
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -9462,6 +9471,10 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"Non avevi impostato una parola chiave blowfish ed hai abilitato la "
+"autenticazione cookie, qundi una chiave é stata creata per te "
+"automaticamente. E utilizzata per la codifica dei cookie; non hai bisogno di "
+"ricordarla."
 
 #: setup/lib/index.lib.php:253
 #, php-format
@@ -9477,11 +9490,16 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Questo valore deve essere ricontrollato per assicurarsi che questa cartella "
+"non é scrivibile da tutti o leggibile o scrivibile da altri utenti sul tuo "
+"server."
 
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
+"Quest'%sopzione%s dovrebbe essere abilitata se il tuo web server lo "
+"supporta."
 
 #: setup/lib/index.lib.php:258
 #, php-format
@@ -9489,6 +9507,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sla compressione e decompressione GZip%s richiedono le funzioni (%s) che "
+"non sono disponibili sul tuo sistema."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -9497,6 +9517,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sLa validitá del cookie%s maggiore di 1440 secondi potrebbe causare delle "
+"invalidazioni delle sessioni se %ssession.gc_maxlifetime%s é inferiore al "
+"suo valore (attualmente %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
@@ -9504,6 +9527,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sLa validitá del cookie%s dovrebbe essere impostata a 1800 secondi (30 "
+"minuti) al massimo. I valori maggiogi creano un rischio di sicurezza, come "
+"impersonazione."
 
 #: setup/lib/index.lib.php:264
 #, php-format
@@ -9511,6 +9537,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Se usi l'autenticazione cookie ed %sstore del login cookie%s non é 0, %sLa "
+"validitá del cookie%s deve essere impostata ad un valore inferiore o uguale "
+"a questo."
 
 #: setup/lib/index.lib.php:266
 #, php-format
@@ -9537,6 +9566,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sLa compressione Zip%s richiede la funzioni (%s) che non sono disponibili "
+"su questo sistema."
 
 #: setup/lib/index.lib.php:272
 #, php-format
@@ -9544,18 +9575,20 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sLa decompressione Zip%s richiede la funzioni (%s) che non sono disponibili "
+"su questo sistema."
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "Usa una connessione SSL se il tuo web server lo supporta."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "Dovresti utilizzare mysqli per ragioni di prestazioni."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Consenti la connessione al server senza password."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
@@ -9563,7 +9596,7 @@ msgstr "La chiave é troppo corta, deve essere almeno 8 caratteri."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "La chiave deve contenere lettere, numeri [em]e[/em] caratteri speciali."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -9573,7 +9606,7 @@ msgstr "Naviga tra i valori esterni"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Usa il segnalibro \"%s\" come la query di navigazione predefinita."
 
 #: sql.php:600 tbl_replace.php:385
 #, php-format
@@ -9767,6 +9800,8 @@ msgstr ""
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Durante la creazione di diagrammi radar tutti i valori sono normalizzati ad "
+"un intervallo [0..10]."
 
 #: tbl_chart.php:173
 msgid ""
@@ -10136,17 +10171,17 @@ msgstr "Report di monitoraggio per la tabella `%s`"
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Versione %s creata, monitoraggio attivato per %s.%s."
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Monitoraggio per %s.%s, versione %s é disattivato."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Monitoraggio per %s.%s, versione %s é attivato."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
@@ -10157,6 +10192,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Puoi eseguire il dump creando ed utilizzando un database temporaneo. Prego "
+"assicurati che hai i corretti permessi per effettuare queste azioni."
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
@@ -10164,12 +10201,12 @@ msgstr ""
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "Instruzione SQL esporatata. Copia il dump o eseguilo."
 
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Versione %s del snapshot (codice SQL)"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
@@ -10178,7 +10215,7 @@ msgstr "Instruzioni monitorate"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "Mostra %s con date dal %s al %s dell'utente %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 msgid "Date"
@@ -10246,11 +10283,11 @@ msgstr "Crea versione %s di %s.%s"
 
 #: tbl_tracking.php:667
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Monitora le istuzioni delle definizioni dei dati:"
 
 #: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Monitora le istuzioni delle manipulazioni dei dati:"
 
 #: tbl_tracking.php:683
 msgid "Create version"
