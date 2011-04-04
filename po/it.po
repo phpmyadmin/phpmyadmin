@@ -6450,7 +6450,7 @@ msgstr "Questa pagina non contiene alcuna tabbella!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA ERROR: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:877
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
