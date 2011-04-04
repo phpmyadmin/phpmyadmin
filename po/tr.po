@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-03-29 10:37+0200\n"
+"PO-Revision-Date: 2011-04-04 17:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1489,6 +1489,7 @@ msgstr "Önemlilik"
 msgid "Comment"
 msgstr "Yorum"
 
+# .....
 #: libraries/Index.class.php:465 libraries/common.lib.php:626
 #: libraries/common.lib.php:1163 libraries/common.lib.php:3022
 #: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1149
