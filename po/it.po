@@ -4482,7 +4482,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
-"Rimuovi il nome della sessione signon per l'utilizzo del metodo di "
+"Rimuovi il nome della sessione signon durante l'utilizzo del metodo di "
 "autenticazione signon"
 
 #: libraries/config/validate.lib.php:242
