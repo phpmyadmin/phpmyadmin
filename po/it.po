@@ -3993,6 +3993,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Se aggiungere un instruzione DROP VIEW IF EXISTS sulla prima linea del log "
+"quando viene creata una vista."
 
 #: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
