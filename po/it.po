@@ -3916,7 +3916,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:408
 msgid "Signon session name"
-msgstr ""
+msgstr "Nome della sessione di signon"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon URL"
