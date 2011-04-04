@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-04 23:23+0200\n"
+"PO-Revision-Date: 2011-04-04 23:24+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4497,6 +4497,8 @@ msgstr "Rimuovi l'utente di controllo di phpMyAdmin durante l'utilizzo di pmadb"
 #: libraries/config/validate.lib.php:280
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
+"Rimuovi la parola chiave dell'utente di controllo di phpMyAdmin durante "
+"l'utilizzo di pmadb"
 
 #: libraries/config/validate.lib.php:367
 #, php-format
