@@ -4477,7 +4477,8 @@ msgstr "Impossibile effettuare la connessione al server MySQL"
 #: libraries/config/validate.lib.php:234
 msgid "Empty username while using config authentication method"
 msgstr ""
-"Rimuovi il nome utente per l'utilizzo del metodo di autenticazione config"
+"Rimuovi il nome utente durante l'utilizzo del metodo di autenticazione "
+"config"
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
