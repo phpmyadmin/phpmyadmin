@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-05 00:22+0200\n"
+"PO-Revision-Date: 2011-04-05 00:24+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -5342,6 +5342,9 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Una lista delimitata da \":\" con le intestazioni di metadata da utilizzare "
+"per l'inizializzazione della tabella pbms_metadata_header quando un database "
+"é creato."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
