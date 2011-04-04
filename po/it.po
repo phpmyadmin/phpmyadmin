@@ -2724,10 +2724,9 @@ msgid "Use hexadecimal for BLOB"
 msgstr "Utilizza esadecimale per i BLOB"
 
 #: libraries/config/messages.inc.php:128
-#, fuzzy
 #| msgid "Delayed inserts"
 msgid "Use ignore inserts"
-msgstr "Inserimento ritardato"
+msgstr "Usa ignore inserts"
 
 #: libraries/config/messages.inc.php:130 libraries/export/sql.php:163
 msgid "Maximal length of created query"
