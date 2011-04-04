@@ -3658,7 +3658,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Realm HTTP"
 
 #: libraries/config/messages.inc.php:361
 msgid ""
