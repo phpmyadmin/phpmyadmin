@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-04 23:52+0200\n"
+"PO-Revision-Date: 2011-04-04 23:53+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3462,6 +3462,8 @@ msgstr "Limite memoria"
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr ""
+"Questi sono i collegamenti per Modifica, Modifica in Linea, Copia e "
+"Eliminazione"
 
 #: libraries/config/messages.inc.php:315
 #| msgid "Show logo in left frame"
