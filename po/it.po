@@ -6516,7 +6516,7 @@ msgstr "Visualizza lo schema relazionale"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Seleziona il Tipo di Esportazione Relazionale"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
