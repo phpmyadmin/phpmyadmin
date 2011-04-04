@@ -3364,7 +3364,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie store"
-msgstr ""
+msgstr "Store del cookie di login"
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
