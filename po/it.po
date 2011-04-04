@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-05 00:25+0200\n"
+"PO-Revision-Date: 2011-04-05 00:26+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -6746,8 +6746,9 @@ msgid "END RAW"
 msgstr "FINE RAW"
 
 #: libraries/sqlparser.lib.php:363
+#, fuzzy
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Appendi una virgoletta ` alla fine della query!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
