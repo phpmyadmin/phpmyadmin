@@ -4236,6 +4236,7 @@ msgstr "Patikrinti ar naujausia versija"
 #: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
+"Įjungia naujausios versijos patikrinimą pagrindiniame phpMyAdmin puslapyje"
 
 #: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
