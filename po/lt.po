@@ -4497,10 +4497,10 @@ msgid "Exporting databases from the current server"
 msgstr "Eksportuojamos šio serverio duomenų bazės"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Exporting tables in the database \"%s\""
 msgid "Exporting tables from \"%s\" database"
-msgstr "Eksportuojamos lentelės duomenų bazėje „%s“"
+msgstr "Eksportuojamos duomenų bazės „%s“ lentelės"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
