@@ -4165,13 +4165,12 @@ msgid "Show statistics"
 msgstr "Mostra statistiche"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 "Se i tooltip sono abilitati e un commento del database è impostato, questo "
-"capovolgerá il commento e il nome reale"
+"scambierá il commento ed il vero nome"
 
 #: libraries/config/messages.inc.php:455
 msgid "Display database comment instead of its name"
