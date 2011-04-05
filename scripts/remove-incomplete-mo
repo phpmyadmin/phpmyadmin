@@ -3,6 +3,8 @@
 # Removes mo files for incomplete translations
 #
 
+set -e
+
 #
 # How many percent needs to be translated
 #
