@@ -355,6 +355,23 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
     }
 
 /**
+ * Warning about incomplete translations.
+ *
+ * The data file is created while creating release by ./scripts/remove-incomplete-mo
+ */
+if (file_exists('./libraries/language_stats.inc.php')) {
+    include('./libraries/language_stats.inc.php');
+    /*
+     * This message is intentionally not translated, because we're
+     * handling incomplete translations here and focus on english
+     * speaking users.
+     */
+    if (isset($GLOBALS['language_stats'][$lang]) && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']) {
+        trigger_error('You are using translation which is not complete, you are welcome to <a href="http://www.phpmyadmin.net/home_page/improve.php#translate">contribute to it</a>.', E_USER_NOTICE);
+    }
+}
+
+/**
  * prints list item for main page
  *
  * @param   string  $name   displayed text

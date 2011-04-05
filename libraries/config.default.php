@@ -62,6 +62,13 @@ $cfg['SuhosinDisableWarning'] = false;
 $cfg['McryptDisableWarning'] = false;
 
 /**
+ * Show warning about incomplete translations on certain threshold.
+ *
+ * @global boolean $cfg['TranslationWarningThreshold']
+ */
+$cfg['TranslationWarningThreshold'] = 80;
+
+/**
  * Allows phpMyAdmin to be included from a document located on
  * another domain; setting this to true is a potential security hole
  *
