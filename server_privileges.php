@@ -1440,6 +1440,10 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
     }
 
     if(isset($update_privs)) {
+        $extra_data['db_specific_privs'] = false;
+        if (isset($dbname_is_wildcard)) {
+            $extra_data['db_specific_privs'] = !$dbname_is_wildcard;
+        }
         $new_privileges = join(', ', PMA_extractPrivInfo('', true));
 
         $extra_data['new_privileges'] = $new_privileges;
@@ -2161,7 +2165,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '</form>' . "\n";
 } else {
     // check the privileges for a particular database.
-    echo '<form id="usersForm"><table id="tablespecificuserrights" class="data">' . "\n"
+    echo '<form id="usersForm"><table id="dbspecificuserrights" class="data">' . "\n"
        . '<caption class="tblHeaders">' . "\n"
        . PMA_getIcon('b_usrcheck.png')
        . '    ' . sprintf(__('Users having access to &quot;%s&quot;'), '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
