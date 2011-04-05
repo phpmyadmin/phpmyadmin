@@ -10,6 +10,10 @@ set -e
 #
 THRESHOLD=50
 
+if [ ! -z "$1" ] ; then
+    THRESHOLD=$1
+fi
+
 check() {
     lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
     STATS=`LANG=C  msgfmt --statistics -o /dev/null $1 2>&1`
@@ -35,11 +39,6 @@ check() {
         rm -f locale/$lang/LC_MESSAGES/phpmyadmin.mo 
     fi
 }
-
-if [ ! -z "$1" ] ; then
-    check po/$1.po
-    exit 0
-fi
 
 for x in po/*.po  ; do 
     check $x
