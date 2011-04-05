@@ -4513,10 +4513,9 @@ msgid "Export Method:"
 msgstr "Eksporto tipas:"
 
 #: libraries/display_export.lib.php:113
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
-msgstr "Greitas - rodomi tik minimalūs nustatymai"
+msgstr "Trumpas - rodomi tik minimalūs nustatymai"
 
 #: libraries/display_export.lib.php:129
 #, fuzzy
