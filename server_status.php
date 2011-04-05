@@ -653,8 +653,11 @@ $used_queries = $sections['com']['vars'];
 // reverse sort by value to show most used statements first
 arsort($used_queries);
 // remove all zero values from the end
-while (end($used_queries) == 0) {
-    array_pop($used_queries);
+// variable empty for Drizzle
+if ($used_queries) {
+    while (end($used_queries) == 0) {
+        array_pop($used_queries);
+    }
 }
 
 // number of tables to split values into
@@ -713,6 +716,7 @@ foreach ($used_queries as $name => $value) {
     <div class="clearfloat"></div>
 </div>
 
+<?php if ($used_queries): ?>
 <div id="serverstatusquerieschart">
 <?php
 	if (empty($_REQUEST["query_chart"])) {
@@ -726,6 +730,7 @@ foreach ($used_queries as $name => $value) {
 	}
 ?>
 </div>
+<?php endif; ?>
 
 <div id="serverstatussection">
 <?php
