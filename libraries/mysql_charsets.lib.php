@@ -11,26 +11,18 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-if (PMA_DRIZZLE) {
-    /* There are no charsets in Drizzle */
-    $GLOBALS['mysql_charsets']                  = array();
-    $GLOBALS['mysql_charsets_descriptions']     = array('utf8' => 'UTF-8 Unicode');
-    $GLOBALS['mysql_charsets_count']            = 0;
-    $GLOBALS['mysql_charsets_available']        = array();
-    $GLOBALS['mysql_collations']                = array();
-    $GLOBALS['mysql_default_collations']        = array();
-    $GLOBALS['mysql_collations_flat']           = array();
-    $GLOBALS['mysql_collations_count']          = 0;
-    $GLOBALS['mysql_collations_available']      = array();
-} elseif (! PMA_cacheExists('mysql_charsets_count', true)) {
-    $res = PMA_DBI_query('SHOW CHARACTER SET;');
+if (! PMA_cacheExists('mysql_charsets_count', true)) {
+    $sql = PMA_DRIZZLE
+        ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
+        : 'SELECT * FROM information_schema.CHARACTER_SETS';
+    $res = PMA_DBI_query($sql);
 
     $mysql_charsets = array();
     while ($row = PMA_DBI_fetch_assoc($res)) {
-        $mysql_charsets[] = $row['Charset'];
+        $mysql_charsets[] = $row['CHARACTER_SET_NAME'];
         // never used
         //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
-        $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
+        $mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']] = $row['DESCRIPTION'];
     }
     PMA_DBI_free_result($res);
 
@@ -40,25 +32,33 @@ if (PMA_DRIZZLE) {
     $mysql_collations = array_flip($mysql_charsets);
     $mysql_default_collations = $mysql_collations_flat = $mysql_charsets_available = $mysql_collations_available = array();
 
-    $res = PMA_DBI_query('SHOW COLLATION;');
+    $sql = PMA_DRIZZLE
+        ? 'SELECT * FROM data_dictionary.COLLATIONS'
+        : 'SELECT * FROM information_schema.COLLATIONS';
+    $res = PMA_DBI_query($sql);
     while ($row = PMA_DBI_fetch_assoc($res)) {
-        if (!is_array($mysql_collations[$row['Charset']])) {
-            $mysql_collations[$row['Charset']] = array($row['Collation']);
+        if (!is_array($mysql_collations[$row['CHARACTER_SET_NAME']])) {
+            $mysql_collations[$row['CHARACTER_SET_NAME']] = array($row['COLLATION_NAME']);
         } else {
-            $mysql_collations[$row['Charset']][] = $row['Collation'];
+            $mysql_collations[$row['CHARACTER_SET_NAME']][] = $row['COLLATION_NAME'];
         }
-        $mysql_collations_flat[] = $row['Collation'];
-        if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
-            $mysql_default_collations[$row['Charset']] = $row['Collation'];
+        $mysql_collations_flat[] = $row['COLLATION_NAME'];
+        if ($row['IS_DEFAULT'] == 'Yes') {
+            $mysql_default_collations[$row['CHARACTER_SET_NAME']] = $row['COLLATION_NAME'];
         }
         //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
-        $mysql_collations_available[$row['Collation']] = TRUE;
-        $mysql_charsets_available[$row['Charset']] =
-            !empty($mysql_charsets_available[$row['Charset']])
-         || !empty($mysql_collations_available[$row['Collation']]);
+        $mysql_collations_available[$row['COLLATION_NAME']] = true;
+        $mysql_charsets_available[$row['CHARACTER_SET_NAME']] =
+            !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
+            || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
     PMA_DBI_free_result($res);
     unset($res, $row);
+
+    if (PMA_DRIZZLE && isset($mysql_collations['utf8_general_ci']) && isset($mysql_collations['utf8'])) {
+        $mysql_collations['utf8'] = $mysql_collations['utf8_general_ci'];
+        unset($mysql_collations['utf8_general_ci']);
+    }
 
     $mysql_collations_count = count($mysql_collations_flat);
     sort($mysql_collations_flat, SORT_STRING);
