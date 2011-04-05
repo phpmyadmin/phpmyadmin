@@ -96,7 +96,7 @@ class zipfile
     {
         $name     = str_replace('\\', '/', $name);
 
-        $dtime    = dechex($this->unix2DosTime($time));
+        $dtime    = substr( "00000000" . dechex($this->unix2DosTime($time)), -8);
         $hexdtime = '\x' . $dtime[6] . $dtime[7]
                   . '\x' . $dtime[4] . $dtime[5]
                   . '\x' . $dtime[2] . $dtime[3]
