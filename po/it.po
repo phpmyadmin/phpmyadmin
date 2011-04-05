@@ -6744,7 +6744,6 @@ msgid "END RAW"
 msgstr "FINE RAW"
 
 #: libraries/sqlparser.lib.php:363
-#, fuzzy
 msgid "Automatically appended backtick to the end of query!"
 msgstr "Appendi una virgoletta ` alla fine della query!"
 
