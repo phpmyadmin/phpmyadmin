@@ -208,7 +208,7 @@ function PMA_langDetails($lang) {
         case 'az':
             return array('az|azerbaijani', 'az', 'Az&#601;rbaycanca');
         case 'bn':
-            return array('bn|bangla', 'bn', '');
+            return array('bn|bangla', 'bn', 'বাংলা');
         case 'be':
             return array('be|belarusian', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;');
         case 'be@latin':
