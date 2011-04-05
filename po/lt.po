@@ -6859,10 +6859,9 @@ msgid "Get support"
 msgstr "Gauti pagalbą"
 
 #: main.php:232
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Nėra pakeitimų"
+msgstr "Pakeitimų sąrašas"
 
 #: main.php:256
 msgid ""
