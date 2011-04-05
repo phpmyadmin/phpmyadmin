@@ -3773,6 +3773,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
+"Palikite tuščią jei nenorite PDF schemų palaikymo, siūlome: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
