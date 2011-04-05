@@ -199,8 +199,6 @@ function PMA_langDetect($str, $envType)
  */
 function PMA_langDetails($lang) {
     switch ($lang) {
-        case 'en':
-            return array('en|english', 'en', '');
         case 'af':
             return array('af|afrikaans', 'af', '');
         case 'ar':
