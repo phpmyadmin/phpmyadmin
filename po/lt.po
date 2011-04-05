@@ -3400,7 +3400,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:315
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "Lentelių nuorodas eilę rodyti kairėje pusėje"
+msgstr "Lentelių nuorodų eilę rodyti kairėje pusėje"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
