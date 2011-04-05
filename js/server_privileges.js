@@ -389,8 +389,18 @@ $(document).ready(function() {
                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                 }
 
-                //Change privileges if they were edited
-                if(data.new_privileges) {
+                //Check if we are on the page of the db-specific privileges
+                var db_priv_page = !!($('#dbspecificuserrights').length); // the "!!" part is merely there to ensure a value of type boolean
+                // we always need to reload on the db-specific privilege page
+                // and on the global page when adjusting global privileges,
+                // but not on the global page when adjusting db-specific privileges.
+                var reload_privs = false;
+                if (data.db_specific_privs == false || (db_priv_page == data.db_specific_privs)) {
+                    reload_privs = true;
+                }
+
+                //Change privileges, if they were edited and need to be reloaded
+                if(data.new_privileges && reload_privs) {
                     $("#usersForm")
                     .find('.current_row')
                     .find('tt')
