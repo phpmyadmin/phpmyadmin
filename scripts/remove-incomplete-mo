@@ -28,7 +28,7 @@ check() {
     else
         UNTRANSLATED=0
     fi
-    PERCENT=`expr 100 \* $TRANSLATED / \( $TRANSLATED + $FUZZY + $UNTRANSLATED \)`
+    PERCENT=`expr 100 \* $TRANSLATED / \( $TRANSLATED + $FUZZY + $UNTRANSLATED \) || true`
 
     if [ $PERCENT -lt $THRESHOLD ] ; then
         echo "Removing $lang, only $PERCENT%"
