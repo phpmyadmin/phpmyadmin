@@ -199,8 +199,6 @@ function PMA_langDetect($str, $envType)
  */
 function PMA_langDetails($lang) {
     switch ($lang) {
-        case 'en':
-            return array('en|english', 'en', '');
         case 'af':
             return array('af|afrikaans', 'af', '');
         case 'ar':
@@ -208,7 +206,7 @@ function PMA_langDetails($lang) {
         case 'az':
             return array('az|azerbaijani', 'az', 'Az&#601;rbaycanca');
         case 'bn':
-            return array('bn|bangla', 'bn', '');
+            return array('bn|bangla', 'bn', 'বাংলা');
         case 'be':
             return array('be|belarusian', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;');
         case 'be@latin':
@@ -479,7 +477,7 @@ if (! function_exists('__')) {
 $charset = 'utf-8';
 
 /* l10n: Text direction, use either ltr or rtl */
-$text_dir = __('ltr');
+$GLOBALS['text_dir'] = __('ltr');
 
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
