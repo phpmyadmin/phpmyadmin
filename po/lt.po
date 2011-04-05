@@ -6855,9 +6855,8 @@ msgid "Contribute"
 msgstr "Prisidėti"
 
 #: main.php:231
-#, fuzzy
 msgid "Get support"
-msgstr "Eksportuoti"
+msgstr "Gauti pagalbą"
 
 #: main.php:232
 #, fuzzy
