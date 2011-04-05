@@ -119,6 +119,10 @@ fi
 if [ $GETTEXT -eq 1 ] ; then
     echo "* Generating mo files"
     ./scripts/generate-mo
+    if [ -f ./scripts/remove-incomplete-mo ] ; then
+        echo "* Removing incomplete translations"
+        ./scripts/remove-incomplete-mo
+    fi
     echo "* Removing gettext source files"
     rm -rf po
 fi
