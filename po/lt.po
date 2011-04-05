@@ -3819,7 +3819,7 @@ msgstr "Sąryšių lentelė"
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "SQL komanda išgauti prieinamas duombazes"
 
 #: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
