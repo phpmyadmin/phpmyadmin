@@ -1119,10 +1119,9 @@ msgid "Hide search criteria"
 msgstr "Slėpti paieškos kriterijų"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Show query box"
 msgid "Show search criteria"
-msgstr "Rodyti užklausos laukelį"
+msgstr "Rodyti paieškos kriterijų"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
