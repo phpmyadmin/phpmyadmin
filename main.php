@@ -85,19 +85,20 @@ if ($server > 0
     if ($server > 0) {
         require_once './libraries/check_user_privileges.lib.php';
 
-        // Logout for advanced authentication
-        if ($cfg['Server']['auth_type'] != 'config') {
-            if ($cfg['ShowChgPassword']) {
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $conditional_class = 'ajax';
-                } else {
-                    $conditional_class = null;
+        if (!PMA_DRIZZLE) {
+            // Logout for advanced authentication
+            if ($cfg['Server']['auth_type'] != 'config') {
+                if ($cfg['ShowChgPassword']) {
+                    if ($GLOBALS['cfg']['AjaxEnable']) {
+                        $conditional_class = 'ajax';
+                    } else {
+                        $conditional_class = null;
+                    }
+                    PMA_printListItem(__('Change password'), 'li_change_password',
+                        './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
                 }
-                PMA_printListItem(__('Change password'), 'li_change_password',
-                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
-            }
-        } // end if
-        if (PMA_DRIZZLE) {
+            } // end if
+
             echo '    <li id="li_select_mysql_collation">';
             echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
