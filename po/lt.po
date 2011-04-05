@@ -4758,9 +4758,9 @@ msgid "vertical"
 msgstr "vertikaliai"
 
 #: libraries/display_tbl.lib.php:405
-#, php-format
+#, php-format, fuzzy
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "išdėstant  %s pakartoti antraštes kas %s įrašų"
+msgstr "išdėstant %s pakartoti antraštes kas %s laukelių"
 
 #: libraries/display_tbl.lib.php:494
 msgid "Sort by key"
