@@ -477,7 +477,7 @@ if (! function_exists('__')) {
 $charset = 'utf-8';
 
 /* l10n: Text direction, use either ltr or rtl */
-$text_dir = __('ltr');
+$GLOBALS['text_dir'] = __('ltr');
 
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
