@@ -52,11 +52,16 @@ $result = PMA_DBI_query($sql_query);
 ?>
 <table id="tableprocesslist" class="data">
 <thead>
-<tr><td><a href="<?php echo $full_text_link; ?>"
+<tr>
+    <?php if (!PMA_DRIZZLE): ?>
+    <td><a href="<?php echo $full_text_link; ?>"
             title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
         <img src="<?php echo $pmaThemeImage . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
             alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
         </a></td>
+    <?php else: ?>
+    <th></th>
+    <?php endif; ?>
     <th><?php echo __('ID'); ?></th>
     <th><?php echo __('User'); ?></th>
     <th><?php echo __('Host'); ?></th>
@@ -71,6 +76,15 @@ $result = PMA_DBI_query($sql_query);
 <?php
 $odd_row = true;
 while($process = PMA_DBI_fetch_assoc($result)) {
+    if (PMA_DRIZZLE) {
+        // Drizzle uses uppercase keys
+        foreach ($process as $k => $v) {
+            $k = $k !== 'DB'
+                ? $k = ucfirst(strtolower($k))
+                : 'db';
+            $process[$k] = $v;
+        }
+    }
     $url_params['kill'] = $process['Id'];
     $kill_process = 'server_processlist.php' . PMA_generate_common_url($url_params);
     ?>
