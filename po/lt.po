@@ -4710,8 +4710,8 @@ msgstr "Dalinis importavimas:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"Ankstesnio importavimo laikas baigėsi, po pakartotino to pačio failo "
-"išsiuntimo bus tęsiama nuo %d."
+"Ankstesnio importavimo laikas baigėsi, po pakartotino failo išsiuntimo bus "
+"tęsiama nuo %d pozicijos."
 
 #: libraries/display_import.lib.php:221
 msgid ""
