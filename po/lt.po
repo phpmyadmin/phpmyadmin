@@ -2129,7 +2129,7 @@ msgstr "Nepasiekimas nurodytas www-serverio katalogas atsiuntimams."
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Nėra failų išsiuntimui"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
