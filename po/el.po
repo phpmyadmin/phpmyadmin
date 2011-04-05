@@ -6991,7 +6991,7 @@ msgstr "Συνεισφορά"
 
 #: main.php:231
 msgid "Get support"
-msgstr "Λάβετε υποστήριξη"
+msgstr "Υποστήριξη"
 
 #: main.php:232
 msgid "List of changes"
