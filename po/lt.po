@@ -2137,7 +2137,7 @@ msgstr "Abu"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Atverti"
 
 #: libraries/config.values.php:74
 #, fuzzy
