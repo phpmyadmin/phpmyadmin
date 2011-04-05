@@ -3262,7 +3262,7 @@ msgstr "Didžiausias rodomas simbolių kiekis ne skaitiniuose stulpeliuose"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "Apriboti stulpelių simbolius"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
