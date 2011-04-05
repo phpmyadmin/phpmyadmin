@@ -3,10 +3,16 @@
 # Removes mo files for incomplete translations
 #
 
+set -e
+
 #
 # How many percent needs to be translated
 #
 THRESHOLD=50
+
+if [ ! -z "$1" ] ; then
+    THRESHOLD=$1
+fi
 
 check() {
     lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
@@ -26,18 +32,13 @@ check() {
     else
         UNTRANSLATED=0
     fi
-    PERCENT=`expr 100 \* $TRANSLATED / \( $TRANSLATED + $FUZZY + $UNTRANSLATED \)`
+    PERCENT=`expr 100 \* $TRANSLATED / \( $TRANSLATED + $FUZZY + $UNTRANSLATED \) || true`
 
     if [ $PERCENT -lt $THRESHOLD ] ; then
         echo "Removing $lang, only $PERCENT%"
         rm -f locale/$lang/LC_MESSAGES/phpmyadmin.mo 
     fi
 }
-
-if [ ! -z "$1" ] ; then
-    check po/$1.po
-    exit 0
-fi
 
 for x in po/*.po  ; do 
     check $x
