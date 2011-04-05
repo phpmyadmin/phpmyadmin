@@ -4821,7 +4821,7 @@ msgstr "Kopijuoti"
 
 #: libraries/display_tbl.lib.php:1165 libraries/display_tbl.lib.php:1177
 msgid "The row has been deleted"
-msgstr "Eilutė ištrinta"
+msgstr "Eilutė buvo ištrinta"
 
 #: libraries/display_tbl.lib.php:1204 libraries/display_tbl.lib.php:2115
 #: server_processlist.php:78
