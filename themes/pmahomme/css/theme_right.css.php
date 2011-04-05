@@ -2110,3 +2110,16 @@ fieldset .disabled-field td {
 #prefs_autoload {
     margin-bottom: 0.5em;
 }
+
+#table_columns input, select {
+    width:              14em;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#table_columns select {
+    margin:             0 6px;
+}
+
