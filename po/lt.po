@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-05 15:09+0200\n"
+"PO-Revision-Date: 2011-04-05 15:10+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3797,6 +3797,8 @@ msgstr "Duomenų bazės vardas"
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Jungtis per kurią MySQL serveris laukia atsakymo, palikite tuščią numatytam "
+"nustatymui"
 
 #: libraries/config/messages.inc.php:402
 msgid "Server port"
