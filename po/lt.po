@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-05 15:02+0200\n"
+"PO-Revision-Date: 2011-04-05 15:03+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3638,6 +3638,7 @@ msgstr "Naudoti suspaustą susijungimą"
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
+"Kaip prisijungti prie serverio, jei nesate tikras palikite [kbd]tcp[/kbd]"
 
 #: libraries/config/messages.inc.php:372
 msgid "Connection type"
