@@ -97,7 +97,7 @@ if ($server > 0
                     './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
             }
         } // end if
-        if (PMA_MYSQL_MAJOR_VERSION < 2009) {
+        if (PMA_DRIZZLE) {
             echo '    <li id="li_select_mysql_collation">';
             echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')

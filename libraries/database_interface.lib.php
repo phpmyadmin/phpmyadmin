@@ -985,10 +985,12 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             PMA_cacheSet('PMA_MYSQL_MAJOR_VERSION', PMA_MYSQL_MAJOR_VERSION, true);
             PMA_cacheSet('PMA_MYSQL_STR_VERSION', PMA_MYSQL_STR_VERSION, true);
         }
+        // detect Drizzle by version number (year.month.day.?patch-version)
+        define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
 
     /* Skip charsets for Drizzle */
-    if (PMA_MYSQL_MAJOR_VERSION < 2009) {
+    if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
             PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
