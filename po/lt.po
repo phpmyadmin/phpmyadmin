@@ -4830,7 +4830,7 @@ msgstr "Stabdyti procesą"
 
 #: libraries/display_tbl.lib.php:1989
 msgid "in query"
-msgstr "užklausą vykdoma"
+msgstr "užklausa vykdoma"
 
 #: libraries/display_tbl.lib.php:2007
 msgid "Showing rows"
