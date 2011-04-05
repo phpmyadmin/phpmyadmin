@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-03-23 12:53-0400\n"
-"PO-Revision-Date: 2011-04-05 14:58+0200\n"
+"PO-Revision-Date: 2011-04-05 14:59+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3404,7 +3404,7 @@ msgstr "Lentelių nuorodas eilę rodyti kairėje pusėje"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Lentelių nuorodų eilę rodyti dešinėje pusėje"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
