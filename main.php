@@ -367,7 +367,7 @@ if (file_exists('./libraries/language_stats.inc.php')) {
      * speaking users.
      */
     if (isset($GLOBALS['language_stats'][$lang]) && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']) {
-        trigger_error('You are using translation which is not complete, you are welcome to <a href="http://www.phpmyadmin.net/home_page/improve.php#translate">contribute to it</a>.', E_USER_NOTICE);
+        trigger_error('You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate">contributing</a>.', E_USER_NOTICE);
     }
 }
 
