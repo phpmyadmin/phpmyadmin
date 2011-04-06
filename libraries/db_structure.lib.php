@@ -31,7 +31,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         $action_colspan = 6;
     }
 
-    echo '<table class="data" style="float: left;">' . "\n"
+    echo '<table class="data">' . "\n"
         .'<thead>' . "\n"
         .'<tr><th></th>' . "\n"
         .'    <th>' . PMA_SortableTableHeader(__('Table'), 'table') . '</th>' . "\n";
