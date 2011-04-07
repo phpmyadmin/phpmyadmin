@@ -6853,10 +6853,9 @@ msgid "Operator"
 msgstr ""
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Actions"
 msgid "Active options"
-msgstr "చర్యలు"
+msgstr "క్రియాశీల ఎంపికలు"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
