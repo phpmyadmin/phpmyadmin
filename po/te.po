@@ -1424,10 +1424,9 @@ msgstr "గు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "శుక్ర"
+msgstr "శు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:224
