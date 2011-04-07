@@ -3509,7 +3509,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "ఉపయోగించకపోతే ఖాళీగా వదిలేయండి"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
