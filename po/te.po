@@ -6385,11 +6385,10 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "No"
 msgctxt "for default"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేదు"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
