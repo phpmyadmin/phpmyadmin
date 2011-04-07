@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:52+0200\n"
+"PO-Revision-Date: 2011-04-07 16:53+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -5556,7 +5556,7 @@ msgstr ""
 #: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:617
 #: server_synchronize.php:427 server_synchronize.php:870
 msgid "Table name"
-msgstr ""
+msgstr "పట్టిక పేరు"
 
 #: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
