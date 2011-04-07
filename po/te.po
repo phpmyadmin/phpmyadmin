@@ -4772,7 +4772,7 @@ msgstr ""
 
 #: libraries/engines/bdb.lib.php:20 main.php:225
 msgid "Version information"
-msgstr ""
+msgstr "సంచిక సమాచారం"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
