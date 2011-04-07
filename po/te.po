@@ -9084,7 +9084,7 @@ msgstr ""
 
 #: tbl_operations.php:347
 msgid "Table options"
-msgstr ""
+msgstr "పట్టిక ఎంపికలు"
 
 #: tbl_operations.php:351
 msgid "Rename table to"
