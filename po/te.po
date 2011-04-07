@@ -6880,10 +6880,9 @@ msgstr "పుటని సృష్టించుటలో తప్పిద�
 
 # మొదటి అనువాదము
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "పుటలు"
+msgstr "పుట"
 
 #: pmd_pdf.php:99
 msgid "Import from selected page"
