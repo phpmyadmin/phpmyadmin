@@ -1008,10 +1008,9 @@ msgstr "కొత్త వాడుకరిని చేర్చు"
 
 # మొదటి అనువాదము
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create"
 msgid "Create User"
-msgstr "సృష్టించు"
+msgstr "వాడుకరిని సృష్టించు"
 
 #: js/messages.php:54
 msgid "Reloading Privileges"
