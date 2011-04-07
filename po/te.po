@@ -2176,7 +2176,7 @@ msgstr "భోగట్టా"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "structure and data"
-msgstr ""
+msgstr "నిర్మాణాకృతి మరియు భోగట్టా"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
