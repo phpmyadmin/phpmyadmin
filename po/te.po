@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:47+0200\n"
+"PO-Revision-Date: 2011-04-07 16:49+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4273,7 +4273,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:367
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "తప్పుడు ఐపీ చిరునామా: %s"
 
 # మొదటి అనువాదము
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
