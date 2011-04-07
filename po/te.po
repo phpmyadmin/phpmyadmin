@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:31+0200\n"
+"PO-Revision-Date: 2011-04-07 16:32+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -566,12 +566,12 @@ msgid "Delete"
 msgstr "తొలగించు"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
-msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
+msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక"
+msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలికలు"
 
 #: db_search.php:295
 msgid "Search in database"
