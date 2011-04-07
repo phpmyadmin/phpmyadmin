@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:39+0200\n"
+"PO-Revision-Date: 2011-04-07 16:40+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -2105,7 +2105,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:634 pmd_general.php:151
 #: server_privileges.php:604 server_replication.php:313 tbl_tracking.php:263
 msgid "Structure"
-msgstr ""
+msgstr "నిర్మాణాకృతి"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/config/messages.inc.php:211 libraries/db_links.inc.php:53
