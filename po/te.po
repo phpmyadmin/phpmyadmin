@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:36+0200\n"
+"PO-Revision-Date: 2011-04-07 16:37+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -1803,7 +1803,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
 #: server_status.php:385
 msgid "Tables"
-msgstr ""
+msgstr "పట్టికలు"
 
 #: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:300
 #: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:367
