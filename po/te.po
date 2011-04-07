@@ -2019,7 +2019,7 @@ msgstr "సమయం"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1392
 msgid "B"
-msgstr ""
+msgstr "బై"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
