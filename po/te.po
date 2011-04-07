@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:34+0200\n"
+"PO-Revision-Date: 2011-04-07 16:35+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -1394,10 +1394,9 @@ msgstr "శని"
 
 #. l10n: Minimal week day name
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "ఆది"
+msgstr "ఆ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:214
