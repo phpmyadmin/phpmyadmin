@@ -7349,7 +7349,7 @@ msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్న
 # మొదటి అనువాదము
 #: server_privileges.php:974
 msgid "You have added a new user."
-msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+msgstr "మీరు క్రొత్త వాడుకరిని చేర్చారు."
 
 #: server_privileges.php:1204
 #, php-format
