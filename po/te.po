@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 17:00+0200\n"
+"PO-Revision-Date: 2011-04-07 17:01+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -7414,7 +7414,7 @@ msgstr ""
 #: server_privileges.php:1705 server_privileges.php:1729
 #: server_privileges.php:2134 server_privileges.php:2323
 msgid "Add a new User"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
 #: server_privileges.php:1710
 msgid "Remove selected users"
