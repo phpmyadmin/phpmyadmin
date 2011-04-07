@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:53+0200\n"
+"PO-Revision-Date: 2011-04-07 16:54+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -5780,7 +5780,7 @@ msgstr "ఆర్మేనియన్"
 
 #: libraries/mysql_charsets.lib.php:376
 msgid "Cyrillic"
-msgstr ""
+msgstr "సిరిలిక్"
 
 #: libraries/mysql_charsets.lib.php:379
 msgid "Arabic"
