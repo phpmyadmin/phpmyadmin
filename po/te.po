@@ -1400,10 +1400,9 @@ msgstr "ఆ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "సోమ"
+msgstr "సో"
 
 #. l10n: Minimal week day name
 #: js/messages.php:216
