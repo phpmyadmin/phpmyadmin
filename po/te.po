@@ -6640,7 +6640,7 @@ msgstr ""
 
 #: main.php:233
 msgid "List of changes"
-msgstr ""
+msgstr "మార్పుల జాబితా"
 
 #: main.php:257
 msgid ""
