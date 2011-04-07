@@ -1418,10 +1418,9 @@ msgstr "బు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:220
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "గురు"
+msgstr "గు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:222
