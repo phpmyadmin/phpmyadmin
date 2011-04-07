@@ -1955,7 +1955,7 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
 #: main.php:226 server_variables.php:63
 msgid "Documentation"
-msgstr ""
+msgstr "పత్రావళి"
 
 #: libraries/common.lib.php:605 libraries/header_printview.inc.php:60
 #: server_processlist.php:72 server_status.php:372
