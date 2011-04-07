@@ -7294,11 +7294,10 @@ msgid "No privileges."
 msgstr ""
 
 #: server_privileges.php:311 server_privileges.php:312
-#, fuzzy
 #| msgid "No"
 msgctxt "None privileges"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేవు"
 
 #: server_privileges.php:442 server_privileges.php:577
 #: server_privileges.php:1824 server_privileges.php:1830
