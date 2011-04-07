@@ -4433,10 +4433,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Database"
 msgid "Database(s):"
-msgstr "డేటాబేస్"
+msgstr "డేటాబేసు(లు)"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
