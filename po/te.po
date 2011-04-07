@@ -3517,7 +3517,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
