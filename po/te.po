@@ -5278,7 +5278,7 @@ msgstr ""
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "మీడియావికీ పట్టిక"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
