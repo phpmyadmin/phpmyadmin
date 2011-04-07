@@ -6119,10 +6119,9 @@ msgid "Portrait"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Original position"
 msgid "Orientation"
-msgstr "అసలు స్థానం"
+msgstr "దిశ"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
