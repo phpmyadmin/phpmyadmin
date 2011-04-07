@@ -5792,7 +5792,7 @@ msgstr "హిబ్రూ"
 
 #: libraries/mysql_charsets.lib.php:388
 msgid "Georgian"
-msgstr ""
+msgstr "జార్జియన్"
 
 #: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
