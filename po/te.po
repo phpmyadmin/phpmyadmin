@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:46+0200\n"
+"PO-Revision-Date: 2011-04-07 16:47+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4085,7 +4085,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:483
 msgid "Default title"
-msgstr ""
+msgstr "అప్రమేయ శీర్షిక"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
