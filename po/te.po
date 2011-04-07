@@ -4356,7 +4356,7 @@ msgstr "వివరాలు..."
 #: libraries/display_change_password.lib.php:29 main.php:97
 #: user_password.php:119 user_password.php:137
 msgid "Change password"
-msgstr ""
+msgstr "సంకేతపదాన్ని మార్చు"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:347 server_privileges.php:818
