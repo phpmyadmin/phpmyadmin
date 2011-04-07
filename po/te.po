@@ -5688,7 +5688,7 @@ msgstr "జపనీ"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
-msgstr ""
+msgstr "లాత్వియన్"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
