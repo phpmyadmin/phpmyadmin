@@ -9293,7 +9293,7 @@ msgstr ""
 
 #: tbl_structure.php:471
 msgid "Show more actions"
-msgstr ""
+msgstr "మరిన్ని చర్యలను చూపించు"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
