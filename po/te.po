@@ -5805,7 +5805,7 @@ msgstr "ఛెక్-స్లోవాక్"
 
 #: libraries/mysql_charsets.lib.php:409 libraries/mysql_charsets.lib.php:416
 msgid "unknown"
-msgstr ""
+msgstr "తెలియని"
 
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:60
