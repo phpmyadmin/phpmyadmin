@@ -176,7 +176,7 @@ function PMA_version_check()
 function version_to_int($version)
 {
     $matches = array();
-    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?)?$/', $version, $matches)) {
+    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?(-dev)?)?$/', $version, $matches)) {
         return false;
     }
     if (!empty($matches[6])) {
