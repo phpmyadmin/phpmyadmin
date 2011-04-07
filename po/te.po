@@ -7344,7 +7344,7 @@ msgstr "వాడుకరి కనబడలేదు."
 #: server_privileges.php:890
 #, php-format
 msgid "The user %s already exists!"
-msgstr ""
+msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్నారు!"
 
 # మొదటి అనువాదము
 #: server_privileges.php:974
