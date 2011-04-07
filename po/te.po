@@ -6402,7 +6402,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
 #: tbl_structure.php:159 tbl_structure.php:569
 msgid "Fulltext"
-msgstr ""
+msgstr "పూర్తిపాఠ్యం"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
