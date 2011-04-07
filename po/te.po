@@ -1002,10 +1002,9 @@ msgstr "సంకేతపదాలు సరిపోలలేదు!"
 
 # మొదటి అనువాదము
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "కొత్త వాడుకరిని చేర్చు"
 
 # మొదటి అనువాదము
 #: js/messages.php:53
