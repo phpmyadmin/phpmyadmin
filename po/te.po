@@ -2027,7 +2027,7 @@ msgstr "కిబై"
 
 #: libraries/common.lib.php:1392
 msgid "MiB"
-msgstr ""
+msgstr "మెబై"
 
 #: libraries/common.lib.php:1392
 msgid "GiB"
