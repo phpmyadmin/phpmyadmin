@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:33+0200\n"
+"PO-Revision-Date: 2011-04-07 16:34+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -1174,10 +1174,9 @@ msgid "Generate"
 msgstr ""
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "Password"
 msgid "Change Password"
-msgstr "సంకేతపదం"
+msgstr "సంకేతపదాన్ని మార్చు"
 
 #: js/messages.php:114 tbl_structure.php:471
 msgid "More"
