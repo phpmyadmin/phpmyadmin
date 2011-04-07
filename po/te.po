@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2010-11-29 17:44+0200\n"
-"Last-Translator: <veeven@gmail.com>\n"
+"PO-Revision-Date: 2011-04-07 17:06+0200\n"
+"Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: db_datadict.php:48 db_operations.php:364
 msgid "Database comment: "
-msgstr "డేటాబేస్  వివరణ"
+msgstr "డేటాబేస్ వ్యాఖ్య:"
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:358
@@ -408,8 +408,8 @@ msgstr "చివరి చూపు"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s పట్టిక"
+msgstr[1] "%s పట్టికలు"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2036 libraries/sql_query_form.lib.php:140
@@ -566,12 +566,12 @@ msgid "Delete"
 msgstr "తొలగించు"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
-msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
+msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక"
+msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలికలు"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -684,7 +684,7 @@ msgstr ""
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1382 setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr ""
+msgstr "ఎగుమతి"
 
 #: db_structure.php:505 db_structure.php:561
 #: libraries/display_tbl.lib.php:2242 tbl_structure.php:583
@@ -746,7 +746,7 @@ msgstr "డేటాబేస్"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "చివరి కూర్పు"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 msgid "Created"
@@ -1002,17 +1002,15 @@ msgstr "సంకేతపదాలు సరిపోలలేదు!"
 
 # మొదటి అనువాదము
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "కొత్త వాడుకరిని చేర్చు"
 
 # మొదటి అనువాదము
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create"
 msgid "Create User"
-msgstr "సృష్టించు"
+msgstr "వాడుకరిని సృష్టించు"
 
 #: js/messages.php:54
 msgid "Reloading Privileges"
@@ -1176,10 +1174,9 @@ msgid "Generate"
 msgstr ""
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "Password"
 msgid "Change Password"
-msgstr "సంకేతపదం"
+msgstr "సంకేతపదాన్ని మార్చు"
 
 #: js/messages.php:114 tbl_structure.php:471
 msgid "More"
@@ -1205,10 +1202,9 @@ msgstr ""
 # మొదటి అనువాదము
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "క్రితము"
+msgstr "గత"
 
 # మొదటి అనువాదము
 #. l10n: Display text for next month link in calendar
@@ -1398,59 +1394,51 @@ msgstr "శని"
 
 #. l10n: Minimal week day name
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "ఆది"
+msgstr "ఆ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "సోమ"
+msgstr "సో"
 
 #. l10n: Minimal week day name
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "మంగళ"
+msgstr "మం"
 
 #. l10n: Minimal week day name
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "బుధ"
+msgstr "బు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:220
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "గురు"
+msgstr "గు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "శుక్ర"
+msgstr "శు"
 
 #. l10n: Minimal week day name
 #: js/messages.php:224
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "శని"
+msgstr "శ"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:226
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "వికీ"
+msgstr "వారం"
 
 #: js/messages.php:228
 msgid "Hour"
@@ -1660,7 +1648,7 @@ msgstr ""
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
 msgid "Theme / Style"
-msgstr ""
+msgstr "అలంకారం / శైలి"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1815,7 +1803,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
 #: server_status.php:385
 msgid "Tables"
-msgstr ""
+msgstr "పట్టికలు"
 
 #: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:300
 #: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:367
@@ -1967,7 +1955,7 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
 #: main.php:226 server_variables.php:63
 msgid "Documentation"
-msgstr ""
+msgstr "పత్రావళి"
 
 #: libraries/common.lib.php:605 libraries/header_printview.inc.php:60
 #: server_processlist.php:72 server_status.php:372
@@ -2031,41 +2019,41 @@ msgstr "సమయం"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1392
 msgid "B"
-msgstr ""
+msgstr "బై"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
-msgstr ""
+msgstr "కిబై"
 
 #: libraries/common.lib.php:1392
 msgid "MiB"
-msgstr ""
+msgstr "మెబై"
 
 #: libraries/common.lib.php:1392
 msgid "GiB"
-msgstr ""
+msgstr "గిబై"
 
 #: libraries/common.lib.php:1392
 msgid "TiB"
-msgstr ""
+msgstr "టెబై"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
-msgstr ""
+msgstr "పిబై"
 
 #: libraries/common.lib.php:1392
 msgid "EiB"
-msgstr ""
+msgstr "ఎబై"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1430
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1432
 msgid "."
-msgstr ""
+msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1609
@@ -2117,7 +2105,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:634 pmd_general.php:151
 #: server_privileges.php:604 server_replication.php:313 tbl_tracking.php:263
 msgid "Structure"
-msgstr ""
+msgstr "నిర్మాణాకృతి"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/config/messages.inc.php:211 libraries/db_links.inc.php:53
@@ -2176,19 +2164,19 @@ msgstr "మూసివేయి"
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 #: libraries/import.lib.php:1172
 msgid "structure"
-msgstr ""
+msgstr "నిర్మాణాకృతి"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "భోగట్టా"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "structure and data"
-msgstr ""
+msgstr "నిర్మాణాకృతి మరియు భోగట్టా"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
@@ -2237,13 +2225,13 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "తప్పుడు విలువ"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "విలువ తప్పనిసరిగా %s కి సమానంగా లేదా తక్కువగా ఉండాలి"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
@@ -2253,7 +2241,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
 msgid "unavailable"
-msgstr ""
+msgstr "అందుబాటులో లేదు"
 
 #: libraries/config/FormDisplay.class.php:737
 #: libraries/config/FormDisplay.class.php:741
@@ -2657,10 +2645,9 @@ msgid "Relations"
 msgstr "సంబంధాలు"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "ఎగుమతి రకం"
+msgstr "ఎగుమతి పద్ధతి"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
@@ -2800,7 +2787,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "విశేషాలు"
 
 #: libraries/config/messages.inc.php:165
 msgid "General"
@@ -2814,7 +2801,7 @@ msgstr ""
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr ""
+msgstr "దిగుమతి"
 
 #: libraries/config/messages.inc.php:168
 msgid "Import defaults"
@@ -2826,7 +2813,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "దిగుమతి / ఎగుమతి"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
@@ -2871,11 +2858,11 @@ msgstr "మైక్రోసాఫ్ట్ ఆఫీస్"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
-msgstr ""
+msgstr "ఓపెన్ డాక్యుమెంట్"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "ఇతర ప్రముఖ అమరికలు"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
@@ -3346,7 +3333,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
-msgstr ""
+msgstr "గరిష్ఠ పట్టికలు"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
@@ -3510,7 +3497,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "సహాయపు బొత్తాన్ని చూపించు"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
@@ -3522,7 +3509,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "ఉపయోగించకపోతే ఖాళీగా వదిలేయండి"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
@@ -3530,7 +3517,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
@@ -4098,7 +4085,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:483
 msgid "Default title"
-msgstr ""
+msgstr "అప్రమేయ శీర్షిక"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
@@ -4286,7 +4273,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:367
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "తప్పుడు ఐపీ చిరునామా: %s"
 
 # మొదటి అనువాదము
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
@@ -4369,7 +4356,7 @@ msgstr "వివరాలు..."
 #: libraries/display_change_password.lib.php:29 main.php:97
 #: user_password.php:119 user_password.php:137
 msgid "Change password"
-msgstr ""
+msgstr "సంకేతపదాన్ని మార్చు"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:347 server_privileges.php:818
@@ -4380,7 +4367,7 @@ msgstr "సంకేతపదం లేదు"
 #: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
 #: server_privileges.php:826 server_privileges.php:829
 msgid "Re-type"
-msgstr ""
+msgstr "మళ్ళీ టైపుచెయ్యండి"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
@@ -4446,10 +4433,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Database"
 msgid "Database(s):"
-msgstr "డేటాబేస్"
+msgstr "డేటాబేసు(లు)"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
@@ -4529,7 +4515,7 @@ msgstr ""
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1981 server_processlist.php:96
 msgid "None"
-msgstr ""
+msgstr "ఏమీలేదు"
 
 #: libraries/display_export.lib.php:313
 msgid "zipped"
@@ -4786,7 +4772,7 @@ msgstr ""
 
 #: libraries/engines/bdb.lib.php:20 main.php:225
 msgid "Version information"
-msgstr ""
+msgstr "సంచిక సమాచారం"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
@@ -5255,10 +5241,9 @@ msgid "Display foreign key relationships"
 msgstr ""
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Table comments"
 msgid "Display comments"
-msgstr "పట్టిక వ్యాఖ్యలు"
+msgstr "వ్యాఖ్యలను చూపించు"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
@@ -5293,11 +5278,11 @@ msgstr ""
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "మీడియావికీ పట్టిక"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
@@ -5571,7 +5556,7 @@ msgstr ""
 #: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:617
 #: server_synchronize.php:427 server_synchronize.php:870
 msgid "Table name"
-msgstr ""
+msgstr "పట్టిక పేరు"
 
 #: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
@@ -5605,11 +5590,10 @@ msgid ""
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "No"
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేదు"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
@@ -5704,7 +5688,7 @@ msgstr "జపనీ"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
-msgstr ""
+msgstr "లాత్వియన్"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
@@ -5796,7 +5780,7 @@ msgstr "ఆర్మేనియన్"
 
 #: libraries/mysql_charsets.lib.php:376
 msgid "Cyrillic"
-msgstr ""
+msgstr "సిరిలిక్"
 
 #: libraries/mysql_charsets.lib.php:379
 msgid "Arabic"
@@ -5808,7 +5792,7 @@ msgstr "హిబ్రూ"
 
 #: libraries/mysql_charsets.lib.php:388
 msgid "Georgian"
-msgstr ""
+msgstr "జార్జియన్"
 
 #: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
@@ -5821,7 +5805,7 @@ msgstr "ఛెక్-స్లోవాక్"
 
 #: libraries/mysql_charsets.lib.php:409 libraries/mysql_charsets.lib.php:416
 msgid "unknown"
-msgstr ""
+msgstr "తెలియని"
 
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:60
@@ -6049,7 +6033,7 @@ msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1091
 msgid "Table of contents"
-msgstr ""
+msgstr "విషయ సూచిక"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
@@ -6070,10 +6054,9 @@ msgid "Create a page"
 msgstr "పుటని సృష్టించు"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "పుట సంఖ్య:"
+msgstr "పుట పేరు"
 
 #: libraries/schema/User_Schema.class.php:103
 msgid "Automatic layout based on"
@@ -6136,10 +6119,9 @@ msgid "Portrait"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Original position"
 msgid "Orientation"
-msgstr "అసలు స్థానం"
+msgstr "దిశ"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
@@ -6164,7 +6146,7 @@ msgstr ""
 #: libraries/select_lang.lib.php:497
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "తెలియని భాష: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
 msgid "Current Server"
@@ -6353,7 +6335,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr ""
+msgstr "పొడవు/విలువలు"
 
 #: libraries/tbl_properties.inc.php:104
 msgid ""
@@ -6403,11 +6385,10 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "No"
 msgctxt "for default"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేదు"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
@@ -6421,7 +6402,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
 #: tbl_structure.php:159 tbl_structure.php:569
 msgid "Fulltext"
-msgstr ""
+msgstr "పూర్తిపాఠ్యం"
 
 #: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
@@ -6603,10 +6584,9 @@ msgid "MySQL connection collation"
 msgstr ""
 
 #: main.php:122
-#, fuzzy
 #| msgid "Basic settings"
 msgid "Appearance Settings"
-msgstr "ప్రాధమిక అమరికలు"
+msgstr "రూపురేఖల అమరికలు"
 
 #: main.php:163 prefs_manage.php:274
 msgid "More settings"
@@ -6656,11 +6636,11 @@ msgstr ""
 
 #: main.php:232
 msgid "Get support"
-msgstr ""
+msgstr "సహాయాన్ని పొందండి"
 
 #: main.php:233
 msgid "List of changes"
-msgstr ""
+msgstr "మార్పుల జాబితా"
 
 #: main.php:257
 msgid ""
@@ -6751,11 +6731,10 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create a page"
 msgctxt "short form"
 msgid "Create table"
-msgstr "పుటని సృష్టించు"
+msgstr "పట్టికను సృష్టించు"
 
 #: navigation.php:313 navigation.php:485
 msgid "Please select a database"
@@ -6874,10 +6853,9 @@ msgid "Operator"
 msgstr ""
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Actions"
 msgid "Active options"
-msgstr "చర్యలు"
+msgstr "క్రియాశీల ఎంపికలు"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -6902,10 +6880,9 @@ msgstr "పుటని సృష్టించుటలో తప్పిద�
 
 # మొదటి అనువాదము
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "పుటలు"
+msgstr "పుట"
 
 #: pmd_pdf.php:99
 msgid "Import from selected page"
@@ -6923,10 +6900,9 @@ msgid "Create a page and export to it"
 msgstr "పుటని సృష్టించు"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "New name"
 msgid "New page name: "
-msgstr "కొత్త పేరు"
+msgstr "కొత్త పుట పేరు:"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7318,11 +7294,10 @@ msgid "No privileges."
 msgstr ""
 
 #: server_privileges.php:311 server_privileges.php:312
-#, fuzzy
 #| msgid "No"
 msgctxt "None privileges"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేవు"
 
 #: server_privileges.php:442 server_privileges.php:577
 #: server_privileges.php:1824 server_privileges.php:1830
@@ -7364,17 +7339,17 @@ msgstr ""
 
 #: server_privileges.php:846 server_privileges.php:2312
 msgid "No user found."
-msgstr ""
+msgstr "వాడుకరి కనబడలేదు."
 
 #: server_privileges.php:890
 #, php-format
 msgid "The user %s already exists!"
-msgstr ""
+msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్నారు!"
 
 # మొదటి అనువాదము
 #: server_privileges.php:974
 msgid "You have added a new user."
-msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+msgstr "మీరు క్రొత్త వాడుకరిని చేర్చారు."
 
 #: server_privileges.php:1204
 #, php-format
@@ -7439,7 +7414,7 @@ msgstr ""
 #: server_privileges.php:1705 server_privileges.php:1729
 #: server_privileges.php:2134 server_privileges.php:2323
 msgid "Add a new User"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
 #: server_privileges.php:1710
 msgid "Remove selected users"
@@ -8591,7 +8566,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:88 setup/frames/menu.inc.php:15
 msgid "Overview"
-msgstr ""
+msgstr "అవలోకనం"
 
 #: setup/frames/index.inc.php:96
 msgid "Show hidden messages (#MSG_COUNT)"
@@ -8607,11 +8582,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
-msgstr ""
+msgstr "అప్రమేయ భాష"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
-msgstr ""
+msgstr "వాడుకరిని ఎంచుకోనివ్వు"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
@@ -9020,7 +8995,7 @@ msgstr ""
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "%s అనే పట్టిక ఇప్పటికే ఉంది!"
 
 #: tbl_create.php:242
 #, php-format
@@ -9109,7 +9084,7 @@ msgstr ""
 
 #: tbl_operations.php:347
 msgid "Table options"
-msgstr ""
+msgstr "పట్టిక ఎంపికలు"
 
 #: tbl_operations.php:351
 msgid "Rename table to"
@@ -9236,10 +9211,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "అంతర్గత సంబంధాలు"
+msgstr "అంతర్గత సంబంధం"
 
 #: tbl_relation.php:404
 msgid ""
@@ -9296,11 +9270,10 @@ msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:384
-#, fuzzy
 #| msgid "No"
 msgctxt "None for default"
 msgid "None"
-msgstr "కాదు"
+msgstr "ఏమీలేదు"
 
 #: tbl_structure.php:397
 #, php-format
@@ -9320,7 +9293,7 @@ msgstr ""
 
 #: tbl_structure.php:471
 msgid "Show more actions"
-msgstr ""
+msgstr "మరిన్ని చర్యలను చూపించు"
 
 #: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
@@ -9497,7 +9470,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "మరిన్ని అలంకారాలను పొందండి!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
