@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:30+0200\n"
+"PO-Revision-Date: 2011-04-07 16:31+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -408,8 +408,8 @@ msgstr "చివరి చూపు"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s పట్టిక"
+msgstr[1] "%s పట్టికలు"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2036 libraries/sql_query_form.lib.php:140
