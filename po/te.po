@@ -6054,10 +6054,9 @@ msgid "Create a page"
 msgstr "పుటని సృష్టించు"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "పుట సంఖ్య:"
+msgstr "పుట పేరు"
 
 #: libraries/schema/User_Schema.class.php:103
 msgid "Automatic layout based on"
