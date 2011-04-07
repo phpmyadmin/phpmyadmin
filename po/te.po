@@ -6146,7 +6146,7 @@ msgstr ""
 #: libraries/select_lang.lib.php:497
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "తెలియని భాష: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
 msgid "Current Server"
