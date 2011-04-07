@@ -6636,7 +6636,7 @@ msgstr ""
 
 #: main.php:232
 msgid "Get support"
-msgstr ""
+msgstr "సహాయాన్ని పొదండి"
 
 #: main.php:233
 msgid "List of changes"
