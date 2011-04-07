@@ -2048,7 +2048,7 @@ msgstr "ఎబై"
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1430
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1432
