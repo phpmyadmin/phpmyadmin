@@ -2231,7 +2231,7 @@ msgstr "తప్పుడు విలువ"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "విలువ తప్పనిసరిగా %s కి సమానంగా లేదా తక్కువగా ఉండాలి"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
