@@ -2039,7 +2039,7 @@ msgstr "టెబై"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
-msgstr ""
+msgstr "పిబై"
 
 #: libraries/common.lib.php:1392
 msgid "EiB"
