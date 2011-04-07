@@ -4367,7 +4367,7 @@ msgstr "సంకేతపదం లేదు"
 #: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
 #: server_privileges.php:826 server_privileges.php:829
 msgid "Re-type"
-msgstr ""
+msgstr "మళ్ళీ టైపుచెయ్యండి"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
