@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-07 16:49+0200\n"
+"PO-Revision-Date: 2011-04-07 16:50+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4515,7 +4515,7 @@ msgstr ""
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1981 server_processlist.php:96
 msgid "None"
-msgstr ""
+msgstr "ఏమీలేదు"
 
 #: libraries/display_export.lib.php:313
 msgid "zipped"
