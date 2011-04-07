@@ -2164,7 +2164,7 @@ msgstr "మూసివేయి"
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 #: libraries/import.lib.php:1172
 msgid "structure"
-msgstr ""
+msgstr "నిర్మాణాకృతి"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
