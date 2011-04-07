@@ -8586,7 +8586,7 @@ msgstr "అప్రమేయ భాష"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
-msgstr ""
+msgstr "వాడుకరిని ఎంచుకోనివ్వు"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
