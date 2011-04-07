@@ -6731,11 +6731,10 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create a page"
 msgctxt "short form"
 msgid "Create table"
-msgstr "పుటని సృష్టించు"
+msgstr "పట్టికను సృష్టించు"
 
 #: navigation.php:313 navigation.php:485
 msgid "Please select a database"
