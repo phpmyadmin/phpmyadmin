@@ -2813,7 +2813,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "దిగుమతి / ఎగుమతి"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
