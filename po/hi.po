@@ -9544,7 +9544,7 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL अमल"
 
 #: tbl_tracking.php:515
 #, php-format
