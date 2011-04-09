@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-09 11:38+0200\n"
+"PO-Revision-Date: 2011-04-09 11:39+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9557,7 +9557,7 @@ msgstr ""
 
 #: tbl_tracking.php:587
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 #: tbl_tracking.php:635
 #, php-format
