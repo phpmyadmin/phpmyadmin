@@ -290,6 +290,9 @@ $(document).ready(function() {
             }
             else {
                 // real results are returned
+                // fade out previous messages, if any
+                $('.success').fadeOut();
+                $('.sqlquery_message').fadeOut();
                 $received_data = $(data);
                 $zero_row_results = $received_data.find('textarea[name="sql_query"]');
                 // if zero rows are returned from the query execution
