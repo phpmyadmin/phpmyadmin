@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2010-05-21 05:48+0200\n"
-"Last-Translator: <u4663530@anu.edu.au>\n"
+"PO-Revision-Date: 2011-04-09 11:13+0200\n"
+"Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1609
@@ -113,6 +113,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ "
 
 #: db_create.php:58
 #, php-format
@@ -9638,106 +9640,3 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Delete tracking data for this table"
-#~ msgid "Delete the matches for the "
-#~ msgstr "इस तालिका के लिए ट्रैकिंग डेटा हटाएँ"
-
-#~ msgid "yes"
-#~ msgstr "हाँ "
-
-#~ msgid "Disable Statistics"
-#~ msgstr "आँकडे Disable करें"
-
-#~ msgid "Display table filter"
-#~ msgstr "फीचरस दिखाओ"
-
-#~ msgid ""
-#~ "The additional features for working with linked tables have been "
-#~ "deactivated. To find out why click %shere%s."
-#~ msgstr ""
-#~ "लिंक्ड तालिकाओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. "
-#~ "क्यों ये किया गया है, जानने के लिए %shere%s पर क्लिक करें."
-
-#~ msgid "No tables"
-#~ msgstr " कोई टेबल नहीं"
-
-#~ msgid "Edit PDF Pages"
-#~ msgstr "पीडीएफ पृष्ठों को संपादित करें"
-
-#~ msgid "Data Dictionary Format"
-#~ msgstr "डेटा शब्दकोश प्रारूप"
-
-#~ msgid "<code>AUTO_INCREMENT</code>"
-#~ msgstr "AUTO_INCREMENT मूल्य जोडें"
-
-#~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "रौ,  इस  record  से #"
-
-#~ msgid "Add into comments"
-#~ msgstr "इनटू टिप्पणियां जोडें"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB भंडार गृह"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "सक्षम"
-
-#~ msgid "Disable"
-#~ msgstr "असक्षम"
-
-#~ msgid "Damaged"
-#~ msgstr "क्षतिग्रस्त"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "मरम्मत"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "असक्षम"
-
-#~ msgid "Field"
-#~ msgstr "फील्ड"
-
-#~ msgid "Records"
-#~ msgstr "अभिलेख"
-
-#~ msgid "Fields"
-#~ msgstr " फील्डस"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr " फील्ड %s ड्रोप कर दिया"
-
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "शीर्षक में कस्टम टिपण्णी जोडें (\n"
-#~ " लाइनों को विभाजित करें)"
-
-#~ msgid "and"
-#~ msgstr "और"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "दिसअबल्ड "
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "सक्षम"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "मरम्मत"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr " &nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं "
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr " टेबल को Flush करें (\"FLUSH\")"
-
-#~ msgid "running on %s"
-#~ msgstr " %s पर चल रहा है"
