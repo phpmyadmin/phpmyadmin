@@ -264,13 +264,15 @@ $(document).ready(function() {
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
                 // show a message that stays on screen
-                $('#sqlqueryform').before(data.message);
-                // and display the query
-                $('<div class="sqlquery_message"></div>')
-                 .html(data.sql_query)
-                 .insertBefore('#sqlqueryform');
-                // unnecessary div that came from data.sql_query
-                $('.notice').remove();
+                if (typeof data.sql_query != 'undefined') {
+                    $('<div class="sqlquery_message"></div>')
+                     .html(data.sql_query)
+                     .insertBefore('#sqlqueryform');
+                    // unnecessary div that came from data.sql_query
+                    $('.notice').remove();
+                } else {
+                    $('#sqlqueryform').before(data.message);
+                }
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
