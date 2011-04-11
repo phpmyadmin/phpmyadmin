@@ -654,6 +654,34 @@ if (0 == $num_rows || $is_affected) {
             foreach( $rel_fields as $rel_field => $rel_field_value) {
 
                 $where_comparison = "='" . $rel_field_value . "'";
+                $display_field = PMA_getDisplayField($map[$rel_field]['foreign_db'], $map[$rel_field]['foreign_table']);
+
+                // Field to display from the foreign table?
+                if (isset($display_field) && strlen($display_field)) {
+                    $dispsql     = 'SELECT ' . PMA_backquote($display_field)
+                        . ' FROM ' . PMA_backquote($map[$rel_field]['foreign_db'])
+                        . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
+                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
+                        . $where_comparison;
+                    $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+                    if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
+                        list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+                    } else {
+                        //$dispval = __('Link not found');
+                    }
+                    @PMA_DBI_free_result($dispresult);
+                } else {
+                    $dispval     = '';
+                } // end if... else...
+
+                if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
+                    // user chose "relational key" in the display options, so
+                    // the title contains the display field
+                    $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+                } else {
+                    $title = ' title="' . htmlspecialchars($rel_field_value) . '"';
+                }
+
                 $_url_params = array(
                     'db'    => $map[$rel_field]['foreign_db'],
                     'table' => $map[$rel_field]['foreign_table'],
@@ -663,9 +691,18 @@ if (0 == $num_rows || $is_affected) {
                                         . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
                                         . $where_comparison
                 );
+                $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
 
-                $extra_data['relations'][$rel_field] = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '">';
-                $extra_data['relations'][$rel_field] .= '</a>';
+                if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
+                    // user chose "relational display field" in the
+                    // display options, so show display field in the cell
+                    $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
+                } else {
+                    // otherwise display data in the cell
+                    $output .= htmlspecialchars($rel_field_value);
+                }
+                $output .= '</a>';
+                $extra_data['relations'][$rel_field] = $output;
             }
         }
 

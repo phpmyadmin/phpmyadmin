@@ -785,6 +785,10 @@ $(document).ready(function() {
          */
         var relation_fields = {};
         /**
+         * @var relational_display string 'K' if relational key, 'D' if relational display column 
+         */
+        var relational_display = $("#relational_display_K").attr('checked') ? 'K' : 'D';
+        /**
          * @var transform_fields    Array containing the name/value pairs for transformed fields
          */
         var transform_fields = {};
@@ -910,6 +914,7 @@ $(document).ready(function() {
                             'rel_fields_list' : rel_fields_list,
                             'do_transformations' : transformation_fields,
                             'transform_fields_list' : transform_fields_list,
+                            'relational_display' : relational_display,
                             'goto' : 'sql.php',
                             'submit_type' : 'save'
                           };
@@ -1027,7 +1032,7 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
                     if (typeof data.relations != 'undefined') {
                         $.each(data.relations, function(key, value) {
                             if(key == field_name) {
-                                new_html = $(value).append(new_value);
+                                new_html = $(value);
                                 return false;
                             }
                         })
