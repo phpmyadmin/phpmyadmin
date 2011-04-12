@@ -1809,7 +1809,7 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
-#table_columns input, select {
+#table_columns input, #table_columns select {
     width:              14em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
