@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 03:58+0200\n"
+"PO-Revision-Date: 2011-04-13 03:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -325,7 +325,7 @@ msgstr "සීමා බාධවන් එක් කරන්න"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
-msgstr "Switch to copied database"
+msgstr "පිටපත් කරන ලද දත්තගබඩාව වෙත මාරු වන්න"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
