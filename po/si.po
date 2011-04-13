@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:03+0200\n"
+"PO-Revision-Date: 2011-04-13 13:04+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6672,9 +6672,8 @@ msgid "You have to add at least one column."
 msgstr "ඔබ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් එක් කල යුතුයි."
 
 #: libraries/tbl_properties.inc.php:796
-#, fuzzy
 msgid "+ Add a new value"
-msgstr "නව භාවිතා කරන්නේක් එක් කරන්න"
+msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
 
 #: libraries/tbl_triggers.lib.php:28
 #, fuzzy
