@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-02-17 08:52+0200\n"
+"PO-Revision-Date: 2011-04-13 03:48+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -28,6 +28,7 @@ msgstr "සියල්ල පෙන්වන්න"
 msgid "Page number:"
 msgstr "පිටු අංකය:"
 
+# ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක
 #: browse_foreigners.php:133
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
@@ -10041,17 +10042,3 @@ msgstr "වගුව බවට නම වෙනස් කරන්න"
 
 #~ msgid "Choose..."
 #~ msgstr "තෝරන්න..."
-
-#, fuzzy
-#~| msgid "Dumping data for table"
-#~ msgid "Delete the matches for the "
-#~ msgstr "වගු සඳහා නික්ෂේප දත්ත"
-
-#~ msgid "yes"
-#~ msgstr "ඔව්"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "සංඛ්‍යා ලේඛන අක්‍රිය කරන්න"
-
-#~ msgid "Start"
-#~ msgstr "සෙනසුරාදා"
