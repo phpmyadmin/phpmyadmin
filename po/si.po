@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:47+0200\n"
+"PO-Revision-Date: 2011-04-13 11:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3177,7 +3177,7 @@ msgstr "Number of records(queries) to skip from start"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "අර්ධ ආනයනය: විමසුම් නොසලකා හරිමින්"
 
 #: libraries/config/messages.inc.php:258
 #, fuzzy
