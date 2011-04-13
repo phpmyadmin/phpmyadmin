@@ -9777,7 +9777,7 @@ msgstr "%s වගුව හලන ලදි"
 #: tbl_structure.php:408 tbl_structure.php:483
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "%s ට මූලික යතුරක් එක් කරන ලදි"
+msgstr "%s ට ප්‍රාථමික මූලයක් එක් කරන ලදි"
 
 #: tbl_structure.php:423 tbl_structure.php:438 tbl_structure.php:453
 #: tbl_structure.php:496 tbl_structure.php:509 tbl_structure.php:522
