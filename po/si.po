@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:50+0200\n"
+"PO-Revision-Date: 2011-04-13 13:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1722,7 +1722,7 @@ msgstr "No activity within %s seconds; please log in again"
 #: libraries/auth/cookie.auth.lib.php:659
 #: libraries/auth/signon.auth.lib.php:216
 msgid "Cannot log in to the MySQL server"
-msgstr "MySQL සර්වරයට ලොග් විය නොහැක"
+msgstr "MySQL සේවාදායකයට ලොග් විය නොහැක"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
