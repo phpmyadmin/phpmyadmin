@@ -6134,7 +6134,7 @@ msgstr "Value"
 
 #: libraries/replication_gui.lib.php:175 server_binlog.php:202
 msgid "Server ID"
-msgstr "සර්වරයේ හැඳුනුම් අංකය"
+msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 
 #: libraries/replication_gui.lib.php:194
 msgid ""
