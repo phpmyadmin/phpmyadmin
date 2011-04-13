@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 19:54+0200\n"
+"PO-Revision-Date: 2011-04-13 19:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6302,7 +6302,7 @@ msgstr "භූමි දර්ශනය"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "සිරස් දිශානතිය"
 
 #: libraries/schema/User_Schema.class.php:394
 #, fuzzy
