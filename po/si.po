@@ -6410,7 +6410,7 @@ msgstr "දත්තගබඩාවේ සොයන්න"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
 msgid "Current server"
-msgstr ""
+msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
