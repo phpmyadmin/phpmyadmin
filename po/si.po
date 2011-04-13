@@ -5754,7 +5754,7 @@ msgstr "වගුවේ නම"
 #: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
 msgid "Column names"
-msgstr "පේළි නම්"
+msgstr "තීර නම්"
 
 #: libraries/import/ldi.php:56
 msgid "This plugin does not support compressed imports!"
