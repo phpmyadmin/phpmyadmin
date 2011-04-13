@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 20:00+0200\n"
+"PO-Revision-Date: 2011-04-13 20:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6294,7 +6294,7 @@ msgstr "එකම ප්‍රමාණයේ සියලු වගු පෙ�
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
-msgstr ""
+msgstr "මූල පමණක් පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:391
 msgid "Landscape"
