@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:06+0200\n"
+"PO-Revision-Date: 2011-04-13 13:08+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9747,7 +9747,7 @@ msgstr "එකිනෙකට වෙනස් අගයන් පිරික්
 
 #: tbl_structure.php:165 tbl_structure.php:166
 msgid "Add primary key"
-msgstr ""
+msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add index"
