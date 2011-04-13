@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 12:17+0200\n"
+"PO-Revision-Date: 2011-04-13 12:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4763,10 +4763,9 @@ msgstr ""
 "transactions."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Number of records(queries) to skip from start"
+msgstr "පළමු තීරැවේ සිට අත්හළ යුතු තීරු ගණන:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
