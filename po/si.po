@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 16:02+0200\n"
+"PO-Revision-Date: 2011-04-13 16:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4554,10 +4554,9 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "ක්ෂේත්‍ර ගණන"
+msgstr "පේළි ගණන:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
