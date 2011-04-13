@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 18:23+0200\n"
+"PO-Revision-Date: 2011-04-13 18:24+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2585,7 +2585,7 @@ msgstr "තීර ඇවුරුම් සළකුණ:"
 #: libraries/import/ldi.php:42
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "පේළි මගහැරීමේ සළකුණ:"
+msgstr "තීර මගහැරීමේ සළකුණ:"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
