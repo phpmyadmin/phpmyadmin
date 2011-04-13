@@ -4771,7 +4771,7 @@ msgstr "Number of records(queries) to skip from start"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "ආකෘති-විශේෂී තෝරා ගැනීම්:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
