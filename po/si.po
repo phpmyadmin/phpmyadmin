@@ -4611,7 +4611,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
-msgstr "මතු අපනයනය සඳහා භාවිතා කරන්න"
+msgstr "මතු අපනයන සඳහා භාවිතා කරන්න"
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:517
