@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 15:53+0200\n"
+"PO-Revision-Date: 2011-04-13 15:54+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9607,9 +9607,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "වගුව හිස් කරන්න (TRUNCATE)"
 
 #: tbl_operations.php:708
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "වගුව ඉවත් කරන්න (DROP)"
 
 #: tbl_operations.php:729
 #, fuzzy
