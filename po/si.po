@@ -6250,7 +6250,7 @@ msgstr "අභ්‍යන්තර සබඳතා"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "අන්‍ය මූල"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
