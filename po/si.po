@@ -5615,7 +5615,7 @@ msgstr "RELATIONS FOR TABLE"
 #: libraries/export/sql.php:873 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
-msgstr "ප්‍රේරක"
+msgstr "ප්‍රේරක (Triggers)"
 
 #: libraries/export/sql.php:885
 #, fuzzy
