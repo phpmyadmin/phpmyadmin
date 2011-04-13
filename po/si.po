@@ -6898,7 +6898,7 @@ msgstr ""
 
 #: main.php:204
 msgid "MySQL client version"
-msgstr "MySQL සේවාලාභියාගේ සංස්කරණය"
+msgstr "MySQL සේවාලාභියාගේ අනුවාදය"
 
 #: main.php:206
 msgid "PHP extension"
