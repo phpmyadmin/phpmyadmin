@@ -6675,9 +6675,8 @@ msgid "+ Add a new value"
 msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
 
 #: libraries/tbl_triggers.lib.php:28
-#, fuzzy
 msgid "Event"
-msgstr "යවන ලද"
+msgstr "සිද්ධිය"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 #, fuzzy
