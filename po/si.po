@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 10:25+0200\n"
+"PO-Revision-Date: 2011-04-13 10:41+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4709,10 +4709,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL සර්වරයට ලොග් විය නොහැක"
+msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කරමින්"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
