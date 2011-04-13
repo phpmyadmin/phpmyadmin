@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:43+0200\n"
+"PO-Revision-Date: 2011-04-13 11:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3124,7 +3124,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "අර්ධ ආනයනය: අතුරු බිඳිය හැක"
 
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
