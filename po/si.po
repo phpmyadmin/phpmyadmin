@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-02-17 08:52+0200\n"
+"PO-Revision-Date: 2011-04-13 10:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -34,9 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ "
+"ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස "
+"සකසා තිබීම මීට හේතු විය හැක"
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
@@ -91,7 +91,7 @@ msgstr "විස්තරය"
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
 msgid "Use this value"
-msgstr "Use this value"
+msgstr "මෙම අගය භාවිතා කරන්න"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
@@ -293,7 +293,7 @@ msgstr "වෙත දත්තගබඩාව පිටවත් කරන්න
 
 #: db_operations.php:485 tbl_operations.php:544 tbl_tracking.php:382
 msgid "Structure only"
-msgstr "Structure only"
+msgstr "සැකිල්ල පමණයි"
 
 #: db_operations.php:486 tbl_operations.php:545 tbl_tracking.php:384
 msgid "Structure and data"
@@ -325,7 +325,7 @@ msgstr "සීමා බාධවන් එක් කරන්න"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
-msgstr "Switch to copied database"
+msgstr "පිටපත් කරන ලද දත්තගබඩාව වෙත මාරු වන්න"
 
 #: db_operations.php:543 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -338,7 +338,7 @@ msgid "Collation"
 msgstr "Collation"
 
 #: db_operations.php:556
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -346,14 +346,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin හි configuration storage අක්‍රිය කර ඇත. ඇයිදැයි සොයා බැලීමට %"
+"sමෙතන%s ක්ලික් කරන්න."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relational schema"
+msgstr "ක්‍රමානුරූපය (schema) සංස්කරණය හෝ අපනයනය කරන්න."
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
@@ -489,11 +488,11 @@ msgstr "තීර එක් කරන්න/ඉවත් කරන්න"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
-msgstr "Update Query"
+msgstr "යාවත්කාලීන කිරීමේ විමසුම"
 
 #: db_qbe.php:636
 msgid "Use Tables"
-msgstr "Use Tables"
+msgstr "වගු භාවිතා කරන්න."
 
 #: db_qbe.php:659
 #, php-format
@@ -563,12 +562,12 @@ msgid "Delete"
 msgstr "ඉවත් කරන්න"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match(es)"
-msgstr[1] "<b>Total:</b> <i>%s</i> match(es)"
+msgstr[0] "<b>එකතුව:</b> <i>%s</i> ගැලපුමයි."
+msgstr[1] "<b>එකතුව:</b> ගැලපුම් <i>%s</i> යි."
 
 #: db_search.php:295
 msgid "Search in database"
@@ -576,7 +575,7 @@ msgstr "දත්තගබඩාවේ සොයන්න"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "සෙවීම සඳහා වචන(ය) හෝ අගය(න්). (wildcard: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
@@ -606,7 +605,7 @@ msgstr "%s වගුව හිස් කරන ලදි"
 #: db_structure.php:286 tbl_operations.php:701
 #, php-format
 msgid "View %s has been dropped"
-msgstr "View %s has been dropped"
+msgstr "%s දසුන හලන ලදි"
 
 #: db_structure.php:286 tbl_operations.php:701
 #, php-format
@@ -615,11 +614,11 @@ msgstr "%s වගුව හලන ලදි"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "අවධානය සක්‍රීයයි."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "අවධානය අක්‍රීයයි."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:1999
 #, php-format
@@ -627,7 +626,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"මෙම පෙනුමේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
+"මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය "
+"කරන්න."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
@@ -721,9 +721,8 @@ msgid "Data Dictionary"
 msgstr "දත්ත කෝෂය"
 
 #: db_tracking.php:79
-#, fuzzy
 msgid "Tracked tables"
-msgstr "වගුව පරීක්ෂා කරන්න"
+msgstr "අවධානයට ලක් කර ඇති වගු"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -789,15 +788,13 @@ msgid "Structure snapshot"
 msgstr "සැකිල්ලේ සැණරුව"
 
 #: db_tracking.php:181
-#, fuzzy
 msgid "Untracked tables"
-msgstr "වගුව පරීක්ෂා කරන්න"
+msgstr "අවධානය අක්‍රීය වගු"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
 #: tbl_structure.php:621
-#, fuzzy
 msgid "Track table"
-msgstr "වගුව පරීක්ෂා කරන්න"
+msgstr "වගුව අවධානයට ලක් කරන්න"
 
 #: db_tracking.php:229
 msgid "Database Log"
@@ -4509,10 +4506,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Could not load export plugins, please check your installation!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Allows locking tables for the current thread."
+msgstr "වත්මන් සේවාදායකයෙන් අපනයනය කරමින්"
 
 #: libraries/display_export.lib.php:89
 #, fuzzy, php-format
@@ -4712,10 +4708,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL සර්වරයට ලොග් විය නොහැක"
+msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කරමින්"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
@@ -4915,22 +4910,20 @@ msgstr "වෙනස් කරන්න"
 
 #: libraries/display_tbl.lib.php:2221
 msgid "Query results operations"
-msgstr "Query results operations"
+msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: libraries/display_tbl.lib.php:2249
 msgid "Print view (with full texts)"
-msgstr "Print view (with full texts)"
+msgstr "මුද්‍රණ දර්ශනය (පූර්ණ පෙළ සමඟින්)"
 
 #: libraries/display_tbl.lib.php:2293 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "PDF නිරූපනය පෙන්වන්න"
+msgstr "ප්‍රස්තාරගත කරන්න"
 
 #: libraries/display_tbl.lib.php:2312
-#, fuzzy
 msgid "Create view"
-msgstr "සර්වරයේ සංස්කරණය"
+msgstr "දසුනක් සාදන්න"
 
 #: libraries/display_tbl.lib.php:2447
 msgid "Link not found"
@@ -6373,10 +6366,9 @@ msgid "Unknown language: %1$s."
 msgstr "%1$s නොදන්නා භාෂාවකි."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "සර්වරය"
+msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
@@ -6417,7 +6409,7 @@ msgstr "දත්තගබඩාවේ සොයන්න"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
 msgid "Current server"
-msgstr ""
+msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
@@ -10041,17 +10033,3 @@ msgstr "වගුව බවට නම වෙනස් කරන්න"
 
 #~ msgid "Choose..."
 #~ msgstr "තෝරන්න..."
-
-#, fuzzy
-#~| msgid "Dumping data for table"
-#~ msgid "Delete the matches for the "
-#~ msgstr "වගු සඳහා නික්ෂේප දත්ත"
-
-#~ msgid "yes"
-#~ msgstr "ඔව්"
-
-#~ msgid "Disable Statistics"
-#~ msgstr "සංඛ්‍යා ලේඛන අක්‍රිය කරන්න"
-
-#~ msgid "Start"
-#~ msgstr "සෙනසුරාදා"
