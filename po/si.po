@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 19:12+0200\n"
+"PO-Revision-Date: 2011-04-13 19:13+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5446,7 +5446,7 @@ msgstr "උත්පාදන වේලාව"
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
 #: libraries/export/xml.php:111 main.php:179
 msgid "Server version"
-msgstr "සේවාදායකයේ සංස්කරණය"
+msgstr "සේවාදායකයේ අනුවාද"
 
 #: libraries/export/latex.php:146 libraries/export/sql.php:345
 #: libraries/export/xml.php:112
