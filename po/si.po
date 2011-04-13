@@ -6367,10 +6367,9 @@ msgid "Unknown language: %1$s."
 msgstr "%1$s නොදන්නා භාෂාවකි."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "සර්වරය"
+msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
