@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:16+0200\n"
+"PO-Revision-Date: 2011-04-13 13:17+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8916,7 +8916,7 @@ msgstr "පේළි(යක්) එක් කරන්න"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr ""
+msgstr "පේළි(යක්) ඉවත් කරන්න"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
