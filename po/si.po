@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:04+0200\n"
+"PO-Revision-Date: 2011-04-13 11:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4533,9 +4533,8 @@ msgid "Quick - display only the minimal options"
 msgstr "කඩිනම් - අවම තෝරා ගැනීම් පමණක් පෙන්වන්න"
 
 #: libraries/display_export.lib.php:129
-#, fuzzy
 msgid "Custom - display all possible options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "අභිමත - සියලුම තෝරා ගැනීම් පෙන්වන්න"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
