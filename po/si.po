@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:10+0200\n"
+"PO-Revision-Date: 2011-04-13 13:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6635,7 +6635,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
 #: tbl_structure.php:156 tbl_structure.php:563
 msgid "Primary"
-msgstr "මූලික"
+msgstr "ප්‍රාථමික"
 
 #: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
 #: tbl_structure.php:159 tbl_structure.php:569
