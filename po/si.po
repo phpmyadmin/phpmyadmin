@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 18:26+0200\n"
+"PO-Revision-Date: 2011-04-13 18:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3131,7 +3131,7 @@ msgstr "ඇතුළු කිරීමේ දෝෂ මත අත් නොහ�
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:249
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
-msgstr "Replace table data with file"
+msgstr "වගුවේ දත්ත ගොනුවෙන් ප්‍රතිස්ථාපනය කරන්න"
 
 #: libraries/config/messages.inc.php:243
 msgid ""
