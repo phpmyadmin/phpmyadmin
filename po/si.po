@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 15:18+0200\n"
+"PO-Revision-Date: 2011-04-13 15:39+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4703,9 +4703,9 @@ msgid "Importing into the current server"
 msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කිරීම"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "දත්තගබඩා නොමැත"
+msgstr "\"%s\" දත්තගබඩාව තුළට ආනයනය කිරීම"
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
