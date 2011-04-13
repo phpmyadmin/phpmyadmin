@@ -5345,7 +5345,7 @@ msgstr "තීර ඇවුරුම් සළකුණ:"
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "පේළි මගහැරීමේ සළකුණ:"
+msgstr "තීර මගහැරීමේ සළකුණ:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
