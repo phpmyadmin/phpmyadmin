@@ -5451,7 +5451,7 @@ msgstr "සේවාදායකයේ අනුවාද"
 #: libraries/export/latex.php:146 libraries/export/sql.php:345
 #: libraries/export/xml.php:112
 msgid "PHP Version"
-msgstr "PHP සංස්කරණය"
+msgstr "PHP අනුවාද"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
