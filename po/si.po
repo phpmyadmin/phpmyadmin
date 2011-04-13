@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 17:56+0200\n"
+"PO-Revision-Date: 2011-04-13 17:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9596,10 +9596,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (\"FLUSH\")"
 
 #: tbl_operations.php:673
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "වගු සඳහා නික්ෂේප දත්ත"
+msgstr "වගුව හෝ දත්ත ඉවත් කරන්න"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
