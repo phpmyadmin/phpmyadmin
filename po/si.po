@@ -618,7 +618,7 @@ msgstr "අවධානය සක්‍රීයයි."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr "'අවධානය' අක්‍රීයයි."
+msgstr "අවධානය අක්‍රීයයි."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:1999
 #, php-format
