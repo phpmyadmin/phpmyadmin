@@ -4439,7 +4439,7 @@ msgstr ""
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
 #: libraries/dbi/mysqli.dbi.lib.php:417
 msgid "The server is not responding"
-msgstr "සර්වරය ප්‍රතිචාර නොදක්වයි"
+msgstr "සේවාදායකය ප්‍රතිචාර නොදක්වයි"
 
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
 msgid "(or the local MySQL server's socket is not correctly configured)"
