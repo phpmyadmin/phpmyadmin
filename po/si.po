@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 19:35+0200\n"
+"PO-Revision-Date: 2011-04-13 19:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -722,7 +722,7 @@ msgstr "දත්ත කෝෂය"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr "අවධානයට ලක් කර ඇති වගු"
+msgstr "අවධානය සක්‍රීය වගු"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
