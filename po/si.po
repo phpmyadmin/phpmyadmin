@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 14:02+0200\n"
+"PO-Revision-Date: 2011-04-13 14:04+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7863,7 +7863,7 @@ msgstr "Users having access to &quot;%s&quot;"
 
 #: server_privileges.php:2280
 msgid "global"
-msgstr "ගෝලීම"
+msgstr "ගෝලීය"
 
 #: server_privileges.php:2282
 msgid "database-specific"
