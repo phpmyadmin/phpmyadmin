@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:10+0200\n"
+"PO-Revision-Date: 2011-04-13 11:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4517,10 +4517,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "%s දත්තගබඩාවෙන් වගු අපනයනය කරමින්"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
+msgstr "%s වගුවෙන් තීරු අපනයනය කරමින්"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
