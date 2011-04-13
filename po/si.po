@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 12:45+0200\n"
+"PO-Revision-Date: 2011-04-13 12:46+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6124,7 +6124,7 @@ msgstr "උපතත්වයන් පෙන්වන්න"
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:423
 #: server_status.php:774 server_variables.php:57
 msgid "Variable"
-msgstr "Variable"
+msgstr "විචල්‍යය"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
