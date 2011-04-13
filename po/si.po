@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 14:24+0200\n"
+"PO-Revision-Date: 2011-04-13 14:28+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4822,9 +4822,8 @@ msgstr "යතුර අනුව තෝරන්න"
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:230
 #: tbl_structure.php:845
-#, fuzzy
 msgid "Options"
-msgstr "මෙහෙයුම්"
+msgstr "විකල්ප"
 
 #: libraries/display_tbl.lib.php:546 libraries/display_tbl.lib.php:556
 #, fuzzy
