@@ -5456,7 +5456,7 @@ msgstr "උත්පාදන වේලාව"
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
 #: libraries/export/xml.php:111 main.php:179
 msgid "Server version"
-msgstr "සර්වරයේ සංස්කරණය"
+msgstr "සේවාදායකයේ සංස්කරණය"
 
 #: libraries/export/latex.php:146 libraries/export/sql.php:345
 #: libraries/export/xml.php:112
