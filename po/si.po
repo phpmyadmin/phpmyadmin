@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:21+0200\n"
+"PO-Revision-Date: 2011-04-13 11:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4579,10 +4579,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "සර්වරයේ %s ඩිරෙක්ටරියේ සුරකින්න"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "ගොනුවක් ලෙස තෝරන්න"
+msgstr "ප්‍රතිදානය ගොනුවකට සුරකින්න"
 
 #: libraries/display_export.lib.php:227
 #, fuzzy
