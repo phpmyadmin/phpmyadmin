@@ -1700,7 +1700,7 @@ msgstr "මුරපදය:"
 
 #: libraries/auth/cookie.auth.lib.php:259
 msgid "Server Choice"
-msgstr "සර්වරයේ තේරීම"
+msgstr "සේවාදායකයේ තේරීම"
 
 #: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
