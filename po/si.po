@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 18:24+0200\n"
+"PO-Revision-Date: 2011-04-13 18:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3145,7 +3145,7 @@ msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
 
 #: libraries/config/messages.inc.php:248 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
-msgstr "Use LOCAL keyword"
+msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
