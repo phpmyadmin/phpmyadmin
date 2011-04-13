@@ -8992,7 +8992,7 @@ msgstr ""
 
 #: server_variables.php:39
 msgid "Server variables and settings"
-msgstr "ෙසේවාදායකයේ විචල්‍යයන් සහ සිටුවම්"
+msgstr "සේවාදායකයේ විචල්‍යයන් සහ සිටුවම්"
 
 #: server_variables.php:60
 msgid "Session value"
