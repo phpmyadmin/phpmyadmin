@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:55+0200\n"
+"PO-Revision-Date: 2011-04-13 13:58+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6910,7 +6910,7 @@ msgstr ""
 
 #: main.php:204
 msgid "MySQL client version"
-msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
+msgstr "MySQL සේවාලාභියාගේ සංස්කරණය"
 
 #: main.php:206
 msgid "PHP extension"
