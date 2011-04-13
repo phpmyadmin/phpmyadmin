@@ -4520,7 +4520,7 @@ msgstr "%s දත්තගබඩාවෙන් වගු අපනයනය ක
 #, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "%s වගුවෙන් තීරු අපනයනය කරමින්"
+msgstr "%s වගුවෙන් තීරු අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:97
 #| msgid "Export type"
