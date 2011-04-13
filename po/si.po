@@ -6242,7 +6242,7 @@ msgstr "පිටුවේ නම"
 #: libraries/schema/User_Schema.class.php:103
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "ස්වයංක්‍රීය සැලැසුම සඳහා පදනම් කර ගත යුතතේ"
+msgstr "ස්වයංක්‍රීය සැලැසුම සඳහා පදනම් කර ගත යුත්තේ"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
