@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 18:34+0200\n"
+"PO-Revision-Date: 2011-04-13 18:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4561,7 +4561,7 @@ msgstr "ආරම්භක පේළිය:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr ""
+msgstr "සියළුම පේළි ප්‍රතිදානය කරන්න"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
