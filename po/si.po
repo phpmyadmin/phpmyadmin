@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 14:43+0200\n"
+"PO-Revision-Date: 2011-04-13 14:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9330,7 +9330,7 @@ msgstr "නව පේළියක් ලෙස ඇතුල් කරන්න"
 
 #: tbl_change.php:1056
 msgid "Insert as new row and ignore errors"
-msgstr "දෝෂ නොසලකමින් නව තීරුවක් ලෙස ඇතුල් කරන්න"
+msgstr "දෝෂ නොසලකමින් නව පේළියක් ලෙස ඇතුල් කරන්න"
 
 #: tbl_change.php:1057
 msgid "Show insert query"
