@@ -6667,7 +6667,6 @@ msgid "Add %s column(s)"
 msgstr "%s ක්ෂේත්‍ර(යක්) එක් කරන්න"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "ඔබ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් එක් කල යුතුයි."
