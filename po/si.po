@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 18:01+0200\n"
+"PO-Revision-Date: 2011-04-13 18:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5754,7 +5754,7 @@ msgstr "වගුවේ නම"
 #: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
 msgid "Column names"
-msgstr "තීර නම්"
+msgstr "පේළි නම්"
 
 #: libraries/import/ldi.php:56
 msgid "This plugin does not support compressed imports!"
