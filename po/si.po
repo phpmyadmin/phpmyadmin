@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 10:43+0200\n"
+"PO-Revision-Date: 2011-04-13 10:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6428,7 +6428,7 @@ msgstr "දත්තගබඩාවේ සොයන්න"
 #: libraries/sql_query_form.lib.php:224
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Run SQL query/queries on server %s"
+msgstr "SQL විමසුමක් සිදු කරන්න/%s සේවාදායකය මත විමසුම්"
 
 #: libraries/sql_query_form.lib.php:241 libraries/sql_query_form.lib.php:265
 #, php-format
