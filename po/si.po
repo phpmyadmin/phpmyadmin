@@ -1909,7 +1909,7 @@ msgstr "Invalid hostname for server %1$s. Please review your configuration."
 #: libraries/header.inc.php:115 main.php:178 server_synchronize.php:1156
 #: test/theme.php:56
 msgid "Server"
-msgstr "සර්වරය"
+msgstr "සේවාදායකය"
 
 #: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
