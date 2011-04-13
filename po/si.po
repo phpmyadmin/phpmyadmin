@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 16:06+0200\n"
+"PO-Revision-Date: 2011-04-13 17:56+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9550,7 +9550,7 @@ msgstr "වගුවෙහි නම හිස්ව ඇත!"
 
 #: tbl_operations.php:260
 msgid "Alter table order by"
-msgstr "අනුව වගු අනුපිළිවෙල වෙනස් කරන්න"
+msgstr "වගු අනුපිළිවෙල වෙනස් කරන්න"
 
 #: tbl_operations.php:269
 msgid "(singly)"
