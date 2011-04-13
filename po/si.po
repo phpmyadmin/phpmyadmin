@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 19:13+0200\n"
+"PO-Revision-Date: 2011-04-13 19:14+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6880,7 +6880,7 @@ msgstr "තවත් සිටුවම්"
 
 #: main.php:180
 msgid "Protocol version"
-msgstr "ප්‍රෝටකෝල සංස්කරණය"
+msgstr "ප්‍රෝටකෝල අනුවාද"
 
 #: main.php:182 server_privileges.php:1478 server_privileges.php:1632
 #: server_privileges.php:1756 server_privileges.php:2175
