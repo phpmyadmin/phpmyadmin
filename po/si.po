@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 13:00+0200\n"
+"PO-Revision-Date: 2011-04-13 13:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5516,10 +5516,9 @@ msgid "Add %s statement"
 msgstr "ප්‍රකාශය"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "ප්‍රකාශය"
+msgstr "ප්‍රකාශ එක් කරන්න:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
