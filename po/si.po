@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 19:52+0200\n"
+"PO-Revision-Date: 2011-04-13 19:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9683,10 +9683,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Internal relations"
+msgstr "අභ්‍යන්තර සබඳතා"
 
 #: tbl_relation.php:404
 msgid ""
