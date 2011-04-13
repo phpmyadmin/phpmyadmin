@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-13 11:31+0200\n"
+"PO-Revision-Date: 2011-04-13 11:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4508,7 +4508,7 @@ msgstr "Could not load export plugins, please check your installation!"
 #: libraries/display_export.lib.php:87
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "වත්මන් සේවාදායකයෙන් දත්තගබඩා අපනයනය කරමින්"
+msgstr "වත්මන් සේවාදායකයෙන් දත්තගබඩා අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:89
 #, php-format
