@@ -6880,7 +6880,7 @@ msgstr "තවත් සිටුවම්"
 
 #: main.php:180
 msgid "Protocol version"
-msgstr "ප්‍රෝටකෝල අනුවාද"
+msgstr "ප්‍රෝටකෝල අනුවාදය"
 
 #: main.php:182 server_privileges.php:1478 server_privileges.php:1632
 #: server_privileges.php:1756 server_privileges.php:2175
