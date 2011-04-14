@@ -1447,7 +1447,7 @@ msgstr "Mingguan"
 
 #: js/messages.php:228
 msgid "Hour"
-msgstr ""
+msgstr "Jam"
 
 #: js/messages.php:229
 #, fuzzy
