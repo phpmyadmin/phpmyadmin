@@ -2489,10 +2489,9 @@ msgid "Edit in window"
 msgstr "دریچے میں تدوین کریں"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Table comments"
 msgid "Display errors"
-msgstr "ٹیبل کمنٹس"
+msgstr "نقائص دکھائیں"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
