@@ -1336,7 +1336,6 @@ msgid "Sunday"
 msgstr "Minggu"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Senin"
