@@ -85,9 +85,8 @@ msgstr "Nome chave"
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:776
-#, fuzzy
 msgid "Description"
-msgstr "Descrição "
+msgstr "Descrição"
 
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
