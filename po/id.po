@@ -1485,7 +1485,7 @@ msgstr "Folder sementara tidak ditemukan."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr "Gagal menulis file ke disk"
+msgstr "Gagal menulis file ke diska"
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
