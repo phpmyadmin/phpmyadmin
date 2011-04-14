@@ -2434,7 +2434,7 @@ msgstr "کالم تبدیلی/بنانے کے لیے ہدایات دکھائیں
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "کوائفیہ میں داخل ہوتے ہوئے Tab دکھائی دیتا ہے"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
