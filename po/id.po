@@ -1615,7 +1615,7 @@ msgstr "Basisdata tidak valid"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Nama tabel tidak valid"
 
 #: libraries/Table.class.php:1046
 #, php-format
