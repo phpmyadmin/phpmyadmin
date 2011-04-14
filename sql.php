@@ -63,7 +63,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
     $column = $_REQUEST['column'];
     $foreigners = PMA_getForeigners($db, $table, $column);
 
-    $display_field = PMA_getDisplayField($foreigners[$column][foreign_db], $foreigners[$column][foreign_table]);
+    $display_field = PMA_getDisplayField($foreigners[$column]['foreign_db'], $foreigners[$column]['foreign_table']);
 
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
