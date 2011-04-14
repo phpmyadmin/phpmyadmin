@@ -1576,7 +1576,7 @@ msgid_plural "%1$d rows affected."
 msgstr[0] ""
 
 #: libraries/Message.class.php:300
-#, php-format
+#, php-format, fuzzy
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Baris ke %1$d telah dihapus"
