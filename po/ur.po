@@ -2442,7 +2442,7 @@ msgstr "طے شدہ کوائفیہ جدول"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "سرور میں داخل ہوتے ہوئے جو جدول دکھائی دے"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
