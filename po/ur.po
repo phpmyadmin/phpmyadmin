@@ -2454,7 +2454,7 @@ msgstr "ایک جدول میں داخل ہوتے ہوئے جو جدول دکھا
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "طے شدہ جدول کی جدول"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
