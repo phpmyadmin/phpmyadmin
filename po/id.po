@@ -1634,7 +1634,7 @@ msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr " Tidak ada preview yang tersedia"
+msgstr "Tidak ada preview yang tersedia."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
