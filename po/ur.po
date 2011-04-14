@@ -2373,7 +2373,7 @@ msgstr "CHAR textarea کالم"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR textareas کے لیے صف کی تعداد"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
