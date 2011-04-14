@@ -1496,11 +1496,12 @@ msgid "Unknown error in file upload."
 msgstr "Kesalahan yang tidak diketahui dalam upload file."
 
 #: libraries/File.class.php:559
-#, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Kemungkinan hanya perkiraan saja. Lihat FAQ 3.11"
+msgstr ""
+"Kemungkinan hanya perkiraan saja. Lihat "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
