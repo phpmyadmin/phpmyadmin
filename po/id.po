@@ -1000,7 +1000,6 @@ msgid "The passwords aren't the same!"
 msgstr "Kata Sandi tidak sama!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Menambahkan pengguna baru"
