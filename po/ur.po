@@ -2470,7 +2470,7 @@ msgstr "کوائفیہ فہرست کو ڈراپ ڈاؤن کی بجائے لڑی 
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "کوائفیے کو بطور لڑی دکھائیں"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
