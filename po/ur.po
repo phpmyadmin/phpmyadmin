@@ -2499,7 +2499,7 @@ msgstr "نقائص اکھٹی کریں"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "تنبیہ، نقص اور معلوماتی پیغامات کے لیے شبیہے دکھائیں"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
