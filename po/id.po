@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-14 21:25+0200\n"
+"PO-Revision-Date: 2011-04-14 21:26+0200\n"
 "Last-Translator:  <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1266,7 +1266,7 @@ msgstr "November"
 
 #: js/messages.php:157
 msgid "December"
-msgstr ""
+msgstr "Desember"
 
 #. l10n: Short month name
 #: js/messages.php:161 libraries/common.lib.php:1568
