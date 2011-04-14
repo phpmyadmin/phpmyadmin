@@ -1031,9 +1031,8 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "Lokal"
+msgstr "Memproses"
 
 #: js/messages.php:64
 #, fuzzy
