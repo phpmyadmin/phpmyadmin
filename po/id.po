@@ -1125,9 +1125,8 @@ msgid "Hide search criteria"
 msgstr "Sembunyikan kriteria pencarian"
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Show search criteria"
-msgstr "Pencarian SQL"
+msgstr "Tampilkan kriteria pencarian"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
