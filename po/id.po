@@ -1073,7 +1073,6 @@ msgid "Copying Database"
 msgstr "Salin database"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Perangkat karakter (Charset)"
