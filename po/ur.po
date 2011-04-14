@@ -2438,7 +2438,7 @@ msgstr "کوائفیہ میں داخل ہوتے ہوئے جدول دکھائی �
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "طے شدہ کوائفیہ جدول"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
