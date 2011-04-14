@@ -1351,7 +1351,7 @@ msgstr "Rabu"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "Kamis"
 
 #: js/messages.php:191
 #, fuzzy
