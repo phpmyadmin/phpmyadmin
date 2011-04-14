@@ -2518,7 +2518,7 @@ msgstr "چلنے کی حد اوقات"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr ""
+msgstr "بطور مسل محفوظ کریں"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 msgid "Character set of the file"
