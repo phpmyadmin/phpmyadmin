@@ -930,10 +930,9 @@ $(document).ready(function() {
                     }
                     // remove possible previous feedback message
                     $('#result_query').remove();
-                    if (typeof data.result_query != 'undefined') {
+                    if (typeof data.sql_query != 'undefined') {
                         // display feedback
-                        $('#sqlqueryresults').prepend('<div id="result_query" align="left"></div>');
-                        $('#result_query').prepend(data.result_query);
+                        $('#sqlqueryresults').prepend(data.sql_query);
                     }
                     PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode);
                 } else {
