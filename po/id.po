@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-14 21:35+0200\n"
+"PO-Revision-Date: 2011-04-14 21:36+0200\n"
 "Last-Translator:  <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1630,7 +1630,7 @@ msgstr "Nama tabel %s telah diubah menjadi %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Lokasi cintra yang benar untuk tema %s tidak ditemukan!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
