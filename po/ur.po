@@ -2486,7 +2486,7 @@ msgstr "SQL طلب کو پاپ اپ دریچے میں تدوین کریں"
 
 #: libraries/config/messages.inc.php:61
 msgid "Edit in window"
-msgstr ""
+msgstr "دریچے میں تدوین کریں"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
