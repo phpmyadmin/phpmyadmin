@@ -1209,10 +1209,9 @@ msgstr "Berikutnya"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:143
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Jumlah"
+msgstr "Hari ini"
 
 #: js/messages.php:146
 #, fuzzy
