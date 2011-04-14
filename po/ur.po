@@ -2414,7 +2414,7 @@ msgstr "DROP طلب تصدیق کریں"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL ٹھیک کریں"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
