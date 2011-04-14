@@ -1147,10 +1147,9 @@ msgid "Please select the primary key or a unique key"
 msgstr ""
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Pilih Field untuk ditampilkan"
+msgstr "Pilih kolom untuk ditampilkan"
 
 #: js/messages.php:106
 msgid "Add an option for column "
