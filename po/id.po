@@ -1630,7 +1630,7 @@ msgstr "Nama tabel %s telah diubah menjadi %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "Lokasi cintra yang benar untuk tema %s tidak ditemukan!"
+msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
