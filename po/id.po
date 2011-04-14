@@ -1411,7 +1411,6 @@ msgstr "Senin"
 
 #. l10n: Minimal week day name
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Selasa"
