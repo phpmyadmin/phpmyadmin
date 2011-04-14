@@ -2503,7 +2503,7 @@ msgstr "تنبیہ، نقص اور معلوماتی پیغامات کے لیے �
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "شبیہاتی نقائص"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
