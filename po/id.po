@@ -1165,7 +1165,6 @@ msgid "Generate"
 msgstr "Menghasilkan"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Ubah Kata Sandi"
