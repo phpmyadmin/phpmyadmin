@@ -1035,10 +1035,9 @@ msgid "Loading"
 msgstr "Memproses"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Proses Aktif"
+msgstr "Memproses permintaan"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
