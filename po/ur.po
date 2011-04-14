@@ -2418,7 +2418,7 @@ msgstr "SQL ٹھیک کریں"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
-msgstr ""
+msgstr "طے شدہ دکھانے کی سمت"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
