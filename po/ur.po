@@ -2365,7 +2365,7 @@ msgstr "CHAR کالم تدوین"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR textareas کے لیے کالم کی تعداد"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
