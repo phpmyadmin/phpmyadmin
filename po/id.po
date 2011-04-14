@@ -1118,7 +1118,7 @@ msgstr "Simpan"
 #: js/messages.php:90 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr ""
+msgstr "Sembunyikan"
 
 #: js/messages.php:93
 #, fuzzy
