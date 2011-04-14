@@ -1643,7 +1643,7 @@ msgstr "ambil ini"
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Tema %s bawaan tidak ditemukan!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
