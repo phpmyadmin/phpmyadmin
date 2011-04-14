@@ -2527,7 +2527,7 @@ msgstr "مسل کے لیے حروف کی سیٹ"
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:829
 msgid "Format"
-msgstr ""
+msgstr "وضع"
 
 #: libraries/config/messages.inc.php:71
 msgid "Compression"
