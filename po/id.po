@@ -1341,7 +1341,6 @@ msgid "Monday"
 msgstr "Senin"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Selasa"
