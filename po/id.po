@@ -1121,9 +1121,8 @@ msgid "Hide"
 msgstr "Sembunyikan"
 
 #: js/messages.php:93
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "Pencarian SQL"
+msgstr "Sembunyikan kriteria pencarian"
 
 #: js/messages.php:94
 #, fuzzy
