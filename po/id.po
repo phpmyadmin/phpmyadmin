@@ -1094,9 +1094,8 @@ msgid "Searching"
 msgstr "Pencarian"
 
 #: js/messages.php:86
-#, fuzzy
 msgid "Hide query box"
-msgstr "Pencarian SQL"
+msgstr "Sembunyikan kotak query"
 
 #: js/messages.php:87
 #, fuzzy
