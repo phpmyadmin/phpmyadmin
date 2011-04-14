@@ -1068,10 +1068,9 @@ msgid "Reload Database"
 msgstr "Muat ulang basis data"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Salin database ke"
+msgstr "Salin database"
 
 #: js/messages.php:74
 #, fuzzy
