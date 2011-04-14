@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-14 21:22+0200\n"
+"PO-Revision-Date: 2011-04-14 21:23+0200\n"
 "Last-Translator:  <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1153,7 +1153,7 @@ msgstr "Pilih kolom untuk ditampilkan"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Tambahkan pilihan untuk kolom"
 
 #: js/messages.php:109
 #, fuzzy
