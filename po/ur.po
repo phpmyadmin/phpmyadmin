@@ -2531,7 +2531,7 @@ msgstr "وضع"
 
 #: libraries/config/messages.inc.php:71
 msgid "Compression"
-msgstr ""
+msgstr "سکڑاؤ"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:87 libraries/config/messages.inc.php:91
