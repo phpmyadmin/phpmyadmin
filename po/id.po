@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-07 13:07+0200\n"
-"PO-Revision-Date: 2011-04-14 21:21+0200\n"
+"PO-Revision-Date: 2011-04-14 21:22+0200\n"
 "Last-Translator:  <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1134,8 +1134,9 @@ msgid "Ignore"
 msgstr "Abaikan"
 
 #: js/messages.php:100
+#, fuzzy
 msgid "Select referenced key"
-msgstr ""
+msgstr "Pilih rujukan kunci"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
