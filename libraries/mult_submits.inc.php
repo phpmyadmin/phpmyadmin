@@ -339,7 +339,7 @@ elseif ($mult_btn == __('Yes')) {
 
             case 'empty_tbl':
                 $a_query = 'TRUNCATE ';
-                $a_query .= PMA_backquote(htmlspecialchars($selected[$i]));
+                $a_query .= PMA_backquote($selected[$i]);
                 $run_parts = TRUE;
                 break;
 
