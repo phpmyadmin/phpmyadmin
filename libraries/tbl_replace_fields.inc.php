@@ -68,7 +68,7 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // $key contains the md5() of the fieldname
-    if (0 === strlen($val)) {
+    if (0 === strlen($val) && $type != 'protected') {
         // best way to avoid problems in strict mode (works also in non-strict mode)
         if (isset($me_auto_increment)  && isset($me_auto_increment[$key])) {
             $val = 'NULL';
