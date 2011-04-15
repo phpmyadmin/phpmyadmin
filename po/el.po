@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-04-07 13:07+0200\n"
+"POT-Creation-Date: 2011-04-15 08:56+0200\n"
 "PO-Revision-Date: 2011-04-05 11:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -72,7 +72,7 @@ msgstr "Αναζήτηση"
 #: tbl_change.php:1099 tbl_change.php:1136 tbl_indexes.php:252
 #: tbl_operations.php:276 tbl_operations.php:313 tbl_operations.php:515
 #: tbl_operations.php:577 tbl_operations.php:759 tbl_select.php:290
-#: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
+#: tbl_structure.php:654 tbl_structure.php:690 tbl_tracking.php:389
 #: tbl_tracking.php:506 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Εκτέλεση"
@@ -137,7 +137,7 @@ msgstr "Σχόλια Πίνακα"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
-#: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
+#: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:267 tbl_tracking.php:318
 msgid "Column"
 msgstr "Στήλη"
@@ -152,7 +152,7 @@ msgstr "Στήλη"
 #: libraries/tbl_properties.inc.php:99 server_privileges.php:2177
 #: tbl_change.php:288 tbl_change.php:315 tbl_chart.php:132
 #: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:113
-#: tbl_structure.php:198 tbl_structure.php:751 tbl_tracking.php:268
+#: tbl_structure.php:199 tbl_structure.php:752 tbl_tracking.php:268
 #: tbl_tracking.php:315
 msgid "Type"
 msgstr "Τύπος"
@@ -163,7 +163,7 @@ msgstr "Τύπος"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:108 tbl_change.php:324
-#: tbl_printview.php:142 tbl_structure.php:201 tbl_tracking.php:270
+#: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Null"
 msgstr "Κενό"
@@ -174,7 +174,7 @@ msgstr "Κενό"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
-#: tbl_structure.php:202 tbl_tracking.php:271
+#: tbl_structure.php:203 tbl_tracking.php:271
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -209,7 +209,7 @@ msgstr "Σχόλια"
 #: server_privileges.php:1664 server_privileges.php:1675
 #: server_privileges.php:1995 server_privileges.php:2000
 #: server_privileges.php:2294 sql.php:238 sql.php:299 tbl_printview.php:226
-#: tbl_structure.php:373 tbl_tracking.php:331 tbl_tracking.php:336
+#: tbl_structure.php:374 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Όχι"
 
@@ -228,7 +228,7 @@ msgstr "Όχι"
 #: server_privileges.php:1417 server_privileges.php:1661
 #: server_privileges.php:1675 server_privileges.php:1995
 #: server_privileges.php:1998 server_privileges.php:2294 sql.php:298
-#: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:373
+#: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:374
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
 msgstr "Ναι"
@@ -334,7 +334,7 @@ msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομέν�
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:374 tbl_select.php:114
-#: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
+#: tbl_structure.php:200 tbl_structure.php:860 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Collation"
 msgstr "Σύνθεση"
@@ -365,8 +365,8 @@ msgstr "Πίνακας"
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
 #: libraries/import.lib.php:147 navigation.php:619 navigation.php:641
-#: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
-#: tbl_structure.php:869
+#: tbl_printview.php:391 tbl_structure.php:389 tbl_structure.php:476
+#: tbl_structure.php:870
 msgid "Rows"
 msgstr "Εγγραφές"
 
@@ -382,21 +382,21 @@ msgstr "σε χρήση"
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
-#: tbl_structure.php:901
+#: tbl_structure.php:902
 msgid "Creation"
 msgstr "Δημιουργία"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
-#: tbl_structure.php:909
+#: tbl_structure.php:910
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
-#: tbl_structure.php:917
+#: tbl_structure.php:918
 msgid "Last check"
 msgstr "τελευταίος έλεγχος"
 
@@ -538,7 +538,7 @@ msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
-#: libraries/tbl_links.inc.php:48 tbl_structure.php:557
+#: libraries/tbl_links.inc.php:48 tbl_structure.php:558
 msgid "Browse"
 msgstr "Περιήγηση"
 
@@ -626,7 +626,7 @@ msgstr ""
 "%sτεκμηρίωση%s."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
 msgstr "Προβολή"
 
@@ -649,20 +649,20 @@ msgstr ""
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2140 libraries/display_tbl.lib.php:2145
 #: libraries/mult_submits.inc.php:15 server_databases.php:246
-#: server_databases.php:251 server_privileges.php:1692 tbl_structure.php:545
-#: tbl_structure.php:554
+#: server_databases.php:251 server_privileges.php:1692 tbl_structure.php:546
+#: tbl_structure.php:555
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2135
 #: server_databases.php:248 server_privileges.php:580
-#: server_privileges.php:1695 tbl_structure.php:548
+#: server_privileges.php:1695 tbl_structure.php:549
 msgid "Check All"
 msgstr "Επιλογή όλων"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2136
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
-#: server_privileges.php:583 server_privileges.php:1699 tbl_structure.php:552
+#: server_privileges.php:583 server_privileges.php:1699 tbl_structure.php:553
 msgid "Uncheck All"
 msgstr "Απεπιλογή όλων"
 
@@ -679,8 +679,8 @@ msgid "Export"
 msgstr "Εξαγωγή"
 
 #: db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2242 tbl_structure.php:583
-#: tbl_structure.php:585
+#: libraries/display_tbl.lib.php:2242 tbl_structure.php:584
+#: tbl_structure.php:586
 msgid "Print view"
 msgstr "Εμφάνιση για εκτύπωση"
 
@@ -691,8 +691,8 @@ msgstr "Άδειασμα"
 
 #: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3018 libraries/common.lib.php:3019
-#: server_databases.php:252 tbl_structure.php:150 tbl_structure.php:151
-#: tbl_structure.php:561
+#: server_databases.php:252 tbl_structure.php:151 tbl_structure.php:152
+#: tbl_structure.php:562
 msgid "Drop"
 msgstr "Διαγραφή"
 
@@ -700,8 +700,8 @@ msgstr "Διαγραφή"
 msgid "Check table"
 msgstr "Έλεγχος πίνακα"
 
-#: db_structure.php:515 tbl_operations.php:649 tbl_structure.php:801
-#: tbl_structure.php:803
+#: db_structure.php:515 tbl_operations.php:649 tbl_structure.php:802
+#: tbl_structure.php:804
 msgid "Optimize table"
 msgstr "Βελτιστοποίηση Πίνακα"
 
@@ -755,7 +755,7 @@ msgstr "Κατάσταση"
 #: db_tracking.php:90 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:181
 #: server_privileges.php:1638 server_privileges.php:1831
-#: server_privileges.php:2180 tbl_structure.php:207
+#: server_privileges.php:2180 tbl_structure.php:208
 msgid "Action"
 msgstr "Ενέργεια"
 
@@ -787,8 +787,8 @@ msgstr "Στιγμιότυπο δομής"
 msgid "Untracked tables"
 msgstr "Μη παρακολουθούμενοι πίνακες"
 
-#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
-#: tbl_structure.php:621
+#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:620
+#: tbl_structure.php:622
 msgid "Track table"
 msgstr "Παρακολούθηση πίνακα"
 
@@ -893,7 +893,7 @@ msgstr "Η ετικέτα διεγράφη."
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: import.php:402 sql.php:847
+#: import.php:402 sql.php:884
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Ο σελιδοδείκτης %s δημιουργήθηκε"
@@ -1159,7 +1159,7 @@ msgstr "Παραγωγή"
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:114 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:472
 msgid "More"
 msgstr "Περισσότερα"
 
@@ -1191,7 +1191,7 @@ msgstr "Προηγούμενο"
 #: js/messages.php:141 libraries/common.lib.php:2370
 #: libraries/common.lib.php:2373 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
-#: tbl_structure.php:893
+#: tbl_structure.php:894
 msgid "Next"
 msgstr "Επόμενο"
 
@@ -1480,7 +1480,7 @@ msgid "Indexes"
 msgstr "Ευρετήρια"
 
 #: libraries/Index.class.php:443 libraries/tbl_properties.inc.php:522
-#: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
+#: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:565
 #: tbl_tracking.php:316
 msgid "Unique"
 msgstr "Μοναδικό"
@@ -1800,18 +1800,18 @@ msgstr "Πίνακες"
 #: libraries/config/user_preferences.forms.php:274
 #: libraries/export/latex.php:215 libraries/export/sql.php:945
 #: server_privileges.php:587 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:757
+#: tbl_structure.php:758
 msgid "Data"
 msgstr "Δεδομένα"
 
 #: libraries/build_html_for_db.lib.php:45 libraries/engines/innodb.lib.php:168
 #: server_databases.php:205 server_status.php:540 server_status.php:601
-#: server_status.php:624 tbl_printview.php:348 tbl_structure.php:788
+#: server_status.php:624 tbl_printview.php:348 tbl_structure.php:789
 msgid "Total"
 msgstr "Σύνολο"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
-#: tbl_printview.php:333 tbl_structure.php:774
+#: tbl_printview.php:333 tbl_structure.php:775
 msgid "Overhead"
 msgstr "Περίσσεια"
 
@@ -2550,7 +2550,7 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_printview.php:373 tbl_structure.php:829
+#: tbl_printview.php:373 tbl_structure.php:830
 msgid "Format"
 msgstr "Μορφοποίηση"
 
@@ -4535,7 +4535,7 @@ msgstr "Ο διακομιστής δεν αποκρίνεται"
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(ή η τοπική υποδοχή του διακομιστή MySQL δεν έχει ρυθμιστεί σωστά)"
 
-#: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:701
 msgid "Details..."
 msgstr "Λεπτομέρειες..."
 
@@ -4880,7 +4880,7 @@ msgstr "Ταξινόμηση ανά κλειδί"
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:230
-#: tbl_structure.php:845
+#: tbl_structure.php:846
 msgid "Options"
 msgstr "Επιλογές"
 
@@ -4944,7 +4944,7 @@ msgid "Query took %01.4f sec"
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
 
 #: libraries/display_tbl.lib.php:2148 querywindow.php:114 querywindow.php:118
-#: querywindow.php:121 tbl_structure.php:149 tbl_structure.php:560
+#: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:561
 msgid "Change"
 msgstr "Αλλαγή"
 
@@ -6229,7 +6229,7 @@ msgstr "Μεταβλητή"
 #: libraries/replication_gui.lib.php:117 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:775 tbl_change.php:325 tbl_printview.php:367
-#: tbl_select.php:116 tbl_structure.php:821
+#: tbl_select.php:116 tbl_structure.php:822
 msgid "Value"
 msgstr "Τιμή"
 
@@ -6334,13 +6334,13 @@ msgstr "Πίνακας περιεχομένων"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
 #: libraries/tbl_properties.inc.php:107 tbl_printview.php:141
-#: tbl_structure.php:200
+#: tbl_structure.php:201
 msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1244
 #: libraries/schema/Pdf_Relation_Schema.class.php:1265 tbl_printview.php:144
-#: tbl_structure.php:203 tbl_tracking.php:272
+#: tbl_structure.php:204 tbl_tracking.php:272
 msgid "Extra"
 msgstr "Πρόσθετα"
 
@@ -6519,11 +6519,11 @@ msgstr "Καθάρισμα"
 msgid "Columns"
 msgstr "Στήλες"
 
-#: libraries/sql_query_form.lib.php:337 sql.php:886 sql.php:887 sql.php:904
+#: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
 
-#: libraries/sql_query_form.lib.php:344 sql.php:898
+#: libraries/sql_query_form.lib.php:344 sql.php:935
 msgid "Let every user access this bookmark"
 msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε κάθε χρήστη"
 
@@ -6665,8 +6665,8 @@ msgstr ""
 "διαφυγής ή εισαγωγικά, χρησιμοποιώντας τη μορφή: a"
 
 #: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
-#: tbl_printview.php:323 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:565 tbl_structure.php:765
+#: tbl_printview.php:323 tbl_structure.php:154 tbl_structure.php:158
+#: tbl_structure.php:566 tbl_structure.php:766
 msgid "Index"
 msgstr "Ευρετήριο"
 
@@ -6712,13 +6712,13 @@ msgstr "Καμία"
 msgid "As defined:"
 msgstr "Όπως ορίστηκε:"
 
-#: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
-#: tbl_structure.php:156 tbl_structure.php:563
+#: libraries/tbl_properties.inc.php:516 tbl_structure.php:153
+#: tbl_structure.php:157 tbl_structure.php:564
 msgid "Primary"
 msgstr "Πρωτεύον"
 
-#: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
-#: tbl_structure.php:159 tbl_structure.php:569
+#: libraries/tbl_properties.inc.php:534 tbl_structure.php:156
+#: tbl_structure.php:160 tbl_structure.php:570
 msgid "Fulltext"
 msgstr "Πλήρες κείμενο"
 
@@ -6740,12 +6740,12 @@ msgstr "Μηχανή αποθήκευσης"
 msgid "PARTITION definition"
 msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
-#: libraries/tbl_properties.inc.php:780 tbl_structure.php:633
+#: libraries/tbl_properties.inc.php:780 tbl_structure.php:634
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Προσθήκη %s στήλης(ών)"
 
-#: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
+#: libraries/tbl_properties.inc.php:784 tbl_structure.php:628
 msgid "You have to add at least one column."
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα πεδίο."
 
@@ -9461,12 +9461,12 @@ msgstr "Εμφάνιση ερωτήματος SQL"
 msgid "Validated SQL"
 msgstr "Επικυρωμένη SQL"
 
-#: sql.php:860
+#: sql.php:897
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Προβλήματα με τα ευρετήρια στον πίνακα «%s»"
 
-#: sql.php:892
+#: sql.php:929
 msgid "Label"
 msgstr "Ετικέτα"
 
@@ -9695,7 +9695,7 @@ msgstr ""
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Προσθήκη στο ευρετήριο «%s» στήλης(ών)"
 
-#: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
+#: tbl_indexes.php:254 tbl_structure.php:682 tbl_structure.php:693
 msgid "Column count has to be larger than zero."
 msgstr "Το πλήθος των στηλών δεν πρέπει να είναι μηδέν."
 
@@ -9819,39 +9819,39 @@ msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 msgid "Show tables"
 msgstr "Εμφάνιση πινάκων"
 
-#: tbl_printview.php:307 tbl_structure.php:748
+#: tbl_printview.php:307 tbl_structure.php:749
 msgid "Space usage"
 msgstr "Χρήση χώρου"
 
-#: tbl_printview.php:311 tbl_structure.php:752
+#: tbl_printview.php:311 tbl_structure.php:753
 msgid "Usage"
 msgstr "Χρήση"
 
-#: tbl_printview.php:338 tbl_structure.php:779
+#: tbl_printview.php:338 tbl_structure.php:780
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: tbl_printview.php:363 tbl_structure.php:817
+#: tbl_printview.php:363 tbl_structure.php:818
 msgid "Row Statistics"
 msgstr "Στατιστικά Εγγραφών"
 
-#: tbl_printview.php:366 tbl_structure.php:820
+#: tbl_printview.php:366 tbl_structure.php:821
 msgid "Statements"
 msgstr "Δηλώσεις"
 
-#: tbl_printview.php:377 tbl_structure.php:832
+#: tbl_printview.php:377 tbl_structure.php:833
 msgid "static"
 msgstr "στατικό"
 
-#: tbl_printview.php:379 tbl_structure.php:834
+#: tbl_printview.php:379 tbl_structure.php:835
 msgid "dynamic"
 msgstr "δυναμικά"
 
-#: tbl_printview.php:401 tbl_structure.php:877
+#: tbl_printview.php:401 tbl_structure.php:878
 msgid "Row length"
 msgstr "Μέγεθος Γραμμής"
 
-#: tbl_printview.php:411 tbl_structure.php:885
+#: tbl_printview.php:411 tbl_structure.php:886
 msgid " Row size "
 msgstr " Μέγεθος Εγγραφής "
 
@@ -9902,82 +9902,82 @@ msgstr "Εγγραφές ανά σελίδα"
 msgid "Display order:"
 msgstr "Σειρά εμφάνισης:"
 
-#: tbl_structure.php:160 tbl_structure.php:164
+#: tbl_structure.php:161 tbl_structure.php:165
 msgid "Browse distinct values"
 msgstr "Αναζήτηση διακριτων τιμών"
 
-#: tbl_structure.php:165 tbl_structure.php:166
+#: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: tbl_structure.php:167 tbl_structure.php:168
+#: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
 msgstr "Προσθήκη ευρετηρίου"
 
-#: tbl_structure.php:169 tbl_structure.php:170
+#: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
 msgstr "Προσθήκη μοναδικού ευρετηρίου"
 
-#: tbl_structure.php:171 tbl_structure.php:172
+#: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
 msgstr "Προσθήκη ευρετηρίου ΠΛΗΡΟΥΣ ΚΕΙΜΕΝΟΥ"
 
-#: tbl_structure.php:384
+#: tbl_structure.php:385
 msgctxt "None for default"
 msgid "None"
 msgstr "Καμία"
 
-#: tbl_structure.php:397
+#: tbl_structure.php:398
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Η στήλη %s διεγράφη"
 
-#: tbl_structure.php:408 tbl_structure.php:483
+#: tbl_structure.php:409 tbl_structure.php:484
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s"
 
-#: tbl_structure.php:423 tbl_structure.php:438 tbl_structure.php:453
-#: tbl_structure.php:496 tbl_structure.php:509 tbl_structure.php:522
+#: tbl_structure.php:424 tbl_structure.php:439 tbl_structure.php:454
+#: tbl_structure.php:497 tbl_structure.php:510 tbl_structure.php:523
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Ένα ευρετήριο προστέθηκε στο %s"
 
-#: tbl_structure.php:471
+#: tbl_structure.php:472
 msgid "Show more actions"
 msgstr "Προβολή περισσοτέρων δράσεων"
 
-#: tbl_structure.php:597 tbl_structure.php:599
+#: tbl_structure.php:598 tbl_structure.php:600
 msgid "Relation view"
 msgstr "Εμφάνιση συσχετίσεων"
 
-#: tbl_structure.php:606 tbl_structure.php:608
+#: tbl_structure.php:607 tbl_structure.php:609
 msgid "Propose table structure"
 msgstr "Προτεινόμενη δομή πίνακα"
 
-#: tbl_structure.php:631
+#: tbl_structure.php:632
 msgid "Add column"
 msgstr "Προσθήκη στήλης"
 
-#: tbl_structure.php:645
+#: tbl_structure.php:646
 msgid "At End of Table"
 msgstr "Στο τέλος του Πίνακα"
 
-#: tbl_structure.php:646
+#: tbl_structure.php:647
 msgid "At Beginning of Table"
 msgstr "Στην αρχή του Πίνακα"
 
-#: tbl_structure.php:647
+#: tbl_structure.php:648
 #, php-format
 msgid "After %s"
 msgstr "Μετά το %s"
 
-#: tbl_structure.php:686
+#: tbl_structure.php:687
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Δημιουργία ευρετηρίου σε &nbsp;%s&nbsp; στήλες"
 
-#: tbl_structure.php:848
+#: tbl_structure.php:849
 msgid "partitioned"
 msgstr "κατατμήθηκε"
 

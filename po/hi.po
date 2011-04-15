@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-04-07 13:07+0200\n"
+"POT-Creation-Date: 2011-04-15 08:56+0200\n"
 "PO-Revision-Date: 2011-04-09 11:45+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -71,7 +71,7 @@ msgstr "खोजें"
 #: tbl_change.php:1099 tbl_change.php:1136 tbl_indexes.php:252
 #: tbl_operations.php:276 tbl_operations.php:313 tbl_operations.php:515
 #: tbl_operations.php:577 tbl_operations.php:759 tbl_select.php:290
-#: tbl_structure.php:653 tbl_structure.php:689 tbl_tracking.php:389
+#: tbl_structure.php:654 tbl_structure.php:690 tbl_tracking.php:389
 #: tbl_tracking.php:506 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "आगे"
@@ -111,8 +111,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
-"www.phpmyadmin.net वेबसाईट पर जाएँ "
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
+"वेबसाईट पर जाएँ "
 
 #: db_create.php:58
 #, php-format
@@ -136,7 +136,7 @@ msgstr " टेबल टिप्पणि:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: tbl_change.php:309 tbl_indexes.php:187 tbl_printview.php:139
-#: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:197
+#: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:267 tbl_tracking.php:318
 #, fuzzy
 #| msgid "Column names"
@@ -153,7 +153,7 @@ msgstr "कोलम"
 #: libraries/tbl_properties.inc.php:99 server_privileges.php:2177
 #: tbl_change.php:288 tbl_change.php:315 tbl_chart.php:132
 #: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:113
-#: tbl_structure.php:198 tbl_structure.php:751 tbl_tracking.php:268
+#: tbl_structure.php:199 tbl_structure.php:752 tbl_tracking.php:268
 #: tbl_tracking.php:315
 msgid "Type"
 msgstr "टाइप"
@@ -164,7 +164,7 @@ msgstr "टाइप"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:108 tbl_change.php:324
-#: tbl_printview.php:142 tbl_structure.php:201 tbl_tracking.php:270
+#: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Null"
 msgstr "अशक्त"
@@ -175,7 +175,7 @@ msgstr "अशक्त"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
-#: tbl_structure.php:202 tbl_tracking.php:271
+#: tbl_structure.php:203 tbl_tracking.php:271
 msgid "Default"
 msgstr "डिफ़ॉल्ट"
 
@@ -210,7 +210,7 @@ msgstr "टिप्पणी"
 #: server_privileges.php:1664 server_privileges.php:1675
 #: server_privileges.php:1995 server_privileges.php:2000
 #: server_privileges.php:2294 sql.php:238 sql.php:299 tbl_printview.php:226
-#: tbl_structure.php:373 tbl_tracking.php:331 tbl_tracking.php:336
+#: tbl_structure.php:374 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "नहीं"
 
@@ -229,7 +229,7 @@ msgstr "नहीं"
 #: server_privileges.php:1417 server_privileges.php:1661
 #: server_privileges.php:1675 server_privileges.php:1995
 #: server_privileges.php:1998 server_privileges.php:2294 sql.php:298
-#: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:373
+#: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:374
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
 msgstr "हाँ "
@@ -339,7 +339,7 @@ msgstr "नक़ल किये गए डाटाबेस पर जाय�
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:374 tbl_select.php:114
-#: tbl_structure.php:199 tbl_structure.php:859 tbl_tracking.php:269
+#: tbl_structure.php:200 tbl_structure.php:860 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Collation"
 msgstr "क्रम में करें"
@@ -353,8 +353,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया है"
-"क्यों ये किया गया है, जानने के लिए %shere%s पर क्लिक करें."
+"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए "
+"%shere%s पर क्लिक करें."
 
 #: db_operations.php:589
 #, fuzzy
@@ -375,8 +375,8 @@ msgstr "टेबल "
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
 #: libraries/import.lib.php:147 navigation.php:619 navigation.php:641
-#: tbl_printview.php:391 tbl_structure.php:388 tbl_structure.php:475
-#: tbl_structure.php:869
+#: tbl_printview.php:391 tbl_structure.php:389 tbl_structure.php:476
+#: tbl_structure.php:870
 msgid "Rows"
 msgstr "रो"
 
@@ -392,21 +392,21 @@ msgstr "उपयोग में"
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
-#: tbl_structure.php:901
+#: tbl_structure.php:902
 msgid "Creation"
 msgstr "रचना"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
-#: tbl_structure.php:909
+#: tbl_structure.php:910
 msgid "Last update"
 msgstr "पिछला नवीनीकरण"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
-#: tbl_structure.php:917
+#: tbl_structure.php:918
 msgid "Last check"
 msgstr "पिछली जाँच"
 
@@ -554,7 +554,7 @@ msgstr[1] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
-#: libraries/tbl_links.inc.php:48 tbl_structure.php:557
+#: libraries/tbl_links.inc.php:48 tbl_structure.php:558
 msgid "Browse"
 msgstr "ब्राउज़"
 
@@ -646,7 +646,7 @@ msgid ""
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दोक्युमेंताशन%s  पढ़ें."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:205 test/theme.php:73
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
 msgstr "दृश्य"
 
@@ -668,20 +668,20 @@ msgstr "%s इस MySQL सर्वर पर डिफ़ॉल्ट भं�
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2140 libraries/display_tbl.lib.php:2145
 #: libraries/mult_submits.inc.php:15 server_databases.php:246
-#: server_databases.php:251 server_privileges.php:1692 tbl_structure.php:545
-#: tbl_structure.php:554
+#: server_databases.php:251 server_privileges.php:1692 tbl_structure.php:546
+#: tbl_structure.php:555
 msgid "With selected:"
 msgstr "चुने हुओं को:"
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2135
 #: server_databases.php:248 server_privileges.php:580
-#: server_privileges.php:1695 tbl_structure.php:548
+#: server_privileges.php:1695 tbl_structure.php:549
 msgid "Check All"
 msgstr "सभी को चेक करें"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2136
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
-#: server_privileges.php:583 server_privileges.php:1699 tbl_structure.php:552
+#: server_privileges.php:583 server_privileges.php:1699 tbl_structure.php:553
 msgid "Uncheck All"
 msgstr " सभी को अनचेक करें"
 
@@ -698,8 +698,8 @@ msgid "Export"
 msgstr "निर्यात"
 
 #: db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2242 tbl_structure.php:583
-#: tbl_structure.php:585
+#: libraries/display_tbl.lib.php:2242 tbl_structure.php:584
+#: tbl_structure.php:586
 msgid "Print view"
 msgstr "छापने वाला द्रश्य."
 
@@ -710,8 +710,8 @@ msgstr "खाली करें"
 
 #: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3018 libraries/common.lib.php:3019
-#: server_databases.php:252 tbl_structure.php:150 tbl_structure.php:151
-#: tbl_structure.php:561
+#: server_databases.php:252 tbl_structure.php:151 tbl_structure.php:152
+#: tbl_structure.php:562
 msgid "Drop"
 msgstr "छोड़ें"
 
@@ -719,8 +719,8 @@ msgstr "छोड़ें"
 msgid "Check table"
 msgstr " टेबल को चेक करें"
 
-#: db_structure.php:515 tbl_operations.php:649 tbl_structure.php:801
-#: tbl_structure.php:803
+#: db_structure.php:515 tbl_operations.php:649 tbl_structure.php:802
+#: tbl_structure.php:804
 msgid "Optimize table"
 msgstr "टेबल को अनुकूलित करें"
 
@@ -774,7 +774,7 @@ msgstr "स्थिति"
 #: db_tracking.php:90 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:181
 #: server_privileges.php:1638 server_privileges.php:1831
-#: server_privileges.php:2180 tbl_structure.php:207
+#: server_privileges.php:2180 tbl_structure.php:208
 msgid "Action"
 msgstr "कार्य"
 
@@ -806,8 +806,8 @@ msgstr "संरचना स्नैपशॉट"
 msgid "Untracked tables"
 msgstr "लापता टेबलएं"
 
-#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:619
-#: tbl_structure.php:621
+#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:620
+#: tbl_structure.php:622
 msgid "Track table"
 msgstr "टेबलओं को ट्रैक करें"
 
@@ -894,7 +894,8 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "कोई डेटा आयात करने के लिए प्राप्त नहीं किया गया. या तो कोई फ़ाइल नाम प्रस्तुत नहीं किया "
-"गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति आकार के पार हो गई है. [a@./Documentation.html#faq1_16@Documentation] अकसर किये गए सवाल 1.16 [/ a] देखें."
+"गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति आकार के पार हो गई है. [a@./"
+"Documentation.html#faq1_16@Documentation] अकसर किये गए सवाल 1.16 [/ a] देखें."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -908,7 +909,7 @@ msgstr "यह बुकमार्क हटा दिया गया है"
 msgid "Showing bookmark"
 msgstr "बुकमार्क प्रदर्शित किया जा रहा है."
 
-#: import.php:402 sql.php:847
+#: import.php:402 sql.php:884
 #, php-format
 msgid "Bookmark %s created"
 msgstr "बुकमार्क %s बनाया"
@@ -1197,7 +1198,7 @@ msgstr "उत्पन्न"
 msgid "Change Password"
 msgstr "पासव्रड बदलिये"
 
-#: js/messages.php:114 tbl_structure.php:471
+#: js/messages.php:114 tbl_structure.php:472
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
@@ -1208,7 +1209,8 @@ msgstr "अधिक"
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr "phpMyAdmin का एक नया संस्करण उपलब्ध है, यह नया संस्करण %s है,और यह %s को प्रकाशित हुआ"
+msgstr ""
+"phpMyAdmin का एक नया संस्करण उपलब्ध है, यह नया संस्करण %s है,और यह %s को प्रकाशित हुआ"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
@@ -1231,7 +1233,7 @@ msgstr "पिछला"
 #: js/messages.php:141 libraries/common.lib.php:2370
 #: libraries/common.lib.php:2373 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
-#: tbl_structure.php:893
+#: tbl_structure.php:894
 msgid "Next"
 msgstr " अगला"
 
@@ -1516,7 +1518,7 @@ msgid "Indexes"
 msgstr "सूचकांक"
 
 #: libraries/Index.class.php:443 libraries/tbl_properties.inc.php:522
-#: tbl_structure.php:154 tbl_structure.php:158 tbl_structure.php:564
+#: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:565
 #: tbl_tracking.php:316
 msgid "Unique"
 msgstr "अद्वितीय"
@@ -1825,18 +1827,18 @@ msgstr "टेबल"
 #: libraries/config/user_preferences.forms.php:274
 #: libraries/export/latex.php:215 libraries/export/sql.php:945
 #: server_privileges.php:587 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:757
+#: tbl_structure.php:758
 msgid "Data"
 msgstr "डाटा"
 
 #: libraries/build_html_for_db.lib.php:45 libraries/engines/innodb.lib.php:168
 #: server_databases.php:205 server_status.php:540 server_status.php:601
-#: server_status.php:624 tbl_printview.php:348 tbl_structure.php:788
+#: server_status.php:624 tbl_printview.php:348 tbl_structure.php:789
 msgid "Total"
 msgstr "कुल"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
-#: tbl_printview.php:333 tbl_structure.php:774
+#: tbl_printview.php:333 tbl_structure.php:775
 msgid "Overhead"
 msgstr ""
 
@@ -1899,10 +1901,11 @@ msgid ""
 "the PHP error message(s) that you receive. In most cases a quote or a "
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
-msgstr "phpMyAdmin आपकि configuration फाइल पढऩे मै असमर्थ ै!<br />"
-"या तो फाइल मैं पार्स त्रुटि है , या फिर आपकी फाइल ढूँढने मैं असमर्थ है |<br/"
-">कृपया फाइल को नीचे दिए हुए लिंक से खोलें और एर्रोर को पढ़ें | ज्यादातर एक '"
-"या फिर एक ; गायब हो सकता है |<br /> अगर आप खाली पेज देखें तो सब सही है "
+msgstr ""
+"phpMyAdmin आपकि configuration फाइल पढऩे मै असमर्थ ै!<br />या तो फाइल मैं पार्स त्रुटि "
+"है , या फिर आपकी फाइल ढूँढने मैं असमर्थ है |<br/>कृपया फाइल को नीचे दिए हुए लिंक से खोलें "
+"और एर्रोर को पढ़ें | ज्यादातर एक 'या फिर एक ; गायब हो सकता है |<br /> अगर आप खाली "
+"पेज देखें तो सब सही है "
 
 #: libraries/common.inc.php:587
 #, php-format
@@ -2561,7 +2564,7 @@ msgid "Character set of the file"
 msgstr "फ़ाइल का चरित्र सेट"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_printview.php:373 tbl_structure.php:829
+#: tbl_printview.php:373 tbl_structure.php:830
 msgid "Format"
 msgstr "प्रारूप"
 
@@ -2944,7 +2947,8 @@ msgstr "सुरक्षा"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr "कृपया याद रखें phpMyAdmin एक अंतरफलक है और इसकी विशेषताओं MySQL को सीमित नहीं करती"
+msgstr ""
+"कृपया याद रखें phpMyAdmin एक अंतरफलक है और इसकी विशेषताओं MySQL को सीमित नहीं करती"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
@@ -3296,7 +3300,9 @@ msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
-msgstr "अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान सर्वर से होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा सर्वर से कनेक्ट हों  "
+msgstr ""
+"अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान सर्वर से "
+"होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा सर्वर से कनेक्ट हों  "
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
@@ -3306,7 +3312,8 @@ msgstr "लॉगआउट पर सभी कुकीज़ हटाना"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr "परिभाषित करें कि पिछले लॉगइन या याद किया जाना चाहिए कुकी प्रमाणीकरण मोड में या नहीं"
+msgstr ""
+"परिभाषित करें कि पिछले लॉगइन या याद किया जाना चाहिए कुकी प्रमाणीकरण मोड में या नहीं"
 
 #: libraries/config/messages.inc.php:292
 msgid "Recall user name"
@@ -3318,7 +3325,10 @@ msgid ""
 "The default of 0 means that it will be kept for the existing session only, "
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
-msgstr "परिभाषित करता है लंबे समय (सेकेंड में) कैसे एक लॉगिन कुकी ब्राउज़र में संग्रहित किया जाना चाहिए. 0 मतलब का मूलभूत है कि यह केवल मौजूदा सत्र के लिए रखा जाएगा, और जैसे ही आप ब्राउज़र विंडो को बंद हटा दिया जाएगा. इस गैर विश्वसनीय वातावरण के लिए सिफारिश की है."
+msgstr ""
+"परिभाषित करता है लंबे समय (सेकेंड में) कैसे एक लॉगिन कुकी ब्राउज़र में संग्रहित किया जाना "
+"चाहिए. 0 मतलब का मूलभूत है कि यह केवल मौजूदा सत्र के लिए रखा जाएगा, और जैसे ही आप "
+"ब्राउज़र विंडो को बंद हटा दिया जाएगा. इस गैर विश्वसनीय वातावरण के लिए सिफारिश की है."
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie store"
@@ -3370,7 +3380,9 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr "परिणाम सेट में से प्रदर्शित रों की संख्या, अगर सेट में ज्यादा रो हैं तो &quot;पिछले&quot; और &quot;अगला&quot; लिंक दिखाएँ  जायेंगे"
+msgstr ""
+"परिणाम सेट में से प्रदर्शित रों की संख्या, अगर सेट में ज्यादा रो हैं तो &quot;पिछले&quot; और "
+"&quot;अगला&quot; लिंक दिखाएँ  जायेंगे"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of rows to display"
@@ -3398,7 +3410,8 @@ msgstr "mcrypt चेतावनी"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "एक लिपि को कितने बाइट्स दिए जायेंगे, eg. [kbd]32M[/kbd], [kbd]0[/kbd] मतलब असीमित "
+msgstr ""
+"एक लिपि को कितने बाइट्स दिए जायेंगे, eg. [kbd]32M[/kbd], [kbd]0[/kbd] मतलब असीमित "
 
 #: libraries/config/messages.inc.php:313
 msgid "Memory limit"
@@ -3465,7 +3478,9 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
-msgstr "डेटाबेस पर डिफ़ॉल्ट चेतावनी जो प्रदर्शित की जाती है उसे निष्क्रिय करें. संरचना  पृष्ठ अगर phpMyAdmin विन्यास भंडारण के लिए आवश्यक टेबल को पाया नहीं जा सका "
+msgstr ""
+"डेटाबेस पर डिफ़ॉल्ट चेतावनी जो प्रदर्शित की जाती है उसे निष्क्रिय करें. संरचना  पृष्ठ अगर "
+"phpMyAdmin विन्यास भंडारण के लिए आवश्यक टेबल को पाया नहीं जा सका "
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -3659,7 +3674,9 @@ msgstr "यूसर पासवर्ड नियंत्रण"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
-msgstr "एक विशेष MySQL सर्वर सीमित अनुमति के साथ, ज्यादा जानकारी के लिए [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+msgstr ""
+"एक विशेष MySQL सर्वर सीमित अनुमति के साथ, ज्यादा जानकारी के लिए [a@http://wiki."
+"phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Control user"
@@ -3677,7 +3694,8 @@ msgstr "टेबल गणना"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
-msgstr "कोई डिजाइनर समर्थन के लिए खाली छोड़ दें, सुझाव [kbd]pma_designer_coords[/kbd]"
+msgstr ""
+"कोई डिजाइनर समर्थन के लिए खाली छोड़ दें, सुझाव [kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Designer table"
@@ -3713,7 +3731,9 @@ msgstr "डेटाबेस छिपाना"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
-msgstr "अगर आपको SQL क्वरी इतिहास नहीं चाहिए तो इसे खली छोड़ दें, सुझाव: [kbd]pma_history[/kbd]"
+msgstr ""
+"अगर आपको SQL क्वरी इतिहास नहीं चाहिए तो इसे खली छोड़ दें, सुझाव: [kbd]pma_history[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:387
 msgid "SQL query history table"
@@ -3763,7 +3783,8 @@ msgstr "विन्यास प्राधिकरण के लिए प�
 #: libraries/config/messages.inc.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr "अगर आपको PDF समर्थन नहीं चाहिए तो इसे खली छोड़ दें, सुझाव: [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+"अगर आपको PDF समर्थन नहीं चाहिए तो इसे खली छोड़ दें, सुझाव: [kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
@@ -3881,7 +3902,9 @@ msgstr "ड्रॉप टेबल जोड़ें"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "क्या DROP VIEW IF EXISTS बयान पहली लाइन की तरह जोड़े जायेगा, जब एक दृश्य का लोग बन रहा है"
+msgstr ""
+"क्या DROP VIEW IF EXISTS बयान पहली लाइन की तरह जोड़े जायेगा, जब एक दृश्य का लोग बन "
+"रहा है"
 
 #: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
@@ -4083,7 +4106,8 @@ msgstr "SQL मान्य करता सक्षम"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
-msgstr "अगर आप एक कस्टम यूसर हैं,तो यहाँ निर्दिष्ट करें, (defaults to [kbd]anonymous[/kbd])"
+msgstr ""
+"अगर आप एक कस्टम यूसर हैं,तो यहाँ निर्दिष्ट करें, (defaults to [kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4146,7 +4170,7 @@ msgstr "डिफ़ॉल्ट शीर्षक"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
-msgstr "ब्राउज़र विंडो का शीर्षक है जब एक सर्वर का चयन किया" 
+msgstr "ब्राउज़र विंडो का शीर्षक है जब एक सर्वर का चयन किया"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
@@ -4414,7 +4438,7 @@ msgstr "सर्वर जवाब नहीं दे रहा"
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:700
+#: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:701
 msgid "Details..."
 msgstr "विवरण..."
 
@@ -4769,7 +4793,7 @@ msgstr "कुंजी सॉर्ट"
 #: libraries/import/ldi.php:48 libraries/import/ods.php:32
 #: libraries/import/sql.php:19 libraries/import/xls.php:27
 #: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:230
-#: tbl_structure.php:845
+#: tbl_structure.php:846
 msgid "Options"
 msgstr "विकल्प"
 
@@ -4833,7 +4857,7 @@ msgid "Query took %01.4f sec"
 msgstr "क्वरी को %01.4f सेकेंड का समय लगा"
 
 #: libraries/display_tbl.lib.php:2148 querywindow.php:114 querywindow.php:118
-#: querywindow.php:121 tbl_structure.php:149 tbl_structure.php:560
+#: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:561
 msgid "Change"
 msgstr "बदलिये"
 
@@ -6029,7 +6053,7 @@ msgstr "स्थिति"
 #: libraries/replication_gui.lib.php:117 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:775 tbl_change.php:325 tbl_printview.php:367
-#: tbl_select.php:116 tbl_structure.php:821
+#: tbl_select.php:116 tbl_structure.php:822
 msgid "Value"
 msgstr "मूल्य"
 
@@ -6133,13 +6157,13 @@ msgstr "लेख - सूची"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1241
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
 #: libraries/tbl_properties.inc.php:107 tbl_printview.php:141
-#: tbl_structure.php:200
+#: tbl_structure.php:201
 msgid "Attributes"
 msgstr "विशेषता"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1244
 #: libraries/schema/Pdf_Relation_Schema.class.php:1265 tbl_printview.php:144
-#: tbl_structure.php:203 tbl_tracking.php:272
+#: tbl_structure.php:204 tbl_tracking.php:272
 msgid "Extra"
 msgstr " अतिरिक्त"
 
@@ -6330,11 +6354,11 @@ msgstr "स्पष्ट"
 msgid "Columns"
 msgstr "कोलम"
 
-#: libraries/sql_query_form.lib.php:337 sql.php:886 sql.php:887 sql.php:904
+#: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
 msgstr "इस SQL-क्वरी को बुकमार्क कीजिये "
 
-#: libraries/sql_query_form.lib.php:344 sql.php:898
+#: libraries/sql_query_form.lib.php:344 sql.php:935
 msgid "Let every user access this bookmark"
 msgstr "हर उपयोकर्ता को अनुमति दें इस बुकमार्क का उपयोग करने के लिए"
 
@@ -6456,8 +6480,8 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
-#: tbl_printview.php:323 tbl_structure.php:153 tbl_structure.php:157
-#: tbl_structure.php:565 tbl_structure.php:765
+#: tbl_printview.php:323 tbl_structure.php:154 tbl_structure.php:158
+#: tbl_structure.php:566 tbl_structure.php:766
 msgid "Index"
 msgstr "सूची"
 
@@ -6499,13 +6523,13 @@ msgstr "डिफ़ॉल्ट के लिए"
 msgid "As defined:"
 msgstr "जैसे परिभाषित:"
 
-#: libraries/tbl_properties.inc.php:516 tbl_structure.php:152
-#: tbl_structure.php:156 tbl_structure.php:563
+#: libraries/tbl_properties.inc.php:516 tbl_structure.php:153
+#: tbl_structure.php:157 tbl_structure.php:564
 msgid "Primary"
 msgstr "प्राथमिक"
 
-#: libraries/tbl_properties.inc.php:534 tbl_structure.php:155
-#: tbl_structure.php:159 tbl_structure.php:569
+#: libraries/tbl_properties.inc.php:534 tbl_structure.php:156
+#: tbl_structure.php:160 tbl_structure.php:570
 msgid "Fulltext"
 msgstr "प्राथमिक"
 
@@ -6525,13 +6549,13 @@ msgstr ""
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:780 tbl_structure.php:633
+#: libraries/tbl_properties.inc.php:780 tbl_structure.php:634
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "%s क्षेत्र जोडें"
 
-#: libraries/tbl_properties.inc.php:784 tbl_structure.php:627
+#: libraries/tbl_properties.inc.php:784 tbl_structure.php:628
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
@@ -6805,8 +6829,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. "
-"क्यों ये किया गया है, जानने के लिए %shere%s पर क्लिक करें."
+"लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. क्यों ये "
+"किया गया है, जानने के लिए %shere%s पर क्लिक करें."
 
 #: main.php:328
 msgid ""
@@ -7231,7 +7255,7 @@ msgstr ""
 
 #: server_privileges.php:31 server_privileges.php:275
 msgid "Includes all privileges except GRANT."
-msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इंजन शामिल" 
+msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इंजन शामिल"
 
 #: server_privileges.php:32 server_privileges.php:201
 #: server_privileges.php:526
@@ -7718,7 +7742,7 @@ msgstr ""
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr "सभी डेटाबेस को दोहराना; उपेक्षा" 
+msgstr "सभी डेटाबेस को दोहराना; उपेक्षा"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
@@ -8936,12 +8960,12 @@ msgstr "SQL क्वेरी शो"
 msgid "Validated SQL"
 msgstr "SQL मान्य"
 
-#: sql.php:860
+#: sql.php:897
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` टेबल के अनुक्रमित के साथ समस्याएँ"
 
-#: sql.php:892
+#: sql.php:929
 msgid "Label"
 msgstr "लेबल"
 
@@ -9170,7 +9194,7 @@ msgstr ""
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "सूचकांक में जोडें &nbsp;%s&nbsp;column(s)"
 
-#: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
+#: tbl_indexes.php:254 tbl_structure.php:682 tbl_structure.php:693
 msgid "Column count has to be larger than zero."
 msgstr "काँलम गणना शुन्य से अधिक होनी चाहिए"
 
@@ -9300,39 +9324,39 @@ msgstr ""
 msgid "Show tables"
 msgstr "टेबल दिखाओ"
 
-#: tbl_printview.php:307 tbl_structure.php:748
+#: tbl_printview.php:307 tbl_structure.php:749
 msgid "Space usage"
 msgstr "स्थान उपयोग"
 
-#: tbl_printview.php:311 tbl_structure.php:752
+#: tbl_printview.php:311 tbl_structure.php:753
 msgid "Usage"
 msgstr "उपयोग"
 
-#: tbl_printview.php:338 tbl_structure.php:779
+#: tbl_printview.php:338 tbl_structure.php:780
 msgid "Effective"
 msgstr "वास्तविक"
 
-#: tbl_printview.php:363 tbl_structure.php:817
+#: tbl_printview.php:363 tbl_structure.php:818
 msgid "Row Statistics"
 msgstr ""
 
-#: tbl_printview.php:366 tbl_structure.php:820
+#: tbl_printview.php:366 tbl_structure.php:821
 msgid "Statements"
 msgstr "रो आँकड़े"
 
-#: tbl_printview.php:377 tbl_structure.php:832
+#: tbl_printview.php:377 tbl_structure.php:833
 msgid "static"
 msgstr "स्थिर"
 
-#: tbl_printview.php:379 tbl_structure.php:834
+#: tbl_printview.php:379 tbl_structure.php:835
 msgid "dynamic"
 msgstr "गतिशील"
 
-#: tbl_printview.php:401 tbl_structure.php:877
+#: tbl_printview.php:401 tbl_structure.php:878
 msgid "Row length"
 msgstr "रौ की लंबाई"
 
-#: tbl_printview.php:411 tbl_structure.php:885
+#: tbl_printview.php:411 tbl_structure.php:886
 msgid " Row size "
 msgstr "रौ का आकार"
 
@@ -9379,90 +9403,90 @@ msgstr "प्रति पृष्ट कितने रौ"
 msgid "Display order:"
 msgstr "क्रम से दिखाओ:"
 
-#: tbl_structure.php:160 tbl_structure.php:164
+#: tbl_structure.php:161 tbl_structure.php:165
 msgid "Browse distinct values"
 msgstr "अलग मूल्य ब्राउस करें "
 
-#: tbl_structure.php:165 tbl_structure.php:166
+#: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: tbl_structure.php:167 tbl_structure.php:168
+#: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
 msgstr "अनुक्रमणिका जोड़"
 
-#: tbl_structure.php:169 tbl_structure.php:170
+#: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
 msgstr "अद्वितीय अनुक्रमणिका जोड़"
 
-#: tbl_structure.php:171 tbl_structure.php:172
+#: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: tbl_structure.php:384
+#: tbl_structure.php:385
 #, fuzzy
 #| msgid "No"
 msgctxt "None for default"
 msgid "None"
 msgstr "नहीं"
 
-#: tbl_structure.php:397
+#: tbl_structure.php:398
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr " टेबल %s को रद्द किया गया है."
 
-#: tbl_structure.php:408 tbl_structure.php:483
+#: tbl_structure.php:409 tbl_structure.php:484
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr " %s  पर एक प्राईमरी की जड़ी गयी है"
 
-#: tbl_structure.php:423 tbl_structure.php:438 tbl_structure.php:453
-#: tbl_structure.php:496 tbl_structure.php:509 tbl_structure.php:522
+#: tbl_structure.php:424 tbl_structure.php:439 tbl_structure.php:454
+#: tbl_structure.php:497 tbl_structure.php:510 tbl_structure.php:523
 #, php-format
 msgid "An index has been added on %s"
 msgstr "%s पर एक सूचकांक जोड़ा गया है"
 
-#: tbl_structure.php:471
+#: tbl_structure.php:472
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
 msgstr "अधिक क्रियाएँ दिखाओ"
 
-#: tbl_structure.php:597 tbl_structure.php:599
+#: tbl_structure.php:598 tbl_structure.php:600
 msgid "Relation view"
 msgstr "संबंध दृश्य"
 
-#: tbl_structure.php:606 tbl_structure.php:608
+#: tbl_structure.php:607 tbl_structure.php:609
 msgid "Propose table structure"
 msgstr "टेबल संरचना का प्रस्ताव"
 
-#: tbl_structure.php:631
+#: tbl_structure.php:632
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "काँलम जोडें"
 
-#: tbl_structure.php:645
+#: tbl_structure.php:646
 msgid "At End of Table"
 msgstr "टेबल के आखिर में"
 
-#: tbl_structure.php:646
+#: tbl_structure.php:647
 msgid "At Beginning of Table"
 msgstr "टेबल के शुरू में"
 
-#: tbl_structure.php:647
+#: tbl_structure.php:648
 #, php-format
 msgid "After %s"
 msgstr "%s के बाद"
 
-#: tbl_structure.php:686
+#: tbl_structure.php:687
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr " &nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं "
 
-#: tbl_structure.php:848
+#: tbl_structure.php:849
 msgid "partitioned"
 msgstr ""
 
