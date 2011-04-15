@@ -1650,8 +1650,7 @@ table#serverconnection_trg_local  {
     margin-bottom: 0;
     margin-left: auto;
     padding: 5px;   /** Keep a little space on the sides of the text */
-    min-width: 70px;
-    max-width: 350px;   /** This value might have to be changed */
+    width: 350px;
 
     z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index:1000) might hide this */
     text-align: center;
