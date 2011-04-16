@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 00:15+0200\n"
+"PO-Revision-Date: 2011-04-17 00:16+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9166,7 +9166,7 @@ msgstr "इन्डेक्स को PRIMARY नाम मे नहीं �
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
-msgstr ""
+msgstr "सूचकांक परिभाषित हिस्सा नहीं "
 
 #: tbl_indexes.php:158
 msgid "Create a new index"
