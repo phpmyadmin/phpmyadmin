@@ -305,7 +305,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     unset($table_list);
     echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
-        .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . _pgettext('short form', 'Create table') . '" />'
+        .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
         . _pgettext('short form', 'Create table') . '</a></li></ul>';
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
     /* No need to tell user to select database if we're showing complete list */
@@ -630,7 +630,7 @@ function PMA_displayTableList($tables, $visible = false,
                 echo ' src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"';
             }
             echo ' id="icon_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-                .' width="10" height="10" alt="' . htmlspecialchars($link_title) . '" /></a>' . "\n";
+                .' alt="' . htmlspecialchars($link_title) . '" /></a>' . "\n";
 
             // link for the table name itself
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
