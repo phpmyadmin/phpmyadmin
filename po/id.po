@@ -1853,7 +1853,7 @@ msgstr "Ekstensi GD diperlukan untuk diagram."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "JSON encoder diperlukan untuk tooltips pada diagram."
 
 #: libraries/common.inc.php:576
 msgid ""
