@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:00+0200\n"
+"PO-Revision-Date: 2011-04-16 21:04+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -803,7 +803,7 @@ msgstr "Masukkan setiap nilai dalam bidang yang terpisah."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Ulang pemasukan dan tambahkan sebuah nilai baru"
 
 #: enum_editor.php:67
 msgid "Output"
