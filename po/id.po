@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:40+0200\n"
+"PO-Revision-Date: 2011-04-16 21:41+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1872,10 +1872,10 @@ msgstr ""
 "masalah."
 
 #: libraries/common.inc.php:587
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
+msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 
 #: libraries/common.inc.php:592
 msgid ""
