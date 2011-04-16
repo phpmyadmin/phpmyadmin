@@ -1760,7 +1760,7 @@ msgstr "Tampilan View"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr " Memainkan file suara"
+msgstr "Memainkan file suara"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
