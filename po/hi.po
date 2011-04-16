@@ -9659,7 +9659,7 @@ msgstr "प्रोफाइल अपडेट कर दिया ।"
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "दृश्य का नाम"
 
 #: view_operations.php:91
 msgid "Rename view to"
