@@ -2168,7 +2168,7 @@ msgstr "struktur dan data"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Cepat - hanya menampilkan opsi untuk konfigurasi"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
