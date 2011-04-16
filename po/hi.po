@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 00:09+0200\n"
+"PO-Revision-Date: 2011-04-17 00:10+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9278,10 +9278,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:708
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Delete the table (DROP)"
-msgstr "डेटाबेस को ______ में कॉपी करें"
+msgstr "डेटाबेस को ______  छोड़ें "
 
 #: tbl_operations.php:729
 msgid "Partition maintenance"
