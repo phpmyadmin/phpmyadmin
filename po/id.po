@@ -1815,7 +1815,7 @@ msgstr "Beralih ke database"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "Tidak direplikasi"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
