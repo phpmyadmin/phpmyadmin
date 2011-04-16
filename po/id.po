@@ -1717,7 +1717,7 @@ msgstr "Gagal login ke MySQL server"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Nama Pengguna/Kata Sandi salah. Akses ditolak."
+msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
