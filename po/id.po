@@ -1956,7 +1956,7 @@ msgstr "MySQL menyatakan: "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Gagal melakukan koneksi ke validator SQL!"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
