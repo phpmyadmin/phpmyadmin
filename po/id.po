@@ -1992,10 +1992,9 @@ msgid "Inline edit of this query"
 msgstr "Inline edit untuk query ini"
 
 #: libraries/common.lib.php:1266
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Mesin"
+msgstr "Inline"
 
 #: libraries/common.lib.php:1333 libraries/common.lib.php:1349
 msgid "Profiling"
