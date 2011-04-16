@@ -2142,7 +2142,6 @@ msgid "Open"
 msgstr "Buka"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Close"
 msgid "Closed"
 msgstr "Tutup"
