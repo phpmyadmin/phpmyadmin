@@ -1073,10 +1073,9 @@ msgid "Changing Charset"
 msgstr "Perangkat karakter (Charset)"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "Tabel wajib mengandung sesedikitnya satu Field."
+msgstr "Tabel harus mengandung sekurangnya satu kolom"
 
 #: js/messages.php:76
 msgid "Create Table"
