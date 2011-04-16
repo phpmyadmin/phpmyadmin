@@ -1125,9 +1125,8 @@ msgid "Ignore"
 msgstr "Abaikan"
 
 #: js/messages.php:100
-#, fuzzy
 msgid "Select referenced key"
-msgstr "Pilih rujukan kunci"
+msgstr "Pilih kunci rujukan"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
