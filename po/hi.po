@@ -9462,10 +9462,9 @@ msgid "Propose table structure"
 msgstr "टेबल संरचना का प्रस्ताव"
 
 #: tbl_structure.php:632
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "काँलम जोडें"
+msgstr "नया काँलम जोडें"
 
 #: tbl_structure.php:646
 msgid "At End of Table"
