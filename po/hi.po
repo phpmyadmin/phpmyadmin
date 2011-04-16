@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 00:12+0200\n"
+"PO-Revision-Date: 2011-04-17 00:13+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9246,7 +9246,7 @@ msgstr " (database<b>.</b>table) में टेबल को कापी क�
 
 #: tbl_operations.php:574
 msgid "Switch to copied table"
-msgstr ""
+msgstr "नकल की टेबल पर स्विच करें"
 
 #: tbl_operations.php:586
 msgid "Table maintenance"
