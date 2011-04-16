@@ -1893,6 +1893,8 @@ msgstr "Indeks server tidak sah: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Hostname tidak sah untuk server %1$s. Silakan lihat kembali konfigurasi "
+"Anda."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:178 server_synchronize.php:1156
