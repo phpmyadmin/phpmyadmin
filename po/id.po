@@ -2139,7 +2139,7 @@ msgstr "Keduanya"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Buka"
 
 #: libraries/config.values.php:74
 #, fuzzy
