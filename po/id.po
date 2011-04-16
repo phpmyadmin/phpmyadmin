@@ -2221,7 +2221,7 @@ msgstr "Nilai yang salah"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
