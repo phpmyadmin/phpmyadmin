@@ -9043,7 +9043,6 @@ msgid "Chart generated successfully."
 msgstr "Thread %s को सफलता से मारा गया।"
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -9051,7 +9050,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a] देखें"
+"शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a] देखें"
 
 #: tbl_chart.php:90
 msgid "Width"
