@@ -2116,7 +2116,7 @@ msgstr "Operasi"
 
 #: libraries/common.lib.php:2965
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Telusuri komputer Anda:"
 
 #: libraries/common.lib.php:2978
 #, fuzzy, php-format
