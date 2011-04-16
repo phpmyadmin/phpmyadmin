@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 20:38+0200\n"
+"PO-Revision-Date: 2011-04-16 20:41+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -239,7 +239,7 @@ msgstr "Cetak"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Tampilkan Dump (Skema) dari database"
+msgstr "Tampilkan dump (skema) dari database"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_tracking.php:48
 #: export.php:371 navigation.php:304
