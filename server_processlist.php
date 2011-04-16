@@ -54,11 +54,11 @@ $result = PMA_DBI_query($sql_query);
 <thead>
 <tr>
     <?php if (!PMA_DRIZZLE): ?>
-    <td><a href="<?php echo $full_text_link; ?>"
+    <th><a href="<?php echo $full_text_link; ?>"
             title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
         <img src="<?php echo $pmaThemeImage . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
             alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
-        </a></td>
+        </a></th>
     <?php else: ?>
     <th></th>
     <?php endif; ?>
