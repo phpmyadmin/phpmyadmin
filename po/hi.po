@@ -9431,7 +9431,7 @@ msgid "None"
 msgstr "नहीं"
 
 #: tbl_structure.php:398
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr " टेबल %s को रद्द किया गया है."
