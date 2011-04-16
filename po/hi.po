@@ -9512,7 +9512,7 @@ msgstr ""
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL कथन चलाएँ"
 
 #: tbl_tracking.php:215
 msgid ""
