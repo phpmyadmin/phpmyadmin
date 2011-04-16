@@ -235,9 +235,9 @@ if (! $GLOBALS['server']) {
 //    In this case, the database should not be collapsible/expandable
 
 $img_plus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"'
-    .' width="9" height="9" alt="+" />';
+    .' alt="+" />';
 $img_minus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"'
-    .' width="9" height="9" alt="-" />';
+    .' alt="-" />';
 
 $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
     .' href="navigation.php?%s" target="_self">';
