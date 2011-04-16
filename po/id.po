@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:51+0200\n"
+"PO-Revision-Date: 2011-04-16 21:52+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2190,7 +2190,7 @@ msgstr "INSERT yang diperluas"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "keduanya dari yang di atas"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
