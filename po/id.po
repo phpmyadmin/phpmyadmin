@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:13+0200\n"
+"PO-Revision-Date: 2011-04-16 21:14+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1094,10 +1094,9 @@ msgid "Show query box"
 msgstr "Tampilkan kotak query"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Mesin"
+msgstr "Inline Edit"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
