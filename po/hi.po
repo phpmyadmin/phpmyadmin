@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 00:19+0200\n"
+"PO-Revision-Date: 2011-04-17 00:20+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9108,7 +9108,6 @@ msgid "Bar type"
 msgstr "पट्टी प्रकार"
 
 #: tbl_chart.php:146
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
 msgstr "जमा"
