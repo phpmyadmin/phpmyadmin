@@ -2230,10 +2230,9 @@ msgstr "Data hilang untuk %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variabel"
+msgstr "tidak tersedia"
 
 #: libraries/config/FormDisplay.class.php:737
 #: libraries/config/FormDisplay.class.php:741
