@@ -2176,7 +2176,7 @@ msgstr "Custom - menampilkan semua opsi yang mungkin untuk konfigurasi"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Custom - seperti di atas, namun tanpa pilihan cepat/custom"
 
 #: libraries/config.values.php:119
 #, fuzzy
