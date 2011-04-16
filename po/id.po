@@ -1735,7 +1735,7 @@ msgstr "Tidak ada kunci autentikasi yang terpasang"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Melakukan autentikasi..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
