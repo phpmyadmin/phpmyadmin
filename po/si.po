@@ -5722,7 +5722,7 @@ msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "ව්‍යවහාර මුදල් අගයන් ආනයනය කරන්න  (උදා. $5.00, 5.00 ලෙස)"
+msgstr "ව්‍යවහාර මුදල් අගයන් ආනයනය කරන්න <i>(උදා. $5.00, 5.00 ලෙස)</i>"
 
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode:"
