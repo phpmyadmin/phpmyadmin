@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:52+0200\n"
+"PO-Revision-Date: 2011-04-16 21:53+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2199,7 +2199,7 @@ msgstr "tidak keduanya dari yang di atas"
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr " Bukan angka positif"
+msgstr "Bukan angka positif"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
