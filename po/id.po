@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 20:59+0200\n"
+"PO-Revision-Date: 2011-04-16 21:00+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -498,7 +498,7 @@ msgstr "Pencarian SQL dalam database <b>%s</b>:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1187
 msgid "Submit Query"
-msgstr "Jalankan pencarian SQL"
+msgstr "Jalankan Pencarian SQL"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
