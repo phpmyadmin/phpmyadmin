@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 00:06+0200\n"
+"PO-Revision-Date: 2011-04-17 00:08+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9363,7 +9363,7 @@ msgstr "रौ का आकार"
 #: tbl_relation.php:276
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "विदेशी कुंजी बनाने में त्रुटि %1$s ( डेटा टाइप चेक करें)"
 
 #: tbl_relation.php:402
 msgid "Internal relation"
