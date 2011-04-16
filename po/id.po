@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:14+0200\n"
+"PO-Revision-Date: 2011-04-16 21:15+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1134,7 +1134,7 @@ msgstr "Pilih Foreign Key"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Silakan pilih primary key atau sebuah unique key"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
