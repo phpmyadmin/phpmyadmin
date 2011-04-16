@@ -2127,8 +2127,7 @@ msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
-"Direktori yang telah ditetapkan untuk meng-upload tidak dapat dihubungi"
+msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi"
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
