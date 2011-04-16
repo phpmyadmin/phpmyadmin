@@ -1773,7 +1773,7 @@ msgstr "Unduh file"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Tidak bisa membuka arsip: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
