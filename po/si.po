@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 14:25+0200\n"
+"PO-Revision-Date: 2011-04-16 14:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5718,7 +5718,7 @@ msgstr "This plugin does not support compressed imports!"
 
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස ආනයනය කරන්න <i>(උදා. 12.00%, 12 ලෙස)</i>"
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
