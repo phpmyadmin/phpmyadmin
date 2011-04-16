@@ -9037,7 +9037,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Chart generated successfully."
 msgstr "Thread %s को सफलता से मारा गया।"
