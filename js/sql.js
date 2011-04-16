@@ -1058,8 +1058,11 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
 function PMA_changeClassForColumn($this_th, newclass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
+    var has_big_t = !$this_th.closest('tr').children(':first').hasClass('column_heading');
     // .eq() is zero-based
-    th_index--;
+    if (has_big_t) {
+        th_index--;
+    }
     var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
     if ($this_th.data('has_class_'+newclass)) {
         $tds.removeClass(newclass);
