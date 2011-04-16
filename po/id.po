@@ -1989,7 +1989,7 @@ msgstr "Mengesahkan (validate) SQL"
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Inline edit untuk query ini"
 
 #: libraries/common.lib.php:1266
 #, fuzzy
