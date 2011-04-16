@@ -9870,7 +9870,7 @@ msgstr "%s.%s සඳහා අවධානය සක්‍රීය කරන්
 
 #: tbl_tracking.php:650
 msgid "Activate now"
-msgstr ""
+msgstr "සක්‍රීය කරන්න"
 
 #: tbl_tracking.php:663
 #, php-format
