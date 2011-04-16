@@ -2204,7 +2204,7 @@ msgstr "Bukan angka positif"
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Bukan angka non-negatif"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
