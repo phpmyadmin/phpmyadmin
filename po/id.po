@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 22:00+0200\n"
+"PO-Revision-Date: 2011-04-16 22:01+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2308,6 +2308,8 @@ msgstr "Aktifkan Ajax"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Jika diaktifkan, pengguna bisa memasukkan server MySQL manapun pada form "
+"login untuk autentikasi cookie"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
