@@ -9254,7 +9254,7 @@ msgstr " टेबल  रख-रखाव"
 
 #: tbl_operations.php:610
 msgid "Defragment table"
-msgstr ""
+msgstr "देफ्रागमेंट टेबल"
 
 #: tbl_operations.php:658
 #, php-format
