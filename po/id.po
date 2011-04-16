@@ -1623,7 +1623,7 @@ msgstr "\"Path\" untuk tema tidak ditemukan untuk tema %s!"
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
 msgid "Theme / Style"
-msgstr "Desain Penampilan"
+msgstr "Tema / Tampilan"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
