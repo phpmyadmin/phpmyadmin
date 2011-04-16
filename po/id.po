@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:21+0200\n"
+"PO-Revision-Date: 2011-04-16 21:22+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1545,12 +1545,13 @@ msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d baris telah dihapus."
 
+# No difference between singular and plural in this case for Indonesian language.
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Tidak ada baris yang dipilih"
+msgstr[0] "%1$d baris disisipkan."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
