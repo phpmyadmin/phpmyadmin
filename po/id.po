@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 20:41+0200\n"
+"PO-Revision-Date: 2011-04-16 20:49+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -411,7 +411,7 @@ msgstr[0] "%s tabel"
 #: tbl_operations.php:224 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Sukses menjalankan perintah SQL"
+msgstr "Query SQL Anda berhasil dieksekusi"
 
 #: db_qbe.php:38
 msgid "You have to choose at least one column to display"
