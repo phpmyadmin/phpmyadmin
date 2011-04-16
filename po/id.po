@@ -2238,7 +2238,7 @@ msgstr "tidak tersedia"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" memerlukan ekstensi %s"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
