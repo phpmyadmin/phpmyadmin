@@ -1130,7 +1130,7 @@ msgstr "Pilih kunci rujukan"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Pilih Foreign Key"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
