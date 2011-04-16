@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 23:50+0200\n"
+"PO-Revision-Date: 2011-04-16 23:51+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9540,7 +9540,7 @@ msgstr "ट्रैकिंग कि स्थिति"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "%s दिखाएँ तारीख %s से %s तक, उपयोक्ता %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 msgid "Date"
