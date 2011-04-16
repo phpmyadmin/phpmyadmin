@@ -2122,7 +2122,7 @@ msgstr "Telusuri komputer Anda:"
 #, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Pilih dari direktori upload <b>%s</b> pada web server:"
+msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
