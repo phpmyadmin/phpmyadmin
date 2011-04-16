@@ -163,7 +163,7 @@ div#leftframelinks a:hover img {
     padding: 0;
 }
 
-div#left_tableList {margin:0px 10px;}
+div#left_tableList {margin:10px 10px 0 10px;}
 div#left_tableList ul {
     list-style-type:    none;
     list-style-position: outside;
@@ -188,17 +188,31 @@ div#left_tableList a:hover {
 
 div#left_tableList li {
     margin:             0;
-    padding:            5px 0;
+    padding:            2px 0;
     white-space:        nowrap;
 }
 
+#newtable{border:1px solid #aaa;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:20px;margin-top:15px !important;padding:1px !important;
+
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    
+}
+#newtable:hover{
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd)) !important;
+    background: -moz-linear-gradient(top,  #cccccc,  #dddddd) !important;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd') !important;
+	cursor:pointer !important;
+}
+
 select{
--moz-border-radius:2px 2px 2px 2px;
--moz-box-shadow:0 1px 2px #DDDDDD;
-border:1px solid #aaa;
-color:#333333;
-padding:3px;
-background:url(./themes/pmahomme/img/input_bg.gif);
+    -moz-border-radius:2px 2px 2px 2px;
+    -moz-box-shadow:0 1px 2px #DDDDDD;
+    border:1px solid #aaa;
+    color:#333333;
+    padding:3px;
+    background:url(./themes/pmahomme/img/input_bg.gif);
 }
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>

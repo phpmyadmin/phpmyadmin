@@ -253,7 +253,7 @@ button {
 table caption,
 table th,
 table td {
-    padding:            0.5em;
+    padding:            0.3em;
     margin:             0.1em;
     vertical-align:     top;
     text-shadow:0 1px 0 #FFFFFF;
@@ -624,6 +624,8 @@ div.footnotes {
     color:              #000;
     background:url(./themes/pmahomme/img/tab_warning_bg.png) 50% 0% #f2baba;
 }
+
+
 p.warning,
 h1.warning,
 div.warning {
@@ -915,6 +917,9 @@ ul#topmenu ul {
     padding:            0.1em 0.3em 0.1em 0.3em;
 }
 
+#topmenu .warning {font-size:1em !important; background:#f3f3f3; }
+#topmenu .warning a span{color:#ddd !important;}
+
 ul#topmenu ul {
     -moz-box-shadow:    1px 1px 6px #ddd;
     -webkit-box-shadow: 2px 2px 3px #666;
@@ -980,6 +985,7 @@ ul#topmenu span.tab,
 a.warning,
 ul#topmenu span.tabcaution {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
+    color:#ccc;
 }
 <?php } ?>
 /* end topmenu */
