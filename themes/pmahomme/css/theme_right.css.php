@@ -1932,21 +1932,21 @@ iframe.IE_hack {
     -moz-border-radius:5px 5px 0 0;
     -webkit-border-radius:5px 5px 0 0;
     border-radius:5px 5px 0 0;
-    background:#d5d5d5;
-    color:#fff;
+    background:#f2f2f2;
+    color:#555;
+    text-shadow: 0 1px 0 #fff;
 }
 
 .config-form ul.tabs li a:hover,
-.config-form ul.tabs li a:active,
-.config-form ul.tabs li a.active {
-    /*margin:           0;*/
-    /*padding:          0.1em 0.6em 0.2em;*/
+.config-form ul.tabs li a:active {
+    background:#e5e5e5;
 }
 
 .config-form ul.tabs li a.active {
     background-color: #fff;
     margin-top:1px;
     color:#000;
+    text-shadow: none;
 }
 
 .config-form fieldset {
@@ -2021,6 +2021,7 @@ iframe.IE_hack {
 
 .config-form fieldset th, .config-form fieldset td {
     border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
+    border-right: none;
 }
 
 fieldset .group-header th {
