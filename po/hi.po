@@ -9158,7 +9158,7 @@ msgstr "टेबल डंप दृश्य"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "प्राथमिक कुंजी का नाम \"प्राथमिक\" होना चाहिए"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
