@@ -953,9 +953,8 @@ msgid "Dropping Event"
 msgstr "Menghapus Event"
 
 #: js/messages.php:33
-#, fuzzy
 msgid "Dropping Procedure"
-msgstr "Proses Aktif"
+msgstr "Menghapus Procedure"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
