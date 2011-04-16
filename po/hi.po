@@ -9079,7 +9079,7 @@ msgstr ""
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "किंवदंती हाशिए"
 
 #: tbl_chart.php:134
 #| msgid "Mar"
