@@ -9102,7 +9102,6 @@ msgid "Pie"
 msgstr "Pie"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Export"
 msgid "Bar type"
 msgstr "पट्टी प्रकार"
