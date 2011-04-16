@@ -9448,7 +9448,6 @@ msgid "An index has been added on %s"
 msgstr "%s पर एक सूचकांक जोड़ा गया है"
 
 #: tbl_structure.php:472
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
 msgstr "अधिक क्रियाएँ दिखाओ"
