@@ -9338,7 +9338,7 @@ msgstr "वास्तविक"
 
 #: tbl_printview.php:363 tbl_structure.php:818
 msgid "Row Statistics"
-msgstr ""
+msgstr "पंक्ति आँकड़े"
 
 #: tbl_printview.php:366 tbl_structure.php:821
 msgid "Statements"
