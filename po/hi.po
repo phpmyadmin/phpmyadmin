@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 23:58+0200\n"
+"PO-Revision-Date: 2011-04-16 23:59+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -9498,7 +9498,7 @@ msgstr ""
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए सक्रिय"
 
 #: tbl_tracking.php:190
 #, php-format
