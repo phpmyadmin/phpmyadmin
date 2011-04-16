@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:45+0200\n"
+"PO-Revision-Date: 2011-04-16 21:46+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2119,10 +2119,10 @@ msgid "Browse your computer:"
 msgstr "Telusuri komputer Anda:"
 
 #: libraries/common.lib.php:2978
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "direktori upload pada web-server"
+msgstr "Pilih dari direktori upload <b>%s</b> pada web server:"
 
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
