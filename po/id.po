@@ -1700,6 +1700,8 @@ msgstr "Mulai dari sini cookies harus diaktifkan."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
+"AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:647
 #: libraries/auth/signon.auth.lib.php:210
