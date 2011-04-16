@@ -196,12 +196,14 @@ div#left_tableList li {
 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
     
 }
 #newtable:hover{
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd)) !important;
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd) !important;
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd) !important;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd') !important;
 	cursor:pointer !important;
 }

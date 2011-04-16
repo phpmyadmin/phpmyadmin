@@ -97,6 +97,7 @@ a:hover {
     border-radius:5px;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 
@@ -115,9 +116,8 @@ th {
     background:         #f3f3f3;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
-
-
 }
 
 a img {
@@ -188,12 +188,14 @@ input[type=submit]{
 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 
 input[type=submit]:hover{	position: relative;
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
     cursor:pointer;
 }
@@ -1305,11 +1307,13 @@ div#querywindowcontainer fieldset {
     */
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 #sectionlinks a:hover, #statuslinks a:hover{
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
 }
 
@@ -1742,12 +1746,14 @@ table#serverconnection_trg_local  {
 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
     cursor: pointer;
 }
 #buttonGo:hover{
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
 }
 
