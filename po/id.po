@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:44+0200\n"
+"PO-Revision-Date: 2011-04-16 21:45+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2079,7 +2079,7 @@ msgstr "Lompat langsung ke database &quot;%s&quot;."
 #: libraries/common.lib.php:2465
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "Fungsionalitas %s dipengaruhi oleh suatu bug, lihat %s"
 
 #: libraries/common.lib.php:2825 libraries/common.lib.php:2832
 #: libraries/common.lib.php:3017 libraries/config/setup.forms.php:291
