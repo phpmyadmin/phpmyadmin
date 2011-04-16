@@ -9586,7 +9586,7 @@ msgstr "संस्करण"
 #: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "ट्रैकिंग निष्क्रिय %s.%s"
 
 #: tbl_tracking.php:637
 msgid "Deactivate now"
