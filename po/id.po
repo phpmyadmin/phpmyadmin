@@ -1627,7 +1627,7 @@ msgstr "Tema / Tampilan"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr "Koneksi gagal: Stelan tidak berlaku."
+msgstr "Koneksi gagal: setelan tidak berlaku."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
