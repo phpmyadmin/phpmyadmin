@@ -1531,7 +1531,7 @@ msgstr "Basisdata"
 msgid "Error"
 msgstr "Error"
 
-# No difference for singular and plural in this case for Indonesian language.
+# No difference between singular and plural in this case for Indonesian language.
 #: libraries/Message.class.php:281
 #, php-format
 msgid "%1$d row affected."
