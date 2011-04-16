@@ -1818,9 +1818,8 @@ msgid "Not replicated"
 msgstr "Tidak direplikasi"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 msgid "Replicated"
-msgstr "Tabel Relasi"
+msgstr "Direplikasi"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
