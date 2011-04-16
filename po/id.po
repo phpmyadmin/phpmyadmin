@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:16+0200\n"
+"PO-Revision-Date: 2011-04-16 21:20+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1531,11 +1531,12 @@ msgstr "Basisdata"
 msgid "Error"
 msgstr "Error"
 
+# No difference for singular and plural in this case for Indonesian language.
 #: libraries/Message.class.php:281
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
+msgstr[0] "%1$d baris terpengaruh."
 
 #: libraries/Message.class.php:300
 #, fuzzy, php-format
