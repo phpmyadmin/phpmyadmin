@@ -5722,7 +5722,7 @@ msgstr ""
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "ව්‍යවහාර මුදල් අගයන් ආනයනය කරන්න  (උදා. $5.00, 5.00 ලෙස)"
 
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode:"
