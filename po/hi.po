@@ -9503,7 +9503,7 @@ msgstr "संस्करण %s बन चूका है, ट्रैकि�
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए निष्क्रिय"
 
 #: tbl_tracking.php:198
 #, php-format
