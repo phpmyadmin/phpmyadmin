@@ -9268,7 +9268,6 @@ msgid "Flush the table (FLUSH)"
 msgstr " टेबल को Flush करें (\"FLUSH\")"
 
 #: tbl_operations.php:673
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
 msgstr "टेबल या डेटा हटाएँ"
