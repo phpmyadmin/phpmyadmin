@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:35+0200\n"
+"PO-Revision-Date: 2011-04-16 21:37+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1810,9 +1810,8 @@ msgid "Overhead"
 msgstr "Kelebihan (Overhead)"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 msgid "Jump to database"
-msgstr "Database tidak ditemukan"
+msgstr "Beralih ke database"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
