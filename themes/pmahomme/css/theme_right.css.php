@@ -348,12 +348,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
+    filter: none;
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
+    filter: none;
 }
 
 /* odd table rows 1,3,5,7,... */
