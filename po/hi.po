@@ -9644,7 +9644,6 @@ msgid "Available transformations"
 msgstr "उपलब्ध परिवर्तन"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
