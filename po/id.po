@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 21:55+0200\n"
+"PO-Revision-Date: 2011-04-16 21:56+0200\n"
 "Last-Translator:  <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2248,7 +2248,7 @@ msgstr "proses impor tidak akan berjalan, fungsi (%s) tidak ada"
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "proses ekspor tidak akan berjalan, fungsi (%s) tidak ada"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
