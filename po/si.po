@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-16 14:44+0200\n"
+"PO-Revision-Date: 2011-04-16 14:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9814,9 +9814,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "පෙන්වන්න, %s %s දින සිට %s දින දක්වා %s %s භාවිතා කරන්නා විසින් "
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
-#, fuzzy
 msgid "Date"
-msgstr "දත්ත"
+msgstr "දිනය"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
