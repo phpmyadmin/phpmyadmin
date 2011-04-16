@@ -9226,7 +9226,7 @@ msgstr "टेबल क्रमांक को बदलिये "
 
 #: tbl_operations.php:269
 msgid "(singly)"
-msgstr ""
+msgstr "(अकेले)"
 
 #: tbl_operations.php:289
 msgid "Move table to (database<b>.</b>table):"
