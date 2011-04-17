@@ -3592,7 +3592,7 @@ msgstr "रूट लॉगिन की अनुमति"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
