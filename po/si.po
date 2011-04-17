@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:18+0200\n"
+"PO-Revision-Date: 2011-04-17 05:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9282,7 +9282,7 @@ msgstr "ඇතුල් කිරීමේ විමසුම පෙන්වන
 
 #: tbl_change.php:1068
 msgid "and then"
-msgstr "සහ එවිට"
+msgstr "අනතුරුව"
 
 #: tbl_change.php:1072
 msgid "Go back to previous page"
