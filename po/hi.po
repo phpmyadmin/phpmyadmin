@@ -968,7 +968,6 @@ msgid "Dropping Procedure"
 msgstr "प्रोसदुरे छोड़"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "ट्रैकिंग डेटा हटाएँ"
