@@ -2574,10 +2574,9 @@ msgstr "काँलम इस से घिरा"
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns escaped by"
-msgstr "कोलम के नाम"
+msgstr "कॉलम द्वारा बच"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
