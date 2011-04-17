@@ -1843,7 +1843,6 @@ msgid "Check Privileges"
 msgstr "प्रिविलेज  चेक करें"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 #| msgid "Databases statistics"
 msgid "Query statistics"
 msgstr " डाटाबेसों के सांख्यिकी"
