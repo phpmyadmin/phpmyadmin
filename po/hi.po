@@ -2889,7 +2889,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "सेटिंग्स जो कहीं भी फिट नहीं थी"
 
 #: libraries/config/messages.inc.php:189
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
 msgstr "पृष्ठ शीर्षक"
