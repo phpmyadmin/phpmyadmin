@@ -2302,7 +2302,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "स्क्रीन ताज़ा करने की क्षमता बढ़ाता है"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enable"
 msgid "Enable Ajax"
 msgstr "Ajax को सक्षम करें "
