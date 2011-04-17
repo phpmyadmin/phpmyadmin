@@ -2693,7 +2693,6 @@ msgid "Creation/Update/Check dates"
 msgstr "निर्माण/अद्यतन/जाँच दिनांक"
 
 #: libraries/config/messages.inc.php:122
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use delayed inserts"
 msgstr "विलंबित इनसर्टस"
