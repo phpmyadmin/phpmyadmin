@@ -1192,7 +1192,6 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
 msgstr ", नवीनतम स्थिर संस्करण:"
