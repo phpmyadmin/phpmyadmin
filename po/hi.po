@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 14:25+0200\n"
+"PO-Revision-Date: 2011-04-17 14:26+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -978,7 +978,7 @@ msgstr "प्राथमिक-कुंजी/सूची छोड़"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "यह आपरेशन लंबे समय लग सकता है. फिर भी आगे बढ़ें?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
