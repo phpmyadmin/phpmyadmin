@@ -9579,7 +9579,7 @@ msgstr "නැවත සෑදීම"
 
 #: tbl_operations.php:744
 msgid "Repair"
-msgstr "ප්‍රතිසංස්කරණය කරන්න"
+msgstr "ප්‍රතිසංස්කරණය"
 
 #: tbl_operations.php:756
 msgid "Remove partitioning"
