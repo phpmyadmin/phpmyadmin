@@ -1075,7 +1075,6 @@ msgid "Renaming Databases"
 msgstr "डेटाबेस का नाम बदल कर ____ रखें"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "डेटाबेस पुनः लोड"
