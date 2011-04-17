@@ -2295,7 +2295,7 @@ msgstr "कर्ता को इस मूल्य को अनुकूल�
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1100
 msgid "Reset"
-msgstr ""
+msgstr "रीसेट"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
