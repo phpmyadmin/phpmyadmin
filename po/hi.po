@@ -2715,10 +2715,9 @@ msgid "Maximal length of created query"
 msgstr "क्वेरी के अधिकतम लंबाई"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "निर्यात"
+msgstr "निर्यात प्रकार"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
