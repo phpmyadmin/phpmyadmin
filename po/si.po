@@ -9366,7 +9366,7 @@ msgstr "රේඛා"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "රේඩාර්"
 
 #: tbl_chart.php:138
 #, fuzzy
