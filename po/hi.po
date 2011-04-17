@@ -1080,7 +1080,6 @@ msgid "Reload Database"
 msgstr "डेटाबेस पुनः लोड"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "डेटाबेस को ______ में कॉपी करें"
