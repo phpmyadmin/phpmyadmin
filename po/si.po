@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:21+0200\n"
+"PO-Revision-Date: 2011-04-17 05:39+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9196,7 +9196,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "මූලය කෙටිය. අවම වශයෙන් අක්ෂර 8 වත් තිබිය යුතුය."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
