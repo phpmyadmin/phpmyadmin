@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:39+0200\n"
+"PO-Revision-Date: 2011-04-17 05:42+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9200,7 +9200,7 @@ msgstr "මූලය කෙටිය. අවම වශයෙන් අක්ෂ�
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "මූලයේ අක්ෂර, ඉලක්කම් [em]සහ[/em] විශේෂ සලකුණු තිබිය යුතුය."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
