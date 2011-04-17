@@ -3213,6 +3213,8 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"केवल प्रकाश संस्करण, एक पेड़ में प्रदर्शित डेटाबेस (नीचे परिभाषित विभाजक "
+"द्वारा निर्धारित)"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
