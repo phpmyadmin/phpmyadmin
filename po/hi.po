@@ -2657,7 +2657,6 @@ msgid "Relations"
 msgstr "संबंध"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export"
 msgid "Export method"
 msgstr "निर्यात प्रकार"
