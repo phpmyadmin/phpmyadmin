@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:37+0200\n"
+"PO-Revision-Date: 2011-04-17 04:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9617,7 +9617,7 @@ msgstr "ප්‍රකාශය"
 
 #: tbl_printview.php:377 tbl_structure.php:833
 msgid "static"
-msgstr ""
+msgstr "ස්ථිතික"
 
 #: tbl_printview.php:379 tbl_structure.php:835
 msgid "dynamic"
