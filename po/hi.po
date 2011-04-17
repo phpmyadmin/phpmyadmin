@@ -961,7 +961,7 @@ msgstr "आप एक पूरा डेटाबेस नष्ट कर र
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "घटना छोड़ "
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
