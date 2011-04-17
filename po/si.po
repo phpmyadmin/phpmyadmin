@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:05+0200\n"
+"PO-Revision-Date: 2011-04-17 04:08+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9927,7 +9927,7 @@ msgstr "You don't have sufficient privileges to be here right now!"
 
 #: user_password.php:110
 msgid "The profile has been updated."
-msgstr "The profile has been updated."
+msgstr "පරිශීලක පැතිකඩ යාවත්කාලීන කරන ලදි."
 
 #: view_create.php:141
 msgid "VIEW name"
