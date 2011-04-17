@@ -489,10 +489,9 @@ msgid "Add/Delete criteria rows"
 msgstr "मापदंड रो जोडें/हटायें"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "क्षेत्र कोलम जोडें/हटायें"
+msgstr "कोलम जोडें/हटायें"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
