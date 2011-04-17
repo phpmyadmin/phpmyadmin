@@ -2820,7 +2820,7 @@ msgstr "कुछ सामान्यतः प्रयोग किया �
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr ""
+msgstr "आयात"
 
 #: libraries/config/messages.inc.php:168
 msgid "Import defaults"
