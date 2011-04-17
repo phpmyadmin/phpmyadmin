@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:46+0200\n"
+"PO-Revision-Date: 2011-04-17 05:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9222,9 +9222,8 @@ msgid "Showing as PHP code"
 msgstr "PHP කේත ලෙස පෙන්වමින්"
 
 #: sql.php:620 tbl_replace.php:361
-#, fuzzy
 msgid "Showing SQL query"
-msgstr "සම්පූර්ණ විමසුම් පෙන්වන්න"
+msgstr "SQL විමසුම් පෙන්වමින්"
 
 #: sql.php:622
 #, fuzzy
