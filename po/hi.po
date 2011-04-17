@@ -2935,7 +2935,6 @@ msgid "Authentication"
 msgstr "प्रमाणीकरण"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Authentication settings"
 msgstr "प्रमाणीकरण सेटिंग्स"
