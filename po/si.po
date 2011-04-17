@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:03+0200\n"
+"PO-Revision-Date: 2011-04-17 05:07+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9317,14 +9317,15 @@ msgid "Chart generated successfully."
 msgstr "ප්‍රස්තාරය සාර්ථකව අඳින ලදි."
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
-msgstr "සමහර විට ආසන්න වශයෙන්. FAQ 3.11 බලන්න"
+msgstr ""
+"මෙම විමසුම් ප්‍රතිඑලය ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a] බලන්න."
 
 #: tbl_chart.php:90
 msgid "Width"
