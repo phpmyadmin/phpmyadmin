@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:28+0200\n"
+"PO-Revision-Date: 2011-04-17 04:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9635,7 +9635,7 @@ msgstr "පේළියේ ප්‍රමාණය"
 #: tbl_relation.php:276
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "%1$s මත අන්‍ය මූලය සෑදීමේදී දෝෂ ඇතිවිය (දත්ත වර්ග පරීක්ෂා කරන්න)"
 
 #: tbl_relation.php:402
 msgid "Internal relation"
