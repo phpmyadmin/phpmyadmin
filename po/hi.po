@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 14:40+0200\n"
+"PO-Revision-Date: 2011-04-17 14:41+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -2505,7 +2505,6 @@ msgid "Edit SQL queries in popup window"
 msgstr "पॉपअप विंडो में क्वरीों को संपादित करें"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "विंडो में संपादित करें"
