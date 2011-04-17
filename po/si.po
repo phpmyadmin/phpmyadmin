@@ -9362,7 +9362,7 @@ msgstr "තීර"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "රේඛා"
 
 #: tbl_chart.php:136
 msgid "Radar"
