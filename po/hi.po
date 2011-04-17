@@ -3099,6 +3099,9 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"मामले लिपि में आयात की अनुमति दें अंतरायन का पता लगाता है यह समय सीमा के "
+"करीब है. यह अच्छा करने के लिए बड़ी फ़ाइलों आयात तरीका हो, लेकिन यह लेनदेन "
+"तोड़ सकते हो सकता है."
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
