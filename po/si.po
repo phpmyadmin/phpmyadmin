@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:12+0200\n"
+"PO-Revision-Date: 2011-04-17 04:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9734,10 +9734,9 @@ msgid "Propose table structure"
 msgstr "සැකිල්ලක් යෝජනා කරන්න"
 
 #: tbl_structure.php:632
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "%s ක්ෂේත්‍ර(යක්) එක් කරන්න"
+msgstr "තීරයක් එක් කරන්න"
 
 #: tbl_structure.php:646
 msgid "At End of Table"
