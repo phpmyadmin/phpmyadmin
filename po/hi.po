@@ -2259,10 +2259,9 @@ msgid "SQL Validator is disabled"
 msgstr "SQL मान्य करता अक्षम है"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy
 #| msgid "Theme %s not found!"
 msgid "SOAP extension not found"
-msgstr "विषयवस्तु %s नहीं मिला है!"
+msgstr "SOAP विस्तार नहीं मिला"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
