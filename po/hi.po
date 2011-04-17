@@ -2310,6 +2310,8 @@ msgstr "Ajax को सक्षम करें "
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"अगर सक्रिय उपयोगकर्ता लॉगिन प्रपत्र में कुकी auth के लिए किसी भी MySQL सर्वर "
+"में प्रवेश कर सकते है"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
