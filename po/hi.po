@@ -2189,7 +2189,6 @@ msgid "complete inserts"
 msgstr "पूरा इनसर्टस"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "विस्तृत इनसर्टस"
