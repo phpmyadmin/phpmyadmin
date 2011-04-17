@@ -2184,7 +2184,6 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "कस्टम - उपरोक्त की तरह लेकिन जल्दी / कस्टम विकल्प के बिना"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "पूरा इनसर्टस"
