@@ -2876,7 +2876,6 @@ msgid "Microsoft Office"
 msgstr "माइक्रोसॉफ्ट ऑफिस"
 
 #: libraries/config/messages.inc.php:185
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
 msgstr "दस्तावेज़ खोलें"
