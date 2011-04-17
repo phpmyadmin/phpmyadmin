@@ -93,7 +93,7 @@ foreach ($serverVars as $name => $value) {
     if ($serverVarsGlobal[$name] !== $value) {
         ?>
 </tr>
-<tr class="<?php
+<tr class="noclick <?php
     echo $odd_row ? 'odd' : 'even';
     ?> marked">
     <td>(<?php echo __('Global value'); ?>)</td>

@@ -78,7 +78,7 @@ foreach ($mysql_charsets as $current_charset) {
     $odd_row = true;
     foreach ($mysql_collations[$current_charset] as $current_collation) {
         $i++;
-        echo '<tr class="'
+        echo '<tr class="noclick '
            . ($odd_row ? 'odd' : 'even')
            . ($mysql_default_collations[$current_charset] == $current_collation
                 ? ' marked'
