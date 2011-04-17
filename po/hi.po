@@ -553,10 +553,10 @@ msgid "Browse"
 msgstr "ब्राउज़"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "इस %s टेबल टेबल से मैच हटाएँ"
+msgstr "इस %s टेबल से मैच हटाएँ"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1185
 #: libraries/display_tbl.lib.php:2115
