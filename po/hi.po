@@ -1112,7 +1112,6 @@ msgid "Show query box"
 msgstr "क्वेरी बॉक्स दिखाएँ"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
 msgstr "इनलाइन संपादन"
