@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:08+0200\n"
+"PO-Revision-Date: 2011-04-17 04:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9783,7 +9783,7 @@ msgstr "%s.%s හි %s වන අනුවාදය සඳහා අවධා�
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL ය ක්‍රියාත්මක කරන ලදි."
 
 #: tbl_tracking.php:215
 msgid ""
