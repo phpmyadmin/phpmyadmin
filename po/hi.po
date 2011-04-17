@@ -2107,7 +2107,7 @@ msgstr "संरचना"
 #: libraries/server_links.inc.php:46 libraries/tbl_links.inc.php:58
 #: querywindow.php:88 test/theme.php:96
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2828 libraries/common.lib.php:3015
 #: libraries/common.lib.php:3016 libraries/sql_query_form.lib.php:319
