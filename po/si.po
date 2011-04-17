@@ -9605,7 +9605,7 @@ msgstr "භාවිතය"
 
 #: tbl_printview.php:338 tbl_structure.php:780
 msgid "Effective"
-msgstr "Effective"
+msgstr "එලදායී"
 
 #: tbl_printview.php:363 tbl_structure.php:818
 msgid "Row Statistics"
