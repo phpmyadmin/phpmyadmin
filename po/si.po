@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:45+0200\n"
+"PO-Revision-Date: 2011-04-17 04:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9459,8 +9459,7 @@ msgstr "සූචි වර්ගය:"
 #: tbl_indexes.php:182
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(\"PRIMARY\" නාමය ප්‍රාථමික මූලය සඳහා <i>පමණක්</i> භාවිතා කල යුතුය!)"
 
 #: tbl_indexes.php:249
 #, php-format
