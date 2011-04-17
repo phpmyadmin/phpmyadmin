@@ -1178,7 +1178,6 @@ msgid "Change Password"
 msgstr "पासवर्ड बदलिये "
 
 #: js/messages.php:114 tbl_structure.php:472
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
 msgstr "अधिक"
