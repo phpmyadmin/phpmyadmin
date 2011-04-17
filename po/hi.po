@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 15:12+0200\n"
+"PO-Revision-Date: 2011-04-17 15:13+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -3525,7 +3525,6 @@ msgid "Query window height"
 msgstr "क्वेरी विंडो ऊंचाई"
 
 #: libraries/config/messages.inc.php:342
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "क्वेरी विंडो चौड़ाई (पिक्सेल्स में)"
