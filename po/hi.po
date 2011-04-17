@@ -354,7 +354,6 @@ msgstr ""
 "जानने के लिए %shere%s पर क्लिक करें."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Edit or export relational schema"
 msgstr "संबंधपरक स्कीमा को संपादित या निर्यात करें "
