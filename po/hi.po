@@ -1164,7 +1164,6 @@ msgid "Add an option for column "
 msgstr "काँलम के लिए एक विकल्प जोड़ें"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "पासव्रड उत्पन्न करें"
