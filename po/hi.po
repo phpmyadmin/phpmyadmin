@@ -819,7 +819,7 @@ msgstr ""
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ प्रविष्टि पुनः आरंभ करें और एक नया मान जोड़ने के लिए"
 
 #: enum_editor.php:67
 msgid "Output"
