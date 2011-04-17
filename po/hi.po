@@ -965,7 +965,7 @@ msgstr "घटना छोड़ "
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
-msgstr ""
+msgstr "प्रोसदुरे छोड़"
 
 #: js/messages.php:35
 #, fuzzy
