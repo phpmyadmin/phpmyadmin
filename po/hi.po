@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 14:24+0200\n"
+"PO-Revision-Date: 2011-04-17 14:25+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -827,7 +827,7 @@ msgstr "उत्पादन"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "\"लंबाई / मूल्य\" क्षेत्र में शामिल हो गए मान कॉपी और पेस्ट"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
