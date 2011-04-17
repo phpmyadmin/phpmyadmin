@@ -1024,7 +1024,6 @@ msgid "Create User"
 msgstr "यूसर बनाइये"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Reloading Privileges"
 msgstr "प्रिविलेज पुनः लोड करें"
