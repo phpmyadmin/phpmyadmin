@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 04:15+0200\n"
+"PO-Revision-Date: 2011-04-17 04:17+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9758,7 +9758,7 @@ msgstr "පේළි&nbsp;%s&nbsp;මත සුචියක් සාදන්�
 
 #: tbl_structure.php:849
 msgid "partitioned"
-msgstr ""
+msgstr "කොටස් කරන ලද"
 
 #: tbl_tracking.php:109
 #, php-format
