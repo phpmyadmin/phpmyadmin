@@ -1891,6 +1891,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
+"<tt>$cfg['PmaAbsoluteUri']</tt> निर्देश आपकी विन्यास फाइल मैं सेट होना "
+"आवश्यक है"
 
 #: libraries/common.inc.php:622
 #, php-format
