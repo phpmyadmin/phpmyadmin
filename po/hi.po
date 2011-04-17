@@ -598,7 +598,6 @@ msgid "Inside table(s):"
 msgstr " टेबल में:"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "काँलम के अंदर:"
