@@ -3425,7 +3425,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "टेबल और डेटाबेस नाम सॉर्ट करने के लिए प्राकृतिक व्यवस्था का उपयोग"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "प्राकृतिक आदेश"
