@@ -287,10 +287,9 @@ msgid "Database %s has been dropped."
 msgstr "डाटाबेस %s को ड्रोप कर दिया ।"
 
 #: db_operations.php:450
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
-msgstr "ड्रॉप डेटाबेस"
+msgstr "ड्रॉप डेटाबेस (छोड़ें)"
 
 #: db_operations.php:478
 msgid "Copy database to"
