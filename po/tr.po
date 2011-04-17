@@ -3200,7 +3200,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
-msgstr "Hafif sürümü kullan"
+msgstr "Sade sürümü kullan"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
