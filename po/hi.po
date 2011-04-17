@@ -1750,7 +1750,7 @@ msgstr "सत्यापन."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS त्रुटि"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
