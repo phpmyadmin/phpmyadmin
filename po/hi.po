@@ -3278,6 +3278,8 @@ msgstr "कम टैब्स"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
+"किसी भी गैर सांख्यिक स्तंभ में दिखाया गया है अक्षरों की अधिकतम संख्या पर "
+"विचार ब्राउज़"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
