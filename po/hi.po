@@ -1829,7 +1829,6 @@ msgid "Not replicated"
 msgstr "नहीं दोहराया"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
 msgstr "दोहराया"
