@@ -3013,10 +3013,9 @@ msgid "SQL queries settings"
 msgstr "SQL क्वेरी सेटिंग्स"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL- पुष्टि करना"
+msgstr "SQL- पुष्टि करता"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
