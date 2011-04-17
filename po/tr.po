@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 11:33+0200\n"
+"PO-Revision-Date: 2011-04-17 11:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3248,7 +3248,7 @@ msgstr "Az grafiksel yoğunlukta sekmeler kullanılır"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr "Hafif sekmeler"
+msgstr "Sade sekmeler"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
