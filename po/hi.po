@@ -1094,7 +1094,6 @@ msgid "Table must have at least one column"
 msgstr "टेबल में कम से कम एक काँलम होना आवश्यक है"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create a page"
 msgid "Create Table"
 msgstr "नया टेबल बनाऐं"
