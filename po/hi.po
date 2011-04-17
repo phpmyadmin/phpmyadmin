@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 15:08+0200\n"
+"PO-Revision-Date: 2011-04-17 15:09+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -3153,7 +3153,7 @@ msgstr "प्रतिशत को उचित दशमलव के रू�
 
 #: libraries/config/messages.inc.php:255
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "प्रश्नों की संख्या शुरू से ही छोड़ने के लिए"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
