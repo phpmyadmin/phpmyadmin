@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 14:35+0200\n"
+"PO-Revision-Date: 2011-04-17 14:36+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -2339,7 +2339,7 @@ msgstr "सामान्य यूसरओं को &quot;ड्रॉप �
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr ""
+msgstr "गुप्त कुकी में कुकीज़ प्रमाणीकरण के लिए इस्तेमाल किया कूटशब्द"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
