@@ -9223,7 +9223,7 @@ msgstr "PHP කේත ලෙස පෙන්වමින්"
 
 #: sql.php:620 tbl_replace.php:361
 msgid "Showing SQL query"
-msgstr "SQL විමසුම් පෙන්වමින්"
+msgstr "SQL විමසුම පෙන්වමින්"
 
 #: sql.php:622
 #, fuzzy
