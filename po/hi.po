@@ -1070,7 +1070,6 @@ msgid "OK"
 msgstr "ठीक है"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "डेटाबेस का नाम बदल कर ____ रखें"
