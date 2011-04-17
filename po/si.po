@@ -9559,7 +9559,7 @@ msgstr "කොටස් (partition) නඩත්තුව"
 #: tbl_operations.php:737
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "%s කොටස"
 
 #: tbl_operations.php:740
 msgid "Analyze"
