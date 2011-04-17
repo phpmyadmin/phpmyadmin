@@ -2808,7 +2808,6 @@ msgid "Features"
 msgstr "विशेषताएँ"
 
 #: libraries/config/messages.inc.php:165
-#, fuzzy
 #| msgid "German"
 msgid "General"
 msgstr "सामान्य"
