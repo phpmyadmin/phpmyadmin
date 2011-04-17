@@ -3530,7 +3530,6 @@ msgid "Query window width (in pixels)"
 msgstr "क्वेरी विंडो चौड़ाई (पिक्सेल्स में)"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
 msgstr "क्वेरी विंडो चौड़ाई"
