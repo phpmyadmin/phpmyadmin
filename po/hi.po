@@ -1019,7 +1019,6 @@ msgid "Add a New User"
 msgstr "नया यूसर जोडें"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create"
 msgid "Create User"
 msgstr "यूसर बनाइये"
