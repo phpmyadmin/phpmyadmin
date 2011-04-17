@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 05:15+0200\n"
+"PO-Revision-Date: 2011-04-17 05:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9374,10 +9374,9 @@ msgid "Pie"
 msgstr "වට"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "විමසුම් වර්ගය"
+msgstr "තීර වර්ගය"
 
 #: tbl_chart.php:146
 msgid "Stacked"
