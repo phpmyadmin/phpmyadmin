@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 19:08+0200\n"
+"PO-Revision-Date: 2011-04-17 19:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2824,7 +2824,7 @@ msgstr "Veritabanlarının görüntü seçenekleri"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr "Rehber çerçevesi"
+msgstr "Rehber çerçeve"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
