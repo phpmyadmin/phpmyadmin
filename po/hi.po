@@ -2706,10 +2706,9 @@ msgid "Use hexadecimal for BLOB"
 msgstr "BLOB के लिए hexadecimal का प्रयोग करें"
 
 #: libraries/config/messages.inc.php:128
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "विस्तृत इनसर्टस"
+msgstr "आवेषण उपेक्षा का प्रयोग करें"
 
 #: libraries/config/messages.inc.php:130 libraries/export/sql.php:163
 msgid "Maximal length of created query"
