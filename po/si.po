@@ -9384,7 +9384,7 @@ msgstr "ගොඩ ගසන ලද"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "බහු"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
