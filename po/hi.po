@@ -3135,7 +3135,6 @@ msgstr "कीवर्ड LOCAL का प्रयोग"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names in first row"
 msgstr "कोलम के नाम पहली रो में"
