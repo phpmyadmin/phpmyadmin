@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-17 14:43+0200\n"
+"PO-Revision-Date: 2011-04-17 14:44+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -2899,6 +2899,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"निर्दिष्ट ब्राउज़र की शीर्षक पट्टी पाठ. "
+"[a@Documentation.html#cfg_TitleTable]documentation[/a]  जादू स्ट्रिंग को "
+"विशेष मान पाने के लिए इस्तेमाल किया जा सकता है."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
