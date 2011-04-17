@@ -1109,7 +1109,7 @@ msgstr "क्वरी बॉक्स छुपा"
 
 #: js/messages.php:87
 msgid "Show query box"
-msgstr ""
+msgstr "क्वेरी बॉक्स दिखाएँ"
 
 #: js/messages.php:88
 #, fuzzy
