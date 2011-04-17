@@ -2510,7 +2510,6 @@ msgid "Edit in window"
 msgstr "विंडो में संपादित करें"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
 msgstr "त्रुटिय दिखाओ"
