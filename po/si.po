@@ -9369,10 +9369,9 @@ msgid "Radar"
 msgstr "රේඩාර්"
 
 #: tbl_chart.php:138
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PiB"
+msgstr "වට"
 
 #: tbl_chart.php:144
 #, fuzzy
