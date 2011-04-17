@@ -2930,7 +2930,6 @@ msgid "Basic settings"
 msgstr "मूल सेटिंग्स"
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Authentication"
 msgstr "प्रमाणीकरण"
