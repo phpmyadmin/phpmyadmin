@@ -1817,7 +1817,7 @@ msgstr "कुल"
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:775
 msgid "Overhead"
-msgstr ""
+msgstr "जरूरत से ज्यादा"
 
 #: libraries/build_html_for_db.lib.php:93
 #, fuzzy
