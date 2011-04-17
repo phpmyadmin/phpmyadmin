@@ -3520,7 +3520,6 @@ msgid "Query window height (in pixels)"
 msgstr "क्वेरी विंडो ऊंचाई (पिक्सेल्स में)"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
 msgstr "क्वेरी विंडो ऊंचाई"
