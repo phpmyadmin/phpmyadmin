@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 20:41+0200\n"
+"PO-Revision-Date: 2011-04-18 20:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1182,9 +1182,8 @@ msgstr ", නවතම ස්ථායි අනුවාදය:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:137
-#, fuzzy
 msgid "Done"
-msgstr "දත්ත"
+msgstr "තෝරන්න"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
