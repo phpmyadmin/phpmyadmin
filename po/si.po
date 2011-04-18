@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 20:19+0200\n"
+"PO-Revision-Date: 2011-04-18 20:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1010,10 +1010,9 @@ msgid "Create User"
 msgstr "භාවිතා කරන්නෙක් සාදන්න"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Reloading the privileges"
+msgstr "වරප්‍රසාද පූරණය කෙරෙමින්"
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
