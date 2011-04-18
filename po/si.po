@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 20:18+0200\n"
+"PO-Revision-Date: 2011-04-18 20:19+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -962,7 +962,7 @@ msgstr "අවධානය පිළිබඳ දත්ත ඉවත් කෙ�
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "ප්‍රාථමික මූලය/සුචිය ඉවත් කෙරෙමින්"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
