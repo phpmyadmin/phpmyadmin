@@ -304,9 +304,11 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         echo __('No tables found in database.');
     }
     unset($table_list);
-    echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
-        .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
-        . _pgettext('short form', 'Create table') . '</a></li></ul>';
+    if ($db != 'information_schema') {
+        echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
+            .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
+            . _pgettext('short form', 'Create table') . '</a></li></ul>';
+    }
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
     /* No need to tell user to select database if we're showing complete list */
     if (!$list) {
