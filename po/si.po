@@ -2414,7 +2414,7 @@ msgstr "DROP විමසුම් තහවුරු කරන්න"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL නිදොසන්න"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
