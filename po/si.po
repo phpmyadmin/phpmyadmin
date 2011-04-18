@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 21:12+0200\n"
+"PO-Revision-Date: 2011-04-18 21:14+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2271,7 +2271,7 @@ msgstr "අක්‍රිය"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "%s අගය පිහිටුවන්න"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
