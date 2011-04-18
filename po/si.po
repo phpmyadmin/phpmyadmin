@@ -2137,10 +2137,9 @@ msgid "Open"
 msgstr "විවෘත"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "නොවසන ලද උද්ධරනය"
+msgstr "වසන ලද"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
