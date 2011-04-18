@@ -2266,7 +2266,7 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
 msgid "Disabled"
-msgstr "අක්‍රිය කරන ලද"
+msgstr "අක්‍රිය"
 
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
