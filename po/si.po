@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 21:04+0200\n"
+"PO-Revision-Date: 2011-04-18 21:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2185,7 +2185,7 @@ msgstr "විස්තෘත ඇතුළු කිරීම්"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "ඉහත ද්විත්වයම"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
