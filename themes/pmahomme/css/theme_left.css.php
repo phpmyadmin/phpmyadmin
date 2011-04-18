@@ -220,6 +220,10 @@ div#left_tableList li {
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd') !important;
 }
 
+#newtable li a:hover {
+    text-decoration: none;
+}
+
 select{
     -moz-border-radius:2px 2px 2px 2px;
     -moz-box-shadow:0 1px 2px #DDDDDD;
