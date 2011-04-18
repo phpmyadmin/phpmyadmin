@@ -9522,7 +9522,7 @@ msgstr "ट्रैकिंग कि स्थिति"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr "%s दिखाएँ तारीख %s से %s तक, उपयोक्ता %s"
+msgstr "%s दिखाएँ तारीख %s से %s तक, उपयोक्ता %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 msgid "Date"
