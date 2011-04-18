@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-18 20:43+0200\n"
+"PO-Revision-Date: 2011-04-18 20:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1505,7 +1505,7 @@ msgstr "සංස්කරණය කරන්න"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
-msgstr "The primary key has been dropped"
+msgstr "ප්‍රාථමික මූලය හලන ලදි"
 
 #: libraries/Index.class.php:475
 #, php-format
