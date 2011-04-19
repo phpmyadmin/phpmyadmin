@@ -2930,7 +2930,7 @@ msgstr "سرور سے جڑنے کے لیے پیرا میٹر داخل کریں"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "تشکیل ذخیرہ"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
