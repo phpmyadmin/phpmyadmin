@@ -1082,10 +1082,9 @@ msgid "Renaming Databases"
 msgstr "データベースのリネーム中"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "新しいデータベース名"
+msgstr "データベースの再読み込み中"
 
 #: js/messages.php:73
 #, fuzzy
