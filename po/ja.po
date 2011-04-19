@@ -3288,7 +3288,7 @@ msgstr "左のフレーム内のロゴを表示する"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "ロゴを表示する"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
