@@ -4231,7 +4231,7 @@ msgstr "インポート用ファイルをアップロードできるサーバ上
 
 #: libraries/config/messages.inc.php:491
 msgid "Upload directory"
-msgstr ""
+msgstr "アップロードディレクトリ"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
