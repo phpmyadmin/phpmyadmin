@@ -9181,7 +9181,7 @@ msgstr "設定するサーバがありません"
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
-msgstr ""
+msgstr "新しいサーバ"
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
