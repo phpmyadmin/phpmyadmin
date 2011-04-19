@@ -2727,7 +2727,7 @@ msgstr "اگر کچھ اشیاء موجود ہوئے تو ایک ڈراپ ڈاؤ
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
-msgstr ""
+msgstr "فارن کلید حد"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
