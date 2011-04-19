@@ -2602,7 +2602,7 @@ msgstr "جدول نام سانچا"
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s جدول(s)"
+msgstr "جدول ڈ٘مپ کریں"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
