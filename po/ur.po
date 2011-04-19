@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 09:37+0200\n"
+"PO-Revision-Date: 2011-04-19 09:56+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3021,10 +3021,9 @@ msgid "Choose how you want tabs to work"
 msgstr "جداول کے طریقہ کام چنیں"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Text fields"
-msgstr "فیلڈ کے اندر:"
+msgstr "متن قطعے"
 
 #: libraries/config/messages.inc.php:224
 msgid "Customize text input fields"
