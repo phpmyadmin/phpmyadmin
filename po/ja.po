@@ -3475,7 +3475,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "テーブルのリストに表示されるテーブルの最大数"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
