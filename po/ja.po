@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 11:46+0200\n"
+"PO-Revision-Date: 2011-04-19 11:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1050,7 +1050,7 @@ msgstr "キャンセル"
 
 #: js/messages.php:63
 msgid "Loading"
-msgstr ""
+msgstr "読み込み中"
 
 #: js/messages.php:64
 #, fuzzy
