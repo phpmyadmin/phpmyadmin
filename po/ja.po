@@ -2982,7 +2982,7 @@ msgstr "Tables display options"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "メインフレーム"
 
 #: libraries/config/messages.inc.php:183
 #, fuzzy
