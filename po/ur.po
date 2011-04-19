@@ -2649,7 +2649,7 @@ msgstr "موجودہ مسل پر تحریر کریں"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
-msgstr ""
+msgstr "مسل نام سانچا یاد رکھیں"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
