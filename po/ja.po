@@ -1369,7 +1369,6 @@ msgid "Dec"
 msgstr "12 月"
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "日"
