@@ -2615,7 +2615,7 @@ msgstr "جدول عنوان"
 
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:100
 msgid "Continued table caption"
-msgstr ""
+msgstr "جاری شدہ جدول عنوان"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
