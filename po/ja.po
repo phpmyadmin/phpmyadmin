@@ -6727,10 +6727,9 @@ msgid "Add %s column(s)"
 msgstr "%s 個のフィールドを追加する"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:628
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "最低ひとつはフィールドを追加してください"
+msgstr "最低ひとつはカラムを追加してください"
 
 #: libraries/tbl_properties.inc.php:796
 #, fuzzy
