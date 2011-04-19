@@ -9954,7 +9954,7 @@ msgstr ""
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "バージョンを表示する"
 
 #: tbl_tracking.php:587
 msgid "Version"
