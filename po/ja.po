@@ -3881,7 +3881,7 @@ msgstr "MySQLサーバで開いているソケット。デフォルトにした�
 
 #: libraries/config/messages.inc.php:411
 msgid "Server socket"
-msgstr ""
+msgstr "サーバのソケット"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
