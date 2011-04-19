@@ -3465,7 +3465,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum databases"
-msgstr ""
+msgstr "データベースの最大数"
 
 #: libraries/config/messages.inc.php:305
 #, fuzzy
