@@ -8829,6 +8829,7 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"サーバー上のレプリケーションステータスの詳細については、<a href=\"#replication\">レプリケーションの節</a>を参照してください。"
 
 #: server_status.php:509
 msgid ""
