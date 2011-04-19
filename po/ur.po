@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:48+0200\n"
+"PO-Revision-Date: 2011-04-19 08:49+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2719,7 +2719,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "فارن کلید ڈراپ ڈاؤن ترتیب"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
