@@ -2674,7 +2674,7 @@ msgstr "تاخیر سے داخلے کا طریقہ استعمال کریں"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "فارن کلید پڑتال غیر فعال کریں"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
