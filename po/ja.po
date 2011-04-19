@@ -9229,7 +9229,7 @@ msgstr "新しいサーバの追加"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
