@@ -2723,7 +2723,7 @@ msgstr "فارن کلید ڈراپ ڈاؤن ترتیب"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "اگر کچھ اشیاء موجود ہوئے تو ایک ڈراپ ڈاؤن استعمال ہوگا"
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
