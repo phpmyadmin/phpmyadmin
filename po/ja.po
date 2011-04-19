@@ -9427,7 +9427,7 @@ msgstr "棒グラフ"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "折れ線グラフ"
 
 #: tbl_chart.php:136
 msgid "Radar"
