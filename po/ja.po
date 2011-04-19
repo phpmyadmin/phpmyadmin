@@ -3063,7 +3063,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "サーバの接続パラメータを入力してください"
 
 #: libraries/config/messages.inc.php:201
 #, fuzzy
