@@ -4821,7 +4821,6 @@ msgid "Options"
 msgstr "オプション"
 
 #: libraries/display_tbl.lib.php:546 libraries/display_tbl.lib.php:556
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "部分テキスト"
