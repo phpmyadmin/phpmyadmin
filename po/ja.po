@@ -9431,7 +9431,7 @@ msgstr "幅"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "高さ"
 
 #: tbl_chart.php:98
 msgid "Title"
