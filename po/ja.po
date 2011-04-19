@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 04:13+0200\n"
+"PO-Revision-Date: 2011-04-19 04:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2961,7 +2961,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "ナビゲーションフレーム"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
