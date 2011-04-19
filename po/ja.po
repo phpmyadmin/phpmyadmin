@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:05+0200\n"
+"PO-Revision-Date: 2011-04-19 06:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6509,7 +6509,7 @@ msgstr "データベース %s 上でクエリを実行する"
 #: libraries/sql_query_form.lib.php:297 navigation.php:276
 #: setup/frames/index.inc.php:219
 msgid "Clear"
-msgstr ""
+msgstr "クリア"
 
 #: libraries/sql_query_form.lib.php:302
 #, fuzzy
