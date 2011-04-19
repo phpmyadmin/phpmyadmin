@@ -2587,7 +2587,7 @@ msgstr "バイナリの内容を16進数で表示する"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "データベースの一覧をドロップダウンの代わりにリストで表示します"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
