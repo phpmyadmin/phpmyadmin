@@ -3733,7 +3733,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "MySQLサーバと圧縮プロトコルで接続する"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection"
