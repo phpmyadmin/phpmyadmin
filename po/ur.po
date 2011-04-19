@@ -2889,7 +2889,7 @@ msgstr "طلب دریچہ اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "سلامتی"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
