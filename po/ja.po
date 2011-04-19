@@ -4002,7 +4002,7 @@ msgstr ""
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr ""
+msgstr "このサーバのわかりやすい説明。代わりにホスト名を表示するには、空欄のままにします。"
 
 #: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
