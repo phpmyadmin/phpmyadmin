@@ -4054,7 +4054,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid "Show statistics"
-msgstr ""
+msgstr "統計を表示する"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
