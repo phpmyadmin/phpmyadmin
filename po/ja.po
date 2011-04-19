@@ -9185,7 +9185,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
-msgstr ""
+msgstr "デフォルト言語"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
