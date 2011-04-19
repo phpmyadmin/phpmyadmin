@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 15:47+0200\n"
+"PO-Revision-Date: 2011-04-19 15:50+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9377,10 +9377,9 @@ msgid "Continue insertion with %s rows"
 msgstr "%s 行づつ挿入を行う"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "特権を正常にリロードしました"
+msgstr "グラフが正常に作成されました"
 
 #: tbl_chart.php:59
 #, fuzzy
