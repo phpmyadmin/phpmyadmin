@@ -1242,10 +1242,9 @@ msgstr "なし"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "前"
+msgstr "前へ"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:141 libraries/common.lib.php:2370
