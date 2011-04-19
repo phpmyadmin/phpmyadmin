@@ -2782,10 +2782,9 @@ msgid "Features"
 msgstr "خصوصیات"
 
 #: libraries/config/messages.inc.php:165
-#, fuzzy
 #| msgid "General relation features"
 msgid "General"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "عمومی"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
