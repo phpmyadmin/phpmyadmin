@@ -3547,7 +3547,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
-msgstr ""
+msgstr "デフォルトの並び順"
 
 #: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
