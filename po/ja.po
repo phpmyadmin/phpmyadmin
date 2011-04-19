@@ -1385,7 +1385,7 @@ msgstr "火"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr ""
+msgstr "水"
 
 #: js/messages.php:190
 msgid "Thursday"
