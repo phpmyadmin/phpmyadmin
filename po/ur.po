@@ -2904,10 +2904,9 @@ msgid "Basic settings"
 msgstr "بنیادی ترتیبات"
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 #| msgid "Replication"
 msgid "Authentication"
-msgstr "لپیٹنا"
+msgstr "توثیق"
 
 #: libraries/config/messages.inc.php:197
 msgid "Authentication settings"
