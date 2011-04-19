@@ -88,6 +88,9 @@ a:hover {
     -webkit-border-radius:5px;
     border-radius:5px;
 }
+
+#initials_table td{padding:8px !important}
+
 #initials_table a {
     border:1px solid #aaa;
     background:#fff;
@@ -583,12 +586,21 @@ div.footnotes {
     <?php } else { ?>
     padding:            0.3em;
     <?php } ?>
+    
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset;
+    
+    -moz-box-shadow: 0 1px 1px #fff inset;
+    -webkit-box-shadow: 0 1px 1px #fff inset;
+    box-shadow:  0 1px 1px #fff inset;
 }
+
+.success  a{text-decoration:underline;}
+.notice a{text-decoration:underline;}
+.warning  a{text-decoration:underline;}
+.error a{text-decoration:underline;}
+.footnotes a{text-decoration:underline;}
 
 .success {
     color:              #000000;
@@ -612,13 +624,13 @@ div.success {
 }
 
 .notice, .footnotes {
-    color:              #000000;
-    background-color:   #ffeda4;
+    color:              #3a6c7e;
+    background-color:   #e8eef1;
 }
 h1.notice,
 div.notice,
 div.footnotes {
-    border-color:       #eccf5b;
+    border-color:       #3a6c7e;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
@@ -659,8 +671,8 @@ div.warning {
 
 .error {
 	border:1px solid maroon !important;
-    color: #fff;
-    background:url(./themes/pmahomme/img/tab_warning_bg.png) 50% 0% #e97777;
+    color: #000;
+    background:pink;
 }
 
 h1.error,
@@ -679,6 +691,8 @@ div.error {
 div.error h1 {
     border-color:       #ff0000;
 }
+
+
 
 .confirmation {
     color:              #000000;
