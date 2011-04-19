@@ -3284,7 +3284,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "左のフレーム内のロゴを表示する"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
