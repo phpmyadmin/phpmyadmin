@@ -3145,7 +3145,7 @@ msgstr "スタートアップページのカスタマイズ"
 
 #: libraries/config/messages.inc.php:221
 msgid "Tabs"
-msgstr ""
+msgstr "タブ"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
