@@ -1363,7 +1363,7 @@ msgstr "බදාදා"
 #. l10n: Short week day name
 #: js/messages.php:204 libraries/common.lib.php:1601
 msgid "Thu"
-msgstr "බ්‍රහස්පතින්දා"
+msgstr "බ්‍රහස්"
 
 #. l10n: Short week day name
 #: js/messages.php:206 libraries/common.lib.php:1603
