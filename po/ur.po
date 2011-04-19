@@ -2956,7 +2956,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:205
 msgid "Customize export options"
-msgstr ""
+msgstr "برآمد اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
