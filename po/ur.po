@@ -2968,7 +2968,7 @@ msgstr "گشت چوکھٹے کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr ""
+msgstr "مرکزی چوکھٹے کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
