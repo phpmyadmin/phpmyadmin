@@ -2471,6 +2471,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"インポートおよびエクスポートの操作に対して[a@http://ja.wikipedia.org/wiki/Bzip2]bzip2[/a]圧縮を有効にする"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
