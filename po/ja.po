@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:20+0200\n"
+"PO-Revision-Date: 2011-04-19 06:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4556,10 +4556,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "データベース %s に新しいテーブルを作成する"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "エクスポート形式"
+msgstr "エクスポート方法:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
