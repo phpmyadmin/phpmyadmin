@@ -2577,7 +2577,7 @@ msgstr "کالم کا خاتمہ"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr ""
+msgstr "سطریں کے آخر میں"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
