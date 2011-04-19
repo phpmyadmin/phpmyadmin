@@ -2593,7 +2593,7 @@ msgstr "سرور نام سانچا"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
-msgstr ""
+msgstr "جدول نام سانچا"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
