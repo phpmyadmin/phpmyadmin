@@ -2228,7 +2228,7 @@ msgstr "構造とデータ"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr "クイック - 設定するための最小限のオプションのみ表示されます"
+msgstr "クイック - 設定するための最小限のオプションのみ表示します"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
