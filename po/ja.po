@@ -3115,7 +3115,7 @@ msgstr "SQLクエリボックス"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "SQLクエリボックスに表示されるリンクのカスタマイズ"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
