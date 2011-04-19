@@ -8814,7 +8814,7 @@ msgstr "この MySQL サーバの稼働時間: %s (起動時刻: %s)"
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr ""
+msgstr "このMySQLサーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>と<b>スレーブ</b>として動作しています。"
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
