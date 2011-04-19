@@ -6147,7 +6147,7 @@ msgstr "スレーブの設定"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "マスタサーバの変更または再設定"
 
 #: libraries/replication_gui.lib.php:54
 msgid ""
