@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:31+0200\n"
+"PO-Revision-Date: 2011-04-19 08:32+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2658,7 +2658,7 @@ msgstr "جدول اور کالم نام کو الٹے کوٹ سے بند کری�
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQL موازنت موڈ"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
