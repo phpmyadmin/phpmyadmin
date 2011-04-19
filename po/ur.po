@@ -2839,7 +2839,7 @@ msgstr "سرور دکھانے کے اختیارات"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "جداول دکھانے کے اختیارات"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
