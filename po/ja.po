@@ -3774,7 +3774,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "稼働しているMySQLサーバのホスト名"
 
 #: libraries/config/messages.inc.php:389
 msgid "Server hostname"
