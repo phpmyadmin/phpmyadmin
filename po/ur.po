@@ -3039,7 +3039,7 @@ msgstr "تنبیہات"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin کے کچھ تنبیہات کو غیر فعال بنائیں"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
