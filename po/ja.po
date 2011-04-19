@@ -3324,7 +3324,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "全てのデータベースを同時に閲覧したい場合は、これを無効にします。"
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
