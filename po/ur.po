@@ -2831,7 +2831,7 @@ msgstr "گشت چوکھٹا کی ظاہری شکل کی تخصیص کریں"
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
 msgid "Servers"
-msgstr ""
+msgstr "سرور"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
