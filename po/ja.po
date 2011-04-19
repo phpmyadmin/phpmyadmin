@@ -3107,7 +3107,7 @@ msgstr "メインフレームのカスタマイズ"
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "SQLクエリ"
 
 #: libraries/config/messages.inc.php:212
 msgid "SQL Query box"
