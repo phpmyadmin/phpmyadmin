@@ -6473,7 +6473,7 @@ msgstr ""
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1111
 msgid "Target database"
-msgstr ""
+msgstr "対象先のデータベース"
 
 #: libraries/sql_query_form.lib.php:224
 #, php-format
