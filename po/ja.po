@@ -9450,7 +9450,7 @@ msgstr "積み上げ形式"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "マルチ形式"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
