@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 09:56+0200\n"
+"PO-Revision-Date: 2011-04-19 09:57+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3027,7 +3027,7 @@ msgstr "متن قطعے"
 
 #: libraries/config/messages.inc.php:224
 msgid "Customize text input fields"
-msgstr ""
+msgstr "متن ان پٹ قطعے تخصیص کریں"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
