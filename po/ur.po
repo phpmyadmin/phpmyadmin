@@ -2985,7 +2985,7 @@ msgstr "SQL طلب خانہ میں دکھائے گئے روابط کی تخصی�
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL queries settings"
-msgstr ""
+msgstr "SQL طلب ترتیبات"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL Validator"
