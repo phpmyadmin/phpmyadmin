@@ -2851,7 +2851,7 @@ msgstr "مائیکروسافٹ آفس"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
-msgstr ""
+msgstr "اوپن دستاویز"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
