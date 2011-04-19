@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:30+0200\n"
+"PO-Revision-Date: 2011-04-19 09:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6707,10 +6707,10 @@ msgid "PARTITION definition"
 msgstr "パーティションの定義"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:634
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "%s 個のフィールドを追加する"
+msgstr "%s 個のカラムを追加する"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:628
 #| msgid "You have to add at least one field."
