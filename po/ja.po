@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 04:31+0200\n"
+"PO-Revision-Date: 2011-04-19 04:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3118,10 +3118,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "SQLクエリボックスに表示されるリンクのカスタマイズ"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Server variables and settings"
 msgid "SQL queries settings"
-msgstr "サーバ変数と設定値"
+msgstr "SQLクエリの設定"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
