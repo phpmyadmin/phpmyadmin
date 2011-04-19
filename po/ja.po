@@ -4666,10 +4666,9 @@ msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "圧縮"
+msgstr "圧縮："
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:512
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
