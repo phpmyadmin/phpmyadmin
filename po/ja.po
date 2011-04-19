@@ -9217,7 +9217,7 @@ msgstr "phpMyAdminのホームページ"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
-msgstr ""
+msgstr "寄付"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
