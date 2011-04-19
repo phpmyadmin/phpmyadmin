@@ -2802,7 +2802,7 @@ msgstr "طے شدہ درآمد"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
-msgstr ""
+msgstr "طے شدہ عام درآمد اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
