@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 03:56+0200\n"
+"PO-Revision-Date: 2011-04-19 04:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9154,7 +9154,7 @@ msgstr ""
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
+msgstr "セキュリティで保護された接続を使用していません。全てのデータ（パスワードのように、潜在的な機密情報を含む）が暗号化されずに転送されています！"
 
 #: setup/frames/index.inc.php:60
 #, php-format
