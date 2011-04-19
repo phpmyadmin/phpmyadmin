@@ -2707,7 +2707,7 @@ msgstr "phpMyAdmin کو استعمال کرتے ہوئے محفوظ جڑت کے 
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "SSL جڑت کے لیے کہیں"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
