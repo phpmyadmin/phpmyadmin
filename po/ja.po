@@ -3745,7 +3745,7 @@ msgstr "サーバへの接続方法。確信がなければ[kbd]tcp[/kbd]のま�
 
 #: libraries/config/messages.inc.php:372
 msgid "Connection type"
-msgstr ""
+msgstr "接続方法"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
