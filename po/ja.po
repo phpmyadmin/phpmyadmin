@@ -1652,7 +1652,7 @@ msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d 行削除しました。"
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
