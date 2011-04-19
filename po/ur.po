@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:36+0200\n"
+"PO-Revision-Date: 2011-04-19 08:39+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2678,7 +2678,7 @@ msgstr "فارن کلید پڑتال غیر فعال کریں"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "BLOB کے لیے شش اعشاری نظام استعمال کریں"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
