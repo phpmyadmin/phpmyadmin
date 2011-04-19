@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:35+0200\n"
+"PO-Revision-Date: 2011-04-19 06:43+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6968,10 +6968,9 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:163 prefs_manage.php:274
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "一般的なリレーション機能"
+msgstr "詳細設定"
 
 #: main.php:180
 msgid "Protocol version"
