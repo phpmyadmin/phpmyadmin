@@ -2599,7 +2599,7 @@ msgstr "サーバの一覧をドロップダウンの代わりにリストで表
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "サーバをリストで表示する"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
