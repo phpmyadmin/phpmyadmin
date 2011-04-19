@@ -9803,7 +9803,6 @@ msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:385
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
