@@ -9512,7 +9512,7 @@ msgstr ""
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "再描画"
 
 #: tbl_create.php:56
 #, php-format
