@@ -1486,7 +1486,6 @@ msgstr "木"
 
 #. l10n: Minimal week day name
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "金"
