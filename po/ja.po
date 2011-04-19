@@ -3709,7 +3709,7 @@ msgstr "使用する認証方法"
 
 #: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr ""
+msgstr "認証タイプ"
 
 #: libraries/config/messages.inc.php:365
 msgid ""
