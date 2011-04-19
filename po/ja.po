@@ -9796,7 +9796,7 @@ msgstr "インデックスを追加する"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "ユニークインデックスを追加する"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
