@@ -5749,7 +5749,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
-msgstr ""
+msgstr "設定"
 
 #: libraries/import.lib.php:1169
 msgid "Go to table"
