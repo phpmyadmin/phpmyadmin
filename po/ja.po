@@ -6416,10 +6416,9 @@ msgid "Unknown language: %1$s."
 msgstr "言語ファイルが登録されていません: %1$s"
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "サーバ"
+msgstr "カレントサーバ"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
