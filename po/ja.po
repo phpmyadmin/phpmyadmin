@@ -7979,7 +7979,7 @@ msgstr "このサーバのレプリケーションプロセスに、マスタが
 
 #: server_replication.php:182 server_status.php:407
 msgid "Show master status"
-msgstr ""
+msgstr "マスタステータスの表示"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
