@@ -2910,7 +2910,7 @@ msgstr "توثیق"
 
 #: libraries/config/messages.inc.php:197
 msgid "Authentication settings"
-msgstr ""
+msgstr "توثیق ترتیبات"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
