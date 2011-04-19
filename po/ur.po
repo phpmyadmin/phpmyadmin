@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:19+0200\n"
+"PO-Revision-Date: 2011-04-19 08:20+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2572,7 +2572,7 @@ msgstr "کالم کے اندر CRLF حروف ہٹائیں"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 msgid "Columns terminated by"
-msgstr ""
+msgstr "کالم کا خاتمہ"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
