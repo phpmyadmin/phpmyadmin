@@ -2293,7 +2293,6 @@ msgid "complete inserts"
 msgstr "完全な INSERT 文を作成する"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "長い INSERT 文を作成する"
