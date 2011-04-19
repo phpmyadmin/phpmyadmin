@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:57+0200\n"
+"PO-Revision-Date: 2011-04-19 07:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7012,9 +7012,8 @@ msgid "Contribute"
 msgstr "属性"
 
 #: main.php:232
-#, fuzzy
 msgid "Get support"
-msgstr "エクスポート"
+msgstr "サポート"
 
 #: main.php:233
 #| msgid "No change"
