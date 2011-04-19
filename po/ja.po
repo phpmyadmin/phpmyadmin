@@ -1038,7 +1038,6 @@ msgid "Reloading Privileges"
 msgstr "特権をリロードする"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "選択したユーザを削除する"
