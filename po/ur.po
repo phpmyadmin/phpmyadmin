@@ -2885,7 +2885,7 @@ msgstr "طلب دریچہ"
 
 #: libraries/config/messages.inc.php:192
 msgid "Customize query window options"
-msgstr ""
+msgstr "طلب دریچہ اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
