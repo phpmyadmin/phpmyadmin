@@ -9431,7 +9431,7 @@ msgstr "折れ線グラフ"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "円グラフ"
 
 #: tbl_chart.php:138
 #, fuzzy
