@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 12:28+0200\n"
+"PO-Revision-Date: 2011-04-19 12:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3149,7 +3149,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "INSERT エラーで中断しない"
 
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:249
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
