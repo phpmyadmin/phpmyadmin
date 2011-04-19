@@ -2981,7 +2981,7 @@ msgstr "SQL طلب خانہ"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "SQL طلب خانہ میں دکھائے گئے روابط کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL queries settings"
