@@ -4588,7 +4588,7 @@ msgstr "全ての行をダンプする"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "出力:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, fuzzy, php-format
