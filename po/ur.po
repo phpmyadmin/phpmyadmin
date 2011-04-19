@@ -2626,7 +2626,7 @@ msgstr "سرنامہ کلید"
 #: libraries/config/messages.inc.php:131 libraries/export/odt.php:325
 #: libraries/tbl_properties.inc.php:141
 msgid "MIME type"
-msgstr ""
+msgstr "MIME قسم"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:133 tbl_relation.php:396
