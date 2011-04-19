@@ -4305,7 +4305,7 @@ msgstr "HTTP認証"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "サインオン認証"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
