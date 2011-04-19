@@ -2798,7 +2798,7 @@ msgstr "درآمد"
 
 #: libraries/config/messages.inc.php:168
 msgid "Import defaults"
-msgstr ""
+msgstr "طے شدہ درآمد"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
