@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 12:05+0200\n"
+"PO-Revision-Date: 2011-04-19 12:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2560,10 +2560,9 @@ msgid "Edit in window"
 msgstr "次の行を編集する"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "表示機能"
+msgstr "エラーを表示する"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
