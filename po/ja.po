@@ -3394,7 +3394,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "ログアウト時に全てのクッキーを削除する"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
