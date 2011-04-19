@@ -2703,7 +2703,7 @@ msgstr "برآمد وقت UTC میں"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin کو استعمال کرتے ہوئے محفوظ جڑت کے لیے کہیں"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
