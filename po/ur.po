@@ -2814,7 +2814,7 @@ msgstr "درآمد اور برآمد کے لیے پوشے اور سکڑاؤ اخ
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:175
 msgid "Databases display options"
