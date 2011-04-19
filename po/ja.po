@@ -6143,7 +6143,7 @@ msgstr "説明がありません"
 
 #: libraries/replication_gui.lib.php:53
 msgid "Slave configuration"
-msgstr ""
+msgstr "スレーブの設定"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
