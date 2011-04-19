@@ -4584,10 +4584,9 @@ msgid "Table(s):"
 msgstr "テーブル"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "行"
+msgstr "行:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
