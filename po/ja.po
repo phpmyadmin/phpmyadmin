@@ -9209,7 +9209,7 @@ msgstr "表示する"
 
 #: setup/frames/index.inc.php:216
 msgid "Load"
-msgstr ""
+msgstr "読み込む"
 
 #: setup/frames/index.inc.php:227
 msgid "phpMyAdmin homepage"
