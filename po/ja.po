@@ -6465,7 +6465,7 @@ msgstr "カレントサーバ"
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
 msgid "Remote server"
-msgstr ""
+msgstr "リモートサーバ"
 
 #: libraries/server_synchronize.lib.php:1344
 msgid "Difference"
