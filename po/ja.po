@@ -2501,7 +2501,7 @@ msgstr "CHAR/VARCHAR用テキストエリアの行数"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "文字入力用テキストエリアの行数"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
