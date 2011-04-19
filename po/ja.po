@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 16:28+0200\n"
+"PO-Revision-Date: 2011-04-19 16:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4723,7 +4723,7 @@ msgstr "ファイルは圧縮されていないもの、もしくは、％s で�
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
-msgstr ""
+msgstr "圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例えば、<b>.sql.zip</b>。"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
