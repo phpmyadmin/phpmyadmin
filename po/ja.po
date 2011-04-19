@@ -7983,7 +7983,7 @@ msgstr "マスタステータスの表示"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "接続しているスレーブの表示"
 
 #: server_replication.php:208
 #, php-format
