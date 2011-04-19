@@ -3855,7 +3855,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "使用可能なデータベースを取得するためのSQLコマンド"
 
 #: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
