@@ -1408,7 +1408,7 @@ msgstr "සිකු"
 #. l10n: Minimal week day name
 #: js/messages.php:224
 msgid "Sa"
-msgstr "සෙනසුරාදා"
+msgstr "සෙන"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:226
