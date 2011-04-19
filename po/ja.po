@@ -2719,7 +2719,7 @@ msgstr "データベース名のテンプレート"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
-msgstr ""
+msgstr "サーバ名のテンプレート"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
