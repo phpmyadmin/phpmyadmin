@@ -3622,10 +3622,9 @@ msgid "Query window width (in pixels)"
 msgstr "クエリウィンドウの幅（ピクセルで指定）"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "クエリウィンドウ"
+msgstr "クエリウィンドウの幅"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
