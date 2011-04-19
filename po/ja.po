@@ -3811,7 +3811,7 @@ msgstr "config認証を使用しない場合は空欄のまま"
 
 #: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
-msgstr ""
+msgstr "config認証用のパスワード"
 
 #: libraries/config/messages.inc.php:397
 msgid ""
