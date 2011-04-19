@@ -1190,10 +1190,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "主キーまたはユニークキーを選択してください"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "表示するフィールドを選択してください"
+msgstr "表示するカラムを選択してください"
 
 #: js/messages.php:106
 msgid "Add an option for column "
