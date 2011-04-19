@@ -4283,6 +4283,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"インポートおよびエクスポートの操作に対して[a@http://ja.wikipedia.org/wiki/ZIP_(ファイルフォーマット)]ZIP[/a"
+"]圧縮を有効にする"
 
 #: libraries/config/messages.inc.php:502
 msgid "ZIP"
