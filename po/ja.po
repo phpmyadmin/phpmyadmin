@@ -9018,7 +9018,7 @@ msgstr "設定"
 
 #: server_synchronize.php:1164
 msgid "Socket"
-msgstr ""
+msgstr "ソケット"
 
 #: server_synchronize.php:1210
 msgid ""
