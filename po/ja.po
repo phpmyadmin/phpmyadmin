@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:27+0200\n"
+"PO-Revision-Date: 2011-04-19 06:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4696,10 +4696,9 @@ msgid "Format:"
 msgstr "フォーマット:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "変換オプション"
+msgstr "フォーマット特有のオプション:"
 
 #: libraries/display_export.lib.php:337
 msgid ""
