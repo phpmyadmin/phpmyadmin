@@ -4244,7 +4244,7 @@ msgstr "デフォルトタイトル"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "サーバ選択時のブラウザのウィンドウタイトル"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
