@@ -3737,7 +3737,7 @@ msgstr "MySQLサーバと圧縮プロトコルで接続する"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection"
-msgstr ""
+msgstr "圧縮通信を行う"
 
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
