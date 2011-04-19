@@ -6195,7 +6195,7 @@ msgstr "--report-host=host_name オプションで起動したスレーブだけ
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:192
 msgid "Add slave replication user"
-msgstr ""
+msgstr "スレーブレプリケーションのユーザ追加"
 
 #: libraries/replication_gui.lib.php:256 server_privileges.php:727
 msgid "Any user"
