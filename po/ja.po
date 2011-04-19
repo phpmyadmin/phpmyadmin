@@ -7489,7 +7489,7 @@ msgstr "データベースの統計"
 #: server_databases.php:173 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr ""
+msgstr "マスタレプリケーション"
 
 #: server_databases.php:175 server_replication.php:246
 msgid "Slave replication"
