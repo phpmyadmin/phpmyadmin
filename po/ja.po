@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:01+0200\n"
+"PO-Revision-Date: 2011-04-19 06:02+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1309,7 +1309,7 @@ msgstr "12 月"
 #. l10n: Short month name
 #: js/messages.php:161 libraries/common.lib.php:1568
 msgid "Jan"
-msgstr "1 月','2 月','3 月','4 月','5 月','6 月"
+msgstr "1 月"
 
 #. l10n: Short month name
 #: js/messages.php:163 libraries/common.lib.php:1570
