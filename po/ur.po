@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:18+0200\n"
+"PO-Revision-Date: 2011-04-19 08:19+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2562,7 +2562,7 @@ msgstr "کالم جداجدا ہیں"
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:142
 #: libraries/config/messages.inc.php:144 libraries/export/texytext.php:26
 msgid "Replace NULL by"
-msgstr ""
+msgstr "NULL کو ان سے بدلیں"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
