@@ -6239,10 +6239,10 @@ msgstr "パスワードを生成する"
 #: libraries/schema/Pdf_Relation_Schema.class.php:489
 #: libraries/schema/Svg_Relation_Schema.class.php:369
 #: libraries/schema/Visio_Relation_Schema.class.php:213
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "\"%s\" テーブルは存在しません!"
+msgstr "%s テーブルは存在しません!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:253
 #: libraries/schema/Eps_Relation_Schema.class.php:441
