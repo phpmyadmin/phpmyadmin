@@ -2762,7 +2762,7 @@ msgstr "phpMyAdmin کے ڈویلپر کے لیے ترتیبات"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "تدوین موڈ"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
