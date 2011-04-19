@@ -2689,10 +2689,9 @@ msgid "Maximal length of created query"
 msgstr "تخلیق شدہ طلب کی لمبائی کی حد"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "برآمد"
+msgstr "برآمد قسم"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
