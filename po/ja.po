@@ -1028,10 +1028,9 @@ msgid "Add a New User"
 msgstr "新しいユーザを追加する"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create"
 msgid "Create User"
-msgstr "作成"
+msgstr "ユーザを作成する"
 
 #: js/messages.php:54
 #, fuzzy
