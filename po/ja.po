@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 11:54+0200\n"
+"PO-Revision-Date: 2011-04-19 11:56+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1931,10 +1931,10 @@ msgstr ""
 "セミコロンの抜けがあります。<br />空白のページが表示されれば問題なしです"
 
 #: libraries/common.inc.php:587
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "デフォルトの設定を読み込めませんでした: \"%1$s\""
+msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/common.inc.php:592
 msgid ""
