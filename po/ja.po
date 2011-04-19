@@ -3782,7 +3782,7 @@ msgstr "サーバのホスト名"
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
-msgstr ""
+msgstr "ログアウトURL"
 
 #: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
