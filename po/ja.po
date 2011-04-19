@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 07:48+0200\n"
+"PO-Revision-Date: 2011-04-19 07:49+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4340,10 +4340,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "カスタムカラー"
+msgstr "カスタム"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
