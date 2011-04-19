@@ -9809,10 +9809,10 @@ msgid "None"
 msgstr "なし"
 
 #: tbl_structure.php:398
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "テーブル %s を削除しました"
+msgstr "カラム %s を削除しました"
 
 #: tbl_structure.php:409 tbl_structure.php:484
 #, php-format
