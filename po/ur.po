@@ -2770,7 +2770,7 @@ msgstr "تدوین موڈ کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:162
 msgid "Export defaults"
-msgstr ""
+msgstr "طے شدہ برآمد کریں"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
