@@ -3658,7 +3658,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:352
 msgid "Save directory"
-msgstr ""
+msgstr "保存ディレクトリ"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
