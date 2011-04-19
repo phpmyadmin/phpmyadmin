@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:54+0200\n"
+"PO-Revision-Date: 2011-04-19 08:55+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2806,7 +2806,7 @@ msgstr "طے شدہ عام درآمد اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "درآمد / برآمد"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
