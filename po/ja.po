@@ -3790,7 +3790,7 @@ msgstr "パスワード無しでの接続を試みます"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
-msgstr ""
+msgstr "パスワード無しで接続する"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
