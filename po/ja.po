@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 09:49+0200\n"
+"PO-Revision-Date: 2011-04-19 09:50+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1133,10 +1133,9 @@ msgid "Show query box"
 msgstr "SQL クエリを表示"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "エンジン"
+msgstr "インライン編集"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
