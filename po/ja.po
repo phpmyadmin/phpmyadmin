@@ -3859,7 +3859,7 @@ msgstr "使用可能なデータベースを取得するためのSQLコマンド
 
 #: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES コマンド"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
