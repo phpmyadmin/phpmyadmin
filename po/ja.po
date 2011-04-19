@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 05:36+0200\n"
+"PO-Revision-Date: 2011-04-19 05:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2583,7 +2583,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "バイナリの内容を16進数で表示する"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
