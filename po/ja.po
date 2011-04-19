@@ -4264,7 +4264,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:498 setup/frames/index.inc.php:229
 msgid "Check for latest version"
-msgstr ""
+msgstr "バージョンアップの確認"
 
 #: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
