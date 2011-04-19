@@ -3031,7 +3031,7 @@ msgstr "متن ان پٹ قطعے تخصیص کریں"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! متن"
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
