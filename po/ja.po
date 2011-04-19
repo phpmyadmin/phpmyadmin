@@ -6460,7 +6460,7 @@ msgstr "元にするデータベース"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
 msgid "Current server"
-msgstr ""
+msgstr "カレントサーバ"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
