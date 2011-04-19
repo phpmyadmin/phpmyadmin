@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 09:52+0200\n"
+"PO-Revision-Date: 2011-04-19 09:56+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -345,16 +345,14 @@ msgid "Collation"
 msgstr "照合順序"
 
 #: db_operations.php:556
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"リンクテーブルを処理するための追加機能が無効になっています。理由については%s"
-"こちら%sをご覧ください"
+msgstr "phpMyAdminの設定の保存場所が無効になっています。理由については%sこちら%sをご覧ください。"
 
 #: db_operations.php:589
 #, fuzzy
