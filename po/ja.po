@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 15:01+0200\n"
+"PO-Revision-Date: 2011-04-19 15:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8873,10 +8873,9 @@ msgid "Query type"
 msgstr "クエリ種別"
 
 #: server_status.php:725 server_status.php:726
-#, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show query chart"
-msgstr "SQL クエリを表示"
+msgstr "クエリをグラフで表示"
 
 #: server_status.php:727
 msgid "Note: Generating the query chart can take a long time."
