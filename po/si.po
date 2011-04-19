@@ -1388,7 +1388,7 @@ msgstr "සඳුදා"
 #. l10n: Minimal week day name
 #: js/messages.php:216
 msgid "Tu"
-msgstr "අඟහරු‍වදා"
+msgstr "අඟ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:218
