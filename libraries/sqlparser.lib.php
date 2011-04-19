@@ -1747,11 +1747,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
-	        if ($in_limit) {
+            if ($in_limit) {
                 if ($upper_data == 'OFFSET') {
                     $limit_clause .= $sep;
                 }
-		        $limit_clause .= $arr[$i]['data'];
+                $limit_clause .= $arr[$i]['data'];
                 if ($upper_data == 'LIMIT' || $upper_data == 'OFFSET') {
                     $limit_clause .= $sep;
                 }
@@ -2119,8 +2119,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // of $cfg['SQP']['fmtType'] to make possible a replacement
         // for inline editing
         if ($mode!='query_only') {
-		$str .= '<span class="inner_sql">';
-	}
+            $str .= '<span class="inner_sql">';
+        }
         $close_docu_link = false;
         $indent                                     = 0;
         $bracketlevel                               = 0;
@@ -2296,20 +2296,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                     break;
                 case 'punct_bracket_close_round':
-			// only close bracket level when it was opened before
-			if ($bracketlevel > 0) {
-				$bracketlevel--;
-				if ($infunction == TRUE) {
-					$functionlevel--;
-					$after     .= ' ';
-					$before    .= ' ';
-				} else {
-					$indent--;
-					$before    .= ($mode != 'query_only' ? '</div>' : ' ');
-				}
-				$infunction    = ($functionlevel > 0) ? TRUE : FALSE;
-			}
-			break;
+                    // only close bracket level when it was opened before
+                    if ($bracketlevel > 0) {
+                        $bracketlevel--;
+                        if ($infunction == TRUE) {
+                            $functionlevel--;
+                            $after     .= ' ';
+                            $before    .= ' ';
+                        } else {
+                            $indent--;
+                            $before    .= ($mode != 'query_only' ? '</div>' : ' ');
+                        }
+                        $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
+                    }
+                    break;
                 case 'alpha_columnType':
                     if ($docu) {
                         switch ($arr[$i]['data']) {
@@ -2612,20 +2612,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
             $str .= $after;
         } // end for
- 	// close unclosed indent levels
-	while ($indent > 0) {
-		$indent--;
-		$str .= ($mode != 'query_only' ? '</div>' : ' ');
-	}
+        // close unclosed indent levels
+        while ($indent > 0) {
+            $indent--;
+            $str .= ($mode != 'query_only' ? '</div>' : ' ');
+        }
        /* End possibly unclosed documentation link */
         if ($close_docu_link) {
             $str .= '</a>';
             $close_docu_link = false;
         }
         if ($mode!='query_only') {
-		// close inner_sql span
-	        $str .= '</span>';
-	}
+            // close inner_sql span
+                $str .= '</span>';
+        }
         if ($mode=='color') {
             // close syntax span
             $str .= '</span>';

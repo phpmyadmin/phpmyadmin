@@ -1114,7 +1114,7 @@ function changeMIMEType(db, table, reference, mime_type)
 $(document).ready(function(){
     var oldText,db,table,token,sql_query;
     oldText=$(".inner_sql").html();
-    $("#inline_edit").click(function(){
+    $("#inline_edit").live('click',function(){
         db=$("input[name='db']").val();
         table=$("input[name='table']").val();
         token=$("input[name='token']").val();

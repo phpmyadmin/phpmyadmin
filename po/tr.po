@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-04 17:07+0200\n"
+"PO-Revision-Date: 2011-04-17 19:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2824,11 +2824,11 @@ msgstr "Veritabanlarının görüntü seçenekleri"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr "Rehber çerçevesi"
+msgstr "Rehber çerçeve"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr "Rehber çerçevesinin görünümünü özelleştirir"
+msgstr "Rehber çerçevenin görünümünü özelleştirir"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -3186,7 +3186,7 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
-"Sadece hafif sürümde; veritabanları ağaç içinde görüntülenir (aşağıda "
+"Sadece sade sürümde; veritabanları ağaç içinde görüntülenir (aşağıda "
 "tanımlanan ayıraçlar tarafından belirlenir)"
 
 #: libraries/config/messages.inc.php:273
@@ -3200,7 +3200,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
-msgstr "Hafif sürümü kullan"
+msgstr "Sade sürümü kullan"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
@@ -3227,8 +3227,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Bağlantılı sayfayı ana pencerede ([kbd]ana[/kbd]) veya yeni bir tanede ([kbd]"
-"yeni[/kbd]) açar"
+"Bağlantılı sayfayı ana pencerede ([kbd]main[/kbd]) veya yeni bir tanede "
+"([kbd]new[/kbd]) açar"
 
 #: libraries/config/messages.inc.php:282
 msgid "Logo link target"
@@ -3248,7 +3248,7 @@ msgstr "Az grafiksel yoğunlukta sekmeler kullanılır"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr "Hafif sekmeler"
+msgstr "Sade sekmeler"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
@@ -7029,7 +7029,7 @@ msgid ""
 "automatically."
 msgstr ""
 "Javascript desteği eksik ya da tarayıcınızda etkisizleştirilmiş, bazı "
-"phpMyAdmin işevselliği eksik olacaktır. Örneğin rehber çerçeveyi otomatik "
+"phpMyAdmin işlevselliği eksik olacaktır. Örneğin rehber çerçeveyi otomatik "
 "olarak yenilemeyecek."
 
 #: main.php:343

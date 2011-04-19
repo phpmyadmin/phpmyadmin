@@ -100,6 +100,7 @@ a:hover {
     border-radius:5px;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 
@@ -118,9 +119,8 @@ th {
     background:         #f3f3f3;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
-
-
 }
 
 a img {
@@ -191,12 +191,14 @@ input[type=submit]{
 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 
 input[type=submit]:hover{	position: relative;
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
     cursor:pointer;
 }
@@ -289,6 +291,15 @@ select{
     background:url(./themes/pmahomme/img/input_bg.gif)
 }
 
+select[multiple] {
+    background: #fff;
+    background: -webkit-gradient(linear, center top, center bottom, from(#fff), color-stop(0.8, #f1f1f1), to(#fbfbfb));
+    background: -webkit-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
+    background: -moz-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
+    /* none for Opera 11.10 as <option>s always have solid white background */
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2');
+}
+
 /******************************************************************************/
 /* classes */
 div.tools {
@@ -340,12 +351,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
+    filter: none;
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
+    filter: none;
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -1310,11 +1323,13 @@ div#querywindowcontainer fieldset {
     */
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
 }
 #sectionlinks a:hover, #statuslinks a:hover{
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
 }
 
@@ -1747,12 +1762,14 @@ table#serverconnection_trg_local  {
 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
 	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
     cursor: pointer;
 }
 #buttonGo:hover{
 	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
 	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
 }
 
@@ -1929,21 +1946,21 @@ iframe.IE_hack {
     -moz-border-radius:5px 5px 0 0;
     -webkit-border-radius:5px 5px 0 0;
     border-radius:5px 5px 0 0;
-    background:#d5d5d5;
-    color:#fff;
+    background:#f2f2f2;
+    color:#555;
+    text-shadow: 0 1px 0 #fff;
 }
 
 .config-form ul.tabs li a:hover,
-.config-form ul.tabs li a:active,
-.config-form ul.tabs li a.active {
-    /*margin:           0;*/
-    /*padding:          0.1em 0.6em 0.2em;*/
+.config-form ul.tabs li a:active {
+    background:#e5e5e5;
 }
 
 .config-form ul.tabs li a.active {
     background-color: #fff;
     margin-top:1px;
     color:#000;
+    text-shadow: none;
 }
 
 .config-form fieldset {
@@ -2018,6 +2035,7 @@ iframe.IE_hack {
 
 .config-form fieldset th, .config-form fieldset td {
     border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
+    border-right: none;
 }
 
 fieldset .group-header th {

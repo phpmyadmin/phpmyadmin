@@ -192,18 +192,36 @@ div#left_tableList li {
     white-space:        nowrap;
 }
 
-#newtable{border:1px solid #aaa;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:20px;margin-top:15px !important;padding:1px !important;
-
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
-    
+#newtable {
+    margin-top: 15px !important;
 }
-#newtable:hover{
+
+#newtable a {
+    display: block;
+    padding: 1px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    border: 1px solid #aaa;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#newtable li:hover {
+    background: transparent !important;
+}
+
+#newtable a:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd)) !important;
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd) !important;
+    background: -o-linear-gradient(top,  #cccccc,  #dddddd) !important;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd') !important;
-	cursor:pointer !important;
+}
+
+#newtable li a:hover {
+    text-decoration: none;
 }
 
 select{

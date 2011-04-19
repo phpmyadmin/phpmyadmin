@@ -1133,10 +1133,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             if (! empty($GLOBALS['validatequery'])) {
                 $explain_params['validatequery'] = 1;
             }
-
+            $is_select = false;
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                 $_message = __('Explain SQL');
+                $is_select = true;
             } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = substr($sql_query, 8);
                 $_message = __('Skip Explain SQL');
@@ -1254,13 +1255,13 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
         // in the tools div, only display the Inline link when not in ajax
         // mode because 1) it currently does not work and 2) we would
-        // have two similar mechanisms on the page for the same goal
-        if ($GLOBALS['is_ajax_request'] === false) {
+        // have two similar mechanisms on the page for the same goal       
+        if ($is_select || $GLOBALS['is_ajax_request'] === false) {
         // see in js/functions.js the jQuery code attached to id inline_edit
         // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
-                "$('.tools').append('[<a href=\"#\" title=\"" .
+                "$('.tools form').after('[<a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
                 "\" id=\"inline_edit\">" .
                 PMA_escapeJsString(__('Inline')) .

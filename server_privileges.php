@@ -1287,7 +1287,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = TRUE;
-            
+
             if($GLOBALS['is_ajax_request'] != true) {
                 PMA_reloadNavigation();
             }
@@ -2127,7 +2127,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
-    
+
     // Add a new user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
@@ -2261,7 +2261,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 $current_privileges[] = $row;
                 $row = PMA_DBI_fetch_assoc($res);
             }
-            echo '    <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            echo '    <tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                . '        <td';
             if (count($current_privileges) > 1) {
                 echo ' rowspan="' . count($current_privileges) . '"';
