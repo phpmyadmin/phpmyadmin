@@ -3841,7 +3841,7 @@ msgstr "MySQLサーバで開いているポート。デフォルトにしたい�
 
 #: libraries/config/messages.inc.php:402
 msgid "Server port"
-msgstr ""
+msgstr "サーバのポート"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
