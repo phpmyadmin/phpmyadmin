@@ -2835,7 +2835,7 @@ msgstr "سرور"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "سرور دکھانے کے اختیارات"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
