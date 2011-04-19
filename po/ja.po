@@ -9379,7 +9379,7 @@ msgstr "%s 行づつ挿入を行う"
 #: tbl_chart.php:56
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "グラフが正常に作成されました"
+msgstr "グラフが正常に作成されました。"
 
 #: tbl_chart.php:59
 #, fuzzy
