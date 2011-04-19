@@ -9024,7 +9024,7 @@ msgstr "ソケット"
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
-msgstr ""
+msgstr "対象先のデータベースが完全に元のデータベースと同期されます。元のデータベースは変更されません。"
 
 #: server_variables.php:39
 msgid "Server variables and settings"
