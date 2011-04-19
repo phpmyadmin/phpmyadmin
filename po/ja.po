@@ -9193,7 +9193,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
-msgstr ""
+msgstr "- 無し -"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
