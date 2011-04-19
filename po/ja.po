@@ -7746,7 +7746,6 @@ msgid "Do not change the password"
 msgstr "パスワードは変更しない"
 
 #: server_privileges.php:846 server_privileges.php:2312
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "ユーザが存在しません"
