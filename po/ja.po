@@ -4276,7 +4276,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "バージョンの確認"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
