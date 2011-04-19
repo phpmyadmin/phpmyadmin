@@ -4346,7 +4346,6 @@ msgstr "カスタム"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database export options"
 msgstr "データベースエクスポートオプション"
