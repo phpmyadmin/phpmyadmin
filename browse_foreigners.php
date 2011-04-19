@@ -85,7 +85,7 @@ if (is_array($foreignData['disp_row'])) {
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
 <?php
-// includes everything asked for by libraries/common.inc.php 
+// includes everything asked for by libraries/common.inc.php
 require_once './libraries/header_scripts.inc.php';
 ?>
     <script type="text/javascript">
@@ -95,7 +95,7 @@ require_once './libraries/header_scripts.inc.php';
         var $inline = window.opener.jQuery('.browse_foreign_clicked');
         if ($inline.length != 0) {
             $inline.removeClass('browse_foreign_clicked')
-                // puts new value in the previous element which is 
+                // puts new value in the previous element which is
                 // a span with class curr_value
                 .prev().text(key);
             self.close();
@@ -241,7 +241,7 @@ if (is_array($foreignData['disp_row'])) {
         }
 
         ?>
-    <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td nowrap="nowrap">
         <?php
         echo ($key_ordered_current_equals_data ? '<strong>' : '')
