@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:52+0200\n"
+"PO-Revision-Date: 2011-04-19 08:53+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2774,7 +2774,7 @@ msgstr "طے شدہ برآمد کریں"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr ""
+msgstr "طے شدہ برآمد اختیارات کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
