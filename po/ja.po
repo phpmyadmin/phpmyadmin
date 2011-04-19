@@ -9434,10 +9434,9 @@ msgid "Radar"
 msgstr "レーダグラフ"
 
 #: tbl_chart.php:138
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PiB"
+msgstr "円グラフ"
 
 #: tbl_chart.php:144
 #, fuzzy
