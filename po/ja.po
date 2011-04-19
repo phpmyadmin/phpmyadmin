@@ -4006,7 +4006,7 @@ msgstr "このサーバのわかりやすい説明。代わりにホスト名を
 
 #: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "このサーバーの詳細な名前"
 
 #: libraries/config/messages.inc.php:438
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
