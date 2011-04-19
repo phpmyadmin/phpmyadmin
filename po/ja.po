@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 06:46+0200\n"
+"PO-Revision-Date: 2011-04-19 06:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6491,10 +6491,9 @@ msgid "Clear"
 msgstr "クリア"
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "カラム名"
+msgstr "カラム"
 
 #: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
