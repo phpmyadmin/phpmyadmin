@@ -9765,10 +9765,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "フィールドを選択してください(最低1つ):"
+msgstr "カラムを選択してください(最低1つ):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
