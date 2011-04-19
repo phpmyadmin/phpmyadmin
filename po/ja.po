@@ -4297,7 +4297,7 @@ msgstr "Config認証"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr ""
+msgstr "クッキー認証"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
