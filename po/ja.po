@@ -6165,7 +6165,7 @@ msgstr "ユーザ名"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Master status"
-msgstr ""
+msgstr "マスターステータス"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
