@@ -4683,10 +4683,9 @@ msgid "zipped"
 msgstr "zip 形式"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip 形式\""
+msgstr "gzip 形式"
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
