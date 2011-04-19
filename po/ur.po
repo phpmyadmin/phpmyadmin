@@ -2843,7 +2843,7 @@ msgstr "جداول دکھانے کے اختیارات"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "مرکزی چوکھٹا"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
