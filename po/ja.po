@@ -1103,7 +1103,6 @@ msgid "Table must have at least one column"
 msgstr "テーブルには最低ひとつのカラムが必要です"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "テーブルを作成"
