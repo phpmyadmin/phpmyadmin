@@ -4060,7 +4060,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:448
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "phpinfo() リンクの表示する"
 
 #: libraries/config/messages.inc.php:449
 msgid "Show detailed MySQL server information"
