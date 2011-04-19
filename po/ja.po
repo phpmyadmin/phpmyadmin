@@ -9225,7 +9225,7 @@ msgstr "サーバの編集"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr ""
+msgstr "新しいサーバの追加"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
