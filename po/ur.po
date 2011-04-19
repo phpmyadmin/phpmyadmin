@@ -3055,7 +3055,7 @@ msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "iconv کے لیے اضافی پیرا میٹر"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
