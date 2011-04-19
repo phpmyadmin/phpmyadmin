@@ -3760,7 +3760,7 @@ msgstr "正規表現(PCRE)で一致するデータベースを非表示にしま
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
-msgstr ""
+msgstr "非表示にするデータベース"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
