@@ -3786,7 +3786,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
-msgstr ""
+msgstr "パスワード無しでの接続を試みます"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
