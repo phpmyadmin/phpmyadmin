@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 08:15+0200\n"
+"PO-Revision-Date: 2011-04-19 08:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9790,10 +9790,9 @@ msgid "Add primary key"
 msgstr ""
 
 #: tbl_structure.php:168 tbl_structure.php:169
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
-msgstr "新規フィールドを追加する"
+msgstr "インデックスを追加する"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
