@@ -3756,7 +3756,7 @@ msgstr "使用するPHP拡張"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "正規表現(PCRE)で一致するデータベースを非表示にします"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
