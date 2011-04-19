@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 12:31+0200\n"
+"PO-Revision-Date: 2011-04-19 12:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2767,10 +2767,9 @@ msgid "Maximal length of created query"
 msgstr "作成するクエリの最大長"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "エクスポート"
+msgstr "エクスポート形式"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
