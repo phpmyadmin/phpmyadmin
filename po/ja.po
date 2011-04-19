@@ -4624,10 +4624,9 @@ msgid "Save output to a file"
 msgstr "ファイルに保存する"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "ファイル名のテンプレート"
+msgstr "ファイル名のテンプレート:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
