@@ -3098,7 +3098,7 @@ msgstr "インポートデフォルトのカスタマイズ"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "ナビゲーションフレームのカスタマイズ"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
