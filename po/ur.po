@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-19 09:12+0200\n"
+"PO-Revision-Date: 2011-04-19 09:14+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -2872,6 +2872,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"براؤزر عنوان بار متن  لکھیں۔ حوالہ کے "
+"لیے[a@Documentation.html#cfg_TitleTable]documentation[/a] خاص قدریں حاصل "
+"کرنے کے لیے میجک سٹرنگ۔"
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
