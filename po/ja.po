@@ -8970,7 +8970,7 @@ msgstr "インデックスを適用する"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Update row(s)"
-msgstr ""
+msgstr "行の更新"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
