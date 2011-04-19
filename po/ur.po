@@ -2766,7 +2766,7 @@ msgstr "تدوین موڈ"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr ""
+msgstr "تدوین موڈ کی تخصیص کریں"
 
 #: libraries/config/messages.inc.php:162
 msgid "Export defaults"
