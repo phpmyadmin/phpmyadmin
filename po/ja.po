@@ -8974,7 +8974,7 @@ msgstr "行の更新"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr ""
+msgstr "行の挿入"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
