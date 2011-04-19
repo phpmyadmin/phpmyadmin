@@ -2750,7 +2750,7 @@ msgstr "طے شدہ اختیارات کی تخصیص کریں"
 #: libraries/config/user_preferences.forms.php:213 libraries/export/csv.php:16
 #: libraries/import/csv.php:21
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
