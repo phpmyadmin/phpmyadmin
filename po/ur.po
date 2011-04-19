@@ -2779,7 +2779,7 @@ msgstr "طے شدہ برآمد اختیارات کی تخصیص کریں"
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "خصوصیات"
 
 #: libraries/config/messages.inc.php:165
 #, fuzzy
