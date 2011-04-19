@@ -9427,7 +9427,7 @@ msgstr "正確な数字とは限りません。FAQ 3.11 をご覧ください"
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "幅"
 
 #: tbl_chart.php:94
 msgid "Height"
