@@ -3024,9 +3024,8 @@ msgid "Customize query window options"
 msgstr ""
 
 #: libraries/config/messages.inc.php:193
-#, fuzzy
 msgid "Security"
-msgstr "[8. セキュリティ]"
+msgstr "セキュリティ"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
