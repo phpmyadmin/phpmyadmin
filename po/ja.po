@@ -3654,7 +3654,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "エクスポートをサーバ上に保存できるディレクトリ"
 
 #: libraries/config/messages.inc.php:352
 msgid "Save directory"
