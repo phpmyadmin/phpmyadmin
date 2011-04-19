@@ -2965,7 +2965,7 @@ msgstr "ナビゲーションフレーム"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "ナビゲーションフレームの概観をカスタマイズします"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
