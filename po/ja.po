@@ -3752,7 +3752,7 @@ msgstr "mysqliがサポートされているなら、そちらを使うべきで
 
 #: libraries/config/messages.inc.php:383
 msgid "PHP extension to use"
-msgstr ""
+msgstr "使用するPHP拡張"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
