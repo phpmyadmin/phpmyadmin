@@ -1389,7 +1389,7 @@ msgstr "水"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "木"
 
 #: js/messages.php:191
 #, fuzzy
