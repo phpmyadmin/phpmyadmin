@@ -3006,7 +3006,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:219
 msgid "Startup"
-msgstr ""
+msgstr "ابتدائیہ"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
