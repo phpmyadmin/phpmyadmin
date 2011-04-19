@@ -4701,7 +4701,7 @@ msgstr "ファイルに保存する"
 #: libraries/export/codegen.php:37
 #| msgid "Format"
 msgid "Format:"
-msgstr "フォーマット："
+msgstr "フォーマット:"
 
 #: libraries/display_export.lib.php:336
 #, fuzzy
