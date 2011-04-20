@@ -7216,10 +7216,9 @@ msgid "Import from selected page"
 msgstr "選択したページからインポートする"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "倍率にあわせたエクスポート/インポート"
+msgstr "選択したページへエクスポートする"
 
 #: pmd_pdf.php:102
 #, fuzzy
