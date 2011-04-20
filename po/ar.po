@@ -112,7 +112,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-" الملف غير متوفر على هذا النظام, من فضلك قم بزيارة هذا الموقع لمزيد من "
+"الملف غير متوفر على هذا النظام, من فضلك قم بزيارة هذا الموقع لمزيد من "
 "المعلوماتwww.phpmyadmin.net"
 
 #: db_create.php:58
