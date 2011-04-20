@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 03:51+0200\n"
+"PO-Revision-Date: 2011-04-20 03:52+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3248,7 +3248,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "データベースをツリー形式で表示する"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
