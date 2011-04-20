@@ -5359,10 +5359,9 @@ msgid "Columns enclosed with:"
 msgstr "カラム囲み記号"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "フィールドのエスケープ記号"
+msgstr "カラムのエスケープ記号"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #, fuzzy
