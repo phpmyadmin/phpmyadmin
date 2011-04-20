@@ -301,26 +301,42 @@ function validateConnectionParams()
     return form_is_ok;
 }
 
+/**
+ * Handles the dynamic display of form fields related to a server selector
+ */
+
+function hideOrDisplayServerFields($server_selector, selected_option)
+{
+    $tbody = $server_selector.closest('tbody');
+    if (selected_option == 'cur') {
+        $tbody.children('.current-server').css('display', '');
+        $tbody.children('.remote-server').css('display', 'none');
+    } else if (selected_option == 'rmt') {
+        $tbody.children('.current-server').css('display', 'none');
+        $tbody.children('.remote-server').css('display', '');
+    } else {
+        $tbody.children('.current-server').css('display', 'none');
+        $tbody.children('.remote-server').css('display', '');
+        var parts = selected_option.split('||||');
+        $tbody.find('.server-host').val(parts[0]);
+        $tbody.find('.server-port').val(parts[1]);
+        $tbody.find('.server-socket').val(parts[2]);
+        $tbody.find('.server-user').val(parts[3]);
+        $tbody.find('.server-pass').val('');
+        $tbody.find('.server-db').val(parts[4])
+    }
+}
+
 $(document).ready(function() {
     $('.server_selector').change(function(evt) {
-        var server = $(evt.target).val();
-        if (server == 'cur') {
-            $(this).closest('tbody').children('.current-server').css('display', '');
-            $(this).closest('tbody').children('.remote-server').css('display', 'none');
-        } else if (server == 'rmt') {
-            $(this).closest('tbody').children('.current-server').css('display', 'none');
-            $(this).closest('tbody').children('.remote-server').css('display', '');
-        } else {
-            $(this).closest('tbody').children('.current-server').css('display', 'none');
-            $(this).closest('tbody').children('.remote-server').css('display', '');
-            var parts = server.split('||||');
-            $(this).closest('tbody').find('.server-host').val(parts[0]);
-            $(this).closest('tbody').find('.server-port').val(parts[1]);
-            $(this).closest('tbody').find('.server-socket').val(parts[2]);
-            $(this).closest('tbody').find('.server-user').val(parts[3]);
-            $(this).closest('tbody').find('.server-pass').val('');
-            $(this).closest('tbody').find('.server-db').val(parts[4])
-        }
+        var selected_option = $(evt.target).val();
+        hideOrDisplayServerFields($(evt.target), selected_option);
+    });
+
+    // initial display of the selectors
+    $('.server_selector').each(function() {
+        var selected_option = $(this).val();
+        hideOrDisplayServerFields($(this), selected_option);
     });
 
     $('.struct_img').hover( 

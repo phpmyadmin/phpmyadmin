@@ -1104,21 +1104,39 @@ if (isset($_REQUEST['synchronize_db'])) {
     $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
         'ASC', 0, true);
 
+    if ($GLOBALS['cfg']['AllowArbitraryServer'] === false) {
+        $possibly_disabled = ' disabled="disabled"';
+    } else {
+        $possibly_disabled = '';
+    }
+
     foreach ($cons as $type) {
         if ('src' == $type) {
             $database_header = __('Source database');
         } else {
             $database_header = __('Target database');
         }
+
+        $database_header .= PMA_showHint(PMA_sanitize(sprintf('%sAllowArbitraryServer%s', '[a@./Documentation.html#AllowArbitraryServer@_blank]', '[/a]')));
 ?>
       <table id="serverconnection_<?php echo $type; ?>_remote" class="data">
       <caption class="tblHeaders"><?php echo $database_header; ?></caption>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
 	     <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
-	      <option value="rmt"><?php echo __('Enter manually'); ?></option>
-	      <option value="cur"><?php echo __('Current connection'); ?></option>
 <?php
+        if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+            $preselected_option = 'rmt';
+            echo '<option value="rmt" selected="selected">' . __('Enter manually') . '</option>';
+        } else {
+            $preselected_option = 'cur';
+        }
+        echo '<option value="cur"';
+        if ('cur' == $preselected_option) {
+            echo ' selected="selected"';
+        }
+        echo '>' .  __('Current connection') . '</option>';
+
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
             if (empty($tmp_server['host'])) {
                 continue;
@@ -1145,8 +1163,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             $value .= $tmp_server['user'];
             $value .= '||||';
             $value .= $tmp_server['only_db'];
-            echo '<option value="' . $value . '">'
-                . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>' . "\n";
+            echo '<option value="' . $value . '" >'
+                . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>';
         } // end foreach
 ?>
 	     </select>
@@ -1154,27 +1172,27 @@ if (isset($_REQUEST['synchronize_db'])) {
       </tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Server'); ?></td>
-	    <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_disabled; ?>/></td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('Port'); ?></td>
-	    <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" value="3306" maxlength="5" size="5" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_disabled; ?> value="3306" maxlength="5" size="5" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Socket'); ?></td>
-	    <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_disabled; ?>/></td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('User name'); ?></td>
-	    <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" <?php echo $possibly_disabled; ?>/></td>
 	</tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Password'); ?></td>
-	    <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
+        <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" <?php echo $possibly_disabled; ?>/> </td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('Database'); ?></td>
-	    <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" <?php echo $possibly_disabled; ?>/></td>
 	</tr>
 	<tr class="even toggler current-server" style="display: none;">
 	    <td><?php echo __('Database'); ?></td>
