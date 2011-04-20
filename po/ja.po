@@ -7146,10 +7146,9 @@ msgstr "エクスポート"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "行/クエリ"
+msgstr "サブクエリ"
 
 #: pmd_general.php:480 pmd_general.php:576
 #, fuzzy
