@@ -3260,7 +3260,7 @@ msgstr "軽快バージョンを使用する"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "テーブルツリーの最大の深さ"
 
 #: libraries/config/messages.inc.php:277
 msgid "String that separates tables into different tree levels"
