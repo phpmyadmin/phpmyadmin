@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 08:34+0200\n"
+"PO-Revision-Date: 2011-04-20 09:21+0200\n"
 "Last-Translator:  <u4504712@anu.edu.au>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -6867,7 +6867,7 @@ msgstr "المزايا العامّة للرابط"
 
 #: main.php:180
 msgid "Protocol version"
-msgstr ""
+msgstr "نسخة البروتوكول"
 
 #: main.php:182 server_privileges.php:1478 server_privileges.php:1632
 #: server_privileges.php:1756 server_privileges.php:2175
