@@ -1899,7 +1899,7 @@ msgstr "クエリの結果"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "グラフ用のデータが見つかりません。"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
