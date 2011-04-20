@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:25+0200\n"
+"PO-Revision-Date: 2011-04-20 04:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6383,10 +6383,9 @@ msgid "Synchronize"
 msgstr "同期"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "一般的なリレーション機能"
+msgstr "設定"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1109
 msgid "Source database"
