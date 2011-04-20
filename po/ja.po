@@ -3268,7 +3268,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
-msgstr ""
+msgstr "テーブルツリーの区切り"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
