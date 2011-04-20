@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:08+0200\n"
+"PO-Revision-Date: 2011-04-20 04:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3388,14 +3388,11 @@ msgid "Maximum databases"
 msgstr "データベースの最大数"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr ""
-"結果セットの表示行数。結果セットの行数の方が多い場合は「前（Previous）／次"
-"（Next）」のリンクが表示されます。"
+msgstr "結果セットの表示行数。結果セットの行数の方が多い場合は「前（Previous）／次（Next）」のリンクが表示されます。"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of rows to display"
