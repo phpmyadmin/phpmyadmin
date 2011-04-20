@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:38+0200\n"
+"PO-Revision-Date: 2011-04-20 04:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6794,7 +6794,6 @@ msgstr ""
 "のようなURLの先頭部分です。2 つ目と3 つ目のオプションには幅と高さをピクセル単位で指定します"
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6804,9 +6803,8 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"リンクを表示します。フィールドにはファイル名を入れてください。1 つ目のオプ"
-"ションは \"http://domain.com/\" のような URL の先頭部分、2 つ目のオプションは"
-"リンクのタイトルです"
+"リンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプションは \"http://www.example.com/\" のような URL "
+"の先頭部分、2 つ目のオプションはリンクのタイトルです"
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
