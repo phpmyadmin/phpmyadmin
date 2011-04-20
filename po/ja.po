@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:16+0200\n"
+"PO-Revision-Date: 2011-04-20 04:17+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5354,10 +5354,9 @@ msgid "Columns separated with:"
 msgstr "カラムの区切り記号"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "フィールド囲み記号"
+msgstr "カラム囲み記号"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
