@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:42+0200\n"
+"PO-Revision-Date: 2011-04-20 04:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7185,7 +7185,6 @@ msgid "To select relation, click :"
 msgstr "リレーションを選択します:"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -7195,9 +7194,8 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"表示するフィールドはピンク色で表示されます。表示非表示を切り替える場合は「表"
-"示するフィールドを選択する」というアイコンをクリックしてから適切なフィールド"
-"名をクリックください"
+"表示するカラムはピンク色で表示されます。表示非表示を切り替える場合は「表示するカラムを選択する」というアイコンをクリックしてから適切なカラム名をクリック"
+"ください。"
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
