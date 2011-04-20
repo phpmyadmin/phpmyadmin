@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 08:23+0200\n"
+"PO-Revision-Date: 2011-04-20 08:33+0200\n"
 "Last-Translator:  <u4504712@anu.edu.au>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -290,10 +290,9 @@ msgid "Database %s has been dropped."
 msgstr "قاعدة بيانات %s محذوفه."
 
 #: db_operations.php:450
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
-msgstr "إنسخ قاعدة البيانات إلى"
+msgstr "إزاله قاعدة البيانات"
 
 #: db_operations.php:478
 msgid "Copy database to"
