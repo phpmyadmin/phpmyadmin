@@ -4710,7 +4710,7 @@ msgstr "インポートするファイル:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "ファイルは圧縮されていないもの、もしくは、％s で圧縮されているもの。"
+msgstr "ファイルは圧縮されていないもの、もしくは、%s で圧縮されているもの。"
 
 #: libraries/display_import.lib.php:158
 msgid ""
