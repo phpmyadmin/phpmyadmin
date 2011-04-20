@@ -107,7 +107,7 @@ msgid "Failed to open remote URL"
 msgstr "فشل فتح عنوان الموقع عن بعد"
 
 #: changelog.php:32 license.php:28
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
