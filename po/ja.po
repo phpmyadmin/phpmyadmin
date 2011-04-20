@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:40+0200\n"
+"PO-Revision-Date: 2011-04-20 04:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6848,10 +6848,9 @@ msgid ""
 msgstr "環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするには、%sphpMyAdminの設定保存場所%sが必要です。"
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
-msgstr "デフォルトの設定を読み込めませんでした: \"%1$s\""
+msgstr "設定が保存できません"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
