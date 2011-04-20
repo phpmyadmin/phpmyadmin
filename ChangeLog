@@ -150,6 +150,7 @@
 - rfe #3196075, patch #3212068 [interface] Add links to variables documentation.
 - bug #3208723 [import] Fix import of utf-8 XML files.
 - bug #3039384 [auth] Force signon auth on signon URL change.
+- bug #3168733 [core] Synchronization does not honor AllowArbitraryServer
 
 3.3.11.0 (not yet released)
 
