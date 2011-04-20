@@ -7211,10 +7211,9 @@ msgid "Page"
 msgstr "ページ"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "インポートファイル"
+msgstr "選択したページからインポートする"
 
 #: pmd_pdf.php:100
 #, fuzzy
