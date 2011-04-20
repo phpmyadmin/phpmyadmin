@@ -5403,10 +5403,9 @@ msgid "Table structure for table"
 msgstr "テーブルの構造"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "テーブル __TABLE__ の内容"
+msgstr "テーブル @TABLE@ の内容"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
