@@ -5364,7 +5364,6 @@ msgid "Columns escaped with:"
 msgstr "カラムのエスケープ記号"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "行の終端記号"
