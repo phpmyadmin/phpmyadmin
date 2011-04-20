@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:36+0200\n"
+"PO-Revision-Date: 2011-04-20 04:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6781,7 +6781,6 @@ msgstr ""
 "カラムの内容をそのまま、htmlspecialchars()を通さずに表示します。この場合、カラムには正しい HTML が含まれているものと仮定します"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6791,9 +6790,8 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"画像とリンクを表示します。フィールドにはファイル名を入れてください。1 つ目の"
-"オプションは \"http://domain.com/\" のようなURLの先頭部分です。2 つ目と3 つ目"
-"のオプションには幅と高さをピクセル単位で指定します"
+"画像とリンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプションは \"http://www.example.com/\" "
+"のようなURLの先頭部分です。2 つ目と3 つ目のオプションには幅と高さをピクセル単位で指定します"
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #, fuzzy
