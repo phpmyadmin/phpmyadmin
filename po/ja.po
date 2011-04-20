@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 04:35+0200\n"
+"PO-Revision-Date: 2011-04-20 04:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6771,7 +6771,6 @@ msgstr ""
 "行に収まるようにします (デフォルトは 1 です)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6779,8 +6778,7 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"フィールドの内容をそのまま、htmlspecialchars()を通さずに表示します。この場"
-"合、フィールドには正しい HTML が含まれているものと仮定します"
+"カラムの内容をそのまま、htmlspecialchars()を通さずに表示します。この場合、カラムには正しい HTML が含まれているものと仮定します"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
