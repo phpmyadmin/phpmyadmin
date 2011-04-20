@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-20 11:25+0200\n"
+"PO-Revision-Date: 2011-04-20 11:36+0200\n"
 "Last-Translator:  <u4504712@anu.edu.au>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -6904,10 +6904,9 @@ msgid "Official Homepage"
 msgstr "الصفحة الرئيسية الرسمية لـ phpMyAdmin"
 
 #: main.php:231
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "الخواص"
+msgstr "مشاركه"
 
 #: main.php:232
 msgid "Get support"
