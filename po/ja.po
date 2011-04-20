@@ -5086,7 +5086,6 @@ msgstr ""
 "INDEX や ALTER TABLE でインデックスを作成するときに割り当てられるバッファ"
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "ガベージ閾値"
