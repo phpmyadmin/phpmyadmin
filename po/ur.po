@@ -3090,7 +3090,7 @@ msgstr "INSERT نقص پر مت ساقط کریں"
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:249
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
-msgstr ""
+msgstr "جدول کوائف کو مسل سے بدلیں"
 
 #: libraries/config/messages.inc.php:243
 msgid ""
