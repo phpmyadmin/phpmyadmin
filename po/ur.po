@@ -3209,7 +3209,7 @@ msgstr "جدول شجرہ سطحات کی زیادہ سے زیادہ تعداد"
 
 #: libraries/config/messages.inc.php:277
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "وہ لفظ جو جداول کے شجرہ سطحات کو جدا کرتا ہے"
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
