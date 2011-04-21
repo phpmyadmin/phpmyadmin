@@ -3213,7 +3213,7 @@ msgstr "وہ لفظ جو جداول کے شجرہ سطحات کو جدا کرت�
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
-msgstr ""
+msgstr "جدول جدا کرنے والا لفظ"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
