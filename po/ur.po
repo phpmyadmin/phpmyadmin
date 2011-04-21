@@ -3102,7 +3102,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:244
 msgid "Format of imported file"
-msgstr ""
+msgstr "درآمد مسل کی وضع"
 
 #: libraries/config/messages.inc.php:248 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
