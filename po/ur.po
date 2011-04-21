@@ -3135,10 +3135,9 @@ msgid "Partial import: skip queries"
 msgstr "جزوی درآمد: طلب چھوڑیں"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "ویلیو شامل کریں AUTO_INCREMENT"
+msgstr "صفر قدروں کے لیے AUTO_INCREMENT استعمال مت کریں"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
