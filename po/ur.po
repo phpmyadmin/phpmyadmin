@@ -3177,7 +3177,7 @@ msgstr "جدول فلٹر خانہ دکھانے کے لیے جداول کی کم
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
-msgstr "وہ لفظ جو کوائفیہ کو مختلف شجر سطحات میں سے جدا کررہا ہو"
+msgstr "وہ لفظ جو کوائفیہ کو مختلف شجرہ سطحات میں سے جدا کررہا ہو"
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
