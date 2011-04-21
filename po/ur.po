@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-21 07:19+0200\n"
+"PO-Revision-Date: 2011-04-21 07:20+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3181,7 +3181,7 @@ msgstr "وہ لفظ جو کوائفیہ کو مختلف شجرہ سطحات می
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
-msgstr "کوائفیہ شجر جدا کرنے والا"
+msgstr "کوائفیہ شجرہ جدا کرنے والا"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
