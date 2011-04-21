@@ -3367,7 +3367,7 @@ msgstr "ایک جدول فہرست میں جداول دکھانے کی زیاد�
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
-msgstr ""
+msgstr "زیادہ سے زیادہ جداول"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
