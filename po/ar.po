@@ -6915,7 +6915,7 @@ msgstr "اجلب دعم"
 #: main.php:233
 #| msgid "No change"
 msgid "List of changes"
-msgstr "قائمة التعديل"
+msgstr "قائمة التعديلات"
 
 #: main.php:257
 msgid ""
