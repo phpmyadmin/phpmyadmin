@@ -3310,7 +3310,7 @@ msgstr "سیکنڈ میں بتائیں کہ ایک لاگ ان کوکی کب ت�
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr ""
+msgstr "لاگ ان کوکی کب تک موجود ہو"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
