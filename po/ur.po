@@ -3302,7 +3302,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie store"
-msgstr ""
+msgstr "لاگ ان کوکی ذخیرہ"
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
