@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-21 07:11+0200\n"
+"PO-Revision-Date: 2011-04-21 07:12+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3145,7 +3145,7 @@ msgstr "سلائیڈر کے لیے ابتدائی حالت"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "ایک وقت میں کتنے صفیں داخل کی جاسکتی ہیں"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
