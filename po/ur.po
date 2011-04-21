@@ -3106,7 +3106,7 @@ msgstr "درآمد مسل کی وضع"
 
 #: libraries/config/messages.inc.php:248 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "LOCAL کلید الفاظ استعمال کریں"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
