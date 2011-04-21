@@ -3197,7 +3197,7 @@ msgstr "کوائفیے ایک شجرہ میں دکھائیں"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "اگر آپ ایک ہی دفعہ تمام کوائفیے دیکھنا چاہتے ہیں تو اسے غیر فعال کریں"
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
