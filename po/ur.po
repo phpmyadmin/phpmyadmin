@@ -3249,7 +3249,7 @@ msgstr "کم گرافی جداول استعمال کریں"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr ""
+msgstr "ہلکے جداول"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
