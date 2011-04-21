@@ -11,6 +11,24 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
+
+function PMA_ieFilter($is_hover) {
+    $retval = '';
+    if (PMA_USR_BROWSER_AGENT == "IE") {
+        $ver = intval(PMA_USR_BROWSER_VER);
+        if ($ver >= 6 && $ver <= 8) {
+            if ($is_hover) {
+                $start_color = '#cccccc';
+                $end_color = '#dddddd';
+            } else {
+                $start_color = '#ffffff';
+                $end_color = '#cccccc';
+            }
+            $retval = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");';
+        }
+    }
+    return $retval;
+}
 ?>
 /******************************************************************************/
 /* general tags */
@@ -98,10 +116,11 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
+    background-image: url(./themes/pmahomme/img/gradient.svg);
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
 }
 
 dfn {
@@ -117,10 +136,11 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
+    background-image: url(./themes/pmahomme/img/gradient.svg);
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
 }
 
 a img {
@@ -189,17 +209,19 @@ input[type=submit]{
 
 	text-shadow: 0px 1px 0px #fff;
 
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
 }
 
 input[type=submit]:hover{	position: relative;
-	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
+    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
+    <?php echo PMA_ieFilter(true); ?>
     cursor:pointer;
 }
 
@@ -297,7 +319,7 @@ select[multiple] {
     background: -webkit-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
     background: -moz-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
     /* none for Opera 11.10 as <option>s always have solid white background */
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2');
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f2f2f2");
 }
 
 /******************************************************************************/
@@ -351,14 +373,12 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
-    filter: none;
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
-    filter: none;
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -1321,16 +1341,18 @@ div#querywindowcontainer fieldset {
 	-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
 	text-shadow: #fff 0px 1px 0px;
     */
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
 }
 #sectionlinks a:hover, #statuslinks a:hover{
-	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
+    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
+    <?php echo PMA_ieFilter(true); ?>
 }
 
 div#sqlquerycontainer {
@@ -1760,17 +1782,19 @@ table#serverconnection_trg_local  {
 
 	text-shadow: 0px 1px 0px #fff;
 
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-	background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
-	background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-	background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
+    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
+    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd');
+    <?php echo PMA_ieFilter(true); ?>
 }
 
 .format_specific_options h3 {

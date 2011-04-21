@@ -11,6 +11,24 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
+
+function PMA_ieFilter($is_hover) {
+    $retval = '';
+    if (PMA_USR_BROWSER_AGENT == "IE") {
+        $ver = intval(PMA_USR_BROWSER_VER);
+        if ($ver >= 6 && $ver <= 8) {
+            if ($is_hover) {
+                $start_color = '#cccccc';
+                $end_color = '#dddddd';
+            } else {
+                $start_color = '#ffffff';
+                $end_color = '#cccccc';
+            }
+            $retval = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");';
+        }
+    }
+    return $retval;
+}
 ?>
 /******************************************************************************/
 /* general tags */
@@ -199,10 +217,11 @@ div#left_tableList li {
 #newtable a {
     display: block;
     padding: 1px;
+    background-image: url(./themes/pmahomme/img/gradient.svg);
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    <?php echo PMA_ieFilter(false); ?>
     border: 1px solid #aaa;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -214,10 +233,11 @@ div#left_tableList li {
 }
 
 #newtable a:hover {
+    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd)) !important;
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd) !important;
     background: -o-linear-gradient(top,  #cccccc,  #dddddd) !important;
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#dddddd') !important;
+    <?php echo PMA_ieFilter(true); ?>
 }
 
 #newtable li a:hover {
