@@ -3193,7 +3193,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "کوائفیے ایک شجرہ میں دکھائیں"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
