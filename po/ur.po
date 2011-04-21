@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-21 07:30+0200\n"
+"PO-Revision-Date: 2011-04-21 07:31+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3275,7 +3275,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "لاگ آؤٹ پر تمام کوکی کو حذف کریں"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
