@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-21 07:14+0200\n"
+"PO-Revision-Date: 2011-04-21 07:15+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3169,7 +3169,7 @@ msgstr "بائیں جھروکے کے بالا میں سرور اخیتار دک�
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr ""
+msgstr "سرور انتخاب دکھائیں"
 
 #: libraries/config/messages.inc.php:269
 msgid "Minimum number of tables to display the table filter box"
