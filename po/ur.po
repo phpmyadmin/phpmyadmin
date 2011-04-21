@@ -3161,7 +3161,7 @@ msgstr "بائیں جھروکہ میں علامت دکھائیں"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "علامت دکھائیں"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
