@@ -3260,7 +3260,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "کالم حروف کی حد مقرر کریں"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
