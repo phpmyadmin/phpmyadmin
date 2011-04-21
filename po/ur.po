@@ -3128,7 +3128,7 @@ msgstr "فیصد کو مکمل ہندسہ کی صورت درآمد کریں (12.
 
 #: libraries/config/messages.inc.php:255
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "ابتداء میں تعداد طلب جو چھوڑا جائے"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
