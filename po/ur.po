@@ -3241,7 +3241,7 @@ msgstr "ماؤس کرسر کے ساتھ سرور کو نمایا کریں"
 
 #: libraries/config/messages.inc.php:284
 msgid "Enable highlighting"
-msgstr ""
+msgstr "نمایاں کرنے کو فعال کریں"
 
 #: libraries/config/messages.inc.php:285
 msgid "Use less graphically intense tabs"
