@@ -3359,7 +3359,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "دکھانے کے لیے صفوں کی زیادہ سے زیادہ تعداد"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of tables displayed in table list"
