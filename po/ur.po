@@ -3336,7 +3336,7 @@ msgstr "SQL کی زیادہ سے زیادہ لمبائی جو دکھائی جا�
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "صارفین اسے سے زیادہ قدر مقرر نہیں کرسکتے"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
