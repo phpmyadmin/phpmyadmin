@@ -3165,7 +3165,7 @@ msgstr "علامت دکھائیں"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "بائیں جھروکے کے بالا میں سرور اخیتار دکھائیں"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
