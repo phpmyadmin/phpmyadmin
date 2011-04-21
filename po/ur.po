@@ -3221,7 +3221,7 @@ msgstr "URL جہاں گشت جھروکہ میں علامت اشارہ کردے"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
-msgstr ""
+msgstr "علامت ربط URL"
 
 #: libraries/config/messages.inc.php:281
 msgid ""
