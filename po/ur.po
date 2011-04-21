@@ -3149,7 +3149,7 @@ msgstr "ایک وقت میں کتنے صفیں داخل کی جاسکتی ہیں
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "داخل شدہ صفوں کی تعداد"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
