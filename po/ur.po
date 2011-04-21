@@ -3318,7 +3318,7 @@ msgstr "LONGTEXT کالم کے لیے متنی خانہ دگنا سائز کری
 
 #: libraries/config/messages.inc.php:298
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "LONGTEXT کے لیے متنی خانہ بڑا کریں"
 
 #: libraries/config/messages.inc.php:299
 msgid "Use icons on main page"
