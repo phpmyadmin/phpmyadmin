@@ -3346,7 +3346,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum databases"
-msgstr ""
+msgstr "زیادہ سے زیادہ کوائفیے"
 
 #: libraries/config/messages.inc.php:305
 msgid ""
