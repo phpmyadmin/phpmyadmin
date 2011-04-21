@@ -3201,7 +3201,7 @@ msgstr "اگر آپ ایک ہی دفعہ تمام کوائفیے دیکھنا چ
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
-msgstr ""
+msgstr "ہلکا ورژن استعمال کریں"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
