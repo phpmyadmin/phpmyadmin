@@ -571,11 +571,11 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                     }             
                     $insert_query .= ") VALUES(";
                     if (sizeof($table_fields[$matching_table_index]) == 1) {
-                         $insert_query .= "'" . $result[0] . "'";
+                         $insert_query .= "'" . PMA_sqlAddslashes($result[0]) . "'";
                     } else {
                         for ($field_index = 0; $field_index < sizeof($table_fields[$matching_table_index]); $field_index++) {
                             if (isset($result[0][$table_fields[$matching_table_index][$field_index]])) {
-                                $insert_query .= "'" . $result[0][$table_fields[$matching_table_index][$field_index]] . "'";
+                                $insert_query .= "'" . PMA_sqlAddslashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
                             } else {
                                 $insert_query .= "'NULL'";
                             }

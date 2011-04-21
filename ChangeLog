@@ -151,6 +151,8 @@
 - bug #3208723 [import] Fix import of utf-8 XML files.
 - bug #3039384 [auth] Force signon auth on signon URL change.
 - bug #3168733 [core] Synchronization does not honor AllowArbitraryServer
+- bug #3134495 [synchronization] Data containing single quotes prevents sync,
+  thanks to jviewer
 
 3.3.11.0 (not yet released)
 
