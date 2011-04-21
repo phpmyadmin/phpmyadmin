@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-15 08:56+0200\n"
-"PO-Revision-Date: 2011-04-21 07:53+0200\n"
+"PO-Revision-Date: 2011-04-21 07:54+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3363,7 +3363,7 @@ msgstr "دکھانے کے لیے صفوں کی زیادہ سے زیادہ تعد
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "ایک جدول فہرست میں جداول دکھانے کی زیادہ سے زیادہ تعداد"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
