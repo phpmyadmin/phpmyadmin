@@ -3173,7 +3173,7 @@ msgstr "سرور انتخاب دکھائیں"
 
 #: libraries/config/messages.inc.php:269
 msgid "Minimum number of tables to display the table filter box"
-msgstr ""
+msgstr "جدول فلٹر خانہ دکھانے کے لیے جداول کی زیادہ سے زیادہ تعداد"
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
