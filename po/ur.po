@@ -3322,7 +3322,7 @@ msgstr "LONGTEXT کے لیے متنی خانہ بڑا کریں"
 
 #: libraries/config/messages.inc.php:299
 msgid "Use icons on main page"
-msgstr ""
+msgstr "مرکزی صفحہ پر شبیہے استعمال کریں"
 
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of characters used when a SQL query is displayed"
