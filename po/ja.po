@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 10:40+0200\n"
+"PO-Revision-Date: 2011-04-22 10:49+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7610,7 +7610,7 @@ msgstr "データベースに特権を追加"
 
 #: server_privileges.php:2049
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr ""
+msgstr "_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてください。"
 
 #: server_privileges.php:2052
 msgid "Add privileges on the following table"
