@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 11:42+0200\n"
+"PO-Revision-Date: 2011-04-22 11:53+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6128,10 +6128,9 @@ msgid "Page name"
 msgstr "ページ名"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "自動レイアウト"
+msgstr "自動レイアウト、チェックしたのに基づく"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
