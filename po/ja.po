@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 11:54+0200\n"
+"PO-Revision-Date: 2011-04-22 11:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6147,7 +6147,7 @@ msgstr "編集するページを選択してください"
 #: libraries/schema/User_Schema.class.php:153
 #| msgid "Select All"
 msgid "Select page"
-msgstr "ページの選択"
+msgstr "ページを選択してください"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
