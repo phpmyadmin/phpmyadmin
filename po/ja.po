@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:35+0200\n"
+"PO-Revision-Date: 2011-04-22 12:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7731,7 +7731,7 @@ msgstr ""
 
 #: server_replication.php:215
 msgid "Master configuration"
-msgstr ""
+msgstr "マスター設定"
 
 #: server_replication.php:216
 msgid ""
