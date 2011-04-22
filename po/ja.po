@@ -1113,10 +1113,9 @@ msgid "Hide search criteria"
 msgstr "検索条件を隠す"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search criteria"
-msgstr "SQL クエリを表示"
+msgstr "検索条件を表示する"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
