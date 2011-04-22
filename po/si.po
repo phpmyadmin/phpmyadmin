@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:14+0200\n"
+"PO-Revision-Date: 2011-04-22 08:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7009,7 +7009,7 @@ msgstr ""
 
 #: pmd_general.php:97
 msgid "Direct links"
-msgstr ""
+msgstr "ඍජු සබැඳුම"
 
 #: pmd_general.php:101
 msgid "Snap to grid"
