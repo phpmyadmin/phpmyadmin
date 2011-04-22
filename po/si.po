@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:30+0200\n"
+"PO-Revision-Date: 2011-04-22 08:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7083,10 +7083,9 @@ msgid "New name"
 msgstr "නව නාමය"
 
 #: pmd_general.php:485 pmd_general.php:700
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "සාදන්න"
+msgstr "එකතු කරන්න"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
