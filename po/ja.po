@@ -8674,7 +8674,7 @@ msgstr "構造の同期"
 
 #: server_synchronize.php:270
 msgid "Data Synchronization"
-msgstr ""
+msgstr "データの同期"
 
 #: server_synchronize.php:399 server_synchronize.php:838
 msgid "not present"
