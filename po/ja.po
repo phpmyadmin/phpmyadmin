@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:11+0200\n"
+"PO-Revision-Date: 2011-04-22 12:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6667,10 +6667,9 @@ msgstr ""
 "詰めるときに前／後に補う省略記号です (デフォルトは ... です)"
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "一般的なリレーション機能"
+msgstr "ユーザ設定を管理する"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 msgid "Configuration has been saved"
