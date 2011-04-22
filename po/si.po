@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:21+0200\n"
+"PO-Revision-Date: 2011-04-22 08:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6983,7 +6983,7 @@ msgstr "වම් මෙනුව පෙන්වන්න/සඟවන්න"
 
 #: pmd_general.php:78
 msgid "Save position"
-msgstr ""
+msgstr "ස්ථාපිතය සුරකින්න"
 
 #: pmd_general.php:81 server_synchronize.php:428 server_synchronize.php:871
 #, fuzzy
