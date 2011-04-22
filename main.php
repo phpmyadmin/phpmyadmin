@@ -8,11 +8,8 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-define('PMA_COLORPICKER', true);
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'colorpicker/js/colorpicker.js';
-//$GLOBALS['js_include'][] = 'main_custom_color.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 
@@ -136,20 +133,6 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme">';
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
-
-    // see js/main_custom_color.js
-    /*
-     * deactivated for 3.4.0-rc1
-    echo '<li id="li_custom_color" class="hide">';
-    echo __('Background color') . ': ';
-    echo '<input type="submit" name="custom_color_choose" value="' . __('Choose...') . '" />';
-    echo '<form name="colorform" id="colorform" method="post" action="index.php" target="_parent">';
-    echo PMA_generate_common_hidden_inputs();
-    echo '<input type="hidden" id="custom_color" name="custom_color" value="" />';
-    echo '<input type="submit" name="custom_color_reset" value="' . __('Reset') . '" />';
-    echo '</form>';
-    echo '</li>';
-     */
 }
 echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();

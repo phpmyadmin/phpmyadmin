@@ -990,10 +990,48 @@ function PMA_buildNullDisplay($class, $condition_field) {
  *
  * @return  string  the td
  */
-function PMA_buildEmptyDisplay($class, $condition_field, $align = '') {
-    return '<td ' . $align . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>';
+function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
+    $nowrap = ' nowrap';
+    return '<td ' . $align . ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap)  . '"></td>';
 }
 
+/**
+ * Adds the relavant classes.
+ *
+ * @param string $class
+ * @param string $condition_field
+ * @param object $meta   the meta-information about this field
+ * @param string $nowrap
+ * @param bool $is_field_truncated
+ * @param string $transform_function
+ * @param string $default_function
+ *
+ * @return string the list of classes
+ */
+function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated = false, $transform_function = '', $default_function = '') {
+    // Define classes to be added to this data field based on the type of data
+    $enum_class = '';
+    if(strpos($meta->flags, 'enum') !== false) {
+        $enum_class = ' enum';
+    }
+
+    $set_class = '';
+    if(strpos($meta->flags, 'set') !== false) {
+        $set_class = ' set';
+    }
+
+    $mime_type_class = '';
+    if(isset($meta->mimetype)) {
+        $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
+    }
+
+    $result = $class . ($condition_field ? ' condition' : '') . $nowrap
+    . ' ' . ($is_field_truncated ? ' truncated' : '')
+    . ($transform_function != $default_function ? ' transformed' : '')
+    . $enum_class . $set_class . $mime_type_class;
+
+    return $result;
+}
 /**
  * Displays the body of the results table
  *
@@ -1299,7 +1337,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, 'align="right"');
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta, 'align="right"');
                 }
 
             //  b l o b
@@ -1343,7 +1381,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $row[$i]);
                     } else {
-                        $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                     }
                 }
             // g e o m e t r y
@@ -1403,7 +1441,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                 }
             }
 
@@ -2396,27 +2434,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  */
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
 
-    // Define classes to be added to this data field based on the type of data
-    $enum_class = '';
-    if(strpos($meta->flags, 'enum') !== false) {
-        $enum_class = ' enum';
-    }
-
-    $set_class = '';
-    if(strpos($meta->flags, 'set') !== false) {
-        $set_class = ' set';
-    }
-
-    $mime_type_class = '';
-    if(isset($meta->mimetype)) {
-        $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
-    }
-
-    // continue the <td> tag started before calling this function:
-    $result = ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap
-    . ' ' . ($is_field_truncated ? ' truncated' : '')
-    . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $set_class . $mime_type_class . '">';
+    $result = ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated, $transform_function, $default_function) . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {

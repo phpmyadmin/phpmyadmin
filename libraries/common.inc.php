@@ -651,11 +651,6 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
-if (isset($_REQUEST['custom_color_reset'])) {
-    unset($_SESSION['tmp_user_values']['custom_color']);
-} elseif (isset($_REQUEST['custom_color'])) {
-    $_SESSION['tmp_user_values']['custom_color'] = $_REQUEST['custom_color'];
-}
 /**
  * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
  */

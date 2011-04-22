@@ -45,14 +45,6 @@ if ($GLOBALS['text_dir'] == 'ltr') {
         echo 'phpMyAdmin';
     }
 ?></title>
-<?php
-// goes before our themed CSS
-    if (defined('PMA_COLORPICKER')) { ?>
-    <link rel="stylesheet" type="text/css" href="js/colorpicker/css/colorpicker.css" />
-    <link rel="stylesheet" media="screen" type="text/css" href="js/colorpicker/css/layout.css" />
-<?php
-    }
-?>
     <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : ''; ?>phpmyadmin.css.php<?php echo PMA_generate_common_url(array('server' => $GLOBALS['server'])); ?>&amp;js_frame=<?php echo isset($print_view) ? 'print' : 'right'; ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : ''; ?>print.css" media="print" />
     <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['pmaThemePath']; ?>/jquery/jquery-ui-1.8.custom.css" />
