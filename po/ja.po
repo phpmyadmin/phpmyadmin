@@ -7811,7 +7811,7 @@ msgstr "SQL スレッドのみ開始"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "SQL スレッドのみ停止"
 
 #: server_replication.php:331
 #, fuzzy
