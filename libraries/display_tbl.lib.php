@@ -992,7 +992,7 @@ function PMA_buildNullDisplay($class, $condition_field) {
  */
 function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
     $nowrap = ' nowrap';
-    return '<td ' . $align . ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap)  . '">&nbsp;</td>';
+    return '<td ' . $align . ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap)  . '"></td>';
 }
 
 /**
