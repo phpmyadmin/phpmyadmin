@@ -8666,7 +8666,7 @@ msgstr ""
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "データベース '%s' が存在しません"
+msgstr "データベース '%s' が存在しません。"
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
