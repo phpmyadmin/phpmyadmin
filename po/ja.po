@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:29+0200\n"
+"PO-Revision-Date: 2011-04-22 12:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7087,7 +7087,7 @@ msgstr "修正を保存しました"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "設定を保存することはできません。送信された内容にエラーが含まれています。"
 
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: \"%1$s\""
