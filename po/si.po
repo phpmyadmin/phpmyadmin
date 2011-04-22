@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:34+0200\n"
+"PO-Revision-Date: 2011-04-22 08:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7123,10 +7123,9 @@ msgid "Page"
 msgstr "පිටුව"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "ගොනු ආනයනය"
+msgstr "තෝරාගත් පිටු ආනයනය කරන්න"
 
 #: pmd_pdf.php:100
 #, fuzzy
