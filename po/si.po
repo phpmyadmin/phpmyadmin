@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:31+0200\n"
+"PO-Revision-Date: 2011-04-22 08:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7110,9 +7110,8 @@ msgid ""
 msgstr ""
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "%s වගුව හලන ලදි"
+msgstr "පිටුව සාදන ලදි"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
