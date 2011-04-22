@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:36+0200\n"
+"PO-Revision-Date: 2011-04-22 08:37+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7133,10 +7133,9 @@ msgid "Export to selected page"
 msgstr "තෝරාගත් පිටු අපනයනය කරන්න"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "නව සූචියක් සාදන්න"
+msgstr "පිටුවක් සාදා අපනයනය කරන්න"
 
 #: pmd_pdf.php:111
 #, fuzzy
