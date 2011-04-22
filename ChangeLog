@@ -153,6 +153,7 @@
 - bug #3168733 [core] Synchronization does not honor AllowArbitraryServer
 - bug #3134495 [synchronization] Data containing single quotes prevents sync,
   thanks to jviewer
+- Remove the custom color picker feature
 
 3.3.11.0 (not yet released)
 
