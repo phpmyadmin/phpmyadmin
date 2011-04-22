@@ -7094,10 +7094,9 @@ msgid "Operator"
 msgstr "මෙහෙයවනය"
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "වගු විකල්ප"
+msgstr "සක්‍රිය විකල්ප"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
