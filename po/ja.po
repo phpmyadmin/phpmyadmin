@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:33+0200\n"
+"PO-Revision-Date: 2011-04-22 12:35+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7699,7 +7699,7 @@ msgstr "マスター %s に接続していません"
 #: server_replication.php:63
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr ""
+msgstr "マスターのログの位置が読み込めません。マスター上の特権問題の可能性があります。"
 
 #: server_replication.php:69
 msgid "Unable to change master"
