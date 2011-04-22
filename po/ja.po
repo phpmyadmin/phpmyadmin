@@ -7820,7 +7820,7 @@ msgstr "IO スレッドのみ開始"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "IO スレッドのみ停止"
 
 #: server_replication.php:338
 msgid "Error management:"
