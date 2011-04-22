@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:27+0200\n"
+"PO-Revision-Date: 2011-04-22 08:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7027,10 +7027,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "විමසුම ඉදිරිපත් කරන්න"
+msgstr "විමසුම ගොඩ නඟන්න"
 
 #: pmd_general.php:125
 msgid "Move Menu"
