@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 10:23+0200\n"
+"PO-Revision-Date: 2011-04-22 10:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7663,7 +7663,7 @@ msgstr "ワイルドカード(ユーザ名_%)に該当するデータベース�
 #: server_privileges.php:2149
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
+msgstr "データベース &quot;%s&quot への全ての特権を与える"
 
 #: server_privileges.php:2172
 #, php-format
