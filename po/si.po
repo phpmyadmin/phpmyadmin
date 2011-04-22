@@ -6986,9 +6986,8 @@ msgid "Save position"
 msgstr "ස්ථාපිතය සුරකින්න"
 
 #: pmd_general.php:81 server_synchronize.php:428 server_synchronize.php:871
-#, fuzzy
 msgid "Create table"
-msgstr "නව පිටුවක් සාදන්න"
+msgstr "වගුව සාදන්න"
 
 #: pmd_general.php:84 pmd_general.php:352
 #, fuzzy
