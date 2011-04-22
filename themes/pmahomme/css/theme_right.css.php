@@ -105,7 +105,8 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
@@ -125,7 +126,8 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
-    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
@@ -198,7 +200,8 @@ input[type=submit]{
 
 	text-shadow: 0px 1px 0px #fff;
 
-    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
@@ -206,7 +209,8 @@ input[type=submit]{
 }
 
 input[type=submit]:hover{	position: relative;
-    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
@@ -1330,14 +1334,16 @@ div#querywindowcontainer fieldset {
 	-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
 	text-shadow: #fff 0px 1px 0px;
     */
-    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
 #sectionlinks a:hover, #statuslinks a:hover{
-    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
@@ -1771,7 +1777,8 @@ table#serverconnection_trg_local  {
 
 	text-shadow: 0px 1px 0px #fff;
 
-    background-image: url(./themes/pmahomme/img/gradient.svg);
+    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
@@ -1779,7 +1786,8 @@ table#serverconnection_trg_local  {
     cursor: pointer;
 }
 #buttonGo:hover{
-    background-image: url(./themes/pmahomme/img/gradient-hover.svg);
+    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
+    background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
