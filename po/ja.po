@@ -6160,7 +6160,7 @@ msgstr "リレーショナルスキーマを表示する"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "エクスポートするリレーショナルタイプを選択してください"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
