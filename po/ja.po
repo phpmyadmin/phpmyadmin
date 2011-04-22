@@ -6123,10 +6123,9 @@ msgid "Create a page"
 msgstr "新しいページを作成する"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "ページ番号:"
+msgstr "ページ名"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
