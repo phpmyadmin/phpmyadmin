@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 11:58+0200\n"
+"PO-Revision-Date: 2011-04-22 12:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6532,10 +6532,9 @@ msgid "You have to add at least one column."
 msgstr "最低ひとつはカラムを追加してください"
 
 #: libraries/tbl_properties.inc.php:796
-#, fuzzy
 #| msgid "Add a new User"
 msgid "+ Add a new value"
-msgstr "新しいユーザを追加する"
+msgstr "+ 新しい値を追加する"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
