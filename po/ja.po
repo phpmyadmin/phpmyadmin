@@ -932,7 +932,7 @@ msgstr "クリックで選択"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "クリックで選択解除"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
