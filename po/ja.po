@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 09:25+0200\n"
+"PO-Revision-Date: 2011-04-22 09:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1140,7 +1140,7 @@ msgstr "表示するカラムを選択してください"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "カラムに対するオプションを追加する"
 
 #: js/messages.php:109
 msgid "Generate password"
