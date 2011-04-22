@@ -6147,7 +6147,7 @@ msgstr "編集するページを選択してください"
 #: libraries/schema/User_Schema.class.php:153
 #| msgid "Select All"
 msgid "Select page"
-msgstr "選択されたページ"
+msgstr "ページの選択"
 
 #: libraries/schema/User_Schema.class.php:211
 msgid "Select Tables"
