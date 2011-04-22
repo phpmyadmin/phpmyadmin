@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:24+0200\n"
+"PO-Revision-Date: 2011-04-22 12:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6968,10 +6968,9 @@ msgstr "リレーションを削除しました"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "エクスポート"
+msgstr "以外"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
