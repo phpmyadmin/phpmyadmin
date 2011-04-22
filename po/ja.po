@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 12:38+0200\n"
+"PO-Revision-Date: 2011-04-22 12:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7805,10 +7805,9 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "構造のみ"
+msgstr "SQL スレッドのみ開始"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
