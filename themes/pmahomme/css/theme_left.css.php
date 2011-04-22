@@ -12,22 +12,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
 
-function PMA_ieFilter($is_hover) {
-    $retval = '';
-    if (PMA_USR_BROWSER_AGENT == "IE") {
-        $ver = intval(PMA_USR_BROWSER_VER);
-        if ($ver >= 6 && $ver <= 8) {
-            if ($is_hover) {
-                $start_color = '#cccccc';
-                $end_color = '#dddddd';
-            } else {
-                $start_color = '#ffffff';
-                $end_color = '#cccccc';
-            }
-            $retval = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");';
-        }
-    }
-    return $retval;
+function PMA_ieFilter($start_color, $end_color)
+{
+    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
+        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
+        : '';
 }
 ?>
 /******************************************************************************/
@@ -221,7 +210,7 @@ div#left_tableList li {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
     border: 1px solid #aaa;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -237,7 +226,7 @@ div#left_tableList li {
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd)) !important;
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd) !important;
     background: -o-linear-gradient(top,  #cccccc,  #dddddd) !important;
-    <?php echo PMA_ieFilter(true); ?>
+    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
 }
 
 #newtable li a:hover {

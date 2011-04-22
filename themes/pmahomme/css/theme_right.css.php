@@ -12,22 +12,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
 
-function PMA_ieFilter($is_hover) {
-    $retval = '';
-    if (PMA_USR_BROWSER_AGENT == "IE") {
-        $ver = intval(PMA_USR_BROWSER_VER);
-        if ($ver >= 6 && $ver <= 8) {
-            if ($is_hover) {
-                $start_color = '#cccccc';
-                $end_color = '#dddddd';
-            } else {
-                $start_color = '#ffffff';
-                $end_color = '#cccccc';
-            }
-            $retval = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");';
-        }
-    }
-    return $retval;
+function PMA_ieFilter($start_color, $end_color)
+{
+    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
+        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
+        : '';
 }
 ?>
 /******************************************************************************/
@@ -120,7 +109,7 @@ a:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
 
 dfn {
@@ -140,7 +129,7 @@ th {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
 
 a img {
@@ -213,7 +202,7 @@ input[type=submit]{
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
 
 input[type=submit]:hover{	position: relative;
@@ -221,7 +210,7 @@ input[type=submit]:hover{	position: relative;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter(true); ?>
+    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
     cursor:pointer;
 }
 
@@ -1345,14 +1334,14 @@ div#querywindowcontainer fieldset {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
 #sectionlinks a:hover, #statuslinks a:hover{
     background-image: url(./themes/pmahomme/img/gradient-hover.svg);
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter(true); ?>
+    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -1786,7 +1775,7 @@ table#serverconnection_trg_local  {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter(false); ?>
+    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
@@ -1794,7 +1783,7 @@ table#serverconnection_trg_local  {
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
     background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
     background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter(true); ?>
+    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
 }
 
 .format_specific_options h3 {
