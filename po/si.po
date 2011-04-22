@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-22 08:00+0200\n"
+"PO-Revision-Date: 2011-04-22 08:14+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6934,6 +6934,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin "
+"විශේෂාංග අක්‍රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව (navigation frame) "
+"ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
 
 #: main.php:343
 #, php-format
