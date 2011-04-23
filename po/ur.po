@@ -3398,7 +3398,7 @@ msgstr "جدول اور کوائفیہ نام ترتیب کے لیے قدرتی 
 
 #: libraries/config/messages.inc.php:318
 msgid "Natural order"
-msgstr ""
+msgstr "قدرتی ترتیب"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
