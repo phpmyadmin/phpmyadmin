@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 00:19+0200\n"
+"PO-Revision-Date: 2011-04-24 00:20+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -4418,7 +4418,6 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export"
 msgid "Export Method:"
 msgstr "निर्यात विधि"
