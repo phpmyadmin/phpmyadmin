@@ -9725,7 +9725,7 @@ msgstr ""
 
 #: tbl_tracking.php:683
 msgid "Create version"
-msgstr ""
+msgstr "バージョンを作成"
 
 #: themes.php:31
 #, php-format
