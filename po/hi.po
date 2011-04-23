@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 00:17+0200\n"
+"PO-Revision-Date: 2011-04-24 00:18+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -4389,9 +4389,9 @@ msgid "No Privileges"
 msgstr "कोइ प्रिविलेज नहीं"
 
 #: libraries/display_create_table.lib.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "Create table on database %s"
-msgstr " डाटाबेस मे नया टेबल बनाओ"
+msgstr " %s डाटाबेस मे नया टेबल बनाओ"
 
 #: libraries/display_create_table.lib.php:55
 #, fuzzy
