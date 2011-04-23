@@ -3554,7 +3554,7 @@ msgstr "طے شدہ کے لیے خالی چھوڑ دیں"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
-msgstr ""
+msgstr "ہوسٹ توثیق قاعدے"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
