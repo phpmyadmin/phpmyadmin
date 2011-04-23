@@ -766,7 +766,7 @@ msgstr "非アクティブ"
 
 #: db_tracking.php:134
 msgid "Versions"
-msgstr ""
+msgstr "バージョン"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
