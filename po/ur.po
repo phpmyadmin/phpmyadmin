@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:15+0200\n"
+"PO-Revision-Date: 2011-04-23 08:16+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3518,6 +3518,7 @@ msgstr "ری کوڈ انجن"
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"سرخی کو ہرX خانے کے لیے دہرائیں, [kbd]0[/kbd] اس خاصیت کو غیر فعال کرتا ہے"
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat headers"
