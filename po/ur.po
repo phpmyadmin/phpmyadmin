@@ -3447,7 +3447,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
