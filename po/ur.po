@@ -3708,7 +3708,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:387
 msgid "SQL query history table"
-msgstr ""
+msgstr "SQL طلب لاگ جدول"
 
 #: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
