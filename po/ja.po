@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:14+0200\n"
+"PO-Revision-Date: 2011-04-23 08:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9641,7 +9641,7 @@ msgstr "SQL コマンドをエクスポートしました。ダンプしたも�
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "バージョン %s のスナップショット（SQL コード）"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
