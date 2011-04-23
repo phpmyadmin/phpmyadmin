@@ -3414,7 +3414,7 @@ msgstr "HTTP منتقلی رفتار بڑھانے کے لیے GZip  آؤٹ پٹ 
 
 #: libraries/config/messages.inc.php:322
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZip آؤٹ پٹ بفر"
 
 #: libraries/config/messages.inc.php:323
 msgid ""
