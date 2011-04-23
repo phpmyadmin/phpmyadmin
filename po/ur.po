@@ -3526,7 +3526,7 @@ msgstr "دہرانے کے لیے سرخیاں"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "مدد دستاویز متن کی جگہ بٹن دکھائیں"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
