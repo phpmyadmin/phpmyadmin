@@ -3679,7 +3679,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:381
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "INFORMATION_SCHEMA کی استعمل کو غیر فعال کریں"
 
 #: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
