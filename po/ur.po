@@ -3634,7 +3634,7 @@ msgstr "جڑنے کی قسم"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
-msgstr ""
+msgstr "صارف پاس ورڈ کنٹرول"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
