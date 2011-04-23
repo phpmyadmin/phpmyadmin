@@ -610,7 +610,7 @@ msgstr "SQL コマンドの追跡はアクティブです。"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "SQL コマンドの追跡は非アクティブです。"
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:1999
 #, php-format
