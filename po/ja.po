@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 02:57+0200\n"
+"PO-Revision-Date: 2011-04-23 02:59+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -953,10 +953,9 @@ msgid "Dropping Procedure"
 msgstr "プロシージャ削除中"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "データの挿入、置換を許可する"
+msgstr "追跡データの削除中"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
