@@ -4436,10 +4436,9 @@ msgid "Database(s):"
 msgstr " डाटाबेस(s)"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Table"
 msgid "Table(s):"
-msgstr "  टेबल "
+msgstr "  टेबल(s) "
 
 #: libraries/display_export.lib.php:149
 msgid "Rows:"
