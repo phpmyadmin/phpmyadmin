@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 04:27+0200\n"
+"PO-Revision-Date: 2011-04-23 04:28+0200\n"
 "Last-Translator: Dominik Geyer <dominik.geyer@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -8562,7 +8562,7 @@ msgstr "Anzahl der geöffneten Dateien."
 #: server_status.php:121
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"Anzahl der geöffneten Streams (hauptsächlich zum Protokolieren benutzt)."
+"Anzahl der geöffneten Streams (hauptsächlich zum Protokollieren benutzt)."
 
 #: server_status.php:122
 msgid "The number of tables that are open."
