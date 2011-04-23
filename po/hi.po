@@ -4170,7 +4170,6 @@ msgid "Config authentication"
 msgstr "विन्यास प्रमाणीकरण"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Cookie authentication"
 msgstr "कुकी प्रमाणीकरण"
