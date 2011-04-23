@@ -3550,7 +3550,7 @@ msgstr "ہوسٹ توثیق حکم"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "طے شدہ کے لیے خالی چھوڑ دیں"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
