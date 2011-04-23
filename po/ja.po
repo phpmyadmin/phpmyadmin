@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 03:41+0200\n"
+"PO-Revision-Date: 2011-04-23 03:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9682,7 +9682,7 @@ msgstr ""
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "上の結果をエクスポートする"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
