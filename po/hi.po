@@ -4431,10 +4431,9 @@ msgid "Custom - display all possible options"
 msgstr "कस्टम - कॉन्फ़िगर करने के लिए सभी विकल्पों को प्रदर्शित करें"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr " डाटाबेस"
+msgstr " डाटाबेस(s)"
 
 #: libraries/display_export.lib.php:139
 #, fuzzy
