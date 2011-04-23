@@ -9235,7 +9235,7 @@ msgstr "連結したイメージにする"
 msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
-msgstr ""
+msgstr "互換性の理由から、グラフイメージはデフォルトで分割されています。1つのイメージでグラフ全体を描画する場合、チェックしてください。"
 
 #: tbl_chart.php:166
 msgid ""
