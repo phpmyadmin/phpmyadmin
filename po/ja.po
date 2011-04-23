@@ -762,7 +762,7 @@ msgstr "アクティブ"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 msgid "not active"
-msgstr ""
+msgstr "非アクティブ"
 
 #: db_tracking.php:134
 msgid "Versions"
