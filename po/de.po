@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-03-15 12:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-04-23 04:27+0200\n"
+"Last-Translator: Dominik Geyer <dominik.geyer@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -3197,7 +3197,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
-msgstr "Trenzeichen für Datenbank-Baum"
+msgstr "Trennzeichen für Datenbank-Baum"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
