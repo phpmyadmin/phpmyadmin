@@ -3724,7 +3724,7 @@ msgstr "لاگ آؤٹ URL"
 
 #: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
-msgstr ""
+msgstr "پاس ورڈ کے بغیر جڑنے کی کوشش کریں"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
