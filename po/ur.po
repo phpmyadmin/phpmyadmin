@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 07:57+0200\n"
+"PO-Revision-Date: 2011-04-23 07:58+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3406,7 +3406,7 @@ msgstr "صرف شبیہے، صرف متن یا دوتوں استعمال کری�
 
 #: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "شبیہاتی گشت بار"
 
 #: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
