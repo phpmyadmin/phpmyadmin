@@ -3716,7 +3716,7 @@ msgstr "جہاں MySQL سرور چل رہا ہے اس کا نام"
 
 #: libraries/config/messages.inc.php:389
 msgid "Server hostname"
-msgstr ""
+msgstr "سرور نام"
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
