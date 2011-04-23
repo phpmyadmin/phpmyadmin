@@ -4069,10 +4069,9 @@ msgid ""
 msgstr "編集モードでの textarea の1行の文字数。SQL クエリ用のでは 2 倍、クエリウィンドウに対しては 1.25 倍になります。"
 
 #: libraries/config/messages.inc.php:477
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "フィールド列を追加・削除する"
+msgstr "textarea の 1 行の文字数"
 
 #: libraries/config/messages.inc.php:478
 msgid ""
