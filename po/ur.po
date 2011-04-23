@@ -3587,7 +3587,7 @@ msgstr "SweKey تشکیل مسل"
 
 #: libraries/config/messages.inc.php:363
 msgid "Authentication method to use"
-msgstr ""
+msgstr "توثیق کا طریقہ جو استعمال ہو"
 
 #: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
