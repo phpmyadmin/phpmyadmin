@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 00:20+0200\n"
+"PO-Revision-Date: 2011-04-24 00:21+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -4471,7 +4471,6 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "सर्वर पर <b>%s</b>निर्देशिका में सहेजते"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "उत्पादन को फाईल मे सेव करें"
