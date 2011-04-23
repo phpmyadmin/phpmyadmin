@@ -3712,7 +3712,7 @@ msgstr "SQL طلب لاگ جدول"
 
 #: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "جہاں MySQL سرور چل رہا ہے اس کا نام"
 
 #: libraries/config/messages.inc.php:389
 msgid "Server hostname"
