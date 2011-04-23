@@ -3542,7 +3542,7 @@ msgstr "پوشہ محفوظ کریں"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "استعمال نہ ہونے کی صورت میں خالی چھوڑ دیں"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
