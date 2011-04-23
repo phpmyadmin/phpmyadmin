@@ -4449,10 +4449,9 @@ msgid "Dump some row(s)"
 msgstr "कुछ रो डंप"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "रोयों की संख्या"
+msgstr "रो की संख्या"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
