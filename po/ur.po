@@ -3489,7 +3489,7 @@ msgstr "جب ایک نیا طلب دریچہ کھولا جائے گا تو جد�
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr ""
+msgstr "طے شدہ طلب دریچہ جدول"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
