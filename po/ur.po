@@ -3570,7 +3570,7 @@ msgstr "HTTP بنیادی توثیق اختیار نام جو دکھائی جا�
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP اختیار"
 
 #: libraries/config/messages.inc.php:361
 msgid ""
