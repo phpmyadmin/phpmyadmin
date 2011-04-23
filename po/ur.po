@@ -3688,7 +3688,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid "PHP extension to use"
-msgstr ""
+msgstr "PHP کی قسم جو اسعتمال کی جائے"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
