@@ -3378,7 +3378,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:313
 msgid "Memory limit"
-msgstr ""
+msgstr "میموری حد"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
