@@ -3562,7 +3562,7 @@ msgstr "پاس ورڈ کے بغیر لاگ ان کی اجازت دیں"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
-msgstr ""
+msgstr "منتظم لاگ ان کی اجازت دیں"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
