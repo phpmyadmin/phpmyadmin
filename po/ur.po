@@ -3509,7 +3509,7 @@ msgstr "طلب دریچہ چوڑائی"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "حروف بدلنے کے لیے کونسے فنکش استعمال ہوں کی انتخاب کریں"
 
 #: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
