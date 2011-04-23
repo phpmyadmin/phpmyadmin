@@ -9682,7 +9682,7 @@ msgstr ""
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr "上の結果をエクスポートする"
+msgstr "上の結果をエクスポートする %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
