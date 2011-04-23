@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 04:11+0200\n"
+"PO-Revision-Date: 2011-04-23 04:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4632,7 +4632,6 @@ msgstr ""
 "直前のインポートはタイムアウトしました。再送信すると位置 %d から再開されます"
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4642,9 +4641,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。"
-"大きなファイルをインポートする場合には便利ですが、トランザクションが壊れるこ"
-"ともあります"
+"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが"
+"壊れることもあります。)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
