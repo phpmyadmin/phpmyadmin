@@ -4222,7 +4222,6 @@ msgstr "कस्टम"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
-#, fuzzy
 #| msgid "Databases statistics"
 msgid "Database export options"
 msgstr "डेटाबेस निर्यात विकल्प"
