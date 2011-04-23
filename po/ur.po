@@ -3728,7 +3728,7 @@ msgstr "پاس ورڈ کے بغیر جڑنے کی کوشش کریں"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
-msgstr ""
+msgstr "پاس ورڈ کے بغیر جڑیں"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
