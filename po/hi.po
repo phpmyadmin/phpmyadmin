@@ -4651,10 +4651,9 @@ msgid "%d is not valid row number."
 msgstr "%d वैध रो संख्या नहीं है"
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "रोयों से शुरू #"
+msgstr "रो से शुरू #"
 
 #: libraries/display_tbl.lib.php:397
 msgid "horizontal"
