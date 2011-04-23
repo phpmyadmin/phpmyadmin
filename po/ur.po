@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:12+0200\n"
+"PO-Revision-Date: 2011-04-23 08:13+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3493,7 +3493,7 @@ msgstr "طے شدہ طلب دریچہ جدول"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "طلب دریچہ اونچائی(پکسل میں)"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height"
