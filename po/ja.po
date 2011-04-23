@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 03:19+0200\n"
+"PO-Revision-Date: 2011-04-23 03:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9704,7 +9704,7 @@ msgstr "すぐに非アクティブにする"
 #: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "%s.%s への SQL コマンド追跡をアクティブにする"
 
 #: tbl_tracking.php:650
 msgid "Activate now"
