@@ -3497,7 +3497,7 @@ msgstr "طلب دریچہ اونچائی(پکسل میں)"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height"
-msgstr ""
+msgstr "طلب دریچہ اونچائی"
 
 #: libraries/config/messages.inc.php:342
 msgid "Query window width (in pixels)"
