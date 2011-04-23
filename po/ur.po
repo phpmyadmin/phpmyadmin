@@ -3650,7 +3650,7 @@ msgstr "صارف کو کنٹرول کریں"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "جب کوائفیہ فہرست دکھا رہے ہوں تو جداول کی گنتی کریں"
 
 #: libraries/config/messages.inc.php:377
 msgid "Count tables"
