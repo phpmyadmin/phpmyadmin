@@ -3459,7 +3459,7 @@ msgstr "BLOB اور BINARY کالم تدوین کے لیے ممنوع کریں"
 
 #: libraries/config/messages.inc.php:332
 msgid "Protect binary columns"
-msgstr ""
+msgstr "ثنائی کالم کو ممنوع کریں"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
