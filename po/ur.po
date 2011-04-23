@@ -3481,7 +3481,7 @@ msgstr "لاگ میں کتنے طلب رکھے جانے چاہیں"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr ""
+msgstr "طلب لاگ کی لمبائی"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
