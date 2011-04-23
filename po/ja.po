@@ -4082,7 +4082,7 @@ msgstr "編集モードでの textarea の行数。SQL クエリ用のでは 2 �
 
 #: libraries/config/messages.inc.php:479
 msgid "Textarea rows"
-msgstr ""
+msgstr "textarea の行数"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
