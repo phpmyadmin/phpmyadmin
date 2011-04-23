@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 00:18+0200\n"
+"PO-Revision-Date: 2011-04-24 00:19+0200\n"
 "Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -4408,9 +4408,9 @@ msgid "Exporting databases from the current server"
 msgstr "वर्तमान सर्वर से डेटाबेस का निर्यात"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr " डाटाबेस मे नया टेबल बनाओ"
+msgstr "%s डेटाबेस से टेबल निर्यात"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
