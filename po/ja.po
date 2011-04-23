@@ -9612,7 +9612,7 @@ msgstr "バージョン %s を作成しました。%s.%s の SQL コマンド追
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "%s.%s への SQL コマンド追跡、バージョン %s を非アクティブにしました。"
 
 #: tbl_tracking.php:198
 #, php-format
