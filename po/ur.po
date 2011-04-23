@@ -3603,7 +3603,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
-msgstr ""
+msgstr "جدول نشان کریں"
 
 #: libraries/config/messages.inc.php:367
 msgid ""
