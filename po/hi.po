@@ -4619,7 +4619,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4629,8 +4628,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आयात की "
-"अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन तोड़ सकता है. "
+"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के "
+"आयात की अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह "
+"लेनदेन तोड़ सकता है. "
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
