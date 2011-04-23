@@ -3390,7 +3390,7 @@ msgstr "جدول صف روابط کو بائیں طرف دکھائیں"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "جدول صف روابط کو دائیں طرف دکھائیں"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
