@@ -4394,7 +4394,6 @@ msgid "Create table on database %s"
 msgstr " %s डाटाबेस मे नया टेबल बनाओ"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
 msgstr "काँलम की संख्या"
