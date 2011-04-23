@@ -3505,7 +3505,7 @@ msgstr "طلب دریچہ چوڑائی(پکسل میں)"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query window width"
-msgstr ""
+msgstr "طلب دریچہ چوڑائی"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
