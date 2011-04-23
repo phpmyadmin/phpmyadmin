@@ -3402,7 +3402,7 @@ msgstr "قدرتی ترتیب"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "صرف شبیہے، صرف متن یا دوتوں استعمال کریں"
 
 #: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
