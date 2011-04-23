@@ -4175,7 +4175,6 @@ msgid "Cookie authentication"
 msgstr "कुकी प्रमाणीकरण"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "HTTP authentication"
 msgstr "HTTP प्रमाणीकरण"
