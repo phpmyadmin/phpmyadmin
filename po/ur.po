@@ -3386,7 +3386,7 @@ msgstr "یہ تدوین، ان لائن تدوین، نقل اور حذف روا
 
 #: libraries/config/messages.inc.php:315
 msgid "Show table row links on left side"
-msgstr "جدو صف روابط کو بائیں طرف دکھائیں"
+msgstr "جدول صف روابط کو بائیں طرف دکھائیں"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
