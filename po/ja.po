@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 03:56+0200\n"
+"PO-Revision-Date: 2011-04-23 03:59+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9631,7 +9631,7 @@ msgstr "作成された一時的なデータベースを使用してダンプを
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "一時的なデータベースに対して実行しない場合は、この2行をコメントアウトします。"
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
