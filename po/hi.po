@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-17 15:13+0200\n"
-"Last-Translator: <rsedwardian@gmail.com>\n"
+"PO-Revision-Date: 2011-04-24 00:14+0200\n"
+"Last-Translator:  <rsedwardian@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -589,7 +589,6 @@ msgid "Inside column:"
 msgstr "काँलम के अंदर:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
