@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:17+0200\n"
+"PO-Revision-Date: 2011-04-23 08:18+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3534,7 +3534,7 @@ msgstr "مدد بٹن دکھائیں"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "وہ پوشہ جس پر برآمد سرور میں محفوظ کیے جاسکیں"
 
 #: libraries/config/messages.inc.php:352
 msgid "Save directory"
