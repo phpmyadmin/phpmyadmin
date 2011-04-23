@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:11+0200\n"
+"PO-Revision-Date: 2011-04-23 08:12+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3485,7 +3485,7 @@ msgstr "طلب لاگ کی لمبائی"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "جب ایک نیا طلب دریچہ کھولا جائے گا تو جدول نظر آئے گی"
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
