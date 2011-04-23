@@ -3434,7 +3434,7 @@ msgstr "MySQL کوائفیہ سے جڑنے کے لیے بہتر جڑت استع�
 
 #: libraries/config/messages.inc.php:326
 msgid "Persistent connections"
-msgstr ""
+msgstr "بہتر جوڑ"
 
 #: libraries/config/messages.inc.php:327
 msgid ""
