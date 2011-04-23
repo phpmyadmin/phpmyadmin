@@ -4413,9 +4413,9 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "%s डेटाबेस से टेबल निर्यात"
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "\"%s\" डेटाबेस से टेबल निर्यात"
+msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
