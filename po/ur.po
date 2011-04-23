@@ -3591,7 +3591,7 @@ msgstr "توثیق کا طریقہ جو استعمال ہو"
 
 #: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr ""
+msgstr "توثیق قسم"
 
 #: libraries/config/messages.inc.php:365
 msgid ""
