@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 08:20+0200\n"
+"PO-Revision-Date: 2011-04-23 08:22+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -3566,7 +3566,7 @@ msgstr "منتظم لاگ ان کی اجازت دیں"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "HTTP بنیادی توثیق اختیار نام جو دکھائی جائے جب HTTP توثیق کررہا ہو"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
