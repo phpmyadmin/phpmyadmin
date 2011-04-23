@@ -3622,7 +3622,7 @@ msgstr "جڑنے کو MySQL سرور کے لیے سکیڑیں"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection"
-msgstr ""
+msgstr "جڑنے کو سکیڑیں"
 
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
