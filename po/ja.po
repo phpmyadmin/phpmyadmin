@@ -4421,7 +4421,7 @@ msgstr ""
 #: libraries/display_export.lib.php:87
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "現在のサーバからデータベースをエクスポートする"
+msgstr "現在のサーバからデータベースをエクスポート"
 
 #: libraries/display_export.lib.php:89
 #, php-format
