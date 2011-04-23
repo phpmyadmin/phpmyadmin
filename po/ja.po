@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 16:54+0200\n"
+"PO-Revision-Date: 2011-04-23 16:59+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3968,7 +3968,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
-msgstr ""
+msgstr "データベースやテーブルの状態（領域の使用状況など）の表示を許可します。"
 
 #: libraries/config/messages.inc.php:453
 msgid "Show statistics"
