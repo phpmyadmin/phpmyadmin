@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 06:40+0200\n"
+"PO-Revision-Date: 2011-04-23 06:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3099,10 +3099,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "先頭から数えたスキップするレコード(クエリ)の数"
+msgstr "先頭から数えたスキップするクエリの数"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
