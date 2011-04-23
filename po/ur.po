@@ -3477,7 +3477,7 @@ msgstr "مستقل طلب لاگ"
 
 #: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "لاگ میں کتنے طلب رکھے جانے چاہیں"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
