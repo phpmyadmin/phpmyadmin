@@ -4541,10 +4541,9 @@ msgid "Format:"
 msgstr "प्रारूप"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Format-specific options:"
-msgstr "प्रारूप निर्दिष्ट विकल्पों"
+msgstr "प्रारूप निर्दिष्ट विकल्प:"
 
 #: libraries/display_export.lib.php:337
 msgid ""
