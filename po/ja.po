@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-23 03:30+0200\n"
+"PO-Revision-Date: 2011-04-23 03:37+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9649,7 +9649,7 @@ msgstr "追跡しているコマンド"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "種別：%s、期間：%s－%s、ユーザ：%sで絞り込む %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 msgid "Date"
