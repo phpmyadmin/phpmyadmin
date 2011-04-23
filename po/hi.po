@@ -4403,7 +4403,6 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "निर्यात plugins लोड नहीं कर सका, अपने अधिष्ठापन को जांचें"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Exporting databases from the current server"
 msgstr "वर्तमान सर्वर से डेटाबेस का निर्यात"
