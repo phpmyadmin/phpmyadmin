@@ -4180,7 +4180,6 @@ msgid "HTTP authentication"
 msgstr "HTTP प्रमाणीकरण"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Signon authentication"
 msgstr "signon प्रमाणीकरण"
