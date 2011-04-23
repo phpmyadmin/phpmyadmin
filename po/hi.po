@@ -4578,7 +4578,7 @@ msgid "Importing into the current server"
 msgstr "वर्तमान सर्वर में डेटा आयात"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the database \"%s\""
 msgstr "\"%s\" डेटाबेस में आयात"
