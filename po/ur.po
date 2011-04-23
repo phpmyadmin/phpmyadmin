@@ -3538,7 +3538,7 @@ msgstr "وہ پوشہ جس پر برآمد سرور میں محفوظ کیے ج�
 
 #: libraries/config/messages.inc.php:352
 msgid "Save directory"
-msgstr ""
+msgstr "پوشہ محفوظ کریں"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
