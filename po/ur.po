@@ -3626,7 +3626,7 @@ msgstr "جڑنے کو سکیڑیں"
 
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
+msgstr "سرور سے کیسے جڑا جائے, چھوڑ دیں [kbd]tcp[/kbd] اگر پتا نہیں"
 
 #: libraries/config/messages.inc.php:372
 msgid "Connection type"
