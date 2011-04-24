@@ -3774,7 +3774,7 @@ msgstr "サーバのソケット"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
-msgstr "MySQLサーバへの接続においてSSLを有効にする"
+msgstr "MySQLサーバへの接続においてSSLを有効にします"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
