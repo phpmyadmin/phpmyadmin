@@ -4030,7 +4030,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "SQL 検証を有効にする"
 
 #: libraries/config/messages.inc.php:470
 msgid ""
