@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 04:30+0200\n"
+"PO-Revision-Date: 2011-04-24 04:33+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2176,7 +2176,7 @@ msgstr "長い INSERT 文を作成する"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "上の両方を行う"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
