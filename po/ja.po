@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 07:43+0200\n"
+"PO-Revision-Date: 2011-04-24 07:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4135,7 +4135,7 @@ msgstr "アップロードディレクトリ"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "全てのデータベース内を検索することを許可します。"
 
 #: libraries/config/messages.inc.php:493
 msgid "Use database search"
