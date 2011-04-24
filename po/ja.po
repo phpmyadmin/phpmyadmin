@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 16:39+0200\n"
+"PO-Revision-Date: 2011-04-24 16:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3472,7 +3472,7 @@ msgstr "文字セットの変換に使用される関数を選択します。"
 
 #: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
-msgstr ""
+msgstr "コード変換エンジン"
 
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
