@@ -2411,7 +2411,7 @@ msgstr "DROP クエリの確認"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL のデバッグ"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
