@@ -2338,7 +2338,7 @@ msgid ""
 "import and export operations"
 msgstr ""
 "インポートおよびエクスポートの操作に対して[a@http://ja.wikipedia.org/wiki/Bzip2]bzip2[/a]圧縮を有効にしま"
-"す"
+"す。"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
