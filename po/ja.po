@@ -4494,7 +4494,7 @@ msgstr "@SERVER@ はサーバ名に"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr "。@DATABASE@ はデータベース名に変換されます"
+msgstr "、@DATABASE@ はデータベース名に"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
