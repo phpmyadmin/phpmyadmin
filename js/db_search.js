@@ -142,10 +142,7 @@ $(document).ready(function() {
         // jQuery object to reuse
         $form = $(this);
 
-        // add this hidden field just once
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize() + "&submit_search=" + $("#buttonGo").val(),  function(response) {
             if (typeof response == 'string') {

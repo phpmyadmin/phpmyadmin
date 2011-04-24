@@ -21,6 +21,18 @@ var only_once_elements = new Array();
 var ajax_message_init = false;
 
 /**
+ * Add a hidden field to the form to indicate that this will be an
+ * Ajax request (only if this hidden field does not exist)
+ *
+ * @param   object   the form
+ */
+function PMA_prepareForAjaxRequest($form) {
+    if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
+        $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+    }
+}
+
+/**
  * Generate a new password and copy it to the password input areas
  *
  * @param   object   the form that holds the password fields
@@ -1403,9 +1415,7 @@ $(document).ready(function() {
         button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
 
         var $msgbox = PMA_ajaxShowMessage();
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
             //in the case of an error, show the error message returned.
@@ -1467,9 +1477,7 @@ $(document).ready(function() {
             // OK, form passed validation step
             if ($form.hasClass('ajax')) {
                 PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-                if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-                    $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-                }
+                PMA_prepareForAjaxRequest($form);
                 //User wants to submit the form
                 $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
                     if(data.success == true) {
@@ -1561,9 +1569,7 @@ $(document).ready(function() {
         var $form = $("#create_table_form");
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         //User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
@@ -1670,10 +1676,7 @@ $(document).ready(function() {
         $form = $(this);
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function(data) {
             if(data.success == true) {

@@ -60,10 +60,7 @@ $(document).ready(function() {
         $("#sqlqueryresults").empty();
         var msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching']);
 
-	    // add this hidden field just once 
-	    if (! $search_form.find('input:hidden').is('#ajax_request_hidden')) {
-        	$search_form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-	    }
+        PMA_prepareForAjaxRequest($search_form);
 
         $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
             if (typeof response == 'string') {

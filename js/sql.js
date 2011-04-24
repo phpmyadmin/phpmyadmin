@@ -254,9 +254,7 @@ $(document).ready(function() {
         $form = $(this);
         var $msgbox = PMA_ajaxShowMessage();
 
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             if(data.success == true) {
