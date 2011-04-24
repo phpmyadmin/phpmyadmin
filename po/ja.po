@@ -3447,7 +3447,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr ""
+msgstr "クエリ履歴の長さ"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
