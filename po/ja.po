@@ -5431,7 +5431,7 @@ msgstr "<code>INSERT DELAYED</code> コマンド"
 
 #: libraries/export/sql.php:140
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<code>INSERT IGNORE</code> コマンド"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
