@@ -5404,10 +5404,9 @@ msgid "Add %s statement"
 msgstr "ステートメント"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "ステートメント"
+msgstr "追加コマンド"
 
 #: libraries/export/sql.php:111
 #, fuzzy
