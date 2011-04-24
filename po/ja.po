@@ -4256,7 +4256,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:262 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr "OpenDocument テキスト"
+msgstr "Open Document テキスト"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
