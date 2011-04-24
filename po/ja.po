@@ -4440,7 +4440,7 @@ msgstr "簡易 - 最小限のオプションだけ表示"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options"
-msgstr "カスタム - 可能なオプションを全て表示"
+msgstr "詳細 - 可能なオプションを全て表示"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
