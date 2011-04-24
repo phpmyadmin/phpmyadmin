@@ -2759,7 +2759,7 @@ msgstr "エクスポートのデフォルト"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr "デフォルトのエクスポートオプションの詳細設定を行います"
+msgstr "デフォルトのエクスポートオプションの詳細設定"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
