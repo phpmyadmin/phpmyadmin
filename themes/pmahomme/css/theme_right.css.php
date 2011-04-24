@@ -599,11 +599,11 @@ div.footnotes {
     <?php } else { ?>
     padding:            0.3em;
     <?php } ?>
-    
+
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    
+
     -moz-box-shadow: 0 1px 1px #fff inset;
     -webkit-box-shadow: 0 1px 1px #fff inset;
     box-shadow:  0 1px 1px #fff inset;
@@ -1546,29 +1546,14 @@ li#li_user_preferences {
     float: <?php echo $left; ?>;
 }
 
-#div_table_order {
+.operations_half_width {
     min-width: 48%;
     float: <?php echo $left; ?>;
 }
 
-#div_table_rename {
-    min-width: 48%;
-    float: <?php echo $left; ?>;
-}
-
-#div_table_copy,
-#div_partition_maintenance,
-#div_referential_integrity,
-#div_table_removal,
-#div_table_maintenance {
-    min-width: 48%;
-    float: <?php echo $left; ?>;
-}
-
-#div_table_options {
+.operations_full_width {
+    width: 100%;
     clear: both;
-    min-width: 48%;
-    float: <?php echo $left; ?>;
 }
 
 #qbe_div_table_list {
