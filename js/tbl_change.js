@@ -358,7 +358,7 @@ $(document).ready(function() {
                 $last_row
                 .clone()
                 .insertBefore("#actions_panel")
-                .find('input[name*=multi_edit],select[name*=multi_edit]')
+                .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
                 .each(function() {
 
                     var $this_element = $(this);
