@@ -3273,7 +3273,7 @@ msgstr "ログインクッキーの有効期間（秒）を定義します。"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr "ログインクッキーの有効期限"
+msgstr "ログインクッキーの有効期間"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
