@@ -3527,7 +3527,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "パスワードなしログインの許可"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
