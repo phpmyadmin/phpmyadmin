@@ -2937,7 +2937,7 @@ msgstr "エクスポートオプションの詳細設定"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
-msgstr "インポートデフォルトのカスタマイズ"
+msgstr "インポートデフォルトの詳細設定"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
