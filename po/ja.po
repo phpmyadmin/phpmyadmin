@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 15:32+0200\n"
+"PO-Revision-Date: 2011-04-24 15:35+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5301,10 +5301,9 @@ msgid "Object creation options"
 msgstr "生成オプション"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "テーブルのキャプション"
+msgstr "テーブルのキャプション（続き）"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
