@@ -253,7 +253,7 @@ unset($local_query);
  */
 ?>
 <!-- Order the table -->
-<div id="div_table_order">
+<div class="operations_half_width">
 <form method="post" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset id="fieldset_table_order">
@@ -279,7 +279,7 @@ unset($columns);
 </div>
 
 <!-- Move table -->
-<div id="div_table_rename">
+<div class="operations_half_width">
 <form method="post" action="tbl_operations.php"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
@@ -339,7 +339,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 ?>
 
 <!-- Table options -->
-<div id="div_table_options">
+<div class="operations_half_width clearfloat">
 <form method="post" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -518,7 +518,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 </div>
 
 <!-- Copy table -->
-<div id="div_table_copy">
+<div class="operations_half_width">
 <form method="post" action="tbl_operations.php"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
@@ -581,7 +581,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 
 <br class="clearfloat"/>
 
-<div id="div_table_maintenance">
+<div class="operations_half_width">
 <fieldset>
  <legend><?php echo __('Table maintenance'); ?></legend>
 
@@ -668,7 +668,7 @@ $this_url_params = array_merge($url_params,
 </fieldset>
 </div>
 <?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
-<div id="div_table_removal">
+<div class="operations_half_width">
 <fieldset class="caution">
  <legend><?php echo __('Delete data or table'); ?></legend>
 
@@ -699,7 +699,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             'reload' => '1',
             'purge' => '1',
             'message_to_show' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
-            // table name is needed to avoid running 
+            // table name is needed to avoid running
             // PMA_relationsCleanupDatabase() on the whole db later
             'table' => $GLOBALS['table'],
         ));
@@ -722,7 +722,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     // show the Partition maintenance section only if we detect a partition
     if (! is_null($partition_names[0])) {
     ?>
-<div id="div_partition_maintenance">
+<div class="operations_half_width">
 <form method="post" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
@@ -777,7 +777,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     if ($foreign) {
         ?>
     <!-- Referential integrity check -->
-<div id="div_referential_integrity">
+<div class="operations_half_width">
 <fieldset>
  <legend><?php echo __('Check referential integrity:'); ?></legend>
     <ul>

@@ -34,10 +34,7 @@ $(document).ready(function() {
 
         var question = 'CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + window.parent.db;
 
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
-
+        PMA_prepareForAjaxRequest($form);
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
@@ -95,9 +92,7 @@ $(document).ready(function() {
 
         var $form = $(this);
         
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
             // use messages that stay on screen
@@ -135,9 +130,7 @@ $(document).ready(function() {
 
         var $form = $(this);
 
-        if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-            $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
-        }
+        PMA_prepareForAjaxRequest($form);
 
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
 
