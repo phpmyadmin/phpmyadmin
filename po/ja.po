@@ -2180,7 +2180,7 @@ msgstr "上の両方を行う"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "上のどちらでもない"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
