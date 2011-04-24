@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 11:26+0200\n"
+"PO-Revision-Date: 2011-04-24 12:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5380,7 +5380,7 @@ msgstr "コメントの表示<i>（エクスポート日時、PHP や サーバ 
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"ヘッダにカスタムコメントを追加 (\n"
+"ヘッダにカスタムコメントを追加 (\\\n"
 " で改行)"
 
 #: libraries/export/sql.php:37
