@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 03:06+0200\n"
+"PO-Revision-Date: 2011-04-24 03:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4478,10 +4478,10 @@ msgid "Output:"
 msgstr "出力:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "サーバ上のディレクトリ %s に保存する"
+msgstr "サーバ上のディレクトリ <b>%s</b> に保存する"
 
 #: libraries/display_export.lib.php:206
 msgid "Save output to a file"
