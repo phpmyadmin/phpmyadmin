@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 15:23+0200\n"
+"PO-Revision-Date: 2011-04-24 15:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2759,7 +2759,7 @@ msgstr "エクスポートのデフォルト"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr "デフォルトのエクスポートオプションをカスタマイズします"
+msgstr "デフォルトのエクスポートオプションの詳細設定を行います"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
