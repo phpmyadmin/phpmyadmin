@@ -4498,7 +4498,7 @@ msgstr "、@DATABASE@ はデータベース名に"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr "。@TABLE@ はテーブル名に変換されます"
+msgstr "、@TABLE@ はテーブル名に"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
