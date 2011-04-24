@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 16:01+0200\n"
+"PO-Revision-Date: 2011-04-24 16:03+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5531,7 +5531,7 @@ msgstr "ビュー"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
-msgstr ""
+msgstr "内容をエクスポートする"
 
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
