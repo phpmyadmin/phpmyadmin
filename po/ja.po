@@ -3519,7 +3519,7 @@ msgstr "ホストの認証順番"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "デフォルトにする場合は空欄にします。"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
