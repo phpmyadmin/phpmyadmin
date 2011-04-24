@@ -5406,7 +5406,7 @@ msgstr "%s コマンドの追加"
 #: libraries/export/sql.php:91
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "追加コマンド"
+msgstr "追加コマンド："
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
