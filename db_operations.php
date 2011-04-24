@@ -349,14 +349,17 @@ if ($db == 'information_schema') {
 }
 
 if (!$is_information_schema) {
-
-    require './libraries/display_create_table.lib.php';
-
+    ?>
+    <div class="operations_half_width">
+    <?php require './libraries/display_create_table.lib.php'; ?>
+    </div>
+    <?php
     if ($cfgRelation['commwork']) {
         /**
          * database comment
          */
         ?>
+    <div class="operations_half_width">
     <form method="post" action="db_operations.php">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
@@ -371,6 +374,7 @@ if (!$is_information_schema) {
         <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
+    </div>
         <?php
     }
     /**
@@ -378,6 +382,7 @@ if (!$is_information_schema) {
      */
 if ($db != 'mysql') {
     ?>
+        <div class="operations_half_width">
         <form id="rename_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
         <?php
@@ -416,6 +421,7 @@ if ($db != 'mysql') {
         <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
+    </div>
 <?php
 } // end if
 
@@ -424,6 +430,7 @@ if ($db != 'mysql') {
 // Don't allow to easily drop mysql database, RFE #1327514.
 if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
 ?>
+<div class="operations_half_width">
 <fieldset class="caution">
  <legend><?php
 if ($cfg['PropertiesIconic']) {
@@ -452,12 +459,14 @@ echo __('Remove database');
     </li>
 </ul>
 </fieldset>
+</div>
 <?php } ?>
     <?php
     /**
      * Copy database
      */
     ?>
+        <div class="operations_half_width clearfloat">
         <form id="copy_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
     <?php
@@ -522,13 +531,13 @@ echo __('Remove database');
         <input type="submit" name="submit_copy" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
-
+    </div>
     <?php
 
     /**
      * Change database charset
      */
-    echo '<form id="change_db_charset_form" ';
+    echo '<div class="operations_half_width"><form id="change_db_charset_form" ';
     if ($GLOBALS['cfg']['AjaxEnable']) {
         echo ' class="ajax" ';
     }
@@ -549,7 +558,7 @@ echo __('Remove database');
        . '    <input type="submit" name="submitcollation"'
        . ' value="' . __('Go') . '" />' . "\n"
        . '</fieldset>' . "\n"
-       . '</form>' . "\n";
+       . '</form></div>' . "\n";
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
@@ -581,12 +590,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     /*
      * Export Relational Schema View
      */
-    echo '<fieldset><a href="schema_edit.php?' . $url_query . '">';
+    echo '<div class="operations_full_width"><fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo __('Edit or export relational schema') . '</a></fieldset>';
+    echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if
 
 /**
