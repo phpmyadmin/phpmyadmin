@@ -890,7 +890,7 @@ msgstr "ブックマーク %s を作成しました"
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "インポートは正常終了しました。%d 個のクエリを実行しました"
+msgstr "インポートは正常終了しました。%d 個のクエリを実行しました。"
 
 #: import.php:423
 msgid ""
