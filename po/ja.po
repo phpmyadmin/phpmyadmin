@@ -3166,7 +3166,7 @@ msgstr "全てのデータベースを同時に閲覧したい場合は、これ
 
 #: libraries/config/messages.inc.php:275
 msgid "Use light version"
-msgstr "軽快バージョンを使用する"
+msgstr "軽快版を使用する"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
