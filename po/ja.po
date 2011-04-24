@@ -3455,7 +3455,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr "デフォルトのクエリウィンドウのタブ"
+msgstr "クエリウィンドウのデフォルトタブ"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
