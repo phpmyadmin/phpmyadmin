@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 15:20+0200\n"
+"PO-Revision-Date: 2011-04-24 15:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2157,7 +2157,7 @@ msgstr "詳細 - 設定に必要な全てのオプションを表示します"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "カスタム - 上とほぼ同じ、ただし簡易/カスタムの選択はなし"
+msgstr "詳細 - 上とほぼ同じ、ただし簡易/詳細の選択はなし"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
