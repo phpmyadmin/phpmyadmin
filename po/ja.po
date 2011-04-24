@@ -4012,7 +4012,7 @@ msgstr "ロックされているテーブルをスキップする"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
-msgstr "SQL 検証を有効にするには必要です"
+msgstr "SQL 検証を有効にするには必要です。"
 
 #: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
