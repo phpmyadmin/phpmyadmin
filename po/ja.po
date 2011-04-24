@@ -2945,7 +2945,7 @@ msgstr "ナビゲーションフレームの詳細設定"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr "メインフレームのカスタマイズ"
+msgstr "メインフレームの詳細設定"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
