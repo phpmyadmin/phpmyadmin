@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 04:16+0200\n"
+"PO-Revision-Date: 2011-04-24 04:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5413,13 +5413,10 @@ msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> オプション："
 
 #: libraries/export/sql.php:123
-#, fuzzy
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"「逆クオートでテーブル名やフィールド名を囲む（Enclose table and field names "
-"with backquotes）」は、特殊文字を含むフィールド名やテーブル名を保護します。"
+msgstr "逆クオートでテーブルやフィールドの名前を囲む <i>(特殊な文字やキーワードを含むフィールド名やテーブル名を保護します)</i>"
 
 #: libraries/export/sql.php:136
 msgid "Instead of <code>INSERT</code> statements, use:"
