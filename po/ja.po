@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 06:26+0200\n"
+"PO-Revision-Date: 2011-04-24 06:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3860,10 +3860,9 @@ msgid ""
 msgstr "SQL コマンドの追跡機能が、テーブルやビューに対して自動的にバージョンを作成するかどうか。"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "自動修復モード"
+msgstr "バージョンの自動作成"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
