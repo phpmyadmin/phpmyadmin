@@ -5440,7 +5440,7 @@ msgstr ""
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "データを挿入するときに使用する構文："
 
 #: libraries/export/sql.php:154
 msgid ""
