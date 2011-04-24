@@ -2727,7 +2727,7 @@ msgstr "表示モードの詳細設定"
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
 msgid "Customize default options"
-msgstr "デフォルトオプションのカスタマイズ"
+msgstr "デフォルトオプションの詳細設定"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
