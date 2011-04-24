@@ -3539,7 +3539,7 @@ msgstr "HTTP 認証を行うときに表示される HTTP 基本認証領域名"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP 領域"
 
 #: libraries/config/messages.inc.php:361
 msgid ""
