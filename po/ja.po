@@ -4501,7 +4501,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr "、@TABLE@ はテーブル名に"
 
 #: libraries/display_export.lib.php:237
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4511,9 +4511,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"このテンプレートは %1$sstrftime%2$s を使って解釈されます。そのため、時間の書"
-"式文字列を利用できます。また、次の変換も行われます。%3$s それ以外のテキストは"
-"修正されません"
+"この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用することができます。また、埋め込み変数変換も行われます（%"
+"3$s変換されます。）。その他のテキストはそのまま使われます。詳細については、%4$sFAQ%5$s を参照してください。"
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
