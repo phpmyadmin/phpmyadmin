@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 09:27+0200\n"
+"PO-Revision-Date: 2011-04-24 09:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1029,7 +1029,7 @@ msgstr "要求を処理中"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "要求処理中でのエラー"
 
 #: js/messages.php:66
 msgid "Dropping Column"
