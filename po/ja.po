@@ -3493,7 +3493,7 @@ msgstr "スレッドの修復"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr "ドキュメントテキストの代わりにヘルプボタンを表示する"
+msgstr "ドキュメントテキストの代わりにヘルプボタンを表示します。"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
