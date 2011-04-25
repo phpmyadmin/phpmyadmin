@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 03:02+0200\n"
+"PO-Revision-Date: 2011-04-25 03:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3783,7 +3783,7 @@ msgstr "SSLを使用する"
 #: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr ""
+msgstr "PDF スキーマを使用しない場合は空欄にします。[kbd]pma_table_coords[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:415
 msgid "PDF schema: table coordinates"
