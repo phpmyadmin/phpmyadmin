@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 03:45+0200\n"
+"PO-Revision-Date: 2011-04-25 03:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3930,10 +3930,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "開いているテーブルを表示する"
+msgstr "種別フィールドの表示"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
