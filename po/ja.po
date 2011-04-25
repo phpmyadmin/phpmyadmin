@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 02:38+0200\n"
+"PO-Revision-Date: 2011-04-25 02:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3693,7 +3693,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
-msgstr "config認証を使用しない場合は空欄のまま"
+msgstr "config 認証を使用しない場合は空欄のままにします。"
 
 #: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
