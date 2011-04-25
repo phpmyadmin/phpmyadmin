@@ -2424,7 +2424,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "データベースが選択されたときに表示されるタブ。"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
