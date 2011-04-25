@@ -2666,7 +2666,7 @@ msgstr "外部キーのチェックを無効にする"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr "BLOBに16進数表記を利用する"
+msgstr "BLOB に 16 進数表記を利用する"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
