@@ -569,7 +569,9 @@ echo __('Remove database');
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
         }
+        echo '<div class="operations_full_width">';
         $message->display();
+        echo '</div>';
     } // end if
 } // end if (!$is_information_schema)
 
