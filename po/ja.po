@@ -3702,7 +3702,7 @@ msgstr "config認証用のパスワード"
 #: libraries/config/messages.inc.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr ""
+msgstr "PDF スキーマを使用しない場合は空欄のままにします。[kbd]pma_pdf_pages[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
