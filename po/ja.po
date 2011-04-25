@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-24 17:02+0200\n"
+"PO-Revision-Date: 2011-04-25 02:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3125,7 +3125,7 @@ msgstr "クイックアクセスアイコンのリンク先"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr "左のフレーム内のロゴを表示する"
+msgstr "左のフレーム内にロゴを表示します。"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
