@@ -586,7 +586,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
            . '    </legend>' . "\n"
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
 
-        // Output the Global privilege tables
+        // Output the Global privilege tables with checkboxes
         foreach($privTable as $i => $table) {
             echo '    <fieldset>' . "\n"
                 . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
@@ -594,14 +594,12 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
             {
                 echo '        <div class="item">' . "\n"
                     . '            <input type="checkbox"'
-                    . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-                    . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
-                    . '_priv" value="Y" '
-                    . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
-                    . 'title="' . $priv[2] . '"/>' . "\n"
-                    . '            <label for="checkbox_' . $priv[0]
-                    . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
-                    . '</dfn></tt></label>' . "\n"
+                    .                   ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
+                    .                   ' value="Y" title="' . $priv[2] . '"'
+                    .                   ((!empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
+                    .               '/>' . "\n"
+                    . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">'
+                    .                    $priv[1] . '</dfn></tt></label>' . "\n"
                     . '        </div>' . "\n";
             }
             echo '    </fieldset>' . "\n";
