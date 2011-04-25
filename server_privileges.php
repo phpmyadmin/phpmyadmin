@@ -509,6 +509,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
 
         // g l o b a l    o r    d b - s p e c i f i c
         //
+        $privTable_names = array(0 => __('Data'), 1 => __('Structure'), 2 => __('Administration'));
+
         // d a t a
         $privTable[0] = array(
             array('Select', 'SELECT', __('Allows reading data.')),
@@ -582,59 +584,29 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
             . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
            . '    </legend>' . "\n"
-           . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n"
-           . '    <fieldset>' . "\n"
-           . '        <legend>' . __('Data') . '</legend>' . "\n";
-        foreach ($privTable[0] as $priv)
-        {
-            echo '        <div class="item">' . "\n"
-               . '            <input type="checkbox"'
-                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
-                . '_priv" value="Y" '
-                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
-                . 'title="' . $priv[2] . '"/>' . "\n"
-               . '            <label for="checkbox_' . $priv[0]
-                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
-                . '</dfn></tt></label>' . "\n"
-               . '        </div>' . "\n";
-        }
-        echo '    </fieldset>' . "\n"
-           . '    <fieldset>' . "\n"
-           . '        <legend>' . __('Structure') . '</legend>' . "\n";
-        foreach ($privTable[1] as $priv)
-        {
-            echo '        <div class="item">' . "\n"
-               . '            <input type="checkbox"'
-                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
-                . '_priv" value="Y" '
-                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
-                . 'title="' . $priv[2] . '"/>' . "\n"
-               . '            <label for="checkbox_' . $priv[0]
-                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
-                . '</dfn></tt></label>' . "\n"
-               . '        </div>' . "\n";
-        }
-        echo '    </fieldset>' . "\n"
-           . '    <fieldset>' . "\n"
-           . '        <legend>' . __('Administration') . '</legend>' . "\n";
-        foreach ($privTable[2] as $priv)
-        {
-            echo '        <div class="item">' . "\n"
-               . '            <input type="checkbox"'
-                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
-                . '_priv" value="Y" '
-                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
-                . 'title="' . $priv[2] . '"/>' . "\n"
-               . '            <label for="checkbox_' . $priv[0]
-                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
-                . '</dfn></tt></label>' . "\n"
-               . '        </div>' . "\n";
+           . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
+
+        // Output the Global privilege tables
+        foreach($privTable as $i => $table) {
+            echo '    <fieldset>' . "\n"
+                . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
+            foreach ($table as $priv)
+            {
+                echo '        <div class="item">' . "\n"
+                    . '            <input type="checkbox"'
+                    . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                    . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
+                    . '_priv" value="Y" '
+                    . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
+                    . 'title="' . $priv[2] . '"/>' . "\n"
+                    . '            <label for="checkbox_' . $priv[0]
+                    . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
+                    . '</dfn></tt></label>' . "\n"
+                    . '        </div>' . "\n";
+            }
+            echo '    </fieldset>' . "\n";
         }
 
-        echo '    </fieldset>' . "\n";
         // The "Resource limits" box is not displayed for db-specific privs
         if ($db == '*') {
             echo '    <fieldset>' . "\n"
