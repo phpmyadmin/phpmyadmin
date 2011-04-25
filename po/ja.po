@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 02:54+0200\n"
+"PO-Revision-Date: 2011-04-25 02:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3869,7 +3869,7 @@ msgstr "データベースにユーザー設定の保存しない場合は空欄
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
-msgstr ""
+msgstr "ユーザー設定保存テーブル"
 
 #: libraries/config/messages.inc.php:433
 msgid "User for config auth"
