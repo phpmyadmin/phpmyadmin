@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 16:30+0200\n"
+"PO-Revision-Date: 2011-04-25 16:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2230,10 +2230,9 @@ msgid "SQL Validator is disabled"
 msgstr "SQL 検証は無効です"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
-msgstr "リンク先が見つかりません"
+msgstr "SOAP 拡張が見つかりません"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
