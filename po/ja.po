@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 02:32+0200\n"
+"PO-Revision-Date: 2011-04-25 02:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3725,7 +3725,7 @@ msgstr "データベース名"
 
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr "MySQLサーバで開いているポート。デフォルトにしたい場合は空欄のまま。"
+msgstr "MySQLサーバで開いているポート。デフォルトにしたい場合は空欄のままにします。"
 
 #: libraries/config/messages.inc.php:402
 msgid "Server port"
