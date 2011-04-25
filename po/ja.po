@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 15:46+0200\n"
+"PO-Revision-Date: 2011-04-25 15:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5318,10 +5318,9 @@ msgstr "テーブルのキャプション（続き）"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "外部キーのチェックを無効にする"
+msgstr "外部キーリレーションシップの表示"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
 msgid "Display comments"
