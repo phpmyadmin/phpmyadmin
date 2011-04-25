@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 03:07+0200\n"
+"PO-Revision-Date: 2011-04-25 03:11+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3833,7 +3833,7 @@ msgstr "DROP VIEW を追加"
 
 #: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
+msgstr "新しいバージョンに対して自動生成使用するコマンドのリストを定義します。"
 
 #: libraries/config/messages.inc.php:425
 #| msgid "Statements"
