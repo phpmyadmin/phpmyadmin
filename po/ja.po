@@ -2440,7 +2440,7 @@ msgstr "デフォルトのサーバタブ"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "テーブルが選択されたときに表示されるタブ。"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
