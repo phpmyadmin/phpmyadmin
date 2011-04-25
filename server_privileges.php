@@ -179,7 +179,7 @@ function PMA_RangeOfUsers($initial = '')
  * @param   array   $row        the row
  * @param   boolean $enableHTML add <dfn> tag with tooltips
  *
- * @global  ressource $user_link the database connection
+ * @global  resource $user_link the database connection
  *
  * @return  array
  */
