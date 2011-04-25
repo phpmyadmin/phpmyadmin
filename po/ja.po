@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 02:31+0200\n"
+"PO-Revision-Date: 2011-04-25 02:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2456,7 +2456,7 @@ msgstr "バイナリの内容を16進数で表示する"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr "データベースの一覧をドロップダウンの代わりにリストで表示します"
+msgstr "データベースの一覧をドロップダウンの代わりにリストで表示します。"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
