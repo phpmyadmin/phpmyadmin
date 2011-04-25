@@ -3610,7 +3610,7 @@ msgstr "データベースリストを表示するときにテーブル数も表
 
 #: libraries/config/messages.inc.php:377
 msgid "Count tables"
-msgstr ""
+msgstr "テーブル数"
 
 #: libraries/config/messages.inc.php:378
 msgid ""
