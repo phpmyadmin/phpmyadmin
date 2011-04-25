@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-25 05:06+0200\n"
+"PO-Revision-Date: 2011-04-25 05:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2326,7 +2326,7 @@ msgstr "行のマーカ"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "マウスカーソルで指し示された行を目立たせます。"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
