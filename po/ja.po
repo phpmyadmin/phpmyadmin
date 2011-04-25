@@ -3766,7 +3766,7 @@ msgstr "サインオンURL"
 
 #: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr "MySQLサーバで開いているソケット。デフォルトにしたい場合は空欄のまま。"
+msgstr "MySQLサーバで開いているソケット。デフォルトにしたい場合は空欄のままにします。"
 
 #: libraries/config/messages.inc.php:411
 msgid "Server socket"
