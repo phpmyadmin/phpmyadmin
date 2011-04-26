@@ -22,7 +22,7 @@ echo '$GLOBALS["language_stats"] = array (' >> libraries/language_stats.inc.php
 
 check() {
     lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
-    STATS=`LANG=C  msgfmt --statistics -o /dev/null $1 2>&1`
+    STATS=`LC_ALL=C  msgfmt --statistics -o /dev/null $1 2>&1`
     if echo $STATS | grep -q ' translated ' ; then
         TRANSLATED=`echo $STATS | sed 's/\(^\|.* \)\([0-9]*\) translated.*/\2/'`
     else
