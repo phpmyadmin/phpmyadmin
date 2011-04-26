@@ -165,8 +165,8 @@ function PMA_RangeOfUsers($initial = '')
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
     if (!empty($initial)) {
-        $ret = " WHERE `User` LIKE '" . $initial . "%'"
-            . " OR `User` LIKE '" . strtolower($initial) . "%'";
+        $ret = " WHERE `User` LIKE '" . PMA_sqlAddslashes($initial) . "%'"
+            . " OR `User` LIKE '" . PMA_sqlAddslashes(strtolower($initial)) . "%'";
     } else {
         $ret = '';
     }
