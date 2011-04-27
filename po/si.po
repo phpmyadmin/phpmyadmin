@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:55+0200\n"
+"PO-Revision-Date: 2011-04-27 13:56+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2284,7 +2284,7 @@ msgstr "ප්‍රතිසකසන්න"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "තිරය යාවත්කාලින කිරීම වේගවත් කරන්න"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
