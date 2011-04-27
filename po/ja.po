@@ -6503,7 +6503,7 @@ msgstr "ENUM もしくは SET データが長いので、"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr "広い編集領域で行う"
+msgstr "広い編集領域で作業する"
 
 #: libraries/tbl_properties.inc.php:396
 msgctxt "for default"
