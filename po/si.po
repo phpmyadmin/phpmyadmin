@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:47+0200\n"
+"PO-Revision-Date: 2011-04-27 13:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2169,7 +2169,7 @@ msgstr "අභිමත - වින්‍යාස කිරීමට සිය�
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "අභිමත - ඉහත මෙන්, නමුත් අභිමත/කඩිනම් තෝරාගැනීම් නොමෙතිව"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
