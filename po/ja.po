@@ -9785,7 +9785,7 @@ msgstr "プロファイルを更新しました"
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr "VIEW の名前"
+msgstr "ビューの名前"
 
 #: view_operations.php:91
 msgid "Rename view to"
