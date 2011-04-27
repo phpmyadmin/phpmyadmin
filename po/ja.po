@@ -3038,7 +3038,7 @@ msgstr "有効にした場合、クエリの 1 つが失敗しても phpMyAdmin 
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "マルチクエリのエラーを無視する"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
