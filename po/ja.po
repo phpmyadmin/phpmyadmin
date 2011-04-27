@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 09:13+0200\n"
+"PO-Revision-Date: 2011-04-27 09:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3374,7 +3374,7 @@ msgstr "ナビゲーションバーのアイコン"
 
 #: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
+msgstr "HTTP 転送の高速化のために GZip の出力バッファリングを使用します。"
 
 #: libraries/config/messages.inc.php:322
 msgid "GZip output buffering"
