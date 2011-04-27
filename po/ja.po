@@ -2961,7 +2961,7 @@ msgstr "SQL クエリボックスに表示されるリンクの詳細設定"
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL queries settings"
-msgstr "SQLクエリの設定"
+msgstr "SQL クエリの設定"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL Validator"
