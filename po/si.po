@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:07+0200\n"
+"PO-Revision-Date: 2011-04-27 13:10+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -813,7 +813,7 @@ msgstr "ප්‍රතිදානය"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "ඈඳූ අගයන් \"Length/Values\" ක්ෂේත්‍රය තුලට පිටපත් කරන්න"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
