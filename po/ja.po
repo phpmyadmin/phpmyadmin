@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 12:08+0200\n"
+"PO-Revision-Date: 2011-04-27 12:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -728,7 +728,7 @@ msgstr "データベース"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "最後のバージョン"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 msgid "Created"
