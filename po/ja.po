@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 10:24+0200\n"
+"PO-Revision-Date: 2011-04-27 10:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3483,10 +3483,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "スレッドの修復"
+msgstr "カラム名ヘッダの繰り返し"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
