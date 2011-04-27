@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 16:05+0200\n"
+"PO-Revision-Date: 2011-04-27 16:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4229,7 +4229,7 @@ msgstr "LOAD DATA する CSV"
 #: libraries/config/user_preferences.forms.php:245 libraries/export/xls.php:17
 #: libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS ワークブック"
 
 #: libraries/config/setup.forms.php:252 libraries/config/setup.forms.php:347
 #: libraries/config/user_preferences.forms.php:155
