@@ -4236,7 +4236,7 @@ msgstr "Excel 97-2003 XLS ワークブック"
 #: libraries/config/user_preferences.forms.php:249
 #: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX ワークブック"
 
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:158
