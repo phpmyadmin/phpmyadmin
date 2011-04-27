@@ -705,19 +705,13 @@ function setCheckboxes( container_id, state ) {
   *
   * @param   string   the form name
   * @param   string   the element name
-  * @param   boolean  whether to check or to uncheck the element
+  * @param   boolean  whether to check or to uncheck options
   *
   * @return  boolean  always true
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
-
-    if( do_check ) {
-        $("form[name='"+ the_form +"']").find("select[name='"+the_select+"']").find("option").attr('selected', 'selected');
-    }
-    else {
-        $("form[name='"+ the_form +"']").find("select[name="+the_select+"]").find("option").removeAttr('selected');
-    }
+    $("form[name='"+ the_form +"'] select[name='"+the_select+"']").find("option").attr('selected', do_check);
     return true;
 } // end of the 'setSelectOptions()' function
 
