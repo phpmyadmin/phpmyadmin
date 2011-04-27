@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:13+0200\n"
+"PO-Revision-Date: 2011-04-27 13:23+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1169,6 +1169,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"නව phpMyAdmin අනුවාදයක් නිකුත් වී ඇති බැවින් එය ලබා ගැනීම සලකා බලන්න. නවතම "
+"phpMyAdmin අනුවාදය %s අනුවාදයයි. (%s දින නිකුත් කරන ලද)"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
