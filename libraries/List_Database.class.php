@@ -371,7 +371,7 @@ require_once './libraries/List.class.php';
         $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
-                $return .= '<li><span>' . htmlspecialchars($group) . '</span><ul>' . "\n";
+                $return .= '<li class="group"><span>' . htmlspecialchars($group) . '</span><ul>' . "\n";
                 // whether display db_name cut by the group part
                 $cut = true;
             } else {
