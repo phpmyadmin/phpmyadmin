@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:56+0200\n"
+"PO-Revision-Date: 2011-04-27 14:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2312,7 +2312,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "&quot;Drop database&quot; සබැඳිය සාමාන්‍ය භවිතා කරන්නන්ට පෙන්වන්න "
 
 #: libraries/config/messages.inc.php:24
 msgid ""
