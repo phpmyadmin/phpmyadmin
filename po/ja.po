@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 15:28+0200\n"
+"PO-Revision-Date: 2011-04-27 15:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9183,14 +9183,15 @@ msgid "Chart generated successfully."
 msgstr "グラフが正常に作成されました。"
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
-msgstr "正確な数字とは限りません。FAQ 3.11 をご覧ください"
+msgstr ""
+"このクエリの結果は、グラフに使用することができませんでした。[a@./Documentation.html#faq6_29@Documentation]"
+"FAQ 6.29[/a] を参照してください。"
 
 #: tbl_chart.php:90
 msgid "Width"
