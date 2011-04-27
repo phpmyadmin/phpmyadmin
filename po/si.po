@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:49+0200\n"
+"PO-Revision-Date: 2011-04-27 13:50+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2200,7 +2200,7 @@ msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ"
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
