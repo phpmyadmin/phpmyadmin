@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:05+0200\n"
+"PO-Revision-Date: 2011-04-27 13:07+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -541,10 +541,10 @@ msgid "Browse"
 msgstr "පිරික්සන්න"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "වගු සඳහා නික්ෂේප දත්ත"
+msgstr "%s වගුව තුල ගැලපීම් ඉවත් කරන්නද?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1185
 #: libraries/display_tbl.lib.php:2115
