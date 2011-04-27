@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:44+0200\n"
+"PO-Revision-Date: 2011-04-27 13:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2126,7 +2126,7 @@ msgstr "අප්ලෝඩ් කිරීම් සඳහා සැකසූ �
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
