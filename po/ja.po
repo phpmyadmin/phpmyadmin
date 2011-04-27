@@ -2949,7 +2949,7 @@ msgstr "メインフレームの詳細設定"
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr "SQLクエリ"
+msgstr "SQL クエリ"
 
 #: libraries/config/messages.inc.php:212
 msgid "SQL Query box"
