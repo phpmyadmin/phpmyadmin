@@ -1515,7 +1515,7 @@ msgstr "%s සූචිය හලන ලදි"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "%1$ හා %2$ සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක.  "
+msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක.  "
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
