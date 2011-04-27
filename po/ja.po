@@ -2965,7 +2965,7 @@ msgstr "SQL クエリの設定"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL Validator"
-msgstr "SQL文の検証"
+msgstr "SQL 文の検証"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
