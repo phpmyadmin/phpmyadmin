@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 12:18+0200\n"
+"PO-Revision-Date: 2011-04-27 12:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -795,7 +795,7 @@ msgstr "カラム \"%s\" に対しての値"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "個々の入力欄にそれぞれ値を入力してください。"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
