@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:42+0200\n"
+"PO-Revision-Date: 2011-04-27 13:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1952,7 +1952,7 @@ msgstr "MySQL said: "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "SQL වලංගු කරණයට සම්බන්ද වීම අසමත් විය!"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
