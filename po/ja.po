@@ -9093,10 +9093,9 @@ msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
 #: sql.php:622
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "SQL の検証"
+msgstr "検証した SQL 文"
 
 #: sql.php:897
 #, php-format
