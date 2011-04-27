@@ -2245,9 +2245,8 @@ msgid "SQL Validator is disabled"
 msgstr "SQL වලංගු කරණය අක්‍රීය කර ඇත. "
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy
 msgid "SOAP extension not found"
-msgstr "PHP සංස්කරණය"
+msgstr "SOAP දිගුව හමු නොවිණි."
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
