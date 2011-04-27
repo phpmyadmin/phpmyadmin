@@ -2957,7 +2957,7 @@ msgstr "SQL クエリボックス"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr "SQLクエリボックスに表示されるリンクの詳細設定"
+msgstr "SQL クエリボックスに表示されるリンクの詳細設定"
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL queries settings"
