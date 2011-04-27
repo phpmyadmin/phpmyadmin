@@ -2974,8 +2974,8 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"SQL 検証サービスを使用する場合、[strong]すべてのSQL文は統計目的のために匿名で格納されていること[/strong]に注意する必要があります"
-"。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"SQL 検証サービスを使用する場合、[strong]すべての SQL 文は統計目的のために匿名で格納されていること[/strong]に注意する必要があり"
+"ます。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:219
