@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 13:53+0200\n"
+"PO-Revision-Date: 2011-04-27 13:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2274,7 +2274,7 @@ msgstr "පෙරනිමි අගය ප්‍රතිස්ථාපනය 
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "මෙම අගය වෙනස් කිරීමට භවිතා කරන්නන්ට ඉඩ දෙන්න"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
