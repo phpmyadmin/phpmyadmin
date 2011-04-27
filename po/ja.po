@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 10:28+0200\n"
+"PO-Revision-Date: 2011-04-27 10:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3480,7 +3480,7 @@ msgstr "コード変換エンジン"
 
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "カラム名ヘッダを何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/config/messages.inc.php:347
 #| msgid "Repair threads"
