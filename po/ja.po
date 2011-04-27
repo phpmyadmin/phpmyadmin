@@ -6997,10 +6997,9 @@ msgid "subquery"
 msgstr "サブクエリ"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
-msgstr "リネーム後のテーブル名"
+msgstr "リネーム後の名前"
 
 #: pmd_general.php:482 pmd_general.php:581
 #| msgid "User name"
