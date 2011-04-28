@@ -7866,9 +7866,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr "සියලු දත්තගබඩා නොසලකා හරින්න, අනුරූ කරන්න:"
 
 #: server_replication.php:223
-#, fuzzy
 msgid "Please select databases:"
-msgstr "කරුණාකර දත්තගබඩාවක් තෝරන්න"
+msgstr "කරුණාකර දත්තගබඩා තෝරන්න:"
 
 #: server_replication.php:226
 msgid ""
