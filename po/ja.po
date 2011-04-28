@@ -2683,7 +2683,7 @@ msgstr "エクスポートをトランザクションで囲む"
 
 #: libraries/config/messages.inc.php:137
 msgid "Export time in UTC"
-msgstr "エクスポート時間をUTC（協定世界時）にする"
+msgstr "エクスポート時間を UTC（協定世界時）にする"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
