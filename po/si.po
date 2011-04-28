@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:39+0200\n"
+"PO-Revision-Date: 2011-04-28 20:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8993,9 +8993,8 @@ msgid "phpMyAdmin homepage"
 msgstr "phpMyAdmin මුල් පිටුව "
 
 #: setup/frames/index.inc.php:228
-#, fuzzy
 msgid "Donate"
-msgstr "දත්ත"
+msgstr "පරිත්‍යාග කරන්න"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
