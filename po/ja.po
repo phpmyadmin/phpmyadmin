@@ -5960,7 +5960,7 @@ msgstr "高度な機能の設定する簡単な方法"
 #: libraries/relation.lib.php:153
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr "<code>script/create_tables.sql</code>で必要なテーブルを作成します。"
+msgstr "<code>script/create_tables.sql</code> で必要なテーブルを作成します。"
 
 #: libraries/relation.lib.php:154
 msgid "Create a pma user and give access to these tables."
