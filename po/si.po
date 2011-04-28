@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:11+0200\n"
+"PO-Revision-Date: 2011-04-28 20:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8850,7 +8850,7 @@ msgstr "පේළි(ය) ඇතුල් කරන්න "
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "ඉලක්කගත වගුවෙන් සියලුම පෙර තීරු ඉවත් කිරීමට‍ ඔබ කැමතිද?"
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
