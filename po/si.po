@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 19:26+0200\n"
+"PO-Revision-Date: 2011-04-28 19:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7481,7 +7481,7 @@ msgstr "Limits the number of simultaneous connections the user may have."
 #: server_privileges.php:54 server_privileges.php:197
 #: server_privileges.php:555
 msgid "Allows viewing processes of all users"
-msgstr ""
+msgstr "Allows viewing processes of all users"
 
 #: server_privileges.php:55 server_privileges.php:199
 #: server_privileges.php:459 server_privileges.php:561
