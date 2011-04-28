@@ -8970,7 +8970,7 @@ msgstr "භාවිත කරන්නාට තෝරා ගෙනීමට �
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
-msgstr ""
+msgstr "- කිසිවක් නොමැත -"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
