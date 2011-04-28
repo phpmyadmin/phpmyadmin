@@ -8912,7 +8912,7 @@ msgstr "ගෝලීය අගය"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:213
 msgid "Download"
-msgstr ""
+msgstr "බාගත කරන්න"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
