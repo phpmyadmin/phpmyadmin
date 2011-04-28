@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 10:21+0200\n"
+"PO-Revision-Date: 2011-04-28 10:22+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2096,10 +2096,10 @@ msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
 #: libraries/common.lib.php:2979
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "ウェブサーバ上のアップロードディレクトリ"
+msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
