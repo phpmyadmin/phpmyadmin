@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 10:22+0200\n"
+"PO-Revision-Date: 2011-04-28 10:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3792,7 +3792,7 @@ msgstr "サーバのソケット"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
-msgstr "MySQLサーバへの接続においてSSLを有効にします。"
+msgstr "MySQL サーバへの接続において SSL を有効にします。"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
