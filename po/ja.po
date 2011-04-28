@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 10:20+0200\n"
+"PO-Revision-Date: 2011-04-28 10:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2306,7 +2306,7 @@ msgstr "一般ユーザに「データベースを削除する」リンクを表
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr ""
+msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される秘密のパスフレーズ"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
