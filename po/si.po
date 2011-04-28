@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 19:31+0200\n"
+"PO-Revision-Date: 2011-04-28 19:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7764,9 +7764,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "අභිමත ආදේශක නාමයන් සඳහා සියලු වරප්‍රසාද දෙන්න (භාවිත නාමය_%)"
 
 #: server_privileges.php:2149
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා වරප්‍රසාද පරීක්ෂා කරන්න."
+msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා සියලු වරප්‍රසාද ප්‍රදානය කරන්න."
 
 #: server_privileges.php:2172
 #, php-format
