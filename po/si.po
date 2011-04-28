@@ -8846,7 +8846,7 @@ msgstr "පේළි(ය) යාවත්කාලීන කරන්න "
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr ""
+msgstr "පේළි(ය) ඇතුල් කරන්න "
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
