@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 19:54+0200\n"
+"PO-Revision-Date: 2011-04-28 19:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7958,7 +7958,7 @@ msgstr "වත්මන් දෝෂය මගහරින්න"
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "ඊළඟ මඟහරින්න"
 
 #: server_replication.php:346
 msgid "errors."
