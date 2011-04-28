@@ -2310,7 +2310,7 @@ msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用さ
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Blowfish 暗号"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
