@@ -2383,7 +2383,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "逐次圧縮"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
