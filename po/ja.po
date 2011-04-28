@@ -9055,7 +9055,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "ウェブサーバがサポートしているならば、SSL 接続を使用するべきです。"
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
