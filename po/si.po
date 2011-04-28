@@ -7942,7 +7942,7 @@ msgstr "IO ත්‍රෙඩය පමණක් අරඹන්න "
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "IO ත්‍රෙඩය පමණක් නවත්තන්න"
 
 #: server_replication.php:338
 msgid "Error management:"
