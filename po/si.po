@@ -7954,7 +7954,7 @@ msgstr ""
 
 #: server_replication.php:342
 msgid "Skip current error"
-msgstr ""
+msgstr "වත්මන් දෝෂය මගහරින්න"
 
 #: server_replication.php:343
 msgid "Skip next"
