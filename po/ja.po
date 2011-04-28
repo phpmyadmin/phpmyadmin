@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 10:24+0200\n"
+"PO-Revision-Date: 2011-04-28 10:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9059,7 +9059,7 @@ msgstr "ウェブサーバがサポートしているならば、SSL 接続を�
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "パフォーマンス上の理由から mysqli の使用する必要があります。"
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
