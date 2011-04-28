@@ -7962,7 +7962,7 @@ msgstr "ඊළඟ මඟහරින්න"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "දෝෂ."
 
 #: server_replication.php:361
 #, php-format
