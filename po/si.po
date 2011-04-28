@@ -9021,9 +9021,8 @@ msgid "Ignore errors"
 msgstr "දෝෂ නොසලකන්න "
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "වර්ණය පෙන්වන්න"
+msgstr "පෝරමය පෙන්වන්න"
 
 #: setup/lib/index.lib.php:119
 msgid ""
