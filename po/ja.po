@@ -3796,7 +3796,7 @@ msgstr "MySQLサーバへの接続においてSSLを有効にします。"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
-msgstr "SSL を使用する"
+msgstr "SSL の使用"
 
 #: libraries/config/messages.inc.php:414
 msgid ""
