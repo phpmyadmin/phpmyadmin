@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:19+0200\n"
+"PO-Revision-Date: 2011-04-28 20:20+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8870,7 +8870,7 @@ msgstr "ඉලක්ක දත්තගබඩා මූලාශ්‍ර දත
 
 #: server_synchronize.php:1002
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "පහත විමසුම් ක්‍රියාත්මක කරන ලදි:"
 
 #: server_synchronize.php:1130
 msgid "Enter manually"
