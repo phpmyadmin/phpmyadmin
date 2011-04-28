@@ -8982,7 +8982,7 @@ msgstr "පේළියේ අවසානය"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
-msgstr ""
+msgstr "පෙන්වන්න"
 
 #: setup/frames/index.inc.php:216
 #, fuzzy
