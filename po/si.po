@@ -9006,7 +9006,7 @@ msgstr "නව සේවාදායකයක් එක් කරන්න"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "අනතුරු හැඟවීම"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
