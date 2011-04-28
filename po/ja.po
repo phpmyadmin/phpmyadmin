@@ -3610,7 +3610,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:375
 msgid "Control user"
-msgstr ""
+msgstr "phpMyAdmin ユーザ"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
