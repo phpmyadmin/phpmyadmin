@@ -7803,7 +7803,7 @@ msgstr "හැඳුනුම් අංකය (ID)"
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "හඳුනා නොගත් දෝෂය"
 
 #: server_replication.php:56
 #, php-format
