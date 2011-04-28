@@ -4064,7 +4064,7 @@ msgstr "ユーザ名"
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
-msgstr ""
+msgstr "「データベースの作成」フォームで（可能であれば）データベース名を提案します。そうでなければ、テキストフィールドを空欄にします。"
 
 #: libraries/config/messages.inc.php:473
 msgid "Suggest new database name"
