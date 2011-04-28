@@ -4291,7 +4291,7 @@ msgstr "config 認証方法を使いましたが、ユーザ名が空欄です�
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "signon 認証方法を使いましたが、サインオンセッション名が空欄です。"
 
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
