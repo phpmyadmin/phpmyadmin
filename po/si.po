@@ -8854,7 +8854,7 @@ msgstr "ඉලක්කගත වගුවෙන් සියලුම පෙර
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "තෝරාගත් වෙනස්කම් යොදන්න"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
