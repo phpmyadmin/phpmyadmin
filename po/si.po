@@ -8978,7 +8978,7 @@ msgstr "පෙරනිමි සේවාදායකය"
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
-msgstr ""
+msgstr "පේළියේ අවසානය"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
