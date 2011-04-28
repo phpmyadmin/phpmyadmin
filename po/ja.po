@@ -4303,7 +4303,7 @@ msgstr "pmadb を使いましたが、phpMyAdmin ユーザが空欄です。"
 
 #: libraries/config/validate.lib.php:280
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "pmadb を使いましたが、phpMyAdmin ユーザのパスワードが空欄です。"
 
 #: libraries/config/validate.lib.php:367
 #, php-format
