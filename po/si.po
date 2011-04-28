@@ -7750,7 +7750,6 @@ msgid "Database for user"
 msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩාව"
 
 #: server_privileges.php:2144
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
