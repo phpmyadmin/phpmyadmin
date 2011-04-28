@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:20+0200\n"
+"PO-Revision-Date: 2011-04-28 20:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8877,10 +8877,9 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1138
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
-msgstr "max. concurrent connections"
+msgstr "වත්මන් සම්බන්දතාව"
 
 #: server_synchronize.php:1167
 #, php-format
