@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:41+0200\n"
+"PO-Revision-Date: 2011-04-28 20:42+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9010,7 +9010,7 @@ msgstr "අනතුරු හැඟවීම"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "යොමු කල පෝරමයේ දෝෂ සහිතයි"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Try to revert erroneous fields to their default values"
