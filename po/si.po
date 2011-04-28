@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-27 14:13+0200\n"
+"PO-Revision-Date: 2011-04-28 19:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7281,9 +7281,8 @@ msgid "Select binary log to view"
 msgstr "පෙන්වීම සඳහා ද්වීමය ලොගය තෝරන්න"
 
 #: server_binlog.php:122 server_status.php:387
-#, fuzzy
 msgid "Files"
-msgstr "ක්ෂේත්‍ර"
+msgstr "ගොනු"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
