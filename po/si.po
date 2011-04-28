@@ -8989,9 +8989,8 @@ msgid "Load"
 msgstr "පූරණය කරන්න "
 
 #: setup/frames/index.inc.php:227
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin ලියකියවිලි"
+msgstr "phpMyAdmin මුල් පිටුව "
 
 #: setup/frames/index.inc.php:228
 #, fuzzy
