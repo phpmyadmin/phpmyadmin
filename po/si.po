@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 19:30+0200\n"
+"PO-Revision-Date: 2011-04-28 19:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7594,10 +7594,9 @@ msgid "Do not change the password"
 msgstr "මුරපදය වෙනස් නොකරන්න"
 
 #: server_privileges.php:846 server_privileges.php:2312
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "No user(s) found."
+msgstr "භාවිතා කරන්නන් හමු නොවිණි."
 
 #: server_privileges.php:890
 #, php-format
