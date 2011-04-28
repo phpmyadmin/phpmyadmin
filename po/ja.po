@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 12:08+0200\n"
+"PO-Revision-Date: 2011-04-28 12:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3416,7 +3416,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "phpMyAdmin の設定保存用テーブルが間違っていたとき"
+msgstr "phpMyAdmin の設定保存用テーブルがありません"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
