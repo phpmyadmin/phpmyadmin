@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 21:18+0200\n"
+"PO-Revision-Date: 2011-04-29 21:19+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9207,9 +9207,9 @@ msgid "Label"
 msgstr "ලේබලය"
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "The selected users have been deleted successfully."
+msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
