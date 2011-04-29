@@ -8761,7 +8761,7 @@ msgstr "対象先のデータベースが、元のデータベースと同期さ
 
 #: server_synchronize.php:1002
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "次のクエリが実行されます："
 
 #: server_synchronize.php:1130
 msgid "Enter manually"
