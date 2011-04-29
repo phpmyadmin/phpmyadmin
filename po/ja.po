@@ -8753,7 +8753,7 @@ msgstr "データベースの同期"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "選択された対象先のテーブルは、元のテーブルと同期されています。"
 
 #: server_synchronize.php:941
 msgid "Target database has been synchronized with source database"
