@@ -7888,7 +7888,7 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Slave SQL ත්‍රෙඩය අක්‍රීයයි!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
