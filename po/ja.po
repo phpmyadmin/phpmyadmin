@@ -3107,7 +3107,7 @@ msgstr "部分インポート（クエリのスキップ）"
 
 #: libraries/config/messages.inc.php:258
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "値がゼロのものに対してAUTO_INCREMENTを使用しない"
+msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
