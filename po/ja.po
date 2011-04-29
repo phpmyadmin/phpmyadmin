@@ -7158,7 +7158,7 @@ msgstr "%sセットアップスクリプト%sを使用するなどして config.
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr "ブラウザに保存する（クッキーでない別の保存場所）"
+msgstr "ブラウザに保存する"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
