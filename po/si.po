@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 22:27+0200\n"
+"PO-Revision-Date: 2011-04-29 22:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7897,7 +7897,7 @@ msgstr ""
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "සේවාදායකය අනුරූ ක්‍රියාවලියක slave ලෙස සකසා ඇත. ඔබ කැමතිද: "
 
 #: server_replication.php:306
 msgid "See slave status table"
