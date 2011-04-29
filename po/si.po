@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 21:00+0200\n"
+"PO-Revision-Date: 2011-04-29 21:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9357,7 +9357,7 @@ msgstr ""
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-msgstr ""
+msgstr "රේඩාර් ප්‍රස්ථාරයක් ඇඳීමේදී සියලුම අගයන් [0..10] පරාසයට ප්‍රමත කෙරේ."
 
 #: tbl_chart.php:173
 msgid ""
