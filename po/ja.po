@@ -8683,7 +8683,7 @@ msgstr "元のデータベースに接続できませんでした。"
 
 #: server_synchronize.php:95
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "対象先のデータベースに接続できませんでした。"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:76
 #: tbl_get_field.php:19
