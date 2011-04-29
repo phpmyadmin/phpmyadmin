@@ -154,6 +154,7 @@
 - bug #3134495 [synchronization] Data containing single quotes prevents sync,
   thanks to jviewer
 - Remove the custom color picker feature
+- bug #3285929 [privileges] Don't fail silently on missing priviledge to execute REVOKE ALL PRIVILEGES
 
 3.3.11.0 (not yet released)
 
