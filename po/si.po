@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 22:39+0200\n"
+"PO-Revision-Date: 2011-04-29 22:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7826,7 +7826,7 @@ msgstr ""
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක master ලෙස සකසා ඇත."
 
 #: server_replication.php:182 server_status.php:407
 msgid "Show master status"
