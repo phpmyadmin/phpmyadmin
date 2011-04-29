@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 21:23+0200\n"
+"PO-Revision-Date: 2011-04-29 21:25+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9160,7 +9160,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "ඔබ මුරපදයකින් තොරව සේවාදායකයට සම්බන්ධ වීමට ඉඩ ලබා දෙන්නෙහිය"
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
