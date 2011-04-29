@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 22:11+0200\n"
+"PO-Revision-Date: 2011-04-29 22:14+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8697,6 +8697,8 @@ msgstr ""
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>slave</b> ලෙස "
+"ක්‍රියාකරයි."
 
 #: server_status.php:492
 msgid ""
