@@ -2190,7 +2190,7 @@ msgstr "有効なポート番号ではありません"
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "不正な値です"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
