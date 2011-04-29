@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 22:04+0200\n"
+"PO-Revision-Date: 2011-04-29 22:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8810,7 +8810,7 @@ msgstr "දත්ත සමමුහුර්ත කරණය"
 
 #: server_synchronize.php:399 server_synchronize.php:838
 msgid "not present"
-msgstr ""
+msgstr "නොමැති"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Structure Difference"
