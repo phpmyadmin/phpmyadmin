@@ -8709,7 +8709,7 @@ msgstr "構造の差分"
 
 #: server_synchronize.php:424 server_synchronize.php:867
 msgid "Data Difference"
-msgstr ""
+msgstr "データの差分"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
