@@ -7926,10 +7926,9 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Structure only"
+msgstr "SQL ත්‍රෙඩය පමණක් අරඹන්න"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
