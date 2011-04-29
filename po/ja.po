@@ -8765,7 +8765,7 @@ msgstr "次のクエリが実行されます："
 
 #: server_synchronize.php:1130
 msgid "Enter manually"
-msgstr ""
+msgstr "手動で入力する"
 
 #: server_synchronize.php:1138
 #| msgid "max. concurrent connections"
