@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 21:19+0200\n"
+"PO-Revision-Date: 2011-04-29 21:23+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9178,7 +9178,7 @@ msgstr "අන්‍ය අගයන් පිරික්සන්න"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්"
 
 #: sql.php:600 tbl_replace.php:387
 #, php-format
