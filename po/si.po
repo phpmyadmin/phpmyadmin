@@ -7901,7 +7901,7 @@ msgstr ""
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "slave තත්ව වගුව බලන්න."
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
