@@ -7912,9 +7912,8 @@ msgid "Control slave:"
 msgstr ""
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full start"
-msgstr "සම්පූර්ණ පාඨය"
+msgstr "පූර්ණ ඇරඹුම "
 
 #: server_replication.php:323
 msgid "Full stop"
