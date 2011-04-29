@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 10:28+0200\n"
+"PO-Revision-Date: 2011-04-29 10:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9064,7 +9064,7 @@ msgstr "パフォーマンス上の理由から mysqli の使用する必要が�
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "パスワードなしでサーバへの接続が許されています。"
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
