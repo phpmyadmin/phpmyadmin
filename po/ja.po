@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-29 10:27+0200\n"
+"PO-Revision-Date: 2011-04-29 10:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8966,6 +8966,8 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフレーズを自動的に生成しました。パスフレーズはクッキーを暗号化"
+"するために使用されますが、管理者がそれを覚えておく必要はありません。"
 
 #: setup/lib/index.lib.php:253
 #, php-format
