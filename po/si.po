@@ -7835,7 +7835,7 @@ msgstr "උපතත්වයන් පෙන්වන්න"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "සම්බන්ධිත salves පෙන්වන්න"
 
 #: server_replication.php:208
 #, php-format
