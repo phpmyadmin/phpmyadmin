@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-30 09:57+0200\n"
+"PO-Revision-Date: 2011-04-30 09:58+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5574,7 +5574,7 @@ msgstr "返り値が空でした(行数0)"
 #: libraries/import.lib.php:1141
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1142
 msgid "View a structure`s contents by clicking on its name"
