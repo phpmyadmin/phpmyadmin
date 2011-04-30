@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-30 10:11+0200\n"
+"PO-Revision-Date: 2011-04-30 10:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9765,7 +9765,7 @@ msgstr "テーマは利用できません。設定やテーマディレクトリ
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "他のテーマを入手する！"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
