@@ -5587,7 +5587,7 @@ msgstr "「オプション」のリンクをクリックすることで対応す
 
 #: libraries/import.lib.php:1144
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
 #: libraries/import.lib.php:1147
 msgid "Go to database"
