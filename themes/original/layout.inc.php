@@ -110,4 +110,29 @@ $GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'quote_single'       => '',
     'quote_backtick'     => ''
 );
+
+/**
+ * Chart colors
+ */
+ 
+ $GLOBALS['cfg']['chartColor'] = array(
+ 	'gradientIntensity'		=> 0,
+	// The style of the chart title.
+	'titleColor'			=> '#000000',
+	'titleBgColor'			=> $GLOBALS['cfg']['ThBackground'],
+	// Chart border (0 for no border)
+	'border'				=> '#CCCCCC',
+	// Chart background color.
+	'bgColor'				=> $GLOBALS['cfg']['BgTwo'],
+	// when graph area gradient is used, this is the color of the graph
+	// area border
+	'graphAreaColor'		=>  '#D5D9DD',
+	// the background color of the inner graph area
+	'graphAreaGradientColor'=> $GLOBALS['cfg']['BgOne'],
+	// the color of the grid lines in the graph area
+	'gridColor'				=> '#E6E6E6',
+	// the color of the scale and the labels
+	'scaleColor'			=> '#D5D9DD',
+ );
+
 ?>

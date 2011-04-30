@@ -47,12 +47,21 @@ class PMA_pChart_Pie extends PMA_pChart_multi
                 $this->getGraphAreaColor(BLUE),
                 FALSE
         );
-        $this->chart->drawGraphAreaGradient(
-                $this->getGraphAreaGradientColor(RED),
-                $this->getGraphAreaGradientColor(GREEN),
-                $this->getGraphAreaGradientColor(BLUE),
-                50
-        );
+		
+		if($this->settings['gradientIntensity']>0)
+			$this->chart->drawGraphAreaGradient(
+					$this->getGraphAreaGradientColor(RED),
+					$this->getGraphAreaGradientColor(GREEN),
+					$this->getGraphAreaGradientColor(BLUE),
+					$this->settings['gradientIntensity']
+			);
+		else
+			$this->chart->drawGraphArea(
+					$this->getGraphAreaGradientColor(RED),
+					$this->getGraphAreaGradientColor(GREEN),
+					$this->getGraphAreaGradientColor(BLUE)
+			);
+		
     }
 
     /**
