@@ -387,7 +387,7 @@ $(document).ready(function() {
                     if ($this_element.is('.textfield')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.attr('value', '');
+                            $this_element.attr('value', $this_element.closest('tr').find('span.default_value').html());
                         }
                         $this_element
                         .unbind('change')
