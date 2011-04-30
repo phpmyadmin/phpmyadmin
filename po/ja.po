@@ -5578,7 +5578,7 @@ msgstr "下に示す構成が、作成もしくは変更されました。ここ
 
 #: libraries/import.lib.php:1142
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "名前をクリックすることで構造内容を表示します。"
 
 #: libraries/import.lib.php:1143
 msgid ""
