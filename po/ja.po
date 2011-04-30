@@ -3030,7 +3030,7 @@ msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "iconv のための追加パラメータ"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
