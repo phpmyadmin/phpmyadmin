@@ -215,6 +215,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
         }
         //validate for integer type
         if(theType.substring(0,3) == "int"){
+            $this_input.removeClass("invalid_value");
             if(isNaN($this_input.val())){
                 $this_input.addClass("invalid_value");
                 return false;
