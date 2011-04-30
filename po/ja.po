@@ -5603,7 +5603,7 @@ msgstr "テーブルに移動"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
-msgstr ""
+msgstr "ビューに移動"
 
 #: libraries/import/csv.php:37 libraries/import/ods.php:26
 #: libraries/import/xls.php:24 libraries/import/xlsx.php:24
