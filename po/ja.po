@@ -5599,7 +5599,7 @@ msgstr "設定"
 
 #: libraries/import.lib.php:1169
 msgid "Go to table"
-msgstr ""
+msgstr "テーブルに移動"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
