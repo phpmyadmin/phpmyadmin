@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 08:53+0200\n"
+"PO-Revision-Date: 2011-05-01 08:54+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2776,9 +2776,8 @@ msgid "Customize edit mode"
 msgstr "සංස්කරණ ප්‍රකාරය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:162
-#, fuzzy
 msgid "Export defaults"
-msgstr "ගොනු ආනයනය"
+msgstr "අපනයන පෙරනිමි"
 
 #: libraries/config/messages.inc.php:163
 #, fuzzy
