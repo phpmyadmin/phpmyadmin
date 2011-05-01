@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 08:28+0200\n"
+"PO-Revision-Date: 2011-05-01 08:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2591,9 +2591,8 @@ msgid "Excel edition"
 msgstr "එක්සෙල් සංස්කරණය"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:84
 #, fuzzy
