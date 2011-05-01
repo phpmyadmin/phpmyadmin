@@ -2968,7 +2968,7 @@ msgstr "යාත්‍රණ රාමුව රිසි සේ සකසන�
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr ""
+msgstr "ප්‍රධාන රාමුව රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
