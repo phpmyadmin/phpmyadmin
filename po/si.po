@@ -2773,7 +2773,7 @@ msgstr " සංස්කරණ ප්‍රකාරය"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr ""
+msgstr "සංස්කරණ ප්‍රකාරය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:162
 #, fuzzy
