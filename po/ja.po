@@ -5020,7 +5020,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr ""
+msgstr "格納ファイル閾値"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
