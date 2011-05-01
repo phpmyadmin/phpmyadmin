@@ -1451,7 +1451,9 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && (!isset($_REQU
         $extra_data['new_privileges'] = $new_privileges;
     }
 
-    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    if ($message instanceof PMA_Message) {
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    }
 }
 
 /**
