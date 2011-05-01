@@ -7818,7 +7818,7 @@ msgstr "スレーブのステータステーブルを閲覧する"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "データベースをマスターと同期させる"
+msgstr "データベースをマスタと同期させる"
 
 #: server_replication.php:320
 msgid "Control slave:"
