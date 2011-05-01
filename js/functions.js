@@ -1118,23 +1118,30 @@ function changeMIMEType(db, table, reference, mime_type)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
-    var oldText,db,table,token,sql_query;
-    oldText=$(".inner_sql").html();
-    $("#inline_edit").live('click',function(){
-        db=$("input[name='db']").val();
-        table=$("input[name='table']").val();
-        token=$("input[name='token']").val();
-        sql_query=$("input[name='sql_query']").val();
-        $(".inner_sql").replaceWith("<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">"+ sql_query +"</textarea><input type=\"button\" id=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\"><input type=\"button\" id=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">");
+    $(".inline_edit").click( function(){
+        var db         = $(this).prev().find("input[name='db']").val();
+        var table      = $(this).prev().find("input[name='table']").val();
+        var token      = $(this).prev().find("input[name='token']").val();
+        var sql_query  = $(this).prev().find("input[name='sql_query']").val();
+        var $inner_sql = $(this).parent().prev().find('.inner_sql');
+        var old_text   = $inner_sql.html();
+
+        var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
+        new_content    += "<input type=\"button\" class=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
+        new_content    += "<input type=\"button\" class=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
+        $inner_sql.replaceWith(new_content);
+        $(".btnSave").each(function(){
+            $(this).click(function(){
+                sql_query = $(this).prev().val();
+                window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + sql_query + "&show_query=1&token=" + token);
+            });
+        });
+        $(".btnDiscard").each(function(){
+            $(this).click(function(){
+                $(this).closest(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + old_text + "</span></span>");
+            });
+        });
         return false;
-    });
-
-    $("#btnSave").live("click",function(){
-        window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + $("#sql_query_edit").val()+"&show_query=1&token=" + token + "");
-    });
-
-    $("#btnDiscard").live("click",function(){
-        $(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + oldText + "</span></span>");
     });
 
     $('.sqlbutton').click(function(evt){
