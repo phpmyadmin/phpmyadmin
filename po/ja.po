@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:22+0200\n"
+"PO-Revision-Date: 2011-05-01 09:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5039,6 +5039,8 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"一時的な BLOB の有効期間（秒）。アップロードされた BLOB "
+"データはこの時間を経過した後に削除されますが、データベース内のレコードで参照されている場合はこの限りではありません。"
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
