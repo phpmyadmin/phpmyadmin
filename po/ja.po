@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:53+0200\n"
+"PO-Revision-Date: 2011-05-01 09:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5694,7 +5694,7 @@ msgstr "値がゼロのものに対して <code>AUTO_INCREMENT</code> を使用�
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
-msgstr ""
+msgstr "指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題を修正して再度試してみてください。"
 
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
