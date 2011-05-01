@@ -2921,7 +2921,7 @@ msgstr "සත්‍යාපන සිටුවම්"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "සේවාදායකයේ වින්‍යාස"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
