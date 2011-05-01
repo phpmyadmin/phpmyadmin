@@ -7416,7 +7416,7 @@ msgstr "サーバ設定のリロード、サーバキャッシュのフラッシ
 #: server_privileges.php:57 server_privileges.php:207
 #: server_privileges.php:563
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "スレーブ/マスターの照会を許可する"
+msgstr "スレーブ/マスタの照会を許可する"
 
 #: server_privileges.php:58 server_privileges.php:206
 #: server_privileges.php:564
