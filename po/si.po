@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:40+0200\n"
+"PO-Revision-Date: 2011-05-01 09:41+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3123,10 +3123,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස ආනයනය කරන්න (උදා. 12.00%, 12 ලෙස)"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Number of records(queries) to skip from start"
+msgstr "ආරම්භයේ සිට ඇත හැරිය යුතු විමසුම් ගණන"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
