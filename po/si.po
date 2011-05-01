@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:49+0200\n"
+"PO-Revision-Date: 2011-05-01 09:50+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3161,7 +3161,7 @@ msgstr "ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "සේවාදායක තේරීම වම්පස රාමුවේ ඉහල පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
