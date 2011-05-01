@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:19+0200\n"
+"PO-Revision-Date: 2011-05-01 09:20+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2935,7 +2935,7 @@ msgstr "සේවාදායකයට සම්බන්ධ වීමේ පර
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "වින්‍යාස ගබඩාව (Configuration storage)"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
