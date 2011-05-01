@@ -2896,7 +2896,7 @@ msgstr "විමසුම් කවුළුව සඳහා වූ වික�
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "ආරක්ෂාව"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
