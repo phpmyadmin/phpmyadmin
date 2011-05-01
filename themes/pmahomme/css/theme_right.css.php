@@ -1547,7 +1547,7 @@ li#li_user_preferences {
 }
 
 .operations_half_width {
-    min-width: 48%;
+    width: 48%;
     float: <?php echo $left; ?>;
 }
 
