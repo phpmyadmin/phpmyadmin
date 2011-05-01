@@ -3157,7 +3157,7 @@ msgstr "වම්පස රාමුවේ ලාංඡනය පෙන්වන
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
