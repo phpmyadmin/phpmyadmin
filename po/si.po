@@ -2814,7 +2814,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr "ආනයන/අපනයන"
+msgstr "ආනයන / අපනයන"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
