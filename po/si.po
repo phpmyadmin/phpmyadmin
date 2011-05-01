@@ -2595,9 +2595,8 @@ msgid "Database name template"
 msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "සේවාදායක නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:85
 #, fuzzy
