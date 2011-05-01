@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:20+0200\n"
+"PO-Revision-Date: 2011-05-01 09:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5005,7 +5005,7 @@ msgstr "ガベージ閾値"
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr "リポジトリファイルのガベージが何％になったら圧縮するか。"
+msgstr "格納ファイルのガベージが何％になったら圧縮するか。"
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1178
