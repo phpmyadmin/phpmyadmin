@@ -7721,7 +7721,7 @@ msgstr "不明なエラーです"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "マスター %s に接続していません"
+msgstr "マスタ %s に接続していません"
 
 #: server_replication.php:63
 msgid ""
