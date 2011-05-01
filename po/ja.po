@@ -5065,6 +5065,8 @@ msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"接続維持フラグをセットして、非アクティブな接続に対してのタイムアウトを設定します。この時間経過した後に接続が閉じられます。時間の単位はミリ秒 "
+"(1/1000) です。"
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
