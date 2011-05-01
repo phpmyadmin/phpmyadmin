@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:41+0200\n"
+"PO-Revision-Date: 2011-05-01 09:42+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3137,7 +3137,7 @@ msgstr "බිංදුව අගයන් සඳහා AUTO_INCREMENT භාව
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "හැකිලුමේ ආරම්භක ආකාරය"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
