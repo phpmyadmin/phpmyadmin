@@ -2984,9 +2984,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "SQL විමසුම් කවුළුවේ ඇති සබැඳුම් රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "SQL විමසුම"
+msgstr "SQL විමසුම් සිටුවම්"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
