@@ -3023,4 +3023,22 @@ function PMA_buildActionTitles() {
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
     return $titles;
 }
+
+/**
+ * Add recently used tables
+ */
+function PMA_addRecentTable($table, $db) {
+    if (isset($_SESSION['tmp_user_values']['recent_tables'])) {
+        array_unshift($_SESSION['tmp_user_values']['recent_tables'], $db . '.' . $table);
+        $_SESSION['tmp_user_values']['recent_tables'] = array_unique($_SESSION['tmp_user_values']['recent_tables']);
+        while (count($_SESSION['tmp_user_values']['recent_tables']) > 5) {
+            array_pop($_SESSION['tmp_user_values']['recent_tables']);
+        }
+    } else {
+        $_SESSION['tmp_user_values']['recent_tables'] = array();
+        array_unshift($_SESSION['tmp_user_values']['recent_tables'], $db . '.' . $table);
+    }
+    $GLOBALS['reload'] = true;
+    PMA_reloadNavigation();
+}
 ?>

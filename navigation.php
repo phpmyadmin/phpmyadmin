@@ -179,6 +179,25 @@ require_once './libraries/header_http.inc.php';
 <body id="body_leftFrame">
 <?php
 require './libraries/navigation_header.inc.php';
+
+// display recently used tables
+if (count($_SESSION['tmp_user_values']['recent_tables'])) {
+?>
+    <div id="recentTableList">
+    <select onchange="arr=this.value.split('.'); window.parent.setDb(arr[0]); window.parent.setTable(arr[1]);
+                      window.parent.refreshMain('<?php echo $GLOBALS['cfg']['LeftDefaultTabTable']; ?>')">
+        <optgroup label="<?php echo __('Recent tables'); ?>">
+        <?php
+        foreach ($_SESSION['tmp_user_values']['recent_tables'] as $table) {
+            echo '<option value="' . $table . '">' . $table . '</option>';
+        }
+        ?>
+        </optgroup>
+    </select>
+    </div>
+<?php
+}
+
 if (! $GLOBALS['server']) {
     // no server selected
     PMA_exitNavigationFrame();
