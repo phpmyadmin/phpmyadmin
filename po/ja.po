@@ -2693,7 +2693,7 @@ msgstr "phpMyAdmin を使用している間、強制的にセキュリティで�
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr "SSL接続の推奨"
+msgstr "SSL 接続の推奨"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
