@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:47+0200\n"
+"PO-Revision-Date: 2011-05-01 09:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3153,7 +3153,7 @@ msgstr "'ක්ෂණික ප්‍රවේශය' අයිකනය සඳ�
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "වම්පස රාමුවේ ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
