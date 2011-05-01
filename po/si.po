@@ -9121,7 +9121,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:268
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
