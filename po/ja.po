@@ -5077,6 +5077,8 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"「:」で区切られたメタデータヘッダのリスト。データベースが作成されたときに、pbms_metadata_header "
+"テーブルを初期化するために使われます。"
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
