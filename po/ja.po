@@ -9150,7 +9150,7 @@ msgstr " バイナリ - 編集不可"
 
 #: tbl_change.php:926
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "BLOB 格納へアップロードする"
 
 #: tbl_change.php:1055
 msgid "Insert as new row"
