@@ -5032,7 +5032,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "一時 BLOB の有効期間"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
