@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 10:09+0200\n"
+"PO-Revision-Date: 2011-05-01 10:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6020,7 +6020,7 @@ msgstr "ユーザ名"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Master status"
-msgstr "マスターステータス"
+msgstr "マスタステータス"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
