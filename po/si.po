@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:42+0200\n"
+"PO-Revision-Date: 2011-05-01 09:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3141,7 +3141,7 @@ msgstr "හැකිලුමේ ආරම්භක ආකාරය"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "වරකට ඇතුල් කල හැකි පේලි ගණන"
 
 #: libraries/config/messages.inc.php:263
 #, fuzzy
