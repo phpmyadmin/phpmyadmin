@@ -5043,10 +5043,9 @@ msgstr ""
 "データはこの時間を経過した後に削除されますが、データベース内のレコードで参照されている場合はこの限りではありません。"
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "ログファイルの閾値"
+msgstr "一時ログ閾値"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
