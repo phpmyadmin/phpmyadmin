@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:37+0200\n"
+"PO-Revision-Date: 2011-05-01 09:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9529,7 +9529,7 @@ msgstr ""
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "外部キー制約"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
