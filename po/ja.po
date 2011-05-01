@@ -7796,8 +7796,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL サーバが再起動したら、「実行する」ボタンをクリックしてください。その後、このサーバー<b>が</b>マスターとして設定されていることを知らせ"
-"るメッセージが表示されます。"
+"MySQL サーバが再起動したら、「実行する」ボタンをクリックしてください。その後、このサーバー<b>が</b>マスタとして設定されていることを知らせる"
+"メッセージが表示されます。"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
