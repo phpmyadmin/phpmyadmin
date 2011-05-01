@@ -8424,7 +8424,7 @@ msgstr ""
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "このサーバがマスターに接続するスレーブである場合は ON になります"
+msgstr "このサーバがマスタに接続するスレーブである場合は ON になります"
 
 #: server_status.php:141
 msgid ""
