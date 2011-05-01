@@ -3165,7 +3165,7 @@ msgstr "සේවාදායක තේරීම වම්පස රාමුව
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr ""
+msgstr "සේවාදායක තේරීම පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:269
 #, fuzzy
