@@ -694,6 +694,9 @@ foreach ($rows as $row_id => $vrow) {
         // HTML attribute
 
         echo '        <td>' . "\n";
+        // Will be used by js/tbl_change.js to set the default value
+        // for the "Continue insertion" feature
+        echo '<span class="default_value hide">' . $special_chars . '</span>';
         if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";
             ?>

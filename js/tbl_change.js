@@ -165,7 +165,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
 
     // Unchecks the Ignore checkbox for the current row
     $("input[name='insert_ignore_" + multi_edit + "']").attr({'checked': false});
-    $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
+    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
     // Does this field come from datepicker?
     if ($this_input.data('comes_from') == 'datepicker') {
@@ -214,11 +214,11 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
             }
         }
         //validate for integer type
-        if(theType.substring(0,3)=="int"){
-
-            if(isNaN(dt.value)){
-                    dt.className="invalid_value";
-                    return false;
+        if(theType.substring(0,3) == "int"){
+            $this_input.removeClass("invalid_value");
+            if(isNaN($this_input.val())){
+                $this_input.addClass("invalid_value");
+                return false;
             }
         }
     }
@@ -387,7 +387,7 @@ $(document).ready(function() {
                     if ($this_element.is('.textfield')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.attr('value', '');
+                            $this_element.attr('value', $this_element.closest('tr').find('span.default_value').html());
                         }
                         $this_element
                         .unbind('change')

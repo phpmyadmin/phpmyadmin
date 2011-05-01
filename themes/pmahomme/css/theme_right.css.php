@@ -1673,8 +1673,10 @@ table#serverconnection_trg_local  {
 /**
   *  Validation error message styles
   */
-.invalid_value
-{background:#F00;}
+input[type=text].invalid_value,
+.invalid_value {
+    background:#F00;
+}
 
 /**
   *  Ajax notification styling

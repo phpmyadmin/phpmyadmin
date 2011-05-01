@@ -72,7 +72,7 @@ switch($submit_mult) {
 if (!empty($submit_mult)) {
     switch($submit_mult) {
         case 'row_edit':
-            // As we got the fields to be edited from the
+            // As we got the rows to be edited from the
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used
             // for the tbl_change.php script.
@@ -89,7 +89,7 @@ if (!empty($submit_mult)) {
             // Needed to allow SQL export
             $single_table = TRUE;
 
-            // As we got the fields to be edited from the
+            // As we got the rows to be exported from the
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used
             // for the tbl_change.php script.

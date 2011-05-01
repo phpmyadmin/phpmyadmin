@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-04-28 20:44+0200\n"
+"PO-Revision-Date: 2011-05-01 09:50+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2165,7 +2165,7 @@ msgstr "කඩිනම් - අවම තෝරා ගැනීම් පමණ
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr "අභිමත - වින්‍යාස කිරීමට සියලුම තෝරා ගැනීම් පෙන්වන්න"
+msgstr "අභිමත - සියලුම තෝරා ගැනීම් පෙන්වන්න"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
@@ -2586,25 +2586,21 @@ msgid "Lines terminated by"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ:"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "එක්සෙල් සංස්කරණය"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "දත්තගබඩා නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "සේවාදායක නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
@@ -2646,14 +2642,13 @@ msgid "Relations"
 msgstr "Relations"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "අපනයන වර්ගය"
+msgstr "අපනයන ක්‍රමය"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "සේවාදායකයේ සුරකින්න"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2661,15 +2656,13 @@ msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 msgid "Remember file name template"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "ගොනු නාම ටෙම්ප්ලේටය මතක තබා ගන්න "
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Enclose table and field names with backquotes"
+msgstr "වගු සහ තීර නම් පසු-උදෘත මගින් අවුරන්න"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
@@ -2678,7 +2671,7 @@ msgstr "SQL compatibility mode"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා කලයුතු වින්‍යාසය"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2705,7 +2698,6 @@ msgid "Maximal length of created query"
 msgstr "Maximal length of created query"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 msgid "Export type"
 msgstr "අපනයන වර්ගය"
 
@@ -2714,17 +2706,16 @@ msgid "Enclose export in a transaction"
 msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "අපනයන වර්ගය"
+msgstr "වේලාව UTC ලෙස අපනයනය කරන්න "
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin භාවිතා කිරීමේදී ආරක්‍ෂිත සම්බන්දතාවක් යොදා ගැනීමට බල කරන්න"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "SSL සම්බන්දතාවක් යොදා ගැනීමට බල කරන්න"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
@@ -2742,7 +2733,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
-msgstr ""
+msgstr "අන්‍ය මූල සීමාව"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
@@ -2750,7 +2741,7 @@ msgstr "පිරික්සුම් ප්‍රකාරය"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
-msgstr ""
+msgstr "පිරික්සුම් ප්‍රකාරය රිසි සේ සකසන්න "
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
@@ -2770,11 +2761,11 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "මෘදුකාංග සංවර්ධනය කරන්නා"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "phpMyAdmin හි මෘදුකාංග සංවර්ධනය කරන්නන් සඳහා සිටුවම්"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
@@ -2782,12 +2773,11 @@ msgstr " සංස්කරණ ප්‍රකාරය"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr ""
+msgstr "සංස්කරණ ප්‍රකාරය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:162
-#, fuzzy
 msgid "Export defaults"
-msgstr "ගොනු ආනයනය"
+msgstr "අපනයන පෙරනිමි"
 
 #: libraries/config/messages.inc.php:163
 #, fuzzy
@@ -2800,14 +2790,13 @@ msgid "Features"
 msgstr "විශේෂාංග"
 
 #: libraries/config/messages.inc.php:165
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "උත්පාදනය කරන්න"
+msgstr "සාමාන්‍ය"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "නිතර භාවිතා වන විකල්ප සඳහා අගයන් සිටුවන්න"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2825,20 +2814,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "ආනයන / අපනයන"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "ආනයන, අපනයන ඩිරෙක්ටරි සහ හැකිලුම් සඳහා විකල්ප තෝරාගන්න"
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:175
-#, fuzzy
 msgid "Databases display options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "දත්තගබඩා පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
@@ -2846,7 +2834,7 @@ msgstr "යාත්‍රණ රාමුව"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "යාත්‍රණ රාමුවේ පෙනුම රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2854,14 +2842,12 @@ msgid "Servers"
 msgstr "සේවාදායකයන්"
 
 #: libraries/config/messages.inc.php:179
-#, fuzzy
 msgid "Servers display options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "සේවාදායක පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 msgid "Tables display options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "ගොනු පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
@@ -2869,7 +2855,7 @@ msgstr "ප්‍රධාන රාමුව"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "මයික්‍රොසොෆ්ට් ඔෆිස්"
 
 #: libraries/config/messages.inc.php:185
 #, fuzzy
@@ -2879,17 +2865,16 @@ msgstr "Open Document Text"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "අනෙකුත් ප්‍රධාන සිටුවම්"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:189
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "පිටු අංකය:"
+msgstr "පිටු නාම"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
@@ -2906,23 +2891,24 @@ msgid "Query window"
 msgstr "Query window"
 
 #: libraries/config/messages.inc.php:192
-#, fuzzy
 msgid "Customize query window options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "විමසුම් කවුළුව සඳහා වූ විකල්ප රිසි සේ සකසන්න "
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "ආරක්ෂාව"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"phpMyAdmin අතුරුමුහුණතක් පමණක් බව හා MySQL හි විශේෂාංග මෙයට සීමා නොවන බව "
+"කරුණාවෙන් සලකන්න"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "මූලික සිටුවම්"
 
 #: libraries/config/messages.inc.php:196
 msgid "Authentication"
@@ -2935,7 +2921,7 @@ msgstr "සත්‍යාපන සිටුවම්"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "සේවාදායකයේ වින්‍යාස"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
@@ -2945,11 +2931,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "සේවාදායකයට සම්බන්ධ වීමේ පරාමිතියන් ඇතුල් කරන්න"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "වින්‍යාස ගබඩාව (Configuration storage)"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
@@ -2960,7 +2946,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "වෙනස්කම් පිළිබඳ අවධානය"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
@@ -2969,22 +2955,20 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:205
-#, fuzzy
 msgid "Customize export options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "අපනයන සිටුවම් රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 msgid "Customize import defaults"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "ආනයන පෙරනිමි රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "යාත්‍රණ රාමුව රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr ""
+msgstr "ප්‍රධාන රාමුව රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
@@ -2992,24 +2976,21 @@ msgid "SQL queries"
 msgstr "SQL විමසුම"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 msgid "SQL Query box"
-msgstr "SQL විමසුම"
+msgstr "SQL විමසුම් කවුළුව"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "SQL විමසුම් කවුළුවේ ඇති සබැඳුම් රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "SQL විමසුම"
+msgstr "SQL විමසුම් සිටුවම්"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL ඉතිහාසය"
+msgstr "SQL වලංගු කරණය"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
@@ -3025,15 +3006,15 @@ msgstr "ඇරඹුම්"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
-msgstr ""
+msgstr "ඇරඹුම් පිටුව රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:221
 msgid "Tabs"
-msgstr "පටිති"
+msgstr "පටිති (tabs)"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "පටිති (tabs) ක්‍රියා කල යුතු ආකාරය තෝරන්න"
 
 #: libraries/config/messages.inc.php:223
 #, fuzzy
@@ -3052,25 +3033,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
-msgstr ""
+msgstr "අනතුරු හැඟවීම් "
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin හි සමහර අනතුරු හැඟවීම් අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"ආනයන හා අපනයන සඳහා [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] හැකිළුම "
+"සක්‍රීය කරන්න "
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "iconv සඳහා අමතර පරාමිතියන් "
 
 #: libraries/config/messages.inc.php:232
 msgid ""
@@ -3123,10 +3106,9 @@ msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Put fields names in the first row"
+msgstr "පළමු පේලියේ තීරු නම් "
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
@@ -3141,10 +3123,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස ආනයනය කරන්න (උදා. 12.00%, 12 ලෙස)"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Number of records(queries) to skip from start"
+msgstr "ආරම්භයේ සිට ඇත හැරිය යුතු විමසුම් ගණන"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
@@ -3156,36 +3137,35 @@ msgstr "බිංදුව අගයන් සඳහා AUTO_INCREMENT භාව
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "හැකිලුමේ ආරම්භක ආකාරය"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "වරකට ඇතුල් කල හැකි පේළි ගණන"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 msgid "Number of inserted rows"
-msgstr "The number of sorted rows."
+msgstr "ඇතුල් කල පේළි ගණන "
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "'ක්ෂණික ප්‍රවේශය' අයිකනය සඳහා ඉලක්කය "
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "වම්පස රාමුවේ ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "සේවාදායක තේරීම වම්පස රාමුවේ ඉහල පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr ""
+msgstr "සේවාදායක තේරීම පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:269
 #, fuzzy
@@ -6872,10 +6852,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"Your configuration file contains settings (root with no password) that "
-"correspond to the default MySQL privileged account. Your MySQL server is "
-"running with this default, is open to intrusion, and you really should fix "
-"this security hole."
+"ඔබගේ සිටුවම් ගොනුවේ අඩංගු, භාවිත නාමය root වන, මුරපදයක් නොමැති සිටුවම "
+"පෙරනිමි MySQL වරප්‍රසාදැති ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිත කිරීම "
+"අනවසර ඇතුල්වීම් වලට හේතු විය හැකි බැවින් ඔබ root භාවිතා කරන්නා සඳහා වෙනත් "
+"මුරපදයක් ලබා දිය යුතුය. "
 
 #: main.php:265
 msgid ""
@@ -7817,25 +7797,24 @@ msgstr ""
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr ""
+msgstr "Master වෙනස් කල නොහැක"
 
 #: server_replication.php:72
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Master සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි."
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක master ලෙස සකසා ඇත."
 
 #: server_replication.php:182 server_status.php:407
-#, fuzzy
 msgid "Show master status"
-msgstr "උපතත්වයන් පෙන්වන්න"
+msgstr "Master හි තත්වය පෙන්වන්න"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "සම්බන්ධිත salves පෙන්වන්න"
 
 #: server_replication.php:208
 #, php-format
@@ -7843,10 +7822,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක master ලෙස සකසා නැත. එසේ <a href=\"%"
+"s\">සකස් කිරීමට</a> ඔබ කැමතිද? "
 
 #: server_replication.php:215
 msgid "Master configuration"
-msgstr ""
+msgstr "Master සැකසුම"
 
 #: server_replication.php:216
 msgid ""
@@ -7859,7 +7840,7 @@ msgstr ""
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "සියලුම දත්තගබඩා අනුරූකරන්න; අතහරින්න:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
@@ -7888,48 +7869,45 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Slave SQL ත්‍රෙඩය අක්‍රීයයි!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Slave IO ත්‍රෙඩය අක්‍රීයයි!"
 
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "සේවාදායකය අනුරූ ක්‍රියාවලියක slave ලෙස සකසා ඇත. ඔබ කැමතිද: "
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "slave තත්ව වගුව බලන්න."
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "දත්තගබඩාව master සමඟ සමමුහුර්තනය කරන්න."
 
 #: server_replication.php:320
 msgid "Control slave:"
 msgstr ""
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full start"
-msgstr "සම්පූර්ණ පාඨය"
+msgstr "පූර්ණ ඇරඹුම "
 
 #: server_replication.php:323
-#, fuzzy
 msgid "Full stop"
-msgstr "සම්පූර්ණ පාඨය"
+msgstr "පූර්ණ නැවතුම"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "slave ප්‍රත්‍යාරම්භ කරන්න"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Structure only"
+msgstr "SQL ත්‍රෙඩය පමණක් අරඹන්න"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
@@ -7950,7 +7928,7 @@ msgstr "දෝෂ කළමනාකරණය:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "දෝෂ අතහැර යාම සමමුහුර්තනය නොවූ master හා slave ඇති කරවිය හැක!"
 
 #: server_replication.php:342
 msgid "Skip current error"
@@ -7970,6 +7948,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක slave ලෙස සකසා නැත. එසේ <a href=\"%"
+"s\">සකස් කිරීමට</a> ඔබ කැමතිද? "
 
 #: server_status.php:46
 msgid ""
@@ -8689,20 +8669,28 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>master</b> හා "
+"<b>slave</b> ලෙස ක්‍රියාකරයි."
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>master</b> ලෙස "
+"ක්‍රියාකරයි."
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>slave</b> ලෙස "
+"ක්‍රියාකරයි."
 
 #: server_status.php:492
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a "
+"href=#replication>අනුරූකරණ අංශය</a> වෙත යන්න "
 
 #: server_status.php:509
 msgid ""
@@ -8810,7 +8798,7 @@ msgstr "දත්ත සමමුහුර්ත කරණය"
 
 #: server_synchronize.php:399 server_synchronize.php:838
 msgid "not present"
-msgstr ""
+msgstr "නොමැති"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Structure Difference"
@@ -8888,7 +8876,7 @@ msgstr "සැකසුම : %s"
 
 #: server_synchronize.php:1182
 msgid "Socket"
-msgstr ""
+msgstr "සොකට් "
 
 #: server_synchronize.php:1228
 msgid ""
@@ -8930,6 +8918,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"ඔබ ආරක්‍ෂිත සම්බන්ධතාවක් භාවිතා නොකරයි. සියලුම දත්ත (මුරපද ආදී සංවේදී "
+"තොරතුරු ඇතුළුව) අනාරක්ෂිතව හුවමාරු වෙයි!"
 
 #: setup/frames/index.inc.php:60
 #, php-format
@@ -9034,6 +9024,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"අනුවාදය කියවීමට අසමත් විය. ඔබ offline වීම හෝ උත්ශ්‍රේණි (upgrade) සේවාදායකය "
+"ප්‍රතිචාර නොදැක්වීම හෝ නිසා විය හැකිය."
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
@@ -9049,10 +9041,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"ඔබ Git අනුවාදය භාවිතා කරයි. [kbd]git pull[/kbd] විධානය භාවිතා කරන්න :-)[br] "
+"නවතම ස්ථායී අනුවාදය %s, %s දින නිකුත් කෙරුණු."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "අලුත් ස්ථායී අනුවාදයක් නොමැත"
 
 #: setup/lib/index.lib.php:250
 #, php-format
@@ -9127,7 +9121,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:268
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -9135,32 +9129,36 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"ඔබ [kbd]config[/kbd] සත්‍යාපනය තෝරා ස්වයංක්‍රීය ඇතුල්වීම සඳහා භාවිත නාමය සහ "
+"මුරපදය සඳහන් කර ඇත. සජීවී සත්කාරකයන් සඳහා මෙය නුසුදුසුය. ඔබගේ phpMyAdmin "
+"URLය දන්නා ඕනෑම අයෙකුට ඔබගේ phpMyAdmin පැනලය භාවිත කල හැකිය. සත්‍යාපනය ලෙස "
+"[kbd]config[/kbd] හෝ [kbd]http[/kbd] තෝරන්න."
 
 #: setup/lib/index.lib.php:270
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip හැකිළුමට%s (%s) කෘත්‍ය අවශ්‍ය අතර එය ඔබගේ පද්ධතියේ නොමැත. "
 
 #: setup/lib/index.lib.php:272
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip දිගහැරුමට%s (%s) කෘත්‍ය අවශ්‍ය අතර එය ඔබගේ පද්ධතියේ නොමැත. "
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "ඔබගේ වෙබ් සේවාදායකයේ SSL සහයෝගය ඇත්නම් එය භාවිත කල යුතුය."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "එහි කාර්යක්ෂමතාව හේතු කොටගෙන ඔබ mysqli භාවිතා කල යුතුය."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "ඔබ මුරපදයකින් තොරව සේවාදායකයට සම්බන්ධ වීමට ඉඩ ලබා දෙන්නෙහිය"
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
@@ -9178,7 +9176,7 @@ msgstr "අන්‍ය අගයන් පිරික්සන්න"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්"
 
 #: sql.php:600 tbl_replace.php:387
 #, php-format
@@ -9207,19 +9205,18 @@ msgid "Label"
 msgstr "ලේබලය"
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "The selected users have been deleted successfully."
+msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
 msgstr "ශ්‍රිතය"
 
 #: tbl_change.php:755
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Because of its length,<br /> this field might not be editable "
+msgstr "මෙහි දිග නිසා, <br /> මෙම තීරුව සංස්කරණය කල නොහැකි විය හැකිය."
 
 #: tbl_change.php:872
 msgid "Remove BLOB Repository Reference"
@@ -9353,11 +9350,13 @@ msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
 msgstr ""
+"අනුකූලතාව පවත්වාගැනීම සඳහා ප්‍රස්ථාරය තීරු වලට බෙදා ඇත. ප්‍රස්ථාරය තනි "
+"රූපයක් ලෙස නිර්මාණය කිරීමට මෙය තෝරන්න."
 
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-msgstr ""
+msgstr "රේඩාර් ප්‍රස්ථාරයක් ඇඳීමේදී සියලුම අගයන් [0..10] පරාසයට ප්‍රමත කෙරේ."
 
 #: tbl_chart.php:173
 msgid ""
@@ -9598,7 +9597,7 @@ msgstr "අභ්‍යන්තර සබඳතා"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr ""
+msgstr "අදාල අන්‍ය මූලය ඇති විට අභ්‍යන්තර සබඳතාවක් අවශ්‍ය නොවේ."
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
