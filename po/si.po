@@ -2846,9 +2846,8 @@ msgid "Servers display options"
 msgstr "සේවාදායක පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:181
-#, fuzzy
 msgid "Tables display options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "ගොනු පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
