@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 10:44+0200\n"
+"PO-Revision-Date: 2011-05-01 10:45+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4753,7 +4753,7 @@ msgstr "バイナリの内容を表示する"
 
 #: libraries/display_tbl.lib.php:583
 msgid "Show BLOB contents"
-msgstr "BLOBの内容を表示する"
+msgstr "BLOB の内容を表示する"
 
 #: libraries/display_tbl.lib.php:593 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
