@@ -7730,7 +7730,7 @@ msgstr "マスタのログの位置が読み込めません。マスター上の
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr "マスターを変更することはできません"
+msgstr "マスタを変更することはできません"
 
 #: server_replication.php:72
 #, php-format
