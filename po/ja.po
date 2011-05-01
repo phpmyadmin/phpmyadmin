@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 10:43+0200\n"
+"PO-Revision-Date: 2011-05-01 10:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3654,7 +3654,7 @@ msgstr "使用する PHP 拡張"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr "正規表現(PCRE)で一致するデータベースを非表示にします"
+msgstr "正規表現 (PCRE) で一致するデータベースを非表示にします"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
