@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 10:46+0200\n"
+"PO-Revision-Date: 2011-05-01 10:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8588,9 +8588,7 @@ msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセス�
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
-"このMySQLサーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動作"
-"しています。"
+msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動作しています。"
 
 #: server_status.php:492
 msgid ""
