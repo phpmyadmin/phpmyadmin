@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 08:36+0200\n"
+"PO-Revision-Date: 2011-05-01 08:37+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2165,7 +2165,7 @@ msgstr "කඩිනම් - අවම තෝරා ගැනීම් පමණ
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr "අභිමත - වින්‍යාස කිරීමට සියලුම තෝරා ගැනීම් පෙන්වන්න"
+msgstr "අභිමත - සියලුම තෝරා ගැනීම් පෙන්වන්න"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
