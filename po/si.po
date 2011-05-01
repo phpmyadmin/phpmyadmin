@@ -2959,9 +2959,8 @@ msgid "Customize export options"
 msgstr "අපනයන සිටුවම් රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 msgid "Customize import defaults"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "ආනයන පෙරනිමි රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
