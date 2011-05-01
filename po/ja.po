@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 10:41+0200\n"
+"PO-Revision-Date: 2011-05-01 10:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -105,7 +105,7 @@ msgstr "ヘッダの取得に失敗しました。"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "リモートURLを開けませんでした。"
+msgstr "リモート URL を開けませんでした。"
 
 #: changelog.php:32 license.php:28
 #, php-format
