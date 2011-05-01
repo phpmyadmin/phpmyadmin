@@ -7754,7 +7754,7 @@ msgstr "接続しているスレーブの表示"
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
-msgstr "このサーバのレプリケーションプロセスには、マスターが設定されていません。<a href=\"%s\">設定</a>を行いますか？"
+msgstr "このサーバのレプリケーションプロセスには、マスタが設定されていません。<a href=\"%s\">設定</a>を行いますか？"
 
 #: server_replication.php:215
 msgid "Master configuration"
