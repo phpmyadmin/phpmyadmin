@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 08:52+0200\n"
+"PO-Revision-Date: 2011-05-01 08:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2765,7 +2765,7 @@ msgstr "මෘදුකාංග සංවර්ධනය කරන්නා"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "phpMyAdmin හි මෘදුකාංග සංවර්ධනය කරන්නන් සඳහා සිටුවම්"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
