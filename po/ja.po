@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-01 09:46+0200\n"
+"PO-Revision-Date: 2011-05-01 09:53+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5644,7 +5644,7 @@ msgstr "CSV インポートのパラメータが不正です: %s"
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr ""
+msgstr "指定されたカラム (%s) は無効です。カラム名のスペルが正しいか、カンマで区切られていないか、引用符で囲まれていないかを確認してください。"
 
 #: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
