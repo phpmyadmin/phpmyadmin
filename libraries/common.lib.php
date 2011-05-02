@@ -706,11 +706,11 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
  * @uses    uksort()
  * @uses    strstr()
  * @uses    explode()
- * @param   string  $db     name of db
- * @param   string  $tables name of tables
- * @param   integer $limit_offset   list offset
- * @param   integer $limit_count    max tables to return
- * return   array   (recursive) grouped table list
+ * @param   string   $db     name of db
+ * @param   string   $tables name of tables
+ * @param   integer  $limit_offset   list offset
+ * @param   int|bool $limit_count    max tables to return
+ * @return  array    (recursive) grouped table list
  */
 function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
 {

@@ -254,7 +254,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     $tables = array();
 
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-      // get table information from information_schema
+        // get table information from information_schema
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND `TABLE_NAME` LIKE \''
@@ -269,13 +269,13 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             $sql_where_table = '';
         }
 
-      // for PMA bc:
-      // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-      //
-      // on non-Windows servers,
-      // added BINARY in the WHERE clause to force a case sensitive
-      // comparison (if we are looking for the db Aa we don't want
-      // to find the db aa)
+        // for PMA bc:
+        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        //
+        // on non-Windows servers,
+        // added BINARY in the WHERE clause to force a case sensitive
+        // comparison (if we are looking for the db Aa we don't want
+        // to find the db aa)
         $this_databases = array_map('PMA_sqlAddslashes', $databases);
 
         $sql = '
@@ -945,7 +945,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  * @uses    $GLOBALS['mysql_charset_map']
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
- * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['cfg']['Lang']
  * @uses    defined()
  * @uses    explode()
@@ -989,7 +988,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
 
-    /* Skip charsets for Drizzle */
+    // Skip charsets for Drizzle
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);

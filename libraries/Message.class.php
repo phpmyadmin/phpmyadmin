@@ -151,8 +151,8 @@ class PMA_Message
      * @uses    PMA_Message::SANITIZE_PARAMS
      * @param   string  $string
      * @param   integer $number
-     * @param   array   $$params
-     * @param   boolean $sanitize
+     * @param   array   $params
+     * @param   integer $sanitize
      */
     public function __construct($string = '', $number = PMA_Message::NOTICE,
         $params = array(), $sanitize = PMA_Message::SANITIZE_NONE)
@@ -624,9 +624,9 @@ class PMA_Message
      * @static
      * @uses    is_array()
      * @uses    htmlspecialchars()
-     * @uses    PMA_Message::sanitize() recursiv
-     * @param   mixed   the message(s)
-     * @return  mixed   the sanitized message(s)
+     * @uses    PMA_Message::sanitize() recursive
+     * @param   mixed  $message the message(s)
+     * @return  mixed  the sanitized message(s)
      * @access  public
      */
     static public function sanitize($message)
@@ -686,7 +686,6 @@ class PMA_Message
      * @uses    PMA_Message::$_string
      * @uses    PMA_Message::$_message
      * @uses    md5()
-     * @param   string $file
      * @return  string PMA_Message::$_hash
      */
     public function getHash()
