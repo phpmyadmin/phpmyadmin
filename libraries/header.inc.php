@@ -151,6 +151,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                 .'&quot;' . htmlspecialchars($show_comment)
                                 .'&quot;</span>' . "\n";
                         } // end if
+
+                        // remember accessed table
+                        PMA_addRecentTable($table, $db);
                     } else {
                         // no table selected, display database comment if present
                         /**

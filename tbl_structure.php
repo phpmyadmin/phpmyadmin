@@ -934,7 +934,6 @@ if ($cfg['ShowStats']) {
 require './libraries/tbl_triggers.lib.php';
 
 echo '<div class="clearfloat"></div>' . "\n";
-PMA_addRecentTable($table, $db);
 
 /**
  * Displays the footer
