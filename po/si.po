@@ -9274,8 +9274,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"මෙම විමසුම් ප්‍රතිඑලය ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. [a@./Documentation."
-"html#faq6_29@Documentation]FAQ 6.29[/a] බලන්න."
+"මෙම විමසුම් ප්‍රතිඑලය ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a] බලන්න"
 
 #: tbl_chart.php:90
 msgid "Width"
