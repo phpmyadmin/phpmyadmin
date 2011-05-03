@@ -489,7 +489,7 @@ msgstr "විමසුම යාවත්කාලීන කරන්න"
 
 #: db_qbe.php:636
 msgid "Use Tables"
-msgstr "වගු භාවිතා කරන්න."
+msgstr "වගු භාවිතා කරන්න"
 
 #: db_qbe.php:659
 #, php-format
