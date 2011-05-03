@@ -3045,7 +3045,7 @@ msgid ""
 "and export operations"
 msgstr ""
 "ආනයන හා අපනයන සඳහා [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] හැකිළුම "
-"සක්‍රීය කරන්න "
+"සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
