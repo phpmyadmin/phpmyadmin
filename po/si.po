@@ -112,7 +112,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා www.phpmyadmin.net වෙත යන්න. "
+"%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා www.phpmyadmin.net වෙත යන්න."
 
 #: db_create.php:58
 #, php-format
