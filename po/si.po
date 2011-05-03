@@ -1075,7 +1075,7 @@ msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
-msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් තිබිය යුතුයි."
+msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් තිබිය යුතුයි"
 
 #: js/messages.php:76
 msgid "Create Table"
