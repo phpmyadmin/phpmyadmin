@@ -2524,9 +2524,8 @@ msgid "Save as file"
 msgstr "ගොනුවක් ලෙස තෝරන්න"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
-#, fuzzy
 msgid "Character set of the file"
-msgstr "ගොනුවේ අක්ෂර කට්ටලය:"
+msgstr "ගොනුවේ අක්ෂර කට්ටලය"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:830
