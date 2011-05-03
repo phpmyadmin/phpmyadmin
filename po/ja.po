@@ -3111,7 +3111,7 @@ msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "折り畳みに対しての初期値"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
