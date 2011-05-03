@@ -8868,7 +8868,7 @@ msgstr "සැකසුම : %s"
 
 #: server_synchronize.php:1182
 msgid "Socket"
-msgstr "සොකට් "
+msgstr "සොකට්"
 
 #: server_synchronize.php:1228
 msgid ""
