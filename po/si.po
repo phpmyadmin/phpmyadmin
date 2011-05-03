@@ -1137,7 +1137,7 @@ msgstr "අන්‍ය මූලය තෝරන්න"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
-msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න."
+msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
