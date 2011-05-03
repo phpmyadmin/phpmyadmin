@@ -2298,7 +2298,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "MySQL සේවාදායකයට ලොග්වීමට ඉඩ දෙන්න "
+msgstr "MySQL සේවාදායකයට ලොග්වීමට ඉඩ දෙන්න"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
