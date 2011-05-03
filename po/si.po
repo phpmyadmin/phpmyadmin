@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:53+0200\n"
+"PO-Revision-Date: 2011-05-03 15:54+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -806,7 +806,7 @@ msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේ�
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ ඇතුලත් කිරීම නැවත අරඹා අලුත් අගයක් එකතු කරන්න."
+msgstr "+ ඇතුලත් කිරීම නැවත අරඹා අලුත් අගයක් එකතු කරන්න"
 
 #: enum_editor.php:67
 msgid "Output"
