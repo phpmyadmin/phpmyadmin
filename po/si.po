@@ -4574,10 +4574,9 @@ msgid "zipped"
 msgstr "zip කරන ලද"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzipp ගත කරන ලදි\""
+msgstr "gzipp කරන ලද"
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
