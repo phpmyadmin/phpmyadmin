@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 11:40+0200\n"
+"PO-Revision-Date: 2011-05-03 11:43+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7812,7 +7812,7 @@ msgstr "スレーブの IO スレッドが実行していません！"
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "サーバはレプリケーションプロセスではスレーブとして設定されています。どのようにしたいですか？"
 
 #: server_replication.php:306
 msgid "See slave status table"
