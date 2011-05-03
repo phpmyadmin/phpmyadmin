@@ -466,8 +466,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <?php
         } // end if... else...
         echo "\n";
-    } // end if (! $tbl_is_view && ! $db_is_information_schema)
-    ?>
+        ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo __('More'); ?> <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="<?php echo __('Show more actions'); ?>" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
@@ -531,6 +530,9 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
              </div>
         </div>
     </td>
+    <?php
+    } // end if (! $tbl_is_view && ! $db_is_information_schema)
+    ?>
 </tr>
     <?php
     unset($field_charset);
