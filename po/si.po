@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:29+0200\n"
+"PO-Revision-Date: 2011-05-03 15:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -348,7 +348,7 @@ msgstr ""
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
-msgstr "ක්‍රමානුරූපය (schema) සංස්කරණය හෝ අපනයනය කරන්න."
+msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න."
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
