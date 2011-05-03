@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 11:46+0200\n"
+"PO-Revision-Date: 2011-05-03 11:53+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7862,7 +7862,7 @@ msgstr "管理エラー:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "エラーのスキップは、マスタとスレーブの同期を切ることになるかもしれません！"
 
 #: server_replication.php:342
 msgid "Skip current error"
