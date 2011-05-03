@@ -1807,7 +1807,7 @@ msgstr "පිරිවැය"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr "දත්තගබඩාව වෙත යන්න. "
+msgstr "දත්තගබඩාව වෙත යන්න"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
