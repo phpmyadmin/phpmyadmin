@@ -2347,7 +2347,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"ආනයන, අපනයාන සඳහා  [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] හැකිළීම "
+"ආනයන, අපනයාන සඳහා [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] හැකිළීම "
 "සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:31
