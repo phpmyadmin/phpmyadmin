@@ -7815,7 +7815,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක master ලෙස සකසා නැත. එසේ <a href=\"%"
-"s\">සකස් කිරීමට</a> ඔබ කැමතිද? "
+"s\">සකස් කිරීමට</a> ඔබ කැමතිද?"
 
 #: server_replication.php:215
 msgid "Master configuration"
