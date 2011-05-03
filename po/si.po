@@ -7908,7 +7908,7 @@ msgstr "SQL ත්‍රෙඩය පමණක් නවත්තන්න"
 #: server_replication.php:331
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "IO ත්‍රෙඩය පමණක් අරඹන්න "
+msgstr "IO ත්‍රෙඩය පමණක් අරඹන්න"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
