@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 11:39+0200\n"
+"PO-Revision-Date: 2011-05-03 11:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7732,7 +7732,7 @@ msgstr "マスタのログの位置が読み込めません。マスター上の
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr "マスタを変更することはできません"
+msgstr "マスタを切り替えることができません"
 
 #: server_replication.php:72
 #, php-format
