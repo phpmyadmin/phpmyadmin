@@ -773,7 +773,7 @@ if ($cfg['ShowStats']) {
         }
         if (isset($free_size)) {
             ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> warning">
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> error">
         <th class="name"><?php echo __('Overhead'); ?></th>
         <td class="value"><?php echo $free_size; ?></td>
         <td class="unit"><?php echo $free_unit; ?></td>

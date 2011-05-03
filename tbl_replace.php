@@ -414,7 +414,7 @@ if (! empty($warning_messages)) {
      * the message
      */
     $message->addMessages($warning_messages, '<br />');
-    $message->isWarning(true);
+    $message->isError(true);
 }
 if (! empty($error_messages)) {
     $message->addMessages($error_messages);

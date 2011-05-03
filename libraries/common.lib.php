@@ -1674,7 +1674,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
     }
 
     if (!empty($tab['warning'])) {
-        $tab['class'] .= ' warning';
+        $tab['class'] .= ' error';
         $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
     }
 

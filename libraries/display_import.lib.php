@@ -175,7 +175,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             $uid = uniqid("");
             PMA_browseUploadFile($max_upload_size);
         } else if (!$GLOBALS['is_upload']) {
-            PMA_Message::warning(__('File uploads are not allowed on this server.'))->display();
+            PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
         } else if (!empty($cfg['UploadDir'])) {
             PMA_selectUploadFile($import_list, $cfg['UploadDir']);
         } // end if (web-server upload directory)

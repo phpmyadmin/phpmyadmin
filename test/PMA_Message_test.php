@@ -156,18 +156,9 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
     public function testIsNotice()
     {
         $this->assertTrue($this->object->isNotice());
-        $this->object->isWarning(true);
+        $this->object->isError(true);
         $this->assertFalse($this->object->isNotice());
         $this->assertTrue($this->object->isNotice(true));
-    }
-
-    /**
-     * testing isWarning method
-     */
-    public function testIsWarning()
-    {
-        $this->assertFalse($this->object->isWarning());
-        $this->assertTrue($this->object->isWarning(true));
     }
 
     /**

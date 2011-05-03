@@ -64,7 +64,7 @@ if (isset($result)) {
     if (! empty($warning_messages)) {
         $_message = new PMA_Message;
         $_message->addMessages($warning_messages);
-        $_message->isWarning(true);
+        $_message->isError(true);
         unset($warning_messages);
     }
     PMA_showMessage($_message, $sql_query, $_type, $is_view = true);

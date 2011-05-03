@@ -424,25 +424,6 @@ class PMA_Message
     }
 
     /**
-     * returns whether this message is a warning message or not
-     * and optionally makes this message a warning message
-     *
-     * @uses    PMA_Message::WARNING
-     * @uses    PMA_Message::setNumber()
-     * @uses    PMA_Message::getNumber()
-     * @param   boolean $set
-     * @return  boolean whether this is a warning message or not
-     */
-    public function isWarning($set = false)
-    {
-        if ($set) {
-            $this->setNumber(PMA_Message::WARNING);
-        }
-
-        return $this->getNumber() === PMA_Message::WARNING;
-    }
-
-    /**
      * returns whether this message is an error message or not
      * and optionally makes this message an error message
      *
