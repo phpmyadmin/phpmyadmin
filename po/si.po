@@ -3145,7 +3145,7 @@ msgstr "වරකට ඇතුල් කල හැකි පේළි ගණන"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
-msgstr "ඇතුල් කල පේළි ගණන "
+msgstr "ඇතුල් කල පේළි ගණන"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
