@@ -9579,7 +9579,7 @@ msgstr "පේළියේ දිග"
 
 #: tbl_printview.php:411 tbl_structure.php:886
 msgid " Row size "
-msgstr " පේළියේ ප්‍රමාණය"
+msgstr " පේළියේ ප්‍රමාණය "
 
 #: tbl_relation.php:276
 #, php-format
