@@ -7780,7 +7780,7 @@ msgstr "හඳුනා නොගත් දෝෂය"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "master %s වෙත සම්බන්ධ විය නොහැක"
+msgstr "master %s වෙත සම්බන්ධ විය නොහැක."
 
 #: server_replication.php:63
 msgid ""
