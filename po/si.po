@@ -2229,7 +2229,7 @@ msgstr "නොතිබෙන"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" සඳහා %s දිගුව අවශ්‍යය "
+msgstr "\"%s\" සඳහා %s දිගුව අවශ්‍යය"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
