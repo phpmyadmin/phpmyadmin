@@ -1764,7 +1764,7 @@ msgstr "වීඩියෝ නරඹන්න"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr "ගොනුව බාගත කරන්න."
+msgstr "ගොනුව බාගත කරන්න"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
