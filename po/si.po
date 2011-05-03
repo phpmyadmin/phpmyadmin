@@ -9000,7 +9000,7 @@ msgstr "දෝෂ සහිත ක්ෂේත්‍ර ඒවායේ පෙ�
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
-msgstr "දෝෂ නොසලකන්න "
+msgstr "දෝෂ නොසලකන්න"
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Show form"
