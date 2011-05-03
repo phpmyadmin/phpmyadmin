@@ -2119,10 +2119,9 @@ msgid "Open"
 msgstr "開いておく"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "引用符が閉じていません"
+msgstr "閉じておく"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
