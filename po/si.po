@@ -7695,7 +7695,7 @@ msgstr "ලොගින් තොරතුරු වෙනස් කරන්න
 
 #: server_privileges.php:2112
 msgid "Create a new user with the same privileges and ..."
-msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිතා කරන්නෙක් එක් කරන්න..."
+msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිතා කරන්නෙක් එක් කරන්න ..."
 
 #: server_privileges.php:2114
 msgid "... keep the old one."
