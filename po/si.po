@@ -1957,7 +1957,7 @@ msgstr "SQL වලංගු කරණයට සම්බන්ද වීම අ�
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
-msgstr "SQL ය පහදන්න "
+msgstr "SQL ය පහදන්න"
 
 #: libraries/common.lib.php:1143
 msgid "Skip Explain SQL"
