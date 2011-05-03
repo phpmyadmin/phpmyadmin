@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍රව්සරයේ "
-"ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක"
+"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ "
+"ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස "
+"සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2828
 #: libraries/common.lib.php:2835 libraries/common.lib.php:3014
