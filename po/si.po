@@ -2320,7 +2320,7 @@ msgid ""
 "authentication"
 msgstr ""
 "[kbd]කුකී [/kbd] සත්‍යාපනය භවිතා කිරීමේදී කුකිය encrypt කිරීමට යොදාගන්නා "
-"රහස් වාක්‍ය ඛණ්ඩය  "
+"රහස් වාක්‍ය ඛණ්ඩය"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
