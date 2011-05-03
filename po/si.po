@@ -7870,7 +7870,7 @@ msgstr "Slave IO ත්‍රෙඩය අක්‍රීයයි!"
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "සේවාදායකය අනුරූ ක්‍රියාවලියක slave ලෙස සකසා ඇත. ඔබ කැමතිද: "
+msgstr "සේවාදායකය අනුරූ ක්‍රියාවලියක slave ලෙස සකසා ඇත. ඔබ කැමතිද:"
 
 #: server_replication.php:306
 msgid "See slave status table"
