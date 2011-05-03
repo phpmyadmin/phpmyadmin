@@ -1146,7 +1146,7 @@ msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්
 # අභිරුචිය = option. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr " ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න"
+msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න"
 
 #: js/messages.php:109
 msgid "Generate password"
