@@ -4491,7 +4491,7 @@ msgstr "පේළි:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr "සමහර පේළි පමණක් ප්‍රතිදානය කරන්න"
+msgstr "සමහර පේළි(ය) පමණක් ප්‍රතිදානය කරන්න"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
