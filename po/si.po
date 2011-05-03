@@ -2741,7 +2741,7 @@ msgstr "පිරික්සුම් ප්‍රකාරය"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
-msgstr "පිරික්සුම් ප්‍රකාරය රිසි සේ සකසන්න "
+msgstr "පිරික්සුම් ප්‍රකාරය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
