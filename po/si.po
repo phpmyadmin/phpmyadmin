@@ -532,8 +532,8 @@ msgstr "\"<i>%s</i>\" %s සඳහා සෙවීම් ප්‍රතිළ�
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "<i>%s</i> වගුව තුල ගැලපීම් %s කි."
-msgstr[1] "<i>%s</i> වගුව තුල ගැලපීම් %s කි."
+msgstr[0] "<i>%s</i> වගුව තුල ගැලපීම් %s කි"
+msgstr[1] "<i>%s</i> වගුව තුල ගැලපීම් %s කි"
 
 #: db_search.php:254 libraries/common.lib.php:2830
 #: libraries/common.lib.php:3012 libraries/common.lib.php:3013
