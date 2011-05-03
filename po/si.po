@@ -8924,7 +8924,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
-msgstr "අනාරක්ෂිත සම්බන්දතාවය "
+msgstr "අනාරක්ෂිත සම්බන්දතාවය"
 
 #: setup/frames/index.inc.php:88 setup/frames/menu.inc.php:15
 msgid "Overview"
