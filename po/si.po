@@ -2935,7 +2935,7 @@ msgstr "සේවාදායකයට සම්බන්ධ වීමේ පර
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr "වින්‍යාස ගබඩාව (Configuration storage)"
+msgstr "වින්‍යාස ගබඩාව"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
