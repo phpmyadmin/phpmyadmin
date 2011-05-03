@@ -3108,7 +3108,7 @@ msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 #: libraries/config/messages.inc.php:260
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "පළමු පේලියේ තීරු නම් "
+msgstr "පළමු පේලියේ තීරු නම්"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
