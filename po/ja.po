@@ -6723,7 +6723,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"お使いのブラウザは、このドメインに対しての phpMyAdmin の設定を保存しています。現在のセッションにその設定を読み込んでもよろしいですか？"
+"お使いのブラウザは、このドメインに対しての phpMyAdmin の設定を (Web Storage に) "
+"保存しています。現在のセッションにその設定を読み込んでもよろしいですか？"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
