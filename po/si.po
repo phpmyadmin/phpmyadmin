@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:32+0200\n"
+"PO-Revision-Date: 2011-05-03 15:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3010,7 +3010,7 @@ msgstr "ඇරඹුම් පිටුව රිසි සේ සකසන්�
 
 #: libraries/config/messages.inc.php:221
 msgid "Tabs"
-msgstr "පටිති (tabs)"
+msgstr "ටැබ්"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
