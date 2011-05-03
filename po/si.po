@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:30+0200\n"
+"PO-Revision-Date: 2011-05-03 15:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1606,7 +1606,7 @@ msgstr "take it"
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "‍%s පෙරනිමි (default) තේමාව සොයාගැනීමට නොමැත!"
+msgstr "‍%s පෙරනිමි තේමාව සොයාගැනීමට නොමැත!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
