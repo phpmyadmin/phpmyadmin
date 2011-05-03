@@ -562,8 +562,8 @@ msgstr "ඉවත් කරන්න"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>එකතුව:</b> <i>%s</i> ගැලපුමයි."
-msgstr[1] "<b>එකතුව:</b> ගැලපුම් <i>%s</i> යි."
+msgstr[0] "<b>එකතුව:</b> <i>%s</i> ගැලපුමයි"
+msgstr[1] "<b>එකතුව:</b> ගැලපුම් <i>%s</i> යි"
 
 #: db_search.php:295
 msgid "Search in database"
