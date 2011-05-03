@@ -277,7 +277,7 @@ msgstr "විධානය"
 
 #: db_operations.php:433
 msgid "Remove database"
-msgstr "දත්තගබඩාව ඉවත් කරන්න."
+msgstr "දත්තගබඩාව ඉවත් කරන්න"
 
 #: db_operations.php:445
 #, php-format
