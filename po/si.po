@@ -9705,7 +9705,7 @@ msgstr "කොටස් කරන ලද"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr " `%s` වගුව සඳහා අවධානය පිළිබඳ වාර්තාව"
+msgstr "`%s` වගුව සඳහා අවධානය පිළිබඳ වාර්තාව"
 
 #: tbl_tracking.php:182
 #, php-format
