@@ -7774,7 +7774,7 @@ msgstr ""
 
 #: server_processlist.php:65
 msgid "ID"
-msgstr "හැඳුනුම් අංකය (ID)"
+msgstr "හැඳුනුම් අංකය"
 
 #: server_replication.php:49
 msgid "Unknown error"
