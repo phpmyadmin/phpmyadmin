@@ -8968,7 +8968,7 @@ msgstr "පෙන්වන්න"
 
 #: setup/frames/index.inc.php:216
 msgid "Load"
-msgstr "පූරණය කරන්න "
+msgstr "පූරණය කරන්න"
 
 #: setup/frames/index.inc.php:227
 msgid "phpMyAdmin homepage"
