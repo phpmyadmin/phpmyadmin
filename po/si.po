@@ -4463,7 +4463,7 @@ msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය
 #: libraries/display_export.lib.php:91
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "%s වගුවෙන් තීරු අපනයනය කිරීම"
+msgstr "\"%s\" වගුවෙන් තීරු අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
