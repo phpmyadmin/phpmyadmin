@@ -1740,7 +1740,7 @@ msgstr "PBMS දෝෂය"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr "PBMS සම්බන්ධතාවය අසමත් විය."
+msgstr "PBMS සම්බන්ධතාවය අසමත් විය:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
