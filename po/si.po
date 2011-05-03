@@ -8940,7 +8940,7 @@ msgstr "සකස් කෙරුණු සේවාදායක කිසිව
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
-msgstr "නව සේවාදායකය "
+msgstr "නව සේවාදායකය"
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
