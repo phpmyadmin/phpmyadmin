@@ -823,7 +823,7 @@ msgstr "Selected export type has to be saved in file!"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Insufficient space to save the file %s ගොනුව සේව් කිරීමට ප්‍රමාණවත් ."
+msgstr "Insufficient space to save the file %s ගොනුව සේව් කිරීමට ප්‍රමාණවත්."
 
 #: export.php:307
 #, php-format
