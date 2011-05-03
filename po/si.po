@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:58+0200\n"
+"PO-Revision-Date: 2011-05-03 15:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6207,7 +6207,7 @@ msgstr "වගු වල මාන පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:384
 msgid "Display all tables with the same width"
-msgstr "එකම ප්‍රමාණයේ සියලු වගු පෙන්වන්න?"
+msgstr "සියලු වගු එකම ප්‍රමාණයෙන් පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
