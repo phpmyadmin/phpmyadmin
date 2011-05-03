@@ -4274,7 +4274,7 @@ msgstr "දත්තගබඩා අපනයන විකල්ප"
 #: libraries/config/user_preferences.forms.php:222
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
-msgstr "MS එක්සෙල් සඳහා CSV "
+msgstr "MS එක්සෙල් සඳහා CSV"
 
 #: libraries/config/setup.forms.php:351
 #: libraries/config/user_preferences.forms.php:253
