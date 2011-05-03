@@ -282,7 +282,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
            SELECT *,
                   `TABLE_SCHEMA`       AS `Db`,
                   `TABLE_NAME`         AS `Name`,
-                  `TABLE_TYPE`         ÀS `TABLE_TYPE`,
+                  `TABLE_TYPE`         AS `TABLE_TYPE`,
                   `ENGINE`             AS `Engine`,
                   `ENGINE`             AS `Type`,
                   `VERSION`            AS `Version`,
@@ -479,7 +479,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
  * returns array with databases containing extended infos about them
  *
  * @todo    move into PMA_List_Database?
- * @param   string      $databases      database
+ * @param   string      $database      database
  * @param   boolean     $force_stats    retrieve stats also for MySQL < 5
  * @param   resource    $link           mysql link
  * @param   string      $sort_by        column to order by
@@ -508,9 +508,8 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
          * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
          * cause MySQL does not support natural ordering, we have to do it afterward
          */
-        if ($GLOBALS['cfg']['NaturalOrder']) {
-            $limit = '';
-        } else {
+        $limit = '';
+        if (!$GLOBALS['cfg']['NaturalOrder']) {
             if ($limit_count) {
                 $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
