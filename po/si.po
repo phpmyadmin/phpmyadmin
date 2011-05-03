@@ -8935,7 +8935,7 @@ msgstr "දළ විශ්ලේෂණය"
 
 #: setup/frames/index.inc.php:96
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "සැඟවුණු පණිවිඩ පෙන්වන්න  (#MSG_COUNT)"
+msgstr "සැඟවුණු පණිවිඩ පෙන්වන්න (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:136
 msgid "There are no configured servers"
