@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 16:14+0200\n"
+"PO-Revision-Date: 2011-05-03 16:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2116,10 +2116,10 @@ msgid "Browse your computer:"
 msgstr "පරිගණකය තුළ පිරික්සන්න:"
 
 #: libraries/common.lib.php:2979
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "අන්තර්ජාල සර්වරයේ අප්ලෝඩ් ඩිරෙක්ටරිය"
+msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත කිරීම් ඩිරෙක්ටරියෙන් තෝරන්න:"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
