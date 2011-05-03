@@ -7850,7 +7850,7 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"දැන් පහත දැක්වෙන පේළි ඔබගේ  my.cnf හි [mysqld] කොටසේ අවසානයට එක්කර අනතුරුව "
+"දැන් පහත දැක්වෙන පේළි ඔබගේ my.cnf හි [mysqld] කොටසේ අවසානයට එක්කර අනතුරුව "
 "සේවාදායකය නැවත පණගන්වන්න."
 
 #: server_replication.php:228
