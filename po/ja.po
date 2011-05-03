@@ -7875,7 +7875,7 @@ msgstr ""
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "エラースキップする"
 
 #: server_replication.php:361
 #, php-format
