@@ -96,7 +96,7 @@ msgstr "මෙම අගය භාවිතා කරන්න"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr "Blog streaming සේවාදායකයක් සකස් කර නැත."
+msgstr "Blog streaming සේවාදායකයක් සකස් කර නැත!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
