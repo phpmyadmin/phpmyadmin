@@ -7832,7 +7832,7 @@ msgstr "全開始"
 
 #: server_replication.php:323
 msgid "Full stop"
-msgstr ""
+msgstr "全停止"
 
 #: server_replication.php:324
 msgid "Reset slave"
