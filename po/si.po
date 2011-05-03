@@ -4812,7 +4812,7 @@ msgstr "මුළු එකතුව"
 #: libraries/display_tbl.lib.php:2025 sql.php:628
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
+msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි"
 
 #: libraries/display_tbl.lib.php:2148 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:561
