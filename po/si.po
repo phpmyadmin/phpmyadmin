@@ -2554,7 +2554,7 @@ msgstr "Put fields names in the first row"
 #: libraries/config/messages.inc.php:245 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 msgid "Columns enclosed by"
-msgstr "තීර ඇවුරුම් සළකුණ:"
+msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:80
