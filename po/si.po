@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 15:25+0200\n"
+"PO-Revision-Date: 2011-05-03 15:27+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -493,7 +493,7 @@ msgstr "වගු භාවිතා කරන්න."
 #: db_qbe.php:659
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>%s</b> දත්තගබඩාව මත විමසුම්:"
+msgstr "<b>%s</b> දත්තගබඩාව මත SQL විමසුම:"
 
 #: db_qbe.php:953 libraries/common.lib.php:1188
 msgid "Submit Query"
