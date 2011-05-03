@@ -2578,7 +2578,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
 msgid "Columns terminated by"
-msgstr "තීර වෙන් කිරීමේ සළකුණ:"
+msgstr "තීර වෙන් කිරීමේ සළකුණ"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
