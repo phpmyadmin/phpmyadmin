@@ -477,7 +477,7 @@ msgstr "වෙනස් කිරීම"
 
 #: db_qbe.php:603
 msgid "Add/Delete criteria rows"
-msgstr "නිර්ණායක පේළියක් එක් කරන්න/ඉවත් කරන්න."
+msgstr "නිර්ණායක පේළියක් එක් කරන්න/ඉවත් කරන්න"
 
 #: db_qbe.php:615
 msgid "Add/Delete columns"
