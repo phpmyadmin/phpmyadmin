@@ -8682,7 +8682,7 @@ msgid ""
 "the <a href=#replication>replication section</a>."
 msgstr ""
 "සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a "
-"href=#replication>අනුරූකරණ අංශය</a> වෙත යන්න "
+"href=#replication>අනුරූකරණ අංශය</a> වෙත යන්න"
 
 #: server_status.php:509
 msgid ""
