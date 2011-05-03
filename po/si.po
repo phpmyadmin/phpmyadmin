@@ -1171,7 +1171,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "නව phpMyAdmin අනුවාදයක් නිකුත් වී ඇති බැවින් එය ලබා ගැනීම සලකා බලන්න. නවතම "
-"phpMyAdmin අනුවාදය %s අනුවාදයයි. (%s දින නිකුත් කරන ලද)"
+"phpMyAdmin අනුවාදය %s අනුවාදයයි (%s දින නිකුත් කරන ලද)."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
