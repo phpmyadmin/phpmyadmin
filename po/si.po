@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 16:36+0200\n"
+"PO-Revision-Date: 2011-05-03 16:37+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1147,7 +1147,7 @@ msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්
 # අභිරුචිය = option. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න"
+msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න "
 
 #: js/messages.php:109
 msgid "Generate password"
