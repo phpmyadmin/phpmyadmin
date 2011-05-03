@@ -7878,7 +7878,7 @@ msgstr "slave තත්ව වගුව බලන්න"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "දත්තගබඩාව master සමඟ සමමුහුර්තනය කරන්න."
+msgstr "දත්තගබඩාව master සමඟ සමමුහුර්තනය කරන්න"
 
 #: server_replication.php:320
 msgid "Control slave:"
