@@ -2892,7 +2892,7 @@ msgstr "Query window"
 
 #: libraries/config/messages.inc.php:192
 msgid "Customize query window options"
-msgstr "විමසුම් කවුළුව සඳහා වූ විකල්ප රිසි සේ සකසන්න "
+msgstr "විමසුම් කවුළුව සඳහා වූ විකල්ප රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
