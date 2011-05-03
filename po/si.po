@@ -4683,9 +4683,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
-"transactions."
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <i>(This might be good way to import large files, "
+"however it can break transactions.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
