@@ -2707,7 +2707,7 @@ msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:137
 msgid "Export time in UTC"
-msgstr "වේලාව UTC ලෙස අපනයනය කරන්න "
+msgstr "වේලාව UTC ලෙස අපනයනය කරන්න"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
