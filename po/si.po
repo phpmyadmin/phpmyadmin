@@ -4638,7 +4638,7 @@ msgstr "\"%s\" දත්තගබඩාව තුළට ආනයනය කි�
 #: libraries/display_import.lib.php:133
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr " \"%s\" වගුව තුළට ආනයනය කිරීම"
+msgstr "\"%s\" වගුව තුළට ආනයනය කිරීම"
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
