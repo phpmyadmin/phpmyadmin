@@ -2313,7 +2313,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "&quot;Drop database&quot; සබැඳිය සාමාන්‍ය භවිතා කරන්නන්ට පෙන්වන්න "
+msgstr "&quot;Drop database&quot; සබැඳිය සාමාන්‍ය භවිතා කරන්නන්ට පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
