@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 16:30+0200\n"
+"PO-Revision-Date: 2011-05-03 16:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9369,7 +9369,7 @@ msgstr "නැවත අඳින්න"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr " %s වගුව දැනටමත් පවතී!"
+msgstr "%s වගුව දැනටමත් පවතී!"
 
 #: tbl_create.php:242
 #, php-format
