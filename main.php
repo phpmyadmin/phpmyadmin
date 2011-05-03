@@ -305,7 +305,7 @@ if ($server > 0) {
 }
 
 /**
- * Show warning when javascript support is missing.
+ * Show notice when javascript support is missing.
  */
 echo '<noscript>';
 $message = PMA_Message::notice(__('Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.'));

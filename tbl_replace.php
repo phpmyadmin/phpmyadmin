@@ -410,7 +410,7 @@ $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
     /**
-     * @todo use a <div class="warning"> in PMA_showMessage() for this part of
+     * @todo use a <div class="error"> in PMA_showMessage() for this part of
      * the message
      */
     $message->addMessages($warning_messages, '<br />');

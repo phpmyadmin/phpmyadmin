@@ -273,7 +273,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
-                $message = PMA_Message::warning( __('Error creating foreign key on %1$s (check data types)'));
+                $message = PMA_Message::error( __('Error creating foreign key on %1$s (check data types)'));
                 $message->addParam($master_field);
                 $message->display();
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";

@@ -35,7 +35,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
 
 if (isset($_REQUEST['submit_sql'])
  && ! preg_match('@^SELECT@i', $sql_query)) {
-    PMA_Message::warning(__('You have to choose at least one column to display'))->display();
+    PMA_Message::error(__('You have to choose at least one column to display'))->display();
 }
 
 

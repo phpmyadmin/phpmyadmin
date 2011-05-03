@@ -179,7 +179,7 @@ if (isset($_REQUEST['create_index'])) {
 
 <br class="clearfloat" />
 <?php
-PMA_Message::warning(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
+PMA_Message::error(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
 ?>
 
 <table>
