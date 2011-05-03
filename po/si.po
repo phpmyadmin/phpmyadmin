@@ -4365,7 +4365,7 @@ msgstr "වරප්‍රසාද"
 
 #: libraries/db_routines.inc.php:24 libraries/db_routines.inc.php:26
 msgid "Routines"
-msgstr "නෛත්‍යක (Routines)"
+msgstr "නෛත්‍යක"
 
 #: libraries/db_routines.inc.php:37
 msgid "Return type"
