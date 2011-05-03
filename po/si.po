@@ -7123,7 +7123,7 @@ msgstr "පිටුවක් සාදා අපනයනය කරන්න"
 #: pmd_pdf.php:111
 #| msgid "User name"
 msgid "New page name: "
-msgstr "නව පිටු නාමය:"
+msgstr "නව පිටු නාමය: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
