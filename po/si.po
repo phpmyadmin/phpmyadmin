@@ -6359,7 +6359,7 @@ msgstr "පරිසීමකය"
 
 #: libraries/sql_query_form.lib.php:381
 msgid " Show this query here again "
-msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න "
+msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න"
 
 #: libraries/sql_query_form.lib.php:440
 msgid "Submit"
