@@ -3149,7 +3149,7 @@ msgstr "ඇතුල් කල පේළි ගණන"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
-msgstr "'ක්ෂණික ප්‍රවේශය' අයිකනය සඳහා ඉලක්කය "
+msgstr "'ක්ෂණික ප්‍රවේශය' අයිකනය සඳහා ඉලක්කය"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
