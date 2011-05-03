@@ -8972,7 +8972,7 @@ msgstr "පූරණය කරන්න"
 
 #: setup/frames/index.inc.php:227
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin මුල් පිටුව "
+msgstr "phpMyAdmin මුල් පිටුව"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
