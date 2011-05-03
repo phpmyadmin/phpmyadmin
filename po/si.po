@@ -4458,7 +4458,7 @@ msgstr "වත්මන් සේවාදායකයෙන් දත්තග�
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "%s දත්තගබඩාවෙන් වගු අපනයනය කිරීම"
+msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:91
 #, php-format
