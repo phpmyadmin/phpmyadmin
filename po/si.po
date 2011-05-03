@@ -4930,7 +4930,7 @@ msgstr "Read requests"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
-msgstr "ලිවීම සඳහා වූ  ඉල්ලීම්"
+msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
