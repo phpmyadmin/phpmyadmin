@@ -1535,8 +1535,8 @@ msgstr "දෝෂය"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "පේළියකට බලපෑවේය"
-msgstr[1] "පේළි %1$dකට බලපෑවේය"
+msgstr[0] "පේළියකට බලපෑවේය."
+msgstr[1] "පේළි %1$dකට බලපෑවේය."
 
 #: libraries/Message.class.php:300
 #, php-format
