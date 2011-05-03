@@ -799,7 +799,7 @@ msgstr "個々の入力欄にそれぞれ値を入力してください。"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ 書き込みをやり直して、新しい値を追加する。"
 
 #: enum_editor.php:67
 msgid "Output"
