@@ -8936,7 +8936,7 @@ msgstr "සැඟවුණු පණිවිඩ පෙන්වන්න (#MSG_
 
 #: setup/frames/index.inc.php:136
 msgid "There are no configured servers"
-msgstr "සකස් කෙරුණු සේවාදායක කිසිවක් නොමැත."
+msgstr "සකස් කෙරුණු සේවාදායක කිසිවක් නොමැත"
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
