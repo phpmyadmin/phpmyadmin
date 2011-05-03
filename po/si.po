@@ -1724,7 +1724,7 @@ msgstr ""
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය."
+msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
