@@ -349,7 +349,7 @@ msgstr ""
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
-msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න."
+msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
