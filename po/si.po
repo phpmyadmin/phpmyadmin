@@ -1133,7 +1133,7 @@ msgstr ""
 # Terms - ICTA
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr "අන්‍ය මූලය තෝරන්න."
+msgstr "අන්‍ය මූලය තෝරන්න"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
