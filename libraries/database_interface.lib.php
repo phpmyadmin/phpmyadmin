@@ -278,32 +278,61 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         // to find the db aa)
         $this_databases = array_map('PMA_sqlAddslashes', $databases);
 
-        $sql = '
-           SELECT *,
-                  `TABLE_SCHEMA`       AS `Db`,
-                  `TABLE_NAME`         AS `Name`,
-                  `TABLE_TYPE`         AS `TABLE_TYPE`,
-                  `ENGINE`             AS `Engine`,
-                  `ENGINE`             AS `Type`,
-                  `VERSION`            AS `Version`,
-                  `ROW_FORMAT`         AS `Row_format`,
-                  `TABLE_ROWS`         AS `Rows`,
-                  `AVG_ROW_LENGTH`     AS `Avg_row_length`,
-                  `DATA_LENGTH`        AS `Data_length`,
-                  `MAX_DATA_LENGTH`    AS `Max_data_length`,
-                  `INDEX_LENGTH`       AS `Index_length`,
-                  `DATA_FREE`          AS `Data_free`,
-                  `AUTO_INCREMENT`     AS `Auto_increment`,
-                  `CREATE_TIME`        AS `Create_time`,
-                  `UPDATE_TIME`        AS `Update_time`,
-                  `CHECK_TIME`         AS `Check_time`,
-                  `TABLE_COLLATION`    AS `Collation`,
-                  `CHECKSUM`           AS `Checksum`,
-                  `CREATE_OPTIONS`     AS `Create_options`,
-                  `TABLE_COMMENT`      AS `Comment`
-             FROM `information_schema`.`TABLES`
-            WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
-              ' . $sql_where_table;
+        if (PMA_DRIZZLE) {
+            $sql = '
+                SELECT *,
+                    `TABLE_SCHEMA`        AS `Db`,
+                    `TABLE_NAME`          AS `Name`,
+                    `TABLE_TYPE`          AS `TABLE_TYPE`,
+                    `ENGINE`              AS `Engine`,
+                    `ENGINE`              AS `Type`,
+                    `TABLE_VERSION`       AS `Version`,-- VERSION
+                    `ROW_FORMAT`          AS `Row_format`,
+                    NULL                  AS `Rows`,-- TABLE_ROWS
+                    NULL                  AS `Avg_row_length`, -- AVG_ROW_LENGTH
+                    NULL                  AS `Data_length`, -- DATA_LENGTH
+                    NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
+                    NULL                  AS `Index_length`, -- INDEX_LENGTH
+                    NULL                  AS `Data_free`, -- DATA_FREE
+                    `AUTO_INCREMENT`      AS `Auto_increment`,
+                    `TABLE_CREATION_TIME` AS `Create_time`, -- CREATE_TIME
+                    `TABLE_UPDATE_TIME`   AS `Update_time`, -- UPDATE_TIME
+                    NULL                  AS `Check_time`, -- CHECK_TIME
+                    `TABLE_COLLATION`     AS `Collation`,
+                    NULL                  AS `Checksum`, -- CHECKSUM
+                    NULL                  AS `Create_options`, -- CREATE_OPTIONS
+                    `TABLE_COMMENT`       AS `Comment`
+                FROM data_dictionary.TABLES
+                WHERE TABLE_SCHEMA IN (\'' . implode("', '", $this_databases) . '\')
+                    ' . $sql_where_table;
+        } else {
+            $sql = '
+                SELECT *,
+                    `TABLE_SCHEMA`       AS `Db`,
+                    `TABLE_NAME`         AS `Name`,
+                    `TABLE_TYPE`         AS `TABLE_TYPE`,
+                    `ENGINE`             AS `Engine`,
+                    `ENGINE`             AS `Type`,
+                    `VERSION`            AS `Version`,
+                    `ROW_FORMAT`         AS `Row_format`,
+                    `TABLE_ROWS`         AS `Rows`,
+                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                    `DATA_LENGTH`        AS `Data_length`,
+                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                    `INDEX_LENGTH`       AS `Index_length`,
+                    `DATA_FREE`          AS `Data_free`,
+                    `AUTO_INCREMENT`     AS `Auto_increment`,
+                    `CREATE_TIME`        AS `Create_time`,
+                    `UPDATE_TIME`        AS `Update_time`,
+                    `CHECK_TIME`         AS `Check_time`,
+                    `TABLE_COLLATION`    AS `Collation`,
+                    `CHECKSUM`           AS `Checksum`,
+                    `CREATE_OPTIONS`     AS `Create_options`,
+                    `TABLE_COMMENT`      AS `Comment`
+                FROM `information_schema`.`TABLES`
+                WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
+                    ' . $sql_where_table;
+        }
 
         // Sort the tables
         $sql .= " ORDER BY $sort_by $sort_order";
@@ -331,7 +360,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // If permissions are wrong on even one database directory,
     // information_schema does not return any table info for any database
     // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
-    if (empty($tables)) {
+    if (empty($tables) && !PMA_DRIZZLE) {
         foreach ($databases as $each_database) {
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
