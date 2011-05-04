@@ -9080,7 +9080,7 @@ msgstr "Zip 圧縮には関数 (%s) が必要ですが、このシステムで�
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "Zip 解凍には関数 (%s) が必要ですが、このシステムで使用できません。"
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
