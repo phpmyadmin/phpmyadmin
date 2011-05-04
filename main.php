@@ -95,9 +95,9 @@ if ($server > 0
                         './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
                 }
             } // end if
-
-            echo '    <li id="li_select_mysql_collation">';
-            echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+        } // not Drizzle
+        echo '    <li id="li_select_mysql_collation">';
+        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . __('MySQL connection collation') . "\n"
@@ -109,7 +109,6 @@ if ($server > 0
            . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
            . '        </form>' . "\n"
            . '    </li>' . "\n";
-        } // not Drizzle
     } // end of if ($server > 0)
     echo '</ul>';
     echo '</div>';
@@ -287,9 +286,6 @@ if (file_exists('./config')) {
     trigger_error(__('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'), E_USER_WARNING);
 }
 
-/**
- * Check whether relations are supported.
- */
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
     if(! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {

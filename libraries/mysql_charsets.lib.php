@@ -43,7 +43,7 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
             $mysql_collations[$row['CHARACTER_SET_NAME']][] = $row['COLLATION_NAME'];
         }
         $mysql_collations_flat[] = $row['COLLATION_NAME'];
-        if ($row['IS_DEFAULT'] == 'Yes') {
+        if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
             $mysql_default_collations[$row['CHARACTER_SET_NAME']] = $row['COLLATION_NAME'];
         }
         //$mysql_collations_available[$row['Collation']] = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
@@ -57,7 +57,10 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
 
     if (PMA_DRIZZLE && isset($mysql_collations['utf8_general_ci']) && isset($mysql_collations['utf8'])) {
         $mysql_collations['utf8'] = $mysql_collations['utf8_general_ci'];
-        unset($mysql_collations['utf8_general_ci']);
+        $mysql_default_collations['utf8'] = $mysql_default_collations['utf8_general_ci'];
+        $mysql_charsets_available['utf8'] = $mysql_charsets_available['utf8_general_ci'];
+        unset($mysql_collations['utf8_general_ci'], $mysql_default_collations['utf8_general_ci'],
+            $mysql_charsets_available['utf8_general_ci']);
     }
 
     $mysql_collations_count = count($mysql_collations_flat);
