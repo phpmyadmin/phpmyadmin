@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:04+0200\n"
+"PO-Revision-Date: 2011-05-04 14:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7532,7 +7532,7 @@ msgstr "කිසිවක් නැත"
 #: server_privileges.php:442 server_privileges.php:577
 #: server_privileges.php:1824 server_privileges.php:1830
 msgid "Table-specific privileges"
-msgstr "Table-specific privileges"
+msgstr "වගු-විශේෂී වරප්‍රසාද"
 
 #: server_privileges.php:443 server_privileges.php:585
 #: server_privileges.php:1636
