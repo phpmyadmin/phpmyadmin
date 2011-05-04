@@ -17,7 +17,7 @@ require_once './libraries/bookmark.lib.php';
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
 
-if ($db === 'information_schema') {
+if (strtolower($db) === 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
     $db_is_information_schema = true;
 } else {
     $db_is_information_schema = false;

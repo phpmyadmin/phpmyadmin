@@ -18,7 +18,7 @@ PMA_checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
-if ($db == 'information_schema') {
+if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
     $is_show_stats = false;
     $db_is_information_schema = true;
 } else {

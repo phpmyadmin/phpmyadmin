@@ -110,7 +110,7 @@ $is_show_stats = $cfg['ShowStats'];
  */
 $db_is_information_schema = false;
 
-if ($db == 'information_schema') {
+if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
     $is_show_stats = false;
     $db_is_information_schema = true;
 }
