@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 13:33+0200\n"
+"PO-Revision-Date: 2011-05-04 13:37+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6040,7 +6040,7 @@ msgstr "විචල්‍යය"
 #: server_status.php:775 tbl_change.php:325 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:822
 msgid "Value"
-msgstr "Value"
+msgstr "අගය"
 
 #: libraries/replication_gui.lib.php:175 server_binlog.php:202
 msgid "Server ID"
