@@ -19,9 +19,6 @@
  *
  * // get special notice 'Some locale notice'
  * $message = PMA_Message::notice('strSomeLocaleNotice');
- *
- * // display raw warning message 'This is a warning!'
- * PMA_Message::rawWarning('This is a warning!')->display();
  * </code>
  *
  * more advanced usage example:
@@ -63,7 +60,6 @@ class PMA_Message
 {
     const SUCCESS = 1; // 0001
     const NOTICE  = 2; // 0010
-    const WARNING = 4; // 0100
     const ERROR   = 8; // 1000
 
     const SANITIZE_NONE   = 0;  // 0000 0000
@@ -79,7 +75,6 @@ class PMA_Message
     static public $level = array (
         PMA_Message::SUCCESS => 'success',
         PMA_Message::NOTICE  => 'notice',
-        PMA_Message::WARNING => 'warning',
         PMA_Message::ERROR   => 'error',
     );
 
@@ -214,22 +209,6 @@ class PMA_Message
     }
 
     /**
-     * get PMA_Message of type warning
-     *
-     * shorthand for getting a simple warning message
-     *
-     * @static
-     * @uses    PMA_Message as returned object
-     * @uses    PMA_Message::WARNING
-     * @param   string $string a localized string e.g. 'strSetupWarning'
-     * @return  PMA_Message
-     */
-    static public function warning($string)
-    {
-        return new PMA_Message($string, PMA_Message::WARNING);
-    }
-
-    /**
      * get PMA_Message of type notice
      *
      * shorthand for getting a simple notice message
@@ -335,22 +314,6 @@ class PMA_Message
     static public function rawError($message)
     {
         return PMA_Message::raw($message, PMA_Message::ERROR);
-    }
-
-    /**
-     * get PMA_Message of type warning with custom content
-     *
-     * shorthand for getting a customized warning message
-     *
-     * @static
-     * @uses    PMA_Message::raw()
-     * @uses    PMA_Message::WARNING
-     * @param   string  $message
-     * @return  PMA_Message
-     */
-    static public function rawWarning($message)
-    {
-        return PMA_Message::raw($message, PMA_Message::WARNING);
     }
 
     /**

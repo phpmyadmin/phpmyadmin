@@ -19,7 +19,7 @@ if (!defined('PHPMYADMIN')) {
 function messages_begin()
 {
     if (!isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
-        $_SESSION['messages'] = array('error' => array(), 'warning' => array(), 'notice' => array());
+        $_SESSION['messages'] = array('error' => array(), 'notice' => array());
     } else {
         // reset message states
         foreach ($_SESSION['messages'] as &$messages) {
@@ -35,7 +35,7 @@ function messages_begin()
  * Adds a new message to message list
  *
  * @param string $id unique message identifier
- * @param string $type one of: notice, warning, error
+ * @param string $type one of: notice, error
  * @param string $title language string id (in $str array)
  * @param string $message message text
  */
@@ -314,7 +314,7 @@ function perform_config_checks()
                 && $cf->getValue("Servers/$i/user") != ''
                 && $cf->getValue("Servers/$i/password") != '') {
             $title = PMA_lang(PMA_lang_name('Servers/1/auth_type')) . " ($server_name)";
-            messages_set('warning', "Servers/$i/auth_type", $title,
+            messages_set('notice', "Servers/$i/auth_type", $title,
                     PMA_lang($strServerAuthConfigMsg, $i) . ' ' .
                             PMA_lang($strSecurityInfoMsg, $i));
         }
@@ -327,7 +327,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/AllowRoot")
                 && $cf->getValue("Servers/$i/AllowNoPassword")) {
             $title = PMA_lang(PMA_lang_name('Servers/1/AllowNoPassword')) . " ($server_name)";
-            messages_set('warning', "Servers/$i/AllowNoPassword", $title,
+            messages_set('notice', "Servers/$i/AllowNoPassword", $title,
                     __('You allow for connecting to the server without a password.') . ' ' .
                             PMA_lang($strSecurityInfoMsg, $i));
         }
@@ -358,7 +358,7 @@ function perform_config_checks()
                 $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters.'));
             }
             if (!empty($blowfish_warnings)) {
-                messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
+                messages_set('error', 'blowfish_warnings' . count($blowfish_warnings),
                     PMA_lang(PMA_lang_name('blowfish_secret')),
                     implode('<br />', $blowfish_warnings));
             }
@@ -380,7 +380,7 @@ function perform_config_checks()
     // should be disabled
     //
     if ($cf->getValue('AllowArbitraryServer')) {
-        messages_set('warning', 'AllowArbitraryServer',
+        messages_set('notice', 'AllowArbitraryServer',
             PMA_lang(PMA_lang_name('AllowArbitraryServer')),
             PMA_lang($strAllowArbitraryServerWarning));
     }
@@ -393,7 +393,7 @@ function perform_config_checks()
             || $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
         $message_type = $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
             ? 'error'
-            : 'warning';
+            : 'notice';
         messages_set($message_type, 'LoginCookieValidity',
             PMA_lang(PMA_lang_name('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning));
@@ -404,7 +404,7 @@ function perform_config_checks()
     // should be at most 1800 (30 min)
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
-        messages_set('warning', 'LoginCookieValidity',
+        messages_set('notice', 'LoginCookieValidity',
             PMA_lang(PMA_lang_name('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning2));
     }
@@ -446,7 +446,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('GZipDump')
             && (@!function_exists('gzopen') || @!function_exists('gzencode'))) {
-        messages_set('warning', 'GZipDump',
+        messages_set('error', 'GZipDump',
             PMA_lang(PMA_lang_name('GZipDump')),
             PMA_lang($strGZipDumpWarning, 'gzencode'));
     }
@@ -463,7 +463,7 @@ function perform_config_checks()
         $functions .= @function_exists('bzcompress')
                 ? ''
                 : ($functions ? ', ' : '') . 'bzcompress';
-        messages_set('warning', 'BZipDump',
+        messages_set('error', 'BZipDump',
             PMA_lang(PMA_lang_name('BZipDump')),
             PMA_lang($strBZipDumpWarning, $functions));
     }
@@ -473,7 +473,7 @@ function perform_config_checks()
     // requires zip_open in import
     //
     if ($cf->getValue('ZipDump') && !@function_exists('zip_open')) {
-        messages_set('warning', 'ZipDump_import',
+        messages_set('error', 'ZipDump_import',
             PMA_lang(PMA_lang_name('ZipDump')),
             PMA_lang($strZipDumpImportWarning, 'zip_open'));
     }
@@ -483,7 +483,7 @@ function perform_config_checks()
     // requires gzcompress in export
     //
     if ($cf->getValue('ZipDump') && !@function_exists('gzcompress')) {
-        messages_set('warning', 'ZipDump_export',
+        messages_set('error', 'ZipDump_export',
             PMA_lang(PMA_lang_name('ZipDump')),
             PMA_lang($strZipDumpExportWarning, 'gzcompress'));
     }

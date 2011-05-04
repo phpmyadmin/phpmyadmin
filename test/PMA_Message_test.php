@@ -80,15 +80,6 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
     }
 
     /**
-     * test warning method
-     */
-    public function testWarning()
-    {
-        $this->object = new PMA_Message('test<&>', PMA_Message::WARNING);
-        $this->assertEquals($this->object, PMA_Message::warning('test<&>'));
-    }
-
-    /**
      * test notice method
      */
     public function testNotice()
@@ -359,8 +350,6 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
         $this->assertEquals('success', $this->object->getLevel());
         $this->object->setNumber(PMA_Message::ERROR);
         $this->assertEquals('error', $this->object->getLevel());
-        $this->object->setNumber(PMA_Message::WARNING);
-        $this->assertEquals('warning', $this->object->getLevel());
     }
 
     /**

@@ -360,7 +360,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $pos = $pos_quote_separator;
                             }
                             if (class_exists('PMA_Message')) {
-                                PMA_Message::warning(__('Automatically appended backtick to the end of query!'))->display();
+                                PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
                             }
                         }  else {
                             $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
@@ -1960,7 +1960,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
                 if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
-                    // warning: we set this one even for non TIMESTAMP type
+                    // we set this one even for non TIMESTAMP type
                     $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE;
                 }
 

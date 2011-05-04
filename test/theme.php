@@ -187,15 +187,6 @@ echo sprintf(__('Welcome to %s'),
     <h1>Notice message box header!</h1>
     notice message box content!
 </div>
-
-<div class="warning">
-    warning message box content!
-</div>
-<div class="warning">
-    <h1>Warning message box header!</h1>
-    warning message box content!
-</div>
-
 <div class="error">
     error message box content!
 </div>
