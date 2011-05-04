@@ -9030,6 +9030,8 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sログインクッキーの有効期間%sは最大で 1800 秒 (30 分) に設定する必要があります。1800 "
+"より大きい値は、偽装などのセキュリティリスクを引き起こす可能性があります。"
 
 #: setup/lib/index.lib.php:264
 #, php-format
