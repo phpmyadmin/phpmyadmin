@@ -569,10 +569,9 @@ td .icon {
     margin-<?php echo $left; ?>: 0.6em;
 }
 
-/* message boxes: warning, error, confirmation */
+/* message boxes: error, confirmation */
 .success h1,
 .notice h1,
-.warning h1,
 div.error h1 {
     border-bottom:      2px solid;
     font-weight:        bold;
@@ -582,7 +581,6 @@ div.error h1 {
 
 div.success,
 div.notice,
-div.warning,
 div.error,
 div.footnotes {
     margin:             0.5em 0 1.3em 0;
@@ -611,7 +609,6 @@ div.footnotes {
 
 .success  a{text-decoration:underline;}
 .notice a{text-decoration:underline;}
-.warning  a{text-decoration:underline;}
 .error a{text-decoration:underline;}
 .footnotes a{text-decoration:underline;}
 
@@ -656,30 +653,6 @@ div.footnotes {
 }
 .notice h1 {
     border-color:       #ffb10a;
-}
-
-.warning {
-    color:              #000;
-    background:url(./themes/pmahomme/img/tab_warning_bg.png) 50% 0% #f2baba;
-}
-
-
-p.warning,
-h1.warning,
-div.warning {
-    border-color:       #e0a1a1;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-        <?php } else { ?>
-    background-position: 97% 50%;
-        <?php } ?>
-    <?php } ?>
-}
-.warning h1 {
-    border-color:       #cc0000;
 }
 
 .error {
@@ -957,9 +930,6 @@ ul#topmenu ul {
     padding:            0.1em 0.3em 0.1em 0.3em;
 }
 
-#topmenu .warning {font-size:1em !important; background:#f3f3f3; }
-#topmenu .warning a span{color:#ddd !important;}
-
 ul#topmenu ul {
     -moz-box-shadow:    1px 1px 6px #ddd;
     -webkit-box-shadow: 2px 2px 3px #666;
@@ -1022,7 +992,6 @@ ul#topmenu > li.active {
 
 /* disabled drop/empty tabs */
 ul#topmenu span.tab,
-a.warning,
 ul#topmenu span.tabcaution {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
     color:#ccc;
