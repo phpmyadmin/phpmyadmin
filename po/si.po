@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:23+0200\n"
+"PO-Revision-Date: 2011-05-04 14:24+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2741,9 +2741,8 @@ msgstr "පිරික්සුම් ප්‍රකාරය රිසි ස
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 msgid "Customize default options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "පෙරනිමි විකල්ප රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
