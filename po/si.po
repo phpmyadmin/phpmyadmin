@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:21+0200\n"
+"PO-Revision-Date: 2011-05-04 14:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2450,9 +2450,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
-#, fuzzy
 msgid "Default table tab"
-msgstr "බවට දත්තගබඩාවේ නම වෙනස් කරන්න"
+msgstr "පෙරනිමි වගු ටැබය"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
