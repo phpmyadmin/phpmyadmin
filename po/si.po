@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-03 16:37+0200\n"
+"PO-Revision-Date: 2011-05-04 13:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6823,7 +6823,7 @@ msgstr "PHP තොරතුරු පෙන්වන්න"
 
 #: main.php:227
 msgid "Wiki"
-msgstr ""
+msgstr "විකි"
 
 #: main.php:230
 msgid "Official Homepage"
