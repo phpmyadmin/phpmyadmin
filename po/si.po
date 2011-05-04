@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:08+0200\n"
+"PO-Revision-Date: 2011-05-04 14:13+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7712,7 +7712,7 @@ msgstr " ... භාවිතා කරන්නන්ගේ වගුවෙන�
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+" ... පැරැන්නෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව එය ඉවත් කරන්න."
 
 #: server_privileges.php:2117
 msgid ""
