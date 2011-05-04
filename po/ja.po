@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 10:14+0200\n"
+"PO-Revision-Date: 2011-05-04 10:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6878,6 +6878,8 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"お使いのブラウザでは Javascript のサポートが不足しているか無効になっているので、phpMyAdmin "
+"のいくつかの機能が失われます。例えば、ナビゲーションフレームが自動的に更新されません。"
 
 #: main.php:343
 #, php-format
