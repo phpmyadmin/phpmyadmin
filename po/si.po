@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 13:39+0200\n"
+"PO-Revision-Date: 2011-05-04 13:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7651,7 +7651,8 @@ msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත
 #: server_privileges.php:1713
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Revoke all active privileges from the users and delete them afterwards."
+"භාවිත කරන්නන්ගෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව ඔවුන් ඉවත් "
+"කරන්න."
 
 #: server_privileges.php:1714 server_privileges.php:1715
 #: server_privileges.php:1716
