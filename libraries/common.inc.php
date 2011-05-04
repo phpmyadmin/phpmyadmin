@@ -925,6 +925,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         /**
+         * DisableIS must be set to false for Drizzle, it maps SHOW commands to IS queries anyway
+         */
+        if (PMA_DRIZZLE && $cfg['Server']['DisableIS']) {
+            $cfg['Server']['DisableIS'] = false;
+        }
+
+        /**
          * SQL Parser code
          */
         require_once './libraries/sqlparser.lib.php';
