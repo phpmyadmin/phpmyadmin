@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 10:18+0200\n"
+"PO-Revision-Date: 2011-05-04 10:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9035,6 +9035,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"cookie 認証を使用していて且つ%sログインクッキーの保存期間%sを 0 にしていない場合、%sログインクッキーの有効期間%"
+"sは保存期間の値以下に設定する必要があります。"
 
 #: setup/lib/index.lib.php:266
 #, php-format
