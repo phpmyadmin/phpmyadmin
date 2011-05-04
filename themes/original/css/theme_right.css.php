@@ -798,7 +798,7 @@ ul#topmenu > li.active {
 
 /* disabled drop/empty tabs */
 ul#topmenu span.tab,
-a.warning,
+a.error,
 ul#topmenu span.tabcaution {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
