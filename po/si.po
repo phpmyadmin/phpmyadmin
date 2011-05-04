@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:25+0200\n"
+"PO-Revision-Date: 2011-05-04 14:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3057,15 +3057,14 @@ msgid "Ignore multiple statement errors"
 msgstr ""
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
-"transactions."
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. විශාල "
+"ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය "
+"හැක."
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
