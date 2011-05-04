@@ -7678,7 +7678,7 @@ msgstr "තෝරාගත් භාවිත කරන්නා වරප්‍
 
 #: server_privileges.php:1830
 msgid "Column-specific privileges"
-msgstr "Column-specific privileges"
+msgstr "තීර-විශේෂී වරප්‍රසාද"
 
 #: server_privileges.php:2031
 msgid "Add privileges on the following database"
