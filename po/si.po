@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:05+0200\n"
+"PO-Revision-Date: 2011-05-04 14:08+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7674,7 +7674,7 @@ msgstr ""
 
 #: server_privileges.php:1790
 msgid "The selected user was not found in the privilege table."
-msgstr "The selected user was not found in the privilege table."
+msgstr "තෝරාගත් භාවිත කරන්නා වරප්‍රසාද වගුවේ හමු නොවිණි."
 
 #: server_privileges.php:1830
 msgid "Column-specific privileges"
