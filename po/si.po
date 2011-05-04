@@ -8606,7 +8606,7 @@ msgstr "තාවකාලික දත්ත"
 
 #: server_status.php:380
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "ප්‍රමාදිත ඇතුළු කිරීම්"
 
 #: server_status.php:381
 msgid "Key cache"
