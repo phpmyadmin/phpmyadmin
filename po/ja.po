@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 10:20+0200\n"
+"PO-Revision-Date: 2011-05-04 10:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9021,6 +9021,8 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sログインクッキーの有効期間%sが 1440 秒を超えています。%ssession.gc_maxlifetime%s がその値 (現在 %d) "
+"より低い場合、セッションがランダムに無効化される原因となります。"
 
 #: setup/lib/index.lib.php:262
 #, php-format
