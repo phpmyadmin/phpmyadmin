@@ -7584,7 +7584,7 @@ msgstr "ඔබ නව භාවිතා කරන්නනෙක් එක් �
 #: server_privileges.php:1204
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "You have updated the privileges for %s."
+msgstr "ඔබ %s සඳහා වරප්‍රසාද අලුත් කර ඇත."
 
 #: server_privileges.php:1228
 #, php-format
