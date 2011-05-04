@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 13:56+0200\n"
+"PO-Revision-Date: 2011-05-04 13:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7611,7 +7611,7 @@ msgstr "Reloading the privileges"
 
 #: server_privileges.php:1319
 msgid "The selected users have been deleted successfully."
-msgstr "The selected users have been deleted successfully."
+msgstr "තෝරාගත් භාවිතා කරන්නන් සාර්ථකව ඉවත් කරන ලදි."
 
 #: server_privileges.php:1354
 msgid "The privileges were reloaded successfully."
