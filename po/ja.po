@@ -6866,6 +6866,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"セットアップスクリプトで使用される [code]config[/code] ディレクトリが、まだ phpMyAdmin "
+"ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは削除するべきです。"
 
 #: main.php:313
 #, php-format
