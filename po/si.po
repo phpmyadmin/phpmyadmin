@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:01+0200\n"
+"PO-Revision-Date: 2011-05-04 14:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7594,7 +7594,7 @@ msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි ක�
 #: server_privileges.php:1264
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "The password for %s was changed successfully."
+msgstr "%s ගේ මුරපදය සාර්ථකව වෙනස් කරන ලදි."
 
 #: server_privileges.php:1284
 #, php-format
