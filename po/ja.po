@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 10:13+0200\n"
+"PO-Revision-Date: 2011-05-04 10:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8750,7 +8750,7 @@ msgstr ""
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "選択された変更を適用する"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
