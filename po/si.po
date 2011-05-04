@@ -3730,7 +3730,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "දත්තගබඩාවේ නම"
