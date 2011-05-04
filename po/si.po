@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 14:36+0200\n"
+"PO-Revision-Date: 2011-05-04 14:37+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3512,9 +3512,8 @@ msgid "Directory where exports can be saved on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 msgid "Save directory"
-msgstr "දත්ත මුල් පිටුව"
+msgstr "සුරැකුම් ඩිරෙක්ටරිය"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
