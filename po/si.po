@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 13:15+0200\n"
+"PO-Revision-Date: 2011-05-04 13:17+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8594,7 +8594,7 @@ msgstr "හසුරුවනය"
 
 #: server_status.php:376
 msgid "Query cache"
-msgstr "Query cache"
+msgstr "විමසුම් කෑෂ්"
 
 #: server_status.php:377
 msgid "Threads"
