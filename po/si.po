@@ -3316,9 +3316,8 @@ msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 
 #: libraries/config/messages.inc.php:304
-#, fuzzy
 msgid "Maximum databases"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "උපරිම දත්තගබඩා"
 
 #: libraries/config/messages.inc.php:305
 msgid ""
