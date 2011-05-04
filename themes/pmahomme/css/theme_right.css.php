@@ -894,19 +894,6 @@ ul#topmenu span.tab {
     color:              #666666;
 }
 
-/* disabled drop/empty tabs */
-ul#topmenu span.tabcaution {
-    color:              #ff6666;
-}
-
-/* enabled drop/empty tabs */
-ul#topmenu a.tabcaution {
-    color:              #FF0000;
-}
-ul#topmenu a.tabcaution:hover {
-    color: #FFFFFF;
-    background-color:   #FF0000;
-}
 fieldset.caution a {
     color:              #FF0000;
 }
@@ -990,10 +977,9 @@ ul#topmenu > li.active {
     border-right:0px;
 }
 
-/* disabled drop/empty tabs */
+/* disabled tabs */
 ul#topmenu span.tab,
-a.error,
-ul#topmenu span.tabcaution {
+a.error {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
     color:#ccc;
 }
