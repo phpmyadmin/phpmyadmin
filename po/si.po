@@ -3739,9 +3739,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 msgid "Server port"
-msgstr "සර්වරයේ හැඳුනුම් අංකය"
+msgstr "සර්වරයේ පොර්ට්"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
