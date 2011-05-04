@@ -3599,9 +3599,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 msgid "Connection type"
-msgstr "සම්බන්ධතා"
+msgstr "සම්බන්දතා වර්ගය"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
