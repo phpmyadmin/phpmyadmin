@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-04 13:59+0200\n"
+"PO-Revision-Date: 2011-05-04 14:01+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7589,7 +7589,7 @@ msgstr "You have updated the privileges for %s."
 #: server_privileges.php:1228
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "You have revoked the privileges for %s"
+msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි කර ඇත."
 
 #: server_privileges.php:1264
 #, php-format
