@@ -2872,7 +2872,7 @@ msgstr "Fejlesztő"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "phpMyAdmin fejlesztők beállításai"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
