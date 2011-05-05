@@ -1838,7 +1838,7 @@ msgstr "Nem lehetett megnyitni a %s fájlt"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "megosztott"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
