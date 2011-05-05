@@ -798,7 +798,7 @@ msgstr "Szerkezeti pillanatkép"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr "Nem követett táblák "
+msgstr "Nem követett táblák"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:620
 #: tbl_structure.php:622
