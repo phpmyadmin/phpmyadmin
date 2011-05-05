@@ -2747,7 +2747,6 @@ msgid "Relations"
 msgstr "Kapcsolatok"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
 msgstr "Exportálás típusa"
