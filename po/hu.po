@@ -1949,7 +1949,7 @@ msgstr ""
 "KELL megadni!"
 
 #: libraries/common.inc.php:622
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Érvénytelen szerverindex: \"%s\""
