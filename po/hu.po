@@ -3531,10 +3531,9 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr "Ezek a Szerkesztés, Inline szerkesztés, Másolás és Törlés linkek"
 
 #: libraries/config/messages.inc.php:315
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
-msgstr "A logo megjelenítése a bal oldali keretben"
+msgstr "A sorhoz tartozó linkek mutatása a bal oldalon"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
