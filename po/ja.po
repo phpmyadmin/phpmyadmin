@@ -3886,7 +3886,7 @@ msgstr "データベースにユーザ設定の保存しない場合は空欄に
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
-msgstr "ユーザー設定保存テーブル"
+msgstr "ユーザ設定保存テーブル"
 
 #: libraries/config/messages.inc.php:433
 msgid "User for config auth"
