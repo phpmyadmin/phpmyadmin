@@ -2880,7 +2880,7 @@ msgstr "セキュリティ"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr "phpMyAdmin は、ユーザーインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
+msgstr "phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
