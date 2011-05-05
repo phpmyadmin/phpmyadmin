@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:16+0200\n"
+"PO-Revision-Date: 2011-05-05 11:18+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4256,7 +4256,7 @@ msgstr "簡易"
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
 msgid "Custom"
-msgstr "カスタム"
+msgstr "詳細"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
