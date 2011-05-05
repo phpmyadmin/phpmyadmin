@@ -69,9 +69,9 @@ abstract class PMA_pChart_chart extends PMA_chart
 
         // as in CSS (top, right, bottom, left)
         $this->setAreaMargins(array(20, 20, 40, 60));
-		
-		// Get color settings from theme
-		$this->settings = array_merge($this->settings,$GLOBALS['cfg']['chartColor']);
+        
+        // Get color settings from theme
+        $this->settings = array_merge($this->settings,$GLOBALS['cfg']['chartColor']);
     }
 
     protected function init()
@@ -133,15 +133,15 @@ abstract class PMA_pChart_chart extends PMA_chart
      */
     protected function drawCommon()
     {
-		$this->chart->drawGraphAreaGradient(
-				$this->getBgColor(RED),
-				$this->getBgColor(GREEN),
-				$this->getBgColor(BLUE),
-				// With a gradientIntensity of 0 the background does't draw, oddly
-				($this->settings['gradientIntensity']==0)?1:$this->settings['gradientIntensity'],TARGET_BACKGROUND);
-				
-		if(is_string($this->settings['border']))
-			$this->chart->addBorder(1,$this->getBorderColor(RED),$this->getBorderColor(GREEN),$this->getBorderColor(BLUE));
+        $this->chart->drawGraphAreaGradient(
+                $this->getBgColor(RED),
+                $this->getBgColor(GREEN),
+                $this->getBgColor(BLUE),
+                // With a gradientIntensity of 0 the background does't draw, oddly
+                ($this->settings['gradientIntensity']==0)?1:$this->settings['gradientIntensity'],TARGET_BACKGROUND);
+                
+        if(is_string($this->settings['border']))
+            $this->chart->addBorder(1,$this->getBorderColor(RED),$this->getBorderColor(GREEN),$this->getBorderColor(BLUE));
     }
 
     /**
@@ -201,21 +201,21 @@ abstract class PMA_pChart_chart extends PMA_chart
                 $this->getScaleColor(BLUE),
                 TRUE,0,2,TRUE
         );
-		
-		if($this->settings['gradientIntensity']>0)
-			$this->chart->drawGraphAreaGradient(
-					$this->getGraphAreaGradientColor(RED),
-					$this->getGraphAreaGradientColor(GREEN),
-					$this->getGraphAreaGradientColor(BLUE),
-					$this->settings['gradientIntensity']
-			);
-		else
-			$this->chart->drawGraphArea(
-					$this->getGraphAreaGradientColor(RED),
-					$this->getGraphAreaGradientColor(GREEN),
-					$this->getGraphAreaGradientColor(BLUE)
-			);
-		
+        
+        if($this->settings['gradientIntensity']>0)
+            $this->chart->drawGraphAreaGradient(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE),
+                    $this->settings['gradientIntensity']
+            );
+        else
+            $this->chart->drawGraphArea(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE)
+            );
+        
         $this->chart->drawGrid(
                 4,
                 TRUE,
@@ -392,11 +392,11 @@ abstract class PMA_pChart_chart extends PMA_chart
     {
         return $this->hexStrToDecComp($this->settings['titleBgColor'], $component);
     }
-	
-	protected function getBorderColor($component) 
-	{
-	    return $this->hexStrToDecComp($this->settings['border'], $component);
-	}
+    
+    protected function getBorderColor($component) 
+    {
+        return $this->hexStrToDecComp($this->settings['border'], $component);
+    }
 }
 
 ?>

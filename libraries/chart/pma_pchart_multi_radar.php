@@ -57,20 +57,20 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
                 $this->getGraphAreaColor(BLUE),
                 FALSE
         );
-		
-		if($this->settings['gradientIntensity']>0)
-			$this->chart->drawGraphAreaGradient(
-					$this->getGraphAreaGradientColor(RED),
-					$this->getGraphAreaGradientColor(GREEN),
-					$this->getGraphAreaGradientColor(BLUE),
-					$this->settings['gradientIntensity']
-			);
-		else
-			$this->chart->drawGraphArea(
-					$this->getGraphAreaGradientColor(RED),
-					$this->getGraphAreaGradientColor(GREEN),
-					$this->getGraphAreaGradientColor(BLUE)
-			);
+        
+        if($this->settings['gradientIntensity']>0)
+            $this->chart->drawGraphAreaGradient(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE),
+                    $this->settings['gradientIntensity']
+            );
+        else
+            $this->chart->drawGraphArea(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE)
+            );
     }
 
     /**
