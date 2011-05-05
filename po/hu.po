@@ -2765,7 +2765,6 @@ msgid "Remember file name template"
 msgstr "A fájlnévsablon megjegyzése"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Idézőjelek használata a tábla- és mezőneveknél"
