@@ -2018,10 +2018,9 @@ msgid "MySQL said: "
 msgstr "A MySQL mondta: "
 
 #: libraries/common.lib.php:1098
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
+msgstr "Nem lehetett kapcsolódni a MySQL-validátorhoz"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
