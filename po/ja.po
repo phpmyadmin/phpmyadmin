@@ -8953,7 +8953,7 @@ msgstr "サーバから取得した無効なバージョン文字列"
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
-msgstr ""
+msgstr "解析できないバージョン文字列"
 
 #: setup/lib/index.lib.php:162
 #, php-format
