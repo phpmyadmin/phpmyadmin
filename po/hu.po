@@ -1315,11 +1315,10 @@ msgstr "ápr."
 
 #. l10n: Short month name
 #: js/messages.php:169 libraries/common.lib.php:1577
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "máj."
+msgstr "Május"
 
 #. l10n: Short month name
 #: js/messages.php:171 libraries/common.lib.php:1579
