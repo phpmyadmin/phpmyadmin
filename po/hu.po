@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:34+0200\n"
+"PO-Revision-Date: 2011-05-05 12:35+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3270,7 +3270,7 @@ msgstr "AUTO_INCREMENT-et ne használjon zéró értékekhez"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Csúszkák kezdeti állapota"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
