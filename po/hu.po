@@ -603,7 +603,6 @@ msgid "Inside column:"
 msgstr "Mezőben:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Nem található tábla az adatbázisban."
