@@ -1036,7 +1036,6 @@ msgid "Reloading Privileges"
 msgstr "A jogok újratöltése"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "A kijelölt felhasználók törlése"
