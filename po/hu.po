@@ -3567,7 +3567,6 @@ msgid "GZip output buffering"
 msgstr "GZip-kimenet pufferelése"
 
 #: libraries/config/messages.inc.php:323
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
