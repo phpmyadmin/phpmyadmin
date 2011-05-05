@@ -1360,10 +1360,9 @@ msgid "Sunday"
 msgstr "Vasárnap"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "H"
+msgstr "Hétfő"
 
 #: js/messages.php:188
 #, fuzzy
