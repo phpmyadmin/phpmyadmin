@@ -2196,7 +2196,7 @@ msgstr "Nem elérhető a feltöltésekhez megadott könyvtár"
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Nincsenek feltöltendő fájlok"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
