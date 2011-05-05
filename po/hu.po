@@ -2559,9 +2559,8 @@ msgid "Show binary contents as HEX by default"
 msgstr "Bináris tartalom megjelenítése HEX-ként, mint alapértelmezett"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
-#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr "Bináris tartalom megjelenítése"
+msgstr "Bináris tartalom megjelenítése HEX-ként"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
