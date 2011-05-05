@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:32+0200\n"
+"PO-Revision-Date: 2011-05-05 10:33+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -553,10 +553,10 @@ msgid "Browse"
 msgstr "Tartalom"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "A tábla adatainak kiíratása"
+msgstr "Törli a találatokat a %s táblában?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1185
 #: libraries/display_tbl.lib.php:2115
