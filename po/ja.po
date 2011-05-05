@@ -3882,7 +3882,7 @@ msgstr "バージョンの自動作成"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
-msgstr "データベースにユーザー設定の保存しない場合は空欄にします。[kbd]pma_config[/kbd] としておくのがいいでしょう。"
+msgstr "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_config[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
