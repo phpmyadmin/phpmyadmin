@@ -2392,7 +2392,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Harmadik fél keret-használatának engedélyezése"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
