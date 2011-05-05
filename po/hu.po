@@ -3469,7 +3469,7 @@ msgstr "A SQL kijelzett hossza legfeljebb"
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "A felhasználók nem adhatnak meg nagyobb értéket"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
