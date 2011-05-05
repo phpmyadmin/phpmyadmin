@@ -9098,7 +9098,7 @@ msgstr "パスワードなしでサーバへの接続が許されています。
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "キーが短すぎます。少なくとも 8 文字は必要です。"
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
