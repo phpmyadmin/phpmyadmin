@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:13+0200\n"
+"PO-Revision-Date: 2011-05-05 12:14+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2681,10 +2681,9 @@ msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Sorok vége"
+msgstr "Mezők vége"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
