@@ -1479,10 +1479,9 @@ msgid "Minute"
 msgstr "Perc"
 
 #: js/messages.php:230
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "másodpercenként"
+msgstr "másodperc"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
