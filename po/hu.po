@@ -539,7 +539,7 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Keresési eredmények \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
