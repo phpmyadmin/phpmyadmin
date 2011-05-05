@@ -1803,10 +1803,9 @@ msgid "PBMS error"
 msgstr "PBMS hiba"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "MySQL kapcsolat illesztése"
+msgstr "PBMS kapcsolat sikertelen."
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
