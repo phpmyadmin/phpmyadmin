@@ -1106,7 +1106,6 @@ msgid "Table must have at least one column"
 msgstr "A táblázatnak legalább egy oszlopot kell tartalmaznia."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Tábla létrehozása"
