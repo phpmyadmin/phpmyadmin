@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:44+0200\n"
+"PO-Revision-Date: 2011-05-05 11:45+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2184,10 +2184,10 @@ msgid "Browse your computer:"
 msgstr "Számítógép tallózása:"
 
 #: libraries/common.lib.php:2979
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "webszerver feltöltési könyvtár"
+msgstr "Válasszon a szerver feltöltési könyvtárából <b> %s </b>:"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:959
