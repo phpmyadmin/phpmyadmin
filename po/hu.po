@@ -2854,10 +2854,9 @@ msgstr "A tallózó mód testreszabása"
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
-msgstr "Az exportálás alapértelmezett beállításainak testreszabása"
+msgstr "Alapértelmezett beállítások testreszabása"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
