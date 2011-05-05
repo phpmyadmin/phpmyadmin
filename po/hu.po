@@ -2227,10 +2227,9 @@ msgstr "adat"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Szerkezet és adatok"
+msgstr "szerkezet és adatok"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
