@@ -3026,10 +3026,9 @@ msgid "Authentication"
 msgstr "Hitelesítés típusa"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Hitelesítés típusa"
+msgstr "Hitelesítés beállításai"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
