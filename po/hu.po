@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:03+0200\n"
+"PO-Revision-Date: 2011-05-05 11:04+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1126,10 +1126,9 @@ msgid "Show query box"
 msgstr "SQL-lekérdezési panelek mutatása"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Motorok"
+msgstr "Inline szerkesztés"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
