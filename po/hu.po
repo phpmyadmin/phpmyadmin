@@ -3074,6 +3074,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Változások követése az adatbázisban. phpMyAdmin konfigurációs tároló "
+"szükséges."
 
 #: libraries/config/messages.inc.php:205
 msgid "Customize export options"
