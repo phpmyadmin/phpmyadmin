@@ -3233,8 +3233,8 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"チェックした場合、ログアウト時に全てのサーバのクッキーを削除します。チェックを外した場合は、現在のサーバーに対してだけログアウトが行われます。このチェッ"
-"クを外しておくと、複数のサーバーに接続している時、他のサーバからのログアウト作業を忘れやすくなります。"
+"チェックした場合、ログアウト時に全てのサーバのクッキーを削除します。チェックを外した場合は、現在のサーバに対してだけログアウトが行われます。このチェック"
+"を外しておくと、複数のサーバに接続している時、他のサーバからのログアウト作業を忘れやすくなります。"
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
