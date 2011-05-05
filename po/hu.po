@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:13+0200\n"
+"PO-Revision-Date: 2011-05-05 11:36+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1902,10 +1902,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "lekérdezések futási idejének összehasonlítása (mikromásodpercekben)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Műveletek a lekérdezési eredménnyel"
+msgstr "Lekérdezés eredményei"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
