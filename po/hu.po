@@ -793,9 +793,8 @@ msgid "Tracking report"
 msgstr "Nyomkövetési jelentés"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Csak a szerkezet"
+msgstr "Szerkezeti pillanatkép"
 
 #: db_tracking.php:181
 #, fuzzy
