@@ -752,9 +752,8 @@ msgid "Last version"
 msgstr "Legutolsó verzió"
 
 #: db_tracking.php:87 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "Létrehozás"
+msgstr "Létrehozva"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
