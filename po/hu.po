@@ -3112,10 +3112,9 @@ msgid "SQL queries settings"
 msgstr "SQL-lekérdezések beállításai"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL-előzmények"
+msgstr "SQL-validátor"
 
 #: libraries/config/messages.inc.php:218
 msgid ""
