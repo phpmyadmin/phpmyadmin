@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:29+0200\n"
+"PO-Revision-Date: 2011-05-05 10:30+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -341,7 +341,7 @@ msgid "Collation"
 msgstr "Illesztés"
 
 #: db_operations.php:556
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -349,8 +349,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"A hivatkozott táblákkal történő munka kiegészítő funkciói inaktiválásra "
-"kerültek. Ha szeretné megtudni, hogy miért, kattintson %side%s."
+"A phpMyAdmin konfigurációs tárolója deaktiválva lett. Ha szeretné megtudni, "
+"hogy miért, kattintson %side%s."
 
 #: db_operations.php:589
 #, fuzzy
