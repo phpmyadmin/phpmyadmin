@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:47+0200\n"
+"PO-Revision-Date: 2011-05-05 11:01+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1178,7 +1178,7 @@ msgstr "Válassza ki a megjelenítendő oszlopot"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adjon meg egy opciót az oszlophoz"
 
 #: js/messages.php:109
 #, fuzzy
