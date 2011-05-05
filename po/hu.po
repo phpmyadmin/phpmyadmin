@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:05+0200\n"
+"PO-Revision-Date: 2011-05-05 12:06+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2514,10 +2514,9 @@ msgid "Debug SQL"
 msgstr "SQL Debug"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Az adatbázisok megjelenítésének beállításai"
+msgstr "Alapértelmezett megjelenítési irány"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
