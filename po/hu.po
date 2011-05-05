@@ -1101,10 +1101,9 @@ msgid "Changing Charset"
 msgstr "Karakterkészlet változtatása"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "A táblázatnak legalább egy mezőt kell tartalmaznia."
+msgstr "A táblázatnak legalább egy oszlopot kell tartalmaznia."
 
 #: js/messages.php:76
 #, fuzzy
