@@ -1181,7 +1181,6 @@ msgid "Add an option for column "
 msgstr "Adjon meg egy opciót az oszlophoz"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Jelszó generálása"
