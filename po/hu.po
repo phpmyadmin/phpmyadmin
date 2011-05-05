@@ -2233,7 +2233,7 @@ msgstr "szerkezet és adatok"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Gyors - csak a minimális beállítási lehetőségeket mutatja"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
