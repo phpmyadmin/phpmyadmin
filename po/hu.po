@@ -2455,7 +2455,6 @@ msgstr ""
 "[kbd]textarea[/kbd] - új sorokat engedélyez a mezőkben"
 
 #: libraries/config/messages.inc.php:33
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR mezők szerkesztése"
