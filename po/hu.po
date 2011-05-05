@@ -802,9 +802,8 @@ msgstr "Nem követett táblák "
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:620
 #: tbl_structure.php:622
-#, fuzzy
 msgid "Track table"
-msgstr "Tábla ellenőrzése"
+msgstr "Tábla nyomon követése"
 
 #: db_tracking.php:229
 #, fuzzy
