@@ -3107,10 +3107,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Az SQL-lekérdezési panelekben látható hivatkozások testreszabása"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
-msgstr "SQL-lekérdezések"
+msgstr "SQL-lekérdezések beállításai"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
