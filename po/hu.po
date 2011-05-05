@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:04+0200\n"
+"PO-Revision-Date: 2011-05-05 12:05+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2441,7 +2441,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -2452,7 +2451,7 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Meghatározza, hogy mely szerkesztő vezérlőket kell használni a CHAR és a "
-"VARCHAR mezőknél; [kbd]input[/kbd] - korlátozhatóvá tszi a bevitel hosszát, "
+"VARCHAR mezőknél; [kbd]input[/kbd] - korlátozhatóvá teszi a bevitel hosszát, "
 "[kbd]textarea[/kbd] - új sorokat engedélyez a mezőkben"
 
 #: libraries/config/messages.inc.php:33
