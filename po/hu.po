@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:37+0200\n"
+"PO-Revision-Date: 2011-05-05 12:38+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3382,12 +3382,12 @@ msgid "Light tabs"
 msgstr "Világos fülek"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Egy SQL-lekérdezés megjelenítésekor használt karakterek száma legfeljebb"
+"A mutatott karakterek maximális száma nem numerikus mező esetén a tallózás "
+"nézetben"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
