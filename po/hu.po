@@ -489,10 +489,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Feltételsor hozzáadása/törlése"
 
 #: db_qbe.php:615
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Mezőoszlopok hozzáadása/törlése"
+msgstr "Oszlopok hozzáadása/törlése"
 
 #: db_qbe.php:628 db_qbe.php:653
 msgid "Update Query"
