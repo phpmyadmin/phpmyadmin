@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:13+0200\n"
+"PO-Revision-Date: 2011-05-05 11:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4225,7 +4225,7 @@ msgstr "サインオン認証"
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
 msgid "CSV using LOAD DATA"
-msgstr "LOAD DATA する CSV"
+msgstr "LOAD DATA 文を使用した CSV の読み込み"
 
 #: libraries/config/setup.forms.php:249 libraries/config/setup.forms.php:343
 #: libraries/config/user_preferences.forms.php:152
