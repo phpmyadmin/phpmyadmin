@@ -1052,7 +1052,6 @@ msgid "Cancel"
 msgstr "Mégse"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Load"
 msgid "Loading"
 msgstr "Betöltés"
