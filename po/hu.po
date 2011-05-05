@@ -1121,10 +1121,9 @@ msgid "Hide query box"
 msgstr "SQL-lekérdezési panelek elrejtése"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
-msgstr "SQL-lekérdezési panelek"
+msgstr "SQL-lekérdezési panelek mutatása"
 
 #: js/messages.php:88
 #, fuzzy
