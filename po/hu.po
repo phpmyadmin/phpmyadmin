@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:43+0200\n"
+"PO-Revision-Date: 2011-05-05 10:44+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1057,10 +1057,9 @@ msgid "Loading"
 msgstr "Betöltés"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Folyamatok"
+msgstr "Kérés feldolgozása"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
