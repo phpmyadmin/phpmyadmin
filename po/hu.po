@@ -1235,10 +1235,9 @@ msgstr "Következő"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:143
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Összesen"
+msgstr "Ma"
 
 #: js/messages.php:146
 msgid "January"
