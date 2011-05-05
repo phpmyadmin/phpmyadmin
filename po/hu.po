@@ -3238,10 +3238,9 @@ msgstr "LOCAL kulcsszó használata"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "A mezőneveket az első sorba teszi"
+msgstr "A mezőnevek az első sorban"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
