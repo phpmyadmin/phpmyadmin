@@ -1080,6 +1080,7 @@ msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:71
+#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Adatbázis(ok) átnevezése"
