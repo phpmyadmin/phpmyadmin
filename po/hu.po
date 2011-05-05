@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:08+0200\n"
+"PO-Revision-Date: 2011-05-05 12:09+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2580,7 +2580,7 @@ msgstr "A szerverek megjelenítése listaként"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "SQL lekérdezések szerkesztése felugró ablakban"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
