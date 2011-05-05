@@ -406,12 +406,12 @@ msgid "Last check"
 msgstr "Utolsó ellenőrzés"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tábla"
-msgstr[1] "%s tábla"
+msgstr[1] "%s táblák"
 
 #: db_qbe.php:25 import.php:453 libraries/Message.class.php:190
 #: libraries/display_tbl.lib.php:2036 libraries/sql_query_form.lib.php:140
