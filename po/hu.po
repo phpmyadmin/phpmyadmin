@@ -1876,7 +1876,7 @@ msgstr "Adatbázisra ugrás"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "Nem replikált"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
