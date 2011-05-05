@@ -3148,7 +3148,7 @@ msgstr "Válassza ki, hogyan kívánja használni a füleket"
 #: libraries/config/messages.inc.php:223
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Szöveges mező k"
+msgstr "Szöveges mezők"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
