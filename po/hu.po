@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:17+0200\n"
+"PO-Revision-Date: 2011-05-05 12:18+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2896,10 +2896,9 @@ msgid "Features"
 msgstr "Funkciók"
 
 #: libraries/config/messages.inc.php:165
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Generálás"
+msgstr "Általános"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
