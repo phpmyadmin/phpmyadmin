@@ -3146,10 +3146,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Válassza ki, hogyan kívánja használni a füleket"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Szöveges mező használata"
+msgstr "Szöveges mező k"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
