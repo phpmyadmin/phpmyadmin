@@ -2583,10 +2583,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "SQL lekérdezések szerkesztése felugró ablakban"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Következő sor szerkesztése"
+msgstr "Szerkesztés ablakban"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
