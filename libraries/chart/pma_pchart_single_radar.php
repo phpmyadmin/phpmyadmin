@@ -48,12 +48,21 @@ class PMA_pChart_single_radar extends PMA_pChart_single
                 $this->getGraphAreaColor(BLUE),
                 FALSE
         );
-        $this->chart->drawGraphAreaGradient(
-                $this->getGraphAreaGradientColor(RED),
-                $this->getGraphAreaGradientColor(GREEN),
-                $this->getGraphAreaGradientColor(BLUE),
-                50
-        );
+        
+        if($this->settings['gradientIntensity']>0)
+            $this->chart->drawGraphAreaGradient(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE),
+                    $this->settings['gradientIntensity']
+            );
+        else
+            $this->chart->drawGraphArea(
+                    $this->getGraphAreaGradientColor(RED),
+                    $this->getGraphAreaGradientColor(GREEN),
+                    $this->getGraphAreaGradientColor(BLUE)
+            );
+        
     }
 
     /**
