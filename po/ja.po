@@ -4610,7 +4610,7 @@ msgstr "ファイルが処理されています。しばらくお待ちくださ
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "しばらくお待ちください。ファイルがアップロードされています。アップロードに関する機能は利用できません。"
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
