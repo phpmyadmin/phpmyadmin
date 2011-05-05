@@ -1145,10 +1145,9 @@ msgid "Hide"
 msgstr "Elrejtés"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
-msgstr "SQL-lekérdezési panelek"
+msgstr "Keresési kritériumok elrejtése"
 
 #: js/messages.php:94
 #, fuzzy
