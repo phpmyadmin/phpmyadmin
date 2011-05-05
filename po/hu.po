@@ -2511,7 +2511,7 @@ msgstr "A DROP lekérdezések megerősítése"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL Debug"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
