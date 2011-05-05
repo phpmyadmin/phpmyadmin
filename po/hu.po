@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:46+0200\n"
+"PO-Revision-Date: 2011-05-05 10:47+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1150,10 +1150,9 @@ msgid "Hide search criteria"
 msgstr "Keresési kritériumok elrejtése"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
-msgstr "SQL-lekérdezési panelek"
+msgstr "Keresési kritériumok mutatása"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
