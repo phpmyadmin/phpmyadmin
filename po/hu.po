@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 10:34+0200\n"
+"PO-Revision-Date: 2011-05-05 10:35+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -797,9 +797,8 @@ msgid "Structure snapshot"
 msgstr "Szerkezeti pillanatkép"
 
 #: db_tracking.php:181
-#, fuzzy
 msgid "Untracked tables"
-msgstr "A zárolt táblák kihagyása"
+msgstr "Nem követett táblák "
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:620
 #: tbl_structure.php:622
