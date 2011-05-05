@@ -112,8 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"A %s fájl nem elérhető ezen a rendszeren, keresse fel a www.phpmyadmin.net -"
-"et további információkért."
+"A %s fájl nem elérhető ezen a rendszeren, keresse fel a www.phpmyadmin.net "
+"-et további információkért."
 
 #: db_create.php:58
 #, php-format
