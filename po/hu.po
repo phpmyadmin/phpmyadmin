@@ -1086,10 +1086,9 @@ msgid "Renaming Databases"
 msgstr "Adatbázis átnevezése"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Adatbázis átnevezése"
+msgstr "Adatbázis újratöltése"
 
 #: js/messages.php:73
 #, fuzzy
