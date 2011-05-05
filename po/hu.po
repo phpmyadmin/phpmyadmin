@@ -2244,10 +2244,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Egyéni - mint fentebb, de gyors/egyéni választási lehetőség nélkül"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Teljes beszúrások"
+msgstr "teljes beillesztések"
 
 #: libraries/config.values.php:120
 #, fuzzy
