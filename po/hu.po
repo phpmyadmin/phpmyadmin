@@ -1371,7 +1371,7 @@ msgstr "Kedd"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr "Sze"
+msgstr "Szerda"
 
 #: js/messages.php:190
 msgid "Thursday"
