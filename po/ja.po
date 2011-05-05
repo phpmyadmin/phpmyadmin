@@ -4604,7 +4604,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "ファイルが処理されています。しばらくお待ちください。"
 
 #: libraries/display_import.lib.php:98
 msgid ""
