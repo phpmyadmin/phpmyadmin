@@ -2352,7 +2352,7 @@ msgstr "Alapértelmezett érték visszaállítása"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Engedélyezi a felhasználóknak az érték módosítását"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
