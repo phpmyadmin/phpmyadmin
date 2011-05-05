@@ -1912,7 +1912,7 @@ msgstr "Nem található adat a grafikonhoz"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "GD bővítmény szükséges a grafikonokhoz."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
