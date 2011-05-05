@@ -1215,10 +1215,9 @@ msgstr ", utolsó stabil verzió:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Adományozás"
+msgstr "Kész"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
