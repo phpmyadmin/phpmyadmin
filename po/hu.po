@@ -845,7 +845,7 @@ msgstr "Kevés a hely a(z) %s fájl mentéséhez."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"már létezik %s fájl a szerveren, változtassa meg a fájlnevet, vagy állítsa "
+"Már létezik %s fájl a szerveren, változtassa meg a fájlnevet, vagy állítsa "
 "be a felülírási opciót!"
 
 #: export.php:311 export.php:315
