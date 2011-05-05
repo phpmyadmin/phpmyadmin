@@ -1190,7 +1190,6 @@ msgid "Generate"
 msgstr "Generálás"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Jelszó megváltoztatása"
