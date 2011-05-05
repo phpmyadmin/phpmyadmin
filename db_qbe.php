@@ -18,25 +18,29 @@ $cfgRelation = PMA_getRelationsParam();
 
 
 /**
- * A query has been submitted -> execute it, else display the headers
+ * A query has been submitted -> (maybe) execute it
  */
+$message_to_display = false;
 if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
-    $goto      = 'db_sql.php';
-    require './sql.php';
-    exit;
-} else {
-    $sub_part  = '_qbe';
-    require './libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=db_qbe.php';
-    $url_params['goto'] = 'db_qbe.php';
-    require './libraries/db_info.inc.php';
+    if (! preg_match('@^SELECT@i', $sql_query)) {
+        $message_to_display = true;
+    } else {
+        $goto      = 'db_sql.php';
+        require './sql.php';
+        exit;
+    }
 }
 
-if (isset($_REQUEST['submit_sql'])
- && ! preg_match('@^SELECT@i', $sql_query)) {
+$sub_part  = '_qbe';
+require './libraries/db_common.inc.php';
+$url_query .= '&amp;goto=db_qbe.php';
+$url_params['goto'] = 'db_qbe.php';
+require './libraries/db_info.inc.php';
+
+if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display'))->display();
 }
-
+unset($message_to_display);
 
 /**
  * Initialize some variables
