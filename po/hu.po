@@ -1172,10 +1172,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Válassza ki az elsődleges kulcsot, vagy egy egyedi kulcsot"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Válassza ki a megjelenítendő mezőt"
+msgstr "Válassza ki a megjelenítendő oszlopot"
 
 #: js/messages.php:106
 msgid "Add an option for column "
