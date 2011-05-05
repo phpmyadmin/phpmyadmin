@@ -3264,10 +3264,9 @@ msgid "Partial import: skip queries"
 msgstr "Részleges importálás: lekérdezések kihagyása"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Az AUTO_INCREMENT nulla értékekhez nincs használatban"
+msgstr "AUTO_INCREMENT-et ne használjon zéró értékekhez"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
