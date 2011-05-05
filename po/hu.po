@@ -2598,10 +2598,9 @@ msgid "Lines terminated by"
 msgstr "Sorok vége"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Excel szerkesztés"
+msgstr "Excel változat"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
