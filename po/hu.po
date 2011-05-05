@@ -598,7 +598,6 @@ msgid "Inside table(s):"
 msgstr "Táblá(k)ban:"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Mezőben:"
