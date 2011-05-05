@@ -1609,7 +1609,7 @@ msgstr[0] "A(z) %1$d sor törlése megtörtént."
 msgstr[1] "A(z) %1$d sor törlése megtörtént."
 
 #: libraries/Message.class.php:319
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
