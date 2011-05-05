@@ -3295,7 +3295,7 @@ msgstr "表示できる SQL 文の最大の長さ"
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr "ユーザーはこれより高い値を設定することはできません。"
+msgstr "ユーザはこれより高い値を設定することはできません。"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
