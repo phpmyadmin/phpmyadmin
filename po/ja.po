@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:11+0200\n"
+"PO-Revision-Date: 2011-05-05 11:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2644,7 +2644,7 @@ msgstr "テーブル名やカラム名を逆クォートで囲む"
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr "SQL互換モード"
+msgstr "SQL 互換モード"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
