@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:28+0200\n"
+"PO-Revision-Date: 2011-05-05 12:29+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3151,10 +3151,9 @@ msgid "Text fields"
 msgstr "Szöveges mezők"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
-msgstr "Exportálás beállításainak testreszabása"
+msgstr "Szöveges beviteli mezők testreszabása"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
