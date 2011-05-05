@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:45+0200\n"
+"PO-Revision-Date: 2011-05-05 11:46+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2207,10 +2207,9 @@ msgid "Open"
 msgstr "Nyitott"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "Lezáratlan idézőjel"
+msgstr "Zárt"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
