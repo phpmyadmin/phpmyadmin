@@ -2365,10 +2365,9 @@ msgid "Improves efficiency of screen refresh"
 msgstr "A képernyőfrissítés hatékonyságát növeli"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable Ajax"
-msgstr "Engedélyezett"
+msgstr "Ajax engedélyezése"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
