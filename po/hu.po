@@ -2317,7 +2317,7 @@ msgstr "exportálás nem fog működni, hiányzó funkció: (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL validátor kikapcsolva"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy
