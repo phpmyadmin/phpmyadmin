@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 12:07+0200\n"
+"PO-Revision-Date: 2011-05-05 12:08+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -2555,9 +2555,8 @@ msgid "Default table tab"
 msgstr "Alapértelmezett tábla fül"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
 msgid "Show binary contents as HEX by default"
-msgstr "Bináris tartalom megjelenítése"
+msgstr "Bináris tartalom megjelenítése HEX-ként, mint alapértelmezett"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 #, fuzzy
