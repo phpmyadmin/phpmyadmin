@@ -2303,7 +2303,7 @@ msgstr "nem elérhető"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" követelménye a(z) %s bővítmény"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
