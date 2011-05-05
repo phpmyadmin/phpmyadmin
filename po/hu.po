@@ -3545,10 +3545,9 @@ msgstr ""
 "Használjon természetes rendezést a tábla, és adatbázis nevek sorrendjéhez"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Tábla rendezésének módosítása e szerint:"
+msgstr "Természetes rendezés"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
