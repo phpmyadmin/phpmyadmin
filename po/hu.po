@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:42+0200\n"
+"PO-Revision-Date: 2011-05-05 11:43+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1935,11 +1935,10 @@ msgstr ""
 "rendben."
 
 #: libraries/common.inc.php:587
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
-"Nem lehetett betölteni az alapértelmezett konfigurációt innen: \"%1$s\""
+msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: \"%1$s\""
 
 #: libraries/common.inc.php:592
 msgid ""
