@@ -2204,7 +2204,7 @@ msgstr "Mind"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Nyitott"
 
 #: libraries/config.values.php:74
 #, fuzzy
