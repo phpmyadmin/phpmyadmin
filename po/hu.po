@@ -2286,7 +2286,7 @@ msgstr "Az érték pontatlan"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Az értéknek egyenlőnek, vagy kevesebbnek kell lennie, mint %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
