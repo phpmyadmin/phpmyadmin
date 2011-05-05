@@ -2676,7 +2676,6 @@ msgid "Replace NULL by"
 msgstr "NULL cseréje ezzel:"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
