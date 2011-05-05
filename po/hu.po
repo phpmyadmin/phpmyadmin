@@ -3244,7 +3244,7 @@ msgstr "A mezőnevek az első sorban"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Ne importáljon üres sorokat"
 
 #: libraries/config/messages.inc.php:253
 msgid "Import currencies ($5.00 to 5.00)"
