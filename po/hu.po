@@ -1096,10 +1096,9 @@ msgid "Copying Database"
 msgstr "Adatbázis másolása"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Karakterkészlet"
+msgstr "Karakterkészlet változtatása"
 
 #: js/messages.php:75
 #, fuzzy
