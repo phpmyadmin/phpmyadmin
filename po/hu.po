@@ -2255,7 +2255,7 @@ msgstr "kiterjesztett beillesztések"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "a fentiekből mindkettő"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
