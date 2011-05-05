@@ -976,10 +976,9 @@ msgid "Dropping Procedure"
 msgstr "Eljárás(ok) eldobása"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Engedélyezi az adatok beírását és megváltoztatását."
+msgstr "Nyomkövetési adatok törlése"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
