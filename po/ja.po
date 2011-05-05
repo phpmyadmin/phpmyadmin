@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-04-21 14:27+0200\n"
-"PO-Revision-Date: 2011-05-05 11:14+0200\n"
+"PO-Revision-Date: 2011-05-05 11:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2278,7 +2278,7 @@ msgstr "Ajax を有効にする"
 #: libraries/config/messages.inc.php:19
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザーが任意の MySQL サーバを入力できるようになります。"
+msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の MySQL サーバを入力できるようになります。"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
