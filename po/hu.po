@@ -1022,7 +1022,6 @@ msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Új felhasználó hozzáadása"
