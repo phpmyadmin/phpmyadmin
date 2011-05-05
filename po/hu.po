@@ -1027,9 +1027,8 @@ msgid "Add a New User"
 msgstr "Új felhasználó hozzáadása"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
-msgstr "Kapcsolat létrehozása"
+msgstr "Felhasználó létrehozása"
 
 #: js/messages.php:54
 #, fuzzy
