@@ -2308,7 +2308,7 @@ msgstr "\"%s\" követelménye a(z) %s bővítmény"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "importálás nem fog működni, hiányzó funkció: (%s)"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
