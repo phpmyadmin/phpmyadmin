@@ -2979,10 +2979,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "A sehova sem illő beállítások"
 
 #: libraries/config/messages.inc.php:189
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Oldalszám:"
+msgstr "Oldalcímek"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
