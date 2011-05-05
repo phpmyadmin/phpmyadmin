@@ -2200,7 +2200,7 @@ msgstr "Nincsenek feltöltendő fájlok"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Mind"
 
 #: libraries/config.values.php:74
 msgid "Open"
