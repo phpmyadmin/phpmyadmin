@@ -5683,7 +5683,7 @@ msgstr "金額は単位を取り除く<i>（例えば、$5.00 を 5.00）</i>"
 
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode:"
-msgstr "SQL互換モード:"
+msgstr "SQL 互換モード:"
 
 #: libraries/import/sql.php:42
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
