@@ -532,10 +532,10 @@ msgid "Browse"
 msgstr "表示"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "テーブルのデータをダンプしています"
+msgstr "テーブル %s に対して条件に一致したものを削除しますか？"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1223
 #: libraries/display_tbl.lib.php:2153
