@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-06 10:19+0200\n"
+"PO-Revision-Date: 2011-05-06 10:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9710,10 +9710,9 @@ msgid "An index has been added on %s"
 msgstr "%s にインデックスを追加しました"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "PHP 情報"
+msgstr "他の操作を表示する"
 
 #: tbl_structure.php:600 tbl_structure.php:602
 msgid "Relation view"
