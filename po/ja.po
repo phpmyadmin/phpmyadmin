@@ -111,7 +111,7 @@ msgstr "リモート URL を開けませんでした。"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "ファイル %s は、このシステムでは使用できません。詳細については www.phpmyadmin.net をご覧ください。"
 
 #: db_create.php:58
 #, php-format
