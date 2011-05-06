@@ -9394,7 +9394,7 @@ msgstr ""
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-msgstr ""
+msgstr "レーダグラフを描画する時は、全ての値が範囲 [0..10] に正規化されています。"
 
 #: tbl_chart.php:173
 msgid ""
