@@ -5175,7 +5175,7 @@ msgstr "リレーション"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "Barry Leslie 氏による PrimeBase Media Streaming ブログ"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
