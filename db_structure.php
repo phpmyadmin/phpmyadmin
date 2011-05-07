@@ -255,7 +255,7 @@ foreach ($tables as $keyname => $each_table) {
         $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
     }
 
-    if ($each_table['TABLE_ROWS'] > 0) {
+    if ($each_table['TABLE_ROWS'] > 0 || $table_is_view) {
         $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $titles['Browse'] . '</a>';
         $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">' . $titles['Search'] . '</a>';
         $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
