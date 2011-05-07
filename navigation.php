@@ -180,19 +180,24 @@ require_once './libraries/header_http.inc.php';
 <?php
 require './libraries/navigation_header.inc.php';
 
+require_once './libraries/common.lib.php';
+
 // display recently used tables
-if (count($_SESSION['tmp_user_values']['recent_tables'])) {
+if ($GLOBALS['cfg']['LeftRecentTable'] && count($_SESSION['tmp_user_values']['recent_tables'])) {
+    PMA_trimRecentTable();
 ?>
     <div id="recentTableList">
-    <select onchange="arr=this.value.split('.'); window.parent.setDb(arr[0]); window.parent.setTable(arr[1]);
-                      window.parent.refreshMain('<?php echo $GLOBALS['cfg']['LeftDefaultTabTable']; ?>')">
-        <optgroup label="<?php echo __('Recent tables'); ?>">
+    <select onchange="if (this.value != '') {
+                      arr=this.value.split('.');
+                      window.parent.setDb(arr[0]);
+                      window.parent.setTable(arr[1]);
+                      window.parent.refreshMain('<?php echo $GLOBALS['cfg']['LeftDefaultTabTable']; ?>'); }">
+        <option value="">(<?php echo __('Recent tables'); ?>) ...</option>
         <?php
         foreach ($_SESSION['tmp_user_values']['recent_tables'] as $table) {
             echo '<option value="' . $table . '">' . $table . '</option>';
         }
         ?>
-        </optgroup>
     </select>
     </div>
 <?php

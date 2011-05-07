@@ -3025,18 +3025,31 @@ function PMA_buildActionTitles() {
 }
 
 /**
- * Add recently used tables
+ * Trim recent table according to the LeftRecentTable configuration
  */
-function PMA_addRecentTable($table, $db) {
-    if (isset($_SESSION['tmp_user_values']['recent_tables'])) {
-        array_unshift($_SESSION['tmp_user_values']['recent_tables'], $db . '.' . $table);
-        $_SESSION['tmp_user_values']['recent_tables'] = array_unique($_SESSION['tmp_user_values']['recent_tables']);
-        while (count($_SESSION['tmp_user_values']['recent_tables']) > 5) {
-            array_pop($_SESSION['tmp_user_values']['recent_tables']);
-        }
+function PMA_trimRecentTable() {
+    while (count($_SESSION['tmp_user_values']['recent_tables']) > $GLOBALS['cfg']['LeftRecentTable']) {
+        array_pop($_SESSION['tmp_user_values']['recent_tables']);
+    }
+}
+
+/**
+ * Add recently used tables
+ *
+ * @param string $db Database name where the table is located
+ * @param string $table Table name
+ *
+ * @uses PMA_trimRecentTable()
+ */
+function PMA_addRecentTable($db, $table) {
+    $recent_tables =& $_SESSION['tmp_user_values']['recent_tables'];
+    if (isset($recent_tables)) {
+        array_unshift($recent_tables, $db . '.' . $table);
+        $recent_tables = array_unique($recent_tables);
+        PMA_trimRecentTable();
     } else {
-        $_SESSION['tmp_user_values']['recent_tables'] = array();
-        array_unshift($_SESSION['tmp_user_values']['recent_tables'], $db . '.' . $table);
+        $recent_tables = array();
+        array_unshift($recent_tables, $db . '.' . $table);
     }
     $GLOBALS['reload'] = true;
     PMA_reloadNavigation();

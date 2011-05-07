@@ -162,7 +162,8 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',
-    'LeftPointerEnable');
+    'LeftPointerEnable',
+    'LeftRecentTable');
 $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');
