@@ -1790,7 +1790,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
         unset($sql);
         if ($user_does_not_exists) {
-            PMA_Message::warning(__('The selected user was not found in the privilege table.'))->display();
+            PMA_Message::error(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
             //require './libraries/footer.inc.php';
         }

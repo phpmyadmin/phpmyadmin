@@ -339,6 +339,11 @@ function PMA_langList()
     /* We can always speak English */
     $result = array('en' => PMA_langDetails('en'));
 
+    /* Check for existing directory */
+    if (!is_dir($GLOBALS['lang_path'])) {
+        return $result;
+    }
+
     /* Open the directory */
     $handle = @opendir($GLOBALS['lang_path']);
     /* This can happen if the kit is English-only */

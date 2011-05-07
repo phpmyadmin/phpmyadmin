@@ -349,11 +349,6 @@ if ($db == 'information_schema') {
 }
 
 if (!$is_information_schema) {
-    ?>
-    <div class="operations_half_width">
-    <?php require './libraries/display_create_table.lib.php'; ?>
-    </div>
-    <?php
     if ($cfgRelation['commwork']) {
         /**
          * database comment
@@ -377,6 +372,11 @@ if (!$is_information_schema) {
     </div>
         <?php
     }
+    ?>
+    <div class="operations_half_width">
+    <?php require './libraries/display_create_table.lib.php'; ?>
+    </div>
+    <?php
     /**
      * rename database
      */

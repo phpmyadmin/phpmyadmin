@@ -838,7 +838,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         if (isset($cfg['Server']['AllowDeny'])
-          && isset($cfg['Server']['AllowDeny']['order'])) {
+                && isset($cfg['Server']['AllowDeny']['order'])) {
 
             /**
              * ip based access library

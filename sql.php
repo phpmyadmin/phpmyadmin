@@ -275,7 +275,7 @@ if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     require_once './libraries/header.inc.php';
     if ($is_drop_database) {
-        echo '<h1 class="warning">' . __('You are about to DESTROY a complete database!') . '</h1>';
+        echo '<h1 class="error">' . __('You are about to DESTROY a complete database!') . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);

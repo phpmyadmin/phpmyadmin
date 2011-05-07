@@ -706,11 +706,11 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
  * @uses    uksort()
  * @uses    strstr()
  * @uses    explode()
- * @param   string  $db     name of db
- * @param   string  $tables name of tables
- * @param   integer $limit_offset   list offset
- * @param   integer $limit_count    max tables to return
- * return   array   (recursive) grouped table list
+ * @param   string   $db     name of db
+ * @param   string   $tables name of tables
+ * @param   integer  $limit_offset   list offset
+ * @param   int|bool $limit_count    max tables to return
+ * @return  array    (recursive) grouped table list
  */
 function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
 {
@@ -1261,9 +1261,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
-                "$('.tools form').after('[<a href=\"#\" title=\"" .
+                "$('.tools form').last().after('[<a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
-                "\" id=\"inline_edit\">" .
+                "\" class=\"inline_edit\">" .
                 PMA_escapeJsString(__('Inline')) .
                 "</a>]');\n" .
                 "//]]>\n" .
@@ -1674,7 +1674,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
     }
 
     if (!empty($tab['warning'])) {
-        $tab['class'] .= ' warning';
+        $tab['class'] .= ' error';
         $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
     }
 
