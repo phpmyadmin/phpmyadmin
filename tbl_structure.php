@@ -122,8 +122,22 @@ unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
 $fields_rs   = PMA_DRIZZLE
-			? PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE)
-			: PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+            ? PMA_DBI_query(
+                "SELECT
+                    column_name        AS `Field`,
+                    collation_name     AS `Collation`,
+                    lower(column_type) AS `Type`,
+                    CASE is_nullable WHEN 1 THEN 'YES' ELSE 'NO' END
+                                       AS `Null`,
+                    column_default     AS `Default`,
+                    CASE is_auto_increment WHEN 1 THEN 'auto_increment' ELSE '' END
+                                       AS `Extra`,
+                    column_comment     AS `Comment`
+                FROM data_dictionary.columns
+                WHERE table_schema = schema()
+                    AND table_name = '" . PMA_sqlAddslashes($table) . "'
+                ORDER BY ordinal_position", null, PMA_DBI_QUERY_STORE)
+            : PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 // Get more complete field information
