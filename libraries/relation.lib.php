@@ -138,6 +138,10 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForFeature(__('Designer'), 'designerwork', $messages);
 
+    PMA_printDiagMessageForParameter('recent', isset($cfgRelation['recent']), $messages, 'recent');
+
+    PMA_printDiagMessageForFeature(__('Recently used tables'), 'recentwork', $messages);
+
     PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
 
     PMA_printDiagMessageForFeature(__('Tracking'), 'trackingwork', $messages);
@@ -220,6 +224,7 @@ function PMA__getRelationsParam()
     $cfgRelation['commwork']    = false;
     $cfgRelation['mimework']    = false;
     $cfgRelation['historywork'] = false;
+    $cfgRelation['recentwork']  = false;
     $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
     $cfgRelation['userconfigwork'] = false;
@@ -271,6 +276,8 @@ function PMA__getRelationsParam()
             $cfgRelation['pdf_pages']       = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['history']) {
             $cfgRelation['history'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
+            $cfgRelation['recent'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
             $cfgRelation['tracking'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
@@ -325,6 +332,10 @@ function PMA__getRelationsParam()
         $cfgRelation['historywork']     = true;
     }
 
+    if (isset($cfgRelation['recent'])) {
+        $cfgRelation['recentwork']      = true;
+    }
+
     if (isset($cfgRelation['tracking'])) {
         $cfgRelation['trackingwork']     = true;
     }
@@ -346,8 +357,9 @@ function PMA__getRelationsParam()
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
      && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
      && $cfgRelation['mimework'] && $cfgRelation['historywork']
-     && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-     && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']) {
+     && $cfgRelation['recentwork'] && $cfgRelation['trackingwork']
+     && $cfgRelation['userconfigwork'] && $cfgRelation['bookmarkwork']
+     && $cfgRelation['designerwork']) {
         $cfgRelation['allworks'] = true;
     }
 

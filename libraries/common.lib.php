@@ -3023,35 +3023,4 @@ function PMA_buildActionTitles() {
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
     return $titles;
 }
-
-/**
- * Trim recent table according to the LeftRecentTable configuration
- */
-function PMA_trimRecentTable() {
-    while (count($_SESSION['tmp_user_values']['recent_tables']) > $GLOBALS['cfg']['LeftRecentTable']) {
-        array_pop($_SESSION['tmp_user_values']['recent_tables']);
-    }
-}
-
-/**
- * Add recently used tables
- *
- * @param string $db Database name where the table is located
- * @param string $table Table name
- *
- * @uses PMA_trimRecentTable()
- */
-function PMA_addRecentTable($db, $table) {
-    $recent_tables =& $_SESSION['tmp_user_values']['recent_tables'];
-    if (isset($recent_tables)) {
-        array_unshift($recent_tables, $db . '.' . $table);
-        $recent_tables = array_unique($recent_tables);
-        PMA_trimRecentTable();
-    } else {
-        $recent_tables = array();
-        array_unshift($recent_tables, $db . '.' . $table);
-    }
-    $GLOBALS['reload'] = true;
-    PMA_reloadNavigation();
-}
 ?>

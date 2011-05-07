@@ -8,10 +8,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
+require_once './libraries/RecentTable.class.php';
 
 
 /**
@@ -152,8 +150,15 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                 .'&quot;</span>' . "\n";
                         } // end if
 
-                        // remember accessed table
-                        PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                        // add recently used table and reload the navigation
+                        $result = RecentTable::getInstance()->add($GLOBALS['db'], $GLOBALS['table']);
+                        if ($result === true) {
+                            $GLOBALS['reload'] = true;
+                            PMA_reloadNavigation();
+                        } else {
+                            $error = $result;
+                            $error->display();
+                        }
                     } else {
                         // no table selected, display database comment if present
                         /**
