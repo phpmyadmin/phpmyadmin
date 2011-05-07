@@ -198,6 +198,7 @@ foreach ($tables as $keyname => $each_table) {
             // or on some servers it's reported as "SYSTEM VIEW"
         case null :
         case 'SYSTEM VIEW' :
+        case 'FunctionEngine' :
             // if table is broken, Engine is reported as null, so one more test
             if ($each_table['TABLE_TYPE'] == 'VIEW') {
                 // countRecords() takes care of $cfg['MaxExactCountViews']
