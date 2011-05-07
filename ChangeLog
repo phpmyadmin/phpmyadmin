@@ -3,6 +3,8 @@
 
 3.5.0.0 (not yet released)
 
+3.4.1.0 (not yet released)
+
 3.4.0.0 (not yet released)
 + rfe #2890226 [view] Enable VIEW rename 
 + rfe #838637 [privileges] Export a user's privileges 
