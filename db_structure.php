@@ -175,7 +175,8 @@ foreach ($tables as $keyname => $each_table) {
                 $each_table['COUNTED'] = false;
             }
 
-            if ($is_show_stats) {
+            // Drizzle doesn't provide data and index length, check for null
+            if ($is_show_stats && $each_table['Data_length'] !== null) {
                 $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
                 $sum_size                   += $tblsize;
                 list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
