@@ -34,16 +34,6 @@ if (! defined('MYSQLI_BINARY_FLAG')) {
 }
 
 /**
- * @see http://bugs.php.net/36007
- */
-if (! defined('MYSQLI_TYPE_NEWDECIMAL')) {
-    define('MYSQLI_TYPE_NEWDECIMAL', 246);
-}
-if (! defined('MYSQLI_TYPE_BIT')) {
-    define('MYSQLI_TYPE_BIT', 16);
-}
-
-/**
  * connects to the database server
  *
  * @uses    $GLOBALS['cfg']['Server']
@@ -553,7 +543,7 @@ function PMA_DBI_get_fields_meta($result)
 
     foreach ($fields as $k => $field) {
         $fields[$k]->_type = $field->type;
-        $fields[$k]->type = $typeAr[$field->type];
+        $fields[$k]->type = isset($typeAr[$field->type]) ? $typeAr[$field->type] : null;
         $fields[$k]->_flags = $field->flags;
         $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
 
