@@ -279,32 +279,34 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         $this_databases = array_map('PMA_sqlAddslashes', $databases);
 
         if (PMA_DRIZZLE) {
-            $sql = '
-                SELECT *,
-                    `TABLE_SCHEMA`        AS `Db`,
-                    `TABLE_NAME`          AS `Name`,
-                    `TABLE_TYPE`          AS `TABLE_TYPE`,
-                    `ENGINE`              AS `Engine`,
-                    `ENGINE`              AS `Type`,
-                    `TABLE_VERSION`       AS `Version`,-- VERSION
-                    `ROW_FORMAT`          AS `Row_format`,
-                    NULL                  AS `Rows`,-- TABLE_ROWS
+            $sql = "
+                SELECT t.*,
+                    t.TABLE_SCHEMA        AS `Db`,
+                    t.TABLE_NAME          AS `Name`,
+                    t.TABLE_TYPE          AS `TABLE_TYPE`,
+                    t.ENGINE              AS `Engine`,
+                    t.ENGINE              AS `Type`,
+                    t.TABLE_VERSION       AS `Version`,-- VERSION
+                    t.ROW_FORMAT          AS `Row_format`,
+                    ist.NUM_ROWS          AS `Rows`,-- TABLE_ROWS,
+                    ist.NUM_ROWS          AS `TABLE_ROWS`,
                     NULL                  AS `Avg_row_length`, -- AVG_ROW_LENGTH
                     NULL                  AS `Data_length`, -- DATA_LENGTH
                     NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
                     NULL                  AS `Index_length`, -- INDEX_LENGTH
                     NULL                  AS `Data_free`, -- DATA_FREE
-                    `AUTO_INCREMENT`      AS `Auto_increment`,
-                    `TABLE_CREATION_TIME` AS `Create_time`, -- CREATE_TIME
-                    `TABLE_UPDATE_TIME`   AS `Update_time`, -- UPDATE_TIME
+                    t.AUTO_INCREMENT      AS `Auto_increment`,
+                    t.TABLE_CREATION_TIME AS `Create_time`, -- CREATE_TIME
+                    t.TABLE_UPDATE_TIME   AS `Update_time`, -- UPDATE_TIME
                     NULL                  AS `Check_time`, -- CHECK_TIME
-                    `TABLE_COLLATION`     AS `Collation`,
+                    t.TABLE_COLLATION     AS `Collation`,
                     NULL                  AS `Checksum`, -- CHECKSUM
                     NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                    `TABLE_COMMENT`       AS `Comment`
-                FROM data_dictionary.TABLES
-                WHERE TABLE_SCHEMA IN (\'' . implode("', '", $this_databases) . '\')
-                    ' . $sql_where_table;
+                    t.TABLE_COMMENT       AS `Comment`
+                FROM data_dictionary.TABLES t
+                    LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS ist ON (ENGINE = 'InnoDB' AND NAME = (TABLE_SCHEMA || '/') || TABLE_NAME)
+                WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
+                    " . $sql_where_table;
         } else {
             $sql = '
                 SELECT *,
