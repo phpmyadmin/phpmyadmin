@@ -1118,7 +1118,7 @@ function changeMIMEType(db, table, reference, mime_type)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
-    $(".inline_edit").click( function(){
+    $(".inline_edit_sql").click( function(){
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();

@@ -663,7 +663,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     if ($exit) {
        /**
         * If in an Ajax request
-        * - avoid displaying a Back link 
+        * - avoid displaying a Back link
         * - use PMA_ajaxResponse() to transmit the message and exit
         */
        if($GLOBALS['is_ajax_request'] == true) {
@@ -1255,7 +1255,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
         // in the tools div, only display the Inline link when not in ajax
         // mode because 1) it currently does not work and 2) we would
-        // have two similar mechanisms on the page for the same goal       
+        // have two similar mechanisms on the page for the same goal
         if ($is_select || $GLOBALS['is_ajax_request'] === false) {
         // see in js/functions.js the jQuery code attached to id inline_edit
         // document.write conflicts with jQuery, hence used $().append()
@@ -1263,7 +1263,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
                 "//<![CDATA[\n" .
                 "$('.tools form').last().after('[<a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
-                "\" class=\"inline_edit\">" .
+                "\" class=\"inline_edit_sql\">" .
                 PMA_escapeJsString(__('Inline')) .
                 "</a>]');\n" .
                 "//]]>\n" .
