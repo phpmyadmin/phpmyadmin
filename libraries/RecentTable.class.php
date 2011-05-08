@@ -12,7 +12,6 @@ require_once './libraries/Message.class.php';
  *
  * @TODO Add documentation about configuration LeftRecentTable
  * @TODO Add documentation about table pma_recent (#recent) in Documentation.html
- * @TODO Add SQL script to generate pma_recent table
  *
  * @package phpMyAdmin
  */
@@ -48,7 +47,7 @@ class RecentTable
             $this->pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                                PMA_backquote($GLOBALS['cfg']['Server']['recent']);
         }
-        if (!isset($_SESSION['tmp_user_values']['recent_tables'])) {
+        if (! isset($_SESSION['tmp_user_values']['recent_tables'])) {
             $_SESSION['tmp_user_values']['recent_tables'] =
                 isset($this->pma_table) ? $this->getFromDb() : array();
         }
@@ -96,8 +95,6 @@ class RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_value()
      * @uses PMA_DBI_try_query()
      * @uses json_decode()
      * @uses PMA_Message
@@ -108,27 +105,13 @@ class RecentTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
-        " SELECT COUNT(*) FROM " . $this->pma_table .
-        " WHERE `username` = '" . $username . "'";
+        " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
+        " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
 
-        $exist = PMA_DBI_fetch_value(PMA_query_as_controluser($sql_query));
-        if ($exist) {
-            $sql_query =
-            " UPDATE " . $this->pma_table .
-            " SET `tables` = '" . PMA_sqlAddslashes(json_encode($this->tables)) . "'" .
-            " WHERE `username` = '" . $username . "'";
-
-            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
-        } else {
-            $sql_query =
-            " INSERT INTO " . $this->pma_table . " (`username`, `tables`)" .
-            " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
-
-            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
-        }
+        $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
-            $message = PMA_Message::error(__('Could not save configuration'));
+            $message = PMA_Message::error(__('Could not save recent table'));
             $message->addMessage('<br /><br />');
             $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
             return $message;
@@ -183,7 +166,7 @@ class RecentTable
         $table_str = $db . '.' . $table;
 
         // add only if this is new table
-        if (!isset($this->tables[0]) || $this->tables[0] != $table_str) {
+        if (! isset($this->tables[0]) || $this->tables[0] != $table_str) {
             array_unshift($this->tables, $table_str);
             $this->tables = array_unique($this->tables);
             $this->trim();

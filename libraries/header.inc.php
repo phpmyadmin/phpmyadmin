@@ -151,12 +151,12 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         } // end if
 
                         // add recently used table and reload the navigation
-                        $result = RecentTable::getInstance()->add($GLOBALS['db'], $GLOBALS['table']);
-                        if ($result === true) {
+                        $tmp_result = RecentTable::getInstance()->add($GLOBALS['db'], $GLOBALS['table']);
+                        if ($tmp_result === true) {
                             $GLOBALS['reload'] = true;
                             PMA_reloadNavigation();
                         } else {
-                            $error = $result;
+                            $error = $tmp_result;
                             $error->display();
                         }
                     } else {
