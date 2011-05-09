@@ -168,7 +168,7 @@ class RecentTable
         // add only if this is new table
         if (! isset($this->tables[0]) || $this->tables[0] != $table_str) {
             array_unshift($this->tables, $table_str);
-            $this->tables = array_unique($this->tables);
+            $this->tables = array_merge(array_unique($this->tables));
             $this->trim();
             if (isset($this->pma_table)) {
                 return $this->saveToDb();
