@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-05 13:15+0200\n"
+"POT-Creation-Date: 2011-05-09 14:14+0200\n"
 "PO-Revision-Date: 2011-05-05 12:49+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -3474,6 +3474,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Letiltja az alapértelmezett figyelmeztetést az adatbázis részleteinél, ha a "
+"phpMyAdmin konfigurációs  tárolóhoz tartozó adatbázistáblák közül valamelyik "
+"nem található"
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -3484,22 +3487,14 @@ msgid "Iconic table operations"
 msgstr "Ikonos táblaműveletek"
 
 #: libraries/config/messages.inc.php:331
-#, fuzzy
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "A BLOB vagy a BLOB és BINARY mezők módosításának tiltása"
 
 #: libraries/config/messages.inc.php:332
-#, fuzzy
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "A bináris mezők védelme"
 
 #: libraries/config/messages.inc.php:333
-#, fuzzy
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3531,25 +3526,19 @@ msgstr "Alapértelmezett lekérdezési ablak fül"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Lekérdezési ablak magassága (pixelekben)"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window height"
-msgstr "Lekérdezés ablak"
+msgstr "Lekérdezés ablak magassága"
 
 #: libraries/config/messages.inc.php:342
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Lekérdezés ablak"
+msgstr "Lekérdezés ablak szélessége (pixelekben)"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window width"
-msgstr "Lekérdezés ablak"
+msgstr "Lekérdezés ablak szélessége"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
@@ -3562,20 +3551,20 @@ msgstr "Átkódoló motor"
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Megismétli a fejléceket minden X cellánként, a [kbd]0[/kbd] kikapcsolja ezt "
+"a lehetőséget"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
-#| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Szálak kijavítása"
+msgstr "Fejlécek kijavítása"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Mutassa a Segítség gombot a Dokumentáció szöveg helyett"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "Segítség gomb mutatása"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
@@ -3590,8 +3579,6 @@ msgid "Leave blank if not used"
 msgstr "Hagyja üresen, ha nem használja"
 
 #: libraries/config/messages.inc.php:354
-#, fuzzy
-#| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Az állomás hitelesítési sorrendje"
 
@@ -3600,8 +3587,6 @@ msgid "Leave blank for defaults"
 msgstr "Hagyja üresen az alapértelmezésekhez"
 
 #: libraries/config/messages.inc.php:356
-#, fuzzy
-#| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Az állomás hitelesítési szabályai"
 
