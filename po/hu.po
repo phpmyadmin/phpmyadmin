@@ -3486,7 +3486,6 @@ msgid "Iconic table operations"
 msgstr "Ikonos táblaműveletek"
 
 #: libraries/config/messages.inc.php:331
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "A BLOB vagy a BLOB és BINARY mezők módosításának tiltása"
