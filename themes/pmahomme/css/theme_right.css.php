@@ -634,7 +634,7 @@ div.success {
 }
 
 .notice, .footnotes {
-    color:              #3a6c7e;
+    color:              #000;
     background-color:   #e8eef1;
 }
 h1.notice,
