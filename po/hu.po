@@ -3491,7 +3491,6 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "A BLOB vagy a BLOB és BINARY mezők módosításának tiltása"
 
 #: libraries/config/messages.inc.php:332
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "A bináris mezők védelme"
