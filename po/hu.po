@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-09 14:09+0200\n"
+"PO-Revision-Date: 2011-05-09 14:11+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3572,7 +3572,7 @@ msgstr "Mutassa a Segítség gombot a Dokumentáció szöveg helyett"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "Segítség gomb mutatása"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
