@@ -3596,7 +3596,6 @@ msgid "Leave blank for defaults"
 msgstr "Hagyja üresen az alapértelmezésekhez"
 
 #: libraries/config/messages.inc.php:356
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Az állomás hitelesítési szabályai"
