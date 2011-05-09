@@ -127,7 +127,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         }
                         $msg = '# ';
                         if ($result === FALSE) { // execution failed
-                            if (!isset($my_die)) {
+                            if (! isset($my_die)) {
                                 $my_die = array();
                             }
                             $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
@@ -697,7 +697,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * This is the first row to be analyzed
          */
-        elseif (!isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             return $curr_size;
         }
         /**

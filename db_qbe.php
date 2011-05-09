@@ -339,7 +339,7 @@ for ($x = 0; $x < $col; $x++) {
     if (isset($criteria[$x])) {
         $tmp_criteria = $criteria[$x];
     }
-    if ((empty($prev_criteria) || !isset($prev_criteria[$x]))
+    if ((empty($prev_criteria) || ! isset($prev_criteria[$x]))
         || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)) {
         $curCriteria[$z]   = $tmp_criteria;
     } else {
@@ -497,7 +497,7 @@ for ($y = 0; $y <= $row; $y++) {
 
         echo "\n";
         $or = 'Or' . $y;
-        if (!isset(${$or})) {
+        if (! isset(${$or})) {
             ${$or} = '';
         }
         if (!empty(${$or}) && isset(${$or}[$x])) {
@@ -667,7 +667,7 @@ foreach ($tbl_names as $key => $val) {
 <?php
 // 1. SELECT
 $last_select = 0;
-if (!isset($qry_select)) {
+if (! isset($qry_select)) {
     $qry_select         = '';
 }
 for ($x = 0; $x < $col; $x++) {
@@ -892,7 +892,7 @@ if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
 // OR rows ${'cur' . $or}[$x]
-if (!isset($curAndOrRow)) {
+if (! isset($curAndOrRow)) {
     $curAndOrRow          = array();
 }
 for ($y = 0; $y <= $row; $y++) {
@@ -929,7 +929,7 @@ if (!empty($qry_where) && $qry_where != '()') {
 
 // 4. ORDER BY
 $last_orderby = 0;
-if (!isset($qry_orderby)) {
+if (! isset($qry_orderby)) {
     $qry_orderby      = '';
 }
 for ($x = 0; $x < $col; $x++) {

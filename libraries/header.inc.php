@@ -45,7 +45,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         // if database storage for user preferences is transient, offer to load
         // exported settings from localStorage (detection will be done in JavaScript)
         $userprefs_offer_import = $GLOBALS['PMA_Config']->get('user_preferences') == 'session'
-                && !isset($_SESSION['userprefs_autoload']);
+                && ! isset($_SESSION['userprefs_autoload']);
         if ($userprefs_offer_import) {
             $GLOBALS['js_include'][] = 'config.js';
         }
@@ -158,7 +158,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                          * @uses $show_comment from libraries/tbl_info.inc.php
                          * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                          */
-                        if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                        if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
                             if (strstr($show_comment, '; InnoDB free')) {
                                 $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
                             }

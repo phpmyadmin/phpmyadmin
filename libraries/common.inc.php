@@ -608,7 +608,7 @@ $GLOBALS['server'] = 0;
  * @todo merge into PMA_Config
  */
 // Do we have some server?
-if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
+if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
     // No server => create one with defaults
     $cfg['Servers'] = array(1 => $default_server);
 } else {
@@ -664,7 +664,7 @@ if (! isset($_SESSION['PMA_Theme_Manager'])) {
 }
 
 // for the theme per server feature
-if (isset($_REQUEST['server']) && !isset($_REQUEST['set_theme'])) {
+if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
     $GLOBALS['server'] = $_REQUEST['server'];
     $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
     if (empty($tmp)) {

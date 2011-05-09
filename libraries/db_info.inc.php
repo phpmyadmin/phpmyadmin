@@ -152,7 +152,7 @@ if (true === $cfg['SkipLockedTables']) {
                 null, PMA_DBI_QUERY_STORE);
             if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
-                    if (!isset($sot_cache[$tmp[0]])) {
+                    if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query(
                             'SHOW TABLE STATUS FROM ' . PMA_backquote($db)
                              . ' LIKE \'' . addslashes($tmp[0]) . '\';');
@@ -160,7 +160,7 @@ if (true === $cfg['SkipLockedTables']) {
                         PMA_DBI_free_result($sts_result);
                         unset($sts_result);
 
-                        if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
+                        if (! isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
 

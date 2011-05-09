@@ -196,7 +196,7 @@ function PMA_usort_comparison_callback($a, $b)
         $sorter = 'strcasecmp';
     }
     /* No sorting when key is not present */
-    if (!isset($a[$GLOBALS['callback_sort_by']]) || ! isset($b[$GLOBALS['callback_sort_by']])) {
+    if (! isset($a[$GLOBALS['callback_sort_by']]) || ! isset($b[$GLOBALS['callback_sort_by']])) {
         return 0;
     }
     // produces f.e.:

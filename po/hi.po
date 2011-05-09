@@ -1,11 +1,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-04-24 00:23+0200\n"
-"Last-Translator:  <rsedwardian@gmail.com>\n"
+"PO-Revision-Date: 2011-05-06 09:13+0200\n"
+"Last-Translator:  <manojonemail@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr "इस मूल्य का उपयोग करें"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "ब्लोब स्ट्रीमिंग सर्वर संरचना उपस्थित नहीं है !"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
