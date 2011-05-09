@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-09 14:12+0200\n"
+"PO-Revision-Date: 2011-05-09 14:22+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3597,11 +3597,11 @@ msgstr "A root bejelentkezés engedélyezése"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "HTTP Basic Auth Realm neve, ami HTTP hitelesítés közben jelenik meg"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:361
 msgid ""
@@ -3766,7 +3766,6 @@ msgid "Connect without password"
 msgstr "Jelszó nélküli csatlakozás"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3779,7 +3778,9 @@ msgid ""
 msgstr ""
 "Használhatja a MySQL-karakterhelyettesítőket (% és _), vezérelheti őket, ha "
 "akarja, a literális példányaik használatához, pl. használja a 'my\\_db' "
-"alakot, s ne a 'my_db' alakot"
+"alakot, s ne a 'my_db' alakot. Ezt a lehetőséget választva rendezhet "
+"adatbázislistákat, beírva a nevüket sorrendben és használja a [kbd]*[/kbd]-t "
+"a végén, hogy a többi abc-sorrendben jelenjen meg."
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
@@ -3816,10 +3817,9 @@ msgstr ""
 "[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "adatbázis neve"
+msgstr "Adatbázis neve"
 
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -3877,9 +3877,8 @@ msgid "Server socket"
 msgstr "A szerver szoftvercsatornája"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr "A MySQL-szerverhez csatlakozás tömörítése"
+msgstr "SSL engedélyezése a MySQL-szerverhez való csatlakozáshoz"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
