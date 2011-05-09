@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-09 14:08+0200\n"
+"PO-Revision-Date: 2011-05-09 14:09+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3568,7 +3568,7 @@ msgstr "Fejlécek kijavítása"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr "Mutassa  a Segítség gombot a Dokumentáció szöveg helyett"
+msgstr "Mutassa a Segítség gombot a Dokumentáció szöveg helyett"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
