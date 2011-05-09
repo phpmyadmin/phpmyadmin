@@ -3562,10 +3562,9 @@ msgstr ""
 "a lehetőséget"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Szálak kijavítása"
+msgstr "Fejlécek kijavítása"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
