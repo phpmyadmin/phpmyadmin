@@ -301,7 +301,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
         return htmlspecialchars($parsed_sql['raw']);
     }
     // then check for an array
-    if (!is_array($parsed_sql)) {
+    if (! is_array($parsed_sql)) {
         // We don't so just return the input directly
         // This is intended to be used for when the SQL Parser is turned off
         $formatted_sql = '<pre>' . "\n"
@@ -2434,8 +2434,8 @@ function PMA_userDir($dir)
  */
 function PMA_getDbLink($database = null)
 {
-    if (!strlen($database)) {
-        if (!strlen($GLOBALS['db'])) {
+    if (! strlen($database)) {
+        if (! strlen($GLOBALS['db'])) {
             return '';
         }
         $database = $GLOBALS['db'];

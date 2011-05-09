@@ -336,7 +336,7 @@ else {
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
-                    if (!is_array($fields[$i])) {
+                    if (! is_array($fields[$i])) {
                         $fields[$i] = explode(',', $fields[$i]);
                     }
                     $enum_selected_count = count($fields[$i]);

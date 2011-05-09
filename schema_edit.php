@@ -41,13 +41,13 @@ $query_default_option = PMA_DBI_QUERY_STORE;
  * correctly, so it is a good place to see which tables we can and
  * complain ;-)
  */
-if (!$cfgRelation['relwork']) {
+if (! $cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('relation') . "\n";
     require_once './libraries/footer.inc.php';
 }
 
-if (!$cfgRelation['displaywork']) {
+if (! $cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_info') . "\n";
     require_once './libraries/footer.inc.php';

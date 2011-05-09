@@ -2090,7 +2090,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     {
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
-        if (!is_array($arr)) {
+        if (! is_array($arr)) {
             return htmlspecialchars($arr);
         }
         // first check for the SQL parser having hit an error

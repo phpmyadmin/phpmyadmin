@@ -1091,7 +1091,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
     }
 
-    if (!is_array($map)) {
+    if (! is_array($map)) {
         $map = array();
     }
     $row_no                         = 0;
@@ -1563,7 +1563,7 @@ function PMA_displayVerticalTable()
     // Displays "edit" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1581,7 +1581,7 @@ function PMA_displayVerticalTable()
     // Displays "copy" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1599,7 +1599,7 @@ function PMA_displayVerticalTable()
     // Displays "delete" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1652,7 +1652,7 @@ function PMA_displayVerticalTable()
     // Displays "edit" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1670,7 +1670,7 @@ function PMA_displayVerticalTable()
     // Displays "copy" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1688,7 +1688,7 @@ function PMA_displayVerticalTable()
     // Displays "delete" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;

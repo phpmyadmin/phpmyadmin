@@ -386,7 +386,7 @@ function PMA_array_merge_recursive()
             break;
         case 2 :
             $args = func_get_args();
-            if (!is_array($args[0]) || !is_array($args[1])) {
+            if (! is_array($args[0]) || ! is_array($args[1])) {
                 return $args[1];
             }
             foreach ($args[1] as $key2 => $value2) {

@@ -76,7 +76,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 
     $config = json_decode($json, true);
     $return_url = filter_input(INPUT_POST, 'return_url');
-    if (!is_array($config)) {
+    if (! is_array($config)) {
         $error = __('Could not import configuration');
     } else {
         // sanitize input values: treat them as though they came from HTTP POST request
