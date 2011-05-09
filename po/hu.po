@@ -3530,7 +3530,7 @@ msgstr "Alapértelmezett lekérdezési ablak fül"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Lekérdezési ablak magassága (pixelekben)"
 
 #: libraries/config/messages.inc.php:341
 #, fuzzy
