@@ -33,7 +33,7 @@ if (! empty($goto)) {
     $is_gotofile  = true;
 } // end if
 
-if (!isset($err_url)) {
+if (! isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
              . '?' . PMA_generate_common_url($db)
              . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table)) ? '&amp;table=' . urlencode($table) : '');
@@ -275,7 +275,7 @@ if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     require_once './libraries/header.inc.php';
     if ($is_drop_database) {
-        echo '<h1 class="warning">' . __('You are about to DESTROY a complete database!') . '</h1>';
+        echo '<h1 class="error">' . __('You are about to DESTROY a complete database!') . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);
@@ -441,7 +441,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     if (!$is_affected) {
         $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
-    } elseif (!isset($num_rows)) {
+    } elseif (! isset($num_rows)) {
         $num_rows = @PMA_DBI_affected_rows();
     }
 
@@ -492,11 +492,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         // due to $find_real_end == true
 
         if (!$is_group
-         && !isset($analyzed_sql[0]['queryflags']['union'])
-         && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+         && ! isset($analyzed_sql[0]['queryflags']['union'])
+         && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
          && (empty($analyzed_sql[0]['where_clause'])
            || $analyzed_sql[0]['where_clause'] == '1 ')
-         && !isset($find_real_end)
+         && ! isset($find_real_end)
         ) {
 
             // "j u s t   b r o w s i n g"
@@ -526,7 +526,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             // long delays. Returned count will be complete anyway.
             // (but a LIMIT would disrupt results in an UNION)
 
-            if (!isset($analyzed_sql[0]['queryflags']['union'])) {
+            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
@@ -969,7 +969,7 @@ window.onload = function()
 /**
  * Displays the footer
  */
-if(!isset($_REQUEST['table_maintenance'])) {
+if(! isset($_REQUEST['table_maintenance'])) {
     require './libraries/footer.inc.php';
 }
 ?>

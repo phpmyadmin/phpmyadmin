@@ -189,7 +189,7 @@ foreach ($the_tables as $key => $table) {
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
-        if (!isset($row['Default'])) {
+        if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
             }

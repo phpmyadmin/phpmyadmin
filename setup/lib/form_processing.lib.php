@@ -38,7 +38,7 @@ function process_formset(FormDisplay $form_display) {
             }
             $id = $id ? "{$separator}id=$id" : '';
             ?>
-            <div class="warning">
+            <div class="error">
                 <h4><?php echo __('Warning') ?></h4>
                 <?php echo __('Submitted form contains errors') ?><br />
                 <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert"><?php echo __('Try to revert erroneous fields to their default values') ?></a>

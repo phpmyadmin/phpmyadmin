@@ -378,7 +378,7 @@ for ($i = 0; $i < $num_fields; $i++) {
      * having NULL enabled does not implicit having Default with NULL
      *
     if (isset($row)
-      && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
+      && ! isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
         $row['Default'] = 'NULL';
     }
      */

@@ -292,7 +292,7 @@ if (file_exists('./config')) {
  */
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
-    if(!$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+    if(! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
         $message->addParam('</a>', false);
@@ -305,7 +305,7 @@ if ($server > 0) {
 }
 
 /**
- * Show warning when javascript support is missing.
+ * Show notice when javascript support is missing.
  */
 echo '<noscript>';
 $message = PMA_Message::notice(__('Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.'));
@@ -351,7 +351,7 @@ if (file_exists('./libraries/language_stats.inc.php')) {
      * speaking users.
      */
     if (isset($GLOBALS['language_stats'][$lang]) && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']) {
-        trigger_error('You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate">contributing</a>.', E_USER_NOTICE);
+        trigger_error('You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate" target="_blank">contributing</a>.', E_USER_NOTICE);
     }
 }
 

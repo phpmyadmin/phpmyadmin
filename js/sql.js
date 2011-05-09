@@ -274,6 +274,8 @@ $(document).ready(function() {
                 $('#sqlqueryresults').show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
+                    // Unbind the submit event before reloading. See bug #3295529
+                    $("#sqlqueryform.ajax").die('submit');
                     $form.find('input[name=db]').val(data.db);
                     // need to regenerate the whole upper part
                     $form.find('input[name=ajax_request]').remove();

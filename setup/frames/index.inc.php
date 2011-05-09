@@ -61,7 +61,7 @@ if (!$is_https) {
         $text .= ' ' . PMA_lang($strInsecureConnectionMsg2,
             'https://' . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']));
     }
-    messages_set('warning', 'no_https', __('Insecure connection'), $text);
+    messages_set('notice', 'no_https', __('Insecure connection'), $text);
 }
 ?>
 

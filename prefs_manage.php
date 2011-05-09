@@ -76,7 +76,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 
     $config = json_decode($json, true);
     $return_url = filter_input(INPUT_POST, 'return_url');
-    if (!is_array($config)) {
+    if (! is_array($config)) {
         $error = __('Could not import configuration');
     } else {
         // sanitize input values: treat them as though they came from HTTP POST request
@@ -109,7 +109,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
             // mimic original form and post json in a hidden field
             require './libraries/header.inc.php';
             require './libraries/user_preferences.inc.php';
-            $msg = PMA_Message::warning(__('Configuration contains incorrect data for some fields.'));
+            $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
             echo '<div class="config-form">';
             $form_display->displayErrors();

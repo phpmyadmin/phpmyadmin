@@ -337,7 +337,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     }
 
 
-    if (!isset($row['Default'])) {
+    if (! isset($row['Default'])) {
         if ($row['Null'] == 'YES') {
             $row['Default'] = '<i>NULL</i>';
         }
@@ -466,8 +466,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <?php
         } // end if... else...
         echo "\n";
-    } // end if (! $tbl_is_view && ! $db_is_information_schema)
-    ?>
+        ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo __('More'); ?> <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="<?php echo __('Show more actions'); ?>" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
@@ -531,6 +530,9 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
              </div>
         </div>
     </td>
+    <?php
+    } // end if (! $tbl_is_view && ! $db_is_information_schema)
+    ?>
 </tr>
     <?php
     unset($field_charset);
@@ -771,7 +773,7 @@ if ($cfg['ShowStats']) {
         }
         if (isset($free_size)) {
             ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> warning">
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> error">
         <th class="name"><?php echo __('Overhead'); ?></th>
         <td class="value"><?php echo $free_size; ?></td>
         <td class="unit"><?php echo $free_unit; ?></td>

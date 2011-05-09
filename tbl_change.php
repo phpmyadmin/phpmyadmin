@@ -514,7 +514,7 @@ foreach ($rows as $row_id => $vrow) {
         } else {
             // (we are inserting)
             // display default values
-            if (!isset($field['Default'])) {
+            if (! isset($field['Default'])) {
                 $field['Default'] = '';
                 $real_null_value          = TRUE;
                 $data                     = '';
@@ -620,7 +620,7 @@ foreach ($rows as $row_id => $vrow) {
                 // yet.
                 $cnt_functions = count($cfg['Functions']);
                 for ($j = 0; $j < $cnt_functions; $j++) {
-                    if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
+                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
                         // Is current function defined as default?
                         $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                     || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
@@ -694,6 +694,9 @@ foreach ($rows as $row_id => $vrow) {
         // HTML attribute
 
         echo '        <td>' . "\n";
+        // Will be used by js/tbl_change.js to set the default value
+        // for the "Continue insertion" feature
+        echo '<span class="default_value hide">' . $special_chars . '</span>';
         if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";
             ?>
@@ -1059,7 +1062,7 @@ if (isset($where_clause)) {
     <?php
 echo "\n";
 
-if (!isset($after_insert)) {
+if (! isset($after_insert)) {
     $after_insert = 'back';
 }
 ?>

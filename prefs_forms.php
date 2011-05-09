@@ -23,7 +23,7 @@ PMA_userprefs_pageinit();
 // handle form processing
 
 $form_param = filter_input(INPUT_GET, 'form');
-if (!isset($forms[$form_param])) {
+if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
 }
@@ -74,7 +74,7 @@ if ($error) {
 if ($form_display->hasErrors()) {
     // form has errors
     ?>
-    <div class="warning config-form">
+    <div class="error config-form">
         <b><?php echo __('Cannot save settings, submitted form contains errors') ?></b>
         <?php $form_display->displayErrors(); ?>
     </div>

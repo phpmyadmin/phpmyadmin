@@ -608,7 +608,7 @@ $GLOBALS['server'] = 0;
  * @todo merge into PMA_Config
  */
 // Do we have some server?
-if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
+if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
     // No server => create one with defaults
     $cfg['Servers'] = array(1 => $default_server);
 } else {
@@ -664,7 +664,7 @@ if (! isset($_SESSION['PMA_Theme_Manager'])) {
 }
 
 // for the theme per server feature
-if (isset($_REQUEST['server']) && !isset($_REQUEST['set_theme'])) {
+if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
     $GLOBALS['server'] = $_REQUEST['server'];
     $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
     if (empty($tmp)) {
@@ -838,7 +838,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         if (isset($cfg['Server']['AllowDeny'])
-          && isset($cfg['Server']['AllowDeny']['order'])) {
+                && isset($cfg['Server']['AllowDeny']['order'])) {
 
             /**
              * ip based access library

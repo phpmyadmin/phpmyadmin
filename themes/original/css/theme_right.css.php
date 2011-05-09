@@ -396,10 +396,9 @@ td .icon {
     margin-<?php echo $left; ?>: 0.6em;
 }
 
-/* message boxes: warning, error, confirmation */
+/* message boxes: error, confirmation */
 .success h1,
 .notice h1,
-.warning h1,
 div.error h1 {
     border-bottom:      2px solid;
     font-weight:        bold;
@@ -409,7 +408,6 @@ div.error h1 {
 
 div.success,
 div.notice,
-div.warning,
 div.error,
 div.footnotes {
     margin:             0.3em 0 0 0;
@@ -473,30 +471,6 @@ div.footnotes {
 }
 .notice h1 {
     border-color:       #FFD700;
-}
-
-.warning {
-    color:              #CC0000;
-    background-color:   #FFFFCC;
-}
-p.warning,
-h1.warning,
-div.warning {
-    border-color:       #CC0000;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-    padding:            0.2em 0.2em 0.2em 25px;
-        <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
-        <?php } ?>
-    <?php } ?>
-}
-.warning h1 {
-    border-color:       #cc0000;
 }
 
 .error {
@@ -726,19 +700,6 @@ ul#topmenu span.tab {
     color:              #666666;
 }
 
-/* disabled drop/empty tabs */
-ul#topmenu span.tabcaution {
-    color:              #ff6666;
-}
-
-/* enabled drop/empty tabs */
-ul#topmenu a.tabcaution {
-    color:              #FF0000;
-}
-ul#topmenu a.tabcaution:hover {
-    color: #FFFFFF;
-    background-color:   #FF0000;
-}
 fieldset.caution a {
     color:              #FF0000;
 }
@@ -822,10 +783,9 @@ ul#topmenu > li.active {
      border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
-/* disabled drop/empty tabs */
+/* disabled tabs */
 ul#topmenu span.tab,
-a.warning,
-ul#topmenu span.tabcaution {
+a.error {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
@@ -1252,7 +1212,7 @@ li#li_user_preferences {
 }
 
 .operations_half_width {
-    min-width: 48%;
+    width: 48%;
     float: <?php echo $left; ?>;
 }
 

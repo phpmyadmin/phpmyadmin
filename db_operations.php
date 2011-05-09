@@ -37,7 +37,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $move = false;
     }
 
-    if (!isset($newname) || !strlen($newname)) {
+    if (! isset($newname) || ! strlen($newname)) {
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $sql_query = ''; // in case target db exists
@@ -349,11 +349,6 @@ if ($db == 'information_schema') {
 }
 
 if (!$is_information_schema) {
-    ?>
-    <div class="operations_half_width">
-    <?php require './libraries/display_create_table.lib.php'; ?>
-    </div>
-    <?php
     if ($cfgRelation['commwork']) {
         /**
          * database comment
@@ -377,6 +372,11 @@ if (!$is_information_schema) {
     </div>
         <?php
     }
+    ?>
+    <div class="operations_half_width">
+    <?php require './libraries/display_create_table.lib.php'; ?>
+    </div>
+    <?php
     /**
      * rename database
      */
@@ -561,7 +561,7 @@ echo __('Remove database');
        . '</form></div>' . "\n";
 
     if ($num_tables > 0
-      && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+      && ! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
         $message->addParam('</a>', false);

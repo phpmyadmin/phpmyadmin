@@ -1,6 +1,10 @@
 ﻿phpMyAdmin - ChangeLog
 ======================
 
+3.5.0.0 (not yet released)
+
+3.4.1.0 (not yet released)
+
 3.4.0.0 (not yet released)
 + rfe #2890226 [view] Enable VIEW rename 
 + rfe #838637 [privileges] Export a user's privileges 
@@ -154,6 +158,7 @@
 - bug #3134495 [synchronization] Data containing single quotes prevents sync,
   thanks to jviewer
 - Remove the custom color picker feature
+- bug #3285929 [privileges] Don't fail silently on missing priviledge to execute REVOKE ALL PRIVILEGES
 
 3.3.11.0 (not yet released)
 

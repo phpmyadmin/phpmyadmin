@@ -246,8 +246,8 @@ $element_counter = 0;
 
 
 if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
-    $table_list = PMA_getTableList($GLOBALS['db']);
-    $table_count = count($table_list);
+    $table_list = PMA_getTableList($GLOBALS['db'], null, $tpos, $cfg['MaxTableList']);
+    $table_count = PMA_getTableCount($GLOBALS['db']);
 
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
@@ -284,7 +284,6 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
      * user can find a navigator to page thru all tables.
      *
      */
-    $table_list = array_slice($table_list, $tpos, $cfg['MaxTableList']);
     if (! empty($table_list)) {
         // upper table list paginator
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {

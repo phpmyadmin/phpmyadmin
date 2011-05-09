@@ -46,7 +46,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (!defined('TESTSUITE')) {
         require_once './libraries/mysql_charsets.lib.php';
     }
-    if (!isset($mysql_charsets)) {
+    if (! isset($mysql_charsets)) {
         $mysql_charsets = array();
         $mysql_charsets_count = 0;
         $mysql_collations_flat = array();
@@ -360,7 +360,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $pos = $pos_quote_separator;
                             }
                             if (class_exists('PMA_Message')) {
-                                PMA_Message::warning(__('Automatically appended backtick to the end of query!'))->display();
+                                PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
                             }
                         }  else {
                             $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
@@ -828,7 +828,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_analyze($arr)
     {
-        if ($arr == array() || !isset($arr['len'])) {
+        if ($arr == array() || ! isset($arr['len'])) {
             return array();
         }
         $result          = array();
@@ -1960,7 +1960,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
                 if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
-                    // warning: we set this one even for non TIMESTAMP type
+                    // we set this one even for non TIMESTAMP type
                     $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE;
                 }
 
@@ -2090,7 +2090,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     {
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
-        if (!is_array($arr)) {
+        if (! is_array($arr)) {
             return htmlspecialchars($arr);
         }
         // first check for the SQL parser having hit an error

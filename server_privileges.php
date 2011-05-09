@@ -165,8 +165,8 @@ function PMA_RangeOfUsers($initial = '')
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
     if (!empty($initial)) {
-        $ret = " WHERE `User` LIKE '" . $initial . "%'"
-            . " OR `User` LIKE '" . strtolower($initial) . "%'";
+        $ret = " WHERE `User` LIKE '" . PMA_sqlAddslashes($initial) . "%'"
+            . " OR `User` LIKE '" . PMA_sqlAddslashes(strtolower($initial)) . "%'";
     } else {
         $ret = '';
     }
@@ -270,7 +270,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         } else {
             $privs[] = 'USAGE';
         }
-    } elseif ($allPrivileges && (!isset($GLOBALS['grant_count']) || count($privs) == $GLOBALS['grant_count'])) {
+    } elseif ($allPrivileges && (! isset($GLOBALS['grant_count']) || count($privs) == $GLOBALS['grant_count'])) {
         if ($enableHTML) {
             $privs = array('<dfn title="' . __('Includes all privileges except GRANT.') . '">ALL PRIVILEGES</dfn>');
         } else {
@@ -725,7 +725,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '    <select name="pred_username" id="select_pred_username" title="' . __('User name') . '"' . "\n"
        . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
        . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . __('Any user') . '</option>' . "\n"
-       . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field') . ':</option>' . "\n"
+       . '        <option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field') . ':</option>' . "\n"
        . '    </select>' . "\n"
        . '</span>' . "\n"
        . '<input type="text" name="username" maxlength="'
@@ -756,7 +756,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-    if (!isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
+    if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
         switch (strtolower($GLOBALS['hostname'])) {
             case 'localhost':
             case '127.0.0.1':
@@ -850,7 +850,7 @@ if (isset($_REQUEST['change_copy'])) {
         // Recent MySQL versions have the field "Password" in mysql.user,
         // so the previous extract creates $Password but this script
         // uses $password
-        if (!isset($password) && isset($Password)) {
+        if (! isset($password) && isset($Password)) {
             $password = $Password;
         }
         $queries = array();
@@ -1140,7 +1140,7 @@ if (!empty($update_privs)) {
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . PMA_sqlAddslashes($hostname) . '\';';
-    if (!isset($Grant_priv) || $Grant_priv != 'Y') {
+    if (! isset($Grant_priv) || $Grant_priv != 'Y') {
         $sql_query1 =
             'REVOKE GRANT OPTION ON ' . $db_and_table
             . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . PMA_sqlAddslashes($hostname) . '\';';
@@ -1187,8 +1187,9 @@ if (!empty($update_privs)) {
         }
         $sql_query2 .= ';';
     }
-    if (! PMA_DBI_try_query($sql_query0)) {
-        // this query may fail, but this does not matter :o)
+    if (! PMA_DBI_query($sql_query0)) {
+        // This might fail when the executing user does not have ALL PRIVILEGES himself. 
+        // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
         $sql_query0 = '';
     }
     if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) {
@@ -1386,7 +1387,7 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
  * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
  * show $message and exit.
  */
-if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && (!isset($_REQUEST['adduser']) || $_add_user_error) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
+if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog'])) {
 
     if(isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
@@ -1450,7 +1451,9 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && (!isset($_REQU
         $extra_data['new_privileges'] = $new_privileges;
     }
 
-    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    if ($message instanceof PMA_Message) {
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    }
 }
 
 /**
@@ -1787,7 +1790,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
         unset($sql);
         if ($user_does_not_exists) {
-            PMA_Message::warning(__('The selected user was not found in the privilege table.'))->display();
+            PMA_Message::error(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
             //require './libraries/footer.inc.php';
         }
@@ -2053,7 +2056,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
-                        if (!isset($found_rows) || !in_array($row[0], $found_rows)) {
+                        if (! isset($found_rows) || !in_array($row[0], $found_rows)) {
                             $pred_tbl_array[] = $row[0];
                         }
                     }
@@ -2276,7 +2279,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             foreach ($current_privileges as $current) {
                 echo '        <td>' . "\n"
                    . '            ';
-                if (!isset($current['Db']) || $current['Db'] == '*') {
+                if (! isset($current['Db']) || $current['Db'] == '*') {
                     echo __('global');
                 } elseif ($current['Db'] == PMA_escape_mysql_wildcards($checkprivs)) {
                     echo __('database-specific');
