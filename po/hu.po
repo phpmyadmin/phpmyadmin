@@ -1,7 +1,7 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
 "PO-Revision-Date: 2011-05-09 14:12+0200\n"
@@ -2517,7 +2517,10 @@ msgstr ""
 "esetén"
 
 #: libraries/config/messages.inc.php:65
+<<<<<<< HEAD
 #| msgid "Ignore errors"
+=======
+>>>>>>> QA_3_4
 msgid "Iconic errors"
 msgstr "Ikonnal kapcsolatos hibák"
 
@@ -2598,7 +2601,10 @@ msgid "Lines terminated by"
 msgstr "Sorok vége"
 
 #: libraries/config/messages.inc.php:80
+<<<<<<< HEAD
 #| msgid "Excel edition"
+=======
+>>>>>>> QA_3_4
 msgid "Excel edition"
 msgstr "Excel változat"
 
@@ -3486,19 +3492,28 @@ msgid "Iconic table operations"
 msgstr "Ikonos táblaműveletek"
 
 #: libraries/config/messages.inc.php:331
+<<<<<<< HEAD
 #| msgid "Disallow BLOB and BINARY fields from editing"
+=======
+>>>>>>> QA_3_4
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "A BLOB vagy a BLOB és BINARY mezők módosításának tiltása"
 
 #: libraries/config/messages.inc.php:332
+<<<<<<< HEAD
 #| msgid "Protect binary fields"
+=======
+>>>>>>> QA_3_4
 msgid "Protect binary columns"
 msgstr "A bináris mezők védelme"
 
 #: libraries/config/messages.inc.php:333
+<<<<<<< HEAD
 #| msgid ""
 #| "Enable if you want DB-based query history (requires pmadb). If disabled, "
 #| "this utilizes JS-routines to display query history (lost by window close)."
+=======
+>>>>>>> QA_3_4
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -3533,17 +3548,26 @@ msgid "Query window height (in pixels)"
 msgstr "Lekérdezési ablak magassága (pixelekben)"
 
 #: libraries/config/messages.inc.php:341
+<<<<<<< HEAD
 #| msgid "Query window"
+=======
+>>>>>>> QA_3_4
 msgid "Query window height"
 msgstr "Lekérdezés ablak magassága"
 
 #: libraries/config/messages.inc.php:342
+<<<<<<< HEAD
 #| msgid "Query window"
+=======
+>>>>>>> QA_3_4
 msgid "Query window width (in pixels)"
 msgstr "Lekérdezés ablak szélessége (pixelekben)"
 
 #: libraries/config/messages.inc.php:343
+<<<<<<< HEAD
 #| msgid "Query window"
+=======
+>>>>>>> QA_3_4
 msgid "Query window width"
 msgstr "Lekérdezés ablak szélessége"
 
@@ -3562,7 +3586,10 @@ msgstr ""
 "a lehetőséget"
 
 #: libraries/config/messages.inc.php:347
+<<<<<<< HEAD
 #| msgid "Repair threads"
+=======
+>>>>>>> QA_3_4
 msgid "Repeat headers"
 msgstr "Fejlécek kijavítása"
 
@@ -3587,7 +3614,10 @@ msgid "Leave blank if not used"
 msgstr "Hagyja üresen, ha nem használja"
 
 #: libraries/config/messages.inc.php:354
+<<<<<<< HEAD
 #| msgid "Host authentication order"
+=======
+>>>>>>> QA_3_4
 msgid "Host authorization order"
 msgstr "Az állomás hitelesítési sorrendje"
 
@@ -3596,7 +3626,10 @@ msgid "Leave blank for defaults"
 msgstr "Hagyja üresen az alapértelmezésekhez"
 
 #: libraries/config/messages.inc.php:356
+<<<<<<< HEAD
 #| msgid "Host authentication rules"
+=======
+>>>>>>> QA_3_4
 msgid "Host authorization rules"
 msgstr "Az állomás hitelesítési szabályai"
 
