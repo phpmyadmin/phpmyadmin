@@ -798,6 +798,8 @@ form.login label {
 /* topmenu */
 #topmenu a {text-shadow:0px 1px 0px #fff;}
 
+#topmenu .error{background:#eee;border:0px !important;color:#aaa;}
+
 ul#topmenu, ul#topmenu2, ul.tabs {
     font-weight:        bold;
     list-style-type:    none;
