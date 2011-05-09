@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-09 14:21+0200\n"
+"PO-Revision-Date: 2011-05-09 14:22+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3890,9 +3890,8 @@ msgid "Server socket"
 msgstr "A szerver szoftvercsatornája"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr "A MySQL-szerverhez csatlakozás tömörítése"
+msgstr "SSL engedélyezése a MySQL-szerverhez való csatlakozáshoz"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
