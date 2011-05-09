@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-05 13:15+0200\n"
-"PO-Revision-Date: 2011-05-09 14:17+0200\n"
+"PO-Revision-Date: 2011-05-09 14:21+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3779,7 +3779,6 @@ msgid "Connect without password"
 msgstr "Jelszó nélküli csatlakozás"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -3792,7 +3791,9 @@ msgid ""
 msgstr ""
 "Használhatja a MySQL-karakterhelyettesítőket (% és _), vezérelheti őket, ha "
 "akarja, a literális példányaik használatához, pl. használja a 'my\\_db' "
-"alakot, s ne a 'my_db' alakot"
+"alakot, s ne a 'my_db' alakot. Ezt a lehetőséget választva rendezhet "
+"adatbázislistákat, beírva a nevüket sorrendben és használja a [kbd]*[/kbd]-t "
+"a végén, hogy a többi abc-sorrendben jelenjen meg."
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
