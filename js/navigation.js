@@ -177,4 +177,14 @@ $(document).ready(function(){
     $('#clear_fast_filter').click(clear_fast_filter);
     $('#fast_filter').focus(function (evt) {evt.target.select();});
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
+
+    /* Jump to recent table */
+    $('#recentTable').change(function() {
+        if (this.value != '') {
+            var arr = this.value.split('.');
+            window.parent.setDb(arr[0]);
+            window.parent.setTable(arr[1]);
+            window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
+        }
+    });
 });

@@ -13,6 +13,23 @@ require_once './libraries/RecentTable.class.php';
 
 
 /**
+ * Add recently used table and reload the navigation.
+ *
+ * @param string $db Database name where the table is located.
+ * @param string $table The table name
+ */
+function PMA_addRecentTable($db, $table) {
+    $tmp_result = RecentTable::getInstance()->add($db, $table);
+    if ($tmp_result === true) {
+        $GLOBALS['reload'] = true;
+        PMA_reloadNavigation();
+    } else {
+        $error = $tmp_result;
+        $error->display();
+    }
+}
+
+/**
  * This is not an Ajax request so we need to generate all this output.
  */
 if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
@@ -151,14 +168,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         } // end if
 
                         // add recently used table and reload the navigation
-                        $tmp_result = RecentTable::getInstance()->add($GLOBALS['db'], $GLOBALS['table']);
-                        if ($tmp_result === true) {
-                            $GLOBALS['reload'] = true;
-                            PMA_reloadNavigation();
-                        } else {
-                            $error = $tmp_result;
-                            $error->display();
-                        }
+                        PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
                     } else {
                         // no table selected, display database comment if present
                         /**

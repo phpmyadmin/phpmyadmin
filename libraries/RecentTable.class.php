@@ -10,8 +10,7 @@ require_once './libraries/Message.class.php';
 /**
  * Handles the recently used tables.
  *
- * @TODO Add documentation about configuration LeftRecentTable
- * @TODO Add documentation about table pma_recent (#recent) in Documentation.html
+ * @TODO Change the release version in table pma_recent (#recent in Documentation.html)
  *
  * @package phpMyAdmin
  */
@@ -124,7 +123,8 @@ class RecentTable
      */
     public function trim()
     {
-        while (count($this->tables) > $GLOBALS['cfg']['LeftRecentTable']) {
+        $max = max($GLOBALS['cfg']['LeftRecentTable'], 0);
+        while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
     }
@@ -137,13 +137,10 @@ class RecentTable
     public function getHtmlSelect()
     {
         $this->trim();
-        
-        $html = '<select onchange="if (this.value != \'\') {'.
-                        'arr=this.value.split(\'.\');'.
-                        'window.parent.setDb(arr[0]);'.
-                        'window.parent.setTable(arr[1]);'.
-                        'window.parent.refreshMain(\'' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '\');'.
-                    '}">';
+
+        $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
+                         $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
+        $html .= '<select id="recentTable">';
         $html .= '<option value="">(' . __('Recent tables') . ') ...</option>';
         foreach ($this->tables as $table) {
             $html .= '<option value="' . $table . '">' . $table . '</option>';

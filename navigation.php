@@ -183,7 +183,7 @@ require './libraries/navigation_header.inc.php';
 require_once './libraries/RecentTable.class.php';
 
 // display recently used tables
-if ($GLOBALS['cfg']['LeftRecentTable'] && count(RecentTable::getInstance()->tables)) {
+if (($GLOBALS['cfg']['LeftRecentTable'] > 0) && count(RecentTable::getInstance()->tables)) {
     echo '<div id="recentTableList">';
     echo RecentTable::getInstance()->getHtmlSelect();
     echo '</div>';
