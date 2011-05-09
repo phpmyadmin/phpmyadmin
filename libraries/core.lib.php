@@ -603,7 +603,7 @@ function PMA_array_read($path, $array, $default = null)
     $keys = explode('/', $path);
     $value =& $array;
     foreach ($keys as $key) {
-        if (!isset($value[$key])) {
+        if (! isset($value[$key])) {
             return $default;
         }
         $value =& $value[$key];
@@ -624,7 +624,7 @@ function PMA_array_write($path, &$array, $value)
     $last_key = array_pop($keys);
     $a =& $array;
     foreach ($keys as $key) {
-        if (!isset($a[$key])) {
+        if (! isset($a[$key])) {
             $a[$key] = array();
         }
         $a =& $a[$key];
@@ -650,7 +650,7 @@ function PMA_array_remove($path, &$array)
     $found = true;
     // go as deep as required or possible
     foreach ($keys as $key) {
-        if (!isset($path[$depth][$key])) {
+        if (! isset($path[$depth][$key])) {
             $found = false;
             break;
         }
@@ -665,7 +665,7 @@ function PMA_array_remove($path, &$array)
 
     // remove empty nested arrays
     for (; $depth >= 0; $depth--) {
-        if (!isset($path[$depth+1]) || count($path[$depth+1]) == 0) {
+        if (! isset($path[$depth+1]) || count($path[$depth+1]) == 0) {
             unset($path[$depth][$keys[$depth]]);
         } else {
             break;

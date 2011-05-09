@@ -186,7 +186,7 @@ if (isset($_REQUEST['destination_foreign'])) {
 
         if (! empty($foreign_string)) {
             list($foreign_db, $foreign_table, $foreign_field) = PMA_backquote_split($foreign_string);
-            if (!isset($existrel_foreign[$master_field])) {
+            if (! isset($existrel_foreign[$master_field])) {
                 // no key defined for this field
 
                 // The next few lines are repeated below, so they

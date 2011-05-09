@@ -27,7 +27,7 @@ if (!$GLOBALS['is_ajax_request']) {
     /**
      * Put something in $sub_part
      */
-    if (!isset($sub_part)) {
+    if (! isset($sub_part)) {
         $sub_part = '';
     }
 

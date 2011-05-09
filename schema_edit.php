@@ -53,12 +53,12 @@ if (!$cfgRelation['displaywork']) {
     require_once './libraries/footer.inc.php';
 }
 
-if (!isset($cfgRelation['table_coords'])){
+if (! isset($cfgRelation['table_coords'])){
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_coords') . "\n";
     require_once './libraries/footer.inc.php';
 }
-if (!isset($cfgRelation['pdf_pages'])) {
+if (! isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('pdf_pages') . "\n";
     require_once './libraries/footer.inc.php';

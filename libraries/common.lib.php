@@ -781,12 +781,12 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
 
-                if (!isset($group[$group_name])) {
+                if (! isset($group[$group_name])) {
                     $group[$group_name] = array();
                     $group[$group_name]['is' . $sep . 'group'] = true;
                     $group[$group_name]['tab' . $sep . 'count'] = 1;
                     $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
-                } elseif (!isset($group[$group_name]['is' . $sep . 'group'])) {
+                } elseif (! isset($group[$group_name]['is' . $sep . 'group'])) {
                     $table = $group[$group_name];
                     $group[$group_name] = array();
                     $group[$group_name][$group_name] = $table;
@@ -801,7 +801,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
                 $i++;
             }
         } else {
-            if (!isset($table_groups[$table_name])) {
+            if (! isset($table_groups[$table_name])) {
                 $table_groups[$table_name] = array();
             }
             $group =& $table_groups;
@@ -963,7 +963,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
      * in a string.  In some special cases on sql.php, buffering has to be disabled
      * and hence we check with $GLOBALS['buffer_message']
      */
-    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
+    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         ob_start();
     }
     global $cfg;
@@ -1280,7 +1280,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // If we are in an Ajax request, we have most probably been called in
     // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
     // to PMA_ajaxResponse(), which will encode it for JSON.
-    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
+    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
         return $buffer_contents;
@@ -2001,7 +2001,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
 {
     global $checked_special;
 
-    if (!isset($checked_special)) {
+    if (! isset($checked_special)) {
         $checked_special = false;
     }
 
@@ -2014,7 +2014,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
             $checked_special = true;
         }
 
-        if (!isset($GLOBALS[$param])) {
+        if (! isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
                 . ': Missing parameter: ' . $param
                 . PMA_showDocu('faqmissingparameters')
@@ -2112,7 +2112,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 . PMA_backquote($meta->orgname) . ' ';
         } // end if... else...
 
-        if (!isset($row[$i]) || is_null($row[$i])) {
+        if (! isset($row[$i]) || is_null($row[$i])) {
             $condition .= 'IS NULL AND';
         } else {
             // timestamp is numeric on some MySQL 4.1

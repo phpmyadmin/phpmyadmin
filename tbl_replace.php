@@ -276,7 +276,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         //  u p d a t e
         } elseif (!empty($me_fields_null_prev[$key])
-         && !isset($me_fields_null[$key])) {
+         && ! isset($me_fields_null[$key])) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
             $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;

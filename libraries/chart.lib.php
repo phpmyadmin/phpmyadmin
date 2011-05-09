@@ -104,7 +104,7 @@ function PMA_chart_results($data, &$chartSettings)
     // default for muti series
     $chartSettings['multi'] = false;
 
-    if (!isset($data[0])) {
+    if (! isset($data[0])) {
         // empty data
         return __('No data found for the chart.');
     }
@@ -192,7 +192,7 @@ function PMA_chart_results($data, &$chartSettings)
                     // the value os for this serie
                     $chartData[$yAxisKey][$seriesLabelsValue][$row[$xAxisKey]] = (int)$row[$yAxisKey];
                 }
-                else if (!isset($chartData[$yAxisKey][$seriesLabelsValue][$row[$xAxisKey]])) {
+                else if (! isset($chartData[$yAxisKey][$seriesLabelsValue][$row[$xAxisKey]])) {
                     // if the value for this serie is not set, set it to 0
                     $chartData[$yAxisKey][$seriesLabelsValue][$row[$xAxisKey]] = 0;
                 }

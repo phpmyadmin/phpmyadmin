@@ -15,7 +15,7 @@ require './libraries/server_links.inc.php';
 // build user preferences menu
 
 $form_param = filter_input(INPUT_GET, 'form');
-if (!isset($forms[$form_param])) {
+if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
 }

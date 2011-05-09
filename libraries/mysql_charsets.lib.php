@@ -46,7 +46,7 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
         if ($row['IS_DEFAULT'] == 'Yes') {
             $mysql_default_collations[$row['CHARACTER_SET_NAME']] = $row['COLLATION_NAME'];
         }
-        //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
+        //$mysql_collations_available[$row['Collation']] = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
         $mysql_collations_available[$row['COLLATION_NAME']] = true;
         $mysql_charsets_available[$row['CHARACTER_SET_NAME']] =
             !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])

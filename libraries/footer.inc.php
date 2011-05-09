@@ -166,7 +166,7 @@ if (window.parent.frame_content) {
 }
 
 // Link to itself to replicate windows including frameset
-if (!isset($GLOBALS['checked_special'])) {
+if (! isset($GLOBALS['checked_special'])) {
     $GLOBALS['checked_special'] = false;
 }
 
