@@ -1,11 +1,11 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-rc3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 14:14+0200\n"
 "PO-Revision-Date: 2011-05-05 12:49+0200\n"
-"Last-Translator:  <gergo314@gmail.com>\n"
+"Last-Translator: <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -1984,7 +1984,7 @@ msgstr "SQL érvényesítése"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "lekérdezés inline szerkesztése"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
@@ -2517,10 +2517,8 @@ msgstr ""
 "esetén"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
-#| msgid "Ignore errors"
 msgid "Iconic errors"
-msgstr "A hibák figyelmen kívül hagyása"
+msgstr "Ikonnal kapcsolatos hibák"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
@@ -2599,10 +2597,8 @@ msgid "Lines terminated by"
 msgstr "Sorok vége"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Excel szerkesztés"
+msgstr "Excel változat"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
