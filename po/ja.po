@@ -111,13 +111,7 @@ msgstr "リモート URL を開けませんでした。"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-<<<<<<< HEAD
 msgstr "ファイル %s は、このシステムでは使用できません。詳細については www.phpmyadmin.net をご覧ください。"
-=======
-msgstr ""
-"ファイル %s は、このシステムでは使用できません。詳細については www."
-"phpmyadmin.net をご覧ください。"
->>>>>>> QA_3_4
 
 #: db_create.php:58
 #, php-format
@@ -539,10 +533,6 @@ msgstr "表示"
 
 #: db_search.php:259
 #, php-format
-<<<<<<< HEAD
-#| msgid "Dumping data for table"
-=======
->>>>>>> QA_3_4
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか？"
 
@@ -5103,13 +5093,7 @@ msgstr "ポート"
 msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
-<<<<<<< HEAD
 msgstr "PBMS ストリームに基づいた通信用のポートです。この値を 0 に設定すると、デーモンとの HTTP 通信を無効にします。"
-=======
-msgstr ""
-"PBMS ストリームに基づいた通信用のポートです。この値を 0 に設定すると、デーモ"
-"ンとの HTTP 通信を無効にします。"
->>>>>>> QA_3_4
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
@@ -5180,18 +5164,9 @@ msgstr ""
 msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
-<<<<<<< HEAD
 msgstr "PBMS に関するドキュメントおよび詳細な情報は、%sPrimeBase Media Streaming オフィシャルサイト%sにあります。"
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#| msgid "Relations"
-=======
-msgstr ""
-"PBMS に関するドキュメントおよび詳細な情報は、%sPrimeBase Media Streaming オ"
-"フィシャルサイト%sにあります。"
-
-#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
->>>>>>> QA_3_4
 msgid "Related Links"
 msgstr "関連リンク"
 
@@ -5355,13 +5330,7 @@ msgstr ""
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
-<<<<<<< HEAD
 msgstr "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイト%sにあります。"
-=======
-msgstr ""
-"PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
-"ト%sにあります。"
->>>>>>> QA_3_4
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -7136,10 +7105,6 @@ msgid "Operator"
 msgstr "演算子"
 
 #: pmd_general.php:810
-<<<<<<< HEAD
-#| msgid "Table options"
-=======
->>>>>>> QA_3_4
 msgid "Active options"
 msgstr "アクティブオプション"
 
@@ -9060,12 +9025,7 @@ msgstr "フォームを表示する"
 #: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
-<<<<<<< HEAD
 msgstr "URL ラッパ、cURL、いずれも利用できません。バージョンチェックが行えません。"
-=======
-msgstr ""
-"URL ラッパ、cURL、いずれも利用できません。バージョンチェックが行えません。"
->>>>>>> QA_3_4
 
 #: setup/lib/index.lib.php:126
 msgid ""
@@ -9104,18 +9064,10 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-<<<<<<< HEAD
 "この%sオプション%sは無効にするべきです。そうしなければ、いずれかの MySQL "
 "サーバへのブルートフォース（しらみつぶし）ログインによる攻撃を許すことになります。これが必要と思われる場合には、%s信頼されたプロキシリスト%"
 "sを使用します。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続されている場合には、IP "
 "アドレスを基にした保護は信頼性が高いとはいえません。"
-=======
-"この%sオプション%sは無効にするべきです。そうしなければ、いずれかの MySQL サー"
-"バへのブルートフォース（しらみつぶし）ログインによる攻撃を許すことになりま"
-"す。これが必要と思われる場合には、%s信頼されたプロキシリスト%sを使用します。"
-"しかしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接"
-"続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
->>>>>>> QA_3_4
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -9439,12 +9391,7 @@ msgstr ""
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-<<<<<<< HEAD
 msgstr "レーダグラフを描画する時は、全ての値が範囲 [0..10] に正規化されています。"
-=======
-msgstr ""
-"レーダグラフを描画する時は、全ての値が範囲 [0..10] に正規化されています。"
->>>>>>> QA_3_4
 
 #: tbl_chart.php:173
 msgid ""
@@ -9760,10 +9707,6 @@ msgid "An index has been added on %s"
 msgstr "%s にインデックスを追加しました"
 
 #: tbl_structure.php:471
-<<<<<<< HEAD
-#| msgid "Show PHP information"
-=======
->>>>>>> QA_3_4
 msgid "Show more actions"
 msgstr "他の操作を表示する"
 

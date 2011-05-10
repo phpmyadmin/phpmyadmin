@@ -634,7 +634,7 @@ div.success {
 }
 
 .notice, .footnotes {
-    color:              #3a6c7e;
+    color:              #000;
     background-color:   #e8eef1;
 }
 h1.notice,
@@ -797,6 +797,8 @@ form.login label {
 
 /* topmenu */
 #topmenu a {text-shadow:0px 1px 0px #fff;}
+
+#topmenu .error{background:#eee;border:0px !important;color:#aaa;}
 
 ul#topmenu, ul#topmenu2, ul.tabs {
     font-weight:        bold;
