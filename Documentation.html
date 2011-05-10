@@ -1062,7 +1062,9 @@ ALTER TABLE `pma_column_comments`
         It helps you to jump across table directly, without the need to select the database,
         and then select the table. Using
         <a href="#cfg_LeftRecentTable" class="configrule">$cfg['LeftRecentTable']</a>
-        you can configure the maximum number of recent tables shown.<br/><br/>
+        you can configure the maximum number of recent tables shown. When you select a table
+        from the list, it will jump to the page specified in
+        <a href="#cfg_LeftDefaultTabTable" class="configrule">$cfg['LeftDefaultTabTable']</a>.<br/><br/>
 
         Without configuring the storage, you can still access the recently used tables,
         but it will disappear after you logout.<br/><br/>

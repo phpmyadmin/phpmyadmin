@@ -140,7 +140,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForParameter('recent', isset($cfgRelation['recent']), $messages, 'recent');
 
-    PMA_printDiagMessageForFeature(__('Recently used tables'), 'recentwork', $messages);
+    PMA_printDiagMessageForFeature(__('Persistent recently used tables'), 'recentwork', $messages);
 
     PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
 
