@@ -2114,6 +2114,18 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+#placeholder .button {
+    position: absolute;
+    cursor: pointer;
+}
+
+#placeholder div.button {
+    font-size: smaller;
+    color: #999;
+    background-color: #eee;
+    padding: 2px;
+}
+
 #table_columns input, #table_columns select {
     width:              14em;
     box-sizing:         border-box;

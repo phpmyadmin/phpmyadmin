@@ -2253,7 +2253,7 @@ function default_function($buffer) {
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  */
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
-    global $db, $table, $sql_query, $unlim_num_rows;
+    global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
 
     $header_shown = FALSE;
     $header = '<fieldset><legend>' . __('Query results operations') . '</legend>';
@@ -2330,6 +2330,22 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_chart.png', __('Display chart'), false, true),
             '', true, true, '') . "\n";
+
+        // show GIS chart
+        $geometry_found = false;
+        // If atleast one geometry field is found
+        foreach ($fields_meta as $meta) {
+            if ($meta->type == 'geometry') {
+                $geometry_found = true;
+                break;
+            }
+        }
+        if ($geometry_found) {
+            echo PMA_linkOrButton(
+                'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
+                PMA_getIcon('b_chart.png', __('Visualize GIS data'), false, true),
+                '', true, true, '') . "\n";
+        }
     }
 
     // CREATE VIEW
