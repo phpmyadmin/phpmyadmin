@@ -120,13 +120,17 @@ class RecentTable
 
     /**
      * Trim recent table according to the LeftRecentTable configuration.
+     *
+     * @return boolean True if trimming occurred
      */
     public function trim()
     {
         $max = max($GLOBALS['cfg']['LeftRecentTable'], 0);
+        $trimming_occured = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
+        return $trimming_occured;
     }
 
     /**
@@ -136,7 +140,10 @@ class RecentTable
      */
     public function getHtmlSelect()
     {
-        $this->trim();
+        // trim and save, in case where the configuration is changed
+        if ($this->trim() && isset($this->pma_table)) {
+            $this->saveToDb();
+        }
 
         $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';

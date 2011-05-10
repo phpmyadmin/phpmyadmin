@@ -168,7 +168,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         } // end if
 
                         // add recently used table and reload the navigation
-                        PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                        if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+                            PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                        }
                     } else {
                         // no table selected, display database comment if present
                         /**
