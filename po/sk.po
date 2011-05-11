@@ -1041,10 +1041,9 @@ msgid "Create User"
 msgstr "Vytvoriť uživateľa"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Znovunačítanie práv"
+msgstr "Načítavam oprávnenia"
 
 #: js/messages.php:55
 #, fuzzy
