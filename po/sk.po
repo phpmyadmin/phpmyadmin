@@ -751,7 +751,7 @@ msgstr "Databáza"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Posledná verzia"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 #, fuzzy
