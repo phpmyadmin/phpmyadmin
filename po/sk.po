@@ -734,7 +734,7 @@ msgstr "Dátový slovník"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Sledované tabuľky"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
