@@ -627,7 +627,7 @@ msgstr "Tabuľka %s bola odstránená"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Sledovanie je aktívne."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
