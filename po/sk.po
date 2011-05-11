@@ -824,7 +824,7 @@ msgstr "Zadajte každú hodnotu do samostatného políčka."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Začať nové vkladanie a pridať novú hodnotu"
 
 #: enum_editor.php:67
 msgid "Output"
