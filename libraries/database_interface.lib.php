@@ -498,6 +498,10 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             // bug #1436171
             // http://sf.net/support/tracker.php?aid=1436171
             return $tables[strtolower($database)];
+        } elseif (PMA_DRIZZLE && count($tables) == 1 && strlen(array_pop(array_keys($tables))) == strlen($database)) {
+            // one database but inexact letter case match
+            // as Drizzle is always case insensitive, we can safely return the only result
+            return array_pop($tables);
         } else {
             return $tables;
         }

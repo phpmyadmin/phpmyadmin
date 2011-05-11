@@ -441,7 +441,7 @@ require_once './libraries/List.class.php';
             foreach ($dbs as $db) {
                 $return .= '<option value="' . htmlspecialchars($db['name']) . '"'
                     .' title="' . htmlspecialchars($db['comment']) . '"';
-                if ($db['name'] == $selected) {
+                if ($db['name'] == $selected || (PMA_DRIZZLE && strtolower($db['name']) == strtolower($selected))) {
                     $return .= ' selected="selected"';
                 }
                 $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
