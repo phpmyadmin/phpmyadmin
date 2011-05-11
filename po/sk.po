@@ -961,7 +961,7 @@ msgstr "Kliknite pre vybranie"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Kliknite pre zrušenie vyberu"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
