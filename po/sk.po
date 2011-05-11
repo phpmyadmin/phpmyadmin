@@ -991,7 +991,7 @@ msgstr "Odstraňujem sledovacie dáta"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Odstraňujem primárny kľúč/index"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
