@@ -1072,7 +1072,7 @@ msgstr "Prebieha spracovanie požiadavka"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Chyba pri spracovanie požiadavku"
 
 #: js/messages.php:66
 msgid "Dropping Column"
