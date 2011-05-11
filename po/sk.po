@@ -100,7 +100,7 @@ msgstr "Nie je nastavený žiadny streamovacie server!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Chyba pri čítaní hlavičiek"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
