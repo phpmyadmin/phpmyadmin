@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-11 11:46+0200\n"
+"PO-Revision-Date: 2011-05-11 11:47+0200\n"
 "Last-Translator:  <ViktorJezek@email.cz>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -957,7 +957,7 @@ msgstr "phpMyAdmin funguje lepšie s prehliadačmi podporujúcimi <b>rámy</b>."
 #: server_synchronize.php:738 server_synchronize.php:766
 #: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
-msgstr ""
+msgstr "Kliknite pre vybranie"
 
 #: js/messages.php:26
 msgid "Click to unselect"
