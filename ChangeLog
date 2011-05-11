@@ -1,7 +1,7 @@
 ﻿phpMyAdmin - ChangeLog
 ======================
 
-3.4.0.0 (not yet released)
+3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
 + rfe #838637 [privileges] Export a user's privileges 
 - [core] Updated mootools to fix some glitches with Safari.
