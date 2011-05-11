@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-11 11:47+0200\n"
+"PO-Revision-Date: 2011-05-11 11:48+0200\n"
 "Last-Translator:  <ViktorJezek@email.cz>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -980,10 +980,9 @@ msgid "Dropping Event"
 msgstr "Odstraňujem udalosť"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
-msgstr "Procedúry"
+msgstr "Odstraňujem procedúru"
 
 #: js/messages.php:35
 #, fuzzy
