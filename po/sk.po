@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-11 11:39+0200\n"
+"PO-Revision-Date: 2011-05-11 11:40+0200\n"
 "Last-Translator:  <ViktorJezek@email.cz>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -760,7 +760,7 @@ msgstr "Vytvoriť"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "Aktualizované"
 
 #: db_tracking.php:89 libraries/common.lib.php:1354
 #: libraries/server_links.inc.php:50 server_processlist.php:71
