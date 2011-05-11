@@ -977,7 +977,7 @@ msgstr "Chystáte sa ZRUŠIŤ celú databázu!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Odstraňujem udalosť"
 
 #: js/messages.php:33
 #, fuzzy
