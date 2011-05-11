@@ -1032,10 +1032,9 @@ msgid "The passwords aren't the same!"
 msgstr "Heslá sa nezhodujú!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
-msgstr "Pridať nového používateľa"
+msgstr "Pridať nového uživateľa"
 
 #: js/messages.php:53
 #, fuzzy
