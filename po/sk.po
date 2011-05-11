@@ -1062,9 +1062,8 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "Lokálny"
+msgstr "Načítanie"
 
 #: js/messages.php:64
 #, fuzzy
