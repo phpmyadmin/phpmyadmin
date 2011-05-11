@@ -781,7 +781,7 @@ msgstr "Odstrániť všetky informácie o sledovaní tejto tabuľky"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 msgid "active"
-msgstr ""
+msgstr "zapnuté"
 
 #: db_tracking.php:121 tbl_tracking.php:544 tbl_tracking.php:602
 msgid "not active"
