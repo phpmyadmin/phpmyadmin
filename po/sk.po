@@ -805,9 +805,8 @@ msgstr "Nesledované tabuľky"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:622
 #: tbl_structure.php:624
-#, fuzzy
 msgid "Track table"
-msgstr "Skontrolovať tabuľku"
+msgstr "Sledovať tabuľku"
 
 #: db_tracking.php:229
 #, fuzzy
