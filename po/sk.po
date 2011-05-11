@@ -793,7 +793,7 @@ msgstr "Verzia"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
-msgstr ""
+msgstr "Informácie o sledovanie"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 #, fuzzy
