@@ -244,9 +244,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             6 => '<>',
             7 => '>=',
             8 => '>>',
-            9 => '||'
+            9 => '||',
+            10 => '==',
         );
-        $allpunct_list_pair_size = 10; //count($allpunct_list_pair);
+        $allpunct_list_pair_size = 11; //count($allpunct_list_pair);
         $quote_list              = '\'"`';
         $arraysize               = 0;
 
