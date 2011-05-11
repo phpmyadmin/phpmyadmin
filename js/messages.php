@@ -29,6 +29,8 @@ $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled
 /* For confirmations */
 $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
+$js_messages['strDropTableStrongWarning'] = __('You are about to DESTROY a complete table!');
+$js_messages['strTruncateTableStrongWarning'] = __('You are about to TRUNCATE a complete table!');
 $js_messages['strDroppingEvent'] = __('Dropping Event');
 $js_messages['strDroppingProcedure'] = __('Dropping Procedure');
 $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
