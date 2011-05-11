@@ -985,10 +985,9 @@ msgid "Dropping Procedure"
 msgstr "Odstraňujem procedúru"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Povolí vkladanie a nahradzovanie dát."
+msgstr "Odstraňujem sledovacie dáta"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
