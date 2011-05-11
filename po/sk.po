@@ -788,9 +788,8 @@ msgid "not active"
 msgstr "nie je zapnuté"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "Perština"
+msgstr "Verzia"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
