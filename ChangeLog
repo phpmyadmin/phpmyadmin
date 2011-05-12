@@ -5,6 +5,7 @@
 + rfe #2021981 [interface] Add support for mass prefix change.
 
 3.4.1.0 (not yet released)
+- bug #3301108 [interface] Synchronize and already configured host
 
 3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
