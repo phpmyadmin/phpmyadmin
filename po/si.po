@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:33+0200\n"
+"PO-Revision-Date: 2011-05-13 16:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2490,7 +2490,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "icon සහිත දෝෂ"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
