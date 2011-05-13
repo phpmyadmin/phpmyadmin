@@ -120,6 +120,7 @@ $js_messages['strMore'] = __('More');
 $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.');
 /* l10n: Latest available phpMyAdmin version */
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
+$js_messages['strUpToDate'] = __('up to date');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

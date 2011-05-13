@@ -92,7 +92,7 @@ function parseVersionString (str) {
 function PMA_current_version() {
     var current = parseVersionString(pmaversion);
     var latest = parseVersionString(PMA_latest_version);
-    $('#li_pma_version').append(PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version);
+    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version;
     if (latest > current) {
         var message = $.sprintf(PMA_messages['strNewerVersion'], PMA_latest_version, PMA_latest_date);
         if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
@@ -103,6 +103,10 @@ function PMA_current_version() {
         }
         $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
     }
+    if (latest == current) {
+        version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
+    }
+    $('#li_pma_version').append(version_information_message);
 }
 
 /**
