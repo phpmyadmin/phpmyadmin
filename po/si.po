@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:20+0200\n"
+"PO-Revision-Date: 2011-05-13 16:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7144,7 +7144,7 @@ msgstr "බ්‍රවුසරයේ ගබඩාවේ සුරකින්�
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "බ්‍රවුසරයේ ගබඩාවේ සිටුවම් සුරැකෙනු ඇත."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
