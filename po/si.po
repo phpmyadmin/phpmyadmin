@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:54+0200\n"
+"PO-Revision-Date: 2011-05-13 16:58+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3982,9 +3982,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 msgid "Skip locked tables"
-msgstr "විවෘත වගු පෙන්වන්න"
+msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
