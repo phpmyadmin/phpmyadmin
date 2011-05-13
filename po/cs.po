@@ -9435,9 +9435,9 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
-"Ne každý výsledek SQL dotazu je možné zobrazit v grafu. Ve <a href=\"./"
-"Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a> naleznete "
-"více podrobností."
+"Ne každý výsledek SQL dotazu je možné zobrazit v grafu. Ve <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a> "
+"naleznete více podrobností"
 
 #: tbl_chart.php:181
 msgid "Redraw"
