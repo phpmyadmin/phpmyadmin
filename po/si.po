@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:25+0200\n"
+"PO-Revision-Date: 2011-05-13 16:27+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6671,10 +6671,9 @@ msgstr ""
 "(Default: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "General relation features"
+msgstr "සිටුවම් පරිපාලනය"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 msgid "Configuration has been saved"
