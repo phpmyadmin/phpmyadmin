@@ -134,7 +134,21 @@ class RecentTable
     }
 
     /**
-     * Return HTML code "select" for recently used tables.
+     * Return options for HTML select.
+     *
+     * @return string
+     */
+    public function getHtmlSelectOption()
+    {
+        $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
+        foreach ($this->tables as $table) {
+            $html .= '<option value="' . $table . '">' . $table . '</option>';
+        }
+        return $html;
+    }
+
+    /**
+     * Return HTML select.
      *
      * @return string
      */
@@ -148,10 +162,7 @@ class RecentTable
         $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
         $html .= '<select id="recentTable">';
-        $html .= '<option value="">(' . __('Recent tables') . ') ...</option>';
-        foreach ($this->tables as $table) {
-            $html .= '<option value="' . $table . '">' . $table . '</option>';
-        }
+        $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         
         return $html;

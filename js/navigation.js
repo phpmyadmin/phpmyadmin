@@ -165,6 +165,19 @@ function clear_fast_filter() {
     elm.focus();
 }
 
+/**
+ * Reloads the recent tables list.
+ */
+function PMA_reloadRecentTable() {
+    $.get('navigation.php',
+            { 'token' : window.parent.token, 'ajax_request' : true, 'recent_table' : true },
+            function (data) {
+        if (data.success == true) {
+            $('#recentTable').html(data.options);
+        }
+    });
+}
+
 /* Performed on load */
 $(document).ready(function(){
     /* Display filter */
