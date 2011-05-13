@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:48+0200\n"
+"PO-Revision-Date: 2011-05-13 16:54+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3674,7 +3674,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
-msgstr ""
+msgstr "සඳහන් දත්තගබඩා පමණක් පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
