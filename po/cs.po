@@ -4100,7 +4100,7 @@ msgstr "Zobrazit komentáře tabulky v tooltipu"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
-"Označí používané tabulky a umožní zobrazit databáze se zamčenými tabulkami."
+"Označí používané tabulky a umožní zobrazit databáze se zamčenými tabulkami"
 
 #: libraries/config/messages.inc.php:460
 msgid "Skip locked tables"
