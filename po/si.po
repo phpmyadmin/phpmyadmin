@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:27+0200\n"
+"PO-Revision-Date: 2011-05-13 16:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4146,7 +4146,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "අනුවාද පරීක්ෂාව"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
