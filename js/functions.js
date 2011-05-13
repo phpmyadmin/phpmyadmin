@@ -90,7 +90,7 @@ function parseVersionString (str) {
  * Indicates current available version on main page.
  */
 function PMA_current_version() {
-    var current = parseVersionString('3.4.0'/*pmaversion*/);
+    var current = parseVersionString(pmaversion);
     var latest = parseVersionString(PMA_latest_version);
     $('#li_pma_version').append(PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version);
     if (latest > current) {
