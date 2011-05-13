@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-13 16:58+0200\n"
+"PO-Revision-Date: 2011-05-13 17:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3626,7 +3626,7 @@ msgstr "භාවිතා කල යුතු PHP දිගුව"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Regular expression (PCRE) හා ගැළපෙන දත්තගබඩා සඟවන්න"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
