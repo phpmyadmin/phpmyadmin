@@ -71,7 +71,7 @@ function PMA_getString($name)
 function PMA_pluginCheckboxCheck($section, $opt)
 {
     // If the form is being repopulated using $_GET data, that is priority
-    if (isset($_GET[$opt]) || !isset($_GET['repopulate']) && ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) ||
+    if (isset($_GET[$opt]) || ! isset($_GET['repopulate']) && ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) ||
         (isset($GLOBALS['cfg'][$section][$opt]) && $GLOBALS['cfg'][$section][$opt]))) {
         return ' checked="checked"';
     }
@@ -160,7 +160,7 @@ function PMA_pluginIsActive($section, $opt, $val)
  */
 function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
 {
-    if (!isset($cfgname)) {
+    if (! isset($cfgname)) {
         $cfgname = $name;
     }
     $ret = '<select id="plugins" name="' . $name . '">';
@@ -168,7 +168,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
     foreach ($list as $plugin_name => $val) {
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
-        if(isset($_GET[$name]) && $plugin_name == $_GET[$name] || !isset($_GET[$name]) && $plugin_name == $default) {
+        if(isset($_GET[$name]) && $plugin_name == $_GET[$name] || ! isset($_GET[$name]) && $plugin_name == $default) {
             $ret .= ' selected="selected"';
         }
          $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option>' . "\n";

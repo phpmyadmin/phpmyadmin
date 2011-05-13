@@ -1091,7 +1091,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
     }
 
-    if (!is_array($map)) {
+    if (! is_array($map)) {
         $map = array();
     }
     $row_no                         = 0;
@@ -1272,7 +1272,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $condition_field = false;
             }
 
-            if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical' && (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1'))) {
+            if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical' && (! isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1'))) {
                 // the row number corresponds to a data row, not HTML table row
                 $class .= ' row_' . $row_no;
                 if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
@@ -1328,7 +1328,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       will show both fields NULL even if only one is NULL,
                 //       so use the $pointer
 
-                if (!isset($row[$i]) || is_null($row[$i])) {
+                if (! isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                 } elseif ($row[$i] != '') {
 
@@ -1351,7 +1351,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $class = str_replace('inline_edit', '', $class);
 
                 if (stristr($field_flags, 'BINARY')) {
-                    if (!isset($row[$i]) || is_null($row[$i])) {
+                    if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } else {
                         // for blobstreaming
@@ -1367,7 +1367,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     }
                 // not binary:
                 } else {
-                    if (!isset($row[$i]) || is_null($row[$i])) {
+                    if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } elseif ($row[$i] != '') {
                         // if a transform function for blob is set, none of these replacements will be made
@@ -1395,7 +1395,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
-                if (!isset($row[$i]) || is_null($row[$i])) {
+                if (! isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                 } elseif ($row[$i] != '') {
                     // support blanks in the key
@@ -1477,7 +1477,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 4. Gather links of del_urls and edit_urls in an array for later
         //    output
-        if (!isset($vertical_display['edit'][$row_no])) {
+        if (! isset($vertical_display['edit'][$row_no])) {
             $vertical_display['edit'][$row_no]       = '';
             $vertical_display['copy'][$row_no]       = '';
             $vertical_display['delete'][$row_no]     = '';
@@ -1563,7 +1563,7 @@ function PMA_displayVerticalTable()
     // Displays "edit" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1581,7 +1581,7 @@ function PMA_displayVerticalTable()
     // Displays "copy" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1599,7 +1599,7 @@ function PMA_displayVerticalTable()
     // Displays "delete" link at top if required
     if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1652,7 +1652,7 @@ function PMA_displayVerticalTable()
     // Displays "edit" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1670,7 +1670,7 @@ function PMA_displayVerticalTable()
     // Displays "copy" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -1688,7 +1688,7 @@ function PMA_displayVerticalTable()
     // Displays "delete" link at bottom if required
     if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
-        if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
+        if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
@@ -2070,7 +2070,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         PMA_showMessage($message, $sql_query, 'success');
 
-    } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+    } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_showMessage(__('Your SQL query has been executed successfully'), $sql_query, 'success');
     }
 
@@ -2090,7 +2090,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     if ($is_display['nav_bar'] == '1') {
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'top_direction_dropdown');
         echo "\n";
-    } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+    } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
     }
 
@@ -2212,12 +2212,12 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     if ($is_display['nav_bar'] == '1') {
         echo '<br />' . "\n";
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'bottom_direction_dropdown');
-    } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+    } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
     }
 
     // 6. ----- Displays "Query results operations"
-    if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+    if (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
     }
 } // end of the 'PMA_displayTable()' function
@@ -2298,8 +2298,8 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     // If the parser found a PROCEDURE clause
     // (most probably PROCEDURE ANALYSE()) it makes no sense to
     // display the Export link).
-    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview) && ! isset($analyzed_sql[0]['queryflags']['procedure'])) {
-        if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
+    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && ! isset($printview) && ! isset($analyzed_sql[0]['queryflags']['procedure'])) {
+        if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && ! isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
             $_url_params['single_table'] = 'true';
         }
         if (!$header_shown) {

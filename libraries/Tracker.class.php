@@ -465,6 +465,51 @@ class PMA_Tracker
     }
 
     /**
+     * Changes tracking data of a table.
+     *
+     * @static
+     *
+     * @param  string $dbname       name of database
+     * @param  string $tablename    name of table
+     * @param  string $version      version
+     * @param  string $type      	type of data(DDL || DML)
+     * @param  string || array $new_data   the new tracking data
+     *
+     * @return bool result of change
+     */
+    static public function changeTrackingData($dbname, $tablename, $version, $type, $new_data)
+    {
+        if ($type == 'DDL')
+            $save_to = 'schema_sql';
+        elseif ($type == 'DML')
+            $save_to = 'data_sql';
+        else
+            return false;
+        
+        $date  = date('Y-m-d H:i:s');
+
+        $new_data_processed = '';
+        if (is_array($new_data)) {
+            foreach ($new_data as $data) {
+                $new_data_processed .= '# log ' . $date . ' ' . $data['username'] . PMA_sqlAddslashes($data['statement']) . "\n";
+            }
+        } else {
+            $new_data_processed = $new_data;
+        }
+
+        $sql_query =
+        " UPDATE " . self::$pma_table .
+        " SET `" . $save_to . "` = '" . $new_data_processed . "' " .
+        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' " .
+        " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
+
+        $result = PMA_query_as_controluser($sql_query);
+
+        return $result;
+    }
+
+    /**
      * Activates tracking of a table.
      *
      * @static

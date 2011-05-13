@@ -22,6 +22,10 @@ if (!file_exists("./setup/frames/$page.inc.php")) {
     die('Wrong GET file attribute value');
 }
 
+// Handle done action info
+$action_done = filter_input(INPUT_GET, 'action_done');
+$action_done = preg_replace('/[^a-z_]/', '', $action_done);
+
 // send no-cache headers
 require './libraries/header_http.inc.php';
 ?>

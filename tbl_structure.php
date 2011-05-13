@@ -337,7 +337,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     }
 
 
-    if (!isset($row['Default'])) {
+    if (! isset($row['Default'])) {
         if ($row['Null'] == 'YES') {
             $row['Default'] = '<i>NULL</i>';
         }

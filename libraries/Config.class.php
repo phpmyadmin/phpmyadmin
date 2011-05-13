@@ -96,7 +96,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '3.4.0-rc3-dev');
+        $this->set('PMA_VERSION', '3.5.0-dev');
         /**
          * @deprecated
          */
@@ -148,7 +148,7 @@ class PMA_Config
     {
         if (PMA_getenv('HTTP_USER_AGENT')) {
             $HTTP_USER_AGENT = PMA_getenv('HTTP_USER_AGENT');
-        } elseif (!isset($HTTP_USER_AGENT)) {
+        } elseif (! isset($HTTP_USER_AGENT)) {
             $HTTP_USER_AGENT = '';
         }
 
@@ -441,7 +441,7 @@ class PMA_Config
         if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
             // cache user preferences, use database only when needed
-            if (!isset($_SESSION['cache'][$cache_key]['userprefs'])
+            if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                     || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime) {
                 // load required libraries
                 require_once './libraries/user_preferences.lib.php';
@@ -451,7 +451,7 @@ class PMA_Config
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
             }
-        } else if ($server == 0 || !isset($_SESSION['cache'][$cache_key]['userprefs'])) {
+        } else if ($server == 0 || ! isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             $this->set('user_preferences', false);
             return;
         }
@@ -476,7 +476,7 @@ class PMA_Config
         // save theme
         $tmanager = $_SESSION['PMA_Theme_Manager'];
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
-            if ((!isset($config_data['ThemeDefault']) && $tmanager->theme->getId() != 'original')
+            if ((! isset($config_data['ThemeDefault']) && $tmanager->theme->getId() != 'original')
                     || isset($config_data['ThemeDefault']) && $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
                 // new theme was set in common.inc.php
                 $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->getId(), 'original');
@@ -491,14 +491,14 @@ class PMA_Config
         }
 
         // save font size
-        if ((!isset($config_data['fontsize']) && $org_fontsize != '82%')
+        if ((! isset($config_data['fontsize']) && $org_fontsize != '82%')
                 || isset($config_data['fontsize']) && $org_fontsize != $config_data['fontsize']) {
             $this->setUserValue(null, 'fontsize', $org_fontsize, '82%');
         }
 
         // save language
         if (isset($_COOKIE['pma_lang']) || isset($_POST['lang'])) {
-            if ((!isset($config_data['lang']) && $GLOBALS['lang'] != 'en')
+            if ((! isset($config_data['lang']) && $GLOBALS['lang'] != 'en')
                     || isset($config_data['lang']) && $GLOBALS['lang'] != $config_data['lang']) {
                 $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
             }
@@ -511,7 +511,7 @@ class PMA_Config
 
         // save connection collation
         if (isset($_COOKIE['pma_collation_connection']) || isset($_POST['collation_connection'])) {
-            if ((!isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != 'utf8_general_ci')
+            if ((! isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != 'utf8_general_ci')
                     || isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != $config_data['collation_connection']) {
                 $this->setUserValue(null, 'collation_connection', $GLOBALS['collation_connection'], 'utf8_general_ci');
             }
@@ -678,7 +678,7 @@ class PMA_Config
      */
     function set($setting, $value)
     {
-        if (!isset($this->settings[$setting]) || $this->settings[$setting] != $value) {
+        if (! isset($this->settings[$setting]) || $this->settings[$setting] != $value) {
             $this->settings[$setting] = $value;
             $this->set_mtime = time();
         }

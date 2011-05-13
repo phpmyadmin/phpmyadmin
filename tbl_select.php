@@ -36,7 +36,7 @@ if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
 /**
  * Not selection yet required -> displays the selection form
  */
-if (!isset($param) || $param[0] == '') {
+if (! isset($param) || $param[0] == '') {
     // Gets some core libraries
     require_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -52,7 +52,7 @@ if (!isset($param) || $param[0] == '') {
      */
     require_once './libraries/tbl_links.inc.php';
 
-    if (!isset($goto)) {
+    if (! isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
     }
     // Defines the url to return to in case of error in the next sql statement
@@ -336,7 +336,7 @@ else {
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
-                    if (!is_array($fields[$i])) {
+                    if (! is_array($fields[$i])) {
                         $fields[$i] = explode(',', $fields[$i]);
                     }
                     $enum_selected_count = count($fields[$i]);

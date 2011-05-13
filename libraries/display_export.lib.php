@@ -65,7 +65,7 @@ echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' .
 // If the export method was not set, the default is quick
 if(isset($_GET['export_method'])) {
     $cfg['Export']['method'] = $_GET['export_method'];
-} elseif(!isset($cfg['Export']['method'])) {
+} elseif(! isset($cfg['Export']['method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)

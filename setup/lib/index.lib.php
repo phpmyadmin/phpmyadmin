@@ -18,7 +18,7 @@ if (!defined('PHPMYADMIN')) {
  */
 function messages_begin()
 {
-    if (!isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
+    if (! isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
         $_SESSION['messages'] = array('error' => array(), 'notice' => array());
     } else {
         // reset message states
@@ -41,7 +41,7 @@ function messages_begin()
  */
 function messages_set($type, $id, $title, $message)
 {
-    $fresh = !isset($_SESSION['messages'][$type][$id]);
+    $fresh = ! isset($_SESSION['messages'][$type][$id]);
     $_SESSION['messages'][$type][$id] = array(
         'fresh' => $fresh,
         'active' => true,

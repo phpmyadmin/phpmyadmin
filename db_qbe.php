@@ -18,26 +18,29 @@ $cfgRelation = PMA_getRelationsParam();
 
 
 /**
- * A query has been submitted -> execute it, else display the headers
+ * A query has been submitted -> (maybe) execute it
  */
+$message_to_display = false;
 if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
-    $goto      = 'db_sql.php';
-    $message_to_show = htmlspecialchars(__('Your SQL query has been executed successfully'));
-    require './sql.php';
-    exit;
-} else {
-    $sub_part  = '_qbe';
-    require './libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=db_qbe.php';
-    $url_params['goto'] = 'db_qbe.php';
-    require './libraries/db_info.inc.php';
+    if (! preg_match('@^SELECT@i', $sql_query)) {
+        $message_to_display = true;
+    } else {
+        $goto      = 'db_sql.php';
+        require './sql.php';
+        exit;
+    }
 }
 
-if (isset($_REQUEST['submit_sql'])
- && ! preg_match('@^SELECT@i', $sql_query)) {
+$sub_part  = '_qbe';
+require './libraries/db_common.inc.php';
+$url_query .= '&amp;goto=db_qbe.php';
+$url_params['goto'] = 'db_qbe.php';
+require './libraries/db_info.inc.php';
+
+if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display'))->display();
 }
-
+unset($message_to_display);
 
 /**
  * Initialize some variables
@@ -336,7 +339,7 @@ for ($x = 0; $x < $col; $x++) {
     if (isset($criteria[$x])) {
         $tmp_criteria = $criteria[$x];
     }
-    if ((empty($prev_criteria) || !isset($prev_criteria[$x]))
+    if ((empty($prev_criteria) || ! isset($prev_criteria[$x]))
         || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)) {
         $curCriteria[$z]   = $tmp_criteria;
     } else {
@@ -494,7 +497,7 @@ for ($y = 0; $y <= $row; $y++) {
 
         echo "\n";
         $or = 'Or' . $y;
-        if (!isset(${$or})) {
+        if (! isset(${$or})) {
             ${$or} = '';
         }
         if (!empty(${$or}) && isset(${$or}[$x])) {
@@ -664,7 +667,7 @@ foreach ($tbl_names as $key => $val) {
 <?php
 // 1. SELECT
 $last_select = 0;
-if (!isset($qry_select)) {
+if (! isset($qry_select)) {
     $qry_select         = '';
 }
 for ($x = 0; $x < $col; $x++) {
@@ -889,7 +892,7 @@ if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
 // OR rows ${'cur' . $or}[$x]
-if (!isset($curAndOrRow)) {
+if (! isset($curAndOrRow)) {
     $curAndOrRow          = array();
 }
 for ($y = 0; $y <= $row; $y++) {
@@ -926,7 +929,7 @@ if (!empty($qry_where) && $qry_where != '()') {
 
 // 4. ORDER BY
 $last_orderby = 0;
-if (!isset($qry_orderby)) {
+if (! isset($qry_orderby)) {
     $qry_orderby      = '';
 }
 for ($x = 0; $x < $col; $x++) {

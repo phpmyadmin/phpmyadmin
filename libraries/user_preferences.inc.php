@@ -15,7 +15,7 @@ require './libraries/server_links.inc.php';
 // build user preferences menu
 
 $form_param = filter_input(INPUT_GET, 'form');
-if (!isset($forms[$form_param])) {
+if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
 }
@@ -64,7 +64,7 @@ $msg->display();
 
 // warn about using session storage for settings
 $cfgRelation = PMA_getRelationsParam();
-if (!$cfgRelation['userconfigwork']) {
+if (! $cfgRelation['userconfigwork']) {
     $msg = __('Your preferences will be saved for current session only. Storing them permanently requires %sphpMyAdmin configuration storage%s.');
     $msg = PMA_sanitize(sprintf($msg, '[a@./Documentation.html#linked-tables@_blank]', '[/a]'));
     PMA_Message::notice($msg)->display();
