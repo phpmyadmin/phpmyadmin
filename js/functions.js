@@ -97,7 +97,7 @@ function PMA_current_version() {
         var message = $.sprintf(PMA_messages['strNewerVersion'], PMA_latest_version, PMA_latest_date);
         if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
             /* Security update */
-            klass = 'warning';
+            klass = 'error';
         } else {
             klass = 'notice';
         }
