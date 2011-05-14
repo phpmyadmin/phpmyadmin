@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 09:51+0200\n"
+"PO-Revision-Date: 2011-05-14 09:52+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -943,7 +943,7 @@ msgstr "您將會刪除整個資料庫!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "終止事件中"
 
 #: js/messages.php:33
 #, fuzzy
