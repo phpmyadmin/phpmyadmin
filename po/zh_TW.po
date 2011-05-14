@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 09:35+0200\n"
+"PO-Revision-Date: 2011-05-14 09:37+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -813,7 +813,7 @@ msgstr "輸出"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "複製並貼上結合數值至\"Length/Values\"欄位"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
