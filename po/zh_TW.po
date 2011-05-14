@@ -1087,9 +1087,8 @@ msgid "Searching"
 msgstr "搜索"
 
 #: js/messages.php:86
-#, fuzzy
 msgid "Hide query box"
-msgstr "SQL 語法"
+msgstr "隱藏查詢框"
 
 #: js/messages.php:87
 #, fuzzy
