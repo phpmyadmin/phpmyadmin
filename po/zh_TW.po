@@ -1127,7 +1127,7 @@ msgstr "忽略"
 
 #: js/messages.php:100
 msgid "Select referenced key"
-msgstr ""
+msgstr "選擇參考鍵值"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
