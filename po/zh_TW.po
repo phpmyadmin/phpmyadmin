@@ -1147,7 +1147,6 @@ msgid "Add an option for column "
 msgstr "增加一個欄位選項"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "產生密碼"
