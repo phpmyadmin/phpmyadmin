@@ -1117,9 +1117,8 @@ msgid "Hide search criteria"
 msgstr "隱藏搜尋準則"
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Show search criteria"
-msgstr "SQL 語法"
+msgstr "顯示搜尋準則"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
