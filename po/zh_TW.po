@@ -1030,10 +1030,9 @@ msgid "Loading"
 msgstr "載入中"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "處理"
+msgstr "要求處理中"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
