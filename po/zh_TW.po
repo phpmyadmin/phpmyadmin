@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 10:23+0200\n"
+"PO-Revision-Date: 2011-05-14 10:24+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1144,7 +1144,7 @@ msgstr "選擇顯示之欄位"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "增加一個欄位選項"
 
 #: js/messages.php:109
 #, fuzzy
