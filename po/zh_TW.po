@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 10:20+0200\n"
+"PO-Revision-Date: 2011-05-14 10:21+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1113,9 +1113,8 @@ msgid "Hide"
 msgstr ""
 
 #: js/messages.php:93
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "SQL 語法"
+msgstr "隱藏搜尋準則"
 
 #: js/messages.php:94
 #, fuzzy
