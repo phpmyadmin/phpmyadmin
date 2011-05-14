@@ -9836,7 +9836,7 @@ msgstr "不支援款式功能, 請查看設定案及儲存款式檔案的資料�
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "取得更多佈景主題！"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
