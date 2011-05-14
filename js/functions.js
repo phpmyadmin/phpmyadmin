@@ -743,19 +743,19 @@ function insertQuery(queryType) {
             valDis += "[value-" + NbSelect + "]";
             editDis += myListBox.options[i].value + "=[value-" + NbSelect + "]";
         }
-    if (queryType == "selectall") {
-        query = "SELECT * FROM `" + table + "` WHERE 1";
-    } else if (queryType == "select") {
-        query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
-    } else if (queryType == "insert") {
-           query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
-    } else if (queryType == "update") {
-        query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
-    } else if(queryType == "delete") {
-        query = "DELETE FROM `" + table + "` WHERE 1";
-    }
-    document.sqlform.sql_query.value = query;
-    sql_box_locked = false;
+        if (queryType == "selectall") {
+            query = "SELECT * FROM `" + table + "` WHERE 1";
+        } else if (queryType == "select") {
+            query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
+        } else if (queryType == "insert") {
+               query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
+        } else if (queryType == "update") {
+            query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
+        } else if(queryType == "delete") {
+            query = "DELETE FROM `" + table + "` WHERE 1";
+        }
+        document.sqlform.sql_query.value = query;
+        sql_box_locked = false;
     }
 }
 
