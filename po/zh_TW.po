@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 09:29+0200\n"
+"PO-Revision-Date: 2011-05-14 09:30+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -613,7 +613,7 @@ msgstr "追蹤已啟用"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "追蹤未啟用"
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2037
 #, php-format
