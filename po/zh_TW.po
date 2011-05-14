@@ -1053,7 +1053,6 @@ msgid "OK"
 msgstr "確定"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "更改資料庫名稱到"
