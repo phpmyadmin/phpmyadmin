@@ -1006,9 +1006,8 @@ msgid "Create User"
 msgstr "製造使用者"
 
 #: js/messages.php:54
-#, fuzzy
 msgid "Reloading Privileges"
-msgstr "整體權限"
+msgstr "重新載入權限"
 
 #: js/messages.php:55
 #, fuzzy
