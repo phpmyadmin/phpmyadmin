@@ -1010,7 +1010,6 @@ msgid "Reloading Privileges"
 msgstr "重新載入權限"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "移除已選擇使用者"
