@@ -1026,9 +1026,8 @@ msgid "Cancel"
 msgstr "取消"
 
 #: js/messages.php:63
-#, fuzzy
 msgid "Loading"
-msgstr "本地"
+msgstr "載入中"
 
 #: js/messages.php:64
 #, fuzzy
