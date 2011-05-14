@@ -4,6 +4,7 @@
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
 + "up to date" message on main page when current version is up to date
++ Update to jQuery 1.6.1
 
 3.4.1.0 (not yet released)
 - bug #3301108 [interface] Synchronize and already configured host
