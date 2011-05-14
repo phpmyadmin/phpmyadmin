@@ -789,9 +789,8 @@ msgid "Track table"
 msgstr "檢查資料表"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "資料庫"
+msgstr "資料庫紀錄"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
