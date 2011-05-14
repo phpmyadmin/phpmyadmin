@@ -1078,9 +1078,8 @@ msgid "Table must have at least one column"
 msgstr "資料表最少需要有一個欄位"
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
-msgstr "建立新一頁"
+msgstr "建立新資料表"
 
 #: js/messages.php:81
 #, fuzzy
