@@ -1095,10 +1095,9 @@ msgid "Show query box"
 msgstr "顯示查詢框"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "引擎"
+msgstr "行中編輯"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
