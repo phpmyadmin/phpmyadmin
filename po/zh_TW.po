@@ -1063,10 +1063,9 @@ msgid "Reload Database"
 msgstr "重新載入資料庫"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "複製資料庫到"
+msgstr "複製資料庫"
 
 #: js/messages.php:74
 #, fuzzy
