@@ -9739,7 +9739,7 @@ msgstr "SQL語句已匯出，請複製或執行此dump"
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "版本 %s 快照 (SQL碼)"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
