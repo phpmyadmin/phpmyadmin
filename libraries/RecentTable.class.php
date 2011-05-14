@@ -141,8 +141,12 @@ class RecentTable
     public function getHtmlSelectOption()
     {
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
-        foreach ($this->tables as $table) {
-            $html .= '<option value="' . $table . '">' . $table . '</option>';
+        if (count($this->tables)) {
+            foreach ($this->tables as $table) {
+                $html .= '<option value="' . $table . '">' . $table . '</option>';
+            }
+        } else {
+            $html .= '<option value="">' . __('There are no recent tables') . '</option>';
         }
         return $html;
     }
