@@ -1040,7 +1040,7 @@ msgstr "要求處理中有錯誤"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr "丟棄行段"
+msgstr "丟棄欄位"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
