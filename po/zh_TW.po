@@ -1082,7 +1082,6 @@ msgid "Create Table"
 msgstr "建立資料表"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "搜索"
