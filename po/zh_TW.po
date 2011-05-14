@@ -943,7 +943,7 @@ msgstr "您將會刪除整個資料庫!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr "終止事件中"
+msgstr "丟棄事件中"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
