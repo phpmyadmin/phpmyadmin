@@ -1002,9 +1002,8 @@ msgid "Add a New User"
 msgstr "新增使用者"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
-msgstr "伺服器版本"
+msgstr "製造使用者"
 
 #: js/messages.php:54
 #, fuzzy
