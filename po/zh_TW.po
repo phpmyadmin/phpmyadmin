@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 10:35+0200\n"
+"PO-Revision-Date: 2011-05-14 10:36+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -9764,7 +9764,7 @@ msgstr "資料模擬語句"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL 轉儲 (檔案下載)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
