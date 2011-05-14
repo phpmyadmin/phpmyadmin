@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 10:08+0200\n"
+"PO-Revision-Date: 2011-05-14 10:09+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1019,7 +1019,7 @@ msgstr "移除已選擇使用者"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
