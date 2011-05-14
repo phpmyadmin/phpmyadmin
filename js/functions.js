@@ -753,8 +753,6 @@ function insertQuery(queryType) {
         query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
     } else if(queryType == "delete") {
         query = "DELETE FROM `" + table + "` WHERE 1";
-    } else if(queryType == "clear") {
-        query = '';
     }
     document.sqlform.sql_query.value = query;
     sql_box_locked = false;
@@ -1145,7 +1143,11 @@ $(document).ready(function(){
     });
 
     $('.sqlbutton').click(function(evt){
-        insertQuery(evt.target.id);
+        if (evt.target.id == 'clear') {
+            $('#sqlquery').val('');
+        } else {
+            insertQuery(evt.target.id);
+        }
         return false;
     });
 
