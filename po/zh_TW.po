@@ -1073,10 +1073,9 @@ msgid "Changing Charset"
 msgstr "更改文字編碼"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "資料表最少需要有一個欄位."
+msgstr "資料表最少需要有一個欄位"
 
 #: js/messages.php:76
 #, fuzzy
