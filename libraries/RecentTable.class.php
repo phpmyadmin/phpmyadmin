@@ -140,6 +140,11 @@ class RecentTable
      */
     public function getHtmlSelectOption()
     {
+        // trim and save, in case where the configuration is changed
+        if ($this->trim() && isset($this->pma_table)) {
+            $this->saveToDb();
+        }
+
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
@@ -158,11 +163,6 @@ class RecentTable
      */
     public function getHtmlSelect()
     {
-        // trim and save, in case where the configuration is changed
-        if ($this->trim() && isset($this->pma_table)) {
-            $this->saveToDb();
-        }
-
         $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
         $html .= '<select id="recentTable">';
