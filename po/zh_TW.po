@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-14 10:12+0200\n"
+"PO-Revision-Date: 2011-05-14 10:15+0200\n"
 "Last-Translator:  <thsiao@yahoo.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1044,7 +1044,7 @@ msgstr "丟棄行段"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "增加主鍵值"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
