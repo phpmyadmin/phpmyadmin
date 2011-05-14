@@ -815,7 +815,7 @@ msgstr "複製並貼上結合數值至\"Length/Values\"欄位"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "選擇匯出模式必須存入檔案"
+msgstr "選擇匯出模式必須存入檔案!"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
