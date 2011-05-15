@@ -118,10 +118,16 @@ function appendInlineAnchor() {
                  .first()
                  .prepend($img_object);
             } else {
+                // Only text is displayed. See $cfg['PropertiesIconic']
+                $cloned_anchor.find('a').attr('href', '#');
+                $cloned_anchor.find('a span').text(PMA_messages['strInlineEdit']);
+
                 // the link was too big so <input type="image"> is there
                 $img_object = $cloned_anchor.find('input:image').attr('title', PMA_messages['strInlineEdit']);
-                var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
-                $img_object.attr('src', img_src);
+                if ($img_object.length > 0) {
+                    var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
+                    $img_object.attr('src', img_src);
+                }
                 $cloned_anchor
                  .find('.clickprevimage')
                  .text(' ' + PMA_messages['strInlineEdit']);
