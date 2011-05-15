@@ -86,6 +86,9 @@ $js_messages['strShowSearchResults'] = __('Show search results');
 //$js_messages['strBrowsing'] = __('Browsing');
 //$js_messages['strDeleting'] = __('Deleting');
 
+/* For import.js */
+$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
+
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
