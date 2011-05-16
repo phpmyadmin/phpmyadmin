@@ -8695,9 +8695,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "Покажи цвят"
+msgstr "Показване формуляр"
 
 #: setup/lib/index.lib.php:119
 msgid ""
