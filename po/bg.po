@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 21:28+0200\n"
+"PO-Revision-Date: 2011-05-16 21:29+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1925,7 +1925,7 @@ msgstr "Сървър"
 
 #: libraries/common.inc.php:821
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
 #: libraries/common.inc.php:924
 #, php-format
