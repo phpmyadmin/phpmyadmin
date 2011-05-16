@@ -4210,7 +4210,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
 msgid "Database export options"
-msgstr "Опции за експортиране на база от данни"
+msgstr "Опции за експорт на БД"
 
 #: libraries/config/setup.forms.php:320
 #: libraries/config/user_preferences.forms.php:222
