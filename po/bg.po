@@ -6196,7 +6196,7 @@ msgstr "Изпълняване на SQL заявка/заявки на сърв�
 #: libraries/sql_query_form.lib.php:241 libraries/sql_query_form.lib.php:265
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Изпълнение на SQL заявка/заявки към база от данни %s"
+msgstr "Изпълнение на SQL заявка/заявки към БД %s"
 
 #: libraries/sql_query_form.lib.php:297 navigation.php:276
 #: setup/frames/index.inc.php:231
