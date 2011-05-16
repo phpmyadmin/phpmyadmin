@@ -122,7 +122,7 @@ msgstr "БД %1$s беше създадена."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr "Коментар към базата от данни: "
+msgstr "Коментар към БД: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:363
