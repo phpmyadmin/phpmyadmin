@@ -1916,7 +1916,6 @@ msgid "Overhead"
 msgstr "Naviac"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Prejsť do databázy"
