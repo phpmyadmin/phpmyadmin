@@ -6363,7 +6363,7 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Няма Описание за тази трансформация.<br />Моля обърнете се към автора, "
+"Няма описание за тази трансформация.<br />Моля обърнете се към автора, "
 "относно това какво прави %s."
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
