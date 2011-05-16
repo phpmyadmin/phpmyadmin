@@ -8017,9 +8017,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:99
-#, fuzzy
 msgid "The number of pages read."
-msgstr "Брой на сортираните редове."
+msgstr ""
 
 #: server_status.php:100
 #, fuzzy
