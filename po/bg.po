@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:57+0200\n"
+"PO-Revision-Date: 2011-05-16 15:58+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6806,10 +6806,9 @@ msgid "subquery"
 msgstr "подзаявка"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
-msgstr "Преименуване на изгледа на"
+msgstr "Преименуване на"
 
 #: pmd_general.php:482 pmd_general.php:581
 #, fuzzy
