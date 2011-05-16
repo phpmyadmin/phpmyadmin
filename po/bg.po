@@ -284,7 +284,7 @@ msgstr "Изтриване БД"
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Базата данни %s беше изтрита."
+msgstr "БД %s беше изтрита."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
