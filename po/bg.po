@@ -1311,7 +1311,7 @@ msgstr "сряда"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "четвъртък"
 
 #: js/messages.php:191
 msgid "Friday"
