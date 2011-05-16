@@ -1184,7 +1184,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('User name'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" <?php echo $possibly_readonly; ?>/></td>
+        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Password'); ?></td>
