@@ -1732,7 +1732,7 @@ msgstr "Преглед изображение"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Просвирване аудио"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
