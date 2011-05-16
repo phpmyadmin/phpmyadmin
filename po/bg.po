@@ -1075,7 +1075,7 @@ msgstr "Търсене"
 
 #: js/messages.php:86
 msgid "Hide query box"
-msgstr ""
+msgstr "Скриване формата за заявки"
 
 #: js/messages.php:87
 msgid "Show query box"
