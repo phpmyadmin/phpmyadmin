@@ -4502,7 +4502,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
-msgstr "Импортиране в текущия сървър"
+msgstr "Импорт в текущия сървър"
 
 #: libraries/display_import.lib.php:131
 #, php-format
