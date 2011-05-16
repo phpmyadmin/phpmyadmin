@@ -4471,7 +4471,7 @@ msgstr ", @DATABASE@ ще стане името на базата от данн�
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ ще стане името на таблицата"
 
 #: libraries/display_export.lib.php:237
 #, php-format
