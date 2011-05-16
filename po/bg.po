@@ -7647,7 +7647,7 @@ msgstr ""
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr "Изберете база данни:"
+msgstr "Изберете БД:"
 
 #: server_replication.php:226
 msgid ""
