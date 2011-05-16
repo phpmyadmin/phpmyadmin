@@ -4703,7 +4703,7 @@ msgstr "Редът беше изтрит"
 #: libraries/display_tbl.lib.php:1242 libraries/display_tbl.lib.php:2153
 #: server_processlist.php:92
 msgid "Kill"
-msgstr "СТОП"
+msgstr "Убиване"
 
 #: libraries/display_tbl.lib.php:2027
 msgid "in query"
