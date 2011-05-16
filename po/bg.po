@@ -1025,7 +1025,7 @@ msgstr "Зареждане"
 
 #: js/messages.php:64
 msgid "Processing Request"
-msgstr ""
+msgstr "Обработка на заявката"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
