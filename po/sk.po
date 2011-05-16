@@ -1926,10 +1926,9 @@ msgid "Not replicated"
 msgstr "Nie je replikované"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replikácia"
+msgstr "Replikované"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
