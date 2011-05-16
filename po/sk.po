@@ -2142,7 +2142,7 @@ msgstr "PiB"
 
 #: libraries/common.lib.php:1393
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1431
