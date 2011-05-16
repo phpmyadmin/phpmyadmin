@@ -288,7 +288,7 @@ msgstr "БД %s беше изтрита."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
-msgstr "Изтриване на база данни (DROP)"
+msgstr "Изтриване на БД (DROP)"
 
 #: db_operations.php:487
 msgid "Copy database to"
