@@ -1,6 +1,7 @@
 $(function() {
     var textFilter=null;
     var alertFilter = false;
+    var odd_row=false;
     
     // Filter options are invisible for disabled js users
     $('#serverstatusvars fieldset').css('display','');
@@ -25,12 +26,23 @@ $(function() {
     });
     
     function filterVariables() {
+        odd_row=false;
         $('#serverstatusvariables th.name').each(function() {
+            
             if((textFilter==null || textFilter.exec($(this).text()))
-                && (!alertFilter || $(this).next().find('span.attention').length>0))
+                && (!alertFilter || $(this).next().find('span.attention').length>0)) {
+                odd_row = !odd_row;                    
                 $(this).parent().css('display','');
-            else
+                if(odd_row) {
+                    $(this).parent().addClass('odd');
+                    $(this).parent().removeClass('even');
+                } else {
+                    $(this).parent().addClass('even');
+                    $(this).parent().removeClass('odd');
+                }
+            } else {
                 $(this).parent().css('display','none');
+            }
         });
     }
 });

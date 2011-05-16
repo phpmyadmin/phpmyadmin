@@ -26,6 +26,7 @@ require_once './libraries/chart.lib.php';
  */
 if (isset($_REQUEST["query_chart_ajax"])) {
     $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com_%'", 0, 1);
+	arsort($com_vars);
     // remove all zero values from the end
     // variable empty for Drizzle
     if ($com_vars) {
