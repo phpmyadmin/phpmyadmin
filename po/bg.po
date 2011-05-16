@@ -736,7 +736,7 @@ msgstr "Следени таблици"
 #: server_synchronize.php:1194 server_synchronize.php:1198
 #: tbl_tracking.php:642 test/theme.php:64
 msgid "Database"
-msgstr "База данни"
+msgstr "БД"
 
 #: db_tracking.php:86
 msgid "Last version"
