@@ -9183,9 +9183,8 @@ msgid "Delete the table (DROP)"
 msgstr "Изтриване на таблица (DROP)"
 
 #: tbl_operations.php:734
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Поддръжка на таблицата"
+msgstr ""
 
 #: tbl_operations.php:742
 #, php-format
