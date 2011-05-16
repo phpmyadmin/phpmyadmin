@@ -7561,7 +7561,7 @@ msgstr "глобален"
 
 #: server_privileges.php:2256
 msgid "database-specific"
-msgstr "специфични за базата от данни"
+msgstr "специфични за БД"
 
 #: server_privileges.php:2258
 msgid "wildcard"
