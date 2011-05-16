@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 10:00+0200\n"
+"PO-Revision-Date: 2011-05-16 10:01+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -601,7 +601,7 @@ msgstr "Таблицата %s беше изтрита"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Проследяването е активно."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
