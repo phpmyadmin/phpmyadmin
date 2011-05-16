@@ -112,6 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Файлът %s не е наличен в системата, посетете www.phpmyadmin.net за повече "
+"информация."
 
 #: db_create.php:58
 #, php-format
@@ -413,7 +415,7 @@ msgstr "Превключване към"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "строител"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:852
@@ -534,7 +536,7 @@ msgstr "Прелистване"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Изтриване на съвпаденията от таблицата %s?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1223
 #: libraries/display_tbl.lib.php:2153
@@ -599,11 +601,11 @@ msgstr "Таблицата %s беше изтрита"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Проследяването е активно."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Проследяването е неактивно."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2037
 #, php-format
@@ -705,7 +707,7 @@ msgstr "Речник на данните"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Следени таблици."
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:481
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -747,7 +749,7 @@ msgstr "Действие"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Изтриване на проследената информация за таблицата"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 msgid "active"
@@ -763,20 +765,20 @@ msgstr "Версии"
 
 #: db_tracking.php:135 tbl_tracking.php:373 tbl_tracking.php:619
 msgid "Tracking report"
-msgstr ""
+msgstr "Доклад за следенето"
 
 #: db_tracking.php:136 tbl_tracking.php:245 tbl_tracking.php:619
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Моментна снимка на структурата"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "Непроследявани таблици"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:622
 #: tbl_structure.php:624
 msgid "Track table"
-msgstr ""
+msgstr "Следене на таблица"
 
 #: db_tracking.php:229
 msgid "Database Log"
@@ -797,7 +799,7 @@ msgstr ""
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Изход"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -872,7 +874,7 @@ msgstr "Показалецът беше изтрит."
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Показване на белязка"
 
 #: import.php:402 sql.php:884
 #, php-format
@@ -919,11 +921,11 @@ msgstr ""
 #: server_synchronize.php:738 server_synchronize.php:766
 #: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
-msgstr ""
+msgstr "Щракване за избор"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Щракване за отмяна на избора"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -947,11 +949,11 @@ msgstr "Изтриване на процедура"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "Изтриване информацията за следене"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Изтриване на първичен ключ/индекс"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1009,13 +1011,13 @@ msgstr "Изтриване на маркираните потребители"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Затваряне"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "Отмяна"
 
 #: js/messages.php:63
 msgid "Loading"
@@ -1023,19 +1025,19 @@ msgstr "Зареждане"
 
 #: js/messages.php:64
 msgid "Processing Request"
-msgstr ""
+msgstr "Обработка на заявката"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Грешка при обработка на заявката"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "Изтриване на колона"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Добавяне на първичен ключ"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
@@ -1073,15 +1075,15 @@ msgstr "Търсене"
 
 #: js/messages.php:86
 msgid "Hide query box"
-msgstr ""
+msgstr "Скриване формата за заявки"
 
 #: js/messages.php:87
 msgid "Show query box"
-msgstr ""
+msgstr "Показване формата за заявки"
 
 #: js/messages.php:88
 msgid "Inline Edit"
-msgstr ""
+msgstr "Бърза редакция"
 
 #: js/messages.php:89 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
@@ -1094,7 +1096,7 @@ msgstr "Записване"
 #: js/messages.php:90 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr ""
+msgstr "Скриване"
 
 #: js/messages.php:93
 msgid "Hide search criteria"

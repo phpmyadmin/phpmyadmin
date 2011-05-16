@@ -2486,11 +2486,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "තොරතුරු, අනතුරු ඇඟවීම් හා දෝෂ පිළිබඳ පණිවිඩ සඳහා අයිකන භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "icon සහිත දෝෂ"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
@@ -3256,11 +3256,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "ලොගින් කුකියේ වලංගු කාලය (තත්පර වලින්) සඳහන් කරන්න"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr ""
+msgstr "ලොගින් කුකියේ වලංගුතාවය"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
@@ -3289,7 +3289,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
+msgstr "යාත්‍රණ රාමුවේ හා දත්තගබඩා ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු දත්තගබඩා ගණන"
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum databases"
@@ -3308,11 +3308,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "වගු ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු වගු ගණන"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
-msgstr ""
+msgstr "උපරිම වගු"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
@@ -3476,7 +3476,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "උදවු බොත්තම පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
@@ -3626,7 +3626,7 @@ msgstr "භාවිතා කල යුතු PHP දිගුව"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Regular expression (PCRE) හා ගැළපෙන දත්තගබඩා සඟවන්න"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases"
@@ -3674,7 +3674,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
-msgstr ""
+msgstr "සඳහන් දත්තගබඩා පමණක් පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
@@ -4138,7 +4138,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "phpMyAdmin ප්‍රධාන පිටුවේ නවතම අනුවාදය සඳහා පරීක්ෂාව සක්‍රීය කරන්න "
 
 #: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
@@ -4146,7 +4146,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "අනුවාද පරීක්ෂාව"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
@@ -6686,6 +6686,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා "
+"%sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
 
 #: libraries/user_preferences.lib.php:142
 msgid "Could not save configuration"
@@ -7110,15 +7112,15 @@ msgstr "ගොනු ආනයනය"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "බ්‍රවුසරයේ ගබඩාවෙන් ආනයනය කරන්න"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "බ්‍රවුසරයේ ගබඩාවෙන් සිටුවම් ආනයනය කෙරෙනු ඇත."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "සුරැකූ සිටුවම් නොමැත!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -7126,7 +7128,7 @@ msgstr ""
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "වත්මන් වින්‍යාස සමග ඒකාබද්ද කරන්න"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7134,14 +7136,16 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"config.inc.php වෙනස් කිරීම මඟින් ඔබට තවත් සිටුවම් සිටුවිය හැකිය. උදා. %sSetup script%s "
+"භාවිතා කිරීමෙන්."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "බ්‍රවුසරයේ ගබඩාවේ සුරකින්න"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "බ්‍රවුසරයේ ගබඩාවේ සිටුවම් සුරැකෙනු ඇත."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -7149,7 +7153,7 @@ msgstr ""
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "ඔබගේ සියලුම සිටුවම් ප්‍රතිසකසා ඒවා පෙරනිමි අගයන් වෙත ප්‍රතිෂ්ඨාපනය කල හැක."
 
 #: querywindow.php:93
 msgid "Import files"

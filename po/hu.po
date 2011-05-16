@@ -3475,8 +3475,9 @@ msgstr ""
 "nem található"
 
 #: libraries/config/messages.inc.php:328
+#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Hiányzó táblák a phpMyAdmin konfigurációs tárolóhoz"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"

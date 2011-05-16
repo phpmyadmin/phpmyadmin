@@ -110,7 +110,7 @@ msgstr "遠端 URL 開啟失敗"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "%s 檔案不存在於本系統，詳情請參考 www.phpmyadmin.net"
 
 #: db_create.php:58
 #, php-format
@@ -416,7 +416,7 @@ msgstr "切換至"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "視覺建置器"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:852
@@ -609,11 +609,11 @@ msgstr "資料表 %s 已被刪除"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "追蹤已啟用"
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "追蹤未啟用"
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2037
 #, php-format
@@ -797,27 +797,27 @@ msgstr "資料庫"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "%s 欄的數值"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "給每一欄位輸入數值"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+重啟插入並加入新值"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "輸出"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "複製並貼上結合數值至\"Length/Values\"欄位"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "選擇匯出模式必須存入檔案!"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
@@ -860,6 +860,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"您試圖載入無法支援的壓縮檔 (%s). 可能是它的支援尚未完成或在您的設定檔中被關"
+"閉."
 
 #: import.php:336
 msgid ""
@@ -894,7 +896,7 @@ msgstr "載入成功, 共 %d 句語法已執行."
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr ""
+msgstr "指令已逾時, 如果想完成匯入, 請重提交相同檔案然後匯入會繼續."
 
 #: import.php:425
 msgid ""
@@ -923,11 +925,11 @@ msgstr "phpMyAdmin 較為適合使用在支援<b>頁框</b>的瀏覽器."
 #: server_synchronize.php:738 server_synchronize.php:766
 #: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
-msgstr ""
+msgstr "按選"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "反按選"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -943,7 +945,7 @@ msgstr "您將會刪除整個資料庫!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "丟棄事件中"
 
 #: js/messages.php:33
 #, fuzzy
@@ -958,15 +960,16 @@ msgstr "容許新增及取代數據."
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "丟棄 主鍵值/指標 中"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "這個作業所用時間會較長, 繼續?"
 
+# BLOB: binary and text object
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "您將要關閉一個BLOB儲存"
 
 #: js/messages.php:41
 #, php-format
@@ -1022,13 +1025,13 @@ msgstr "移除已選擇使用者"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: js/messages.php:63
 #, fuzzy
@@ -1043,15 +1046,15 @@ msgstr "處理"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "要求處理中有錯誤"
 
 #: js/messages.php:66
 msgid "Dropping Column"
-msgstr ""
+msgstr "丟棄欄位"
 
 #: js/messages.php:67
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "增加主鍵值"
 
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
@@ -1146,15 +1149,15 @@ msgstr "忽略"
 
 #: js/messages.php:100
 msgid "Select referenced key"
-msgstr ""
+msgstr "選擇參考鍵值"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "選擇外來鍵值"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "請選擇主鍵值或唯一鍵值"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
@@ -1164,7 +1167,7 @@ msgstr "選擇顯示之欄位"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "增加一個欄位選項"
 
 #: js/messages.php:109
 #, fuzzy
@@ -9762,7 +9765,7 @@ msgstr "SQL語句已匯出，請複製或執行此dump"
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "版本 %s 快照 (SQL碼)"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
@@ -9771,7 +9774,7 @@ msgstr "追蹤語句"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "顯示 %s 從日期 %s 至 %s 來自使用者 %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 #, fuzzy
@@ -9788,11 +9791,11 @@ msgstr "資料模擬語句"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL 轉儲 (檔案下載)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL 轉儲"
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
@@ -9809,7 +9812,7 @@ msgstr "匯出為 %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "顯示版本"
 
 #: tbl_tracking.php:587
 msgid "Version"
@@ -9859,7 +9862,7 @@ msgstr "不支援款式功能, 請查看設定案及儲存款式檔案的資料�
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "取得更多佈景主題！"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
