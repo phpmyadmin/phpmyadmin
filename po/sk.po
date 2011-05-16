@@ -1161,7 +1161,7 @@ msgstr "Zvoliť odkazovaný kľúč"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Zvoliť cudzí kľúč"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
