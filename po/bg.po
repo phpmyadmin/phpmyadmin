@@ -6096,10 +6096,9 @@ msgid "Synchronize"
 msgstr "Синхронизиране"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Общи възможности на релациите"
+msgstr "Настройки"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1115
 #, fuzzy
