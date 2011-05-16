@@ -5982,7 +5982,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
-msgstr "Моля изберете страница за редактиране"
+msgstr "Моля изберете страница за редакция"
 
 #: libraries/schema/User_Schema.class.php:153
 #, fuzzy
