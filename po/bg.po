@@ -6772,9 +6772,8 @@ msgid "Move Menu"
 msgstr ""
 
 #: pmd_general.php:137
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "Покажи всички"
+msgstr "Показване/скриване всички"
 
 #: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
