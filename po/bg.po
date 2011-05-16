@@ -271,7 +271,7 @@ msgstr "БД %s беше копирана като %s"
 
 #: db_operations.php:404
 msgid "Rename database to"
-msgstr "Преименуване на базата от данни на"
+msgstr "Преименуване БД на"
 
 #: db_operations.php:409 server_processlist.php:69
 msgid "Command"
