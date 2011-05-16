@@ -8080,9 +8080,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:113
-#, fuzzy
 msgid "The number of requests to read a key block from the cache."
-msgstr "Брой заявки за обновяване на ред в таблица."
+msgstr ""
 
 #: server_status.php:114
 msgid ""
