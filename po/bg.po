@@ -1102,7 +1102,7 @@ msgstr "Търсене"
 #: js/messages.php:84
 #| msgid "Query results"
 msgid "Hide search results"
-msgstr ""
+msgstr "Скриване резултати от търсенето"
 
 #: js/messages.php:85
 msgid "Show search results"
