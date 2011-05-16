@@ -1091,10 +1091,9 @@ msgid "Reload Database"
 msgstr "Znovu načítať databázu"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Skopírovať databázu na"
+msgstr "Kopírujem databázu "
 
 #: js/messages.php:74
 #, fuzzy
