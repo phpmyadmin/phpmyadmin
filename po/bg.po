@@ -4200,7 +4200,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
-msgstr ""
+msgstr "Бърз"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
