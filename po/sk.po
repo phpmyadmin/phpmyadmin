@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:00+0200\n"
+"PO-Revision-Date: 2011-05-16 15:01+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -480,7 +480,7 @@ msgstr "Zmeniť"
 #, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Pridať/Odobrať kritéria riadku"
+msgstr "Pridať/Odobrať riadky"
 
 #: db_qbe.php:618
 #, fuzzy
