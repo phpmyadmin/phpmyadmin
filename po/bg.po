@@ -807,7 +807,7 @@ msgstr ""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Избраният тип експорт трябва да бъде запазен като файл!"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
@@ -941,7 +941,7 @@ msgstr "Вие ще УНИЩОЖИТЕ цялата база от данни!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
-msgstr ""
+msgstr "Събитие на изтриване"
 
 #: js/messages.php:33
 msgid "Dropping Procedure"
@@ -1129,7 +1129,7 @@ msgstr "Изберете колона за показване"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Добавяне опция към колона "
 
 #: js/messages.php:109
 msgid "Generate password"
@@ -1414,7 +1414,7 @@ msgstr "Размер на шрифта"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Качваният файл надвижава директивата upload_max_filesize от php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
@@ -1436,7 +1436,7 @@ msgstr ""
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Качването на файлът беше спряно от разширение."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
@@ -1498,6 +1498,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"Индексите %1$s и %2$s изглеждат равнозначни и един от двата вероятно може да "
+"бъде премахнат."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1578,7 +1580,7 @@ msgstr "Не е открит валиден път на тема %s!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "Прегледът не е достъпен."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
@@ -1674,13 +1676,13 @@ msgstr "Оттук нататък са необходими бисквитки."
 #: libraries/auth/signon.auth.lib.php:206
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "Входът без парола е забранен от конфигурацията (вж. AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:647
 #: libraries/auth/signon.auth.lib.php:210
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Няма активност през последните %s секунди; моля влезте отново"
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
@@ -1700,7 +1702,7 @@ msgstr ""
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Хардуерното удостоверяване провалено"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
@@ -1745,7 +1747,7 @@ msgstr "Изтегляне файл"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Файлът %s не може да бъде отворен"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -1783,7 +1785,7 @@ msgstr "Загубено място"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr ""
+msgstr "Прескачане до БД"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
@@ -1816,11 +1818,11 @@ msgstr "Резулати от заявка"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Няма намерени данни за диаграмата."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "Разширението GD е необходимо за диаграмите."
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
@@ -1858,12 +1860,12 @@ msgstr ""
 #: libraries/common.inc.php:622
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Невалиден индекс на сървър: %s"
 
 #: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "Невалиден хост за сървър %1$s. Прегледайте конфигурацията."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:161 server_synchronize.php:1174
@@ -1873,7 +1875,7 @@ msgstr "Сървър"
 
 #: libraries/common.inc.php:821
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
 #: libraries/common.inc.php:924
 #, php-format
@@ -2200,7 +2202,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" изисква разширението %s"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
@@ -2218,7 +2220,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "Разширението SOAP не е намерено"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
@@ -2952,7 +2954,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:221
 msgid "Tabs"
-msgstr ""
+msgstr "Табулатори"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
@@ -2968,11 +2970,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! текст"
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
-msgstr ""
+msgstr "Предупреждения"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
@@ -2986,7 +2988,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
@@ -3088,7 +3090,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "Показване лого"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
@@ -3507,7 +3509,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
-msgstr ""
+msgstr "Таблица за белязки"
 
 #: libraries/config/messages.inc.php:367
 msgid ""
@@ -3579,11 +3581,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
+msgstr "Кое PHP разширение да бъде използвано; ползвайте mysqli ако е налично"
 
 #: libraries/config/messages.inc.php:383
 msgid "PHP extension to use"
-msgstr ""
+msgstr "Използвано PHP разширение"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
@@ -4103,7 +4105,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -4150,7 +4152,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
-msgstr ""
+msgstr "Бърз"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
@@ -4222,7 +4224,7 @@ msgstr ""
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:493
 msgid "Events"
-msgstr ""
+msgstr "Събития"
 
 #: libraries/db_events.inc.php:24 libraries/db_routines.inc.php:35
 #: libraries/display_create_table.lib.php:51 libraries/tbl_triggers.lib.php:26
@@ -4285,7 +4287,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:703
 msgid "Details..."
-msgstr ""
+msgstr "Подробности..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:119 user_password.php:137
@@ -4396,7 +4398,7 @@ msgstr "Дъмп-ни всички редове"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Изход:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, php-format
@@ -4413,15 +4415,15 @@ msgstr "Шаблон на файловото име:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ ще стане името на сървъра"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ ще стане името на БД"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ ще стане името на таблицата"
 
 #: libraries/display_export.lib.php:237
 #, php-format
@@ -4644,7 +4646,7 @@ msgstr "Браузърна трансформация"
 
 #: libraries/display_tbl.lib.php:1188
 msgid "Copy"
-msgstr ""
+msgstr "Копиране"
 
 #: libraries/display_tbl.lib.php:1203 libraries/display_tbl.lib.php:1215
 msgid "The row has been deleted"
@@ -5206,7 +5208,7 @@ msgstr ""
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
