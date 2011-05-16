@@ -1921,10 +1921,9 @@ msgid "Jump to database"
 msgstr "Prejsť do databázy"
 
 #: libraries/build_html_for_db.lib.php:130
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Master replikácia"
+msgstr "Nie je replikované"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
