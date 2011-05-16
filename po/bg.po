@@ -6705,10 +6705,9 @@ msgid "filter tables by name"
 msgstr "филтър по име на таблица"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 msgctxt "short form"
 msgid "Create table"
-msgstr "Създай нова Страница"
+msgstr "Създаване таблица"
 
 #: navigation.php:314 navigation.php:486
 msgid "Please select a database"
