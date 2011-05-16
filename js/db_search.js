@@ -51,14 +51,14 @@ function deleteResult(result_path , msg , ajaxEnable){
                 /** Load the deleted option to the page*/
                 $('#browse-results').load(result_path + " '"+'#result_query' + "'");
                 $('#sqlqueryform').load(result_path + " '"+'#sqlqueryform' + "'");
-                $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
+                $('#togglequerybox').html(PMA_messages['strShowQueryBox']);
 
                 /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo'). click();
                 //PMA_ajaxShowMessage(PMA_messages['strDeleting']);
                 /** Show the results of the deletion option */
                 $('#browse-results').show();
-                $('#sqlqueryform').show();
+                $('#sqlqueryform').hide();
                 $('#togglequerybox').show();
             }
             else
@@ -90,6 +90,31 @@ $(document).ready(function() {
         $('#togglequerybox').hide();
     });
     /**
+     *Prepare a div containing a link for toggle the search results
+     */
+    $('<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>')
+    .insertAfter('#searchresults')
+    /** don't show it until we have results on-screen */
+    .hide();
+
+    $('<br class="clearfloat" />').insertAfter("#togglesearchresultsdiv").show();
+    /** Changing the displayed text according to the hide/show criteria in search result forms*/
+
+    $('#togglesearchresultlink')
+    .html(PMA_messages['strHideSearchResults'])
+    .bind('click', function() {
+         var $link = $(this);
+         $('#searchresults').slideToggle();
+         if ($link.text() == PMA_messages['strHideSearchResults']) {
+             $link.text(PMA_messages['strShowSearchResults']);
+         } else {
+             $link.text(PMA_messages['strHideSearchResults']);
+         }
+         /** avoid default click action */
+         return false;
+    });
+
+    /**
      * Prepare a div containing a link for toggle the search form, otherwise it's incorrectly displayed
      * after a couple of clicks
      */
@@ -101,7 +126,7 @@ $(document).ready(function() {
     /** Changing the displayed text according to the hide/show criteria in search form*/
     $("#togglequerybox").hide();
     $("#togglequerybox").bind('click', function() {
-        var $link = $(this)
+        var $link = $(this);
         $('#sqlqueryform').slideToggle("medium");
         if ($link.text() == PMA_messages['strHideQueryBox']) {
             $link.text(PMA_messages['strShowQueryBox']);
@@ -110,7 +135,7 @@ $(document).ready(function() {
         }
         /** avoid default click action */
         return false;
-    })
+    });
 
     /** don't show it until we have results on-screen */
 
@@ -149,6 +174,16 @@ $(document).ready(function() {
                 // found results
                 $("#searchresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
+
+                $('#togglesearchresultlink')
+                // always start with the Show message
+                .text(PMA_messages['strHideSearchResults'])
+                $('#togglesearchresultsdiv')
+                // now it's time to show the div containing the link
+                .show();
+                $('#searchresults').show();
+
+
                 $('#db_search_form')
                     // workaround for Chrome problem (bug #3168569)
                     .slideToggle()

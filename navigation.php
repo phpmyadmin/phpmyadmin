@@ -126,7 +126,7 @@ require_once './libraries/header_http.inc.php';
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
-    <script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
+    <script src="./js/jquery/jquery-1.6.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">

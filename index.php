@@ -153,7 +153,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 // ]]>
 </script>
 <?php
-echo PMA_includeJS('jquery/jquery-1.4.4.js');
+echo PMA_includeJS('jquery/jquery-1.6.1.js');
 echo PMA_includeJS('update-location.js');
 echo PMA_includeJS('common.js');
 ?>

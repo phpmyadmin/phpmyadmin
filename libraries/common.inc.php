@@ -541,7 +541,7 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
  * @global array $js_include
  */
 $GLOBALS['js_include'] = array();
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.4.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-1.6.1.js';
 $GLOBALS['js_include'][] = 'update-location.js';
 
 /**
