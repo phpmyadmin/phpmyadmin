@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:19+0200\n"
+"PO-Revision-Date: 2011-05-16 15:20+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1174,7 +1174,7 @@ msgstr "Zvoľte, ktoré polia zobraziť"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Pridať voľbu pre stĺpec"
 
 #: js/messages.php:109
 #, fuzzy
