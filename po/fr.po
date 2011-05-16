@@ -10062,10 +10062,9 @@ msgid "Tracking data definition succesfully deleted"
 msgstr "Le suivi des définitions de données a été effacé avec succès"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Collecter les erreurs"
+msgstr "Erreur de requête"
 
 #: tbl_tracking.php:399
 #, fuzzy
