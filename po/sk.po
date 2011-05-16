@@ -1833,7 +1833,7 @@ msgstr "Súbor %s neobsahuje ID kľúč"
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "Hardwarové overenie zlyhalo"
+msgstr "Hardwarové prihlasovanie zlyhalo"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
