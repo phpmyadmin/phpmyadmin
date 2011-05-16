@@ -9981,10 +9981,9 @@ msgid "An index has been added on %s"
 msgstr "Bol pridaný index pre %s"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "Zobraziť informácie o PHP"
+msgstr "Zobraziť viac operácii"
 
 #: tbl_structure.php:600 tbl_structure.php:602
 msgid "Relation view"
