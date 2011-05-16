@@ -267,7 +267,7 @@ msgstr "БД %s беше преименувана на %s"
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Базата данни %s беше копирана като %s"
+msgstr "БД %s беше копирана като %s"
 
 #: db_operations.php:404
 msgid "Rename database to"
