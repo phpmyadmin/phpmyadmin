@@ -5950,7 +5950,7 @@ msgstr "Exécuter"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Ajouter un préfixe de table"
 
 #: libraries/mult_submits.inc.php:266
 #, fuzzy
