@@ -1647,7 +1647,7 @@ msgstr "Тема %s не е намерена!"
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "Не е открит пътя на тема %s!"
+msgstr "Не е открит път към тема %s!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:160 themes.php:20
 #: themes.php:40
