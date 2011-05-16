@@ -7122,8 +7122,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Забележка: Разрешаването на статистика на базата от данни може да коства "
-"много голям трафик между уеб сървъра и MySQL сървъра."
+"Забележка: Разрешаването на статистика на БД може да коства много голям "
+"трафик между уеб сървъра и MySQL сървъра."
 
 #: server_engines.php:47
 msgid "Storage Engines"
