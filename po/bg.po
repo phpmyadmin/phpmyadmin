@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 20:00+0200\n"
+"PO-Revision-Date: 2011-05-16 20:01+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8304,9 +8304,8 @@ msgid "Delayed inserts"
 msgstr "Забавени вмъквания"
 
 #: server_status.php:381
-#, fuzzy
 msgid "Key cache"
-msgstr "Кеш на заявките"
+msgstr "Кеш на ключове"
 
 #: server_status.php:382
 msgid "Joins"
