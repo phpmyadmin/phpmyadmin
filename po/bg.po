@@ -5994,7 +5994,7 @@ msgstr "Моля конфигурирайте координатите за та
 #: libraries/schema/Visio_Relation_Schema.class.php:502
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Схема на база данни %s - страница %s"
+msgstr "Схема на БД %s - страница %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
