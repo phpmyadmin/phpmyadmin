@@ -1133,7 +1133,7 @@ msgstr ""
 
 #: js/messages.php:109
 msgid "Generate password"
-msgstr "Генериране на парола"
+msgstr "Генериране парола"
 
 #: js/messages.php:110 libraries/replication_gui.lib.php:365
 msgid "Generate"
