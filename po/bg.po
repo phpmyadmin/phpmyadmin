@@ -292,7 +292,7 @@ msgstr "Изтриване на БД (DROP)"
 
 #: db_operations.php:487
 msgid "Copy database to"
-msgstr "Копиране на базата от данни в"
+msgstr "Копиране на БД в"
 
 #: db_operations.php:494 tbl_operations.php:549 tbl_tracking.php:418
 msgid "Structure only"
