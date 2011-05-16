@@ -6039,10 +6039,9 @@ msgid "Page name"
 msgstr "Име на страница"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Автоматичен лейаут"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
