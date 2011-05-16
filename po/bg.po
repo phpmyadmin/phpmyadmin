@@ -1029,7 +1029,7 @@ msgstr "Обработка на заявката"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Грешка при обработка на заявката"
 
 #: js/messages.php:66
 msgid "Dropping Column"
