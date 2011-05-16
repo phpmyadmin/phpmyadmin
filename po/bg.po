@@ -6210,7 +6210,7 @@ msgstr "Колони"
 
 #: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
-msgstr "Запази тази SQL заявка"
+msgstr "Отбелязване SQL заявката"
 
 #: libraries/sql_query_form.lib.php:344 sql.php:935
 msgid "Let every user access this bookmark"
