@@ -1177,10 +1177,9 @@ msgid "Add an option for column "
 msgstr "Pridať voľbu pre stĺpec"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Vytvoriť Heslo"
+msgstr "Vytvoriť heslo"
 
 #: js/messages.php:110 libraries/replication_gui.lib.php:365
 msgid "Generate"
