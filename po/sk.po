@@ -1136,9 +1136,8 @@ msgid "Searching"
 msgstr "Vyhľadávam"
 
 #: js/messages.php:84
-#, fuzzy
 msgid "Hide search results"
-msgstr "SQL dopyt"
+msgstr "Skryť výsledky vyhľadávania"
 
 #: js/messages.php:85
 #, fuzzy
