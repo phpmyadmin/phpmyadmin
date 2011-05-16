@@ -8007,9 +8007,8 @@ msgid "The number of bytes written to the log file."
 msgstr ""
 
 #: server_status.php:97
-#, fuzzy
 msgid "The number of pages created."
-msgstr "Брой на отвотените таблици."
+msgstr ""
 
 #: server_status.php:98
 msgid ""
