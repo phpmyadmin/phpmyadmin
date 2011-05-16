@@ -1157,7 +1157,7 @@ msgstr "Ignorovať"
 
 #: js/messages.php:100
 msgid "Select referenced key"
-msgstr ""
+msgstr "Zvoliť odkazovaný kľúč"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
