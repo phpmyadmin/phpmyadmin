@@ -4364,7 +4364,7 @@ msgstr "MySQL 4.0 съвместимо"
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
 msgid "Create new database"
-msgstr "Създаване на нова БД"
+msgstr "Създаване нова БД"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
