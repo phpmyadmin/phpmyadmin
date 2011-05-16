@@ -6135,9 +6135,8 @@ msgstr "Изпълнение на SQL заявка/заявки към база 
 
 #: libraries/sql_query_form.lib.php:297 navigation.php:276
 #: setup/frames/index.inc.php:219
-#, fuzzy
 msgid "Clear"
-msgstr "Календар"
+msgstr "Изчистване"
 
 #: libraries/sql_query_form.lib.php:302
 #, fuzzy
