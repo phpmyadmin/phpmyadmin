@@ -21,7 +21,8 @@ function initPBMSDatabase()
                 return TRUE;
             }
             if ($target == "") {
-                if (($current_db != 'pbxt') && ($current_db != 'mysql')  && ($current_db != 'information_schema')) {
+                if ($current_db != 'pbxt' && $current_db != 'mysql' && strtolower($current_db) != 'information_schema'
+                        && (!PMA_DRIZZLE || strtolower($current_db) != 'data_dictionary')) {
                     $target = $current_db;
                 }
             }

@@ -342,7 +342,7 @@ if (empty($is_info)) {
 }
 
 $db_collation = PMA_getDbCollation($db);
-if ($db == 'information_schema') {
+if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
     $is_information_schema = true;
 } else {
     $is_information_schema = false;

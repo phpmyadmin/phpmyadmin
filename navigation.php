@@ -303,7 +303,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         echo __('No tables found in database.');
     }
     unset($table_list);
-    if ($db != 'information_schema') {
+    if (strtolower($db) != 'information_schema' && (!PMA_DRIZZLE || strtolower($db) != 'data_dictionary')) {
         echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
             .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
             . _pgettext('short form', 'Create table') . '</a></li></ul>';

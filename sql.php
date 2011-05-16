@@ -876,7 +876,7 @@ else {
     }
 
     // hide edit and delete links for information_schema
-    if ($db == 'information_schema') {
+    if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
         $disp_mode = 'nnnn110111';
     }
 
