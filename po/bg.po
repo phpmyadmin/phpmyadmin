@@ -6381,9 +6381,8 @@ msgid "+ Add a new value"
 msgstr "+ Добавяне на нова стойност"
 
 #: libraries/tbl_triggers.lib.php:28
-#, fuzzy
 msgid "Event"
-msgstr "Изпратени"
+msgstr "Действие"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
