@@ -1373,7 +1373,7 @@ msgstr "Streda"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "Štvrtok"
 
 #: js/messages.php:191
 #, fuzzy
