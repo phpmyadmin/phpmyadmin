@@ -1428,7 +1428,7 @@ msgstr "Подаденият файл беше само частично кач�
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Липсва временна папка."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
