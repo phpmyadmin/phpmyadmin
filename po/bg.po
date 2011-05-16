@@ -773,7 +773,7 @@ msgstr "Моментна снимка на структурата"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "Непроследявани таблици"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:622
 #: tbl_structure.php:624
