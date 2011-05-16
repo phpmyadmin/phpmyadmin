@@ -33,7 +33,6 @@ require_once './libraries/StorageEngine.class.php';
 // add a javascript file for jQuery functions to handle Ajax actions
 // also add jQueryUI
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'tbl_operations.js';
 
 /**
  * Class for partition management
