@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 22:53+0200\n"
+"PO-Revision-Date: 2011-05-16 22:54+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2288,10 +2288,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Vlastný - ako vyššie, ale bez voľby rýchly/vlastný"
 
 #: libraries/config.values.php:119
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Úplné vloženie"
+msgstr "úplné vloženia"
 
 #: libraries/config.values.php:120
 #, fuzzy
