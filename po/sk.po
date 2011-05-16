@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:25+0200\n"
+"PO-Revision-Date: 2011-05-16 15:26+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1236,10 +1236,9 @@ msgid "Today"
 msgstr "Dnes"
 
 #: js/messages.php:146
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binárny"
+msgstr "Január"
 
 #: js/messages.php:147
 msgid "February"
