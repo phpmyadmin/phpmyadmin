@@ -7425,7 +7425,7 @@ msgstr "Добавяне потребител"
 
 #: server_privileges.php:1713
 msgid "Remove selected users"
-msgstr "Отстраняване на избраните потребители"
+msgstr "Отстраняване избраните потребители"
 
 #: server_privileges.php:1716
 msgid "Revoke all active privileges from the users and delete them afterwards."
