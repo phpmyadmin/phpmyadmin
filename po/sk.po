@@ -2122,7 +2122,7 @@ msgstr "B"
 
 #: libraries/common.lib.php:1393
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #: libraries/common.lib.php:1393
 msgid "MiB"
