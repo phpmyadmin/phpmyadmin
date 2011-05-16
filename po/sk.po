@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:04+0200\n"
+"PO-Revision-Date: 2011-05-16 15:05+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -600,10 +600,9 @@ msgid "Inside column:"
 msgstr "V tabuľke:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Neboli nájdené žiadne tabuľky v tejto datábaze."
+msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
 
 #: db_structure.php:277 tbl_operations.php:684
 #, php-format
