@@ -1870,7 +1870,7 @@ msgstr "Prehrať zvuk"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "Prehrať video"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
