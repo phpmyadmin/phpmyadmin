@@ -595,10 +595,9 @@ msgid "Inside table(s):"
 msgstr "V tabuľke(ách):"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "V tabuľke(ách):"
+msgstr "V tabuľke:"
 
 #: db_structure.php:59
 #, fuzzy
