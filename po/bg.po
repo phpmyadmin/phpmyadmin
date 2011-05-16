@@ -7169,9 +7169,7 @@ msgstr "Позволява създаването на временни табл
 #: server_privileges.php:39 server_privileges.php:219
 #: server_privileges.php:568
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
-"Позволяване на създаването, изтриването и преименуването на потребителски "
-"акаунти."
+msgstr "Позволява създаване, изтриване и преименуване на потребителски сметки."
 
 #: server_privileges.php:40 server_privileges.php:209
 #: server_privileges.php:213 server_privileges.php:540
