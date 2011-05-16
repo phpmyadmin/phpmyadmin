@@ -257,7 +257,7 @@ msgstr "Размаркиране всички"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr "Името на базата от данни е празно!"
+msgstr "Името на БД е празно!"
 
 #: db_operations.php:272
 #, php-format
