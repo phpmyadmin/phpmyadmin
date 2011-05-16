@@ -7530,7 +7530,7 @@ msgstr ""
 
 #: server_privileges.php:2114
 msgid "Database for user"
-msgstr "База от данни за потребителя"
+msgstr "БД за потребителя"
 
 #: server_privileges.php:2118
 msgctxt "Create none database for user"
