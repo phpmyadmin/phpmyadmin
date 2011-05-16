@@ -9196,9 +9196,8 @@ msgid "Analyze"
 msgstr ""
 
 #: tbl_operations.php:746
-#, fuzzy
 msgid "Check"
-msgstr "Чешки"
+msgstr "Проверка"
 
 #: tbl_operations.php:747
 msgid "Optimize"
