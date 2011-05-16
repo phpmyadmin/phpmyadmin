@@ -6904,9 +6904,8 @@ msgid "Internal relation added"
 msgstr "Вътрешна връзка добавена"
 
 #: pmd_relation_upd.php:55
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Преглед на релациите"
+msgstr "Изтрита връзка"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
