@@ -6602,10 +6602,9 @@ msgid "Error in ZIP archive:"
 msgstr "Грешка в ZIP архива:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Общи възможности на релациите"
+msgstr "Общи настройки"
 
 #: main.php:103
 msgid "MySQL connection collation"
