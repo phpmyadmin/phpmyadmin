@@ -4694,7 +4694,7 @@ msgstr "Браузърна трансформация"
 
 #: libraries/display_tbl.lib.php:1188
 msgid "Copy"
-msgstr ""
+msgstr "Копиране"
 
 #: libraries/display_tbl.lib.php:1203 libraries/display_tbl.lib.php:1215
 msgid "The row has been deleted"
