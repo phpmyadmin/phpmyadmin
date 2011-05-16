@@ -1995,10 +1995,10 @@ msgstr ""
 "súbore!"
 
 #: libraries/common.inc.php:622
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Chybný index serveru: \"%s\""
+msgstr "Chybný index servera: %s"
 
 #: libraries/common.inc.php:629
 #, php-format
