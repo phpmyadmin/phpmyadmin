@@ -9896,7 +9896,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Interné vzťahy"
