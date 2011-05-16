@@ -3712,7 +3712,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:400
 msgid "Database name"
-msgstr "Име на базата данни"
+msgstr "Име БД"
 
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
