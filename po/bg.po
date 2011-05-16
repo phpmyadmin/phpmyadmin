@@ -6854,10 +6854,9 @@ msgstr ""
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Експортиране"
+msgstr "Освен"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
