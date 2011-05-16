@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 20:39+0200\n"
+"PO-Revision-Date: 2011-05-16 20:40+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7145,7 +7145,7 @@ msgstr "Позволява променяне на структурата на �
 #: server_privileges.php:34 server_privileges.php:218
 #: server_privileges.php:535
 msgid "Allows altering and dropping stored routines."
-msgstr "Позволяване промяна и изтриване на запазени процедури."
+msgstr "Позволява промяна и изтриване на запазени процедури."
 
 #: server_privileges.php:35 server_privileges.php:194
 #: server_privileges.php:528
