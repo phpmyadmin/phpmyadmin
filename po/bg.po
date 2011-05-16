@@ -5404,9 +5404,8 @@ msgid "Triggers"
 msgstr ""
 
 #: libraries/export/sql.php:885
-#, fuzzy
 msgid "Structure for view"
-msgstr "Само структурата"
+msgstr ""
 
 #: libraries/export/sql.php:894
 msgid "Stand-in structure for view"
