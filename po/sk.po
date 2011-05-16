@@ -9955,7 +9955,7 @@ msgstr "Pridať unikátny index"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Pridať fulltextový index"
 
 #: tbl_structure.php:385
 #| msgid "None"
