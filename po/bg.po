@@ -7879,9 +7879,8 @@ msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: server_status.php:70
-#, fuzzy
 msgid "The number of free pages."
-msgstr "Брой на сортираните редове."
+msgstr ""
 
 #: server_status.php:71
 msgid ""
