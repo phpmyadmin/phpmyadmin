@@ -483,10 +483,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Pridať/Odobrať riadky"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Pridať/Odobrať polia stĺpcov"
+msgstr "Pridať/Odobrať stĺpce"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
