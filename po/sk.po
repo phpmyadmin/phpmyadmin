@@ -1382,7 +1382,7 @@ msgstr "Piatok"
 
 #: js/messages.php:192
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:196 libraries/common.lib.php:1594
