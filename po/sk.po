@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 21:48+0200\n"
+"PO-Revision-Date: 2011-05-16 21:49+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1655,12 +1655,13 @@ msgstr[1] "Boli zmazané %1$d riadky."
 msgstr[2] "Bolo zmazaných %1$d riadkov."
 
 #: libraries/Message.class.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d riadok/riadkov vložených."
-msgstr[1] "%1$d riadok/riadkov vložených."
+msgstr[0] "Bol vložený %1$d riadok."
+msgstr[1] "Boli vložené %1$d riadky."
+msgstr[2] "Bolo vložených %1$d riadkov."
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
