@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 21:47+0200\n"
+"PO-Revision-Date: 2011-05-16 21:48+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1646,12 +1646,13 @@ msgstr[1] "Ovplyvnené boli %1$d riadky."
 msgstr[2] "Ovplyvnených bolo %1$d riadkov."
 
 #: libraries/Message.class.php:279
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d riadok/riadkov zmazaných."
-msgstr[1] "%1$d riadok/riadkov zmazaných."
+msgstr[0] "Bol zmazaný %1$d riadok."
+msgstr[1] "Boli zmazané %1$d riadky."
+msgstr[2] "Bolo zmazaných %1$d riadkov."
 
 #: libraries/Message.class.php:298
 #, fuzzy, php-format
