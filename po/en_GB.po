@@ -718,10 +718,9 @@ msgid "Replace table prefix"
 msgstr "Replace table prefix"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Replace table data with file"
+msgstr "Copy table with prefix"
 
 #: db_structure.php:574 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
