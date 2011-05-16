@@ -2598,7 +2598,7 @@ msgstr "Excel версия"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
-msgstr "Шаблон за име на база данни"
+msgstr "Шаблон за име на БД"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
