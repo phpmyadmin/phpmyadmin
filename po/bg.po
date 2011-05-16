@@ -9129,7 +9129,7 @@ msgstr "(еднократно)"
 
 #: tbl_operations.php:294
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Преместване на таблица към (база от данни<b>.</b>таблица):"
+msgstr "Преместване на таблица към (БД<b>.</b>таблица):"
 
 #: tbl_operations.php:352
 msgid "Table options"
