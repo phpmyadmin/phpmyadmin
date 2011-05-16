@@ -9141,7 +9141,7 @@ msgstr "Преименуване на таблицата на"
 
 #: tbl_operations.php:532
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Копиране на таблица (база от данни<b>.</b>таблица):"
+msgstr "Копиране на таблица (БД<b>.</b>таблица):"
 
 #: tbl_operations.php:579
 msgid "Switch to copied table"
