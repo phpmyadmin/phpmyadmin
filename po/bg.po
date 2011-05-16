@@ -6722,9 +6722,8 @@ msgid "Save position"
 msgstr ""
 
 #: pmd_general.php:81 server_synchronize.php:428 server_synchronize.php:871
-#, fuzzy
 msgid "Create table"
-msgstr "Създай нова Страница"
+msgstr "Създаване таблица"
 
 #: pmd_general.php:84 pmd_general.php:352
 msgid "Create relation"
