@@ -560,7 +560,7 @@ msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадения"
 
 #: db_search.php:295
 msgid "Search in database"
-msgstr "Търсене в базата от данни"
+msgstr "Търсене в БД"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
