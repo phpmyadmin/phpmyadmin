@@ -6642,9 +6642,8 @@ msgid "MySQL client version"
 msgstr "Версия на клиента за MySQL"
 
 #: main.php:189
-#, fuzzy
 msgid "PHP extension"
-msgstr "Версия на PHP"
+msgstr ""
 
 #: main.php:195
 msgid "Show PHP information"
