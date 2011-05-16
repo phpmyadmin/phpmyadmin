@@ -4463,7 +4463,7 @@ msgstr "Шаблон на файловото име:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ ще стане името на сървъра"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
