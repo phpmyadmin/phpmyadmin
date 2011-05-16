@@ -8276,9 +8276,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:152
-#, fuzzy
 msgid "The number of threads that are not sleeping."
-msgstr "Брой на отворените файлове."
+msgstr "Броят на нишките, които не са спящи."
 
 #: server_status.php:163
 msgid "Runtime Information"
