@@ -1587,7 +1587,7 @@ msgstr "Unikátny"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "Zabalené"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:318
 msgid "Cardinality"
