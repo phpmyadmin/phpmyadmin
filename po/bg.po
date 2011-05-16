@@ -7155,7 +7155,7 @@ msgstr "Позволява създаване на нови бази от дан
 #: server_privileges.php:36 server_privileges.php:217
 #: server_privileges.php:534
 msgid "Allows creating stored routines."
-msgstr "Позволяване на създаването на Съхранени Процедури."
+msgstr "Позволява създаване на запазени процедури."
 
 #: server_privileges.php:37 server_privileges.php:528
 msgid "Allows creating new tables."
