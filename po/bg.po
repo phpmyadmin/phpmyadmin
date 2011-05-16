@@ -605,7 +605,7 @@ msgstr "Проследяването е активно."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Проследяването е неактивно."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2037
 #, php-format
