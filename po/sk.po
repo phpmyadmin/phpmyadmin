@@ -802,9 +802,8 @@ msgid "Track table"
 msgstr "Sledovať tabuľku"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "Databáza"
+msgstr "Databázový log"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
