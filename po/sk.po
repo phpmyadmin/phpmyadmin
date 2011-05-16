@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 23:39+0200\n"
+"PO-Revision-Date: 2011-05-16 23:41+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4874,10 +4874,9 @@ msgstr ""
 "spôsobiť problémy s transakciami."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Počet záznamov (príkazov), ktoré sa majú zo začiatku preskočiť"
+msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
