@@ -1017,7 +1017,7 @@ msgstr "Затваряне"
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "Отмяна"
 
 #: js/messages.php:63
 msgid "Loading"
