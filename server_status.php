@@ -16,7 +16,32 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 require_once './libraries/common.inc.php';
 
+/**
+ * Chart generation
+ */
+require_once './libraries/chart.lib.php';
+
+/** 
+ * Ajax request
+ */
+if (isset($_REQUEST["query_chart_ajax"])) {
+    $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com_%'", 0, 1);
+    // remove all zero values from the end
+    // variable empty for Drizzle
+    if ($com_vars) {
+        while (end($com_vars) == 0) {
+            array_pop($com_vars);
+        }
+        exit(PMA_chart_status($com_vars));
+    }
+}
+
+/**
+ * JS Includes
+ */
+ 
 $GLOBALS['js_include'][] = 'pMap.js';
+$GLOBALS['js_include'][] = 'server_status.js';
 
 /**
  * Does the common work
@@ -34,11 +59,6 @@ require './libraries/server_links.inc.php';
  */
 require './libraries/replication.inc.php';
 require_once './libraries/replication_gui.lib.php';
-
-/**
- * Chart generation
- */
-require_once './libraries/chart.lib.php';
 
 /**
  * Messages are built using the message name
@@ -325,7 +345,7 @@ $allocations = array(
     // variable name => section
 
     'Com_'              => 'com',
-    'Innodb_'           => 'innodb',
+   /* 'Innodb_'           => 'innodb',
     'Ndb_'              => 'ndb',
     'Handler_'          => 'handler',
     'Qcache_'           => 'qcache',
@@ -337,7 +357,7 @@ $allocations = array(
     'Key_'              => 'key',
 
     'Delayed_'          => 'delayed',
-    'Not_flushed_delayed_rows' => 'delayed',
+    'Not_flushed_delayed_rows' => 'delayed',*/
 
     'Flush_commands'    => 'query',
     'Last_query_cost'   => 'query',
@@ -345,7 +365,7 @@ $allocations = array(
     'Queries'           => 'query',
     'Prepared_stmt_count' => 'query',
 
-    'Select_'           => 'select',
+   /* 'Select_'           => 'select',
     'Sort_'             => 'sort',
 
     'Open_tables'       => 'table',
@@ -363,13 +383,13 @@ $allocations = array(
 
     'Open_files'        => 'files',
     'Open_streams'      => 'files',
-    'Opened_files'      => 'files',
+    'Opened_files'      => 'files',*/
 );
 
 $sections = array(
     // section => section name (description)
     'com'           => array('title' => ''),
-    'query'         => array('title' => __('SQL query')),
+    /*'query'         => array('title' => __('SQL query')),
     'innodb'        => array('title' => 'InnoDB'),
     'ndb'           => array('title' => 'NDB'),
     'handler'       => array('title' => __('Handler')),
@@ -385,7 +405,7 @@ $sections = array(
     'table'         => array('title' => __('Tables')),
     'tc'            => array('title' => __('Transaction coordinator')),
     'files'         => array('title' => __('Files')),
-    'ssl'           => array('title' => 'SSL'),
+    'ssl'           => array('title' => 'SSL'),*/
 );
 
 /**
@@ -435,7 +455,7 @@ $links['innodb'][__('InnoDB Status')]
 $links['innodb']['doc'] = 'innodb';
 
 
-// sort status vars into arrays
+// sort com_ and query_ vars into arrays
 foreach ($server_status as $name => $value) {
     if (isset($allocations[$name])) {
         $sections[$allocations[$name]]['vars'][$name] = $value;
@@ -450,6 +470,7 @@ foreach ($server_status as $name => $value) {
         }
     }
 }
+
 unset($name, $value, $filter, $section, $allocations);
 
 // rest
@@ -461,7 +482,7 @@ $hour_factor    = 3600 / $server_status['Uptime'];
  * start output
  */
 ?>
-<div id="statuslinks">
+<!--<div id="statuslinks">
     <a href="<?php echo
         $PMA_PHP_SELF . '?' . PMA_generate_common_url(); ?>"
        ><?php echo __('Refresh'); ?></a>
@@ -470,7 +491,7 @@ $hour_factor    = 3600 / $server_status['Uptime'];
        ><?php echo _pgettext('for Show status', 'Reset'); ?></a>
        <?php echo PMA_showMySQLDocu('server_status_variables','server_status_variables'); ?>
 </div>
-
+-->
 <p>
 <?php
 echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
@@ -494,17 +515,17 @@ if ($server_master_status || $server_slave_status) {
 }
 ?>
 
-<div id="sectionlinks">
+<!--<div id="sectionlinks">
 <?php
-foreach ($sections as $section_name => $section) {
+/*foreach ($sections as $section_name => $section) {
     if (! empty($section['vars']) && ! empty($section['title'])) {
         echo '<a href="' . $PMA_PHP_SELF . '?' .
              PMA_generate_common_url() . '#' . $section_name . '">' .
              $section['title'] . '</a>' . "\n";
     }
-}
+}*/
 ?>
-</div>
+</div>-->
 
 <h3><?php echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.'); ?></h3>
 
@@ -719,20 +740,50 @@ foreach ($used_queries as $name => $value) {
 <?php if ($used_queries): ?>
 <div id="serverstatusquerieschart">
 <?php
-	if (empty($_REQUEST["query_chart"])) {
-		echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query
-			. '&amp;query_chart=1#serverstatusqueries"'
-			. 'title="' . __('Show query chart') . '">['
-			. __('Show query chart') . ']</a>';
-		PMA_Message::notice( __('Note: Generating the query chart can take a long time.'))->display();
-	} else {
-		echo PMA_chart_status($used_queries);
-	}
+    if (empty($_REQUEST["query_chart"])) {
+        echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query
+            . '&amp;query_chart=1#serverstatusqueries"'
+            . 'title="' . __('Show query chart') . '">['
+            . __('Show query chart') . ']</a>';
+        PMA_Message::notice( __('Note: Generating the query chart can take a long time.'))->display();
+    } else {
+        echo PMA_chart_status($used_queries);
+    }
 ?>
 </div>
 <?php endif; ?>
+<div id="serverstatusvars">
+<h3><b>Status variables</b></h3>
+<fieldset style="display:none;">
+<legend>Filters</legend>
+<div class="formelement">
+    <label for="filterText">Containing the word:</label>
+    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
+</div>
+<div class="formelement">
+    <input type="checkbox" name="filterAlert" id="filterAlert">
+    <label for="filterAlert">Show only alert values</label> 
+</div>
+</fieldset>
+<table class="data" id="serverstatusvariables">
+    <col class="namecol" />
+    <col class="valuecol" />
+    <col class="descrcol" />
+    <thead>
+        <tr>
+            <th><?php echo __('Variable'); ?></th>
+            <th><?php echo __('Value'); ?></th>
+            <th><?php echo __('Description'); ?></th>
+        </tr>
+    </thead>
+    <!--<tfoot>
+        <tr class="tblFooters">
+            <th colspan="3" class="tblFooters">
+            </th>
+        </tr>
+    </tfoot>-->	
+    <tbody>
 
-<div id="serverstatussection">
 <?php
 //Unset used variables
 unset(
@@ -745,64 +796,9 @@ unset(
     $used_queries
 );
 
-foreach ($sections as $section_name => $section) {
-    if (! empty($section['vars'])) {
-?>
-    <table class="data" id="serverstatussection<?php echo $section_name; ?>">
-    <caption class="tblHeaders">
-        <a class="top"
-           href="<?php echo $PMA_PHP_SELF . '?' .
-                 PMA_generate_common_url() . '#serverstatus'; ?>"
-           name="<?php echo $section_name; ?>"><?php echo __('Begin'); ?>
-            <?php echo
-                ($GLOBALS['cfg']['MainPageIconic']
-              ? '<img src="' . $GLOBALS['pmaThemeImage'] .
-                's_asc.png" width="11" height="9" align="middle" alt="" />'
-              : ''); ?>
-        </a>
-<?php
-if (! empty($section['title'])) {
-    echo $section['title'];
-}
-?>
-    </caption>
-    <col class="namecol" />
-    <col class="valuecol" />
-    <col class="descrcol" />
-    <thead>
-        <tr>
-            <th><?php echo __('Variable'); ?></th>
-            <th><?php echo __('Value'); ?></th>
-            <th><?php echo __('Description'); ?></th>
-        </tr>
-    </thead>
-<?php
-        if (! empty($links[$section_name])) {
-?>
-    <tfoot>
-        <tr class="tblFooters">
-            <th colspan="3" class="tblFooters">
-<?php
-            foreach ($links[$section_name] as $link_name => $link_url) {
-                if ('doc' == $link_name) {
-                    echo PMA_showMySQLDocu($link_url, $link_url);
-                } else {
-                    echo '<a href="' . $link_url . '">' . $link_name . '</a>' . "\n";
-                }
-            }
-            unset($link_url, $link_name);
-?>
-            </th>
-        </tr>
-    </tfoot>
-<?php
-        }
-?>
-    <tbody>
-<?php
-        $odd_row = false;
-        foreach ($section['vars'] as $name => $value) {
-            $odd_row = !$odd_row;
+$odd_row = false;
+foreach ($server_status as $name => $value) {
+        $odd_row = !$odd_row;
 ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
             <th class="name"><?php echo htmlspecialchars($name) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
@@ -851,16 +847,15 @@ if (! empty($section['title'])) {
             </td>
         </tr>
 <?php
-        }
-        unset($name, $value);
+    unset($name, $value);
 ?>
-    </tbody>
-    </table>
 <?php
-    }
 }
+
 unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 ?>
+</tbody>
+</table>
 </div>
 <?php
 /* if the server works as master or slave in replication process, display useful information */
