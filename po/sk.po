@@ -10073,10 +10073,9 @@ msgid "Tracking data definition succesfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "Typ dopytu"
+msgstr "Chyba dopytu"
 
 #: tbl_tracking.php:399
 msgid "Tracking data manipulation succesfully deleted"
