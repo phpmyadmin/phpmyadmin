@@ -1866,7 +1866,7 @@ msgstr "Резулат oт заявка"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Няма намерени данни за диаграмата."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
