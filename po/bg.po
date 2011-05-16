@@ -6028,7 +6028,7 @@ msgstr "Допълнително"
 
 #: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
-msgstr "Създай нова Страница"
+msgstr "Създаване нова страница"
 
 #: libraries/schema/User_Schema.class.php:99
 msgid "Page name"
