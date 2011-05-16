@@ -7199,7 +7199,7 @@ msgstr ""
 #: server_privileges.php:45 server_privileges.php:220
 #: server_privileges.php:536
 msgid "Allows executing stored routines."
-msgstr "Позволява стартиране на запазени процедури."
+msgstr "Позволява стартиране на съхранени процедури."
 
 #: server_privileges.php:46 server_privileges.php:199
 #: server_privileges.php:523
