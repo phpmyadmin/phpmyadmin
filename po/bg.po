@@ -7177,7 +7177,7 @@ msgstr ""
 #: server_privileges.php:213 server_privileges.php:540
 #: server_privileges.php:544
 msgid "Allows creating new views."
-msgstr "Позволяване на създаването на нови Изгледи."
+msgstr "Позволява създаване на изгледи."
 
 #: server_privileges.php:41 server_privileges.php:193
 #: server_privileges.php:520
