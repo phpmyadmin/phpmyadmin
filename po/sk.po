@@ -1106,7 +1106,6 @@ msgid "Table must have at least one column"
 msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Vytvoriť tabuľku"
