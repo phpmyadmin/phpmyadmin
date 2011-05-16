@@ -1096,10 +1096,9 @@ msgid "Copying Database"
 msgstr "Kopírujem databázu "
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Znaková sada"
+msgstr "Mením znakovú sadu"
 
 #: js/messages.php:75
 #, fuzzy
