@@ -6780,9 +6780,8 @@ msgid "Hide/Show Tables with no relation"
 msgstr ""
 
 #: pmd_general.php:181
-#, fuzzy
 msgid "Number of tables"
-msgstr "Брой полета"
+msgstr "Брой таблици"
 
 #: pmd_general.php:418
 msgid "Delete relation"
