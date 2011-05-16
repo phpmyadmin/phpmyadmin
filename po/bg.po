@@ -8663,9 +8663,8 @@ msgid "Load"
 msgstr "Зареждане"
 
 #: setup/frames/index.inc.php:239
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin документация"
+msgstr "phpMyAdmin страница"
 
 #: setup/frames/index.inc.php:240
 msgid "Donate"
