@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 20:41+0200\n"
+"PO-Revision-Date: 2011-05-16 20:42+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7297,7 +7297,7 @@ msgstr "Дава достъп до пълния списък на базите �
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Позволяване на изпълнението на SHOW CREATE VIEW заявки."
+msgstr "Позволява изпълнение на SHOW CREATE VIEW заявки."
 
 #: server_privileges.php:63 server_privileges.php:197
 #: server_privileges.php:560
