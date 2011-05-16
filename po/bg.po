@@ -1081,7 +1081,7 @@ msgstr "Презареждане БД"
 
 #: js/messages.php:75
 msgid "Copying Database"
-msgstr "Копиране на база данни"
+msgstr "Копиране БД"
 
 #: js/messages.php:76
 msgid "Changing Charset"
