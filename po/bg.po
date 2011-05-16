@@ -2268,7 +2268,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "Разширението SOAP не е намерено"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
