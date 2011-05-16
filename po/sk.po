@@ -10142,9 +10142,8 @@ msgid "Show versions"
 msgstr ""
 
 #: tbl_tracking.php:644
-#, fuzzy
 msgid "Version"
-msgstr "Perština"
+msgstr "Verzia"
 
 #: tbl_tracking.php:692
 #, php-format
