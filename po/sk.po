@@ -2248,7 +2248,7 @@ msgstr "Obidva"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr "Otvoriť"
+msgstr "Otvorené"
 
 #: libraries/config.values.php:74
 #| msgid "Unclosed quote"
