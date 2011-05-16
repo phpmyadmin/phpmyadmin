@@ -1091,7 +1091,7 @@ msgstr "Бърза редакция"
 #: setup/frames/index.inc.php:215 tbl_change.php:1054 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
-msgstr "Записване"
+msgstr "Зпазване"
 
 #: js/messages.php:90 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
