@@ -7411,7 +7411,7 @@ msgstr "Всеки"
 
 #: server_privileges.php:1499
 msgid "User overview"
-msgstr "Преглед на потребителите"
+msgstr "Преглед потребители"
 
 #: server_privileges.php:1640 server_privileges.php:1832
 #: server_privileges.php:2182
