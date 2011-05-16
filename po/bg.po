@@ -1100,10 +1100,9 @@ msgid "Searching"
 msgstr "Търсене"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Query results"
 msgid "Hide search results"
-msgstr "Резулати от заявка"
+msgstr ""
 
 #: js/messages.php:85
 #, fuzzy
