@@ -1079,7 +1079,7 @@ msgstr "Скриване формата за заявки"
 
 #: js/messages.php:87
 msgid "Show query box"
-msgstr ""
+msgstr "Показване формата за заявки"
 
 #: js/messages.php:88
 msgid "Inline Edit"
