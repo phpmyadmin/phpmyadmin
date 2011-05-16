@@ -1134,7 +1134,7 @@ msgstr "Afficher les résultats de recherche"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Note : si le fichier contient plusieurs tables, elles seront combinées"
 
 #: js/messages.php:93
 msgid "Hide query box"
