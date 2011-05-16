@@ -1109,10 +1109,9 @@ msgid "Searching"
 msgstr "Searching"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Hide search criteria"
+msgstr "Hide search results"
 
 #: js/messages.php:85
 #, fuzzy
