@@ -1440,7 +1440,7 @@ msgstr ""
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Неизвестна грешка при качване."
 
 #: libraries/File.class.php:559
 msgid ""
