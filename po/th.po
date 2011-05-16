@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0\n"
+"Project-Id-Version: phpMyAdmin 3.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-09 07:40+0200\n"
+"POT-Creation-Date: 2011-05-16 10:31+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
-#: libraries/display_tbl.lib.php:341 server_privileges.php:1612
+#: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
 msgstr "แสดงทั้งหมด"
 
@@ -62,9 +62,9 @@ msgstr "ค้นหา"
 #: libraries/sql_query_form.lib.php:455 libraries/sql_query_form.lib.php:520
 #: libraries/tbl_properties.inc.php:782 libraries/tbl_properties.inc.php:797
 #: main.php:109 navigation.php:214 pmd_pdf.php:124 prefs_manage.php:265
-#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:675
-#: server_privileges.php:1723 server_privileges.php:2080
-#: server_privileges.php:2127 server_privileges.php:2167
+#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:646
+#: server_privileges.php:1694 server_privileges.php:2051
+#: server_privileges.php:2098 server_privileges.php:2138
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1224 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:252
@@ -147,7 +147,7 @@ msgstr "ชื่อคอลัมน์"
 #: libraries/export/texytext.php:227
 #: libraries/schema/Pdf_Relation_Schema.class.php:1240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1261
-#: libraries/tbl_properties.inc.php:99 server_privileges.php:2180
+#: libraries/tbl_properties.inc.php:99 server_privileges.php:2151
 #: tbl_change.php:288 tbl_change.php:315 tbl_chart.php:132
 #: tbl_printview.php:140 tbl_printview.php:310 tbl_select.php:113
 #: tbl_structure.php:199 tbl_structure.php:754 tbl_tracking.php:268
@@ -203,10 +203,10 @@ msgstr "หมายเหตุ"
 #: libraries/mult_submits.inc.php:247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1321
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
-#: server_privileges.php:1410 server_privileges.php:1421
-#: server_privileges.php:1667 server_privileges.php:1678
-#: server_privileges.php:1998 server_privileges.php:2003
-#: server_privileges.php:2297 sql.php:238 sql.php:299 tbl_printview.php:226
+#: server_privileges.php:1381 server_privileges.php:1392
+#: server_privileges.php:1638 server_privileges.php:1649
+#: server_privileges.php:1969 server_privileges.php:1974
+#: server_privileges.php:2268 sql.php:238 sql.php:299 tbl_printview.php:226
 #: tbl_structure.php:374 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "ไม่"
@@ -222,10 +222,10 @@ msgstr "ไม่"
 #: libraries/mult_submits.inc.php:257
 #: libraries/schema/Pdf_Relation_Schema.class.php:1321
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
-#: server_databases.php:76 server_privileges.php:1407
-#: server_privileges.php:1418 server_privileges.php:1664
-#: server_privileges.php:1678 server_privileges.php:1998
-#: server_privileges.php:2001 server_privileges.php:2297 sql.php:298
+#: server_databases.php:76 server_privileges.php:1378
+#: server_privileges.php:1389 server_privileges.php:1635
+#: server_privileges.php:1649 server_privileges.php:1969
+#: server_privileges.php:1972 server_privileges.php:2268 sql.php:298
 #: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:374
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
@@ -352,8 +352,8 @@ msgstr "แก้ไข หรือส่งออก รีเลชันแ�
 #: libraries/config/messages.inc.php:487 libraries/db_structure.lib.php:37
 #: libraries/export/pdf.php:100 libraries/export/xml.php:331
 #: libraries/header.inc.php:138 libraries/schema/User_Schema.class.php:237
-#: server_privileges.php:1774 server_privileges.php:1830
-#: server_privileges.php:2094 server_synchronize.php:422
+#: server_privileges.php:1745 server_privileges.php:1801
+#: server_privileges.php:2065 server_synchronize.php:422
 #: server_synchronize.php:865 tbl_tracking.php:586 test/theme.php:74
 msgid "Table"
 msgstr "ตาราง "
@@ -457,7 +457,7 @@ msgid "Del"
 msgstr "ลบ"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: libraries/tbl_properties.inc.php:779 server_privileges.php:306
+#: libraries/tbl_properties.inc.php:779 server_privileges.php:307
 #: tbl_change.php:965 tbl_indexes.php:248 tbl_select.php:251
 msgid "Or"
 msgstr "หรือ"
@@ -645,20 +645,20 @@ msgstr "เซิร์ฟเวอร์ MySQL นี้ใช้ storage engin
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2178 libraries/display_tbl.lib.php:2183
 #: libraries/mult_submits.inc.php:15 server_databases.php:246
-#: server_databases.php:251 server_privileges.php:1695 tbl_structure.php:548
+#: server_databases.php:251 server_privileges.php:1666 tbl_structure.php:548
 #: tbl_structure.php:557
 msgid "With selected:"
 msgstr "ทำกับที่เลือก:"
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2173
-#: server_databases.php:248 server_privileges.php:580
-#: server_privileges.php:1698 tbl_structure.php:551
+#: server_databases.php:248 server_privileges.php:583
+#: server_privileges.php:1669 tbl_structure.php:551
 msgid "Check All"
 msgstr "เลือกทั้งหมด"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2174
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
-#: server_privileges.php:583 server_privileges.php:1702 tbl_structure.php:555
+#: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:555
 msgid "Uncheck All"
 msgstr "ไม่เลือกเลย"
 
@@ -670,7 +670,7 @@ msgstr "ตรวจสอบตารางที่มี overhead"
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2191
 #: libraries/display_tbl.lib.php:2325 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
-#: server_privileges.php:1383 setup/frames/menu.inc.php:21
+#: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "ส่งออก"
 
@@ -723,8 +723,8 @@ msgstr "ตารางที่ถูกติดตาม"
 #: libraries/export/sql.php:453 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:125
 #: libraries/header_printview.inc.php:57 server_databases.php:147
-#: server_privileges.php:1769 server_privileges.php:1830
-#: server_privileges.php:2088 server_processlist.php:68
+#: server_privileges.php:1740 server_privileges.php:1801
+#: server_privileges.php:2059 server_processlist.php:68
 #: server_synchronize.php:1194 server_synchronize.php:1198
 #: tbl_tracking.php:585 test/theme.php:64
 msgid "Database"
@@ -751,8 +751,8 @@ msgstr "สถานะ"
 
 #: db_tracking.php:90 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:181
-#: server_privileges.php:1641 server_privileges.php:1834
-#: server_privileges.php:2183 tbl_structure.php:208
+#: server_privileges.php:1612 server_privileges.php:1805
+#: server_privileges.php:2154 tbl_structure.php:208
 msgid "Action"
 msgstr "กระทำการ"
 
@@ -988,11 +988,11 @@ msgstr "ชื่อโฮสต์ยังว่างอยู่!"
 msgid "The user name is empty!"
 msgstr "ชื่อผู้ใช้ยังว่างอยู่!"
 
-#: js/messages.php:50 server_privileges.php:1250 user_password.php:64
+#: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
 msgstr "รหัสผ่านยังว่างอยู่!"
 
-#: js/messages.php:51 server_privileges.php:1248 user_password.php:67
+#: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
 msgstr "รหัสผ่านไม่ตรงกัน!"
 
@@ -1586,7 +1586,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
-#: server_privileges.php:1769 test/theme.php:92
+#: server_privileges.php:1740 test/theme.php:92
 msgid "Databases"
 msgstr "ฐานข้อมูล"
 
@@ -1848,7 +1848,7 @@ msgstr "ตาราง"
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/config/user_preferences.forms.php:274
 #: libraries/export/latex.php:215 libraries/export/sql.php:945
-#: server_privileges.php:587 server_replication.php:314 tbl_printview.php:314
+#: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:760
 msgid "Data"
 msgstr "ข้อมูล"
@@ -2143,7 +2143,7 @@ msgstr ""
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:351
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:54
 #: libraries/tbl_properties.inc.php:634 pmd_general.php:151
-#: server_privileges.php:604 server_replication.php:313 tbl_tracking.php:263
+#: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:263
 msgid "Structure"
 msgstr "โครงสร้าง"
 
@@ -4128,9 +4128,9 @@ msgstr ""
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:62
 #: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
-#: libraries/replication_gui.lib.php:351 server_privileges.php:807
-#: server_privileges.php:811 server_privileges.php:822
-#: server_privileges.php:1637 server_synchronize.php:1190
+#: libraries/replication_gui.lib.php:351 server_privileges.php:778
+#: server_privileges.php:782 server_privileges.php:793
+#: server_privileges.php:1608 server_synchronize.php:1190
 msgid "Password"
 msgstr "รหัสผ่าน"
 
@@ -4438,8 +4438,8 @@ msgid "Designer"
 msgstr ""
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:64
-#: server_privileges.php:118 server_privileges.php:1831
-#: server_privileges.php:2181 test/theme.php:116
+#: server_privileges.php:119 server_privileges.php:1802
+#: server_privileges.php:2152 test/theme.php:116
 msgid "Privileges"
 msgstr "สิทธิ"
 
@@ -4480,13 +4480,13 @@ msgid "Change password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
 #: libraries/display_change_password.lib.php:34
-#: libraries/replication_gui.lib.php:347 server_privileges.php:818
+#: libraries/replication_gui.lib.php:347 server_privileges.php:789
 msgid "No Password"
 msgstr "ไม่มีรหัสผ่าน"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
-#: server_privileges.php:826 server_privileges.php:829
+#: server_privileges.php:797 server_privileges.php:800
 msgid "Re-type"
 msgstr "พิมพ์ใหม่"
 
@@ -4507,8 +4507,8 @@ msgstr "สร้างฐานข้อมูลใหม่"
 msgid "Create"
 msgstr "สร้าง"
 
-#: libraries/display_create_database.lib.php:43 server_privileges.php:120
-#: server_privileges.php:1522 server_replication.php:33
+#: libraries/display_create_database.lib.php:43 server_privileges.php:121
+#: server_privileges.php:1493 server_replication.php:33
 msgid "No Privileges"
 msgstr "ไม่มีสิทธิ"
 
@@ -4653,7 +4653,7 @@ msgstr "บีบอัดข้อมูล"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:512
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:510 server_privileges.php:1984 server_processlist.php:96
+#: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
 msgstr "ไม่มี"
 
@@ -5440,9 +5440,9 @@ msgstr "MIME-types ที่มีอยู่"
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
-#: libraries/replication_gui.lib.php:331 server_privileges.php:742
-#: server_privileges.php:745 server_privileges.php:801
-#: server_privileges.php:1636 server_privileges.php:2179
+#: libraries/replication_gui.lib.php:331 server_privileges.php:713
+#: server_privileges.php:716 server_privileges.php:772
+#: server_privileges.php:1607 server_privileges.php:2150
 #: server_processlist.php:67
 msgid "Host"
 msgstr "โฮสต์"
@@ -6097,8 +6097,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
-#: libraries/replication_gui.lib.php:261 server_privileges.php:722
-#: server_privileges.php:725 server_privileges.php:732
+#: libraries/replication_gui.lib.php:261 server_privileges.php:693
+#: server_privileges.php:696 server_privileges.php:703
 #: server_synchronize.php:1186
 msgid "User name"
 msgstr "ชื่อผู้ใช้"
@@ -6138,34 +6138,34 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:256 server_privileges.php:727
+#: libraries/replication_gui.lib.php:256 server_privileges.php:698
 msgid "Any user"
 msgstr "ผู้ใช้ใดๆ"
 
 #: libraries/replication_gui.lib.php:257 libraries/replication_gui.lib.php:325
-#: libraries/replication_gui.lib.php:348 server_privileges.php:728
-#: server_privileges.php:795 server_privileges.php:819
-#: server_privileges.php:2037 server_privileges.php:2067
+#: libraries/replication_gui.lib.php:348 server_privileges.php:699
+#: server_privileges.php:766 server_privileges.php:790
+#: server_privileges.php:2008 server_privileges.php:2038
 msgid "Use text field"
 msgstr "ใช้ช่องใส่ข้อความ (text field)"
 
-#: libraries/replication_gui.lib.php:304 server_privileges.php:775
+#: libraries/replication_gui.lib.php:304 server_privileges.php:746
 msgid "Any host"
 msgstr "โฮสต์ใดๆ"
 
-#: libraries/replication_gui.lib.php:308 server_privileges.php:779
+#: libraries/replication_gui.lib.php:308 server_privileges.php:750
 msgid "Local"
 msgstr "โลคอล"
 
-#: libraries/replication_gui.lib.php:314 server_privileges.php:784
+#: libraries/replication_gui.lib.php:314 server_privileges.php:755
 msgid "This Host"
 msgstr "โฮสต์นี้"
 
-#: libraries/replication_gui.lib.php:320 server_privileges.php:790
+#: libraries/replication_gui.lib.php:320 server_privileges.php:761
 msgid "Use Host Table"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:333 server_privileges.php:803
+#: libraries/replication_gui.lib.php:333 server_privileges.php:774
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -6511,19 +6511,19 @@ msgstr "เริ่มข้อมูลดิบ"
 msgid "END RAW"
 msgstr "สิ้นสุดข้อมูลดิบ"
 
-#: libraries/sqlparser.lib.php:363
+#: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:366
+#: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
 msgstr "ไม่ได้ปิดเครื่องหมายคำพูด"
 
-#: libraries/sqlparser.lib.php:518
+#: libraries/sqlparser.lib.php:519
 msgid "Invalid Identifer"
 msgstr "ชื่อตัวแปรไม่ถูกต้อง"
 
-#: libraries/sqlparser.lib.php:635
+#: libraries/sqlparser.lib.php:636
 msgid "Unknown Punctuation String"
 msgstr "มีเครื่องหมายวรรคตอนที่ไม่รู้จัก"
 
@@ -6825,8 +6825,8 @@ msgstr "ความสามารถด้านรีเลชันทั่
 msgid "Protocol version"
 msgstr ""
 
-#: main.php:165 server_privileges.php:1481 server_privileges.php:1635
-#: server_privileges.php:1759 server_privileges.php:2178
+#: main.php:165 server_privileges.php:1452 server_privileges.php:1606
+#: server_privileges.php:1730 server_privileges.php:2149
 #: server_processlist.php:66
 msgid "User"
 msgstr "ผู้ใช้"
@@ -7371,331 +7371,331 @@ msgstr ""
 msgid "View dump (schema) of databases"
 msgstr "ดูโครงสร้างของฐานข้อมูล"
 
-#: server_privileges.php:31 server_privileges.php:275
+#: server_privileges.php:32 server_privileges.php:276
 msgid "Includes all privileges except GRANT."
 msgstr "ให้สิทธิทุกอย่าง ยกเว้นการให้สิทธิแก่ผู้อื่น (GRANT)."
 
-#: server_privileges.php:32 server_privileges.php:201
-#: server_privileges.php:526
+#: server_privileges.php:33 server_privileges.php:202
+#: server_privileges.php:529
 msgid "Allows altering the structure of existing tables."
 msgstr "อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม."
 
-#: server_privileges.php:33 server_privileges.php:217
-#: server_privileges.php:532
+#: server_privileges.php:34 server_privileges.php:218
+#: server_privileges.php:535
 #, fuzzy
 msgid "Allows altering and dropping stored routines."
 msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
 
-#: server_privileges.php:34 server_privileges.php:193
-#: server_privileges.php:525
+#: server_privileges.php:35 server_privileges.php:194
+#: server_privileges.php:528
 msgid "Allows creating new databases and tables."
 msgstr "อนุญาตให้สร้างฐานข้อมูล และตารางใหม่."
 
-#: server_privileges.php:35 server_privileges.php:216
-#: server_privileges.php:531
+#: server_privileges.php:36 server_privileges.php:217
+#: server_privileges.php:534
 #, fuzzy
 msgid "Allows creating stored routines."
 msgstr "อนุญาตให้สร้างตารางใหม่."
 
-#: server_privileges.php:36 server_privileges.php:525
+#: server_privileges.php:37 server_privileges.php:528
 msgid "Allows creating new tables."
 msgstr "อนุญาตให้สร้างตารางใหม่."
 
-#: server_privileges.php:37 server_privileges.php:204
-#: server_privileges.php:529
+#: server_privileges.php:38 server_privileges.php:205
+#: server_privileges.php:532
 msgid "Allows creating temporary tables."
 msgstr "อนุญาตให้สร้างตารางชั่วคราว."
 
-#: server_privileges.php:38 server_privileges.php:218
-#: server_privileges.php:565
+#: server_privileges.php:39 server_privileges.php:219
+#: server_privileges.php:568
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: server_privileges.php:39 server_privileges.php:208
-#: server_privileges.php:212 server_privileges.php:537
-#: server_privileges.php:541
+#: server_privileges.php:40 server_privileges.php:209
+#: server_privileges.php:213 server_privileges.php:540
+#: server_privileges.php:544
 #, fuzzy
 msgid "Allows creating new views."
 msgstr "อนุญาตให้สร้างตารางใหม่."
 
-#: server_privileges.php:40 server_privileges.php:192
-#: server_privileges.php:517
+#: server_privileges.php:41 server_privileges.php:193
+#: server_privileges.php:520
 msgid "Allows deleting data."
 msgstr "อนุญาตให้ลบข้อมูล"
 
-#: server_privileges.php:41 server_privileges.php:194
-#: server_privileges.php:528
+#: server_privileges.php:42 server_privileges.php:195
+#: server_privileges.php:531
 msgid "Allows dropping databases and tables."
 msgstr "อนุญาตให้ทิ้งฐานข้อมูล และตาราง"
 
-#: server_privileges.php:42 server_privileges.php:528
+#: server_privileges.php:43 server_privileges.php:531
 msgid "Allows dropping tables."
 msgstr "อนุญาตให้ทิ้งตาราง"
 
-#: server_privileges.php:43 server_privileges.php:209
-#: server_privileges.php:545
+#: server_privileges.php:44 server_privileges.php:210
+#: server_privileges.php:548
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
-#: server_privileges.php:44 server_privileges.php:219
-#: server_privileges.php:533
+#: server_privileges.php:45 server_privileges.php:220
+#: server_privileges.php:536
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: server_privileges.php:45 server_privileges.php:198
-#: server_privileges.php:520
+#: server_privileges.php:46 server_privileges.php:199
+#: server_privileges.php:523
 msgid "Allows importing data from and exporting data into files."
 msgstr "อนุญาตให้นำเข้าข้อมูล และส่งออกข้อมูล ไปที่ไฟล์"
 
-#: server_privileges.php:46 server_privileges.php:551
+#: server_privileges.php:47 server_privileges.php:554
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "อนุญาตให้เพิ่มผู้ใช้ และสิทธิเข้าถึง โดยไม่ต้องเรียกใช้ตารางสิทธิใหม่"
 
-#: server_privileges.php:47 server_privileges.php:200
-#: server_privileges.php:527
+#: server_privileges.php:48 server_privileges.php:201
+#: server_privileges.php:530
 msgid "Allows creating and dropping indexes."
 msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
 
-#: server_privileges.php:48 server_privileges.php:190
-#: server_privileges.php:453 server_privileges.php:515
+#: server_privileges.php:49 server_privileges.php:191
+#: server_privileges.php:454 server_privileges.php:518
 msgid "Allows inserting and replacing data."
 msgstr "อนุญาตให้เพิ่ม และแทนที่ ข้อมูล"
 
-#: server_privileges.php:49 server_privileges.php:205
-#: server_privileges.php:560
+#: server_privileges.php:50 server_privileges.php:206
+#: server_privileges.php:563
 msgid "Allows locking tables for the current thread."
 msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
 
-#: server_privileges.php:50 server_privileges.php:657
-#: server_privileges.php:659
+#: server_privileges.php:51 server_privileges.php:628
+#: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
 
-#: server_privileges.php:51 server_privileges.php:645
-#: server_privileges.php:647
+#: server_privileges.php:52 server_privileges.php:616
+#: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง"
 
-#: server_privileges.php:52 server_privileges.php:651
-#: server_privileges.php:653
+#: server_privileges.php:53 server_privileges.php:622
+#: server_privileges.php:624
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
 "จำกัดจำนวนของคำสั่ง ที่จะเปลี่ยนแปลงตาราง หรือฐานข้อมูลใดๆ ที่ผู้ใช้จะสามารถสั่งได้ ต่อชั่วโมง"
 
-#: server_privileges.php:53 server_privileges.php:663
-#: server_privileges.php:665
+#: server_privileges.php:54 server_privileges.php:634
+#: server_privileges.php:636
 #, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
 
-#: server_privileges.php:54 server_privileges.php:197
-#: server_privileges.php:555
+#: server_privileges.php:55 server_privileges.php:198
+#: server_privileges.php:558
 msgid "Allows viewing processes of all users"
 msgstr ""
 
-#: server_privileges.php:55 server_privileges.php:199
-#: server_privileges.php:459 server_privileges.php:561
+#: server_privileges.php:56 server_privileges.php:200
+#: server_privileges.php:460 server_privileges.php:564
 msgid "Has no effect in this MySQL version."
 msgstr "ไม่มีผลใน MySQL รุ่นนี้"
 
-#: server_privileges.php:56 server_privileges.php:195
-#: server_privileges.php:556
+#: server_privileges.php:57 server_privileges.php:196
+#: server_privileges.php:559
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์"
 
-#: server_privileges.php:57 server_privileges.php:207
-#: server_privileges.php:563
+#: server_privileges.php:58 server_privileges.php:208
+#: server_privileges.php:566
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "มอบสิทธิให้ผู้ใช้ ในการถามว่า slaves หรือ masters อยู่ที่ไหน."
 
-#: server_privileges.php:58 server_privileges.php:206
-#: server_privileges.php:564
+#: server_privileges.php:59 server_privileges.php:207
+#: server_privileges.php:567
 msgid "Needed for the replication slaves."
 msgstr ""
 
-#: server_privileges.php:59 server_privileges.php:189
-#: server_privileges.php:450 server_privileges.php:514
+#: server_privileges.php:60 server_privileges.php:190
+#: server_privileges.php:451 server_privileges.php:517
 msgid "Allows reading data."
 msgstr "อนุญาตให้อ่านข้อมูลได้."
 
-#: server_privileges.php:60 server_privileges.php:202
-#: server_privileges.php:558
+#: server_privileges.php:61 server_privileges.php:203
+#: server_privileges.php:561
 msgid "Gives access to the complete list of databases."
 msgstr "สามารถเรียกดูรายการฐานข้อมูลทั้งหมดได้"
 
-#: server_privileges.php:61 server_privileges.php:213
-#: server_privileges.php:215 server_privileges.php:530
+#: server_privileges.php:62 server_privileges.php:214
+#: server_privileges.php:216 server_privileges.php:533
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: server_privileges.php:62 server_privileges.php:196
-#: server_privileges.php:557
+#: server_privileges.php:63 server_privileges.php:197
+#: server_privileges.php:560
 msgid "Allows shutting down the server."
 msgstr "อนุญาตให้ปิดเซิร์ฟเวอร์ได้"
 
-#: server_privileges.php:63 server_privileges.php:203
-#: server_privileges.php:554
+#: server_privileges.php:64 server_privileges.php:204
+#: server_privileges.php:557
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
 
-#: server_privileges.php:64 server_privileges.php:210
-#: server_privileges.php:546
+#: server_privileges.php:65 server_privileges.php:211
+#: server_privileges.php:549
 #, fuzzy
 msgid "Allows creating and dropping triggers"
 msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
 
-#: server_privileges.php:65 server_privileges.php:191
-#: server_privileges.php:456 server_privileges.php:516
+#: server_privileges.php:66 server_privileges.php:192
+#: server_privileges.php:457 server_privileges.php:519
 msgid "Allows changing data."
 msgstr "อนุญาตให้เปลี่ยนข้อมูลได้."
 
-#: server_privileges.php:66 server_privileges.php:269
+#: server_privileges.php:67 server_privileges.php:270
 msgid "No privileges."
 msgstr "ไม่มีสิทธิใดๆ."
 
-#: server_privileges.php:311 server_privileges.php:312
+#: server_privileges.php:312 server_privileges.php:313
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "ไม่มี"
 
-#: server_privileges.php:442 server_privileges.php:577
-#: server_privileges.php:1827 server_privileges.php:1833
+#: server_privileges.php:443 server_privileges.php:580
+#: server_privileges.php:1798 server_privileges.php:1804
 msgid "Table-specific privileges"
 msgstr "สิทธิเจาะจงเฉพาะตาราง"
 
-#: server_privileges.php:443 server_privileges.php:585
-#: server_privileges.php:1639
+#: server_privileges.php:444 server_privileges.php:588
+#: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ "
 
-#: server_privileges.php:574 server_privileges.php:1638
-msgid "Global privileges"
-msgstr "สิทธิแบบโกลบอล"
-
-#: server_privileges.php:576 server_privileges.php:1827
-msgid "Database-specific privileges"
-msgstr "สิทธิเจาะจงเฉพาะฐานข้อมูล"
-
-#: server_privileges.php:621
+#: server_privileges.php:513
 msgid "Administration"
 msgstr "การดูแลระบบ"
 
-#: server_privileges.php:641
+#: server_privileges.php:577 server_privileges.php:1609
+msgid "Global privileges"
+msgstr "สิทธิแบบโกลบอล"
+
+#: server_privileges.php:579 server_privileges.php:1798
+msgid "Database-specific privileges"
+msgstr "สิทธิเจาะจงเฉพาะฐานข้อมูล"
+
+#: server_privileges.php:612
 msgid "Resource limits"
 msgstr "ขีดจำกัดของทรัพยากร"
 
-#: server_privileges.php:642
+#: server_privileges.php:613
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด."
 
-#: server_privileges.php:719
+#: server_privileges.php:690
 msgid "Login Information"
 msgstr "ข้อมูลล็อกอิน"
 
-#: server_privileges.php:813
+#: server_privileges.php:784
 msgid "Do not change the password"
 msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
 
-#: server_privileges.php:846 server_privileges.php:2315
+#: server_privileges.php:817 server_privileges.php:2286
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "ไม่พบผู้ใช้ใดๆ."
 
-#: server_privileges.php:890
+#: server_privileges.php:861
 #, php-format
 msgid "The user %s already exists!"
 msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 
-#: server_privileges.php:974
+#: server_privileges.php:945
 msgid "You have added a new user."
 msgstr "เพิ่มผู้ใช้ใหม่เรียบร้อยแล้ว"
 
-#: server_privileges.php:1205
+#: server_privileges.php:1176
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "คุณได้ปรับปรุงสิทธิสำหรับ %s แล้ว"
 
-#: server_privileges.php:1229
+#: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "คุณได้เพิกถอนสิทธิของ %s"
 
-#: server_privileges.php:1265
+#: server_privileges.php:1236
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "เปลี่ยนรหัสผ่านของ %s เรียบร้อยแล้ว"
 
-#: server_privileges.php:1285
+#: server_privileges.php:1256
 #, php-format
 msgid "Deleting %s"
 msgstr "กำลังลบ %s"
 
-#: server_privileges.php:1299
+#: server_privileges.php:1270
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: server_privileges.php:1302
+#: server_privileges.php:1273
 msgid "Reloading the privileges"
 msgstr "ปรับปรุงสิทธิเข้าถึงใหม่อีกรอบ"
 
-#: server_privileges.php:1320
+#: server_privileges.php:1291
 msgid "The selected users have been deleted successfully."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
-#: server_privileges.php:1355
+#: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
-#: server_privileges.php:1366 server_privileges.php:1758
+#: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
 msgstr "แก้ไขสิทธิ"
 
-#: server_privileges.php:1375
+#: server_privileges.php:1346
 msgid "Revoke"
 msgstr "เพิกถอน"
 
-#: server_privileges.php:1402 server_privileges.php:1659
-#: server_privileges.php:2272
+#: server_privileges.php:1373 server_privileges.php:1630
+#: server_privileges.php:2243
 msgid "Any"
 msgstr "ใดๆ"
 
-#: server_privileges.php:1499
+#: server_privileges.php:1470
 msgid "User overview"
 msgstr "ข้อมูลทั่วไปของผู้ใช้"
 
-#: server_privileges.php:1640 server_privileges.php:1832
-#: server_privileges.php:2182
+#: server_privileges.php:1611 server_privileges.php:1803
+#: server_privileges.php:2153
 msgid "Grant"
 msgstr "มอบสิทธิ"
 
-#: server_privileges.php:1708 server_privileges.php:1732
-#: server_privileges.php:2137 server_privileges.php:2326
+#: server_privileges.php:1679 server_privileges.php:1703
+#: server_privileges.php:2108 server_privileges.php:2297
 msgid "Add a new User"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
-#: server_privileges.php:1713
+#: server_privileges.php:1684
 msgid "Remove selected users"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
-#: server_privileges.php:1716
+#: server_privileges.php:1687
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
 
-#: server_privileges.php:1717 server_privileges.php:1718
-#: server_privileges.php:1719
+#: server_privileges.php:1688 server_privileges.php:1689
+#: server_privileges.php:1690
 msgid "Drop the databases that have the same names as the users."
 msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
 
-#: server_privileges.php:1740
+#: server_privileges.php:1711
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -7704,91 +7704,91 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: server_privileges.php:1793
+#: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
 msgstr "ไม่พบผู้ใช้ที่เลือกในตารางแสดงสิทธิ"
 
-#: server_privileges.php:1833
+#: server_privileges.php:1804
 msgid "Column-specific privileges"
 msgstr "สิทธิเฉพาะคอลัมน์"
 
-#: server_privileges.php:2034
+#: server_privileges.php:2005
 msgid "Add privileges on the following database"
 msgstr "เพิ่มสิทธิของฐานข้อมูลต่อไปนี้"
 
-#: server_privileges.php:2052
+#: server_privileges.php:2023
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 
-#: server_privileges.php:2055
+#: server_privileges.php:2026
 msgid "Add privileges on the following table"
 msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
 
-#: server_privileges.php:2112
+#: server_privileges.php:2083
 msgid "Change Login Information / Copy User"
 msgstr "เปลี่ยนข้อมูลล็อกอิน / ทำสำเนาผู้ใช้"
 
-#: server_privileges.php:2115
+#: server_privileges.php:2086
 msgid "Create a new user with the same privileges and ..."
 msgstr "สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ ..."
 
-#: server_privileges.php:2117
+#: server_privileges.php:2088
 msgid "... keep the old one."
 msgstr "... เก็บของเก่าไว้."
 
-#: server_privileges.php:2118
+#: server_privileges.php:2089
 msgid " ... delete the old one from the user tables."
 msgstr " ... ลบของเก่าทิ้งไปจากตารางผู้ใช้."
 
-#: server_privileges.php:2119
+#: server_privileges.php:2090
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr " ... เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น."
 
-#: server_privileges.php:2120
+#: server_privileges.php:2091
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr " ... ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
 
-#: server_privileges.php:2143
+#: server_privileges.php:2114
 msgid "Database for user"
 msgstr ""
 
-#: server_privileges.php:2147
+#: server_privileges.php:2118
 #, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "ไม่มี"
 
-#: server_privileges.php:2148
+#: server_privileges.php:2119
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 
-#: server_privileges.php:2149
+#: server_privileges.php:2120
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
-#: server_privileges.php:2152
+#: server_privileges.php:2123
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
 
-#: server_privileges.php:2175
+#: server_privileges.php:2146
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "ผู้ใช้มีสิทธิเข้าถึงฐานข้อมูล &quot;%s&quot;"
 
-#: server_privileges.php:2283
+#: server_privileges.php:2254
 msgid "global"
 msgstr "โกลบอล"
 
-#: server_privileges.php:2285
+#: server_privileges.php:2256
 msgid "database-specific"
 msgstr "เฉพาะฐานข้อมูล"
 
-#: server_privileges.php:2287
+#: server_privileges.php:2258
 msgid "wildcard"
 msgstr "ไวล์การ์ด"
 
