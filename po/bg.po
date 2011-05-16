@@ -1795,7 +1795,7 @@ msgstr "Изтегляне файл"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Файлът %s не може да бъде отворен"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
