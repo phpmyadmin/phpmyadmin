@@ -4467,7 +4467,7 @@ msgstr "@SERVER@ ще стане името на сървъра"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ ще стане името на базата от данни"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
