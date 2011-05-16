@@ -1077,7 +1077,7 @@ msgstr "Преименуване БД"
 
 #: js/messages.php:74
 msgid "Reload Database"
-msgstr "Презареждане на база данни"
+msgstr "Презареждане БД"
 
 #: js/messages.php:75
 msgid "Copying Database"
