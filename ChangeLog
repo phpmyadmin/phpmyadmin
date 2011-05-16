@@ -13,6 +13,7 @@
 - bug #3302457 Inline edit and $cfg['PropertiesIconic']
 - Patch #3302313 Show a translated label
 - bug #3300981 [navi] Table filter is case sensitive
+- bug #3285929 [privileges] Revert temporary fix
 
 3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
