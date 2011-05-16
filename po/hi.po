@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-15 13:41-0400\n"
+"POT-Creation-Date: 2011-05-16 10:31-0400\n"
 "PO-Revision-Date: 2011-05-06 09:13+0200\n"
 "Last-Translator:  <manojonemail@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -69,8 +69,8 @@ msgstr "खोजें"
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1224 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:252
-#: tbl_operations.php:281 tbl_operations.php:318 tbl_operations.php:520
-#: tbl_operations.php:582 tbl_operations.php:764 tbl_select.php:290
+#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
+#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:290
 #: tbl_structure.php:656 tbl_structure.php:692 tbl_tracking.php:425
 #: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -124,7 +124,7 @@ msgid "Database comment: "
 msgstr "डाटाबेस टिप्पणि: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
-#: libraries/tbl_properties.inc.php:725 tbl_operations.php:363
+#: libraries/tbl_properties.inc.php:725 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr " टेबल टिप्पणि:"
@@ -293,15 +293,15 @@ msgstr "ड्रॉप डेटाबेस (छोड़ें)"
 msgid "Copy database to"
 msgstr "डेटाबेस को ______ में कॉपी करें"
 
-#: db_operations.php:494 tbl_operations.php:549 tbl_tracking.php:418
+#: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "केवल संरचना"
 
-#: db_operations.php:495 tbl_operations.php:550 tbl_tracking.php:420
+#: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "संरचना और डाटा"
 
-#: db_operations.php:496 tbl_operations.php:551 tbl_tracking.php:419
+#: db_operations.php:496 tbl_operations.php:550 tbl_tracking.php:419
 msgid "Data only"
 msgstr "केवल डाटा"
 
@@ -311,17 +311,17 @@ msgstr "डेटाबेस कॉपी करने से पहले ड�
 
 #: db_operations.php:507 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
-#: libraries/config/messages.inc.php:132 tbl_operations.php:557
+#: libraries/config/messages.inc.php:132 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
 msgstr "%s जोडें"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:117
-#: tbl_operations.php:315 tbl_operations.php:559
+#: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT मूल्य जोडें"
 
-#: db_operations.php:515 tbl_operations.php:566
+#: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
 msgstr "शर्तें जोडें"
 
@@ -333,7 +333,7 @@ msgstr "नक़ल किये गए डाटाबेस पर जाय�
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:379 tbl_select.php:114
+#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:114
 #: tbl_structure.php:200 tbl_structure.php:862 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -426,14 +426,14 @@ msgstr "सॉर्ट"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:505 libraries/display_tbl.lib.php:814
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
+#: server_databases.php:148 server_databases.php:165 tbl_operations.php:275
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "आरोही"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:811
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:277
+#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
 #: tbl_select.php:278
 msgid "Descending"
 msgstr "अवरोही"
@@ -587,17 +587,17 @@ msgstr "काँलम के अंदर:"
 msgid "No tables found in database"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
-#: db_structure.php:277 tbl_operations.php:689
+#: db_structure.php:277 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
 msgstr " टेबल %s को खाली किया गया है."
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
 msgstr "द्रश्य %s रद्द दिया गया है."
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
 msgstr " टेबल %s को रद्द किया गया है."
@@ -687,20 +687,20 @@ msgstr "खाली करें"
 msgid "Drop"
 msgstr "छोड़ें"
 
-#: db_structure.php:513 tbl_operations.php:605
+#: db_structure.php:513 tbl_operations.php:604
 msgid "Check table"
 msgstr " टेबल को चेक करें"
 
-#: db_structure.php:515 tbl_operations.php:654 tbl_structure.php:804
+#: db_structure.php:515 tbl_operations.php:653 tbl_structure.php:804
 #: tbl_structure.php:806
 msgid "Optimize table"
 msgstr "टेबल को अनुकूलित करें"
 
-#: db_structure.php:517 tbl_operations.php:641
+#: db_structure.php:517 tbl_operations.php:640
 msgid "Repair table"
 msgstr "टेबल को टीक करें"
 
-#: db_structure.php:519 tbl_operations.php:628
+#: db_structure.php:519 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "टेबल का विश्लेषण करें"
 
@@ -926,7 +926,7 @@ msgstr ""
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2074 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:229 tbl_relation.php:289 tbl_row_action.php:126
+#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है."
@@ -1574,7 +1574,7 @@ msgstr " डाटाबेस"
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:593
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:961
-#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "त्रुटि"
 
@@ -6491,7 +6491,7 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
-#: tbl_operations.php:371
+#: tbl_operations.php:370
 msgid "Storage Engine"
 msgstr ""
 
@@ -7654,8 +7654,9 @@ msgid "Unable to change master"
 msgstr "मास्टर बदलने मैं असमर्थ"
 
 #: server_replication.php:72
-#, php-format
-msgid "Master server changed succesfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed succesfully to %s"
+msgid "Master server changed successfully to %s"
 msgstr "मास्टर सर्वर सफलतापूर्वक परिवर्तित %s"
 
 #: server_replication.php:180
@@ -9171,97 +9172,97 @@ msgstr " %s टेबल को %s में कापी कर दिया."
 msgid "The table name is empty!"
 msgstr " टेबल का नाम खाली है!"
 
-#: tbl_operations.php:265
+#: tbl_operations.php:264
 msgid "Alter table order by"
 msgstr "टेबल क्रमांक को बदलिये "
 
-#: tbl_operations.php:274
+#: tbl_operations.php:273
 msgid "(singly)"
 msgstr "(अकेले)"
 
-#: tbl_operations.php:294
+#: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
 msgstr " टेबल को (database<b>.</b>table) में  मूव करें:"
 
-#: tbl_operations.php:352
+#: tbl_operations.php:351
 msgid "Table options"
 msgstr "टेबल विकल्प"
 
-#: tbl_operations.php:356
+#: tbl_operations.php:355
 msgid "Rename table to"
 msgstr "टेबल का नाम बदलें"
 
-#: tbl_operations.php:532
+#: tbl_operations.php:531
 msgid "Copy table to (database<b>.</b>table):"
 msgstr " (database<b>.</b>table) में टेबल को कापी करें:"
 
-#: tbl_operations.php:579
+#: tbl_operations.php:578
 msgid "Switch to copied table"
 msgstr "नकल की टेबल पर स्विच करें"
 
-#: tbl_operations.php:591
+#: tbl_operations.php:590
 msgid "Table maintenance"
 msgstr " टेबल  रख-रखाव"
 
-#: tbl_operations.php:615
+#: tbl_operations.php:614
 msgid "Defragment table"
 msgstr "देफ्रागमेंट टेबल"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:662
 #, php-format
 msgid "Table %s has been flushed"
 msgstr " टेबल %s को flush किया"
 
-#: tbl_operations.php:669
+#: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
 msgstr " टेबल को Flush करें (\"FLUSH\")"
 
-#: tbl_operations.php:678
+#: tbl_operations.php:677
 msgid "Delete data or table"
 msgstr "टेबल या डेटा हटाएँ"
 
-#: tbl_operations.php:693
+#: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
 msgstr "टेबल को खाली करें"
 
-#: tbl_operations.php:713
+#: tbl_operations.php:712
 msgid "Delete the table (DROP)"
 msgstr "डेटाबेस को ______  छोड़ें "
 
-#: tbl_operations.php:734
+#: tbl_operations.php:733
 msgid "Partition maintenance"
 msgstr "विभाजन रखरखाव"
 
-#: tbl_operations.php:742
+#: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
 msgstr "विभाजन %s"
 
-#: tbl_operations.php:745
+#: tbl_operations.php:744
 msgid "Analyze"
 msgstr "विश्लेषण"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:745
 msgid "Check"
 msgstr "चेक"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:746
 msgid "Optimize"
 msgstr "सुधारना"
 
-#: tbl_operations.php:748
+#: tbl_operations.php:747
 msgid "Rebuild"
 msgstr "फिर से बनाना"
 
-#: tbl_operations.php:749
+#: tbl_operations.php:748
 msgid "Repair"
 msgstr "मरम्मत"
 
-#: tbl_operations.php:761
+#: tbl_operations.php:760
 msgid "Remove partitioning"
 msgstr "विभाजन हटायें"
 
-#: tbl_operations.php:787
+#: tbl_operations.php:786
 msgid "Check referential integrity:"
 msgstr "Referential अखंडता की जाँच करें"
 
@@ -9475,7 +9476,7 @@ msgstr "संस्करण %s क्षणचित्र (SQL कोड)"
 #: tbl_tracking.php:382
 #, fuzzy
 #| msgid "Track these data definition statements:"
-msgid "Tracking data definition succesfully deleted"
+msgid "Tracking data definition successfully deleted"
 msgstr "डेटा परिभाषा पर नज़र रखना"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
@@ -9487,7 +9488,7 @@ msgstr "त्रुटियों को इकट्ठा करें"
 #: tbl_tracking.php:399
 #, fuzzy
 #| msgid "Track these data manipulation statements:"
-msgid "Tracking data manipulation succesfully deleted"
+msgid "Tracking data manipulation successfully deleted"
 msgstr "डेटा आपरेशन पर नज़र रखना"
 
 #: tbl_tracking.php:411

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-15 13:41-0400\n"
+"POT-Creation-Date: 2011-05-16 10:31-0400\n"
 "PO-Revision-Date: 2011-05-16 16:08+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -70,8 +70,8 @@ msgstr "Търсене"
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1224 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:252
-#: tbl_operations.php:281 tbl_operations.php:318 tbl_operations.php:520
-#: tbl_operations.php:582 tbl_operations.php:764 tbl_select.php:290
+#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
+#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:290
 #: tbl_structure.php:656 tbl_structure.php:692 tbl_tracking.php:425
 #: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -125,7 +125,7 @@ msgid "Database comment: "
 msgstr "Коментар към базата от данни: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
-#: libraries/tbl_properties.inc.php:725 tbl_operations.php:363
+#: libraries/tbl_properties.inc.php:725 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Коментари към таблицата"
@@ -294,15 +294,15 @@ msgstr "Изтриване на база данни (DROP)"
 msgid "Copy database to"
 msgstr "Копиране на базата от данни в"
 
-#: db_operations.php:494 tbl_operations.php:549 tbl_tracking.php:418
+#: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "Само структурата"
 
-#: db_operations.php:495 tbl_operations.php:550 tbl_tracking.php:420
+#: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "Структурата и данните"
 
-#: db_operations.php:496 tbl_operations.php:551 tbl_tracking.php:419
+#: db_operations.php:496 tbl_operations.php:550 tbl_tracking.php:419
 msgid "Data only"
 msgstr "Само данните"
 
@@ -312,17 +312,17 @@ msgstr "Изпълняване на CREATE DATABASE преди копиране�
 
 #: db_operations.php:507 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
-#: libraries/config/messages.inc.php:132 tbl_operations.php:557
+#: libraries/config/messages.inc.php:132 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
 msgstr "Добавяне на %s"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:117
-#: tbl_operations.php:315 tbl_operations.php:559
+#: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
 msgstr "Добавяне на AUTO_INCREMENT"
 
-#: db_operations.php:515 tbl_operations.php:566
+#: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
 msgstr "Добавяне на ограничение"
 
@@ -334,7 +334,7 @@ msgstr "Прехвърляна към копираната база от дан�
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:379 tbl_select.php:114
+#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:114
 #: tbl_structure.php:200 tbl_structure.php:862 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -425,14 +425,14 @@ msgstr "Сортиране"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:505 libraries/display_tbl.lib.php:814
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
+#: server_databases.php:148 server_databases.php:165 tbl_operations.php:275
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "Възходящо"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:811
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:277
+#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
 #: tbl_select.php:278
 msgid "Descending"
 msgstr "Низходящо"
@@ -586,17 +586,17 @@ msgstr "В колона:"
 msgid "No tables found in database"
 msgstr "В базата данни няма таблици"
 
-#: db_structure.php:277 tbl_operations.php:689
+#: db_structure.php:277 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Таблицата %s беше изчистена"
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Изглед %s беше изтрит"
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Таблицата %s беше изтрита"
@@ -686,20 +686,20 @@ msgstr "Изчистване"
 msgid "Drop"
 msgstr "Унищожаване"
 
-#: db_structure.php:513 tbl_operations.php:605
+#: db_structure.php:513 tbl_operations.php:604
 msgid "Check table"
 msgstr "Проверка на таблицата"
 
-#: db_structure.php:515 tbl_operations.php:654 tbl_structure.php:804
+#: db_structure.php:515 tbl_operations.php:653 tbl_structure.php:804
 #: tbl_structure.php:806
 msgid "Optimize table"
 msgstr "Оптимизация на таблицата"
 
-#: db_structure.php:517 tbl_operations.php:641
+#: db_structure.php:517 tbl_operations.php:640
 msgid "Repair table"
 msgstr "Поправяне на таблицата"
 
-#: db_structure.php:519 tbl_operations.php:628
+#: db_structure.php:519 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "Анализиране на таблицата"
 
@@ -918,7 +918,7 @@ msgstr ""
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2074 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:229 tbl_relation.php:289 tbl_row_action.php:126
+#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL заявката беше изпълнена успешно"
@@ -1565,7 +1565,7 @@ msgstr "Бази от данни"
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:593
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:961
-#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Грешка"
 
@@ -1893,11 +1893,11 @@ msgid ""
 "is fine."
 msgstr ""
 "phpMyAdmin не може да прочете конфигурационния Ви файл!<br />Това се случва "
-"ако PHP открие синтактична грешка в него или не може да открие файла.<br "
-"/>Моля извикайте конфигурационния файл директно като използвате връзката "
-"по-долу и прочетете съобщение(я) за грешка което PHP връща. В повечето "
-"случаи, някъде липсват кавички или точка и запетая.<br />Ако бъде изведена "
-"празна страница, всичко е наред."
+"ако PHP открие синтактична грешка в него или не може да открие файла.<br /"
+">Моля извикайте конфигурационния файл директно като използвате връзката по-"
+"долу и прочетете съобщение(я) за грешка което PHP връща. В повечето случаи, "
+"някъде липсват кавички или точка и запетая.<br />Ако бъде изведена празна "
+"страница, всичко е наред."
 
 #: libraries/common.inc.php:587
 #, php-format
@@ -5226,7 +5226,6 @@ msgstr "Показване коментари"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Показване MIME-типове"
 
@@ -6064,7 +6063,6 @@ msgid "Please choose a page to edit"
 msgstr "Моля изберете страница за редакция"
 
 #: libraries/schema/User_Schema.class.php:153
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Избор страница"
 
@@ -6144,7 +6142,6 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#| msgid "Server"
 msgid "Current Server"
 msgstr "Текущ сървър"
 
@@ -6176,7 +6173,6 @@ msgid "Synchronize"
 msgstr "Синхронизиране"
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Настройки"
 
@@ -6219,7 +6215,6 @@ msgid "Clear"
 msgstr "Изчистване"
 
 #: libraries/sql_query_form.lib.php:302
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Колони"
 
@@ -6352,10 +6347,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Ако типа на полето е \"enum\" или \"set\", моля въведете стойностите използвайки "
-"този формат: 'a','b','c'...<br />Ако е необходимо да сложите обратна черта "
-"(\"\\\") или апостроф (\"'\") между тези стойности, сложите обратна черта пред "
-"тях (например: '\\\\xyz' или 'a\\'b')."
+"Ако типа на полето е \"enum\" или \"set\", моля въведете стойностите "
+"използвайки този формат: 'a','b','c'...<br />Ако е необходимо да сложите "
+"обратна черта (\"\\\") или апостроф (\"'\") между тези стойности, сложите "
+"обратна черта пред тях (например: '\\\\xyz' или 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6406,7 +6401,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Няма"
@@ -6435,7 +6429,7 @@ msgstr ""
 "относно това какво прави %s."
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
-#: tbl_operations.php:371
+#: tbl_operations.php:370
 msgid "Storage Engine"
 msgstr "Хранилище на данни"
 
@@ -6583,7 +6577,6 @@ msgid "Manage your settings"
 msgstr "Общи възможности на релациите"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Конфигурацията е запазена"
 
@@ -6628,7 +6621,6 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:146 prefs_manage.php:274
-#| msgid "General relation features"
 msgid "More settings"
 msgstr "Още настройки"
 
@@ -6672,7 +6664,6 @@ msgid "Official Homepage"
 msgstr "Официалната страница на phpMyAdmin"
 
 #: main.php:214
-#| msgid "Attributes"
 msgid "Contribute"
 msgstr "Принос"
 
@@ -6681,7 +6672,6 @@ msgid "Get support"
 msgstr ""
 
 #: main.php:216
-#| msgid "No change"
 msgid "List of changes"
 msgstr "Списък с промените"
 
@@ -6776,7 +6766,6 @@ msgid "Filter"
 msgstr ""
 
 #: navigation.php:277
-#| msgid "table name"
 msgid "filter tables by name"
 msgstr "филтър по име на таблица"
 
@@ -6877,12 +6866,10 @@ msgstr "Експортиране"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#| msgid "in query"
 msgid "subquery"
 msgstr "подзаявка"
 
 #: pmd_general.php:480 pmd_general.php:576
-#| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Преименуване на"
 
@@ -7012,7 +6999,6 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "Импорт от файл"
 
@@ -7630,9 +7616,10 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:72
-#, php-format
-msgid "Master server changed succesfully to %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "The privileges were reloaded successfully."
+msgid "Master server changed successfully to %s"
+msgstr "Привилегиите бяха презаредени успешно."
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
@@ -9173,99 +9160,99 @@ msgstr "Таблица %s беше копирана в %s."
 msgid "The table name is empty!"
 msgstr "Името на таблицата е празно!"
 
-#: tbl_operations.php:265
+#: tbl_operations.php:264
 msgid "Alter table order by"
 msgstr "Подреждане на таблицата по"
 
-#: tbl_operations.php:274
+#: tbl_operations.php:273
 msgid "(singly)"
 msgstr "(еднократно)"
 
-#: tbl_operations.php:294
+#: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Преместване на таблица към (база от данни<b>.</b>таблица):"
 
-#: tbl_operations.php:352
+#: tbl_operations.php:351
 msgid "Table options"
 msgstr "Опции на таблицата"
 
-#: tbl_operations.php:356
+#: tbl_operations.php:355
 msgid "Rename table to"
 msgstr "Преименуване на таблицата на"
 
-#: tbl_operations.php:532
+#: tbl_operations.php:531
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Копиране на таблица (база от данни<b>.</b>таблица):"
 
-#: tbl_operations.php:579
+#: tbl_operations.php:578
 msgid "Switch to copied table"
 msgstr "Превключване към копираната таблица"
 
-#: tbl_operations.php:591
+#: tbl_operations.php:590
 msgid "Table maintenance"
 msgstr "Поддръжка на таблицата"
 
-#: tbl_operations.php:615
+#: tbl_operations.php:614
 msgid "Defragment table"
 msgstr "Дефрагментиране на таблица"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:662
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Кеша на таблица %s беше изчистен"
 
-#: tbl_operations.php:669
+#: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
 msgstr "Изпразване кеша на таблицата (FLUSH)"
 
-#: tbl_operations.php:678
+#: tbl_operations.php:677
 msgid "Delete data or table"
 msgstr ""
 
-#: tbl_operations.php:693
+#: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:713
+#: tbl_operations.php:712
 msgid "Delete the table (DROP)"
 msgstr "Изтриване на таблица (DROP)"
 
-#: tbl_operations.php:734
+#: tbl_operations.php:733
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "Поддръжка на таблицата"
 
-#: tbl_operations.php:742
+#: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: tbl_operations.php:745
+#: tbl_operations.php:744
 msgid "Analyze"
 msgstr ""
 
-#: tbl_operations.php:746
+#: tbl_operations.php:745
 #, fuzzy
 msgid "Check"
 msgstr "Чешки"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:746
 msgid "Optimize"
 msgstr ""
 
-#: tbl_operations.php:748
+#: tbl_operations.php:747
 msgid "Rebuild"
 msgstr ""
 
-#: tbl_operations.php:749
+#: tbl_operations.php:748
 msgid "Repair"
 msgstr "Поправяне"
 
-#: tbl_operations.php:761
+#: tbl_operations.php:760
 msgid "Remove partitioning"
 msgstr ""
 
-#: tbl_operations.php:787
+#: tbl_operations.php:786
 msgid "Check referential integrity:"
 msgstr "Проверка на интегритета на връзките:"
 
@@ -9481,7 +9468,7 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: tbl_tracking.php:382
-msgid "Tracking data definition succesfully deleted"
+msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
@@ -9491,7 +9478,7 @@ msgid "Query error"
 msgstr "Тип на заявката"
 
 #: tbl_tracking.php:399
-msgid "Tracking data manipulation succesfully deleted"
+msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:411
