@@ -4272,7 +4272,7 @@ msgstr ""
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:493
 msgid "Events"
-msgstr ""
+msgstr "Събития"
 
 #: libraries/db_events.inc.php:24 libraries/db_routines.inc.php:35
 #: libraries/display_create_table.lib.php:51 libraries/tbl_triggers.lib.php:26
