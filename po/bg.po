@@ -4657,7 +4657,7 @@ msgstr "СТОП"
 
 #: libraries/display_tbl.lib.php:2027
 msgid "in query"
-msgstr "в запитването"
+msgstr "в зявката"
 
 #: libraries/display_tbl.lib.php:2045
 msgid "Showing rows"
