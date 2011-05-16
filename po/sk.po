@@ -1948,10 +1948,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "Porovnanie času vykonania dotazu (v mikrosekundách)"
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operácie s výsledkami dopytu"
+msgstr "Výsledky dopytu"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
