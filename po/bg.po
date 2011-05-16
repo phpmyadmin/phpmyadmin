@@ -7247,8 +7247,8 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Ограничава броя на командите, които променят някоя таблица или база от "
-"данни, които даден потребител може да стартира за час."
+"Ограничава броя на командите, които променят някоя таблица или БД, които "
+"даден потребител може да инициира за час."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
