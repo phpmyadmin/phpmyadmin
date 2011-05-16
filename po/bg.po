@@ -118,7 +118,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата данни %1$s беше създадена."
+msgstr "БД %1$s беше създадена."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
