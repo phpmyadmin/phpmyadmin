@@ -5221,7 +5221,7 @@ msgstr "Показване коментари"
 #: libraries/export/sql.php:44
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Показване MIME-типове"
+msgstr "Показване MIME типове"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
