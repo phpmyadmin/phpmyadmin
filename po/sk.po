@@ -2299,7 +2299,7 @@ msgstr "Rozšírené vkladania"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "obidve vyššie uvedené"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
