@@ -584,7 +584,7 @@ msgstr "В колона:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "В базата данни няма таблици"
+msgstr "В БД няма таблици"
 
 #: db_structure.php:277 tbl_operations.php:689
 #, php-format
