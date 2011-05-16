@@ -536,7 +536,7 @@ msgstr "Прелистване"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Изтриване на съвпаденията от таблицата %s?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1223
 #: libraries/display_tbl.lib.php:2153
