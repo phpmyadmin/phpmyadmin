@@ -7354,7 +7354,7 @@ msgstr "Глобални привилегии"
 
 #: server_privileges.php:579 server_privileges.php:1798
 msgid "Database-specific privileges"
-msgstr "Привилегии специфични за базата от данни"
+msgstr "Привилегии специфични за БД"
 
 #: server_privileges.php:612
 msgid "Resource limits"
