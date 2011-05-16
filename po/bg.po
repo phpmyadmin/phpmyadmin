@@ -9376,7 +9376,7 @@ msgid "After %s"
 msgstr "След %s"
 
 #: tbl_structure.php:689
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Създаване на индекс върху &nbsp;%s&nbsp;колони"
