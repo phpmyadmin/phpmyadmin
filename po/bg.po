@@ -262,7 +262,7 @@ msgstr "Името на БД е празно!"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Базата данни %s беше преименувана на %s"
+msgstr "БД %s беше преименувана на %s"
 
 #: db_operations.php:276
 #, php-format
