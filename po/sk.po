@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 23:33+0200\n"
+"PO-Revision-Date: 2011-05-16 23:35+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -866,7 +866,7 @@ msgstr "Web server nemá oprávenia na uloženie do súboru %s."
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump (schéma) bol uložený do súboru %s."
+msgstr "Výpis bol uložený do súboru %s."
 
 #: import.php:58
 #, php-format
