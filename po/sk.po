@@ -1120,9 +1120,8 @@ msgid "Hide query box"
 msgstr "Skryť vyhľadávacie pole"
 
 #: js/messages.php:87
-#, fuzzy
 msgid "Show query box"
-msgstr "SQL dopyt"
+msgstr "Zobrazit vyhľadávacie pole"
 
 #: js/messages.php:88
 #, fuzzy
