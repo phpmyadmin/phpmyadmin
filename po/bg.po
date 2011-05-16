@@ -6186,7 +6186,7 @@ msgstr ""
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1117
 msgid "Target database"
-msgstr "Целева база от данни"
+msgstr "Целева БД"
 
 #: libraries/sql_query_form.lib.php:224
 #, php-format
