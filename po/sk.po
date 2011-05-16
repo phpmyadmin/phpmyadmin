@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 23:23+0200\n"
+"PO-Revision-Date: 2011-05-16 23:24+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -10225,7 +10225,7 @@ msgstr "Profil bol aktualizovaný."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "Meno pohľadu"
 
 #: view_operations.php:91
 msgid "Rename view to"
