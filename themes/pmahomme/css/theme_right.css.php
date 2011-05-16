@@ -1174,18 +1174,19 @@ div#serverstatus table#serverstatusconnections {
     float: <?php echo $left; ?>;
 }
 
-#serverstatussection,
 .clearfloat {
     clear: both;
 }
-div#serverstatussection table {
+table#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
+	margin-top:1em;
 }
-div#serverstatussection table .name {
+table#serverstatusvariables .name {
     width: 18em;
+	white-space:nowrap;
 }
-div#serverstatussection table .value {
+table#serverstatusvariables .value {
     width: 6em;
 }
 
