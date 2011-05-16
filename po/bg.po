@@ -1394,7 +1394,7 @@ msgstr "сб"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:226
 msgid "Wk"
-msgstr ""
+msgstr "Сед"
 
 #: js/messages.php:228
 msgid "Hour"
