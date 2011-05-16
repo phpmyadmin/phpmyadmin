@@ -748,9 +748,8 @@ msgid "Last version"
 msgstr "Posledná verzia"
 
 #: db_tracking.php:87 tbl_tracking.php:588
-#, fuzzy
 msgid "Created"
-msgstr "Vytvoriť"
+msgstr "Vytvorené"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
