@@ -2094,7 +2094,7 @@ msgstr "Bez kontroly SQL"
 
 #: libraries/common.lib.php:1210 libraries/config/messages.inc.php:466
 msgid "Validate SQL"
-msgstr "Potvrdiť platnosť SQL"
+msgstr "Skontrolovať SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
