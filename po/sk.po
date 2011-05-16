@@ -1554,7 +1554,7 @@ msgstr "Chýba adresár pre dočasné súbory."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Chyba pri zápise súboru na disk."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
