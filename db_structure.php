@@ -519,6 +519,12 @@ if (!$db_is_information_schema) {
          . __('Repair table') . '</option>' . "\n";
     echo '    <option value="analyze_tbl" >'
          . __('Analyze table') . '</option>' . "\n";
+    echo '    <option value="add_prefix_tbl" >'
+         . __('Add prefix to table') . '</option>' . "\n";
+    echo '    <option value="replace_prefix_tbl" >'
+         . __('Replace table prefix') . '</option>' . "\n";
+    echo '    <option value="copy_tbl_change_prefix" >'
+         . __('Copy table with prefix') . '</option>' . "\n";
 }
 ?>
 </select>

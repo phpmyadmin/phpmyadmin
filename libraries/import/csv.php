@@ -38,7 +38,7 @@ if (isset($plugin_list)) {
     } else {
         $hint = new PMA_Message(__('If the data in each row of the file is not in the same order as in the database, list the corresponding column names here. Column names must be separated by commas and not enclosed in quotations.'));
         $plugin_list['csv']['options'][] =
-            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names: ' . PMA_showHint($hint)));
+            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names: ') . PMA_showHint($hint));
     }
     $plugin_list['csv']['options'][] = array('type' => 'end_group');
 

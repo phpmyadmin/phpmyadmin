@@ -210,8 +210,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution'
 }
 
 // Export as SQL dump
-if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
-{
+if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') {
     $new_query =    "# " . __('You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.') . "\n" .
                     "# " . __('Comment out these two lines if you do not need them.') . "\n" .
                     "\n" .
@@ -368,6 +367,43 @@ if (isset($_REQUEST['snapshot'])) {
 /*
  *  Tracking report
  */
+if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))) {
+
+    if(isset($_REQUEST['delete_ddlog'])){
+        
+        // Delete ddlog row data
+        $delete_id = $_REQUEST['delete_ddlog'];
+        
+        // Only in case of valable id
+        if($delete_id == (int)$delete_id){
+            unset($data['ddlog'][$delete_id]);
+            
+            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog']))
+                $msg = PMA_Message::success(__('Tracking data definition successfully deleted'));
+            else
+                $msg = PMA_Message::rawError(__('Query error'));
+            $msg->display();
+        }
+    }
+
+    if(isset($_REQUEST['delete_dmlog'])){
+        
+        // Delete dmlog row data
+        $delete_id = $_REQUEST['delete_dmlog'];
+        
+        // Only in case of valable id
+        if($delete_id == (int)$delete_id){
+            unset($data['dmlog'][$delete_id]);
+            
+            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog']))
+                $msg = PMA_Message::success(__('Tracking data manipulation successfully deleted'));
+            else
+                $msg = PMA_Message::rawError(__('Query error'));
+            $msg->display();
+        }
+    }
+}
+ 
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
@@ -390,12 +426,25 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
+    // Prepare delete link content here
+    $drop_image_or_text = '';
+    if (true == $GLOBALS['cfg']['PropertiesIconic']) {
+        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data row from report') . '" title="' . __('Delete tracking data row from report') . '" />';
+    }
+    if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
+        $drop_image_or_text .= __('Delete');
+    }
 
     /*
      *  First, list tracked data definition statements
      */
     $i = 1;
-    if ($selection_schema || $selection_both ) {
+    if (count($data['ddlog']) == 0 && count($data['dmlog']) == 0) {
+        $msg = PMA_Message::notice(__('No data'));
+        $msg->display();
+    }
+
+    if ($selection_schema || $selection_both  && count($data['ddlog']) > 0) {
     ?>
         <table id="ddl_versions" class="data" width="100%">
         <thead>
@@ -404,10 +453,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             <th width="100"><?php echo __('Date');?></th>
             <th width="60"><?php echo __('Username');?></th>
             <th><?php echo __('Data definition statement');?></th>
+            <th><?php echo __('Delete');?></th>
         </tr>
         </thead>
         <tbody>
         <?php
+
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
             if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
@@ -425,6 +476,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     <td><small><?php echo $entry['date'];?></small></td>
                     <td><small><?php echo $entry['username']; ?></small></td>
                     <td><?php echo $statement; ?></td>
+                    <td nowrap="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_ddlog=<?php echo $i-1; ?>"><?php echo $drop_image_or_text; ?></a></td>
                 </tr>
         <?php
                 if ($style == 'even') {
@@ -442,6 +494,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     } //endif
 
+    // Memorize data definition amount
+    $ddlog_count = $i;
+
     /*
      *  Secondly, list tracked data manipulation statements
      */
@@ -455,6 +510,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             <th width="100"><?php echo __('Date');?></th>
             <th width="60"><?php echo __('Username');?></th>
             <th><?php echo __('Data manipulation statement');?></th>
+            <th><?php echo __('Delete');?></th>
         </tr>
         </thead>
         <tbody>
@@ -476,6 +532,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     <td><small><?php echo $entry['date']; ?></small></td>
                     <td><small><?php echo $entry['username']; ?></small></td>
                     <td><?php echo $statement; ?></td>
+                    <td nowrap="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_dmlog=<?php echo $i-$ddlog_count; ?>"><?php echo $drop_image_or_text; ?></a></td>
                 </tr>
         <?php
                 if ($style == 'even') {

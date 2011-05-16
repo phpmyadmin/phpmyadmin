@@ -241,17 +241,15 @@ if [ $# -gt 0 ] ; then
                 git tag -a -m "Released $version" $tagname $branch
                 if echo $version | grep -q '^2\.11\.' ; then
                     echo '* 2.11 branch, no STABLE/TESTING update'
+                elif echo $version | grep -q '^3\.3\.' ; then
+                    echo '* 3.3 branch, no STABLE/TESTING update'
                 else
                     if echo $version | grep '[a-z_-]' ; then
                         mark_as_release $branch TESTING
                     else
                         # We update both branches here
                         # As it does not make sense to have older testing than stable
-                        if echo $version | grep -q '^3\.3\.' ; then
-                            echo '* 3.3 branch, no TESTING update'
-                        else
-                            mark_as_release $branch TESTING
-                        fi
+                        mark_as_release $branch TESTING
                         mark_as_release $branch STABLE
                     fi
                     git checkout master

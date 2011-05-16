@@ -2,10 +2,21 @@
 ======================
 
 3.5.0.0 (not yet released)
++ rfe #2021981 [interface] Add support for mass prefix change.
++ "up to date" message on main page when current version is up to date
++ Update to jQuery 1.6.1
++ Patch #3256122 [search] Show/hide db search results
++ Patch #3302354 Add gettext wrappers around a message
 
 3.4.1.0 (not yet released)
+- bug #3301108 [interface] Synchronize and already configured host
+- bug #3302457 Inline edit and $cfg['PropertiesIconic']
+- Patch #3302313 Show a translated label
+- bug #3300981 [navi] Table filter is case sensitive
+- bug #3285929 [privileges] Revert temporary fix
+- bug #3302872 [synchronize] Synchronize and user name
 
-3.4.0.0 (not yet released)
+3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
 + rfe #838637 [privileges] Export a user's privileges 
 - [core] Updated mootools to fix some glitches with Safari.

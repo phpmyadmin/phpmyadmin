@@ -123,7 +123,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                             PMA_generate_common_url($GLOBALS['db']),
                             htmlspecialchars($GLOBALS['db']),
                             __('Database'),
-                            's_tbl.png');
+                            's_db.png');
                     // if the table is being dropped, $_REQUEST['purge'] is set
                     // (it always contains "1")
                     // so do not display the table name in upper div
