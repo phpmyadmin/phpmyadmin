@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 21:40+0200\n"
+"PO-Revision-Date: 2011-05-16 21:41+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1533,6 +1533,8 @@ msgstr "Veľkosť písma"
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Veľkosť nahrávaného súboru prekračuje hodnotu premennej upload_max_filesize "
+"v php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
