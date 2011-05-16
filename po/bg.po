@@ -1100,11 +1100,11 @@ msgstr "Скриване"
 
 #: js/messages.php:93
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Скриване критерий за търсене"
 
 #: js/messages.php:94
 msgid "Show search criteria"
-msgstr ""
+msgstr "Показване критерий за търсене"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1117,11 +1117,11 @@ msgstr ""
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Избор външен ключ"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Изберете първичен или уникален ключ"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
@@ -1153,11 +1153,13 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Налична е нова всесия на phpMyAdmin и трябва да обмислите обневление. Новата "
+"версия е %s, излязла на %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", последна стабилна версия:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:137
@@ -1188,7 +1190,7 @@ msgstr "януари"
 
 #: js/messages.php:147
 msgid "February"
-msgstr ""
+msgstr "февруари"
 
 #: js/messages.php:148
 msgid "March"
@@ -1216,7 +1218,7 @@ msgstr "август"
 
 #: js/messages.php:154
 msgid "September"
-msgstr ""
+msgstr "септември"
 
 #: js/messages.php:155
 msgid "October"
@@ -1224,11 +1226,11 @@ msgstr "октомври"
 
 #: js/messages.php:156
 msgid "November"
-msgstr ""
+msgstr "ноември"
 
 #: js/messages.php:157
 msgid "December"
-msgstr ""
+msgstr "декември"
 
 #. l10n: Short month name
 #: js/messages.php:161 libraries/common.lib.php:1569
@@ -1305,11 +1307,11 @@ msgstr "вторник"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr ""
+msgstr "сряда"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "четвъртък"
 
 #: js/messages.php:191
 msgid "Friday"
@@ -1317,7 +1319,7 @@ msgstr "петък"
 
 #: js/messages.php:192
 msgid "Saturday"
-msgstr ""
+msgstr "събота"
 
 #. l10n: Short week day name
 #: js/messages.php:196 libraries/common.lib.php:1594
@@ -1392,11 +1394,11 @@ msgstr "сб"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:226
 msgid "Wk"
-msgstr ""
+msgstr "Сед"
 
 #: js/messages.php:228
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: js/messages.php:229
 msgid "Minute"
@@ -1422,11 +1424,11 @@ msgstr ""
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Подаденият файл беше само частично качен."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Липсва временна папка."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
@@ -1438,7 +1440,7 @@ msgstr ""
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Неизвестна грешка при качване."
 
 #: libraries/File.class.php:559
 msgid ""
@@ -1706,7 +1708,7 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Удостоверяване..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
@@ -1726,19 +1728,19 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "Преглед изображение"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Просвирване аудио"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "Преглеждане видео"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "Изтегляне файл"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
@@ -1747,7 +1749,7 @@ msgstr ""
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "споделен"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
@@ -1785,7 +1787,7 @@ msgstr ""
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "Нереплицирана"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"

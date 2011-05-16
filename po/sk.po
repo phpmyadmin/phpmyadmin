@@ -1169,15 +1169,15 @@ msgstr "Ignorovať"
 
 #: js/messages.php:100
 msgid "Select referenced key"
-msgstr ""
+msgstr "Zvoliť odkazovaný kľúč"
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Zvoliť cudzí kľúč"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Zoľte, prosím, primárny alebo unikátny kľúč"
 
 #: js/messages.php:103 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
@@ -1187,7 +1187,7 @@ msgstr "Zvolte, ktoré pole zobraziť"
 
 #: js/messages.php:106
 msgid "Add an option for column "
-msgstr ""
+msgstr "Pridať voľbu pre stĺpec"
 
 #: js/messages.php:109
 #, fuzzy
@@ -1217,11 +1217,13 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Je dostupná novšia verzia phpMyAdmina, mali by ste zvážiť aktualizáviu. "
+"Najnovšia verzia je %s a bola vydaná %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", posledná stabilná verzia:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:137
@@ -1260,7 +1262,7 @@ msgstr "Binárny"
 
 #: js/messages.php:147
 msgid "February"
-msgstr ""
+msgstr "Február"
 
 #: js/messages.php:148
 #, fuzzy
@@ -1298,7 +1300,7 @@ msgstr "Aug"
 
 #: js/messages.php:154
 msgid "September"
-msgstr ""
+msgstr "September"
 
 #: js/messages.php:155
 #, fuzzy
@@ -1308,11 +1310,11 @@ msgstr "Okt"
 
 #: js/messages.php:156
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: js/messages.php:157
 msgid "December"
-msgstr ""
+msgstr "December"
 
 #. l10n: Short month name
 #: js/messages.php:161 libraries/common.lib.php:1569
@@ -1397,11 +1399,11 @@ msgstr "Út"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr ""
+msgstr "Streda"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "Štvrtok"
 
 #: js/messages.php:191
 #, fuzzy
@@ -1411,7 +1413,7 @@ msgstr "Pi"
 
 #: js/messages.php:192
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:196 libraries/common.lib.php:1594
@@ -1506,7 +1508,7 @@ msgstr "Wiki"
 
 #: js/messages.php:228
 msgid "Hour"
-msgstr ""
+msgstr "Hodiny"
 
 #: js/messages.php:229
 #, fuzzy
