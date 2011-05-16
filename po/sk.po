@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 15:26+0200\n"
+"PO-Revision-Date: 2011-05-16 15:27+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1284,7 +1284,7 @@ msgstr "Október"
 
 #: js/messages.php:156
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: js/messages.php:157
 msgid "December"
