@@ -279,7 +279,7 @@ msgstr "Команда"
 
 #: db_operations.php:440
 msgid "Remove database"
-msgstr "Изтриване на база данни"
+msgstr "Изтриване БД"
 
 #: db_operations.php:452
 #, php-format
