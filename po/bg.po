@@ -6102,10 +6102,9 @@ msgid "Portrait"
 msgstr "Портретно"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Дата на създаване"
+msgstr "Посока"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
