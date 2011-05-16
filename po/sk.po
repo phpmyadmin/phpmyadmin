@@ -1111,10 +1111,9 @@ msgid "Create Table"
 msgstr "Vytvoriť tabuľku"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Hľadať"
+msgstr "Vyhľadávam"
 
 #: js/messages.php:86
 #, fuzzy
