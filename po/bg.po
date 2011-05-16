@@ -1190,7 +1190,7 @@ msgstr "януари"
 
 #: js/messages.php:147
 msgid "February"
-msgstr ""
+msgstr "февруари"
 
 #: js/messages.php:148
 msgid "March"
