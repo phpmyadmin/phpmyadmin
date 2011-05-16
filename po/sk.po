@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-11 11:55+0200\n"
-"Last-Translator:  <ViktorJezek@email.cz>\n"
+"PO-Revision-Date: 2011-05-16 14:57+0200\n"
+"Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -276,10 +276,9 @@ msgid "Command"
 msgstr "Príkaz"
 
 #: db_operations.php:440
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Premenovať databázu na"
+msgstr "Odstrániť databázu"
 
 #: db_operations.php:452
 #, php-format
