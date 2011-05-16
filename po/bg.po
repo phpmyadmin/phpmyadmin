@@ -1398,7 +1398,7 @@ msgstr "Сед"
 
 #: js/messages.php:228
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: js/messages.php:229
 msgid "Minute"
