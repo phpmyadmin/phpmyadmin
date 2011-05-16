@@ -895,7 +895,7 @@ msgstr "Показване на белязка"
 #: import.php:402 sql.php:884
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Показалец %s беше създаден успешно"
+msgstr "Белязка %s беше създадена"
 
 #: import.php:408 import.php:414
 #, php-format
