@@ -23,5 +23,5 @@ for loc in $LOCS ; do
         s/VERSION/'$ver'/;
         s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '$ver'\\n"/;
         ' po/$loc.po
-    msgmerge --previous -C "$1/$loc.po"  -C ../localized_docs/po/$loc.po -U po/$loc.po po/phpmyadmin.pot
+    msgmerge --previous -C "$1/$loc.po" -U po/$loc.po po/phpmyadmin.pot
 done
