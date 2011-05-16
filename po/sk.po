@@ -1369,7 +1369,7 @@ msgstr "Utorok"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr ""
+msgstr "Streda"
 
 #: js/messages.php:190
 msgid "Thursday"
