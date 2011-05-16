@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 20:24+0200\n"
+"PO-Revision-Date: 2011-05-16 20:25+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4335,7 +4335,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:703
 msgid "Details..."
-msgstr ""
+msgstr "Подробности..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:119 user_password.php:137
