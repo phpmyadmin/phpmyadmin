@@ -6120,9 +6120,8 @@ msgid "Difference"
 msgstr ""
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1117
-#, fuzzy
 msgid "Target database"
-msgstr "Търсене в базата от данни"
+msgstr "Целева база от данни"
 
 #: libraries/sql_query_form.lib.php:224
 #, php-format
