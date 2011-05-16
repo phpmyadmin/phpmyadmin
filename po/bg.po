@@ -886,7 +886,7 @@ msgstr ""
 
 #: import.php:396
 msgid "The bookmark has been deleted."
-msgstr "Показалецът беше изтрит."
+msgstr "Белязката беше изтриа."
 
 #: import.php:400
 msgid "Showing bookmark"
