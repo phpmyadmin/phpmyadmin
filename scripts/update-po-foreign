@@ -1,0 +1,24 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+
+if [ ! -d "$1" ] ; then 
+    echo 'Usage: update-po-foreign DIR'
+    echo 'Updates po files based on po files in DIR'
+    exit 1
+fi
+
+export LC_COLLATE=C
+LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
+
+ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/Config.class.php`
+
+for loc in $LOCS ; do
+    sed -i '
+        s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
+        s/PACKAGE/phpMyAdmin/;
+        s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
+        s/VERSION/'$ver'/;
+        s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '$ver'\\n"/;
+        ' po/$loc.po
+    msgmerge --previous -C $1/$loc.po  -C ../localized_docs/po/$loc.po -U po/$loc.po po/phpmyadmin.pot
+done
