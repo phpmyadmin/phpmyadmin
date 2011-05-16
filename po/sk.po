@@ -1862,7 +1862,7 @@ msgstr "Získavanie Content-Type BLOBu zlyhalo"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "Zobraziť obrázok"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
