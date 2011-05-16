@@ -1073,7 +1073,7 @@ msgstr "OK"
 
 #: js/messages.php:73
 msgid "Renaming Databases"
-msgstr "Преименуване на база данни"
+msgstr "Преименуване БД"
 
 #: js/messages.php:74
 msgid "Reload Database"
