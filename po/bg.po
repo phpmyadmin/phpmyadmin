@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 16:07+0200\n"
+"PO-Revision-Date: 2011-05-16 16:08+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: js/messages.php:101
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Избор външен ключ"
 
 #: js/messages.php:102
 msgid "Please select the primary key or a unique key"
