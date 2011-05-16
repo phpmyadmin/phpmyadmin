@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-09 07:40+0200\n"
-"PO-Revision-Date: 2011-05-16 12:16+0200\n"
+"PO-Revision-Date: 2011-05-16 12:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1481,7 +1481,7 @@ msgstr "Коментар"
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:125
 msgid "Edit"
-msgstr "Редактиране"
+msgstr "Редакция"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
