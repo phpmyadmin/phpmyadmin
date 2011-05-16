@@ -6849,9 +6849,8 @@ msgid "Delete relation"
 msgstr ""
 
 #: pmd_general.php:460 pmd_general.php:519
-#, fuzzy
 msgid "Relation operator"
-msgstr "Преглед на релациите"
+msgstr ""
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
