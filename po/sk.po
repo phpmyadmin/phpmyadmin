@@ -2277,7 +2277,7 @@ msgstr "štruktúra a dáta"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr "Rýchlo - zobrazí len minimum možností pre nastavenie"
+msgstr "Rýchly - zobrazí len minimum volieb pre nastavenie"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
