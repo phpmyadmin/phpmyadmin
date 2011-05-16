@@ -8544,10 +8544,9 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1138
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
-msgstr "Максимален брой на едновременните конекции"
+msgstr "Текуща връзка"
 
 #: server_synchronize.php:1167
 #, php-format
