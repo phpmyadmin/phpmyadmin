@@ -1011,7 +1011,7 @@ msgstr "Изтриване на маркираните потребители"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Затваряне"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
