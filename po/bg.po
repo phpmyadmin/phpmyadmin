@@ -1740,7 +1740,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "Изтегляне файл"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
