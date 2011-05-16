@@ -1104,7 +1104,7 @@ msgstr "Скриване критерий за търсене"
 
 #: js/messages.php:94
 msgid "Show search criteria"
-msgstr ""
+msgstr "Показване критерий за търсене"
 
 #: js/messages.php:97 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
