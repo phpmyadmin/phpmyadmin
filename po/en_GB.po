@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 16:24+0200\n"
+"PO-Revision-Date: 2011-05-16 16:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -9044,10 +9044,9 @@ msgid "Insecure connection"
 msgstr "Insecure connection"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Configuration storage"
+msgstr "Configuration saved."
 
 #: setup/frames/index.inc.php:93
 msgid ""
