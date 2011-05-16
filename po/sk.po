@@ -729,10 +729,9 @@ msgid "Add prefix to table"
 msgstr "Pridať predponu k tabuľke"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Nahradiť dáta v tabuľke súborom"
+msgstr "Nahradiť predponu tabuľky"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
