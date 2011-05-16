@@ -2184,7 +2184,7 @@ msgstr "Koniec"
 #: libraries/common.lib.php:2447
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Na databázu &quot;%s&quot;."
+msgstr "Prejsť na databázu &quot;%s&quot;."
 
 #: libraries/common.lib.php:2466
 #, php-format
