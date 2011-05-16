@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 22:34+0200\n"
+"PO-Revision-Date: 2011-05-16 22:37+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -341,7 +341,7 @@ msgid "Collation"
 msgstr "Zotriedenie"
 
 #: db_operations.php:565
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -349,8 +349,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Prídavné vlastnosti pre prácu s prepojenými tabuľkami boli deaktivované. Ak "
-"chcete zistiť prečo, kliknite %ssem%s."
+"Konfiguračná pamäť phpMyAdmina bola deaktivovaná. Ak chcete zistiť prečo, "
+"kliknite %ssem%s."
 
 #: db_operations.php:600
 #| msgid "Relational schema"
