@@ -9253,7 +9253,7 @@ msgstr "динамичен"
 
 #: tbl_printview.php:401 tbl_structure.php:880
 msgid "Row length"
-msgstr "Дължина на реда"
+msgstr "Дължина ред"
 
 #: tbl_printview.php:411 tbl_structure.php:888
 msgid " Row size "
