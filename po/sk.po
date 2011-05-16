@@ -1211,10 +1211,9 @@ msgstr ", posledná stabilná verzia:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:137
-#, fuzzy
 #| msgid "None"
 msgid "Done"
-msgstr "Žiadny"
+msgstr "Hotovo"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:139
