@@ -10081,10 +10081,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Montrer %s depuis le %s jusqu'au %s par l'utilisateur %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Supprimer les données de suivi de cette table"
+msgstr "Supprimer du rapport le suivi des données"
 
 #: tbl_tracking.php:443
 #, fuzzy
