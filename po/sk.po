@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 22:44+0200\n"
+"PO-Revision-Date: 2011-05-16 22:47+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2240,7 +2240,7 @@ msgstr "Adresár určený pre upload súborov sa nedá otvoriť"
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Žiadny súbor pre nahrávanie"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
