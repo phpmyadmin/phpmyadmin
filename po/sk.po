@@ -2248,7 +2248,7 @@ msgstr "Obidva"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Otvoriť"
 
 #: libraries/config.values.php:74
 #, fuzzy
