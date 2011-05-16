@@ -9876,7 +9876,7 @@ msgstr "Údaj"
 
 #: tbl_printview.php:377 tbl_structure.php:835
 msgid "static"
-msgstr ""
+msgstr "statický"
 
 #: tbl_printview.php:379 tbl_structure.php:837
 msgid "dynamic"
