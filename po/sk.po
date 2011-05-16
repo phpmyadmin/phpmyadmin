@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-15 13:41-0400\n"
-"PO-Revision-Date: 2011-05-16 21:46+0200\n"
+"PO-Revision-Date: 2011-05-16 21:47+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1637,12 +1637,13 @@ msgid "Error"
 msgstr "Chyba"
 
 #: libraries/Message.class.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d riadok/riadkov ovplyvnených."
-msgstr[1] "%1$d riadok/riadkov ovplyvnených."
+msgstr[0] "Ovplyvnený bol %1$d riadok."
+msgstr[1] "Ovplyvnené boli %1$d riadky."
+msgstr[2] "Ovplyvnených bolo %1$d riadkov."
 
 #: libraries/Message.class.php:279
 #, fuzzy, php-format
