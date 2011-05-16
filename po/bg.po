@@ -5464,9 +5464,8 @@ msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1147
-#, fuzzy
 msgid "Go to database"
-msgstr "Няма бази от данни"
+msgstr ""
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
