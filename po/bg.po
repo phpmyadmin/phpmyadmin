@@ -1605,7 +1605,7 @@ msgstr "Този MySQL сървър не поддържа хранилището
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr "Невалидна база от данни"
+msgstr "Невалидна БД"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
