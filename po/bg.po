@@ -8021,9 +8021,8 @@ msgid "The number of pages read."
 msgstr ""
 
 #: server_status.php:100
-#, fuzzy
 msgid "The number of pages written."
-msgstr "Брой на отвотените таблици."
+msgstr ""
 
 #: server_status.php:101
 msgid "The number of row locks currently being waited for."
