@@ -963,10 +963,9 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "Вие ще УНИЩОЖИТЕ цяла таблица!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Вие ще УНИЩОЖИТЕ цялата база от данни!"
+msgstr "Вие ще ИЗПРАЗНИТЕ цяла таблица!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
