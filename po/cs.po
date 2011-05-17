@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 13:55+0200\n"
+"PO-Revision-Date: 2011-05-17 13:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9915,7 +9915,7 @@ msgstr "Snímek verze %s (SQL kód)"
 #: tbl_tracking.php:382
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Sledovaná data byla úspěšně smazána"
+msgstr "Uložené příkazy pro změnu struktury byly úspěšně smazány"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #| msgid "Gather errors"
