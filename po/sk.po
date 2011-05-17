@@ -3244,7 +3244,6 @@ msgid "Partial import: skip queries"
 msgstr "Čiastočný import: preskočiť dopyty"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nepoužívať AUTO_INCREMENT pre nulové hodnoty"
