@@ -2863,7 +2863,7 @@ msgstr "Nastavenia pre vývojára phpMyAdmina"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "Režim úprav"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
