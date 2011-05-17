@@ -3321,7 +3321,7 @@ msgstr "URL, na ktoré bude odkazovať logo v navigačnom ráme"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL odkazu loga"
 
 #: libraries/config/messages.inc.php:281
 msgid ""
