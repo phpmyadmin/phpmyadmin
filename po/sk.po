@@ -8918,7 +8918,7 @@ msgid ""
 "the <a href=#replication>replication section</a>."
 msgstr ""
 "Pre viac informácií o stave replikácie na tomto serveri navštívte prosím <a "
-"href=\"#replication\">sekciu replikácie</a>."
+"href=#replication>sekciu replikácie</a>."
 
 #: server_status.php:509
 msgid ""
