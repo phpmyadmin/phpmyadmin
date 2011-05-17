@@ -5379,10 +5379,9 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Riadky ukončené"
+msgstr "Poliad oddelené s:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
