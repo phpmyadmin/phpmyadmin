@@ -9467,7 +9467,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr "Binárny - neupravujte "
+msgstr "Binárny - neupravujte"
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
