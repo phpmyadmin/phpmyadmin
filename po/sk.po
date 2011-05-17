@@ -1103,7 +1103,7 @@ msgstr "Znovu načítať databázu"
 
 #: js/messages.php:75
 msgid "Copying Database"
-msgstr "Kopírujem databázu "
+msgstr "Kopírujem databázu"
 
 #: js/messages.php:76
 msgid "Changing Charset"
