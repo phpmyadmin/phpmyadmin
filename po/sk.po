@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 13:53+0200\n"
+"PO-Revision-Date: 2011-05-17 13:54+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4232,10 +4232,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "Predvolené"
+msgstr "Východzí popis"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
