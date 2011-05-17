@@ -4768,10 +4768,9 @@ msgid "Importing into the table \"%s\""
 msgstr "Importujem do tabuľky \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Súbor na importovanie"
+msgstr "Súbor na importovanie:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
