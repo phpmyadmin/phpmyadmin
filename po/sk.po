@@ -2831,7 +2831,7 @@ msgstr "Limit cudzích kľúčov"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
-msgstr ""
+msgstr "Režim prezerania"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
