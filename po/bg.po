@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 11:54+0200\n"
+"PO-Revision-Date: 2011-05-17 15:00+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -328,7 +328,7 @@ msgstr "Добавяне на ограничение"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr "Прехвърляне към копираната БД"
+msgstr "Показване на копираната БД"
 
 #: db_operations.php:552 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
