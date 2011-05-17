@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:10+0200\n"
+"PO-Revision-Date: 2011-05-17 12:11+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9025,10 +9025,9 @@ msgid "Insecure connection"
 msgstr "セキュリティで保護されていない接続"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "設定の保存場所"
+msgstr "設定を保存しました。"
 
 #: setup/frames/index.inc.php:93
 msgid ""
