@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Cieľové okno prehliadača nemohlo byť aktualizované. Možno ste zatvorili "
 "rodičovské okno, alebo prehliadač blokuje operácie medzi oknami z dôvodu "
-"bezpečnostných nastavení"
+"bezpečnostných nastavení."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2828
 #: libraries/common.lib.php:2835 libraries/common.lib.php:3014
