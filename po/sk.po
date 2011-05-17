@@ -3123,9 +3123,8 @@ msgid "Customize startup page"
 msgstr "Prispôsobenie úvodnej stránky"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 msgid "Tabs"
-msgstr "Tabuľka"
+msgstr "Panely"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
