@@ -6912,10 +6912,9 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:146 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "nastavenia"
+msgstr "Viac nastavení"
 
 #: main.php:163
 msgid "Protocol version"
