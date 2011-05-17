@@ -8612,7 +8612,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:156
 msgid "New server"
-msgstr ""
+msgstr "Нов сървър"
 
 #: setup/frames/index.inc.php:185
 msgid "Default language"
