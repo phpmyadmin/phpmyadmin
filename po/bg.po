@@ -2856,7 +2856,7 @@ msgstr "Главна рамка"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
