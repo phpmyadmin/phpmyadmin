@@ -2581,7 +2581,7 @@ msgstr "Zobraziť ikony pre varovné, chybové a informačné správy"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "Chyby ikon"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
