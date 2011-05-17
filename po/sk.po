@@ -2880,7 +2880,7 @@ msgstr "Prispôsobiť východzie nastavenia exportu"
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Funkcie"
 
 #: libraries/config/messages.inc.php:165
 #, fuzzy
