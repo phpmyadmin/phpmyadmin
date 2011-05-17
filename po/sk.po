@@ -2761,7 +2761,7 @@ msgstr "Režim kompatibility SQL"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Akú syntax použiť pre vkladanie dát"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
