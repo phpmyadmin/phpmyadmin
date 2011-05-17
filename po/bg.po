@@ -2941,7 +2941,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "Следене за промени"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
