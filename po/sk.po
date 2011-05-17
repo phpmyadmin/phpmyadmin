@@ -2947,7 +2947,7 @@ msgstr "Nastavenie zobrazenia tabuliek"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Hlavný rám"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
