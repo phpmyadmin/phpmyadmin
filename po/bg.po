@@ -2086,7 +2086,7 @@ msgstr "Операции"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Разглеждане на компютъра:"
 
 #: libraries/common.lib.php:2979
 #, php-format
@@ -2100,15 +2100,15 @@ msgstr "Директорията която сте указали за upload н
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Няма файлве за качване"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "И двете"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Отворен"
 
 #: libraries/config.values.php:74
 msgid "Closed"
@@ -2125,7 +2125,7 @@ msgstr "структура"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "данни"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2174,29 +2174,29 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Невалиден номер на порт"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "Невалидна стойност"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Стойността трябва да е по-малка или равна на %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Липсващи данни за %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
 msgid "unavailable"
-msgstr ""
+msgstr "недостъпно"
 
 #: libraries/config/FormDisplay.class.php:737
 #: libraries/config/FormDisplay.class.php:741
@@ -2207,16 +2207,16 @@ msgstr "\"%s\" изисква разширението %s"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "импортът не работи, липсваща функционалност (%s)"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "експортът не работи, липсваща функционалност (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL валидаторът е изключен"
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
@@ -2225,7 +2225,7 @@ msgstr "Разширението SOAP не е намерено"
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "най-много %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -2239,7 +2239,7 @@ msgstr "Забранено"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Стойност: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
@@ -2304,7 +2304,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Маркер на ред"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
@@ -2322,7 +2322,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2368,7 +2368,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
 msgid "Configuration file"
-msgstr ""
+msgstr "Конфигурационен файл"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
@@ -2378,15 +2378,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Потвърждаване DROP заявки"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Трасиране SQL"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
-msgstr ""
+msgstr "Ориентация по подразбиране"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
@@ -2714,11 +2714,11 @@ msgstr "CSV данни"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "Разработчик"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Настройки за разработчици на phpMyAdmin"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
@@ -2739,11 +2739,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Свойства"
 
 #: libraries/config/messages.inc.php:165
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
@@ -2765,7 +2765,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "Импорт / експорт"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
@@ -2781,7 +2781,7 @@ msgstr "Опции за показване на база данни"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Управляваща рамка"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
@@ -2794,19 +2794,19 @@ msgstr "Сървъри"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "Настройки показване сървъри"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "Настройки показване таблици"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Главна рамка"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
@@ -2814,15 +2814,15 @@ msgstr "Отваряне на документ"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "Други основни настройки"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:189
 msgid "Page titles"
-msgstr ""
+msgstr "Заглавия на страниците"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
@@ -2844,7 +2844,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "Сигурност"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
@@ -2854,7 +2854,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "Основни настройки"
 
 #: libraries/config/messages.inc.php:196
 msgid "Authentication"
@@ -2866,7 +2866,7 @@ msgstr "Настройки по удостоверяване"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "Сървърна конфигурация"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
@@ -2876,11 +2876,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Параметри за връзка със сървъра"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "Хранилище за конфигурацията"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
@@ -2891,7 +2891,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "Следене за промени"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
@@ -4147,7 +4147,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:258 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Open Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
@@ -4179,7 +4179,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:262 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr ""
+msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
@@ -8185,7 +8185,7 @@ msgstr ""
 
 #: server_status.php:138
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
+msgstr "Брой временни таблици отворени от подчинена SQL нишка."
 
 #: server_status.php:139
 msgid ""
@@ -8248,7 +8248,7 @@ msgstr ""
 
 #: server_status.php:150
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Брой текущо отворени връзки."
 
 #: server_status.php:151
 msgid ""
