@@ -7533,7 +7533,7 @@ msgstr ""
 #: server_privileges.php:2123
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Даване на пълни привилегии над БД &quot;%s&quot;"
+msgstr "Даване на пълни права над БД &quot;%s&quot;"
 
 #: server_privileges.php:2146
 #, php-format
