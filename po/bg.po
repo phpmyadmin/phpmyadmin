@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 11:54+0200\n"
+"PO-Revision-Date: 2011-05-17 15:16+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -328,7 +328,7 @@ msgstr "Добавяне на ограничение"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr "Прехвърляне към копираната БД"
+msgstr "Показване на копираната БД"
 
 #: db_operations.php:552 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -2094,7 +2094,7 @@ msgstr "Край"
 #: libraries/common.lib.php:2447
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Прескочи до БД &quot;%s&quot;."
+msgstr "Показване БД &quot;%s&quot;."
 
 #: libraries/common.lib.php:2466
 #, php-format
@@ -2136,7 +2136,7 @@ msgstr "Операции"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Разглеждане на компютъра:"
 
 #: libraries/common.lib.php:2979
 #, php-format
@@ -2158,7 +2158,7 @@ msgstr ""
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Отворен"
 
 #: libraries/config.values.php:74
 msgid "Closed"
@@ -2764,11 +2764,11 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "Разработчик"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Настройки за разработчици на phpMyAdmin"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
@@ -2789,11 +2789,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Свойства"
 
 #: libraries/config/messages.inc.php:165
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
@@ -2815,7 +2815,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "Импорт / експорт"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
@@ -2831,7 +2831,7 @@ msgstr "Опции за показване на БД"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Управляваща рамка"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
@@ -2844,35 +2844,35 @@ msgstr "Сървъри"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "Настройки показване сървъри"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "Настройки показване таблици"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Главна рамка"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
 msgid "Open Document"
-msgstr "Отваряне на документ"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "Други основни настройки"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:189
 msgid "Page titles"
-msgstr ""
+msgstr "Заглавия на страниците"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
@@ -2894,7 +2894,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "Сигурност"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
@@ -2904,7 +2904,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "Основни настройки"
 
 #: libraries/config/messages.inc.php:196
 msgid "Authentication"
@@ -2916,7 +2916,7 @@ msgstr "Настройки по удостоверяване"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "Сървърна конфигурация"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
@@ -2926,11 +2926,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Параметри за връзка със сървъра"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "Хранилище за конфигурацията"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
@@ -2941,7 +2941,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "Следене за промени"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
@@ -4197,7 +4197,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:258 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Open Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
@@ -4229,7 +4229,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:262 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr ""
+msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
@@ -8182,7 +8182,7 @@ msgstr ""
 
 #: server_status.php:138
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
+msgstr "Брой временни таблици отворени от подчинена SQL нишка."
 
 #: server_status.php:139
 msgid ""
@@ -8245,7 +8245,7 @@ msgstr ""
 
 #: server_status.php:150
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Брой текущо отворени връзки."
 
 #: server_status.php:151
 msgid ""

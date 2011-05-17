@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 14:33+0200\n"
-"Last-Translator:  <martin@whistler.sk>\n"
+"PO-Revision-Date: 2011-05-17 15:53+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -2060,10 +2060,9 @@ msgid "Inline edit of this query"
 msgstr ""
 
 #: libraries/common.lib.php:1267
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Systémy"
+msgstr "Upraviť tu"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
@@ -2680,19 +2679,16 @@ msgid "Excel edition"
 msgstr "Verzia Excelu"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "Vzor pre názov súboru"
+msgstr "Vzor pre názov databázy"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "Vzor pre názov súboru"
+msgstr "Vzor pre názov servera"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "Vzor pre názov súboru"
+msgstr "Vzor pre názov tabuľky"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
@@ -2747,9 +2743,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Prepísať existujúci súbor(y)"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Vzor pre názov súboru"
+msgstr "Zapamätať si vzor pre názov súboru"
 
 #: libraries/config/messages.inc.php:118
 #| msgid "Enclose table and field names with backquotes"
@@ -2790,18 +2785,16 @@ msgid "Maximal length of created query"
 msgstr "Maximálna veľkosť vytvoreného príkazu"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 msgid "Export type"
-msgstr "Typ vytvorených dopytov"
+msgstr "Typ exportu"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
 msgstr "Uzatvoriť príkazy v transakcii"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Typ vytvorených dopytov"
+msgstr "Exportovať čas v UTC"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
@@ -2843,9 +2836,8 @@ msgstr "Prispôsobiť režim prezerania"
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 msgid "Customize default options"
-msgstr "Nastavenia exportu databáz"
+msgstr "Prispôsobenie východzích nastavení"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
@@ -3304,32 +3296,31 @@ msgstr "Zobraziť databázy v strome"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Zakážte túto voľbu ak chcete vidieť všetky databázy súčasne"
 
 #: libraries/config/messages.inc.php:275
-#, fuzzy
 msgid "Use light version"
-msgstr "Verzia MySQL klienta"
+msgstr "Použiť odľahčenú verziu"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Maximálna hĺbka tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:277
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Reťazec, ktorý rozdelí tabuľky do rôznych úrovní stromu"
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
-msgstr ""
+msgstr "Oddeľovač tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL, na ktoré bude odkazovať logo v navigačnom ráme"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL odkazu loga"
 
 #: libraries/config/messages.inc.php:281
 msgid ""
@@ -3339,23 +3330,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:282
 msgid "Logo link target"
-msgstr ""
+msgstr "Cieľ odkazu loga"
 
 #: libraries/config/messages.inc.php:283
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Zvýrazní server pod kurzorom myši"
 
 #: libraries/config/messages.inc.php:284
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Povoliť zvýrazňovanie"
 
 #: libraries/config/messages.inc.php:285
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Požiť graficky menej náročné panely"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr ""
+msgstr "Odľahčené panely"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
@@ -3364,7 +3355,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "Obmedzenie počtu znakov"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
@@ -3375,7 +3366,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Vymazať všetky cookies pri prihlásení"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
@@ -3401,11 +3392,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Určuje, ako dlho je platná prihlasovacie cookie (v sekundách)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Platnosť prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
@@ -5452,10 +5443,9 @@ msgid "Object creation options"
 msgstr "Parametre transformácie"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Nadpis tabuľky"
+msgstr "Nadpis tabuľky (pokračovanie)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
@@ -6476,10 +6466,9 @@ msgid "Clear"
 msgstr "Kalendár"
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Názvy stĺpcov"
+msgstr "Stĺpce"
 
 #: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
@@ -6667,7 +6656,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6712,7 +6700,6 @@ msgid "Add %s column(s)"
 msgstr "Pridať %s stĺpcov"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:630
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Musíte pridať aspoň jeden stĺpec."
@@ -6880,10 +6867,9 @@ msgid "Manage your settings"
 msgstr "Možnosti všeobecných vzťahov"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Zmeny boli uložené"
+msgstr "Nastavenia boli uložené"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -6913,10 +6899,9 @@ msgid "Error in ZIP archive:"
 msgstr "Chyba v ZIP archíve:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Možnosti všeobecných vzťahov"
+msgstr "Všeobecné nastavenia"
 
 #: main.php:103
 msgid "MySQL connection collation"
@@ -6927,10 +6912,9 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:146 prefs_manage.php:274
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "nastavenia"
+msgstr "Viac nastavení"
 
 #: main.php:163
 msgid "Protocol version"
@@ -6971,10 +6955,9 @@ msgid "Official Homepage"
 msgstr "Oficiálne stránky phpMyAdmin"
 
 #: main.php:214
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atribúty"
+msgstr "Prispejte"
 
 #: main.php:215
 #, fuzzy
@@ -6982,10 +6965,9 @@ msgid "Get support"
 msgstr "Exportovať"
 
 #: main.php:216
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Žiadna zmena"
+msgstr "Zoznam zmien"
 
 #: main.php:240
 msgid ""
@@ -7093,13 +7075,11 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "meno tabuľky"
+msgstr "filtrovať tabuľky podľa mena"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
@@ -7158,10 +7138,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export koordináty pre PDF schému"
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Odošli dopyt"
+msgstr "Vytvoriť dopyt"
 
 #: pmd_general.php:125
 msgid "Move Menu"
@@ -7192,17 +7171,15 @@ msgstr "Zobraziť prepojenia"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Exportovať"
+msgstr "Okrem"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "v dopyte"
+msgstr "poddopyt"
 
 #: pmd_general.php:480 pmd_general.php:576
 #, fuzzy
@@ -7210,16 +7187,14 @@ msgid "Rename to"
 msgstr "Premenovať tabuľku na"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Meno používateľa"
+msgstr "Nové meno"
 
 #: pmd_general.php:485 pmd_general.php:700
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Vytvoriť"
+msgstr "Zlúčiť"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
@@ -7228,10 +7203,9 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Parametre tabuľky"
+msgstr "Zapnuté parametre"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -7253,28 +7227,24 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "stránok"
+msgstr "Stránka"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Importovať súbory"
+msgstr "Importovať zo zvolenej stránky"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Export to selected page"
-msgstr "Nebol vybraný žiadny riadok"
+msgstr "Exportovať na zvolenú stránku"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Vytvoriť nový index"
+msgstr "Vytvoriť novú stránku a exportovať do nej"
 
 #: pmd_pdf.php:111
 #| msgid "User name"
@@ -7341,10 +7311,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importovať súbory"
+msgstr "Importovať zo súboru"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
@@ -7684,7 +7653,6 @@ msgid "No privileges."
 msgstr "Žiadne práva."
 
 #: server_privileges.php:312 server_privileges.php:313
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -7730,7 +7698,6 @@ msgid "Do not change the password"
 msgstr "Nezmeniť heslo"
 
 #: server_privileges.php:817 server_privileges.php:2286
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Nebol nájdený žiadny používateľ."
@@ -7891,7 +7858,6 @@ msgid "Database for user"
 msgstr "Databáza pre používateľa"
 
 #: server_privileges.php:2118
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
