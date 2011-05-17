@@ -6303,10 +6303,10 @@ msgstr "Prosím skonfigurujte koordináty pre tabuľku %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:737
 #: libraries/schema/Visio_Relation_Schema.class.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schéma databázy \"%s\"  - Strana %s"
+msgstr "Schéma databázy \"%s\" - Strana %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
