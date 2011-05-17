@@ -9648,10 +9648,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Vyprázdniť tabuľku (FLUSH)"
 
 #: tbl_operations.php:677
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Sťahujem dáta pre tabuľku"
+msgstr "Odstrániť dáta alebo tabuľku"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
