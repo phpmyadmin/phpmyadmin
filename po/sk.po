@@ -5384,10 +5384,9 @@ msgid "Columns separated with:"
 msgstr "Polia oddelené s:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Polia uzatvorené"
+msgstr "Polia uzatvorené do:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #| msgid "Fields escaped by"
