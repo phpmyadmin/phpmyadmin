@@ -7586,10 +7586,10 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
-msgstr "Привилегиите бяха презаредени успешно."
+msgstr ""
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
