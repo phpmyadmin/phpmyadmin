@@ -8827,7 +8827,7 @@ msgstr "Ключът трябва да съдържа букви, цифри [em
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Преглеждане на чуждите стойности"
+msgstr "Преглеждане външни стойности"
 
 #: sql.php:163
 #, php-format
