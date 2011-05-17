@@ -7372,10 +7372,9 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: \"%1$s\""
+msgstr "Nepodarilo sa načítať konfiguráciu"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
