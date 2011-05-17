@@ -279,6 +279,12 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         $this_databases = array_map('PMA_sqlAddslashes', $databases);
 
         if (PMA_DRIZZLE) {
+            $engine_info = PMA_cacheGet('drizzle_engines', true);
+            $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
+            if (isset($engine_info['InnoDB']) && $engine_info['InnoDB']['module_library'] == 'innobase') {
+                $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat ON (t.ENGINE = 'InnoDB' AND stat.NAME = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
+            }
+
             $sql = "
                 SELECT t.*,
                     t.TABLE_SCHEMA        AS `Db`,
@@ -288,8 +294,8 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     t.ENGINE              AS `Type`,
                     t.TABLE_VERSION       AS `Version`,-- VERSION
                     t.ROW_FORMAT          AS `Row_format`,
-                    ist.NUM_ROWS          AS `Rows`,-- TABLE_ROWS,
-                    ist.NUM_ROWS          AS `TABLE_ROWS`,
+                    stat.NUM_ROWS         AS `Rows`,-- TABLE_ROWS,
+                    stat.NUM_ROWS         AS `TABLE_ROWS`,
                     NULL                  AS `Avg_row_length`, -- AVG_ROW_LENGTH
                     NULL                  AS `Data_length`, -- DATA_LENGTH
                     NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
@@ -304,7 +310,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     NULL                  AS `Create_options`, -- CREATE_OPTIONS
                     t.TABLE_COMMENT       AS `Comment`
                 FROM data_dictionary.TABLES t
-                    LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS ist ON (ENGINE = 'InnoDB' AND NAME = (TABLE_SCHEMA || '/') || TABLE_NAME)
+                    $stats_join
                 WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
                     " . $sql_where_table;
         } else {
@@ -498,11 +504,15 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             // bug #1436171
             // http://sf.net/support/tracker.php?aid=1436171
             return $tables[strtolower($database)];
-        } elseif (PMA_DRIZZLE && count($tables) == 1 && strlen(array_pop(array_keys($tables))) == strlen($database)) {
+        } else {
             // one database but inexact letter case match
             // as Drizzle is always case insensitive, we can safely return the only result
-            return array_pop($tables);
-        } else {
+            if (PMA_DRIZZLE && count($tables) == 1) {
+                $keys = array_keys($tables);
+                if (strlen(array_pop($keys)) == strlen($database)) {
+                    return array_pop($tables);
+                }
+            }
             return $tables;
         }
     } else {
@@ -1030,6 +1040,18 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         } else {
             PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
         }
+    }
+
+    // Cache plugin list for Drizzle
+    if (PMA_DRIZZLE && !PMA_cacheExists('drizzle_engines', true)) {
+        $sql = "SELECT p.plugin_name, m.module_library
+            FROM data_dictionary.plugins p
+                JOIN data_dictionary.modules m USING (module_name)
+            WHERE p.plugin_type = 'StorageEngine'
+                AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
+                AND p.is_active = 'YES'";
+        $engines = PMA_DBI_fetch_result($sql, 'plugin_name', null, $link);
+        PMA_cacheSet('drizzle_engines', $engines, true);
     }
 }
 
