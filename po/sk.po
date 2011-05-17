@@ -2748,7 +2748,7 @@ msgstr "Vzor pre názov súboru"
 #: libraries/config/messages.inc.php:118
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr " Použiť opačný apostrof pri názvoch tabuliek a polí"
+msgstr "Použiť opačný apostrof pri názvoch tabuliek a polí"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:351
