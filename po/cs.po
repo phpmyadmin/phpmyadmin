@@ -9937,10 +9937,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Odstranit všechny informace o sledování této tabulky"
+msgstr "Odstranit tyto informace o sledování této tabulky"
 
 #: tbl_tracking.php:443
 #| msgid "No databases"
