@@ -2872,7 +2872,7 @@ msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:189
 msgid "Page titles"
-msgstr ""
+msgstr "Заглавия на страниците"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
