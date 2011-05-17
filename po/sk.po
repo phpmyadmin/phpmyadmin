@@ -7080,7 +7080,6 @@ msgid "filter tables by name"
 msgstr "filtrovať tabuľky podľa mena"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
