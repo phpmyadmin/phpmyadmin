@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:19+0200\n"
+"PO-Revision-Date: 2011-05-17 12:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9894,10 +9894,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "バージョン %s のスナップショット（SQL コード）"
 
 #: tbl_tracking.php:382
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "追跡するデータ定義コマンド"
+msgstr "追跡データ定義コマンドの削除に成功しました。"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #| msgid "Gather errors"
