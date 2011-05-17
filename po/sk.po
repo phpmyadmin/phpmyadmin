@@ -2106,7 +2106,7 @@ msgstr "EiB"
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1431
 msgid ","
-msgstr " "
+msgstr "  "
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1433
