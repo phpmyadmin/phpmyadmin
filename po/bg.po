@@ -2257,7 +2257,7 @@ msgstr "\"%s\" изисква разширението %s"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "Импортът не работи, липсваща функционалност (%s)"
+msgstr "импортът не работи, липсваща функционалност (%s)"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
