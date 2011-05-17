@@ -654,7 +654,7 @@ msgstr "Маркиране всички"
 #: libraries/replication_gui.lib.php:35 server_databases.php:250
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:555
 msgid "Uncheck All"
-msgstr "Размаркиране на всичко"
+msgstr "Отмаркиране всички"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
