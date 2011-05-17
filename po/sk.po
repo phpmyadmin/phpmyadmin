@@ -3278,7 +3278,7 @@ msgstr "Zobraziť voľbu servera v hornej časti ľavého rámu"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr ""
+msgstr "Zobraziť výber serverov"
 
 #: libraries/config/messages.inc.php:269
 #, fuzzy
