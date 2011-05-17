@@ -3397,7 +3397,7 @@ msgstr "Určuje, ako dlho je platná prihlasovacie cookie (v sekundách)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Platnosť prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
