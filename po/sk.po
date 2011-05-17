@@ -6438,10 +6438,9 @@ msgid "Synchronize"
 msgstr "Synchronizovať"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "settings"
 msgid "Settings"
-msgstr "nastavenia"
+msgstr "Nastavenia"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1115
 msgid "Source database"
