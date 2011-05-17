@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:08+0200\n"
+"PO-Revision-Date: 2011-05-17 12:09+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2930,7 +2930,7 @@ msgstr "Navigačný rám"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Prizpôsobiť vzhľad navigačného rámu"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:110
