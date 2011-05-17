@@ -2527,7 +2527,7 @@ msgstr "Východzí panel servera"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Panel, ktorý je zobrazený pri prístupe k tabuľke"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
