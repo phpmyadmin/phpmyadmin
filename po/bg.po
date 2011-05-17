@@ -8972,7 +8972,7 @@ msgstr ""
 
 #: tbl_chart.php:134
 msgid "Bar"
-msgstr "Колони"
+msgstr "Стълб"
 
 #: tbl_chart.php:135
 msgid "Line"
