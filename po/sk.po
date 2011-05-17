@@ -3331,7 +3331,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:282
 msgid "Logo link target"
-msgstr ""
+msgstr "Cieľ odkazu loga"
 
 #: libraries/config/messages.inc.php:283
 msgid "Highlight server under the mouse cursor"
