@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 09:19+0200\n"
+"PO-Revision-Date: 2011-05-17 09:30+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6149,7 +6149,7 @@ msgstr "Променливи"
 
 #: libraries/server_links.inc.php:81 test/theme.php:108
 msgid "Charsets"
-msgstr "Набори от знации"
+msgstr "Знакови набори"
 
 #: libraries/server_links.inc.php:85 test/theme.php:112
 msgid "Engines"
