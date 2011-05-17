@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 16:21+0200\n"
+"PO-Revision-Date: 2011-05-17 16:22+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7128,7 +7128,7 @@ msgstr "Дава всички права освен GRANT."
 #: server_privileges.php:33 server_privileges.php:202
 #: server_privileges.php:529
 msgid "Allows altering the structure of existing tables."
-msgstr "Позволява променяне на структурата на съществуващи таблици."
+msgstr "Позволява промяна на структурата на съществуващи таблици."
 
 #: server_privileges.php:34 server_privileges.php:218
 #: server_privileges.php:535
