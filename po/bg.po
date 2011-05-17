@@ -7198,8 +7198,8 @@ msgstr "Позволява импортиране на данни от и екс
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"Позволява добавяне на потребители и привилегии без презареждане на таблицата "
-"с привилегиите."
+"Позволява добавяне на потребители и права без презареждане на таблицата с "
+"правата."
 
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
