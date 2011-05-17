@@ -6239,7 +6239,7 @@ msgstr "Местоположение на текстовия файл"
 
 #: libraries/sql_query_form.lib.php:504 tbl_change.php:965
 msgid "web server upload directory"
-msgstr "директорията за upload на уеб сървъра"
+msgstr "директорията за upload на web сървърa"
 
 #: libraries/sqlparser.lib.php:134
 msgid ""
