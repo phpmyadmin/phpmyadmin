@@ -8628,7 +8628,7 @@ msgstr "- никой -"
 
 #: setup/frames/index.inc.php:209
 msgid "Default server"
-msgstr ""
+msgstr "Сървър по подразбиране"
 
 #: setup/frames/index.inc.php:219
 msgid "End of line"
