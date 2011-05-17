@@ -8964,7 +8964,7 @@ msgstr ""
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Граници на диаграмата"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
