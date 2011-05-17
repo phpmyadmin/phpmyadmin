@@ -2904,7 +2904,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "Основни настройки"
 
 #: libraries/config/messages.inc.php:196
 msgid "Authentication"
