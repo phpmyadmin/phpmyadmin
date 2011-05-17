@@ -8795,7 +8795,7 @@ msgstr ""
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip архивиране%s изизква функцията (%s), която не е налична."
 
 #: setup/lib/index.lib.php:272
 #, php-format
