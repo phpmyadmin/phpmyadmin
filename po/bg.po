@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 09:37+0200\n"
+"PO-Revision-Date: 2011-05-17 09:39+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4490,7 +4490,7 @@ msgstr ""
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:517
 msgid "Character set of the file:"
-msgstr "Набор от знаци на файла:"
+msgstr "Знаков набор на файла:"
 
 #: libraries/display_export.lib.php:309
 msgid "Compression:"
