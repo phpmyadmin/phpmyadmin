@@ -4709,10 +4709,9 @@ msgstr "Zobraziť výstup ako text"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formát"
+msgstr "Formát:"
 
 #: libraries/display_export.lib.php:336
 #, fuzzy
