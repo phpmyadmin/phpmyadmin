@@ -2953,10 +2953,9 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Open Document Text"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
