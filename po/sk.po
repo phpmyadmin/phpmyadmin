@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 10:24+0200\n"
+"PO-Revision-Date: 2011-05-17 10:25+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2522,9 +2522,8 @@ msgid "Tab that is displayed when entering a server"
 msgstr "Panel, ktorý je zobrazený pri prístupe na server"
 
 #: libraries/config/messages.inc.php:51
-#, fuzzy
 msgid "Default server tab"
-msgstr "Predvolený server"
+msgstr "Východzí panel servera"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
