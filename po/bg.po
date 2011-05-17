@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 10:53+0200\n"
+"PO-Revision-Date: 2011-05-17 10:54+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7503,7 +7503,7 @@ msgstr " ... изтриване на стария от таблицата с п�
 #: server_privileges.php:2090
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... отменяне на всички права от стария и след това изтриване."
+msgstr " ... отмяна на всички права от стария и след това изтриване."
 
 #: server_privileges.php:2091
 msgid ""
