@@ -5854,7 +5854,7 @@ msgstr "全角カナへ変換する"
 #: libraries/mult_submits.inc.php:249
 #| msgid "Fr"
 msgid "From"
-msgstr "元の文字列"
+msgstr "付け替え元"
 
 #: libraries/mult_submits.inc.php:252
 msgid "To"
