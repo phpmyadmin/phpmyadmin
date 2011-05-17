@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 10:52+0200\n"
+"PO-Revision-Date: 2011-05-17 10:53+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7466,7 +7466,7 @@ msgstr ""
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
-msgstr "Избрания потребител не беше открит в таблицата с привилегиите."
+msgstr "Избраният потребител не беше открит в таблицата с права."
 
 #: server_privileges.php:1804
 msgid "Column-specific privileges"
