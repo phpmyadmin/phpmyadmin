@@ -2262,7 +2262,7 @@ msgstr "импортът не работи, липсваща функциона�
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "експортът не работи, липсваща функционалност (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
