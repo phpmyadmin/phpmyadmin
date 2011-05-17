@@ -200,30 +200,20 @@ class zipfile
     function file()
     {
         $ctrldir = implode('', $this -> ctrl_dir);
+        $header = $ctrldir .
+            $this -> eof_ctrl_dir .
+            pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries "on this disk"
+            pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries overall
+            pack('V', strlen($ctrldir)) .           // size of central dir
+            pack('V', strlen($data)) .              // offset to start of central dir
+            "\x00\x00";                             // .zip file comment length
 
         if ( $this -> doWrite ) {       // Send central directory & end ctrl dir to STDOUT
-            echo $ctrldir;
-            echo $this -> eof_ctrl_dir;
-            echo pack('v', sizeof($this -> ctrl_dir));   // total # of entries "on this disk"
-            echo pack('v', sizeof($this -> ctrl_dir));   // total # of entries overall
-            echo pack('V', strlen($ctrldir));            // size of central dir
-            echo pack('V', $this -> old_offset);         // offset to start of central dir
-            echo "\x00\x00";                             // .zip file comment length
+            echo $header;
             return "";                                   // Return empty string
-
         } else {                        // Return entire ZIP archive as string
-
-            $data    = implode('', $this -> datasec);
-
-            return
-                $data .
-                $ctrldir .
-                $this -> eof_ctrl_dir .
-                pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries "on this disk"
-                pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries overall
-                pack('V', strlen($ctrldir)) .           // size of central dir
-                pack('V', strlen($data)) .              // offset to start of central dir
-                "\x00\x00";                             // .zip file comment length
+            $data = implode('', $this -> datasec);
+            return $data . $header;
         }
     } // end of the 'file()' method
 
