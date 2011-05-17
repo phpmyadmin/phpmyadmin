@@ -3618,10 +3618,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Opravné vlákna"
+msgstr "Opakovať záhlavie"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
