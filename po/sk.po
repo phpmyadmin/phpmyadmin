@@ -2859,7 +2859,7 @@ msgstr "Vývojár"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Nastavenia pre vývojára phpMyAdmina"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
