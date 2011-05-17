@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:12+0200\n"
+"PO-Revision-Date: 2011-05-17 12:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9920,10 +9920,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "種別：%s、期間：%s－%s、ユーザ：%sで絞り込む %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "このテーブルに対しての追跡データを削除する"
+msgstr "レポートからこの追跡データを削除する"
 
 #: tbl_tracking.php:443
 #, fuzzy
