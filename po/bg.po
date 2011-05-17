@@ -4375,7 +4375,7 @@ msgstr "Създай"
 #: libraries/display_create_database.lib.php:43 server_privileges.php:121
 #: server_privileges.php:1493 server_replication.php:33
 msgid "No Privileges"
-msgstr "Няма привилегии"
+msgstr "Няма права"
 
 #: libraries/display_create_table.lib.php:46
 #, php-format
