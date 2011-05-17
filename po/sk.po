@@ -2595,7 +2595,7 @@ msgstr "Maximálny čas behu"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "Pošli"
+msgstr "Uložiť ako súbor"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 #, fuzzy
