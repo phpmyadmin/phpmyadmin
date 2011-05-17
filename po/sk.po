@@ -7203,10 +7203,9 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Parametre tabuľky"
+msgstr "Zapnuté parametre"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
