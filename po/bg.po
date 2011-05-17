@@ -8814,7 +8814,7 @@ msgstr "По причини свързани с производителност
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Позволено е свързването към сървъра без парола."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
