@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 15:29+0200\n"
+"PO-Revision-Date: 2011-05-17 15:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2837,9 +2837,8 @@ msgstr "Prispôsobiť režim prezerania"
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
 #: libraries/config/messages.inc.php:186 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 msgid "Customize default options"
-msgstr "Nastavenia exportu databáz"
+msgstr "Prispôsobenie východzích nastavení"
 
 #: libraries/config/messages.inc.php:155 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
