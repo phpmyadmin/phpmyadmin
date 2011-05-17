@@ -7511,7 +7511,7 @@ msgid ""
 "afterwards."
 msgstr ""
 " ... изтриване на стария от таблицата с потребители и след това презареждане "
-"на привилегиите."
+"на правата."
 
 #: server_privileges.php:2114
 msgid "Database for user"
