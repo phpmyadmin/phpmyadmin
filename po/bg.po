@@ -4304,7 +4304,7 @@ msgstr ""
 #: server_privileges.php:119 server_privileges.php:1802
 #: server_privileges.php:2152 test/theme.php:116
 msgid "Privileges"
-msgstr "Привилегии"
+msgstr "Права"
 
 #: libraries/db_routines.inc.php:24 libraries/db_routines.inc.php:26
 msgid "Routines"
