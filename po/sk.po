@@ -9006,10 +9006,9 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1138
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
-msgstr "max. súčasných pripojení"
+msgstr "Súčasné pripojenie"
 
 #: server_synchronize.php:1167
 #, php-format
