@@ -2996,7 +2996,7 @@ msgstr "Prispôsobiť nastavenia okna dopytov"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "Zabezpečenie"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
