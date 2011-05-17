@@ -2519,7 +2519,7 @@ msgstr "Prednastavený panel databázy"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Panel, ktorý je zobrazený pri prístupe na server"
 
 #: libraries/config/messages.inc.php:51
 #, fuzzy
