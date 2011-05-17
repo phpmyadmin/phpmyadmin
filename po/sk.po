@@ -5775,7 +5775,7 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Chybný formát v CSV vstupe na riadku %d."
 
 #: libraries/import/csv.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet položiek v CSV vstupe na riadku %d."
