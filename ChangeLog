@@ -8,6 +8,8 @@
 + Patch #3256122 [search] Show/hide db search results
 + Patch #3302354 Add gettext wrappers around a message
 
+3.4.2.0 (not yet released)
+
 3.4.1.0 (not yet released)
 - bug #3301108 [interface] Synchronize and already configured host
 - bug #3302457 Inline edit and $cfg['PropertiesIconic']
