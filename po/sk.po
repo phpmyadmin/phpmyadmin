@@ -2598,9 +2598,8 @@ msgid "Save as file"
 msgstr "Uložiť ako súbor"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Znaková sada súboru:"
+msgstr "Znaková sada súboru"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:832
