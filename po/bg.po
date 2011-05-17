@@ -2418,7 +2418,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
 msgid "Configuration file"
-msgstr ""
+msgstr "Конфигурационен файл"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
