@@ -3115,9 +3115,8 @@ msgstr ""
 "reserved.[/em]"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 msgid "Startup"
-msgstr "Štart"
+msgstr "Úvodná stránka"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
