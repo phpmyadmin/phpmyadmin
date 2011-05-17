@@ -7558,7 +7558,7 @@ msgstr "знак за заместване"
 #: server_processlist.php:29
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "Нишка %s беше успешно отстранена."
+msgstr "Нишка %s беше успешно спряна."
 
 #: server_processlist.php:31
 #, php-format
