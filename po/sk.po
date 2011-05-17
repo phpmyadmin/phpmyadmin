@@ -4703,10 +4703,9 @@ msgid "bzipped"
 msgstr "bzip-ované"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Pošli"
+msgstr "Zobraziť výstup ako text"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
