@@ -9904,10 +9904,9 @@ msgid "Query error"
 msgstr "クエリエラー"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "追跡するデータ操作コマンド"
+msgstr "追跡データ操作コマンドの削除に成功しました。"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
