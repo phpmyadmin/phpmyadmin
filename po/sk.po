@@ -2460,7 +2460,7 @@ msgstr "Počet riadkov textových oblastí typu CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Riadky pre textové oblasti CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
