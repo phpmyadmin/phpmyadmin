@@ -4597,10 +4597,9 @@ msgid "Table(s):"
 msgstr "Tabuľka(y):"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Riadkov"
+msgstr "Riadky:"
 
 #: libraries/display_export.lib.php:157
 #| msgid "Update row(s)"
