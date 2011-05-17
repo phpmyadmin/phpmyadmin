@@ -2852,7 +2852,7 @@ msgstr "Настройки показване таблици"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Главна рамка"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
