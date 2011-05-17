@@ -7075,10 +7075,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "meno tabuľky"
+msgstr "filtrovať tabuľky podľa mena"
 
 #: navigation.php:308 navigation.php:309
 #, fuzzy
