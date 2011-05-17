@@ -6114,16 +6114,16 @@ msgstr "Търсене в базата от данни"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
 msgid "Current server"
-msgstr ""
+msgstr "Текущ сървър"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
 msgid "Remote server"
-msgstr ""
+msgstr "Отдалечен сървър"
 
 #: libraries/server_synchronize.lib.php:1344
 msgid "Difference"
-msgstr ""
+msgstr "Различия"
 
 #: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1117
 #, fuzzy
@@ -6561,7 +6561,7 @@ msgstr "Колация на MySQL"
 
 #: main.php:119
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Визуални настройки"
 
 #: main.php:146 prefs_manage.php:274
 #, fuzzy
@@ -6585,7 +6585,7 @@ msgstr "Набор от знаци на MySQL"
 
 #: main.php:181
 msgid "Web server"
-msgstr ""
+msgstr "Web сървър"
 
 #: main.php:187
 msgid "MySQL client version"
@@ -8566,7 +8566,7 @@ msgstr "Глобална стойност"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:213
 msgid "Download"
-msgstr ""
+msgstr "Изтегляне"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -8610,31 +8610,31 @@ msgstr ""
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
-msgstr ""
+msgstr "Нов сървър"
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
-msgstr ""
+msgstr "Език по подразбиране"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
-msgstr ""
+msgstr "нека потребитлят избере"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
-msgstr ""
+msgstr "- никой -"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
-msgstr ""
+msgstr "Сървър по подразбиране"
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
-msgstr ""
+msgstr "Край на ред"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
-msgstr ""
+msgstr "Показване"
 
 #: setup/frames/index.inc.php:216
 msgid "Load"
@@ -8647,11 +8647,11 @@ msgstr "phpMyAdmin документация"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
-msgstr ""
+msgstr "Дарение"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "Редакция сървър"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
@@ -8659,7 +8659,7 @@ msgstr "Добавяне на нов сървър"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
@@ -8671,7 +8671,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
-msgstr ""
+msgstr "Пренебрегване на грешките"
 
 #: setup/lib/form_processing.lib.php:49
 #, fuzzy
@@ -8706,7 +8706,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Няма по-нова стабилна версия"
 
 #: setup/lib/index.lib.php:250
 #, php-format
@@ -8795,34 +8795,34 @@ msgstr ""
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip архивиране%s изизква функцията (%s), която не е налична."
 
 #: setup/lib/index.lib.php:272
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip разархивиране%s изизква функцията (%s), която не е налична."
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "Използвайте SSL ако браузърът ви го поддържа."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "По причини свързани с производителността използвайте mysqli."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Позволено е свързването към сървъра без парола."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Ключът е твърде къс, трябва да бъде поне 8 знака."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Ключът трябва да съдържа букви, цифри [em]и[/em] специални знаци."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -8865,7 +8865,7 @@ msgstr "Етикет"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr ""
+msgstr "Таблицата %1$s беше променена"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
@@ -8899,7 +8899,7 @@ msgstr ""
 
 #: tbl_change.php:1060
 msgid "Show insert query"
-msgstr ""
+msgstr "Показване заявка за вмъкване"
 
 #: tbl_change.php:1071
 msgid "and then"
@@ -8947,31 +8947,31 @@ msgstr ""
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Ширина"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Височина"
 
 #: tbl_chart.php:98
 msgid "Title"
-msgstr ""
+msgstr "Заглавие"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
-msgstr ""
+msgstr "Етикет на X оста"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Етикет на Y оста"
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Граници на диаграмата"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Граници на легендата"
 
 #: tbl_chart.php:134
 msgid "Bar"
@@ -8979,11 +8979,11 @@ msgstr "Колони"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "Линия"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "Радар"
 
 #: tbl_chart.php:138
 #, fuzzy
@@ -9179,7 +9179,7 @@ msgstr ""
 
 #: tbl_operations.php:740
 msgid "Analyze"
-msgstr ""
+msgstr "Анализиране"
 
 #: tbl_operations.php:741
 #, fuzzy
@@ -9188,7 +9188,7 @@ msgstr "Чешки"
 
 #: tbl_operations.php:742
 msgid "Optimize"
-msgstr ""
+msgstr "Оптимизиране"
 
 #: tbl_operations.php:743
 msgid "Rebuild"
@@ -9297,19 +9297,19 @@ msgstr "Преглеждане на уникалните стойности"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
-msgstr ""
+msgstr "Добавяне на първичен ключ"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
-msgstr ""
+msgstr "Добавяне на индекс"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "Добавяне на уникален ключ"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Добавяне на пълнотекстов индекс"
 
 #: tbl_structure.php:385
 msgctxt "None for default"
@@ -9452,12 +9452,12 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "Изпълняване на SQL"
 
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Експорт като %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
