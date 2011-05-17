@@ -7237,10 +7237,9 @@ msgid "Import from selected page"
 msgstr "Importovať zo zvolenej stránky"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Export to selected page"
-msgstr "Nebol vybraný žiadny riadok"
+msgstr "Exportovať na zvolenú stránku"
 
 #: pmd_pdf.php:102
 #, fuzzy
