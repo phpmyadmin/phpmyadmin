@@ -6700,7 +6700,6 @@ msgid "Add %s column(s)"
 msgstr "Pridať %s stĺpcov"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:630
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Musíte pridať aspoň jeden stĺpec."
