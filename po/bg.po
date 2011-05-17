@@ -2894,7 +2894,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "Сигурност"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
