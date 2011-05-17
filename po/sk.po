@@ -9063,7 +9063,7 @@ msgstr "Upraviť riadky"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr "Pridať riadok/riadky"
+msgstr "Vložiť riadky"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
