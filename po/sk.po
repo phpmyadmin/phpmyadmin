@@ -6466,10 +6466,9 @@ msgid "Clear"
 msgstr "Kalendár"
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Názvy stĺpcov"
+msgstr "Stĺpce"
 
 #: libraries/sql_query_form.lib.php:337 sql.php:923 sql.php:924 sql.php:941
 msgid "Bookmark this SQL query"
