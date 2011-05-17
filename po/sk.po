@@ -2939,7 +2939,7 @@ msgstr "Servery"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "Nastavenie zobrazenia serverov"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
