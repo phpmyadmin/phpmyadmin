@@ -6754,10 +6754,10 @@ msgid "PARTITION definition"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Pridať stĺpec/stĺpce"
+msgstr "Pridať %s stĺpcov"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:630
 #, fuzzy
