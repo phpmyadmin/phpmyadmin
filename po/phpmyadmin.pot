@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1093,6 +1093,14 @@ msgstr ""
 msgid "Show search results"
 msgstr ""
 
+#: js/messages.php:86
+msgid "Browsing"
+msgstr ""
+
+#: js/messages.php:87
+msgid "Deleting"
+msgstr ""
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -1931,7 +1939,7 @@ msgstr ""
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr ""
 
@@ -4714,7 +4722,7 @@ msgstr ""
 msgid "Link not found"
 msgstr ""
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr ""
 
@@ -6535,27 +6543,27 @@ msgstr ""
 msgid "Show PHP information"
 msgstr ""
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr ""
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr ""
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr ""
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr ""
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr ""
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6563,21 +6571,21 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6585,45 +6593,45 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:296
+#: main.php:299
 #, possible-php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:326
+#: main.php:329
 #, possible-php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: main.php:338
+#: main.php:341
 #, possible-php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

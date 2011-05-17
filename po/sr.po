@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-04-06 18:43+0200\n"
 "Last-Translator: <theranchcowboy@googlemail.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -1175,6 +1175,18 @@ msgstr "SQL упит"
 msgid "Show search results"
 msgstr "SQL упит"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Преглед"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "Бришем %s"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -2107,7 +2119,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Документација"
 
@@ -5104,7 +5116,7 @@ msgstr "Направи релацију"
 msgid "Link not found"
 msgstr "Веза није пронађена"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Информације о верзији"
 
@@ -7152,31 +7164,31 @@ msgstr "верзија PHP-a"
 msgid "Show PHP information"
 msgstr "Прикажи информације о PHP-у"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr ""
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "phpMyAdmin веб сајт"
 
-#: main.php:214
+#: main.php:217
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибути"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr ""
 
-#: main.php:216
+#: main.php:219
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Нема измена"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7188,7 +7200,7 @@ msgstr ""
 "овим подешавањима, отворен је за упаде, и заиста треба да исправите овај "
 "сигурносни ризик."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7197,7 +7209,7 @@ msgstr ""
 "У PHP подешавањима Вам је укључена mbstring.func_overload опција. Ова опција "
 "је некомпатибилна са phpMyAdmin и може довести до грешака у неким подацима!"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7207,7 +7219,7 @@ msgstr ""
 "скуп знакова. Без екстензије mbstring phpMyAdmin не може исправно да "
 "раздваја стрингове и то може довести до неочекиваних резултата."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7215,24 +7227,24 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Конфигурациона датотека захтева тајну лозинку (blowfish_secret)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:296
+#: main.php:299
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7244,14 +7256,14 @@ msgstr ""
 "Додатне могућности за рад са повезаним табелама су искључене. Да бисте "
 "сазнали зашто, кликните %sовде%s."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7260,7 +7272,7 @@ msgstr ""
 "Верзија ваше PHP MySQL библиотеке %s се разликује од верзије вашег MySQL "
 "сервера %s. Ово може довести до непредвидљивог понашања."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

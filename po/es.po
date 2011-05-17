@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-04-02 11:10+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -1138,6 +1138,18 @@ msgstr "Ocultar criterio de búsqueda"
 msgid "Show search results"
 msgstr "Mostrar criterio de búsqueda"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Examinar"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "Borrando %s"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -2014,7 +2026,7 @@ msgstr "es"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Documentación"
 
@@ -5055,7 +5067,7 @@ msgstr "Crear vista"
 msgid "Link not found"
 msgstr "No se encontró el enlace"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Acerca de esta versión"
 
@@ -7106,27 +7118,27 @@ msgstr "extensión PHP"
 msgid "Show PHP information"
 msgstr "Mostrar la información de PHP"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "Página oficial de phpMyAdmin"
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr "Contribuir"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr "Obtener soporte"
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr "Lista de cambios"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7141,7 +7153,7 @@ msgstr ""
 "contraseña a root@localhost. Deberá escribir la misma contraseña en config."
 "inc.php de phpMyAdmin."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7151,7 +7163,7 @@ msgstr ""
 "opción es incompatible con phpMyAdmin y podría causar la pérdida de algunos "
 "datos!"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7161,7 +7173,7 @@ msgstr ""
 "tipografía multibyte. phpMyAdmin no puede cortar correctamente las cadenas "
 "de caracteres sin la extensión mbstring y podría dar resultados inesperados."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7173,7 +7185,7 @@ msgstr ""
 "de la cookie configurada en phpMyAdmin. Por ello, la sesión expirará antes "
 "de lo configurado en phpMyAdmin."
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7182,13 +7194,13 @@ msgstr ""
 "de la cookie configurada en phpMyAdmin. Por ello, la sesión expirará antes "
 "de lo configurado en phpMyAdmin."
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "El archivo de configuración ahora necesita una frase secreta "
 "(blowfish_secret)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7198,7 +7210,7 @@ msgstr ""
 "aún existe en el directorio phpMyAdmin. Deberías eliminarlo una vez que "
 "phpMyAdmin fue configurado."
 
-#: main.php:296
+#: main.php:299
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7208,7 +7220,7 @@ msgstr ""
 "configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
 "sPulsa aquí para averiguar por qué%s."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7218,7 +7230,7 @@ msgstr ""
 "en el mismo. Faltará alguna funcionalidad phpMyAdmin; por ejemplo, el marco "
 "de navegación no actualizará automáticamente."
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7227,7 +7239,7 @@ msgstr ""
 "Su versión de librería PHP MySQL %s es distinta de aquella de su versión de "
 "servidor MySQL %s. Esto puede ocasionar un comportamiento impredecible."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -1187,6 +1187,18 @@ msgstr "SQL сўровлари қутиси"
 msgid "Show search results"
 msgstr "SQL сўровлари қутиси"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Кўриб чиқиш"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "\"%s\" ўчирилмоқда"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -2142,7 +2154,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Документация"
 
@@ -5351,7 +5363,7 @@ msgstr "Версиясини тузиш"
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Версия ҳақида маълумот"
 
@@ -7463,31 +7475,31 @@ msgstr "PHP кенгайтмаси"
 msgid "Show PHP information"
 msgstr "PHP ҳақида маълумотни кўрсатиш"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "Вики"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr " phpMyAdmin расмий веб-саҳифаси"
 
-#: main.php:214
+#: main.php:217
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибутлар"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr ""
 
-#: main.php:216
+#: main.php:219
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Ўзгариш йўқ"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7499,7 +7511,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7509,7 +7521,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7520,7 +7532,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7533,7 +7545,7 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:271
+#: main.php:274
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7550,13 +7562,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7566,7 +7578,7 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: main.php:296
+#: main.php:299
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7578,7 +7590,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7588,7 +7600,7 @@ msgstr ""
 "баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
 "янгиланиб турмайди."
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7597,7 +7609,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

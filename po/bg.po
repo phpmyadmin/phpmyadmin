@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-05-17 16:22+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -708,12 +708,10 @@ msgid "Add prefix to table"
 msgstr "Добавяне представка към таблица"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Заменяне на представката за таблици"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Копиране на таблицата с представка"
 
@@ -956,12 +954,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Вие ще УНИЩОЖИТЕ цялата БД!"
 
 #: js/messages.php:32
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
 msgstr "Вие ще УНИЩОЖИТЕ цяла таблица!"
 
 #: js/messages.php:33
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Вие ще ИЗПРАЗНИТЕ цяла таблица!"
 
@@ -1100,13 +1096,24 @@ msgid "Searching"
 msgstr "Търсене"
 
 #: js/messages.php:84
-#| msgid "Query results"
 msgid "Hide search results"
 msgstr "Скриване резултати от търсенето"
 
 #: js/messages.php:85
 msgid "Show search results"
 msgstr "Показване резултати от търсенето"
+
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Прелистване"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "Изтриване на %s"
 
 #: js/messages.php:90
 msgid ""
@@ -1962,7 +1969,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Документация"
 
@@ -4749,7 +4756,7 @@ msgstr "Създаване на изглед"
 msgid "Link not found"
 msgstr "Връзките не са намерени"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Информация за весията"
 
@@ -5568,7 +5575,6 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:249
-#| msgid "Fr"
 msgid "From"
 msgstr "От"
 
@@ -5803,7 +5809,6 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:336
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Този формат няма опции"
 
@@ -6036,7 +6041,6 @@ msgid "Page name"
 msgstr "Име на страница"
 
 #: libraries/schema/User_Schema.class.php:103
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr ""
 
@@ -6061,7 +6065,6 @@ msgid "Select Tables"
 msgstr "Избери таблици"
 
 #: libraries/schema/User_Schema.class.php:346
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr ""
 
@@ -6098,7 +6101,6 @@ msgid "Portrait"
 msgstr "Портретно"
 
 #: libraries/schema/User_Schema.class.php:394
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Посока"
 
@@ -6558,7 +6560,6 @@ msgstr ""
 "изведени залепени от края в слъчай на скъсяване (По подразбиране: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "General relation features"
 msgid "Manage your settings"
 msgstr "Управление мои настройки"
 
@@ -6593,7 +6594,6 @@ msgid "Error in ZIP archive:"
 msgstr "Грешка в ZIP архива:"
 
 #: main.php:65
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "Общи настройки"
 
@@ -6639,27 +6639,27 @@ msgstr "PHP разшрение"
 msgid "Show PHP information"
 msgstr "Информация за PHP"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr ""
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "Официална страница на phpMyAdmin"
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr "Принос"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr ""
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr "Списък с промените"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6672,21 +6672,21 @@ msgstr ""
 "да оправите тази дупка в сигурността като зададете парола на потребителя "
 "'root'."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6694,24 +6694,24 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Конфигурационния файл има нужда от тайна парола (blowfish_secret)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:296
+#: main.php:299
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -6720,21 +6720,21 @@ msgstr ""
 "Конфигурация на phpMyAdmin е непълна и някои разширени функции са "
 "деактивирани. За да разберете защо натиснете %sтук%s."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -6811,7 +6811,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:120
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr ""
 
@@ -6841,7 +6840,6 @@ msgstr ""
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#| msgid "Export"
 msgid "Except"
 msgstr "Освен"
 
@@ -6855,12 +6853,10 @@ msgid "Rename to"
 msgstr "Преименуване на"
 
 #: pmd_general.php:482 pmd_general.php:581
-#| msgid "User name"
 msgid "New name"
 msgstr ""
 
 #: pmd_general.php:485 pmd_general.php:700
-#| msgid "Create"
 msgid "Aggregate"
 msgstr ""
 
@@ -6871,7 +6867,6 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: pmd_general.php:810
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Активни опции"
 
@@ -6899,17 +6894,14 @@ msgid "Page"
 msgstr "Страница"
 
 #: pmd_pdf.php:99
-#| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Импорт от избрания файл"
 
 #: pmd_pdf.php:100
-#| msgid "No rows selected"
 msgid "Export to selected page"
 msgstr ""
 
 #: pmd_pdf.php:102
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr ""
 
@@ -7587,7 +7579,6 @@ msgstr ""
 
 #: server_replication.php:72
 #, php-format
-#| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
 msgstr ""
 
@@ -8524,7 +8515,6 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1138
-#| msgid "max. concurrent connections"
 msgid "Current connection"
 msgstr "Текуща връзка"
 
@@ -8588,7 +8578,6 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:92
-#| msgid "Modifications have been saved"
 msgid "Configuration saved."
 msgstr "Конфигурацията запазена."
 
@@ -8848,7 +8837,6 @@ msgid "Showing SQL query"
 msgstr ""
 
 #: sql.php:622
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Валидиран SQL"
 
@@ -8871,7 +8859,6 @@ msgid "Function"
 msgstr "Функция"
 
 #: tbl_change.php:758
-#| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Поради дължината си,<br /> това поле може да е нередактируемо "
 
@@ -8932,7 +8919,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Диаграмата е създадена."
 
@@ -8983,12 +8969,10 @@ msgid "Radar"
 msgstr "Радар"
 
 #: tbl_chart.php:138
-#| msgid "PiB"
 msgid "Pie"
 msgstr "Пита"
 
 #: tbl_chart.php:144
-#| msgid "Query type"
 msgid "Bar type"
 msgstr "Стълбове"
 
@@ -9245,7 +9229,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:402
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
@@ -9310,7 +9293,6 @@ msgstr "Няма"
 
 #: tbl_structure.php:398
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Колоната %s беше изтрита"
 
@@ -9326,7 +9308,6 @@ msgid "An index has been added on %s"
 msgstr "Беше добавен индекс на %s"
 
 #: tbl_structure.php:471
-#| msgid "Show versions"
 msgid "Show more actions"
 msgstr "Показване повече действия"
 
@@ -9357,7 +9338,6 @@ msgstr "След %s"
 
 #: tbl_structure.php:689
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Създаване на индекс върху &nbsp;%s&nbsp;колони"
 
@@ -9413,7 +9393,6 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#| msgid "Query type"
 msgid "Query error"
 msgstr "Грешка в заявката"
 
@@ -9435,7 +9414,6 @@ msgid "Delete tracking data row from report"
 msgstr ""
 
 #: tbl_tracking.php:443
-#| msgid "No databases"
 msgid "No data"
 msgstr "Няма данни"
 

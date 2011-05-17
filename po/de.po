@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-04-23 04:28+0200\n"
 "Last-Translator: Dominik Geyer <dominik.geyer@gmx.de>\n"
 "Language-Team: german <de@li.org>\n"
@@ -1132,6 +1132,18 @@ msgstr "Suchkriterien ausblenden"
 msgid "Show search results"
 msgstr "Suchkriterien anzeigen"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Anzeigen"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "Lösche %s"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -2007,7 +2019,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -5002,7 +5014,7 @@ msgstr "Erzeuge View"
 msgid "Link not found"
 msgstr "Der Verweis wurde nicht gefunden."
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Versionsinformationen"
 
@@ -7036,27 +7048,27 @@ msgstr "PHP Erweiterung"
 msgid "Show PHP information"
 msgstr "PHP-Informationen anzeigen"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "Offizielle Homepage "
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr "Mitmachen"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr "Unterstützung erhalten"
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr "Liste der Änderungen"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7069,7 +7081,7 @@ msgstr ""
 "leicht von außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke "
 "unbedingt schließen!"
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7079,7 +7091,7 @@ msgstr ""
 "aktiviert. Diese ist nicht kompatibel zu phpMyAdmin, weshalb es zu Problemen "
 "und Datenverlust kommen kann."
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7090,7 +7102,7 @@ msgstr ""
 "Erweiterung ist phpMyAdmin nicht in der Lage Zeichenketten zu trennen, was "
 "zu unerwarteten Ergebnissen führen kann."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7102,7 +7114,7 @@ msgstr ""
 "die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre "
 "Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7111,13 +7123,13 @@ msgstr ""
 "phpMyAdmin eingestellt ist, daher wird Ihre Anmeldung eher ablaufen als in "
 "phpMyAdmin konfiguriert."
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Ab sofort muss ein geheimes Passwort zur Verschlüsselung in der "
 "Konfigurationsdatei gesetzt werden (blowfish_secret)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7126,7 +7138,7 @@ msgstr ""
 "Das [code]config[/code] Unterverzeichnis des Installationsskripts ist noch "
 "vorhanden. Sie sollten es nach der Konfiguration von phpMyAdmin entfernen."
 
-#: main.php:296
+#: main.php:299
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7136,7 +7148,7 @@ msgstr ""
 "einige erweiterte Funktionen wurden deaktiviert. Klicken Sie %shier%s, um "
 "herauszufinden warum."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7146,7 +7158,7 @@ msgstr ""
 "von phpMyAdmin stehen daher nicht zur Verfügung. Zum Beispiel wird die "
 "Navigation nicht automatisch aktualisiert."
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7155,7 +7167,7 @@ msgstr ""
 "Die Version der verwendeten PHP MySQL Bibliothek %s unterscheidet sich von "
 "der Version des MySQL Servers %s. Dies kann zu unerwartetem Verhalten führen."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

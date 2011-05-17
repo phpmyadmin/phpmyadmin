@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-05-06 03:13+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -1108,6 +1108,18 @@ msgstr "隐藏搜索条件"
 msgid "Show search results"
 msgstr "显示搜索条件"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "浏览"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "正在删除 %s"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -1954,7 +1966,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "文档"
 
@@ -4818,7 +4830,7 @@ msgstr "新建视图"
 msgid "Link not found"
 msgstr "找不到链接"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "版本信息"
 
@@ -6726,27 +6738,27 @@ msgstr "PHP 扩展"
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "维基 (Wiki) (外链，英文)"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "官方主页 (外链，英文)"
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr "贡献"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr "获取支持"
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr "更新列表"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6757,7 +6769,7 @@ msgstr ""
 "务器使用默认值运行当然没有问题，不过这样的话，被入侵的可能性会很大，我们强烈"
 "建议您应该立即给 'root' 用户设置一个密码来补上这个安全漏洞。"
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6766,7 +6778,7 @@ msgstr ""
 "PHP 配置中已启用了 mbstring.func_overload 。这个选项和 phpMyAdmin 不兼容，可"
 "能会导致一些数据损坏！"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6775,7 +6787,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩"
 "展的 phpMyAdmin 不能正确分割字符串，可能产生意想不到的结果。"
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -6787,7 +6799,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -6795,11 +6807,11 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -6808,7 +6820,7 @@ msgstr ""
 "安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin 已经安装配置"
 "好，请立即删除该文件夹。"
 
-#: main.php:296
+#: main.php:299
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -6816,7 +6828,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin 高级功能未全部设置，部分功能不可用。要查出原因请%s点这里%s。"
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -6825,7 +6837,7 @@ msgstr ""
 "你的浏览器不支持或禁用了 Javascript，部分 phpMyAdmin 功能将不可用。如导航框架"
 "将不能自动刷新。"
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -6834,7 +6846,7 @@ msgstr ""
 "你的 PHP MySQL 库版本 %s 和你的 MySQL 服务器版本 %s 不同。这可能造成一些未知"
 "的问题。"
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "

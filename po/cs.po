@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-16 10:31-0400\n"
+"POT-Creation-Date: 2011-05-17 12:36-0400\n"
 "PO-Revision-Date: 2011-05-17 13:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -619,8 +619,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:379 libraries/display_tbl.lib.php:2037
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -712,17 +712,14 @@ msgid "Analyze table"
 msgstr "Analyzovat tabulku"
 
 #: db_structure.php:521
-#| msgid "Go to table"
 msgid "Add prefix to table"
 msgstr "Přidat tabulce předponu"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Změnit tabulce předponu"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Zkopírovat tabulku s předponou"
 
@@ -860,8 +857,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -972,12 +969,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte se ZRUŠIT celou databázi!"
 
 #: js/messages.php:32
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
 msgstr "Chystáte se ZRUŠIT celou tabulku!"
 
 #: js/messages.php:33
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Chystáte se VYPRÁZDNIT celou tabulku!"
 
@@ -1116,14 +1111,24 @@ msgid "Searching"
 msgstr "Vyhledávám"
 
 #: js/messages.php:84
-#| msgid "Hide search criteria"
 msgid "Hide search results"
 msgstr "Skrýt výsledky vyhledávání"
 
 #: js/messages.php:85
-#| msgid "Show search criteria"
 msgid "Show search results"
 msgstr "Zobrazit výsledky vyhledávání"
+
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "Projít"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "Odstraňuji %s"
 
 #: js/messages.php:90
 msgid ""
@@ -1227,7 +1232,6 @@ msgid ", latest stable version:"
 msgstr ", poslední stabilní verze:"
 
 #: js/messages.php:128
-#| msgid "Jump to database"
 msgid "up to date"
 msgstr "aktuální"
 
@@ -1698,8 +1702,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1994,7 +1998,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "Dokumentace"
 
@@ -4673,8 +4677,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -4961,7 +4965,7 @@ msgstr "Vytvořit pohled"
 msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Informace o verzi"
 
@@ -5400,8 +5404,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -5868,7 +5872,6 @@ msgid "Convert to Kana"
 msgstr "Převést na Kanu"
 
 #: libraries/mult_submits.inc.php:249
-#| msgid "Fr"
 msgid "From"
 msgstr "Z"
 
@@ -5886,7 +5889,6 @@ msgid "Add table prefix"
 msgstr "Přidat tabulce předponu"
 
 #: libraries/mult_submits.inc.php:266
-#| msgid "Add index"
 msgid "Add prefix"
 msgstr "Přidat předponu"
 
@@ -6665,8 +6667,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6717,8 +6719,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
 #: tbl_operations.php:370
@@ -6957,27 +6959,27 @@ msgstr "Rozšíření PHP"
 msgid "Show PHP information"
 msgstr "Zobrazit informace o PHP"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
-#: main.php:214
+#: main.php:217
 msgid "Contribute"
 msgstr "Přispějte"
 
-#: main.php:215
+#: main.php:218
 msgid "Get support"
 msgstr "Získejte podporu"
 
-#: main.php:216
+#: main.php:219
 msgid "List of changes"
 msgstr "Seznam změn"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -6988,7 +6990,7 @@ msgstr ""
 "nastavit heslo pro uživatele 'root' a tím podstatně zvýšit zabezpečení "
 "vašeho serveru."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6997,7 +6999,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7007,7 +7009,7 @@ msgstr ""
 "bajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7019,7 +7021,7 @@ msgstr ""
 "platnost cookies nastavená v phpMyAdminovi. Z tohoto důvodu bude vaše "
 "přilášení neplatné dříve, než je nastaveno v phpMyAdminovi."
 
-#: main.php:271
+#: main.php:274
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -7028,13 +7030,13 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7044,7 +7046,7 @@ msgstr ""
 "existuje v adresáři s phpMyAdminem. Měli byste ho odstranit, jakmile je "
 "phpMyAdmin nastaven."
 
-#: main.php:296
+#: main.php:299
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -7053,7 +7055,7 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZde%s zjistíte proč."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7063,7 +7065,7 @@ msgstr ""
 "phpMyAdmin nemusí fungovat správně. Například navigační rám se nebude "
 "automaticky obnovovat."
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7072,7 +7074,7 @@ msgstr ""
 "Používaný MySQL modul v PHP je kompilován pro MySQL %s a server používá "
 "verzi %s. Používání různých verzí může způsobit problémy."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -7337,8 +7339,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7786,8 +7788,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9044,7 +9046,6 @@ msgid "Insecure connection"
 msgstr "Nezabezpečené připojení"
 
 #: setup/frames/index.inc.php:92
-#| msgid "Configuration storage"
 msgid "Configuration saved."
 msgstr "Konfigurace uložena."
 
@@ -9256,8 +9257,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
-"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
+"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:266
@@ -9268,8 +9269,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -9913,17 +9914,14 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Snímek verze %s (SQL kód)"
 
 #: tbl_tracking.php:382
-#| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
 msgstr "Uložené příkazy pro změnu struktury byly úspěšně smazány"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#| msgid "Gather errors"
 msgid "Query error"
 msgstr "Chyba dotazu"
 
 #: tbl_tracking.php:399
-#| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Uložené příkazy pro změnu dat byly úspěšně smazány"
 
@@ -9937,12 +9935,10 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: tbl_tracking.php:432
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "Odstranit tyto informace o sledování této tabulky"
 
 #: tbl_tracking.php:443
-#| msgid "No databases"
 msgid "No data"
 msgstr "Nejsou k dispozici žádná data"
 
