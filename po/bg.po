@@ -7474,7 +7474,7 @@ msgstr "Специфични за колоната права"
 
 #: server_privileges.php:2005
 msgid "Add privileges on the following database"
-msgstr "Добавяне на привилегии към следната БД"
+msgstr "Добавяне на права към следната БД"
 
 #: server_privileges.php:2023
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
