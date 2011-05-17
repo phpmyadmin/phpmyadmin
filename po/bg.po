@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 11:15+0200\n"
+"PO-Revision-Date: 2011-05-17 11:16+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8864,7 +8864,7 @@ msgstr "Етикет"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr ""
+msgstr "Таблицата %1$s беше променена"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
