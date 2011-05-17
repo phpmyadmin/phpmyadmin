@@ -3292,7 +3292,7 @@ msgstr "Reťazec, ktorý rozdeľuje databázy do rôznych úrovní stromu"
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
-msgstr ""
+msgstr "Oddeľovač databázového stromu"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
