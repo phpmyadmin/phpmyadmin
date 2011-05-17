@@ -8636,7 +8636,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:224
 msgid "Display"
-msgstr ""
+msgstr "Показване"
 
 #: setup/frames/index.inc.php:228
 msgid "Load"
