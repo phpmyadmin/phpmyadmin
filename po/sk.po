@@ -1018,7 +1018,7 @@ msgstr "Chcete vypnúť všetky odkazy do skladiska BLOBov v databáze %s?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Chýbajúca položka vo formulári !"
+msgstr "Chýbajúca položka vo formulári!"
 
 #: js/messages.php:47
 msgid "This is not a number!"
