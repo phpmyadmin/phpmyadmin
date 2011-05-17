@@ -3347,7 +3347,7 @@ msgstr "Požiť graficky menej náročné panely"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr ""
+msgstr "Odľahčené panely"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
