@@ -7698,7 +7698,6 @@ msgid "Do not change the password"
 msgstr "Nezmeniť heslo"
 
 #: server_privileges.php:817 server_privileges.php:2286
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Nebol nájdený žiadny používateľ."
