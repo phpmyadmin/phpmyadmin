@@ -8245,7 +8245,7 @@ msgstr ""
 
 #: server_status.php:150
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Брой текущо отворени връзки."
 
 #: server_status.php:151
 msgid ""
