@@ -3266,7 +3266,7 @@ msgstr "Cieľ pre ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Zobraziť logo v ľavom ráme"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
