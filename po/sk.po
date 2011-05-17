@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 14:01+0200\n"
+"PO-Revision-Date: 2011-05-17 14:03+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3937,10 +3937,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Zobrazovať komentáre stĺpcov"
+msgstr "Zobrazenie stĺpcov tabuľky"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
