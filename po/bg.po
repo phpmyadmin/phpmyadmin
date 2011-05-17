@@ -6176,7 +6176,7 @@ msgstr "Текущ сървър"
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
 msgid "Remote server"
-msgstr ""
+msgstr "Отдалечен сървър"
 
 #: libraries/server_synchronize.lib.php:1344
 msgid "Difference"
