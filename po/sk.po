@@ -4814,7 +4814,7 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť"
+msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
