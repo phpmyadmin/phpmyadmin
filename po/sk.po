@@ -9486,10 +9486,9 @@ msgid "Pie"
 msgstr "Koláč"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Typ dopytu"
+msgstr "Typ stĺpca"
 
 #: tbl_chart.php:146
 msgid "Stacked"
