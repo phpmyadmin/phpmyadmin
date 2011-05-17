@@ -2916,7 +2916,7 @@ msgstr "Настройки по удостоверяване"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "Конфигурация на сървър"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
