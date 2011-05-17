@@ -2965,7 +2965,7 @@ msgstr "Ostatné základné nastavenia"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Nastavenia, ktoré sa nedajú zaradiť inde"
 
 #: libraries/config/messages.inc.php:189
 #, fuzzy
