@@ -3313,7 +3313,7 @@ msgstr "Reťazec, ktorý rozdelí tabuľky do rôznych úrovní stromu"
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
-msgstr ""
+msgstr "Oddeľovač tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
