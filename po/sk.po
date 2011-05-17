@@ -3300,9 +3300,8 @@ msgid "Disable this if you want to see all databases at once"
 msgstr "Zakážte túto voľbu ak chcete vidieť všetky databázy súčasne"
 
 #: libraries/config/messages.inc.php:275
-#, fuzzy
 msgid "Use light version"
-msgstr "Verzia MySQL klienta"
+msgstr "Použiť odľahčenú verziu"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
