@@ -3255,7 +3255,7 @@ msgstr "Koľko riadkov môže byť vložených naraz"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
-msgstr "Počet vložených riadkov."
+msgstr "Počet vložených riadkov"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
