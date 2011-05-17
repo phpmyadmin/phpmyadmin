@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 11:18+0200\n"
+"PO-Revision-Date: 2011-05-17 11:20+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8810,7 +8810,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "По причини свързани с производителността използвайте mysqli."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
