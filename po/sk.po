@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:56+0200\n"
+"PO-Revision-Date: 2011-05-17 13:55+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2733,10 +2733,9 @@ msgid "Relations"
 msgstr "Prepojenia"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Typ vytvorených dopytov"
+msgstr "Metóda exportu"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
@@ -2954,10 +2953,9 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Open Document Text"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
@@ -2968,10 +2966,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Nastavenia, ktoré sa nedajú zaradiť inde"
 
 #: libraries/config/messages.inc.php:189
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Číslo stránky:"
+msgstr "Mená stránok"
 
 #: libraries/config/messages.inc.php:190
 msgid ""
@@ -3501,10 +3498,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Zmeniť poradie tabuľky podľa"
+msgstr "Prirodzené poradie"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
@@ -3595,10 +3591,9 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "SQL okno"
+msgstr "Výška okna dopytov"
 
 #: libraries/config/messages.inc.php:342
 #| msgid "Query window"
@@ -3606,10 +3601,9 @@ msgid "Query window width (in pixels)"
 msgstr "Šírka okna dopytov (v pixeloch)"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "SQL okno"
+msgstr "Šírka okna dopytov"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
@@ -3624,10 +3618,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Opravné vlákna"
+msgstr "Opakovať záhlavie"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
@@ -3866,10 +3859,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "meno databázy"
+msgstr "Meno databázy"
 
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -3986,10 +3978,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Údaj"
+msgstr "Sledované príkazy"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -4008,10 +3999,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Režim automatickej obnovy"
+msgstr "Automaticky vytvárať verzie"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
@@ -4077,10 +4067,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Zobraziť otvorené tabuľky"
+msgstr "Zobraziť typy polí"
 
 #: libraries/config/messages.inc.php:445
 msgid "Display the function fields in edit/insert mode"
@@ -4243,10 +4232,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "Predvolené"
+msgstr "Východzí popis"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
@@ -4382,10 +4370,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Vlastná farba"
+msgstr "Vlastné"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
@@ -4539,10 +4526,9 @@ msgid "Password Hashing"
 msgstr "Hashovanie hesla"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "Kompatibilné s&nbsp;MySQL&nbsp;4.0"
+msgstr "Kompatibilné s MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
@@ -4564,7 +4550,6 @@ msgid "Create table on database %s"
 msgstr "Vytvoriť novú tabuľku v databáze %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Počet polí"

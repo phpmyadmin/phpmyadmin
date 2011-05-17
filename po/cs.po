@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 00:17+0200\n"
+"PO-Revision-Date: 2011-05-17 13:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1128,7 +1128,7 @@ msgstr "Zobrazit výsledky vyhledávání"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné."
 
 #: js/messages.php:93
 msgid "Hide query box"
@@ -1189,6 +1189,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"Neuložili jste změny ve schématu. Pokud je neuložíte, budou ztraceny. "
+"Přejete si pokračovat?"
 
 #: js/messages.php:114
 msgid "Add an option for column "
@@ -9051,6 +9053,9 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Konfigurace byla uložena do souboru config/config.inc.php v adresáři "
+"phpMyAdmina, přesuňte ji do adresáře phpMyAdmin a smažte adresář config pro "
+"její použití."
 
 #: setup/frames/index.inc.php:100 setup/frames/menu.inc.php:15
 msgid "Overview"
@@ -9908,10 +9913,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Snímek verze %s (SQL kód)"
 
 #: tbl_tracking.php:382
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Sledovat tyto příkazy pro definici dat:"
+msgstr "Uložené příkazy pro změnu struktury byly úspěšně smazány"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #| msgid "Gather errors"
@@ -9919,10 +9923,9 @@ msgid "Query error"
 msgstr "Chyba dotazu"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Sledovat tyto příkazy pro úpravu dat:"
+msgstr "Uložené příkazy pro změnu dat byly úspěšně smazány"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
@@ -9934,10 +9937,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Odstranit všechny informace o sledování této tabulky"
+msgstr "Odstranit tyto informace o sledování této tabulky"
 
 #: tbl_tracking.php:443
 #| msgid "No databases"
