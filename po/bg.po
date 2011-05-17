@@ -1852,7 +1852,7 @@ msgstr "Проверка на правата над БД &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "Проверка на привилегиите"
+msgstr "Проверка на правата"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
