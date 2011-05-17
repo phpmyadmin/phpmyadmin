@@ -9072,10 +9072,9 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration saved."
-msgstr "Konfiguračný súbor"
+msgstr "Konfigurácia bola uložená."
 
 #: setup/frames/index.inc.php:93
 msgid ""
