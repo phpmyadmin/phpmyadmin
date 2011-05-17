@@ -2823,7 +2823,7 @@ msgstr "Poradie cudzích kľúčov v rozbaľovacej ponuke"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Pokiaľ je dostupných menej položiek, bude použitá rozbaľovacia ponuka"
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
