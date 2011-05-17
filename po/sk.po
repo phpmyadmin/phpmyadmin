@@ -2547,7 +2547,7 @@ msgstr "Zobraziť prehľad databáz ako zoznam namiesto rozbaľovacieho menu"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Zobraziť databázy ako zoznam"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
