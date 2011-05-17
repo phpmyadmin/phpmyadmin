@@ -6882,8 +6882,8 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Zobrazí obrázok a odkaz; pole obsahuje meno súboru. Prvý parameter je prefix "
-"URL (napr. \"http://www.example.com/\").  Druhý a tretí parameter určujú "
-"šírku a výšku obrázku v pixeloch."
+"URL (napr. \"http://www.example.com/\"). Druhý a tretí parameter určujú šírku "
+"a výšku obrázku v pixeloch."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #| msgid ""
