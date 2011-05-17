@@ -2555,7 +2555,7 @@ msgstr "Zobraziť prehľad serverov ako zoznam namiesto rozbaľovacieho menu"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Zobraziť servery ako zoznam"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
