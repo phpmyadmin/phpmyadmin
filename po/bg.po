@@ -7325,7 +7325,7 @@ msgstr "Няма"
 #: server_privileges.php:443 server_privileges.php:580
 #: server_privileges.php:1798 server_privileges.php:1804
 msgid "Table-specific privileges"
-msgstr "Привилегии специфични за таблицата"
+msgstr "Специфични за таблицата права"
 
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
