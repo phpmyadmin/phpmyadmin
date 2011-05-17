@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 14:23+0200\n"
+"PO-Revision-Date: 2011-05-17 14:31+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Cieľové okno prehliadača nemohlo byť aktualizované. Možno ste zatvorili "
 "rodičovské okno, alebo prehliadač blokuje operácie medzi oknami z dôvodu "
-"bezpečnostných nastavení"
+"bezpečnostných nastavení."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2828
 #: libraries/common.lib.php:2835 libraries/common.lib.php:3014
@@ -113,7 +113,7 @@ msgid ""
 "for more information."
 msgstr ""
 "Súbor %s nebol nájdený na tomto systéme, viac informácií nájdete na "
-"www.phpmyadmin.net ."
+"www.phpmyadmin.net."
 
 #: db_create.php:58
 #, php-format
@@ -1018,7 +1018,7 @@ msgstr "Chcete vypnúť všetky odkazy do skladiska BLOBov v databáze %s?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Chýbajúca položka vo formulári !"
+msgstr "Chýbajúca položka vo formulári!"
 
 #: js/messages.php:47
 msgid "This is not a number!"
@@ -1111,7 +1111,7 @@ msgstr "Mením znakovú sadu"
 
 #: js/messages.php:77
 msgid "Table must have at least one column"
-msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec."
+msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec"
 
 #: js/messages.php:78
 msgid "Create Table"
@@ -1743,7 +1743,7 @@ msgstr "Možete zadať medzerou oddelený hostname/IP adresu a port."
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
-msgstr "Server"
+msgstr "Server:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
@@ -3229,7 +3229,7 @@ msgstr "Import mien (5.00 namiesto $5.00)"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importovať percentá ako desatinné čísla (0,12 namiesto 12,00%|"
+msgstr "Importovať percentá ako desatinné čísla (0.12 namiesto 12.00%|"
 
 #: libraries/config/messages.inc.php:255
 #| msgid "Number of records (queries) to skip from start"
@@ -3255,7 +3255,7 @@ msgstr "Koľko riadkov môže byť vložených naraz"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
-msgstr "Počet vložených riadkov."
+msgstr "Počet vložených riadkov"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
@@ -3280,7 +3280,7 @@ msgstr "Zobraziť výber serverov"
 #: libraries/config/messages.inc.php:269
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Minimálny počet tabuliek pre zobrazenie filtra tabuliek."
+msgstr "Minimálny počet tabuliek pre zobrazenie filtra tabuliek"
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
@@ -3737,9 +3737,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:375
-#, fuzzy
 msgid "Control user"
-msgstr "Ovládať slave:"
+msgstr "Kontrolný užívateľ"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
@@ -4177,9 +4176,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:454
 #: tbl_tracking.php:511
-#, fuzzy
 msgid "Username"
-msgstr "Používateľ:"
+msgstr "Užívateľ"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
@@ -4726,9 +4724,8 @@ msgid ""
 msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "Verzia MySQL klienta"
+msgstr "Prevod znakovej sady:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -4817,7 +4814,7 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť"
+msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -4939,7 +4936,7 @@ msgstr "celkovo"
 #: libraries/display_tbl.lib.php:2063 sql.php:628
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "Dopyt zabral %01.4f sek."
+msgstr "Dopyt zabral %01.4f s"
 
 #: libraries/display_tbl.lib.php:2186 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:563
@@ -5382,16 +5379,14 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Riadky ukončené"
+msgstr "Polia oddelené s:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Polia uzatvorené"
+msgstr "Polia uzatvorené do:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #| msgid "Fields escaped by"
@@ -6622,7 +6617,7 @@ msgstr ""
 "Ak je pole typu \"enum\" alebo \"set\", prosím zadávajte hodnoty v tvare: "
 "'a','b','c'...<br />Ak potrebujete zadať spätné lomítko (\"\\\") alebo apostrof "
 "(\"'\") pri týchto hodnotách, zadajte ich pomocou uvádzacieho spätného "
-"lomítka (napr. '\\\\xyz' alebo 'a\\'b'."
+"lomítka (napr. '\\\\xyz' alebo 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
