@@ -5558,10 +5558,9 @@ msgid "Add %s statement"
 msgstr "Pridať údaj %s"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Údaj"
+msgstr "Pridať príkazy:"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
