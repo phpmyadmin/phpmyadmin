@@ -9923,10 +9923,9 @@ msgid "Query error"
 msgstr "Chyba dotazu"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Sledovat tyto příkazy pro úpravu dat:"
+msgstr "Uložené příkazy pro změnu dat byly úspěšně smazány"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
