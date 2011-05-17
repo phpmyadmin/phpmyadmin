@@ -9,6 +9,7 @@
 + Patch #3302354 Add gettext wrappers around a message
 
 3.4.2.0 (not yet released)
+- bug #3301249 [interface] Iconic table operations does not remove inline edit label
 
 3.4.1.0 (not yet released)
 - bug #3301108 [interface] Synchronize and already configured host
@@ -18,7 +19,6 @@
 - bug #3285929 [privileges] Revert temporary fix
 - bug #3302872 [synchronize] Synchronize and user name
 - bug #3302733 [core] Some browsers report an insecure https connection
-- bug #3301249 [interface] Iconic table operations does not remove inline edit label
 
 3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
