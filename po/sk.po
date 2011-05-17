@@ -2883,10 +2883,9 @@ msgid "Features"
 msgstr "Funkcie"
 
 #: libraries/config/messages.inc.php:165
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Vytvoriť"
+msgstr "Všeobecné"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
