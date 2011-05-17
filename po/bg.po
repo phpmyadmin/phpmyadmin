@@ -7111,7 +7111,7 @@ msgid ""
 "between the web server and the MySQL server."
 msgstr ""
 "Забележка: Разрешаването на статистика на БД може да коства много голям "
-"трафик между уеб сървъра и MySQL сървъра."
+"трафик между web сървъра и MySQL сървъра."
 
 #: server_engines.php:47
 msgid "Storage Engines"
