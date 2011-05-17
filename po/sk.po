@@ -3156,6 +3156,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Povolí [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] kompresiu pre "
+"importovanie a exportovanie"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
