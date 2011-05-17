@@ -1636,7 +1636,7 @@ msgstr "Úložný systém %s je na tomto MySQL serveri dostupný."
 #: libraries/StorageEngine.class.php:357
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "Úložný systém %s bol na tomto MySQL servri deaktivovaný."
+msgstr "Úložný systém %s bol vypnutý na tomto MySQL servri."
 
 #: libraries/StorageEngine.class.php:361
 #, php-format
