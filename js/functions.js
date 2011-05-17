@@ -1195,7 +1195,12 @@ $(document).ready(function(){
         }
     });
 
-    $('#sqlquery').focus();
+    $('#sqlquery').focus().keydown(function (e) {
+        if (e.ctrlKey && e.keyCode == 13) {
+            $("#sqlqueryform").submit();
+        }
+    });
+
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
             $('#input_username').focus();
