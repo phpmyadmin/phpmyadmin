@@ -3389,7 +3389,7 @@ msgstr "Zobraziť databázy v strome"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Zakážte túto voľbu ak chcete vidieť všetky databázy súčasne"
 
 #: libraries/config/messages.inc.php:275
 #, fuzzy
@@ -3398,23 +3398,23 @@ msgstr "Verzia MySQL klienta"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Maximálna hĺbka tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:277
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Reťazec, ktorý rozdelí tabuľky do rôznych úrovní stromu"
 
 #: libraries/config/messages.inc.php:278
 msgid "Table tree separator"
-msgstr ""
+msgstr "Oddeľovač tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:279
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL, na ktoré bude odkazovať logo v navigačnom ráme"
 
 #: libraries/config/messages.inc.php:280
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL odkazu loga"
 
 #: libraries/config/messages.inc.php:281
 msgid ""
@@ -3424,23 +3424,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:282
 msgid "Logo link target"
-msgstr ""
+msgstr "Cieľ odkazu loga"
 
 #: libraries/config/messages.inc.php:283
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Zvýrazní server pod kurzorom myši"
 
 #: libraries/config/messages.inc.php:284
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Povoliť zvýrazňovanie"
 
 #: libraries/config/messages.inc.php:285
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Požiť graficky menej náročné panely"
 
 #: libraries/config/messages.inc.php:286
 msgid "Light tabs"
-msgstr ""
+msgstr "Odľahčené panely"
 
 #: libraries/config/messages.inc.php:287
 msgid ""
@@ -3449,7 +3449,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
-msgstr ""
+msgstr "Obmedzenie počtu znakov"
 
 #: libraries/config/messages.inc.php:289
 msgid ""
@@ -3460,7 +3460,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Vymazať všetky cookies pri prihlásení"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
@@ -3486,11 +3486,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Určuje, ako dlho je platná prihlasovacie cookie (v sekundách)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Platnosť prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
