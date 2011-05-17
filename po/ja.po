@@ -9907,10 +9907,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr "追跡するデータ定義コマンド"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "エラーを収集する"
+msgstr "クエリエラー"
 
 #: tbl_tracking.php:399
 #, fuzzy
