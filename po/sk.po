@@ -3498,10 +3498,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Zmeniť poradie tabuľky podľa"
+msgstr "Prirodzené poradie"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
