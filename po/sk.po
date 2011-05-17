@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 10:07+0200\n"
+"PO-Revision-Date: 2011-05-17 10:08+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7452,10 +7452,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Tabuľka <b>%s</b> nebola nájdená alebo nie je nastavená v %s"
 
 #: schema_export.php:45
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Tabuľka \"%s\" neexistuje!"
+msgstr "Súbor neexistuje"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
