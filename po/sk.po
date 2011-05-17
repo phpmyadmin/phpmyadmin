@@ -4698,10 +4698,9 @@ msgid "gzipped"
 msgstr "gzip-ované"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipped\""
+msgstr "bzip-ované"
 
 #: libraries/display_export.lib.php:326
 #, fuzzy
