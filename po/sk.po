@@ -3999,10 +3999,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Režim automatickej obnovy"
+msgstr "Automaticky vytvárať verzie"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
