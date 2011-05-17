@@ -5858,7 +5858,7 @@ msgstr "付け替え元"
 
 #: libraries/mult_submits.inc.php:252
 msgid "To"
-msgstr ""
+msgstr "付け替え先"
 
 #: libraries/mult_submits.inc.php:257 libraries/mult_submits.inc.php:271
 #: libraries/sql_query_form.lib.php:440
