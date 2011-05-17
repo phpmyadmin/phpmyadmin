@@ -2848,7 +2848,7 @@ msgstr "Настройки показване сървъри"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "Настройки показване таблици"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
