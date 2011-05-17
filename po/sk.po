@@ -9097,10 +9097,10 @@ msgid "Current connection"
 msgstr "max. súčasných pripojení"
 
 #: server_synchronize.php:1167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Konfiguračný súbor"
+msgstr "Konfigurácia: %s"
 
 #: server_synchronize.php:1182
 msgid "Socket"
