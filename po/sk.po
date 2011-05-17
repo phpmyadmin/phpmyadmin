@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:29+0200\n"
+"PO-Revision-Date: 2011-05-17 12:30+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3090,7 +3090,7 @@ msgstr "Pole pre SQL dopyty"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Prispôsobenie odkazov zobrazovaných v poliach pre SQL dopyty"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
