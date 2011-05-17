@@ -7470,7 +7470,7 @@ msgstr "Избраният потребител не беше открит в т
 
 #: server_privileges.php:1804
 msgid "Column-specific privileges"
-msgstr "Привилегии специфични за колоната"
+msgstr "Специфични за колоната права"
 
 #: server_privileges.php:2005
 msgid "Add privileges on the following database"
