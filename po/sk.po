@@ -1111,7 +1111,7 @@ msgstr "Mením znakovú sadu"
 
 #: js/messages.php:77
 msgid "Table must have at least one column"
-msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec."
+msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec"
 
 #: js/messages.php:78
 msgid "Create Table"
