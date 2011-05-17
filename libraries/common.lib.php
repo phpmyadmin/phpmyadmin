@@ -758,11 +758,11 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             // in this case.
 
             // set this because PMA_Table::countRecords() can use it
-            $tbl_is_view = PMA_Table::isView($db, $table['Name']);
+            $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
             if ($tbl_is_view || strtolower($db) == 'information_schema'
                     || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
-                $table['Rows'] = PMA_Table::countRecords($db, $table['Name']);
+                $table['Rows'] = PMA_Table::countRecords($db, $table['Name'], false, true);
             }
         }
 
