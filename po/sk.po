@@ -2807,7 +2807,7 @@ msgstr "Vynutiť zabezpečené spojenie pri použití phpMyAdmina"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Vynutit SSL spojenie"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
