@@ -2855,7 +2855,7 @@ msgstr "CSV dáta"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "Vývojár"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
