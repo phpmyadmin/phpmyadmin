@@ -2562,10 +2562,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "Upravovať SQL dopyty vo vyskakovacom okne"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Upraviť nasledujúci riadok"
+msgstr "Upraviť v okne"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
