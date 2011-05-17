@@ -2117,7 +2117,7 @@ msgstr ","
 #: libraries/common.lib.php:1610
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%a %d.%B. %Y, %H:%M"
+msgstr "%a %d.%B %Y, %H:%M"
 
 #: libraries/common.lib.php:1924
 #, php-format
