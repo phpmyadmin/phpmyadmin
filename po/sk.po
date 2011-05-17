@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 09:19+0200\n"
+"PO-Revision-Date: 2011-05-17 09:22+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -6876,7 +6876,6 @@ msgid ""
 msgstr "Zachová pôvodné formátovanie poľa tak ako je uložené v databáze."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6886,9 +6885,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Zobrazí obrázok a odkaz z poľa obsahujúceho odkaz na obrázok. Prvý parameter "
-"je prefix URL (napr. \"http://domena.sk/\"), druhý a tretí parameter určujú "
-"šírku a výšku obrázku."
+"Zobrazí obrázok a odkaz; pole obsahuje meno súboru. Prvý parameter je prefix "
+"URL (napr. \"http://www.example.com/\").  Druhý a tretí parameter určujú "
+"šírku a výšku obrázku v pixeloch."
 
 #: libraries/transformations/text_plain__link.inc.php:9
 #, fuzzy
