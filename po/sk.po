@@ -9424,10 +9424,9 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "Práva boli úspešne znovunačítané."
+msgstr "Graf bol úspešne vytvorený."
 
 #: tbl_chart.php:59
 #| msgid ""
