@@ -4635,10 +4635,9 @@ msgid "Save output to a file"
 msgstr "Uložiť výstup do suboru"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Vzor pre názov súboru"
+msgstr "Šablóna pre názov súboru:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
