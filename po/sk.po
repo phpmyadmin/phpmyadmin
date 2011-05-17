@@ -3093,9 +3093,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Prispôsobenie odkazov zobrazovaných v poliach pre SQL dopyty"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "SQL dopyt"
+msgstr "Nastavenia SQL dopytov"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
