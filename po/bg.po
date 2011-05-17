@@ -8818,7 +8818,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Ключът е твърде къс, трябва да бъде поне 8 знака."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
