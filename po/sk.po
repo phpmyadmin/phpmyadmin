@@ -2786,9 +2786,8 @@ msgid "Maximal length of created query"
 msgstr "Maximálna veľkosť vytvoreného príkazu"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
 msgid "Export type"
-msgstr "Typ vytvorených dopytov"
+msgstr "Typ exportu"
 
 #: libraries/config/messages.inc.php:136 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
