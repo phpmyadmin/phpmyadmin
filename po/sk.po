@@ -2591,7 +2591,7 @@ msgstr "Nastavte dĺžku behu skriptu v sekundách (([kbd]0[/kbd] bez obmedzení
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Maximálny čas behu"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
