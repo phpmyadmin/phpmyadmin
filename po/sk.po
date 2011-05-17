@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:36+0200\n"
+"PO-Revision-Date: 2011-05-17 12:37+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3131,10 +3131,9 @@ msgid "Choose how you want tabs to work"
 msgstr "Zvoľte, ako majú panely fungovať"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Požiť textové pole"
+msgstr "Textové polia"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
