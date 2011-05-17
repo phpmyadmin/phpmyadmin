@@ -7490,7 +7490,7 @@ msgstr "Промяна на логин информацията / Копиран
 
 #: server_privileges.php:2086
 msgid "Create a new user with the same privileges and ..."
-msgstr "Създаване нов потребител със същите привилегии и ..."
+msgstr "Създаване нов потребител със същите права и ..."
 
 #: server_privileges.php:2088
 msgid "... keep the old one."
