@@ -7400,7 +7400,7 @@ msgstr "Не за избрани потребители за изтриване!
 
 #: server_privileges.php:1273
 msgid "Reloading the privileges"
-msgstr "Презареждане на привилегиите"
+msgstr "Презареждане на правата"
 
 #: server_privileges.php:1291
 msgid "The selected users have been deleted successfully."
