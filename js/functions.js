@@ -606,7 +606,7 @@ $(document).ready(function() {
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         // do not trigger when clicked on anchor
-        if ($(e.target).is('a, a *')) {
+        if ($(e.target).is('a, img, a *')) {
             return;
         }
         // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
