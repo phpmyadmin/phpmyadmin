@@ -4609,10 +4609,9 @@ msgid "Rows:"
 msgstr "Riadkov"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Dump some row(s)"
-msgstr "Upraviť riadok/riadky"
+msgstr "Vypísať niektoré riadky"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
