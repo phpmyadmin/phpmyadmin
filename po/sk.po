@@ -7138,10 +7138,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Import/Export koordináty pre PDF schému"
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Odošli dopyt"
+msgstr "Vytvoriť dopyt"
 
 #: pmd_general.php:125
 msgid "Move Menu"
