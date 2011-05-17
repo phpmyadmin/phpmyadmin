@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 09:22+0200\n"
+"PO-Revision-Date: 2011-05-17 09:24+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -6890,7 +6890,6 @@ msgstr ""
 "šírku a výšku obrázku v pixeloch."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6900,8 +6899,8 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Zobrazí odkaz z poľa obsahujúceho odkaz. Prvý parameter je prefix URL (napr. "
-"\"http://domena.sk/\"), druhý parameter je text odkazu."
+"Zobrazí odkaz; pole obsahuje meno súboru. Prvý parameter je prefix URL "
+"(napr. \"http://www.example.com/\"), druhý parameter je názov odkazu."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
