@@ -8980,7 +8980,7 @@ msgstr "Линия"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "Радар"
 
 #: tbl_chart.php:138
 #| msgid "PiB"
