@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 15:05+0200\n"
+"PO-Revision-Date: 2011-05-17 15:06+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2831,7 +2831,7 @@ msgstr "Опции за показване на БД"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Управляваща рамка"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
