@@ -7382,7 +7382,7 @@ msgstr "Вие променихте правата на %s."
 #: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "Вие отменихте правата за %s"
+msgstr "Вие отменихте правата на %s"
 
 #: server_privileges.php:1236
 #, php-format
