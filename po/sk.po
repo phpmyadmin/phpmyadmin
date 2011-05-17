@@ -113,7 +113,7 @@ msgid ""
 "for more information."
 msgstr ""
 "Súbor %s nebol nájdený na tomto systéme, viac informácií nájdete na "
-"www.phpmyadmin.net."
+"www.phpmyadmin.net ."
 
 #: db_create.php:58
 #, php-format
