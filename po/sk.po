@@ -7187,10 +7187,9 @@ msgid "Rename to"
 msgstr "Premenovať tabuľku na"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Meno používateľa"
+msgstr "Nové meno"
 
 #: pmd_general.php:485 pmd_general.php:700
 #, fuzzy
