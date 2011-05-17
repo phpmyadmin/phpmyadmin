@@ -7408,7 +7408,7 @@ msgstr "Избраните потребители бяха изтрити усп
 
 #: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
-msgstr "Привилегиите бяха презаредени успешно."
+msgstr "Правата бяха презаредени успешно."
 
 #: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
