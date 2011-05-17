@@ -8652,7 +8652,7 @@ msgstr ""
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "Редакция сървър"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
