@@ -3178,7 +3178,6 @@ msgid "Ignore multiple statement errors"
 msgstr "Ignorovať chyby vo viacprvkových dopytoch"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
