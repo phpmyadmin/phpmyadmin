@@ -4607,10 +4607,9 @@ msgid "Dump some row(s)"
 msgstr "Vypísať niektoré riadky"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Počet polí"
+msgstr "Počet riadkov:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
