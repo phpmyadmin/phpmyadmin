@@ -8616,7 +8616,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:185
 msgid "Default language"
-msgstr ""
+msgstr "Език по подразбиране"
 
 #: setup/frames/index.inc.php:195
 msgid "let the user choose"
