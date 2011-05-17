@@ -3024,7 +3024,7 @@ msgstr "Stav replikácie"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "Konfigurácia servera"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
