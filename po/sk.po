@@ -6374,10 +6374,9 @@ msgid "Portrait"
 msgstr "Na výšku"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Vytvorenie"
+msgstr "Orientácia"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
