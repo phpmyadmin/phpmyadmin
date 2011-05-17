@@ -3016,10 +3016,9 @@ msgid "Authentication"
 msgstr "Overenie"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Replication status"
 msgid "Authentication settings"
-msgstr "Stav replikácie"
+msgstr "Nastavenie overovania"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
