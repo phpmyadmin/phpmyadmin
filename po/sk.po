@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 15:34+0200\n"
+"PO-Revision-Date: 2011-05-17 15:35+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3335,7 +3335,7 @@ msgstr "Cieľ odkazu loga"
 
 #: libraries/config/messages.inc.php:283
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Zvýrazní server pod kurzorom myši"
 
 #: libraries/config/messages.inc.php:284
 msgid "Enable highlighting"
