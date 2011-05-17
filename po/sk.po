@@ -1743,7 +1743,7 @@ msgstr "Možete zadať medzerou oddelený hostname/IP adresu a port."
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
-msgstr "Server"
+msgstr "Server:"
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Username:"
