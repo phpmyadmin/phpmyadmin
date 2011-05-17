@@ -9465,7 +9465,7 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr ""
+msgstr "Изпълняване на SQL"
 
 #: tbl_tracking.php:572
 #, php-format
