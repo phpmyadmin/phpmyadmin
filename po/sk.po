@@ -5518,10 +5518,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Generuje report obsahujúci dáta jednej tabuľky)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Titulok výpisu"
+msgstr "Názov výpisu:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
