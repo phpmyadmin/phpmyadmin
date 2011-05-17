@@ -2688,9 +2688,8 @@ msgid "Server name template"
 msgstr "Vzor pre názov servera"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "Vzor pre názov súboru"
+msgstr "Vzor pre názov tabuľky"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:134
