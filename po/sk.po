@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 12:55+0200\n"
+"PO-Revision-Date: 2011-05-17 12:56+0200\n"
 "Last-Translator:  <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3304,7 +3304,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Zobraziť databázy v strome"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
