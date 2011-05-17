@@ -4197,7 +4197,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:258 libraries/export/ods.php:17
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Open Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
