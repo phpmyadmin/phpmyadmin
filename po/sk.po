@@ -4328,7 +4328,7 @@ msgstr "Overovanie pomocou cookie"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
