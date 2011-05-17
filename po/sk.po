@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.1-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
@@ -4411,7 +4411,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 #, fuzzy
@@ -4421,11 +4421,11 @@ msgstr "Konfiguračný súbor"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr ""
+msgstr "Overovanie pomocou cookie"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
