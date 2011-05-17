@@ -9053,6 +9053,9 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Konfigurace byla uložena do souboru config/config.inc.php v adresáři "
+"phpMyAdmina, přesuňte ji do adresáře phpMyAdmin a smažte adresář config pro "
+"její použití."
 
 #: setup/frames/index.inc.php:100 setup/frames/menu.inc.php:15
 msgid "Overview"
