@@ -4550,7 +4550,6 @@ msgid "Create table on database %s"
 msgstr "Vytvoriť novú tabuľku v databáze %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Počet polí"
