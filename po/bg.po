@@ -7330,7 +7330,7 @@ msgstr "Специфични за таблицата права"
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Забележка: Имената на привилегиите на MySQL са показани на английски "
+msgstr " Забележка: Имената на правата на MySQL са показани на английски "
 
 #: server_privileges.php:513
 msgid "Administration"
