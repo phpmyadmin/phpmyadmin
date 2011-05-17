@@ -4952,7 +4952,7 @@ msgstr "v dopyte"
 
 #: libraries/display_tbl.lib.php:2045
 msgid "Showing rows"
-msgstr "Ukázať záznamy "
+msgstr "Zobrazené riadky"
 
 #: libraries/display_tbl.lib.php:2055
 msgid "total"
