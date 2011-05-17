@@ -5416,10 +5416,9 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Verzia Excelu"
+msgstr "Verzia Excelu:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
