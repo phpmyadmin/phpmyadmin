@@ -3305,7 +3305,7 @@ msgstr "Použiť odľahčenú verziu"
 
 #: libraries/config/messages.inc.php:276
 msgid "Maximum table tree depth"
-msgstr "Maximálna hĺbka stromu tabuliek"
+msgstr "Maximálna hĺbka tabuľkového stromu"
 
 #: libraries/config/messages.inc.php:277
 msgid "String that separates tables into different tree levels"
