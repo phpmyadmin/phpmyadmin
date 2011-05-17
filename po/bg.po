@@ -9181,7 +9181,7 @@ msgstr "Проверка"
 
 #: tbl_operations.php:746
 msgid "Optimize"
-msgstr ""
+msgstr "Оптимизиране"
 
 #: tbl_operations.php:747
 msgid "Rebuild"
