@@ -2864,7 +2864,7 @@ msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "Други основни настройки"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
