@@ -4229,7 +4229,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:262 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr ""
+msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
