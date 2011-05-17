@@ -2794,9 +2794,8 @@ msgid "Enclose export in a transaction"
 msgstr "Uzatvoriť príkazy v transakcii"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Typ vytvorených dopytov"
+msgstr "Exportovať čas v UTC"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
