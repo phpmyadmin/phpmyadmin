@@ -6743,7 +6743,7 @@ msgstr ""
 
 #: navigation.php:187 server_databases.php:267 server_synchronize.php:1206
 msgid "No databases"
-msgstr "Няма бази от данни"
+msgstr "Няма БД"
 
 #: navigation.php:277
 msgid "Filter"
