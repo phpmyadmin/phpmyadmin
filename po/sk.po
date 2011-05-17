@@ -2535,7 +2535,7 @@ msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte "
+msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
