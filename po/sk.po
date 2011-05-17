@@ -8788,7 +8788,6 @@ msgid "Show processes"
 msgstr "Zobraziť procesy"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
