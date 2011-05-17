@@ -2411,7 +2411,7 @@ msgstr "Vynulovať"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Zlepšuje onovovaciu rýchlosť obrazovky"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
@@ -2436,6 +2436,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Povolením tejto možnosti umožníte stránke umiestnenej na inej doméne zavolať "
+"phpMyAdmina vo vnútri rámca a je potenciálnou [strong]bezpečnostnou dierou[/"
+"strong] dovoľujúcou XFS (cross-frame scripting) útoky"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -2443,17 +2446,19 @@ msgstr "Povoliť vkladanie do cudzieho rámu"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Zobraziť príkaz &quot;Zrušiť databázu&quot; bežným užívateľom"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Blowfish secret"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -2469,13 +2474,15 @@ msgstr "Zvýrazniť riadok označený kurzórom myši"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Zvýrazňovač"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Povoliť [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresiu pre "
+"importovanie a exportovanie"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
@@ -2487,26 +2494,29 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Nastavte, ktorý typ ovládacích prvkov sa má použiť pri editácii polí typu "
+"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje obmedziť dĺžku vstupu, [kbd]"
+"textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Počet stĺpcov techtový oblastí typu CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Stĺpce techtovej oblasti typu CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Počet riadkov textových oblastí typu CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Riadky pre textové oblasti CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
@@ -2517,6 +2527,9 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Komprimovať exporty za behu pomocou gzip/bzip2 bez veľkých pamäťových "
+"nárokov. Pokiaľ zistíte problémy s takto vytvorenými gzip/bzip2 súbormi, "
+"vypnite túto funkciu"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
@@ -2532,6 +2545,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Či sa má zobrazovať varovanie (&quot;Ste si naozaj istí...&quot;) pokiaľ "
+"hrozí strata dát"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
@@ -2551,14 +2566,16 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] alebo číslo, ktoré udáva maximum "
+"pre vertikálne zobrazenie"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Smer zobrazenia pre zmenu a vytváranie stĺpcov"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Panel, ktorý je zobrazený pri prístupe k databáze"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
@@ -2567,7 +2584,7 @@ msgstr "Premenovať databázu na"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Panel, ktorý je zobrazený pri prístupe na server"
 
 #: libraries/config/messages.inc.php:51
 #, fuzzy
@@ -2576,39 +2593,39 @@ msgstr "Predvolený server"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Panel, ktorý je zobrazený pri prístupe k tabuľke"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Zobraziť binárny obsah v HEX formáte"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Zobraziť prehľad databáz ako zoznam namiesto rozbaľovacieho menu"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Zobraziť databázy ako zoznam"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Zobraziť prehľad serverov ako zoznam namiesto rozbaľovacieho menu"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Zobraziť servery ako zoznam"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Upravovať SQL dopyty vo vyskakovacom okne"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
@@ -2624,25 +2641,25 @@ msgstr "Zobraziť vlastnosti"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
-msgstr ""
+msgstr "Zbierať chyby"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Zobraziť ikony pre varovné, chybové a informačné správy"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "Chyby ikon"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr ""
+msgstr "Nastavte dĺžku behu skriptu v sekundách (([kbd]0[/kbd] bez obmedzení)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Maximálny čas behu"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2702,7 +2719,7 @@ msgstr "Nahradiť NULL hodnoty"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Odstrániť konce riadkov (CRLF) z polí"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
@@ -2785,7 +2802,7 @@ msgstr "Typ vytvorených dopytov"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "Uložiť na server"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2810,7 +2827,7 @@ msgstr "Režim kompatibility SQL"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Akú syntax použiť pre vkladanie dát"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2826,7 +2843,7 @@ msgstr "Vypnúť kontrolu cudzích kľúčov"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Použiť hexadecimálne zobrazenie pre BLOB"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
@@ -2852,37 +2869,39 @@ msgstr "Typ vytvorených dopytov"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Vynutiť zabezpečené spojenie pri použití phpMyAdmina"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Vynutit SSL spojenie"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Poradie radenia položiek v rozbaľovacej ponuke cudzích kľúčov; [kbd]obsah[/"
+"kbd] sú referenčné dáta, [kbd]id[/kbd] je hodnota kľúča"
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Poradie cudzích kľúčov v rozbaľovacej ponuke"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Pokiaľ je dostupných menej položiek, bude použitá rozbaľovacia ponuka"
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limit cudzích kľúčov"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
-msgstr ""
+msgstr "Režim prezerania"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Prispôsobiť režim prezerania"
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
@@ -2902,32 +2921,32 @@ msgstr "CSV dáta"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "Vývojár"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Nastavenia pre vývojára phpMyAdmina"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "Režim úprav"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Prispôsobenie režimu úprav"
 
 #: libraries/config/messages.inc.php:162
 msgid "Export defaults"
-msgstr ""
+msgstr "Východzie nastavenia exportu"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr ""
+msgstr "Prispôsobiť východzie nastavenia exportu"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Funkcie"
 
 #: libraries/config/messages.inc.php:165
 #, fuzzy
@@ -2937,7 +2956,7 @@ msgstr "Vytvoriť"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Nastaviť zvyčajne používané nastavenia"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2952,15 +2971,15 @@ msgstr "Importovať súbory"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Prispôsobiť východzie nastavenia importu"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "Import / export"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Nastaví adresáre pre import a export a voľby kompresie"
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2973,11 +2992,11 @@ msgstr "Nastavenia exportu databáz"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Navigačný rám"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Prizpôsobiť vzhľad navigačného rámu"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2986,19 +3005,19 @@ msgstr "Servery"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "Nastavenie zobrazenia serverov"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "Nastavenie zobrazenia tabuliek"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Hlavný rám"
 
 #: libraries/config/messages.inc.php:183
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:185
 #, fuzzy
@@ -3008,11 +3027,11 @@ msgstr "Open Document Text"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "Ostatné základné nastavenia"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Nastavenia, ktoré sa nedajú zaradiť inde"
 
 #: libraries/config/messages.inc.php:189
 #, fuzzy
@@ -3026,6 +3045,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Zadajte titulku, ktorú bude zobrazovať prehliadač. V [a@Documentation."
+"html#cfg_TitleTable]documentácii[/a] nájdete špeciálne reťazce, ktoré môžete "
+"použiť na získanie špeciálnych hodnôt."
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
@@ -3036,21 +3058,23 @@ msgstr "SQL okno"
 
 #: libraries/config/messages.inc.php:192
 msgid "Customize query window options"
-msgstr ""
+msgstr "Prispôsobiť nastavenia okna dopytov"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "Zabezpečenie"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Pripomíname, že phpMyAdmin je len užívateľské rozhranie a jeho funkcie "
+"neobmedzujú MySQL"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "Základné nastavenia"
 
 #: libraries/config/messages.inc.php:196
 #, fuzzy
@@ -3066,17 +3090,19 @@ msgstr "Stav replikácie"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "Konfigurácia servera"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Pokročilá konfigurácia servera, nemeňte tieto nastavenia, pokiaľ neviete "
+"čoho sa týkajú"
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Vložte parametre pripojenia servera"
 
 #: libraries/config/messages.inc.php:201
 #, fuzzy
@@ -3090,16 +3116,21 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Nastavenie phpMyAdmin miesta uloženia konfigurácie tak, aby získal prístup k "
+"prídavným funkciám, viď [a@Documentation.html#linked-tables]miesto uloženia "
+"konfigurácie [/a] v dokumentácii"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "Sledovanie zmien"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Sledovanie zmien vykonaných v databáze. Vyžaduje nastavenie miesta uloženia "
+"zmien phpMyAdmina."
 
 #: libraries/config/messages.inc.php:205
 #, fuzzy
@@ -3108,15 +3139,15 @@ msgstr "Nastavenia exportu databáz"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Prispôsobebie východzích nastavení importu"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Prispôsobenie navigačného rámu"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr ""
+msgstr "Prispôsobenie hlavného rámu"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
@@ -3131,7 +3162,7 @@ msgstr "SQL dopyt"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Prispôsobenie odkazov zobrazovaných v poliach pre SQL dopyty"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
@@ -3151,6 +3182,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Ak chcete používať službu SQL validátoru, mali by ste vedieť, že [strong]"
+"všetky SQL príkazy sú anonymne ukladané pre štatistické účely[/strong].[br]"
+"[em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:219
 #, fuzzy
@@ -3159,7 +3194,7 @@ msgstr "Štart"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
-msgstr ""
+msgstr "Prispôsobenie úvodnej stránky"
 
 #: libraries/config/messages.inc.php:221
 #, fuzzy
@@ -3168,7 +3203,7 @@ msgstr "Tabuľka"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Zvoľte, ako majú panely fungovať"
 
 #: libraries/config/messages.inc.php:223
 #, fuzzy
@@ -3183,39 +3218,43 @@ msgstr "Nastavenia exportu databáz"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! text"
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
-msgstr ""
+msgstr "Varovania"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Vypnúť niektoré varovania zobrazované phpMyAdminom"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Povolí [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] kompresiu pre "
+"importovanie a exportovanie"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Extra parametre pre iconv"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Pokiaľ je povolené, phpMyAdmin bude pokračovať v spracovaní viacprvkových "
+"dopytov, aj keď jeden z nich zlyhal"
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignorovať chyby vo viacprvkových dopytoch"
 
 #: libraries/config/messages.inc.php:234
 #, fuzzy
@@ -3230,12 +3269,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Čiastočný import: povoliť prerušenie"
 
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Neprerušovať pri chybe v príkaze INSERT"
 
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:249
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3267,11 +3306,11 @@ msgstr "Neimportovať prázdne riadky"
 
 #: libraries/config/messages.inc.php:253
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Import mien (5.00 namiesto $5.00)"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importovať percentá ako desatinné čísla (0,12 namiesto 12,00%|"
 
 #: libraries/config/messages.inc.php:255
 #, fuzzy
@@ -3281,7 +3320,7 @@ msgstr "Počet záznamov (príkazov), ktoré sa majú zo začiatku preskočiť"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Čiastočný import: preskočiť dopyty"
 
 #: libraries/config/messages.inc.php:258
 #, fuzzy
@@ -3295,7 +3334,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Koľko riadkov môže byť vložených naraz"
 
 #: libraries/config/messages.inc.php:263
 #, fuzzy
@@ -3304,23 +3343,23 @@ msgstr "Počet zoradených riadkov."
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Cieľ pre ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Zobraziť logo v ľavom ráme"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
-msgstr ""
+msgstr "Zobraziť logo"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Zobraziť voľbu servera v hornej časti ľavého rámu"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr ""
+msgstr "Zobraziť výber serverov"
 
 #: libraries/config/messages.inc.php:269
 #, fuzzy
@@ -3330,21 +3369,23 @@ msgstr "Počet práve otvorených tabuliek."
 
 #: libraries/config/messages.inc.php:270
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "Reťazec, ktorý rozdeľuje databázy do rôznych úrovní stromu"
 
 #: libraries/config/messages.inc.php:271
 msgid "Database tree separator"
-msgstr ""
+msgstr "Oddeľovač databázového stromu"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Len odľahčená verzia; zobrazí databázy v strome (určené oddeľovačom "
+"nastaveným nižšie)"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Zobraziť databázy v strome"
 
 #: libraries/config/messages.inc.php:274
 msgid "Disable this if you want to see all databases at once"
