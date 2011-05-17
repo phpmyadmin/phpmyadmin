@@ -8632,7 +8632,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:219
 msgid "End of line"
-msgstr ""
+msgstr "Край на ред"
 
 #: setup/frames/index.inc.php:224
 msgid "Display"
