@@ -7138,7 +7138,7 @@ msgstr "Позволява промяна и изтриване на съхра�
 #: server_privileges.php:35 server_privileges.php:194
 #: server_privileges.php:528
 msgid "Allows creating new databases and tables."
-msgstr "Позволява създаване на нови бази от данни и таблици."
+msgstr "Позволява създаване на нови БД и таблици."
 
 #: server_privileges.php:36 server_privileges.php:217
 #: server_privileges.php:534
