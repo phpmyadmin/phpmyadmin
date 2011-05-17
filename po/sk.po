@@ -2914,7 +2914,7 @@ msgstr "Import / export"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Nastaví adresáre pre import a export a voľby kompresie"
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
