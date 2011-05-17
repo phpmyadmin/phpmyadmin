@@ -3737,9 +3737,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:375
-#, fuzzy
 msgid "Control user"
-msgstr "Ovládať slave:"
+msgstr "Kontrolný užívateľ"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
