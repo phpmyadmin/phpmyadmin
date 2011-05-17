@@ -7173,7 +7173,7 @@ msgstr "Позволява изтриване на данни."
 #: server_privileges.php:42 server_privileges.php:195
 #: server_privileges.php:531
 msgid "Allows dropping databases and tables."
-msgstr "Позволява изтриване на бази от данни и таблици."
+msgstr "Позволява изтриване на БД и таблици."
 
 #: server_privileges.php:43 server_privileges.php:531
 msgid "Allows dropping tables."
