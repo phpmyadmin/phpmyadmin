@@ -7327,10 +7327,9 @@ msgid "Create a page and export to it"
 msgstr "Vytvoriť nový index"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Meno používateľa"
+msgstr "Nový názov stránky: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
