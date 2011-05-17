@@ -6621,7 +6621,7 @@ msgstr "Потребител"
 
 #: main.php:169
 msgid "MySQL charset"
-msgstr "Набор от знаци на MySQL"
+msgstr "Знаков набор на MySQL"
 
 #: main.php:181
 msgid "Web server"
