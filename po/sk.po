@@ -4370,10 +4370,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Vlastná farba"
+msgstr "Vlastné"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
