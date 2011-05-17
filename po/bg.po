@@ -2154,7 +2154,7 @@ msgstr "Няма файлве за качване"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Двете"
 
 #: libraries/config.values.php:74
 msgid "Open"
