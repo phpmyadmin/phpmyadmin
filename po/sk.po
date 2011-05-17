@@ -3241,7 +3241,7 @@ msgstr "Počet dopytov, ktoré sa majú preskočiť od začiatku"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Čiastočný import: preskočiť dopyty"
 
 #: libraries/config/messages.inc.php:258
 #, fuzzy
