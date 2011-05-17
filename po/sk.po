@@ -7232,10 +7232,9 @@ msgid "Page"
 msgstr "Stránka"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Importovať súbory"
+msgstr "Importovať zo zvolenej stránky"
 
 #: pmd_pdf.php:100
 #, fuzzy
