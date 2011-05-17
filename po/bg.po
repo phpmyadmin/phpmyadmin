@@ -8897,7 +8897,7 @@ msgstr ""
 
 #: tbl_change.php:1060
 msgid "Show insert query"
-msgstr ""
+msgstr "Показване заявка за вмъкване"
 
 #: tbl_change.php:1071
 msgid "and then"
