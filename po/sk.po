@@ -3339,7 +3339,7 @@ msgstr "Zvýrazní server pod kurzorom myši"
 
 #: libraries/config/messages.inc.php:284
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Povoliť zvýrazňovanie"
 
 #: libraries/config/messages.inc.php:285
 msgid "Use less graphically intense tabs"
