@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31-0400\n"
-"PO-Revision-Date: 2011-05-17 10:39+0200\n"
+"PO-Revision-Date: 2011-05-17 10:40+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7123,7 +7123,7 @@ msgstr "Преглед на схемата (дъмп) на БД"
 
 #: server_privileges.php:32 server_privileges.php:276
 msgid "Includes all privileges except GRANT."
-msgstr "Включва всички привилегии освен GRANT."
+msgstr "Дава всички права освен GRANT."
 
 #: server_privileges.php:33 server_privileges.php:202
 #: server_privileges.php:529
