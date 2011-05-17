@@ -6955,10 +6955,9 @@ msgid "Official Homepage"
 msgstr "Oficiálne stránky phpMyAdmin"
 
 #: main.php:214
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atribúty"
+msgstr "Prispejte"
 
 #: main.php:215
 #, fuzzy
