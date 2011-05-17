@@ -9043,7 +9043,7 @@ msgstr "Pridať stĺpce"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr "Odstrániť stĺpec/stĺpce"
+msgstr "Odstrániť stĺpce"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
