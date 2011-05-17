@@ -4773,10 +4773,10 @@ msgid "Importing into the current server"
 msgstr "Nedá sa prihlásiť k MySQL serveru"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the database \"%s\""
-msgstr "Prejsť do databázy"
+msgstr "Importujem do databázy \"%s\""
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
