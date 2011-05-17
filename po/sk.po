@@ -4779,10 +4779,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Importujem do databázy \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the table \"%s\""
-msgstr "Prejsť do databázy"
+msgstr "Importujem do tabuľky \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
