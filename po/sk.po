@@ -3262,7 +3262,7 @@ msgstr "Počet vložených riadkov."
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Cieľ pre ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
