@@ -4883,7 +4883,6 @@ msgid "Partial texts"
 msgstr "Čiastočné texty"
 
 #: libraries/display_tbl.lib.php:547 libraries/display_tbl.lib.php:560
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Plné texty"
