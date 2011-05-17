@@ -5399,10 +5399,9 @@ msgid "Columns escaped with:"
 msgstr "Polia uvedené pomocou:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Riadky ukončené"
+msgstr "Riadky ukončené:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
