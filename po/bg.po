@@ -1085,7 +1085,7 @@ msgstr "Копиране БД"
 
 #: js/messages.php:76
 msgid "Changing Charset"
-msgstr "Промяна на знаков набор"
+msgstr "Промяна знаков набор"
 
 #: js/messages.php:77
 msgid "Table must have at least one column"
