@@ -2539,7 +2539,7 @@ msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Zobraziť binárny obsah v HEX formáte"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
