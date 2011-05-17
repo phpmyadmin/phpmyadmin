@@ -8909,7 +8909,7 @@ msgstr "Обратно към предната страница"
 
 #: tbl_change.php:1076
 msgid "Insert another new row"
-msgstr "Друг нов ред"
+msgstr "Вмъкване нов ред"
 
 #: tbl_change.php:1080
 msgid "Go back to this page"
