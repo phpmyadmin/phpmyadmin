@@ -3053,7 +3053,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "Sledovanie zmien"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
