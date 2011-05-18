@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 09:18+0200\n"
+"PO-Revision-Date: 2011-05-18 09:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7671,7 +7671,7 @@ msgstr "Pridať oprávnenia pre nasledujúcu databázu"
 #: server_privileges.php:2023
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Náhradzujúcim znakom _ a % by mal predchádzať znak \\, pokiaľ ich nechcete "
+"Náhradzujúcim znakom % a _ by mal predchádzať znak \\, pokiaľ ich nechcete "
 "použiť doslovne"
 
 #: server_privileges.php:2026
