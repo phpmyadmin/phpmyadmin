@@ -3532,7 +3532,7 @@ msgstr "Zakázať úpravu polí typu BLOB a BINARY "
 
 #: libraries/config/messages.inc.php:332
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Chrániť binárne polia"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
