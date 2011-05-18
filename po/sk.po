@@ -3896,9 +3896,8 @@ msgstr ""
 "Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
 
 #: libraries/config/messages.inc.php:411
-#, fuzzy
 msgid "Server socket"
-msgstr "Voľba serveru"
+msgstr "Socket servera"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
