@@ -3718,7 +3718,7 @@ msgstr "Kontrolný užívateľ"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Spočítavať tabuľky pri zobrazovaní zoznamu databáz"
 
 #: libraries/config/messages.inc.php:377
 #, fuzzy
