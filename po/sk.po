@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 09:06+0200\n"
+"PO-Revision-Date: 2011-05-18 09:08+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3445,6 +3445,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Počet bytov, ktoré môže alokovať skript, napr. [kbd]32M[/kbd] ([kbd]0[/kbd] "
+"ruší obmedzenia)"
 
 #: libraries/config/messages.inc.php:313
 #, fuzzy
