@@ -3462,7 +3462,7 @@ msgstr "Zobrazí odkazy riadkov tabuľky na ľavej strane"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Zobrazí odkazy riadkov tabuľky na pravej strane"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
