@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 09:09+0200\n"
+"PO-Revision-Date: 2011-05-18 09:10+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3458,7 +3458,7 @@ msgstr "Toto sú odkazy na Upraviť, Upraviť tu, Kopírovať a Odstrániť"
 
 #: libraries/config/messages.inc.php:315
 msgid "Show table row links on left side"
-msgstr ""
+msgstr "Zobrazí odkazy riadkov tabuľky na ľavej strane"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
