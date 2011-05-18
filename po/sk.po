@@ -3404,7 +3404,7 @@ msgstr "Maximálny počet databáz zobrazených v ľavom ráme a zozname databá
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum databases"
-msgstr ""
+msgstr "Najvyšší počet databáz"
 
 #: libraries/config/messages.inc.php:305
 msgid ""
