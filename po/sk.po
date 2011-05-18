@@ -3449,9 +3449,8 @@ msgstr ""
 "ruší obmedzenia)"
 
 #: libraries/config/messages.inc.php:313
-#, fuzzy
 msgid "Memory limit"
-msgstr "Obmedzenie zdrojov"
+msgstr "Obmedzenie pamäte"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
