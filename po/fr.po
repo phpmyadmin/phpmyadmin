@@ -1130,10 +1130,9 @@ msgid "Browsing"
 msgstr "Affichage en cours"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Destruction de %s"
+msgstr "Destruction en cours"
 
 #: js/messages.php:90
 msgid ""
