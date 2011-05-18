@@ -10,6 +10,7 @@
 
 3.4.2.0 (not yet released)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
+- bug #3303869 [interface] Unnecessary scrolling on Databases page
 
 3.4.1.0 (not yet released)
 - bug #3301108 [interface] Synchronize and already configured host
