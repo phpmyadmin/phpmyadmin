@@ -101,7 +101,7 @@ echo '<h2>' . "\n"
    .'</h2>' . "\n";
 
 /**
- * Create new database.
+ * Create database.
  */
 if ($cfg['ShowCreateDb']) {
     echo '<ul><li id="li_create_database">' . "\n";
