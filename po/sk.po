@@ -3819,7 +3819,7 @@ msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlasovací config"
 
 #: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
