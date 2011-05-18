@@ -3438,7 +3438,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "mcrypt warning"
-msgstr ""
+msgstr "Varovanie o mcrypte"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
