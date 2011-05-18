@@ -3478,7 +3478,7 @@ msgstr "Použiť len ikony, len text alebo obidve"
 
 #: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "Navigašná lišta s ikonami"
 
 #: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
