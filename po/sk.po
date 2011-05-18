@@ -3789,9 +3789,8 @@ msgid "Hostname where MySQL server is running"
 msgstr "Meno počítača, kde beží MySQL server"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 msgid "Server hostname"
-msgstr "meno servera"
+msgstr "Meno servera"
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
