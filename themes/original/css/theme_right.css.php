@@ -964,13 +964,16 @@ div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
 
-div#serverstatus div#serverstatusqueriesdetails table,
+div#serverstatusquerieschart {
+    float:<?php echo $right; ?>;
+}
+
+div#serverstatus table#serverstatusqueriesdetails,
 div#serverstatus table#serverstatustraffic,
 div#serverstatus table#serverstatusconnections {
     float: <?php echo $left; ?>;
 }
 
-#serverstatussection,
 .clearfloat {
     clear: both;
 }
@@ -1432,12 +1435,12 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options li.subgroup {
-	display: inline-block;
-	margin-top: 0;
+    display: inline-block;
+    margin-top: 0;
 }
 
 .export_sub_options li {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 #quick_or_custom, #output_quick_export {
@@ -1613,7 +1616,7 @@ iframe.IE_hack {
     padding:    0;
     list-style: none;
     color:      #9A0000;
-	font-size:  small;
+    font-size:  small;
 }
 
 .config-form fieldset th {

@@ -3,15 +3,22 @@ $(function() {
     var alertFilter = false;
     var odd_row=false;
     
+    $('#statusTabs').tabs({
+        // Fixes line break in the menu bar when the page overflows and scrollbar appears
+        show: function() { menuResize(); }
+    });
+    // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
+    $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
+    
     // Filter options are invisible for disabled js users
     $('#serverstatusvars fieldset').css('display','');
     
-    $('#serverstatusquerieschart a').first().click(function() {
-        $.get('server_status.php',window.parent.common_query+'&query_chart_ajax=1', function(data) {
-            $('#serverstatusquerieschart').html(data);
-        });
-        return false;
+    $.get('server_status.php',window.parent.common_query+'&query_chart_ajax=1', function(data) {
+        $('#serverstatusquerieschart').html(data);
+		// Init imagemap again
+		imageMap.init();
     });
+
     $('#serverstatusquerieschart div.notice').css('display','none');
     
     $('#filterAlert').change(function() {

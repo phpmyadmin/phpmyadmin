@@ -88,7 +88,7 @@ a:hover {
 }
 
 #initials_table {
-	background:#f3f3f3;
+    background:#f3f3f3;
     border:1px solid #aaa;
     margin-bottom:10px;
     -moz-border-radius:5px;
@@ -152,7 +152,7 @@ form {
 }
 
 input[type=text]{
-	border-radius:2px;
+    border-radius:2px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
 
@@ -169,7 +169,7 @@ input[type=text]{
 }
 
 input[type=password]{
-	border-radius:2px;
+    border-radius:2px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
 
@@ -177,7 +177,7 @@ input[type=password]{
     -moz-box-shadow:0 1px 2px #ddd;
     -webkit-box-shadow:0 1px 2px #ddd;
 
-	background:url(./themes/pmahomme/img/input_bg.gif);
+    background:url(./themes/pmahomme/img/input_bg.gif);
     border:1px solid #aaa;
     color:#555555;
     padding:4px;
@@ -188,17 +188,17 @@ input[type=password]{
 input[type=submit]{
     font-weight:bold;
     margin-left:14px;
-	border: 1px solid #aaa;
-	padding: 3px 7px;
-	color: #111;
-	text-decoration: none;
-	background: #ddd;
+    border: 1px solid #aaa;
+    padding: 3px 7px;
+    color: #111;
+    text-decoration: none;
+    background: #ddd;
 
     border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
 
-	text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0px 1px 0px #fff;
 
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -219,8 +219,8 @@ input[type=submit]:hover{	position: relative;
 }
 
 input[type=submit]:active{	position: relative;
-	top: 1px;
-	left: 1px;
+    top: 1px;
+    left: 1px;
 }
 textarea {
     overflow:           visible;
@@ -237,7 +237,7 @@ fieldset {
     padding:            1.5em;
     background:         #eee;
     text-shadow:0 1px 0 #fff;
-	-moz-box-shadow: 1px 1px 2px #fff inset;
+    -moz-box-shadow: 1px 1px 2px #fff inset;
     -webkit-box-shadow: 1px 1px 2px #fff inset;
     box-shadow: 1px 1px 2px #fff inset;
 }
@@ -297,7 +297,7 @@ select{
     border-radius:2px;
 
     -moz-box-shadow:0 1px 2px #ddd;
-	-webkit-box-shadow:0 1px 2px #ddd;
+    -webkit-box-shadow:0 1px 2px #ddd;
     box-shadow:0 1px 2px #ddd;
 
     border:1px solid #aaa;
@@ -483,7 +483,7 @@ img.lightbulb {
 
 /* MySQL Parser */
 .syntax {
-	font-family: Verdan, Arial, Tahoma;
+    font-family: Verdan, Arial, Tahoma;
     font-size:          110%;
 }
 
@@ -656,7 +656,7 @@ div.footnotes {
 }
 
 .error {
-	border:1px solid maroon !important;
+    border:1px solid maroon !important;
     color: #000;
     background:pink;
 }
@@ -932,7 +932,7 @@ ul#topmenu > li {
 
 /* default tab styles */
 ul#topmenu a, ul#topmenu span {
-	padding:10px;
+    padding:10px;
 }
 
 ul#topmenu ul a {
@@ -1168,7 +1168,11 @@ div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
 
-div#serverstatus div#serverstatusqueriesdetails table,
+div#serverstatusquerieschart {
+    float:<?php echo $right; ?>;
+}
+
+div#serverstatus table#serverstatusqueriesdetails,
 div#serverstatus table#serverstatustraffic,
 div#serverstatus table#serverstatusconnections {
     float: <?php echo $left; ?>;
@@ -1180,11 +1184,11 @@ div#serverstatus table#serverstatusconnections {
 table#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
-	margin-top:1em;
+    margin-top:1em;
 }
 table#serverstatusvariables .name {
     width: 18em;
-	white-space:nowrap;
+    white-space:nowrap;
 }
 table#serverstatusvariables .value {
     width: 6em;
@@ -1258,40 +1262,40 @@ div#querywindowcontainer fieldset {
 #serverstatus p a{color:#fff;text-decoration:underline;}
 #serverstatus h3
 {
-	margin:35px 0px;font-weight:normal;color:#999;font-size:1.7em;
+    margin:35px 0px;font-weight:normal;color:#999;font-size:1.7em;
 }
 #sectionlinks{
-	padding:16px;
+    padding:16px;
     background:#f3f3f3;
     border:1px solid #aaa;
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
 
-	box-shadow:0px 1px 1px #fff inset;
+    box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
 
 }
 #sectionlinks a, #statuslinks a{
-	font-size:0.88em;
+    font-size:0.88em;
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
     line-height:35px;
-	margin-left:7px;
-	border: 1px solid #aaa;
-	padding: 5px 10px;
-	color: #111;
-	text-decoration: none;
-	background: #ddd;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-	/*
+    margin-left:7px;
+    border: 1px solid #aaa;
+    padding: 5px 10px;
+    color: #111;
+    text-decoration: none;
+    background: #ddd;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    /*
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-	-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-	text-shadow: #fff 0px 1px 0px;
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    text-shadow: #fff 0px 1px 0px;
     */
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -1333,9 +1337,9 @@ textarea#sqlquery {
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
     border-raduis:4px
-	border:1px solid #aaa;
-	padding:5px;
-	font-family:inherit;
+    border:1px solid #aaa;
+    padding:5px;
+    font-family:inherit;
 }
 textarea#sql_query_edit{
     height:7em;
@@ -1574,7 +1578,7 @@ code.sql, div.sqlvalidate {
     background-color:   #bbb;
     padding:            0.1em 0.3em;
     margin-top:         0;
-	color:#fff;
+    color:#fff;
     font-size:1.6em;
     font-weight:normal;
     text-shadow:0 1px 0 #777;
@@ -1711,17 +1715,17 @@ input[type=text].invalid_value,
 .exportoptions #buttonGo, .importoptions #buttonGo {
     font-weight:bold;
     margin-left:14px;
-	border: 1px solid #aaa;
-	padding: 5px 12px;
-	color: #111;
-	text-decoration: none;
-	background: #ddd;
+    border: 1px solid #aaa;
+    padding: 5px 12px;
+    color: #111;
+    text-decoration: none;
+    background: #ddd;
 
     border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
 
-	text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0px 1px 0px #fff;
 
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -1771,12 +1775,12 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options li.subgroup {
-	display: inline-block;
-	margin-top: 0;
+    display: inline-block;
+    margin-top: 0;
 }
 
 .export_sub_options li {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 #quick_or_custom, #output_quick_export {
@@ -1964,7 +1968,7 @@ iframe.IE_hack {
     padding:    0;
     list-style: none;
     color:      #9A0000;
-	font-size:  small;
+    font-size:  small;
 }
 
 .config-form fieldset th {

@@ -25,16 +25,10 @@ require_once './libraries/chart.lib.php';
  * Ajax request
  */
 if (isset($_REQUEST["query_chart_ajax"])) {
-    $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com_%'", 0, 1);
-	arsort($com_vars);
-    // remove all zero values from the end
-    // variable empty for Drizzle
-    if ($com_vars) {
-        while (end($com_vars) == 0) {
-            array_pop($com_vars);
-        }
-        exit(PMA_chart_status($com_vars));
-    }
+	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+	header("Expires: Sat, 26 Jul 1977 05:00:00 GMT"); // Date in the past
+	
+	exit(createQueryChart());
 }
 
 /**
@@ -43,6 +37,7 @@ if (isset($_REQUEST["query_chart_ajax"])) {
  
 $GLOBALS['js_include'][] = 'pMap.js';
 $GLOBALS['js_include'][] = 'server_status.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 /**
  * Does the common work
@@ -493,6 +488,27 @@ $hour_factor    = 3600 / $server_status['Uptime'];
        <?php echo PMA_showMySQLDocu('server_status_variables','server_status_variables'); ?>
 </div>
 -->
+
+<!--<div id="sectionlinks">
+<?php
+/*foreach ($sections as $section_name => $section) {
+    if (! empty($section['vars']) && ! empty($section['title'])) {
+        echo '<a href="' . $PMA_PHP_SELF . '?' .
+             PMA_generate_common_url() . '#' . $section_name . '">' .
+             $section['title'] . '</a>' . "\n";
+    }
+}*/
+?>
+</div>-->
+
+<div id="statusTabs">
+	<ul>
+		<li><a href="#statusTabs1">Server traffic</a></li>
+		<li><a href="#statusTabs2">Query statistics</a></li>
+		<li><a href="#statusTabs3">Status variables</a></li>
+	</ul>
+	
+	<div id="statusTabs1">
 <p>
 <?php
 echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
@@ -515,18 +531,6 @@ if ($server_master_status || $server_slave_status) {
     echo '</p>';
 }
 ?>
-
-<!--<div id="sectionlinks">
-<?php
-/*foreach ($sections as $section_name => $section) {
-    if (! empty($section['vars']) && ! empty($section['title'])) {
-        echo '<a href="' . $PMA_PHP_SELF . '?' .
-             PMA_generate_common_url() . '#' . $section_name . '">' .
-             $section['title'] . '</a>' . "\n";
-    }
-}*/
-?>
-</div>-->
 
 <h3><?php echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.'); ?></h3>
 
@@ -574,6 +578,7 @@ if ($server_master_status || $server_slave_status) {
 </tr>
 </tbody>
 </table>
+	
 
 <table id="serverstatusconnections" class="data">
 <thead>
@@ -632,7 +637,9 @@ if ($server_master_status || $server_slave_status) {
 </tbody>
 </table>
 
-<hr class="clearfloat" />
+	</div>
+	<div id="statusTabs2">
+	
 
 <h3 id="serverstatusqueries"><?php echo
     sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
@@ -668,7 +675,6 @@ if ($server_master_status || $server_slave_status) {
 </tbody>
 </table>
 
-<div id="serverstatusqueriesdetails">
 <?php
 
 $used_queries = $sections['com']['vars'];
@@ -690,17 +696,8 @@ $odd_row        = true;
 $count_displayed_rows      = 0;
 $perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
 
-foreach ($used_queries as $name => $value) {
-    $current_table++;
-    if ($count_displayed_rows === 0 || $count_displayed_rows === $max_rows_per_table) {
-        $odd_row = true;
-        if ($count_displayed_rows === $max_rows_per_table) {
-            echo '    </tbody>' . "\n";
-            echo '    </table>' . "\n";
-            $count_displayed_rows = 0;
-        }
 ?>
-    <table id="serverstatusqueriesdetails<?php echo $current_table; ?>" class="data">
+    <table id="serverstatusqueriesdetails" class="data">
     <col class="namecol" />
     <col class="valuecol" span="3" />
     <thead>
@@ -710,11 +707,11 @@ foreach ($used_queries as $name => $value) {
         </tr>
     </thead>
     <tbody>
+
 <?php
-    } else {
-        $odd_row = !$odd_row;
-    }
-    $count_displayed_rows++;
+foreach ($used_queries as $name => $value) {
+    $current_table++;
+    $odd_row = !$odd_row;
 
 // For the percentage column, use Questions - Connections, because
 // the number of connections is not an item of the Query types
@@ -735,8 +732,6 @@ foreach ($used_queries as $name => $value) {
 ?>
     </tbody>
     </table>
-    <div class="clearfloat"></div>
-</div>
 
 <?php if ($used_queries): ?>
 <div id="serverstatusquerieschart">
@@ -748,13 +743,17 @@ foreach ($used_queries as $name => $value) {
             . __('Show query chart') . ']</a>';
         PMA_Message::notice( __('Note: Generating the query chart can take a long time.'))->display();
     } else {
-        echo PMA_chart_status($used_queries);
+        echo createQueryChart($used_queries);
     }
 ?>
 </div>
 <?php endif; ?>
+
+	</div>
+	<div id="statusTabs3">
+
+
 <div id="serverstatusvars">
-<h3><b>Status variables</b></h3>
 <fieldset style="display:none;">
 <legend>Filters</legend>
 <div class="formelement">
@@ -858,6 +857,7 @@ unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 </tbody>
 </table>
 </div>
+</div>
 <?php
 /* if the server works as master or slave in replication process, display useful information */
 if ($server_master_status || $server_slave_status)
@@ -881,6 +881,31 @@ if ($server_master_status || $server_slave_status)
 </div>
 
 <?php
+
+function createQueryChart($com_vars=FALSE) {
+	if(!$com_vars) 
+		$com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
+		
+	arsort($com_vars);
+	
+	$merge_minimum = array_sum($com_vars) * 0.005;
+	$merged_value = 0;
+	
+    // remove zero values from the end, as well as merge together every value that is below 0.5%
+    // variable empty for Drizzle
+    if ($com_vars) {
+        while (($last_element=end($com_vars)) <= $merge_minimum) {
+            array_pop($com_vars);
+			$merged_value += $last_element;
+        }
+		
+		$com_vars['Other'] = $merged_value;
+        return PMA_chart_status($com_vars);
+    }
+	
+	return '';
+}
+
 /**
  * Sends the footer
  */
