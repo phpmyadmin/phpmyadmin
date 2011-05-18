@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 09:24+0200\n"
+"PO-Revision-Date: 2011-05-18 09:26+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4275,10 +4275,9 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Config authentication"
-msgstr "Konfiguračný súbor"
+msgstr "Overenie konfigurácie"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
