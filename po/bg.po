@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 10:58+0200\n"
+"PO-Revision-Date: 2011-05-18 15:56+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9472,7 +9472,7 @@ msgstr ""
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "Активиране сега"
 
 #: tbl_tracking.php:720
 #, php-format
