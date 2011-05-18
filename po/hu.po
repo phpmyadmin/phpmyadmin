@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-17 12:36-0400\n"
+"POT-Creation-Date: 2011-05-18 07:46-0400\n"
 "PO-Revision-Date: 2011-05-09 14:22+0200\n"
 "Last-Translator:  <gergo314@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -427,14 +427,14 @@ msgstr "Rendezés"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:505 libraries/display_tbl.lib.php:814
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:275
+#: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "Növekvő"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:811
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
+#: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
 #: tbl_select.php:278
 msgid "Descending"
 msgstr "Csökkenő"
@@ -642,20 +642,20 @@ msgstr "Ezen a MySQL szerveren a(z) %s az alapértelmezett tárolómotor."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2178 libraries/display_tbl.lib.php:2183
-#: libraries/mult_submits.inc.php:15 server_databases.php:246
-#: server_databases.php:251 server_privileges.php:1666 tbl_structure.php:548
+#: libraries/mult_submits.inc.php:15 server_databases.php:256
+#: server_databases.php:261 server_privileges.php:1666 tbl_structure.php:548
 #: tbl_structure.php:557
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2173
-#: server_databases.php:248 server_privileges.php:583
+#: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:551
 msgid "Check All"
 msgstr "Mind kijelölése"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2174
-#: libraries/replication_gui.lib.php:35 server_databases.php:250
+#: libraries/replication_gui.lib.php:35 server_databases.php:260
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:555
 msgid "Uncheck All"
 msgstr "Kijelölés törlése"
@@ -685,7 +685,7 @@ msgstr "Kiürítés"
 
 #: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3019 libraries/common.lib.php:3020
-#: server_databases.php:252 tbl_structure.php:151 tbl_structure.php:152
+#: server_databases.php:262 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
 msgstr "Eldobás"
@@ -736,7 +736,7 @@ msgstr "Nyomon követett táblák"
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
 #: libraries/export/sql.php:453 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:125
-#: libraries/header_printview.inc.php:57 server_databases.php:147
+#: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_processlist.php:68
 #: server_synchronize.php:1194 server_synchronize.php:1198
@@ -763,7 +763,7 @@ msgid "Status"
 msgstr "Állapot"
 
 #: db_tracking.php:90 libraries/Index.class.php:439
-#: libraries/db_structure.lib.php:44 server_databases.php:181
+#: libraries/db_structure.lib.php:44 server_databases.php:191
 #: server_privileges.php:1612 server_privileges.php:1805
 #: server_privileges.php:2154 tbl_structure.php:208
 msgid "Action"
@@ -1158,7 +1158,16 @@ msgstr "SQL-lekérdezési panelek mutatása"
 msgid "Inline Edit"
 msgstr "Inline szerkesztés"
 
-#: js/messages.php:96 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:96 libraries/Index.class.php:465
+#: libraries/common.lib.php:626 libraries/common.lib.php:1164
+#: libraries/common.lib.php:3023 libraries/config/messages.inc.php:461
+#: libraries/display_tbl.lib.php:1187 libraries/import.lib.php:1150
+#: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
+#: setup/frames/index.inc.php:137
+msgid "Edit"
+msgstr "Módosítás"
+
+#: js/messages.php:97 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1166,67 +1175,67 @@ msgstr "Inline szerkesztés"
 msgid "Save"
 msgstr "Mentés"
 
-#: js/messages.php:97 libraries/display_tbl.lib.php:593 pmd_general.php:158
+#: js/messages.php:98 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Elrejtés"
 
-#: js/messages.php:100
+#: js/messages.php:101
 msgid "Hide search criteria"
 msgstr "Keresési kritériumok elrejtése"
 
-#: js/messages.php:101
+#: js/messages.php:102
 msgid "Show search criteria"
 msgstr "Keresési kritériumok mutatása"
 
-#: js/messages.php:104 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:105 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: js/messages.php:107
+#: js/messages.php:108
 msgid "Select referenced key"
 msgstr "Válassza ki a hivatkozott kulcsot"
 
-#: js/messages.php:108
+#: js/messages.php:109
 msgid "Select Foreign Key"
 msgstr "Idegen kulcs kiválasztása"
 
-#: js/messages.php:109
+#: js/messages.php:110
 msgid "Please select the primary key or a unique key"
 msgstr "Válassza ki az elsődleges kulcsot, vagy egy egyedi kulcsot"
 
-#: js/messages.php:110 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:111 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Válassza ki a megjelenítendő oszlopot"
 
-#: js/messages.php:111
+#: js/messages.php:112
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:114
+#: js/messages.php:115
 msgid "Add an option for column "
 msgstr "Adjon meg egy opciót az oszlophoz"
 
-#: js/messages.php:117
+#: js/messages.php:118
 msgid "Generate password"
 msgstr "Jelszó generálása"
 
-#: js/messages.php:118 libraries/replication_gui.lib.php:365
+#: js/messages.php:119 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Generálás"
 
-#: js/messages.php:119
+#: js/messages.php:120
 msgid "Change Password"
 msgstr "Jelszó megváltoztatása"
 
-#: js/messages.php:122 tbl_structure.php:471
+#: js/messages.php:123 tbl_structure.php:471
 msgid "More"
 msgstr "Több"
 
-#: js/messages.php:125 setup/lib/index.lib.php:158
+#: js/messages.php:126 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1236,28 +1245,28 @@ msgstr ""
 "%s, kiadás dátuma: %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:127
+#: js/messages.php:128
 msgid ", latest stable version:"
 msgstr ", utolsó stabil verzió:"
 
-#: js/messages.php:128
+#: js/messages.php:129
 #, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
 msgstr "Adatbázisra ugrás"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:146
+#: js/messages.php:147
 msgid "Done"
 msgstr "Kész"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:148
+#: js/messages.php:149
 msgid "Prev"
 msgstr "Előző"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:150 libraries/common.lib.php:2371
+#: js/messages.php:151 libraries/common.lib.php:2371
 #: libraries/common.lib.php:2374 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:896
@@ -1265,231 +1274,231 @@ msgid "Next"
 msgstr "Következő"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:152
+#: js/messages.php:153
 msgid "Today"
 msgstr "Ma"
 
-#: js/messages.php:155
+#: js/messages.php:156
 msgid "January"
 msgstr "Január"
 
-#: js/messages.php:156
+#: js/messages.php:157
 msgid "February"
 msgstr "Február"
 
-#: js/messages.php:157
+#: js/messages.php:158
 msgid "March"
 msgstr "Március"
 
-#: js/messages.php:158
+#: js/messages.php:159
 msgid "April"
 msgstr "Április"
 
-#: js/messages.php:159
+#: js/messages.php:160
 msgid "May"
 msgstr "máj."
 
-#: js/messages.php:160
+#: js/messages.php:161
 msgid "June"
 msgstr "Június"
 
-#: js/messages.php:161
+#: js/messages.php:162
 msgid "July"
 msgstr "Július"
 
-#: js/messages.php:162
+#: js/messages.php:163
 msgid "August"
 msgstr "Augusztus"
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "September"
 msgstr "szept."
 
-#: js/messages.php:164
+#: js/messages.php:165
 msgid "October"
 msgstr "Október"
 
-#: js/messages.php:165
+#: js/messages.php:166
 msgid "November"
 msgstr "Nov."
 
-#: js/messages.php:166
+#: js/messages.php:167
 msgid "December"
 msgstr "Dec."
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1569
+#: js/messages.php:171 libraries/common.lib.php:1569
 msgid "Jan"
 msgstr "jan."
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1571
+#: js/messages.php:173 libraries/common.lib.php:1571
 msgid "Feb"
 msgstr "febr."
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1573
+#: js/messages.php:175 libraries/common.lib.php:1573
 msgid "Mar"
 msgstr "márc."
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1575
+#: js/messages.php:177 libraries/common.lib.php:1575
 msgid "Apr"
 msgstr "ápr."
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1577
+#: js/messages.php:179 libraries/common.lib.php:1577
 msgctxt "Short month name"
 msgid "May"
 msgstr "máj."
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1579
+#: js/messages.php:181 libraries/common.lib.php:1579
 msgid "Jun"
 msgstr "jún."
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1581
+#: js/messages.php:183 libraries/common.lib.php:1581
 msgid "Jul"
 msgstr "júl."
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1583
+#: js/messages.php:185 libraries/common.lib.php:1583
 msgid "Aug"
 msgstr "aug."
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1585
+#: js/messages.php:187 libraries/common.lib.php:1585
 msgid "Sep"
 msgstr "szept."
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1587
+#: js/messages.php:189 libraries/common.lib.php:1587
 msgid "Oct"
 msgstr "okt."
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1589
+#: js/messages.php:191 libraries/common.lib.php:1589
 msgid "Nov"
 msgstr "nov."
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Dec"
 msgstr "dec."
 
-#: js/messages.php:195
+#: js/messages.php:196
 msgid "Sunday"
 msgstr "Vasárnap"
 
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "Monday"
 msgstr "Hétfő"
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "Tuesday"
 msgstr "Kedd"
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "Wednesday"
 msgstr "Szerda"
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "Thursday"
 msgstr "Csütörtök"
 
-#: js/messages.php:200
+#: js/messages.php:201
 msgid "Friday"
 msgstr "Péntek"
 
-#: js/messages.php:201
+#: js/messages.php:202
 msgid "Saturday"
 msgstr "Szombat"
 
 #. l10n: Short week day name
-#: js/messages.php:205 libraries/common.lib.php:1594
+#: js/messages.php:206 libraries/common.lib.php:1594
 msgid "Sun"
 msgstr "V"
 
 #. l10n: Short week day name
-#: js/messages.php:207 libraries/common.lib.php:1596
+#: js/messages.php:208 libraries/common.lib.php:1596
 msgid "Mon"
 msgstr "H"
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1598
+#: js/messages.php:210 libraries/common.lib.php:1598
 msgid "Tue"
 msgstr "K"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1600
+#: js/messages.php:212 libraries/common.lib.php:1600
 msgid "Wed"
 msgstr "Sze"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1602
+#: js/messages.php:214 libraries/common.lib.php:1602
 msgid "Thu"
 msgstr "Cs"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1604
+#: js/messages.php:216 libraries/common.lib.php:1604
 msgid "Fri"
 msgstr "P"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1606
+#: js/messages.php:218 libraries/common.lib.php:1606
 msgid "Sat"
 msgstr "Szo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:221
+#: js/messages.php:222
 msgid "Su"
 msgstr "V"
 
 #. l10n: Minimal week day name
-#: js/messages.php:223
+#: js/messages.php:224
 msgid "Mo"
 msgstr "H"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:226
 msgid "Tu"
 msgstr "K"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:228
 msgid "We"
 msgstr "Sze"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:230
 msgid "Th"
 msgstr "Cs"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:232
 msgid "Fr"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:234
 msgid "Sa"
 msgstr "Szo"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:235
+#: js/messages.php:236
 msgid "Wk"
 msgstr "Hét"
 
-#: js/messages.php:237
+#: js/messages.php:238
 msgid "Hour"
 msgstr "Óra"
 
-#: js/messages.php:238
+#: js/messages.php:239
 msgid "Minute"
 msgstr "Perc"
 
-#: js/messages.php:239
+#: js/messages.php:240
 msgid "Second"
 msgstr "másodperc"
 
@@ -1563,14 +1572,6 @@ msgstr "Számosság"
 #: libraries/Index.class.php:449 tbl_tracking.php:272 tbl_tracking.php:321
 msgid "Comment"
 msgstr "Megjegyzés"
-
-#: libraries/Index.class.php:465 libraries/common.lib.php:626
-#: libraries/common.lib.php:1164 libraries/common.lib.php:3023
-#: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1187
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
-msgid "Edit"
-msgstr "Módosítás"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
@@ -1867,7 +1868,7 @@ msgid "Data"
 msgstr "Adatok"
 
 #: libraries/build_html_for_db.lib.php:45 libraries/engines/innodb.lib.php:168
-#: server_databases.php:205 server_status.php:540 server_status.php:601
+#: server_databases.php:215 server_status.php:540 server_status.php:601
 #: server_status.php:624 tbl_printview.php:348 tbl_structure.php:791
 msgid "Total"
 msgstr "Összesen"
@@ -4639,7 +4640,9 @@ msgstr "MySQL&nbsp;4.0 kompatibilis"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-msgid "Create new database"
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
 msgstr "Új adatbázis létrehozása"
 
 #: libraries/display_create_database.lib.php:33
@@ -7341,7 +7344,7 @@ msgstr ""
 "A szerver Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
 "utána a %sdokumentációban%s."
 
-#: navigation.php:187 server_databases.php:267 server_synchronize.php:1206
+#: navigation.php:187 server_databases.php:277 server_synchronize.php:1206
 msgid "No databases"
 msgstr "Nincs adatbázis"
 
@@ -7738,20 +7741,20 @@ msgstr "A(z) %s adatbázis eldobása sikerült."
 msgid "Databases statistics"
 msgstr "Adatbázis-statisztika"
 
-#: server_databases.php:173 server_replication.php:179
+#: server_databases.php:183 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:175 server_replication.php:246
+#: server_databases.php:185 server_replication.php:246
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:258 server_databases.php:259
+#: server_databases.php:268 server_databases.php:269
 msgid "Enable Statistics"
 msgstr "Statisztika engedélyezése"
 
-#: server_databases.php:261
+#: server_databases.php:271
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
