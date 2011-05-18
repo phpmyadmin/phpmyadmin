@@ -3426,7 +3426,7 @@ msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maximum tabuliek"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
