@@ -3563,7 +3563,7 @@ msgstr "Zobrazený panel pri otvorení nového okna dopytov"
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr ""
+msgstr "Východzí panel okna dopytov"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
