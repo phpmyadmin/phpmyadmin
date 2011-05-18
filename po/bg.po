@@ -9502,7 +9502,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr "Вземете си нови теми!"
+msgstr "Вземете нови теми!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
