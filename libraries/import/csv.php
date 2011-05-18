@@ -106,7 +106,7 @@ if (!$analyze) {
     }
     $sql_template .= ' INTO ' . PMA_backquote($table);
 
-    $tmp_fields = PMA_DBI_get_fields($db, $table);
+    $tmp_fields = PMA_DBI_get_columns($db, $table);
 
     if (empty($csv_columns)) {
         $fields = $tmp_fields;
