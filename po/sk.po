@@ -3502,7 +3502,7 @@ msgstr "Východzie radenie"
 
 #: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Použiť trvalé (persistent) spojenia k MySQL databázam"
 
 #: libraries/config/messages.inc.php:326
 msgid "Persistent connections"
