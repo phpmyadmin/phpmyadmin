@@ -3733,9 +3733,8 @@ msgstr ""
 "[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:379
-#, fuzzy
 msgid "Designer table"
-msgstr "Defragmentovať tabuľku"
+msgstr "Tabuľka návrhára"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
