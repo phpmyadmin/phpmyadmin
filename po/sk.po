@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 08:35+0200\n"
+"PO-Revision-Date: 2011-05-18 08:36+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3391,7 +3391,7 @@ msgstr "Maximálny počet znakov pri zobrazení SQL dopytu"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Mazimálna dĺžka zobrazeného SQL dopytu"
 
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
