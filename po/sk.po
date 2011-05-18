@@ -3753,9 +3753,8 @@ msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr "Ktoré rozšírenie PHP sa má použiť; použite mysqli ak je to možné"
 
 #: libraries/config/messages.inc.php:383
-#, fuzzy
 msgid "PHP extension to use"
-msgstr "rozšírenie PHP"
+msgstr "Použiť rozšírenie PHP"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
