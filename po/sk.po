@@ -3905,7 +3905,7 @@ msgstr "Povoliť SSL pre pripojenie k MySQL serveru"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
-msgstr ""
+msgstr "Použiť SSL"
 
 #: libraries/config/messages.inc.php:414
 msgid ""
