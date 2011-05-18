@@ -3567,7 +3567,7 @@ msgstr "Východzí panel okna dopytov"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Výška okna dopytov (v pixeloch)"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height"
