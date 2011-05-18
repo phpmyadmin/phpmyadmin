@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 08:21+0200\n"
+"PO-Revision-Date: 2011-05-18 08:22+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3202,7 +3202,7 @@ msgstr "Nepoužívať AUTO_INCREMENT pre nulové hodnoty"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Počiatočný stav pre posuvníky"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
