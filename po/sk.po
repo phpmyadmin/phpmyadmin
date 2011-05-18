@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 11:58+0200\n"
+"PO-Revision-Date: 2011-05-18 11:59+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3750,7 +3750,7 @@ msgstr "Zakazať použitie INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
+msgstr "Ktoré rozšírenie PHP sa má použiť; použite mysqli ak je to možné"
 
 #: libraries/config/messages.inc.php:383
 #, fuzzy
