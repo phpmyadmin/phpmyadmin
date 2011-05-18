@@ -1109,10 +1109,9 @@ msgid "Browsing"
 msgstr "Прелистване"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Изтриване на %s"
+msgstr "Изтриване"
 
 #: js/messages.php:90
 msgid ""
