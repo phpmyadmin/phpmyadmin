@@ -3383,7 +3383,7 @@ msgstr "Väčšie editačné pole pre LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Zobraziť ikony na hlavnej stránke"
 
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of characters used when a SQL query is displayed"
