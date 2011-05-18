@@ -5962,7 +5962,7 @@ msgstr "Този Хост"
 
 #: libraries/replication_gui.lib.php:320 server_privileges.php:761
 msgid "Use Host Table"
-msgstr "Използвай таблица Host"
+msgstr "От таблица Host"
 
 #: libraries/replication_gui.lib.php:333 server_privileges.php:774
 msgid ""
