@@ -3823,7 +3823,7 @@ msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlasovací config"
 
 #: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
-msgstr ""
+msgstr "Heslo pre prihlasovací config"
 
 #: libraries/config/messages.inc.php:397
 msgid ""
