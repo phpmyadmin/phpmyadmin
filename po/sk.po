@@ -3697,9 +3697,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Ako sa pripájať k serveru, nechajte [kbd]tcp[/kbd] ak si nie ste istý"
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 msgid "Connection type"
-msgstr "Spojenia"
+msgstr "Typ pripojenia"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
