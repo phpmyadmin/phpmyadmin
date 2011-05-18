@@ -3547,7 +3547,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
-msgstr ""
+msgstr "Trvalá história dopytov"
 
 #: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
