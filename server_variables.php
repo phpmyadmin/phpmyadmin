@@ -14,6 +14,8 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'server_variables.js';
+
 /**
  * Does the common work
  */
@@ -52,7 +54,14 @@ $serverVarsGlobal = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
  * Displays the page
  */
 ?>
-<table class="data">
+<fieldset id="tableFilter" style="display:none;">
+<legend>Filters</legend>
+<div class="formelement">
+    <label for="filterText">Containing the word:</label>
+    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
+</div>
+</fieldset>
+<table class="data filteredData">
 <thead>
 <tr><th><?php echo __('Variable'); ?></th>
     <th>

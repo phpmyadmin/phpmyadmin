@@ -960,6 +960,12 @@ div#tablestatistics table caption {
 
 
 /* serverstatus */
+
+/* Also used for the variables page */
+fieldset#tableFilter {
+    margin-bottom:1em;
+}
+
 div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }

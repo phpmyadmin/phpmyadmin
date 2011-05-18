@@ -1164,6 +1164,12 @@ text-shadow:0 1px 0 #000000;
 
 
 /* serverstatus */
+
+/* Also used for the variables page */
+fieldset#tableFilter {
+    margin-bottom:1em;
+}
+
 div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
@@ -1184,7 +1190,6 @@ div#serverstatus table#serverstatusconnections {
 table#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
-    margin-top:1em;
 }
 table#serverstatusvariables .name {
     width: 18em;

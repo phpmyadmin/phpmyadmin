@@ -754,7 +754,7 @@ foreach ($used_queries as $name => $value) {
 
 
 <div id="serverstatusvars">
-<fieldset style="display:none;">
+<fieldset id="tableFilter" style="display:none;">
 <legend>Filters</legend>
 <div class="formelement">
     <label for="filterText">Containing the word:</label>
