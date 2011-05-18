@@ -3375,7 +3375,7 @@ msgstr "Platnosť prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Zdvojnásobiť veľkosť editačného poľa pre stĺpec typu LONGTEXT"
 
 #: libraries/config/messages.inc.php:298
 msgid "Bigger textarea for LONGTEXT"
