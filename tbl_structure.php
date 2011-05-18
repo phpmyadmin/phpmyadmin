@@ -121,26 +121,7 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-if (PMA_DRIZZLE) {
-    $fields_rs = PMA_DBI_query(
-        "SELECT
-            column_name        AS `Field`,
-            collation_name     AS `Collation`,
-            lower(column_type) AS `Type`,
-            CASE is_nullable WHEN 1 THEN 'YES' ELSE 'NO' END
-                               AS `Null`,
-            column_default     AS `Default`,
-            CASE is_auto_increment WHEN 1 THEN 'auto_increment' ELSE '' END
-                               AS `Extra`,
-            column_comment     AS `Comment`
-        FROM data_dictionary.columns
-        WHERE table_schema = schema()
-            AND table_name = '" . PMA_sqlAddslashes($table) . "'
-        ORDER BY ordinal_position", null, PMA_DBI_QUERY_STORE);
-} else {
-    $fields_rs = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
-}
-$fields_cnt  = PMA_DBI_num_rows($fields_rs);
+$fields = (array) PMA_DBI_get_columns($db, $table, true);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -253,7 +234,7 @@ $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
-while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
     $aryFields[]      = $row['Field'];
@@ -680,9 +661,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
  * If there are more than 20 rows, displays browse/select/insert/empty/drop
  * links again
  */
-if ($fields_cnt > 20) {
+if (count($fields) > 20) {
     require './libraries/tbl_links.inc.php';
-} // end if ($fields_cnt > 20)
+} // end if (count($fields) > 20)
 
 /**
  * Displays indexes
