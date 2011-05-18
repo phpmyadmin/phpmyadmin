@@ -375,7 +375,9 @@ foreach ($tables as $keyname => $each_table) {
     //  that needs to be repaired
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
         if ($table_is_view) {
-            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']){
+            // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
+            // schemas, where we do exact counting
+            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $each_table['ENGINE'] != 'FunctionEngine') {
                 $row_count_pre = '~';
                 $sum_row_count_pre = '~';
                 $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
