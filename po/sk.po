@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 13:39+0200\n"
+"PO-Revision-Date: 2011-05-18 13:40+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3901,7 +3901,7 @@ msgstr "Socket servera"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Povoliť SSL pre pripojenie k MySQL serveru"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
