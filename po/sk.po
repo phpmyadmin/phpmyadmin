@@ -3888,7 +3888,7 @@ msgstr "Meno prihlasovacej session/sedenia"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon URL"
-msgstr ""
+msgstr "URL pri prihlásení"
 
 #: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
