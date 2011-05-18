@@ -3555,7 +3555,7 @@ msgstr "Koľko dopytov sa má držať v histórii"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr ""
+msgstr "Dĺžka histórie dopytov"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
