@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 10:54+0200\n"
+"PO-Revision-Date: 2011-05-18 10:57+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -482,7 +482,7 @@ msgstr "Допълване заявка"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr "Използвай таблицата"
+msgstr "Използване таблиците"
 
 #: db_qbe.php:662
 #, php-format
