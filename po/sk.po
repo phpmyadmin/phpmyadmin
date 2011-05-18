@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 13:38+0200\n"
+"PO-Revision-Date: 2011-05-18 13:39+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3893,6 +3893,7 @@ msgstr "URL pri prihlásení"
 #: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
 
 #: libraries/config/messages.inc.php:411
 #, fuzzy
