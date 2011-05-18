@@ -3591,7 +3591,7 @@ msgstr "Prekódovací nástroj"
 
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Opkovať hlavičku každých X buniek, [kbd]0[/kbd] vypne túto možnosť"
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat headers"
