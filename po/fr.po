@@ -8024,7 +8024,7 @@ msgid "Unable to change master"
 msgstr "Impossible de changer le maître"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "Le serveur maître est maintenant %s"
