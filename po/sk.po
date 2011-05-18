@@ -3610,9 +3610,8 @@ msgid "Directory where exports can be saved on server"
 msgstr "Adresár na serveri pre ukladanie exportov"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 msgid "Save directory"
-msgstr "Domovský adresár pre dáta"
+msgstr "Adresár pre ukladanie"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
