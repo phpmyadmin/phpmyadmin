@@ -3658,7 +3658,7 @@ msgstr "Konfiguračný súbor SweKey"
 
 #: libraries/config/messages.inc.php:363
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Výber overovacej metódy"
 
 #: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:126
 msgid "Authentication type"
