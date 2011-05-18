@@ -511,7 +511,8 @@ foreach ($fields as $row) {
                          echo $hidden_titles['NoIndex'];
                      }
                   } ?>
-             </div>
+            </div>
+            <?php if (!PMA_DRIZZLE) { ?>
             <div class="action_fulltext">
                 <?php
                 if(isset($fulltext_enabled)) {
@@ -525,6 +526,7 @@ foreach ($fields as $row) {
                      }
                 } ?>
              </div>
+            <?php } ?>
         </div>
     </td>
     <?php
