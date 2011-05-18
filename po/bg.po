@@ -5946,7 +5946,7 @@ msgstr "Всеки потребител"
 #: server_privileges.php:766 server_privileges.php:790
 #: server_privileges.php:2008 server_privileges.php:2038
 msgid "Use text field"
-msgstr "Използвай текстовото поле"
+msgstr "От текстовото поле"
 
 #: libraries/replication_gui.lib.php:304 server_privileges.php:746
 msgid "Any host"
