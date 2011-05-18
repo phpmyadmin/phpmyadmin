@@ -2098,7 +2098,7 @@ msgstr "Potvrdiť platnosť SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Upraviť dopyt na tejto stránke"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
@@ -3286,6 +3286,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Východzí format: Berte na vedomie, že tento zoznam závisí na umiestnení "
+"(databáza, tabuľka) a len SQL je stále dostupné"
 
 #: libraries/config/messages.inc.php:244
 msgid "Format of imported file"
@@ -3330,7 +3332,7 @@ msgstr "Nepoužívať AUTO_INCREMENT pre nulové hodnoty"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Počiatočný stav pre posuvníky"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
@@ -3421,6 +3423,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Otvoriť nové okno v hlavnej okne ([kbd]hlavná[/kbd]) alebo v novom ([kbd]nové"
+"[/kbd])"
 
 #: libraries/config/messages.inc.php:282
 msgid "Logo link target"
@@ -3446,6 +3450,7 @@ msgstr "Odľahčené panely"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
+"Maximálny počet znakov zobrazovanných v nečíselných poliach pri prechádzaní"
 
 #: libraries/config/messages.inc.php:288
 msgid "Limit column characters"
@@ -3457,6 +3462,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"Pokiaľ je povolené, pri odhlásení budú vymazané cookies pre všetky servery; "
+"pokiaľ je zakázané, vymaže sa len pre aktuálny server. Zakázaním tejto voľby "
+"sa môže ľahko stať, že sa zabudnete odhlásiť z ostatných serverov, pokiaľ "
+"ich používate viac."
 
 #: libraries/config/messages.inc.php:290
 msgid "Delete all cookies on logout"
@@ -3467,10 +3476,12 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
+"Určuje, či sa má obnoviť predchádzajúce prihlásenia alebo nie v cookie "
+"overovacom móde"
 
 #: libraries/config/messages.inc.php:292
 msgid "Recall user name"
-msgstr ""
+msgstr "Pamätať si užívateľské meno"
 
 #: libraries/config/messages.inc.php:293
 msgid ""
@@ -3479,10 +3490,14 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Určuje, ako dlho (v sekundách) si má prehliadač pamätať prihlasovaciu "
+"cookie. Východzia hodnota 0 znamená, že cookie bude pamätaná, len po dobu "
+"sedenia a bude vymazaná pri zatvorení okna. Toto je odporúčané v "
+"nedôveryhodných prostrediach."
 
 #: libraries/config/messages.inc.php:294
 msgid "Login cookie store"
-msgstr ""
+msgstr "Uloženie prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:295
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -3494,36 +3509,36 @@ msgstr "Platnosť prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:297
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Zdvojnásobiť veľkosť editačného poľa pre stĺpec typu LONGTEXT"
 
 #: libraries/config/messages.inc.php:298
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Väčšie editačné pole pre LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Zobraziť ikony na hlavnej stránke"
 
 #: libraries/config/messages.inc.php:300
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Maximálny počet znakov pri zobrazení SQL dopytu"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Mazimálna dĺžka zobrazeného SQL dopytu"
 
 #: libraries/config/messages.inc.php:302 libraries/config/messages.inc.php:307
 #: libraries/config/messages.inc.php:335
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Uživatelia nemôžu nastaviť vyššiu hodnotu"
 
 #: libraries/config/messages.inc.php:303
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
+msgstr "Maximálny počet databáz zobrazených v ľavom ráme a zozname databáz"
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum databases"
-msgstr ""
+msgstr "Najvyšší počet databáz"
 
 #: libraries/config/messages.inc.php:305
 msgid ""
@@ -3531,34 +3546,41 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"Počet zobrazených riadkov pri prechádzaní sady výsledkov. Ak sada výsledkov "
+"obsahuje viac riadkov, zobrazia sa odkazy &quot;Predchádzajúci&quot; a &quot;"
+"Ďalší&quot;"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Maximálny počet zobrazených riadkov"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maximum tabuliek"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Vypnúť štandardné varovanie o chýbajúcom rozšírení mcrypt pri cookie "
+"overovaní"
 
 #: libraries/config/messages.inc.php:311
 msgid "mcrypt warning"
-msgstr ""
+msgstr "Varovanie o mcrypte"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Počet bytov, ktoré môže alokovať skript, napr. [kbd]32M[/kbd] ([kbd]0[/kbd] "
+"ruší obmedzenia)"
 
 #: libraries/config/messages.inc.php:313
 #, fuzzy
@@ -3567,19 +3589,19 @@ msgstr "Obmedzenie zdrojov"
 
 #: libraries/config/messages.inc.php:314
 msgid "These are Edit, Inline edit, Copy and Delete links"
-msgstr ""
+msgstr "Toto sú odkazy na Upraviť, Upraviť tu, Kopírovať a Odstrániť"
 
 #: libraries/config/messages.inc.php:315
 msgid "Show table row links on left side"
-msgstr ""
+msgstr "Zobrazí odkazy riadkov tabuľky na ľavej strane"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Zobrazí odkazy riadkov tabuľky na pravej strane"
 
 #: libraries/config/messages.inc.php:317
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Použiť prirodzené triedenie pre mena tabuliek a databáz"
 
 #: libraries/config/messages.inc.php:318
 #, fuzzy
@@ -3589,37 +3611,39 @@ msgstr "Zmeniť poradie tabuľky podľa"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:329
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Použiť len ikony, len text alebo obidve"
 
 #: libraries/config/messages.inc.php:320
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "Navigašná lišta s ikonami"
 
 #: libraries/config/messages.inc.php:321
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
+msgstr "Použiť medzipamäť pre GZip výstup pre zvýšenie rýchlosti HTTP prenosu"
 
 #: libraries/config/messages.inc.php:322
 msgid "GZip output buffering"
-msgstr ""
+msgstr "Medzipamäť pre GZip výstup"
 
 #: libraries/config/messages.inc.php:323
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - t.j. zostupné radenie pre polia typu TIME, DATE, DATETIME "
+"a TIMESTAMP, ostatné budú radené vzostupne"
 
 #: libraries/config/messages.inc.php:324
 msgid "Default sorting order"
-msgstr ""
+msgstr "Východzie radenie"
 
 #: libraries/config/messages.inc.php:325
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Použiť trvalé (persistent) spojenia k MySQL databázam"
 
 #: libraries/config/messages.inc.php:326
 msgid "Persistent connections"
-msgstr ""
+msgstr "Trvalé spojenia"
 
 #: libraries/config/messages.inc.php:327
 msgid ""
@@ -3627,22 +3651,25 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Vypne štandardné varovanie pri detailoch databázy na Štruktúra stránke, ak "
+"niektorá z vyžadovaných tabuliek pre miesto uloženia phpMyAdmin konfigurácie "
+"nebola nájdená"
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
-msgstr ""
+msgstr "Zobrazenie ikon pre operácie s tabuľkami"
 
 #: libraries/config/messages.inc.php:331
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Zakázať úpravu polí typu BLOB a BINARY"
 
 #: libraries/config/messages.inc.php:332
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Chrániť binárne polia"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
@@ -3650,30 +3677,34 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Povoľte, ak chcete históriu dopytov založenú na databáze (vyžaduje miesto "
+"uloženia phpMyAdmin konfigurácie). Ak vowbu zakážete, využijú sa k "
+"zobrazeniu histórie dopytoj Java Scriptové funkcie (bude stratená pri "
+"zavretí okna)."
 
 #: libraries/config/messages.inc.php:334
 msgid "Permanent query history"
-msgstr ""
+msgstr "Trvalá história dopytov"
 
 #: libraries/config/messages.inc.php:336
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Koľko dopytov sa má držať v histórii"
 
 #: libraries/config/messages.inc.php:337
 msgid "Query history length"
-msgstr ""
+msgstr "Dĺžka histórie dopytov"
 
 #: libraries/config/messages.inc.php:338
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Zobrazený panel pri otvorení nového okna dopytov"
 
 #: libraries/config/messages.inc.php:339
 msgid "Default query window tab"
-msgstr ""
+msgstr "Východzí panel okna dopytov"
 
 #: libraries/config/messages.inc.php:340
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Výška okna dopytov (v pixeloch)"
 
 #: libraries/config/messages.inc.php:341
 #, fuzzy
@@ -3695,15 +3726,15 @@ msgstr "SQL okno"
 
 #: libraries/config/messages.inc.php:344
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "Zvoľte, ktorá funkcia bude použitá pre konverziu znakových sád"
 
 #: libraries/config/messages.inc.php:345
 msgid "Recoding engine"
-msgstr ""
+msgstr "Prekódovací nástroj"
 
 #: libraries/config/messages.inc.php:346
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Opkovať hlavičku každých X buniek, [kbd]0[/kbd] vypne túto možnosť"
 
 #: libraries/config/messages.inc.php:347
 #, fuzzy
@@ -3713,15 +3744,15 @@ msgstr "Opravné vlákna"
 
 #: libraries/config/messages.inc.php:348
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Zobraziť tlačidlo nápovedy namiesto textu dokumentácie"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button"
-msgstr ""
+msgstr "Zobraziť tlačidlo nápovedy"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Adresár na serveri pre ukladanie exportov"
 
 #: libraries/config/messages.inc.php:352
 #, fuzzy
@@ -3730,27 +3761,27 @@ msgstr "Domovský adresár pre dáta"
 
 #: libraries/config/messages.inc.php:353
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Nechajte prázdne pokiaľ nepoužívate"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
-msgstr ""
+msgstr "Poradie overovania hostiteľa"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Nechajte prázdne, ak chcete použiť východzie nastavenia"
 
 #: libraries/config/messages.inc.php:356
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Pravidlá overovania hostiteľa"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Povoliť prihlásenie bez hesla"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
-msgstr ""
+msgstr "Povoliť prihlásenia užívateľa root"
 
 #: libraries/config/messages.inc.php:359
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -3766,28 +3797,33 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"Cesta ku konfiguračnému súboru pre [a@http://swekey.com]SweKey hardvérové "
+"overovanie[/a] (Neuložená vo vašom koreňovom adresári dokumentov, doporučené "
+"umiestneie: -etc-swekey.conf)"
 
 #: libraries/config/messages.inc.php:362
 msgid "SweKey config file"
-msgstr ""
+msgstr "Konfiguračný súbor SweKey"
 
 #: libraries/config/messages.inc.php:363
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Výber overovacej metódy"
 
 #: libraries/config/messages.inc.php:364 setup/frames/index.inc.php:114
 msgid "Authentication type"
-msgstr ""
+msgstr "Typ overovania"
 
 #: libraries/config/messages.inc.php:365
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
+"Nechajte prázdne pre žiadnu podporu [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]záložiek[/a], navrhované: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:366
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabuľka záložiek"
 
 #: libraries/config/messages.inc.php:367
 msgid ""
@@ -3797,19 +3833,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:368
 msgid "Column information table"
-msgstr ""
+msgstr "Tabuľka informácii o poliach"
 
 #: libraries/config/messages.inc.php:369
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "Komprimácia spojenia k MySQL serveru"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection"
-msgstr ""
+msgstr "Komprimovať pripojenie"
 
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
+msgstr "Ako sa pripájať k serveru, nechajte [kbd]tcp[/kbd] ak si nie ste istý"
 
 #: libraries/config/messages.inc.php:372
 #, fuzzy
@@ -3818,13 +3854,15 @@ msgstr "Spojenia"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
-msgstr ""
+msgstr "Heslo kontrolného užívateľa"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
+"Špeciálny MySQL užívateľ s obmedzenými právami, viac informácii je "
+"dostupných na [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:375
 #, fuzzy
@@ -3833,7 +3871,7 @@ msgstr "Ovládať slave:"
 
 #: libraries/config/messages.inc.php:376
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Spočítavať tabuľky pri zobrazovaní zoznamu databáz"
 
 #: libraries/config/messages.inc.php:377
 #, fuzzy
@@ -3845,6 +3883,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Nechajte prázdne pre vypnutie návrhára, východzie nastavenie: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 #, fuzzy
@@ -3856,14 +3896,16 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
+"Viac informácii na [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"tracker[/a] a [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "Zakazať použitie INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:382
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
+msgstr "Ktoré rozšírenie PHP sa má použiť; použite mysqli ak je to možné"
 
 #: libraries/config/messages.inc.php:383
 #, fuzzy
