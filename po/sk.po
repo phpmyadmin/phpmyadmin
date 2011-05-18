@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 13:29+0200\n"
+"PO-Revision-Date: 2011-05-18 13:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3815,7 +3815,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
