@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-18 10:58+0200\n"
+"PO-Revision-Date: 2011-05-18 15:59+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -9464,7 +9464,7 @@ msgstr ""
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
-msgstr ""
+msgstr "Деактивиране сега"
 
 #: tbl_tracking.php:705
 #, php-format
@@ -9473,12 +9473,12 @@ msgstr ""
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "Активиране сега"
 
 #: tbl_tracking.php:720
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Създаване на версия %s от %s.%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
@@ -9490,7 +9490,7 @@ msgstr ""
 
 #: tbl_tracking.php:740
 msgid "Create version"
-msgstr ""
+msgstr "Създаване на версия"
 
 #: themes.php:31
 #, php-format
@@ -9503,7 +9503,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr "Вземете си нови теми!"
+msgstr "Още теми!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
