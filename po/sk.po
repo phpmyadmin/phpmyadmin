@@ -3794,7 +3794,7 @@ msgstr "Meno servera"
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
-msgstr ""
+msgstr "URL pri odhlásení"
 
 #: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
