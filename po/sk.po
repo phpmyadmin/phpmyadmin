@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 11:53+0200\n"
+"PO-Revision-Date: 2011-05-18 11:54+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3702,7 +3702,7 @@ msgstr "Typ pripojenia"
 
 #: libraries/config/messages.inc.php:373
 msgid "Control user password"
-msgstr ""
+msgstr "Heslo kontrolného užívateľa"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
