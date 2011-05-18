@@ -3619,7 +3619,7 @@ msgstr "Nechajte prázdne pokiaľ nepoužívate"
 
 #: libraries/config/messages.inc.php:354
 msgid "Host authorization order"
-msgstr "Poradie overovania hostiteľov"
+msgstr "Poradie overovania hostiteľa"
 
 #: libraries/config/messages.inc.php:355
 msgid "Leave blank for defaults"
