@@ -10066,7 +10066,6 @@ msgid "Query error"
 msgstr "Erreur de requête"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Tracking data manipulation succesfully deleted"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Le suivi des manipulations de données a été effacé avec succès"
