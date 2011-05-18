@@ -3690,7 +3690,7 @@ msgstr "Komprimácia spojenia k MySQL serveru"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection"
-msgstr ""
+msgstr "Komprimovať pripojenie"
 
 #: libraries/config/messages.inc.php:371
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
