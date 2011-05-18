@@ -3520,7 +3520,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
