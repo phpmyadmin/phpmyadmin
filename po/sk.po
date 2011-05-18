@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-18 13:36+0200\n"
+"PO-Revision-Date: 2011-05-18 13:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3884,7 +3884,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:408
 msgid "Signon session name"
-msgstr ""
+msgstr "Meno prihlasovacej session/sedenia"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon URL"
