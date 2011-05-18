@@ -3651,7 +3651,7 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"Cesta ku konfiguračnému súboru pre  [a@http://swekey.com]SweKey hardvérové "
+"Cesta ku konfiguračnému súboru pre [a@http://swekey.com]SweKey hardvérové "
 "overovanie[/a] (Neuložená vo vašom koreňovom adresári dokumentov, doporučené "
 "umiestneie: -etc-swekey.conf)"
 
