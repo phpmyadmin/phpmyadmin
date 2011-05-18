@@ -3872,7 +3872,7 @@ msgstr "SQL príkaz pre načítanie dostupných databáz"
 
 #: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES príkaz "
 
 #: libraries/config/messages.inc.php:407
 msgid ""
