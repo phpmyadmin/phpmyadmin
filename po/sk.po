@@ -3863,9 +3863,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:404
-#, fuzzy
 msgid "Relation table"
-msgstr "Opraviť tabuľku"
+msgstr "Relačná tabuľka"
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
