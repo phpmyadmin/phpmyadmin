@@ -3631,7 +3631,7 @@ msgstr "Pravidlá overovania hostiteľa"
 
 #: libraries/config/messages.inc.php:357
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Povoliť prihlásenie bez hesla"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow root login"
