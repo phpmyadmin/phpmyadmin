@@ -9463,7 +9463,7 @@ msgstr ""
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
-msgstr ""
+msgstr "Деактивиране сега"
 
 #: tbl_tracking.php:705
 #, php-format
