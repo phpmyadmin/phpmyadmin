@@ -3802,7 +3802,7 @@ msgstr "Pokusiť sa pripojiť bez hesla"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
-msgstr ""
+msgstr "Pripojiť sa bez hesla"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
