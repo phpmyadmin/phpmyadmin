@@ -2046,7 +2046,7 @@ msgstr "Skontrolovať SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Upraviť dopyt na tejto stránke"
 
 #: libraries/common.lib.php:1267
 msgid "Inline"
