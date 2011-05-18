@@ -830,10 +830,37 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  */
 function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
 {
-    $fields = PMA_DBI_fetch_result(
-        'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
-        FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        'Field', ($full ? null : 'Field'), $link);
+    if (PMA_DRIZZLE) {
+        // `Key` column isn't correctly calculated, the only value that works is PRI
+        $sql = "SELECT
+                column_name        AS `Field`,
+                (CASE WHEN character_maximum_length > 0
+                    THEN lower(data_type) || ('(' || (character_maximum_length || ')'))
+                    ELSE lower(data_type) END)
+                                   AS `Type`,
+                " . ($full ? "
+                collation_name     AS `Collation`," : '') . "
+                (CASE is_nullable
+                    WHEN 1 THEN 'YES'
+                    ELSE 'NO' END) AS `Null`,
+                (CASE
+                    WHEN is_used_in_primary THEN 'PRI'
+                    ELSE '' END)   AS `Key`,
+                column_default     AS `Default`,
+                CASE is_auto_increment WHEN 1 THEN 'auto_increment' ELSE '' END
+                                   AS `Extra`,
+                " . ($full ? "
+                NULL               AS `Privileges`,
+                column_comment     AS `Comment`" : '') . "
+            FROM data_dictionary.columns
+            WHERE table_schema = '" . PMA_sqlAddslashes($database) . "'
+                AND table_name = '" . PMA_sqlAddslashes($table) . "'
+            ORDER BY ordinal_position";
+    } else {
+        $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
+            FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
+    }
+    $fields = PMA_DBI_fetch_result($sql, 'Field', ($full ? null : 'Field'), $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
     }
