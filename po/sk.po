@@ -3853,9 +3853,8 @@ msgstr ""
 "Port, na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 msgid "Server port"
-msgstr "ID servra"
+msgstr "Port servera"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
