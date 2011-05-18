@@ -3607,7 +3607,7 @@ msgstr "Zobraziť tlačidlo nápovedy"
 
 #: libraries/config/messages.inc.php:351
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Adresár na serveri pre ukladanie exportov"
 
 #: libraries/config/messages.inc.php:352
 #, fuzzy
