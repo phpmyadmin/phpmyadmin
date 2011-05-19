@@ -9115,10 +9115,9 @@ msgid "Insecure connection"
 msgstr "Nezavarovana povezava"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Hramba konfiguracije"
+msgstr "Konfiguracija je shranjena."
 
 #: setup/frames/index.inc.php:93
 msgid ""
