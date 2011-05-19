@@ -1110,10 +1110,9 @@ msgid "Searching"
 msgstr "Aranıyor"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Arama kriterini gizle"
+msgstr "Arama sonuçlarını gizle"
 
 #: js/messages.php:85
 #, fuzzy
