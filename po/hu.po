@@ -9277,7 +9277,7 @@ msgstr "Oszlop(ok) eltávolítása"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Oszlop(ok) módosítása"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
