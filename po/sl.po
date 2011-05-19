@@ -1129,10 +1129,9 @@ msgid "Show search results"
 msgstr "Prikaži rezultate iskanja"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Prebrskaj"
+msgstr "Brskanje"
 
 #: js/messages.php:87
 #, fuzzy
