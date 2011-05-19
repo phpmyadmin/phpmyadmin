@@ -9883,7 +9883,7 @@ msgstr "Cím"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
-msgstr ""
+msgstr "X tengely címkéje"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
