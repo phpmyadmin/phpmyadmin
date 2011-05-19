@@ -9983,10 +9983,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr "Opredelitev sledenja podatkom je uspešno izbrisana"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Zberi napake"
+msgstr "Napaka poizvedbe"
 
 #: tbl_tracking.php:399
 #, fuzzy
