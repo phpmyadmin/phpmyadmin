@@ -1140,7 +1140,7 @@ msgstr "Brisanje"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Opomba: Če datoteka vsebuje več tabel, bodo združene v eno"
 
 #: js/messages.php:93
 msgid "Hide query box"
