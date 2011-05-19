@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:07+0200\n"
+"PO-Revision-Date: 2011-05-19 21:08+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
@@ -551,7 +551,7 @@ msgstr "Pori"
 #, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Dileu y cydweddau ar gyfer tabl %s"
+msgstr "Dileu'r cydweddau ar gyfer tabl %s"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1223
 #: libraries/display_tbl.lib.php:2153
