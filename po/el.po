@@ -5991,10 +5991,9 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "Προσθήκη ευρετηρίου"
+msgstr "Προσθήκη προθέματος"
 
 #: libraries/mult_submits.inc.php:477 tbl_replace.php:331
 msgid "No change"
