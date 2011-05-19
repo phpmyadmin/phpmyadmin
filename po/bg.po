@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-18 15:59+0200\n"
+"PO-Revision-Date: 2011-05-19 08:30+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -96,15 +96,15 @@ msgstr "Използване тази стойност"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Няма зададен BLOB поточен сървър!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Зареждането на заглавките се провали"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Отваряенто на отдалечения адрес се провали"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -346,6 +346,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
+"Хранилището за конфигурацията на phpMyAdmin е деактивирано. За да разберете "
+"защо натиснете %sтук%s."
 
 #: db_operations.php:600
 msgid "Edit or export relational schema"
@@ -614,7 +616,7 @@ msgstr "Проследяването е неактивно."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr ""
+msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s"
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -809,7 +811,7 @@ msgstr "Въведете всяка стойност в отделно поле.
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Рестартиране на вмъкването и добавяне нова стойност"
 
 #: enum_editor.php:67
 msgid "Output"
@@ -818,6 +820,7 @@ msgstr "Изход"
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
+"Копиране и поставяне на слепените стойности в полето \"Дължина/Стойности\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -868,6 +871,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Опитвате да заредите файл с неподдържана компресия (%s). Или поддръжката ѝ "
+"не е реализирана, или е изключена от конфигурацията."
 
 #: import.php:336
 msgid ""
@@ -875,6 +880,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
+"по-голям от разрешеното в конфигурацията на PHP. Вижте "
+"[a@./Documentation.html#faq1_16@Documentation]ЧЗВ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -905,6 +913,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Времето за изчакване на скрипта изтече. Ако искате да завършите импорта го "
+"пуснете отново и той ще си продължи."
 
 #: import.php:425
 msgid ""
@@ -983,7 +993,7 @@ msgstr "Операцията може да продължи дълго. Да п�
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "На път сте да ИЗКЛЮЧИТЕ BLOB хранилището!"
 
 #: js/messages.php:43
 #, php-format
@@ -1114,7 +1124,7 @@ msgstr "Изтриване"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Заб.: Ако файлът съдържа няколко таблици, те ще бъдат обединени."
 
 #: js/messages.php:93
 msgid "Hide query box"
@@ -1494,7 +1504,7 @@ msgstr "Липсва временна папка."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Запазването на файл на диска се провали."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
@@ -1509,6 +1519,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
+"Грешка при преместване на качения файл, вж. "
+"[a@./Documentation.html#faq1_11@Documentation]ЧЗВ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
@@ -2103,7 +2115,7 @@ msgstr "Показване БД &quot;%s&quot;."
 #: libraries/common.lib.php:2466
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "Функционалността %s се влияе от известен дефект, вж. %s"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/common.lib.php:3018 libraries/config/setup.forms.php:291
@@ -6326,7 +6338,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr "Дължина/Стойност*"
+msgstr "Дължина/Стойности"
 
 #: libraries/tbl_properties.inc.php:104
 msgid ""
@@ -8815,7 +8827,7 @@ msgstr "Ключът трябва да съдържа букви, цифри [em
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Разглеждане за външни стойности"
+msgstr "Разглеждане на външни стойности"
 
 #: sql.php:163
 #, php-format
