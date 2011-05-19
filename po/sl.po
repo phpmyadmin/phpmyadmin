@@ -1247,10 +1247,9 @@ msgid ", latest stable version:"
 msgstr ", zadnja ustaljena različica:"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Pojdi v zbirko podatkov"
+msgstr "posodobljeno"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
