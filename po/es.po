@@ -10193,10 +10193,9 @@ msgid "Delete tracking data row from report"
 msgstr "Borrar fila de seguimiento de datos del reporte"
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "No hay bases de datos"
+msgstr "No hay datos"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
