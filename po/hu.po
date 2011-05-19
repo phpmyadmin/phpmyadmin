@@ -953,7 +953,7 @@ msgstr "A phpMyAdmin <b>keretkezelő</b> böngészőben használhatóbb."
 #: server_synchronize.php:738 server_synchronize.php:766
 #: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
-msgstr "Kattintson a kiválasztáshoz."
+msgstr "Kattintson a kijelöléshez."
 
 #: js/messages.php:26
 msgid "Click to unselect"
