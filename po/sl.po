@@ -1124,10 +1124,9 @@ msgid "Hide search results"
 msgstr "Skrij rezultate iskanja"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Prikaži iskalne pogoje"
+msgstr "Prikaži rezultate iskanja"
 
 #: js/messages.php:86
 #, fuzzy
