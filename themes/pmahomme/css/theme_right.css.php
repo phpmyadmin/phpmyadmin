@@ -1170,6 +1170,10 @@ fieldset#tableFilter {
     margin-bottom:1em;
 }
 
+div#serverStatusTabs {
+    margin-top:1em;
+}
+
 div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
@@ -1178,9 +1182,7 @@ div#serverstatusquerieschart {
     float:<?php echo $right; ?>;
 }
 
-div#serverstatus table#serverstatusqueriesdetails,
-div#serverstatus table#serverstatustraffic,
-div#serverstatus table#serverstatusconnections {
+div#serverstatus table#serverstatusqueriesdetails {
     float: <?php echo $left; ?>;
 }
 
@@ -1267,7 +1269,10 @@ div#querywindowcontainer fieldset {
 #serverstatus p a{color:#fff;text-decoration:underline;}
 #serverstatus h3
 {
-    margin:35px 0px;font-weight:normal;color:#999;font-size:1.7em;
+    margin: 15px 0;
+	font-weight:normal;
+	color:#999;
+	font-size:1.7em;
 }
 #sectionlinks{
     padding:16px;

@@ -966,6 +966,10 @@ fieldset#tableFilter {
     margin-bottom:1em;
 }
 
+div#serverStatusTabs {
+    margin-top:1em;
+}
+
 div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
@@ -974,9 +978,7 @@ div#serverstatusquerieschart {
     float:<?php echo $right; ?>;
 }
 
-div#serverstatus table#serverstatusqueriesdetails,
-div#serverstatus table#serverstatustraffic,
-div#serverstatus table#serverstatusconnections {
+div#serverstatus table#serverstatusqueriesdetails {
     float: <?php echo $left; ?>;
 }
 
