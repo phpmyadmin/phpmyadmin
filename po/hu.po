@@ -9269,7 +9269,7 @@ msgstr ""
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
-msgstr ""
+msgstr "Oszlop(ok) hozzáadása"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
