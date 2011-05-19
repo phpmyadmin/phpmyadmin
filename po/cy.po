@@ -292,10 +292,9 @@ msgid "Database %s has been dropped."
 msgstr "Cafodd cronfa ddata %s ei gollwng."
 
 #: db_operations.php:457
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
-msgstr "Copïwch y gronfa ddata i"
+msgstr "Dilëwch y gronfa ddata (DROP)"
 
 #: db_operations.php:487
 msgid "Copy database to"
