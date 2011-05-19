@@ -1134,10 +1134,9 @@ msgid "Browsing"
 msgstr "Brskanje"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Brišem %s"
+msgstr "Brisanje"
 
 #: js/messages.php:90
 msgid ""
