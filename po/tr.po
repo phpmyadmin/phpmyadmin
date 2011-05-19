@@ -9124,10 +9124,9 @@ msgid "Insecure connection"
 msgstr "Güvensiz bağlantı"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Yapılandırma depolama"
+msgstr "Yapılandırma kaydedildi."
 
 #: setup/frames/index.inc.php:93
 msgid ""
