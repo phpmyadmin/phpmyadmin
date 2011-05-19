@@ -1214,6 +1214,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"No se guardaron los cambios en la disposición. Serán perdidos si no los "
+"guardas. ¿Deseas continuar?"
 
 #: js/messages.php:115
 msgid "Add an option for column "
