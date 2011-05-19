@@ -709,10 +709,9 @@ msgid "Analyze table"
 msgstr "Ανάλυση Πίνακα"
 
 #: db_structure.php:521
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Μετάβαση στον πίνακα"
+msgstr "Προσθήκη προθέματος στον πίνακα"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #, fuzzy
