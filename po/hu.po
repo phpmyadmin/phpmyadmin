@@ -9293,7 +9293,7 @@ msgstr "Sor(ok) frissítése"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr "Sorok beszúrása"
+msgstr "Sor(ok) beszúrása"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
