@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 13:49+0200\n"
+"PO-Revision-Date: 2011-05-19 13:50+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -817,7 +817,7 @@ msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδ�
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "Επανεκκίνηση εισαγωγής και προσθήκη μιας νέας τιμής"
+msgstr "+ Επανεκκίνηση εισαγωγής και προσθήκη μιας νέας τιμής"
 
 #: enum_editor.php:67
 msgid "Output"
