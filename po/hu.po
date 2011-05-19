@@ -9301,7 +9301,7 @@ msgstr ""
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Kiválasztott módosítások végrehajtása"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
