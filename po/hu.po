@@ -9281,7 +9281,7 @@ msgstr "Oszlop(ok) módosítása"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
-msgstr "Indexek törlése"
+msgstr "Index(ek) törlése"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Apply index(s)"
