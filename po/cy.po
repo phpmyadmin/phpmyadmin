@@ -583,7 +583,7 @@ msgstr "Geiriau neu werthoedd i'w chwilio amdanyn nhw (nod-chwiliwr: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
-msgstr "Darganfyddwch:"
+msgstr "Darganfod:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
