@@ -4631,10 +4631,9 @@ msgstr "Συμβατό με MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Δημιουργία νέας βάσης"
+msgstr "Δημιουργία βάσης δεδομένων"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
