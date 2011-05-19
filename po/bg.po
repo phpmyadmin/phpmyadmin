@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-19 08:16+0200\n"
+"PO-Revision-Date: 2011-05-19 08:18+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8819,7 +8819,7 @@ msgstr "Ключът трябва да съдържа букви, цифри [em
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
 msgid "Browse foreign values"
-msgstr "Разглеждане за външни стойности"
+msgstr "Разглеждане на външни стойности"
 
 #: sql.php:163
 #, php-format
