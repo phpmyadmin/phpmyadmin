@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 22:15+0200\n"
+"PO-Revision-Date: 2011-05-19 22:16+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -9853,10 +9853,9 @@ msgid "Continue insertion with %s rows"
 msgstr "Beszúrás újrakezdése %s sorral"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
-msgstr "A jogok újratöltése sikerült."
+msgstr "A grafikon generálása sikeres."
 
 #: tbl_chart.php:59
 #, fuzzy
