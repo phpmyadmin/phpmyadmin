@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:45+0200\n"
+"PO-Revision-Date: 2011-05-19 21:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10000,10 +10000,9 @@ msgid "Query error"
 msgstr "Sorgu hatası"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Bu veri işleme ifadelerini izle:"
+msgstr "İzlenen veri işlemesi başarılı olarak silindi"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
