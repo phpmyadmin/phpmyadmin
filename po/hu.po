@@ -9305,7 +9305,7 @@ msgstr ""
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Adatbázisok szinkronizálása"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
