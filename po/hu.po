@@ -8383,7 +8383,7 @@ msgstr ""
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Következő átugrása"
 
 #: server_replication.php:346
 msgid "errors."
