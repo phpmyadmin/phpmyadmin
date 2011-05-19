@@ -10242,7 +10242,7 @@ msgstr "Index hozzáadása"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "Elsődleges kulcs hozzáadása"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
