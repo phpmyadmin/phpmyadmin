@@ -9960,7 +9960,7 @@ msgstr "Újrarajzolás"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Már létezik nevű %s tábla!"
+msgstr "Már létezik %s nevű tábla!"
 
 #: tbl_create.php:242
 #, php-format
