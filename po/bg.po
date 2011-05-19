@@ -881,7 +881,7 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
-"по-голям от разрешеното в конфигурацията на PHP. Погледнете "
+"по-голям от разрешеното в конфигурацията на PHP. Вижте "
 "[a@./Documentation.html#faq1_16@Documentation]ЧЗВ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
