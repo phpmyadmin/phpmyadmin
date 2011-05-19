@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-17 12:36-0400\n"
-"PO-Revision-Date: 2011-05-19 08:29+0200\n"
+"PO-Revision-Date: 2011-05-19 08:30+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2116,7 +2116,7 @@ msgstr "Показване БД &quot;%s&quot;."
 #: libraries/common.lib.php:2466
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "Функционалността %s се влияе от известен дефект, вж. %s"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/common.lib.php:3018 libraries/config/setup.forms.php:291
