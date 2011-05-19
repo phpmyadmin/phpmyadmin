@@ -9995,10 +9995,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr "İzlenen veri tanımlaması başarılı olarak silindi"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Hataları toparla"
+msgstr "Sorgu hatası"
 
 #: tbl_tracking.php:399
 #, fuzzy
