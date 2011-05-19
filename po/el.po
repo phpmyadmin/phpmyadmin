@@ -10152,10 +10152,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Εμφάνιση %s με ημερομηνίες από %s έως %s από χρήστη %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή γραμμής δεδομένων παρακολούθησης από την αναφορά"
 
 #: tbl_tracking.php:443
 #, fuzzy
