@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:08+0200\n"
+"PO-Revision-Date: 2011-05-19 21:09+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
@@ -575,7 +575,7 @@ msgstr[1] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
 
 #: db_search.php:295
 msgid "Search in database"
-msgstr "Chwiliwch yn y gronfa ddata"
+msgstr "Chwilio yn y gronfa ddata"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
