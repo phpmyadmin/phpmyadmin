@@ -4591,10 +4591,9 @@ msgstr "MySQL 4.0 uyumlu"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Yeni veritabanı oluştur"
+msgstr "Veritabanı oluştur"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
