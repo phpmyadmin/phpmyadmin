@@ -8049,7 +8049,7 @@ msgid "Unable to change master"
 msgstr "Αδύνατη η αλλαγή της πρωτεύουσας"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "Ο πρωτεύων διακομιστής άλλαξε επιτυχώς σε %s"
