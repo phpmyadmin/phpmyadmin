@@ -847,8 +847,9 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
                     WHEN is_used_in_primary THEN 'PRI'
                     ELSE '' END)   AS `Key`,
                 column_default     AS `Default`,
-                CASE is_auto_increment WHEN 1 THEN 'auto_increment' ELSE '' END
-                                   AS `Extra`,
+                (CASE is_auto_increment
+                    WHEN 1 THEN 'auto_increment'
+                    ELSE '' END)   AS `Extra`,
                 " . ($full ? "
                 NULL               AS `Privileges`,
                 column_comment     AS `Comment`" : '') . "
