@@ -5979,7 +5979,7 @@ msgstr "Από"
 
 #: libraries/mult_submits.inc.php:252
 msgid "To"
-msgstr ""
+msgstr "Προς"
 
 #: libraries/mult_submits.inc.php:257 libraries/mult_submits.inc.php:271
 #: libraries/sql_query_form.lib.php:440
