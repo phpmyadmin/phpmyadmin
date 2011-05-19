@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 17:03+0200\n"
+"PO-Revision-Date: 2011-05-19 17:04+0200\n"
 "Last-Translator:  <sjanevski@gmail.com>\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
 "Language: mk\n"
@@ -114,9 +114,9 @@ msgid ""
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата на податоци %s не е прифатена"
+msgstr "Базата на податоци %1$s е креирана"
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
