@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-09 14:22+0200\n"
-"Last-Translator:  <gergo314@gmail.com>\n"
+"PO-Revision-Date: 2011-05-19 22:09+0200\n"
+"Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -10396,9 +10396,8 @@ msgid "No data"
 msgstr "Nincs adatbázis"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
-#, fuzzy
 msgid "Date"
-msgstr "Adatok"
+msgstr "Dátum"
 
 #: tbl_tracking.php:455
 msgid "Data definition statement"
