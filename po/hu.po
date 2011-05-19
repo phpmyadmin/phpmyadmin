@@ -7227,10 +7227,9 @@ msgid "Get support"
 msgstr "Exportálás"
 
 #: main.php:219
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Nincs változás"
+msgstr "Változások listája"
 
 #: main.php:243
 msgid ""
