@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 22:19+0200\n"
+"PO-Revision-Date: 2011-05-19 22:20+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -9244,7 +9244,7 @@ msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Nem létezik '%s' nevű adatbázis."
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
