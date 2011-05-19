@@ -7681,10 +7681,9 @@ msgstr ""
 "Nem található a(z) <b>%s</b> tábla, vagy nem adták meg a(z) %s adatbázisban"
 
 #: schema_export.php:45
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Nem létezik a(z) \"%s\" tábla!"
+msgstr "A fájl nem létezik"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
