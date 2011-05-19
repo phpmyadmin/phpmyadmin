@@ -719,10 +719,9 @@ msgid "Replace table prefix"
 msgstr "Αντικατάσταση προθέματος πίνακα"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Αντικατάσταση δεδομένων Πίνακα με το αρχείο"
+msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: db_structure.php:574 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
