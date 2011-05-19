@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:00+0200\n"
+"PO-Revision-Date: 2011-05-19 21:02+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
@@ -282,10 +282,9 @@ msgid "Command"
 msgstr "Gorchymyn"
 
 #: db_operations.php:440
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Ailenwch y gronfa ddata i"
+msgstr "Tynnwch y gronfa ddata"
 
 #: db_operations.php:452
 #, php-format
