@@ -1125,10 +1125,9 @@ msgid "Browsing"
 msgstr "Gözatılıyor"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "%s siliniyor"
+msgstr "Siliniyor"
 
 #: js/messages.php:90
 msgid ""
