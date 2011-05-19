@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:06+0200\n"
+"PO-Revision-Date: 2011-05-19 21:07+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
@@ -545,7 +545,7 @@ msgstr[1] "%s ergyd mewn tabl <i>%s</i>"
 #: libraries/common.lib.php:3012 libraries/common.lib.php:3013
 #: libraries/tbl_links.inc.php:48 tbl_structure.php:560
 msgid "Browse"
-msgstr "Porwch"
+msgstr "Pori"
 
 #: db_search.php:259
 #, fuzzy, php-format
