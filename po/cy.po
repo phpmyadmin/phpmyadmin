@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2010-06-07 20:23+0200\n"
-"Last-Translator: <ardavies@tiscali.co.uk>\n"
+"PO-Revision-Date: 2011-05-19 20:58+0200\n"
+"Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
+"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cy\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -99,7 +99,7 @@ msgstr "Defnyddiwch y gwerth hwn"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Dim gweinydd ffrydio blob wedi'i ffurfweddu!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
