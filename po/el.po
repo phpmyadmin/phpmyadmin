@@ -1117,10 +1117,9 @@ msgid "Searching"
 msgstr "Αναζήτηση"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Απόκρυψη κριτηρίων αναζήτησης"
+msgstr "Απόκρυψη αποτελεσμάτων αναζήτησης"
 
 #: js/messages.php:85
 #, fuzzy
