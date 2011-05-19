@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 13:41+0200\n"
+"PO-Revision-Date: 2011-05-19 13:43+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9247,10 +9247,9 @@ msgid "Insecure connection"
 msgstr "Μη ασφαλής σύνδεση"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Χώρος αποθήκευση ρυθμίσεων"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
 
 #: setup/frames/index.inc.php:93
 msgid ""
