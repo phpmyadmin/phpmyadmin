@@ -9879,7 +9879,7 @@ msgstr "Magasság"
 
 #: tbl_chart.php:98
 msgid "Title"
-msgstr ""
+msgstr "Cím"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
