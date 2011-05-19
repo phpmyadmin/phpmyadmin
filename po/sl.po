@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 16:05+0200\n"
+"PO-Revision-Date: 2011-05-19 16:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9988,10 +9988,9 @@ msgid "Query error"
 msgstr "Napaka poizvedbe"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Sledi tem stavkom upravljanja s podatki:"
+msgstr "Stavek upravljanja s podatki je uspešno izbrisan"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
