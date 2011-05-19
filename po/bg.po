@@ -809,9 +809,7 @@ msgstr "Въведете всяка стойност в отделно поле.
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
-"+ Restart insertion and add a new value+ Рестартиране на вмъкването и "
-"добавяне нова стойност"
+msgstr "+ Рестартиране на вмъкването и добавяне нова стойност"
 
 #: enum_editor.php:67
 msgid "Output"
