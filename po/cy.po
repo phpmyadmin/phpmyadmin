@@ -566,12 +566,12 @@ msgid "Delete"
 msgstr "Dileu"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Cyfanswm:</b> <i>%s</i> ergyd"
-msgstr[1] "<b>Cyfanswm:</b> <i>%s</i> ergyd"
+msgstr[0] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
+msgstr[1] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
 
 #: db_search.php:295
 msgid "Search in database"
