@@ -834,8 +834,13 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
         // `Key` column isn't correctly calculated, the only value that works is PRI
         $sql = "SELECT
                 column_name        AS `Field`,
-                (CASE WHEN character_maximum_length > 0
-                    THEN lower(data_type) || ('(' || (character_maximum_length || ')'))
+                (CASE
+                    WHEN character_maximum_length > 0
+                        THEN lower(data_type) || ('(' || (character_maximum_length || ')'))
+                    WHEN numeric_precision > 0 OR numeric_scale > 0
+                        THEN lower(data_type) || ('(' || (numeric_precision || (',' || (numeric_scale || ')'))))
+                    WHEN enum_values IS NOT NULL
+                        THEN lower(data_type) || ('(' || (enum_values || ')'))
                     ELSE lower(data_type) END)
                                    AS `Type`,
                 " . ($full ? "
