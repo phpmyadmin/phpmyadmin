@@ -638,7 +638,7 @@ if ($last_version > 0) {
         <div id="div_deactivate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf($strTrackingDeactivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf($strTrackingDeactivateTrackingFor, htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_deactivate_now" value="<?php echo $strTrackingDeactivateNow; ?>" />
         </fieldset>
@@ -651,7 +651,7 @@ if ($last_version > 0) {
         <div id="div_activate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf($strTrackingActivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf($strTrackingActivateTrackingFor, htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_activate_now" value="<?php echo $strTrackingActivateNow; ?>" />
         </fieldset>
@@ -666,7 +666,7 @@ if ($last_version > 0) {
 <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
-    <legend><?php printf($strTrackingCreateVersionOf, ($last_version + 1), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+    <legend><?php printf($strTrackingCreateVersionOf, ($last_version + 1), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
 
     <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
