@@ -5923,7 +5923,7 @@ msgstr "Pošlji"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Dodaj predpono tabele"
 
 #: libraries/mult_submits.inc.php:266
 #, fuzzy
