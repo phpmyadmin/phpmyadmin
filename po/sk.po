@@ -3830,6 +3830,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
+"Nechajte prázdne pre žiadne komentáre ci mime typy polí, navrhované: [kbd]"
+"pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:368
 msgid "Column information table"
@@ -3914,7 +3916,7 @@ msgstr "rozšírenie PHP"
 
 #: libraries/config/messages.inc.php:384
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Skryť databázy odpovedajúce regulárnemu výrazu (PCRE)"
 
 #: libraries/config/messages.inc.php:385
 #, fuzzy
@@ -3926,14 +3928,16 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: [kbd]"
+"pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:387
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabuľka histórie SQL dopytov"
 
 #: libraries/config/messages.inc.php:388
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Meno počítača, kde beží MySQL server"
 
 #: libraries/config/messages.inc.php:389
 #, fuzzy
@@ -3942,15 +3946,15 @@ msgstr "meno servera"
 
 #: libraries/config/messages.inc.php:390
 msgid "Logout URL"
-msgstr ""
+msgstr "URL pri odhlásení"
 
 #: libraries/config/messages.inc.php:391
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Pokusiť sa pripojiť bez hesla"
 
 #: libraries/config/messages.inc.php:392
 msgid "Connect without password"
-msgstr ""
+msgstr "Pripojiť sa bez hesla"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
@@ -3963,24 +3967,26 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:432
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlasovací config"
 
 #: libraries/config/messages.inc.php:396
 msgid "Password for config auth"
-msgstr ""
+msgstr "Heslo pre prihlasovací config"
 
 #: libraries/config/messages.inc.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
+"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF schéma: tabuľka stránok"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
@@ -3998,6 +4004,7 @@ msgstr "meno databázy"
 #: libraries/config/messages.inc.php:401
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Port, na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
 
 #: libraries/config/messages.inc.php:402
 #, fuzzy
@@ -4017,29 +4024,32 @@ msgstr "Opraviť tabuľku"
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "SQL príkaz pre načítanie dostupných databáz"
 
 #: libraries/config/messages.inc.php:406
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES príkaz"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Priklad, viď [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]typy "
+"overovania/a]"
 
 #: libraries/config/messages.inc.php:408
 msgid "Signon session name"
-msgstr ""
+msgstr "Meno prihlasovacej session/sedenia"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon URL"
-msgstr ""
+msgstr "URL pri prihlásení"
 
 #: libraries/config/messages.inc.php:410
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
 
 #: libraries/config/messages.inc.php:411
 #, fuzzy
@@ -4048,20 +4058,22 @@ msgstr "Voľba serveru"
 
 #: libraries/config/messages.inc.php:412
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Povoliť SSL pre pripojenie k MySQL serveru"
 
 #: libraries/config/messages.inc.php:413
 msgid "Use SSL"
-msgstr ""
+msgstr "Použiť SSL"
 
 #: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"Nechajte prázdne pro vypnutie podpory pre PDF schému, navrhované: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:415
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "PDF schéma: tabuľka súradníc"
 
 #: libraries/config/messages.inc.php:416
 msgid ""
@@ -4080,34 +4092,42 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Či chcete pridať príkaz DROP DATABASE IF EXISTS do logu ako prvý riadok pri "
+"vytváraní databázy."
 
 #: libraries/config/messages.inc.php:419
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Pridať DROP DATABASE"
 
 #: libraries/config/messages.inc.php:420
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Či chcete pridať príkaz DROP TABLE IF EXISTS do logu ako prvý riadok pri "
+"vytváraní tabuľky."
 
 #: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Pridať DROP TABLE"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Či chcete pridať príkaz DROP VIEW IF EXISTS do logu ako prvý riadok pri "
+"vytváraní pohľadu."
 
 #: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Pridať DROP VIEW"
 
 #: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Určuje zoznam príkazov, ktoré sa automaticky použijú pri vytváraní nových "
+"verzií."
 
 #: libraries/config/messages.inc.php:425
 #, fuzzy
@@ -4123,13 +4143,14 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:427
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabuľka pre sledovanie SQL dopytov"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Či má sledovací mechanizmus automaticky vytvárať verzie tabuliek a pohľadov.."
 
 #: libraries/config/messages.inc.php:429
 #, fuzzy
@@ -4145,7 +4166,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabuľka pre užívateľské nastavenia"
 
 #: libraries/config/messages.inc.php:433
 msgid "User for config auth"
