@@ -7967,7 +7967,7 @@ msgid "Unable to change master"
 msgstr "Ne morem spremeniti glavnega strežnika"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "Glavni strežnik je uspešno spremenjen v %s"
