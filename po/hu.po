@@ -7360,7 +7360,6 @@ msgid "filter tables by name"
 msgstr "Tábla rendezésének módosítása e szerint:"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
