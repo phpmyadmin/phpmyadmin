@@ -1238,10 +1238,9 @@ msgid ", latest stable version:"
 msgstr ", son sağlam sürüm:"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Veritabanına git"
+msgstr "güncel"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
