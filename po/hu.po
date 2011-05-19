@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 22:18+0200\n"
+"PO-Revision-Date: 2011-05-19 22:19+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -9273,7 +9273,7 @@ msgstr "Oszlop(ok) hozzáadása"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Oszlop(ok) eltávolítása"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
