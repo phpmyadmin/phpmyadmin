@@ -9324,10 +9324,9 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1138
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Veszélyes kapcsolat"
+msgstr "Jelenlegi kapcsolat"
 
 #: server_synchronize.php:1167
 #, fuzzy, php-format
