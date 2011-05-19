@@ -503,7 +503,7 @@ msgstr "Ymholiad SQL ar gronfa ddata <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1188
 msgid "Submit Query"
-msgstr "Cyflwynwch yr Ymholiad"
+msgstr "Cyflwyno Ymholiad"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
