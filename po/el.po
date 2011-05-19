@@ -1132,10 +1132,9 @@ msgid "Browsing"
 msgstr "Αναζήτηση"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Διαγραφή %s"
+msgstr "Διαγραφή"
 
 #: js/messages.php:90
 msgid ""
