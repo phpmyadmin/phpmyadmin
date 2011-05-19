@@ -1120,10 +1120,9 @@ msgid "Show search results"
 msgstr "Arama sonuçlarını göster"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Gözat"
+msgstr "Gözatılıyor"
 
 #: js/messages.php:87
 #, fuzzy
