@@ -293,9 +293,9 @@ foreach ($server_status as $name => $value) {
 $hour_factor    = 3600 / $server_status['Uptime'];
 
 /* Ajax request refresh */
-if($_REQUEST['variables_table_ajax']) {
+if(isset($_REQUEST['variables_table_ajax'])) {
     // Prints the variables table
-    printVariablesTable($server_status, $allocationMap);
+    printVariablesTable($server_status, $server_variables, $allocationMap);
     exit();
 }
 
@@ -616,7 +616,7 @@ unset($link_url, $link_name, $i);
 
 <?php
 // Prints the variables table
-printVariablesTable($server_status,$allocationMap);
+printVariablesTable($server_status, $server_variables, $allocationMap);
 
 //Unset used variables
 unset(
@@ -658,7 +658,7 @@ if ($server_master_status || $server_slave_status)
 
 <?php
 
-function printVariablesTable($server_status,$allocationMap) {
+function printVariablesTable($server_status,$server_variables,$allocationMap) {
     /**
      * Messages are built using the message name
      */
