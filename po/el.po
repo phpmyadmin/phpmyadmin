@@ -972,10 +972,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Πρόκειται να ΚΑΤΑΣΤΡΕΨΕΤΕ (DESTROY) μια ολόκληρη βάση δεδομένων!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Πρόκειται να ΚΑΤΑΣΤΡΕΨΕΤΕ (DESTROY) μια ολόκληρη βάση δεδομένων!"
+msgstr "Πρόκειται να ΚΑΤΑΣΤΡΕΨΕΤΕ (DESTROY) έναν ολόκληρο πίνακα!"
 
 #: js/messages.php:33
 #, fuzzy
