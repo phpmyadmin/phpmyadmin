@@ -598,7 +598,6 @@ msgid "Inside column:"
 msgstr "Tu fewn colofn:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
