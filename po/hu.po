@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 22:12+0200\n"
+"PO-Revision-Date: 2011-05-19 22:13+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -9404,10 +9404,9 @@ msgid "Insecure connection"
 msgstr "Veszélyes kapcsolat"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Konfigurációs tároló"
+msgstr "Beállítások elmentve."
 
 #: setup/frames/index.inc.php:93
 msgid ""
