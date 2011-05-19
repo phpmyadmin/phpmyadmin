@@ -548,10 +548,10 @@ msgid "Browse"
 msgstr "Pori"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
+msgstr "Dileu y cydweddau ar gyfer tabl %s"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1223
 #: libraries/display_tbl.lib.php:2153
