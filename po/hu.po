@@ -6636,10 +6636,9 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Általános relációs jellemzők"
+msgstr "Beállítások"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1115
 #, fuzzy
