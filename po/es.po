@@ -976,10 +976,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
+msgstr "¡Está a punto de DESTRUIR una tabla completa!"
 
 #: js/messages.php:33
 #, fuzzy
