@@ -1148,7 +1148,7 @@ msgstr "Διαγραφή %s"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν"
 
 #: js/messages.php:93
 msgid "Hide query box"
