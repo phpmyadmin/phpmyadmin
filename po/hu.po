@@ -9871,7 +9871,7 @@ msgstr "Becsült érték lehet. Lásd: GYIK 3.11"
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Szélesség"
 
 #: tbl_chart.php:94
 msgid "Height"
