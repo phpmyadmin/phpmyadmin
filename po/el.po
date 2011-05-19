@@ -5752,8 +5752,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Αχρήστευση στηλών ΧΡΟΝΟΣΦΡΑΓΙΔΑΣ (TIMESTAMP) σε UTC <i>(ενεργοποιεί τις "
-"στήλες  TIMESTAMP να αχρηστευτούν και να επαναφορτωθούν μεταξύ διακομιστών "
-"σε διαφορετικές ζώνες ώρας)</i>"
+"στήλες TIMESTAMP να αχρηστευτούν και να επαναφορτωθούν μεταξύ διακομιστών σε "
+"διαφορετικές ζώνες ώρας)</i>"
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
 msgid "Procedures"
