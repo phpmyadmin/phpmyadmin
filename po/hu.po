@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 22:10+0200\n"
+"PO-Revision-Date: 2011-05-19 22:11+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -10093,7 +10093,7 @@ msgstr "A tábla adatainak kiíratása"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Tábla kiürítése (TRUNCATE)"
 
 #: tbl_operations.php:712
 msgid "Delete the table (DROP)"
