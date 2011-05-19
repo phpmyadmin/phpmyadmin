@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-19 21:02+0200\n"
+"PO-Revision-Date: 2011-05-19 21:04+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
@@ -347,7 +347,7 @@ msgid "Collation"
 msgstr "Coladiad"
 
 #: db_operations.php:565
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -355,8 +355,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Mae'r nodweddion ar gyfer gweithio gyda thablau sydd wedi cysylltu wedi'u "
-"hanalluogi. Pwyswch %syma%s i ddarganfod pam."
+"Cafodd storfa ffurfwedd phpMyAdmin ei dadweithredu. Pwyswch %syma%s i "
+"ddarganfod pam."
 
 #: db_operations.php:600
 #, fuzzy
