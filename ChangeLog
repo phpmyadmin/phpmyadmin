@@ -7,6 +7,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.3.11.0 (not yet released)
 
+3.3.10.1 (2011-05-20)
+- [security] XSS on Tracking page
+
 3.3.10.0 (2011-03-19)
 - patch #3147400 [structure] Aria table size printed as unknown,
   thanks to erickoh75 - erickoh75
