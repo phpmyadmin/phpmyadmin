@@ -14,6 +14,7 @@
 - bug #3285929 [privileges] Revert temporary fix
 - bug #3302872 [synchronize] Synchronize and user name
 - bug #3302733 [core] Some browsers report an insecure https connection
+- [security] Make redirector require valid token
 
 3.4.0.0 (2011-05-11)
 + rfe #2890226 [view] Enable VIEW rename 
@@ -171,6 +172,9 @@
 - bug #3285929 [privileges] Don't fail silently on missing priviledge to execute REVOKE ALL PRIVILEGES
 
 3.3.11.0 (not yet released)
+
+3.3.10.1 (2011-05-20)
+- [security] XSS on Tracking page
 
 3.3.10.0 (2011-03-19)
 - patch #3147400 [structure] Aria table size printed as unknown,
