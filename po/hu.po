@@ -6552,7 +6552,7 @@ msgstr "Keresés az adatbázisban"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1362
 msgid "Current server"
-msgstr ""
+msgstr "Jelenlegi szerver"
 
 #: libraries/server_synchronize.lib.php:1341
 #: libraries/server_synchronize.lib.php:1364
@@ -7528,7 +7528,7 @@ msgstr "Fájlok importálása"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importálás a böngészőből"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
@@ -8135,7 +8135,7 @@ msgstr "AZ"
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Ismeretlen hiba"
 
 #: server_replication.php:56
 #, php-format
@@ -8289,7 +8289,7 @@ msgstr ""
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Következő átugrása"
 
 #: server_replication.php:346
 msgid "errors."
@@ -9150,7 +9150,7 @@ msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Nem létezik '%s' nevű adatbázis."
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
@@ -9175,31 +9175,31 @@ msgstr ""
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
-msgstr ""
+msgstr "Oszlop(ok) hozzáadása"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Oszlop(ok) eltávolítása"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Oszlop(ok) módosítása"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Index(ek) törlése"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Index(ek) alkalmazása"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Update row(s)"
-msgstr ""
+msgstr "Sor(ok) frissítése"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Sor(ok) beszúrása"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
@@ -9207,11 +9207,11 @@ msgstr ""
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Kiválasztott módosítások végrehajtása"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Adatbázisok szinkronizálása"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
@@ -9765,23 +9765,23 @@ msgstr "Becsült érték lehet. Lásd: GYIK 3.11"
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Szélesség"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Magasság"
 
 #: tbl_chart.php:98
 msgid "Title"
-msgstr ""
+msgstr "Cím"
 
 #: tbl_chart.php:103
 msgid "X Axis label"
-msgstr ""
+msgstr "X tengely címkéje"
 
 #: tbl_chart.php:107
 msgid "Y Axis label"
-msgstr ""
+msgstr "Y tengely címkéje"
 
 #: tbl_chart.php:112
 msgid "Area margins"
@@ -9850,7 +9850,7 @@ msgstr ""
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "Újrarajzolás"
 
 #: tbl_create.php:56
 #, php-format
@@ -9987,7 +9987,7 @@ msgstr "A tábla adatainak kiíratása"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Tábla kiürítése (TRUNCATE)"
 
 #: tbl_operations.php:708
 #, fuzzy
@@ -10134,11 +10134,11 @@ msgstr ""
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
-msgstr ""
+msgstr "Index hozzáadása"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "Elsődleges kulcs hozzáadása"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
