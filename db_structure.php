@@ -374,6 +374,8 @@ foreach ($tables as $keyname => $each_table) {
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
+        $row_count_pre = '';
+        $show_superscript = '';
         if ($table_is_view) {
             // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
             // schemas, where we do exact counting
@@ -386,9 +388,6 @@ foreach ($tables as $keyname => $each_table) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
-            $show_superscript = '';
-        } else {
-            $row_count_pre = '';
             $show_superscript = '';
         }
     ?>
