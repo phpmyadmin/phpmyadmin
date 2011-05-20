@@ -681,12 +681,15 @@ function PMA_array_remove($path, &$array)
  * @return string URL for a link.
  */
 function PMA_linkURL($url) {
+    $params = array();
+    $params['url'] = $url;
+    $goto = 'url.php' . PMA_generate_common_url($params);
     if (!preg_match('#^https?://#', $url)) {
         return $url;
     } elseif (defined('PMA_SETUP')) {
-        return '../url.php?url=' . $url;
+        return '../' . $goto;
     } else {
-        return './url.php?url=' . $url;
+        return './' . $goto;
     }
 }
 
