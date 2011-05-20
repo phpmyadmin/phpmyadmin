@@ -44,6 +44,7 @@ $cfg_db['LeftFrameDBSeparator'] = 'short_string';
 $cfg_db['LeftFrameTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(true => __('Yes'), false => __('No'), 'both' => __('Both'));
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
+$cfg_db['RowActionLinks'] = array('none' => __('Nowhere'), 'left' => __('Left'), 'right' => __('Right'), 'both' => __('Both'));
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');

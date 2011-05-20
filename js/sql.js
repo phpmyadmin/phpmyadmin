@@ -66,7 +66,7 @@ function appendInlineAnchor() {
 
     if (disp_mode == 'vertical') {
         // there can be one or two tr containing this class, depending
-        // on the ModifyDeleteAtLeft and ModifyDeleteAtRight cfg parameters
+        // on the RowActionLinks cfg parameter
         $('#table_results tr')
             .find('.edit_row_anchor')
             .removeClass('edit_row_anchor')
