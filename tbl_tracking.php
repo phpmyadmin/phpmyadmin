@@ -632,7 +632,7 @@ if ($last_version > 0) {
         <div id="div_deactivate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf(__('Deactivate tracking for %s.%s'), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf(__('Deactivate tracking for %s.%s'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_deactivate_now" value="<?php echo __('Deactivate now'); ?>" />
         </fieldset>
@@ -645,7 +645,7 @@ if ($last_version > 0) {
         <div id="div_activate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf(__('Activate tracking for %s.%s'), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf(__('Activate tracking for %s.%s'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_activate_now" value="<?php echo __('Activate now'); ?>" />
         </fieldset>
@@ -660,7 +660,7 @@ if ($last_version > 0) {
 <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
-    <legend><?php printf(__('Create version %s of %s.%s'), ($last_version + 1), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+    <legend><?php printf(__('Create version %s of %s.%s'), ($last_version + 1), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
 
     <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
