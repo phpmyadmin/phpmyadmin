@@ -91,7 +91,7 @@ while($process = PMA_DBI_fetch_assoc($result)) {
 <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
     <td class="value"><?php echo $process['Id']; ?></td>
-    <td><?php echo $process['User']; ?></td>
+    <td><?php echo PMA_DRIZZLE ? $process['Username'] : $process['User']; ?></td>
     <td><?php echo $process['Host']; ?></td>
     <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
     <td><?php echo $process['Command']; ?></td>
