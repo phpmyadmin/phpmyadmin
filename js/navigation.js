@@ -179,4 +179,68 @@ $(document).ready(function(){
     $('#clear_fast_filter').click(clear_fast_filter);
     $('#fast_filter').focus(function (evt) {evt.target.select();});
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
-});
+
+    /* Create table */
+    $('#newtable').click(function(event){
+    	event.preventDefault();
+    	cls = $('#newtable a').attr("class");
+    	if(cls == 'ajax'){
+       	url = $('#newtable a').attr("href");
+		 //$div = parent.frame_content.$('<div id="create_table_dialog"></div>');
+		    //$form = $(this);
+
+		    /* @todo Validate this form! */
+
+		    /**
+		     *  @var    button_options  Object that stores the options passed to jQueryUI
+		     *                          dialog
+		     */
+		    var button_options = {};
+		    // in the following function we need to use $(this)
+		    button_options["Cancel"] = function() {$(this).parent().dialog('close').remove();}
+
+		    var button_options_error = {};
+		    button_options_error["OK"] = function() {$(this).parent().dialog('close').remove();}
+
+		    //var $msgbox = PMA_ajaxShowMessage();
+		    //PMA_prepareForAjaxRequest($form);
+
+		    $.get( url , function(data) {
+		        //in the case of an error, show the error message returned.
+		        if (data.success != undefined && data.success == false) {
+		        	parent.frame_content.$('<div id="create_table_dialog"></div>')
+		        	//$div
+		        	.append(data.error)
+		            .dialog({
+		                title: 'Create Table',
+		                height: 230,
+		                width: 900,
+		                //open: PMA_verifyTypeOfAllColumns,
+		                buttons : button_options_error
+		            })// end dialog options
+		            //remove the redundant [Back] link in the error message.
+		            .find('fieldset').remove();
+		        } else {
+		        	parent.frame_content.$('<div id="create_table_dialog"></div>')
+		        	//$div
+		        	.append(data)
+		            .dialog({
+		                title: 'Create Table',
+		                height: 600,
+		                width: 900,
+		                //open: PMA_verifyTypeOfAllColumns,
+		                buttons : button_options
+		               // buttons : {"Close" : function() {$(this).dialog('close');}}
+		            }); // end dialog options
+		        }            
+		        //PMA_ajaxRemoveMessage($msgbox);
+		    }) // end $.get()
+		    //$div.remove();
+		    // empty table name and number of columns from the minimal form
+		   // $form.find('input[name=table],input[name=num_fields]').val('');
+    	//event.preventDefault();
+    	}else{}	
+    });//end of create new form
+    
+     
+});//end of document get ready
