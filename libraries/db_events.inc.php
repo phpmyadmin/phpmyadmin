@@ -69,10 +69,30 @@ if (! $events) {
 echo '</fieldset>' . "\n";
 
 /**
+ * Display the state of the event scheduler
+ * and offer an option to toggle it.
+ */
+if (! empty($_GET['toggle_scheduler'])) {
+    $new_scheduler_state = $_GET['toggle_scheduler'];
+    if ($new_scheduler_state === 'ON' || $new_scheduler_state === 'OFF') {
+        PMA_DBI_query("SET GLOBAL event_scheduler='$new_scheduler_state'");
+    }
+}
+$es_state = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1);
+if ($es_state === 'ON' || $es_state === 'OFF') {
+    $es_change = ($es_state == 'ON') ? 'OFF' : 'ON';
+    echo '<fieldset>' . "\n" . PMA_getIcon('b_events.png') . __('The event scheduler is ') . $es_state . ':'
+       . '    <a href="db_events.php?' . $GLOBALS['url_query'] . '&amp;toggle_scheduler=' . $es_change . '">'
+       . __('Turn') . " $es_change\n"
+       .  '</a>' . "\n"
+       . '</fieldset>' . "\n";
+}
+
+/**
  * Display the form for adding a new event
  */
 echo '<fieldset>' . "\n"
-   . '    <a href="db_events.php?' . $GLOBALS['url_query'] . '&amp;addevent=1" class="' . $conditional_class_add . '">' . "\n"
+   . '    <a href="db_events.php?' . $GLOBALS['url_query'] . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
    . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
