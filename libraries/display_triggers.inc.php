@@ -12,6 +12,15 @@ $url_query .= '&amp;goto=tbl_triggers.php';
 
 $triggers = PMA_DBI_get_triggers($db, $table);
 
+$conditional_class_add    = '';
+$conditional_class_drop   = '';
+$conditional_class_export = '';
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class_add    = 'class="add_trigger_anchor"';
+    $conditional_class_drop   = 'class="drop_trigger_anchor"';
+    $conditional_class_export = 'class="export_trigger_anchor"';
+}
+
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Triggers') . '</legend>' . "\n";
 if (! $triggers) {
@@ -36,14 +45,6 @@ if (! $triggers) {
 
     $ct=0;
     $delimiter = '//';
-    $conditional_class_add    = '';
-    $conditional_class_drop   = '';
-    $conditional_class_export = '';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $conditional_class_add    = 'class="add_trigger_anchor"';
-        $conditional_class_drop   = 'class="drop_trigger_anchor"';
-        $conditional_class_export = 'class="export_trigger_anchor"';
-    }
     // Print table contents
     foreach ($triggers as $trigger) {
         $drop_and_create = $trigger['drop'] . $delimiter . "\n" . $trigger['create'] . "\n";

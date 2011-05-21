@@ -10,6 +10,7 @@ $GLOBALS['js_include'][] = 'db_events.js';
 
 require_once './libraries/common.lib.php';
 require_once './libraries/db_common.inc.php';
+require_once './libraries/db_info.inc.php';
 
 /**
  * Create labels for the list

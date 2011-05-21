@@ -22,6 +22,15 @@ if (! defined('PHPMYADMIN')) {
 
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
+$conditional_class_add    = '';
+$conditional_class_drop   = '';
+$conditional_class_export = '';
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class_add    = 'class="add_routine_anchor"';
+    $conditional_class_drop   = 'class="drop_procedure_anchor"';
+    $conditional_class_export = 'class="export_procedure_anchor"';
+}
+
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Routines') . '</legend>' . "\n";
 
@@ -44,14 +53,6 @@ if (! $routines) {
           __('Return type'));
     $ct=0;
     $delimiter = '//';
-    $conditional_class_add    = '';
-    $conditional_class_drop   = '';
-    $conditional_class_export = '';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $conditional_class_add    = 'class="add_routine_anchor"';
-        $conditional_class_drop   = 'class="drop_procedure_anchor"';
-        $conditional_class_export = 'class="export_procedure_anchor"';
-    }
     foreach ($routines as $routine) {
 
         // information_schema (at least in MySQL 5.0.45)

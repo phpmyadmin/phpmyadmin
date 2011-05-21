@@ -10,6 +10,15 @@ if (! defined('PHPMYADMIN')) {
 
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
+$conditional_class_add    = '';
+$conditional_class_drop   = '';
+$conditional_class_export = '';
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class_add    = 'class="add_event_anchor"';
+    $conditional_class_drop   = 'class="drop_event_anchor"';
+    $conditional_class_export = 'class="export_event_anchor"';
+}
+
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Events') . '</legend>' . "\n";
 if (! $events) {
@@ -28,14 +37,6 @@ if (! $events) {
           __('Type'));
     $ct=0;
     $delimiter = '//';
-    $conditional_class_add    = '';
-    $conditional_class_drop   = '';
-    $conditional_class_export = '';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $conditional_class_add    = 'class="add_event_anchor"';
-        $conditional_class_drop   = 'class="drop_event_anchor"';
-        $conditional_class_export = 'class="export_event_anchor"';
-    }
     foreach ($events as $event) {
 
         // information_schema (at least in MySQL 5.1.22) does not return
