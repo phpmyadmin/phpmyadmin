@@ -40,6 +40,13 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 require_once './libraries/header.inc.php';
 
 /**
+ * Ensure that $db_is_information_schema is not null
+ */
+if (! isset($db_is_information_schema)) {
+    $db_is_information_schema = false;
+}
+
+/**
  * Displays links
  */
 $tabs = array();
@@ -61,7 +68,7 @@ $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = __('Search');
 $tabs['search']['link'] = 'tbl_select.php';
 
-if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (!$db_is_information_schema) {
     $tabs['insert']['icon'] = 'b_insrow.png';
     $tabs['insert']['link'] = 'tbl_change.php';
     $tabs['insert']['text'] = __('Insert');
@@ -76,7 +83,7 @@ $tabs['export']['text'] = __('Export');
  * Don't display "Import" and "Operations"
  * for views and information_schema
  */
-if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (! $tbl_is_view && !$db_is_information_schema) {
     $tabs['import']['icon'] = 'b_tblimport.png';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = __('Import');
@@ -90,13 +97,16 @@ if(PMA_Tracker::isActive()) {
     $tabs['tracking']['text'] = __('Tracking');
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
-if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (! $db_is_information_schema && PMA_MYSQL_INT_VERSION >= 50002) {
+    $tabs['triggers']['link'] = 'tbl_triggers.php';
+    $tabs['triggers']['text'] = __('Triggers');
+    $tabs['triggers']['icon'] = 'b_triggers.png';
 }
 
 /**
  * Views support a limited number of operations
  */
-if ($tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if ($tbl_is_view && !$db_is_information_schema) {
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'view_operations.php';
     $tabs['operation']['text'] = __('Operations');
