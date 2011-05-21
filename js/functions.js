@@ -1602,46 +1602,6 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-
-    $(".drop_trigger_anchor").live('click', function(event) {
-        event.preventDefault();
-
-        $anchor = $(this);
-        /**
-         * @var curr_row    Object reference to the current trigger's <tr>
-         */
-        var $curr_row = $anchor.parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = 'DROP TRIGGER IF EXISTS `' + $curr_row.children('td:first').text() + '`';
-
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("#topmenucontainer")
-                    .next('div')
-                    .remove()
-                    .end()
-                    .after(data.sql_query);
-                    $curr_row.hide("medium").remove();
-                }
-                else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }) // end $().live()
-}, 'top.frame_content'); //end $(document).ready() for Drop Trigger
-
-/**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *
