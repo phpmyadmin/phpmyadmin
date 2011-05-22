@@ -4042,7 +4042,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:439
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Povoliť zobraziť všetky riadky"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
