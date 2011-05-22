@@ -4262,7 +4262,7 @@ msgstr "Adresár pre nahrávanie"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "Povoliť prehľadávať celú databázu"
 
 #: libraries/config/messages.inc.php:493
 msgid "Use database search"
