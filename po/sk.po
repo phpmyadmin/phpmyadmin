@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:18+0200\n"
+"PO-Revision-Date: 2011-05-22 20:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4238,7 +4238,7 @@ msgstr "Popis okna prehliadača keď je vybraný server"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Popis okna prehliadača keď je vybraná tabuľka"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
