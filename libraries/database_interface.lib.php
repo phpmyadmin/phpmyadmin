@@ -286,6 +286,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             }
 
             // data_dictionary.table_cache may not contain any data for some tables, it's just a table cache
+            // auto_increment == 0 is cast to NULL because currently (2011.03.13 GA) Drizzle doesn't provide correct value
             $sql = "
                 SELECT t.*,
                     t.TABLE_SCHEMA        AS `Db`,
@@ -304,14 +305,15 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
                     NULL                  AS `Index_length`, -- INDEX_LENGTH
                     NULL                  AS `Data_free`, -- DATA_FREE
-                    t.AUTO_INCREMENT      AS `Auto_increment`,
+                    nullif(t.AUTO_INCREMENT, 0)
+                                          AS `Auto_increment`,
                     t.TABLE_CREATION_TIME AS `Create_time`, -- CREATE_TIME
                     t.TABLE_UPDATE_TIME   AS `Update_time`, -- UPDATE_TIME
                     NULL                  AS `Check_time`, -- CHECK_TIME
                     t.TABLE_COLLATION     AS `Collation`,
                     NULL                  AS `Checksum`, -- CHECKSUM
                     NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                    coalesce(t.TABLE_COMMENT, 'x') AS `Comment`
+                    coalesce(t.TABLE_COMMENT, '') AS `Comment`
                 FROM data_dictionary.TABLES t
                     LEFT JOIN data_dictionary.TABLE_CACHE tc ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME = t.TABLE_NAME
                     $stats_join
