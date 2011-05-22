@@ -6375,7 +6375,7 @@ msgstr "Cieľová databáza"
 #: libraries/sql_query_form.lib.php:224
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Spustiť SQL príkaz(y) na servri %s"
+msgstr "Spustiť SQL príkaz(y) na serveri %s"
 
 #: libraries/sql_query_form.lib.php:241 libraries/sql_query_form.lib.php:265
 #, php-format
