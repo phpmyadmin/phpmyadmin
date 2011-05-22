@@ -7184,7 +7184,7 @@ msgstr ""
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Nemáte žiadne uložené nastavenia!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
