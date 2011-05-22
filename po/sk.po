@@ -4107,9 +4107,8 @@ msgstr ""
 "Povoliť zobrazenie štatistík o databázach a tabuľkách (napr. využité miesto)"
 
 #: libraries/config/messages.inc.php:453
-#, fuzzy
 msgid "Show statistics"
-msgstr "Štatistika riadku"
+msgstr "Zobraziť štatistiky"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
