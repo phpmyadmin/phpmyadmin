@@ -4258,7 +4258,7 @@ msgstr "Adresár na serveri, kde môžete nahrať súbor pre import"
 
 #: libraries/config/messages.inc.php:491
 msgid "Upload directory"
-msgstr ""
+msgstr "Adresár pre nahrávanie"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow for searching inside the entire database"
