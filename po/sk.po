@@ -4130,7 +4130,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:457
 msgid "Display table comment instead of its name"
-msgstr ""
+msgstr "Zobraziť komentár k tabuľke namiesto mena"
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comments in tooltips"
