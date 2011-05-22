@@ -4495,7 +4495,7 @@ msgstr "(alebo soket lokálneho MySQL servra nie je správne nastavený)"
 
 #: libraries/dbi/mysql.dbi.lib.php:370 tbl_structure.php:703
 msgid "Details..."
-msgstr ""
+msgstr "Podrobnosti..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:119 user_password.php:137
