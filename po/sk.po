@@ -4075,7 +4075,7 @@ msgstr "Zobraziť zoznam funkcií v móde úprav"
 
 #: libraries/config/messages.inc.php:446
 msgid "Show function fields"
-msgstr ""
+msgstr "Zobraziť zoznam funkcií"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
