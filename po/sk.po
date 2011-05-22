@@ -4234,7 +4234,7 @@ msgstr "Východzí popis"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Popis okna prehliadača keď je vybraný server"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
