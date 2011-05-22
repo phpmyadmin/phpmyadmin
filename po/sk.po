@@ -4032,7 +4032,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:437
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Dlhé meno tohto servera"
 
 #: libraries/config/messages.inc.php:438
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
