@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 08:39+0200\n"
+"PO-Revision-Date: 2011-05-22 08:40+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -6789,7 +6789,7 @@ msgstr "Overenie MySQL spojenia"
 
 #: main.php:119
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Nastavenia vzhľadu"
 
 #: main.php:146 prefs_manage.php:274
 msgid "More settings"
