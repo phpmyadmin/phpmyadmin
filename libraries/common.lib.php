@@ -1390,12 +1390,15 @@ function PMA_profilingResults($profiling_results, $show_chart = false)
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
+    if ($value === null) {
+        return null;
+    }
+
     /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
     $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
 
     $dh           = PMA_pow(10, $comma);
     $li           = PMA_pow(10, $limes);
-    $return_value = $value;
     $unit         = $byteUnits[0];
 
     for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
