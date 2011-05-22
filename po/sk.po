@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:25+0200\n"
+"PO-Revision-Date: 2011-05-22 20:26+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4390,9 +4390,8 @@ msgid "Open Document Text"
 msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
-#, fuzzy
 msgid "Could not connect to MySQL server"
-msgstr "Nepodarilo sa pripojiť k zdroju"
+msgstr "Nepodarilo sa pripojiť k MySQL serveru"
 
 #: libraries/config/validate.lib.php:234
 msgid "Empty username while using config authentication method"
