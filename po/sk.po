@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:07+0200\n"
+"PO-Revision-Date: 2011-05-22 20:09+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4104,6 +4104,7 @@ msgstr "Zobraziť SQL dopyty"
 #: libraries/config/messages.inc.php:452
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
+"Povoliť zobrazenie štatistík o databázach a tabuľkách (napr. využité miesto)"
 
 #: libraries/config/messages.inc.php:453
 #, fuzzy
