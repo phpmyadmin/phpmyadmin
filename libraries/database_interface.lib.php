@@ -295,9 +295,11 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     t.ENGINE              AS `Type`,
                     t.TABLE_VERSION       AS `Version`,-- VERSION
                     t.ROW_FORMAT          AS `Row_format`,
-                    stat.NUM_ROWS         AS `Rows`,-- TABLE_ROWS,
-                    stat.NUM_ROWS         AS `TABLE_ROWS`,
-                    NULL                  AS `Avg_row_length`, -- AVG_ROW_LENGTH
+                    coalesce(tc.ROWS, stat.NUM_ROWS)
+                                          AS `Rows`,-- TABLE_ROWS,
+                    coalesce(tc.ROWS, stat.NUM_ROWS)
+                                          AS `TABLE_ROWS`,
+                    tc.AVG_ROW_LENGTH     AS `Avg_row_length`, -- AVG_ROW_LENGTH
                     tc.TABLE_SIZE         AS `Data_length`, -- DATA_LENGTH
                     NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
                     NULL                  AS `Index_length`, -- INDEX_LENGTH
