@@ -4169,7 +4169,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Povoliť kontrolovanie SQL"
 
 #: libraries/config/messages.inc.php:470
 msgid ""
