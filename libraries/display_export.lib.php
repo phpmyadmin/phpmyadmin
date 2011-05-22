@@ -296,7 +296,9 @@ if(isset($_GET['sql_query'])) {
                 ?>
                  <?php
                 if(isset($_GET['compression'])) {
-                     $selected_compression = $_GET['compression'];
+                    $selected_compression = $_GET['compression'];
+                } elseif (isset($cfg['Export']['compression'])) {
+                    $selected_compression = $cfg['Export']['compression'];
                 } else {
                     $selected_compression = "none";
                 }
