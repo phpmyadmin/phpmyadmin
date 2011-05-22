@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:26+0200\n"
+"PO-Revision-Date: 2011-05-22 20:27+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4416,7 +4416,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:367
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Nesprávna IP adresa: %s"
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:264
