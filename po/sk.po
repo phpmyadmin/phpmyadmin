@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 08:42+0200\n"
+"PO-Revision-Date: 2011-05-22 08:44+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -6838,9 +6838,8 @@ msgid "Contribute"
 msgstr "Prispejte"
 
 #: main.php:218
-#, fuzzy
 msgid "Get support"
-msgstr "Exportovať"
+msgstr "Získať podporu"
 
 #: main.php:219
 msgid "List of changes"
