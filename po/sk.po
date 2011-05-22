@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:24+0200\n"
+"PO-Revision-Date: 2011-05-22 20:25+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4341,7 +4341,7 @@ msgstr "CSV pomocou LOAD DATA"
 #: libraries/config/user_preferences.forms.php:245 libraries/export/xls.php:17
 #: libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS pracovný zošit"
 
 #: libraries/config/setup.forms.php:252 libraries/config/setup.forms.php:347
 #: libraries/config/user_preferences.forms.php:155
