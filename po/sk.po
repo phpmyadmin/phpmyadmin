@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-22 20:03+0200\n"
+"PO-Revision-Date: 2011-05-22 20:04+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4053,7 +4053,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:441
 msgid "Show password change form"
-msgstr ""
+msgstr "Zobraziť formulár na zmenu hesla"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show create database form"
