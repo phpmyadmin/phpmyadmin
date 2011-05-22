@@ -4057,7 +4057,7 @@ msgstr "Zobraziť formulár na zmenu hesla"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show create database form"
-msgstr ""
+msgstr "Zobraziť formulár na vytvorenie databázy"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
