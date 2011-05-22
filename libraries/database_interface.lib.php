@@ -257,13 +257,13 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         // get table information from information_schema
         if ($table) {
             if (true === $tbl_is_group) {
-                $sql_where_table = 'AND `TABLE_NAME` LIKE \''
+                $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                   . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } elseif ('comment' === $tbl_is_group) {
-                $sql_where_table = 'AND `TABLE_COMMENT` LIKE \''
+                $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
                   . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } else {
-                $sql_where_table = 'AND `TABLE_NAME` = \'' . addslashes($table) . '\'';
+                $sql_where_table = 'AND t.`TABLE_NAME` = \'' . addslashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -341,7 +341,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     `CHECKSUM`           AS `Checksum`,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
-                FROM `information_schema`.`TABLES`
+                FROM `information_schema`.`TABLES` t
                 WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
                     ' . $sql_where_table;
         }
