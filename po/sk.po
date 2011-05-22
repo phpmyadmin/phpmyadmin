@@ -4448,7 +4448,7 @@ msgstr "Databáza vyzerá prázdna!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:143
 #: libraries/tbl_links.inc.php:90
 msgid "Tracking"
-msgstr ""
+msgstr "Sledovanie"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
