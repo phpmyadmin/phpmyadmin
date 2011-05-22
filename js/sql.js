@@ -263,10 +263,15 @@ $(document).ready(function() {
      */
     $("#sqlqueryform.ajax").live('submit', function(event) {
         event.preventDefault();
+
+        $form = $(this);
+        if (! checkSqlQuery($form[0])) {
+            return false;
+        }
+
         // remove any div containing a previous error message
         $('.error').remove();
 
-        $form = $(this);
         var $msgbox = PMA_ajaxShowMessage();
 
         PMA_prepareForAjaxRequest($form);
