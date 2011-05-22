@@ -285,6 +285,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat ON (t.ENGINE = 'InnoDB' AND stat.NAME = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
             }
 
+            // data_dictionary.table_cache may not contain any data for some tables, it's just a table cache
             $sql = "
                 SELECT t.*,
                     t.TABLE_SCHEMA        AS `Db`,
@@ -297,7 +298,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     stat.NUM_ROWS         AS `Rows`,-- TABLE_ROWS,
                     stat.NUM_ROWS         AS `TABLE_ROWS`,
                     NULL                  AS `Avg_row_length`, -- AVG_ROW_LENGTH
-                    NULL                  AS `Data_length`, -- DATA_LENGTH
+                    tc.TABLE_SIZE         AS `Data_length`, -- DATA_LENGTH
                     NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
                     NULL                  AS `Index_length`, -- INDEX_LENGTH
                     NULL                  AS `Data_free`, -- DATA_FREE
@@ -308,8 +309,9 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     t.TABLE_COLLATION     AS `Collation`,
                     NULL                  AS `Checksum`, -- CHECKSUM
                     NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                    t.TABLE_COMMENT       AS `Comment`
+                    coalesce(t.TABLE_COMMENT, 'x') AS `Comment`
                 FROM data_dictionary.TABLES t
+                    LEFT JOIN data_dictionary.TABLE_CACHE tc ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME = t.TABLE_NAME
                     $stats_join
                 WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
                     " . $sql_where_table;
