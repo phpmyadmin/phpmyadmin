@@ -4295,7 +4295,7 @@ msgstr "Skontrolovať najnovšiu verziu"
 
 #: libraries/config/messages.inc.php:499
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Povoliť kontrolu poslednej verzie na hlavnej stránke phpMyAdmina"
 
 #: libraries/config/messages.inc.php:500 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
