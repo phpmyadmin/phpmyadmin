@@ -4226,7 +4226,7 @@ msgstr "Popis okna prehliadača pri výbere databázy"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Popis okna prehliadača keď nie je nič vybrané"
 
 #: libraries/config/messages.inc.php:483
 msgid "Default title"
