@@ -163,10 +163,12 @@ foreach ($tables as $keyname => $each_table) {
             }
             break;
         case 'InnoDB' :
-            // InnoDB table: Row count is not accurate but data and index
-            // sizes are.
+        case 'PBMS' :
+            // InnoDB table: Row count is not accurate but data and index sizes are.
+            // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
 
-            if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
+            if (($each_table['ENGINE'] == 'InnoDB' && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+                    || !isset($each_table['TABLE_ROWS'])) {
                 $each_table['COUNTED'] = true;
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
                     $each_table['TABLE_NAME'], $force_exact = true,
