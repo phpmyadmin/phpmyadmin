@@ -834,7 +834,7 @@ msgstr "選擇的匯出模式必須被存入檔案!"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "空間不足儲存檔案 %s."
+msgstr "空間不足以儲存檔案 %s."
 
 #: export.php:307
 #, php-format
