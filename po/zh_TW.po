@@ -800,7 +800,7 @@ msgstr "未追蹤的資料表"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:622
 #: tbl_structure.php:624
 msgid "Track table"
-msgstr "檢查資料表"
+msgstr "追蹤資料表"
 
 #: db_tracking.php:229
 msgid "Database Log"
