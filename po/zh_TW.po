@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:28+0200\n"
+"PO-Revision-Date: 2011-05-23 19:29+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -708,7 +708,7 @@ msgstr "分析資料表"
 
 #: db_structure.php:521
 msgid "Add prefix to table"
-msgstr "於資料表增加前置字串"
+msgstr "增加檔案於資料表"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #| msgid "Replace table data with file"
