@@ -1121,7 +1121,7 @@ msgstr "刪除"
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "注意: 若檔案包含多個資料表, 它們會被結合成一個資料表."
 
 #: js/messages.php:93
 msgid "Hide query box"
