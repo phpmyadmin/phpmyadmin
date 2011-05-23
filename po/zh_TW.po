@@ -787,7 +787,7 @@ msgstr "版本"
 
 #: db_tracking.php:135 tbl_tracking.php:409 tbl_tracking.php:676
 msgid "Tracking report"
-msgstr "追蹤報表"
+msgstr "追蹤報告"
 
 #: db_tracking.php:136 tbl_tracking.php:244 tbl_tracking.php:676
 msgid "Structure snapshot"
