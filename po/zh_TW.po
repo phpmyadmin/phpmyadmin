@@ -1101,9 +1101,8 @@ msgid "Searching"
 msgstr "搜索"
 
 #: js/messages.php:84
-#, fuzzy
 msgid "Hide search results"
-msgstr "SQL 語法"
+msgstr "隱藏搜尋結果"
 
 #: js/messages.php:85
 #, fuzzy
