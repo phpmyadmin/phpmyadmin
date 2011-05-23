@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:34+0200\n"
+"PO-Revision-Date: 2011-05-23 19:35+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -817,7 +817,7 @@ msgstr "給每一欄位輸入數值"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+重啟插入並加入新值"
+msgstr "+重新執行插入並增加新值"
 
 #: enum_editor.php:67
 msgid "Output"
