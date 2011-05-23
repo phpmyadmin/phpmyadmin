@@ -707,6 +707,7 @@ msgid "Analyze table"
 msgstr "分析資料表"
 
 #: db_structure.php:521
+#, fuzzy
 msgid "Add prefix to table"
 msgstr "增加檔案於資料表"
 
