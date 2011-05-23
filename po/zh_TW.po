@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-14 10:37+0200\n"
-"Last-Translator:  <thsiao@yahoo.com>\n"
+"PO-Revision-Date: 2011-05-23 17:37+0200\n"
+"Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -338,14 +338,14 @@ msgid "Collation"
 msgstr "校對"
 
 #: db_operations.php:565
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
+msgstr "phpMyAdmin 設定儲存功能未能啟動, %s請按此%s 查出問題原因."
 
 #: db_operations.php:600
 msgid "Edit or export relational schema"
