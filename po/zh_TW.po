@@ -937,7 +937,7 @@ msgstr "phpMyAdmin 較適合使用在支援<b>頁框</b>的瀏覽器."
 #: server_synchronize.php:738 server_synchronize.php:766
 #: server_synchronize.php:794 server_synchronize.php:806
 msgid "Click to select"
-msgstr "按選"
+msgstr "點選"
 
 #: js/messages.php:26
 msgid "Click to unselect"
