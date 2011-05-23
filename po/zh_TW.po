@@ -553,7 +553,7 @@ msgid "Delete"
 msgstr "刪除"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
