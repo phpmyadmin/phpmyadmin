@@ -1,7 +1,7 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.1-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-16 10:31+0200\n"
 "PO-Revision-Date: 2011-04-05 11:15+0200\n"
