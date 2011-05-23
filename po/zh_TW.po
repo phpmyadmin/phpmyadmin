@@ -779,7 +779,7 @@ msgstr "啟用"
 
 #: db_tracking.php:121 tbl_tracking.php:601 tbl_tracking.php:659
 msgid "not active"
-msgstr "未啟用"
+msgstr "停用"
 
 #: db_tracking.php:134
 msgid "Versions"
