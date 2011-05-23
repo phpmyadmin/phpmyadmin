@@ -1244,7 +1244,6 @@ msgstr "不適用"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:149
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "前一頁"
