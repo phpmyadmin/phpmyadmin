@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:38+0200\n"
+"PO-Revision-Date: 2011-05-23 19:39+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -850,7 +850,7 @@ msgstr "權限不足以在 Web 伺服器儲存檔案 %s."
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "備份已儲到檔案 %s."
+msgstr "備份已儲存至檔案 %s."
 
 #: import.php:58
 #, php-format
