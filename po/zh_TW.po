@@ -708,7 +708,7 @@ msgstr "分析資料表"
 
 #: db_structure.php:521
 msgid "Add prefix to table"
-msgstr ""
+msgstr "於資料表增加前置字串"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #, fuzzy
