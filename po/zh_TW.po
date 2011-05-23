@@ -580,10 +580,9 @@ msgid "Inside table(s):"
 msgstr "於以下資料表:"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "於以下資料表:"
+msgstr "於以下欄位:"
 
 #: db_structure.php:59
 #, fuzzy
