@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:39+0200\n"
+"PO-Revision-Date: 2011-05-23 19:40+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -857,7 +857,7 @@ msgstr "備份已儲存至檔案 %s."
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
-msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
+msgstr "您上傳的檔案過大, 請查看此 %s 文件 %s 了解如何解決此限制."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
