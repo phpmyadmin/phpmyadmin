@@ -956,10 +956,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "您將會刪除整個資料庫!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "您將會刪除整個資料庫!"
+msgstr "您將會刪除整個資料表!"
 
 #: js/messages.php:33
 #, fuzzy
