@@ -840,7 +840,7 @@ msgstr "空間不足以儲存檔案 %s."
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr "檔案 %s 已存在,請更改檔案名稱或選擇「覆寫己存在檔案」選項."
+msgstr "檔案 %s 已存在, 請更改檔案名稱或選擇「覆寫己存在檔案」選項."
 
 #: export.php:311 export.php:315
 #, php-format
