@@ -961,10 +961,9 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "您將會刪除整個資料表!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "您將會刪除整個資料庫!"
+msgstr "您將會清空整個資料表!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
