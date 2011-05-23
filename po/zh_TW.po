@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:37+0200\n"
+"PO-Revision-Date: 2011-05-23 19:38+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -845,7 +845,7 @@ msgstr "檔案 %s 已存在, 請更改檔案名稱或選擇「覆寫己存在檔
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Web 伺服器沒有權限儲存檔案 %s."
+msgstr "權限不足以在 Web 伺服器儲存檔案 %s."
 
 #: export.php:673
 #, php-format
