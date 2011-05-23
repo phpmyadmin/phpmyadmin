@@ -921,7 +921,7 @@ msgstr "在最後一次執行時, 解析失敗. 請增加 PHP 運行時間限制
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "您的SQL語法已順利執行"
+msgstr "您的 SQL 語法已順利執行"
 
 #: import_status.php:30 libraries/common.lib.php:682
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
