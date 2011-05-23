@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 19:42+0200\n"
+"PO-Revision-Date: 2011-05-23 19:43+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -888,7 +888,7 @@ msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
-msgstr "書籤已經刪除."
+msgstr "書籤已被刪除."
 
 #: import.php:400
 msgid "Showing bookmark"
