@@ -527,7 +527,6 @@ msgstr "搜索 \"<i>%s</i>\" 的結果 %s:"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s 項資料符合 - 於資料表 <i>%s</i>"
-msgstr[1] "%s 項資料符合 - 於資料表 <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2830
 #: libraries/common.lib.php:3012 libraries/common.lib.php:3013
