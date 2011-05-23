@@ -712,9 +712,10 @@ msgid "Add prefix to table"
 msgstr "增加檔案於資料表"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
+#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "變更資料表的前置字串"
+msgstr "以檔案置換資料表"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
