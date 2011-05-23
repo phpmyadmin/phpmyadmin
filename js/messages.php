@@ -92,6 +92,8 @@ $js_messages['strHide'] = __('Hide');
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
+$js_messages['strTableSearch'] = __('Table Search');
+$js_messages['strZoomSearch'] = __('Zoom Search');
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');

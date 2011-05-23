@@ -55,7 +55,6 @@ require_once './libraries/db_structure.lib.php';
 $titles = PMA_buildActionTitles();
 
 // 1. No tables
-echo "Testing";
 
 if ($num_tables == 0) {
 	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
