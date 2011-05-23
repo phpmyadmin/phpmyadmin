@@ -477,8 +477,6 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         'media_type', 'custom_type', 'bs_reference',
         /* for changing BLOB repository file MIME type */
         'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type',
-        /* URL redirector */
-        'url'
     );
     /**
      * Require cleanup functions
@@ -541,7 +539,7 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
  * @global array $js_include
  */
 $GLOBALS['js_include'] = array();
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.4.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-1.6.1.js';
 $GLOBALS['js_include'][] = 'update-location.js';
 
 /**

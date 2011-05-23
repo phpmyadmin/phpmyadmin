@@ -105,7 +105,7 @@ if (0 == $tbl_result_cnt) {
 
 // The tables list gets from MySQL
 while (list($tbl) = PMA_DBI_fetch_row($tbl_result)) {
-    $fld_results = PMA_DBI_get_fields($db, $tbl);
+    $fld_results = PMA_DBI_get_columns($db, $tbl, true);
 
     if (empty($tbl_names[$tbl]) && !empty($_REQUEST['TableList'])) {
         $tbl_names[$tbl] = '';

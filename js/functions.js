@@ -90,19 +90,23 @@ function parseVersionString (str) {
  * Indicates current available version on main page.
  */
 function PMA_current_version() {
-    var current = parseVersionString('3.4.0'/*pmaversion*/);
+    var current = parseVersionString(pmaversion);
     var latest = parseVersionString(PMA_latest_version);
-    $('#li_pma_version').append(PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version);
+    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version;
     if (latest > current) {
         var message = $.sprintf(PMA_messages['strNewerVersion'], PMA_latest_version, PMA_latest_date);
         if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
             /* Security update */
-            klass = 'warning';
+            klass = 'error';
         } else {
             klass = 'notice';
         }
         $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
     }
+    if (latest == current) {
+        version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
+    }
+    $('#li_pma_version').append(version_information_message);
 }
 
 /**
@@ -606,7 +610,7 @@ $(document).ready(function() {
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         // do not trigger when clicked on anchor
-        if ($(e.target).is('a, a *')) {
+        if ($(e.target).is('a, img, a *')) {
             return;
         }
         // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
@@ -743,21 +747,19 @@ function insertQuery(queryType) {
             valDis += "[value-" + NbSelect + "]";
             editDis += myListBox.options[i].value + "=[value-" + NbSelect + "]";
         }
-    if (queryType == "selectall") {
-        query = "SELECT * FROM `" + table + "` WHERE 1";
-    } else if (queryType == "select") {
-        query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
-    } else if (queryType == "insert") {
-           query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
-    } else if (queryType == "update") {
-        query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
-    } else if(queryType == "delete") {
-        query = "DELETE FROM `" + table + "` WHERE 1";
-    } else if(queryType == "clear") {
-        query = '';
-    }
-    document.sqlform.sql_query.value = query;
-    sql_box_locked = false;
+        if (queryType == "selectall") {
+            query = "SELECT * FROM `" + table + "` WHERE 1";
+        } else if (queryType == "select") {
+            query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
+        } else if (queryType == "insert") {
+               query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
+        } else if (queryType == "update") {
+            query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
+        } else if(queryType == "delete") {
+            query = "DELETE FROM `" + table + "` WHERE 1";
+        }
+        document.sqlform.sql_query.value = query;
+        sql_box_locked = false;
     }
 }
 
@@ -1145,7 +1147,11 @@ $(document).ready(function(){
     });
 
     $('.sqlbutton').click(function(evt){
-        insertQuery(evt.target.id);
+        if (evt.target.id == 'clear') {
+            $('#sqlquery').val('');
+        } else {
+            insertQuery(evt.target.id);
+        }
         return false;
     });
 
@@ -1189,7 +1195,12 @@ $(document).ready(function(){
         }
     });
 
-    $('#sqlquery').focus();
+    $('#sqlquery').focus().keydown(function (e) {
+        if (e.ctrlKey && e.keyCode == 13) {
+            $("#sqlqueryform").submit();
+        }
+    });
+
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
             $('#input_username').focus();
@@ -1269,7 +1280,7 @@ function PMA_ajaxShowMessage(message, timeout) {
             .hide();
         })
     }
-	
+
 	return $("#loading");
 }
 
@@ -1442,7 +1453,7 @@ $(document).ready(function() {
                     open: PMA_verifyTypeOfAllColumns,
                     buttons : button_options
                 }); // end dialog options
-            }            
+            }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
 
@@ -1583,7 +1594,7 @@ $(document).ready(function() {
                 $("#create_table_div").html(data);
             }
             PMA_verifyTypeOfAllColumns();
-            PMA_ajaxRemoveMessage($msgbox);    
+            PMA_ajaxRemoveMessage($msgbox);
         }) //end $.post()
 
     }) // end create table form (add fields)
@@ -1733,7 +1744,7 @@ $(document).ready(function() {
             .dialog({
                 title: PMA_messages['strChangePassword'],
                 width: 600,
-                close: function(ev,ui) {$(this).remove();}, 
+                close: function(ev,ui) {$(this).remove();},
                 buttons : button_options,
                 beforeClose: function(ev,ui){ $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax')}
             })
@@ -1772,7 +1783,7 @@ $(document).ready(function() {
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
                 $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
-                PMA_ajaxRemoveMessage($msgbox); 
+                PMA_ajaxRemoveMessage($msgbox);
             }
             else {
                 PMA_ajaxShowMessage(data.error);
@@ -2278,3 +2289,64 @@ $(document).ready(function() {
 
 }) // end of $(document).ready()
 
+/**
+ * Attach Ajax event handlers for Drop Table.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $("#drop_tbl_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            }) // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end of Drop Table Ajax action
+}) // end of $(document).ready() for Drop Table
+
+/**
+ * Attach Ajax event handlers for Truncate Table.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $("#truncate_tbl_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'TRUNCATE TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            }) // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end of Drop Table Ajax action
+}) // end of $(document).ready() for Drop Table
