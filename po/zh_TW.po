@@ -767,7 +767,7 @@ msgstr "狀態"
 #: server_privileges.php:1612 server_privileges.php:1805
 #: server_privileges.php:2154 tbl_structure.php:208
 msgid "Action"
-msgstr "執行"
+msgstr "動作"
 
 #: db_tracking.php:101 js/messages.php:36
 msgid "Delete tracking data for this table"
