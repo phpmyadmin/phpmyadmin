@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-23 17:37+0200\n"
+"PO-Revision-Date: 2011-05-23 17:38+0200\n"
 "Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -400,12 +400,11 @@ msgid "Last check"
 msgstr "最後檢查"
 
 #: db_printview.php:220 db_structure.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s 資料表"
-msgstr[1] "%s 資料表"
+msgstr[0] "%s 張資料表"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
