@@ -356,11 +356,9 @@ if ($is_select) { // see line 141
     $is_maint    = true;
 }
 
-// Assign the full sql query
-$full_sql_query      = $sql_query;
-
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
+ && basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
  && ! ($is_count || $is_export || $is_func || $is_analyse)
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && count($analyzed_sql[0][table_ref]) == 1
@@ -369,20 +367,19 @@ if ($GLOBALS['cfg']['RememberSorting']
             && isset($_SESSION['tmp_user_values']['table_sorting'][$table])) {
         // retrieve the remembered sorting order for current table
         $sql_order_to_append = ' ORDER BY ' . $_SESSION['tmp_user_values']['table_sorting'][$table] . ' ';
-        $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
+        $sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
 
         // update the $analyzed_sql
         $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
         $analyzed_sql[0]['order_by_clause'] = $_SESSION['tmp_user_values']['table_sorting'][$table];
-
-        /**
-         * @TODO: pretty printing of the modified query
-         */
+        
     } else if (! empty($analyzed_sql[0]['order_by_clause'])) {
         // store the remembered table into session
         $_SESSION['tmp_user_values']['table_sorting'][$table] = $analyzed_sql[0]['order_by_clause'];
     }
 }
+
+echo '<pre>'.$sql_query.'</pre>';
 
 // Do append a "LIMIT" clause?
 if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
@@ -408,7 +405,9 @@ if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
         }
     }
 
-}
+} else {
+    $full_sql_query      = $sql_query;
+} // end if...else
 
 if (strlen($db)) {
     PMA_DBI_select_db($db);
