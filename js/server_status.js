@@ -7,16 +7,13 @@ $(function() {
     
     $('#serverStatusTabs').tabs({
         // Fixes line break in the menu bar when the page overflows and scrollbar appears
-        cookie: { name: 'serverStatusTabs', expires: 1 },
+        cookie: { name: 'pma_serverStatusTabs', expires: 1 },
         show: function() { menuResize(); }
     });
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
-    // Filter options are invisible for disabled js users
-    $('#serverstatusvars fieldset').css('display','');
-    
-    // Enable table storing
+    // Enable table sorting
     $('#serverstatusvariables').tablesorter({sortList: [[0,0]]});
     $('#serverstatusqueriesdetails').tablesorter();
     
@@ -27,19 +24,8 @@ $(function() {
         imageMap.init();
     });
 	
-	// Allow ajax reload of varialbes
-	$('#statustabs_allvars .statuslinks a').first().click(function() {
-		var that = this;
-		$(this).find('img').show();
-		$.get($(this).attr('href'),{ajax_request:1},function(data) {
-			$('#serverstatusvariables').parent().html(data);
-			filterVariables();
-			$(that).find('img').hide();
-		});
-		return false;
-	});
-
-    $('#serverstatusquerieschart div.notice').css('display','none');
+	// Ajax reload of variables
+	$('.statuslinks a').click(function() { return refreshHandler(this); });
     
     $('#filterAlert').change(function() {
         alertFilter = this.checked;
@@ -57,7 +43,40 @@ $(function() {
         categoryFilter = $(this).val();
         filterVariables();
     });
+	
+	/* Adjust DOM / Add handlers to the tabs */
+	function initTab(tab,data) {
+		switch(tab.attr('id')) {
+			case 'statustabs_traffic':
+				tab.html(data);
+				$('#statustabs_traffic .statuslinks a').click(function() { return refreshHandler(this); });
+				break;
+			case 'statustabs_queries':
+				tab.html(data);
+				$('#statustabs_queries .statuslinks a').click(function() { return refreshHandler(this); });
+				break;
+			case 'statustabs_allvars':
+				tab.find('#serverstatusvariables').html(data);
+				filterVariables();
+				tab.find('.statuslinks a img').hide();
+				break;
+		}
+	}
     
+	function refreshHandler(element) {
+		// ui-tabs-panel class is added by the jquery tabs feature
+		var tab=$(element).parents('div.ui-tabs-panel');
+		
+		// Show ajax load icon
+		$(element).find('img').show();
+		
+		$.get($(element).attr('href'),{ajax_request:1},function(data) {
+			initTab(tab,data);
+		});
+		
+		return false;
+	}
+	
     function filterVariables() {
         var useful_links=0;
         var section = text;

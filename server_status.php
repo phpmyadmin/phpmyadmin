@@ -16,18 +16,6 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 require_once './libraries/common.inc.php';
 
-/**
- * Chart generation
- */
-require_once './libraries/chart.lib.php';
-
-/**
- * Replication library
- */
-require './libraries/replication.inc.php';
-require_once './libraries/replication_gui.lib.php';
-
-
 /** 
  * Ajax request
  */
@@ -80,13 +68,6 @@ $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
  * for some calculations we require also some server settings
  */
 $server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
-
-/**
- * starttime calculation
- */
-$start_time = PMA_DBI_fetch_value(
-    'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
-
 
 /**
  * cleanup some deprecated values
@@ -154,9 +135,6 @@ if (isset($server_status['Threads_created'])
 if (isset($server_status['Uptime_since_flush_status'])) {
     $server_status['Uptime_since_flush_status'] = PMA_timespanFormat($server_status['Uptime_since_flush_status']);
 }
-
-
-
 
 /**
  * split variables in sections
@@ -229,51 +207,6 @@ $sections = array(
     'ssl'           => 'SSL',
 );
 
-/**
- * define some needfull links/commands
- */
-// variable or section name => (name => url)
-$links = array();
-
-$links['table'][__('Flush (close) all tables')]
-    = $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
-$links['table'][__('Show open tables')]
-    = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-
-if ($server_master_status) {
-  $links['repl'][__('Show slave hosts')]
-    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
-      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-  $links['repl'][__('Show master status')] = '#replication_master';
-}
-if ($server_slave_status) {
-  $links['repl'][__('Show slave status')] = '#replication_slave';
-}
-
-$links['repl']['doc'] = 'replication';
-
-$links['qcache'][__('Flush query cache')]
-    = $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-      PMA_generate_common_url();
-$links['qcache']['doc'] = 'query_cache';
-
-$links['threads'][__('Show processes')]
-    = 'server_processlist.php?' . PMA_generate_common_url();
-$links['threads']['doc'] = 'mysql_threads';
-
-$links['key']['doc'] = 'myisam_key_cache';
-
-$links['binlog_cache']['doc'] = 'binary_log';
-
-$links['Slow_queries']['doc'] = 'slow_query_log';
-
-$links['innodb'][__('Variables')]
-    = 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
-$links['innodb'][__('InnoDB Status')]
-    = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-      PMA_generate_common_url();
-$links['innodb']['doc'] = 'innodb';
 
 // Variable to contain all com_ variables
 $used_queries = Array();
@@ -295,14 +228,19 @@ foreach ($server_status as $name => $value) {
 // rest - not needed anymore 
 // $sections['all']['vars'] =& $server_status;
 
-$hour_factor    = 3600 / $server_status['Uptime'];
 
 /* Ajax request refresh */
 if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
+		case 'query_statistics':
+			printQueryStatistics();
+			exit();
+		case 'server_traffic':
+			printServerTraffic();
+			exit();
         case 'variables_table':
             // Prints the variables table
-            printVariablesTable($server_status, $server_variables, $allocationMap);
+            printVariablesTable();
             exit();
             
         default:
@@ -325,358 +263,361 @@ require './libraries/server_common.inc.php';
  */
 require './libraries/server_links.inc.php';
 
-/**
- * Some definitions used by js. Delete this once framsets have been removed from pma
- */
 ?>
-<script type="text/javascript">
-var token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-var pmaThemeImage = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
-</script>
-<?
+<div id="serverstatus">
+	<h2><?
 
 /**
  * Displays the sub-page heading
  */
-echo '<div id="serverstatus">' . "\n";
-echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic']
-       ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] .
-         's_status.png" width="16" height="16" alt="" />'
-       : '')
-   . __('Runtime Information') . "\n"
-   . '</h2>' . "\n";
+if($GLOBALS['cfg']['MainPageIconic'])
+	echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+	
+echo __('Runtime Information');
 
-?>
-<div id="serverStatusTabs">
-    <ul>
-        <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
-        <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
-        <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-    </ul>
-    
-    <div id="statustabs_traffic">
-<h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
-echo sprintf(__('Network traffic since startup: %s'),
-        implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1))
-);
-?>
-</h3>
+?></h2>
+	<div id="serverStatusTabs">
+		<ul>
+			<li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
+			<li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
+			<li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
+		</ul>
+		
+		<div id="statustabs_traffic">
+			<?php printServerTraffic(); ?>
+		</div>
+		<div id="statustabs_queries">
+			<?php printQueryStatistics(); ?>
+		</div>
+		<div id="statustabs_allvars">
+			<div id="serverstatusvars">
+				<fieldset id="tableFilter">
+					<div class="statuslinks">
+						<a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
+							<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+							<?php echo __('Refresh'); ?>
+						</a>
+					</div>
+					<legend>Filters</legend>
+					<div class="formelement">
+						<label for="filterText"><?php echo __('Containing the word:'); ?></label>
+						<input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
+					</div>
+					<div class="formelement">
+						<input type="checkbox" name="filterAlert" id="filterAlert">
+						<label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
+					</div>
+					<div class="formelement">
+						<select id="filterCategory" name="filterCategory">
+							<option value=''><?php echo __('Filter by category...'); ?></option>
+					<?php
+							foreach($sections as $section_id=>$section_name) {
+					?>
+								<option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
+					<?php
+							}
+								
+					?>
+						</select>
+					</div>
+				</fieldset>
+				<div id="linkSuggestions" class="defaultLinks" style="display:none">
+					<p><?php echo __('Related links:'); ?>
+					<?php
+					foreach ($links as $section_name => $section_links) {
+						echo '<span class="status_'.$section_name.'"> ';
+						$i=0;
+						foreach ($section_links as $link_name => $link_url) {
+							if($i>0) echo ', ';
+							if ('doc' == $link_name) {
+								echo PMA_showMySQLDocu($link_url, $link_url);
+							} else {
+								echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+							}
+							$i++;
+						}
+						echo '</span>';
+					}
+					unset($link_url, $link_name, $i);
+					?>
+					</p>
+				</div>
+			</div>
+			<div>
+				<?php printVariablesTable(); ?>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>
 <?php
-echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
-    PMA_timespanFormat($server_status['Uptime']),
-    PMA_localisedDate($start_time)) . "\n";
-?>
-</p>
 
-<?php
-if ($server_master_status || $server_slave_status) {
-    echo '<p>';
-    if ($server_master_status && $server_slave_status) {
-        echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
-    } elseif ($server_master_status) {
-        echo __('This MySQL server works as <b>master</b> in <b>replication</b> process.');
-    } elseif ($server_slave_status) {
-        echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
-    }
-    echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
-    echo '</p>';
+function printQueryStatistics() {
+	global $server_status, $used_queries, $url_query;
+	
+	$hour_factor    = 3600 / $server_status['Uptime'];
+
+	?>
+	<div class="statuslinks">
+		<a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
+			<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+			<?php echo __('Refresh'); ?>
+		</a>
+	</div>	
+	
+	<h3 id="serverstatusqueries"><?php echo
+		//sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
+			//PMA_formatNumber($server_status['Questions'], 0));
+		sprintf('Queries since startup: %s',PMA_formatNumber($server_status['Questions'], 0));
+		echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+		?>
+	<br>
+	<span style="font-size:60%; display:inline;">
+	&oslash; <?php echo __('per hour'); ?>:  
+	<?php echo PMA_formatNumber($server_status['Questions'] * $hour_factor, 3, 2); ?><br>
+
+	&oslash; <?php echo __('per minute'); ?>:  
+	<?php echo PMA_formatNumber( $server_status['Questions'] * 60 / $server_status['Uptime'], 3, 2); ?><br>
+
+	&oslash; <?php echo __('per second'); ?>: 
+	<?php echo PMA_formatNumber( $server_status['Questions'] / $server_status['Uptime'], 3, 2); ?><br>
+	</h3>
+	<?php
+
+	// reverse sort by value to show most used statements first
+	arsort($used_queries);
+
+	$odd_row        = true;
+	$count_displayed_rows      = 0;
+	$perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
+
+	?>
+		<table id="serverstatusqueriesdetails" class="data sortable">
+		<col class="namecol" />
+		<col class="valuecol" span="3" />
+		<thead>
+			<tr><th colspan="2"><?php echo __('Query type'); ?></th>
+				<th>&oslash; <?php echo __('per hour'); ?></th>
+				<th>%</th>
+			</tr>
+		</thead>
+		<tbody>
+
+	<?php
+	foreach ($used_queries as $name => $value) {
+		$odd_row = !$odd_row;
+
+	// For the percentage column, use Questions - Connections, because
+	// the number of connections is not an item of the Query types
+	// but is included in Questions. Then the total of the percentages is 100.
+		$name = str_replace('Com_', '', $name);
+		$name = str_replace('_', ' ', $name);
+	?>
+			<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+				<th class="name"><?php echo htmlspecialchars($name); ?></th>
+				<td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
+				<td class="value"><?php echo
+					PMA_formatNumber($value * $hour_factor, 3, 3); ?></td>
+				<td class="value"><?php echo
+					PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
+			</tr>
+	<?php
+	}
+	?>
+		</tbody>
+		</table>
+		
+		<div id="serverstatusquerieschart">
+		<?php 
+			// Generate the graph if this is an ajax request
+			if(isset($_REQUEST['ajax_request'])) {
+				echo createQueryChart();
+			} else {
+				echo '<a href="'.$PMA_PHP_SELF.'?'.$url_query.'&amp;query_chart=1#serverstatusqueries"'
+					.'title="' . __('Show query chart') . '">['.__('Show query chart').']</a>';
+			}
+		?>
+		</div>
+		<?php
 }
-?>
 
-<table id="serverstatustraffic" class="data">
-<thead>
-<tr>
-    <th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
-    <th>&oslash; <?php echo __('per hour'); ?></th>
-</tr>
-</thead>
-<tbody>
-<tr class="noclick odd">
-    <th class="name"><?php echo __('Received'); ?></th>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown($server_status['Bytes_received'], 2, 1)); ?></td>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown(
-                $server_status['Bytes_received'] * $hour_factor, 2, 1)); ?></td>
-</tr>
-<tr class="noclick even">
-    <th class="name"><?php echo __('Sent'); ?></th>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown($server_status['Bytes_sent'], 2, 1)); ?></td>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown(
-                $server_status['Bytes_sent'] * $hour_factor, 2, 1)); ?></td>
-</tr>
-<tr class="noclick odd">
-    <th class="name"><?php echo __('Total'); ?></th>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown(
-                $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1)
-        ); ?></td>
-    <td class="value"><?php echo
-        implode(' ',
-            PMA_formatByteDown(
-                ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-                * $hour_factor, 2, 1)
-        ); ?></td>
-</tr>
-</tbody>
-</table>
+function printServerTraffic() {
+	global $server_status;
 
-<table id="serverstatusconnections" class="data">
-<thead>
-<tr>
-    <th colspan="2"><?php echo __('Connections'); ?></th>
-    <th>&oslash; <?php echo __('per hour'); ?></th>
-    <th>%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="noclick odd">
-    <th class="name"><?php echo __('max. concurrent connections'); ?></th>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
-    <td class="value">--- </td>
-    <td class="value">--- </td>
-</tr>
-<tr class="noclick even">
-    <th class="name"><?php echo __('Failed attempts'); ?></th>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
-            4, 2); ?></td>
-    <td class="value"><?php echo
-        $server_status['Connections'] > 0
-      ? PMA_formatNumber(
-            $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
-            0, 2) . '%'
-      : '--- '; ?></td>
-</tr>
-<tr class="noclick odd">
-    <th class="name"><?php echo __('Aborted'); ?></th>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
-            4, 2); ?></td>
-    <td class="value"><?php echo
-        $server_status['Connections'] > 0
-      ? PMA_formatNumber(
-            $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-            0, 2) . '%'
-      : '--- '; ?></td>
-</tr>
-<tr class="noclick even">
-    <th class="name"><?php echo __('Total'); ?></th>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
-    <td class="value"><?php echo
-        PMA_formatNumber($server_status['Connections'] * $hour_factor,
-            4, 2); ?></td>
-    <td class="value"><?php echo
-        PMA_formatNumber(100, 0, 2); ?>%</td>
-</tr>
-</tbody>
-</table>
+	/**
+	 * Replication library
+	 */
+	require './libraries/replication.inc.php';
+	require_once './libraries/replication_gui.lib.php';
 
-    </div>
-    <div id="statustabs_queries">
-    
+	/**
+	 * starttime calculation
+	 */
+	$start_time = PMA_DBI_fetch_value(
+		'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
-<h3 id="serverstatusqueries"><?php echo
-    //sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
-        //PMA_formatNumber($server_status['Questions'], 0));
-    sprintf('Queries since startup: %s',PMA_formatNumber($server_status['Questions'], 0));
-    echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
-    ?>
-<br>
-<span style="font-size:60%; display:inline;">
-&oslash; <?php echo __('per hour'); ?>:  
-<?php echo PMA_formatNumber($server_status['Questions'] * $hour_factor, 3, 2); ?><br>
+	?>
+	<div class="statuslinks">
+		<a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
+			<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+			<?php echo __('Refresh'); ?>
+		</a>
+	</div>	
+	
+	<h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
+	echo sprintf(__('Network traffic since startup: %s'),
+			implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1))
+	);
+	?>
+	</h3>
 
-&oslash; <?php echo __('per minute'); ?>:  
-<?php echo PMA_formatNumber( $server_status['Questions'] * 60 / $server_status['Uptime'], 3, 2); ?><br>
+	<p>
+	<?php
+	echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
+		PMA_timespanFormat($server_status['Uptime']),
+		PMA_localisedDate($start_time)) . "\n";
+	?>
+	</p>
 
-&oslash; <?php echo __('per second'); ?>: 
-<?php echo PMA_formatNumber( $server_status['Questions'] / $server_status['Uptime'], 3, 2); ?><br>
-</h3>
-<?php
+	<?php
+	if ($server_master_status || $server_slave_status) {
+		echo '<p>';
+		if ($server_master_status && $server_slave_status) {
+			echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
+		} elseif ($server_master_status) {
+			echo __('This MySQL server works as <b>master</b> in <b>replication</b> process.');
+		} elseif ($server_slave_status) {
+			echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
+		}
+		echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
+		echo '</p>';
+	}
 
-// reverse sort by value to show most used statements first
-arsort($used_queries);
+	/* if the server works as master or slave in replication process, display useful information */
+	if ($server_master_status || $server_slave_status)
+	{
+	?>
+	  <hr class="clearfloat" />
 
-// number of tables to split values into
-$tables         = 3;
-$odd_row        = true;
-$count_displayed_rows      = 0;
-$perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
+	  <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
+	<?php
 
-?>
-    <table id="serverstatusqueriesdetails" class="data sortable">
-    <col class="namecol" />
-    <col class="valuecol" span="3" />
-    <thead>
-        <tr><th colspan="2"><?php echo __('Query type'); ?></th>
-            <th>&oslash; <?php echo __('per hour'); ?></th>
-            <th>%</th>
-        </tr>
-    </thead>
-    <tbody>
+		foreach ($replication_types as $type)
+		{
+			if (${"server_{$type}_status"}) {
+				PMA_replication_print_status_table($type);
+			}
+		}
+		unset($types);
+	}
+	?>
 
-<?php
-foreach ($used_queries as $name => $value) {
-    $odd_row = !$odd_row;
+	<table id="serverstatustraffic" class="data">
+	<thead>
+	<tr>
+		<th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
+		<th>&oslash; <?php echo __('per hour'); ?></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="noclick odd">
+		<th class="name"><?php echo __('Received'); ?></th>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown($server_status['Bytes_received'], 2, 1)); ?></td>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown(
+					$server_status['Bytes_received'] * $hour_factor, 2, 1)); ?></td>
+	</tr>
+	<tr class="noclick even">
+		<th class="name"><?php echo __('Sent'); ?></th>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown($server_status['Bytes_sent'], 2, 1)); ?></td>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown(
+					$server_status['Bytes_sent'] * $hour_factor, 2, 1)); ?></td>
+	</tr>
+	<tr class="noclick odd">
+		<th class="name"><?php echo __('Total'); ?></th>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown(
+					$server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1)
+			); ?></td>
+		<td class="value"><?php echo
+			implode(' ',
+				PMA_formatByteDown(
+					($server_status['Bytes_received'] + $server_status['Bytes_sent'])
+					* $hour_factor, 2, 1)
+			); ?></td>
+	</tr>
+	</tbody>
+	</table>
 
-// For the percentage column, use Questions - Connections, because
-// the number of connections is not an item of the Query types
-// but is included in Questions. Then the total of the percentages is 100.
-    $name = str_replace('Com_', '', $name);
-    $name = str_replace('_', ' ', $name);
-?>
-        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo htmlspecialchars($name); ?></th>
-            <td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
-            <td class="value"><?php echo
-                PMA_formatNumber($value * $hour_factor, 3, 3); ?></td>
-            <td class="value"><?php echo
-                PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
-        </tr>
-<?php
+	<table id="serverstatusconnections" class="data">
+	<thead>
+	<tr>
+		<th colspan="2"><?php echo __('Connections'); ?></th>
+		<th>&oslash; <?php echo __('per hour'); ?></th>
+		<th>%</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="noclick odd">
+		<th class="name"><?php echo __('max. concurrent connections'); ?></th>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
+		<td class="value">--- </td>
+		<td class="value">--- </td>
+	</tr>
+	<tr class="noclick even">
+		<th class="name"><?php echo __('Failed attempts'); ?></th>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
+				4, 2); ?></td>
+		<td class="value"><?php echo
+			$server_status['Connections'] > 0
+		  ? PMA_formatNumber(
+				$server_status['Aborted_connects'] * 100 / $server_status['Connections'],
+				0, 2) . '%'
+		  : '--- '; ?></td>
+	</tr>
+	<tr class="noclick odd">
+		<th class="name"><?php echo __('Aborted'); ?></th>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
+				4, 2); ?></td>
+		<td class="value"><?php echo
+			$server_status['Connections'] > 0
+		  ? PMA_formatNumber(
+				$server_status['Aborted_clients'] * 100 / $server_status['Connections'],
+				0, 2) . '%'
+		  : '--- '; ?></td>
+	</tr>
+	<tr class="noclick even">
+		<th class="name"><?php echo __('Total'); ?></th>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
+		<td class="value"><?php echo
+			PMA_formatNumber($server_status['Connections'] * $hour_factor,
+				4, 2); ?></td>
+		<td class="value"><?php echo
+			PMA_formatNumber(100, 0, 2); ?>%</td>
+	</tr>
+	</tbody>
+	</table>
+	<?
 }
-?>
-    </tbody>
-    </table>
 
-<?php if ($used_queries): ?>
-<div id="serverstatusquerieschart">
-<?php
-    if (empty($_REQUEST["query_chart"])) {
-        echo '<a href="' . $PMA_PHP_SELF . '?' . $url_query
-            . '&amp;query_chart=1#serverstatusqueries"'
-            . 'title="' . __('Show query chart') . '">['
-            . __('Show query chart') . ']</a>';
-        PMA_Message::notice( __('Note: Generating the query chart can take a long time.'))->display();
-    } else {
-        echo createQueryChart($used_queries);
-    }
-?>
-</div>
-<?php endif; ?>
-    </div>
-    <div id="statustabs_allvars">
-<div id="serverstatusvars">
-<fieldset id="tableFilter" style="display:none;">
-    <div class="statuslinks">
-    
-    <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
-        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-        <?php echo __('Refresh'); ?>
-    </a>
-    </div>
-<legend>Filters</legend>
-<div class="formelement">
-    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
-    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-</div>
-<div class="formelement">
-    <input type="checkbox" name="filterAlert" id="filterAlert">
-    <label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
-</div>
-<div class="formelement">
-    <select id="filterCategory" name="filterCategory">
-        <option value=''><?php echo __('Filter by category...'); ?></option>
-<?php
-        foreach($sections as $section_id=>$section_name) {
-?>
-            <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
-<?php
-        }
-            
-?>
-    </select>
-</div>
-</fieldset>
-<div id="linkSuggestions" class="defaultLinks" style="display:none">
-<p><?php echo __('Related links:'); ?>
-<?php
-
-
-foreach ($links as $section_name => $section_links) {
-    echo '<span class="status_'.$section_name.'"> ';
-    $i=0;
-    foreach ($section_links as $link_name => $link_url) {
-        if($i>0) echo ', ';
-        if ('doc' == $link_name) {
-            echo PMA_showMySQLDocu($link_url, $link_url);
-        } else {
-            echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-        }
-        $i++;
-    }
-    echo '</span>';
-}
-unset($link_url, $link_name, $i);
-
-?>
-</p></div>
-
-</div>
-<div>
-<?php
-// Prints the variables table
-printVariablesTable($server_status, $server_variables, $allocationMap);
-
-//Unset used variables
-unset(
-    $tables, $max_rows_per_table, $current_table, $count_displayed_rows, $perc_factor,
-    $hour_factor, $sections['com'],
-    $server_status['Aborted_clients'], $server_status['Aborted_connects'],
-    $server_status['Max_used_connections'], $server_status['Bytes_received'],
-    $server_status['Bytes_sent'], $server_status['Connections'],
-    $server_status['Questions'], $server_status['Uptime'],
-    $used_queries
-);
-
-?>
-</div>
-</div>
-</div>
-<?php
-unset($section_name, $section, $sections, $server_status, $odd_row);
-
-/* if the server works as master or slave in replication process, display useful information */
-if ($server_master_status || $server_slave_status)
-{
-?>
-  <hr class="clearfloat" />
-
-  <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
-<?php
-
-    foreach ($replication_types as $type)
-    {
-        if (${"server_{$type}_status"}) {
-            PMA_replication_print_status_table($type);
-        }
-    }
-    unset($types);
-}
-?>
-
-</div>
-
-<?php
-
-function printVariablesTable($server_status,$server_variables,$allocationMap) {
+function printVariablesTable() {
+	global $server_status, $server_variables, $allocationMap;
     /**
      * Messages are built using the message name
      */
@@ -842,6 +783,53 @@ function printVariablesTable($server_status,$server_variables,$allocationMap) {
         // variable => min value
         //'Handler read key' => '> ',
     );
+	
+	/**
+	 * define some needfull links/commands
+	 */
+	// variable or section name => (name => url)
+	$links = array();
+
+	$links['table'][__('Flush (close) all tables')]
+		= $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
+	$links['table'][__('Show open tables')]
+		= 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
+		  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+
+	if ($server_master_status) {
+	  $links['repl'][__('Show slave hosts')]
+		= 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
+		  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+	  $links['repl'][__('Show master status')] = '#replication_master';
+	}
+	if ($server_slave_status) {
+	  $links['repl'][__('Show slave status')] = '#replication_slave';
+	}
+
+	$links['repl']['doc'] = 'replication';
+
+	$links['qcache'][__('Flush query cache')]
+		= $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
+		  PMA_generate_common_url();
+	$links['qcache']['doc'] = 'query_cache';
+
+	$links['threads'][__('Show processes')]
+		= 'server_processlist.php?' . PMA_generate_common_url();
+	$links['threads']['doc'] = 'mysql_threads';
+
+	$links['key']['doc'] = 'myisam_key_cache';
+
+	$links['binlog_cache']['doc'] = 'binary_log';
+
+	$links['Slow_queries']['doc'] = 'slow_query_log';
+
+	$links['innodb'][__('Variables')]
+		= 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
+	$links['innodb'][__('InnoDB Status')]
+		= 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
+		  PMA_generate_common_url();
+	$links['innodb']['doc'] = 'innodb';
+
         
 ?>
 <table class="data sortable" id="serverstatusvariables">
@@ -924,6 +912,11 @@ function printVariablesTable($server_status,$server_variables,$allocationMap) {
 }
 
 function createQueryChart($com_vars=FALSE) {
+	/**
+	 * Chart generation
+	 */
+	require_once './libraries/chart.lib.php';
+
     if(!$com_vars) 
         $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
         
