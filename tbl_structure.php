@@ -700,8 +700,6 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     <?php
 }
 
-PMA_generate_slider_effect('tablestatistics', __('Details...'));
-
 /**
  * Displays Space usage and row statistics
  */

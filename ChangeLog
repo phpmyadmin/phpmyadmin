@@ -10,6 +10,7 @@
 - bug #3305883 [interface] Table is dropped regardless of confirmation
 - [auth] Fixed error handling for signon auth method.
 - bug #3276001 [core] Avoid caching of index.php.
+- bug #3306958 [interface] Unnecessary Details slider
 
 3.4.1.0 (2011-05-20)
 - bug #3301108 [interface] Synchronize and already configured host
