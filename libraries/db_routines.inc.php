@@ -18,10 +18,112 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+// Some definitions
+$param_directions    = array('IN', 'OUT', 'INOUT');
+$param_datatypes     = array('INT', 'FLOAT', 'VARCHAR'); // FIXME: Find a way to get the real datatypes that are supported by the DB
+$param_sqldataaccess = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
+
+/**
+ * This function will generate the values that are required to complete the "Add new routine" form
+ * It is especially necessary to handle the 'Add another parameter' and 'Remove last parameter'
+ * functionalities when JS is disabled.
+ */
+function getFormInputFromRequest()
+{
+    global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
+
+    $retval = array();
+    $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
+    $retval['type_procedure'] = '';
+    $retval['type_function']  = '';
+    if (isset($_REQUEST['routine_type'])) {
+        if ($_REQUEST['routine_type'] == 'PROCEDURE') {
+            $retval['type_procedure'] = " selected='selected'";
+        } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
+            $retval['type_function'] = " selected='selected'";
+        }
+    }
+    $retval['param_dir']  = array();
+    $retval['param_name'] = array();
+    $retval['param_type'] = array();
+    $retval['num_params'] = 0;
+    if (isset($_REQUEST['routine_param_dir']) && isset($_REQUEST['routine_param_name']) && isset($_REQUEST['routine_param_type'])
+        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name']) && is_array($_REQUEST['routine_param_type'])) {
+        $temp_num_params = 0;
+        $retval['param_dir'] = $_REQUEST['routine_param_dir'];
+        foreach ($retval['param_dir'] as $key => $value) {
+            if (! in_array($value, $param_directions, true)) {
+                $retval['param_dir'][$key] = '';
+            }
+            $retval['num_params']++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
+        $temp_num_params = 0;
+        $retval['param_name'] = $_REQUEST['routine_param_name'];
+        foreach ($retval['param_name'] as $key => $value) {
+            $retval['param_name'][$key] = htmlspecialchars($value);
+            $temp_num_params++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
+        $temp_num_params = 0;
+        $retval['param_type'] = $_REQUEST['routine_param_type'];
+        foreach ($retval['param_type'] as $key => $value) {
+            if (! in_array($value, $param_datatypes, true)) {
+                $retval['param_type'][$key] = '';
+            }
+            $temp_num_params++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
+    }
+    $retval['returntype'] = '';
+    if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], $param_datatypes, true)) {
+        $retval['returntype'] = $_REQUEST['routine_returntype'];
+    }
+    $retval['returnlength']    = isset($_REQUEST['routine_returnlength']) ? htmlspecialchars($_REQUEST['routine_returnlength']) : '';
+    $retval['definition']      = isset($_REQUEST['routine_definition'])   ? htmlspecialchars($_REQUEST['routine_definition']) : '';
+    $retval['isdeterministic'] = '';
+    if (isset($_REQUEST['routine_isdeterministic']) && strtolower($_REQUEST['routine_isdeterministic']) == 'on') {
+        $retval['isdeterministic'] = " checked='checked'";
+    }
+    $retval['definer'] = isset($_REQUEST['routine_definer']) ? htmlspecialchars($_REQUEST['routine_definer']) : '';
+    $retval['securitytype_definer'] = '';
+    $retval['securitytype_invoker'] = '';
+    if (isset($_REQUEST['routine_securitytype'])) {
+        if ($_REQUEST['routine_securitytype'] === 'DEFINER') {
+            $retval['securitytype_definer'] = " selected='selected'";
+        } else if ($_REQUEST['routine_securitytype'] === 'INVOKER') {
+            $retval['securitytype_invoker'] = " selected='selected'";
+        }
+    }
+    $retval['sqldataaccess'] = '';
+    if (isset($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
+        $retval['sqldataaccess'] = $_REQUEST['routine_sqldataaccess'];
+    }
+    $retval['comment'] = isset($_REQUEST['routine_comment']) ? htmlspecialchars($_REQUEST['routine_comment']) : '';
+
+    return $retval;
+} // end function getFormInputFromRequest()
+
+/**
+ *  ### MAIN ###
+ */
+
 // $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db");
 
+/**
+ * Get all available routines
+ */
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
+/**
+ * Generate the conditional classes that will be used to attach jQuery events to links.
+ */
 $conditional_class_add    = '';
 $conditional_class_drop   = '';
 $conditional_class_export = '';
@@ -32,15 +134,192 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
 }
 
 /**
- * Display the export for a routine. This is for when JS is disabled.
+ * Handle all user requests other than the default of listing routines
  */
 if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
+    /**
+     * Display the export for a routine. This is for when JS is disabled.
+     */
     if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
         echo '<fieldset>' . "\n"
            . ' <legend>' . sprintf(__('Export for routine "%s"'), $_GET['routinename']) . '</legend>' . "\n"
            . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>' . "\n"
            . '</fieldset>';
     }
+} else if (! empty($_REQUEST['routine_process_addroutine'])) {
+    /**
+     * Handle a request to create a routine
+     */
+//    var_dump($_REQUEST);
+    $definer = '';
+    if (! empty($_REQUEST['routine_definer'])) {
+        $definer = 'DEFINER ' . PMA_sqlAddSlashes($_REQUEST['routine_definer']);
+    }
+    $name = PMA_sqlAddSlashes($_REQUEST['routine_name']);
+    $params = '';
+    if (! empty($_REQUEST['routine_param_dir']) && ! empty($_REQUEST['routine_param_name']) && ! empty($_REQUEST['routine_param_type'])
+        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name']) && is_array($_REQUEST['routine_param_type'])) {
+        // FIXME: this is just wrong right now...
+        for ($i=0; $i<count($_REQUEST['routine_param_dir']); $i++) {
+            $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " " . $_REQUEST['routine_param_type'][$i];
+            if ($i != count($_REQUEST['routine_param_dir'])-1) {
+                $params .= ",";
+            }
+        }
+        $params = "(" . $params . ")";
+    }
+    $returns = '';
+    if ($_REQUEST['routine_type'] == 'FUNCTION') {
+        $returns = "RETURNS {$_REQUEST['routine_returntype']}({$_REQUEST['routine_returnlength']})";
+    }
+    $comment = '';
+    if (! empty($_REQUEST['routine_comment'])) {
+        $comment = "COMMENT '{$_REQUEST['routine_comment']}'";
+    }
+    $deterministic = '';
+    if (! empty($_REQUEST['routine_isdeterministic'])) {
+        $deterministic = 'DETERMINISTIC';
+    } else {
+        $deterministic = 'NOT DETERMINISTIC';
+    }
+    $sqldataaccess = '';
+    if (! empty($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
+        $sqldataaccess = $_REQUEST['routine_sqldataaccess'];
+    }
+    $sqlsecurity = '';
+    if (! empty($_REQUEST['routine_sqlsecutiry'])) {
+        $sqlsecurity = "SQL SECURITY" . $_REQUEST['routine_sqlsecutiry'];
+    }
+    $definition = '';
+    if (! empty($_REQUEST['routine_definition'])) {
+        $definition = 'BEGIN ' . $_REQUEST['routine_definition'] . ' END';
+    }
+    
+    $query = "DELIMITER //
+                CREATE $definer {$_REQUEST['routine_type']} $name $params $returns $comment $deterministic $sqldataaccess $sqlsecurity $definition
+                //";
+    var_dump($query);
+    exit;
+} else if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter'])) {
+    /**
+     * Display a form used to create a new routine
+     */
+
+    // Get variables from the request (if any)
+    $routine = getFormInputFromRequest();
+
+    // Show form
+    if ($GLOBALS['is_ajax_request'] != true) {
+        echo "<h2>" . __("Create Routine") . "</h2>\n";
+    }
+    echo '<form action="db_routines.php?' . $url_query . '" method="post" >' . "\n"
+       . PMA_generate_common_hidden_inputs($db, $table)
+       . "<fieldset>\n"
+       . ' <legend>' . __('Details') . '</legend>' . "\n";
+    echo "<table id='rte_table'>\n";
+
+    echo "<tr><td>" . __('Routine Name') . "</td><td><input type='text' name='routine_name' value='{$routine['name']}'/></td></tr>\n";
+    echo "<tr><td>" . __('Type') . "</td><td>
+                                        <select name='routine_type'>
+                                            <option value='PROCEDURE'{$routine['type_procedure']}>" . __('PROCEDURE') . "</option>
+                                            <option value='FUNCTION'{$routine['type_function']}>" . __('FUNCTION') . "</option>
+                                        </select>
+          </td></tr>\n";
+
+    echo "<tr><td>" . __('Parameters') . "</td><td>\n";
+// parameter handling start
+    echo "<table>";
+    echo "<tr><th>" . __('Direction') . "</th><th>" . __('Name') . "</th><th>" . __('Type') . "</th></tr>";
+    if (! empty($_REQUEST['routine_addparameter']) || !$routine['num_params']) {
+        $routine['param_dir'][]  = '';
+        $routine['param_name'][] = '';
+        $routine['param_type'][] = '';
+        $routine['num_params']++;
+    } else if (! empty($_REQUEST['routine_removeparameter'])) {
+        unset($routine['param_dir'][$routine['num_params']-1]);
+        unset($routine['param_name'][$routine['num_params']-1]);
+        unset($routine['param_type'][$routine['num_params']-1]);
+        $routine['num_params']--;
+    }
+    for ($i=0; $i<$routine['num_params']; $i++) {
+        echo "
+                <tr><td>
+                <select name='routine_param_dir[$i]'>";
+        foreach ($param_directions as $key => $value) {
+            if ($routine['param_dir'][$i] == $value) {
+                echo "<option selected='selected'>$value</option>";
+            } else {
+                echo "<option>$value</option>";
+            }
+        }
+        echo "
+                </select>
+                </td><td>
+                <input name='routine_param_name[$i]' type='text' value='{$routine['param_name'][$i]}' />
+                </td><td>
+                <select name='routine_param_type[$i]'>";
+        foreach ($param_datatypes as $key => $value) {
+            if ($routine['param_type'][$i] == $value) {
+                echo "<option selected='selected'>$value</option>";
+            } else {
+                echo "<option>$value</option>";
+            }
+        }
+        echo "
+                </select>
+                </td></tr>";
+    }
+    echo "<tr><td colspan='3'>
+                <input style='width: 49%;' type='submit' name='routine_addparameter' value='" . __('Add another parameter') . "'>
+                <input style='width: 49%;' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
+          </td></tr>";
+    echo "</table>";
+// parameter handling end
+
+    echo "</td></tr>\n";
+
+    echo "<tr><td>" . __('Return Type') . "</td><td>
+                                        <select name='routine_returntype'>";
+    foreach ($param_datatypes as $key => $value) {
+        if ($routine['returntype'] == $value) {
+            echo "<option selected='selected'>$value</option>";
+        } else {
+            echo "<option>$value</option>";
+        }
+    }
+    echo "
+                                        </select>
+          </td></tr>\n";
+    echo "<tr><td>" . __('Return Length') . "</td><td><input type='text' name='routine_returnlength' value='{$routine['returnlength']}' /></td></tr>\n";
+    echo "<tr><td>" . __('Definition') . "</td><td><textarea name='routine_definition'>{$routine['definition']}</textarea></td></tr>\n";
+    echo "<tr><td>" . __('Is Deterministic') . "</td><td><input type='checkbox' name='routine_isdeterministic' {$routine['isdeterministic']}/></td></tr>\n";
+    echo "<tr><td>" . __('Definer') . "</td><td><input type='text' name='routine_definer' value='{$routine['definer']}'/></td></tr>\n";
+    echo "<tr><td>" . __('Security Type') . "</td><td>
+                                        <select name='routine_securitytype'>
+                                            <option value='DEFINER'{$routine['securitytype_definer']}>DEFINER</option>
+                                            <option value='INVOKER'{$routine['securitytype_invoker']}>INVOKER</option>
+                                        </select>
+          </td></tr>\n";
+    echo "<tr><td>" . __('SQL Data Access') . "</td><td>
+                                        <select name='routine_sqldataaccess'>";
+    foreach ($param_sqldataaccess as $key => $value) {
+        if ($routine['sqldataaccess'] == $value) {
+            echo "<option selected='selected'>$value</option>";
+        } else {
+            echo "<option>$value</option>";
+        }
+    }
+    echo "
+                                        </select>
+          </td></tr>\n";
+    echo "<tr><td>" . __('Comment') . "</td><td><input type='text' name='routine_comment' value='{$routine['comment']}'/></td></tr>\n";
+    echo "</table>\n";
+    echo "</fieldset>\n";
+    echo '<fieldset class="tblFooters">';
+    echo '    <input type="submit" name="routine_process_addroutine" value="' . __('Go') . '" />';
+    echo '</fieldset>';
+    echo "</form>\n";
+    exit;
 }
 
 /**
@@ -136,6 +415,7 @@ echo '</fieldset>' . "\n";
 echo '<fieldset>' . "\n"
    . '    <a href="db_routines.php?' . $url_query . '&amp;addroutine=1" class="' . $conditional_class_add . '">' . "\n"
    . PMA_getIcon('b_routine_add.png') . __('Add a new Routine') . '</a>' . "\n"
+   . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE')
    . '</fieldset>' . "\n";
 
 ?>

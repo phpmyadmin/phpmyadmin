@@ -2126,3 +2126,16 @@ fieldset .disabled-field td {
     margin:             0 6px;
 }
 
+#rte_table td {
+    vertical-align:     middle;
+}
+
+#rte_table input, #rte_table select, #rte_table textarea {
+    width:              100%;
+    margin:             0;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+
