@@ -576,41 +576,63 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             $sql_where_schema = '';
         }
 
-        // for PMA bc:
-        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-        $sql = '
-             SELECT `information_schema`.`SCHEMATA`.*';
-        if ($force_stats) {
-            $sql .= ',
-                    COUNT(`information_schema`.`TABLES`.`TABLE_SCHEMA`)
-                        AS `SCHEMA_TABLES`,
-                    SUM(`information_schema`.`TABLES`.`TABLE_ROWS`)
-                        AS `SCHEMA_TABLE_ROWS`,
-                    SUM(`information_schema`.`TABLES`.`DATA_LENGTH`)
-                        AS `SCHEMA_DATA_LENGTH`,
-                    SUM(`information_schema`.`TABLES`.`MAX_DATA_LENGTH`)
-                        AS `SCHEMA_MAX_DATA_LENGTH`,
-                    SUM(`information_schema`.`TABLES`.`INDEX_LENGTH`)
-                        AS `SCHEMA_INDEX_LENGTH`,
-                    SUM(`information_schema`.`TABLES`.`DATA_LENGTH`
-                      + `information_schema`.`TABLES`.`INDEX_LENGTH`)
-                        AS `SCHEMA_LENGTH`,
-                    SUM(`information_schema`.`TABLES`.`DATA_FREE`)
-                        AS `SCHEMA_DATA_FREE`';
-        }
-        $sql .= '
-               FROM `information_schema`.`SCHEMATA`';
-        if ($force_stats) {
+        if (PMA_DRIZZLE) {
+            // data_dictionary.table_cache may not contain any data for some tables, it's just a table cache
+            $sql = 'SELECT
+                s.SCHEMA_NAME,
+                s.DEFAULT_COLLATION_NAME';
+            if ($force_stats) {
+                // no TABLE_CACHE data, stable results are better than constantly changing
+                $sql .= ',
+                    COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES,
+                    SUM(stat.NUM_ROWS)    AS SCHEMA_TABLE_ROWS';
+            }
             $sql .= '
-          LEFT JOIN `information_schema`.`TABLES`
-                 ON BINARY `information_schema`.`TABLES`.`TABLE_SCHEMA`
-                  = BINARY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`';
+                   FROM data_dictionary.SCHEMAS s';
+            if ($force_stats) {
+                $engine_info = PMA_cacheGet('drizzle_engines', true);
+                $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
+                if (isset($engine_info['InnoDB']) && $engine_info['InnoDB']['module_library'] == 'innobase') {
+                    $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat ON (t.ENGINE = 'InnoDB' AND stat.NAME = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
+                }
+
+                $sql .= "
+                    LEFT JOIN data_dictionary.TABLES t
+                        ON t.TABLE_SCHEMA = s.SCHEMA_NAME
+                    $stats_join";
+            }
+            $sql .= $sql_where_schema . '
+                    GROUP BY s.SCHEMA_NAME
+                    ORDER BY ' . PMA_backquote($sort_by) . ' ' . $sort_order
+                . $limit;
+        } else {
+            $sql = 'SELECT
+                s.SCHEMA_NAME,
+                s.DEFAULT_COLLATION_NAME';
+            if ($force_stats) {
+                $sql .= ',
+                    COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
+                    SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
+                    SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
+                    SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
+                    SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
+                    SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
+                                           AS SCHEMA_LENGTH,
+                    SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
+            }
+            $sql .= '
+                   FROM `information_schema`.SCHEMATA s';
+            if ($force_stats) {
+                $sql .= '
+                    LEFT JOIN `information_schema`.TABLES t
+                        ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+            }
+            $sql .= $sql_where_schema . '
+                    GROUP BY BINARY s.SCHEMA_NAME
+                    ORDER BY BINARY ' . PMA_backquote($sort_by) . ' ' . $sort_order
+                . $limit;
         }
-        $sql .= '
-              ' . $sql_where_schema . '
-           GROUP BY BINARY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
-           ORDER BY BINARY ' . PMA_backquote($sort_by) . ' ' . $sort_order
-           . $limit;
+
         $databases = PMA_DBI_fetch_result($sql, 'SCHEMA_NAME', null, $link);
 
         $mysql_error = PMA_DBI_getError($link);
