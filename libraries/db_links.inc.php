@@ -93,6 +93,17 @@ if (! $db_is_information_schema) {
         $tab_privileges['text'] = __('Privileges');
         $tab_privileges['icon'] = 's_rights.png';
     }
+    $tab_routines['link']   = 'db_routines.php';
+    $tab_routines['text']   = __('Routines');
+    $tab_routines['icon']   = 'b_routines.png';
+
+    $tab_events['link']     = 'db_events.php';
+    $tab_events['text']     = __('Events');
+    $tab_events['icon']     = 'b_events.png';
+
+    $tab_triggers['link']   = 'db_triggers.php';
+    $tab_triggers['text']   = __('Triggers');
+    $tab_triggers['icon']   = 'b_triggers.png';
 }
 
 /**
@@ -109,6 +120,15 @@ if (! $db_is_information_schema) {
     $tabs[] =& $tab_operation;
     if ($is_superuser) {
         $tabs[] =& $tab_privileges;
+    }
+    if (PMA_MYSQL_INT_VERSION >= 50002) {
+        $tabs[] =& $tab_routines;
+    }
+    if (PMA_MYSQL_INT_VERSION >= 50106) {
+        $tabs[] =& $tab_events;
+    }
+    if (PMA_MYSQL_INT_VERSION >= 50002) {
+        $tabs[] =& $tab_triggers;
     }
 }
 if (PMA_Tracker::isActive()) {
