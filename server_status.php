@@ -32,6 +32,12 @@ if (isset($_REQUEST["query_chart"]) && isset($_REQUEST['ajax_request'])) {
 }
 
 /**
+ * Replication library
+ */
+require './libraries/replication.inc.php';
+require_once './libraries/replication_gui.lib.php';
+
+/**
  * JS Includes
  */
  
@@ -490,15 +496,10 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
 	global $server_status,$PMA_PHP_SELF;
-
+	global $server_master_status, $server_slave_status;
+	
 	$hour_factor    = 3600 / $server_status['Uptime'];
 	
-	/**
-	 * Replication library
-	 */
-	require './libraries/replication.inc.php';
-	require_once './libraries/replication_gui.lib.php';
-
 	/**
 	 * starttime calculation
 	 */
