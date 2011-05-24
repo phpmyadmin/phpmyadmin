@@ -167,6 +167,19 @@ function clear_fast_filter() {
     elm.focus();
 }
 
+/**
+ * Reloads the recent tables list.
+ */
+function PMA_reloadRecentTable() {
+    $.get('navigation.php',
+            { 'token' : window.parent.token, 'ajax_request' : true, 'recent_table' : true },
+            function (data) {
+        if (data.success == true) {
+            $('#recentTable').html(data.options);
+        }
+    });
+}
+
 /* Performed on load */
 $(document).ready(function(){
     /* Display filter */
@@ -179,4 +192,14 @@ $(document).ready(function(){
     $('#clear_fast_filter').click(clear_fast_filter);
     $('#fast_filter').focus(function (evt) {evt.target.select();});
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
+
+    /* Jump to recent table */
+    $('#recentTable').change(function() {
+        if (this.value != '') {
+            var arr = this.value.split('.');
+            window.parent.setDb(arr[0]);
+            window.parent.setTable(arr[1]);
+            window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
+        }
+    });
 });

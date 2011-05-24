@@ -8,11 +8,25 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
+require_once './libraries/RecentTable.class.php';
 
+
+/**
+ * Add recently used table and reload the navigation.
+ *
+ * @param string $db Database name where the table is located.
+ * @param string $table The table name
+ */
+function PMA_addRecentTable($db, $table) {
+    $tmp_result = RecentTable::getInstance()->add($db, $table);
+    if ($tmp_result === true) {
+        echo '<span class="hide" id="update_recent_tables"></span>';
+    } else {
+        $error = $tmp_result;
+        $error->display();
+    }
+}
 
 /**
  * This is not an Ajax request so we need to generate all this output.
@@ -151,6 +165,11 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                 .'&quot;' . htmlspecialchars($show_comment)
                                 .'&quot;</span>' . "\n";
                         } // end if
+
+                        // add recently used table and reload the navigation
+                        if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+                            PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                        }
                     } else {
                         // no table selected, display database comment if present
                         /**
