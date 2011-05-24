@@ -869,6 +869,8 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"未接收到要匯入的資料. 可能是檔案名稱未送出, 也可能是檔案大小超出 PHP 限制. 請"
+"參閱 [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]。"
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -903,6 +905,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"在最後一次執行時, 解析失敗. 請增加 PHP 運行時間限制, 否則 phpMyAdmin 將無法完"
+"成資料匯入."
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2074 libraries/sql_query_form.lib.php:140
@@ -974,7 +978,7 @@ msgstr "您將要關閉一個BLOB儲存"
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "您確定要在資料庫 %s 上停用 BLOB 功能?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1130,7 +1134,7 @@ msgstr "儲存"
 #: js/messages.php:90 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr ""
+msgstr "隱藏"
 
 #: js/messages.php:93
 #, fuzzy
