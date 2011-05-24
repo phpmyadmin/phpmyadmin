@@ -48,7 +48,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
 	//
     file_put_contents($config_file_path, ConfigGenerator::getConfigFile());
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php');
+    header('Location: index.php?action_done=config_saved');
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_load'], '')) {
 	//

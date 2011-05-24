@@ -529,7 +529,7 @@ function PMA_getDisplayField($db, $table)
  * Gets the comments for all rows of a table or the db itself
  *
  * @access  public
- * @uses    PMA_DBI_get_fields()
+ * @uses    PMA_DBI_get_columns()
  * @uses    PMA_getDbComment()
  * @param   string   the name of the db to check for
  * @param   string   the name of the table to check for
@@ -541,9 +541,9 @@ function PMA_getComments($db, $table = '')
 
     if ($table != '') {
         // MySQL native column comments
-        $fields = PMA_DBI_get_fields($db, $table);
+        $fields = PMA_DBI_get_columns($db, $table);
         if ($fields) {
-            foreach ($fields as $key => $field) {
+            foreach ($fields as $field) {
                 if (! empty($field['Comment'])) {
                     $comments[$field['Field']] = $field['Comment'];
                 }

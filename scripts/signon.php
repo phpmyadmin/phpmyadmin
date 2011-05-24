@@ -11,14 +11,15 @@
  * @subpackage Example
  */
 
+/* Need to have cookie visible from parent directory */
+session_set_cookie_params(0, '/', '', 0);
+/* Create signon session */
+$session_name = 'SignonSession';
+session_name($session_name);
+session_start();
+
 /* Was data posted? */
 if (isset($_POST['user'])) {
-    /* Need to have cookie visible from parent directory */
-    session_set_cookie_params(0, '/', '', 0);
-    /* Create signon session */
-    $session_name = 'SignonSession';
-    session_name($session_name);
-    session_start();
     /* Store there credentials */
     $_SESSION['PMA_single_signon_user'] = $_POST['user'];
     $_SESSION['PMA_single_signon_password'] = $_POST['password'];
@@ -47,7 +48,7 @@ if (isset($_POST['user'])) {
 <body>
 <?php
 if (isset($_SESSION['PMA_single_signon_error_message'])) {
-    echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
+    echo '<p class="error">' . $_SESSION['PMA_single_signon_error_message'] . '</p>';
 }
 ?>
 <form action="signon.php" method="post">

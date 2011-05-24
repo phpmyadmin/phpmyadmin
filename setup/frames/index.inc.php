@@ -85,6 +85,18 @@ if (!$is_https) {
     </select>
 </form>
 
+<?php
+// Check for done action info and set notice message if present
+switch ($action_done) {
+	case 'config_saved':
+		messages_set('notice', 'config_saved', __('Configuration saved.'),
+	        PMA_lang(__('Configuration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.')));
+		break;
+	default:
+		break;
+}
+?>
+
 <h2><?php echo __('Overview') ?></h2>
 
 <?php

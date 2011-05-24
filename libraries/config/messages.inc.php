@@ -127,6 +127,7 @@ $strConfigExport_sql_hex_for_blob_name = __('Use hexadecimal for BLOB');
 $strConfigExport_sql_if_not_exists_name = sprintf(__('Add %s'), 'IF NOT EXISTS');
 $strConfigExport_sql_ignore_name = __('Use ignore inserts');
 $strConfigExport_sql_include_comments_name = __('Comments');
+$strConfigExport_sql_insert_syntax_name = __('Syntax to use when inserting data');
 $strConfigExport_sql_max_query_size_name = __('Maximal length of created query');
 $strConfigExport_sql_mime_name = __('MIME type');
 $strConfigExport_sql_procedure_function_name = sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION / EVENT');

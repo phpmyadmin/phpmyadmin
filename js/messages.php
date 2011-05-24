@@ -29,6 +29,8 @@ $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled
 /* For confirmations */
 $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
+$js_messages['strDropTableStrongWarning'] = __('You are about to DESTROY a complete table!');
+$js_messages['strTruncateTableStrongWarning'] = __('You are about to TRUNCATE a complete table!');
 $js_messages['strDroppingEvent'] = __('Dropping Event');
 $js_messages['strDroppingProcedure'] = __('Dropping Procedure');
 $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
@@ -79,13 +81,19 @@ $js_messages['strNo'] = __('No');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
-//$js_messages['strBrowsing'] = __('Browsing');
-//$js_messages['strDeleting'] = __('Deleting');
+$js_messages['strHideSearchResults'] = __('Hide search results');
+$js_messages['strShowSearchResults'] = __('Show search results');
+$js_messages['strBrowsing'] = __('Browsing');
+$js_messages['strDeleting'] = __('Deleting');
+
+/* For import.js */
+$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
 
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strInlineEdit'] = __('Inline Edit');
+$js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
 
@@ -101,6 +109,7 @@ $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
+$js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the layout. They will be lost if you don\'t save them.Do you want to continue?');
 
 /* Visual query builder (pmd/scripts/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
@@ -117,6 +126,7 @@ $js_messages['strMore'] = __('More');
 $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.');
 /* l10n: Latest available phpMyAdmin version */
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
+$js_messages['strUpToDate'] = __('up to date');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

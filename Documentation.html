@@ -1303,6 +1303,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     </dd>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
+    You should use something different than <code>phpMyAdmin</code>, because
+    this is session which phpMyAdmin uses internally.
     </dd>
     <dt><span id="cfg_Servers_SignonURL">$cfg['Servers'][$i]['SignonURL']</span> string</dt>
     <dd>URL where user will be redirected to log in for signon authentication method. Should be absolute including protocol.

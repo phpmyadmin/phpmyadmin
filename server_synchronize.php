@@ -1105,9 +1105,9 @@ if (isset($_REQUEST['synchronize_db'])) {
         'ASC', 0, true);
 
     if ($GLOBALS['cfg']['AllowArbitraryServer'] === false) {
-        $possibly_disabled = ' disabled="disabled"';
+        $possibly_readonly = ' readonly="readonly"';
     } else {
-        $possibly_disabled = '';
+        $possibly_readonly = '';
     }
 
     foreach ($cons as $type) {
@@ -1172,27 +1172,27 @@ if (isset($_REQUEST['synchronize_db'])) {
       </tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Server'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_disabled; ?>/></td>
+        <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_readonly; ?>/></td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('Port'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_disabled; ?> value="3306" maxlength="5" size="5" /></td>
+        <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_readonly; ?> value="3306" maxlength="5" size="5" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Socket'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_disabled; ?>/></td>
+        <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_readonly; ?>/></td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('User name'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" <?php echo $possibly_disabled; ?>/></td>
+        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
 	    <td><?php echo __('Password'); ?></td>
-        <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" <?php echo $possibly_disabled; ?>/> </td>
+        <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
 	</tr>
 	<tr class="odd toggler remote-server">
 	    <td><?php echo __('Database'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" <?php echo $possibly_disabled; ?>/></td>
+        <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
 	</tr>
 	<tr class="even toggler current-server" style="display: none;">
 	    <td><?php echo __('Database'); ?></td>

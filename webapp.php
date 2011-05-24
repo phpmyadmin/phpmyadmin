@@ -44,11 +44,12 @@ foreach ($parameters as $key => $value) {
     $ini_file .= $key . '=' . $value . "\n";
 }
 
-$zip = new zipfile;
-$zip->addFile($ini_file, 'webapp.ini');
-$zip->addFile(file_get_contents($icon), 'phpMyAdmin.ico');
-
 header('Content-Type: application/webapp');
 header('Content-Disposition: attachment; filename="' . $name . '"');
-echo $zip->file();
+
+$zip = new zipfile;
+$zip->setDoWrite();
+$zip->addFile($ini_file, 'webapp.ini');
+$zip->addFile(file_get_contents($icon), 'phpMyAdmin.ico');
+$zip->file();
 ?>
