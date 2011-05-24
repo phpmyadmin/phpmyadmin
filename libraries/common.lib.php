@@ -1392,10 +1392,9 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
     /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
     $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
 
-    $dh           = PMA_pow(10, $comma);
-    $li           = PMA_pow(10, $limes);
-    $return_value = $value;
-    $unit         = $byteUnits[0];
+    $dh   = PMA_pow(10, $comma);
+    $li   = PMA_pow(10, $limes);
+    $unit = $byteUnits[0];
 
     for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
         if (isset($byteUnits[$d]) && $value >= $li * PMA_pow(10, $ex)) {
