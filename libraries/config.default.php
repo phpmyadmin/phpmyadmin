@@ -806,7 +806,7 @@ $cfg['LeftLogoLinkWindow'] = 'main';
  *
  * @global integer $cfg['LeftRecentTable']
  */
-$cfg['LeftRecentTable'] = 5;
+$cfg['LeftRecentTable'] = 10;
 
 /**
  * display a JavaScript table filter in the left frame
