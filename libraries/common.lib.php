@@ -9,14 +9,9 @@
 /**
  * Exponential expression / raise number into power
  *
- * @uses    function_exists()
- * @uses    bcpow()
- * @uses    gmp_pow()
- * @uses    gmp_strval()
- * @uses    pow()
- * @param   number  $base
- * @param   number  $exp
- * @param   string  pow function use, or false for auto-detect
+ * @param   string  $base
+ * @param   string  $exp
+ * @param   mixed   $use_function  pow function to use, or false for auto-detect
  * @return  mixed  string or float
  */
 function PMA_pow($base, $exp, $use_function = false)
@@ -69,12 +64,11 @@ function PMA_pow($base, $exp, $use_function = false)
  *
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['cfg']['PropertiesIconic']
- * @uses    htmlspecialchars()
- * @param   string  $icon   name of icon file
- * @param   string  $alternate alternate text
- * @param   boolean $container include in container
- * @param   boolean $$force_text whether to force alternate text to be displayed
- * @return          html img tag
+ * @param   string  $icon       name of icon file
+ * @param   string  $alternate  alternate text
+ * @param   boolean $container  include in container
+ * @param   boolean $force_text whether to force alternate text to be displayed
+ * @return html img tag
  */
 function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
 {
@@ -127,9 +121,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
  * Displays the maximum size for an upload
  *
  * @uses    PMA_formatByteDown()
- * @uses    sprintf()
- * @param   integer  the size
- *
+ * @param   integer $max_upload_size  the size
  * @return  string   the message
  *
  * @access  public
@@ -146,8 +138,7 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  * Generates a hidden field which should indicate to the browser
  * the maximum size for upload
  *
- * @param   integer  the size
- *
+ * @param   integer  $max_size  the size
  * @return  string   the INPUT field
  *
  * @access  public
@@ -161,15 +152,13 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  * Add slashes before "'" and "\" characters so a value containing them can
  * be used in a sql comparison.
  *
- * @uses    str_replace()
- * @param   string   the string to slash
- * @param   boolean  whether the string will be used in a 'LIKE' clause
- *                   (it then requires two more escaped sequences) or not
- * @param   boolean  whether to treat cr/lfs as escape-worthy entities
- *                   (converts \n to \\n, \r to \\r)
- *
- * @param   boolean  whether this function is used as part of the
- *                   "Create PHP code" dialog
+ * @param   string  $a_string  the string to slash
+ * @param   bool    $is_like   whether the string will be used in a 'LIKE' clause
+ *                             (it then requires two more escaped sequences) or not
+ * @param   bool    $crlf      whether to treat cr/lfs as escape-worthy entities
+ *                             (converts \n to \\n, \r to \\r)
+ * @param   bool    $php_code  whether this function is used as part of the
+ *                             "Create PHP code" dialog
  *
  * @return  string   the slashed string
  *
@@ -204,9 +193,7 @@ function PMA_sqlAddslashes($a_string = '', $is_like = false, $crlf = false, $php
  * database, table and field names.
  * Note: This function does not escape backslashes!
  *
- * @uses    str_replace()
- * @param   string   the string to escape
- *
+ * @param   string  $name  the string to escape
  * @return  string   the escaped string
  *
  * @access  public
@@ -223,7 +210,6 @@ function PMA_escape_mysql_wildcards($name)
  * removes slashes before "_" and "%" characters
  * Note: This function does not unescape backslashes!
  *
- * @uses    str_replace()
  * @param   string   $name  the string to escape
  * @return  string   the escaped string
  * @access  public
@@ -241,8 +227,6 @@ function PMA_unescape_mysql_wildcards($name)
  *
  * checks if the sting is quoted and removes this quotes
  *
- * @uses    str_replace()
- * @uses    substr()
  * @param   string  $quoted_string  string to remove quotes from
  * @param   string  $quote          type of quote to remove
  * @return  string  unqoted string
@@ -279,10 +263,9 @@ function PMA_unQuote($quoted_string, $quote = null)
  * @uses    PMA_SQP_isError()
  * @uses    PMA_SQP_formatHtml()
  * @uses    PMA_SQP_formatNone()
- * @uses    is_array()
- * @param   mixed    pre-parsed SQL structure
- *
- * @return  string   the formatted sql
+ * @param  mixed   $parsed_sql    pre-parsed SQL structure
+ * @param  string  $unparsed_sql
+ * @return string  the formatted sql
  *
  * @global  array    the configuration array
  * @global  boolean  whether the current statement is a multiple one or not
@@ -342,12 +325,11 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['ReplaceHelpImg']
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    PMA_MYSQL_INT_VERSION
- * @uses    strtolower()
- * @uses    str_replace()
- * @param string  chapter of "HTML, one page per chapter" documentation
- * @param string  contains name of page/anchor that is being linked
- * @param bool    whether to use big icon (like in left frame)
- * @param string  anchor to page part
+ * @param string  $chapter    chapter of "HTML, one page per chapter" documentation
+ * @param string  $link       contains name of page/anchor that is being linked
+ * @param bool    $big_icon   whether to use big icon (like in left frame)
+ * @param string  $anchor     anchor to page part
+ * @param bool    $just_open  whether only the opening <a> tag should be returned
  *
  * @return  string  the html link
  *
@@ -434,8 +416,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
 /**
  * Displays a link to the phpMyAdmin documentation
  *
- * @param string  anchor in documentation
- *
+ * @param string  $anchor  anchor in documentation
  * @return  string  the html link
  *
  * @access  public
@@ -451,9 +432,8 @@ function PMA_showDocu($anchor) {
 /**
  * Displays a link to the PHP documentation
  *
- * @param string  anchor in documentation
- *
- * @return  string  the html link
+ * @param string  $target  anchor in documentation
+ * @return string  the html link
  *
  * @access  public
  */
@@ -471,7 +451,9 @@ function PMA_showPHPDocu($target) {
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
  * @uses    $GLOBALS['footnotes']
- * @param   string   the error message
+ * @param   string  $message the error message
+ * @param   bool    $bbcode
+ * @param   string  $type
  * @return  string html code for a footnote marker
  * @access  public
  */
@@ -532,25 +514,11 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @uses    PMA_SQP_isError()
  * @uses    PMA_SQP_parse()
  * @uses    PMA_SQP_getErrorString()
- * @uses    strtolower()
- * @uses    urlencode()
- * @uses    str_replace()
- * @uses    nl2br()
- * @uses    substr()
- * @uses    preg_replace()
- * @uses    preg_match()
- * @uses    explode()
- * @uses    implode()
- * @uses    is_array()
- * @uses    function_exists()
- * @uses    htmlspecialchars()
- * @uses    trim()
- * @uses    strstr()
- * @param   string   the error message
- * @param   string   the sql query that failed
- * @param   boolean  whether to show a "modify" link or not
- * @param   string   the "back" link url (full path is not required)
- * @param   boolean  EXIT the page?
+ * @param   string  $error_message   the error message
+ * @param   string  $the_query       the sql query that failed
+ * @param   bool    $is_modify_link  whether to show a "modify" link or not
+ * @param   string  $back_url        the "back" link url (full path is not required)
+ * @param   bool    $exit            EXIT the page?
  *
  * @global  string    the curent table
  * @global  string    the current db
@@ -1377,25 +1345,22 @@ function PMA_profilingResults($profiling_results, $show_chart = false)
 /**
  * Formats $value to byte view
  *
- * @param    double   the value to format
- * @param    integer  the sensitiveness
- * @param    integer  the number of decimals to retain
+ * @param double $value  the value to format
+ * @param int    $limes  the sensitiveness
+ * @param int    $comma  the number of decimals to retain
  *
  * @return   array    the formatted value and its unit
  *
  * @access  public
- *
- * @version  1.2 - 18 July 2002
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
     /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
     $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
 
-    $dh           = PMA_pow(10, $comma);
-    $li           = PMA_pow(10, $limes);
-    $return_value = $value;
-    $unit         = $byteUnits[0];
+    $dh   = PMA_pow(10, $comma);
+    $li   = PMA_pow(10, $limes);
+    $unit = $byteUnits[0];
 
     for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
         if (isset($byteUnits[$d]) && $value >= $li * PMA_pow(10, $ex)) {
@@ -1421,6 +1386,9 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 
 /**
  * Changes thousands and decimal separators to locale specific values.
+ *
+ * @param $value
+ * @return string
  */
 function PMA_localizeNumber($value)
 {
@@ -1535,7 +1503,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 /**
  * Returns the number of bytes when a formatted size is given
  *
- * @param   string   $size     the size expression (for example 8MB)
+ * @param   string  $formatted_size  the size expression (for example 8MB)
  * @uses    PMA_pow()
  * @return  integer  The numerical part of the expression (for example 8)
  */
@@ -1556,8 +1524,8 @@ function PMA_extractValueFromFormattedSize($formatted_size)
 /**
  * Writes localised date
  *
- * @param   string   the current timestamp
- *
+ * @param string $timestamp  the current timestamp
+ * @param string $format     format
  * @return  string   the formatted date
  *
  * @access  public
@@ -1767,12 +1735,14 @@ function PMA_generate_html_tabs($tabs, $url_params)
  * Displays a link, or a button if the link's URL is too large, to
  * accommodate some browsers' limitations
  *
- * @param  string  the URL
- * @param  string  the link message
+ * @param  string  $url the URL
+ * @param  string  $message the link message
  * @param  mixed   $tag_params  string: js confirmation
  *                              array: additional tag params (f.e. style="")
  * @param  boolean $new_form    we set this to false when we are already in
  *                              a  form, to avoid generating nested forms
+ * @param  boolean $strip_img
+ * @param  string  $target
  *
  * @return string  the results to be echoed or saved in an array
  */
@@ -1902,13 +1872,12 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
  *
  * @uses    sprintf()
  * @uses    floor()
- * @param  int     the timespan
+ * @param  int  $seconds  the timespan
  *
  * @return string  the formatted value
  */
 function PMA_timespanFormat($seconds)
 {
-    $return_string = '';
     $days = floor($seconds / 86400);
     if ($days > 0) {
         $seconds -= $days * 86400;
@@ -1933,8 +1902,8 @@ function PMA_timespanFormat($seconds)
  *
  * @todo    add a multibyte safe function PMA_STR_split()
  * @uses    strlen
- * @param   string   The string
- * @param   string   The Separator (defaults to "<br />\n")
+ * @param   string  $string     The string
+ * @param   string  $Separator  The Separator (defaults to "<br />\n")
  *
  * @access  public
  * @return  string      The flipped string
@@ -1985,13 +1954,11 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * @uses    PMA_getenv()
  * @uses    header_meta_style.inc.php
  * @uses    $GLOBALS['PMA_PHP_SELF']
- * basename
- * @param   array   The names of the parameters needed by the calling
- *                  script.
- * @param   boolean Stop the execution?
+ * @param   array  $params  The names of the parameters needed by the calling script.
+ * @param   bool   $die Stop the execution?
  *                  (Set this manually to false in the calling script
  *                   until you know all needed parameters to check).
- * @param   boolean Whether to include this list in checking for special params.
+ * @param   bool   $request Whether to include this list in checking for special params.
  * @global  string  path to current script
  * @global  boolean flag whether any special variable was required
  *
@@ -2171,11 +2138,12 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
  * @uses    PMA_USR_BROWSER_AGENT
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['cfg']['PropertiesIconic']
- * @param   string      name of button element
- * @param   string      class of button element
- * @param   string      name of image element
- * @param   string      text to display
- * @param   string      image to display
+ * @param   string  $button_name    name of button element
+ * @param   string  $button_class   class of button element
+ * @param   string  $image_name     name of image element
+ * @param   string  $text           text to display
+ * @param   string  $image          image to display
+ * @param   string  $value
  *
  * @access  public
  */
@@ -2211,24 +2179,19 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
 /**
  * Generate a pagination selector for browsing resultsets
  *
- * @uses    range()
- * @param   string      Number of rows in the pagination set
- * @param   string      current page number
- * @param   string      number of total pages
- * @param   string      If the number of pages is lower than this
- *                      variable, no pages will be omitted in
- *                      pagination
- * @param   string      How many rows at the beginning should always
- *                      be shown?
- * @param   string      How many rows at the end should always
- *                      be shown?
- * @param   string      Percentage of calculation page offsets to
- *                      hop to a next page
- * @param   string      Near the current page, how many pages should
- *                      be considered "nearby" and displayed as
- *                      well?
- * @param   string      The prompt to display (sometimes empty)
+ * @param  int     $rows         Number of rows in the pagination set
+ * @param  int     $pageNow      current page number
+ * @param  int     $nbTotalPage  number of total pages
+ * @param  int     $showAll      If the number of pages is lower than this
+ *                               variable, no pages will be omitted in pagination
+ * @param  int     $sliceStart   How many rows at the beginning should always be shown?
+ * @param  int     $sliceEnd     How many rows at the end should always be shown?
+ * @param  int     $percent      Percentage of calculation page offsets to hop to a next page
+ * @param  int     $range        Near the current page, how many pages should
+ *                               be considered "nearby" and displayed as well?
+ * @param  string  $prompt       The prompt to display (sometimes empty)
  *
+ * @return string
  * @access  public
  */
 function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
@@ -2795,14 +2758,13 @@ function PMA_replace_binary_contents($content) {
 }
 
 /**
- *
  * If the string starts with a \r\n pair (0x0d0a) add an extra \n
  *
- * @uses    strpos()
+ * @param string $string
  * @return  string with the chars replaced
  */
 
-function PMA_duplicateFirstNewline($string){
+function PMA_duplicateFirstNewline($string) {
     $first_occurence = strpos($string, "\r\n");
     if ($first_occurence === 0){
         $string = "\n".$string;
@@ -2811,41 +2773,40 @@ function PMA_duplicateFirstNewline($string){
 }
 
 /**
- * get the action word corresponding to a script name
+ * Get the action word corresponding to a script name
  * in order to display it as a title in navigation panel
  *
- * @uses    $GLOBALS
- * @param   string  a valid value for $cfg['LeftDefaultTabTable']
- *                  or $cfg['DefaultTabTable']
- *                  or $cfg['DefaultTabDatabase']
+ * @param string $target  a valid value for $cfg['LeftDefaultTabTable'], $cfg['DefaultTabTable']
+ *                        or $cfg['DefaultTabDatabase']
+ * @return array
  */
 function PMA_getTitleForTarget($target) {
+    $mapping = array(
+        // Values for $cfg['DefaultTabTable']
+        'tbl_structure.php' =>  __('Structure'),
+        'tbl_sql.php' => __('SQL'),
+        'tbl_select.php' =>__('Search'),
+        'tbl_change.php' =>__('Insert'),
+        'sql.php' => __('Browse'),
 
-$mapping = array(
-	// Values for $cfg['DefaultTabTable']
-	'tbl_structure.php' =>  __('Structure'),
-	'tbl_sql.php' => __('SQL'),
-	'tbl_select.php' =>__('Search'),
-	'tbl_change.php' =>__('Insert'),
-	'sql.php' => __('Browse'),
-
-	// Values for $cfg['DefaultTabDatabase']
-	'db_structure.php' => __('Structure'),
-	'db_sql.php' => __('SQL'),
-	'db_search.php' => __('Search'),
-	'db_operations.php' => __('Operations'),
-);
+        // Values for $cfg['DefaultTabDatabase']
+        'db_structure.php' => __('Structure'),
+        'db_sql.php' => __('SQL'),
+        'db_search.php' => __('Search'),
+        'db_operations.php' => __('Operations'),
+    );
     return $mapping[$target];
 }
 
 /**
  * Formats user string, expading @VARIABLES@, accepting strftime format string.
  *
- * @param string Text where to do expansion.
- * @param function Function to call for escaping variable values.
- * @param array Array with overrides for default parameters (obtained from GLOBALS).
+ * @param string    $string  Text where to do expansion.
+ * @param function  $escape  Function to call for escaping variable values.
+ * @param array     $updates Array with overrides for default parameters (obtained from GLOBALS).
+ * @return string
  */
-function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
+function PMA_expandUserString($string, $escape = null, $updates = array()) {
     /* Content */
     $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
@@ -2911,12 +2872,10 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
  * function that generates a json output for an ajax request and ends script
  * execution
  *
- * @param   boolean success whether the ajax request was successfull
- * @param   string  message string containing the html of the message
- * @param   array   extra_data  optional - any other data as part of the json request
+ * @param  bool   $message     message string containing the html of the message
+ * @param  bool   $success success whether the ajax request was successfull
+ * @param  array  $extra_data  extra_data  optional - any other data as part of the json request
  *
- * @uses    header()
- * @uses    json_encode()
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
@@ -2960,9 +2919,10 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 
 /**
  * Display the form used to browse anywhere on the local server for the file to import
+ *
+ * @param $max_upload_size
  */
 function PMA_browseUploadFile($max_upload_size) {
-    $uid = uniqid("");
     echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
@@ -2974,6 +2934,9 @@ function PMA_browseUploadFile($max_upload_size) {
 
 /**
  * Display the form used to select a file to import from the server upload directory
+ *
+ * @param $import_list
+ * @param $uploaddir
  */
 function PMA_selectUploadFile($import_list, $uploaddir) {
 	echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
