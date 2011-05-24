@@ -109,7 +109,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
     $tableStart = '<table style="width: 100%"><tr><td style="width: 50%;">';
     $schedulerFieldset = '</td><td><fieldset>' . "\n"
        . PMA_getIcon('b_events.png') . __('The event scheduler is ') . $es_state . ':'
-       . '    <a href="db_events.php?' . $GLOBALS['url_query'] . '&amp;toggle_scheduler=' . $es_change . '">'
+       . '    <a href="db_events.php?' . $url_query . '&amp;toggle_scheduler=' . $es_change . '">'
        . __('Turn') . " $es_change\n" .  '</a>' . "\n"
        . '</fieldset></td></tr></table>' . "\n";
 }
@@ -118,7 +118,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
  * Display the form for adding a new event
  */
 echo $tableStart . '<fieldset>' . "\n"
-   . '    <a href="db_events.php?' . $GLOBALS['url_query'] . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
+   . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
    . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
