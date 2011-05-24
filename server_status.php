@@ -31,10 +31,15 @@ require_once './libraries/replication_gui.lib.php';
 /** 
  * Ajax request
  */
-if (isset($_REQUEST["query_chart"]) && isset($_REQUEST['ajax_request'])) {
+
+// Prevent ajax requests from being cached
+if (isset($_REQUEST['ajax_request'])) {
     header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-    header("Expires: Sat, 26 Jul 1977 05:00:00 GMT"); // Date in the past
-    
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+    header_remove('Last-Modified');
+ }
+ 
+if (isset($_REQUEST["query_chart"]) && isset($_REQUEST['ajax_request'])) {    
     exit(createQueryChart());
 }
 
@@ -293,12 +298,17 @@ foreach ($server_status as $name => $value) {
 $hour_factor    = 3600 / $server_status['Uptime'];
 
 /* Ajax request refresh */
-if(isset($_REQUEST['variables_table_ajax'])) {
-    // Prints the variables table
-    printVariablesTable($server_status, $server_variables, $allocationMap);
-    exit();
+if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
+    switch($_REQUEST['show']) {
+        case 'variables_table':
+            // Prints the variables table
+            printVariablesTable($server_status, $server_variables, $allocationMap);
+            exit();
+            
+        default:
+            break;
+    }
 }
-
 
 /**
  * start output
@@ -316,6 +326,16 @@ require './libraries/server_common.inc.php';
 require './libraries/server_links.inc.php';
 
 /**
+ * Some definitions used by js. Delete this once framsets have been removed from pma
+ */
+?>
+<script type="text/javascript">
+var token = '<?php echo $_SESSION[' PMA_token ']; ?>';
+var pmaThemeImage = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
+</script>
+<?
+
+/**
  * Displays the sub-page heading
  */
 echo '<div id="serverstatus">' . "\n";
@@ -328,32 +348,21 @@ echo '<h2>' . "\n"
    . '</h2>' . "\n";
 
 ?>
-<div id="statuslinks">
-    <a href="<?php echo
-        $PMA_PHP_SELF . '?' . PMA_generate_common_url(); ?>"
-       ><?php echo __('Refresh'); ?></a>
-    <a href="<?php echo
-        $PMA_PHP_SELF . '?flush=STATUS&amp;' . PMA_generate_common_url(); ?>"
-       ><?php echo _pgettext('for Show status', 'Reset'); ?></a>
-       <?php echo PMA_showMySQLDocu('server_status_variables','server_status_variables'); ?>
-</div>
-
 <div id="serverStatusTabs">
     <ul>
-        <li><a href="#statusTabs1">Server traffic</a></li>
-        <li><a href="#statusTabs2">Query statistics</a></li>
-        <li><a href="#statusTabs3">All status variables</a></li>
+        <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
+        <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
+        <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
     </ul>
     
-    <div id="statusTabs1">
+    <div id="statustabs_traffic">
 <h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
-echo sprintf('Network traffic since startup: %s',
+echo sprintf(__('Network traffic since startup: %s'),
         implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1))
 );
 ?>
 </h3>
 
-    
 <p>
 <?php
 echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
@@ -480,7 +489,7 @@ if ($server_master_status || $server_slave_status) {
 </table>
 
     </div>
-    <div id="statusTabs2">
+    <div id="statustabs_queries">
     
 
 <h3 id="serverstatusqueries"><?php echo
@@ -562,23 +571,29 @@ foreach ($used_queries as $name => $value) {
 ?>
 </div>
 <?php endif; ?>
-
     </div>
-    <div id="statusTabs3">
+    <div id="statustabs_allvars">
 <div id="serverstatusvars">
 <fieldset id="tableFilter" style="display:none;">
+    <div class="statuslinks">
+    
+    <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
+        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+        <?php echo __('Refresh'); ?>
+    </a>
+    </div>
 <legend>Filters</legend>
 <div class="formelement">
-    <label for="filterText">Containing the word:</label>
+    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
 </div>
 <div class="formelement">
     <input type="checkbox" name="filterAlert" id="filterAlert">
-    <label for="filterAlert">Show only alert values</label> 
+    <label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
 </div>
 <div class="formelement">
     <select id="filterCategory" name="filterCategory">
-        <option value=''>Filter by category...</option>
+        <option value=''><?php echo __('Filter by category...'); ?></option>
 <?php
         foreach($sections as $section_id=>$section_name) {
 ?>
@@ -591,7 +606,7 @@ foreach ($used_queries as $name => $value) {
 </div>
 </fieldset>
 <div id="linkSuggestions" class="defaultLinks" style="display:none">
-<p>Related links:
+<p><?php echo __('Related links:'); ?>
 <?php
 
 
@@ -614,6 +629,8 @@ unset($link_url, $link_name, $i);
 ?>
 </p></div>
 
+</div>
+<div>
 <?php
 // Prints the variables table
 printVariablesTable($server_status, $server_variables, $allocationMap);
@@ -630,6 +647,7 @@ unset(
 );
 
 ?>
+</div>
 </div>
 </div>
 <?php
@@ -740,7 +758,7 @@ function printVariablesTable($server_status,$server_variables,$allocationMap) {
         'Open_filesDescr' => __('The number of files that are open.'),
         'Open_streamsDescr' => __('The number of streams that are open (used mainly for logging).'),
         'Open_tablesDescr' => __('The number of tables that are open.'),
-        'Qcache_free_blocksDescr' => __('The number of free memory blocks in query cache.'),
+        'Qcache_free_blocksDescr' => __('The number of free memory blocks in query cache. High numbers can indicate fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE statement.'),
         'Qcache_free_memoryDescr' => __('The amount of free memory for query cache.'),
         'Qcache_hitsDescr' => __('The number of cache hits.'),
         'Qcache_insertsDescr' => __('The number of queries added to the cache.'),
@@ -804,6 +822,8 @@ function printVariablesTable($server_status,$server_variables,$allocationMap) {
         'Opened_tables' => 0,
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
+        
+        'Qcache_free_blocks' => $server_status['Qcache_total_blocks'] / 5,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests

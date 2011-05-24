@@ -1165,6 +1165,10 @@ text-shadow:0 1px 0 #000000;
 
 /* serverstatus */
 
+.statuslinks {
+	float: <?php echo $right; ?>;
+}
+
 /* Also used for the variables page */
 fieldset#tableFilter {
     margin-bottom:1em;
@@ -1205,12 +1209,12 @@ div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
     white-space: nowrap;
 }
-div#serverstatus div#statuslinks a:before,
+div#serverstatus div.statuslinks a:before,
 div#serverstatus div#sectionlinks a:before,
 div#serverstatus table tbody td.descr a:before,
 div#serverstatus table .tblFooters a:before {
 }
-div#serverstatus div#statuslinks a:after,
+div#serverstatus div.statuslinks a:after,
 div#serverstatus div#sectionlinks a:after,
 div#serverstatus table tbody td.descr a:after,
 div#serverstatus table .tblFooters a:after {
@@ -1287,7 +1291,7 @@ div#querywindowcontainer fieldset {
     -moz-box-shadow:0px 1px 1px #fff inset;
 
 }
-#sectionlinks a, #statuslinks a{
+#sectionlinks a, .statuslinks a{
     font-size:0.88em;
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
@@ -1314,7 +1318,7 @@ div#querywindowcontainer fieldset {
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
-#sectionlinks a:hover, #statuslinks a:hover{
+#sectionlinks a:hover, .statuslinks a:hover{
     background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));

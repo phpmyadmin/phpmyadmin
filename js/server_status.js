@@ -7,7 +7,7 @@ $(function() {
     
     $('#serverStatusTabs').tabs({
         // Fixes line break in the menu bar when the page overflows and scrollbar appears
-        cookie: { expires: 1 },
+        cookie: { name: 'serverStatusTabs', expires: 1 },
         show: function() { menuResize(); }
     });
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
@@ -26,6 +26,18 @@ $(function() {
         // Init imagemap again
         imageMap.init();
     });
+	
+	// Allow ajax reload of varialbes
+	$('#statustabs_allvars .statuslinks a').first().click(function() {
+		var that = this;
+		$(this).find('img').show();
+		$.get($(this).attr('href'),{ajax_request:1},function(data) {
+			$('#serverstatusvariables').parent().html(data);
+			filterVariables();
+			$(that).find('img').hide();
+		});
+		return false;
+	});
 
     $('#serverstatusquerieschart div.notice').css('display','none');
     
