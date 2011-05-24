@@ -379,8 +379,6 @@ if ($GLOBALS['cfg']['RememberSorting']
     }
 }
 
-echo '<pre>'.$sql_query.'</pre>';
-
 // Do append a "LIMIT" clause?
 if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
  && ! ($is_count || $is_export || $is_func || $is_analyse)
