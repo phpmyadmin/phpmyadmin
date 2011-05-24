@@ -706,6 +706,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
 // BEGIN - Calc Table Space
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
+    echo '<div id="tablestatistics">';
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);
     }
@@ -924,7 +925,7 @@ if ($cfg['ShowStats']) {
     </tbody>
     </table>
 
-    <!-- close slider div -->
+    <!-- close tablestatistics div -->
     </div>
 
     <?php
