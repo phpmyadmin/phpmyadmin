@@ -2265,6 +2265,13 @@ $cfg['ModifyDeleteAtRight'] = false;
 $cfg['DefaultDisplay'] = 'horizontal';
 
 /**
+ * remember the last way a table sorted
+ *
+ * @global string $cfg['RememberSorting']
+ */
+$cfg['RememberSorting'] = false;
+
+/**
  * default display direction for altering/creating columns (tbl_properties)
  * (horizontal|vertical|<number>)
  * number indicates maximum number for which vertical model is used
