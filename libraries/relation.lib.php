@@ -455,14 +455,20 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     }
 
     /**
-     * Emulating relations for some information_schema tables
+     * Emulating relations for some information_schema and data_dictionary tables
      */
-    if ($db == 'information_schema'
-     && ($source == 'internal' || $source == 'both')) {
-        require_once './libraries/information_schema_relations.lib.php';
-
-        if (isset($GLOBALS['information_schema_relations'][$table])) {
-            foreach ($GLOBALS['information_schema_relations'][$table] as $field => $relations) {
+    $is_information_schema = strtolower($db) == 'information_schema';
+    $is_data_dictionary = PMA_DRIZZLE && strtolower($db) == 'data_dictionary';
+    if (($is_information_schema || $is_data_dictionary) && ($source == 'internal' || $source == 'both')) {
+        if ($is_information_schema) {
+            $relations_key = 'information_schema_relations';
+            require_once './libraries/information_schema_relations.lib.php';
+        } else {
+            $relations_key = 'data_dictionary_relations';
+            require_once './libraries/data_dictionary_relations.lib.php';
+        }
+        if (isset($GLOBALS[$relations_key][$table])) {
+            foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
                 if ((! strlen($column) || $column == $field)
                  && (! isset($foreign[$field]) || ! strlen($foreign[$field]))) {
                     $foreign[$field] = $relations;
