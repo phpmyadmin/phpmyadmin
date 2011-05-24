@@ -225,9 +225,8 @@ foreach ($server_status as $name => $value) {
     }
 }
 
-// rest - not needed anymore 
-// $sections['all']['vars'] =& $server_status;
-
+// admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+unset($used_queries['Com_admin_commands']);
 
 /* Ajax request refresh */
 if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
@@ -356,6 +355,8 @@ function printQueryStatistics() {
 	global $server_status, $used_queries, $url_query;
 	
 	$hour_factor    = 3600 / $server_status['Uptime'];
+	
+	$total_queries = array_sum($used_queries);
 
 	?>
 	<div class="statuslinks">
@@ -368,19 +369,19 @@ function printQueryStatistics() {
 	<h3 id="serverstatusqueries"><?php echo
 		//sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
 			//PMA_formatNumber($server_status['Questions'], 0));
-		sprintf('Queries since startup: %s',PMA_formatNumber($server_status['Questions'], 0));
-		echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+		sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
+		//echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
 		?>
 	<br>
 	<span style="font-size:60%; display:inline;">
 	&oslash; <?php echo __('per hour'); ?>:  
-	<?php echo PMA_formatNumber($server_status['Questions'] * $hour_factor, 3, 2); ?><br>
+	<?php echo PMA_formatNumber($total_queries * $hour_factor, 3, 2); ?><br>
 
 	&oslash; <?php echo __('per minute'); ?>:  
-	<?php echo PMA_formatNumber( $server_status['Questions'] * 60 / $server_status['Uptime'], 3, 2); ?><br>
+	<?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 3, 2); ?><br>
 
 	&oslash; <?php echo __('per second'); ?>: 
-	<?php echo PMA_formatNumber( $server_status['Questions'] / $server_status['Uptime'], 3, 2); ?><br>
+	<?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 3, 2); ?><br>
 	</h3>
 	<?php
 
@@ -389,7 +390,7 @@ function printQueryStatistics() {
 
 	$odd_row        = true;
 	$count_displayed_rows      = 0;
-	$perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
+	$perc_factor    = 100 / $total_queries //(- $server_status['Connections']);
 
 	?>
 		<table id="serverstatusqueriesdetails" class="data sortable">
@@ -920,8 +921,11 @@ function createQueryChart($com_vars=FALSE) {
     if(!$com_vars) 
         $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
         
+	// admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+	unset($com_vars['Com_admin_commands']);
+	
     arsort($com_vars);
-    
+    	
     $merge_minimum = array_sum($com_vars) * 0.005;
     $merged_value = 0;
     
