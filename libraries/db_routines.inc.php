@@ -103,6 +103,7 @@ if (! $routines) {
                           <td><div class="create_sql" style="display: none;">%s</div>%s</td>
                           <td>%s</td>
                           <td>%s</td>
+                          <td>%s</td>
                      </tr>',
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $sqlDropProc,
