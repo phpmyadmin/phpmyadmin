@@ -19,7 +19,7 @@ require_once './libraries/mysql_charsets.lib.php';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+//$GLOBALS['js_include'][] = 'jquery/timepicker.js'; - already included in jquery-ui
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =
         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
