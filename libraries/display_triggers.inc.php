@@ -97,11 +97,9 @@ echo '</fieldset>';
 /**
  * Display the form for adding a new trigger
  */
-if (! empty($table)) {
-    echo '<fieldset>' . "\n"
-       . '    <a href="tbl_triggers.php?' . $url_query . '&amp;addtrigger=1" class="' . $conditional_class_add . '">' . "\n"
-       . PMA_getIcon('b_trigger_add.png') . __('Add a new Trigger') . '</a>' . "\n"
-       . '</fieldset>' . "\n";
-}
+echo '<fieldset>' . "\n"
+   . '    <a href="tbl_triggers.php?' . $url_query . '&amp;addtrigger=1" class="' . $conditional_class_add . '">' . "\n"
+   . PMA_getIcon('b_trigger_add.png') . __('Add a new Trigger') . '</a>' . "\n"
+   . '</fieldset>' . "\n";
 
 ?>
