@@ -83,8 +83,8 @@ $js_messages['strNo'] = __('No');
 $js_messages['strSearching'] = __('Searching');
 $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');
-//$js_messages['strBrowsing'] = __('Browsing');
-//$js_messages['strDeleting'] = __('Deleting');
+$js_messages['strBrowsing'] = __('Browsing');
+$js_messages['strDeleting'] = __('Deleting');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
@@ -93,6 +93,7 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strInlineEdit'] = __('Inline Edit');
+$js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
 

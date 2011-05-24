@@ -20,7 +20,7 @@ function loadResult(result_path , table_name , link , ajaxEnable){
         if(ajaxEnable)
         {
             /**   Hides the results shown by the delete criteria */
-            //PMA_ajaxShowMessage(PMA_messages['strBrowsing']);
+            PMA_ajaxShowMessage(PMA_messages['strBrowsing']);
             $('#sqlqueryform').hide();
             $('#togglequerybox').hide();
             /**  Load the browse results to the page */
@@ -55,7 +55,7 @@ function deleteResult(result_path , msg , ajaxEnable){
 
                 /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo'). click();
-                //PMA_ajaxShowMessage(PMA_messages['strDeleting']);
+                PMA_ajaxShowMessage(PMA_messages['strDeleting']);
                 /** Show the results of the deletion option */
                 $('#browse-results').show();
                 $('#sqlqueryform').hide();
