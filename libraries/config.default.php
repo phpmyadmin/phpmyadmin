@@ -2269,7 +2269,7 @@ $cfg['DefaultDisplay'] = 'horizontal';
  *
  * @global string $cfg['RememberSorting']
  */
-$cfg['RememberSorting'] = false;
+$cfg['RememberSorting'] = true;
 
 /**
  * default display direction for altering/creating columns (tbl_properties)
