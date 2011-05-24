@@ -207,6 +207,52 @@ $sections = array(
     'ssl'           => 'SSL',
 );
 
+/**
+ * define some needfull links/commands
+ */
+// variable or section name => (name => url)
+$links = array();
+
+$links['table'][__('Flush (close) all tables')]
+	= $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
+$links['table'][__('Show open tables')]
+	= 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
+	  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+
+if ($server_master_status) {
+  $links['repl'][__('Show slave hosts')]
+	= 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
+	  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+  $links['repl'][__('Show master status')] = '#replication_master';
+}
+if ($server_slave_status) {
+  $links['repl'][__('Show slave status')] = '#replication_slave';
+}
+
+$links['repl']['doc'] = 'replication';
+
+$links['qcache'][__('Flush query cache')]
+	= $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
+	  PMA_generate_common_url();
+$links['qcache']['doc'] = 'query_cache';
+
+$links['threads'][__('Show processes')]
+	= 'server_processlist.php?' . PMA_generate_common_url();
+$links['threads']['doc'] = 'mysql_threads';
+
+$links['key']['doc'] = 'myisam_key_cache';
+
+$links['binlog_cache']['doc'] = 'binary_log';
+
+$links['Slow_queries']['doc'] = 'slow_query_log';
+
+$links['innodb'][__('Variables')]
+	= 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
+$links['innodb'][__('InnoDB Status')]
+	= 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
+	  PMA_generate_common_url();
+$links['innodb']['doc'] = 'innodb';
+
 
 // Variable to contain all com_ variables
 $used_queries = Array();
@@ -352,7 +398,7 @@ echo __('Runtime Information');
 <?php
 
 function printQueryStatistics() {
-	global $server_status, $used_queries, $url_query;
+	global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 	
 	$hour_factor    = 3600 / $server_status['Uptime'];
 	
@@ -443,8 +489,10 @@ function printQueryStatistics() {
 }
 
 function printServerTraffic() {
-	global $server_status;
+	global $server_status,$PMA_PHP_SELF;
 
+	$hour_factor    = 3600 / $server_status['Uptime'];
+	
 	/**
 	 * Replication library
 	 */
@@ -618,7 +666,7 @@ function printServerTraffic() {
 }
 
 function printVariablesTable() {
-	global $server_status, $server_variables, $allocationMap;
+	global $server_status, $server_variables, $allocationMap, $links;
     /**
      * Messages are built using the message name
      */
@@ -785,53 +833,6 @@ function printVariablesTable() {
         //'Handler read key' => '> ',
     );
 	
-	/**
-	 * define some needfull links/commands
-	 */
-	// variable or section name => (name => url)
-	$links = array();
-
-	$links['table'][__('Flush (close) all tables')]
-		= $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
-	$links['table'][__('Show open tables')]
-		= 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-		  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-
-	if ($server_master_status) {
-	  $links['repl'][__('Show slave hosts')]
-		= 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
-		  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-	  $links['repl'][__('Show master status')] = '#replication_master';
-	}
-	if ($server_slave_status) {
-	  $links['repl'][__('Show slave status')] = '#replication_slave';
-	}
-
-	$links['repl']['doc'] = 'replication';
-
-	$links['qcache'][__('Flush query cache')]
-		= $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-		  PMA_generate_common_url();
-	$links['qcache']['doc'] = 'query_cache';
-
-	$links['threads'][__('Show processes')]
-		= 'server_processlist.php?' . PMA_generate_common_url();
-	$links['threads']['doc'] = 'mysql_threads';
-
-	$links['key']['doc'] = 'myisam_key_cache';
-
-	$links['binlog_cache']['doc'] = 'binary_log';
-
-	$links['Slow_queries']['doc'] = 'slow_query_log';
-
-	$links['innodb'][__('Variables')]
-		= 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
-	$links['innodb'][__('InnoDB Status')]
-		= 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-		  PMA_generate_common_url();
-	$links['innodb']['doc'] = 'innodb';
-
-        
 ?>
 <table class="data sortable" id="serverstatusvariables">
     <col class="namecol" />
