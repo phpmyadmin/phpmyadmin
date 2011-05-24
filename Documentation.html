@@ -1056,6 +1056,29 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
+    <dt id="recent">
+        <span id="cfg_Servers_recent">$cfg['Servers'][$i]['recent']</span> string
+    </dt>
+    <dd>
+        Since release 3.5.0 you can show recently used tables in the left navigation frame.
+        It helps you to jump across table directly, without the need to select the database,
+        and then select the table. Using
+        <a href="#cfg_LeftRecentTable" class="configrule">$cfg['LeftRecentTable']</a>
+        you can configure the maximum number of recent tables shown. When you select a table
+        from the list, it will jump to the page specified in
+        <a href="#cfg_LeftDefaultTabTable" class="configrule">$cfg['LeftDefaultTabTable']</a>.<br/><br/>
+
+        Without configuring the storage, you can still access the recently used tables,
+        but it will disappear after you logout.<br/><br/>
+
+        To allow the usage of this functionality:
+
+        <ul>
+            <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['recent']</tt> (e.g. 'pma_recent')</li>
+        </ul>
+    </dd>
+
     <dt id="tracking">
         <span id="cfg_Servers_tracking">$cfg['Servers'][$i]['tracking']</span> string
     </dt>
@@ -1470,6 +1493,10 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_LeftFrameTableLevel">$cfg['LeftFrameTableLevel'] string</dt>
     <dd>Defines how many sublevels should be displayed when splitting
         up tables by the above separator.</dd>
+
+    <dt id="cfg_LeftRecentTable">$cfg['LeftRecentTable'] integer</dt>
+    <dd>The maximum number of recently used tables shown in the left navigation
+        frame. Set this to 0 (zero) to disable the listing of recent tables.</dd>
 
     <dt id="cfg_ShowTooltip">$cfg['ShowTooltip'] boolean</dt>
     <dd>Defines whether to display table comment as tool-tip in left frame or

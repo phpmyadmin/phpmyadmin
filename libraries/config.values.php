@@ -159,6 +159,7 @@ $cfg_db['_validators'] = array(
     'Import/skip_queries' => 'validate_non_negative_number',
     'InsertRows' => 'validate_positive_number',
     'LeftFrameTableLevel' => 'validate_positive_number',
+    'LeftRecentTable' => 'validate_non_negative_number',
     'LimitChars' => 'validate_positive_number',
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
