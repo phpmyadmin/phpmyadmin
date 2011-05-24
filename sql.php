@@ -360,7 +360,11 @@ if ($is_select) { // see line 141
 $full_sql_query      = $sql_query;
 
 // Handle remembered sorting order, only for single table query
-if (count($analyzed_sql[0][table_ref]) == 1) {
+if ($GLOBALS['cfg']['RememberSorting']
+ && ! ($is_count || $is_export || $is_func || $is_analyse)
+ && isset($analyzed_sql[0]['queryflags']['select_from'])
+ && count($analyzed_sql[0][table_ref]) == 1
+ ) {
     if (empty($analyzed_sql[0]['order_by_clause'])
             && isset($_SESSION['tmp_user_values']['table_sorting'][$table])) {
         // retrieve the remembered sorting order for current table
