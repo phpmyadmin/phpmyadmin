@@ -1974,8 +1974,10 @@ $(document).ready(function() {
     }
 });
 
+$(document).ready(initTooltips);
+
 /* Displays tooltips */
-$(document).ready(function() {
+function initTooltips() {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
     $(".footnotes").hide();
@@ -2001,7 +2003,7 @@ $(document).ready(function() {
             style: { background: '#ffffcc' }
         });
     });
-});
+}
 
 function menuResize()
 {

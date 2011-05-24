@@ -49,6 +49,7 @@ $(function() {
 		switch(tab.attr('id')) {
 			case 'statustabs_traffic':
 				tab.html(data);
+				initTooltips();
 				$('#statustabs_traffic .statuslinks a').click(function() { return refreshHandler(this); });
 				break;
 			case 'statustabs_queries':
