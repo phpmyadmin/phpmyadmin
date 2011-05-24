@@ -21,9 +21,7 @@ require_once './libraries/RecentTable.class.php';
 function PMA_addRecentTable($db, $table) {
     $tmp_result = RecentTable::getInstance()->add($db, $table);
     if ($tmp_result === true) {
-        echo '<script type="text/javascript">' .
-             'window.parent.frame_navigation.PMA_reloadRecentTable();' .
-             '</script>';
+        echo '<span class="hide" id="update_recent_tables"></span>';
     } else {
         $error = $tmp_result;
         $error->display();
