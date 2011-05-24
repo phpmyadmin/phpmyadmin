@@ -19,6 +19,21 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_export = 'class="export_event_anchor"';
 }
 
+/**
+ * Display the export for a event. This is for when JS is disabled.
+ */
+if (! empty($_GET['exportevent']) && ! empty($_GET['eventname'])) {
+    if ($create_event = PMA_DBI_get_definition($db, 'EVENT', $_GET['eventname'])) {
+        echo '<fieldset>' . "\n"
+           . ' <legend>' . sprintf(__('Export for event "%s"'), $_GET['eventname']) . '</legend>' . "\n"
+           . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_event . '</textarea>' . "\n"
+           . '</fieldset>';
+    }
+}
+
+/**
+ * Display a list of available events
+ */
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Events') . '</legend>' . "\n";
 if (! $events) {
@@ -60,7 +75,10 @@ if (! $events) {
                      $event['EVENT_NAME'],
                      ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Edit']) : '&nbsp;',
                      $create_event,
-                     '<a ' . $conditional_class_export . ' href="#" >' . $titles['Export'] . '</a>',
+                     '<a ' . $conditional_class_export . ' href="db_events.php?' . $url_query
+                           . '&amp;exportevent=1'
+                           . '&amp;eventname=' . urlencode($event['EVENT_NAME'])
+                           . '">' . $titles['Export'] . '</a>',
                      '<a ' . $conditional_class_drop . ' href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
                      $event['EVENT_TYPE']);
         $ct++;

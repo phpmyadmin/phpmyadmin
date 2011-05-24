@@ -21,6 +21,23 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_export = 'class="export_trigger_anchor"';
 }
 
+/**
+ * Display the export for a trigger. This is for when JS is disabled.
+ */
+if (! empty($_GET['exporttrigger']) && ! empty($_GET['triggername'])) {
+    foreach ($triggers as $trigger) {
+        if ($trigger['name'] === $_GET['triggername']) {
+            echo '<fieldset>' . "\n"
+               . ' <legend>' . sprintf(__('Export for trigger "%s"'), $trigger['name']) . '</legend>' . "\n"
+               . '<textarea cols="40" rows="15" style="width: 100%;">' . $trigger['create'] . '</textarea>' . "\n"
+               . '</fieldset>';
+        }
+    }
+}
+
+/**
+ * Display a list of available triggers
+ */
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Triggers') . '</legend>' . "\n";
 if (! $triggers) {
@@ -51,7 +68,10 @@ if (! $triggers) {
         $row = ($ct%2 == 0) ? 'even' : 'odd';
         $editlink = PMA_linkOrButton('tbl_sql.php?' . $url_query . '&amp;sql_query='
                   . urlencode($drop_and_create) . '&amp;show_query=1&amp;delimiter=' . urlencode($delimiter), $titles['Edit']);
-        $exprlink = '<a ' . $conditional_class_export . ' href="#" >' . $titles['Export'] . '</a>';
+        $exprlink = '<a ' . $conditional_class_export . ' href="db_triggers.php?' . $url_query
+                  . '&amp;exporttrigger=1'
+                  . '&amp;triggername=' . urlencode($trigger['name'])
+                  . '">' . $titles['Export'] . '</a>';
         $droplink = '<a ' . $conditional_class_drop . ' href="sql.php?' . $url_query . '&amp;sql_query='
                   . urlencode($trigger['drop']) . '" >' . $titles['Drop'] . '</a>';
 

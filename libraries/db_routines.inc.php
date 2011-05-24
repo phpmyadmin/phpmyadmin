@@ -31,6 +31,21 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_export = 'class="export_procedure_anchor"';
 }
 
+/**
+ * Display the export for a routine. This is for when JS is disabled.
+ */
+if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
+    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
+        echo '<fieldset>' . "\n"
+           . ' <legend>' . sprintf(__('Export for routine "%s"'), $_GET['routinename']) . '</legend>' . "\n"
+           . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>' . "\n"
+           . '</fieldset>';
+    }
+}
+
+/**
+ * Display a list of available routines
+ */
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Routines') . '</legend>' . "\n";
 
@@ -92,11 +107,20 @@ if (! $routines) {
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $sqlDropProc,
                      $routine['ROUTINE_NAME'],
-                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Edit']) : '&nbsp;',
+                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query
+                                               . '&amp;sql_query=' . urlencode($definition)
+                                               . '&amp;show_query=1&amp;db_query_force=1'
+                                               . '&amp;delimiter=' . urlencode($delimiter), $titles['Edit']) : '&nbsp;',
                      ! empty($definition) ? PMA_linkOrButton('#', $titles['Execute']) : '&nbsp;',
                      $create_proc,
-                     '<a ' . $conditional_class_export . ' href="#" >' . $titles['Export'] . '</a>',
-                     '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDropProc) . '" >' . $titles['Drop'] . '</a>',
+                     '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
+                           . '&amp;exportroutine=1'
+                           . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
+                           . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE'])
+                           . '">' . $titles['Export'] . '</a>',
+                     '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
+                           . '&amp;sql_query=' . urlencode($sqlDropProc)
+                           . '" >' . $titles['Drop'] . '</a>',
                      $routine['ROUTINE_TYPE'],
                      $routine['DTD_IDENTIFIER']);
         $ct++;
