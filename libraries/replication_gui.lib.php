@@ -204,7 +204,7 @@ function PMA_replication_print_slaves_table($hidden = false) {
  */
 
 function PMA_replication_get_username_hostname_length() {
-    $fields_info = PMA_DBI_get_fields('mysql', 'user');
+    $fields_info = PMA_DBI_get_columns('mysql', 'user');
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $key => $val) {

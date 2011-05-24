@@ -663,7 +663,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
 function PMA_displayLoginInformationFields($mode = 'new')
 {
     // Get user/host name lengths
-    $fields_info = PMA_DBI_get_fields('mysql', 'user');
+    $fields_info = PMA_DBI_get_columns('mysql', 'user', true);
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $key => $val) {
@@ -1158,8 +1158,8 @@ if (!empty($update_privs)) {
         }
         $sql_query2 .= ';';
     }
-    if (! PMA_DBI_query($sql_query0)) {
-        // This might fail when the executing user does not have ALL PRIVILEGES himself. 
+    if (! PMA_DBI_try_query($sql_query0)) {
+        // This might fail when the executing user does not have ALL PRIVILEGES himself.
         // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
         $sql_query0 = '';
     }
@@ -1580,7 +1580,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         echo '<td>' . $tmp_initial . '</td>';
                     }
                 }
-                echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . __('Show all') . ']</a></td>' . "\n";
+                echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
                 echo '</tr></table>';
             }
 

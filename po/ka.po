@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-05-15 13:41-0400\n"
+"POT-Creation-Date: 2011-05-18 07:46-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -69,8 +69,8 @@ msgstr "ძებნა"
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1224 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:252
-#: tbl_operations.php:281 tbl_operations.php:318 tbl_operations.php:520
-#: tbl_operations.php:582 tbl_operations.php:764 tbl_select.php:290
+#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
+#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:290
 #: tbl_structure.php:656 tbl_structure.php:692 tbl_tracking.php:425
 #: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -124,7 +124,7 @@ msgid "Database comment: "
 msgstr "მონაცემთა ბაზის კომენტარი: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
-#: libraries/tbl_properties.inc.php:725 tbl_operations.php:363
+#: libraries/tbl_properties.inc.php:725 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "ცხრილის კომენტარები"
@@ -298,15 +298,15 @@ msgstr "მონაცემთა ბაზები არაა"
 msgid "Copy database to"
 msgstr "Copy database to"
 
-#: db_operations.php:494 tbl_operations.php:549 tbl_tracking.php:418
+#: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "მხოლოდ სტრუქტურა"
 
-#: db_operations.php:495 tbl_operations.php:550 tbl_tracking.php:420
+#: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "სტრუქტურა და მონაცემები"
 
-#: db_operations.php:496 tbl_operations.php:551 tbl_tracking.php:419
+#: db_operations.php:496 tbl_operations.php:550 tbl_tracking.php:419
 msgid "Data only"
 msgstr "მხოლოდ მონაცემები"
 
@@ -316,17 +316,17 @@ msgstr "CREATE DATABASE before copying"
 
 #: db_operations.php:507 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
-#: libraries/config/messages.inc.php:132 tbl_operations.php:557
+#: libraries/config/messages.inc.php:132 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
 msgstr "Add %s"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:117
-#: tbl_operations.php:315 tbl_operations.php:559
+#: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
 msgstr "Add AUTO_INCREMENT value"
 
-#: db_operations.php:515 tbl_operations.php:566
+#: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
 msgstr "Add constraints"
 
@@ -338,7 +338,7 @@ msgstr "Switch to copied database"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:379 tbl_select.php:114
+#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:114
 #: tbl_structure.php:200 tbl_structure.php:862 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -437,14 +437,14 @@ msgstr "დალაგება"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:505 libraries/display_tbl.lib.php:814
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:276
+#: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "ზრდადობით"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:811
-#: server_databases.php:148 server_databases.php:165 tbl_operations.php:277
+#: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
 #: tbl_select.php:278
 msgid "Descending"
 msgstr "კლებადობით"
@@ -609,17 +609,17 @@ msgstr "ველში:"
 msgid "No tables found in database"
 msgstr "No tables found in database."
 
-#: db_structure.php:277 tbl_operations.php:689
+#: db_structure.php:277 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Table %s has been emptied"
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
 msgstr "View %s has been dropped"
 
-#: db_structure.php:286 tbl_operations.php:706
+#: db_structure.php:286 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Table %s has been dropped"
@@ -663,20 +663,20 @@ msgstr "%s is the default storage engine on this MySQL server."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2178 libraries/display_tbl.lib.php:2183
-#: libraries/mult_submits.inc.php:15 server_databases.php:246
-#: server_databases.php:251 server_privileges.php:1666 tbl_structure.php:548
+#: libraries/mult_submits.inc.php:15 server_databases.php:256
+#: server_databases.php:261 server_privileges.php:1666 tbl_structure.php:548
 #: tbl_structure.php:557
 msgid "With selected:"
 msgstr "With selected:"
 
 #: db_structure.php:486 libraries/display_tbl.lib.php:2173
-#: server_databases.php:248 server_privileges.php:583
+#: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:551
 msgid "Check All"
 msgstr "ყველას შემოწმება"
 
 #: db_structure.php:490 libraries/display_tbl.lib.php:2174
-#: libraries/replication_gui.lib.php:35 server_databases.php:250
+#: libraries/replication_gui.lib.php:35 server_databases.php:260
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:555
 msgid "Uncheck All"
 msgstr "მონიშნვის მოხსნა ყველასთვის"
@@ -706,25 +706,25 @@ msgstr "ცარიელი"
 
 #: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3019 libraries/common.lib.php:3020
-#: server_databases.php:252 tbl_structure.php:151 tbl_structure.php:152
+#: server_databases.php:262 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
 msgstr "Drop"
 
-#: db_structure.php:513 tbl_operations.php:605
+#: db_structure.php:513 tbl_operations.php:604
 msgid "Check table"
 msgstr "ცხრილის შემოწმება"
 
-#: db_structure.php:515 tbl_operations.php:654 tbl_structure.php:804
+#: db_structure.php:515 tbl_operations.php:653 tbl_structure.php:804
 #: tbl_structure.php:806
 msgid "Optimize table"
 msgstr "ცხრილის ოპტიმიზება"
 
-#: db_structure.php:517 tbl_operations.php:641
+#: db_structure.php:517 tbl_operations.php:640
 msgid "Repair table"
 msgstr "ცხრილის აღდგენა"
 
-#: db_structure.php:519 tbl_operations.php:628
+#: db_structure.php:519 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "Analyze table"
 
@@ -759,7 +759,7 @@ msgstr "დაბლოკილი ცხრილების გამოტ�
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
 #: libraries/export/sql.php:453 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:125
-#: libraries/header_printview.inc.php:57 server_databases.php:147
+#: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_processlist.php:68
 #: server_synchronize.php:1194 server_synchronize.php:1198
@@ -788,7 +788,7 @@ msgid "Status"
 msgstr "მდგომარეობა"
 
 #: db_tracking.php:90 libraries/Index.class.php:439
-#: libraries/db_structure.lib.php:44 server_databases.php:181
+#: libraries/db_structure.lib.php:44 server_databases.php:191
 #: server_privileges.php:1612 server_privileges.php:1805
 #: server_privileges.php:2154 tbl_structure.php:208
 msgid "Action"
@@ -958,7 +958,7 @@ msgstr ""
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2074 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:229 tbl_relation.php:289 tbl_row_action.php:126
+#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Your SQL query has been executed successfully"
@@ -1182,6 +1182,18 @@ msgstr "SQL Query box"
 msgid "Show search results"
 msgstr "SQL Query box"
 
+#: js/messages.php:86
+#, fuzzy
+#| msgid "Browse"
+msgid "Browsing"
+msgstr "არჩევა"
+
+#: js/messages.php:87
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "Deleting"
+msgstr "%s-ის წაშლა"
+
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
@@ -1205,7 +1217,16 @@ msgstr "SQL Query box"
 msgid "Inline Edit"
 msgstr "ძრავები"
 
-#: js/messages.php:96 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:96 libraries/Index.class.php:465
+#: libraries/common.lib.php:626 libraries/common.lib.php:1164
+#: libraries/common.lib.php:3023 libraries/config/messages.inc.php:461
+#: libraries/display_tbl.lib.php:1187 libraries/import.lib.php:1150
+#: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
+#: setup/frames/index.inc.php:137
+msgid "Edit"
+msgstr "რედაქტირება"
+
+#: js/messages.php:97 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1213,79 +1234,79 @@ msgstr "ძრავები"
 msgid "Save"
 msgstr "შენახვა"
 
-#: js/messages.php:97 libraries/display_tbl.lib.php:593 pmd_general.php:158
+#: js/messages.php:98 libraries/display_tbl.lib.php:593 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "დამალვა"
 
-#: js/messages.php:100
+#: js/messages.php:101
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
 msgstr "SQL Query box"
 
-#: js/messages.php:101
+#: js/messages.php:102
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
 msgstr "SQL Query box"
 
-#: js/messages.php:104 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:105 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "იგნორირება"
 
-#: js/messages.php:107
+#: js/messages.php:108
 msgid "Select referenced key"
 msgstr "Select referenced key"
 
-#: js/messages.php:108
+#: js/messages.php:109
 msgid "Select Foreign Key"
 msgstr "Select Foreign Key"
 
-#: js/messages.php:109
+#: js/messages.php:110
 msgid "Please select the primary key or a unique key"
 msgstr "Please select the primary key or a unique key"
 
-#: js/messages.php:110 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:111 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "აირჩიეთ საჩვენებელი ველი"
 
-#: js/messages.php:111
+#: js/messages.php:112
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:114
+#: js/messages.php:115
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:117
+#: js/messages.php:118
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "პაროლის დაგენერირება"
 
-#: js/messages.php:118 libraries/replication_gui.lib.php:365
+#: js/messages.php:119 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "დაგენერირება"
 
-#: js/messages.php:119
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "პაროლის შეცვლა"
 
-#: js/messages.php:122 tbl_structure.php:471
+#: js/messages.php:123 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "ორშ"
 
-#: js/messages.php:125 setup/lib/index.lib.php:158
+#: js/messages.php:126 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1295,33 +1316,33 @@ msgstr ""
 "upgrading. The newest version is %s, released on %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:127
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "უკანასკნელ ვერსიაზე შემოწმება"
 
-#: js/messages.php:128
+#: js/messages.php:129
 #, fuzzy
 msgid "up to date"
 msgstr "მონაცემთა ბაზები არაა"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:146
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "შემოწირულობა"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:148
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "წინა"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:150 libraries/common.lib.php:2371
+#: js/messages.php:151 libraries/common.lib.php:2371
 #: libraries/common.lib.php:2374 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:896
@@ -1329,96 +1350,96 @@ msgid "Next"
 msgstr "შემდეგი"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:152
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "სულ"
 
-#: js/messages.php:155
+#: js/messages.php:156
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "ბინარული"
 
-#: js/messages.php:156
+#: js/messages.php:157
 msgid "February"
 msgstr ""
 
-#: js/messages.php:157
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "მარ"
 
-#: js/messages.php:158
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "აპრ"
 
-#: js/messages.php:159
+#: js/messages.php:160
 msgid "May"
 msgstr "მაი"
 
-#: js/messages.php:160
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "ივნ"
 
-#: js/messages.php:161
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "ივლ"
 
-#: js/messages.php:162
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "აგვ"
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "September"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "ოქტ"
 
-#: js/messages.php:165
+#: js/messages.php:166
 msgid "November"
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:167
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1569
+#: js/messages.php:171 libraries/common.lib.php:1569
 msgid "Jan"
 msgstr "იან"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1571
+#: js/messages.php:173 libraries/common.lib.php:1571
 msgid "Feb"
 msgstr "თებ"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1573
+#: js/messages.php:175 libraries/common.lib.php:1573
 msgid "Mar"
 msgstr "მარ"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1575
+#: js/messages.php:177 libraries/common.lib.php:1575
 msgid "Apr"
 msgstr "აპრ"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1577
+#: js/messages.php:179 libraries/common.lib.php:1577
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1426,178 +1447,178 @@ msgid "May"
 msgstr "მაი"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1579
+#: js/messages.php:181 libraries/common.lib.php:1579
 msgid "Jun"
 msgstr "ივნ"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1581
+#: js/messages.php:183 libraries/common.lib.php:1581
 msgid "Jul"
 msgstr "ივლ"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1583
+#: js/messages.php:185 libraries/common.lib.php:1583
 msgid "Aug"
 msgstr "აგვ"
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1585
+#: js/messages.php:187 libraries/common.lib.php:1585
 msgid "Sep"
 msgstr "სექ"
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1587
+#: js/messages.php:189 libraries/common.lib.php:1587
 msgid "Oct"
 msgstr "ოქტ"
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1589
+#: js/messages.php:191 libraries/common.lib.php:1589
 msgid "Nov"
 msgstr "ნოე"
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1591
+#: js/messages.php:193 libraries/common.lib.php:1591
 msgid "Dec"
 msgstr "დეკ"
 
-#: js/messages.php:195
+#: js/messages.php:196
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "კვი"
 
-#: js/messages.php:196
+#: js/messages.php:197
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "ორშ"
 
-#: js/messages.php:197
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "სამ"
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:200
+#: js/messages.php:201
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "პარ"
 
-#: js/messages.php:201
+#: js/messages.php:202
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:205 libraries/common.lib.php:1594
+#: js/messages.php:206 libraries/common.lib.php:1594
 msgid "Sun"
 msgstr "კვი"
 
 #. l10n: Short week day name
-#: js/messages.php:207 libraries/common.lib.php:1596
+#: js/messages.php:208 libraries/common.lib.php:1596
 msgid "Mon"
 msgstr "ორშ"
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1598
+#: js/messages.php:210 libraries/common.lib.php:1598
 msgid "Tue"
 msgstr "სამ"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1600
+#: js/messages.php:212 libraries/common.lib.php:1600
 msgid "Wed"
 msgstr "ოთხ"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1602
+#: js/messages.php:214 libraries/common.lib.php:1602
 msgid "Thu"
 msgstr "ხუთ"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1604
+#: js/messages.php:216 libraries/common.lib.php:1604
 msgid "Fri"
 msgstr "პარ"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1606
+#: js/messages.php:218 libraries/common.lib.php:1606
 msgid "Sat"
 msgstr "შაბ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:221
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "კვი"
 
 #. l10n: Minimal week day name
-#: js/messages.php:223
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "ორშ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "სამ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:228
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "ოთხ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "ხუთ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:232
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "პარ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "შაბ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:235
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "ვიკი"
 
-#: js/messages.php:237
+#: js/messages.php:238
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:238
+#: js/messages.php:239
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in use"
 
-#: js/messages.php:239
+#: js/messages.php:240
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1675,14 +1696,6 @@ msgstr "Cardinality"
 msgid "Comment"
 msgstr "კომენტარი"
 
-#: libraries/Index.class.php:465 libraries/common.lib.php:626
-#: libraries/common.lib.php:1164 libraries/common.lib.php:3023
-#: libraries/config/messages.inc.php:461 libraries/display_tbl.lib.php:1187
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
-msgid "Edit"
-msgstr "რედაქტირება"
-
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
 msgstr "The primary key has been dropped"
@@ -1710,7 +1723,7 @@ msgstr "მონაცემთა ბაზები"
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:593
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:961
-#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "შეცდომა"
 
@@ -1981,7 +1994,7 @@ msgid "Data"
 msgstr "მონაცემები"
 
 #: libraries/build_html_for_db.lib.php:45 libraries/engines/innodb.lib.php:168
-#: server_databases.php:205 server_status.php:540 server_status.php:601
+#: server_databases.php:215 server_status.php:540 server_status.php:601
 #: server_status.php:624 tbl_printview.php:348 tbl_structure.php:791
 msgid "Total"
 msgstr "სულ"
@@ -2130,7 +2143,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:429 libraries/sql_query_form.lib.php:432
-#: main.php:209 server_variables.php:63
+#: main.php:212 server_variables.php:63
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
@@ -4826,7 +4839,9 @@ msgstr "MySQL&nbsp;4.0-თან თავსებადი"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-msgid "Create new database"
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
 msgstr "ახალი მონაცემთა ბაზის შექმნა"
 
 #: libraries/display_create_database.lib.php:33
@@ -5282,7 +5297,7 @@ msgstr "Create relation"
 msgid "Link not found"
 msgstr "ბმული ვერ მოიძებნა"
 
-#: libraries/engines/bdb.lib.php:20 main.php:208
+#: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "ინფორმაცია ვერსიის შესახებ"
 
@@ -7083,7 +7098,7 @@ msgstr ""
 "author what %s does."
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
-#: tbl_operations.php:371
+#: tbl_operations.php:370
 msgid "Storage Engine"
 msgstr "Storage Engine"
 
@@ -7376,32 +7391,32 @@ msgstr "PHP-ის გაფართოება"
 msgid "Show PHP information"
 msgstr "PHP-ის ინფორმაციის ჩვენება"
 
-#: main.php:210
+#: main.php:213
 msgid "Wiki"
 msgstr "ვიკი"
 
-#: main.php:213
+#: main.php:216
 msgid "Official Homepage"
 msgstr "ოფიციალური ვებგვერდი"
 
-#: main.php:214
+#: main.php:217
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "ატრიბუტები"
 
-#: main.php:215
+#: main.php:218
 #, fuzzy
 msgid "Get support"
 msgstr "ექსპორტი"
 
-#: main.php:216
+#: main.php:219
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "ცვლილების გარეშე"
 
-#: main.php:240
+#: main.php:243
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7413,7 +7428,7 @@ msgstr ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 
-#: main.php:248
+#: main.php:251
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7423,7 +7438,7 @@ msgstr ""
 "პარამეტრი არაა თავსებადი phpMyAdmin-თან და შეიძლება გამოიწვიოს მონაცემების "
 "დაზიანება!"
 
-#: main.php:256
+#: main.php:259
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7434,7 +7449,7 @@ msgstr ""
 "არ შეუძლია სტრიქონების სწორად დაყოფა რის გამოც შეიძლება მიიღოთ მოულოდნელი "
 "შედეგი."
 
-#: main.php:264
+#: main.php:267
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7446,7 +7461,7 @@ msgstr ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 
-#: main.php:271
+#: main.php:274
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7462,19 +7477,19 @@ msgstr ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 
-#: main.php:279
+#: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "The configuration file now needs a secret passphrase (blowfish_secret)."
 
-#: main.php:287
+#: main.php:290
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:296
+#: main.php:299
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7486,14 +7501,14 @@ msgstr ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 
-#: main.php:311
+#: main.php:314
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:326
+#: main.php:329
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7502,7 +7517,7 @@ msgstr ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 
-#: main.php:338
+#: main.php:341
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -7511,7 +7526,7 @@ msgstr ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 
-#: navigation.php:187 server_databases.php:267 server_synchronize.php:1206
+#: navigation.php:187 server_databases.php:277 server_synchronize.php:1206
 msgid "No databases"
 msgstr "მონაცემთა ბაზები არაა"
 
@@ -7905,22 +7920,22 @@ msgstr "%s databases have been dropped successfully."
 msgid "Databases statistics"
 msgstr "მონაცემთა ბაზების სტატისტიკა"
 
-#: server_databases.php:173 server_replication.php:179
+#: server_databases.php:183 server_replication.php:179
 #: server_replication.php:207
 #, fuzzy
 msgid "Master replication"
 msgstr "სერვერის კონფიგურაცია"
 
-#: server_databases.php:175 server_replication.php:246
+#: server_databases.php:185 server_replication.php:246
 #, fuzzy
 msgid "Slave replication"
 msgstr "სერვერის კონფიგურაცია"
 
-#: server_databases.php:258 server_databases.php:259
+#: server_databases.php:268 server_databases.php:269
 msgid "Enable Statistics"
 msgstr "სტატისტიკის ჩართვა"
 
-#: server_databases.php:261
+#: server_databases.php:271
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -8401,9 +8416,10 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:72
-#, php-format
-msgid "Master server changed succesfully to %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "The privileges were reloaded successfully."
+msgid "Master server changed successfully to %s"
+msgstr "The privileges were reloaded successfully."
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
@@ -10165,102 +10181,102 @@ msgstr "Table %s has been copied to %s."
 msgid "The table name is empty!"
 msgstr "ცხრილის სახელი ცარიელია!"
 
-#: tbl_operations.php:265
+#: tbl_operations.php:264
 msgid "Alter table order by"
 msgstr "Alter table order by"
 
-#: tbl_operations.php:274
+#: tbl_operations.php:273
 msgid "(singly)"
 msgstr "(singly)"
 
-#: tbl_operations.php:294
+#: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Move table to (database<b>.</b>table):"
 
-#: tbl_operations.php:352
+#: tbl_operations.php:351
 msgid "Table options"
 msgstr "ცხრილის პარამეტრები"
 
-#: tbl_operations.php:356
+#: tbl_operations.php:355
 msgid "Rename table to"
 msgstr "Rename table to"
 
-#: tbl_operations.php:532
+#: tbl_operations.php:531
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Copy table to (database<b>.</b>table):"
 
-#: tbl_operations.php:579
+#: tbl_operations.php:578
 msgid "Switch to copied table"
 msgstr "Switch to copied table"
 
-#: tbl_operations.php:591
+#: tbl_operations.php:590
 msgid "Table maintenance"
 msgstr "Table maintenance"
 
-#: tbl_operations.php:615
+#: tbl_operations.php:614
 msgid "Defragment table"
 msgstr "Defragment table"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:662
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Table %s has been flushed"
 
-#: tbl_operations.php:669
+#: tbl_operations.php:668
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (\"FLUSH\")"
 
-#: tbl_operations.php:678
+#: tbl_operations.php:677
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "Dumping data for table"
 
-#: tbl_operations.php:693
+#: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:713
+#: tbl_operations.php:712
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "მონაცემთა ბაზები არაა"
 
-#: tbl_operations.php:734
+#: tbl_operations.php:733
 msgid "Partition maintenance"
 msgstr "Partition maintenance"
 
-#: tbl_operations.php:742
+#: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
 msgstr "დანაყოფი %s"
 
-#: tbl_operations.php:745
+#: tbl_operations.php:744
 msgid "Analyze"
 msgstr "Analyze"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:745
 msgid "Check"
 msgstr "შემოწმება"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:746
 msgid "Optimize"
 msgstr "ოპტიმიზება"
 
-#: tbl_operations.php:748
+#: tbl_operations.php:747
 msgid "Rebuild"
 msgstr "Rebuild"
 
-#: tbl_operations.php:749
+#: tbl_operations.php:748
 msgid "Repair"
 msgstr "აღდგენა"
 
-#: tbl_operations.php:761
+#: tbl_operations.php:760
 msgid "Remove partitioning"
 msgstr "Remove partitioning"
 
-#: tbl_operations.php:787
+#: tbl_operations.php:786
 msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
@@ -10488,7 +10504,7 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: tbl_tracking.php:382
-msgid "Tracking data definition succesfully deleted"
+msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
@@ -10498,7 +10514,7 @@ msgid "Query error"
 msgstr "შეცდომების იგნორირება"
 
 #: tbl_tracking.php:399
-msgid "Tracking data manipulation succesfully deleted"
+msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:411

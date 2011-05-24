@@ -610,7 +610,7 @@ $(document).ready(function() {
      */
     $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         // do not trigger when clicked on anchor
-        if ($(e.target).is('a, a *')) {
+        if ($(e.target).is('a, img, a *')) {
             return;
         }
         // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
@@ -1195,7 +1195,12 @@ $(document).ready(function(){
         }
     });
 
-    $('#sqlquery').focus();
+    $('#sqlquery').focus().keydown(function (e) {
+        if (e.ctrlKey && e.keyCode == 13) {
+            $("#sqlqueryform").submit();
+        }
+    });
+
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
             $('#input_username').focus();
@@ -2280,6 +2285,10 @@ $(document).ready(function() {
             } else {
                 $this_span.parent().find('input:image').click();
             }
+        });
+
+        $('#update_recent_tables').ready(function() {
+            window.parent.frame_navigation.PMA_reloadRecentTable();
         });
 
 }) // end of $(document).ready()

@@ -101,6 +101,16 @@ echo '<h2>' . "\n"
    .'</h2>' . "\n";
 
 /**
+ * Create database.
+ */
+if ($cfg['ShowCreateDb']) {
+    echo '<ul><li id="li_create_database">' . "\n";
+    require './libraries/display_create_database.lib.php';
+    echo '    </li>' . "\n";
+    echo '</ul>' . "\n";
+}
+
+/**
  * Gets the databases list
  */
 if ($server > 0) {
@@ -253,13 +263,13 @@ if ($databases_count > 0) {
     }
 
     if (empty($dbstats)) {
-	echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-        echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
-            .' title="' . __('Enable Statistics') . '">' . "\n"
-            .'            ' . __('Enable Statistics');
-	echo '</a></strong><br />' . "\n";
-	PMA_Message::notice(__('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'))->display();
-	echo '</li>' . "\n" . '</ul>' . "\n";
+        echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
+            echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
+                .' title="' . __('Enable Statistics') . '">' . "\n"
+                .'            ' . __('Enable Statistics');
+        echo '</a></strong><br />' . "\n";
+        PMA_Message::notice(__('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'))->display();
+        echo '</li>' . "\n" . '</ul>' . "\n";
     }
     echo '</form>';
     echo '</div>';
@@ -267,16 +277,6 @@ if ($databases_count > 0) {
     echo __('No databases');
 }
 unset($databases_count);
-
-/**
- * Create new database.
- */
-if ($cfg['ShowCreateDb']) {
-    echo '<ul><li id="li_create_database">' . "\n";
-    require './libraries/display_create_database.lib.php';
-    echo '    </li>' . "\n";
-    echo '</ul>' . "\n";
-}
 
 /**
  * Sends the footer

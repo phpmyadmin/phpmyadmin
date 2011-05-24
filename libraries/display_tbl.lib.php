@@ -2381,7 +2381,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
     } elseif (isset($content)) {
         $size = strlen($content);
         $display_size = PMA_formatByteDown($size, 3, 1);
-        $result .= ' - '. $display_size[0] . $display_size[1];
+        $result .= ' - '. $display_size[0] . '&nbsp;' . $display_size[1];
     }
     $result .= ']';
 

@@ -7,13 +7,14 @@
  *
  */
 
+var $data_a;
+
 /**
  * decode a string URL_encoded
  *
  * @param string str
  * @return string the URL-decoded string
  */
-var data_vt;
 function PMA_urldecode(str) {
     return decodeURIComponent(str.replace(/\+/g, '%20'));
 }
@@ -81,10 +82,16 @@ function appendInlineAnchor() {
 
             $cloned_tr.find('td')
              .addClass('inline_edit_anchor')
-             .find('a').attr('href', '#')
-             .find('span')
-             .text(' ' + PMA_messages['strInlineEdit'])
-             .prepend($img_object);
+             .find('a').attr('href', '#');
+            var $edit_span = $cloned_tr.find('span:contains("' + PMA_messages['strEdit'] + '")');
+            var $span = $cloned_tr.find('a').find('span');
+            if ($edit_span.length > 0) {
+                $span.text(' ' + PMA_messages['strInlineEdit']);
+                $span.prepend($img_object);
+            } else {
+                $span.text('');
+                $span.append($img_object);
+            }
 
             $cloned_tr.insertAfter($this_tr);
         });
@@ -109,14 +116,16 @@ function appendInlineAnchor() {
             if ($img_object.length != 0) {
                 var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
                 $img_object.attr('src', img_src);
-                $cloned_anchor
-                 .find('a').attr('href', '#')
-                 .find('span')
-                 .text(' ' + PMA_messages['strInlineEdit']);
-                $cloned_anchor
-                 .find('span')
-                 .first()
-                 .prepend($img_object);
+                $cloned_anchor.find('a').attr('href', '#');
+                var $edit_span = $cloned_anchor.find('span:contains("' + PMA_messages['strEdit'] + '")');
+                var $span = $cloned_anchor.find('a').find('span');
+                if ($edit_span.length > 0) {
+                    $span.text(' ' + PMA_messages['strInlineEdit']);
+                    $span.prepend($img_object);
+                } else {
+                    $span.text('');
+                    $span.append($img_object);
+                }
             } else {
                 // Only text is displayed. See $cfg['PropertiesIconic']
                 $cloned_anchor.find('a').attr('href', '#');
@@ -254,10 +263,15 @@ $(document).ready(function() {
      */
     $("#sqlqueryform.ajax").live('submit', function(event) {
         event.preventDefault();
+
+        $form = $(this);
+        if (! checkSqlQuery($form[0])) {
+            return false;
+        }
+
         // remove any div containing a previous error message
         $('.error').remove();
 
-        $form = $(this);
         var $msgbox = PMA_ajaxShowMessage();
 
         PMA_prepareForAjaxRequest($form);
@@ -447,24 +461,58 @@ $(document).ready(function() {
         // Looping through all columns or rows, to find the required data and then storing it in an array.
 
         var $this_children = $edit_td.children('span.nowrap').children('a').children('span.nowrap');
-        if (disp_mode != 'vertical') {
-            $this_children.empty();
-            $this_children.text(PMA_messages['strSave']);
+        // Keep the original data preserved.
+        $data_a = $edit_td.children('span.nowrap').children('a').clone();
+
+        // Change the inline edit to save.
+        var $img_object = $this_children.find('img');
+
+        // If texts are displayed. See $cfg['PropertiesIconic']
+        if ($this_children.parent('a').find('span:contains("' + PMA_messages['strInlineEdit'] + '")').length > 0) {
+            $this_children.text(' ' + PMA_messages['strSave']);
         } else {
-            // vertical
-            data_vt = $this_children.html();
-            $this_children.text(PMA_messages['strSave']);
+            $this_children.empty();
         }
 
-        var hide_link = '<br /><br /><a id="hide">' + PMA_messages['strHide'] + '</a>';
-        if (disp_mode != 'vertical') {
-            $edit_td.append(hide_link);
-            $('#table_results tbody tr td a#hide').click(function() {
-                $this_children = $(this).siblings('span.nowrap').children('a').children('span.nowrap');
-                $this_children.empty();
-                $this_children.text(PMA_messages['strInlineEdit']);
+        // If icons are displayed. See $cfg['PropertiesIconic']
+        if ($img_object.length > 0) {
+            $img_object.attr('title', PMA_messages['strSave']);
+            var img_src = $img_object.attr('src').replace(/b_inline_edit/,'b_save');
+            $img_object.attr('src', img_src);
+            $this_children.prepend($img_object);
+        }
 
-                var $this_hide = $(this).parent();
+        // Clone the save link and change it to create the hide link.
+        var $hide_a = $edit_td.children('span.nowrap').children('a').clone().attr('id', 'hide');
+        var $hide_span = $hide_a.find('span');
+        var $img_object = $hide_a.find('span img');
+
+        // If texts are displayed. See $cfg['PropertiesIconic']
+        if ($hide_a.find('span:contains("' + PMA_messages['strSave'] + '")').length > 0) {
+            $hide_span.text(' ' + PMA_messages['strHide']);
+        } else {
+            $hide_span.empty();
+        }
+
+        // If icons are displayed. See $cfg['PropertiesIconic']
+        if ($img_object.length > 0) {
+            $img_object.attr('title', PMA_messages['strHide']);
+            var img_src = $img_object.attr('src').replace(/b_save/,'b_close');
+            $img_object.attr('src', img_src);
+            $hide_span.prepend($img_object);
+        }
+
+        // Add hide icon and/or text.
+        $edit_td.children('span.nowrap').append($('<br /><br />')).append($hide_a);
+
+        if (disp_mode != 'vertical') {
+            $('#table_results tbody tr td span a#hide').click(function() {
+                var $this_hide = $(this).parents('td');
+
+                var $this_span = $this_hide.find('span');
+                $this_span.find('a, br').remove();
+                $this_span.append($data_a.clone());
+
                 $this_hide.removeClass("inline_edit_active hover").addClass("inline_edit_anchor");
                 $this_hide.parent().removeClass("hover noclick");
                 $this_hide.siblings().removeClass("hover");
@@ -489,14 +537,15 @@ $(document).ready(function() {
             var txt = '';
             var rows = $edit_td.parent().siblings().length;
 
-            $edit_td.append(hide_link);
-            $('#table_results tbody tr td a#hide').click(function() {
-                var pos = $(this).parent().index();
-                var $chg_submit = $(this).parent().children('span.nowrap').children('a').children('span.nowrap');
-                $chg_submit.empty();
-                $chg_submit.append(data_vt);
+            $('#table_results tbody tr td span a#hide').click(function() {
+                var $hide_a = $(this);
+                var pos = $hide_a.parents('td').index();
 
-                var $this_row = $(this).parents('tr');
+                var $this_span = $hide_a.parent();
+                $this_span.find('a, br').remove();
+                $this_span.append($data_a.clone());
+
+                var $this_row = $this_span.parents('tr');
                 // changing inline_edit_active to inline_edit_anchor
                 $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("inline_edit_active").addClass("inline_edit_anchor");
 
@@ -962,19 +1011,10 @@ $(document).ready(function() {
  */
 function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode) {
 
-    // deleting the hide button
-    // remove <br><br><a> tags
-    for ( var i = 0; i <= 2; i++) {
-        $del_hide.next().remove();
-    }
-    if(disp_mode != 'vertical'){
-        $chg_submit.empty();
-        $chg_submit.html('<span class="nowrap"></span>');
-        $chg_submit.children('span.nowrap').text(PMA_messages['strInlineEdit']);
-    } else {
-        $chg_submit.children('span.nowrap').empty();
-        $chg_submit.children('span.nowrap').append(data_vt);
-    }
+    // deleting the hide button. remove <br><br><a> tags
+    $del_hide.find('a, br').remove();
+    // append inline edit button.
+    $del_hide.append($data_a.clone());
 
     // changing inline_edit_active to inline_edit_anchor
     $this_td.removeClass('inline_edit_active').addClass('inline_edit_anchor');
@@ -984,7 +1024,7 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
     if(disp_mode != 'vertical') {
         $this_td.parent('tr').removeClass('hover').find('td').removeClass('hover');
     } else {
-        $this_td.parents('tbody').find('tr').find('td:eq(' + $this_td.index() + ')').removeClass('marked');
+        $this_td.parents('tbody').find('tr').find('td:eq(' + $this_td.index() + ')').removeClass('marked hover');
     }
 
     $input_siblings.each(function() {
