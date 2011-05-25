@@ -2403,7 +2403,7 @@ msgstr "Редакция на CHAR колони"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Брой колони за CHAR/VARCHAR текстови полета"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
