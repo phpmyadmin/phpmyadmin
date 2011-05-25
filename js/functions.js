@@ -2287,9 +2287,11 @@ $(document).ready(function() {
             }
         });
 
-        $('#update_recent_tables').ready(function() {
+    $('#update_recent_tables').ready(function() {
+        if (window.parent.frame_navigation != undefined) {
             window.parent.frame_navigation.PMA_reloadRecentTable();
-        });
+        }
+    });
 
 }) // end of $(document).ready()
 
