@@ -77,6 +77,81 @@ function getSupportedDatatypes($html = false, $selected = '')
 }
 
 /**
+ * Parses the parameters of a routine given a string
+ * This function can handle absolutely horrible, yet perfectly valid, cases like:
+ * "IN a INT(10), OUT b DECIMAL(10,5), INOUT c ENUM('1,2,3\\\')(', '2', '3', '4')"
+ */
+function parseListOfParameters($input, &$num, &$dir, &$name, &$type, &$length)
+{
+    // FIXME: STUB
+}
+
+/**
+ * This function will generate the values that are required to complete
+ * the "Edit routine" form given the name of a routine.
+ */
+function getFormInputFromRoutineName($db, $name)
+{
+    global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
+
+    $retval = array();
+
+    $routine = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\' AND SPECIFIC_NAME=\'' . PMA_sqlAddslashes($name,true) . '\';');
+    $routine = $routine[0];
+
+    // FIXME: should we even fetch the parameters from the mysql db?
+    //        OR is it better to get then from SHOW ROUTINE_TYPE query?
+    $mysql_routine = PMA_DBI_fetch_result('SELECT definer, param_list FROM mysql.proc WHERE db=\'' . PMA_sqlAddslashes($db,true) . '\' AND name=\'' . PMA_sqlAddslashes($name,true) . '\';');
+    $mysql_routine = $mysql_routine[0];
+
+    $retval['name']            = $routine['SPECIFIC_NAME'];
+    $retval['type']            = $routine['ROUTINE_TYPE'];
+    if ($retval['type'] == 'FUNCTION') {
+        $retval['type_toggle'] = 'PROCEDURE';
+    } else {
+        $retval['type_toggle'] = 'FUNCTION';
+    }
+
+    $retval['num_params']      = 0;
+    $retval['param_dir']       = array();
+    $retval['param_name']      = array();
+    $retval['param_type']      = array();
+    $retval['param_length']    = array();
+    parseListOfParameters($mysql_routine['param_list'],
+                          $retval['num_params'],
+                          $retval['param_dir'],
+                          $retval['param_name'],
+                          $retval['param_type'],
+                          $retval['param_length']);
+
+    $retval['returntype']      = '';
+    $retval['returnlength']    = '';
+    if (! empty($routine['DTD_IDENTIFIER'])) {
+        if (strpos($routine['DTD_IDENTIFIER'], '(') !== false && strpos($routine['DTD_IDENTIFIER'], ')') !== false) {
+            $arr = preg_split( "/[()]/", $routine['DTD_IDENTIFIER']);
+            $retval['returntype']   = strtoupper($arr[0]);
+            $retval['returnlength'] = $arr[1];
+        } else {
+            $retval['returntype'] = $routine['DTD_IDENTIFIER'];
+        }
+    }
+    $retval['definition']      = $routine['ROUTINE_DEFINITION'];
+    $retval['isdeterministic'] = $routine['IS_DETERMINISTIC'];
+    $retval['definer']         = $mysql_routine['definer'];
+    $retval['securitytype_definer'] = '';
+    $retval['securitytype_invoker'] = '';
+    if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+        $retval['securitytype_definer'] = " selected='selected'";
+    } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+        $retval['securitytype_invoker'] = " selected='selected'";
+    }
+    $retval['sqldataaccess']   = $routine['SQL_DATA_ACCESS'];
+    $retval['comment']         = $routine['ROUTINE_COMMENT'];
+
+    return $retval;
+}
+
+/**
  * This function will generate the values that are required to complete the "Add new routine" form
  * It is especially necessary to handle the 'Add another parameter' and 'Remove last parameter'
  * functionalities when JS is disabled.
@@ -205,7 +280,7 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
            . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>' . "\n"
            . '</fieldset>';
     }
-} else if (! empty($_REQUEST['routine_process_addroutine'])) {
+} else if (! empty($_REQUEST['routine_process_addroutine'])) { // FIXME: this is also handling "EDIT" for now
     /**
      * Handle a request to create a routine
      */
@@ -276,7 +351,11 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
         $routine_process_error = true;
     }
     if (! $routine_process_error) {
-        // Execute the created query
+        // Execute the created queries
+        // FIXME: should only execute DROP on edit, not add
+        // TODO: need to keep a backup copy of the routine, in case the DROP is successful, but the CREATE fails!
+        $res = PMA_DBI_query("DROP PROCEDURE IF EXISTS " . PMA_backquote($_REQUEST['routine_name']));
+        $res = PMA_DBI_query("DROP FUNCTION IF EXISTS " . PMA_backquote($_REQUEST['routine_name']));
         $res = PMA_DBI_query($query);
         // If the query fails, an error message will be automatically
         // shown, so here we only show a success message.
@@ -286,7 +365,7 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     }
 }
 
-if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter'])
+if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! empty($_REQUEST['routine_addparameter'])
     || ! empty($_REQUEST['routine_removeparameter']) || ! empty($_REQUEST['routine_changetype'])
     || $routine_process_error) {
     /**
@@ -294,7 +373,11 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter'
      */
 
     // Get variables from the request (if any)
-    $routine = getFormInputFromRequest();
+    if (! empty($_REQUEST['editroutine']) && ! empty($_REQUEST['routine_name'])) {
+        $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
+    } else {
+        $routine = getFormInputFromRequest();
+    }
 
     // Show form
     if ($GLOBALS['is_ajax_request'] != true) {
@@ -416,10 +499,12 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter'
  * Generate the conditional classes that will be used to attach jQuery events to links.
  */
 $conditional_class_add    = '';
+$conditional_class_edit   = '';
 $conditional_class_drop   = '';
 $conditional_class_export = '';
 if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_add    = 'class="add_routine_anchor"';
+    $conditional_class_edit   = 'class="edit_routine_anchor"';
     $conditional_class_drop   = 'class="drop_procedure_anchor"';
     $conditional_class_export = 'class="export_procedure_anchor"';
 }
@@ -492,10 +577,10 @@ if (! $routines) {
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $sqlDropProc,
                      $routine['ROUTINE_NAME'],
-                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query
-                                               . '&amp;sql_query=' . urlencode($definition)
-                                               . '&amp;show_query=1&amp;db_query_force=1'
-                                               . '&amp;delimiter=' . urlencode($delimiter), $titles['Edit']) : '&nbsp;',
+                     '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
+                           . '&amp;editroutine=1'
+                           . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                           . '">' . $titles['Edit'] . '</a>',
                      ! empty($definition) ? PMA_linkOrButton('#', $titles['Execute']) : '&nbsp;',
                      $create_proc,
                      '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
