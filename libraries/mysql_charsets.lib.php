@@ -155,8 +155,12 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
 }
 
 function PMA_generateCharsetQueryPart($collation) {
-    list($charset) = explode('_', $collation);
-    return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    if (!PMA_DRIZZLE) {
+        list($charset) = explode('_', $collation);
+        return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    } else {
+        return ' COLLATE ' . $collation;
+    }
 }
 
 /**
