@@ -140,7 +140,7 @@ require_once './libraries/header_http.inc.php';
     <script src="./js/jquery/jquery-ui-1.8.custom.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
-    <script src="js/messages.php"></script>
+    <script type="text/javascript" src="js/messages.php"></script>
     <script type="text/javascript">
     // <![CDATA[
     var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';

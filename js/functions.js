@@ -1310,6 +1310,53 @@ function PMA_showNoticeForEnum(selectElement) {
 }
 
 /**
+ * Generates a dialog box to pop up the create_table form
+ */
+function PMA_createTableDialog( div, url , target){
+     /**
+     *  @var    button_options  Object that stores the options passed to jQueryUI
+     *                          dialog
+     */
+     var button_options = {};
+     // in the following function we need to use $(this)
+     button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+
+     var button_options_error = {};
+     button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+
+     var $msgbox = PMA_ajaxShowMessage();
+
+     $.get( target , url ,  function(data) {
+         //in the case of an error, show the error message returned.
+         if (data.success != undefined && data.success == false) {
+             div
+             .append(data.error)
+             .dialog({
+                 title: PMA_messages['strCreateTable'],
+                 height: 230,
+                 width: 900,
+                 open: PMA_verifyTypeOfAllColumns,
+                 buttons : button_options_error
+             })// end dialog options
+             //remove the redundant [Back] link in the error message.
+             .find('fieldset').remove();
+         } else {
+             div
+             .append(data)
+             .dialog({
+                 title: PMA_messages['strCreateTable'],
+                 height: 600,
+                 width: 900,
+                 open: PMA_verifyTypeOfAllColumns,
+                 buttons : button_options
+             }); // end dialog options
+         }
+         PMA_ajaxRemoveMessage($msgbox);
+     }) // end $.get()
+
+}
+
+/**
  * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
  *  return a jQuery object yet and hence cannot be chained
  *
@@ -1403,7 +1450,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  */
 $(document).ready(function() {
 
-    /**
+     /**
      * Attach event handler to the submit action of the create table minimal form
      * and retrieve the full table form and display it in a dialog
      *
@@ -1412,50 +1459,15 @@ $(document).ready(function() {
     $("#create_table_form_minimal.ajax").live('submit', function(event) {
         event.preventDefault();
         $form = $(this);
-
-        /* @todo Validate this form! */
-
-        /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
-         */
-        var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
-
-        var $msgbox = PMA_ajaxShowMessage();
         PMA_prepareForAjaxRequest($form);
 
-        $.get($form.attr('action'), $form.serialize(), function(data) {
-            //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $('<div id="create_table_dialog"></div>')
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options_error
-                })// end dialog options
-                //remove the redundant [Back] link in the error message.
-                .find('fieldset').remove();
-            } else {
-                $('<div id="create_table_dialog"></div>')
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
-                }); // end dialog options
-            }
-            PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
+        /*variables which stores the common attributes*/
+        var url = $form.serialize();
+        var action = $form.attr('action');
+        var div =  $('<div id="create_table_dialog"></div>');
+
+        /*Calling to the createTableDialog function*/
+        PMA_createTableDialog(div, url, action);
 
         // empty table name and number of columns from the minimal form
         $form.find('input[name=table],input[name=num_fields]').val('');

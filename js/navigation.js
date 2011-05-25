@@ -202,57 +202,22 @@ $(document).ready(function(){
             window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
         }
     });
+
     /* Create table */
     $('#newtable a.ajax').click(function(event){
         event.preventDefault();
-       	var $url = $('#newtable a').attr("href");
-       	if ($url.substring(0, 15) == "tbl_create.php?") {
-             $url = $url.substring(15);
+       	/*Getting the url */
+        var url = $('#newtable a').attr("href");
+        if (url.substring(0, 15) == "tbl_create.php?") {
+             url = url.substring(15);
         }
-       	var $div = parent.frame_content.$('<div id="create_table_dialog"></div>');
+       	url = url +"&num_fields=1&ajax_request=true";
+       	/*Creating a div on the frame_content frame */
+       	var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
+       	var target = "tbl_create.php";
 
-        /* @todo Validate this form! */
-
-        /**
-        *  @var    button_options  Object that stores the options passed to jQueryUI
-        *                          dialog
-        */
-        var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
-
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $.get( "tbl_create.php" , $url+"&num_fields=1&ajax_request=true" ,  function(data) {
-            //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $div
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options_error
-                })// end dialog options
-                //remove the redundant [Back] link in the error message.
-                .find('fieldset').remove();
-            } else {
-                $div
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
-                }); // end dialog options
-            }
-            PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
+       	/*Calling to the createTableDialog function*/
+       	PMA_createTableDialog(div , url , target);
     });//end of create new table
 });//end of document get ready
 
