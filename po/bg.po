@@ -2374,7 +2374,7 @@ msgstr "Маркер на ред"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Изпъкване редовете, посочени с мишката"
+msgstr "Изпъкване редовете, посочени с мишка"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
