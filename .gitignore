@@ -29,3 +29,5 @@ locale
 sources
 # API documentation
 apidoc
+# Demo server
+revision-info.php
