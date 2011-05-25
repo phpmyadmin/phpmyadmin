@@ -2419,7 +2419,7 @@ msgstr "Редове за CHAR текство поле"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Проверка на правата върху конфигурационния файл"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
