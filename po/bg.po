@@ -2157,7 +2157,7 @@ msgstr "Разглеждане на компютъра:"
 #: libraries/common.lib.php:2979
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "Избор от директорията за качване <b>%s</b>:"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:962
