@@ -5987,10 +5987,9 @@ msgid "Add table prefix"
 msgstr "Aggiungi un prefisso alla tabella"
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "Aggiungi indice"
+msgstr "Aggiungi prefisso"
 
 #: libraries/mult_submits.inc.php:477 tbl_replace.php:331
 msgid "No change"
