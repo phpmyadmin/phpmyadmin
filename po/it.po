@@ -5984,7 +5984,7 @@ msgstr "Invia"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Aggiungi un prefisso alla tabella"
 
 #: libraries/mult_submits.inc.php:266
 #, fuzzy
