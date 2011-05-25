@@ -2366,7 +2366,7 @@ msgstr "Тайна Blowfish фраза"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Изпъкване избрани редове"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
