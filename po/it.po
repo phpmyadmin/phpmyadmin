@@ -10095,10 +10095,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Versione %s del snapshot (codice SQL)"
 
 #: tbl_tracking.php:382
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Monitora le istuzioni delle definizioni dei dati:"
+msgstr "Istuzioni delle definizioni dei dati eliminati con successo"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #, fuzzy
