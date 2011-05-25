@@ -2411,7 +2411,7 @@ msgstr "Колони за CHAR текство поле"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Брой редове за CHAR/VARCHAR текстови полета"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
