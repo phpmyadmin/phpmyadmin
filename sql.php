@@ -361,7 +361,7 @@ if ($GLOBALS['cfg']['RememberSorting']
  && basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
  && ! ($is_count || $is_export || $is_func || $is_analyse)
  && isset($analyzed_sql[0]['queryflags']['select_from'])
- && count($analyzed_sql[0][table_ref]) == 1
+ && count($analyzed_sql[0]['table_ref']) == 1
  ) {
     if (empty($analyzed_sql[0]['order_by_clause'])
             && isset($_SESSION['tmp_user_values']['table_sorting'][$table])) {
