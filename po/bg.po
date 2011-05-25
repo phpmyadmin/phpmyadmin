@@ -2362,7 +2362,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Тайна Blowfish фраза"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
