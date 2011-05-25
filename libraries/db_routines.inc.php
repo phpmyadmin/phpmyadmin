@@ -105,12 +105,16 @@ function getFormInputFromRequest()
             $retval['type_toggle']  = 'PROCEDURE';
         }
     }
-    $retval['param_dir']  = array();
-    $retval['param_name'] = array();
-    $retval['param_type'] = array();
-    $retval['num_params'] = 0;
-    if (isset($_REQUEST['routine_param_dir']) && isset($_REQUEST['routine_param_name']) && isset($_REQUEST['routine_param_type'])
-        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name']) && is_array($_REQUEST['routine_param_type'])) {
+
+    $retval['num_params']   = 0;
+    $retval['param_dir']    = array();
+    $retval['param_name']   = array();
+    $retval['param_type']   = array();
+    $retval['param_length'] = array();
+    if (isset($_REQUEST['routine_param_dir']) && isset($_REQUEST['routine_param_name'])
+        && isset($_REQUEST['routine_param_type']) && isset($_REQUEST['routine_param_length'])
+        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name'])
+        && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
         $temp_num_params = 0;
         $retval['param_dir'] = $_REQUEST['routine_param_dir'];
         foreach ($retval['param_dir'] as $key => $value) {
@@ -137,6 +141,15 @@ function getFormInputFromRequest()
             if (! in_array($value, $param_datatypes, true)) {
                 $retval['param_type'][$key] = '';
             }
+            $temp_num_params++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
+        $temp_num_params = 0;
+        $retval['param_length'] = $_REQUEST['routine_param_length'];
+        foreach ($retval['param_length'] as $key => $value) {
+            $retval['param_length'][$key] = htmlspecialchars($value);
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -290,16 +303,18 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     echo "<tr><td>" . __('Parameters') . "</td><td>\n";
 // parameter handling start
     echo "<table>";
-    echo "<tr><th>" . __('Direction') . "</th><th>" . __('Name') . "</th><th>" . __('Type') . "</th></tr>";
+    echo "<tr><th>" . __('Direction') . "</th><th>" . __('Name') . "</th><th>" . __('Type') . "</th><th>" . __('Length/Values') . "</th></tr>";
     if (! empty($_REQUEST['routine_addparameter']) || !$routine['num_params']) {
         $routine['param_dir'][]  = '';
         $routine['param_name'][] = '';
         $routine['param_type'][] = '';
+        $routine['param_length'][] = '';
         $routine['num_params']++;
     } else if (! empty($_REQUEST['routine_removeparameter'])) {
         unset($routine['param_dir'][$routine['num_params']-1]);
         unset($routine['param_name'][$routine['num_params']-1]);
         unset($routine['param_type'][$routine['num_params']-1]);
+        unset($routine['param_length'][$routine['num_params']-1]);
         $routine['num_params']--;
     }
     for ($i=0; $i<$routine['num_params']; $i++) {
@@ -322,9 +337,11 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
         echo getSupportedDatatypes(true, $routine['param_type'][$i]);
         echo "
                 </select>
+                </td><td>
+                <input name='routine_param_length[$i]' type='text' value='{$routine['param_length'][$i]}' />
                 </td></tr>";
     }
-    echo "<tr><td colspan='3'>
+    echo "<tr><td colspan='4'>
                 <input style='width: 49%;' type='submit' name='routine_addparameter' value='" . __('Add another parameter') . "'>
                 <input style='width: 49%;' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
           </td></tr>";
