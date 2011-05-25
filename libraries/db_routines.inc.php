@@ -19,9 +19,10 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
-$param_datatypes     = getSupportedDatatypes();
-$param_directions    = array('IN', 'OUT', 'INOUT');
-$param_sqldataaccess = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
+$routine_process_error = false;
+$param_datatypes       = getSupportedDatatypes();
+$param_directions      = array('IN', 'OUT', 'INOUT');
+$param_sqldataaccess   = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
 
 /**
  * This function processes the datatypes supported by the DB, as specified in $cfg['ColumnTypes']
@@ -192,23 +193,6 @@ function getFormInputFromRequest()
 // $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
 
 /**
- * Get all available routines
- */
-$routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
-
-/**
- * Generate the conditional classes that will be used to attach jQuery events to links.
- */
-$conditional_class_add    = '';
-$conditional_class_drop   = '';
-$conditional_class_export = '';
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class_add    = 'class="add_routine_anchor"';
-    $conditional_class_drop   = 'class="drop_procedure_anchor"';
-    $conditional_class_export = 'class="export_procedure_anchor"';
-}
-
-/**
  * Handle all user requests other than the default of listing routines
  */
 if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
@@ -225,57 +209,86 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     /**
      * Handle a request to create a routine
      */
-//    var_dump($_REQUEST);
-    $definer = '';
-    if (! empty($_REQUEST['routine_definer'])) {
-        $definer = 'DEFINER ' . PMA_sqlAddSlashes($_REQUEST['routine_definer']);
+
+    $query = 'CREATE ';
+    if (! empty($_REQUEST['routine_definer']) && strpos($_REQUEST['routine_definer'], '@') !== false) {
+        $arr = explode('@', $_REQUEST['routine_definer']);
+        $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
     }
-    $name = PMA_sqlAddSlashes($_REQUEST['routine_name']);
+    if ($_REQUEST['routine_type'] == 'FUNCTION' || $_REQUEST['routine_type'] == 'PROCEDURE') {
+        $query .= $_REQUEST['routine_type'] . ' ';
+    } else {
+        $routine_process_error = true;
+    }
+    if (! empty($_REQUEST['routine_name'])) {
+        $query .= PMA_backquote($_REQUEST['routine_name']) . ' ';
+    } else {
+        $routine_process_error = true;
+    }
     $params = '';
-    if (! empty($_REQUEST['routine_param_dir']) && ! empty($_REQUEST['routine_param_name']) && ! empty($_REQUEST['routine_param_type'])
-        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name']) && is_array($_REQUEST['routine_param_type'])) {
-        // FIXME: this is just wrong right now...
+    if (! empty($_REQUEST['routine_param_dir']) && ! empty($_REQUEST['routine_param_name'])
+        && ! empty($_REQUEST['routine_param_type']) && ! empty($_REQUEST['routine_param_length'])
+        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name'])
+        && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
+
         for ($i=0; $i<count($_REQUEST['routine_param_dir']); $i++) {
-            $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " " . $_REQUEST['routine_param_type'][$i];
-            if ($i != count($_REQUEST['routine_param_dir'])-1) {
-                $params .= ",";
+            if (! empty($_REQUEST['routine_param_dir'][$i]) && ! empty($_REQUEST['routine_param_name'][$i])
+                && ! empty($_REQUEST['routine_param_type'][$i])) {
+                $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " "
+                        . $_REQUEST['routine_param_type'][$i];
+                if ($_REQUEST['routine_param_length'][$i] != ''
+                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $_REQUEST['routine_param_type'][$i])) {
+                    $params .= "(" . $_REQUEST['routine_param_length'][$i] . ")";
+                }
+                if ($i != count($_REQUEST['routine_param_dir'])-1) {
+                    $params .= ", ";
+                }
+            } else {
+                $routine_process_error = true;
             }
         }
-        $params = "(" . $params . ")";
     }
-    $returns = '';
+    $query .= " (" . $params . ") ";
     if ($_REQUEST['routine_type'] == 'FUNCTION') {
-        $returns = "RETURNS {$_REQUEST['routine_returntype']}({$_REQUEST['routine_returnlength']})";
+        if (! empty($_REQUEST['routine_returntype']) && ! empty($_REQUEST['routine_returnlength'])) {
+            $query .= "RETURNS {$_REQUEST['routine_returntype']}({$_REQUEST['routine_returnlength']}) ";
+        } else {
+            $routine_process_error = true;
+        }
     }
-    $comment = '';
     if (! empty($_REQUEST['routine_comment'])) {
-        $comment = "COMMENT '{$_REQUEST['routine_comment']}'";
+        $query .= "COMMENT '{$_REQUEST['routine_comment']}' ";
     }
-    $deterministic = '';
-    if (! empty($_REQUEST['routine_isdeterministic'])) {
-        $deterministic = 'DETERMINISTIC';
+    if (isset($_REQUEST['routine_isdeterministic'])) {
+        $query .= 'DETERMINISTIC ';
     } else {
-        $deterministic = 'NOT DETERMINISTIC';
+        $query .= 'NOT DETERMINISTIC ';
     }
-    $sqldataaccess = '';
     if (! empty($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
-        $sqldataaccess = $_REQUEST['routine_sqldataaccess'];
+        $query .= $_REQUEST['routine_sqldataaccess'] . ' ';
     }
-    $sqlsecurity = '';
     if (! empty($_REQUEST['routine_sqlsecutiry'])) {
-        $sqlsecurity = "SQL SECURITY" . $_REQUEST['routine_sqlsecutiry'];
+        $query .= 'SQL SECURITY ' . $_REQUEST['routine_sqlsecutiry'] . ' ';
     }
-    $definition = '';
     if (! empty($_REQUEST['routine_definition'])) {
-        $definition = 'BEGIN ' . $_REQUEST['routine_definition'] . ' END';
+        $query .= $_REQUEST['routine_definition'];
+    } else {
+        $routine_process_error = true;
     }
-    
-    $query = "DELIMITER //
-                CREATE $definer {$_REQUEST['routine_type']} $name $params $returns $comment $deterministic $sqldataaccess $sqlsecurity $definition
-                //";
-    var_dump($query);
-    exit;
-} else if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter']) || ! empty($_REQUEST['routine_changetype'])) {
+    if (! $routine_process_error) {
+        // Execute the created query
+        $res = PMA_DBI_query($query);
+        // If the query fails, an error message will be automatically
+        // shown, so here we only show a success message.
+        $message = PMA_Message::success(__('Routine %1$s has been created.'));
+        $message->addParam(PMA_backquote($_REQUEST['routine_name']));
+        $message->display();
+    }
+}
+
+if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter'])
+    || ! empty($_REQUEST['routine_removeparameter']) || ! empty($_REQUEST['routine_changetype'])
+    || $routine_process_error) {
     /**
      * Display a form used to create a new routine
      */
@@ -287,6 +300,14 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     if ($GLOBALS['is_ajax_request'] != true) {
         echo "<h2>" . __("Create Routine") . "</h2>\n";
     }
+
+    // Some error
+    //TODO: better error handling: this is just ridiculous...
+    if ($routine_process_error) {
+        $msg = PMA_Message::error(__('Error: Some missing values'));
+        $msg->display();
+    }
+
     echo '<form action="db_routines.php?' . $url_query . '" method="post" >' . "\n"
        . PMA_generate_common_hidden_inputs($db, $table)
        . "<fieldset>\n"
@@ -392,8 +413,23 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
 }
 
 /**
+ * Generate the conditional classes that will be used to attach jQuery events to links.
+ */
+$conditional_class_add    = '';
+$conditional_class_drop   = '';
+$conditional_class_export = '';
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class_add    = 'class="add_routine_anchor"';
+    $conditional_class_drop   = 'class="drop_procedure_anchor"';
+    $conditional_class_export = 'class="export_procedure_anchor"';
+}
+
+/**
  * Display a list of available routines
  */
+
+$routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Routines') . '</legend>' . "\n";
 
