@@ -1499,7 +1499,7 @@ $(document).ready(function() {
                         PMA_ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
                         if ($("#create_table_dialog").length > 0) {
-                            $("#create_table_dialog").parent().dialog("close").remove();
+                            $("#create_table_dialog").dialog("close").remove();
                         }
 
                         /**

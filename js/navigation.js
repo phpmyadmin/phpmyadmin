@@ -181,66 +181,55 @@ $(document).ready(function(){
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
 
     /* Create table */
-    $('#newtable').click(function(event){
-    	event.preventDefault();
-    	cls = $('#newtable a').attr("class");
-    	if(cls == 'ajax'){
-       	url = $('#newtable a').attr("href");
-		 //$div = parent.frame_content.$('<div id="create_table_dialog"></div>');
-		    //$form = $(this);
+    $('#newtable a.ajax').click(function(event){
+        event.preventDefault();
+       	var $url = $('#newtable a').attr("href");
+       	if ($url.substring(0, 15) == "tbl_create.php?") {
+             $url = $url.substring(15);
+        }
+       	var $div = parent.frame_content.$('<div id="create_table_dialog"></div>');
 
-		    /* @todo Validate this form! */
+        /* @todo Validate this form! */
 
-		    /**
-		     *  @var    button_options  Object that stores the options passed to jQueryUI
-		     *                          dialog
-		     */
-		    var button_options = {};
-		    // in the following function we need to use $(this)
-		    button_options["Cancel"] = function() {$(this).parent().dialog('close').remove();}
+        /**
+        *  @var    button_options  Object that stores the options passed to jQueryUI
+        *                          dialog
+        */
+        var button_options = {};
+        // in the following function we need to use $(this)
+        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
 
-		    var button_options_error = {};
-		    button_options_error["OK"] = function() {$(this).parent().dialog('close').remove();}
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
 
-		    //var $msgbox = PMA_ajaxShowMessage();
-		    //PMA_prepareForAjaxRequest($form);
+        var $msgbox = PMA_ajaxShowMessage();
 
-		    $.get( url , function(data) {
-		        //in the case of an error, show the error message returned.
-		        if (data.success != undefined && data.success == false) {
-		        	parent.frame_content.$('<div id="create_table_dialog"></div>')
-		        	//$div
-		        	.append(data.error)
-		            .dialog({
-		                title: 'Create Table',
-		                height: 230,
-		                width: 900,
-		                //open: PMA_verifyTypeOfAllColumns,
-		                buttons : button_options_error
-		            })// end dialog options
-		            //remove the redundant [Back] link in the error message.
-		            .find('fieldset').remove();
-		        } else {
-		        	parent.frame_content.$('<div id="create_table_dialog"></div>')
-		        	//$div
-		        	.append(data)
-		            .dialog({
-		                title: 'Create Table',
-		                height: 600,
-		                width: 900,
-		                //open: PMA_verifyTypeOfAllColumns,
-		                buttons : button_options
-		               // buttons : {"Close" : function() {$(this).dialog('close');}}
-		            }); // end dialog options
-		        }            
-		        //PMA_ajaxRemoveMessage($msgbox);
-		    }) // end $.get()
-		    //$div.remove();
-		    // empty table name and number of columns from the minimal form
-		   // $form.find('input[name=table],input[name=num_fields]').val('');
-    	//event.preventDefault();
-    	}else{}	
-    });//end of create new form
-    
-     
+        $.get( "tbl_create.php" , $url+"&num_fields=1&ajax_request=true" ,  function(data) {
+            //in the case of an error, show the error message returned.
+            if (data.success != undefined && data.success == false) {
+                $div
+                .append(data.error)
+                .dialog({
+                    title: PMA_messages['strCreateTable'],
+                    height: 230,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options_error
+                })// end dialog options
+                //remove the redundant [Back] link in the error message.
+                .find('fieldset').remove();
+            } else {
+                $div
+                .append(data)
+                .dialog({
+                    title: PMA_messages['strCreateTable'],
+                    height: 600,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options
+                }); // end dialog options
+            }
+            PMA_ajaxRemoveMessage($msgbox);
+        }) // end $.get()
+    });//end of create new table
 });//end of document get ready

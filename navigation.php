@@ -127,9 +127,10 @@ require_once './libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <script src="./js/jquery/jquery-1.6.1.js" type="text/javascript"></script>
-	<script src="./js/jquery/jquery-ui-1.8.custom.js" type="text/javascript"></script>
+    <script src="./js/jquery/jquery-ui-1.8.custom.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script src="js/messages.php"></script>
     <script type="text/javascript">
     // <![CDATA[
     var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
@@ -305,9 +306,9 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     unset($table_list);
     if ($db != 'information_schema') {
-    $class = '';
+        $class = '';
         $GLOBALS['cfg']['AjaxEnable'] ? $class="ajax" : '';
-        echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '"  class="'.$class .'">'
+        echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '"  class="'.$class .'" >'
             .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
             . _pgettext('short form', 'Create table') . '</a></li></ul>';
     }
