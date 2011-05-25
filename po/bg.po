@@ -2034,7 +2034,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
-msgstr ""
+msgstr "Профилиране"
 
 #: libraries/common.lib.php:1355 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
