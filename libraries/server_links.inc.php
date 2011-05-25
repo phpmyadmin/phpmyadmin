@@ -58,7 +58,7 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['process']['link'] = 'server_processlist.php';
     $tabs['process']['text'] = __('Processes');
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['rights']['icon'] = 's_rights.png';
         $tabs['rights']['link'] = 'server_privileges.php';
         $tabs['rights']['text'] = __('Privileges');
@@ -80,11 +80,13 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['charset']['link'] = 'server_collations.php';
     $tabs['charset']['text'] = __('Charsets');
 
-    $tabs['engine']['icon'] = 'b_engine.png';
-    $tabs['engine']['link'] = 'server_engines.php';
-    $tabs['engine']['text'] = __('Engines');
+    if (!PMA_DRIZZLE) {
+        $tabs['engine']['icon'] = 'b_engine.png';
+        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['text'] = __('Engines');
+    }
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['replication']['icon'] = 's_replication.png';
         $tabs['replication']['link'] = 'server_replication.php';
         $tabs['replication']['text'] = __('Replication');
