@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-25 22:39+0200\n"
+"PO-Revision-Date: 2011-05-25 22:40+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10103,7 +10103,7 @@ msgstr "Istuzioni delle definizioni dei dati eliminati con successo"
 #, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Accumula gli errori"
+msgstr "Errore della query"
 
 #: tbl_tracking.php:399
 #, fuzzy
