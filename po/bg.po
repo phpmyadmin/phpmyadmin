@@ -2310,7 +2310,7 @@ msgstr "Стойност: %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
 msgid "Restore default value"
-msgstr ""
+msgstr "Стойност по подразбиране"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
