@@ -9219,10 +9219,9 @@ msgid "Insecure connection"
 msgstr "Connessione non sicura"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Configurazione di memorizzazione"
+msgstr "Configurazione salvata."
 
 #: setup/frames/index.inc.php:93
 msgid ""
