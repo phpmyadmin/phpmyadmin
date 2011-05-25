@@ -19,9 +19,61 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
+$param_datatypes     = getSupportedDatatypes();
 $param_directions    = array('IN', 'OUT', 'INOUT');
-$param_datatypes     = array('INT', 'FLOAT', 'VARCHAR'); // FIXME: Find a way to get the real datatypes that are supported by the DB
 $param_sqldataaccess = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
+
+/**
+ * This function processes the datatypes supported by the DB, as specified in $cfg['ColumnTypes']
+ * and either returns an array (useful for quickly checking if a datatype is supported)
+ * or an HTML snippet that creates a drop-down list.
+ */
+function getSupportedDatatypes($html = false, $selected = '')
+{
+    global $cfg;
+
+    if ($html) {
+        $retval = '';
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue == $selected) {
+                        $retval .= "<option selected='selected'>$subvalue</option>";
+                    } else if ($subvalue === '-') {
+                        $retval .= "<option disabled='disabled'>$subvalue</option>";
+                    } else {
+                        $retval .= "<option >$subvalue</option>";
+                    }
+                }
+                $retval .= '</optgroup>';
+            } else {
+                if ($selected == $value) {
+                    $retval .= "<option selected='selected'>$value</option>";
+                } else {
+                    $retval .= "<option>$value</option>";
+                }
+            }
+        }
+    } else {
+        $retval = array();
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue !== '-') {
+                        $retval[] = $subvalue;
+                    }
+                }
+            } else {
+                if ($value !== '-') {
+                    $retval[] = $value;
+                }
+            }
+        }
+    }
+
+    return $retval;
+}
 
 /**
  * This function will generate the values that are required to complete the "Add new routine" form
@@ -114,7 +166,7 @@ function getFormInputFromRequest()
  *  ### MAIN ###
  */
 
-// $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db");
+// $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
 
 /**
  * Get all available routines
@@ -258,13 +310,7 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                 <input name='routine_param_name[$i]' type='text' value='{$routine['param_name'][$i]}' />
                 </td><td>
                 <select name='routine_param_type[$i]'>";
-        foreach ($param_datatypes as $key => $value) {
-            if ($routine['param_type'][$i] == $value) {
-                echo "<option selected='selected'>$value</option>";
-            } else {
-                echo "<option>$value</option>";
-            }
-        }
+        echo getSupportedDatatypes(true, $routine['param_type'][$i]);
         echo "
                 </select>
                 </td></tr>";
@@ -280,13 +326,7 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
 
     echo "<tr><td>" . __('Return Type') . "</td><td>
                                         <select name='routine_returntype'>";
-    foreach ($param_datatypes as $key => $value) {
-        if ($routine['returntype'] == $value) {
-            echo "<option selected='selected'>$value</option>";
-        } else {
-            echo "<option>$value</option>";
-        }
-    }
+    echo getSupportedDatatypes(true, $routine['returntype']);
     echo "
                                         </select>
           </td></tr>\n";
