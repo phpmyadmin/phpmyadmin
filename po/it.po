@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-25 22:42+0200\n"
+"PO-Revision-Date: 2011-05-25 22:43+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10127,10 +10127,9 @@ msgid "Delete tracking data row from report"
 msgstr "Cancella dati di tracciamento per questa tabella"
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Nessun database"
+msgstr "Nessun dato"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
