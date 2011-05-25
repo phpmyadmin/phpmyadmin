@@ -86,13 +86,23 @@ function getFormInputFromRequest()
 
     $retval = array();
     $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
-    $retval['type_procedure'] = '';
-    $retval['type_function']  = '';
-    if (isset($_REQUEST['routine_type'])) {
+    $retval['type']         = 'PROCEDURE';
+    $retval['type_toggle']  = 'FUNCTION';
+    if (! empty($_REQUEST['routine_changetype']) && isset($_REQUEST['routine_type'])) {
         if ($_REQUEST['routine_type'] == 'PROCEDURE') {
-            $retval['type_procedure'] = " selected='selected'";
+            $retval['type']         = 'FUNCTION';
+            $retval['type_toggle']  = 'PROCEDURE';
         } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
-            $retval['type_function'] = " selected='selected'";
+            $retval['type']         = 'PROCEDURE';
+            $retval['type_toggle']  = 'FUNCTION';
+        }
+     } else if (isset($_REQUEST['routine_type'])) {
+        if ($_REQUEST['routine_type'] == 'PROCEDURE') {
+            $retval['type']         = 'PROCEDURE';
+            $retval['type_toggle']  = 'FUNCTION';
+        } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
+            $retval['type']         = 'FUNCTION';
+            $retval['type_toggle']  = 'PROCEDURE';
         }
     }
     $retval['param_dir']  = array();
@@ -163,7 +173,7 @@ function getFormInputFromRequest()
 } // end function getFormInputFromRequest()
 
 /**
- *  ### MAIN ###
+ *  ### MAIN ##########################################################################################################
  */
 
 // $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
@@ -252,7 +262,7 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                 //";
     var_dump($query);
     exit;
-} else if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter'])) {
+} else if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter']) || ! empty($_REQUEST['routine_changetype'])) {
     /**
      * Display a form used to create a new routine
      */
@@ -272,10 +282,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
 
     echo "<tr><td>" . __('Routine Name') . "</td><td><input type='text' name='routine_name' value='{$routine['name']}'/></td></tr>\n";
     echo "<tr><td>" . __('Type') . "</td><td>
-                                        <select name='routine_type'>
-                                            <option value='PROCEDURE'{$routine['type_procedure']}>" . __('PROCEDURE') . "</option>
-                                            <option value='FUNCTION'{$routine['type_function']}>" . __('FUNCTION') . "</option>
-                                        </select>
+                    <input name='routine_type' type='hidden' value='{$routine['type']}' />
+                    <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>{$routine['type']}</div>
+                    <input style='width: 49%;' type='submit' name='routine_changetype' value='".sprintf(__('Change to %s'), $routine['type_toggle'])."' />
           </td></tr>\n";
 
     echo "<tr><td>" . __('Parameters') . "</td><td>\n";
@@ -324,13 +333,16 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
 
     echo "</td></tr>\n";
 
-    echo "<tr><td>" . __('Return Type') . "</td><td>
-                                        <select name='routine_returntype'>";
-    echo getSupportedDatatypes(true, $routine['returntype']);
-    echo "
-                                        </select>
-          </td></tr>\n";
-    echo "<tr><td>" . __('Return Length') . "</td><td><input type='text' name='routine_returnlength' value='{$routine['returnlength']}' /></td></tr>\n";
+    if ($routine['type'] == 'FUNCTION') {
+        echo "<tr><td>" . __('Return Type') . "</td><td>
+                                            <select name='routine_returntype'>";
+        echo getSupportedDatatypes(true, $routine['returntype']);
+        echo "
+                                            </select>
+              </td></tr>\n";
+        echo "<tr><td>" . __('Return Length/Values') . "</td><td><input type='text' name='routine_returnlength' value='{$routine['returnlength']}' /></td></tr>\n";
+    }
+
     echo "<tr><td>" . __('Definition') . "</td><td><textarea name='routine_definition'>{$routine['definition']}</textarea></td></tr>\n";
     echo "<tr><td>" . __('Is Deterministic') . "</td><td><input type='checkbox' name='routine_isdeterministic' {$routine['isdeterministic']}/></td></tr>\n";
     echo "<tr><td>" . __('Definer') . "</td><td><input type='text' name='routine_definer' value='{$routine['definer']}'/></td></tr>\n";
