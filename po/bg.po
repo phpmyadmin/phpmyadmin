@@ -2415,7 +2415,7 @@ msgstr "Брой редове за CHAR/VARCHAR текстови полета"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Редове за CHAR текство поле"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
