@@ -49,13 +49,14 @@ require_once './libraries/header.inc.php';
 $is_superuser = PMA_isSuperuser();
 
 // now, select the mysql db
-if ($is_superuser) {
+if ($is_superuser && !PMA_DRIZZLE) {
     PMA_DBI_select_db('mysql', $userlink);
 }
 
 /**
  * @global array binary log files
  */
-$binary_logs = PMA_DBI_fetch_result('SHOW MASTER LOGS', 'Log_name', null, null,
-    PMA_DBI_QUERY_STORE);
+$binary_logs = PMA_DRIZZLE
+    ? null
+    : PMA_DBI_fetch_result('SHOW MASTER LOGS', 'Log_name', null, null, PMA_DBI_QUERY_STORE);
 ?>
