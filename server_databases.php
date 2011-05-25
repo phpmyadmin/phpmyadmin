@@ -187,7 +187,7 @@ if ($databases_count > 0) {
         echo '    <th>'. $name .'</th>' . "\n";
     }
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
            . '    </th>' . "\n";
     }
