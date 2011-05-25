@@ -182,7 +182,10 @@ function PMA_getDbCollation($db) {
 
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
         // this is slow with thousands of databases
-        return PMA_DBI_fetch_value('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1;');
+        $sql = PMA_DRIZZLE
+            ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1'
+            : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1';
+        return PMA_DBI_fetch_value($sql);
     } else {
         PMA_DBI_select_db($db);
         $return = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'collation_database\'', 0, 1);
