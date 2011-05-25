@@ -2352,7 +2352,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Показване връзката &quot;Изтриване БД&quot; на обикновени потребители"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
