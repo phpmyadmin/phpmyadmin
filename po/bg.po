@@ -1709,7 +1709,7 @@ msgstr "Грешно име/парола. Достъп отказан."
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Файлът %s не съдържа идентификатор на ключ"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
@@ -1980,7 +1980,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
-msgstr ""
+msgstr "Профилиране"
 
 #: libraries/common.lib.php:1355 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
@@ -2103,7 +2103,7 @@ msgstr "Разглеждане на компютъра:"
 #: libraries/common.lib.php:2979
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "Избор от директорията за качване <b>%s</b>:"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:962
@@ -2167,21 +2167,21 @@ msgstr "разширени INSERT-и"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "и двете по-горе"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "никое от горните"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "Не е положително число"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Не е неотрицателно число"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
@@ -2241,7 +2241,7 @@ msgstr "най-много %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Тази настройка е изключена, тя няма да влияе на конфигурацията"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2256,11 +2256,11 @@ msgstr "Стойност: %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
 msgid "Restore default value"
-msgstr ""
+msgstr "Стойност по подразбиране"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Позволение на потребители да променят стойността"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
@@ -2270,7 +2270,7 @@ msgstr "Изчистване"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Подобрява ефективността при презареждане на екрана"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -2298,7 +2298,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Показване връзката &quot;Изтриване БД&quot; на обикновени потребители"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
@@ -2308,11 +2308,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Тайна Blowfish фраза"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Изпъкване избрани редове"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
@@ -2320,7 +2320,7 @@ msgstr "Маркер на ред"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Изпъкване редовете, посочени с мишка"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
@@ -2345,27 +2345,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Редакция на CHAR колони"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Брой колони за CHAR/VARCHAR текстови полета"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Колони за CHAR текство поле"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Брой редове за CHAR/VARCHAR текстови полета"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Редове за CHAR текство поле"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Проверка на правата върху конфигурационния файл"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
