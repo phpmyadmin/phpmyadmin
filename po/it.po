@@ -714,10 +714,9 @@ msgid "Add prefix to table"
 msgstr "Aggiungi prefisso alla tabella"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Sostituisci i dati della tabella col file"
+msgstr "Sostituisci il prefisso della tabella"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
