@@ -36,8 +36,7 @@ if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
 /**
  * Not selection yet required -> displays the selection form
  */
-
-if (!isset($param) || $param[0] == '') {
+if (! isset($param) || $param[0] == '') {
     // Gets some core libraries
     require_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -53,7 +52,7 @@ if (!isset($param) || $param[0] == '') {
      */
     require_once './libraries/tbl_links.inc.php';
 
-    if (!isset($goto)) {
+    if (! isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
     }
     // Defines the url to return to in case of error in the next sql statement
@@ -111,33 +110,29 @@ $subtabs = array();
 
 $subtabs['search']['icon'] = 'b_search.png';
 $subtabs['search']['text'] = __('Table Search');
-$subtabs['search']['link'] = '';
+$subtabs['search']['link'] = 'tbl_select.php';
 $subtabs['search']['id'] = 'tbl_search_id';
 $subtabs['search']['args']['pos'] = 0;
 
 $subtabs['zoom']['icon'] = 'b_props.png';
-$subtabs['zoom']['link'] = '';
+$subtabs['zoom']['link'] = 'tbl_zoom_select.php';
 $subtabs['zoom']['text'] = __('Zoom Search');
 $subtabs['zoom']['id'] = 'zoom_search_id';
 
 echo PMA_generate_html_tabs($subtabs, $url_params);
 unset($subtabs);
-
-if($trial[0]=='' || $trail[0]!==''){
-
 ?>
 
         <form method="post" action="tbl_select.php" name="insertForm" id="tbl_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
-
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_select.php" />
-<input type="hidden" name="subtab" id='subtabid' value=1 />
 
 <fieldset id="fieldset_table_search">
+
 <fieldset id="fieldset_table_qbe">
     <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
-    <table class="data" id = 'tbl_id'>
+    <table class="data">
     <thead>
     <tr><th><?php echo __('Column'); ?></th>
         <th><?php echo __('Type'); ?></th>
@@ -317,100 +312,21 @@ if($trial[0]=='' || $trail[0]!==''){
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"
         value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="submit[]" value="<?php echo __('Go'); ?>" />
+    <input type="submit" name="submit" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
-<?php
-}
-
-if(($trial[0] !='' && $trail[1]=='') || ($trial[0] =='' && $trail[1]!=''))
-{
-	$flag = 2;
-
-}
-if ($trail[0] != '' || !isset($param) || $param[0]=='') {
-?>
-
-<form method="post" action="tbl_select.php" name="zoominputForm" id="zoom_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
-<?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-<input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-<input type="hidden" name="back" value="tbl_select.php" />
-<input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
-
-<fieldset id="fieldset_table_qbe">
-    <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
-    <table class="data" id = 'zoom_tbl_id'>
-    <thead>
-    <tr><th><?php echo __('Column'); ?></th>
-        <th><?php echo __('Type'); ?></th>
-        <th><?php echo __('Collation'); ?></th>
-        <th><?php echo __('Operator'); ?></th>
-        <th><?php echo __('Value'); ?></th>
-    </tr>
-    </thead>
-    <tbody>
-<?php
-    $odd_row = true;
-?>
-    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <th><select name="trial[]" id='tableID1'>
-        <option value='pma_null'><?php echo __("None");  ?> </option>
-	<?php
-        for ($i = 0; $i < $fields_cnt; $i++){
-		if($trial[0]==htmlspecialchars($fields_list[$i])){?>
-                	<option value=<?php echo htmlspecialchars($fields_list[$i]);?> Selected>  <?php echo htmlspecialchars($fields_list[$i]);?></option>
-	<?php
-		}
-		else{ ?>
-                	<option value=<?php echo htmlspecialchars($fields_list[$i]);?> >  <?php echo htmlspecialchars($fields_list[$i]);?></option>
-	<?php
-		} 
-	} ?>
-        </select></th>
-        <td><?php echo $table1_fields_type1; ?></td>
-        <td><?php echo $table1_fields_collation1; ?></td>
-    </tr>
-    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <th><select name="trial[]" id='tableID2'>
-        <option value='pma_null'><?php echo __("None");  ?> </option>
-	<?php
-        for ($i = 0; $i < $fields_cnt; $i++){
-		if($trial[1]==htmlspecialchars($fields_list[$i])){?>
-                	<option value=<?php echo htmlspecialchars($fields_list[$i]);?> Selected>  <?php echo htmlspecialchars($fields_list[$i]);?></option>
-	<?php
-		}
-		else{ ?>
-                	<option value=<?php echo htmlspecialchars($fields_list[$i]);?> >  <?php echo htmlspecialchars($fields_list[$i]);?></option>
-	<?php
-		} 
-	} ?>
-        </select></th>
-        <td><?php echo $table1_fields_type2; ?></td>
-        <td><?php echo $table1_fields_collation2; ?></td>
- </tr>
-    </table>
-</fieldset>
-
-<fieldset class="tblFooters">
-    <input type="hidden" name="max_number_of_fields"
-        value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="zoom_submit" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-
-
-
-
 <div id="sqlqueryresults"></div>
     <?php
     require './libraries/footer.inc.php';
-
-}
-
 ?>
+
 </fieldset>
+
 <?php
+print_r($inputs);
 }
+
+
 
 /**
  * Selection criteria have been submitted -> do the work
@@ -452,7 +368,7 @@ else {
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
-                    if (!is_array($fields[$i])) {
+                    if (! is_array($fields[$i])) {
                         $fields[$i] = explode(',', $fields[$i]);
                     }
                     $enum_selected_count = count($fields[$i]);

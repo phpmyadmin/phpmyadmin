@@ -21,45 +21,22 @@ $(document).ready(function() {
     $.ajaxSetup({
         cache: 'false'
     });
-  
-   /**
-    *   Makes the operator and value field hidden initially, then toggles between visibile and hidden on userclick
-    */
-    /* $('a').each(function(index) {
-		if($(this).text() == "Table Search"){
-	    		alert(index + ': ' + $(this).text());
-	    		alert($('#subtabid').val());
-		}
-      });*/
 
-     $('#zoom_search_form').hide();
-     if($('#id_flag').val()==2) 
-     {
-	  $('#tbl_search_form').hide();
-	  $('#zoom_search_form').show();
-	
-     }
-	
-     $('#tbl_search_id').click(function() {
-	  $('#zoom_search_form').hide();
-	  $('#tbl_search_form').show();
-     });
-	
-     $('#zoom_search_id').click(function() {
-	  $('#tbl_search_form').hide();
-	  $('#zoom_search_form').show();
-     });
+     /*
+     * Handle events from zoom-search page   
+     *
+     */
 
-     $('#tableID1').change(function() {
-	  $('#zoom_search_form').submit();
-     })
-     
-     $('#tableID2').change(function() {
-	  $('#zoom_search_form').submit();
+     $('#tableid_1').change(function() {
+          $('#zoom_search_form').submit();
      })
 
-     
-     /**
+     $('#tableid_2').change(function() {
+          $('#zoom_search_form').submit();
+     })
+
+
+    /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed 
      * after a couple of clicks
      */
