@@ -1836,7 +1836,7 @@ msgstr "下載檔案"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "無法開啟檔案：%s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
