@@ -1439,7 +1439,7 @@ msgstr "四"
 #. l10n: Short week day name
 #: js/messages.php:216 libraries/common.lib.php:1604
 msgid "Fri"
-msgstr "Fri"
+msgstr "五"
 
 #. l10n: Short week day name
 #: js/messages.php:218 libraries/common.lib.php:1606
