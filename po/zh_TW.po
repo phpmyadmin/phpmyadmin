@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:04+0200\n"
+"PO-Revision-Date: 2011-05-26 15:05+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -834,7 +834,7 @@ msgstr "選擇的匯出的檔案格式"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "空間不足以儲存檔案 %s."
+msgstr "沒有足夠的空間儲存檔案 %s."
 
 #: export.php:307
 #, php-format
