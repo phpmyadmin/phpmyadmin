@@ -74,7 +74,7 @@ function getSupportedDatatypes($html = false, $selected = '')
     }
 
     return $retval;
-}
+} // end getSupportedDatatypes()
 
 /**
  * Parses the parameters of a routine given a string
@@ -136,6 +136,7 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 	    case '\\':
 		    if (end($stack) == $STR1 || (end($stack) == $STR2 && $str[$i+1] == "'")) {
 			    // skip escaped character
+                // FIXME: do we need to support escaping a single quote by another single quote?
 			    $buffer .= $char;
 			    $i++;
 			    $buffer .= $str[$i];
@@ -183,7 +184,7 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 		    $length[] = htmlentities(substr($value, $brac_pos+1, -1), ENT_QUOTES);
 	    }
     }
-}
+} // end parseListOfParameters()
 
 /**
  * This function will generate the values that are required to complete
@@ -252,7 +253,7 @@ function getFormInputFromRoutineName($db, $name)
     $retval['comment']         = $routine['ROUTINE_COMMENT'];
 
     return $retval;
-}
+} // getFormInputFromRoutineName()
 
 /**
  * This function will generate the values that are required to complete the "Add new routine" form
