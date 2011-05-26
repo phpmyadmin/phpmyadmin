@@ -850,7 +850,7 @@ msgstr "網站伺服器沒有儲存 %s 檔案的權限"
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "備份已儲存至檔案 %s."
+msgstr "備份資料已儲存至檔案 %s."
 
 #: import.php:58
 #, php-format
