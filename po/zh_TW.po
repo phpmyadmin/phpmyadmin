@@ -971,7 +971,7 @@ msgstr "刪除中"
 
 #: js/messages.php:35
 msgid "Dropping Procedure"
-msgstr "丟棄程序中"
+msgstr "執行刪除過程中"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
