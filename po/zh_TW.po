@@ -2346,7 +2346,7 @@ msgstr "設定值: %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
 msgid "Restore default value"
-msgstr ""
+msgstr "還原預設值"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
