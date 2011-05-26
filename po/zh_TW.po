@@ -1495,7 +1495,7 @@ msgstr "週"
 
 #: js/messages.php:238
 msgid "Hour"
-msgstr ""
+msgstr "時"
 
 #: js/messages.php:239
 #, fuzzy
