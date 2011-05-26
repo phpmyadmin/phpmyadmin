@@ -1491,7 +1491,7 @@ msgstr "六"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:236
 msgid "Wk"
-msgstr "周"
+msgstr "週"
 
 #: js/messages.php:238
 msgid "Hour"
