@@ -2290,7 +2290,7 @@ msgstr "輸入的值應小於等於 %s"
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "在 %s 中丟失資料"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
