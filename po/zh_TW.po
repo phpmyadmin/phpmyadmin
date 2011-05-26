@@ -2051,10 +2051,9 @@ msgid "Inline edit of this query"
 msgstr "在此次查詢中，使用快速編輯"
 
 #: libraries/common.lib.php:1267
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "引擎"
+msgstr "行間"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
