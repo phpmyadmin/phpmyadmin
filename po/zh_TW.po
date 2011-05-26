@@ -2019,7 +2019,7 @@ msgstr "連接到 SQL 驗證失敗！"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
-msgstr "說明 SQL"
+msgstr "SQL說明 "
 
 #: libraries/common.lib.php:1143
 msgid "Skip Explain SQL"
