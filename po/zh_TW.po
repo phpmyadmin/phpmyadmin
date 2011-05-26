@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:09+0200\n"
+"PO-Revision-Date: 2011-05-26 15:10+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -983,7 +983,7 @@ msgstr "刪除 主鍵值/指標 中"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "這個作業所用時間會較長, 繼續?"
+msgstr "這個作業將會執行較長的時間, 請問使否確定執行?"
 
 # BLOB: binary and text object
 #: js/messages.php:42
