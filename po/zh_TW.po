@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 14:45+0200\n"
+"PO-Revision-Date: 2011-05-26 14:47+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -317,7 +317,7 @@ msgstr "新增 %s"
 #: db_operations.php:511 libraries/config/messages.inc.php:117
 #: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
-msgstr "新增 AUTO_INCREMENT 數值"
+msgstr "新增自動遞增(AUTO_INCREMENT)數值"
 
 #: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
