@@ -2322,7 +2322,7 @@ msgstr "SQL 驗證已停用"
 #: libraries/config/FormDisplay.class.php:773
 #| msgid "Link not found"
 msgid "SOAP extension not found"
-msgstr "未找到 SOAP 擴展"
+msgstr "未安裝 SOAP 元件"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
