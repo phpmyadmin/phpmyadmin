@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 14:49+0200\n"
+"PO-Revision-Date: 2011-05-26 14:50+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -408,7 +408,7 @@ msgstr[0] "%s 張資料表"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "您需要選擇最少顯示一行欄位"
+msgstr "您至少需要選擇一個欄位"
 
 #: db_qbe.php:186
 msgid "Switch to"
