@@ -1917,7 +1917,7 @@ msgstr "繪製圖表需要 GD 元件。"
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "繪製圖表氣泡提示需要 JSON 擴展。"
 
 #: libraries/common.inc.php:576
 msgid ""
