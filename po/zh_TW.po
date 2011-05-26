@@ -1888,7 +1888,7 @@ msgstr "已複製"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "查詢資料庫 &quot;%s&quot; 之權限."
+msgstr "檢查資料庫 「%s」 之權限."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
