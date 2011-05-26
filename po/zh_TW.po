@@ -1074,7 +1074,7 @@ msgstr "確定"
 
 #: js/messages.php:73
 msgid "Renaming Databases"
-msgstr "更改資料庫名稱到"
+msgstr "更改資料庫名稱中"
 
 #: js/messages.php:74
 msgid "Reload Database"
