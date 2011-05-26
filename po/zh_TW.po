@@ -1519,7 +1519,7 @@ msgstr "上傳文件的大小超過 php.ini 文件中 upload_max_filesize 的限
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "上傳文件的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值。"
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
