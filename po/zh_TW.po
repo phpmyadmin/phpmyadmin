@@ -1819,7 +1819,7 @@ msgstr "擷取 BLOB 內容型別失敗"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "檢視圖片"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
