@@ -1878,7 +1878,7 @@ msgstr "轉到資料庫"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "未複製"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
