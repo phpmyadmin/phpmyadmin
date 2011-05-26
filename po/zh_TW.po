@@ -268,7 +268,7 @@ msgstr "資料庫 %s 已複製到 %s"
 
 #: db_operations.php:404
 msgid "Rename database to"
-msgstr "更改資料庫名稱到"
+msgstr "將資料庫改名為"
 
 #: db_operations.php:409 server_processlist.php:69
 msgid "Command"
