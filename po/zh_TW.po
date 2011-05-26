@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 13:07+0200\n"
+"PO-Revision-Date: 2011-05-26 13:08+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -110,7 +110,7 @@ msgstr "開啟遠端 URL 失敗"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "%s 檔案不存在於本系統，詳情請參考 www.phpmyadmin.net"
+msgstr "本系統不支援 %s 格式，詳情請參考 www.phpmyadmin.net"
 
 #: db_create.php:58
 #, php-format
