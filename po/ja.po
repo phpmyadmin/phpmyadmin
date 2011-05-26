@@ -4555,10 +4555,9 @@ msgstr "MySQL 4.0 互換"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "新規データベースを作成する"
+msgstr "データベースを作成する"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
