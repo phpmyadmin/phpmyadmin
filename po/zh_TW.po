@@ -1513,7 +1513,7 @@ msgstr "字體大小"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "上傳文件的大小超過 php.ini 文件中 upload_max_filesize 的限制。"
 
 #: libraries/File.class.php:313
 msgid ""
