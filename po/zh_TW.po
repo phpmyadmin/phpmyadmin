@@ -1909,7 +1909,7 @@ msgstr "查詢結果"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "未找到圖表所需資料。"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
