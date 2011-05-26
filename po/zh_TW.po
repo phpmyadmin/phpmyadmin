@@ -2230,7 +2230,7 @@ msgstr "結構與資料"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "快速 - 僅顯示必須的設定項"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
