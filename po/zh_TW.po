@@ -2285,7 +2285,7 @@ msgstr "輸入的值不正確"
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "輸入的值應小於等於 %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
