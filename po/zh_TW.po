@@ -1665,7 +1665,7 @@ msgstr "已經將資料表 %s 改名成 %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "找不到佈景主題 %s 設定圖像之路徑!"
+msgstr "找不到佈景主題 %s 指定圖片路徑!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
