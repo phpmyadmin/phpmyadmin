@@ -1758,7 +1758,7 @@ msgstr "選擇伺服器"
 
 #: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
-msgstr "必須啟用 Cookies 才能登錄。"
+msgstr "必須啟用 Cookies 才能登入。"
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:206
