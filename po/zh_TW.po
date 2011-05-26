@@ -1589,7 +1589,7 @@ msgstr "索引 %s 已被刪除"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr ""
+msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除"
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
