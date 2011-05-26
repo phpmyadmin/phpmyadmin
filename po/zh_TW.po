@@ -1895,9 +1895,8 @@ msgid "Check Privileges"
 msgstr "檢查權限"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 msgid "Query statistics"
-msgstr "資料列統計數值"
+msgstr "查詢統計"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
