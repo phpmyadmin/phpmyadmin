@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 16:11+0200\n"
+"PO-Revision-Date: 2011-05-26 16:12+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1917,7 +1917,7 @@ msgstr "繪製圖表需要 GD 元件。"
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr "繪製圖表氣泡提示需要 JSON 擴展。"
+msgstr "繪製圖表提示訊息提示需要 JSON 元件"
 
 #: libraries/common.inc.php:576
 msgid ""
