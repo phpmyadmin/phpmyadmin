@@ -514,7 +514,7 @@ msgstr "完整詞語"
 
 #: db_search.php:67 db_search.php:310
 msgid "as regular expression"
-msgstr "以規則表示法 (regular expression) 搜索"
+msgstr "以正則運算式 (regular expression) 搜索"
 
 #: db_search.php:229
 #, php-format
