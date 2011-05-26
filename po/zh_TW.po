@@ -2238,7 +2238,7 @@ msgstr "自行定義 - 顯示所有可用的設定項"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "自行定義 - 不顯示 快速/自定義 選擇"
 
 #: libraries/config.values.php:119
 #, fuzzy
