@@ -1245,13 +1245,14 @@ msgstr "完成"
 msgid "Prev"
 msgstr "上一月"
 
+# 這應該使用於選擇日期的小月曆
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:151 libraries/common.lib.php:2371
 #: libraries/common.lib.php:2374 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:896
 msgid "Next"
-msgstr "下一個"
+msgstr "下一月"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:153
