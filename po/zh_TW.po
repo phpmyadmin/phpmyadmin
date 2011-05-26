@@ -1403,10 +1403,9 @@ msgid "Thursday"
 msgstr "週四"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Fri"
+msgstr "週五"
 
 #: js/messages.php:202
 msgid "Saturday"
