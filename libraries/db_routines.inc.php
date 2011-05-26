@@ -226,12 +226,13 @@ function getFormInputFromRoutineName($db, $name)
     $retval['returntype']      = '';
     $retval['returnlength']    = '';
     if (! empty($routine['DTD_IDENTIFIER'])) {
-        if (strpos($routine['DTD_IDENTIFIER'], '(') !== false && strpos($routine['DTD_IDENTIFIER'], ')') !== false) {
-            $arr = preg_split( "/[()]/", $routine['DTD_IDENTIFIER']); // FIXME: this won't work for ENUM
-            $retval['returntype']   = strtoupper($arr[0]);
-            $retval['returnlength'] = $arr[1];
+        $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
+        $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
+        if ($brac1_pos !== false && $brac2_pos !== false) {
+            $retval['returntype']   = strtoupper(trim(substr($routine['DTD_IDENTIFIER'], 0, $brac1_pos)));
+            $retval['returnlength'] = htmlentities(trim(substr($routine['DTD_IDENTIFIER'], $brac1_pos+1, $brac2_pos-$brac1_pos-1)), ENT_QUOTES);
         } else {
-            $retval['returntype'] = $routine['DTD_IDENTIFIER'];
+            $retval['returntype'] = strtoupper($routine['DTD_IDENTIFIER']);
         }
     }
     $retval['definition']      = $routine['ROUTINE_DEFINITION'];
