@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:06+0200\n"
+"PO-Revision-Date: 2011-05-26 15:07+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -902,7 +902,7 @@ msgstr "書籤 %s 已建立"
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "匯入成功, 共 %d 個查詢語法被執行."
+msgstr "匯入成功, 共 %d 個語法被執行."
 
 #: import.php:423
 msgid ""
