@@ -2317,7 +2317,7 @@ msgstr "缺少函數 (%s)，導出資料功能無效"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr "SQL 校驗器已禁用"
+msgstr "SQL 驗證已停用"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy
