@@ -1527,7 +1527,7 @@ msgstr "僅上傳了文件的部分內容。"
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "找不到臨時文件夾。"
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
