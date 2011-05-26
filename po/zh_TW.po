@@ -2194,7 +2194,7 @@ msgstr "沒有可上傳的檔案"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "兼"
 
 #: libraries/config.values.php:74
 msgid "Open"
