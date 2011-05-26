@@ -1738,7 +1738,7 @@ msgstr "phpMyAdmin 說明文件"
 #: libraries/auth/cookie.auth.lib.php:243
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "您可以輸入以空格分隔的主機名/IP地址和端口號。"
+msgstr "您可以輸入以空格分隔的主機名/IP地址和Port編號。"
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
