@@ -2303,7 +2303,7 @@ msgstr "不可用"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "「%s」功能需要 %s 擴展"
+msgstr "「%s」功能需要 %s 元件"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
