@@ -297,7 +297,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_name'] = $_REQUEST['routine_param_name'];
         foreach ($retval['param_name'] as $key => $value) {
-            $retval['param_name'][$key] = htmlspecialchars($value);
+            $retval['param_name'][$key] = htmlentities($value, ENT_QUOTES);
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -317,7 +317,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_length'] = $_REQUEST['routine_param_length'];
         foreach ($retval['param_length'] as $key => $value) {
-            $retval['param_length'][$key] = htmlspecialchars($value);
+            $retval['param_length'][$key] = htmlentities($value, ENT_QUOTES);
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -328,13 +328,13 @@ function getFormInputFromRequest()
     if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], $param_datatypes, true)) {
         $retval['returntype'] = $_REQUEST['routine_returntype'];
     }
-    $retval['returnlength']    = isset($_REQUEST['routine_returnlength']) ? htmlspecialchars($_REQUEST['routine_returnlength']) : '';
+    $retval['returnlength']    = isset($_REQUEST['routine_returnlength']) ? htmlentities($_REQUEST['routine_returnlength'], ENT_QUOTES) : '';
     $retval['definition']      = isset($_REQUEST['routine_definition'])   ? htmlspecialchars($_REQUEST['routine_definition']) : '';
     $retval['isdeterministic'] = '';
     if (isset($_REQUEST['routine_isdeterministic']) && strtolower($_REQUEST['routine_isdeterministic']) == 'on') {
         $retval['isdeterministic'] = " checked='checked'";
     }
-    $retval['definer'] = isset($_REQUEST['routine_definer']) ? htmlspecialchars($_REQUEST['routine_definer']) : '';
+    $retval['definer'] = isset($_REQUEST['routine_definer']) ? htmlentities($_REQUEST['routine_definer'], ENT_QUOTES) : '';
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
     if (isset($_REQUEST['routine_securitytype'])) {
@@ -348,7 +348,7 @@ function getFormInputFromRequest()
     if (isset($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
         $retval['sqldataaccess'] = $_REQUEST['routine_sqldataaccess'];
     }
-    $retval['comment'] = isset($_REQUEST['routine_comment']) ? htmlspecialchars($_REQUEST['routine_comment']) : '';
+    $retval['comment'] = isset($_REQUEST['routine_comment']) ? htmlentities($_REQUEST['routine_comment'], ENT_QUOTES) : '';
 
     return $retval;
 } // end function getFormInputFromRequest()
