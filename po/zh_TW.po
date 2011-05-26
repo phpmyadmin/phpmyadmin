@@ -2254,7 +2254,7 @@ msgstr "伸延新增模式"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "以上兼有"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
