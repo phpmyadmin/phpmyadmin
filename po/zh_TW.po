@@ -2374,6 +2374,7 @@ msgid ""
 msgstr "如果啟用，使用者可以在 cookie 認證方式中輸入任意 MySQL 伺服器"
 
 #: libraries/config/messages.inc.php:20
+#, fuzzy
 msgid "Allow login to any MySQL server"
 msgstr "允許登錄到任意 MySQL 伺服器"
 
