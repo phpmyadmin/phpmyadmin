@@ -1234,10 +1234,9 @@ msgstr "最新"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
-#, fuzzy
 #| msgid "None"
 msgid "Done"
-msgstr "不適用"
+msgstr "完成"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:149
