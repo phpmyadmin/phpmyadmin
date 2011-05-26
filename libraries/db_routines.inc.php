@@ -81,9 +81,106 @@ function getSupportedDatatypes($html = false, $selected = '')
  * This function can handle absolutely horrible, yet perfectly valid, cases like:
  * "IN a INT(10), OUT b DECIMAL(10,5), INOUT c ENUM('1,2,3\\\')(', '2', '3', '4')"
  */
-function parseListOfParameters($input, &$num, &$dir, &$name, &$type, &$length)
+function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 {
-    // FIXME: STUB
+    // Setup the stack based parser
+    $len    = strlen($str);
+    $char   = '';
+    $buffer = '';
+    $stack  = array();
+    $params = array();
+    // TOKENS
+    $BRAC = 0;
+    $STR1 = 1;
+    $STR2 = 2;
+    // Parse the list of parameters
+    for ($i=0; $i<$len; $i++) {
+	    $char = $str[$i];
+	    switch ($char) {
+	    case ',':
+		    if (count($stack) == 0) {
+			    $params[] = $buffer;
+			    $buffer = '';
+		    } else {
+			    $buffer .= $char;
+		    }
+		    break;
+	    case '(':
+		    if (count($stack) == 0) {
+			    $stack[] = $BRAC;
+		    }
+		    $buffer .= $char;
+		    break;
+	    case ')':
+		    if (end($stack) == $BRAC) {
+			    array_pop($stack);
+		    }
+		    $buffer .= $char;
+		    break;
+	    case '"':
+		    if (end($stack) == $BRAC) {
+			    $stack[] = $STR1;
+		    } else if (end($stack) == $STR1) {
+			    array_pop($stack);
+		    }
+		    $buffer .= $char;
+		    break;
+	    case "'":
+		    if (end($stack) == $BRAC) {
+			    $stack[] = $STR2;
+		    } else if (end($stack) == $STR2) {
+			    array_pop($stack);
+		    }
+		    $buffer .= $char;
+		    break;
+	    case '\\':
+		    if (end($stack) == $STR1 || (end($stack) == $STR2 && $str[$i+1] == "'")) {
+			    // skip escaped character
+			    $buffer .= $char;
+			    $i++;
+			    $buffer .= $str[$i];
+		    } else {
+			    $buffer .= $char;
+		    }
+		    break;
+	    default:
+		    $buffer .= $char;
+		    break;
+	    }
+    }
+    $params[] = $buffer;
+    array_walk($params, create_function('&$val', '$val = trim($val);'));
+    $num = count($params);
+
+    // Now parse each parameter individually
+    foreach ($params as $key => $value) {
+	    // Get direction
+	    if (substr($value, 0, 5) == 'INOUT') {
+		    $dir[] = 'INOUT';
+		    $value = ltrim(substr($value, 5));
+	    } else if (substr($value, 0, 2) == 'IN') {
+		    $dir[] = 'IN';
+		    $value = ltrim(substr($value, 2));
+	    } else if (substr($value, 0, 3) == 'OUT') {
+		    $dir[] = 'OUT';
+		    $value = ltrim(substr($value, 3));
+	    }
+	    // Get name
+	    $space_pos = strpos($value, ' ');
+	    $name[] = htmlspecialchars(substr($value, 0, $space_pos));
+	    $value = ltrim(substr($value, $space_pos));
+	    // Get type
+	    $brac_pos = strpos($value, '(');
+	    if ($brac_pos === false) {
+		    // Simple type, no length
+		    $type[] = $value;
+		    $length[] = '';
+	    } else {
+		    // Need to get length
+		    $type[] = substr($value, 0, $brac_pos);
+		    $length[] = htmlentities(substr($value, $brac_pos+1, -1), ENT_QUOTES);
+	    }
+    }
 }
 
 /**
@@ -128,7 +225,7 @@ function getFormInputFromRoutineName($db, $name)
     $retval['returnlength']    = '';
     if (! empty($routine['DTD_IDENTIFIER'])) {
         if (strpos($routine['DTD_IDENTIFIER'], '(') !== false && strpos($routine['DTD_IDENTIFIER'], ')') !== false) {
-            $arr = preg_split( "/[()]/", $routine['DTD_IDENTIFIER']);
+            $arr = preg_split( "/[()]/", $routine['DTD_IDENTIFIER']); // FIXME: this won't work for ENUM
             $retval['returntype']   = strtoupper($arr[0]);
             $retval['returnlength'] = $arr[1];
         } else {
