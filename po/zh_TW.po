@@ -1892,7 +1892,7 @@ msgstr "檢查資料庫 「%s」 之權限."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "查詢權限"
+msgstr "檢查權限"
 
 #: libraries/chart.lib.php:40
 #, fuzzy
