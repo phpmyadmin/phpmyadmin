@@ -1409,7 +1409,7 @@ msgstr "週五"
 
 #: js/messages.php:202
 msgid "Saturday"
-msgstr ""
+msgstr "週六"
 
 #. l10n: Short week day name
 #: js/messages.php:206 libraries/common.lib.php:1594
