@@ -1764,7 +1764,7 @@ msgstr "必須啟用 Cookies 才能登入。"
 #: libraries/auth/signon.auth.lib.php:206
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "空密碼登錄被禁止 (參見 允許空密碼)"
 
 #: libraries/auth/cookie.auth.lib.php:647
 #: libraries/auth/signon.auth.lib.php:210
