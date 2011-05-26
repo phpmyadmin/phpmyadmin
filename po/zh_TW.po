@@ -1056,7 +1056,7 @@ msgstr "要求處理中"
 
 #: js/messages.php:67 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr "要求處理中有錯誤"
+msgstr "要求處理得程序中有錯誤"
 
 #: js/messages.php:68
 msgid "Dropping Column"
