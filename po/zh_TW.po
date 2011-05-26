@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 14:53+0200\n"
+"PO-Revision-Date: 2011-05-26 14:58+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -617,7 +617,7 @@ msgstr "追蹤未啟用"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr "這個檢視至少有這些數目的列，請參考%sdocumentation%s。"
+msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
