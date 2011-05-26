@@ -1082,7 +1082,7 @@ msgstr "重新載入資料庫"
 
 #: js/messages.php:75
 msgid "Copying Database"
-msgstr "複製資料庫"
+msgstr "複製資料庫中"
 
 #: js/messages.php:76
 msgid "Changing Charset"
