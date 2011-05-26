@@ -1484,10 +1484,9 @@ msgstr "五"
 
 #. l10n: Minimal week day name
 #: js/messages.php:234
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Sat"
+msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:236
