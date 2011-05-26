@@ -1159,7 +1159,7 @@ msgstr "隱藏"
 
 #: js/messages.php:101
 msgid "Hide search criteria"
-msgstr "隱藏搜尋準則"
+msgstr "隱藏搜尋條件"
 
 #: js/messages.php:102
 msgid "Show search criteria"
