@@ -1252,6 +1252,7 @@ msgstr "上一月"
 #: libraries/common.lib.php:2374 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:896
+#, fuzzy
 msgid "Next"
 msgstr "下一月"
 
