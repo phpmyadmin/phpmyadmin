@@ -2371,7 +2371,7 @@ msgstr "使用 Ajax"
 #: libraries/config/messages.inc.php:19
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr ""
+msgstr "如果啟用，使用者可以在 cookie 認證方式中輸入任意 MySQL 伺服器"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
