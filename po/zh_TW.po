@@ -1928,10 +1928,9 @@ msgid ""
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
 msgstr ""
-"phpMyAdmin 未能讀取您的設定檔! 這可能是因為 php 找到語法上的錯誤或 php 未能找"
-"到檔案而成.<br />請嘗試直接按下下方的連結開啟並查看 php 的錯誤信息. 通常的錯"
-"誤都來自某處漏了引號或分別.<br />如果按下連結後出現空白頁, 即代表沒有任何問"
-"題."
+"phpMyAdmin 無法讀取您的配置文件！<br />這可能是因為配置文件不存在或有語法錯誤。<br "
+"/>請使用下面的鏈接直接進入配置文件，然後檢查您收到的 PHP 錯誤信息。通常的錯誤都是因為某處漏了引號或分號。<br "
+"/>如果您看到的是一個空白頁，則代表沒有任何問題。"
 
 #: libraries/common.inc.php:587
 #, fuzzy, php-format
