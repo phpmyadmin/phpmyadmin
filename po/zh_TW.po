@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 13:08+0200\n"
+"PO-Revision-Date: 2011-05-26 13:09+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -119,7 +119,7 @@ msgstr "資料庫 %1$s 已建立"
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr "資料庫註解文字: "
+msgstr "資料庫註釋："
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1213
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:362
