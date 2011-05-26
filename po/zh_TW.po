@@ -1831,7 +1831,7 @@ msgstr "檢視影片"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "下載檔案"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
