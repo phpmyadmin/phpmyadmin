@@ -2198,7 +2198,7 @@ msgstr "兼"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: libraries/config.values.php:74
 #, fuzzy
