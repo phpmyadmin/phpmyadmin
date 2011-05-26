@@ -1827,7 +1827,7 @@ msgstr "播放音樂"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "檢視影片"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
