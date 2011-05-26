@@ -567,9 +567,13 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! e
     if ($routine['type'] == 'PROCEDURE') {
         $colspan = 4;
     }
+    $disabled_remove_parameter = "";
+    if (! $routine['num_params']) {
+        $disabled_remove_parameter = " color: gray;' disabled='disabled";
+    }
     echo "<tr><td colspan='$colspan'>
                 <input style='width: 49%;' type='submit' name='routine_addparameter' value='" . __('Add another parameter') . "'>
-                <input style='width: 49%;' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
+                <input style='width: 49%;$disabled_remove_parameter' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
           </td></tr>";
     echo "</table>";
 // parameter handling end
