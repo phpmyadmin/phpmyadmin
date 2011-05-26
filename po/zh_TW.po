@@ -1650,7 +1650,7 @@ msgstr "無效的資料庫"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "無效的資料表名"
 
 #: libraries/Table.class.php:1046
 #, php-format
