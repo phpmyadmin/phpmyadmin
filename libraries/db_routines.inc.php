@@ -148,7 +148,9 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 		    break;
 	    }
     }
-    $params[] = $buffer;
+    if (! empty($buffer)) {
+        $params[] = $buffer;
+    }
     array_walk($params, create_function('&$val', '$val = trim($val);'));
     $num = count($params);
 
@@ -519,7 +521,7 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! e
         echo "<th>" . __('Direction') . "</th>";
     }
     echo "<th>" . __('Name') . "</th><th>" . __('Type') . "</th><th>" . __('Length/Values') . "</th></tr>";
-    if (! empty($_REQUEST['routine_addparameter']) || !$routine['num_params']) {
+    if (! empty($_REQUEST['routine_addparameter']) || (! $routine['num_params'] && empty($_REQUEST['editroutine']))) {
         $routine['param_dir'][]  = '';
         $routine['param_name'][] = '';
         $routine['param_type'][] = '';
