@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:55+0200\n"
+"PO-Revision-Date: 2011-05-26 15:56+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1655,7 +1655,7 @@ msgstr "無效的資料表名"
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "將表 %1$s 改名為 %2$s 時發生錯誤"
+msgstr "將資料表 %1$s 改名為 %2$s 時發生錯誤"
 
 #: libraries/Table.class.php:1129
 #, php-format
