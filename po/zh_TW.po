@@ -2112,7 +2112,7 @@ msgstr "%Y 年 %m 月 %d 日 %H:%M"
 #: libraries/common.lib.php:1924
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s 日, %s 小時, %s 分鐘 %s 秒"
+msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
 #: libraries/common.lib.php:2341 libraries/common.lib.php:2344
 #: libraries/display_tbl.lib.php:288 server_status.php:756
