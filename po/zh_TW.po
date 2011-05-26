@@ -1840,7 +1840,7 @@ msgstr "無法開啟檔案：%s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "已分享"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
