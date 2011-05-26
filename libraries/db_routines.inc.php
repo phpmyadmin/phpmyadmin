@@ -261,7 +261,7 @@ function getFormInputFromRequest()
     $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
     $retval['type']         = 'PROCEDURE';
     $retval['type_toggle']  = 'FUNCTION';
-    if (! empty($_REQUEST['routine_changetype']) && isset($_REQUEST['routine_type'])) {
+    if (! empty($_REQUEST['routine_changetype']) && isset($_REQUEST['routine_type'])) { // FIXME: too much repetition - must refactor
         if ($_REQUEST['routine_type'] == 'PROCEDURE') {
             $retval['type']         = 'FUNCTION';
             $retval['type_toggle']  = 'PROCEDURE';
@@ -284,20 +284,23 @@ function getFormInputFromRequest()
     $retval['param_name']   = array();
     $retval['param_type']   = array();
     $retval['param_length'] = array();
-    if (isset($_REQUEST['routine_param_dir']) && isset($_REQUEST['routine_param_name'])
+    if (isset($_REQUEST['routine_param_name'])
         && isset($_REQUEST['routine_param_type']) && isset($_REQUEST['routine_param_length'])
-        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name'])
+        && is_array($_REQUEST['routine_param_name'])
         && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
-        $temp_num_params = 0;
-        $retval['param_dir'] = $_REQUEST['routine_param_dir'];
-        foreach ($retval['param_dir'] as $key => $value) {
-            if (! in_array($value, $param_directions, true)) {
-                $retval['param_dir'][$key] = '';
+
+        if ($_REQUEST['routine_type'] == 'PROCEDURE') {
+            $temp_num_params = 0;
+            $retval['param_dir'] = $_REQUEST['routine_param_dir'];
+            foreach ($retval['param_dir'] as $key => $value) {
+                if (! in_array($value, $param_directions, true)) {
+                    $retval['param_dir'][$key] = '';
+                }
+                $retval['num_params']++;
             }
-            $retval['num_params']++;
-        }
-        if ($temp_num_params > $retval['num_params']) {
-            $retval['num_params'] = $temp_num_params;
+            if ($temp_num_params > $retval['num_params']) {
+                $retval['num_params'] = $temp_num_params;
+            }
         }
         $temp_num_params = 0;
         $retval['param_name'] = $_REQUEST['routine_param_name'];
@@ -398,35 +401,43 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
         $routine_process_error = true;
     }
     $params = '';
-    if (! empty($_REQUEST['routine_param_dir']) && ! empty($_REQUEST['routine_param_name'])
-        && ! empty($_REQUEST['routine_param_type']) && ! empty($_REQUEST['routine_param_length'])
-        && is_array($_REQUEST['routine_param_dir']) && is_array($_REQUEST['routine_param_name'])
+    if ( ! empty($_REQUEST['routine_param_name']) && ! empty($_REQUEST['routine_param_type'])
+        && ! empty($_REQUEST['routine_param_length']) && is_array($_REQUEST['routine_param_name'])
         && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
 
-        for ($i=0; $i<count($_REQUEST['routine_param_dir']); $i++) {
-            if (! empty($_REQUEST['routine_param_dir'][$i]) && ! empty($_REQUEST['routine_param_name'][$i])
-                && ! empty($_REQUEST['routine_param_type'][$i])) {
-                $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " "
-                        . $_REQUEST['routine_param_type'][$i];
+        for ($i=0; $i<count($_REQUEST['routine_param_name']); $i++) {
+            if (! empty($_REQUEST['routine_param_name'][$i]) && ! empty($_REQUEST['routine_param_type'][$i])) {
+                if ($_REQUEST['routine_type'] == 'PROCEDURE' && ! empty($_REQUEST['routine_param_dir'][$i])) {
+                    $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " "
+                            . $_REQUEST['routine_param_type'][$i];
+                } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
+                    $params .= $_REQUEST['routine_param_name'][$i] . " " . $_REQUEST['routine_param_type'][$i];
+                } else {
+                    $routine_process_error = true;
+                    break;
+                }
                 if ($_REQUEST['routine_param_length'][$i] != ''
                     && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $_REQUEST['routine_param_type'][$i])) {
                     $params .= "(" . $_REQUEST['routine_param_length'][$i] . ")";
                 }
-                if ($i != count($_REQUEST['routine_param_dir'])-1) {
+                if ($i != count($_REQUEST['routine_param_name'])-1) {
                     $params .= ", ";
                 }
             } else {
                 $routine_process_error = true;
+                break;
             }
         }
     }
     $query .= " (" . $params . ") ";
     if ($_REQUEST['routine_type'] == 'FUNCTION') {
-        if (! empty($_REQUEST['routine_returntype']) && ! empty($_REQUEST['routine_returnlength'])) {
-            $query .= "RETURNS {$_REQUEST['routine_returntype']}({$_REQUEST['routine_returnlength']}) ";
-        } else {
-            $routine_process_error = true;
+        $query .= "RETURNS {$_REQUEST['routine_returntype']}";
+        if (! empty($_REQUEST['routine_returnlength'])
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
+                            $_REQUEST['routine_returnlength'])) {
+            $query .= "(" . $_REQUEST['routine_returnlength'] . ")";
         }
+        $query .= ' ';
     }
     if (! empty($_REQUEST['routine_comment'])) {
         $query .= "COMMENT '{$_REQUEST['routine_comment']}' ";
@@ -503,8 +514,11 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! e
 
     echo "<tr><td>" . __('Parameters') . "</td><td>\n";
 // parameter handling start
-    echo "<table>";
-    echo "<tr><th>" . __('Direction') . "</th><th>" . __('Name') . "</th><th>" . __('Type') . "</th><th>" . __('Length/Values') . "</th></tr>";
+    echo "<table><tr>";
+    if ($routine['type'] == 'PROCEDURE') {
+        echo "<th>" . __('Direction') . "</th>";
+    }
+    echo "<th>" . __('Name') . "</th><th>" . __('Type') . "</th><th>" . __('Length/Values') . "</th></tr>";
     if (! empty($_REQUEST['routine_addparameter']) || !$routine['num_params']) {
         $routine['param_dir'][]  = '';
         $routine['param_name'][] = '';
@@ -520,18 +534,23 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! e
     }
     for ($i=0; $i<$routine['num_params']; $i++) {
         echo "
-                <tr><td>
-                <select name='routine_param_dir[$i]'>";
-        foreach ($param_directions as $key => $value) {
-            if ($routine['param_dir'][$i] == $value) {
-                echo "<option selected='selected'>$value</option>";
-            } else {
-                echo "<option>$value</option>";
+                <tr>";
+        if ($routine['type'] == 'PROCEDURE') {
+            echo "<td>
+                    <select name='routine_param_dir[$i]'>";
+            foreach ($param_directions as $key => $value) {
+                if ($routine['param_dir'][$i] == $value) {
+                    echo "<option selected='selected'>$value</option>";
+                } else {
+                    echo "<option>$value</option>";
+                }
             }
+            echo "
+                    </select>
+                    </td>";
         }
         echo "
-                </select>
-                </td><td>
+                <td>
                 <input name='routine_param_name[$i]' type='text' value='{$routine['param_name'][$i]}' />
                 </td><td>
                 <select name='routine_param_type[$i]'>";
@@ -542,7 +561,11 @@ if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! e
                 <input name='routine_param_length[$i]' type='text' value='{$routine['param_length'][$i]}' />
                 </td></tr>";
     }
-    echo "<tr><td colspan='4'>
+    $colspan = 3;
+    if ($routine['type'] == 'PROCEDURE') {
+        $colspan = 4;
+    }
+    echo "<tr><td colspan='$colspan'>
                 <input style='width: 49%;' type='submit' name='routine_addparameter' value='" . __('Add another parameter') . "'>
                 <input style='width: 49%;' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
           </td></tr>";
