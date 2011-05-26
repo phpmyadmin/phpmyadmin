@@ -1163,7 +1163,7 @@ msgstr "隱藏搜尋條件"
 
 #: js/messages.php:102
 msgid "Show search criteria"
-msgstr "顯示搜尋準則"
+msgstr "顯示搜尋條件"
 
 #: js/messages.php:105 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
