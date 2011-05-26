@@ -236,7 +236,10 @@ function getFormInputFromRoutineName($db, $name)
         }
     }
     $retval['definition']      = $routine['ROUTINE_DEFINITION'];
-    $retval['isdeterministic'] = $routine['IS_DETERMINISTIC'];
+    $retval['isdeterministic'] = '';
+    if ($routine['IS_DETERMINISTIC'] == 'YES') {
+        $retval['isdeterministic'] = " checked='checked'";
+    }
     $retval['definer']         = $mysql_routine['definer'];
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
@@ -253,8 +256,8 @@ function getFormInputFromRoutineName($db, $name)
 
 /**
  * This function will generate the values that are required to complete the "Add new routine" form
- * It is especially necessary to handle the 'Add another parameter' and 'Remove last parameter'
- * functionalities when JS is disabled.
+ * It is especially necessary to handle the 'Add another parameter', 'Remove last parameter'
+ * and 'Change routine type' functionalities when JS is disabled.
  */
 function getFormInputFromRequest()
 {
@@ -264,24 +267,10 @@ function getFormInputFromRequest()
     $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
     $retval['type']         = 'PROCEDURE';
     $retval['type_toggle']  = 'FUNCTION';
-    if (! empty($_REQUEST['routine_changetype']) && isset($_REQUEST['routine_type'])) { // FIXME: too much repetition - must refactor
-        if ($_REQUEST['routine_type'] == 'PROCEDURE') {
-            $retval['type']         = 'FUNCTION';
-            $retval['type_toggle']  = 'PROCEDURE';
-        } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
-            $retval['type']         = 'PROCEDURE';
-            $retval['type_toggle']  = 'FUNCTION';
-        }
-     } else if (isset($_REQUEST['routine_type'])) {
-        if ($_REQUEST['routine_type'] == 'PROCEDURE') {
-            $retval['type']         = 'PROCEDURE';
-            $retval['type_toggle']  = 'FUNCTION';
-        } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
-            $retval['type']         = 'FUNCTION';
-            $retval['type_toggle']  = 'PROCEDURE';
-        }
+    if (isset($_REQUEST['routine_type']) && $_REQUEST['routine_type'] == 'FUNCTION') {
+        $retval['type']         = 'FUNCTION';
+        $retval['type_toggle']  = 'PROCEDURE';
     }
-
     $retval['num_params']   = 0;
     $retval['param_dir']    = array();
     $retval['param_name']   = array();
@@ -365,6 +354,187 @@ function getFormInputFromRequest()
 } // end function getFormInputFromRequest()
 
 /**
+ * Displays a form used to add/edit a routine
+ */
+function displayRoutineEditor($mode, $operation, $routine, $routine_process_error) {
+    global $db, $table, $url_query, $param_directions, $param_datatypes, $param_sqldataaccess;
+
+    // Some error
+    //TODO: better error handling: this is just ridiculous...
+    $message = '';
+    if ($routine_process_error) {
+        $message = PMA_Message::error(__('Error: Some missing values'));
+        $message = $message->getDisplay() . "\n";
+    }
+
+    // Handle some logic first
+    if ($operation == 'change') {
+        if ($routine['type'] == 'PROCEDURE') {
+            $routine['type']        = 'FUNCTION';
+            $routine['type_toggle'] = 'PROCEDURE';
+        } else {
+            $routine['type']        = 'PROCEDURE';
+            $routine['type_toggle'] = 'FUNCTION';
+        }
+    } else if ($operation == 'add' || ($routine['num_params'] == 0 && $mode == 'add')) {
+        $routine['param_dir'][]  = '';
+        $routine['param_name'][] = '';
+        $routine['param_type'][] = '';
+        $routine['param_length'][] = '';
+        $routine['num_params']++;
+    } else if ($operation == 'remove') {
+        unset($routine['param_dir'][$routine['num_params']-1]);
+        unset($routine['param_name'][$routine['num_params']-1]);
+        unset($routine['param_type'][$routine['num_params']-1]);
+        unset($routine['param_length'][$routine['num_params']-1]);
+        $routine['num_params']--;
+    }
+    $colspan = 3;
+    $direction_header = '';
+    if ($routine['type'] == 'PROCEDURE') {
+        $colspan = 4;
+        $direction_header = "            <th>" . __('Direction') . "</th>\n";
+    }
+    $disable_remove_parameter = '';
+    if (! $routine['num_params']) {
+        $disable_remove_parameter = " color: gray;' disabled='disabled";
+    }
+
+    // Create the output
+    $retval  = "";
+    $retval .= "<!-- START " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
+    $retval .= $message;
+    $retval .= "<form action='db_routines.php?$url_query' method='post'>\n";
+    $retval .= "<input name='{$mode}routine' type='hidden' value='1' />\n";
+    $retval .= PMA_generate_common_hidden_inputs($db, $table) . "\n";
+    $retval .= "<fieldset>\n";
+    $retval .= "<legend>" . __('Details') . "</legend>\n";
+    $retval .= "<table id='rte_table'>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Routine Name') . "</td>\n";
+    $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Type') . "</td>\n";
+    $retval .= "    <td>\n";
+    $retval .= "        <input name='routine_type' type='hidden' value='{$routine['type']}' />\n";
+    $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
+    $retval .= "            {$routine['type']}\n";
+    $retval .= "        </div>\n";
+    $retval .= "        <input style='width: 49%;' type='submit' name='routine_changetype'\n";
+    $retval .= "               value='".sprintf(__('Change to %s'), $routine['type_toggle'])."' />\n";
+    $retval .= "    </td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Parameters') . "</td>\n";
+    $retval .= "    <td>\n";
+    // parameter handling start
+    $retval .= "        <table>\n";
+    $retval .= "        <tr>\n";
+    $retval .= $direction_header;
+    $retval .= "            <th>" . __('Name') . "</th>\n";
+    $retval .= "            <th>" . __('Type') . "</th>\n";
+    $retval .= "            <th>" . __('Length/Values') . "</th>\n";
+    $retval .= "        </tr>";
+    for ($i=0; $i<$routine['num_params']; $i++) { // each parameter
+        $retval .= "        <tr>\n";
+        if ($routine['type'] == 'PROCEDURE') {
+            $retval .= "            <td><select name='routine_param_dir[$i]'>\n";
+            foreach ($param_directions as $key => $value) {
+                $selected = "";
+                if (! empty($routine['param_dir']) && $routine['param_dir'][$i] == $value) {
+                    $selected = " selected='selected'";
+                }
+                $retval .= "                <option$selected>$value</option>\n";
+            }
+            $retval .= "            </select></td>\n";
+        }
+        $retval .= "            <td><input name='routine_param_name[$i]' type='text'\n";
+        $retval .= "                       value='{$routine['param_name'][$i]}' /></td>\n";
+        $retval .= "            <td><select name='routine_param_type[$i]'>";
+        $retval .= getSupportedDatatypes(true, $routine['param_type'][$i]) . "\n";
+        $retval .= "            </select></td>\n";
+        $retval .= "            <td><input name='routine_param_length[$i]' type='text'\n";
+        $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
+        $retval .= "        </tr>\n";
+    }
+    $retval .= "        <tr>\n";
+    $retval .= "            <td colspan='$colspan'>\n";
+    $retval .= "                <input style='width: 49%;' type='submit' \n";
+    $retval .= "                       name='routine_addparameter'\n";
+    $retval .= "                       value='" . __('Add another parameter') . "'>\n";
+    $retval .= "                <input style='width: 49%;$disable_remove_parameter' type='submit' \n";
+    $retval .= "                       name='routine_removeparameter'\n";
+    $retval .= "                       value='" . __('Remove last parameter') . "'>\n";
+    $retval .= "            </td>\n";
+    $retval .= "        </tr>\n";
+    $retval .= "        </table>\n";
+    // parameter handling end
+    $retval .= "    </td>\n";
+    $retval .= "</tr>\n";
+    if ($routine['type'] == 'FUNCTION') {
+        $retval .= "<tr>\n";
+        $retval .= "    <td>" . __('Return Type') . "</td>\n";
+        $retval .= "    <td><select name='routine_returntype'>\n";
+        $retval .= getSupportedDatatypes(true, $routine['returntype']) . "\n";
+        $retval .= "    </select></td>\n";
+        $retval .= "</tr>\n";
+        $retval .= "<tr>\n";
+        $retval .= "    <td>" . __('Return Length/Values') . "</td>\n";
+        $retval .= "    <td><input type='text' name='routine_returnlength'\n";
+        $retval .= "               value='{$routine['returnlength']}' /></td>\n";
+        $retval .= "</tr>\n";
+    }
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Definition') . "</td>\n";
+    $retval .= "    <td><textarea name='routine_definition'>{$routine['definition']}</textarea></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Is Deterministic') . "</td>\n";
+    $retval .= "    <td><input type='checkbox' name='routine_isdeterministic'{$routine['isdeterministic']} /></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Definer') . "</td>\n";
+    $retval .= "    <td><input type='text' name='routine_definer'\n";
+    $retval .= "               value='{$routine['definer']}' /></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Security Type') . "</td>\n";
+    $retval .= "    <td><select name='routine_securitytype'>\n";
+    $retval .= "        <option value='DEFINER'{$routine['securitytype_definer']}>DEFINER</option>\n";
+    $retval .= "        <option value='INVOKER'{$routine['securitytype_invoker']}>INVOKER</option>\n";
+    $retval .= "    </select></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('SQL Data Access') . "</td>\n";
+    $retval .= "    <td><select name='routine_sqldataaccess'>\n";
+    foreach ($param_sqldataaccess as $key => $value) {
+        $selected = "";
+        if ($routine['sqldataaccess'] == $value) {
+            $selected = " selected='selected'";
+        }
+        $retval .= "        <option$selected>$value</option>\n";
+    }
+    $retval .= "    </select></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr>\n";
+    $retval .= "    <td>" . __('Comment') . "</td>\n";
+    $retval .= "    <td><input type='text' name='routine_comment'\n";
+    $retval .= "               value='{$routine['comment']}' /></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "</table>\n";
+    $retval .= "</fieldset>\n";
+    $retval .= "<fieldset class='tblFooters'>\n";
+    $retval .= "    <input type='submit' name='routine_process_{$mode}routine'\n";
+    $retval .= "           value='" . __('Go') . "' />\n";
+    $retval .= "</fieldset>\n";
+    $retval .= "</form>\n\n";
+    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
+
+    return $retval;
+} // displayRoutineEditor()
+
+/**
  *  ### MAIN ##########################################################################################################
  */
 
@@ -383,9 +553,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
            . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>' . "\n"
            . '</fieldset>';
     }
-} else if (! empty($_REQUEST['routine_process_addroutine'])) { // FIXME: this is also handling "EDIT" for now
+} else if (! empty($_REQUEST['routine_process_addroutine']) || ! empty($_REQUEST['routine_process_editroutine'])) {
     /**
-     * Handle a request to create a routine
+     * Handle a request to create/edit a routine
      */
 
     $query = 'CREATE ';
@@ -476,150 +646,45 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     }
 }
 
-if (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine']) || ! empty($_REQUEST['routine_addparameter'])
-    || ! empty($_REQUEST['routine_removeparameter']) || ! empty($_REQUEST['routine_changetype'])
-    || $routine_process_error) {
-    /**
-     * Display a form used to create a new routine
-     */
-
-    // Get variables from the request (if any)
-    if (! empty($_REQUEST['editroutine']) && ! empty($_REQUEST['routine_name'])) {
-        $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
-    } else {
-        $routine = getFormInputFromRequest();
-    }
-
-    // Show form
-    if ($GLOBALS['is_ajax_request'] != true) {
-        echo "<h2>" . __("Create Routine") . "</h2>\n";
-    }
-
-    // Some error
-    //TODO: better error handling: this is just ridiculous...
-    if ($routine_process_error) {
-        $msg = PMA_Message::error(__('Error: Some missing values'));
-        $msg->display();
-    }
-
-    echo '<form action="db_routines.php?' . $url_query . '" method="post" >' . "\n"
-       . PMA_generate_common_hidden_inputs($db, $table)
-       . "<fieldset>\n"
-       . ' <legend>' . __('Details') . '</legend>' . "\n";
-    echo "<table id='rte_table'>\n";
-
-    echo "<tr><td>" . __('Routine Name') . "</td><td><input type='text' name='routine_name' value='{$routine['name']}'/></td></tr>\n";
-    echo "<tr><td>" . __('Type') . "</td><td>
-                    <input name='routine_type' type='hidden' value='{$routine['type']}' />
-                    <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>{$routine['type']}</div>
-                    <input style='width: 49%;' type='submit' name='routine_changetype' value='".sprintf(__('Change to %s'), $routine['type_toggle'])."' />
-          </td></tr>\n";
-
-    echo "<tr><td>" . __('Parameters') . "</td><td>\n";
-// parameter handling start
-    echo "<table><tr>";
-    if ($routine['type'] == 'PROCEDURE') {
-        echo "<th>" . __('Direction') . "</th>";
-    }
-    echo "<th>" . __('Name') . "</th><th>" . __('Type') . "</th><th>" . __('Length/Values') . "</th></tr>";
-    if (! empty($_REQUEST['routine_addparameter']) || (! $routine['num_params'] && empty($_REQUEST['editroutine']))) {
-        $routine['param_dir'][]  = '';
-        $routine['param_name'][] = '';
-        $routine['param_type'][] = '';
-        $routine['param_length'][] = '';
-        $routine['num_params']++;
+/**
+ * Display a form used to add/edit a routine, if necessary
+ */
+if (empty($_REQUEST['routine_process_addroutine']) && empty($_REQUEST['routine_process_editroutine']) &&
+          (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine'])
+        || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter'])
+        || ! empty($_REQUEST['routine_changetype']) || $routine_process_error)) {
+    // Handle requests to add/remove parameters and changing routine type
+    // This is necessary when JS is disabled
+    $operation = '';
+    if (! empty($_REQUEST['routine_addparameter'])) {
+        $operation = 'add';
     } else if (! empty($_REQUEST['routine_removeparameter'])) {
-        unset($routine['param_dir'][$routine['num_params']-1]);
-        unset($routine['param_name'][$routine['num_params']-1]);
-        unset($routine['param_type'][$routine['num_params']-1]);
-        unset($routine['param_length'][$routine['num_params']-1]);
-        $routine['num_params']--;
+        $operation = 'remove';
+    } else if (! empty($_REQUEST['routine_changetype'])) {
+        $operation = 'change';
     }
-    for ($i=0; $i<$routine['num_params']; $i++) {
-        echo "
-                <tr>";
-        if ($routine['type'] == 'PROCEDURE') {
-            echo "<td>
-                    <select name='routine_param_dir[$i]'>";
-            foreach ($param_directions as $key => $value) {
-                if ($routine['param_dir'][$i] == $value) {
-                    echo "<option selected='selected'>$value</option>";
-                } else {
-                    echo "<option>$value</option>";
-                }
-            }
-            echo "
-                    </select>
-                    </td>";
+    // Get the data for the form (if any)
+    if (! empty($_REQUEST['addroutine'])) {
+        if ($GLOBALS['is_ajax_request'] != true) {
+            echo "\n\n<h2>" . __("Create Routine") . "</h2>\n\n";
         }
-        echo "
-                <td>
-                <input name='routine_param_name[$i]' type='text' value='{$routine['param_name'][$i]}' />
-                </td><td>
-                <select name='routine_param_type[$i]'>";
-        echo getSupportedDatatypes(true, $routine['param_type'][$i]);
-        echo "
-                </select>
-                </td><td>
-                <input name='routine_param_length[$i]' type='text' value='{$routine['param_length'][$i]}' />
-                </td></tr>";
-    }
-    $colspan = 3;
-    if ($routine['type'] == 'PROCEDURE') {
-        $colspan = 4;
-    }
-    $disabled_remove_parameter = "";
-    if (! $routine['num_params']) {
-        $disabled_remove_parameter = " color: gray;' disabled='disabled";
-    }
-    echo "<tr><td colspan='$colspan'>
-                <input style='width: 49%;' type='submit' name='routine_addparameter' value='" . __('Add another parameter') . "'>
-                <input style='width: 49%;$disabled_remove_parameter' type='submit' name='routine_removeparameter' value='" . __('Remove last parameter') . "'>
-          </td></tr>";
-    echo "</table>";
-// parameter handling end
-
-    echo "</td></tr>\n";
-
-    if ($routine['type'] == 'FUNCTION') {
-        echo "<tr><td>" . __('Return Type') . "</td><td>
-                                            <select name='routine_returntype'>";
-        echo getSupportedDatatypes(true, $routine['returntype']);
-        echo "
-                                            </select>
-              </td></tr>\n";
-        echo "<tr><td>" . __('Return Length/Values') . "</td><td><input type='text' name='routine_returnlength' value='{$routine['returnlength']}' /></td></tr>\n";
-    }
-
-    echo "<tr><td>" . __('Definition') . "</td><td><textarea name='routine_definition'>{$routine['definition']}</textarea></td></tr>\n";
-    echo "<tr><td>" . __('Is Deterministic') . "</td><td><input type='checkbox' name='routine_isdeterministic' {$routine['isdeterministic']}/></td></tr>\n";
-    echo "<tr><td>" . __('Definer') . "</td><td><input type='text' name='routine_definer' value='{$routine['definer']}'/></td></tr>\n";
-    echo "<tr><td>" . __('Security Type') . "</td><td>
-                                        <select name='routine_securitytype'>
-                                            <option value='DEFINER'{$routine['securitytype_definer']}>DEFINER</option>
-                                            <option value='INVOKER'{$routine['securitytype_invoker']}>INVOKER</option>
-                                        </select>
-          </td></tr>\n";
-    echo "<tr><td>" . __('SQL Data Access') . "</td><td>
-                                        <select name='routine_sqldataaccess'>";
-    foreach ($param_sqldataaccess as $key => $value) {
-        if ($routine['sqldataaccess'] == $value) {
-            echo "<option selected='selected'>$value</option>";
+        $routine = getFormInputFromRequest();
+        $mode = 'add';
+    } else if (! empty($_REQUEST['editroutine']) && ! empty($_REQUEST['routine_name'])) {
+        if ($GLOBALS['is_ajax_request'] != true) {
+            echo "\n\n<h2>" . __("Edit Routine") . "</h2>\n\n";
+        }
+        if (! $operation && empty($_REQUEST['routine_process_editroutine'])) {
+            $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
         } else {
-            echo "<option>$value</option>";
+            $routine = getFormInputFromRequest();
         }
+        $mode = 'edit';
     }
-    echo "
-                                        </select>
-          </td></tr>\n";
-    echo "<tr><td>" . __('Comment') . "</td><td><input type='text' name='routine_comment' value='{$routine['comment']}'/></td></tr>\n";
-    echo "</table>\n";
-    echo "</fieldset>\n";
-    echo '<fieldset class="tblFooters">';
-    echo '    <input type="submit" name="routine_process_addroutine" value="' . __('Go') . '" />';
-    echo '</fieldset>';
-    echo "</form>\n";
-    exit;
+    // Show form
+    echo displayRoutineEditor($mode, $operation, $routine, $routine_process_error);
+    require './libraries/footer.inc.php';
+    // exit;
 }
 
 /**
