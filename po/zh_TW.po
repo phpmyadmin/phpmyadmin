@@ -1963,7 +1963,7 @@ msgstr "伺服器"
 
 #: libraries/common.inc.php:821
 msgid "Invalid authentication method set in configuration:"
-msgstr "配置文件中設定的認證方式無效："
+msgstr "設定檔案中設定的認證方式無效："
 
 #: libraries/common.inc.php:924
 #, php-format
