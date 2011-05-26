@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:11+0200\n"
+"PO-Revision-Date: 2011-05-26 15:16+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -997,7 +997,7 @@ msgstr "您確定要在資料庫 %s 上停用 BLOB 功能?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "表格內漏填一些資料!"
+msgstr "表單內缺少部分資料"
 
 #: js/messages.php:47
 msgid "This is not a number!"
