@@ -1259,10 +1259,9 @@ msgid "Today"
 msgstr "今天"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "二進制碼"
+msgstr "一月"
 
 #: js/messages.php:157
 msgid "February"
