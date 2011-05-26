@@ -2048,7 +2048,7 @@ msgstr "檢查 SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "在此次查詢中，使用快速編輯"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
