@@ -2308,7 +2308,7 @@ msgstr "「%s」功能需要 %s 元件"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "缺少函數 (%s)，導入功能無效"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
