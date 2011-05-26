@@ -1542,11 +1542,10 @@ msgid "Unknown error in file upload."
 msgstr "檔案上傳時發生未知錯誤"
 
 #: libraries/File.class.php:559
-#, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "可能接近. 請參看 FAQ 3.11"
+msgstr "移動上傳檔案發生錯誤. 請參看 FAQ 3.11"
 
 #: libraries/Index.class.php:427 tbl_relation.php:526
 msgid "No index defined!"
