@@ -70,6 +70,7 @@ if (isset($_REQUEST['do_save_data'])) {
         case 'FULLTEXT':
         case 'UNIQUE':
         case 'INDEX':
+        case 'SPATIAL':
             if ($index->getName() == 'PRIMARY') {
                 $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
             }
@@ -191,6 +192,10 @@ PMA_Message::error(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> 
 <tbody>
 <?php
 $odd_row = true;
+$spatial_types = array(
+    'geometry', 'point', 'linestring', 'polygon', 'multipoint',
+    'multilinestring', 'multipolygon', 'geomtrycollection'
+);
 foreach ($index->getColumns() as $column) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
@@ -198,8 +203,9 @@ foreach ($index->getColumns() as $column) {
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
-        if ($index->getType() != 'FULLTEXT'
-         || preg_match('/(char|text)/i', $field_type)) {
+        if (($index->getType() != 'FULLTEXT' || preg_match('/(char|text)/i', $field_type))
+            && ($index->getType() != 'SPATIAL' || in_array($field_type, $spatial_types))
+        ) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
                  . (($field_name == $column->getName()) ? ' selected="selected"' : '') . '>'
                  . htmlspecialchars($field_name) . ' [' . $field_type . ']'
