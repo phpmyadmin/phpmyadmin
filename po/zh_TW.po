@@ -1564,7 +1564,7 @@ msgstr "唯一鍵 UNIQUE"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "緊湊"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:318
 msgid "Cardinality"
