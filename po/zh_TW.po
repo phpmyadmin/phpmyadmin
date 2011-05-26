@@ -1968,7 +1968,7 @@ msgstr "設定檔案中設定的認證方式無效："
 #: libraries/common.inc.php:924
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "您應該更新到 %s %s 或之後."
+msgstr "您應升級到 %s %s 或更高版本。"
 
 #: libraries/common.lib.php:142
 #, php-format
