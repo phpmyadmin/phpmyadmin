@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:37+0200\n"
+"PO-Revision-Date: 2011-05-26 15:38+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1229,9 +1229,8 @@ msgid ", latest stable version:"
 msgstr "，最新穩定版本: "
 
 #: js/messages.php:129
-#, fuzzy
 msgid "up to date"
-msgstr "沒有資料庫"
+msgstr "最新"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
