@@ -1224,10 +1224,9 @@ msgstr "有新的 phpMyAdmin 可用，請考慮升級。最新的版本是 %s，
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
-msgstr "上一個版本"
+msgstr "，最新穩定版本: "
 
 #: js/messages.php:129
 #, fuzzy
