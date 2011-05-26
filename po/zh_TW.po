@@ -1503,10 +1503,9 @@ msgid "Minute"
 msgstr "分"
 
 #: js/messages.php:240
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "每秒"
+msgstr "秒"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
