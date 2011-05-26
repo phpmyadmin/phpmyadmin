@@ -1802,7 +1802,7 @@ msgstr "認證中..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS 錯誤"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
