@@ -1608,8 +1608,7 @@ msgstr "錯誤"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "影響了 %1$d 行。"
 
 #: libraries/Message.class.php:279
 #, fuzzy, php-format
