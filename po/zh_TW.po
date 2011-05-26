@@ -1655,7 +1655,7 @@ msgstr "無效的資料表名"
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "將表 %1$s 改名為 %2$s 時發生錯誤"
 
 #: libraries/Table.class.php:1129
 #, php-format
