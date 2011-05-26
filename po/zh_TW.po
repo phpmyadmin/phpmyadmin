@@ -2175,7 +2175,7 @@ msgstr "管理"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "瀏覽你的電腦："
 
 #: libraries/common.lib.php:2979
 #, fuzzy, php-format
