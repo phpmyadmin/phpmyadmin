@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 16:12+0200\n"
+"PO-Revision-Date: 2011-05-26 16:13+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1953,7 +1953,7 @@ msgstr "伺服器索引錯誤: \"%s\""
 #: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "伺服器 %1$s 主機名稱錯誤, 請翻查設定值."
+msgstr "伺服器 %1$s 主機名稱錯誤, 請檢查設定檔案."
 
 #: libraries/common.inc.php:638 libraries/config/messages.inc.php:485
 #: libraries/header.inc.php:115 main.php:161 server_synchronize.php:1174
