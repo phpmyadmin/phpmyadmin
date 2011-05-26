@@ -2178,10 +2178,10 @@ msgid "Browse your computer:"
 msgstr "瀏覽你的電腦："
 
 #: libraries/common.lib.php:2979
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Web 伺服器上載目錄"
+msgstr "Web 伺服器上傳目錄"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:501
 #: tbl_change.php:962
