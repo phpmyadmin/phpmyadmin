@@ -15,7 +15,7 @@ var PMA_messages = {};
  */
 function getFieldType(field) {
 	field = $(field);
-    var tagName = field.attr('tagName');
+    var tagName = field.prop('tagName');
 	if (tagName == 'INPUT') {
         return field.attr('type');
     } else if (tagName == 'SELECT') {
@@ -81,11 +81,11 @@ function getFieldValue(field, field_type) {
 	field = $(field);
     switch (field_type) {
         case 'text':
-            return field.attr('value');
+            return field.prop('value');
         case 'checkbox':
-            return field.attr('checked');
+            return field.prop('checked');
         case 'select':
-        	var options = field.attr('options');
+        	var options = field.prop('options');
             var i, imax = options.length, items = [];
             for (i = 0; i < imax; i++) {
                 if (options[i].selected) {
