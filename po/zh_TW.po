@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 15:02+0200\n"
+"PO-Revision-Date: 2011-05-26 15:03+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -813,7 +813,7 @@ msgstr "%s 欄位的值"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr "給每一欄位輸入數值"
+msgstr "請將資料填入以下欄位"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
