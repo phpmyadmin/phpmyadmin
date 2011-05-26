@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-26 11:49+0200\n"
+"PO-Revision-Date: 2011-05-26 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1874,7 +1874,7 @@ msgstr "レプリケーションしている"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "データベース &quot;%s&quot; の特権を確認してください"
+msgstr "データベース &quot;%s&quot; の特権を確認する"
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
