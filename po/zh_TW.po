@@ -979,7 +979,7 @@ msgstr "刪除追蹤數據中"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
-msgstr "丟棄 主鍵值/指標 中"
+msgstr "刪除 主鍵值/指標 中"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
