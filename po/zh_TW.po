@@ -2528,7 +2528,7 @@ msgstr "在進入資料表頁籤時預設顯示的頁面"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "默認資料表標籤"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
