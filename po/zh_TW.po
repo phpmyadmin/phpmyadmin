@@ -2516,7 +2516,7 @@ msgstr "預設資料庫頁籤"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "在進入伺服器標籤時默認顯示的頁面"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
