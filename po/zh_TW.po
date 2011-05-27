@@ -2791,7 +2791,7 @@ msgstr "強制使用安全連線方式進入 phpMyAdmin"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "強制 SSL 連接"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
