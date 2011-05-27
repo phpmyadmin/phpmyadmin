@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:14+0200\n"
+"PO-Revision-Date: 2011-05-27 18:15+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4255,9 +4255,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:454
 #: tbl_tracking.php:511
-#, fuzzy
 msgid "Username"
-msgstr "Felhasználónév:"
+msgstr "Felhasználónév"
 
 #: libraries/config/messages.inc.php:472
 msgid ""
