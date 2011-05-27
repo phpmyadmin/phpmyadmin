@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 15:52+0200\n"
+"PO-Revision-Date: 2011-05-27 15:53+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -2508,7 +2508,7 @@ msgstr "修改/新建欄位時的顯示模式"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr "在進入資料庫標籤時默認顯示的頁面"
+msgstr "在進入資料庫標籤時預設的顯示頁面"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
