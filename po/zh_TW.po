@@ -2493,9 +2493,8 @@ msgid "Debug SQL"
 msgstr "SQL指令偵錯"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 msgid "Default display direction"
-msgstr "資料庫輸出選項"
+msgstr "預設顯示模式"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
