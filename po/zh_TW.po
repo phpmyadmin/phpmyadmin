@@ -2575,7 +2575,7 @@ msgstr "收集錯誤"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr "在警告、錯誤和信息上顯示圖標"
+msgstr "在警告、錯誤和訊息上顯示圖示"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
