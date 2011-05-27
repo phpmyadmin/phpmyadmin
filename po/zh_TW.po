@@ -2893,7 +2893,7 @@ msgstr "輸入 / 輸出"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "設定導入和導出文件夾以及壓縮選項"
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
