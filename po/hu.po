@@ -10370,7 +10370,7 @@ msgstr "SQL dump (fájl letöltés)"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL dump"
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
