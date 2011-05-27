@@ -2758,7 +2758,7 @@ msgstr "使用延遲式新增"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr "暫定外來鍵 (Foreign Key) 檢查"
+msgstr "關閉外鍵 (Foreign Key) 檢查"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
