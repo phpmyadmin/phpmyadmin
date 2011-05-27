@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:33+0200\n"
+"PO-Revision-Date: 2011-05-27 18:34+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4777,10 +4777,9 @@ msgid "Character set of the file:"
 msgstr "A fájl karakterkészlete:"
 
 #: libraries/display_export.lib.php:309
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Tömörítés"
+msgstr "Tömörítés:"
 
 #: libraries/display_export.lib.php:311 libraries/display_tbl.lib.php:512
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
