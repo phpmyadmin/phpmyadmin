@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:51+0200\n"
+"PO-Revision-Date: 2011-05-27 18:52+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -9726,10 +9726,9 @@ msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
 #: sql.php:622
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "SQL érvényesítése"
+msgstr "Érvényes SQL"
 
 #: sql.php:897
 #, php-format
