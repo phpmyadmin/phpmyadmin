@@ -2870,7 +2870,7 @@ msgstr "一般"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "設定某些常用選項"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
