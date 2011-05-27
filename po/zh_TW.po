@@ -2959,8 +2959,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"設定瀏覽器標題欄所顯示的文字。參見[a@Documentation.html#cfg_TitleTable]文檔[/a]中關於可以取得特殊值的魔術字符串"
-"。"
+"設定瀏覽器標題欄所顯示的文字。參見[a@Documentation.html#cfg_TitleTable]文件[/a]中關於可以取得特殊值的魔術字串符"
+"號。"
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
