@@ -2428,7 +2428,7 @@ msgstr "輸入及輸出資料時，開啟[a@http://en.wikipedia.org/wiki/Bzip2]b
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
