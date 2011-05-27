@@ -2848,7 +2848,7 @@ msgstr "編輯模式"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr "自定義編輯模式"
+msgstr "自定編輯模式"
 
 #: libraries/config/messages.inc.php:162
 msgid "Export defaults"
