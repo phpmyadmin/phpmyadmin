@@ -10170,10 +10170,9 @@ msgstr ""
 "Egy \"példa szerinti lekérdezés\" végrehajtása (karakterhelyettesítő: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Válasszon mezőket (legalább egyet):"
+msgstr "Válasszon oszlopokat (legalább egyet):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
