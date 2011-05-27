@@ -2805,7 +2805,7 @@ msgstr "外鍵下拉選單順序"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "下拉框中選項個數的限制"
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
