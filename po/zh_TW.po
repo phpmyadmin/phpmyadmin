@@ -2593,7 +2593,7 @@ msgstr "最長執行時間"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "另存為文件"
+msgstr "另存檔案"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:236
 #, fuzzy
