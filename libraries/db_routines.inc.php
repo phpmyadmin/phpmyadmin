@@ -809,7 +809,7 @@ echo '</fieldset>' . "\n";
  * Display the form for adding a new routine
  */
 echo '<fieldset>' . "\n"
-   . '    <a href="db_routines.php?' . $url_query . '&amp;addroutine=1" class="' . $conditional_class_add . '">' . "\n"
+   . '    <a href="db_routines.php?' . $url_query . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
    . PMA_getIcon('b_routine_add.png') . __('Add a new Routine') . '</a>' . "\n"
    . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE')
    . '</fieldset>' . "\n";
