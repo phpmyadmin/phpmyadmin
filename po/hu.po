@@ -4793,10 +4793,9 @@ msgid "zipped"
 msgstr "zip-elve"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip tömörítés\""
+msgstr "gzip-elve"
 
 #: libraries/display_export.lib.php:317
 #, fuzzy
