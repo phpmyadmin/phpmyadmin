@@ -2500,7 +2500,7 @@ msgstr "預設顯示模式"
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
-msgstr ""
+msgstr "[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模式的最大數值"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
