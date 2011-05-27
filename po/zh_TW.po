@@ -3078,6 +3078,9 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"若要使用 SQL 校驗服務，請注意[strong]所有 SQL "
+"語句將出於統計目的而被匿名存儲[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"校驗器[/a]，版權所有 2002 Upright Database Technology. 保留所有權利。[/em]"
 
 #: libraries/config/messages.inc.php:219
 #, fuzzy
