@@ -4725,10 +4725,10 @@ msgid "Output:"
 msgstr "Kimenet:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Mentés a szerver %s könyvtárában"
+msgstr "Mentés a szerver <b>%s</b> könyvtárába"
 
 #: libraries/display_export.lib.php:206
 #, fuzzy
