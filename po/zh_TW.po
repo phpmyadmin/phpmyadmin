@@ -2998,7 +2998,7 @@ msgstr "認證設定"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "伺服器設定"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
