@@ -2453,7 +2453,7 @@ msgstr "CHAR 欄位輸入區塊"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR欄位輸入區塊的行數"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
