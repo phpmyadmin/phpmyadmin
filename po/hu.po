@@ -10194,7 +10194,7 @@ msgstr "A különböző értékek tallózása"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
-msgstr ""
+msgstr "Elsődleges kuly hozzáadása"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
