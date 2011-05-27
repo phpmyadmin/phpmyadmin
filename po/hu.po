@@ -9890,7 +9890,7 @@ msgstr "Többszörös"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Folyamatos kép"
 
 #: tbl_chart.php:155
 msgid ""
