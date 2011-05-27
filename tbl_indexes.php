@@ -216,7 +216,8 @@ foreach ($index->getColumns() as $column) {
         </select>
     </td>
     <td><input type="text" size="5" onfocus="this.select()"
-            name="index[columns][sub_parts][]" value="<?php echo $column->getSubPart(); ?>" />
+            name="index[columns][sub_parts][]"
+            value="<?php if ($index->getType() != 'SPATIAL') { echo $column->getSubPart(); } ?>" />
     </td>
 </tr>
     <?php
@@ -250,6 +251,7 @@ for ($i = 0; $i < $add_fields; $i++) {
 
 <fieldset class="tblFooters">
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
+    <span id="addMoreColumns">
 <?php
 echo __('Or') . ' ';
 echo sprintf(__('Add to index &nbsp;%s&nbsp;column(s)'),
@@ -260,6 +262,7 @@ echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
     ." 'added_fields', '" . PMA_jsFormat(__('Column count has to be larger than zero.')) . "', 1"
     .')" />' . "\n";
 ?>
+    </span>
 </fieldset>
 </form>
 <?php
