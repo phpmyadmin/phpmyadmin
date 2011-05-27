@@ -445,6 +445,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     global $sql_query, $num_rows;
     global $vertical_display, $highlight_columns;
 
+    // required to generate sort links that will remember whether the 
+    // "Show all" button has been clicked
+    $sql_md5 = md5($GLOBALS['sql_query']);
+    $session_max_rows = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+
     if ($analyzed_sql == '') {
         $analyzed_sql = array();
     }
@@ -820,9 +825,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
             }
             $_url_params = array(
-                'db'        => $db,
-                'table'     => $table,
-                'sql_query' => $sorted_sql_query,
+                'db'                => $db,
+                'table'             => $table,
+                'sql_query'         => $sorted_sql_query,
+                'session_max_rows'  => $session_max_rows
             );
             $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
