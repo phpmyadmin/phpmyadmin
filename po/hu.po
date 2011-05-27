@@ -4034,7 +4034,6 @@ msgstr ""
 "támogatására, javasolt: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL-lekérdezések előzményeinek táblája"
