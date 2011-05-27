@@ -3008,7 +3008,7 @@ msgstr "進階伺服器設定，如果你不知道這些是什麼，請不要修
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "伺服器連接參數"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
