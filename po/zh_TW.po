@@ -2524,7 +2524,7 @@ msgstr "預設伺服器頁籤"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr "在進入資料表標籤時默認顯示的頁面"
+msgstr "在進入資料表頁籤時預設顯示的頁面"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
