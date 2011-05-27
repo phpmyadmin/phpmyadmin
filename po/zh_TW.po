@@ -2471,7 +2471,7 @@ msgstr "使用較少的記憶體進行gzip/bzip2即時壓縮。如果建立壓�
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "即時壓縮"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
