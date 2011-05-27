@@ -2559,10 +2559,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "在新的彈出視窗中編輯SQL指令"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "編輯新一列"
+msgstr "在視窗中編輯"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
