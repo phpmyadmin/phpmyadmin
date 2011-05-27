@@ -3004,7 +3004,7 @@ msgstr "伺服器設定"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr ""
+msgstr "進階伺服器設定，如果你不知道這些是什麼，請不要修改"
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
