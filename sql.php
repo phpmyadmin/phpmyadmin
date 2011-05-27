@@ -815,6 +815,7 @@ else {
 
         $GLOBALS['js_include'][] = 'functions.js';
         $GLOBALS['js_include'][] = 'sql.js';
+        $GLOBALS['js_include'][] = 'makegrid.js';
 
         unset($message);
 

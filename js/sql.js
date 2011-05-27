@@ -1142,6 +1142,11 @@ $(document).ready(function() {
     $('.column_heading').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked');
         });
+
+    /**
+     * create resizable table
+     */
+    $('#table_results').makegrid();
 })
 
 /**#@- */
