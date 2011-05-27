@@ -2844,7 +2844,7 @@ msgstr "phpMyAdmin 開發設定"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "編輯模式"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
