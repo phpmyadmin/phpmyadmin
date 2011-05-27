@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:25+0200\n"
+"PO-Revision-Date: 2011-05-27 18:26+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4663,10 +4663,10 @@ msgid "Exporting databases from the current server"
 msgstr "Adatbázisok exportálása a jelenlegi szerverről"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Új tábla létrehozása a(z) %s adatbázisban"
+msgstr "Táblák exportálása a \"%s\" adatbázisból"
 
 #: libraries/display_export.lib.php:91
 #, fuzzy, php-format
