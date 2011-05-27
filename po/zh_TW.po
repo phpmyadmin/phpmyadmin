@@ -3012,7 +3012,7 @@ msgstr "伺服器連接參數"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "儲存設定"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
