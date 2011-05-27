@@ -46,7 +46,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (!defined('TESTSUITE')) {
         require_once './libraries/mysql_charsets.lib.php';
     }
-    if (!isset($mysql_charsets)) {
+    if (! isset($mysql_charsets)) {
         $mysql_charsets = array();
         $mysql_charsets_count = 0;
         $mysql_collations_flat = array();
@@ -244,9 +244,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             6 => '<>',
             7 => '>=',
             8 => '>>',
-            9 => '||'
+            9 => '||',
+            10 => '==',
         );
-        $allpunct_list_pair_size = 10; //count($allpunct_list_pair);
+        $allpunct_list_pair_size = 11; //count($allpunct_list_pair);
         $quote_list              = '\'"`';
         $arraysize               = 0;
 
@@ -828,7 +829,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_analyze($arr)
     {
-        if ($arr == array() || !isset($arr['len'])) {
+        if ($arr == array() || ! isset($arr['len'])) {
             return array();
         }
         $result          = array();
@@ -2090,7 +2091,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     {
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
-        if (!is_array($arr)) {
+        if (! is_array($arr)) {
             return htmlspecialchars($arr);
         }
         // first check for the SQL parser having hit an error

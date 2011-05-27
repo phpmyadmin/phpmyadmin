@@ -222,7 +222,7 @@ class PMA_User_Schema
              * Display WYSIWYG parts
              */
 
-            if (!isset($_POST['with_field_names']) && !isset($_POST['showwysiwyg'])) {
+            if (! isset($_POST['with_field_names']) && ! isset($_POST['showwysiwyg'])) {
                 $with_field_names = TRUE;
             }
             $this->_displayScratchboardTables($array_sh_page);
@@ -783,10 +783,10 @@ class PMA_User_Schema
             $arrvalue = 'c_table_' . $i;
             global $$arrvalue;
             $arrvalue = $$arrvalue;
-            if (!isset($arrvalue['x']) || $arrvalue['x'] == '') {
+            if (! isset($arrvalue['x']) || $arrvalue['x'] == '') {
                 $arrvalue['x'] = 0;
             }
-            if (!isset($arrvalue['y']) || $arrvalue['y'] == '') {
+            if (! isset($arrvalue['y']) || $arrvalue['y'] == '') {
                 $arrvalue['y'] = 0;
             }
             if (isset($arrvalue['name']) && $arrvalue['name'] != '--') {

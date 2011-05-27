@@ -196,7 +196,7 @@ function PMA_usort_comparison_callback($a, $b)
         $sorter = 'strcasecmp';
     }
     /* No sorting when key is not present */
-    if (!isset($a[$GLOBALS['callback_sort_by']]) || ! isset($b[$GLOBALS['callback_sort_by']])) {
+    if (! isset($a[$GLOBALS['callback_sort_by']]) || ! isset($b[$GLOBALS['callback_sort_by']])) {
         return 0;
     }
     // produces f.e.:
@@ -772,29 +772,6 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
     }
 
     return $columns;
-}
-
-/**
- * @todo should only return columns names, for more info use PMA_DBI_get_columns_full()
- *
- * @deprecated by PMA_DBI_get_columns() or PMA_DBI_get_columns_full()
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   mixed   $link       mysql link resource
- * @return  array   column info
- */
-function PMA_DBI_get_fields($database, $table, $link = null)
-{
-    // here we use a try_query because when coming from
-    // tbl_create + tbl_properties.inc.php, the table does not exist
-    $fields = PMA_DBI_fetch_result(
-        'SHOW FULL COLUMNS
-        FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        null, null, $link);
-    if (! is_array($fields) || count($fields) < 1) {
-        return false;
-    }
-    return $fields;
 }
 
 /**

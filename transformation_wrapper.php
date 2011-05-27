@@ -71,7 +71,7 @@ if (isset($cn) && !empty($cn)) {
     header('Content-Disposition: attachment; filename=' . $cn);
 }
 
-if (!isset($resize)) {
+if (! isset($resize)) {
     echo $row[$transform_key];
 } else {
     // if image_*__inline.inc.php finds that we can resize,

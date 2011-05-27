@@ -69,7 +69,7 @@ if (isset($GLOBALS['sr_take_action'])) {
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {
                     $_SESSION['replication']['sr_action_status'] = 'success';
-                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed succesfully to %s'), $sr['hostname']);
+                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), $sr['hostname']);
                 }
             }
         }

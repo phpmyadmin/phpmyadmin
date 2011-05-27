@@ -53,6 +53,16 @@ function PMA_exitNavigationFrame()
     exit;
 }
 
+require_once './libraries/common.lib.php';
+require_once './libraries/RecentTable.class.php';
+
+/**
+ * Check if it is an ajax request to reload the recent tables list.
+ */
+if ($GLOBALS['is_ajax_request'] && $_REQUEST['recent_table']) {
+    PMA_ajaxResponse('', true, array('options' => RecentTable::getInstance()->getHtmlSelectOption()) );
+}
+
 // keep the offset of the db list in session before closing it
 if (! isset($_SESSION['tmp_user_values']['navi_limit_offset'])) {
     $_SESSION['tmp_user_values']['navi_limit_offset'] = 0;
@@ -126,7 +136,7 @@ require_once './libraries/header_http.inc.php';
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
-    <script src="./js/jquery/jquery-1.4.4.js" type="text/javascript"></script>
+    <script src="./js/jquery/jquery-1.6.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
@@ -179,6 +189,14 @@ require_once './libraries/header_http.inc.php';
 <body id="body_leftFrame">
 <?php
 require './libraries/navigation_header.inc.php';
+
+// display recently used tables
+if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+    echo '<div id="recentTableList">';
+    echo RecentTable::getInstance()->getHtmlSelect();
+    echo '</div>';
+}
+
 if (! $GLOBALS['server']) {
     // no server selected
     PMA_exitNavigationFrame();

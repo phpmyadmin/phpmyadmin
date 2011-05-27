@@ -27,7 +27,7 @@ $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE
 
 $override_total = TRUE;
 
-if (!isset($pos)) {
+if (! isset($pos)) {
     $pos = 0;
 }
 

@@ -49,9 +49,9 @@ function PMA_userprefs_pageinit()
 function PMA_load_userprefs()
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (!$cfgRelation['userconfigwork']) {
+    if (! $cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
-        if (!isset($_SESSION['userconfig'])) {
+        if (! isset($_SESSION['userconfig'])) {
             $_SESSION['userconfig'] = array(
                 'db' => array(),
                 'ts' => time());
@@ -104,7 +104,7 @@ function PMA_save_userprefs(array $config_array)
         ? $GLOBALS['server']
         : $GLOBALS['cfg']['ServerDefault'];
     $cache_key = 'server_' . $server;
-    if (!$cfgRelation['userconfigwork']) {
+    if (! $cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
         $_SESSION['userconfig'] = array(
             'db' => $config_array,
@@ -175,7 +175,7 @@ function PMA_apply_userprefs(array $config_data)
     $whitelist['Server/hide_db'] = true;
     $whitelist['Server/only_db'] = true;
     foreach ($config_data as $path => $value) {
-        if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
+        if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
         }
         PMA_array_write($path, $cfg, $value);

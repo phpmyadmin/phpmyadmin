@@ -337,7 +337,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     }
 
 
-    if (!isset($row['Default'])) {
+    if (! isset($row['Default'])) {
         if ($row['Null'] == 'YES') {
             $row['Default'] = '<i>NULL</i>';
         }
@@ -700,14 +700,13 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     <?php
 }
 
-PMA_generate_slider_effect('tablestatistics', __('Details...'));
-
 /**
  * Displays Space usage and row statistics
  */
 // BEGIN - Calc Table Space
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
+    echo '<div id="tablestatistics">';
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);
     }
@@ -926,7 +925,7 @@ if ($cfg['ShowStats']) {
     </tbody>
     </table>
 
-    <!-- close slider div -->
+    <!-- close tablestatistics div -->
     </div>
 
     <?php

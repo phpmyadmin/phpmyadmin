@@ -882,7 +882,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         /* snip */
         foreach ($alltables as $table) {
-            if (!isset($this->tables[$table])) {
+            if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new Table_Stats($table, $this->_ff, $this->pageNumber, $this->_tablewidth, $this->showKeys, $this->tableDimension);
             }
             if ($this->sameWide) {
@@ -962,11 +962,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showInfo)
     {
-        if (!isset($this->tables[$masterTable])) {
+        if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats($masterTable, $this->_ff, $this->pageNumber, $this->_tablewidth, false, $showInfo);
             $this->_setMinMax($this->tables[$masterTable]);
         }
-        if (!isset($this->tables[$foreignTable])) {
+        if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new Table_Stats($foreignTable, $this->_ff, $this->pageNumber, $this->_tablewidth, false, $showInfo);
             $this->_setMinMax($this->tables[$foreignTable]);
         }
@@ -1305,7 +1305,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($zerofill) {
                     $attribute = 'UNSIGNED ZEROFILL';
                 }
-                if (!isset($row['Default'])) {
+                if (! isset($row['Default'])) {
                     if ($row['Null'] != '' && $row['Null'] != 'NO') {
                         $row['Default'] = 'NULL';
                     }

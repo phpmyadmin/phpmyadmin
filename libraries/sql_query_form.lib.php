@@ -119,8 +119,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         if ($GLOBALS['cfg']['AjaxEnable']) {
             echo ' class="ajax"';
         }
-        echo ' id="sqlqueryform"'
-            .' onsubmit="return checkSqlQuery(this)" name="sqlform">' . "\n";
+        echo ' id="sqlqueryform" name="sqlform">' . "\n";
     }
 
     if ($is_querywindow) {

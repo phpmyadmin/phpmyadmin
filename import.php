@@ -332,7 +332,7 @@ if ($import_file != 'none' && !$error) {
         $error = TRUE;
     }
 } elseif (!$error) {
-    if (!isset($import_text) || empty($import_text)) {
+    if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].'));
         $error = TRUE;
     }

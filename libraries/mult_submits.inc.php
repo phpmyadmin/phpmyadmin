@@ -29,6 +29,9 @@ if (! empty($submit_mult)
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
+               case 'add_prefix_tbl': 
+               case 'replace_prefix_tbl':
+               case 'copy_tbl_change_prefix':
                case 'drop_db':
                case 'drop_tbl':
                case 'empty_tbl':
@@ -238,16 +241,50 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
     echo PMA_generate_common_hidden_inputs($_url_params);
     ?>
-<fieldset class="confirmation">
-    <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
-    <tt><?php echo $full_query; ?></tt>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
-    <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
-</fieldset>
+<?php if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix'){ ?>
+        <fieldset class = "input">
+                <legend><?php echo ($what == 'replace_prefix_tbl' ? __('Replace table prefix') : __('Copy table with prefix')) ?>:</legend>
+                <table>
+                <tr>
+                <td><?php echo __('From'); ?></td><td><input type="text" name="from_prefix" id="initialPrefix"</td>
+                </tr>
+                <tr>
+                <td><?php echo __('To'); ?> </td><td><input type="text" name="to_prefix" id="newPrefix"</td>
+                </tr>
+                </table>
+        </fieldset>
+        <fieldset class="tblFooters">
+                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><? echo __('Submit'); ?></button>
+        </fieldset>
     <?php
-    require './libraries/footer.inc.php';
+        }
+        elseif($what == 'add_prefix_tbl'){ ?>
+        <fieldset class = "input">
+                <legend><?php echo __('Add table prefix') ?>:</legend>
+                <table>
+                <tr>
+                <td><?php echo __('Add prefix'); ?></td>     <td><input type="text" name="add_prefix" id="txtPrefix"</td>
+                </tr>
+                </table>
+        </fieldset>
+        <fieldset class="tblFooters">
+                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><? echo __('Submit'); ?></button>
+        </fieldset>
+    <?php
+        }
+        else { ?>
+	<fieldset class="confirmation">
+	    <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
+	    <tt><?php echo $full_query; ?></tt>
+	</fieldset>
+	<fieldset class="tblFooters">
+	    <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
+	    <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
+	</fieldset>
+    <?php
+	}
+	require './libraries/footer.inc.php';
+
 } // end if
 
 
@@ -373,6 +410,27 @@ elseif ($mult_btn == __('Yes')) {
                            . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
+	    
+	    case 'add_prefix_tbl':
+                $newtablename = $add_prefix . $selected[$i];
+                $a_query = 'ALTER TABLE ' . PMA_backquote($selected[$i]) . ' RENAME ' . PMA_backquote($newtablename) ; // ADD PREFIX TO TABLE NAME
+                $run_parts = true;
+                break;
+
+            case 'replace_prefix_tbl':
+                $current = $selected[$i];
+                $newtablename = preg_replace("/^" . $from_prefix . "/" , $to_prefix , $current);
+                $a_query = 'ALTER TABLE ' . PMA_backquote($selected[$i]) . ' RENAME ' . PMA_backquote($newtablename) ; // CHANGE PREFIX PATTERN
+                $run_parts = true;
+                break;
+
+            case 'copy_tbl_change_prefix':
+                $current = $selected[$i];
+                $newtablename = preg_replace("/^" . $from_prefix . "/" , $to_prefix , $current);
+                $a_query = 'CREATE TABLE ' . PMA_backquote($newtablename) . ' SELECT * FROM ' . PMA_backquote($selected[$i]) ; // COPY TABLE AND CHANGE PREFIX PATTERN
+                $run_parts = true;
+                break;
+
         } // end switch
 
         // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"

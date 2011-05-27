@@ -136,7 +136,7 @@ function PMA_analyseShowGrant()
 
                     /**
                      * @todo collect $GLOBALS['db_to_create'] into an array, to display a
-                     * drop-down in the "Create new database" dialog
+                     * drop-down in the "Create database" dialog
                      */
                      // we don't break, we want all possible databases
                      //break;

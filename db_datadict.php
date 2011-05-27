@@ -10,7 +10,7 @@
  */
 require_once './libraries/common.inc.php';
 
-if (!isset($selected_tbl)) {
+if (! isset($selected_tbl)) {
     require_once './libraries/header.inc.php';
 }
 
@@ -220,7 +220,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
-        if (!isset($row['Default'])) {
+        if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
             }

@@ -83,6 +83,16 @@ div#pmalogo {
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     padding:.3em;
 }
+
+div#recentTableList {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+div#recentTableList select {
+    width: 100%;
+}
+
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {

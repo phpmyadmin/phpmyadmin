@@ -145,9 +145,11 @@ function PMA_setCookie(name, value, expires, path, domain, secure) {
  *
  */
 function fast_filter(value){
+    lowercase_value = value.toLowerCase();
     $("#subel0 a[class!='tableicon']").each(function(idx,elem){
         $elem = $(elem);
-        if (value && $elem.html().indexOf(value) == -1) {
+        // .indexOf is case sensitive so convert to lowercase to compare
+        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
             $elem.parent().hide();
         } else {
             $elem.parent().show();
@@ -165,6 +167,19 @@ function clear_fast_filter() {
     elm.focus();
 }
 
+/**
+ * Reloads the recent tables list.
+ */
+function PMA_reloadRecentTable() {
+    $.get('navigation.php',
+            { 'token' : window.parent.token, 'ajax_request' : true, 'recent_table' : true },
+            function (data) {
+        if (data.success == true) {
+            $('#recentTable').html(data.options);
+        }
+    });
+}
+
 /* Performed on load */
 $(document).ready(function(){
     /* Display filter */
@@ -177,4 +192,14 @@ $(document).ready(function(){
     $('#clear_fast_filter').click(clear_fast_filter);
     $('#fast_filter').focus(function (evt) {evt.target.select();});
     $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
+
+    /* Jump to recent table */
+    $('#recentTable').change(function() {
+        if (this.value != '') {
+            var arr = this.value.split('.');
+            window.parent.setDb(arr[0]);
+            window.parent.setTable(arr[1]);
+            window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
+        }
+    });
 });

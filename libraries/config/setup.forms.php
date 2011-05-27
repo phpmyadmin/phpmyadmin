@@ -73,6 +73,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'table_info' => 'pma_table_info',
     'column_info' => 'pma_column_info',
     'history' => 'pma_history',
+    'recent' => 'pma_recent',
     'tracking' => 'pma_tracking',
     'table_coords' => 'pma_table_coords',
     'pdf_pages' => 'pma_pdf_pages',
@@ -162,7 +163,8 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',
-    'LeftPointerEnable');
+    'LeftPointerEnable',
+    'LeftRecentTable');
 $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');

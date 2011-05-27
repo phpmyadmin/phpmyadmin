@@ -889,7 +889,7 @@ class PMA_Table
         } else {
             // we are copying
             // Create new entries as duplicates from old PMA DBs
-            if ($what != 'dataonly' && !isset($maintain_relations)) {
+            if ($what != 'dataonly' && ! isset($maintain_relations)) {
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT

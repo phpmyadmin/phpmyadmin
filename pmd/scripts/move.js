@@ -6,6 +6,54 @@
 /**
  * init
  */
+
+
+ var _change = 0; // variable to track any change in designer layout.
+ var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
+
+//   Below is the function to change the href attributes to '#' while the href script is called using
+//   the onclick event. It fixes the Internet Explorer issue with href.
+
+ $(document).ready(function(){
+    $('a').filter(function(){
+        return ( /^javascript\:/i).test($(this).attr('href'));
+    }).each(function(){
+        var hrefscript = $(this).attr('href');
+        hrefscript = hrefscript.substr(11);
+        $(this).data('hrefscript', hrefscript);
+    }).click(function(){
+        var hrefscript = $(this).data('hrefscript');
+        eval (hrefscript);
+        return false;
+    }).attr('href', '#');
+}); 
+
+// Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
+
+ $(document).ready(function(){
+    $(window).bind('beforeunload', function(){        // onbeforeunload for the frame window.
+        if (_change == 1 && _staying == 0) 
+            return PMA_messages['strLeavingDesigner'];
+        else if (_change == 1 && _staying == 1) 
+            _staying = 0;
+    });
+    $(window).unload(function(){
+        _change = 0;
+    });    
+    window.top.onbeforeunload = function(){     // onbeforeunload for the browser main window.
+        if (_change == 1 && _staying == 0){
+            _staying = 1;                                                   //  Helps if the user stays on the page  as there
+            setTimeout('make_zero();', 100);                    //   is no other way of knowing whether the user stayed or not.
+            return PMA_messages['strLeavingDesigner'];
+        }
+    };
+});
+ 
+ function make_zero(){   // Function called if the user stays after seeing the confirmation prompt.
+      _staying = 0;
+}
+
+
 var dx, dy, dy2;
 var cur_click;
 // update in Main()
@@ -95,6 +143,7 @@ function MouseMove(e)
     //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
 
     if (cur_click != null) {
+        _change = 1;
         var mGx = Glob_X - dx;
         var mGy = Glob_Y - dy;
         mGx = mGx > 0 ? mGx : 0;
@@ -448,6 +497,7 @@ function Get_url_pos()
 
 function Save2()
 {
+    _change = 0;
     var poststr = 'IS_AJAX=1&server='+server+'&db=' + db + '&token=' + token + '&die_save_pos=1';
     poststr += Get_url_pos();
     makeRequest('pmd_save_pos.php', poststr);

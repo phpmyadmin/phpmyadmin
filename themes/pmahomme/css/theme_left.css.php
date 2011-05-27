@@ -94,11 +94,21 @@ button {
 div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
 }
+
+div#recentTableList {
+    text-align: center;
+    margin: 20px 10px 0px 10px;
+}
+
+div#recentTableList select {
+    width: 100%;
+}
+
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    margin:      		20px 10px 0px 10px;
+    margin:      		5px 10px 0px 10px;
 }
 
 ul#databaseList {

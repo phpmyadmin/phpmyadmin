@@ -30,6 +30,10 @@ $cfgRelation = PMA_getRelationsParam();
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/StorageEngine.class.php';
 
+// add a javascript file for jQuery functions to handle Ajax actions
+// also add jQueryUI
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+
 /**
  * Class for partition management
  */
@@ -684,7 +688,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
             'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
         ));
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="truncate_tbl_anchor"' : ''); ?>>
             <?php echo __('Empty the table (TRUNCATE)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
     </li>
@@ -704,7 +708,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             'table' => $GLOBALS['table'],
         ));
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_tbl_anchor"' : ''); ?>>
             <?php echo __('Delete the table (DROP)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
     </li>

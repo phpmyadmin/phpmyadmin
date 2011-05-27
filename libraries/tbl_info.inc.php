@@ -102,7 +102,7 @@ if ($showtable) {
         }
     }
     // we need explicit DEFAULT value here (different from '0')
-    $pack_keys = (!isset($pack_keys) || strlen($pack_keys) == 0) ? 'DEFAULT' : $pack_keys;
+    $pack_keys = (! isset($pack_keys) || strlen($pack_keys) == 0) ? 'DEFAULT' : $pack_keys;
     unset($create_options, $each_create_option);
 } // end if
 ?>

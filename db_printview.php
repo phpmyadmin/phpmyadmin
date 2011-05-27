@@ -52,7 +52,7 @@ if ($cfg['SkipLockedTables'] == true) {
             $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
             if ($result != false && PMA_DBI_num_rows($result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($result)) {
-                    if (!isset($sot_cache[$tmp[0]])) {
+                    if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
                         $tables[]    = $sts_tmp;

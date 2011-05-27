@@ -759,7 +759,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db,$this->pageNumber);
 
         foreach ($alltables AS $table) {
-            if (!isset($this->tables[$table])) {
+            if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new Table_Stats($table,$eps->getFont(),$eps->getFontSize(), $this->pageNumber, $this->_tablewidth, $this->showKeys, $this->tableDimension);
             }
 
@@ -809,10 +809,10 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _addRelation($masterTable,$font,$fontSize, $masterField, $foreignTable, $foreignField, $showInfo)
     {
-        if (!isset($this->tables[$masterTable])) {
+        if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats($masterTable, $font, $fontSize, $this->pageNumber, $this->_tablewidth, false, $showInfo);
         }
-        if (!isset($this->tables[$foreignTable])) {
+        if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new Table_Stats($foreignTable,$font,$fontSize,$this->pageNumber, $this->_tablewidth, false, $showInfo);
         }
         $this->_relations[] = new Relation_Stats($this->tables[$masterTable], $masterField, $this->tables[$foreignTable], $foreignField);

@@ -680,7 +680,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $dia->startDiaDoc($this->paper,$this->_topMargin,$this->_bottomMargin,$this->_leftMargin,$this->_rightMargin,$this->orientation);
         $alltables = $this->getAllTables($db,$this->pageNumber);
         foreach ($alltables as $table) {
-            if (!isset($this->tables[$table])) {
+            if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new Table_Stats($table, $this->pageNumber, $this->showKeys);
             }
         }
@@ -725,10 +725,10 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showKeys)
     {
-        if (!isset($this->tables[$masterTable])) {
+        if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats($masterTable, $this->pageNumber, $showKeys);
         }
-        if (!isset($this->tables[$foreignTable])) {
+        if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new Table_Stats($foreignTable, $this->pageNumber, $showKeys);
         }
         $this->_relations[] = new Relation_Stats($this->tables[$masterTable], $masterField, $this->tables[$foreignTable], $foreignField);

@@ -202,7 +202,10 @@ echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;
-if ($GLOBALS['cfg']['VersionCheck']) {
+// workaround for bug 3302733; some browsers don't like the situation
+// where phpMyAdmin is called on a secure page but a part of the page
+// (the version check) refers to a non-secure page
+if ($GLOBALS['cfg']['VersionCheck'] && ! $GLOBALS['PMA_Config']->get('is_https')) {
     $class = 'jsversioncheck';
 }
 PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version', null, null, null, null, $class);
@@ -292,7 +295,7 @@ if (file_exists('./config')) {
  */
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
-    if(!$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+    if(! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
         $message->addParam('</a>', false);

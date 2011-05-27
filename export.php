@@ -21,7 +21,7 @@ $export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $exp
 $type = $what;
 
 // Check export type
-if (!isset($export_list[$type])) {
+if (! isset($export_list[$type])) {
     die('Bad type!');
 }
 
@@ -451,7 +451,7 @@ if ($export_type == 'server') {
     // Walk over databases
     foreach ($GLOBALS['pma']->databases as $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
-            || !isset($tmp_select)) {
+            || ! isset($tmp_select)) {
             if (!PMA_exportDBHeader($current_db)) {
                 break 2;
             }

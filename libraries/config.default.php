@@ -339,6 +339,13 @@ $cfg['Servers'][$i]['history'] = '';
 $cfg['Servers'][$i]['designer_coords'] = '';
 
 /**
+ * table to store recently used tables
+ *   - leave blank for no "persistent" recently used tables
+ *     SUGGESTED: 'pma_recent'
+ */
+$cfg['Servers'][$i]['recent'] = '';
+
+/**
  * table to store SQL tracking
  *   - leave blank for no SQL tracking
  *     SUGGESTED: 'pma_tracking'
@@ -793,6 +800,13 @@ $cfg['LeftLogoLink'] = 'main.php';
  * @global string $cfg['LeftLogoLinkWindow']
  */
 $cfg['LeftLogoLinkWindow'] = 'main';
+
+/**
+ * number of recently used tables displayed in the navigation frame
+ *
+ * @global integer $cfg['LeftRecentTable']
+ */
+$cfg['LeftRecentTable'] = 10;
 
 /**
  * display a JavaScript table filter in the left frame

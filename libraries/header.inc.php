@@ -8,11 +8,25 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
+require_once './libraries/RecentTable.class.php';
 
+
+/**
+ * Add recently used table and reload the navigation.
+ *
+ * @param string $db Database name where the table is located.
+ * @param string $table The table name
+ */
+function PMA_addRecentTable($db, $table) {
+    $tmp_result = RecentTable::getInstance()->add($db, $table);
+    if ($tmp_result === true) {
+        echo '<span class="hide" id="update_recent_tables"></span>';
+    } else {
+        $error = $tmp_result;
+        $error->display();
+    }
+}
 
 /**
  * This is not an Ajax request so we need to generate all this output.
@@ -30,7 +44,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         // if database storage for user preferences is transient, offer to load
         // exported settings from localStorage (detection will be done in JavaScript)
         $userprefs_offer_import = $GLOBALS['PMA_Config']->get('user_preferences') == 'session'
-                && !isset($_SESSION['userprefs_autoload']);
+                && ! isset($_SESSION['userprefs_autoload']);
         if ($userprefs_offer_import) {
             $GLOBALS['js_include'][] = 'config.js';
         }
@@ -123,7 +137,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                             PMA_generate_common_url($GLOBALS['db']),
                             htmlspecialchars($GLOBALS['db']),
                             __('Database'),
-                            's_tbl.png');
+                            's_db.png');
                     // if the table is being dropped, $_REQUEST['purge'] is set
                     // (it always contains "1")
                     // so do not display the table name in upper div
@@ -143,7 +157,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                          * @uses $show_comment from libraries/tbl_info.inc.php
                          * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                          */
-                        if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                        if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
                             if (strstr($show_comment, '; InnoDB free')) {
                                 $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
                             }
@@ -151,6 +165,11 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                 .'&quot;' . htmlspecialchars($show_comment)
                                 .'&quot;</span>' . "\n";
                         } // end if
+
+                        // add recently used table and reload the navigation
+                        if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+                            PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                        }
                     } else {
                         // no table selected, display database comment if present
                         /**

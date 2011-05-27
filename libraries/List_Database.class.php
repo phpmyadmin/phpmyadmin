@@ -498,7 +498,7 @@ require_once './libraries/List.class.php';
                     if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
                         $dblist[]           = $tmp_db;
                         $tmp_mydbs[$tmp_db] = 0;
-                    } elseif (!isset($dblist[$tmp_db])) {
+                    } elseif (! isset($dblist[$tmp_db])) {
                         foreach ($tmp_mydbs as $tmp_matchpattern => $tmp_value) {
                             // fixed bad regexp
                             // TODO: db names may contain characters

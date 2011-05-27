@@ -51,6 +51,8 @@ check() {
     if [ $PERCENT -lt $THRESHOLD ] ; then
         echo "Removing $lang, only $PERCENT%"
         rm -f locale/$lang/LC_MESSAGES/phpmyadmin.mo 
+        rmdir locale/$lang/LC_MESSAGES
+        rmdir locale/$lang
     fi
 }
 
