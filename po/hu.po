@@ -4319,7 +4319,7 @@ msgstr "A böngésző ablak címe, ha ki van választva egy szerver"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha ki van választva egy tábla"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
