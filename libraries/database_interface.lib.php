@@ -757,18 +757,47 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         // for PMA bc:
         // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-        $sql = '
-             SELECT *,
-                    `COLUMN_NAME`       AS `Field`,
-                    `COLUMN_TYPE`       AS `Type`,
-                    `COLLATION_NAME`    AS `Collation`,
-                    `IS_NULLABLE`       AS `Null`,
-                    `COLUMN_KEY`        AS `Key`,
-                    `COLUMN_DEFAULT`    AS `Default`,
-                    `EXTRA`             AS `Extra`,
-                    `PRIVILEGES`        AS `Privileges`,
-                    `COLUMN_COMMENT`    AS `Comment`
-               FROM `information_schema`.`COLUMNS`';
+        if (PMA_DRIZZLE) {
+                    $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
+                column_name        AS `Field`,
+                (CASE
+                    WHEN character_maximum_length > 0
+                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                    WHEN numeric_precision > 0 OR numeric_scale > 0
+                        THEN concat(lower(data_type), '(', numeric_precision, ',', numeric_scale, ')')
+                    WHEN enum_values IS NOT NULL
+                        THEN concat(lower(data_type), '(', enum_values, ')')
+                    ELSE lower(data_type) END)
+                                   AS `Type`,
+                collation_name     AS `Collation`,
+                (CASE is_nullable
+                    WHEN 1 THEN 'YES'
+                    ELSE 'NO' END) AS `Null`,
+                (CASE
+                    WHEN is_used_in_primary THEN 'PRI'
+                    ELSE '' END)   AS `Key`,
+                column_default     AS `Default`,
+                (CASE
+                    WHEN is_auto_increment THEN 'auto_increment'
+                    WHEN column_default_update THEN 'on update ' || column_default_update
+                    ELSE '' END)   AS `Extra`,
+                NULL               AS `Privileges`,
+                column_comment     AS `Comment`
+            FROM data_dictionary.columns";
+        } else {
+            $sql = '
+                 SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`';
+        }
         if (count($sql_wheres)) {
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
         }
@@ -798,50 +827,49 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
+    }
+    $ordinal_position = 1;
+    foreach ($columns as $column_name => $each_column) {
 
-        $ordinal_position = 1;
-        foreach ($columns as $column_name => $each_column) {
+        // MySQL forward compatibility
+        // so pma could use this array as if every server is of version >5.0
+        $columns[$column_name]['COLUMN_NAME']                 =& $columns[$column_name]['Field'];
+        $columns[$column_name]['COLUMN_TYPE']                 =& $columns[$column_name]['Type'];
+        $columns[$column_name]['COLLATION_NAME']              =& $columns[$column_name]['Collation'];
+        $columns[$column_name]['IS_NULLABLE']                 =& $columns[$column_name]['Null'];
+        $columns[$column_name]['COLUMN_KEY']                  =& $columns[$column_name]['Key'];
+        $columns[$column_name]['COLUMN_DEFAULT']              =& $columns[$column_name]['Default'];
+        $columns[$column_name]['EXTRA']                       =& $columns[$column_name]['Extra'];
+        $columns[$column_name]['PRIVILEGES']                  =& $columns[$column_name]['Privileges'];
+        $columns[$column_name]['COLUMN_COMMENT']              =& $columns[$column_name]['Comment'];
 
-            // MySQL forward compatibility
-            // so pma could use this array as if every server is of version >5.0
-            $columns[$column_name]['COLUMN_NAME']                 =& $columns[$column_name]['Field'];
-            $columns[$column_name]['COLUMN_TYPE']                 =& $columns[$column_name]['Type'];
-            $columns[$column_name]['COLLATION_NAME']              =& $columns[$column_name]['Collation'];
-            $columns[$column_name]['IS_NULLABLE']                 =& $columns[$column_name]['Null'];
-            $columns[$column_name]['COLUMN_KEY']                  =& $columns[$column_name]['Key'];
-            $columns[$column_name]['COLUMN_DEFAULT']              =& $columns[$column_name]['Default'];
-            $columns[$column_name]['EXTRA']                       =& $columns[$column_name]['Extra'];
-            $columns[$column_name]['PRIVILEGES']                  =& $columns[$column_name]['Privileges'];
-            $columns[$column_name]['COLUMN_COMMENT']              =& $columns[$column_name]['Comment'];
+        $columns[$column_name]['TABLE_CATALOG']               = null;
+        $columns[$column_name]['TABLE_SCHEMA']                = $database;
+        $columns[$column_name]['TABLE_NAME']                  = $table;
+        $columns[$column_name]['ORDINAL_POSITION']            = $ordinal_position;
+        $columns[$column_name]['DATA_TYPE']                   =
+            substr($columns[$column_name]['COLUMN_TYPE'], 0,
+                strpos($columns[$column_name]['COLUMN_TYPE'], '('));
+        /**
+         * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
+         */
+        $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH']    = null;
+        /**
+         * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
+         */
+        $columns[$column_name]['CHARACTER_OCTET_LENGTH']      = null;
+        $columns[$column_name]['NUMERIC_PRECISION']           = null;
+        $columns[$column_name]['NUMERIC_SCALE']               = null;
+        $columns[$column_name]['CHARACTER_SET_NAME']          =
+            substr($columns[$column_name]['COLLATION_NAME'], 0,
+                strpos($columns[$column_name]['COLLATION_NAME'], '_'));
 
-            $columns[$column_name]['TABLE_CATALOG']               = null;
-            $columns[$column_name]['TABLE_SCHEMA']                = $database;
-            $columns[$column_name]['TABLE_NAME']                  = $table;
-            $columns[$column_name]['ORDINAL_POSITION']            = $ordinal_position;
-            $columns[$column_name]['DATA_TYPE']                   =
-                substr($columns[$column_name]['COLUMN_TYPE'], 0,
-                    strpos($columns[$column_name]['COLUMN_TYPE'], '('));
-            /**
-             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-             */
-            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH']    = null;
-            /**
-             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-             */
-            $columns[$column_name]['CHARACTER_OCTET_LENGTH']      = null;
-            $columns[$column_name]['NUMERIC_PRECISION']           = null;
-            $columns[$column_name]['NUMERIC_SCALE']               = null;
-            $columns[$column_name]['CHARACTER_SET_NAME']          =
-                substr($columns[$column_name]['COLLATION_NAME'], 0,
-                    strpos($columns[$column_name]['COLLATION_NAME'], '_'));
+        $ordinal_position++;
+    }
 
-            $ordinal_position++;
-        }
-
-        if (null !== $column) {
-            reset($columns);
-            $columns = current($columns);
-        }
+    if (null !== $column) {
+        reset($columns);
+        $columns = current($columns);
     }
 
     return $columns;
