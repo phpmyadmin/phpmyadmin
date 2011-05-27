@@ -9886,7 +9886,7 @@ msgstr "Halmozott"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Többszörös"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
