@@ -2746,7 +2746,7 @@ msgstr "SQL 兼容模式"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "在插入資料時使用的語法"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
