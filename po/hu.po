@@ -4814,10 +4814,9 @@ msgid "Format:"
 msgstr "Formátum:"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Átalakítás beállításai"
+msgstr "Formátum specifikus opciók:"
 
 #: libraries/display_export.lib.php:337
 msgid ""
