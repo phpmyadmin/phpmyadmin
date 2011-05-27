@@ -2856,7 +2856,7 @@ msgstr "輸出選項"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr ""
+msgstr "自定輸出預設值"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
