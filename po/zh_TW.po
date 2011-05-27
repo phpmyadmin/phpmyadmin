@@ -3106,7 +3106,7 @@ msgstr "文字輸入"
 
 #: libraries/config/messages.inc.php:224
 msgid "Customize text input fields"
-msgstr "自定義文本輸入框"
+msgstr "自定文字輸入框"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
