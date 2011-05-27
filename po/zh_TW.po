@@ -2942,7 +2942,7 @@ msgstr "開啟檔案"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "其他核心設定"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
