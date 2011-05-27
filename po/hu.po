@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:05+0200\n"
+"PO-Revision-Date: 2011-05-27 18:06+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4045,10 +4045,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatikus helyreállítási mód"
+msgstr "Verziók automatikus létrehozása"
 
 #: libraries/config/messages.inc.php:430
 #, fuzzy
