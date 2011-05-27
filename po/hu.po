@@ -10233,10 +10233,9 @@ msgid "An index has been added on %s"
 msgstr "Az index hozzáadása a(z) %s mezőn megtörtént"
 
 #: tbl_structure.php:471
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Verziók megjelenítése"
+msgstr "Több tevékenység mutatása"
 
 #: tbl_structure.php:600 tbl_structure.php:602
 msgid "Relation view"
