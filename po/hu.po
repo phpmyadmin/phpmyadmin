@@ -4411,10 +4411,9 @@ msgid "Config authentication"
 msgstr "Beállítás hitelesítés"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "Cookie hitelesítés"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
