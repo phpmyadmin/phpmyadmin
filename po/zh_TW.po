@@ -2988,10 +2988,9 @@ msgid "Basic settings"
 msgstr "基本設定"
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
-msgstr "說明文件"
+msgstr "認證"
 
 #: libraries/config/messages.inc.php:197
 #, fuzzy
