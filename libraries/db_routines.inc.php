@@ -403,6 +403,13 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     if (! $routine['num_params']) {
         $disable_remove_parameter = " color: gray;' disabled='disabled";
     }
+    $disable_edit_name = '';
+    if ($mode == 'edit') {
+        // This is read-only, because later, when processing the request, we rely on this
+        // to contain the correct original routine name.
+        // TODO: backup the original name somewhere and allow the user to edit this field.
+        $disable_edit_name = " readonly='readonly' style='background: #ddd;'";
+    }
 
     // Create the output
     $retval  = "";
@@ -416,7 +423,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "<table id='rte_table'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Routine Name') . "</td>\n";
-    $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
+    $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}'$disable_edit_name /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
@@ -566,7 +573,6 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     /**
      * Handle a request to create/edit a routine
      */
-
     $query = 'CREATE ';
     if (! empty($_REQUEST['routine_definer']) && strpos($_REQUEST['routine_definer'], '@') !== false) {
         $arr = explode('@', $_REQUEST['routine_definer']);
@@ -646,17 +652,53 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
         $routine_errors[] = __('You must provide a routine Definition.');
     }
     if (! count($routine_errors)) {
-        // Execute the created queries
-        // FIXME: should only execute DROP on edit, not add
-        // TODO: need to keep a backup copy of the routine, in case the DROP is successful, but the CREATE fails!
-        $res = PMA_DBI_query("DROP PROCEDURE IF EXISTS " . PMA_backquote($_REQUEST['routine_name']));
-        $res = PMA_DBI_query("DROP FUNCTION IF EXISTS " . PMA_backquote($_REQUEST['routine_name']));
-        $res = PMA_DBI_query($query);
-        // If the query fails, an error message will be automatically
-        // shown, so here we only show a success message.
-        $message = PMA_Message::success(__('Routine %1$s has been created.'));
-        $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-        $message->display();
+        // Execute the created query
+        if (! empty($_REQUEST['routine_process_editroutine'])) {
+            // We need to know the original type of the routine, as the user may have changed it.
+            // However we will rely on the $_REQUEST['routine_name'] containing the correct
+            // information since that field was disabled in the editor.
+            $original_type = PMA_DBI_fetch_value('SELECT ROUTINE_TYPE FROM information_schema.ROUTINES '
+                                               . 'WHERE ROUTINE_SCHEMA=\'' . PMA_sqlAddslashes($db,true). '\''
+                                               . 'AND ROUTINE_NAME=\'' . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . '\';');
+            $create_routine = PMA_DBI_get_definition($db, $original_type, $_REQUEST['routine_name']);
+            $drop_routine = "DROP $original_type " . PMA_backquote($_REQUEST['routine_name']);
+            $result = PMA_DBI_try_query($drop_routine);
+            if (! $result) {
+                $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
+                                  . __('MySQL said: ') . PMA_DBI_getError(null);
+            } else {
+                $result = PMA_DBI_try_query($query);
+                if (! $result) {
+                    $routine_errors[] = sprintf(__('Query "%s" failed'), $query) . '<br />'
+                                      . __('MySQL said: ') . PMA_DBI_getError(null);
+                    // We dropped the old routine, but were unable to create the new one
+                    // Try to restore the backup query
+                    $result = PMA_DBI_try_query($create_routine);
+                    if (! $result) {
+                        // OMG, this is really bad! We dropped the query, failed to create a new one
+                        // and now even the backup query does not execute!
+                        // This should not happen, but we better handle this just in case.
+                        $routine_errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br />'
+                                          . __('The backed up query was:') . "\"$create_routine\"" . '<br />'
+                                          . __('MySQL said: ') . PMA_DBI_getError(null);
+                    }
+                } else {
+                    $message = PMA_Message::success(__('Routine %1$s has been modified.'));
+                    $message->addParam(PMA_backquote($_REQUEST['routine_name']));
+                    $message->display();
+                }
+            }
+        } else {
+            $result = PMA_DBI_try_query($query);
+            if (! $result) {
+                $routine_errors[] = sprintf(__('Query "%s" failed'), $query) . '<br /><br />'
+                                  . __('MySQL said: ') . PMA_DBI_getError(null);
+            } else {
+                $message = PMA_Message::success(__('Routine %1$s has been created.'));
+                $message->addParam(PMA_backquote($_REQUEST['routine_name']));
+                $message->display();
+            }
+        }
     }
 }
 
