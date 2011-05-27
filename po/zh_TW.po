@@ -3083,9 +3083,8 @@ msgstr ""
 "驗證服務[/a]，版權所有 2002 Upright Database Technology. 保留所有權利。[/em]"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 msgid "Startup"
-msgstr "狀態"
+msgstr "起始頁"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
