@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:06+0200\n"
+"PO-Revision-Date: 2011-05-27 18:10+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4050,7 +4050,6 @@ msgid "Automatically create versions"
 msgstr "Verziók automatikus létrehozása"
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -4058,8 +4057,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs szükség az SQL-lekérdezések előzményeinek "
-"támogatására, alapértelmezés: [kbd]pma_history[/kbd]"
+"Hagyja üresen, ha nincs szükség a felhasználói beállítások tárolására az "
+"adatbázisban, javaslat: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
