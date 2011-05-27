@@ -3114,7 +3114,7 @@ msgstr "Texy! 格式文字"
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
-msgstr ""
+msgstr "警告"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
