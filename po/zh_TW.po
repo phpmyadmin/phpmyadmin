@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 15:47+0200\n"
+"PO-Revision-Date: 2011-05-27 15:48+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -2449,7 +2449,7 @@ msgstr "CHAR/VARCHAR欄位輸入區塊的列數"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR 欄位輸入區塊"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
