@@ -2801,7 +2801,7 @@ msgstr "外鍵下拉選單中選項的排序順序，[kbd]content[/kbd] 為關�
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "外鍵下拉框順序"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
