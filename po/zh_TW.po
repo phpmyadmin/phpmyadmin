@@ -2540,7 +2540,7 @@ msgstr "以十六進位顯示二進位內容"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "直接顯示資料庫列表而不使用下拉框"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
