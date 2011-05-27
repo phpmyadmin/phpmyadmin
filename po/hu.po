@@ -9776,9 +9776,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Új sor beillesztése és a hibák figyelmen kívül hagyása"
 
 #: tbl_change.php:1060
-#, fuzzy
 msgid "Show insert query"
-msgstr "Megjelenítés SQL lekérdezésként"
+msgstr "Beillesztő lekérdezés megjelenítése"
 
 #: tbl_change.php:1071
 msgid "and then"
