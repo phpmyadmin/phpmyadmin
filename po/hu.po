@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 17:41+0200\n"
+"PO-Revision-Date: 2011-05-27 17:45+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3545,9 +3545,8 @@ msgstr ""
 "nem található"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Hiányzó táblák a phpMyAdmin konfigurációs tárolóhoz"
+msgstr "Hiányzó phpMyAdmin konfigurációs tároló táblák"
 
 #: libraries/config/messages.inc.php:330
 msgid "Iconic table operations"
