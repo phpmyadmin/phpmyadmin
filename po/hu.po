@@ -4736,10 +4736,9 @@ msgid "Save output to a file"
 msgstr "A kimenet mentése fájlként"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Fájlnévsablon"
+msgstr "Fájlnévsablon:"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
