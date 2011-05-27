@@ -427,15 +427,18 @@ function printQueryStatistics() {
 	<br>
 	<span style="font-size:60%; display:inline;">
 	&oslash; <?php echo __('per hour'); ?>:  
-	<?php echo PMA_formatNumber($total_queries * $hour_factor, 3, 2); ?><br>
+	<?php echo PMA_formatNumber($total_queries * $hour_factor, 0); ?><br>
 
 	&oslash; <?php echo __('per minute'); ?>:  
-	<?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 3, 2); ?><br>
+	<?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); ?><br>
 
+	<?php if($total_queries / $server_status['Uptime'] >= 1) {
+	?>
 	&oslash; <?php echo __('per second'); ?>: 
-	<?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 3, 2); ?><br>
-	</h3>
+	<?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); ?><br>
+	
 	<?php
+	}
 
 	// reverse sort by value to show most used statements first
 	arsort($used_queries);
@@ -445,6 +448,7 @@ function printQueryStatistics() {
 	$perc_factor    = 100 / $total_queries //(- $server_status['Connections']);
 
 	?>
+		</h3>
 		<table id="serverstatusqueriesdetails" class="data sortable">
 		<col class="namecol" />
 		<col class="valuecol" span="3" />
@@ -516,7 +520,7 @@ function printServerTraffic() {
 	
 	<h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
 	echo sprintf(__('Network traffic since startup: %s'),
-			implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1))
+			implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
 	);
 	?>
 	</h3>
@@ -574,34 +578,34 @@ function printServerTraffic() {
 		<th class="name"><?php echo __('Received'); ?></th>
 		<td class="value"><?php echo
 			implode(' ',
-				PMA_formatByteDown($server_status['Bytes_received'], 2, 1)); ?></td>
+				PMA_formatByteDown($server_status['Bytes_received'], 3, 1)); ?></td>
 		<td class="value"><?php echo
 			implode(' ',
 				PMA_formatByteDown(
-					$server_status['Bytes_received'] * $hour_factor, 2, 1)); ?></td>
+					$server_status['Bytes_received'] * $hour_factor, 3, 1)); ?></td>
 	</tr>
 	<tr class="noclick even">
 		<th class="name"><?php echo __('Sent'); ?></th>
 		<td class="value"><?php echo
 			implode(' ',
-				PMA_formatByteDown($server_status['Bytes_sent'], 2, 1)); ?></td>
+				PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)); ?></td>
 		<td class="value"><?php echo
 			implode(' ',
 				PMA_formatByteDown(
-					$server_status['Bytes_sent'] * $hour_factor, 2, 1)); ?></td>
+					$server_status['Bytes_sent'] * $hour_factor, 3, 1)); ?></td>
 	</tr>
 	<tr class="noclick odd">
 		<th class="name"><?php echo __('Total'); ?></th>
 		<td class="value"><?php echo
 			implode(' ',
 				PMA_formatByteDown(
-					$server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1)
+					$server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1)
 			); ?></td>
 		<td class="value"><?php echo
 			implode(' ',
 				PMA_formatByteDown(
 					($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-					* $hour_factor, 2, 1)
+					* $hour_factor, 3, 1)
 			); ?></td>
 	</tr>
 	</tbody>

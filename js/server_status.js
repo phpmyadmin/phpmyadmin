@@ -23,9 +23,9 @@ $(function() {
         // Init imagemap again
         imageMap.init();
     });
-	
-	// Ajax reload of variables
-	$('.statuslinks a').click(function() { return refreshHandler(this); });
+    
+    // Ajax reload of variables
+    $('.statuslinks a').click(function() { return refreshHandler(this); });
     
     $('#filterAlert').change(function() {
         alertFilter = this.checked;
@@ -43,41 +43,41 @@ $(function() {
         categoryFilter = $(this).val();
         filterVariables();
     });
-	
-	/* Adjust DOM / Add handlers to the tabs */
-	function initTab(tab,data) {
-		switch(tab.attr('id')) {
-			case 'statustabs_traffic':
-				tab.html(data);
-				initTooltips();
-				$('#statustabs_traffic .statuslinks a').click(function() { return refreshHandler(this); });
-				break;
-			case 'statustabs_queries':
-				tab.html(data);
-				$('#statustabs_queries .statuslinks a').click(function() { return refreshHandler(this); });
-				break;
-			case 'statustabs_allvars':
-				tab.find('#serverstatusvariables').html(data);
-				filterVariables();
-				tab.find('.statuslinks a img').hide();
-				break;
-		}
-	}
     
-	function refreshHandler(element) {
-		// ui-tabs-panel class is added by the jquery tabs feature
-		var tab=$(element).parents('div.ui-tabs-panel');
-		
-		// Show ajax load icon
-		$(element).find('img').show();
-		
-		$.get($(element).attr('href'),{ajax_request:1},function(data) {
-			initTab(tab,data);
-		});
-		
-		return false;
-	}
-	
+    /* Adjust DOM / Add handlers to the tabs */
+    function initTab(tab,data) {
+        switch(tab.attr('id')) {
+            case 'statustabs_traffic':
+                tab.html(data);
+                initTooltips();
+                $('#statustabs_traffic .statuslinks a').click(function() { return refreshHandler(this); });
+                break;
+            case 'statustabs_queries':
+                tab.html(data);
+                $('#statustabs_queries .statuslinks a').click(function() { return refreshHandler(this); });
+                break;
+            case 'statustabs_allvars':
+                tab.find('#serverstatusvariables').html(data);
+                filterVariables();
+                tab.find('.statuslinks a img').hide();
+                break;
+        }
+    }
+    
+    function refreshHandler(element) {
+        // ui-tabs-panel class is added by the jquery tabs feature
+        var tab=$(element).parents('div.ui-tabs-panel');
+        
+        // Show ajax load icon
+        $(element).find('img').show();
+        
+        $.get($(element).attr('href'),{ajax_request:1},function(data) {
+            initTab(tab,data);
+        });
+        
+        return false;
+    }
+    
     function filterVariables() {
         var useful_links=0;
         var section = text;
