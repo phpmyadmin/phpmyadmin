@@ -10333,7 +10333,7 @@ msgstr ""
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
-msgstr ""
+msgstr "Nyomkövetési utasítások"
 
 #: tbl_tracking.php:427 tbl_tracking.php:555
 #, php-format
