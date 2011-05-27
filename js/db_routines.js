@@ -1,12 +1,13 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(document).ready(function() {
     /**
-     * Ajax Event handler for 'Drop Procedure'
-     * 
+     * Ajax Event handler for 'Drop Routine'
+     *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $('.drop_procedure_anchor').live('click', function(event) {
+    $('.drop_routine_anchor').live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -41,27 +42,32 @@ $(document).ready(function() {
     }); // end Drop Procedure
 
     /**
-     * Ajax Event handler for 'Export Procedure'
-     * 
+     * Ajax Event handler for 'Export Routine'
+     *
      * @see     $cfg['AjaxEnable']
      */
-    $('.export_procedure_anchor').live('click', function(event) {
+    $('.export_routine_anchor').live('click', function(event) {
         event.preventDefault();
-
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var button_options = {};
-        button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-        /**
-         * @var button_options  The export SQL query to display to the user
-         */
-        var query = $(this).parents('tr').find('.create_sql').html();
-
-        // show dialog
-        $('<div><textarea>'+query+'</textarea></div>').dialog({
-            width: 450,
-            buttons: button_options
-        }).find('textarea').width('100%');
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+                /**
+                 * @var button_options  Object containing options for jQueryUI dialog buttons
+                 */
+                var button_options = {};
+                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
+                /**
+                 * Display the dialog to the user
+                 */
+                $('<div>'+data.message+'</div>').dialog({
+                            width: 450,
+                            buttons: button_options,
+                            title: data.title
+                        }).find('textarea').width('100%');
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
     }); // end Export Procedure
 }, 'top.frame_content'); //end $(document).ready() for Drop Procedure

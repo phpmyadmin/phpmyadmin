@@ -561,13 +561,30 @@ $routine_errors = array();
  */
 if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
     /**
-     * Display the export for a routine. This is for when JS is disabled.
+     * Display the export for a routine.
      */
+    $routine_name = htmlspecialchars(PMA_backquote($_GET['routinename']));
     if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
-        echo '<fieldset>' . "\n"
-           . ' <legend>' . sprintf(__('Export for routine "%s"'), $_GET['routinename']) . '</legend>' . "\n"
-           . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>' . "\n"
-           . '</fieldset>';
+        $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
+        if (! empty($_REQUEST['ajax_request'])) {
+            $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
+            PMA_ajaxResponse($create_proc, true, $extra_data);
+        } else {
+            echo '<fieldset>' . "\n"
+               . ' <legend>' . sprintf(__('Export of routine %s'), $routine_name) . '</legend>' . "\n"
+               . $create_proc . "\n"
+               . '</fieldset>';
+        }
+    } else {
+        $response = __('Error in Processing Request') . ' : '
+                  . sprintf(__('No routine with name %s found in database %s'),
+                            $routine_name, htmlspecialchars(PMA_backquote($db)));
+        $response = PMA_message::error($response);
+        if (! empty($_REQUEST['ajax_request'])) {
+            PMA_ajaxResponse($response, false);
+        } else {
+            $response->display();
+        }
     }
 } else if (! empty($_REQUEST['routine_process_addroutine']) || ! empty($_REQUEST['routine_process_editroutine'])) {
     /**
@@ -753,8 +770,8 @@ $conditional_class_export = '';
 if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_add    = 'class="add_routine_anchor"';
     $conditional_class_edit   = 'class="edit_routine_anchor"';
-    $conditional_class_drop   = 'class="drop_procedure_anchor"';
-    $conditional_class_export = 'class="export_procedure_anchor"';
+    $conditional_class_drop   = 'class="drop_routine_anchor"';
+    $conditional_class_export = 'class="export_routine_anchor"';
 }
 
 /**
@@ -817,7 +834,7 @@ if (! $routines) {
                           <td><span class="drop_sql" style="display:none;">%s</span><strong>%s</strong></td>
                           <td>%s</td>
                           <td>%s</td>
-                          <td><div class="create_sql" style="display: none;">%s</div>%s</td>
+                          <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>
@@ -830,7 +847,6 @@ if (! $routines) {
                            . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
                            . '">' . $titles['Edit'] . '</a>',
                      ! empty($definition) ? PMA_linkOrButton('#', $titles['Execute']) : '&nbsp;',
-                     $create_proc,
                      '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
                            . '&amp;exportroutine=1'
                            . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
