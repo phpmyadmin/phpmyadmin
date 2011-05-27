@@ -155,12 +155,12 @@ $titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'), true);
 $titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true);
 $titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true);
 $titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true);
-$titles['Spatial']              = PMA_getIcon('b_ftext.png', __('Spatial'), true);
+$titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Spatial'), true);
 $titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true);
 $titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true);
 $titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true);
 $titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true);
-$titles['NoSpatial']            = PMA_getIcon('bd_ftext.png', __('Spatial'), true);
+$titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'), true);
 $titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true);
 $titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
 
@@ -173,8 +173,8 @@ $hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add inde
 $hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), false, true);
 $hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), false, true);
 $hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), false, true);
-$hidden_titles['Spatial']              = PMA_getIcon('b_ftext.png', __('Add SPATIAL index'), false, true);
-$hidden_titles['NoSpatial']            = PMA_getIcon('bd_ftext.png', __('Add SPATIAL index'), false, true);
+$hidden_titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Add SPATIAL index'), false, true);
+$hidden_titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Add SPATIAL index'), false, true);
 $hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), false, true);
 $hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), false, true);
 
@@ -450,7 +450,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="index">
+    <td align="center" class="spatial">
         <?php
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
@@ -608,7 +608,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     }
 
     if (! empty($tbl_type) && $tbl_type == 'MYISAM') {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_spatial', __('Spatial'), 'b_ftext.png', 'spatial');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_spatial', __('Spatial'), 'b_spatial.png', 'spatial');
     }
     if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png', 'ftext');

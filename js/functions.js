@@ -1914,6 +1914,7 @@ $(document).ready(function() {
         $table.find("td[class='unique']").remove();
         $table.find("td[class='index']").remove();
         $table.find("td[class='fulltext']").remove();
+        $table.find("td[class='spatial']").remove();
         $table.find("th[class='action']").attr("colspan", 3);
 
         // Display the "more" text
