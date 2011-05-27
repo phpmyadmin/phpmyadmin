@@ -19,7 +19,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
-$routine_process_error = false;
 $param_datatypes       = getSupportedDatatypes();
 $param_directions      = array('IN', 'OUT', 'INOUT');
 $param_sqldataaccess   = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
@@ -44,7 +43,7 @@ function getSupportedDatatypes($html = false, $selected = '')
                     } else if ($subvalue === '-') {
                         $retval .= "<option disabled='disabled'>$subvalue</option>";
                     } else {
-                        $retval .= "<option >$subvalue</option>";
+                        $retval .= "<option>$subvalue</option>";
                     }
                 }
                 $retval .= '</optgroup>';
@@ -357,14 +356,18 @@ function getFormInputFromRequest()
 /**
  * Displays a form used to add/edit a routine
  */
-function displayRoutineEditor($mode, $operation, $routine, $routine_process_error) {
+function displayRoutineEditor($mode, $operation, $routine, $errors) {
     global $db, $table, $url_query, $param_directions, $param_datatypes, $param_sqldataaccess;
 
-    // Some error
-    //TODO: better error handling: this is just ridiculous...
+    // Error handling
     $message = '';
-    if ($routine_process_error) {
-        $message = PMA_Message::error(__('Error: Some missing values'));
+    if (count($errors)) {
+        $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+        $message->addString('<ul>');
+        foreach ($errors as $num => $string) {
+            $message->addString('<li>' . $string . '</li>');
+        }
+        $message->addString('</ul>');
         $message = $message->getDisplay() . "\n";
     }
 
@@ -377,7 +380,7 @@ function displayRoutineEditor($mode, $operation, $routine, $routine_process_erro
             $routine['type']        = 'PROCEDURE';
             $routine['type_toggle'] = 'FUNCTION';
         }
-    } else if ($operation == 'add' || ($routine['num_params'] == 0 && $mode == 'add')) {
+    } else if ($operation == 'add' || ($routine['num_params'] == 0 && $mode == 'add' && ! $errors)) {
         $routine['param_dir'][]  = '';
         $routine['param_name'][] = '';
         $routine['param_type'][] = '';
@@ -542,6 +545,11 @@ function displayRoutineEditor($mode, $operation, $routine, $routine_process_erro
 // $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
 
 /**
+ * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
+ */
+$routine_errors = array();
+
+/**
  * Handle all user requests other than the default of listing routines
  */
 if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
@@ -567,14 +575,16 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     if ($_REQUEST['routine_type'] == 'FUNCTION' || $_REQUEST['routine_type'] == 'PROCEDURE') {
         $query .= $_REQUEST['routine_type'] . ' ';
     } else {
-        $routine_process_error = true;
+        $routine_errors[] = sprintf(__('Invalid Routine Type: "%s"'), htmlspecialchars($_REQUEST['routine_type']));
     }
     if (! empty($_REQUEST['routine_name'])) {
         $query .= PMA_backquote($_REQUEST['routine_name']) . ' ';
     } else {
-        $routine_process_error = true;
+        $routine_errors[] = __('You must provide a routine Name');
     }
     $params = '';
+    $warned_about_dir  = false;
+    $warned_about_name = false;
     if ( ! empty($_REQUEST['routine_param_name']) && ! empty($_REQUEST['routine_param_type'])
         && ! empty($_REQUEST['routine_param_length']) && is_array($_REQUEST['routine_param_name'])
         && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
@@ -586,19 +596,22 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                             . $_REQUEST['routine_param_type'][$i];
                 } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
                     $params .= $_REQUEST['routine_param_name'][$i] . " " . $_REQUEST['routine_param_type'][$i];
-                } else {
-                    $routine_process_error = true;
-                    break;
+                } else if (! $warned_about_dir) {
+                    $warned_about_dir = true;
+                    $routine_errors[] = sprintf(__('Invalid Direction "%s" given for a Parameter.'),
+                                                htmlspecialchars($_REQUEST['routine_param_dir'][$i]));
                 }
                 if ($_REQUEST['routine_param_length'][$i] != ''
-                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $_REQUEST['routine_param_type'][$i])) {
+                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
+                                   $_REQUEST['routine_param_type'][$i])) {
                     $params .= "(" . $_REQUEST['routine_param_length'][$i] . ")";
                 }
                 if ($i != count($_REQUEST['routine_param_name'])-1) {
                     $params .= ", ";
                 }
-            } else {
-                $routine_process_error = true;
+            } else if (! $warned_about_name) {
+                $warned_about_name = true;
+                $routine_errors[] = __('You must provide a Name and a Type for each routine Parameter.');
                 break;
             }
         }
@@ -630,9 +643,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     if (! empty($_REQUEST['routine_definition'])) {
         $query .= $_REQUEST['routine_definition'];
     } else {
-        $routine_process_error = true;
+        $routine_errors[] = __('You must provide a routine Definition.');
     }
-    if (! $routine_process_error) {
+    if (! count($routine_errors)) {
         // Execute the created queries
         // FIXME: should only execute DROP on edit, not add
         // TODO: need to keep a backup copy of the routine, in case the DROP is successful, but the CREATE fails!
@@ -650,10 +663,10 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
 /**
  * Display a form used to add/edit a routine, if necessary
  */
-if (empty($_REQUEST['routine_process_addroutine']) && empty($_REQUEST['routine_process_editroutine']) &&
+if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) && empty($_REQUEST['routine_process_editroutine']) &&
           (! empty($_REQUEST['addroutine']) || ! empty($_REQUEST['editroutine'])
         || ! empty($_REQUEST['routine_addparameter']) || ! empty($_REQUEST['routine_removeparameter'])
-        || ! empty($_REQUEST['routine_changetype']) || $routine_process_error)) {
+        || ! empty($_REQUEST['routine_changetype'])))) { // FIXME: this must be simpler than that
     // Handle requests to add/remove parameters and changing routine type
     // This is necessary when JS is disabled
     $operation = '';
@@ -671,11 +684,11 @@ if (empty($_REQUEST['routine_process_addroutine']) && empty($_REQUEST['routine_p
         }
         $routine = getFormInputFromRequest();
         $mode = 'add';
-    } else if (! empty($_REQUEST['editroutine']) && ! empty($_REQUEST['routine_name'])) {
+    } else if (! empty($_REQUEST['editroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
             echo "\n\n<h2>" . __("Edit Routine") . "</h2>\n\n";
         }
-        if (! $operation && empty($_REQUEST['routine_process_editroutine'])) {
+        if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
         } else {
             $routine = getFormInputFromRequest();
@@ -683,7 +696,7 @@ if (empty($_REQUEST['routine_process_addroutine']) && empty($_REQUEST['routine_p
         $mode = 'edit';
     }
     // Show form
-    echo displayRoutineEditor($mode, $operation, $routine, $routine_process_error);
+    echo displayRoutineEditor($mode, $operation, $routine, $routine_errors);
     require './libraries/footer.inc.php';
     // exit;
 }
