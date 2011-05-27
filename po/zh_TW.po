@@ -2651,10 +2651,9 @@ msgstr "刪除欄位中的換行符號"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "「下一行」使用字元："
+msgstr "欄位內容換行使用字元："
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:237
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
