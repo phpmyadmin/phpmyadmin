@@ -363,19 +363,21 @@ if ($GLOBALS['cfg']['RememberSorting']
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && count($analyzed_sql[0]['table_ref']) == 1
  ) {
-    if (empty($analyzed_sql[0]['order_by_clause'])
-            && isset($_SESSION['tmp_user_values']['table_sorting'][$table])) {
-        // retrieve the remembered sorting order for current table
-        $sql_order_to_append = ' ORDER BY ' . $_SESSION['tmp_user_values']['table_sorting'][$table] . ' ';
-        $sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
+    $pmatable = new PMA_Table($table, $db);
+    if (empty($analyzed_sql[0]['order_by_clause'])) {
+        $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+        if ($sorted_col) {
+            // retrieve the remembered sorting order for current table
+            $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
+            $sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
 
-        // update the $analyzed_sql
-        $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
-        $analyzed_sql[0]['order_by_clause'] = $_SESSION['tmp_user_values']['table_sorting'][$table];
-        
-    } else if (! empty($analyzed_sql[0]['order_by_clause'])) {
+            // update the $analyzed_sql
+            $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
+            $analyzed_sql[0]['order_by_clause'] = $sorted_col;
+        }
+    } else {
         // store the remembered table into session
-        $_SESSION['tmp_user_values']['table_sorting'][$table] = $analyzed_sql[0]['order_by_clause'];
+        $pmatable->setUiProp(PMA_Table::PROP_SORTED_COLUMN, $analyzed_sql[0]['order_by_clause']);
     }
 }
 
