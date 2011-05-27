@@ -2476,7 +2476,7 @@ msgstr "即時壓縮"
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
 msgid "Configuration file"
-msgstr ""
+msgstr "設定檔案"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
