@@ -2589,7 +2589,7 @@ msgstr "設定指令最長執行時間 (單位：秒，[kbd]0[/kbd] 為不限制
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "最長執行時間"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
