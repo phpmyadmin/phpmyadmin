@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 15:48+0200\n"
+"PO-Revision-Date: 2011-05-27 15:49+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -2461,7 +2461,7 @@ msgstr "CHAR 輸入區塊資料行"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "檢查設定檔案文件的權限"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
