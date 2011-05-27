@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 16:33+0200\n"
+"PO-Revision-Date: 2011-05-27 16:34+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3043,7 +3043,7 @@ msgstr "自定輸入預設值"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "自定導覽頁框"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
