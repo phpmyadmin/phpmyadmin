@@ -1427,10 +1427,17 @@ function PMA_isSuperuser()
         return PMA_cacheGet('is_superuser', true);
     }
 
-    // with mysql extension, when connection failed we don't have
-    // a $userlink
+    // when connection failed we don't have a $userlink
     if (isset($GLOBALS['userlink'])) {
-        $r = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+        if (PMA_DRIZZLE) {
+            // Drizzle has no authorization by default, so when no plugin is enabled everyone is a superuser
+            // Known authorization libraries: regex_policy, simple_user_policy
+            // Plugins limit object visibility (dbs, tables, processes), we can safely assume we always deal with superuser
+            $r = true;
+        } else {
+            // check access to mysql.user table
+            $r = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+        }
         PMA_cacheSet('is_superuser', $r, true);
     } else {
         PMA_cacheSet('is_superuser', false, true);
