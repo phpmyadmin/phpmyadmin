@@ -2667,9 +2667,8 @@ msgid "Excel edition"
 msgstr "Excel 版本"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "檔案名稱樣式"
+msgstr "資料庫名稱樣式"
 
 #: libraries/config/messages.inc.php:84
 #, fuzzy
