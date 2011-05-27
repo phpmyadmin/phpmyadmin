@@ -2564,10 +2564,9 @@ msgid "Edit in window"
 msgstr "在視窗中編輯"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "功能顯示"
+msgstr "顯示錯誤"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
