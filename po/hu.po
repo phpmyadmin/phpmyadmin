@@ -10143,10 +10143,9 @@ msgstr ""
 "az adattípusokat)"
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Belső kapcsolatok"
+msgstr "Belső kapcsolat"
 
 #: tbl_relation.php:404
 msgid ""
