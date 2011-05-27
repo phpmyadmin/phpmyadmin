@@ -3981,7 +3981,7 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"DROP DATABASE IF EXISTS állítás hozzá lesz adva a napló első sora ként az "
+"DROP DATABASE IF EXISTS utasítás hozzá lesz adva a napló első sora ként az "
 "adatbázis létrehozása során."
 
 #: libraries/config/messages.inc.php:419
