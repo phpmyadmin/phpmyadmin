@@ -3063,9 +3063,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "自定顯示在 SQL 語法輸入框中的連結"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "SQL 語法"
+msgstr "SQL 語法設定"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
