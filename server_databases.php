@@ -197,7 +197,11 @@ if ($databases_count > 0) {
 
     $odd_row = true;
     foreach ($databases as $current) {
-        echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
+        $tr_class = $odd_row ? 'odd' : 'even';
+        if ($current['SCHEMA_NAME'] == 'mysql' || $current['SCHEMA_NAME'] == 'information_schema') {
+            $tr_class .= ' noclick';
+        }
+        echo '<tr class="' . $tr_class . '">' . "\n";
         $odd_row = ! $odd_row;
 
         list($column_order, $generated_html) = PMA_buildHtmlForDb($current, $is_superuser, (isset($checkall) ? $checkall : ''), $url_query, $column_order, $replication_types, $replication_info);
