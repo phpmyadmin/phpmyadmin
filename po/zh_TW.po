@@ -2671,9 +2671,8 @@ msgid "Database name template"
 msgstr "資料庫名稱樣式"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "檔案名稱樣式"
+msgstr "伺服器名稱樣式"
 
 #: libraries/config/messages.inc.php:85
 #, fuzzy
