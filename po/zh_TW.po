@@ -2885,7 +2885,7 @@ msgstr "輸入檔案"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
-msgstr ""
+msgstr "自定義導入選項的默認值"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
