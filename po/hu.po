@@ -2060,7 +2060,7 @@ msgstr "lekérdezés inline szerkesztése"
 #: libraries/common.lib.php:1267
 #| msgid "Engines"
 msgid "Inline"
-msgstr "belső"
+msgstr "Belső"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
