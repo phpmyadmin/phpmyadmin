@@ -100,7 +100,7 @@ if ($server > 0
         echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . __('MySQL connection collation') . "\n"
+           . '                ' . __('Connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
            . '            </label>' . "\n"
@@ -155,7 +155,7 @@ echo '<div id="main_pane_right">';
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
-    echo '<h2>MySQL</h2>';
+    echo '<h2>' . (PMA_DRIZZLE ? 'Drizzle' : 'MySQL') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
     PMA_printListItem(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
@@ -165,7 +165,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_user_info');
 
     echo '    <li id="li_select_mysql_charset">';
-    echo '        ' . __('MySQL charset') . ': '
+    echo '        ' . __('Character set') . ': '
        . '        <span xml:lang="en" dir="ltr">'
        . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
        . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
