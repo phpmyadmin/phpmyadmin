@@ -3993,7 +3993,7 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"DROP TABLE IF EXISTS állítás hozzá lesz adva a napló első sora ként a tábla "
+"DROP TABLE IF EXISTS utasítás hozzá lesz adva a napló első sora ként a tábla "
 "létrehozása során."
 
 #: libraries/config/messages.inc.php:421
