@@ -4302,7 +4302,7 @@ msgstr "Szövegterület sorai"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha ki van választva egy adatbázis"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
