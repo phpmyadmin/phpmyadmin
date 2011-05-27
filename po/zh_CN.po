@@ -8740,10 +8740,9 @@ msgid "Insecure connection"
 msgstr "非安全连接"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "高级功能"
+msgstr "配置已保存。"
 
 #: setup/frames/index.inc.php:93
 msgid ""
