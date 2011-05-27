@@ -4,11 +4,11 @@
  *
  */
 require_once './libraries/common.inc.php';
+require_once './libraries/common.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'display_triggers.js';
 
-require_once './libraries/common.lib.php';
 require_once './libraries/tbl_common.php';
 
 /**
@@ -17,12 +17,7 @@ require_once './libraries/tbl_common.php';
 $titles = PMA_buildActionTitles();
 
 /**
- * Displays the header
- */
-require_once './libraries/header.inc.php';
-
-/**
- * Displays the tabs
+ * Displays the header and tabs
  */
 require_once './libraries/tbl_links.inc.php';
 
