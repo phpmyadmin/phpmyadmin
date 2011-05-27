@@ -2126,3 +2126,19 @@ fieldset .disabled-field td {
     margin:             0 6px;
 }
 
+.colborder {
+    border-right: solid 1px #FFFFFF;
+    cursor: col-resize;
+    margin-left: -1px;
+    position: absolute;
+    width: 3px;
+}
+
+.pma_table thead th div, .pma_table tbody td div {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}

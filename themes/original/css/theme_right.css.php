@@ -1771,3 +1771,21 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
+
+
+.colborder {
+    border-right: solid 1px #FFFFFF;
+    cursor: col-resize;
+    margin-left: 5px;
+    position: absolute;
+    width: 3px;
+}
+
+.pma_table thead th div, .pma_table tbody td div {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}
