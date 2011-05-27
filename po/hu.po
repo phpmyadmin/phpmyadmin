@@ -4714,7 +4714,7 @@ msgstr "Sorok száma:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Ettől a sortól kezdve:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
