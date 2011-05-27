@@ -9870,10 +9870,9 @@ msgid "Radar"
 msgstr "Radar"
 
 #: tbl_chart.php:138
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PB"
+msgstr "Torta"
 
 #: tbl_chart.php:144
 #, fuzzy
