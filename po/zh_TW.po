@@ -2445,7 +2445,7 @@ msgstr "編輯CHAR 資料欄位"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR欄位輸入區塊的列數"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
