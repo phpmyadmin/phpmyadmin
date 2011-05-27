@@ -2508,7 +2508,7 @@ msgstr "修改/新建欄位時的顯示模式"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "在進入資料庫標籤時默認顯示的頁面"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
