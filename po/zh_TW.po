@@ -3034,9 +3034,8 @@ msgid ""
 msgstr "追蹤資料庫的修改。需要開啟 phpMyAdmin 進階功能。"
 
 #: libraries/config/messages.inc.php:205
-#, fuzzy
 msgid "Customize export options"
-msgstr "資料庫輸出選項"
+msgstr "自定輸出選項"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
