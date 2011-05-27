@@ -346,6 +346,13 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 $cfg['Servers'][$i]['recent'] = '';
 
 /**
+ * table to store UI preferences for tables
+ *   - leave blank for no "persistent" UI preferences
+ *     SUGGESTED: 'pma_table_uiprefs'
+ */
+$cfg['Servers'][$i]['table_uiprefs'] = '';
+
+/**
  * table to store SQL tracking
  *   - leave blank for no SQL tracking
  *     SUGGESTED: 'pma_tracking'

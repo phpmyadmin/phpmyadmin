@@ -117,6 +117,21 @@ CREATE TABLE IF NOT EXISTS `pma_recent` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `pma_table_uiprefs`
+--
+
+CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` blob NOT NULL,
+  PRIMARY KEY (`username`,`db_name`,`table_name`)
+) ENGINE=MyISAM COMMENT='tables'' UI preferences'
+  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
 -- 
 -- Table structure for table `pma_relation`
 -- 
