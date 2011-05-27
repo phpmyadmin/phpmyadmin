@@ -2766,7 +2766,7 @@ msgstr "BLOB 資料使用16進位"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr "使用忽略加入 (insert)"
+msgstr "使用忽略新增 (insert)"
 
 #: libraries/config/messages.inc.php:130 libraries/export/sql.php:163
 msgid "Maximal length of created query"
