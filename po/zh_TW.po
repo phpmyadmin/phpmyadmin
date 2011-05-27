@@ -3020,8 +3020,8 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"配置 phpMyAdmin 高級功能，參見文檔[a@Documentation.html#linked-tables]phpMyAdmin "
-"高級功能[/a]"
+"設定 phpMyAdmin 進階功能，參見文件[a@Documentation.html#linked-tables]phpMyAdmin "
+"進階功能[/a]"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
