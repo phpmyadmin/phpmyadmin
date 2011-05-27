@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 03:48+0200\n"
+"PO-Revision-Date: 2011-05-27 03:51+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5706,10 +5706,9 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "添加索引"
+msgstr "添加前缀"
 
 #: libraries/mult_submits.inc.php:477 tbl_replace.php:331
 msgid "No change"
