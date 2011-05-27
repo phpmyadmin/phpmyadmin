@@ -613,14 +613,22 @@ unset($_form_params);
 if ($action == 'tbl_create.php') {
     ?>
     <table>
-    <tr valign="top">
-        <th><?php echo __('Table name'); ?>:&nbsp;</th>
-    </tr>
-    <tr><td><input type="text" name="table" size="40" maxlength="80"
+        <tr valign="top">
+            <th><?php echo __('Table name'); ?>:&nbsp;</th>
+        </tr>
+        <tr><td><input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
                 class="textfield" />
-        </td>
-    </tr>
+            </td>
+            <td>
+                <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
+                <?php echo sprintf(__('Add %s column(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
+                <input type="submit" name="submit_num_fields" value="<?php echo __('Go'); ?>"
+                    onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)"
+                />
+                <?php } ?>
+            </td>
+        </tr>
     </table>
     <?php
 }
@@ -775,15 +783,6 @@ if ($action == 'tbl_create.php') {
 
 <fieldset class="tblFooters">
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
-<?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
-    <?php echo __('Or'); ?>
-    <?php echo sprintf(__('Add %s column(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
-    <input type="submit" name="submit_num_fields"
-        value="<?php echo __('Go'); ?>"
-<?php /*        onclick="if (addField()) return false;" */ ?>
-        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)"
-        />
-<?php } ?>
 </fieldset>
 <div id="properties_message"></div>
 </form>
