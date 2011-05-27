@@ -10366,7 +10366,7 @@ msgstr "Adat manipuláló utasítás"
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL dump (fájl letöltés)"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
