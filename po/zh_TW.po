@@ -2511,9 +2511,8 @@ msgid "Tab that is displayed when entering a database"
 msgstr "在進入資料庫標籤時預設的顯示頁面"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 msgid "Default database tab"
-msgstr "更改資料庫名稱到"
+msgstr "默認資料庫標籤"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
