@@ -2985,7 +2985,7 @@ msgstr "注意：phpMyAdmin 只是一個使用者介面，其設定不會對 MyS
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "基本設定"
 
 #: libraries/config/messages.inc.php:196
 #, fuzzy
