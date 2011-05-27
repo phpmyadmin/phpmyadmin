@@ -1095,10 +1095,9 @@ msgid "Searching"
 msgstr "正在搜索"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "隐藏搜索条件"
+msgstr "隐藏搜索结果"
 
 #: js/messages.php:85
 #, fuzzy
