@@ -4628,10 +4628,9 @@ msgstr "MySQL 4.0 kompatibilis"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Új adatbázis létrehozása"
+msgstr "Adatbázis létrehozása"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
