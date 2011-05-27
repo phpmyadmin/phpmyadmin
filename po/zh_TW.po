@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 15:56+0200\n"
+"PO-Revision-Date: 2011-05-27 15:57+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -2540,7 +2540,7 @@ msgstr "以十六進位顯示二進位內容"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr "直接顯示資料庫列表而不使用下拉框"
+msgstr "直接顯示資料庫列表而不使用下拉選單"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
