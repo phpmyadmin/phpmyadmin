@@ -2579,7 +2579,7 @@ msgstr "在警告、錯誤和訊息上顯示圖示"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "圖示錯誤"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
