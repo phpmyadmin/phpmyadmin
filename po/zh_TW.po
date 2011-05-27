@@ -2971,7 +2971,7 @@ msgstr "查詢視窗"
 
 #: libraries/config/messages.inc.php:192
 msgid "Customize query window options"
-msgstr ""
+msgstr "自定查詢視窗選項"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
