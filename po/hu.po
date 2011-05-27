@@ -1250,10 +1250,9 @@ msgid ", latest stable version:"
 msgstr ", utolsó stabil verzió:"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Adatbázisra ugrás"
+msgstr "friss"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
