@@ -4421,10 +4421,9 @@ msgid "HTTP authentication"
 msgstr "HTTP hitelesítés"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "Signon hitelesítés"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
