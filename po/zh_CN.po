@@ -1110,10 +1110,9 @@ msgid "Browsing"
 msgstr "正在浏览"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "正在删除 %s"
+msgstr "正在删除"
 
 #: js/messages.php:90
 msgid ""
