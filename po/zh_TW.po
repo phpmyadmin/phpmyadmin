@@ -3031,7 +3031,7 @@ msgstr "修改追蹤"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "追蹤資料庫的修改。需要 phpMyAdmin 高級功能。"
 
 #: libraries/config/messages.inc.php:205
 #, fuzzy
