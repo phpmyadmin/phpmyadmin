@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 17:48+0200\n"
+"PO-Revision-Date: 2011-05-27 17:52+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3961,7 +3961,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-séma: table coordinates"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -3969,8 +3968,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"A megjelenítendő mezők táblája, hagyja üresen, ha ne támogassa; "
-"alapértelmezés: [kbd]pma_table_info[/kbd]"
+"Tábla a megjelenített táblák leírásához, hagyja üresen, ha nem kíván megadni "
+"leírást; javasolt: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #, fuzzy
