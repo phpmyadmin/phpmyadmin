@@ -2981,7 +2981,7 @@ msgstr "安全"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr ""
+msgstr "注意：phpMyAdmin 只是一個使用者接口，其功能不會對 MySQL 有限制"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
