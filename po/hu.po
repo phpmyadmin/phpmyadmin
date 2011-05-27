@@ -10044,10 +10044,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Tábla kiöblítése (FLUSH)"
 
 #: tbl_operations.php:677
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "A tábla adatainak kiíratása"
+msgstr "Adat vagy tábla törlése"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
