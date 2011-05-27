@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:21+0200\n"
+"PO-Revision-Date: 2011-05-27 18:22+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4458,10 +4458,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Egyéni szín"
+msgstr "Egyedi"
 
 #: libraries/config/setup.forms.php:287
 #: libraries/config/user_preferences.forms.php:189
