@@ -10246,10 +10246,9 @@ msgid "Propose table structure"
 msgstr "Táblaszerkezet ajánlása"
 
 #: tbl_structure.php:634
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "%s mező hozzáadása"
+msgstr "Oszlop hozzáadása"
 
 #: tbl_structure.php:648
 msgid "At End of Table"
