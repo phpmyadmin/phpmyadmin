@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 17:59+0200\n"
+"PO-Revision-Date: 2011-05-27 18:01+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4015,6 +4015,7 @@ msgstr "DROP VIEW hozzáadása"
 #: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Állítások listájának definiálása az új verziójú automata-létrehozások során."
 
 #: libraries/config/messages.inc.php:425
 #, fuzzy
