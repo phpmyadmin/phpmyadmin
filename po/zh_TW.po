@@ -2418,7 +2418,7 @@ msgstr "醒目顯示滑鼠指標停留的資料行"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "醒目指標"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
