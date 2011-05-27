@@ -3968,8 +3968,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Tábla a megjelenített táblák leírásához, hagyja üresen, ha nem kíván megadni "
-"leírást; javasolt: [kbd]pma_table_info[/kbd]"
+"Tábla a megjelenített oszlopok leírásához, hagyja üresen, ha nem kíván "
+"megadni leírást; javasolt: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #, fuzzy
