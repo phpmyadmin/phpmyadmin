@@ -2787,7 +2787,7 @@ msgstr "以協和標準時間 (UTC) 輸出時間"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "強制使用安全連接(https)進入 phpMyAdmin"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
