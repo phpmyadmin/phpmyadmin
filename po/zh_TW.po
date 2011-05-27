@@ -2840,7 +2840,7 @@ msgstr "開發"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "phpMyAdmin 開發設定"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
