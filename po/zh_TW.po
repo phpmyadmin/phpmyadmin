@@ -2782,9 +2782,8 @@ msgid "Enclose export in a transaction"
 msgstr "使用封裝輸出方式"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "輸出方式"
+msgstr "以協調世界時 (UTC) 導出時間"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
