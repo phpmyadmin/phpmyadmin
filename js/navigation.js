@@ -211,7 +211,7 @@ $(document).ready(function(){
         if (url.substring(0, 15) == "tbl_create.php?") {
              url = url.substring(15);
         }
-       	url = url +"&num_fields=1&ajax_request=true";
+       	url = url +"&num_fields=&ajax_request=true";
        	/*Creating a div on the frame_content frame */
        	var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
        	var target = "tbl_create.php";
