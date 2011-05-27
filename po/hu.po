@@ -4005,7 +4005,7 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"DROP VIEW IF EXISTS állítás hozzá lesz adva a napló első sora ként a nézet "
+"DROP VIEW IF EXISTS utasítás hozzá lesz adva a napló első sora ként a nézet "
 "létrehozása során."
 
 #: libraries/config/messages.inc.php:423
