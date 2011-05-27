@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 18:02+0200\n"
+"PO-Revision-Date: 2011-05-27 18:04+0200\n"
 "Last-Translator:  <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -4023,7 +4023,6 @@ msgid "Statements to track"
 msgstr "Utasítások követésre"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -4031,8 +4030,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs szükség az SQL-lekérdezések előzményeinek "
-"támogatására, alapértelmezés: [kbd]pma_history[/kbd]"
+"Hagyja üresen, ha nincs szükség az SQL-lekérdezések követésének "
+"támogatására, javasolt: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 #, fuzzy
