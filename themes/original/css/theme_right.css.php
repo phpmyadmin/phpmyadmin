@@ -678,6 +678,7 @@ ul#topmenu ul {
     list-style-type:    none;
     display:            none;
     border:             1px #666 solid;
+    z-index:            2;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
