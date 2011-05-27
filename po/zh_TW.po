@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-27 16:25+0200\n"
+"PO-Revision-Date: 2011-05-27 16:26+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -2885,7 +2885,7 @@ msgstr "輸入檔案"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
-msgstr "自定義導入選項的默認值"
+msgstr "自定輸入選項的預設值"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
