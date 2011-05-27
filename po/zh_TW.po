@@ -2813,7 +2813,7 @@ msgstr "外鍵限制"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
-msgstr ""
+msgstr "瀏覽模式"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
