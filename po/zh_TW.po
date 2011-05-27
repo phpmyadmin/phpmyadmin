@@ -2936,10 +2936,9 @@ msgid "Microsoft Office"
 msgstr "微軟 Office"
 
 #: libraries/config/messages.inc.php:185
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "說明文件"
+msgstr "開啟檔案"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
