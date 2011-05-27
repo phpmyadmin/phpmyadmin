@@ -2876,7 +2876,7 @@ msgstr "設定某些常用選項"
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "載入"
+msgstr "輸入"
 
 #: libraries/config/messages.inc.php:168
 #, fuzzy
