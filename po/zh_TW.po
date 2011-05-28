@@ -2241,7 +2241,6 @@ msgid "complete inserts"
 msgstr "使用完整新增指令"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "伸延新增模式"
