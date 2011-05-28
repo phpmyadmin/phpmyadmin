@@ -2199,7 +2199,6 @@ msgid "Open"
 msgstr "開啟"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
 msgstr "關閉"
