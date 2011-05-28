@@ -5833,7 +5833,7 @@ msgstr "Позволено"
 #: libraries/relation.lib.php:95 libraries/relation.lib.php:107
 #: pmd_relation_new.php:68
 msgid "General relation features"
-msgstr "Общи възможности на релациите"
+msgstr "Общи свойства на релациите"
 
 #: libraries/relation.lib.php:111
 msgid "Display Features"
