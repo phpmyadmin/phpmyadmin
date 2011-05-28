@@ -1077,6 +1077,25 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
+    <dt id="table_uiprefs">
+        <span id="cfg_Servers_table_uiprefs">$cfg['Servers'][$i]['table_uiprefs']</span> string
+    </dt>
+    <dd>
+        Since release 3.5.0 phpMyAdmin can be configured to remember several things
+        (table sorting
+        <a href="#cfg_RememberSorting" class="configrule">$cfg['RememberSorting']</a>
+        , etc.) for browsing tables.
+        Without configuring the storage, these features still can be used,
+        but the values will disappear after you logout.<br/><br/>
+
+        To allow the usage of these functionality persistently:
+
+        <ul>
+            <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['table_uiprefs']</tt> (e.g. 'pma_table_uiprefs')</li>
+        </ul>
+    </dd>
+
     <dt id="tracking">
         <span id="cfg_Servers_tracking">$cfg['Servers'][$i]['tracking']</span> string
     </dt>
@@ -1933,6 +1952,9 @@ $cfg['TrustedProxies'] =
         contain small values and still print them out. The vertical mode sorts
         each row on a vertical lineup.
     </dd>
+
+    <dt id="cfg_RememberSorting">$cfg['RememberSorting'] boolean</dt>
+    <dd>If enabled, when browsing tables, the sorting of each table is remembered.</dd>
 
     <dt id="cfg_HeaderFlipType">$cfg['HeaderFlipType'] string</dt>
     <dd>
