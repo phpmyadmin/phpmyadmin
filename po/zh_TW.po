@@ -1570,7 +1570,6 @@ msgid "Cardinality"
 msgstr "基數"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:272 tbl_tracking.php:321
-#, fuzzy
 msgid "Comment"
 msgstr "註解"
 
