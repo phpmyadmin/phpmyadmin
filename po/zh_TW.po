@@ -3132,7 +3132,7 @@ msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
-msgstr ""
+msgstr "該功能作用於在導入時腳本檢測到可能需要花費很長時間。儘管這會中斷事務，但在導入大文件時是個很好的方法。"
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
