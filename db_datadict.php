@@ -135,7 +135,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
     }
 
-    // Check if we can use Relations (Mike Beck)
+    // Check if we can use Relations
     if (!empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
         // an array

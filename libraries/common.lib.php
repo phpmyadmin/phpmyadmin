@@ -1090,7 +1090,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $edit_link = 'server_sql.php';
         }
 
-        // Want to have the query explained (Mike Beck 2002-05-22)
+        // Want to have the query explained
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explain_link = '';
@@ -1137,7 +1137,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
-        // php-code (Mike Beck 2002-05-22)
+        // php-code
         if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
             $php_params = $url_params;
 
