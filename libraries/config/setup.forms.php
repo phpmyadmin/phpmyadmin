@@ -74,6 +74,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'column_info' => 'pma_column_info',
     'history' => 'pma_history',
     'recent' => 'pma_recent',
+    'table_uiprefs' => 'pma_table_uiprefs',
     'tracking' => 'pma_tracking',
     'table_coords' => 'pma_table_coords',
     'pdf_pages' => 'pma_pdf_pages',
@@ -200,7 +201,8 @@ $forms['Main_frame']['Browse'] = array(
     'LimitChars',
     'ModifyDeleteAtLeft',
     'ModifyDeleteAtRight',
-    'DefaultDisplay');
+    'DefaultDisplay',
+    'RememberSorting');
 $forms['Main_frame']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
