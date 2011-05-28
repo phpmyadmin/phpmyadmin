@@ -2886,7 +2886,6 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:175
-#, fuzzy
 msgid "Databases display options"
 msgstr "資料庫輸出選項"
 
