@@ -2899,7 +2899,6 @@ msgstr "自定導覽頁框"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:110
-#, fuzzy
 msgid "Servers"
 msgstr "伺服器"
 
