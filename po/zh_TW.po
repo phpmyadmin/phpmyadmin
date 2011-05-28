@@ -3107,7 +3107,7 @@ msgstr "關閉 phpMyAdmin 發出的部分警告"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
-msgstr "允許在導入和導出時使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外鏈，英文)[/a] 壓縮"
+msgstr "允許在輸入和輸出資料時使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外連，英文)[/a] 壓縮"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
