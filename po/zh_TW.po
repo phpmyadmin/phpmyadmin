@@ -3101,7 +3101,7 @@ msgstr "警告"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "禁止部分 phpMyAdmin 發出的警告"
+msgstr "關閉 phpMyAdmin 發出的部分警告"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
