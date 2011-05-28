@@ -5837,7 +5837,7 @@ msgstr "Общи свойства на релациите"
 
 #: libraries/relation.lib.php:111
 msgid "Display Features"
-msgstr "Показване възможности"
+msgstr "Показване свойства"
 
 #: libraries/relation.lib.php:117
 msgid "Creation of PDFs"
