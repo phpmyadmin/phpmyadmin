@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-28 09:47+0200\n"
+"PO-Revision-Date: 2011-05-28 09:48+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3136,7 +3136,7 @@ msgstr "允許開啟指令檢查將可能花費較長的時間。這可能會導
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "部分匯入：允許中斷"
 
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
