@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-28 14:01+0200\n"
+"PO-Revision-Date: 2011-05-28 14:02+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9154,7 +9154,7 @@ msgstr "Изпразване на таблицата (TRUNCATE)"
 
 #: tbl_operations.php:712
 msgid "Delete the table (DROP)"
-msgstr "Изтриване на таблица (DROP)"
+msgstr "Изтриване на таблицата (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
