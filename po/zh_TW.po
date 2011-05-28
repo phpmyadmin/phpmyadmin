@@ -3121,7 +3121,7 @@ msgstr "iconv 的額外參數"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
-msgstr "如果打開此選項，在執行多語句查詢的時候，即使有一條或多條語句發生錯誤，phpMyAdmin 也會繼續執行其他的語句"
+msgstr "如果開啟此選項，在執行多語句查詢的時候，即使有一條或多條語句發生錯誤，phpMyAdmin 也會繼續執行其他的語句"
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
