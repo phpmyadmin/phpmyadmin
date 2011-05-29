@@ -2791,7 +2791,7 @@ msgstr "閲覧モード"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
-msgstr "表示モードの詳細設定"
+msgstr "閲覧モードの詳細設定"
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
