@@ -1384,7 +1384,7 @@ msgstr "星期日"
 #: js/messages.php:197
 #| msgid "Mon"
 msgid "Monday"
-msgstr "週一"
+msgstr "星期一"
 
 #: js/messages.php:198
 #| msgid "Tue"
