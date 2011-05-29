@@ -111,7 +111,8 @@ $forms['Main_frame']['Browse'] = array(
     'LimitChars',
     'ModifyDeleteAtLeft',
     'ModifyDeleteAtRight',
-    'DefaultDisplay');
+    'DefaultDisplay',
+    'RememberSorting');
 $forms['Main_frame']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',

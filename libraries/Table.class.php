@@ -11,6 +11,10 @@
  */
 class PMA_Table
 {
+    /**
+     * UI preferences property: sorted column
+     */
+    const PROP_SORTED_COLUMN = 'sorted_col';
 
     static $cache = array();
 
@@ -38,6 +42,11 @@ class PMA_Table
      * @var array   settings
      */
     var $settings = array();
+
+    /**
+     * @var array UI preferences
+     */
+    var $uiprefs;
 
     /**
      * @var array errors occured
@@ -1186,6 +1195,143 @@ class PMA_Table
         }
 
         return $return;
+    }
+
+    /**
+     * Return UI preferences for this table from phpMyAdmin database.
+     *
+     * @uses PMA_query_as_controluser()
+     * @uses PMA_DBI_fetch_array()
+     * @uses json_decode()
+     *
+     * @return array
+     */
+    protected function getUiPrefsFromDb()
+    {
+        $pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
+                     PMA_backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+
+        // Read from phpMyAdmin database
+        $sql_query =
+        " SELECT `prefs` FROM " . $pma_table .
+        " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'" .
+        " AND `db_name` = '" . $this->db_name . "'" .
+        " AND `table_name` = '" . $this->name . "'";
+
+        $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        if (isset($row[0])) {
+            return json_decode($row[0], true);
+        } else {
+            return array();
+        }
+    }
+
+    /**
+     * Save this table's UI preferences into phpMyAdmin database.
+     *
+     * @uses PMA_DBI_try_query()
+     * @uses json_decode()
+     * @uses PMA_Message
+     *
+     * @return true|PMA_Message
+     */
+    protected function saveUiPrefsToDb()
+    {
+        $pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
+                     PMA_backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+
+        $username = $GLOBALS['cfg']['Server']['user'];
+        $sql_query =
+        " REPLACE INTO " . $pma_table .
+        " VALUES ('" . $username . "', '" . $this->db_name . "', '" .
+                       $this->name . "', '" . PMA_sqlAddslashes(json_encode($this->uiprefs)) . "')";
+
+        $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+
+        if (!$success) {
+            $message = PMA_Message::error(__('Could not save table UI preferences'));
+            $message->addMessage('<br /><br />');
+            $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+            return $message;
+        }
+        return true;
+    }
+
+    /**
+     * Loads the UI preferences for this table.
+     * If pmadb and table_uiprefs is set, it will load the UI preferences from
+     * phpMyAdmin database.
+     *
+     * @uses getUiPrefsFromDb()
+     */
+    protected function loadUiPrefs()
+    {
+        // set session variable if it's still undefined
+        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$this->db_name][$this->name])) {
+            $_SESSION['tmp_user_values']['table_uiprefs'][$this->db_name][$this->name] =
+                    // check whether we can get from pmadb
+                    (strlen($GLOBALS['cfg']['Server']['pmadb'])
+                     && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])) ?
+                    $this->getUiPrefsFromDb() : array();
+        }
+        $this->uiprefs =& $_SESSION['tmp_user_values']['table_uiprefs'][$this->db_name][$this->name];
+    }
+
+    /**
+     * Get UI preferences array for this table.
+     * If pmadb and table_uiprefs is set, it will get the UI preferences from
+     * phpMyAdmin database.
+     *
+     * @return array
+     */
+    public function getUiPrefs()
+    {
+        if (! isset($this->uiprefs)) {
+            $this->loadUiPrefs();
+        }
+        return $this->uiprefs;
+    }
+
+    /**
+     * Get a property from UI preferences.
+     * Return false if the property is not found.
+     * Available property:
+     * - PROP_SORTED_COLUMN
+     *
+     * @uses loadUiPrefs()
+     *
+     * @param string $property
+     * @return mixed
+     */
+    public function getUiProp($property)
+    {
+        if (! isset($this->uiprefs)) {
+            $this->loadUiPrefs();
+        }
+        return isset($this->uiprefs[$property]) ? $this->uiprefs[$property] : false;
+    }
+
+    /**
+     * Set a property from UI preferences.
+     * If pmadb and table_uiprefs is set, it will save the UI preferences to
+     * phpMyAdmin database.
+     *
+     * @param string $property
+     * @param mixed $value
+     * @return true|PMA_Message
+     */
+    public function setUiProp($property, $value)
+    {
+        if (! isset($this->uiprefs)) {
+            $this->loadUiPrefs();
+        }
+        $this->uiprefs[$property] = $value;
+        // check if pmadb is set
+        if (strlen($GLOBALS['cfg']['Server']['pmadb'])
+                && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])) {
+            return $this->saveUiprefsToDb();
+        }
+        return true;
     }
 }
 ?>

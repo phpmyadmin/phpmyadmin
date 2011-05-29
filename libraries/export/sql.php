@@ -777,7 +777,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
 
     $schema_create = '';
 
-    // Check if we can use Relations (Mike Beck)
+    // Check if we can use Relations
     if ($do_relation && !empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
         // an array

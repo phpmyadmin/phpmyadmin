@@ -1091,10 +1091,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $edit_link = 'server_sql.php';
         }
 
-        // Want to have the query explained (Mike Beck 2002-05-22)
+        // Want to have the query explained
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explain_link = '';
+        $is_select = false;
         if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
             $explain_params = $url_params;
             // Detect if we are validating as well
@@ -1102,7 +1103,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             if (! empty($GLOBALS['validatequery'])) {
                 $explain_params['validatequery'] = 1;
             }
-            $is_select = false;
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                 $_message = __('Explain SQL');
@@ -1138,7 +1138,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
-        // php-code (Mike Beck 2002-05-22)
+        // php-code
         if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
             $php_params = $url_params;
 
