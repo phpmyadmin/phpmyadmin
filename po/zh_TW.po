@@ -1416,7 +1416,7 @@ msgstr "週日"
 #. l10n: Short week day name
 #: js/messages.php:208 libraries/common.lib.php:1596
 msgid "Mon"
-msgstr "一"
+msgstr "週一"
 
 #. l10n: Short week day name
 #: js/messages.php:210 libraries/common.lib.php:1598
