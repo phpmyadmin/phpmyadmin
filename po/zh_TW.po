@@ -1200,7 +1200,7 @@ msgstr "Mon"
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr ""
+msgstr "有新的 phpMyAdmin 可用，請考慮升級。最新的版本是 %s，於 %s 發佈。"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:119
@@ -1246,7 +1246,7 @@ msgstr "二進制碼"
 
 #: js/messages.php:147
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 #: js/messages.php:148
 #, fuzzy
@@ -1284,7 +1284,7 @@ msgstr "Aug"
 
 #: js/messages.php:154
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 #: js/messages.php:155
 #, fuzzy
@@ -1294,11 +1294,11 @@ msgstr "Oct"
 
 #: js/messages.php:156
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
 #: js/messages.php:157
 msgid "December"
-msgstr ""
+msgstr "十二月"
 
 #. l10n: Short month name
 #: js/messages.php:161 libraries/common.lib.php:1569
@@ -1383,11 +1383,11 @@ msgstr "Tue"
 
 #: js/messages.php:189
 msgid "Wednesday"
-msgstr ""
+msgstr "星期三"
 
 #: js/messages.php:190
 msgid "Thursday"
-msgstr ""
+msgstr "星期四"
 
 #: js/messages.php:191
 #, fuzzy
@@ -1397,7 +1397,7 @@ msgstr "Fri"
 
 #: js/messages.php:192
 msgid "Saturday"
-msgstr ""
+msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:196 libraries/common.lib.php:1594
@@ -1486,11 +1486,11 @@ msgstr "Sat"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:226
 msgid "Wk"
-msgstr ""
+msgstr "週"
 
 #: js/messages.php:228
 msgid "Hour"
-msgstr ""
+msgstr "時"
 
 #: js/messages.php:229
 #, fuzzy
@@ -1506,37 +1506,37 @@ msgstr "每秒"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr ""
+msgstr "字體大小"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "上傳文件的大小超過 php.ini 文件中 upload_max_filesize 的限制。"
 
 #: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "上傳文件的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值。"
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "僅上傳了文件的部分內容。"
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "找不到暫存資料夾。"
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "檔案存入磁碟失敗"
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "檔案上傳因為擴充功能而停止"
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "檔案上傳時發生未知錯誤"
 
 #: libraries/File.class.php:559
 #, fuzzy
@@ -1562,7 +1562,7 @@ msgstr "唯一鍵 UNIQUE"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:317
 msgid "Packed"
-msgstr ""
+msgstr "緊湊"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:319
 msgid "Cardinality"
@@ -1595,7 +1595,7 @@ msgstr "索引 %s 已被刪除"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr ""
+msgstr "索引 %1$s 和 %2$s 可能是相同的，建議可刪除其中一組"
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:174
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1655,16 +1655,16 @@ msgstr "這 MySQL 版本並不接受 %s 儲存引擎."
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr ""
+msgstr "無效的資料庫"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "無效的資料表名"
 
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "將資料表 %1$s 改名為 %2$s 時發生錯誤"
 
 #: libraries/Table.class.php:1129
 #, php-format
@@ -1747,7 +1747,7 @@ msgstr "phpMyAdmin 說明文件"
 #: libraries/auth/cookie.auth.lib.php:243
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "您可以輸入以空格分隔的主機名/IP位址和Port編號。"
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
@@ -1773,7 +1773,7 @@ msgstr "Cookies 必須啟動才能登入."
 #: libraries/auth/signon.auth.lib.php:206
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "禁止使用空密碼登入 (請參考 [AllowNoPassword] 設定說明)"
 
 #: libraries/auth/cookie.auth.lib.php:647
 #: libraries/auth/signon.auth.lib.php:210
@@ -1794,24 +1794,24 @@ msgstr "錯誤的使用者名稱或密碼，拒絕存取"
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "檔案 %s 未包含任何密鑰"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "硬體認證失敗"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "沒有插入可用的密鑰"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "認證中..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS 錯誤"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
@@ -1821,36 +1821,36 @@ msgstr "MySQL 連線校對"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS 擷取 BLOB 資訊失敗："
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "擷取 BLOB 內容型別失敗"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "檢視圖片"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "播放音樂"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "檢視影片"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "下載檔案"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "無法開啟檔案：%s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "已分享"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:180 libraries/export/xml.php:36
@@ -1889,7 +1889,7 @@ msgstr "沒有資料庫"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "未複製"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
@@ -1913,7 +1913,7 @@ msgstr "資料列統計數值"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
-msgstr ""
+msgstr "查詢執行時間比對 (單位：微秒)"
 
 #: libraries/chart.lib.php:83
 #, fuzzy
@@ -1923,15 +1923,15 @@ msgstr "查詢結果操作"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "未找到圖表所需資料。"
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
-msgstr ""
+msgstr "繪製圖表需要 GD 元件。"
 
 #: libraries/chart.lib.php:252
 msgid "JSON encoder is needed for chart tooltips."
-msgstr ""
+msgstr "繪製圖表提示訊息提示需要 JSON 元件"
 
 #: libraries/common.inc.php:576
 msgid ""
@@ -2030,7 +2030,7 @@ msgstr "MySQL 傳回： "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "連接到 SQL 驗證失敗！"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:462
 msgid "Explain SQL"
@@ -2063,7 +2063,7 @@ msgstr "檢查 SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "在此次查詢中，使用快速編輯"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
@@ -2073,7 +2073,7 @@ msgstr "引擎"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
-msgstr ""
+msgstr "概要"
 
 #: libraries/common.lib.php:1355 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
@@ -2154,7 +2154,7 @@ msgstr "跳到資料庫 &quot;%s&quot;."
 #: libraries/common.lib.php:2466
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s 功能受到一個已知的缺陷 (bug) 影響，請參考 %s"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/common.lib.php:3018 libraries/config/setup.forms.php:291
@@ -2191,7 +2191,7 @@ msgstr "管理"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "瀏覽你的電腦："
 
 #: libraries/common.lib.php:2979
 #, fuzzy, php-format
@@ -2206,15 +2206,15 @@ msgstr "設定之上載目錄錯誤，未能使用"
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "沒有可上傳的檔案"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "全部"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: libraries/config.values.php:74
 #, fuzzy
@@ -2234,7 +2234,7 @@ msgstr "結構"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "資料"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2246,15 +2246,15 @@ msgstr "結構與資料"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "快速 - 僅顯示必須的設定項"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "自行定義 - 顯示所有可用的設定項"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "自行定義 - 不顯示 快速/自定義 選擇"
 
 #: libraries/config.values.php:119
 #, fuzzy
@@ -2270,43 +2270,43 @@ msgstr "伸延新增模式"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "以上兼有"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "以上均不"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "輸入值不是正數"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "輸入值不是非負數"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "錯誤的Port編號"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "輸入的值不正確"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "輸入的值應小於等於 %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "在 %s 中遺失資料"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
@@ -2319,21 +2319,21 @@ msgstr "資訊"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "「%s」功能需要 %s 元件"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "缺少函數 (%s)，導入資料功能無效"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "缺少函數 (%s)，導出資料功能無效"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL 驗證已停用"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy
@@ -2344,11 +2344,11 @@ msgstr "找不到連結"
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "最大 %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "此設定已禁用，無法套用到你的設定中"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2358,16 +2358,16 @@ msgstr "未啟動"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "設定值: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:350
 msgid "Restore default value"
-msgstr ""
+msgstr "還原預設值"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "允許使用者自定資料"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
@@ -2377,7 +2377,7 @@ msgstr "重設"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "提高更新效率"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
@@ -2388,7 +2388,7 @@ msgstr "啟動"
 #: libraries/config/messages.inc.php:19
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr ""
+msgstr "如果啟用，使用者可以在 cookie 認證方式中輸入任意 MySQL 伺服器"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
@@ -2401,50 +2401,54 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"開啟這個功能將允許其它不同網域的網頁透過頁框嵌入使用 phpMyAdmin，這將允許潛在"
+"的跨框架腳本攻擊[strong]安全漏洞[/strong]"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "允許第三方框架"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "顯示 [刪除資料庫] 連結給普通使用者"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr ""
+msgstr "在cookie認證方式下用於加密 cookies 的加密字串"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "加密字串"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "醒目顯示選取的資料行"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "標記資料行"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "醒目顯示滑鼠指標停留的資料行"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "醒目指標"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"輸入及輸出資料時，開啟[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮功"
+"能"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2452,59 +2456,64 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"定義編輯 CHAR 和 VARCHAR 資料欄位時應使用哪一種輸入形式，[kbd]一般輸入框 "
+"(input)[/kbd] - 可以限制輸入長度，[kbd]輸入區塊 (textarea)[/kbd] - 可以輸入多"
+"行資料"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "編輯CHAR 資料欄位"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR欄位輸入區塊的列數"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR 欄位輸入區塊"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR欄位輸入區塊的行數"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "CHAR 輸入區塊資料行"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "檢查設定檔案文件的權限"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"使用較少的記憶體進行gzip/bzip2即時壓縮。如果建立壓縮檔按時發生錯誤，請關閉此"
+"選項。"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "即時壓縮"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
 msgid "Configuration file"
-msgstr ""
+msgstr "設定檔案"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
-msgstr ""
+msgstr "當SQL命令將可能刪除資料時，是否顯示警告訊息：(&quot;您真的要...&quot;)"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "警示確認刪除(DROP)命令"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL指令偵錯"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
@@ -2516,14 +2525,16 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模式的"
+"最大數值"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "修改/新建欄位時的顯示模式"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "在進入資料庫頁籤時預設的顯示頁面"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
@@ -2532,47 +2543,47 @@ msgstr "更改資料庫名稱到"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "在進入伺服器頁籤時預設顯示的頁面"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "預設伺服器頁籤"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "在進入資料表頁籤時預設顯示的頁面"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "預設資料表頁籤"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "預設以十六進位顯示二進位內容"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:585
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "以十六進位顯示二進位內容"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "直接顯示資料庫列表而不使用下拉選單"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "將資料庫用列表方式顯示"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "直接顯示伺服器列表，而不使用下拉選單"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "將伺服器用列表方式顯示"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "在新的彈出視窗中編輯SQL指令"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
@@ -2588,25 +2599,25 @@ msgstr "功能顯示"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
-msgstr ""
+msgstr "收集錯誤"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "在警告、錯誤和訊息上顯示圖示"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "圖示錯誤"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr ""
+msgstr "設定指令最長執行時間 (單位：秒，[kbd]0[/kbd] 為不限制)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "最長執行時間"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2666,7 +2677,7 @@ msgstr "將 NULL 取代為"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "刪除欄位中的換行符號"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:62
@@ -2749,7 +2760,7 @@ msgstr "輸出方式"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "儲存在伺服器上"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2774,7 +2785,7 @@ msgstr "SQL 兼容模式"
 
 #: libraries/config/messages.inc.php:120
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "在插入資料時使用的語法"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2790,7 +2801,7 @@ msgstr "暫定外來鍵 (Foreign Key) 檢查"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "BLOB 資料使用16進位"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
@@ -2816,37 +2827,39 @@ msgstr "輸出方式"
 
 #: libraries/config/messages.inc.php:145
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "強制使用安全連線方式進入 phpMyAdmin"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force SSL connection"
-msgstr ""
+msgstr "強制 SSL 連線"
 
 #: libraries/config/messages.inc.php:147
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"外鍵下拉選單中選項的排序順序，[kbd]content[/kbd] 為關聯內容，[kbd]id[/kbd] 為"
+"鍵值"
 
 #: libraries/config/messages.inc.php:148
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "外鍵下拉選單順序"
 
 #: libraries/config/messages.inc.php:149
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "下拉框中選項數量的限制"
 
 #: libraries/config/messages.inc.php:150
 msgid "Foreign key limit"
-msgstr ""
+msgstr "外鍵限制"
 
 #: libraries/config/messages.inc.php:151
 msgid "Browse mode"
-msgstr ""
+msgstr "瀏覽模式"
 
 #: libraries/config/messages.inc.php:152
 msgid "Customize browse mode"
-msgstr ""
+msgstr "自定瀏覽模式"
 
 #: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:156
 #: libraries/config/messages.inc.php:173 libraries/config/messages.inc.php:184
@@ -2866,32 +2879,32 @@ msgstr "CSV 資料"
 
 #: libraries/config/messages.inc.php:157
 msgid "Developer"
-msgstr ""
+msgstr "開發"
 
 #: libraries/config/messages.inc.php:158
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "phpMyAdmin 開發設定"
 
 #: libraries/config/messages.inc.php:159
 msgid "Edit mode"
-msgstr ""
+msgstr "編輯模式"
 
 #: libraries/config/messages.inc.php:160
 msgid "Customize edit mode"
-msgstr ""
+msgstr "自定編輯模式"
 
 #: libraries/config/messages.inc.php:162
 msgid "Export defaults"
-msgstr ""
+msgstr "輸出選項"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize default export options"
-msgstr ""
+msgstr "自定輸出預設值"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:206
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "功能"
 
 #: libraries/config/messages.inc.php:165
 #, fuzzy
@@ -2901,7 +2914,7 @@ msgstr "產生"
 
 #: libraries/config/messages.inc.php:166
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "設定某些常用選項"
 
 #: libraries/config/messages.inc.php:167 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2916,15 +2929,15 @@ msgstr "輸入檔案"
 
 #: libraries/config/messages.inc.php:169
 msgid "Customize default common import options"
-msgstr ""
+msgstr "自定輸入選項的預設值"
 
 #: libraries/config/messages.inc.php:170
 msgid "Import / export"
-msgstr ""
+msgstr "輸入 / 輸出"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "設定輸入和輸出資料夾以及壓縮選項"
 
 #: libraries/config/messages.inc.php:172 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2937,11 +2950,11 @@ msgstr "資料庫輸出選項"
 
 #: libraries/config/messages.inc.php:176 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "導覽頁框"
 
 #: libraries/config/messages.inc.php:177
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "自定導覽頁框"
 
 #: libraries/config/messages.inc.php:178 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2951,15 +2964,15 @@ msgstr "伺服器"
 
 #: libraries/config/messages.inc.php:179
 msgid "Servers display options"
-msgstr ""
+msgstr "伺服器顯示選項"
 
 #: libraries/config/messages.inc.php:181
 msgid "Tables display options"
-msgstr ""
+msgstr "資料表顯示選項"
 
 #: libraries/config/messages.inc.php:182 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "主頁框"
 
 #: libraries/config/messages.inc.php:183
 #, fuzzy
@@ -2975,11 +2988,11 @@ msgstr "說明文件"
 
 #: libraries/config/messages.inc.php:187
 msgid "Other core settings"
-msgstr ""
+msgstr "其他核心設定"
 
 #: libraries/config/messages.inc.php:188
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "其他設定"
 
 #: libraries/config/messages.inc.php:189
 #, fuzzy
@@ -2993,6 +3006,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"設定瀏覽器標題欄所顯示的文字。參見[a@Documentation.html#cfg_TitleTable]文件[/"
+"a]中關於可以取得特殊值的魔術字串符號。"
 
 #: libraries/config/messages.inc.php:191
 #: libraries/navigation_header.inc.php:83
@@ -3003,21 +3018,21 @@ msgstr "查詢視窗"
 
 #: libraries/config/messages.inc.php:192
 msgid "Customize query window options"
-msgstr ""
+msgstr "自定查詢視窗選項"
 
 #: libraries/config/messages.inc.php:193
 msgid "Security"
-msgstr ""
+msgstr "安全"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr ""
+msgstr "注意：phpMyAdmin 只是一個使用者介面，其設定不會對 MySQL 有任何限制"
 
 #: libraries/config/messages.inc.php:195
 msgid "Basic settings"
-msgstr ""
+msgstr "基本設定"
 
 #: libraries/config/messages.inc.php:196
 #, fuzzy
@@ -3032,21 +3047,21 @@ msgstr "複製"
 
 #: libraries/config/messages.inc.php:198
 msgid "Server configuration"
-msgstr ""
+msgstr "伺服器設定"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr ""
+msgstr "進階伺服器設定，如果你不知道這些是什麼，請不要修改"
 
 #: libraries/config/messages.inc.php:200
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "伺服器連接參數"
 
 #: libraries/config/messages.inc.php:201
 msgid "Configuration storage"
-msgstr ""
+msgstr "儲存設定"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
@@ -3054,16 +3069,18 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"設定 phpMyAdmin 進階功能，參見文件[a@Documentation.html#linked-tables]"
+"phpMyAdmin 進階功能[/a]"
 
 #: libraries/config/messages.inc.php:203
 msgid "Changes tracking"
-msgstr ""
+msgstr "修改追蹤"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "追蹤資料庫的修改。需要開啟 phpMyAdmin 進階功能。"
 
 #: libraries/config/messages.inc.php:205
 #, fuzzy
@@ -3072,15 +3089,15 @@ msgstr "資料庫輸出選項"
 
 #: libraries/config/messages.inc.php:207
 msgid "Customize import defaults"
-msgstr ""
+msgstr "自定輸入預設值"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "自定導覽頁框"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize main frame"
-msgstr ""
+msgstr "自定主頁框"
 
 #: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:215
 #: setup/frames/menu.inc.php:17
@@ -3095,7 +3112,7 @@ msgstr "SQL 語法"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "自定顯示在 SQL 語法輸入框中的連結"
 
 #: libraries/config/messages.inc.php:216
 #, fuzzy
@@ -3115,6 +3132,9 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"若要使用 SQL 驗證服務，請注意[strong]所有 SQL 語句將出於統計目的而被匿名存儲"
+"[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL 驗證服務[/a]，"
+"版權所有 2002 Upright Database Technology. 保留所有權利。[/em]"
 
 #: libraries/config/messages.inc.php:219
 #, fuzzy
@@ -3123,7 +3143,7 @@ msgstr "狀態"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize startup page"
-msgstr ""
+msgstr "自定起始頁"
 
 #: libraries/config/messages.inc.php:221
 #, fuzzy
@@ -3132,7 +3152,7 @@ msgstr "資料表"
 
 #: libraries/config/messages.inc.php:222
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "選擇你希望頁籤如何運作"
 
 #: libraries/config/messages.inc.php:223
 #, fuzzy
@@ -3147,39 +3167,43 @@ msgstr "資料庫輸出選項"
 
 #: libraries/config/messages.inc.php:225 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! 格式文字"
 
 #: libraries/config/messages.inc.php:227
 msgid "Warnings"
-msgstr ""
+msgstr "警告"
 
 #: libraries/config/messages.inc.php:228
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "關閉 phpMyAdmin 發出的部分警告"
 
 #: libraries/config/messages.inc.php:229
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"允許在輸入和輸出資料時使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外連，"
+"英文)[/a] 壓縮"
 
 #: libraries/config/messages.inc.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:231
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "iconv 的額外參數"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"如果開啟此選項，在執行多語句查詢的時候，即使有一條或多條語句發生錯誤，"
+"phpMyAdmin 也會繼續執行其他的語句"
 
 #: libraries/config/messages.inc.php:233
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "忽略執行多指令時的語句錯誤"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
@@ -3187,10 +3211,12 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"允許開啟指令檢查將可能花費較長的時間。這可能會導致輸入資料中段，但在輸入大量"
+"資料時還是一個推薦的方法。"
 
 #: libraries/config/messages.inc.php:235
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "部分匯入：允許中斷"
 
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:247
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39

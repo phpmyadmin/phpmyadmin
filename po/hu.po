@@ -3914,34 +3914,41 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"DROP DATABASE IF EXISTS utasítás hozzá lesz adva a napló első sora ként az "
+"adatbázis létrehozása során."
 
 #: libraries/config/messages.inc.php:419
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "DROP DATABASE hozzáadása"
 
 #: libraries/config/messages.inc.php:420
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"DROP TABLE IF EXISTS utasítás hozzá lesz adva a napló első sora ként a tábla "
+"létrehozása során."
 
 #: libraries/config/messages.inc.php:421
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE hozzáadása"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"DROP VIEW IF EXISTS utasítás hozzá lesz adva a napló első sora ként a nézet "
+"létrehozása során."
 
 #: libraries/config/messages.inc.php:423
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "DROP VIEW hozzáadása"
 
 #: libraries/config/messages.inc.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Állítások listájának definiálása az új verziójú automata-létrehozások során."
 
 #: libraries/config/messages.inc.php:425
 #, fuzzy
@@ -4155,7 +4162,7 @@ msgstr "A zárolt táblák kihagyása"
 
 #: libraries/config/messages.inc.php:465
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Szükséges az SQL Validator engedélyezése"
 
 #: libraries/config/messages.inc.php:467
 #: libraries/display_change_password.lib.php:40
@@ -4175,13 +4182,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:469
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "SQL Validator engedélyezése"
 
 #: libraries/config/messages.inc.php:470
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Ha Önnek egyedi felhasználóneve van, itt megnevezheti (alapértelmezett: [kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:405
 #: tbl_tracking.php:456
@@ -4203,11 +4212,11 @@ msgstr "Új adatbázisnév javasolása"
 
 #: libraries/config/messages.inc.php:474
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Figyelmeztetés megjelenítése a főoldalon, Suhosin észlelésekor"
 
 #: libraries/config/messages.inc.php:475
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin figyelmeztetés"
 
 #: libraries/config/messages.inc.php:476
 msgid ""
@@ -4235,11 +4244,11 @@ msgstr "CHAR szövegterület sorai"
 
 #: libraries/config/messages.inc.php:480
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha ki van választva egy adatbázis"
 
 #: libraries/config/messages.inc.php:482
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha semmi sincs kiválasztva"
 
 #: libraries/config/messages.inc.php:483
 #, fuzzy
@@ -4249,11 +4258,11 @@ msgstr "Alapértelmezett tábla fül"
 
 #: libraries/config/messages.inc.php:484
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha ki van választva egy szerver"
 
 #: libraries/config/messages.inc.php:486
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "A böngésző ablak címe, ha ki van választva egy tábla"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
@@ -4373,14 +4382,14 @@ msgstr "CSV a LOAD DATA használatával"
 #: libraries/config/user_preferences.forms.php:245 libraries/export/xls.php:17
 #: libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/config/setup.forms.php:252 libraries/config/setup.forms.php:347
 #: libraries/config/user_preferences.forms.php:155
 #: libraries/config/user_preferences.forms.php:249
 #: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX Workbook"
 
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:158
@@ -4392,7 +4401,7 @@ msgstr "Open Document munkafüzet"
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
-msgstr ""
+msgstr "Quick"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:169
@@ -4468,7 +4477,7 @@ msgstr "en"
 #: libraries/core.lib.php:278
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "A %s kiterjesztés hiányzik. Kérem ellenőrizze a PHP beállításokat."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:493
@@ -4489,7 +4498,7 @@ msgstr "Üresnek tűnik az adatbázis!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:143
 #: libraries/tbl_links.inc.php:90
 msgid "Tracking"
-msgstr ""
+msgstr "Követés"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
@@ -4623,7 +4632,7 @@ msgstr "Exportálás típusa"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Gyors - csak minimális opció megjelenítése"
 
 #: libraries/display_export.lib.php:129
 #, fuzzy
@@ -4661,7 +4670,7 @@ msgstr "Mezők száma"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Ettől a sortól kezdve:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
@@ -4669,7 +4678,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Kimenet:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 #, fuzzy, php-format
@@ -4691,15 +4700,15 @@ msgstr "Fájlnévsablon"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ lesz a szerver neve"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ lesz az adatbázis neve"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ lesz a tábla neve"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
@@ -4718,7 +4727,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
-msgstr ""
+msgstr "használja ezt a későbbi exportálásokhoz"
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:517
@@ -9707,7 +9716,7 @@ msgstr "Beszúrás új sorként"
 
 #: tbl_change.php:1059
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Új sor beillesztése és a hibák figyelmen kívül hagyása"
 
 #: tbl_change.php:1060
 #, fuzzy
@@ -9799,11 +9808,11 @@ msgstr "márc."
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "Vonal"
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 #: tbl_chart.php:138
 #, fuzzy
@@ -9825,11 +9834,11 @@ msgstr "Csomagolt"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Többszörös"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Folyamatos kép"
 
 #: tbl_chart.php:155
 msgid ""
@@ -10130,7 +10139,7 @@ msgstr "A különböző értékek tallózása"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
-msgstr ""
+msgstr "Elsődleges kuly hozzáadása"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
@@ -10142,7 +10151,7 @@ msgstr "Elsődleges kulcs hozzáadása"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT index hozzáadása"
 
 #: tbl_structure.php:385
 #, fuzzy
@@ -10256,7 +10265,7 @@ msgstr ""
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
-msgstr ""
+msgstr "Nyomkövetési utasítások"
 
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
@@ -10270,19 +10279,19 @@ msgstr "Adatok"
 
 #: tbl_tracking.php:406
 msgid "Data definition statement"
-msgstr ""
+msgstr "Adat definiáló utasítás"
 
 #: tbl_tracking.php:457
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Adat manipuláló utasítás"
 
 #: tbl_tracking.php:501
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL dump (fájl letöltés)"
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL dump"
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
