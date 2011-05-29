@@ -3237,8 +3237,7 @@ msgstr "データベースツリーの区切り"
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr ""
-"軽快版のみ。下の項目で定義する区切りが合った場合、ツリー表示になります。"
+msgstr "軽快モードのみ。下の項目で定義する区切りが合った場合、ツリー表示になります。"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display databases in a tree"
