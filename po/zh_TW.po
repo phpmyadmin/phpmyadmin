@@ -2175,7 +2175,7 @@ msgid "Browse your computer:"
 msgstr "瀏覽你的電腦："
 
 #: libraries/common.lib.php:2979
-#, php-format
+#, php-format, fuzzy
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web 伺服器上傳目錄"
