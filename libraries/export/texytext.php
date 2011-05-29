@@ -192,7 +192,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $result      = PMA_DBI_query($local_query);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
-    // Check if we can use Relations (Mike Beck)
+    // Check if we can use Relations
     if ($do_relation && ! empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
         // an array
