@@ -1402,7 +1402,7 @@ msgstr "星期四"
 #: js/messages.php:201
 #| msgid "Fri"
 msgid "Friday"
-msgstr "週五"
+msgstr "星期五"
 
 #: js/messages.php:202
 msgid "Saturday"
