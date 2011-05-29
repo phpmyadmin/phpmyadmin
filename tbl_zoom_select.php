@@ -12,6 +12,7 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/tbl_select.lib.php';
 
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
@@ -55,39 +56,14 @@ if (! isset($zoom_submit)) {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
-    $fields_cnt = PMA_DBI_num_rows($result);
-    $fields_list = $fields_null = $fields_type = $fields_collation = array();
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $fields_list[] = $row['Field'];
-        $type          = $row['Type'];
-        // reformat mysql query output
-        if (strncasecmp($type, 'set', 3) == 0
-            || strncasecmp($type, 'enum', 4) == 0) {
-            $type = str_replace(',', ', ', $type);
-        } else {
 
-            // strip the "BINARY" attribute, except if we find "BINARY(" because
-            // this would be a BINARY or VARBINARY field type
-            if (!preg_match('@BINARY[\(]@i', $type)) {
-                $type = preg_replace('@BINARY@i', '', $type);
-            }
-            $type = preg_replace('@ZEROFILL@i', '', $type);
-            $type = preg_replace('@UNSIGNED@i', '', $type);
+    $fields_array = PMA_tbl_getFields($table,$db);
+    $fields_list = $fields_array[0];
+    $fields_type = $fields_array[1];
+    $fields_collation = $fields_array[2];
+    $fields_null = $fields_array[3];
+    $fields_cnt = count($fields_list);
 
-            $type = strtolower($type);
-        }
-        if (empty($type)) {
-            $type = '&nbsp;';
-        }
-        $fields_null[] = $row['Null'];
-        $fields_type[] = $type;
-        $fields_collation[] = !empty($row['Collation']) && $row['Collation'] != 'NULL'
-                          ? $row['Collation']
-                          : '';
-    } // end while
-    PMA_DBI_free_result($result);
-    unset($result, $type);
 
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
@@ -105,21 +81,7 @@ $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
-$subtabs = array();
-
-$subtabs['search']['icon'] = 'b_search.png';
-$subtabs['search']['text'] = __('Table Search');
-$subtabs['search']['link'] = 'tbl_select.php';
-$subtabs['search']['id'] = 'tbl_search_id';
-$subtabs['search']['args']['pos'] = 0;
-
-$subtabs['zoom']['icon'] = 'b_props.png';
-$subtabs['zoom']['link'] = 'tbl_zoom_select.php';
-$subtabs['zoom']['text'] = __('Zoom Search');
-$subtabs['zoom']['id'] = 'zoom_search_id';
-
-echo PMA_generate_html_tabs($subtabs, $url_params);
-unset($subtabs);
+echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 ?>
 
 <?php /* Form for Zoom Search input */ 
@@ -332,86 +294,17 @@ else {
 	    $sql_query .= ' FROM ' . PMA_backquote($table);
 
 	    // The where clause
-	    $w = $charsets = array();
+	    $charsets = array();
 	    $cnt_func = count($zoomFunc[$i]);
 	    reset($zoomFunc[$i]);
 	    $func_type = $zoomFunc[$i];
 	    list($charsets[$i]) = explode('_', $collations[$i]);
-	    if (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
-
-		    $fields[$i] = '';
-		    $w[] = PMA_backquote($inputs[$i]) . ' ' . $func_type;
-
-	    } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
-		    if (!empty($fields[$i])) {
-			    if (!is_array($fields[$i])) {
-				    $fields[$i] = explode(',', $fields[$i]);
-			    }
-			    $enum_selected_count = count($fields[$i]);
-			    if ($func_type == '=' && $enum_selected_count > 1) {
-				    $func_type    = $func[$i] = 'IN';
-				    $parens_open  = '(';
-				    $parens_close = ')';
-
-			    } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-				    $func_type    = $func[$i] = 'NOT IN';
-				    $parens_open  = '(';
-				    $parens_close = ')';
-			    } else {
-				    $parens_open  = '';
-				    $parens_close = '';
-			    }
-			    $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
-			    for ($e = 1; $e < $enum_selected_count; $e++) {
-				    $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
-			    }
-
-			    $w[] = PMA_backquote($inputs[$i]) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
-		    }
-
-	    } elseif ($fields[$i] != '') {
-		    // For these types we quote the value. Even if it's another type (like INT),
-		    // for a LIKE we always quote the value. MySQL converts strings to numbers
-		    // and numbers to strings as necessary during the comparison
-		    if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types[$i]) || strpos(' ' . $func_type, 'LIKE')) {
-			    $quot = '\'';
-		    } else {
-			    $quot = '';
-		    }
-
-		    // LIKE %...%
-		    if ($func_type == 'LIKE %...%') {
-			    $func_type = 'LIKE';
-			    $fields[$i] = '%' . $fields[$i] . '%';
-		    }
-		    if ($func_type == 'REGEXP ^...$') {
-			    $func_type = 'REGEXP';
-			    $fields[$i] = '^' . $fields[$i] . '$';
-		    }
-
-		    if ($func_type == 'IN (...)' || $func_type == 'NOT IN (...)' || $func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
-			    $func_type = str_replace(' (...)', '', $func_type);
-
-			    // quote values one by one
-			    $values = explode(',', $fields[$i]);
-			    foreach ($values as &$value)
-				    $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
-
-			    if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
-				    $w[] = PMA_backquote($inputs[$i]) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
-			    else
-				    $w[] = PMA_backquote($inputs[$i]) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
-		   }
-		   else {
-			    $w[] = PMA_backquote($inputs[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;;
-		    }
-
-	 	} // end if
-
-	    if ($w) {
-		    $sql_query .= ' WHERE ' . implode(' AND ', $w);
+	    $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
+            $w = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
+	    if ($w != '') {
+		    $sql_query .= ' WHERE ' . $w;
 	    }
-	    echo $sql_query."<br>";
+	    print $sql_query."<br>";
 	}
 }
 
