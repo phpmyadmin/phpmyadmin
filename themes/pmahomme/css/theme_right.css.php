@@ -1193,16 +1193,6 @@ div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
     white-space: nowrap;
 }
-div#serverstatus div#statuslinks a:before,
-div#serverstatus div#sectionlinks a:before,
-div#serverstatus table tbody td.descr a:before,
-div#serverstatus table .tblFooters a:before {
-}
-div#serverstatus div#statuslinks a:after,
-div#serverstatus div#sectionlinks a:after,
-div#serverstatus table tbody td.descr a:after,
-div#serverstatus table .tblFooters a:after {
-}
 /* end serverstatus */
 
 /* querywindow */
@@ -1266,11 +1256,9 @@ div#querywindowcontainer fieldset {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-
 	box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
-
 }
 #sectionlinks a, #statuslinks a{
 	font-size:0.88em;
@@ -1283,6 +1271,7 @@ div#querywindowcontainer fieldset {
 	color: #111;
 	text-decoration: none;
 	background: #ddd;
+    white-space: nowrap;
 	border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;

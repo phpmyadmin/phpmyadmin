@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-25 12:05+0200\n"
+"PO-Revision-Date: 2011-05-28 14:02+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5833,11 +5833,11 @@ msgstr "Позволено"
 #: libraries/relation.lib.php:95 libraries/relation.lib.php:107
 #: pmd_relation_new.php:68
 msgid "General relation features"
-msgstr "Общи възможности на релациите"
+msgstr "Общи свойства на релациите"
 
 #: libraries/relation.lib.php:111
 msgid "Display Features"
-msgstr "Покажи възможностите"
+msgstr "Показване свойства"
 
 #: libraries/relation.lib.php:117
 msgid "Creation of PDFs"
@@ -5868,7 +5868,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:151
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Лесни стъпки за настройка на разширените свойства:"
 
 #: libraries/relation.lib.php:153
 msgid ""
@@ -6655,7 +6655,7 @@ msgstr ""
 
 #: main.php:216
 msgid "Official Homepage"
-msgstr "Официална страница на phpMyAdmin"
+msgstr "Официална страница"
 
 #: main.php:217
 msgid "Contribute"
@@ -6993,7 +6993,7 @@ msgstr ""
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Тази функционалност не се поддържа от вашия браузър"
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
@@ -9150,11 +9150,11 @@ msgstr ""
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Изпразване на таблицата (TRUNCATE)"
 
 #: tbl_operations.php:712
 msgid "Delete the table (DROP)"
-msgstr "Изтриване на таблица (DROP)"
+msgstr "Изтриване на таблицата (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"

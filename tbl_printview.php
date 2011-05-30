@@ -114,7 +114,7 @@ foreach ($the_tables as $key => $table) {
         0, 1);
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
-    // Check if we can use Relations (Mike Beck)
+    // Check if we can use Relations
     // Find which tables are related with the current one and write it in
     // an array
     $res_rel  = PMA_getForeigners($db, $table);
