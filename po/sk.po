@@ -8483,7 +8483,7 @@ msgid ""
 msgstr ""
 "Počet spojení bez kľúčov, ktoré kontrolovali použitie kľúča na každom riadku "
 "(ak táto hodnota nie je 0, mali by ste starostlivo skontrolovať indexy "
-"vašich tabuliek)."
+"vašich tabuliek.)"
 
 #: server_status.php:136
 msgid ""
