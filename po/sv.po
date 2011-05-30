@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 20:11+0200\n"
+"PO-Revision-Date: 2011-05-30 20:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5892,10 +5892,9 @@ msgid "Add table prefix"
 msgstr "Lägg till tabellprefix"
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "Lägg till index"
+msgstr "Lägg till prefix"
 
 #: libraries/mult_submits.inc.php:477 tbl_replace.php:331
 msgid "No change"
