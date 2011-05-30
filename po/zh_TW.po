@@ -3191,7 +3191,7 @@ msgstr "請勿為無值數加上 AUTO_INCREMENT 屬性"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "滑動條初始狀態"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
