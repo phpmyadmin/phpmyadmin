@@ -4029,7 +4029,7 @@ msgid ""
 "compatibility checks and thereby increases performance"
 msgstr ""
 "Vypnite, pokiaľ viete, že vaše pma_* tabuľky sú aktuálne. Tým zabránite "
-"kontrolám kompatibility a urýchlite zabrazovanie stránok."
+"kontrolám kompatibility a urýchlite zabrazovanie stránok"
 
 #: libraries/config/messages.inc.php:435
 msgid "Verbose check"
