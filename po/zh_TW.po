@@ -3215,7 +3215,7 @@ msgstr "顯示LOGO"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display server choice at the top of the left frame"
-msgstr "在左側框架頂部顯示伺服器選擇"
+msgstr "在左側頁框頂部顯示伺服器選單"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
