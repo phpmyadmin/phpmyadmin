@@ -3173,7 +3173,7 @@ msgstr "匯入貨幣格式 (開啟此功能 $5.00 將被匯入為 5.00)"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "匯入百分比時，轉換為小數點顯示(12.00%匯入後將轉換為0.12）"
 
 #: libraries/config/messages.inc.php:255
 #, fuzzy
