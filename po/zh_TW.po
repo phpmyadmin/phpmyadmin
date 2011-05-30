@@ -3195,7 +3195,7 @@ msgstr "滑動顯示初始狀態"
 
 #: libraries/config/messages.inc.php:262
 msgid "How many rows can be inserted at one time"
-msgstr "可一次插入多少資料列"
+msgstr "可一次新增多少資料列"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
