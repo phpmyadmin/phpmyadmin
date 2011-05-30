@@ -8591,7 +8591,7 @@ msgid ""
 msgstr ""
 "Počet vlákien vytvorených na zaobchádzanie so spojeniami. Ak je hodnota "
 "Threads_created vysoká, mohli by ste zvýšiť hodnotu thread_cache_size (to "
-"však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované)."
+"však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované.)"
 
 #: server_status.php:152
 msgid "The number of threads that are not sleeping."
