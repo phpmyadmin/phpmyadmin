@@ -3207,7 +3207,7 @@ msgstr "捷徑圖示的目標"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr "在左側頁框中顯示LOGO"
+msgstr "在左側頁框顯示LOGO"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
