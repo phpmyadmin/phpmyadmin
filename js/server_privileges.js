@@ -241,11 +241,11 @@ $(document).ready(function() {
     $("#reload_privileges_anchor.ajax").live("click", function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
 
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
+                PMA_ajaxRemoveMessage($msgbox);
             }
             else {
                 PMA_ajaxShowMessage(data.error);
