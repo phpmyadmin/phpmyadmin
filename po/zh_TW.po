@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 04:16+0200\n"
+"PO-Revision-Date: 2011-05-30 04:18+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3187,7 +3187,7 @@ msgstr "部分匯入：忽略指令"
 #: libraries/config/messages.inc.php:258
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "請勿為無值數加上 AUTO_INCREMENT 屬性"
+msgstr "請勿為數值為零的資料加上 AUTO_INCREMENT 屬性"
 
 #: libraries/config/messages.inc.php:261
 msgid "Initial state for sliders"
