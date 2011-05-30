@@ -3219,7 +3219,7 @@ msgstr "在左側頁框頂部顯示伺服器選單"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display servers selection"
-msgstr "顯示伺服器選擇"
+msgstr "顯示伺服器選單"
 
 #: libraries/config/messages.inc.php:269
 msgid "Minimum number of tables to display the table filter box"
