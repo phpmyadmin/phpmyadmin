@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 05:45+0200\n"
+"PO-Revision-Date: 2011-05-30 05:46+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9567,10 +9567,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "版本 %s 的快照 (SQL 代码)"
 
 #: tbl_tracking.php:382
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "追踪下列数据定义语句:"
+msgstr "追踪数据定义删除成功"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #| msgid "Gather errors"
