@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 04:08+0200\n"
-"Last-Translator:  <star@origin.club.tw>\n"
+"PO-Revision-Date: 2011-05-30 04:09+0200\n"
+"Last-Translator:  <joehorn@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -3173,7 +3173,7 @@ msgstr "匯入貨幣格式 (開啟此功能 $5.00 將被匯入為 5.00)"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "匯入百分比時，轉換為小數點顯示(12.00%匯入後將轉換為0.12）"
+msgstr "將百分比匯入為小數點格式 (開啟此功能 12.00% 將被匯入為 .12)"
 
 #: libraries/config/messages.inc.php:255
 #| msgid "Number of records (queries) to skip from start"
