@@ -1,12 +1,14 @@
 $(function() {
+    // Filters for status variables
     var textFilter=null;
     var alertFilter = false;
     var categoryFilter='';
     var odd_row=false;
-    var text='';
+    var text=''; // Holds filter text
     
-    // Process chart
-    initChart();
+    // Holds the tab contents when realtime charts are being displayed
+    var tabCache = new Object();
+    var tabStatus = new Object();
     
     // Add tabs
     $('#serverStatusTabs').tabs({
@@ -14,6 +16,7 @@ $(function() {
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
         show: function() { menuResize(); }
     });
+    
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
@@ -28,8 +31,44 @@ $(function() {
         imageMap.init();
     });
     
-    // Ajax reload of variables
-    $('.statuslinks a').click(function() { return refreshHandler(this); });
+    // Ajax reload of variables (always the first link)
+    $('.statuslinks a:nth-child(1)').click(function() { return refreshHandler(this); });
+    // Realtime charting of variables (always the second link)
+    $('.statuslinks a:nth-child(2)').click(function() {
+        // ui-tabs-panel class is added by the jquery tabs feature
+        var tab=$(this).parents('div.ui-tabs-panel');
+        
+        if(tabStatus[tab.attr('id')]!='realtime') {
+            var series, title;
+            var settings = {container:tab.attr('id')+"_chart_cnt"};
+            
+            switch(tab.attr('id')) {
+                case 'statustabs_traffic':
+                    break;
+                case 'statustabs_queries':
+                    settings.series = [{name: 'Queries per second',
+                                         data: []
+                                        }];
+                    settings.differentialData = true;
+                    settings.dataType = 'queries';
+                    settings.chartTitle = 'Queries per second';
+                    break;
+
+                default:
+                    return;
+            }
+            
+            tabStatus[tab.attr('id')]='realtime';
+            tabCache[tab.attr('id')]=tab.find('.tabInnerContent').html();
+            tab.find('.tabInnerContent').html('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
+            //alert(tab.find('.tabInnerContent #'+tab.attr('id')+'_chart_cnt').length);
+            initChart(settings);
+        } else {
+            tab.find('.tabInnerContent').html(tabCache[tab.attr('id')]);
+            tabStatus[tab.attr('id')]='data';
+        }
+        return false; 
+    });
     
     /* 3 Filtering functions */
     $('#filterAlert').change(function() {
@@ -53,18 +92,15 @@ $(function() {
     function initTab(tab,data) {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
-                tab.html(data);
+                tab.find('.tabInnerContent').html(data);
                 initTooltips();
-                $('#statustabs_traffic .statuslinks a').click(function() { return refreshHandler(this); });
                 break;
             case 'statustabs_queries':
-                tab.html(data);
-                $('#statustabs_queries .statuslinks a').click(function() { return refreshHandler(this); });
+                tab.find('.tabInnerContent').html(data);
                 break;
             case 'statustabs_allvars':
-                tab.find('#serverstatusvariables').html(data);
+                tab.find('.tabInnerContent').html(data);
                 filterVariables();
-                tab.find('.statuslinks a img').hide();
                 break;
         }
     }
@@ -75,10 +111,13 @@ $(function() {
         
         // Show ajax load icon
         $(element).find('img').show();
-        
+
         $.get($(element).attr('href'),{ajax_request:1},function(data) {
             initTab(tab,data);
+            $(element).find('img').hide();
         });
+        
+        tabStatus[tab.attr('id')]='data';
         
         return false;
     }
@@ -126,35 +165,60 @@ $(function() {
         });
     }
     
-    function initChart() {
+    function initChart(settings) {
+        if(settings.differentialData == undefined)
+            settings.differentialData = false;
+        if(settings.seriesType == undefined)
+            settings.seriesType = 'spline';
+        if(settings.numPoints == undefined)
+            settings.numPoints=30;
+        
+        var numLoadedPoints=0;
+        
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
-                defaultSeriesType: 'spline',
+                renderTo: settings.container,
+                defaultSeriesType: settings.seriesType,
                 marginRight: 10,
                 events: {
                     load: function() {
-        
+                        var thisChart = this;
                         // set up the updating of the chart each second
-                        var series = this.series[0];
+                        var lastValue=new Array();
                         
                         var addnewPoint = function() {
-                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1},function(data) {
-                                var x=parseInt(data.split(',')[0]),
-                                    y=parseInt(data.split(',')[1]);
-                                
-                                series.addPoint([x,y], true, true);
+                            // Stop loading data, if the chart has been removed
+                            if($('#'+settings.container).length==0) return;
+        
+                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1,type:settings.dataType},function(data) {
+                                var splitData = data.split(',');
+                                var x,y;
+                                for(var i=0; i*2<=splitData.length; i++) {
+                                    x=parseFloat(splitData[i*2]);
+                                    y=parseFloat(splitData[i*2+1]);
+                                    
+                                    if(settings.differentialData) {
+                                        if(lastValue[i]!=undefined && thisChart.series[i]!=undefined) {
+                                            thisChart.series[i].addPoint([x,1000*(y-lastValue[i][1])/(x-lastValue[i][0])], true, numLoadedPoints++ >= settings.numPoints);
+                                        }
+                                    } else thisChart.series[i].addPoint([x,y], true, numLoadedPoints++ >= settings.numPoints);
+                                    
+                                    lastValue[i] = [x,y];
+                                }
                                 
                                 setTimeout(addnewPoint, 2000);
                             });
                         }
-                        
-                        setTimeout(addnewPoint, 2000);
+
+                        addnewPoint();
                     }
                 }
             },
+            credits: {
+                enabled:false
+            },
             title: {
-                text: 'Processes'
+                text: settings.chartTitle
             },
             xAxis: {
                 type: 'datetime',
@@ -183,22 +247,7 @@ $(function() {
             exporting: {
                 enabled: false
             },
-            series: [{
-                name: '# Processes',
-                data: (function() {
-                    // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(),
-                        i;
-                    for (i = -19; i <= 0; i++) {
-                        data.push({
-                            x: time + i * 2000,
-                            y: 0 //Math.random()
-                        });
-                    }
-                    return data;
-                })()
-            }]
+            series: settings.series
         });
         }
 });

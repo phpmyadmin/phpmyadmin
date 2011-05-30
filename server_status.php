@@ -31,9 +31,17 @@ if (isset($_REQUEST['ajax_request'])) {
         exit(createQueryChart());
     }
     if(isset($_REQUEST['chart_data'])) {
-        $result = PMA_DBI_query('SHOW PROCESSLIST');
-        $num_procs = PMA_DBI_num_rows($result);
-        exit((time()*1000).','.$num_procs);
+        switch($_REQUEST['type']) {
+            case 'proc':
+                $result = PMA_DBI_query('SHOW PROCESSLIST');
+                $num_procs = PMA_DBI_num_rows($result);
+                exit((microtime(true)*1000).','.$num_procs);
+            case 'queries':
+                $result = PMA_DBI_query('SHOW GLOBAL STATUS LIKE \'Questions\'');
+                $status = PMA_DBI_fetch_result($result);
+        //		print_r($status);
+                exit((microtime(true)*1000).','.$status[0]['Value']);
+        }
     }
 }
  
@@ -81,7 +89,7 @@ if (!empty($_REQUEST['kill'])) {
         $message = PMA_Message::error(__('phpMyAdmin was unable to kill thread %s. It probably has already been closed.'));
     }
     $message->addParam($_REQUEST['kill']);
-    $message->display();
+    //$message->display();
 }
 
 
@@ -263,8 +271,8 @@ $links['qcache'][__('Flush query cache')]
       PMA_generate_common_url();
 $links['qcache']['doc'] = 'query_cache';
 
-$links['threads'][__('Show processes')]
-    = 'server_processlist.php?' . PMA_generate_common_url();
+//$links['threads'][__('Show processes')]
+//    = 'server_processlist.php?' . PMA_generate_common_url();
 $links['threads']['doc'] = 'mysql_threads';
 
 $links['key']['doc'] = 'myisam_key_cache';
@@ -359,67 +367,83 @@ echo __('Runtime Information');
         </ul>
         
         <div id="statustabs_traffic">
-            <?php printServerTraffic(); ?>
-            <div id="container" style="width: 700px; height: 400px;"></div>
+            <div class="statuslinks">
+                <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <?php echo __('Refresh'); ?>
+                </a>
+            </div>	
+            <div class="tabInnerContent">
+                <?php printServerTraffic(); ?>
+            </div>
         </div>
         <div id="statustabs_queries">
-            <?php printQueryStatistics(); ?>
+            <div class="statuslinks">
+                <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <?php echo __('Refresh'); ?>
+                </a>
+                <a href="#">
+                    <?php echo __('Realtime chart'); ?>
+                </a>
+            </div>	
+            <div class="tabInnerContent">
+                <?php printQueryStatistics(); ?>
+            </div>
         </div>
         <div id="statustabs_allvars">
-            <div id="serverstatusvars">
-                <fieldset id="tableFilter">
-                    <div class="statuslinks">
-                        <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
-                            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-                            <?php echo __('Refresh'); ?>
-                        </a>
-                    </div>
-                    <legend>Filters</legend>
-                    <div class="formelement">
-                        <label for="filterText"><?php echo __('Containing the word:'); ?></label>
-                        <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-                    </div>
-                    <div class="formelement">
-                        <input type="checkbox" name="filterAlert" id="filterAlert">
-                        <label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
-                    </div>
-                    <div class="formelement">
-                        <select id="filterCategory" name="filterCategory">
-                            <option value=''><?php echo __('Filter by category...'); ?></option>
-                    <?php
-                            foreach($sections as $section_id=>$section_name) {
-                    ?>
-                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
-                    <?php
-                            }
-                                
-                    ?>
-                        </select>
-                    </div>
-                </fieldset>
-                <div id="linkSuggestions" class="defaultLinks" style="display:none">
-                    <p><?php echo __('Related links:'); ?>
-                    <?php
-                    foreach ($links as $section_name => $section_links) {
-                        echo '<span class="status_'.$section_name.'"> ';
-                        $i=0;
-                        foreach ($section_links as $link_name => $link_url) {
-                            if($i>0) echo ', ';
-                            if ('doc' == $link_name) {
-                                echo PMA_showMySQLDocu($link_url, $link_url);
-                            } else {
-                                echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-                            }
-                            $i++;
-                        }
-                        echo '</span>';
-                    }
-                    unset($link_url, $link_name, $i);
-                    ?>
-                    </p>
+            <fieldset id="tableFilter">
+                <div class="statuslinks">
+                    <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
+                        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                        <?php echo __('Refresh'); ?>
+                    </a>
                 </div>
+                <legend>Filters</legend>
+                <div class="formelement">
+                    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
+                    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
+                </div>
+                <div class="formelement">
+                    <input type="checkbox" name="filterAlert" id="filterAlert">
+                    <label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
+                </div>
+                <div class="formelement">
+                    <select id="filterCategory" name="filterCategory">
+                        <option value=''><?php echo __('Filter by category...'); ?></option>
+                <?php
+                        foreach($sections as $section_id=>$section_name) {
+                ?>
+                            <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
+                <?php
+                        }
+                            
+                ?>
+                    </select>
+                </div>
+            </fieldset>
+            <div id="linkSuggestions" class="defaultLinks" style="display:none">
+                <p><?php echo __('Related links:'); ?>
+                <?php
+                foreach ($links as $section_name => $section_links) {
+                    echo '<span class="status_'.$section_name.'"> ';
+                    $i=0;
+                    foreach ($section_links as $link_name => $link_url) {
+                        if($i>0) echo ', ';
+                        if ('doc' == $link_name) {
+                            echo PMA_showMySQLDocu($link_url, $link_url);
+                        } else {
+                            echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+                        }
+                        $i++;
+                    }
+                    echo '</span>';
+                }
+                unset($link_url, $link_name, $i);
+                ?>
+                </p>
             </div>
-            <div>
+            <div class="tabInnerContent">
                 <?php printVariablesTable(); ?>
             </div>
         </div>
@@ -436,13 +460,6 @@ function printQueryStatistics() {
     $total_queries = array_sum($used_queries);
 
     ?>
-    <div class="statuslinks">
-        <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-            <?php echo __('Refresh'); ?>
-        </a>
-    </div>	
-    
     <h3 id="serverstatusqueries"><?php echo
         //sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
             //PMA_formatNumber($server_status['Questions'], 0));
@@ -536,13 +553,6 @@ function printServerTraffic() {
         'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
     ?>
-    <div class="statuslinks">
-        <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-            <?php echo __('Refresh'); ?>
-        </a>
-    </div>	
-    
     <h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
     echo sprintf(__('Network traffic since startup: %s'),
             implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
@@ -699,10 +709,10 @@ function printServerTraffic() {
     if (! empty($_REQUEST['full'])) {
         $sql_query = 'SHOW FULL PROCESSLIST';
         $url_params['full'] = 1;
-        $full_text_link = 'server_processlist.php' . PMA_generate_common_url(array(), 'html', '?');
+        $full_text_link = 'server_status.php' . PMA_generate_common_url(array(), 'html', '?');
     } else {
         $sql_query = 'SHOW PROCESSLIST';
-        $full_text_link = 'server_processlist.php' . PMA_generate_common_url(array('full' => 1));
+        $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
     }
     $result = PMA_DBI_query($sql_query);
 
@@ -747,7 +757,7 @@ function printServerTraffic() {
             }
         }
         $url_params['kill'] = $process['Id'];
-        $kill_process = 'server_processlist.php' . PMA_generate_common_url($url_params);
+        $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
