@@ -9591,10 +9591,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "显示自 %2$s 起至 %3$s 用户 %4$s 执行的 %1$s %5$s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "删除追踪数据"
+msgstr "从报告中删除追踪数据"
 
 #: tbl_tracking.php:443
 #| msgid "No databases"
