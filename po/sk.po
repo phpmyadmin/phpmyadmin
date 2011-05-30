@@ -4001,8 +4001,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Či má sledovací mechanizmus automaticky vytvárať verzie tabuliek a "
-"pohľadov.."
+"Či má sledovací mechanizmus automaticky vytvárať verzie tabuliek a pohľadov."
 
 #: libraries/config/messages.inc.php:429
 msgid "Automatically create versions"
