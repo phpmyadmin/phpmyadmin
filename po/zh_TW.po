@@ -3159,10 +3159,9 @@ msgstr "使用本地(LOCAL)關鍵字"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:259
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "將欄位名稱放在首行"
+msgstr "首行資料為欄位名稱"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
