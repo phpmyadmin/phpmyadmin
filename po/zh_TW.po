@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 04:30+0200\n"
+"PO-Revision-Date: 2011-05-30 04:40+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3207,7 +3207,7 @@ msgstr "顯示快速存取圖示"
 
 #: libraries/config/messages.inc.php:265
 msgid "Show logo in left frame"
-msgstr "在左側框架中顯示 logo"
+msgstr "在左側頁框中顯示LOGO"
 
 #: libraries/config/messages.inc.php:266
 msgid "Display logo"
