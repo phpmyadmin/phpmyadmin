@@ -169,6 +169,7 @@ function PMA_auth()
     /* HTML header; do not show here the PMA version to improve security */
     $page_title = 'phpMyAdmin ';
     require './libraries/header_meta_style.inc.php';
+    // if $page_title is set, this script uses it as the title:
     require './libraries/header_scripts.inc.php';
     ?>
 <script type="text/javascript">
