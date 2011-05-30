@@ -6295,7 +6295,7 @@ msgstr "Zobraziť rozmery tabuliek"
 
 #: libraries/schema/User_Schema.class.php:384
 msgid "Display all tables with the same width"
-msgstr "zobraziť všetky tabuľky s rovnakou šírkou?"
+msgstr "Zobraziť všetky tabuľky s rovnakou šírkou"
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
