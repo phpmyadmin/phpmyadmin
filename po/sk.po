@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 12:56+0200\n"
+"PO-Revision-Date: 2011-05-30 12:57+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7521,9 +7521,8 @@ msgstr ""
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
-#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr "Povolí vytváranie a mazanie indexov."
+msgstr "Povolí vytváranie a mazanie spúšťačov"
 
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
