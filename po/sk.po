@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 12:16+0200\n"
+"PO-Revision-Date: 2011-05-30 12:17+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4192,6 +4192,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Pokiaľ máte vlastné užívateľské meno, zadajte ho tu (východzie "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:471 tbl_tracking.php:454
 #: tbl_tracking.php:511
