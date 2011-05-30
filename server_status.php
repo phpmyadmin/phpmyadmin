@@ -14,6 +14,7 @@
 if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
+
 require_once './libraries/common.inc.php';
 
 /** 
@@ -25,11 +26,17 @@ if (isset($_REQUEST['ajax_request'])) {
     header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
     header_remove('Last-Modified');
- }
- 
-if (isset($_REQUEST["query_chart"]) && isset($_REQUEST['ajax_request'])) {    
-    exit(createQueryChart());
+
+    if (isset($_REQUEST["query_chart"])) {    
+        exit(createQueryChart());
+    }
+    if(isset($_REQUEST['chart_data'])) {
+        $result = PMA_DBI_query('SHOW PROCESSLIST');
+        $num_procs = PMA_DBI_num_rows($result);
+        exit((time()*1000).','.$num_procs);
+    }
 }
+ 
 
 /**
  * Replication library
@@ -46,7 +53,7 @@ $GLOBALS['js_include'][] = 'server_status.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.min.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
-
+$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 
 /**
  * flush status variables if requested
@@ -63,6 +70,20 @@ if (isset($_REQUEST['flush'])) {
     }
     unset($_flush_commands);
 }
+
+/**
+ * Kills a selected process
+ */
+if (!empty($_REQUEST['kill'])) {
+    if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
+        $message = PMA_Message::success(__('Thread %s was successfully killed.'));
+    } else {
+        $message = PMA_Message::error(__('phpMyAdmin was unable to kill thread %s. It probably has already been closed.'));
+    }
+    $message->addParam($_REQUEST['kill']);
+    $message->display();
+}
+
 
 
 /**
@@ -220,15 +241,15 @@ $sections = array(
 $links = array();
 
 $links['table'][__('Flush (close) all tables')]
-	= $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
+    = $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
 $links['table'][__('Show open tables')]
-	= 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-	  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+    = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
+      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 
 if ($server_master_status) {
   $links['repl'][__('Show slave hosts')]
-	= 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
-	  '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
+      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
   $links['repl'][__('Show master status')] = '#replication_master';
 }
 if ($server_slave_status) {
@@ -238,12 +259,12 @@ if ($server_slave_status) {
 $links['repl']['doc'] = 'replication';
 
 $links['qcache'][__('Flush query cache')]
-	= $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-	  PMA_generate_common_url();
+    = $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
+      PMA_generate_common_url();
 $links['qcache']['doc'] = 'query_cache';
 
 $links['threads'][__('Show processes')]
-	= 'server_processlist.php?' . PMA_generate_common_url();
+    = 'server_processlist.php?' . PMA_generate_common_url();
 $links['threads']['doc'] = 'mysql_threads';
 
 $links['key']['doc'] = 'myisam_key_cache';
@@ -253,10 +274,10 @@ $links['binlog_cache']['doc'] = 'binary_log';
 $links['Slow_queries']['doc'] = 'slow_query_log';
 
 $links['innodb'][__('Variables')]
-	= 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
+    = 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
 $links['innodb'][__('InnoDB Status')]
-	= 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-	  PMA_generate_common_url();
+    = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
+      PMA_generate_common_url();
 $links['innodb']['doc'] = 'innodb';
 
 
@@ -283,12 +304,12 @@ unset($used_queries['Com_admin_commands']);
 /* Ajax request refresh */
 if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
-		case 'query_statistics':
-			printQueryStatistics();
-			exit();
-		case 'server_traffic':
-			printServerTraffic();
-			exit();
+        case 'query_statistics':
+            printQueryStatistics();
+            exit();
+        case 'server_traffic':
+            printServerTraffic();
+            exit();
         case 'variables_table':
             // Prints the variables table
             printVariablesTable();
@@ -315,473 +336,554 @@ require './libraries/server_common.inc.php';
 require './libraries/server_links.inc.php';
 
 ?>
+<script type="text/javascript">
+url_query = '<?php echo $url_query;?>';
+</script>
 <div id="serverstatus">
-	<h2><?
+    <h2><?
 
 /**
  * Displays the sub-page heading
  */
 if($GLOBALS['cfg']['MainPageIconic'])
-	echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
-	
+    echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+    
 echo __('Runtime Information');
 
 ?></h2>
-	<div id="serverStatusTabs">
-		<ul>
-			<li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
-			<li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
-			<li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-		</ul>
-		
-		<div id="statustabs_traffic">
-			<?php printServerTraffic(); ?>
-		</div>
-		<div id="statustabs_queries">
-			<?php printQueryStatistics(); ?>
-		</div>
-		<div id="statustabs_allvars">
-			<div id="serverstatusvars">
-				<fieldset id="tableFilter">
-					<div class="statuslinks">
-						<a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
-							<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-							<?php echo __('Refresh'); ?>
-						</a>
-					</div>
-					<legend>Filters</legend>
-					<div class="formelement">
-						<label for="filterText"><?php echo __('Containing the word:'); ?></label>
-						<input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-					</div>
-					<div class="formelement">
-						<input type="checkbox" name="filterAlert" id="filterAlert">
-						<label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
-					</div>
-					<div class="formelement">
-						<select id="filterCategory" name="filterCategory">
-							<option value=''><?php echo __('Filter by category...'); ?></option>
-					<?php
-							foreach($sections as $section_id=>$section_name) {
-					?>
-								<option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
-					<?php
-							}
-								
-					?>
-						</select>
-					</div>
-				</fieldset>
-				<div id="linkSuggestions" class="defaultLinks" style="display:none">
-					<p><?php echo __('Related links:'); ?>
-					<?php
-					foreach ($links as $section_name => $section_links) {
-						echo '<span class="status_'.$section_name.'"> ';
-						$i=0;
-						foreach ($section_links as $link_name => $link_url) {
-							if($i>0) echo ', ';
-							if ('doc' == $link_name) {
-								echo PMA_showMySQLDocu($link_url, $link_url);
-							} else {
-								echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-							}
-							$i++;
-						}
-						echo '</span>';
-					}
-					unset($link_url, $link_name, $i);
-					?>
-					</p>
-				</div>
-			</div>
-			<div>
-				<?php printVariablesTable(); ?>
-			</div>
-		</div>
-	</div>
+    <div id="serverStatusTabs">
+        <ul>
+            <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
+            <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
+            <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
+        </ul>
+        
+        <div id="statustabs_traffic">
+            <?php printServerTraffic(); ?>
+            <div id="container" style="width: 700px; height: 400px;"></div>
+        </div>
+        <div id="statustabs_queries">
+            <?php printQueryStatistics(); ?>
+        </div>
+        <div id="statustabs_allvars">
+            <div id="serverstatusvars">
+                <fieldset id="tableFilter">
+                    <div class="statuslinks">
+                        <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
+                            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                            <?php echo __('Refresh'); ?>
+                        </a>
+                    </div>
+                    <legend>Filters</legend>
+                    <div class="formelement">
+                        <label for="filterText"><?php echo __('Containing the word:'); ?></label>
+                        <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
+                    </div>
+                    <div class="formelement">
+                        <input type="checkbox" name="filterAlert" id="filterAlert">
+                        <label for="filterAlert"><?php echo __('Show only alert values'); ?></label> 
+                    </div>
+                    <div class="formelement">
+                        <select id="filterCategory" name="filterCategory">
+                            <option value=''><?php echo __('Filter by category...'); ?></option>
+                    <?php
+                            foreach($sections as $section_id=>$section_name) {
+                    ?>
+                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
+                    <?php
+                            }
+                                
+                    ?>
+                        </select>
+                    </div>
+                </fieldset>
+                <div id="linkSuggestions" class="defaultLinks" style="display:none">
+                    <p><?php echo __('Related links:'); ?>
+                    <?php
+                    foreach ($links as $section_name => $section_links) {
+                        echo '<span class="status_'.$section_name.'"> ';
+                        $i=0;
+                        foreach ($section_links as $link_name => $link_url) {
+                            if($i>0) echo ', ';
+                            if ('doc' == $link_name) {
+                                echo PMA_showMySQLDocu($link_url, $link_url);
+                            } else {
+                                echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+                            }
+                            $i++;
+                        }
+                        echo '</span>';
+                    }
+                    unset($link_url, $link_name, $i);
+                    ?>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <?php printVariablesTable(); ?>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php
 
 function printQueryStatistics() {
-	global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
-	
-	$hour_factor    = 3600 / $server_status['Uptime'];
-	
-	$total_queries = array_sum($used_queries);
+    global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
+    
+    $hour_factor    = 3600 / $server_status['Uptime'];
+    
+    $total_queries = array_sum($used_queries);
 
-	?>
-	<div class="statuslinks">
-		<a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
-			<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-			<?php echo __('Refresh'); ?>
-		</a>
-	</div>	
-	
-	<h3 id="serverstatusqueries"><?php echo
-		//sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
-			//PMA_formatNumber($server_status['Questions'], 0));
-		sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
-		//echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
-		?>
-	<br>
-	<span style="font-size:60%; display:inline;">
-	&oslash; <?php echo __('per hour'); ?>:  
-	<?php echo PMA_formatNumber($total_queries * $hour_factor, 0); ?><br>
+    ?>
+    <div class="statuslinks">
+        <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+            <?php echo __('Refresh'); ?>
+        </a>
+    </div>	
+    
+    <h3 id="serverstatusqueries"><?php echo
+        //sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
+            //PMA_formatNumber($server_status['Questions'], 0));
+        sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
+        //echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+        ?>
+    <br>
+    <span style="font-size:60%; display:inline;">
+    &oslash; <?php echo __('per hour'); ?>:  
+    <?php echo PMA_formatNumber($total_queries * $hour_factor, 0); ?><br>
 
-	&oslash; <?php echo __('per minute'); ?>:  
-	<?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); ?><br>
+    &oslash; <?php echo __('per minute'); ?>:  
+    <?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); ?><br>
 
-	<?php if($total_queries / $server_status['Uptime'] >= 1) {
-	?>
-	&oslash; <?php echo __('per second'); ?>: 
-	<?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); ?><br>
-	
-	<?php
-	}
+    <?php if($total_queries / $server_status['Uptime'] >= 1) {
+    ?>
+    &oslash; <?php echo __('per second'); ?>: 
+    <?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); ?><br>
+    
+    <?php
+    }
 
-	// reverse sort by value to show most used statements first
-	arsort($used_queries);
+    // reverse sort by value to show most used statements first
+    arsort($used_queries);
 
-	$odd_row        = true;
-	$count_displayed_rows      = 0;
-	$perc_factor    = 100 / $total_queries //(- $server_status['Connections']);
+    $odd_row        = true;
+    $count_displayed_rows      = 0;
+    $perc_factor    = 100 / $total_queries //(- $server_status['Connections']);
 
-	?>
-		</h3>
-		<table id="serverstatusqueriesdetails" class="data sortable">
-		<col class="namecol" />
-		<col class="valuecol" span="3" />
-		<thead>
-			<tr><th colspan="2"><?php echo __('Query type'); ?></th>
-				<th>&oslash; <?php echo __('per hour'); ?></th>
-				<th>%</th>
-			</tr>
-		</thead>
-		<tbody>
+    ?>
+        </h3>
+        <table id="serverstatusqueriesdetails" class="data sortable">
+        <col class="namecol" />
+        <col class="valuecol" span="3" />
+        <thead>
+            <tr><th colspan="2"><?php echo __('Query type'); ?></th>
+                <th>&oslash; <?php echo __('per hour'); ?></th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
 
-	<?php
-	foreach ($used_queries as $name => $value) {
-		$odd_row = !$odd_row;
+    <?php
+    foreach ($used_queries as $name => $value) {
+        $odd_row = !$odd_row;
 
-	// For the percentage column, use Questions - Connections, because
-	// the number of connections is not an item of the Query types
-	// but is included in Questions. Then the total of the percentages is 100.
-		$name = str_replace('Com_', '', $name);
-		$name = str_replace('_', ' ', $name);
-	?>
-			<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-				<th class="name"><?php echo htmlspecialchars($name); ?></th>
-				<td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
-				<td class="value"><?php echo
-					PMA_formatNumber($value * $hour_factor, 3, 3); ?></td>
-				<td class="value"><?php echo
-					PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
-			</tr>
-	<?php
-	}
-	?>
-		</tbody>
-		</table>
-		
-		<div id="serverstatusquerieschart">
-		<?php 
-			// Generate the graph if this is an ajax request
-			if(isset($_REQUEST['ajax_request'])) {
-				echo createQueryChart();
-			} else {
-				echo '<a href="'.$PMA_PHP_SELF.'?'.$url_query.'&amp;query_chart=1#serverstatusqueries"'
-					.'title="' . __('Show query chart') . '">['.__('Show query chart').']</a>';
-			}
-		?>
-		</div>
-		<?php
+    // For the percentage column, use Questions - Connections, because
+    // the number of connections is not an item of the Query types
+    // but is included in Questions. Then the total of the percentages is 100.
+        $name = str_replace('Com_', '', $name);
+        $name = str_replace('_', ' ', $name);
+    ?>
+            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+                <th class="name"><?php echo htmlspecialchars($name); ?></th>
+                <td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
+                <td class="value"><?php echo
+                    PMA_formatNumber($value * $hour_factor, 3, 3); ?></td>
+                <td class="value"><?php echo
+                    PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
+            </tr>
+    <?php
+    }
+    ?>
+        </tbody>
+        </table>
+        
+        <div id="serverstatusquerieschart">
+        <?php 
+            // Generate the graph if this is an ajax request
+            if(isset($_REQUEST['ajax_request'])) {
+                echo createQueryChart();
+            } else {
+                echo '<a href="'.$PMA_PHP_SELF.'?'.$url_query.'&amp;query_chart=1#serverstatusqueries"'
+                    .'title="' . __('Show query chart') . '">['.__('Show query chart').']</a>';
+            }
+        ?>
+        </div>
+        <?php
 }
 
 function printServerTraffic() {
-	global $server_status,$PMA_PHP_SELF;
-	global $server_master_status, $server_slave_status;
-	
-	$hour_factor    = 3600 / $server_status['Uptime'];
-	
-	/**
-	 * starttime calculation
-	 */
-	$start_time = PMA_DBI_fetch_value(
-		'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
+    global $server_status,$PMA_PHP_SELF;
+    global $server_master_status, $server_slave_status;
+    
+    $hour_factor    = 3600 / $server_status['Uptime'];
+    
+    /**
+     * starttime calculation
+     */
+    $start_time = PMA_DBI_fetch_value(
+        'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
-	?>
-	<div class="statuslinks">
-		<a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
-			<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-			<?php echo __('Refresh'); ?>
-		</a>
-	</div>	
-	
-	<h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
-	echo sprintf(__('Network traffic since startup: %s'),
-			implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
-	);
-	?>
-	</h3>
+    ?>
+    <div class="statuslinks">
+        <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+            <?php echo __('Refresh'); ?>
+        </a>
+    </div>	
+    
+    <h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/ 
+    echo sprintf(__('Network traffic since startup: %s'),
+            implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
+    );
+    ?>
+    </h3>
 
-	<p>
-	<?php
-	echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
-		PMA_timespanFormat($server_status['Uptime']),
-		PMA_localisedDate($start_time)) . "\n";
-	?>
-	</p>
+    <p>
+    <?php
+    echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
+        PMA_timespanFormat($server_status['Uptime']),
+        PMA_localisedDate($start_time)) . "\n";
+    ?>
+    </p>
 
-	<?php
-	if ($server_master_status || $server_slave_status) {
-		echo '<p>';
-		if ($server_master_status && $server_slave_status) {
-			echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
-		} elseif ($server_master_status) {
-			echo __('This MySQL server works as <b>master</b> in <b>replication</b> process.');
-		} elseif ($server_slave_status) {
-			echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
-		}
-		echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
-		echo '</p>';
-	}
+    <?php
+    if ($server_master_status || $server_slave_status) {
+        echo '<p>';
+        if ($server_master_status && $server_slave_status) {
+            echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
+        } elseif ($server_master_status) {
+            echo __('This MySQL server works as <b>master</b> in <b>replication</b> process.');
+        } elseif ($server_slave_status) {
+            echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
+        }
+        echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
+        echo '</p>';
+    }
 
-	/* if the server works as master or slave in replication process, display useful information */
-	if ($server_master_status || $server_slave_status)
-	{
-	?>
-	  <hr class="clearfloat" />
+    /* if the server works as master or slave in replication process, display useful information */
+    if ($server_master_status || $server_slave_status)
+    {
+    ?>
+      <hr class="clearfloat" />
 
-	  <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
-	<?php
+      <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
+    <?php
 
-		foreach ($replication_types as $type)
-		{
-			if (${"server_{$type}_status"}) {
-				PMA_replication_print_status_table($type);
-			}
-		}
-		unset($types);
-	}
-	?>
+        foreach ($replication_types as $type)
+        {
+            if (${"server_{$type}_status"}) {
+                PMA_replication_print_status_table($type);
+            }
+        }
+        unset($types);
+    }
+    ?>
 
-	<table id="serverstatustraffic" class="data">
-	<thead>
-	<tr>
-		<th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
-		<th>&oslash; <?php echo __('per hour'); ?></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr class="noclick odd">
-		<th class="name"><?php echo __('Received'); ?></th>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown($server_status['Bytes_received'], 3, 1)); ?></td>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown(
-					$server_status['Bytes_received'] * $hour_factor, 3, 1)); ?></td>
-	</tr>
-	<tr class="noclick even">
-		<th class="name"><?php echo __('Sent'); ?></th>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)); ?></td>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown(
-					$server_status['Bytes_sent'] * $hour_factor, 3, 1)); ?></td>
-	</tr>
-	<tr class="noclick odd">
-		<th class="name"><?php echo __('Total'); ?></th>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown(
-					$server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1)
-			); ?></td>
-		<td class="value"><?php echo
-			implode(' ',
-				PMA_formatByteDown(
-					($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-					* $hour_factor, 3, 1)
-			); ?></td>
-	</tr>
-	</tbody>
-	</table>
+    <table id="serverstatustraffic" class="data">
+    <thead>
+    <tr>
+        <th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
+        <th>&oslash; <?php echo __('per hour'); ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="noclick odd">
+        <th class="name"><?php echo __('Received'); ?></th>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown($server_status['Bytes_received'], 3, 1)); ?></td>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown(
+                    $server_status['Bytes_received'] * $hour_factor, 3, 1)); ?></td>
+    </tr>
+    <tr class="noclick even">
+        <th class="name"><?php echo __('Sent'); ?></th>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)); ?></td>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown(
+                    $server_status['Bytes_sent'] * $hour_factor, 3, 1)); ?></td>
+    </tr>
+    <tr class="noclick odd">
+        <th class="name"><?php echo __('Total'); ?></th>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown(
+                    $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1)
+            ); ?></td>
+        <td class="value"><?php echo
+            implode(' ',
+                PMA_formatByteDown(
+                    ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
+                    * $hour_factor, 3, 1)
+            ); ?></td>
+    </tr>
+    </tbody>
+    </table>
 
-	<table id="serverstatusconnections" class="data">
-	<thead>
-	<tr>
-		<th colspan="2"><?php echo __('Connections'); ?></th>
-		<th>&oslash; <?php echo __('per hour'); ?></th>
-		<th>%</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr class="noclick odd">
-		<th class="name"><?php echo __('max. concurrent connections'); ?></th>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
-		<td class="value">--- </td>
-		<td class="value">--- </td>
-	</tr>
-	<tr class="noclick even">
-		<th class="name"><?php echo __('Failed attempts'); ?></th>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
-				4, 2); ?></td>
-		<td class="value"><?php echo
-			$server_status['Connections'] > 0
-		  ? PMA_formatNumber(
-				$server_status['Aborted_connects'] * 100 / $server_status['Connections'],
-				0, 2) . '%'
-		  : '--- '; ?></td>
-	</tr>
-	<tr class="noclick odd">
-		<th class="name"><?php echo __('Aborted'); ?></th>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
-				4, 2); ?></td>
-		<td class="value"><?php echo
-			$server_status['Connections'] > 0
-		  ? PMA_formatNumber(
-				$server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-				0, 2) . '%'
-		  : '--- '; ?></td>
-	</tr>
-	<tr class="noclick even">
-		<th class="name"><?php echo __('Total'); ?></th>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
-		<td class="value"><?php echo
-			PMA_formatNumber($server_status['Connections'] * $hour_factor,
-				4, 2); ?></td>
-		<td class="value"><?php echo
-			PMA_formatNumber(100, 0, 2); ?>%</td>
-	</tr>
-	</tbody>
-	</table>
-	<?
+    <table id="serverstatusconnections" class="data">
+    <thead>
+    <tr>
+        <th colspan="2"><?php echo __('Connections'); ?></th>
+        <th>&oslash; <?php echo __('per hour'); ?></th>
+        <th>%</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="noclick odd">
+        <th class="name"><?php echo __('max. concurrent connections'); ?></th>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
+        <td class="value">--- </td>
+        <td class="value">--- </td>
+    </tr>
+    <tr class="noclick even">
+        <th class="name"><?php echo __('Failed attempts'); ?></th>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
+                4, 2); ?></td>
+        <td class="value"><?php echo
+            $server_status['Connections'] > 0
+          ? PMA_formatNumber(
+                $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
+                0, 2) . '%'
+          : '--- '; ?></td>
+    </tr>
+    <tr class="noclick odd">
+        <th class="name"><?php echo __('Aborted'); ?></th>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
+                4, 2); ?></td>
+        <td class="value"><?php echo
+            $server_status['Connections'] > 0
+          ? PMA_formatNumber(
+                $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
+                0, 2) . '%'
+          : '--- '; ?></td>
+    </tr>
+    <tr class="noclick even">
+        <th class="name"><?php echo __('Total'); ?></th>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
+        <td class="value"><?php echo
+            PMA_formatNumber($server_status['Connections'] * $hour_factor,
+                4, 2); ?></td>
+        <td class="value"><?php echo
+            PMA_formatNumber(100, 0, 2); ?>%</td>
+    </tr>
+    </tbody>
+    </table>
+    <?
+
+    $url_params = array();
+
+    if (! empty($_REQUEST['full'])) {
+        $sql_query = 'SHOW FULL PROCESSLIST';
+        $url_params['full'] = 1;
+        $full_text_link = 'server_processlist.php' . PMA_generate_common_url(array(), 'html', '?');
+    } else {
+        $sql_query = 'SHOW PROCESSLIST';
+        $full_text_link = 'server_processlist.php' . PMA_generate_common_url(array('full' => 1));
+    }
+    $result = PMA_DBI_query($sql_query);
+
+    /**
+     * Displays the page
+     */
+    ?>
+    <table id="tableprocesslist" class="data">
+    <thead>
+    <tr>
+        <th><?php echo __('Processes'); ?></th>
+        <th><?php echo __('ID'); ?></th>
+        <th><?php echo __('User'); ?></th>
+        <th><?php echo __('Host'); ?></th>
+        <th><?php echo __('Database'); ?></th>
+        <th><?php echo __('Command'); ?></th>
+        <th><?php echo __('Time'); ?></th>
+        <th><?php echo __('Status'); ?></th>
+        <th><?php 
+            echo __('SQL query'); 
+            if (!PMA_DRIZZLE) { ?>
+                <a href="<?php echo $full_text_link; ?>"
+                    title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
+                    alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
+                </a>
+            <? } ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    $odd_row = true;
+    while($process = PMA_DBI_fetch_assoc($result)) {
+        if (PMA_DRIZZLE) {
+            // Drizzle uses uppercase keys
+            foreach ($process as $k => $v) {
+                $k = $k !== 'DB'
+                    ? $k = ucfirst(strtolower($k))
+                    : 'db';
+                $process[$k] = $v;
+            }
+        }
+        $url_params['kill'] = $process['Id'];
+        $kill_process = 'server_processlist.php' . PMA_generate_common_url($url_params);
+        ?>
+    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+        <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
+        <td class="value"><?php echo $process['Id']; ?></td>
+        <td><?php echo $process['User']; ?></td>
+        <td><?php echo $process['Host']; ?></td>
+        <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
+        <td><?php echo $process['Command']; ?></td>
+        <td class="value"><?php echo $process['Time']; ?></td>
+        <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>
+        <td><?php echo (empty($process['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']))); ?></td>
+    </tr>
+        <?php
+        $odd_row = ! $odd_row;
+    }
+    ?>
+    </tbody>
+    </table>
+    <?php
 }
 
 function printVariablesTable() {
-	global $server_status, $server_variables, $allocationMap, $links;
+    global $server_status, $server_variables, $allocationMap, $links;
     /**
      * Messages are built using the message name
      */
     $strShowStatus = Array(
-        'Binlog_cache_disk_useDescr' => __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.'),
-        'Binlog_cache_useDescr' => __('The number of transactions that used the temporary binary log cache.'),
-        'Created_tmp_disk_tablesDescr' => __('The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based.'),
-        'Created_tmp_filesDescr' => __('How many temporary files mysqld has created.'),
-        'Created_tmp_tablesDescr' => __('The number of in-memory temporary tables created automatically by the server while executing statements.'),
-        'Delayed_errorsDescr' => __('The number of rows written with INSERT DELAYED for which some error occurred (probably duplicate key).'),
-        'Delayed_insert_threadsDescr' => __('The number of INSERT DELAYED handler threads in use. Every different table on which one uses INSERT DELAYED gets its own thread.'),
-        'Delayed_writesDescr' => __('The number of INSERT DELAYED rows written.'),
-        'Flush_commandsDescr'  => __('The number of executed FLUSH statements.'),
-        'Handler_commitDescr' => __('The number of internal COMMIT statements.'),
-        'Handler_deleteDescr' => __('The number of times a row was deleted from a table.'),
-        'Handler_discoverDescr' => __('The MySQL server can ask the NDB Cluster storage engine if it knows about a table with a given name. This is called discovery. Handler_discover indicates the number of time tables have been discovered.'),
-        'Handler_read_firstDescr' => __('The number of times the first entry was read from an index. If this is high, it suggests that the server is doing a lot of full index scans; for example, SELECT col1 FROM foo, assuming that col1 is indexed.'),
-        'Handler_read_keyDescr' => __('The number of requests to read a row based on a key. If this is high, it is a good indication that your queries and tables are properly indexed.'),
-        'Handler_read_nextDescr' => __('The number of requests to read the next row in key order. This is incremented if you are querying an index column with a range constraint or if you are doing an index scan.'),
-        'Handler_read_prevDescr' => __('The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.'),
-        'Handler_read_rndDescr' => __('The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'),
-        'Handler_read_rnd_nextDescr' => __('The number of requests to read the next row in the data file. This is high if you are doing a lot of table scans. Generally this suggests that your tables are not properly indexed or that your queries are not written to take advantage of the indexes you have.'),
-        'Handler_rollbackDescr' => __('The number of internal ROLLBACK statements.'),
-        'Handler_updateDescr' => __('The number of requests to update a row in a table.'),
-        'Handler_writeDescr' => __('The number of requests to insert a row in a table.'),
-        'Innodb_buffer_pool_pages_dataDescr' => __('The number of pages containing data (dirty or clean).'),
-        'Innodb_buffer_pool_pages_dirtyDescr' => __('The number of pages currently dirty.'),
-        'Innodb_buffer_pool_pages_flushedDescr' => __('The number of buffer pool pages that have been requested to be flushed.'),
-        'Innodb_buffer_pool_pages_freeDescr' => __('The number of free pages.'),
-        'Innodb_buffer_pool_pages_latchedDescr' => __('The number of latched pages in InnoDB buffer pool. These are pages currently being read or written or that can\'t be flushed or removed for some other reason.'),
-        'Innodb_buffer_pool_pages_miscDescr' => __('The number of pages busy because they have been allocated for administrative overhead such as row locks or the adaptive hash index. This value can also be calculated as Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data.'),
-        'Innodb_buffer_pool_pages_totalDescr' => __('Total size of buffer pool, in pages.'),
-        'Innodb_buffer_pool_read_ahead_rndDescr' => __('The number of "random" read-aheads InnoDB initiated. This happens when a query is to scan a large portion of a table but in random order.'),
-        'Innodb_buffer_pool_read_ahead_seqDescr' => __('The number of sequential read-aheads InnoDB initiated. This happens when InnoDB does a sequential full table scan.'),
-        'Innodb_buffer_pool_read_requestsDescr' => __('The number of logical read requests InnoDB has done.'),
-        'Innodb_buffer_pool_readsDescr' => __('The number of logical reads that InnoDB could not satisfy from buffer pool and had to do a single-page read.'),
-        'Innodb_buffer_pool_wait_freeDescr' => __('Normally, writes to the InnoDB buffer pool happen in the background. However, if it\'s necessary to read or create a page and no clean pages are available, it\'s necessary to wait for pages to be flushed first. This counter counts instances of these waits. If the buffer pool size was set properly, this value should be small.'),
-        'Innodb_buffer_pool_write_requestsDescr' => __('The number writes done to the InnoDB buffer pool.'),
-        'Innodb_data_fsyncsDescr' => __('The number of fsync() operations so far.'),
-        'Innodb_data_pending_fsyncsDescr' => __('The current number of pending fsync() operations.'),
-        'Innodb_data_pending_readsDescr' => __('The current number of pending reads.'),
-        'Innodb_data_pending_writesDescr' => __('The current number of pending writes.'),
-        'Innodb_data_readDescr' => __('The amount of data read so far, in bytes.'),
-        'Innodb_data_readsDescr' => __('The total number of data reads.'),
-        'Innodb_data_writesDescr' => __('The total number of data writes.'),
-        'Innodb_data_writtenDescr' => __('The amount of data written so far, in bytes.'),
-        'Innodb_dblwr_pages_writtenDescr' => __('The number of pages that have been written for doublewrite operations.'),
-        'Innodb_dblwr_writesDescr' => __('The number of doublewrite operations that have been performed.'),
-        'Innodb_log_waitsDescr' => __('The number of waits we had because log buffer was too small and we had to wait for it to be flushed before continuing.'),
-        'Innodb_log_write_requestsDescr' => __('The number of log write requests.'),
-        'Innodb_log_writesDescr' => __('The number of physical writes to the log file.'),
-        'Innodb_os_log_fsyncsDescr' => __('The number of fsync() writes done to the log file.'),
-        'Innodb_os_log_pending_fsyncsDescr' => __('The number of pending log file fsyncs.'),
-        'Innodb_os_log_pending_writesDescr' => __('Pending log file writes.'),
-        'Innodb_os_log_writtenDescr' => __('The number of bytes written to the log file.'),
-        'Innodb_pages_createdDescr' => __('The number of pages created.'),
-        'Innodb_page_sizeDescr' => __('The compiled-in InnoDB page size (default 16KB). Many values are counted in pages; the page size allows them to be easily converted to bytes.'),
-        'Innodb_pages_readDescr' => __('The number of pages read.'),
-        'Innodb_pages_writtenDescr' => __('The number of pages written.'),
-        'Innodb_row_lock_current_waitsDescr' => __('The number of row locks currently being waited for.'),
-        'Innodb_row_lock_time_avgDescr' => __('The average time to acquire a row lock, in milliseconds.'),
-        'Innodb_row_lock_timeDescr' => __('The total time spent in acquiring row locks, in milliseconds.'),
-        'Innodb_row_lock_time_maxDescr' => __('The maximum time to acquire a row lock, in milliseconds.'),
-        'Innodb_row_lock_waitsDescr' => __('The number of times a row lock had to be waited for.'),
-        'Innodb_rows_deletedDescr' => __('The number of rows deleted from InnoDB tables.'),
-        'Innodb_rows_insertedDescr' => __('The number of rows inserted in InnoDB tables.'),
-        'Innodb_rows_readDescr' => __('The number of rows read from InnoDB tables.'),
-        'Innodb_rows_updatedDescr' => __('The number of rows updated in InnoDB tables.'),
-        'Key_blocks_not_flushedDescr' => __('The number of key blocks in the key cache that have changed but haven\'t yet been flushed to disk. It used to be known as Not_flushed_key_blocks.'),
-        'Key_blocks_unusedDescr' => __('The number of unused blocks in the key cache. You can use this value to determine how much of the key cache is in use.'),
-        'Key_blocks_usedDescr' => __('The number of used blocks in the key cache. This value is a high-water mark that indicates the maximum number of blocks that have ever been in use at one time.'),
-        'Key_read_requestsDescr' => __('The number of requests to read a key block from the cache.'),
-        'Key_readsDescr' => __('The number of physical reads of a key block from disk. If Key_reads is big, then your key_buffer_size value is probably too small. The cache miss rate can be calculated as Key_reads/Key_read_requests.'),
-        'Key_write_requestsDescr' => __('The number of requests to write a key block to the cache.'),
-        'Key_writesDescr' => __('The number of physical writes of a key block to disk.'),
-        'Last_query_costDescr' => __('The total cost of the last compiled query as computed by the query optimizer. Useful for comparing the cost of different query plans for the same query. The default value of 0 means that no query has been compiled yet.'),
-        'Not_flushed_delayed_rowsDescr' => __('The number of rows waiting to be written in INSERT DELAYED queues.'),
-        'Opened_tablesDescr' => __('The number of tables that have been opened. If opened tables is big, your table cache value is probably too small.'),
-        'Open_filesDescr' => __('The number of files that are open.'),
-        'Open_streamsDescr' => __('The number of streams that are open (used mainly for logging).'),
-        'Open_tablesDescr' => __('The number of tables that are open.'),
-        'Qcache_free_blocksDescr' => __('The number of free memory blocks in query cache. High numbers can indicate fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE statement.'),
-        'Qcache_free_memoryDescr' => __('The amount of free memory for query cache.'),
-        'Qcache_hitsDescr' => __('The number of cache hits.'),
-        'Qcache_insertsDescr' => __('The number of queries added to the cache.'),
-        'Qcache_lowmem_prunesDescr' => __('The number of queries that have been removed from the cache to free up memory for caching new queries. This information can help you tune the query cache size. The query cache uses a least recently used (LRU) strategy to decide which queries to remove from the cache.'),
-        'Qcache_not_cachedDescr' => __('The number of non-cached queries (not cachable, or not cached due to the query_cache_type setting).'),
-        'Qcache_queries_in_cacheDescr' => __('The number of queries registered in the cache.'),
-        'Qcache_total_blocksDescr' => __('The total number of blocks in the query cache.'),
-        'Rpl_statusDescr' => __('The status of failsafe replication (not yet implemented).'),
-        'Select_full_joinDescr' => __('The number of joins that do not use indexes. If this value is not 0, you should carefully check the indexes of your tables.'),
-        'Select_full_range_joinDescr' => __('The number of joins that used a range search on a reference table.'),
-        'Select_range_checkDescr' => __('The number of joins without keys that check for key usage after each row. (If this is not 0, you should carefully check the indexes of your tables.)'),
-        'Select_rangeDescr' => __('The number of joins that used ranges on the first table. (It\'s normally not critical even if this is big.)'),
-        'Select_scanDescr' => __('The number of joins that did a full scan of the first table.'),
-        'Slave_open_temp_tablesDescr' => __('The number of temporary tables currently open by the slave SQL thread.'),
-        'Slave_retried_transactionsDescr' => __('Total (since startup) number of times the replication slave SQL thread has retried transactions.'),
-        'Slave_runningDescr' => __('This is ON if this server is a slave that is connected to a master.'),
-        'Slow_launch_threadsDescr' => __('The number of threads that have taken more than slow_launch_time seconds to create.'),
-        'Slow_queriesDescr' => __('The number of queries that have taken more than long_query_time seconds.'),
-        'Sort_merge_passesDescr' => __('The number of merge passes the sort algorithm has had to do. If this value is large, you should consider increasing the value of the sort_buffer_size system variable.'),
-        'Sort_rangeDescr' => __('The number of sorts that were done with ranges.'),
-        'Sort_rowsDescr' => __('The number of sorted rows.'),
-        'Sort_scanDescr' => __('The number of sorts that were done by scanning the table.'),
-        'Table_locks_immediateDescr' => __('The number of times that a table lock was acquired immediately.'),
-        'Table_locks_waitedDescr' => __('The number of times that a table lock could not be acquired immediately and a wait was needed. If this is high, and you have performance problems, you should first optimize your queries, and then either split your table or tables or use replication.'),
-        'Threads_cachedDescr' => __('The number of threads in the thread cache. The cache hit rate can be calculated as Threads_created/Connections. If this value is red you should raise your thread_cache_size.'),
-        'Threads_connectedDescr' => __('The number of currently open connections.'),
-        'Threads_createdDescr' => __('The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)'),
-        'Threads_runningDescr' => __('The number of threads that are not sleeping.')
+        'Aborted_connects' => __('The number of failed attempts to connect to the MySQL server.'),
+        'Binlog_cache_disk_use' => __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.'),
+        'Binlog_cache_use' => __('The number of transactions that used the temporary binary log cache.'),
+        'Connections' => __('The number of connection attempts (successful or not) to the MySQL server.'),
+        'Created_tmp_disk_tables' => __('The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based.'),
+        'Created_tmp_files' => __('How many temporary files mysqld has created.'),
+        'Created_tmp_tables' => __('The number of in-memory temporary tables created automatically by the server while executing statements.'),
+        'Delayed_errors' => __('The number of rows written with INSERT DELAYED for which some error occurred (probably duplicate key).'),
+        'Delayed_insert_threads' => __('The number of INSERT DELAYED handler threads in use. Every different table on which one uses INSERT DELAYED gets its own thread.'),
+        'Delayed_writes' => __('The number of INSERT DELAYED rows written.'),
+        'Flush_commands'  => __('The number of executed FLUSH statements.'),
+        'Handler_commit' => __('The number of internal COMMIT statements.'),
+        'Handler_delete' => __('The number of times a row was deleted from a table.'),
+        'Handler_discover' => __('The MySQL server can ask the NDB Cluster storage engine if it knows about a table with a given name. This is called discovery. Handler_discover indicates the number of time tables have been discovered.'),
+        'Handler_read_first' => __('The number of times the first entry was read from an index. If this is high, it suggests that the server is doing a lot of full index scans; for example, SELECT col1 FROM foo, assuming that col1 is indexed.'),
+        'Handler_read_key' => __('The number of requests to read a row based on a key. If this is high, it is a good indication that your queries and tables are properly indexed.'),
+        'Handler_read_next' => __('The number of requests to read the next row in key order. This is incremented if you are querying an index column with a range constraint or if you are doing an index scan.'),
+        'Handler_read_prev' => __('The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.'),
+        'Handler_read_rnd' => __('The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'),
+        'Handler_read_rnd_next' => __('The number of requests to read the next row in the data file. This is high if you are doing a lot of table scans. Generally this suggests that your tables are not properly indexed or that your queries are not written to take advantage of the indexes you have.'),
+        'Handler_rollback' => __('The number of internal ROLLBACK statements.'),
+        'Handler_update' => __('The number of requests to update a row in a table.'),
+        'Handler_write' => __('The number of requests to insert a row in a table.'),
+        'Innodb_buffer_pool_pages_data' => __('The number of pages containing data (dirty or clean).'),
+        'Innodb_buffer_pool_pages_dirty' => __('The number of pages currently dirty.'),
+        'Innodb_buffer_pool_pages_flushed' => __('The number of buffer pool pages that have been requested to be flushed.'),
+        'Innodb_buffer_pool_pages_free' => __('The number of free pages.'),
+        'Innodb_buffer_pool_pages_latched' => __('The number of latched pages in InnoDB buffer pool. These are pages currently being read or written or that can\'t be flushed or removed for some other reason.'),
+        'Innodb_buffer_pool_pages_misc' => __('The number of pages busy because they have been allocated for administrative overhead such as row locks or the adaptive hash index. This value can also be calculated as Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data.'),
+        'Innodb_buffer_pool_pages_total' => __('Total size of buffer pool, in pages.'),
+        'Innodb_buffer_pool_read_ahead_rnd' => __('The number of "random" read-aheads InnoDB initiated. This happens when a query is to scan a large portion of a table but in random order.'),
+        'Innodb_buffer_pool_read_ahead_seq' => __('The number of sequential read-aheads InnoDB initiated. This happens when InnoDB does a sequential full table scan.'),
+        'Innodb_buffer_pool_read_requests' => __('The number of logical read requests InnoDB has done.'),
+        'Innodb_buffer_pool_reads' => __('The number of logical reads that InnoDB could not satisfy from buffer pool and had to do a single-page read.'),
+        'Innodb_buffer_pool_wait_free' => __('Normally, writes to the InnoDB buffer pool happen in the background. However, if it\'s necessary to read or create a page and no clean pages are available, it\'s necessary to wait for pages to be flushed first. This counter counts instances of these waits. If the buffer pool size was set properly, this value should be small.'),
+        'Innodb_buffer_pool_write_requests' => __('The number writes done to the InnoDB buffer pool.'),
+        'Innodb_data_fsyncs' => __('The number of fsync() operations so far.'),
+        'Innodb_data_pending_fsyncs' => __('The current number of pending fsync() operations.'),
+        'Innodb_data_pending_reads' => __('The current number of pending reads.'),
+        'Innodb_data_pending_writes' => __('The current number of pending writes.'),
+        'Innodb_data_read' => __('The amount of data read so far, in bytes.'),
+        'Innodb_data_reads' => __('The total number of data reads.'),
+        'Innodb_data_writes' => __('The total number of data writes.'),
+        'Innodb_data_written' => __('The amount of data written so far, in bytes.'),
+        'Innodb_dblwr_pages_written' => __('The number of pages that have been written for doublewrite operations.'),
+        'Innodb_dblwr_writes' => __('The number of doublewrite operations that have been performed.'),
+        'Innodb_log_waits' => __('The number of waits we had because log buffer was too small and we had to wait for it to be flushed before continuing.'),
+        'Innodb_log_write_requests' => __('The number of log write requests.'),
+        'Innodb_log_writes' => __('The number of physical writes to the log file.'),
+        'Innodb_os_log_fsyncs' => __('The number of fsync() writes done to the log file.'),
+        'Innodb_os_log_pending_fsyncs' => __('The number of pending log file fsyncs.'),
+        'Innodb_os_log_pending_writes' => __('Pending log file writes.'),
+        'Innodb_os_log_written' => __('The number of bytes written to the log file.'),
+        'Innodb_pages_created' => __('The number of pages created.'),
+        'Innodb_page_size' => __('The compiled-in InnoDB page size (default 16KB). Many values are counted in pages; the page size allows them to be easily converted to bytes.'),
+        'Innodb_pages_read' => __('The number of pages read.'),
+        'Innodb_pages_written' => __('The number of pages written.'),
+        'Innodb_row_lock_current_waits' => __('The number of row locks currently being waited for.'),
+        'Innodb_row_lock_time_avg' => __('The average time to acquire a row lock, in milliseconds.'),
+        'Innodb_row_lock_time' => __('The total time spent in acquiring row locks, in milliseconds.'),
+        'Innodb_row_lock_time_max' => __('The maximum time to acquire a row lock, in milliseconds.'),
+        'Innodb_row_lock_waits' => __('The number of times a row lock had to be waited for.'),
+        'Innodb_rows_deleted' => __('The number of rows deleted from InnoDB tables.'),
+        'Innodb_rows_inserted' => __('The number of rows inserted in InnoDB tables.'),
+        'Innodb_rows_read' => __('The number of rows read from InnoDB tables.'),
+        'Innodb_rows_updated' => __('The number of rows updated in InnoDB tables.'),
+        'Key_blocks_not_flushed' => __('The number of key blocks in the key cache that have changed but haven\'t yet been flushed to disk. It used to be known as Not_flushed_key_blocks.'),
+        'Key_blocks_unused' => __('The number of unused blocks in the key cache. You can use this value to determine how much of the key cache is in use.'),
+        'Key_blocks_used' => __('The number of used blocks in the key cache. This value is a high-water mark that indicates the maximum number of blocks that have ever been in use at one time.'),
+        'Key_read_requests' => __('The number of requests to read a key block from the cache.'),
+        'Key_reads' => __('The number of physical reads of a key block from disk. If Key_reads is big, then your key_buffer_size value is probably too small. The cache miss rate can be calculated as Key_reads/Key_read_requests.'),
+        'Key_write_requests' => __('The number of requests to write a key block to the cache.'),
+        'Key_writes' => __('The number of physical writes of a key block to disk.'),
+        'Last_query_cost' => __('The total cost of the last compiled query as computed by the query optimizer. Useful for comparing the cost of different query plans for the same query. The default value of 0 means that no query has been compiled yet.'),
+        'Max_used_connections' => __('The maximum number of connections that have been in use simultaneously since the server started.'),
+        'Not_flushed_delayed_rows' => __('The number of rows waiting to be written in INSERT DELAYED queues.'),
+        'Opened_tables' => __('The number of tables that have been opened. If opened tables is big, your table cache value is probably too small.'),
+        'Open_files' => __('The number of files that are open.'),
+        'Open_streams' => __('The number of streams that are open (used mainly for logging).'),
+        'Open_tables' => __('The number of tables that are open.'),
+        'Qcache_free_blocks' => __('The number of free memory blocks in query cache. High numbers can indicate fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE statement.'),
+        'Qcache_free_memory' => __('The amount of free memory for query cache.'),
+        'Qcache_hits' => __('The number of cache hits.'),
+        'Qcache_inserts' => __('The number of queries added to the cache.'),
+        'Qcache_lowmem_prunes' => __('The number of queries that have been removed from the cache to free up memory for caching new queries. This information can help you tune the query cache size. The query cache uses a least recently used (LRU) strategy to decide which queries to remove from the cache.'),
+        'Qcache_not_cached' => __('The number of non-cached queries (not cachable, or not cached due to the query_cache_type setting).'),
+        'Qcache_queries_in_cache' => __('The number of queries registered in the cache.'),
+        'Qcache_total_blocks' => __('The total number of blocks in the query cache.'),
+        'Rpl_status' => __('The status of failsafe replication (not yet implemented).'),
+        'Select_full_join' => __('The number of joins that do not use indexes. If this value is not 0, you should carefully check the indexes of your tables.'),
+        'Select_full_range_join' => __('The number of joins that used a range search on a reference table.'),
+        'Select_range_check' => __('The number of joins without keys that check for key usage after each row. (If this is not 0, you should carefully check the indexes of your tables.)'),
+        'Select_range' => __('The number of joins that used ranges on the first table. (It\'s normally not critical even if this is big.)'),
+        'Select_scan' => __('The number of joins that did a full scan of the first table.'),
+        'Slave_open_temp_tables' => __('The number of temporary tables currently open by the slave SQL thread.'),
+        'Slave_retried_transactions' => __('Total (since startup) number of times the replication slave SQL thread has retried transactions.'),
+        'Slave_running' => __('This is ON if this server is a slave that is connected to a master.'),
+        'Slow_launch_threads' => __('The number of threads that have taken more than slow_launch_time seconds to create.'),
+        'Slow_queries' => __('The number of queries that have taken more than long_query_time seconds.'),
+        'Sort_merge_passes' => __('The number of merge passes the sort algorithm has had to do. If this value is large, you should consider increasing the value of the sort_buffer_size system variable.'),
+        'Sort_range' => __('The number of sorts that were done with ranges.'),
+        'Sort_rows' => __('The number of sorted rows.'),
+        'Sort_scan' => __('The number of sorts that were done by scanning the table.'),
+        'Table_locks_immediate' => __('The number of times that a table lock was acquired immediately.'),
+        'Table_locks_waited' => __('The number of times that a table lock could not be acquired immediately and a wait was needed. If this is high, and you have performance problems, you should first optimize your queries, and then either split your table or tables or use replication.'),
+        'Threads_cached' => __('The number of threads in the thread cache. The cache hit rate can be calculated as Threads_created/Connections. If this value is red you should raise your thread_cache_size.'),
+        'Threads_connected' => __('The number of currently open connections.'),
+        'Threads_created' => __('The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)'),
+        'Threads_running' => __('The number of threads that are not sleeping.')
     );
     
     /**
@@ -837,7 +939,7 @@ function printVariablesTable() {
         // variable => min value
         //'Handler read key' => '> ',
     );
-	
+    
 ?>
 <table class="data sortable" id="serverstatusvariables">
     <col class="namecol" />
@@ -892,8 +994,8 @@ function printVariablesTable() {
             ?></td>
             <td class="descr">
             <?php
-            if (isset($strShowStatus[$name . 'Descr'])) {
-                echo $strShowStatus[$name . 'Descr'];
+            if (isset($strShowStatus[$name ])) {
+                echo $strShowStatus[$name];
             }
 
             if (isset($links[$name])) {
@@ -919,19 +1021,19 @@ function printVariablesTable() {
 }
 
 function createQueryChart($com_vars=FALSE) {
-	/**
-	 * Chart generation
-	 */
-	require_once './libraries/chart.lib.php';
+    /**
+     * Chart generation
+     */
+    require_once './libraries/chart.lib.php';
 
     if(!$com_vars) 
         $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
         
-	// admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
-	unset($com_vars['Com_admin_commands']);
-	
+    // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+    unset($com_vars['Com_admin_commands']);
+    
     arsort($com_vars);
-    	
+        
     $merge_minimum = array_sum($com_vars) * 0.005;
     $merged_value = 0;
     

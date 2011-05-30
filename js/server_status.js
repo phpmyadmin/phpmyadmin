@@ -5,6 +5,10 @@ $(function() {
     var odd_row=false;
     var text='';
     
+    // Process chart
+    initChart();
+    
+    // Add tabs
     $('#serverStatusTabs').tabs({
         // Fixes line break in the menu bar when the page overflows and scrollbar appears
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
@@ -27,6 +31,7 @@ $(function() {
     // Ajax reload of variables
     $('.statuslinks a').click(function() { return refreshHandler(this); });
     
+    /* 3 Filtering functions */
     $('#filterAlert').change(function() {
         alertFilter = this.checked;
         filterVariables();
@@ -120,4 +125,80 @@ $(function() {
             }
         });
     }
+    
+    function initChart() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                defaultSeriesType: 'spline',
+                marginRight: 10,
+                events: {
+                    load: function() {
+        
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        
+                        var addnewPoint = function() {
+                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1},function(data) {
+                                var x=parseInt(data.split(',')[0]),
+                                    y=parseInt(data.split(',')[1]);
+                                
+                                series.addPoint([x,y], true, true);
+                                
+                                setTimeout(addnewPoint, 2000);
+                            });
+                        }
+                        
+                        setTimeout(addnewPoint, 2000);
+                    }
+                }
+            },
+            title: {
+                text: 'Processes'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
+                        Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: '# Processes',
+                data: (function() {
+                    // generate an array of random data
+                    var data = [],
+                        time = (new Date()).getTime(),
+                        i;
+                    for (i = -19; i <= 0; i++) {
+                        data.push({
+                            x: time + i * 2000,
+                            y: 0 //Math.random()
+                        });
+                    }
+                    return data;
+                })()
+            }]
+        });
+        }
 });
