@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 05:38+0200\n"
+"PO-Revision-Date: 2011-05-30 05:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -698,10 +698,9 @@ msgid "Analyze table"
 msgstr "分析表"
 
 #: db_structure.php:521
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "转到数据表"
+msgstr "添加表前缀"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #, fuzzy
