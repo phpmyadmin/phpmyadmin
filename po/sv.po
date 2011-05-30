@@ -9965,10 +9965,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Visa %s med datum fån %s till %s av användare %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Ta bort spårning för denna tabell"
+msgstr "Ta bort spårning för denna rapport"
 
 #: tbl_tracking.php:443
 #, fuzzy
