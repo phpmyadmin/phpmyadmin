@@ -9072,10 +9072,9 @@ msgid "Insecure connection"
 msgstr "Osäker anslutning"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Konfigurations lagring"
+msgstr "Konfiguration sparad"
 
 #: setup/frames/index.inc.php:93
 msgid ""
