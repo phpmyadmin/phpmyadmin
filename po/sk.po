@@ -3964,6 +3964,11 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
+"Môžete použiť nahradzujúce znaky (% a _). Pokiaľ ich potrebujete použiť v "
+"ich pôvodnom význame, vložte spätné lomítko \\ pred, napríklad  [kbd]'moja"
+"\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]. Použitím tejto voľby môžete "
+"ovplyvniť triedenie databáz v zozname. Stačí na konci zoznamu uviesť [kbd]*[/"
+"kbd] na konci pre zobrazenie ostatných v abecednom poradí."
 
 #: libraries/config/messages.inc.php:394
 msgid "Show only listed databases"
@@ -3994,6 +3999,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"Databáza použitá pre ralácie, záložky a PDF možností. Pre kompletný popis "
+"viď [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Ak ponecháte prázdne, "
+"bude táto možnosť vypnutá. Doporučená hodnota: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 #, fuzzy
@@ -4082,6 +4090,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabuľka obsahujúca popisy polí. Nechajte prázdnu pre vypnutie tejto funkcie. "
+"Odporúčaná hodnota: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #, fuzzy
@@ -4167,6 +4177,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
+"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
+"databáze. Odporúčaná hodnota: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:431
 msgid "User preferences storage table"
@@ -4181,6 +4193,8 @@ msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
+"Vypnite, pokiaľ viete, že vaše pma_* tabuľky sú aktuálne. Tým zabránite "
+"kontrolám kompatibility a urýchlite zabrazovanie stránok."
 
 #: libraries/config/messages.inc.php:435
 msgid "Verbose check"
