@@ -3199,7 +3199,7 @@ msgstr "可一次新增多少資料列"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of inserted rows"
-msgstr "插入的資料列數"
+msgstr "新增的資料列數"
 
 #: libraries/config/messages.inc.php:264
 msgid "Target for quick access icon"
