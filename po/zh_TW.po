@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 04:05+0200\n"
+"PO-Revision-Date: 2011-05-30 04:06+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3165,7 +3165,7 @@ msgstr "首行資料為欄位名稱"
 
 #: libraries/config/messages.inc.php:252 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "不匯入空的資料行"
 
 #: libraries/config/messages.inc.php:253
 msgid "Import currencies ($5.00 to 5.00)"
