@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 05:44+0200\n"
+"PO-Revision-Date: 2011-05-30 05:45+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7666,10 +7666,10 @@ msgid "Unable to change master"
 msgstr "无法修改主服务器"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
-msgstr "成功修改主服务器为 %s"
+msgstr "已成功修改主服务器到 %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
