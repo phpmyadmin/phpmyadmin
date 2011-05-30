@@ -1,6 +1,6 @@
 <?php
 /**
- * handles creation of the GIS visualizations
+ * handles creation of the GIS visualizations.
  *
  * @package phpMyAdmin
  */
@@ -13,22 +13,20 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'flot/jquery.flot.js';
-$GLOBALS['js_include'][] = 'flot/jquery.flot.navigate.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
 
 // Runs common work
- require './libraries/db_common.inc.php';
+require './libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
 $url_params['back'] = 'sql.php';
 
 
-// Import chart functions
+// Import visualization functions
 require_once './libraries/gis_visualization.lib.php';
 
 
@@ -54,12 +52,12 @@ if (PMA_isValid($_REQUEST['visualizationSettings'], 'array')) {
 }
 
 // If label column is not set, use first non-geometric colum as label column
-if(! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
+if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
     $visualizationSettings['labelColumn'] = $labelCandidates[0];
 }
 
 // If spatial column is not set, use first geometric colum as spatial column
-if(! isset($visualizationSettings['spatialColumn'])) {
+if (! isset($visualizationSettings['spatialColumn'])) {
     $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
 }
 
@@ -72,15 +70,21 @@ while ($row = PMA_DBI_fetch_assoc($modified_result)) {
     $data[] = $row;
 }
 
-// get the chart and settings after chart generation
-$visualization = PMA_GIS_visualization_results($data, $visualizationSettings);
+if (isset($_REQUEST['saveToFile'])) {
+    $file_name = $_REQUEST['fileName'];
+    if ($file_name == '') {
+        $file_name = $visualizationSettings['spatialColumn'];
+    }
 
-if (! empty($visualization)) {
-    $message = PMA_Message::success(__('GIS visualization generated successfully.'));
+    $save_format = $_REQUEST['fileFormat'];
+    PMA_GIS_save_to_file($data, $visualizationSettings, $save_format, $file_name);
 }
-else {
-    $message = PMA_Message::error(__('Some error occured while generating the GIS visualization'));
-}
+
+$svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? false : true;
+$format = $svg_support ? 'svg' : 'png';
+
+// get the chart and settings after chart generation
+$visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
 
 /**
  * Displays the page
@@ -92,40 +96,32 @@ else {
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display GIS Visualization'); ?></legend>
-
-    <div id="placeholder"></div>
-    <script language="javascript" type="text/javascript">
-    $(function () {
+    <div id="placeholder" style="width:<?php echo($visualizationSettings['width']); ?>px;height:<?php echo($visualizationSettings['height']); ?>px;border:1px solid #484;float:right">
         <?php echo $visualization; ?>
+    </div>
+<?php
+if ($format == 'svg') {
+?>
+    <script language="javascript" type="text/javascript">
 
-        var placeholder = $("#placeholder");
-        var plot = $.plot(placeholder, data, options);
-
+    $(document).ready(function(){
+        var $placeholder = $('#placeholder');
         // add zoom out button
-        $('<div class="button" style="right:20px;top:20px">zoom out</div>').appendTo(placeholder).click(function (e) {
-            e.preventDefault();
-            plot.zoomOut();
-        });
-
-        // helper function for placing panning arrows
-        function addArrow(dir, right, top, offset) {
-            $('<img class="button" src="<?php echo($GLOBALS['pmaThemeImage'])?>arrow-' + dir + '.gif" style="right:' + right + 'px;top:' + top + 'px">').appendTo(placeholder).click(function (e) {
-                e.preventDefault();
-                plot.pan(offset);
-            });
-        }
-
+        $('<div class="button" id="zoom_out"><?php echo __("zoom out"); ?></div>').appendTo($placeholder);
         // add panning arrows
-        addArrow('left', 55, 60, { left: -100 });
-        addArrow('right', 25, 60, { left: 100 });
-        addArrow('up', 40, 45, { top: -100 });
-        addArrow('down', 40, 75, { top: 100 });
+        $('<img class="button" id="left_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-left.gif">').appendTo($placeholder);
+        $('<img class="button" id="right_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-right.gif">').appendTo($placeholder);
+        $('<img class="button" id="up_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-up.gif">').appendTo($placeholder);
+        $('<img class="button" id="down_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-down.gif">').appendTo($placeholder);
     });
-    </script>
 
+    </script>
+<?php
+}
+?>
     <input type="hidden" name="sql_query" id="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 
-    <table>
+    <table class="gis_table">
     <tr><td><label for="width"><?php echo __("Width"); ?></label></td>
         <td><input type="text" name="visualizationSettings[width]" id="width" value="<?php echo (isset($visualizationSettings['width']) ? htmlspecialchars($visualizationSettings['width']) : ''); ?>" /></td>
     </tr>
@@ -135,11 +131,11 @@ else {
     </tr>
 
     <tr><td><label for="labelColumn"><?php echo __("Label Column"); ?></label></td>
-        <td><select name="visualizationSettings[labelColumn]" id="labelColumn" style="min-width:155px;">
+        <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
         <?php
-            foreach($labelCandidates as $labelCandidate) {
+            foreach ($labelCandidates as $labelCandidate) {
                 echo('<option value="' . htmlspecialchars($labelCandidate) . '"');
-                if($labelCandidate == $visualizationSettings['labelColumn']) {
+                if ($labelCandidate == $visualizationSettings['labelColumn']) {
                     echo(' selected="selected"');
                 }
                 echo('>' . htmlspecialchars($labelCandidate) . '</option>');
@@ -148,12 +144,12 @@ else {
         </select></td>
     </tr>
 
-    <tr><td><label for="spatial Column"><?php echo __("spatial Column"); ?></label></td>
-        <td><select name="visualizationSettings[spatialColumn]" id="spatialColumn" style="min-width:155px;">
+    <tr><td><label for="spatial Column"><?php echo __("Spatial Column"); ?></label></td>
+        <td><select name="visualizationSettings[spatialColumn]" id="spatialColumn">
         <?php
-            foreach($spatialCandidates as $spatialCandidate) {
+            foreach ($spatialCandidates as $spatialCandidate) {
                 echo('<option value="' . htmlspecialchars($spatialCandidate) . '"');
-                if($spatialCandidate == $visualizationSettings['spatialColumn']) {
+                if ($spatialCandidate == $visualizationSettings['spatialColumn']) {
                     echo(' selected="selected"');
                 }
                 echo('>' . htmlspecialchars($spatialCandidate) . '</option>');
@@ -161,11 +157,28 @@ else {
         ?>
         </select></td>
     </tr>
+    <tr><td></td>
+        <td class="button"><input type="submit" name="displayVisualization" value="<?php echo __('Redraw'); ?>" /></td>
+    </tr>
+    <tr><td class="save"><?php echo __("Save to file"); ?></td></tr>
+    <tr><td><label for="fileName"><?php echo __("File name"); ?></label></td>
+        <td><input type="text" name="fileName" id="fileName" /></td>
+    </tr>
+    <tr><td><label for="fileFormat"><?php echo __("Format"); ?></label></td>
+        <td><select name="fileFormat" id="fileFormat">
+            <option value="png">PNG</option>
+            <option value="pdf">PDF</option>
+            <?php
+            if ($svg_support) {
+                echo ('<option value="svg" selected="selected">SVG</option>');
+            }
+            ?>
+        </select></td>
+    </tr>
+    <tr><td></td>
+        <td class="button"><input type="submit" name="saveToFile" value="<?php echo __('Save'); ?>" /></td>
+    </tr>
     </table>
-
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="displayVisualization" value="<?php echo __('Redraw'); ?>" />
 </fieldset>
 </form>
 </div>

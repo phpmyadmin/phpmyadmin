@@ -1,15 +1,19 @@
 <?php
 /**
  * Handles the visualization of GIS MULTILINESTRING objects.
+ *
  * @package phpMyAdmin
  */
-class PMA_GIS_multilinestring extends PMA_GIS_geometry
+class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
 {
     // Hold the singleton instance of the class
-    private static $instance;
+    private static $_instance;
 
-    // A private constructor; prevents direct creation of object
-    private function __construct() {
+    /**
+     * A private constructor; prevents direct creation of object.
+     */
+    private function __construct()
+    {
     }
 
     /**
@@ -17,39 +21,121 @@ class PMA_GIS_multilinestring extends PMA_GIS_geometry
      *
      * @return the singleton
      */
-    public static function singleton() {
-        if (!isset(self::$instance)) {
+    public static function singleton()
+    {
+        if (!isset(self::$_instance)) {
             $c = __CLASS__;
-            self::$instance = new $c;
+            self::$_instance = new $c;
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
     /**
-     * Prepares and returns the code related to a row in the GIS dataset.
+     * Scales each row.
      *
-     * @param string $spatial  GIS MULTILINESTRING object
-     * @param string $label  Label for the GIS MULTILINESTRING object
-     * @param string $color  Color for the GIS MULTILINESTRING object
-     * @return the code related to a row in the GIS dataset
+     * @param string $spatial spatial data of a row
+     *
+     * @return array containing the min, max values for x and y cordinates
      */
-    public function prepareRow($spatial, $label, $line_color) {
-
-        $line_options = array('lineWidth' => 2.0, 'show' => true);
+    public function scaleRow($spatial)
+    {
+        $min_max = array();
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
         // Seperate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
-        $row_arr = array();
-        foreach($linestirngs as $linestirng) {
-            $row_arr[] = array('data' => $this->extractPoints($linestirng), 'hoverable' => true,
-                'lines' => $line_options, 'color' => $line_color, 'label' => $label);
+        foreach ($linestirngs as $linestring) {
+            $min_max = $this->setMinMax($linestring, $min_max);
         }
 
-        return $row_arr;
+        return $min_max;
+    }
+
+    /**
+     * Adds to the PNG image object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param string $label      Label for the GIS MULTILINESTRING object
+     * @param string $line_color Color for the GIS MULTILINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $image      Image object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
+    {
+        // allocate colors
+        $r = hexdec(substr($line_color, 1, 2));
+        $g = hexdec(substr($line_color, 3, 2));
+        $b = hexdec(substr($line_color, 4, 2));
+        $color = imagecolorallocate($image, $r, $g, $b);
+
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, $scale_data);
+            foreach ($points_arr as $point) {
+                if (! isset($temp_point)) {
+                    $temp_point = $point;
+                } else {
+                    // draw line section
+                    imageline($image, $temp_point[0], $temp_point[1], $point[0], $point[1], $color);
+                    $temp_point = $point;
+                }
+            }
+            unset($temp_point);
+        }
+        return $image;
+    }
+
+    /**
+     * Prepares and returns the code related to a row in the GIS dataset as SVG.
+     *
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param string $label      Label for the GIS MULTILINESTRING object
+     * @param string $line_color Color for the GIS MULTILINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsSvg($spatial, $label, $line_color, $scale_data)
+    {
+        $line_options = array(
+            'name'        => $label,
+            'class'       => 'linestring',
+            'fill'        => 'none',
+            'stroke'      => $line_color,
+            'stroke-width'=> 2,
+        );
+
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+
+        $row = '';
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, $scale_data);
+
+            $row .= '<polyline points="';
+            foreach ($points_arr as $point) {
+                $row .= $point[0] . ',' . $point[1] . ' ';
+            }
+            $row .= '"';
+            $line_options['id'] = $label . rand();
+            foreach ($line_options as $option => $val) {
+                $row .= ' ' . $option . '="' . trim($val) . '"';
+            }
+            $row .= '/>';
+        }
+
+        return $row;
     }
 }
 ?>

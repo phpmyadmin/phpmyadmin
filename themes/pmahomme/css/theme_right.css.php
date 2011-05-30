@@ -2127,3 +2127,47 @@ fieldset .disabled-field td {
     margin:             0 6px;
 }
 
+#left_arrow {
+    right:65px;
+    top:145px;
+}
+
+#right_arrow {
+    right:35px;
+    top:145px;
+}
+
+#up_arrow {
+    right:50px;
+    top:130px;
+}
+
+#down_arrow {
+    right:50px;
+    top:160px;
+}
+
+#zoom_out {
+    right:35px;
+    top:110px;
+}
+
+.gis_table td {
+    vertical-align: middle;
+}
+
+.gis_table select {
+    min-width: 160px;
+    margin: 6px;
+}
+
+.gis_table .save {
+    color: #111;
+    font-weight: bold;
+    vertical-align: bottom;
+    height: 100px;
+}
+
+.gis_table .button {
+   text-align: <?php echo $right; ?>;
+}

@@ -1,19 +1,20 @@
 <?php
 /**
- * Generates the JavaScripts needed to visualize GIS data. *
+ * Generates the JavaScripts needed to visualize GIS data.
+ *
  * @package phpMyAdmin
  */
-class PMA_GIS_visualization
+class PMA_GIS_Visualization
 {
     /**
      * @var array   Raw data for the visualization
      */
-    private $data;
+    private $_data;
 
     /**
      * @var array   Set of default settigs values are here.
      */
-    private $settings = array(
+    private $_settings = array(
 
         // Array of colors to be used for GIS visualizations.
         'colors' => array(
@@ -38,7 +39,7 @@ class PMA_GIS_visualization
         ),
 
         // The width of the GIS visualization.
-        'width' => 750,
+        'width' => 700,
 
          // The height of the GIS visualization.
         'height' => 450,
@@ -47,129 +48,273 @@ class PMA_GIS_visualization
     /**
      * @var array   Options that the user has specified.
      */
-    private $userSpecifiedSettings = null;
+    private $_userSpecifiedSettings = null;
 
     /**
      * Returns the settings array
+     *
      * @return the settings array.
      */
-    public function getSettings() {
-        return $this->settings;
+    public function getSettings()
+    {
+        return $this->_settings;
     }
 
     /**
      * Constructor. Stores user specified options.
-     * @param array $options users specified options
+     *
+     * @param array $data    Data for the visualization
+     * @param array $options Users specified options
      */
-    public function __construct($data, $options) {
-        $this->userSpecifiedSettings = $options;
-        $this->data = $data;
-
-        $series = array('shadowSize' => 0);
-        $grid = array('hoverable' => true, 'backgroundColor' => '#e5e5e5');
-        $legend = array('show' => false);
-        $zoom = array('interactive' => true);
-        $pan = array('interactive' => true);
-
-        $this->settings['flotOptions'] = array('series' => $series, 'zoom' => $zoom,
-            'pan' => $pan, 'grid' => $grid, 'legend' => $legend);
+    public function __construct($data, $options)
+    {
+        $this->_userSpecifiedSettings = $options;
+        $this->_data = $data;
     }
 
     /**
      * All the variable initialization, options handling has to be done here.
      */
-    protected function init() {
-        $this->handleOptions();
+    protected function init()
+    {
+        $this->_handleOptions();
     }
 
     /**
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
      */
-    private function handleOptions() {
-        if (is_null($this->userSpecifiedSettings)) {
-            return;
+    private function _handleOptions()
+    {
+        if (! is_null($this->_userSpecifiedSettings)) {
+            $this->_settings = array_merge($this->_settings, $this->_userSpecifiedSettings);
         }
-
-        $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
     }
 
     /**
-     * Get the JS code for the configured vaisualization
-     * @return string   JS code for the vaisualization
+     * Generate the visualization in SVG format.
+     *
+     * @return the generated image resource
      */
-    public function toString() {
+    private function _svg()
+    {
         $this->init();
 
-        $output = '$("#placeholder").attr("style", "float:right;';
-        $output .= 'width:' . $this->settings['width'] . 'px;';
-        $output .= 'height:' . $this->settings['height'] . 'px;"); ';
+        $output   = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . "\n";
+        $output  .= '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
+            . ' xmlns="http://www.w3.org/2000/svg" width="' . $this->_settings['width'] . '"'
+            . ' height="' . $this->_settings['height'] . '">';
+        $output .= '<g id="groupPanel">';
 
-        $data_arr = $this->prepareDataSet($this->data, 0);
-        $output .= 'var data = ' . json_encode($data_arr) . '; ';
+        $scale_data = $this->_scaleDataSet($this->_data);
+        $output .= $this->_prepareDataSet($this->_data, 0, $scale_data, 'svg', '');
 
-        $output .= 'var options = ' . json_encode($this->settings['flotOptions']). '; ';
+        $output .= '</g>';
+        $output .= '</svg>';
 
         return $output;
     }
 
+    /**
+     * Get the visualization as a SVG.
+     *
+     * @return the visualization as a SVG
+     */
+    public function asSVG()
+    {
+        $output = $this->_svg();
+        return $output;
+    }
 
-    private function prepareDataSet($data, $color_number) {
+    /**
+     * Saves as a SVG image to a file.
+     *
+     * @param string $fileName File name
+     */
+    public function toFileAsSvg($fileName)
+    {
+        $img = $this->_svg();
+        header('Content-Disposition: Attachment;filename=' . $fileName . '.svg');
+        header('Content-type: image/svg+xml');
+        ob_clean();
+        flush();
+        echo($img);
+    }
 
-        $results_arr = array();
+    /**
+     * Generate the visualization in PNG format.
+     *
+     * @return the generated image resource
+     */
+    private function _png()
+    {
+        $this->init();
 
-        // loop through the rows
+        // create image
+        $image = imagecreatetruecolor($this->_settings['width'], $this->_settings['height']);
+
+        // fill the background
+        $bg = imagecolorallocate($image, 229, 229, 229);
+        imagefilledrectangle($image, 0, 0, $this->_settings['width'] - 1, $this->_settings['height'] - 1, $bg);
+
+        $scale_data = $this->_scaleDataSet($this->_data);
+        $image = $this->_prepareDataSet($this->_data, 0, $scale_data, 'png', $image);
+
+        return $image;
+    }
+
+    /**
+     * Get the visualization as a PNG.
+     *
+     * @return the visualization as a PNG
+     */
+    public function asPng()
+    {
+        $img = $this->_png();
+
+        // render and save it to variable
+        ob_start();
+        imagepng($img, null, 9, PNG_ALL_FILTERS);
+        imagedestroy($img);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        // base64 encode
+        $encoded = base64_encode($output);
+        return '<img src="data:image/png;base64,'. $encoded .'" />';
+    }
+
+    /**
+     * Saves as a PNG image to a file.
+     *
+     * @param string $fileName File name
+     */
+    public function toFileAsPng($fileName)
+    {
+        $img = $this->_png();
+        header('Content-Disposition: Attachment;filename=' . $fileName . '.png');
+        header('Content-type: image/png');
+        ob_clean();
+        flush();
+        imagepng($img, null, 9, PNG_ALL_FILTERS);
+        imagedestroy($img);
+    }
+
+    /**
+     * Calculates the scale, horizontal and vertical offset that should be used.
+     *
+     * @param array $data Row data
+     *
+     * @return an array containing the scale, x and y offsets
+     */
+    private function _scaleDataSet($data)
+    {
+        $min_max = array();
+
         foreach ($data as $row) {
 
-            $index = $color_number % sizeof($this->settings['colors']);
-
             // Figure out the data type
-            $ref_data = $row[$this->settings['spatialColumn']];
+            $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos = stripos($ref_data, '(');
             $type = substr($ref_data, 0, $type_pos);
 
-            switch($type) {
-                case 'MULTIPOLYGON' :
-                    $gis_obj = PMA_GIS_multipolygon::singleton();
-                    break;
-                case 'POLYGON' :
-                    $gis_obj = PMA_GIS_polygon::singleton();
-                    break;
-                case 'MULTIPOINT' :
-                    $gis_obj = PMA_GIS_multipoint::singleton();
-                    break;
-                case 'POINT' :
-                    $gis_obj = PMA_GIS_point::singleton();
-                    break;
-                case 'MULTILINESTRING' :
-                    $gis_obj = PMA_GIS_multilinestring::singleton();
-                    break;
-                case 'LINESTRING' :
-                    $gis_obj = PMA_GIS_linestring::singleton();
-                    break;
-                case 'GEOMETRYCOLLECTION' :
-                    $gis_obj = PMA_GIS_geometrycollection::singleton();
-                    break;
-                default :
-                    die(__('Unknown GIS data type'));
+            $gis_obj = PMA_GIS_Factory::factory($type);
+            $scale_data = $gis_obj->scaleRow($row[$this->_settings['spatialColumn']]);
+
+            // Upadate minimum/maximum values for x and y cordinates.
+            $c_maxX = (float) $scale_data['maxX'];
+            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
+                $min_max['maxX'] = $c_maxX;
             }
 
+            $c_minX = (float) $scale_data['minX'];
+            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
+                $min_max['minX'] = $c_minX;
+            }
+
+            $c_maxY = (float) $scale_data['maxY'];
+            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
+                $min_max['maxY'] = $c_maxY;
+            }
+
+            $c_minY = (float) $scale_data['minY'];
+            if (! isset($min_max['minY']) || $c_minY < $min_max['minY']) {
+                $min_max['minY'] = $c_minY;
+            }
+        }
+
+        // scale the visualization
+        $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $this->_settings['width'];
+        $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $this->_settings['height'];
+        $ratio = ($x_ratio > $y_ratio) ? $x_ratio : $y_ratio;
+
+        $scale = ($ratio != 0) ? (1 / $ratio) : 1;
+
+        if ($x_ratio < $y_ratio) {
+            // center horizontally
+            $x = ($min_max['maxX'] + $min_max['minX'] - $this->_settings['width'] / $scale) / 2;
+            // fit vertically
+            $y = $min_max['minY'];
+        } else {
+            // fit horizontally
+            $x = $min_max['minX'];
+            // center vertically
+            $y =($min_max['maxY'] + $min_max['minY'] - $this->_settings['height'] / $scale) / 2;
+        }
+
+        return array(
+            'scale'  => $scale,
+            'x'      => $x,
+            'y'      => $y,
+            'height' => $this->_settings['height'],
+        );
+    }
+
+    /**
+     * Prepares and return the dataset as needed by the visualization.
+     *
+     * @param array  $data         Raw data
+     * @param int    $color_number Start index to the color array
+     * @param array  $scale_data   Data related to scaling
+     * @param string $format       Format of the visulaization
+     * @param image  $results      Image object in the case of png
+     *
+     * @return the formatted array of data.
+     */
+    private function _prepareDataSet($data, $color_number, $scale_data, $format, $results)
+    {
+        // loop through the rows
+        foreach ($data as $row) {
+
+            $index = $color_number % sizeof($this->_settings['colors']);
+
+            // Figure out the data type
+            $ref_data = $row[$this->_settings['spatialColumn']];
+            $type_pos = stripos($ref_data, '(');
+            $type = substr($ref_data, 0, $type_pos);
+
+            $gis_obj = PMA_GIS_Factory::factory($type);
             $label = '';
-            if (isset($this->settings['labelColumn']) && isset($row[$this->settings['labelColumn']])) {
-                $label = $row[$this->settings['labelColumn']];
-            }
-            $temp_results = $gis_obj->prepareRow($row[$this->settings['spatialColumn']],
-                $label, $this->settings['colors'][$index]);
-
-            if (isset($temp_results[0]) && is_array($temp_results[0])) {
-                $results_arr = array_merge($results_arr, $temp_results);
-            } else {
-                $results_arr[] = $temp_results;
+            if (isset($this->_settings['labelColumn'])
+                && isset($row[$this->_settings['labelColumn']])
+            ) {
+                $label = $row[$this->_settings['labelColumn']];
             }
 
+            if ($format == 'svg') {
+                $results .= $gis_obj->prepareRowAsSvg(
+                    $row[$this->_settings['spatialColumn']], $label,
+                    $this->_settings['colors'][$index], $scale_data
+                );
+            } elseif ($format == 'png') {
+                $results = $gis_obj->prepareRowAsPng(
+                    $row[$this->_settings['spatialColumn']], $label,
+                    $this->_settings['colors'][$index], $scale_data, $results
+                );
+            }
             $color_number++;
         }
-        return $results_arr;
+        return $results;
     }
 }
 ?>

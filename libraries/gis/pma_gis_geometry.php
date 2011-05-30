@@ -1,41 +1,108 @@
 <?php
 /**
  * Base class for all GIS data type classes.
+ *
  * @package phpMyAdmin
  */
-abstract class PMA_GIS_geometry
+abstract class PMA_GIS_Geometry
 {
     /**
-     * Prepares and returns the code related to a row in the GIS dataset.
+     * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial  GIS data object
-     * @param string $label  Label for the GIS data object
-     * @param string $color  Color for the GIS data object     *
+     * @param string $spatial    GIS data object
+     * @param string $label      Label for the GIS data object
+     * @param string $color      Color for the GIS data object
+     * @param array  $scale_data Data related to scaling
+     *
      * @return the code related to a row in the GIS dataset
      */
-    public abstract function prepareRow($spatial, $label, $color);
+    public abstract function prepareRowAsSvg($spatial, $label, $color, $scale_data);
 
     /**
-     * Extracts points and returns them as an array.
+     * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $point_set  string of comma sperated points
-     * @return extracted points
+     * @param string $spatial    GIS GEOMETRYCOLLECTION object
+     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $image      Image object
+     *
+     * @return the code related to a row in the GIS dataset
      */
-    protected function extractPoints($point_set) {
+    public abstract function prepareRowAsPng($spatial, $label, $color, $scale_data, $image);
 
-        $cordinates_arr = array();
+    /**
+     * Scales each row.
+     *
+     * @param string $spatial spatial data of a row
+     *
+     * @return array containing the min, max values for x and y cordinates
+     */
+    public abstract function scaleRow($spatial);
+
+    /**
+     * Update the min, max values with the given point set.
+     *
+     * @param string $point_set Point set
+     * @param array  $min_max   Existing min, max values
+     *
+     * @return the updated min, max values
+     */
+    protected function setMinMax($point_set, $min_max)
+    {
+        // Seperate each point
+        $points = explode(",", $point_set);
+
+        foreach ($points as $point) {
+            // Extract cordinates of the point
+            $cordinates = explode(" ", $point);
+
+            $x = (float) $cordinates[0];
+            if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
+                $min_max['maxX'] = $x;
+            }
+            if (! isset($min_max['minX']) || $x < $min_max['minX']) {
+                $min_max['minX'] = $x;
+            }
+            $y = (float) $cordinates[1];
+            if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
+                $min_max['maxY'] = $y;
+            }
+            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
+                $min_max['minY'] = $y;
+            }
+        }
+        return $min_max;
+    }
+
+    /**
+     * Extracts points, scales and returns them as an array.
+     *
+     * @param string  $point_set  String of comma sperated points
+     * @param array   $scale_data Data related to scaling
+     * @param boolean $linear     If true, as a 1D array, else as a 2D array
+     *
+     * @return scaled points
+     */
+    protected function extractPoints($point_set, $scale_data, $linear = false)
+    {
         $points_arr = array();
 
         // Seperate each point
         $points = explode(",", $point_set);
 
-        foreach($points as $point) {
+        foreach ($points as $point) {
             // Extract cordinates of the point
             $cordinates = explode(" ", $point);
-            $cordinate_arr[] = $cordinates[0];
-            $cordinate_arr[] = $cordinates[1];
 
-            $points_arr[] = $cordinate_arr;
+            $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
+            $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+            if (! $linear) {
+                $points_arr[] = array($x, $y);
+            } else {
+                $points_arr[] = $x;
+                $points_arr[] = $y;
+            }
             unset($cordinate_arr);
         }
 

@@ -1,106 +1,169 @@
 /**
  * @fileoverview    functions used for visualizing GIS data
  *
- * @requires    jQuery
- * @requires    flot/jquery.flot.navigate.js
- * @requires    flot/jquery.flot.js
+ * @requires    jquery
+ * @requires    jquery/jquery.svg.js
+ * @requires    jquery/jquery.mousewheel.js
+ * @requires    jquery/jquery.event.drag-2.0.min.js
  */
+
+var x = 0;
+var y = 0;
+var scale = 1;
+var orig_scale = 1;
+var svg;
 
 /**
- * Displays tooltips for GIS data points.
- *
- * @param   x          string   the x coordinate
- * @param   y          string   the y coordinate
- * @param   content    string   tooltip message
+ * Zooms and pans the visualization.
  */
-function showTooltip(x, y, contents) {
-    $('<div id="tooltip">' + contents + '</div>').css({
-        position : 'absolute',
-        display : 'none',
-        top : y + 5,
-        left : x + 5,
-        border : '1px solid #fdd',
-        padding : '2px',
-        'background-color' : '#fee',
-        opacity : 0.80
-    }).appendTo("body").fadeIn(200);
-}
+function zoomAndPan() {
+    var g = svg.getElementById('groupPanel');
 
-/*
-function manipulateLegend(plot, canvascontext) {
-    var limit = 7;
-    var count = 0;
-    var old_cell = '';
-    $('.legend').find('tr').each(function() {
-        count++;
-        var $tr = $(this);
-        var new_cell = $tr.html();
-        if (new_cell == old_cell) {
-            $tr.hide();
-        } else {
-            old_cell = new_cell;
-            if (count > limit) {
-                $tr.addClass('hidden').hide();
-            }
-            
-        }
+    g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
+    var id;
+    var circle;
+    $('circle').each(function() {
+        id = $(this).attr('id');
+        circle = svg.getElementById(id);
+        svg.change(circle, {
+            r : (3 / scale),
+            "stroke-width" : (2 / scale)
+        });
     });
-    if (count > limit) {
-        $('.legend').find('table tr:last').after('<tr><td colspan=2><a class="showAll">Show all</a></td></tr>');
-    }
-    
-    $('.legend').children('div').hide();
-    $('.legend').find('table').css({
-        'background-color' : 'rgb(255, 255, 255)',
-        opacity : 0.85
+
+    var line;
+    $('polyline').each(function() {
+        id = $(this).attr('id');
+        line = svg.getElementById(id);
+        svg.change(line, {
+            "stroke-width" : (2 / scale)
+        });
+    });
+
+    var polygon;
+    $('path').each(function() {
+        id = $(this).attr('id');
+        polygon = svg.getElementById(id);
+        svg.change(polygon, {
+            "stroke-width" : (0.5 / scale)
+        });
     });
 }
-*/
 
 /**
  * Ajax handlers for GIS visualization page
  *
  * Actions Ajaxified here:
- * Displaying tooltips for GIS data points.
+ *
+ * Zooming in and zooming out on mousewheel movement.
+ * Panning the visualization on dragging.
+ * Zooming in on double clicking.
+ * Zooming out on clicking the zoom out button.
+ * Panning on clicking the arrow buttons.
+ * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
-    
-    /**
-     * Detect the plotover event and show/hide tooltips appropriately.
-     */
-    var previousPoint = null;
-    $("#placeholder").bind("plothover", function (event, pos, item) {
-        if (item) {
-            if (previousPoint != item.dataIndex) {
-                previousPoint = item.dataIndex;
-
-                $("#tooltip").remove();
-                var x = item.datapoint[0].toFixed(0);
-                var y = item.datapoint[1].toFixed(0);
-
-                showTooltip(item.pageX, item.pageY, item.series.label + " (" + x + ", "+ y + ")");
-            }
-        } else {
-            $("#tooltip").remove();
-            previousPoint = null;
+    $('#placeholder').svg({
+        onLoad: function(svg_ref) {
+            svg = svg_ref;
         }
     });
 
-/*
-    $('.showAll').live('click', function() {
-        $(this)
-            .removeClass('showAll')
-            .addClass('showFew')
-            .html('Show few');
-        $('.hidden').show();
+    $('#placeholder').live('mousewheel', function(event, delta) {
+        if (delta > 0) {
+            //zoom in
+            scale *= 1.5;
+            zoomAndPan();
+        } else {
+            //zoom out
+            scale /= 1.5;
+            if (scale <= 0.5 * orig_scale) {
+                scale = 0.5 * orig_scale;
+            }
+            zoomAndPan();
+        }
+        return true;
+    });
+
+    var dragX = 0; var dragY = 0;
+    $('svg').live('dragstart', function(event, dd) {
+        dragX = Math.round(dd.offsetX);
+        dragY = Math.round(dd.offsetY);
+    });
+
+    $('svg').live('drag', function(event, dd) {
+        newX = Math.round(dd.offsetX);
+        x +=  newX - dragX;
+        dragX = newX;
+        newY = Math.round(dd.offsetY);
+        y +=  newY - dragY;
+        dragY = newY;
+        zoomAndPan();
+    });
+
+    $('#placeholder').live('dblclick', function() {
+        scale *= 1.5;
+        zoomAndPan();
+    });
+
+    $('#zoom_out').live('click', function(e) {
+        e.preventDefault();
+        //zoom out
+        scale /= 1.5;
+        if (scale <= 0.5 * orig_scale) {
+            scale = 0.5 * orig_scale;
+        }
+        zoomAndPan();
+    });
+
+    $('#left_arrow').live('click', function(e) {
+        e.preventDefault();
+        x += 100;
+        zoomAndPan();
+    });
+
+    $('#right_arrow').live('click', function(e) {
+        e.preventDefault();
+        x -= 100;
+        zoomAndPan();
+    });
+
+    $('#up_arrow').live('click', function(e) {
+        e.preventDefault();
+        y += 100;
+        zoomAndPan();
+    });
+
+    $('#down_arrow').live('click', function(e) {
+        e.preventDefault();
+        y -= 100;
+        zoomAndPan();
+    });
+
+    /**
+     * Detect the mousemove event and show tooltips.
+     */
+    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
+            + '.geometrycollection').live('mousemove', function(event) {
+        contents = $(this).attr('name');
+        $("#tooltip").remove();
+        $('<div id="tooltip">' + contents + '</div>').css({
+            position : 'absolute',
+            display : 'none',
+            top : event.pageY + 10,
+            left : event.pageX + 10,
+            border : '1px solid #fdd',
+            padding : '2px',
+            'background-color' : '#fee',
+            opacity : 0.80
+        }).appendTo("body").fadeIn(200);
     });
     
-    $('.showFew').live('click', function() {
-        $(this)
-            .removeClass('showFew')
-            .addClass('showAll')
-            .html('Show all');
-        $('.hidden').hide();
+    /**
+     * Detect the mouseout event and hide tooltips.
+     */
+    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
+            + '.geometrycollection').live('mouseout', function(event) {
+        $("#tooltip").remove();
     });
-*/
 });

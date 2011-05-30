@@ -1,15 +1,19 @@
 <?php
 /**
  * Handles the visualization of GIS LINESTRING objects.
+ *
  * @package phpMyAdmin
  */
-class PMA_GIS_linestring extends PMA_GIS_geometry
+class PMA_GIS_Linestring extends PMA_GIS_Geometry
 {
     // Hold the singleton instance of the class
-    private static $instance;
+    private static $_instance;
 
-    // A private constructor; prevents direct creation of object
-    private function __construct() {
+    /**
+     * A private constructor; prevents direct creation of object.
+     */
+    private function __construct()
+    {
     }
 
     /**
@@ -17,32 +21,99 @@ class PMA_GIS_linestring extends PMA_GIS_geometry
      *
      * @return the singleton
      */
-    public static function singleton() {
-        if (!isset(self::$instance)) {
+    public static function singleton()
+    {
+        if (!isset(self::$_instance)) {
             $c = __CLASS__;
-            self::$instance = new $c;
+            self::$_instance = new $c;
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
     /**
-     * Prepares and returns the code related to a row in the GIS dataset.
+     * Scales each row.
      *
-     * @param string $spatial  GIS LINESTRING object
-     * @param string $label  Label for the GIS LINESTRING object
-     * @param string $color  Color for the GIS LINESTRING object
+     * @param string $spatial spatial data of a row
+     *
+     * @return array containing the min, max values for x and y cordinates
+     */
+    public function scaleRow($spatial)
+    {
+        // Trim to remove leading 'LINESTRING(' and trailing ')'
+        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        return $this->setMinMax($linesrting, array());
+    }
+
+    /**
+     * Adds to the PNG image object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS LINESTRING object
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $image      Image object
+     *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRow($spatial, $label, $line_color) {
-
-        $line_options = array('lineWidth' => 2.0, 'show' => true);
+    public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
+    {
+        // allocate colors
+        $r = hexdec(substr($line_color, 1, 2));
+        $g = hexdec(substr($line_color, 3, 2));
+        $b = hexdec(substr($line_color, 4, 2));
+        $color = imagecolorallocate($image, $r, $g, $b);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $points_arr = $this->extractPoints($linesrting, $scale_data);
 
-        $row = array('data' => $this->extractPoints($linesrting), 'label' => $label,
-            'lines' => $line_options, 'color' => $line_color, 'hoverable' => true);
+        foreach ($points_arr as $point) {
+            if (! isset($temp_point)) {
+                $temp_point = $point;
+            } else {
+                // draw line section
+                imageline($image, $temp_point[0], $temp_point[1], $point[0], $point[1], $color);
+                $temp_point = $point;
+            }
+        }
+        return $image;
+    }
+
+    /**
+     * Prepares and returns the code related to a row in the GIS dataset as SVG.
+     *
+     * @param string $spatial    GIS LINESTRING object
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsSvg($spatial, $label, $line_color, $scale_data)
+    {
+        $line_options = array(
+            'name'        => $label,
+            'id'          => $label . rand(),
+            'class'       => 'linestring',
+            'fill'        => 'none',
+            'stroke'      => $line_color,
+            'stroke-width'=> 2,
+        );
+
+        // Trim to remove leading 'LINESTRING(' and trailing ')'
+        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $points_arr = $this->extractPoints($linesrting, $scale_data);
+
+        $row = '<polyline points="';
+        foreach ($points_arr as $point) {
+            $row .= $point[0] . ',' . $point[1] . ' ';
+        }
+        $row .= '"';
+        foreach ($line_options as $option => $val) {
+            $row .= ' ' . $option . '="' . trim($val) . '"';
+        }
+        $row .= '/>';
 
         return $row;
     }
