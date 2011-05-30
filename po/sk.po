@@ -6677,7 +6677,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Zobrazí náhľad obrázku s odkazom na obrázok; parametre šírka a výška v "
-"bodoch (pomer strán obrázku zostane zachovaný)"
+"bodoch. Pomer strán obrázku zostane zachovaný."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
