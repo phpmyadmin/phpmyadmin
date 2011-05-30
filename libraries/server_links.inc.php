@@ -54,9 +54,6 @@ if (!$GLOBALS['is_ajax_request']) {
         $tabs['binlog']['link'] = 'server_binlog.php';
         $tabs['binlog']['text'] = __('Binary log');
     }
-    $tabs['process']['icon'] = 's_process.png';
-    $tabs['process']['link'] = 'server_processlist.php';
-    $tabs['process']['text'] = __('Processes');
 
     if ($is_superuser) {
         $tabs['rights']['icon'] = 's_rights.png';
