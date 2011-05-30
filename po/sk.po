@@ -7708,7 +7708,7 @@ msgstr "Zmeniť informácie o používateľovi / Kopírovať používateľa"
 
 #: server_privileges.php:2086
 msgid "Create a new user with the same privileges and ..."
-msgstr "Vytvoriť používateľa s rovnakými právami a..."
+msgstr "Vytvoriť nového používateľa s rovnakými právami a ..."
 
 #: server_privileges.php:2088
 msgid "... keep the old one."
