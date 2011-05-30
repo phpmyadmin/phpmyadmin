@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functions used in configuration forms and on user preferences pages
  */
@@ -14,9 +15,9 @@ var PMA_messages = {};
  * @param {Element} field
  */
 function getFieldType(field) {
-	field = $(field);
-    var tagName = field.attr('tagName');
-	if (tagName == 'INPUT') {
+    field = $(field);
+    var tagName = field.prop('tagName');
+    if (tagName == 'INPUT') {
         return field.attr('type');
     } else if (tagName == 'SELECT') {
         return 'select';
@@ -40,7 +41,7 @@ function getFieldType(field) {
  * @param {String|Boolean}  [value]
  */
 function setFieldValue(field, field_type, value) {
-	field = $(field);
+    field = $(field);
     switch (field_type) {
         case 'text':
             field.attr('value', (value != undefined ? value : field.attr('defaultValue')));
@@ -50,14 +51,14 @@ function setFieldValue(field, field_type, value) {
             break;
         case 'select':
             var options = field.attr('options');
-        	var i, imax = options.length;
+            var i, imax = options.length;
             if (value == undefined) {
                 for (i = 0; i < imax; i++) {
-                	options[i].selected = options[i].defaultSelected;
+                    options[i].selected = options[i].defaultSelected;
                 }
             } else {
                 for (i = 0; i < imax; i++) {
-                	options[i].selected = (value.indexOf(options[i].value) != -1);
+                    options[i].selected = (value.indexOf(options[i].value) != -1);
                 }
             }
             break;
@@ -78,14 +79,14 @@ function setFieldValue(field, field_type, value) {
  * @type Boolean|String|String[]
  */
 function getFieldValue(field, field_type) {
-	field = $(field);
+    field = $(field);
     switch (field_type) {
         case 'text':
-            return field.attr('value');
+            return field.prop('value');
         case 'checkbox':
-            return field.attr('checked');
+            return field.prop('checked');
         case 'select':
-        	var options = field.attr('options');
+            var options = field.prop('options');
             var i, imax = options.length, items = [];
             for (i = 0; i < imax; i++) {
                 if (options[i].selected) {
@@ -354,7 +355,7 @@ function displayErrors(error_list) {
  * @param {Object}  errors
  */
 function validate_fieldset(fieldset, isKeyUp, errors) {
-	fieldset = $(fieldset);
+    fieldset = $(fieldset);
     if (fieldset.length && typeof validators._fieldset[fieldset.attr('id')] != 'undefined') {
         var fieldset_errors = validators._fieldset[fieldset.attr('id')].apply(fieldset[0], [isKeyUp]);
         for (var field_id in fieldset_errors) {
@@ -377,8 +378,8 @@ function validate_fieldset(fieldset, isKeyUp, errors) {
  * @param {Object}  errors
  */
 function validate_field(field, isKeyUp, errors) {
-	field = $(field);
-	var field_id = field.attr('id');
+    field = $(field);
+    var field_id = field.attr('id');
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
@@ -389,7 +390,7 @@ function validate_field(field, isKeyUp, errors) {
         var result = functions[i][0].apply(field[0], args);
         if (result !== true) {
             if (typeof result == 'string') {
-            	result = [result];
+                result = [result];
             }
             $.merge(errors[field_id], result);
         }
@@ -403,7 +404,7 @@ function validate_field(field, isKeyUp, errors) {
  * @param {boolean} isKeyUp
  */
 function validate_field_and_fieldset(field, isKeyUp) {
-	field = $(field);
+    field = $(field);
     var errors = {};
     validate_field(field, isKeyUp, errors);
     validate_fieldset(field.closest('fieldset'), isKeyUp, errors);
@@ -416,7 +417,7 @@ function validate_field_and_fieldset(field, isKeyUp) {
  * @param {Element} field
  */
 function markField(field) {
-	field = $(field);
+    field = $(field);
     var type = getFieldType(field);
     var isDefault = checkFieldDefault(field, type);
 
@@ -439,7 +440,7 @@ function setRestoreDefaultBtn(field, display) {
 
 $(function() {
     // register validators and mark custom values
-	var elements = $('input[id], select[id], textarea[id]');
+    var elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function(){
         markField(this);
         var el = $(this);
@@ -450,35 +451,35 @@ $(function() {
         var tagName = el.attr('tagName');
         // text fields can be validated after each change
         if (tagName == 'INPUT' && el.attr('type') == 'text') {
-        	el.keyup(function() {
+            el.keyup(function() {
                 validate_field_and_fieldset(el, true);
                 markField(el);
             });
         }
         // disable textarea spellcheck
         if (tagName == 'TEXTAREA') {
-        	el.attr('spellcheck', false);
+           el.attr('spellcheck', false);
         }
     });
 
-	// check whether we've refreshed a page and browser remembered modified
-	// form values
-	var check_page_refresh = $('#check_page_refresh');
-	if (check_page_refresh.length == 0 || check_page_refresh.val() == '1') {
-		// run all field validators
-		var errors = {};
-		for (var i = 0; i < elements.length; i++) {
-			validate_field(elements[i], false, errors);
-		}
-		// run all fieldset validators
-		$('fieldset').each(function(){
-			validate_fieldset(this, false, errors);
-		});
+    // check whether we've refreshed a page and browser remembered modified
+    // form values
+    var check_page_refresh = $('#check_page_refresh');
+    if (check_page_refresh.length == 0 || check_page_refresh.val() == '1') {
+        // run all field validators
+        var errors = {};
+        for (var i = 0; i < elements.length; i++) {
+            validate_field(elements[i], false, errors);
+        }
+        // run all fieldset validators
+        $('fieldset').each(function(){
+            validate_fieldset(this, false, errors);
+        });
 
-		displayErrors(errors);
-	} else if (check_page_refresh) {
-		check_page_refresh.val('1');
-	}
+        displayErrors(errors);
+    } else if (check_page_refresh) {
+        check_page_refresh.val('1');
+    }
 });
 
 //

@@ -15,7 +15,7 @@ require_once './libraries/tbl_common.php';
 
 // Get fields and stores their name/type
 $fields = array();
-foreach (PMA_DBI_get_columns($db, $table) as $row) {
+foreach (PMA_DBI_get_columns_full($db, $table) as $row) {
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
         $tmp[2]         = substr(preg_replace('@([^,])\'\'@', '\\1\\\'',
             ',' . $tmp[2]), 1);

@@ -1210,16 +1210,6 @@ div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
     white-space: nowrap;
 }
-div#serverstatus div.statuslinks a:before,
-div#serverstatus div#sectionlinks a:before,
-div#serverstatus table tbody td.descr a:before,
-div#serverstatus table .tblFooters a:before {
-}
-div#serverstatus div.statuslinks a:after,
-div#serverstatus div#sectionlinks a:after,
-div#serverstatus table tbody td.descr a:after,
-div#serverstatus table .tblFooters a:after {
-}
 /* end serverstatus */
 
 /* querywindow */
@@ -1286,28 +1276,27 @@ div#querywindowcontainer fieldset {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-
-    box-shadow:0px 1px 1px #fff inset;
+	box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
-
 }
 #sectionlinks a, .statuslinks a{
     font-size:0.88em;
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
     line-height:35px;
-    margin-left:7px;
-    border: 1px solid #aaa;
-    padding: 5px 10px;
-    color: #111;
-    text-decoration: none;
-    background: #ddd;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-    /*
+	margin-left:7px;
+	border: 1px solid #aaa;
+	padding: 5px 10px;
+	color: #111;
+	text-decoration: none;
+	background: #ddd;
+    white-space: nowrap;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+	/*
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0px 1px 0px;
