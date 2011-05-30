@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 20:21+0200\n"
+"PO-Revision-Date: 2011-05-30 20:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9970,10 +9970,9 @@ msgid "Delete tracking data row from report"
 msgstr "Ta bort spårning för denna rapport"
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Inga databaser"
+msgstr "Inget data"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
