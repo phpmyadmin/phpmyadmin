@@ -5447,7 +5447,7 @@ msgstr "Hostiteľ"
 #: libraries/export/latex.php:144 libraries/export/sql.php:342
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
-msgstr "Vygenerované:"
+msgstr "Vygenerované"
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
 #: libraries/export/xml.php:111 main.php:162
