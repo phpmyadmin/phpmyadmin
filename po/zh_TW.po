@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-30 04:07+0200\n"
+"PO-Revision-Date: 2011-05-30 04:08+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3176,10 +3176,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "匯入百分比時，轉換為小數點顯示(12.00%匯入後將轉換為0.12）"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "開始時略過多少行記錄 (語法)"
+msgstr "略過指定行數的資料"
 
 #: libraries/config/messages.inc.php:256
 msgid "Partial import: skip queries"
