@@ -5683,10 +5683,9 @@ msgid "Convert to Kana"
 msgstr "转换为假名"
 
 #: libraries/mult_submits.inc.php:249
-#, fuzzy
 #| msgid "Fr"
 msgid "From"
-msgstr "五"
+msgstr "从"
 
 #: libraries/mult_submits.inc.php:252
 msgid "To"
