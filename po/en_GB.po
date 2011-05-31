@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-05-31 17:18+0200\n"
+"PO-Revision-Date: 2011-05-31 19:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1606,10 +1606,9 @@ msgstr[0] "%1$d row inserted."
 msgstr[1] "%1$d rows inserted."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Could not save configuration"
+msgstr "Could not save recent table"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
