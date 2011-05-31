@@ -798,7 +798,7 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
  * Display a list of available routines
  */
 
-$routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+$routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER,ROUTINE_DEFINITION FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Routines') . '</legend>' . "\n";
@@ -862,16 +862,20 @@ if (! $routines) {
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $sqlDropProc,
                      $routine['ROUTINE_NAME'],
-                     '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
-                           . '&amp;editroutine=1'
-                           . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                           . '">' . $titles['Edit'] . '</a>',
+                     ($routine['ROUTINE_DEFINITION'] === NULL)
+                           ? $titles['NoEdit']
+                           : '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
+                                   . '&amp;editroutine=1'
+                                   . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                                   . '">' . $titles['Edit'] . '</a>',
                      ! empty($definition) ? PMA_linkOrButton('#', $titles['Execute']) : '&nbsp;',
-                     '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
-                           . '&amp;exportroutine=1'
-                           . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
-                           . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE'])
-                           . '">' . $titles['Export'] . '</a>',
+                     ($routine['ROUTINE_DEFINITION'] === NULL)
+                           ? $titles['NoExport']
+                           : '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
+                                   . '&amp;exportroutine=1'
+                                   . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
+                                   . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE'])
+                                   . '">' . $titles['Export'] . '</a>',
                      '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
                            . '&amp;sql_query=' . urlencode($sqlDropProc)
                            . '" >' . $titles['Drop'] . '</a>',

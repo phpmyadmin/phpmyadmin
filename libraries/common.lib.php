@@ -3022,7 +3022,9 @@ function PMA_buildActionTitles() {
     $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'), true);
     $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'), true);
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
+    $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'), true);
     $titles['Export']     = PMA_getIcon('b_export.png', __('Export'), true);
+    $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'), true);
     $titles['Execute']    = PMA_getIcon('b_execute.png', __('Execute'), true);
     return $titles;
 }
