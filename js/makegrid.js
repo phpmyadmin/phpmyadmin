@@ -6,7 +6,7 @@
             minColWidth: 5,
             
             // changeable vars
-            firstColSpan: 5,    // default to 5, changed later
+            firstColSpan: 5,    // default to 5, only useful in horizontal mode
             
             // functions
             dragStartRsz: function(e, obj) {
@@ -16,7 +16,8 @@
                     n: n,
                     obj: obj,
                     objLeft: parseInt(obj.style.left),
-                    objWidth: $('th div:eq(' + (1 + n) + ')', this.t).width()
+                    objWidth: $('tr:first th:eq(' + (1 + n) + ') div,' +
+                                'tr:first td:eq(' + (n) + ') div', this.t).width()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
@@ -47,7 +48,7 @@
                 }
             },
             reposRsz: function() {
-                $(this.t).find('thead tr:first th:gt(0)').each(function() {
+                $(this.t).find('tr:first th:gt(0), tr:first td').each(function() {
                     $this = $(this);
                     var n = $this.index();
                     $cb = $('div:eq(' + (n - 1) + ')', g.cRsz);   // column border
@@ -60,10 +61,11 @@
         g.t = t;
         
         // assign the first column (actions) span
-        g.firstColSpan = parseInt($('thead tr:first th:first').attr('colspan'));
+        g.firstColSpan = $('tr:first th:first', t).attr('colspan');
+        g.firstColSpan = (g.firstColSpan != undefined) ? parseInt(g.firstColSpan) : 0;  // posibility of vertical display mode
         
         // create column borders
-        $(t).find('thead tr:first th:gt(0)').each(function() {
+        $(t).find('tr:first th:gt(0), tr:first td').each(function() {
             $this = $(this);
             var cb = document.createElement('div'); // column border
             cb.style.left = $this.position().left + $this.width() + 'px';
