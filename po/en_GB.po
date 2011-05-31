@@ -6214,7 +6214,7 @@ msgstr "Persistent recently used tables"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Persistent tables' UI preferences"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
