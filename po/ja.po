@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-18 07:46-0400\n"
-"PO-Revision-Date: 2011-05-31 12:03+0200\n"
+"PO-Revision-Date: 2011-05-31 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6510,7 +6510,7 @@ msgstr "同名のブックマークは差し替える"
 
 #: libraries/sql_query_form.lib.php:366
 msgid "Do not overwrite this query from outside the window"
-msgstr "他のウィンドウからクエリを上書きすることはできません"
+msgstr "別ウインドウからのクエリの上書きを禁止する"
 
 #: libraries/sql_query_form.lib.php:373
 msgid "Delimiter"
