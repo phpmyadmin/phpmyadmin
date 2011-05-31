@@ -812,9 +812,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
  *                              or array of it
  * @param   boolean  $do_it     a flag to bypass this function (used by dump
  *                              functions)
- * @return  mixed    the "backquoted" database, table or field name if the
- *                   current MySQL release is >= 3.23.6, the original one
- *                   else
+ * @return  mixed    the "backquoted" database, table or field name
  * @access  public
  */
 function PMA_backquote($a_name, $do_it = true)
@@ -893,9 +891,9 @@ function PMA_reloadNavigation($jsonly=false)
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
-	if (!$jsonly)
-	  echo '<script type="text/javascript">' . PHP_EOL;
-	?>
+        if (!$jsonly)
+          echo '<script type="text/javascript">' . PHP_EOL;
+    ?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frame_navigation) != 'undefined'
@@ -1090,10 +1088,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $edit_link = 'server_sql.php';
         }
 
-        // Want to have the query explained (Mike Beck 2002-05-22)
+        // Want to have the query explained
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explain_link = '';
+        $is_select = false;
         if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
             $explain_params = $url_params;
             // Detect if we are validating as well
@@ -1101,7 +1100,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             if (! empty($GLOBALS['validatequery'])) {
                 $explain_params['validatequery'] = 1;
             }
-            $is_select = false;
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                 $_message = __('Explain SQL');
@@ -1137,7 +1135,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
-        // php-code (Mike Beck 2002-05-22)
+        // php-code
         if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
             $php_params = $url_params;
 
@@ -1432,9 +1430,13 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 {
+    $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($length === 0) {
-        return PMA_localizeNumber(number_format($value, $comma));
+        $value = number_format($value, $comma);
+        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$comma));
+        
+        return PMA_localizeNumber($value);
     }
 
     // this units needs no translation, ISO
@@ -1496,6 +1498,8 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 
     //number_format is not multibyte safe, str_replace is safe
     $value = PMA_localizeNumber(number_format($value, $comma));
+    
+    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$comma)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
@@ -1646,10 +1650,10 @@ function PMA_generate_html_tab($tab, $url_params = array())
         $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
     }
 
-	// If there are any tab specific URL parameters, merge those with the general URL parameters
-	if(! empty($tab['url_params']) && is_array($tab['url_params'])) {
-		$url_params = array_merge($url_params, $tab['url_params']);
-	}
+    // If there are any tab specific URL parameters, merge those with the general URL parameters
+    if(! empty($tab['url_params']) && is_array($tab['url_params'])) {
+        $url_params = array_merge($url_params, $tab['url_params']);
+    }
 
     // build the link
     if (!empty($tab['link'])) {
@@ -2939,8 +2943,8 @@ function PMA_browseUploadFile($max_upload_size) {
  * @param $uploaddir
  */
 function PMA_selectUploadFile($import_list, $uploaddir) {
-	echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
-	$extensions = '';
+    echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+    $extensions = '';
     foreach ($import_list as $key => $val) {
         if (!empty($extensions)) {
             $extensions .= '|';

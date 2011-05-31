@@ -142,6 +142,10 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForFeature(__('Persistent recently used tables'), 'recentwork', $messages);
 
+    PMA_printDiagMessageForParameter('table_uiprefs', isset($cfgRelation['table_uiprefs']), $messages, 'table_uiprefs');
+
+    PMA_printDiagMessageForFeature(__('Persistent tables\' UI preferences'), 'uiprefswork', $messages);
+
     PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
 
     PMA_printDiagMessageForFeature(__('Tracking'), 'trackingwork', $messages);
@@ -225,6 +229,7 @@ function PMA__getRelationsParam()
     $cfgRelation['mimework']    = false;
     $cfgRelation['historywork'] = false;
     $cfgRelation['recentwork']  = false;
+    $cfgRelation['uiprefswork'] = false;
     $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
     $cfgRelation['userconfigwork'] = false;
@@ -278,6 +283,8 @@ function PMA__getRelationsParam()
             $cfgRelation['history'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
             $cfgRelation['recent'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
+            $cfgRelation['table_uiprefs'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
             $cfgRelation['tracking'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
@@ -292,9 +299,11 @@ function PMA__getRelationsParam()
                 $cfgRelation['displaywork'] = true;
         }
     }
+    
     if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
         $cfgRelation['pdfwork']     = true;
     }
+
     if (isset($cfgRelation['column_info'])) {
         $cfgRelation['commwork']    = true;
 
@@ -336,6 +345,10 @@ function PMA__getRelationsParam()
         $cfgRelation['recentwork']      = true;
     }
 
+    if (isset($cfgRelation['table_uiprefs'])) {
+        $cfgRelation['uiprefswork']     = true;
+    }
+
     if (isset($cfgRelation['tracking'])) {
         $cfgRelation['trackingwork']     = true;
     }
@@ -357,9 +370,9 @@ function PMA__getRelationsParam()
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
      && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
      && $cfgRelation['mimework'] && $cfgRelation['historywork']
-     && $cfgRelation['recentwork'] && $cfgRelation['trackingwork']
-     && $cfgRelation['userconfigwork'] && $cfgRelation['bookmarkwork']
-     && $cfgRelation['designerwork']) {
+     && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
+     && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
+     && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']) {
         $cfgRelation['allworks'] = true;
     }
 

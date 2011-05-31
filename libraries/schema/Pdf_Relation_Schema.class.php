@@ -1064,7 +1064,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->SetFontSize(14);
         $pdf->SetLineWidth(0.2);
         $pdf->SetDisplayMode('fullpage');
-        // Get the name of this pdfpage to use as filename (Mike Beck)
+        // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE page_nr = ' . $pageNumber;
         $_name_rs = PMA_query_as_controluser($_name_sql);
@@ -1189,7 +1189,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
              */
             $result = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
             $fields_cnt = PMA_DBI_num_rows($result);
-            // Check if we can use Relations (Mike Beck)
+            // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in
                 // an array
