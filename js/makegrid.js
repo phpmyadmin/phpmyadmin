@@ -16,8 +16,8 @@
                     n: n,
                     obj: obj,
                     objLeft: parseInt(obj.style.left),
-                    objWidth: $('tr:first th:eq(' + (1 + n) + ') div,' +
-                                'tr:first td:eq(' + (n) + ') div', this.t).width()
+                    objWidth: $('tr:first th:eq(' + (1 + n) + ') span,' +
+                                'tr:first td:eq(' + n + ') span', this.t).width()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
@@ -38,7 +38,7 @@
                     }
                     var n = this.colRsz.n;
                     $('tr', this.t).each(function() {
-                        $('th:eq(' + (1 + n) + ') div, td:eq(' + (g.firstColSpan + n) + ') div', this).each(function() {
+                        $('th:eq(' + (1 + n) + ') span, td:eq(' + (g.firstColSpan + n) + ') span', this).each(function() {
                             $(this).css('width', nw + 'px');
                         });
                     });
@@ -58,6 +58,8 @@
         }
         g.gDiv = document.createElement('div');   // create global div
         g.cRsz = document.createElement('div');   // column resizer
+        // chain table and grid together
+        t.grid = g;
         g.t = t;
         
         // assign the first column (actions) span
@@ -77,9 +79,9 @@
             $(g.cRsz).append(cb);
         });
         
-        // wrap all cells with div
-        $(t).find('th, td').each(function() {
-            $(this).wrapInner('<div />');
+        // wrap all cells, except actions cell, with div
+        $(t).find('th, td:not(:has(span))').each(function() {
+            $(this).wrapInner('<span />');
         });
         
         // register events
@@ -124,6 +126,18 @@
             }
         });
     };
+    $.fn.refreshgrid = function() {
+        return this.each(function() {
+            if (!docready) {
+                var t = this;
+                $(document).ready(function() {
+                    if (t.grid) t.grid.reposRsz();
+                });
+            } else {
+                if (this.grid) this.grid.reposRsz();
+            }
+        });
+    }
     $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
         var prevent = (p == null) ? true : p;
         if (prevent) {

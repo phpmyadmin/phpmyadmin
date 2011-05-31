@@ -217,8 +217,17 @@ $(document).ready(function() {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('remakeGrid', function() {
+    $("#sqlqueryresults").live('makegrid', function() {
         $('#table_results').makegrid();
+    })
+    
+    /**
+     * Attach the {@link refreshgrid} function to a custom event, which will be
+     * triggered manually everytime the table of results is manipulated (e.g., by inline edit)
+     * @memberOf    jQuery
+     */
+    $("#sqlqueryresults").live('refreshgrid', function() {
+        $('#table_results').refreshgrid();
     })
 
     /**
@@ -333,7 +342,7 @@ $(document).ready(function() {
                     $('#sqlqueryresults').show();
                     $("#sqlqueryresults").html(data);
                     $("#sqlqueryresults").trigger('appendAnchor');
-                    $("#sqlqueryresults").trigger('remakeGrid');
+                    $("#sqlqueryresults").trigger('makegrid');
                     $('#togglequerybox').show();
                     if($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
@@ -374,7 +383,7 @@ $(document).ready(function() {
         $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-            $("#sqlqueryresults").trigger('remakeGrid');
+            $("#sqlqueryresults").trigger('makegrid');
             PMA_init_slider();
             
             PMA_ajaxRemoveMessage($msgbox);
@@ -398,7 +407,7 @@ $(document).ready(function() {
             $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('remakeGrid');
+                $("#sqlqueryresults").trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox); 
             }) // end $.post()
@@ -425,7 +434,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor')
-             .trigger('remakeGrid');
+             .trigger('makegrid');
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     })//end Sort results table
@@ -445,7 +454,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor')
-             .trigger('remakeGrid');
+             .trigger('makegrid');
             PMA_init_slider();
         }) // end $.post()
     })
@@ -537,15 +546,19 @@ $(document).ready(function() {
                     if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_hide.siblings("td:eq(" + i + ")").data('original_data');
-                    if($this_hide.siblings("td:eq(" + i + ")").children().length != 0) {
-                        $this_hide.siblings("td:eq(" + i + ")").empty();
-                        $this_hide.siblings("td:eq(" + i + ")").append(txt);
+                    var $this_hide_siblings = $this_hide.siblings("td:eq(" + i + ")").children('span');
+                    txt = $this_hide_siblings.data('original_data');
+                    if($this_hide_siblings.children().length != 0) {
+                        $this_hide_siblings.empty();
+                        $this_hide_siblings.append(txt);
                     }
                 }
                 $(this).prev().prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
+                
+                // refresh the grid
+                $("#sqlqueryresults").trigger('refreshgrid');
             });
         } else {
             var txt = '';
@@ -570,13 +583,17 @@ $(document).ready(function() {
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").data('original_data');
-                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
-                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
+                    $this_row_siblings = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").children('span');
+                    txt = $this_row_siblings.data('original_data');
+                    $this_row_siblings.empty();
+                    $this_row_siblings.append(txt);
                 }
                 $(this).prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
+                
+                // refresh the grid
+                $("#sqlqueryresults").trigger('refreshgrid');
             });
         }
 
@@ -608,7 +625,7 @@ $(document).ready(function() {
             /**
              * @var data_value  Current value of this field
              */
-            var data_value = $(this).html();
+            var data_value = $(this).children('span').html();
 
             // We need to retrieve the value from the server for truncated/relation fields
             // Find the field name
@@ -616,7 +633,7 @@ $(document).ready(function() {
             /**
              * @var this_field  Object referring to this field (<td>)
              */
-            var $this_field = $(this);
+            var $this_field = $(this).children('span');
             /**
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
@@ -793,7 +810,11 @@ $(document).ready(function() {
                 $this_field.append('<textarea></textarea>');
                 $this_field.data('original_data', 'NULL');
             }
-        })
+        });
+        
+        // refresh the grid
+        $("#sqlqueryresults").trigger('refreshgrid');
+        
     }) // End On click, replace the current field with an input/textarea
 
     /**
@@ -1160,7 +1181,7 @@ $(document).ready(function() {
     /**
      * create resizable table
      */
-    $("#sqlqueryresults").trigger('remakeGrid');
+    $("#sqlqueryresults").trigger('makegrid');
 })
 
 /**#@- */
