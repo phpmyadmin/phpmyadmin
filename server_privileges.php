@@ -1549,10 +1549,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             /**
              * Displays the initials
-             * In an Ajax request, we don't need to show this
+             * In an Ajax request, we don't need to show this. Also not necassary if there is less than 20 privileges
              */
 
-            if( $GLOBALS['is_ajax_request'] != true ) {
+            if( $GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
                 // initialize to FALSE the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
