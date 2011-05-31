@@ -10,7 +10,8 @@
 var x = 0;
 var y = 0;
 var scale = 1;
-var orig_scale = 1;
+var shiftX;
+var shiftY;
 var svg;
 
 /**
@@ -63,6 +64,9 @@ function zoomAndPan() {
  * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
+    shiftX = $('#placeholder svg').attr('width') / 6;
+    shiftY = $('#placeholder svg').attr('height') / 6;
+
     $('#placeholder').svg({
         onLoad: function(svg_ref) {
             svg = svg_ref;
@@ -76,13 +80,18 @@ $(document).ready(function() {
         if (delta > 0) {
             //zoom in
             scale *= 1.5;
+            shiftX *= 1.5;
+            shiftY *= 1.5;
+            x -= shiftX;
+            y -= shiftY;
             zoomAndPan();
         } else {
             //zoom out
             scale /= 1.5;
-            if (scale <= 0.5 * orig_scale) {
-                scale = 0.5 * orig_scale;
-            }
+            x += shiftX;
+            y += shiftY;
+            shiftX /= 1.5;
+            shiftY /= 1.5;
             zoomAndPan();
         }
         return true;
@@ -106,6 +115,10 @@ $(document).ready(function() {
 
     $('#placeholder').live('dblclick', function() {
         scale *= 1.5;
+        shiftX *= 1.5;
+        shiftY *= 1.5;
+        x -= shiftX;
+        y -= shiftY;
         zoomAndPan();
     });
 
@@ -113,9 +126,10 @@ $(document).ready(function() {
         e.preventDefault();
         //zoom out
         scale /= 1.5;
-        if (scale <= 0.5 * orig_scale) {
-            scale = 0.5 * orig_scale;
-        }
+        x += shiftX;
+        y += shiftY;
+        shiftX /= 1.5;
+        shiftY /= 1.5;
         zoomAndPan();
     });
 
