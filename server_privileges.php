@@ -2140,7 +2140,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '</form>' . "\n";
 } else {
     // check the privileges for a particular database.
-    echo '<form id="usersForm"><table id="dbspecificuserrights" class="data">' . "\n"
+    $user_form = '<form id="usersForm"><table id="dbspecificuserrights" class="data">' . "\n"
        . '<caption class="tblHeaders">' . "\n"
        . PMA_getIcon('b_usrcheck.png')
        . '    ' . sprintf(__('Users having access to &quot;%s&quot;'), '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
@@ -2235,29 +2235,29 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 $current_privileges[] = $row;
                 $row = PMA_DBI_fetch_assoc($res);
             }
-            echo '    <tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            $user_form .= '    <tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                . '        <td';
             if (count($current_privileges) > 1) {
-                echo ' rowspan="' . count($current_privileges) . '"';
+                $user_form .= ' rowspan="' . count($current_privileges) . '"';
             }
-            echo '>' . (empty($current_user) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($current_user)) . "\n"
+            $user_form .= '>' . (empty($current_user) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($current_user)) . "\n"
                . '        </td>' . "\n"
                . '        <td';
             if (count($current_privileges) > 1) {
-                echo ' rowspan="' . count($current_privileges) . '"';
+                $user_form .= ' rowspan="' . count($current_privileges) . '"';
             }
-            echo '>' . htmlspecialchars($current_host) . '</td>' . "\n";
+            $user_form .= '>' . htmlspecialchars($current_host) . '</td>' . "\n";
             foreach ($current_privileges as $current) {
-                echo '        <td>' . "\n"
+                $user_form .= '        <td>' . "\n"
                    . '            ';
                 if (! isset($current['Db']) || $current['Db'] == '*') {
-                    echo __('global');
+                    $user_form .= __('global');
                 } elseif ($current['Db'] == PMA_escape_mysql_wildcards($checkprivs)) {
-                    echo __('database-specific');
+                    $user_form .= __('database-specific');
                 } else {
-                    echo __('wildcard'), ': <tt>' . htmlspecialchars($current['Db']) . '</tt>';
+                    $user_form .= __('wildcard'). ': <tt>' . htmlspecialchars($current['Db']) . '</tt>';
                 }
-                echo "\n"
+                $user_form .= "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"
                    . '            <tt>' . "\n"
@@ -2268,11 +2268,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n";
-                printf($link_edit, urlencode($current_user),
+                $user_form .= sprintf($link_edit, urlencode($current_user),
                     urlencode($current_host),
                     urlencode(! isset($current['Db']) || $current['Db'] == '*' ? '' : $current['Db']),
                     '');
-                echo '</td>' . "\n"
+                $user_form .= '</td>' . "\n"
                    . '    </tr>' . "\n";
             }
             if (empty($row) && empty($row1) && empty($row2)) {
@@ -2281,21 +2281,28 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $odd_row = ! $odd_row;
         }
     } else {
-        echo '    <tr class="odd">' . "\n"
+        $user_form .= '    <tr class="odd">' . "\n"
            . '        <td colspan="6">' . "\n"
            . '            ' . __('No user found.') . "\n"
            . '        </td>' . "\n"
            . '    </tr>' . "\n";
     }
-    echo '</tbody>' . "\n"
+    $user_form .= '</tbody>' . "\n"
        . '</table></form>' . "\n";
 
-    // Offer to create a new user for the current database
-    echo '<fieldset id="fieldset_add_user">' . "\n"
-       . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'">' . "\n"
-       . PMA_getIcon('b_usradd.png')
-       . '        ' . __('Add a new User') . '</a>' . "\n"
-       . '</fieldset>' . "\n";
+    if($GLOBALS['is_ajax_request'] == true){
+        $extra_data['user_form'] = $user_form;
+        $message = PMA_Message::success(__('New user has been added.'));
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    }else{
+        // Offer to create a new user for the current database
+        $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
+           . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" class="'.$conditional_class.'" name="db_specific">' . "\n"
+           . PMA_getIcon('b_usradd.png')
+           . '        ' . __('Add a new User') . '</a>' . "\n"
+           . '</fieldset>' . "\n";
+        echo $user_form ;
+    }
 
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
 
