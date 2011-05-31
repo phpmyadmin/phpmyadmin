@@ -5,6 +5,9 @@
             // constant
             minColWidth: 5,
             
+            // changeable vars
+            firstColSpan: 5,    // default to 5, changed later
+            
             // functions
             dragStartRsz: function(e, obj) {
                 var n = $('div', this.cRsz).index(obj);
@@ -34,7 +37,7 @@
                     }
                     var n = this.colRsz.n;
                     $('tr', this.t).each(function() {
-                        $('th:eq(' + (1 + n) + ') div, td:eq(' + (5 + n) + ') div', this).each(function() {
+                        $('th:eq(' + (1 + n) + ') div, td:eq(' + (g.firstColSpan + n) + ') div', this).each(function() {
                             $(this).css('width', nw + 'px');
                         });
                     });
@@ -55,6 +58,9 @@
         g.gDiv = document.createElement('div');   // create global div
         g.cRsz = document.createElement('div');   // column resizer
         g.t = t;
+        
+        // assign the first column (actions) span
+        g.firstColSpan = parseInt($('thead tr:first th:first').attr('colspan'));
         
         // create column borders
         $(t).find('thead tr:first th:gt(0)').each(function() {
