@@ -545,50 +545,11 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
 } // displayRoutineEditor()
 
 /**
- *  ### MAIN ##########################################################################################################
+ * Compose the query necessary to create a routine from an HTTP request.
  */
+function createQueryFromRequest() {
+    global $_REQUEST, $routine_errors, $param_sqldataaccess;
 
-// $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
-
-/**
- * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
- */
-$routine_errors = array();
-
-/**
- * Handle all user requests other than the default of listing routines
- */
-if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
-    /**
-     * Display the export for a routine.
-     */
-    $routine_name = htmlspecialchars(PMA_backquote($_GET['routinename']));
-    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
-        $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
-        if (! empty($_REQUEST['ajax_request'])) {
-            $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
-            PMA_ajaxResponse($create_proc, true, $extra_data);
-        } else {
-            echo '<fieldset>' . "\n"
-               . ' <legend>' . sprintf(__('Export of routine %s'), $routine_name) . '</legend>' . "\n"
-               . $create_proc . "\n"
-               . '</fieldset>';
-        }
-    } else {
-        $response = __('Error in Processing Request') . ' : '
-                  . sprintf(__('No routine with name %s found in database %s'),
-                            $routine_name, htmlspecialchars(PMA_backquote($db)));
-        $response = PMA_message::error($response);
-        if (! empty($_REQUEST['ajax_request'])) {
-            PMA_ajaxResponse($response, false);
-        } else {
-            $response->display();
-        }
-    }
-} else if (! empty($_REQUEST['routine_process_addroutine']) || ! empty($_REQUEST['routine_process_editroutine'])) {
-    /**
-     * Handle a request to create/edit a routine
-     */
     $query = 'CREATE ';
     if (! empty($_REQUEST['routine_definer']) && strpos($_REQUEST['routine_definer'], '@') !== false) {
         $arr = explode('@', $_REQUEST['routine_definer']);
@@ -669,6 +630,55 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     } else {
         $routine_errors[] = __('You must provide a routine Definition.');
     }
+    return $query;
+} // end createQueryFromRequest()
+
+/**
+ *  ### MAIN ##########################################################################################################
+ */
+
+// $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
+
+/**
+ * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
+ */
+$routine_errors = array();
+
+/**
+ * Handle all user requests other than the default of listing routines
+ */
+if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
+    /**
+     * Display the export for a routine.
+     */
+    $routine_name = htmlspecialchars(PMA_backquote($_GET['routinename']));
+    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
+        $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
+        if (! empty($_REQUEST['ajax_request'])) {
+            $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
+            PMA_ajaxResponse($create_proc, true, $extra_data);
+        } else {
+            echo '<fieldset>' . "\n"
+               . ' <legend>' . sprintf(__('Export of routine %s'), $routine_name) . '</legend>' . "\n"
+               . $create_proc . "\n"
+               . '</fieldset>';
+        }
+    } else {
+        $response = __('Error in Processing Request') . ' : '
+                  . sprintf(__('No routine with name %s found in database %s'),
+                            $routine_name, htmlspecialchars(PMA_backquote($db)));
+        $response = PMA_message::error($response);
+        if (! empty($_REQUEST['ajax_request'])) {
+            PMA_ajaxResponse($response, false);
+        } else {
+            $response->display();
+        }
+    }
+} else if (! empty($_REQUEST['routine_process_addroutine']) || ! empty($_REQUEST['routine_process_editroutine'])) {
+    /**
+     * Handle a request to create/edit a routine
+     */
+    $routine_query = createQueryFromRequest();
     if (! count($routine_errors)) {
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
@@ -685,9 +695,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                 $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
                                   . __('MySQL said: ') . PMA_DBI_getError(null);
             } else {
-                $result = PMA_DBI_try_query($query);
+                $result = PMA_DBI_try_query($routine_query);
                 if (! $result) {
-                    $routine_errors[] = sprintf(__('Query "%s" failed'), $query) . '<br />'
+                    $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br />'
                                       . __('MySQL said: ') . PMA_DBI_getError(null);
                     // We dropped the old routine, but were unable to create the new one
                     // Try to restore the backup query
@@ -707,21 +717,22 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                     echo '<code class="sql">'
                        . PMA_SQP_formatHtml(PMA_SQP_parse($drop_routine))
                        . '<br /><br />'
-                       . PMA_SQP_formatHtml(PMA_SQP_parse($query))
+                       . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
                        . '</code>';
                 }
             }
         } else {
-            $result = PMA_DBI_try_query($query);
+            // 'Add a new routine' mode
+            $result = PMA_DBI_try_query($routine_query);
             if (! $result) {
-                $routine_errors[] = sprintf(__('Query "%s" failed'), $query) . '<br /><br />'
+                $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br /><br />'
                                   . __('MySQL said: ') . PMA_DBI_getError(null);
             } else {
                 $message = PMA_Message::success(__('Routine %1$s has been created.'));
                 $message->addParam(PMA_backquote($_REQUEST['routine_name']));
                 $message->display();
                 echo '<code class="sql">'
-                   . PMA_SQP_formatHtml(PMA_SQP_parse($query))
+                   . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
                    . '</code>';
             }
         }
