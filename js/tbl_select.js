@@ -22,13 +22,9 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-    /*if($('#id_flag').val()==2)
-     {
-          $('#tbl_search_form').hide();
-          $('#zoom_search_form').show();
-
-     }*/
-
+     /**
+     *  Form submit on field change
+     */   
      $('#tableid_0').change(function() {
           $('#zoom_search_form').submit();
      })

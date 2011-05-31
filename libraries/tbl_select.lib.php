@@ -11,8 +11,6 @@
 
 require_once 'url_generating.lib.php';
 
-
-
  /**
  * PMA_tbl_setTitle() sets the title for foreign keys display link
  * 
@@ -23,14 +21,14 @@ require_once 'url_generating.lib.php';
  */
 
 function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
-	if ($propertiesIconic == true) {
-	    $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-	           .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
-	           . __('Browse foreign values') . '" />';
+    if ($propertiesIconic == true) {
+        $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+	        .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
+	        . __('Browse foreign values') . '" />';
 
-	    if ($propertiesIconic === 'both') {
-	        $str .= __('Browse foreign values');
-	    return $str;
+	if ($propertiesIconic === 'both') {
+	    $str .= __('Browse foreign values');
+            return $str;
 	    }
 	} else {
 	    return __('Browse foreign values');
@@ -108,7 +106,7 @@ function PMA_tbl_getFields($table,$db) {
 function PMA_tbl_setTableHeader(){
 
 return '<thead>
-  	<tr><th>' .  __('Column') . '</th>
+        <tr><th>' .  __('Column') . '</th>
         <th>' .  __('Type') . '</th>
         <th>' .  __('Collation') . '</th>
         <th>' .  __('Operator') . '</th>
@@ -127,20 +125,20 @@ return '<thead>
 
 function PMA_tbl_getSubTabs(){
 
-	$subtabs = array();
+    $subtabs = array();
 
-	$subtabs['search']['icon'] = 'b_search.png';
-	$subtabs['search']['text'] = __('Table Search');
-	$subtabs['search']['link'] = 'tbl_select.php';
-	$subtabs['search']['id'] = 'tbl_search_id';
-	$subtabs['search']['args']['pos'] = 0;
+    $subtabs['search']['icon'] = 'b_search.png';
+    $subtabs['search']['text'] = __('Table Search');
+    $subtabs['search']['link'] = 'tbl_select.php';
+    $subtabs['search']['id'] = 'tbl_search_id';
+    $subtabs['search']['args']['pos'] = 0;
 
-	$subtabs['zoom']['icon'] = 'b_props.png';
-	$subtabs['zoom']['link'] = 'tbl_zoom_select.php';
-	$subtabs['zoom']['text'] = __('Zoom Search');
-	$subtabs['zoom']['id'] = 'zoom_search_id';
+    $subtabs['zoom']['icon'] = 'b_props.png';
+    $subtabs['zoom']['link'] = 'tbl_zoom_select.php';
+    $subtabs['zoom']['text'] = __('Zoom Search');
+    $subtabs['zoom']['id'] = 'zoom_search_id';
 	
-	return $subtabs;
+    return $subtabs;
 
 }
 
@@ -173,47 +171,46 @@ function PMA_tbl_getSubTabs(){
 
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table,$titles,$foreignMaxLimit, $fields){
 
-	$str = '';
+    $str = '';
 
-	if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
+    if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
 
-                // f o r e i g n    k e y s
-                $str .=  '            <select name="fields[' . $i . ']">' . "\n";
-                // go back to first row
+        // f o r e i g n    k e y s
+        $str .=  '            <select name="fields[' . $i . ']">' . "\n";
+        // go back to first row
+        // here, the 4th parameter is empty because there is no current
+        // value of data for the dropdown (the search page initial values
+        // are displayed empty)
+        $str .= PMA_foreignDropdown($foreignData['disp_row'],
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
+                '', $foreignMaxLimit);
+        $str .= '            </select>' . "\n";
+    } 
+    elseif ($foreignData['foreign_link'] == true) {
 
-                // here, the 4th parameter is empty because there is no current
-                // value of data for the dropdown (the search page initial values
-                // are displayed empty)
-                $str .= PMA_foreignDropdown($foreignData['disp_row'],
-                                $foreignData['foreign_field'],
-                                $foreignData['foreign_display'],
-                                '', $foreignMaxLimit);
-                $str .= '            </select>' . "\n";
-        } elseif ($foreignData['foreign_link'] == true) {
-
-                       $str .=  '<input type="text" name="fields[' . $i . '] "';
-				 'id="field_' . md5($field) . '[' . $i .']" 
-				 class="textfield" />' ; ?>
+        $str .= '<input type="text" name="fields[' . $i . '] "';
+	        'id="field_' . md5($field) . '[' . $i .']" 
+		 class="textfield" />' ; ?>
                         
-			<?php $str .= '<script type="text/javascript">';
-                        // <![CDATA[
-			 $str .=  <<<EOT
+	<?php $str .= '<script type="text/javascript">';
+        // <![CDATA[
+	$str .=  <<<EOT
 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php? 
 EOT;
-			$str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>\');';
-                // ]]
-                	$str .= '</script>';
-			?>
-                        <?php
-        } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
-                // e n u m s
-                $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
-                $cnt_enum_value = count($enum_value);
-                $str .= '            <select name="fields[' . ($i) . '][]"'
-                        .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
+        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>\');';
+        // ]]
+        $str .= '</script>';
+        } 
+    elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
+        // e n u m s
+        $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
+        $cnt_enum_value = count($enum_value);
+        $str .= '<select name="fields[' . ($i) . '][]"'
+                 .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
                 for ($j = 0; $j < $cnt_enum_value; $j++) {
-                        if(isset($fields[$i]) && is_array($fields[$i]) && in_array($enum_value[$j],$fields[$i])){
-                                $str .= '                <option value="' . $enum_value[$j] . '" Selected>'
+                    if(isset($fields[$i]) && is_array($fields[$i]) && in_array($enum_value[$j],$fields[$i])){
+                        $str .= '                <option value="' . $enum_value[$j] . '" Selected>'
                                         . $enum_value[$j] . '</option>';
                         }
                         else{
@@ -221,26 +218,27 @@ EOT;
                                         . $enum_value[$j] . '</option>';
                         }
                 } // end for
-                $str .= '            </select>' . "\n";
-        } else {
-                // o t h e r   c a s e s
-                $the_class = 'textfield';
-                $type = $tbl_fields_type[$i];
-                if ($type == 'date') {
-                        $the_class .= ' datefield';
-                } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
-                        $the_class .= ' datetimefield';
-                }
-                if(isset($fields[$i]) && is_string($fields[$i])){
-                $str .= '            <input type="text" name="fields[' . $i . ']"'
-                        .' size="40" class="' . $the_class . '" id="field_' . $i . '" value = "' . $fields[$i] . '"/>' .  "\n";
-                }
-                else{
-                        $str .= '            <input type="text" name="fields[' . $i . ']"'
-                        .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
-                }
-        };
-	return $str;
+        $str .= '            </select>' . "\n";
+    } 
+    else {
+        // o t h e r   c a s e s
+        $the_class = 'textfield';
+        $type = $tbl_fields_type[$i];
+        if ($type == 'date') {
+            $the_class .= ' datefield';
+        } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+            $the_class .= ' datetimefield';
+        }
+        if(isset($fields[$i]) && is_string($fields[$i])){
+            $str .= '            <input type="text" name="fields[' . $i . ']"'
+                    .' size="40" class="' . $the_class . '" id="field_' . $i . '" value = "' . $fields[$i] . '"/>' .  "\n";
+        }
+        else{
+            $str .= '            <input type="text" name="fields[' . $i . ']"'
+                    .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
+        }
+   };
+   return $str;
 
 }
 
@@ -271,79 +269,79 @@ EOT;
 function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag){
 	
 
-	    $w = ''; 
-            if($unaryFlag){
-		$fields = '';
-                $w = PMA_backquote($names) . ' ' . $func_type;
+    $w = ''; 
+    if($unaryFlag){
+        $fields = '';
+            $w = PMA_backquote($names) . ' ' . $func_type;
 
-            } elseif (strncasecmp($types, 'enum', 4) == 0) {
-                if (!empty($fields)) {
-                    if (! is_array($fields)) {
-                        $fields = explode(',', $fields);
-                    }
-                    $enum_selected_count = count($fields);
-                    if ($func_type == '=' && $enum_selected_count > 1) {
-                        $func_type    = 'IN';
-                        $parens_open  = '(';
-                        $parens_close = ')';
+    } elseif (strncasecmp($types, 'enum', 4) == 0) {
+        if (!empty($fields)) {
+            if (! is_array($fields)) {
+                $fields = explode(',', $fields);
+            }
+            $enum_selected_count = count($fields);
+            if ($func_type == '=' && $enum_selected_count > 1) {
+                $func_type    = 'IN';
+                $parens_open  = '(';
+                $parens_close = ')';
 
-                    } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-                        $func_type    = 'NOT IN';
-                        $parens_open  = '(';
-                        $parens_close = ')';
+            } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+                $func_type    = 'NOT IN';
+                $parens_open  = '(';
+                $parens_close = ')';
 
-                    } else {
-                        $parens_open  = '';
-                        $parens_close = '';
-                    }
-                    $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
-                    for ($e = 1; $e < $enum_selected_count; $e++) {
-                        $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
-                    }
+           } else {
+               $parens_open  = '';
+               $parens_close = '';
+           }
+               $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
+               for ($e = 1; $e < $enum_selected_count; $e++) {
+                   $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
+               }
 
-                    $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
-                }
+               $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+        }
 
-            } elseif ($fields != '') {
-                // For these types we quote the value. Even if it's another type (like INT),
-                // for a LIKE we always quote the value. MySQL converts strings to numbers
-                // and numbers to strings as necessary during the comparison
-                if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types) || strpos(' ' . $func_type, 'LIKE')) {
-                    $quot = '\'';
-                } else {
-                    $quot = '';
-                }
+    } elseif ($fields != '') {
+        // For these types we quote the value. Even if it's another type (like INT),
+        // for a LIKE we always quote the value. MySQL converts strings to numbers
+        // and numbers to strings as necessary during the comparison
+        if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types) || strpos(' ' . $func_type, 'LIKE')) {
+            $quot = '\'';
+        } else {
+            $quot = '';
+        }
 
-                // LIKE %...%
-                if ($func_type == 'LIKE %...%') {
-                    $func_type = 'LIKE';
-                    $fields = '%' . $fields . '%';
-                }
-                if ($func_type == 'REGEXP ^...$') {
-                    $func_type = 'REGEXP';
-                    $fields = '^' . $fields . '$';
-                }
+        // LIKE %...%
+        if ($func_type == 'LIKE %...%') {
+            $func_type = 'LIKE';
+            $fields = '%' . $fields . '%';
+        }
+        if ($func_type == 'REGEXP ^...$') {
+            $func_type = 'REGEXP';
+            $fields = '^' . $fields . '$';
+        }
 
-                if ($func_type == 'IN (...)' || $func_type == 'NOT IN (...)' || $func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
-                    $func_type = str_replace(' (...)', '', $func_type);
+        if ($func_type == 'IN (...)' || $func_type == 'NOT IN (...)' || $func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+            $func_type = str_replace(' (...)', '', $func_type);
 
-                    // quote values one by one
-                    $values = explode(',', $fields);
-                    foreach ($values as &$value)
-                        $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+        // quote values one by one
+        $values = explode(',', $fields);
+        foreach ($values as &$value)
+            $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
 
-                    if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
-                        $w = PMA_backquote($names) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                    else
-                        $w = PMA_backquote($names) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
-                }
-                else {
-                    $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
-                }
+            if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
+                $w = PMA_backquote($names) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
+            else
+                $w = PMA_backquote($names) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+        }
+        else {
+            $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
+        }
 
-            } // end if
+    } // end if
 
-	return $w;
+    return $w;
 }
 
 ?>

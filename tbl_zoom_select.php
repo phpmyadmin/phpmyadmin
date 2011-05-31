@@ -48,22 +48,15 @@ if (! isset($zoom_submit)) {
 
     // Gets the list and number of fields
 
-    $fields_array = PMA_tbl_getFields($table,$db);
-    $fields_list = $fields_array[0];
-    $fields_type = $fields_array[1];
-    $fields_collation = $fields_array[2];
-    $fields_null = $fields_array[3];
+    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
     $fields_cnt = count($fields_list);
-
 
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
     $flag = 1;
-    $tbl_fields_type =array(); 
-    $tbl_fields_collation =array(); 
-    $tbl_fields_null =array(); 
+    $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array(); 
     ?>
 
 <fieldset id="fieldset_subtab">
@@ -79,18 +72,18 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 
 if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null')))
 {
-	$flag = 2;
-	for($i = 0 ; $i < 2 ; $i++)
-	{
-		if($inputs[$i] != __('pma_null'))
-		{
-			$key = array_search($inputs[$i],$fields_list);
-			$tbl_fields_type[$i] = $fields_type[$key];
-			$tbl_fields_collation[$i] = $fields_collation[$key];
-			$tbl_fields_null[$i] = $fields_null[$key];
-		}
-
+    $flag = 2;
+    for($i = 0 ; $i < 2 ; $i++)
+    {
+        if($inputs[$i] != __('pma_null'))
+        {
+	    $key = array_search($inputs[$i],$fields_list);
+	    $tbl_fields_type[$i] = $fields_type[$key];
+	    $tbl_fields_collation[$i] = $fields_collation[$key];
+	    $tbl_fields_null[$i] = $fields_null[$key];
 	}
+
+    }
 
 }
 
@@ -110,21 +103,21 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 <?php
     $odd_row = true;
    
-    for($i=0 ; $i<2 ; $i++){
+    for($i = 0 ; $i < 2 ; $i++){
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >
         <option value= <?php echo __('pma_null')?>><?php echo __('None');  ?> </option>
         <?php
-        for ($j = 0; $j < $fields_cnt; $j++){
-                if(isset($inputs[$i]) && $inputs[$i]==htmlspecialchars($fields_list[$j])){?>
-                        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        for ($j = 0 ; $j < $fields_cnt ; $j++){
+            if(isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])){?>
+                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
-                }
-                else{ ?>
-                        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+            }
+            else{ ?>
+                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
-                }
+            }
         } ?>
         </select></th>
         <td><?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?></td>
@@ -132,56 +125,61 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 	
 	<td>
 	<?php if(isset($inputs) && $inputs[$i] != __('pma_null')){ ?>
-	<select name="zoomFunc[]">
-        <?php
+	    <select name="zoomFunc[]">
+            <?php
 
-		if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
-			foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
-				echo "\n" . '                        '
-					. '<option value="' . htmlspecialchars($fc) . '">'
-					. htmlspecialchars($fc) . '</option>';
-			}
-		} elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
-			foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
-				echo "\n" . '                        '
-					. '<option value="' . htmlspecialchars($fc) . '">'
-					. htmlspecialchars($fc) . '</option>';
-			}
-		} else {
-			foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
-				echo "\n" . '                        '
-					. '<option value="' .  htmlspecialchars($fc) . '">'
-					. htmlspecialchars($fc) . '</option>';
-			}
-		} // end if... else...
-		if ($tbl_fields_null[$i]) {
-			foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
-				echo "\n" . '                        '
-					. '<option value="' .  htmlspecialchars($fc) . '">'
-					. htmlspecialchars($fc) . '</option>';
-			}
-		}
-        ?>
+	        if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
+	            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
+		        echo "\n" . '                        '
+		        . '<option value="' . htmlspecialchars($fc) . '">'
+		        . htmlspecialchars($fc) . '</option>';
+		    }
+	        } elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
+	            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
+		        echo "\n" . '                        '
+		        . '<option value="' . htmlspecialchars($fc) . '">'
+		        . htmlspecialchars($fc) . '</option>';
+		    }
+	    	} else {
+	            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
+		        echo "\n" . '                        '
+		    	. '<option value="' .  htmlspecialchars($fc) . '">'
+		    	. htmlspecialchars($fc) . '</option>';
+		    }
+	        } // end if... else...
+	    
+                if ($tbl_fields_null[$i]) {
+	            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
+		        echo "\n" . '                        '
+		    	. '<option value="' .  htmlspecialchars($fc) . '">'
+		    	. htmlspecialchars($fc) . '</option>';
+	            }
+	        }
+            ?>
+            </select>
+            </td>
+            <td>
+	    <?php
+	    $field = $inputs[$i];
+	
+            $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-        </select>
-        </td>
-        <td>
-	<?php
-	$field = $inputs[$i];
-
-	$foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-
-	if (isset($fields))
+	    if (isset($fields))
 	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
-	else
+	    else
 	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
 	
         }
-	?>
-            <input type="hidden" name="types[<?php echo $i; ?>]"
-                value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
-            <input type="hidden" name="collations[<?php echo $i; ?>]"
-                value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
+        else{ ?>
+ 
+       </td><td></td>
+
+        <?php } ?>
+ 
+        <input type="hidden" name="types[<?php echo $i; ?>]"
+            value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
+        <input type="hidden" name="collations[<?php echo $i; ?>]"
+            value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
         </td>
     </tr>
 
@@ -211,31 +209,31 @@ else {
 
     // Unlike tbl_search page this part builds two queries, Query1 for the search criteria on 1st column and Query2 for the other column. This has to be done because user can select two same columns having different criteria. 
 
-	for($i = 0 ;$i<2;$i++){
+    for($i = 0 ; $i < 2 ; $i++){
 
-	    $sql_query = 'SELECT ';
+        $sql_query = 'SELECT ';
 
-	    // Add the colums to be selected
+        // Add the colums to be selected
 	
-	    $sql_query .= PMA_backquote($inputs[$i]);
+        $sql_query .= PMA_backquote($inputs[$i]);
 
-	    //Add the table
+        //Add the table
 	
-	    $sql_query .= ' FROM ' . PMA_backquote($table);
+        $sql_query .= ' FROM ' . PMA_backquote($table);
 
-	    // The where clause
-	    $charsets = array();
-	    $cnt_func = count($zoomFunc[$i]);
-	    reset($zoomFunc[$i]);
-	    $func_type = $zoomFunc[$i];
-	    list($charsets[$i]) = explode('_', $collations[$i]);
-	    $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
-            $w = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
-	    if ($w != '') {
-		    $sql_query .= ' WHERE ' . $w;
-	    }
-	    print $sql_query."<br>";
-	}
+        // The where clause
+        $charsets = array();
+        $cnt_func = count($zoomFunc[$i]);
+        reset($zoomFunc[$i]);
+        $func_type = $zoomFunc[$i];
+        list($charsets[$i]) = explode('_', $collations[$i]);
+        $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
+        $w = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
+        if ($w != '') {
+            $sql_query .= ' WHERE ' . $w;
+        }
+            print $sql_query."<br>";
+    }
 }
 
 ?>

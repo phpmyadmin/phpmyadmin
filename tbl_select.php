@@ -51,11 +51,7 @@ if (! isset($param) || $param[0] == '') {
 
     // Gets the list and number of fields
 
-    $fields_array = PMA_tbl_getFields($table,$db);
-    $fields_list = $fields_array[0];
-    $fields_type = $fields_array[1];
-    $fields_collation = $fields_array[2];
-    $fields_null = $fields_array[3];
+    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
     $fields_cnt = count($fields_list);
 
     // retrieve keys into foreign fields, if any
