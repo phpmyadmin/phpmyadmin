@@ -445,7 +445,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     global $sql_query, $num_rows;
     global $vertical_display, $highlight_columns;
 
-    // required to generate sort links that will remember whether the 
+    // required to generate sort links that will remember whether the
     // "Show all" button has been clicked
     $sql_md5 = md5($GLOBALS['sql_query']);
     $session_max_rows = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
@@ -2478,7 +2478,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
     } elseif (isset($content)) {
         $size = strlen($content);
         $display_size = PMA_formatByteDown($size, 3, 1);
-        $result .= ' - '. $display_size[0] . '&nbsp;' . $display_size[1];
+        $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
     }
     $result .= ']';
 
