@@ -3988,10 +3988,9 @@ msgstr ""
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "User preferences storage table"
+msgstr "UI preferences table"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
