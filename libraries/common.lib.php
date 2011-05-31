@@ -812,9 +812,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
  *                              or array of it
  * @param   boolean  $do_it     a flag to bypass this function (used by dump
  *                              functions)
- * @return  mixed    the "backquoted" database, table or field name if the
- *                   current MySQL release is >= 3.23.6, the original one
- *                   else
+ * @return  mixed    the "backquoted" database, table or field name
  * @access  public
  */
 function PMA_backquote($a_name, $do_it = true)
