@@ -2116,14 +2116,14 @@ fieldset .disabled-field td {
 }
 
 .colborder {
-    border-right: solid 1px #FFFFFF;
+    border-right: solid 2px #FFFFFF;
     cursor: col-resize;
-    margin-left: -1px;
+    margin-left: -2px;
     position: absolute;
     width: 3px;
 }
 
-.pma_table thead th div, .pma_table tbody td div {
+.pma_table thead th span, .pma_table tbody td span {
     display: block;
     overflow: hidden;
 }

@@ -5,6 +5,9 @@
             // constant
             minColWidth: 5,
             
+            // changeable vars
+            firstColSpan: 5,    // default to 5, only useful in horizontal mode
+            
             // functions
             dragStartRsz: function(e, obj) {
                 var n = $('div', this.cRsz).index(obj);
@@ -13,7 +16,8 @@
                     n: n,
                     obj: obj,
                     objLeft: parseInt(obj.style.left),
-                    objWidth: $('th div:eq(' + (1 + n) + ')', this.t).width()
+                    objWidth: $('tr:first th:eq(' + (1 + n) + ') span,' +
+                                'tr:first td:eq(' + n + ') span', this.t).width()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
@@ -34,7 +38,7 @@
                     }
                     var n = this.colRsz.n;
                     $('tr', this.t).each(function() {
-                        $('th:eq(' + (1 + n) + ') div, td:eq(' + (5 + n) + ') div', this).each(function() {
+                        $('th:eq(' + (1 + n) + ') span, td:eq(' + (g.firstColSpan + n) + ') span', this).each(function() {
                             $(this).css('width', nw + 'px');
                         });
                     });
@@ -44,7 +48,7 @@
                 }
             },
             reposRsz: function() {
-                $(this.t).find('thead tr:first th:gt(0)').each(function() {
+                $(this.t).find('tr:first th:gt(0), tr:first td').each(function() {
                     $this = $(this);
                     var n = $this.index();
                     $cb = $('div:eq(' + (n - 1) + ')', g.cRsz);   // column border
@@ -54,10 +58,16 @@
         }
         g.gDiv = document.createElement('div');   // create global div
         g.cRsz = document.createElement('div');   // column resizer
+        // chain table and grid together
+        t.grid = g;
         g.t = t;
         
+        // assign the first column (actions) span
+        g.firstColSpan = $('tr:first th:first', t).attr('colspan');
+        g.firstColSpan = (g.firstColSpan != undefined) ? parseInt(g.firstColSpan) : 0;  // posibility of vertical display mode
+        
         // create column borders
-        $(t).find('thead tr:first th:gt(0)').each(function() {
+        $(t).find('tr:first th:gt(0), tr:first td').each(function() {
             $this = $(this);
             var cb = document.createElement('div'); // column border
             cb.style.left = $this.position().left + $this.width() + 'px';
@@ -69,9 +79,9 @@
             $(g.cRsz).append(cb);
         });
         
-        // wrap all cells with div
-        $(t).find('th, td').each(function() {
-            $(this).wrapInner('<div />');
+        // wrap all cells, except actions cell, with div
+        $(t).find('th, td:not(:has(span))').each(function() {
+            $(this).wrapInner('<span />');
         });
         
         // register events
@@ -116,6 +126,18 @@
             }
         });
     };
+    $.fn.refreshgrid = function() {
+        return this.each(function() {
+            if (!docready) {
+                var t = this;
+                $(document).ready(function() {
+                    if (t.grid) t.grid.reposRsz();
+                });
+            } else {
+                if (this.grid) this.grid.reposRsz();
+            }
+        });
+    }
     $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
         var prevent = (p == null) ? true : p;
         if (prevent) {
