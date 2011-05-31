@@ -156,32 +156,31 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 
     // Now parse each parameter individually
     foreach ($params as $key => $value) {
-	    // Get direction
-	    if (substr($value, 0, 5) == 'INOUT') {
-		    $dir[] = 'INOUT';
-		    $value = ltrim(substr($value, 5));
-	    } else if (substr($value, 0, 2) == 'IN') {
-		    $dir[] = 'IN';
-		    $value = ltrim(substr($value, 2));
-	    } else if (substr($value, 0, 3) == 'OUT') {
-		    $dir[] = 'OUT';
-		    $value = ltrim(substr($value, 3));
-	    }
-	    // Get name
-	    $space_pos = strpos($value, ' ');
-	    $name[] = htmlspecialchars(PMA_unbackquote(substr($value, 0, $space_pos)));
-	    $value = ltrim(substr($value, $space_pos));
-	    // Get type
-	    $brac_pos = strpos($value, '(');
-	    if ($brac_pos === false) {
-		    // Simple type, no length
-		    $type[] = $value;
-		    $length[] = '';
-	    } else {
-		    // Need to get length
-		    $type[] = substr($value, 0, $brac_pos);
-		    $length[] = htmlentities(substr($value, $brac_pos+1, -1), ENT_QUOTES);
-	    }
+        $parsed_param = PMA_SQP_parse($value);
+        $pos = 0;
+        if ($parsed_param[$pos]['data'] == 'IN' ||$parsed_param[$pos]['data'] == 'OUT' || $parsed_param[$pos]['data'] == 'INOUT') {
+            $dir[] = $parsed_param[0]['data'];
+            $pos++;
+        }
+        if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
+            $name[] = htmlspecialchars(PMA_unbackquote($parsed_param[$pos]['data']));
+            $pos++;
+        }
+        $depth = 0;
+        $param_length = '';
+        for ($i=$pos; $i<$parsed_param['len']; $i++) {
+            if ($parsed_param[$i]['type'] == 'alpha_columnType' && $depth == 0) {
+                $type[] = $parsed_param[$i]['data'];
+            } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
+                $depth = 1;
+            } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
+                $depth = 0;
+            } else if ($depth == 1) {
+                $param_length .= $parsed_param[$i]['data'];
+            }
+        }
+        $length[] = htmlentities($param_length, ENT_QUOTES);
+        // FIXME: parameter attributes, such as 'UNSIGNED', are currenly silently ignored
     }
 } // end parseListOfParameters()
 
