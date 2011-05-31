@@ -659,8 +659,10 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
     if (! empty($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
         $query .= $_REQUEST['routine_sqldataaccess'] . ' ';
     }
-    if (! empty($_REQUEST['routine_sqlsecutiry'])) {
-        $query .= 'SQL SECURITY ' . $_REQUEST['routine_sqlsecutiry'] . ' ';
+    if (! empty($_REQUEST['routine_securitytype'])) {
+        if ($_REQUEST['routine_securitytype'] == 'DEFINER' || $_REQUEST['routine_securitytype'] == 'INVOKER') {
+            $query .= 'SQL SECURITY ' . $_REQUEST['routine_securitytype'] . ' ';
+        }
     }
     if (! empty($_REQUEST['routine_definition'])) {
         $query .= $_REQUEST['routine_definition'];
