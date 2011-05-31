@@ -39,7 +39,7 @@ class PMA_GIS_Visualization
         ),
 
         // The width of the GIS visualization.
-        'width' => 700,
+        'width' => 600,
 
          // The height of the GIS visualization.
         'height' => 450,

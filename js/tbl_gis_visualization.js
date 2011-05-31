@@ -69,6 +69,9 @@ $(document).ready(function() {
         }
     });
 
+    // Removes the second SVG element unnecessarily added due to the above command.
+    $('#placeholder').find('svg:nth-child(2)').remove();
+
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in
