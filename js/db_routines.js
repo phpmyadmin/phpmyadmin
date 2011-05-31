@@ -28,10 +28,14 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     $("#result_query").remove();
                     if ($('#routine_list tr').length == 2) {
-                        $('#routine_list').remove();
-                        $('#no_routines').show();
+                        $('#routine_list').hide("slow", function () {
+                            $(this).remove();
+                        });
+                        $('#no_routines').show("slow");
                     } else {
-                       $curr_proc_row.hide("medium").remove();
+                        $curr_proc_row.hide("slow", function () {
+                            $(this).remove();
+                        });
                     }
                 }
                 else {

@@ -27,10 +27,14 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     $("#result_query").remove();
                     if ($('#event_list tr').length == 2) {
-                        $('#event_list').remove();
-                        $('#no_events').show();
+                        $('#event_list').hide("slow", function () {
+                            $(this).remove();
+                        });
+                        $('#no_events').show("slow");
                     } else {
-                       $curr_event_row.hide("medium").remove();
+                        $curr_event_row.hide("slow", function () {
+                            $(this).remove();
+                        });
                     }
                 }
                 else {
