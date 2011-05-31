@@ -1166,6 +1166,23 @@ text-shadow:0 1px 0 #000000;
 
 /* serverstatus */
 
+img.sortableIcon {
+	width:16px;
+	height:16px;
+	float:right;
+	background-repeat:no-repeat;
+}
+
+table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
+	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
+}
+table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
+	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+}
+table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serverstatusvariables th.headerSortDown img.sortableIcon {
+	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
+}
+
 .statuslinks {
 	float: <?php echo $right; ?>;
 }

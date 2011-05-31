@@ -12,8 +12,9 @@ $(function() {
     
     // Add tabs
     $('#serverStatusTabs').tabs({
-        // Fixes line break in the menu bar when the page overflows and scrollbar appears
+        // Tab persistence
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
+        // Fixes line break in the menu bar when the page overflows and scrollbar appears
         show: function() { menuResize(); }
     });
     
@@ -21,8 +22,18 @@ $(function() {
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
     // Enable table sorting
-    $('#serverstatusvariables').tablesorter({sortList: [[0,0]]});
-    $('#serverstatusqueriesdetails').tablesorter();
+    $('#serverstatusvariables')
+		.tablesorter({
+			sortList: [[0,0]],
+			widgets: ['zebra']
+		});
+    $('#serverstatusqueriesdetails')
+		.tablesorter({
+			sortList: [[3,1]],
+			widgets: ['zebra']
+		});
+		
+    $('#serverstatusqueriesdetails tr:first th, #serverstatusvariables tr:first th').append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
     
     // Load chart asynchronly so the page loads faster
     $.get($('#serverstatusquerieschart a').first().attr('href'),{ajax_request:1}, function(data) {

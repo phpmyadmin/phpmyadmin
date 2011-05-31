@@ -59,7 +59,7 @@ require_once './libraries/replication_gui.lib.php';
 $GLOBALS['js_include'][] = 'pMap.js';
 $GLOBALS['js_include'][] = 'server_status.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 
@@ -346,6 +346,7 @@ require './libraries/server_links.inc.php';
 ?>
 <script type="text/javascript">
 url_query = '<?php echo $url_query;?>';
+pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 </script>
 <div id="serverstatus">
     <h2><?
@@ -495,7 +496,11 @@ function printQueryStatistics() {
         <col class="namecol" />
         <col class="valuecol" span="3" />
         <thead>
-            <tr><th colspan="2"><?php echo __('Query type'); ?></th>
+            <tr><th><?php echo __('Query type'); ?></th>
+				<th><?php 
+					/* l10n: # = Amount of queries */
+					echo __('#');
+					?>
                 <th>&oslash; <?php echo __('per hour'); ?></th>
                 <th>%</th>
             </tr>
