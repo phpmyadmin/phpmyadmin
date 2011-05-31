@@ -217,8 +217,17 @@ $(document).ready(function() {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('remakeGrid', function() {
+    $("#sqlqueryresults").live('makegrid', function() {
         $('#table_results').makegrid();
+    })
+    
+    /**
+     * Attach the {@link refreshgrid} function to a custom event, which will be
+     * triggered manually everytime the table of results is manipulated (e.g., by inline edit)
+     * @memberOf    jQuery
+     */
+    $("#sqlqueryresults").live('refreshgrid', function() {
+        $('#table_results').refreshgrid();
     })
 
     /**
@@ -333,7 +342,7 @@ $(document).ready(function() {
                     $('#sqlqueryresults').show();
                     $("#sqlqueryresults").html(data);
                     $("#sqlqueryresults").trigger('appendAnchor');
-                    $("#sqlqueryresults").trigger('remakeGrid');
+                    $("#sqlqueryresults").trigger('makegrid');
                     $('#togglequerybox').show();
                     if($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
@@ -374,7 +383,7 @@ $(document).ready(function() {
         $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-            $("#sqlqueryresults").trigger('remakeGrid');
+            $("#sqlqueryresults").trigger('makegrid');
             PMA_init_slider();
             
             PMA_ajaxRemoveMessage($msgbox);
@@ -398,7 +407,7 @@ $(document).ready(function() {
             $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('remakeGrid');
+                $("#sqlqueryresults").trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox); 
             }) // end $.post()
@@ -425,7 +434,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor')
-             .trigger('remakeGrid');
+             .trigger('makegrid');
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     })//end Sort results table
@@ -445,7 +454,7 @@ $(document).ready(function() {
             $("#sqlqueryresults")
              .html(data)
              .trigger('appendAnchor')
-             .trigger('remakeGrid');
+             .trigger('makegrid');
             PMA_init_slider();
         }) // end $.post()
     })
@@ -537,15 +546,19 @@ $(document).ready(function() {
                     if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_hide.siblings("td:eq(" + i + ")").data('original_data');
-                    if($this_hide.siblings("td:eq(" + i + ")").children().length != 0) {
-                        $this_hide.siblings("td:eq(" + i + ")").empty();
-                        $this_hide.siblings("td:eq(" + i + ")").append(txt);
+                    var $this_hide_siblings = $this_hide.siblings("td:eq(" + i + ")");
+                    txt = $this_hide_siblings.data('original_data');
+                    if($this_hide_siblings.children('span').children().length != 0) {
+                        $this_hide_siblings.children('span').empty();
+                        $this_hide_siblings.children('span').append(txt);
                     }
                 }
                 $(this).prev().prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
+                
+                // refresh the grid
+                $("#sqlqueryresults").trigger('refreshgrid');
             });
         } else {
             var txt = '';
@@ -570,13 +583,17 @@ $(document).ready(function() {
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    txt = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").data('original_data');
-                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").empty();
-                    $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").append(txt);
+                    $this_row_siblings = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").children('span');
+                    txt = $this_row_siblings.data('original_data');
+                    $this_row_siblings.children('span').empty();
+                    $this_row_siblings.children('span').append(txt);
                 }
                 $(this).prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
+                
+                // refresh the grid
+                $("#sqlqueryresults").trigger('refreshgrid');
             });
         }
 
@@ -608,7 +625,7 @@ $(document).ready(function() {
             /**
              * @var data_value  Current value of this field
              */
-            var data_value = $(this).html();
+            var data_value = $(this).children('span').html();
 
             // We need to retrieve the value from the server for truncated/relation fields
             // Find the field name
@@ -617,6 +634,10 @@ $(document).ready(function() {
              * @var this_field  Object referring to this field (<td>)
              */
             var $this_field = $(this);
+            /**
+             * @var this_field_span Object referring to this field's child (<span>)
+             */
+            var $this_field_span = $(this).children('span');
             /**
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
@@ -634,11 +655,11 @@ $(document).ready(function() {
             /**
              * @var curr_value String current value of the field (for fields that are of type enum or set).
              */
-            var curr_value = $this_field.text();
+            var curr_value = $this_field_span.text();
 
             if($this_field.is(':not(.not_null)')){
                 // add a checkbox to mark null for all the field that are nullable.
-                $this_field.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name + '_' + this_row_index +'"></div>');
+                $this_field_span.html('<div class="null_div">Null :<input type="checkbox" class="checkbox_null_'+ field_name + '_' + this_row_index +'"></div>');
                 // check the 'checkbox_null_<field_name>_<row_index>' if the corresponding value is null
                 if($this_field.is('.null')) {
                     $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', true);
@@ -685,7 +706,7 @@ $(document).ready(function() {
                 })
 
             } else {
-                $this_field.html('<div class="null_div"></div>');
+                $this_field_span.html('<div class="null_div"></div>');
             }
 
             // In each input sibling, wrap the current value in a textarea
@@ -693,7 +714,7 @@ $(document).ready(function() {
             if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .set, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
-                $this_field.append('<textarea>'+data_value+'</textarea>');
+                $this_field_span.append('<textarea>'+data_value+'</textarea>');
                 $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.truncated, .transformed')) {
@@ -714,8 +735,9 @@ $(document).ready(function() {
                     'inline_edit' : true
                 }, function(data) {
                     if(data.success == true) {
-                        $this_field.append('<textarea>'+data.value+'</textarea>');
+                        $this_field_span.append('<textarea>'+data.value+'</textarea>');
                         $this_field.data('original_data', data_value);
+                        $("#sqlqueryresults").trigger('refreshgrid');
                     }
                     else {
                         PMA_ajaxShowMessage(data.error);
@@ -741,8 +763,9 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.dropdown);
+                    $this_field_span.append(data.dropdown);
                     $this_field.data('original_data', data_value);
+                    $("#sqlqueryresults").trigger('refreshgrid');
                 }) // end $.post()
             }
             else if($this_field.is('.enum')) {
@@ -762,8 +785,9 @@ $(document).ready(function() {
                         'curr_value' : curr_value
                 }
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.dropdown);
+                    $this_field_span.append(data.dropdown);
                     $this_field.data('original_data', data_value);
+                    $("#sqlqueryresults").trigger('refreshgrid');
                 }) // end $.post()
             }
             else if($this_field.is('.set')) {
@@ -784,16 +808,21 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.select);
+                    $this_field_span.append(data.select);
                     $this_field.data('original_data', data_value);
+                    $("#sqlqueryresults").trigger('refreshgrid');
                 }) // end $.post()
             }
             else if($this_field.is('.null')) {
                 //handle null fields
-                $this_field.append('<textarea></textarea>');
+                $this_field_span.append('<textarea></textarea>');
                 $this_field.data('original_data', 'NULL');
             }
-        })
+        });
+        
+        // refresh the grid
+        $("#sqlqueryresults").trigger('refreshgrid');
+        
     }) // End On click, replace the current field with an input/textarea
 
     /**
@@ -815,7 +844,7 @@ $(document).ready(function() {
          * being edited
          *
          */
-        var $this_td = $(this).parent().parent();
+        var $this_td = $(this).parents('td');
         var $test_element = ''; // to test the presence of a element
 
         // Initialize variables
@@ -1044,10 +1073,11 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
     $input_siblings.each(function() {
         // Inline edit post has been successful.
         $this_sibling = $(this);
+        $this_sibling_span = $(this).children('span');
 
         var is_null = $this_sibling.find('input:checkbox').is(':checked');
         if (is_null) {
-            $this_sibling.html('NULL');
+            $this_sibling_span.html('NULL');
             $this_sibling.addClass('null');
         } else {
             $this_sibling.removeClass('null');
@@ -1107,9 +1137,12 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
                     }
                 }
             }
-            $this_sibling.html(new_html);
+            $this_sibling_span.html(new_html);
         }
     })
+
+    // refresh the grid
+    $("#sqlqueryresults").trigger('refreshgrid');
 }
 
 /**
@@ -1160,7 +1193,7 @@ $(document).ready(function() {
     /**
      * create resizable table
      */
-    $("#sqlqueryresults").trigger('remakeGrid');
+    $("#sqlqueryresults").trigger('makegrid');
 })
 
 /**#@- */
