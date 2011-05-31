@@ -1616,10 +1616,9 @@ msgid "Recent tables"
 msgstr "Recent tables"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "There are no configured servers"
+msgstr "There are no recent tables"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
