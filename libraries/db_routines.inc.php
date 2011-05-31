@@ -169,7 +169,7 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
 	    }
 	    // Get name
 	    $space_pos = strpos($value, ' ');
-	    $name[] = htmlspecialchars(substr($value, 0, $space_pos));
+	    $name[] = htmlspecialchars(PMA_unbackquote(substr($value, 0, $space_pos)));
 	    $value = ltrim(substr($value, $space_pos));
 	    // Get type
 	    $brac_pos = strpos($value, '(');
@@ -615,10 +615,10 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
         for ($i=0; $i<count($_REQUEST['routine_param_name']); $i++) {
             if (! empty($_REQUEST['routine_param_name'][$i]) && ! empty($_REQUEST['routine_param_type'][$i])) {
                 if ($_REQUEST['routine_type'] == 'PROCEDURE' && ! empty($_REQUEST['routine_param_dir'][$i])) {
-                    $params .= $_REQUEST['routine_param_dir'][$i] . " " . $_REQUEST['routine_param_name'][$i] . " "
+                    $params .= $_REQUEST['routine_param_dir'][$i] . " " . PMA_backquote($_REQUEST['routine_param_name'][$i]) . " "
                             . $_REQUEST['routine_param_type'][$i];
                 } else if ($_REQUEST['routine_type'] == 'FUNCTION') {
-                    $params .= $_REQUEST['routine_param_name'][$i] . " " . $_REQUEST['routine_param_type'][$i];
+                    $params .= PMA_backquote($_REQUEST['routine_param_name'][$i]) . " " . $_REQUEST['routine_param_type'][$i];
                 } else if (! $warned_about_dir) {
                     $warned_about_dir = true;
                     $routine_errors[] = sprintf(__('Invalid Direction "%s" given for a Parameter.'),
