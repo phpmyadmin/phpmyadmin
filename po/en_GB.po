@@ -1661,7 +1661,7 @@ msgstr "Table %s has been renamed to %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Could not save table UI preferences"
 
 #: libraries/Theme.class.php:160
 #, php-format
