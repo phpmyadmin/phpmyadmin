@@ -703,6 +703,11 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                     $message = PMA_Message::success(__('Routine %1$s has been modified.'));
                     $message->addParam(PMA_backquote($_REQUEST['routine_name']));
                     $message->display();
+                    echo '<code class="sql">'
+                       . PMA_SQP_formatHtml(PMA_SQP_parse($drop_routine))
+                       . '<br /><br />'
+                       . PMA_SQP_formatHtml(PMA_SQP_parse($query))
+                       . '</code>';
                 }
             }
         } else {
@@ -714,6 +719,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty(
                 $message = PMA_Message::success(__('Routine %1$s has been created.'));
                 $message->addParam(PMA_backquote($_REQUEST['routine_name']));
                 $message->display();
+                echo '<code class="sql">'
+                   . PMA_SQP_formatHtml(PMA_SQP_parse($query))
+                   . '</code>';
             }
         }
     }
