@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-05-19 09:43+0200\n"
+"PO-Revision-Date: 2011-05-31 17:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1621,10 +1621,9 @@ msgid "Could not save recent table"
 msgstr "Nepodařilo se uložit nastavení"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Počítat tabulky"
+msgstr "Nedávné tabulky"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
@@ -3331,10 +3330,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Nesledované tabulky"
+msgstr "Nedávno použité tabulky"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3624,10 +3622,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Přejmenovat tabulku na"
+msgstr "Pamatovat si řazení u tabulkek"
 
 #: libraries/config/messages.inc.php:351
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3917,10 +3914,9 @@ msgstr ""
 "výchozí nastavení: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Pamatovat si uživatelské jméno"
+msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
@@ -4011,10 +4007,9 @@ msgstr ""
 "výchozí nastavení: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabulka pro uživatelská nastavení"
+msgstr "Tabulka pro nastavení rozhraní"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
