@@ -1783,29 +1783,37 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
+#placeholder {
+    position: relative;
+}
+
+#placeholder .button {
+    position: absolute;
+}
+
 #left_arrow {
-    right:50px;
-    top:100px;
+    right:35px;
+    top:40px;
 }
 
 #right_arrow {
-    right:20px;
-    top:100px;
+    right:5px;
+    top:40px;
 }
 
 #up_arrow {
-    right:35px;
-    top:85px;
+    right:20px;
+    top:25px;
 }
 
 #down_arrow {
-    right:35px;
-    top:115px;
+    right:20px;
+    top:55px;
 }
 
 #zoom_out {
-    right:20px;
-    top:65px;
+    right:5px;
+    top:5px;
 }
 
 .gis_table td {

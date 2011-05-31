@@ -2127,29 +2127,37 @@ fieldset .disabled-field td {
     margin:             0 6px;
 }
 
+#placeholder {
+    position: relative;
+}
+
+#placeholder .button {
+    position: absolute;
+}
+
 #left_arrow {
-    right:65px;
-    top:145px;
+    right:35px;
+    top:40px;
 }
 
 #right_arrow {
-    right:35px;
-    top:145px;
+    right:5px;
+    top:40px;
 }
 
 #up_arrow {
-    right:50px;
-    top:130px;
+    right:20px;
+    top:25px;
 }
 
 #down_arrow {
-    right:50px;
-    top:160px;
+    right:20px;
+    top:55px;
 }
 
 #zoom_out {
-    right:35px;
-    top:110px;
+    right:5px;
+    top:5px;
 }
 
 .gis_table td {
