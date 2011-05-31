@@ -21,18 +21,8 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
-if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
-    $titles['Browse'] =
-        '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
-        . __('Browse foreign values') . '" />';
 
-    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-        $titles['Browse'] .= __('Browse foreign values');
-    }
-} else {
-    $titles['Browse'] = __('Browse foreign values');
-}
+$titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 
 /**
  * Not selection yet required -> displays the selection form
@@ -72,7 +62,6 @@ if (! isset($param) || $param[0] == '') {
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
-    $flag = 1;
     ?>
 
 <fieldset id="fieldset_subtab">
@@ -95,14 +84,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 <fieldset id="fieldset_table_qbe">
     <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
     <table class="data">
-    <thead>
-    <tr><th><?php echo __('Column'); ?></th>
-        <th><?php echo __('Type'); ?></th>
-        <th><?php echo __('Collation'); ?></th>
-        <th><?php echo __('Operator'); ?></th>
-        <th><?php echo __('Value'); ?></th>
-    </tr>
-    </thead>
+    <?php echo PMA_tbl_setTableHeader(); ?>
     <tbody>
     <?php
     $odd_row = true;
@@ -151,54 +133,9 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-        if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
-            // f o r e i g n    k e y s
-            echo '            <select name="fields[' . $i . ']">' . "\n";
-            // go back to first row
-
-            // here, the 4th parameter is empty because there is no current
-            // value of data for the dropdown (the search page initial values
-            // are displayed empty)
-            echo PMA_foreignDropdown($foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                '', $GLOBALS['cfg']['ForeignKeyMaxLimit']);
-            echo '            </select>' . "\n";
-        } elseif ($foreignData['foreign_link'] == true) {
-            ?>
-            <input type="text" name="fields[<?php echo $i; ?>]"
-                id="field_<?php echo md5($field); ?>[<?php echo $i; ?>]"
-                class="textfield" />
-            <script type="text/javascript">
-            // <![CDATA[
-                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>&amp;fieldkey=<?php echo $i; ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
-            // ]]>
-            </script>
-            <?php
-        } elseif (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
-            // e n u m s
-            $enum_value=explode(', ', str_replace("'", '', substr($fields_type[$i], 5, -1)));
-            $cnt_enum_value = count($enum_value);
-            echo '            <select name="fields[' . $i . '][]"'
-                .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
-            for ($j = 0; $j < $cnt_enum_value; $j++) {
-                echo '                <option value="' . $enum_value[$j] . '">'
-                    . $enum_value[$j] . '</option>';
-            } // end for
-            echo '            </select>' . "\n";
-        } else {
-            // o t h e r   c a s e s
-            $the_class = 'textfield';
-            $type = $fields_type[$i];
-            if ($type == 'date') {
-                $the_class .= ' datefield';
-            } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
-                $the_class .= ' datetimefield';
-            }
-            echo '            <input type="text" name="fields[' . $i . ']"'
-                .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
-        };
-        ?>
+	echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' );
+        
+	?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
                 value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
             <input type="hidden" name="types[<?php echo $i; ?>]"
@@ -285,7 +222,6 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 </fieldset>
 
 <?php
-print_r($inputs);
 }
 
 

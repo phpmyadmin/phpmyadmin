@@ -9,6 +9,54 @@
  * @package phpMyAdmin
  */
 
+require_once 'url_generating.lib.php';
+
+
+
+ /**
+ * PMA_tbl_setTitle() sets the title for foreign keys display link
+ * 
+ * @param    $propertiesIconic    Type of icon property
+ * @param    $themeImage          Icon Image
+ * @return   string $str          Value of the Title
+ *
+ */
+
+function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
+	if ($propertiesIconic == true) {
+	    $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+	           .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
+	           . __('Browse foreign values') . '" />';
+
+	    if ($propertiesIconic === 'both') {
+	        $str .= __('Browse foreign values');
+	    return $str;
+	    }
+	} else {
+	    return __('Browse foreign values');
+	}
+}
+
+ /**
+ * PMA_tbl_getFields() gets all the fields of a table along with their types,collations and whether null or not.
+ *
+ * @uses     PMA_DBI_query()
+ * @uses     PMA_backquote()
+ * @uses     PMA_DBI_num_rows()
+ * @uses     PMA_DBI_fetch_assoc()
+ * @uses     PMA_DBI_free_result()
+ * @uses     preg_replace()
+ * @uses     str_replace()
+ * @uses     strncasecmp()
+ * @uses     empty()
+ *
+ * @param    $db    								Selected database
+ * @param    $table    								Selected table
+ *
+ * @return   array($fields_list,$fields_type,$fields_collation,$fields_null)    Array containing the field list, field types, collations and null constatint       
+ *
+ */
+
 function PMA_tbl_getFields($table,$db) {
     
     // Gets the list and number of fields
@@ -51,10 +99,179 @@ function PMA_tbl_getFields($table,$db) {
    
 }
 
+/* PMA_tbl_setTableHeader() sets the table header for displaying a table in query-by-example format
+ *
+ * @return   HTML content, the tags and content for table header       
+ *
+ */
+
+function PMA_tbl_setTableHeader(){
+
+return '<thead>
+  	<tr><th>' .  __('Column') . '</th>
+        <th>' .  __('Type') . '</th>
+        <th>' .  __('Collation') . '</th>
+        <th>' .  __('Operator') . '</th>
+        <th>' .  __('Value') . '</th>
+   	</tr>
+        </thead>';
+
+
+}
+
+/* PMA_tbl_getSubTabs() returns an array with necessary configrations to create sub-tabs(Table Search and Zoom Search) in the table_select page 
+ *
+ * @return   array $subtabs    Array containing configuration (icon,text,link,id,args) of sub-tabs for Table Search and Zoom search       
+ *
+ */
+
+function PMA_tbl_getSubTabs(){
+
+	$subtabs = array();
+
+	$subtabs['search']['icon'] = 'b_search.png';
+	$subtabs['search']['text'] = __('Table Search');
+	$subtabs['search']['link'] = 'tbl_select.php';
+	$subtabs['search']['id'] = 'tbl_search_id';
+	$subtabs['search']['args']['pos'] = 0;
+
+	$subtabs['zoom']['icon'] = 'b_props.png';
+	$subtabs['zoom']['link'] = 'tbl_zoom_select.php';
+	$subtabs['zoom']['text'] = __('Zoom Search');
+	$subtabs['zoom']['id'] = 'zoom_search_id';
+	
+	return $subtabs;
+
+}
+
+
+/* PMA_tbl_getForeignFields_Values() creates the HTML content for: 1) Browsing foreign data for a field. 2) Creating elements for search criteria input on fields.
+ *
+ * @uses     PMA_foreignDropdown
+ * @uses     PMA_generate_common_url
+ * @uses     isset()
+ * @uses     is_array()
+ * @uses     in_array()
+ * @uses     urlencode()
+ * @uses     str_replace()
+ * @uses     stbstr()
+ *
+ * @param    $foreigners          Array of foreign keys
+ * @param    $foreignData         Foreign keys data
+ * @param    $field               Column name
+ * @param    $tbl_fields_type     Column type
+ * @param    $i                   Column index
+ * @param    $db                  Selected database
+ * @param    $table               Selected table
+ * @param    $titles              Selected title
+ * @param    $foreignMaxLimit     Max limit of displaying foreign elements
+ * @param    $fields              Array of search criteria inputs
+ *
+ * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.       
+ *
+ */
+
+function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table,$titles,$foreignMaxLimit, $fields){
+
+	$str = '';
+
+	if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
+
+                // f o r e i g n    k e y s
+                $str .=  '            <select name="fields[' . $i . ']">' . "\n";
+                // go back to first row
+
+                // here, the 4th parameter is empty because there is no current
+                // value of data for the dropdown (the search page initial values
+                // are displayed empty)
+                $str .= PMA_foreignDropdown($foreignData['disp_row'],
+                                $foreignData['foreign_field'],
+                                $foreignData['foreign_display'],
+                                '', $foreignMaxLimit);
+                $str .= '            </select>' . "\n";
+        } elseif ($foreignData['foreign_link'] == true) {
+
+                       $str .=  '<input type="text" name="fields[' . $i . '] "';
+				 'id="field_' . md5($field) . '[' . $i .']" 
+				 class="textfield" />' ; ?>
+                        
+			<?php $str .= '<script type="text/javascript">';
+                        // <![CDATA[
+			 $str .=  <<<EOT
+document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php? 
+EOT;
+			$str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>\');';
+                // ]]
+                	$str .= '</script>';
+			?>
+                        <?php
+        } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
+                // e n u m s
+                $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
+                $cnt_enum_value = count($enum_value);
+                $str .= '            <select name="fields[' . ($i) . '][]"'
+                        .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
+                for ($j = 0; $j < $cnt_enum_value; $j++) {
+                        if(isset($fields[$i]) && is_array($fields[$i]) && in_array($enum_value[$j],$fields[$i])){
+                                $str .= '                <option value="' . $enum_value[$j] . '" Selected>'
+                                        . $enum_value[$j] . '</option>';
+                        }
+                        else{
+                                $str .= '                <option value="' . $enum_value[$j] . '">'
+                                        . $enum_value[$j] . '</option>';
+                        }
+                } // end for
+                $str .= '            </select>' . "\n";
+        } else {
+                // o t h e r   c a s e s
+                $the_class = 'textfield';
+                $type = $tbl_fields_type[$i];
+                if ($type == 'date') {
+                        $the_class .= ' datefield';
+                } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+                        $the_class .= ' datetimefield';
+                }
+                if(isset($fields[$i]) && is_string($fields[$i])){
+                $str .= '            <input type="text" name="fields[' . $i . ']"'
+                        .' size="40" class="' . $the_class . '" id="field_' . $i . '" value = "' . $fields[$i] . '"/>' .  "\n";
+                }
+                else{
+                        $str .= '            <input type="text" name="fields[' . $i . ']"'
+                        .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
+                }
+        };
+	return $str;
+
+}
+
+
+/* PMA_tbl_search_getWhereClause() Return the where clause for query generation based on the inputs provided.
+ *
+ * @uses     PMA_backquote
+ * @uses     PMA_sqlAddslashes
+ * @uses     preg_match
+ * @uses     isset()
+ * @uses     in_array()
+ * @uses     str_replace()
+ * @uses     strpos()
+ * @uses     explode()
+ * @uses     trim()
+ *
+ * @param    $fields        Search criteria input
+ * @param    $names         Name of the field(column) on which search criteria is submitted
+ * @param    $types         Type of the field
+ * @param    $collations    Field collation
+ * @param    $func_type     Search fucntion/operator
+ * @param    $unaryFlag     Whether operator unary or not
+ *
+ * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.       
+ *
+ */
+
 function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag){
 	
-            //Return the where clause for query generation based on the inputs provided in the tbl_select.php form
-	    
+
+	    $w = ''; 
             if($unaryFlag){
 		$fields = '';
                 $w = PMA_backquote($names) . ' ' . $func_type;
@@ -127,25 +344,6 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
             } // end if
 
 	return $w;
-}
- 
-function PMA_tbl_getSubTabs(){
-
-	$subtabs = array();
-
-	$subtabs['search']['icon'] = 'b_search.png';
-	$subtabs['search']['text'] = __('Table Search');
-	$subtabs['search']['link'] = 'tbl_select.php';
-	$subtabs['search']['id'] = 'tbl_search_id';
-	$subtabs['search']['args']['pos'] = 0;
-
-	$subtabs['zoom']['icon'] = 'b_props.png';
-	$subtabs['zoom']['link'] = 'tbl_zoom_select.php';
-	$subtabs['zoom']['text'] = __('Zoom Search');
-	$subtabs['zoom']['id'] = 'zoom_search_id';
-	
-	return $subtabs;
-
 }
 
 ?>

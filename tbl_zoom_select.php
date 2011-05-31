@@ -18,18 +18,9 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
-if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
-    $titles['Browse'] =
-        '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
-        . __('Browse foreign values') . '" />';
 
-    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-        $titles['Browse'] .= __('Browse foreign values');
-    }
-} else {
-    $titles['Browse'] = __('Browse foreign values');
-}
+$titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
+
 /**
  * Not selection yet required -> displays the selection form
  */
@@ -114,26 +105,19 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 <fieldset id="zoom_fieldset_table_qbe">
     <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
     <table class="data">
-    <thead>
-    <tr><th><?php echo __('Column'); ?></th>
-        <th><?php echo __('Type'); ?></th>
-        <th><?php echo __('Collation'); ?></th>
-        <th><?php echo __('Operator'); ?></th>
-        <th><?php echo __('Value'); ?></th>
-    </tr>
-    </thead>
-    <tbody>
+    <?php echo PMA_tbl_setTableHeader();?>
+    <tbody-->
 <?php
     $odd_row = true;
    
-    for($i=1 ; $i<3 ; $i++){
+    for($i=0 ; $i<2 ; $i++){
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >
         <option value= <?php echo __('pma_null')?>><?php echo __('None');  ?> </option>
         <?php
         for ($j = 0; $j < $fields_cnt; $j++){
-                if(isset($inputs[$i-1]) && $inputs[$i-1]==htmlspecialchars($fields_list[$j])){?>
+                if(isset($inputs[$i]) && $inputs[$i]==htmlspecialchars($fields_list[$j])){?>
                         <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
                 }
@@ -143,21 +127,21 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
                 }
         } ?>
         </select></th>
-        <td><?php if(isset($tbl_fields_type[$i-1]))echo $tbl_fields_type[$i-1]; ?></td>
-        <td><?php if(isset($tbl_fields_collation[$i-1]))echo $tbl_fields_collation[$i-1]; ?></td>
+        <td><?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?></td>
+        <td><?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?></td>
 	
 	<td>
-	<?php if(isset($inputs) && $inputs[$i-1] != __('pma_null')){ ?>
+	<?php if(isset($inputs) && $inputs[$i] != __('pma_null')){ ?>
 	<select name="zoomFunc[]">
         <?php
 
-		if (strncasecmp($tbl_fields_type[$i-1], 'enum', 4) == 0) {
+		if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
 			foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
 				echo "\n" . '                        '
 					. '<option value="' . htmlspecialchars($fc) . '">'
 					. htmlspecialchars($fc) . '</option>';
 			}
-		} elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i-1])) {
+		} elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
 			foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
 				echo "\n" . '                        '
 					. '<option value="' . htmlspecialchars($fc) . '">'
@@ -170,7 +154,7 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 					. htmlspecialchars($fc) . '</option>';
 			}
 		} // end if... else...
-		if ($tbl_fields_null[$i-1]) {
+		if ($tbl_fields_null[$i]) {
 			foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
 				echo "\n" . '                        '
 					. '<option value="' .  htmlspecialchars($fc) . '">'
@@ -183,75 +167,21 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
         </td>
         <td>
 	<?php
-	$field = $inputs[$i-1];
+	$field = $inputs[$i];
 
 	$foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-	if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
-		// f o r e i g n    k e y s
-		echo '            <select name="fields[' . ($i-1) . ']">' . "\n";
-		// go back to first row
-
-		// here, the 4th parameter is empty because there is no current
-		// value of data for the dropdown (the search page initial values
-		// are displayed empty)
-		echo PMA_foreignDropdown($foreignData['disp_row'],
-				$foreignData['foreign_field'],
-				$foreignData['foreign_display'],
-				'', $GLOBALS['cfg']['ForeignKeyMaxLimit']);
-		echo '            </select>' . "\n";
-	} elseif ($foreignData['foreign_link'] == true) {
-		?>
-			<input type="text" name="fields[<?php echo $i-1; ?>]"
-			id="field_<?php echo md5($field); ?>[<?php echo $i-1; ?>]"
-			class="textfield" />
-			<script type="text/javascript">
-			// <![CDATA[
-			document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>&amp;fieldkey=<?php echo $i; ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
-		// ]]>
-		</script>
-			<?php
-	} elseif (strncasecmp($tbl_fields_type[$i-1], 'enum', 4) == 0) {
-		// e n u m s
-		$enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i-1], 5, -1)));
-		$cnt_enum_value = count($enum_value);
-		echo '            <select name="fields[' . ($i-1) . '][]"'
-			.' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
-		for ($j = 0; $j < $cnt_enum_value; $j++) {
-			if(isset($fields[$i-1]) && is_array($fields[$i-1]) && in_array($enum_value[$j],$fields[$i-1])){
-				echo '                <option value="' . $enum_value[$j] . '" Selected>'
-					. $enum_value[$j] . '</option>';
-			}
-			else{
-				echo '                <option value="' . $enum_value[$j] . '">'
-					. $enum_value[$j] . '</option>';
-			}
-		} // end for
-		echo '            </select>' . "\n";
-	} else {
-		// o t h e r   c a s e s
-		$the_class = 'textfield';
-		$type = $tbl_fields_type[$i-1];
-		if ($type == 'date') {
-			$the_class .= ' datefield';
-		} elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
-			$the_class .= ' datetimefield';
-		}
-		if(isset($fields[$i-1]) && is_string($fields[$i-1])){
-		echo '            <input type="text" name="fields[' . ($i-1) . ']"'
-			.' size="40" class="' . $the_class . '" id="field_' . ($i-1) . '" value = "' . $fields[$i-1] . '"/>' .  "\n";
-		}
-		else{
-			echo '            <input type="text" name="fields[' . ($i-1) . ']"'
-			.' size="40" class="' . $the_class . '" id="field_' . ($i-1) . '" />' .  "\n";
-		}
-	};
-	}
+	if (isset($fields))
+	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
+	else
+	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
+	
+        }
 	?>
-            <input type="hidden" name="types[<?php echo ($i-1); ?>]"
-                value="<?php if(isset($tbl_fields_type[$i-1]))echo $tbl_fields_type[$i-1]; ?>" />
+            <input type="hidden" name="types[<?php echo $i; ?>]"
+                value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
             <input type="hidden" name="collations[<?php echo $i; ?>]"
-                value="<?php if(isset($tbl_fields_collation[$i-1]))echo $tbl_fields_collation[$i-1]; ?>" />
+                value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
         </td>
     </tr>
 

@@ -22,16 +22,18 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-     /*
-     * Handle events from zoom-search page   
-     *
-     */
+    /*if($('#id_flag').val()==2)
+     {
+          $('#tbl_search_form').hide();
+          $('#zoom_search_form').show();
 
-     $('#tableid_1').change(function() {
+     }*/
+
+     $('#tableid_0').change(function() {
           $('#zoom_search_form').submit();
      })
 
-     $('#tableid_2').change(function() {
+     $('#tableid_1').change(function() {
           $('#zoom_search_form').submit();
      })
 
