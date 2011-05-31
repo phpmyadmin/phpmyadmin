@@ -3898,10 +3898,9 @@ msgstr ""
 "suggested: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "Currently opened table"
+msgstr "Recently used table"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
