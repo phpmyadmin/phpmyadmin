@@ -211,6 +211,15 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor();
     })
+    
+    /**
+     * Attach the {@link makegrid} function to a custom event, which will be
+     * triggered manually everytime the table of results is reloaded
+     * @memberOf    jQuery
+     */
+    $("#sqlqueryresults").live('remakeGrid', function() {
+        $('#table_results').makegrid();
+    })
 
     /**
      * Trigger the appendAnchor event to prepare the first table for inline edit
@@ -324,6 +333,7 @@ $(document).ready(function() {
                     $('#sqlqueryresults').show();
                     $("#sqlqueryresults").html(data);
                     $("#sqlqueryresults").trigger('appendAnchor');
+                    $("#sqlqueryresults").trigger('remakeGrid');
                     $('#togglequerybox').show();
                     if($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
@@ -364,6 +374,7 @@ $(document).ready(function() {
         $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
+            $("#sqlqueryresults").trigger('remakeGrid');
             PMA_init_slider();
             
             PMA_ajaxRemoveMessage($msgbox);
@@ -387,6 +398,7 @@ $(document).ready(function() {
             $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
+                $("#sqlqueryresults").trigger('remakeGrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox); 
             }) // end $.post()
@@ -412,7 +424,8 @@ $(document).ready(function() {
         $.get($anchor.attr('href'), $anchor.serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults")
              .html(data)
-             .trigger('appendAnchor');
+             .trigger('appendAnchor')
+             .trigger('remakeGrid');
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     })//end Sort results table
@@ -431,7 +444,8 @@ $(document).ready(function() {
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function(data) {
             $("#sqlqueryresults")
              .html(data)
-             .trigger('appendAnchor');
+             .trigger('appendAnchor')
+             .trigger('remakeGrid');
             PMA_init_slider();
         }) // end $.post()
     })
@@ -1146,7 +1160,7 @@ $(document).ready(function() {
     /**
      * create resizable table
      */
-    $('#table_results').makegrid();
+    $("#sqlqueryresults").trigger('remakeGrid');
 })
 
 /**#@- */
