@@ -144,6 +144,15 @@ function getRoutineParameters($parsed_query, $routine_type)
         $retval['length'][] = htmlentities($param_length, ENT_QUOTES);
         // FIXME: parameter attributes, such as 'UNSIGNED', are currenly silently ignored
     }
+
+    // Since some indices of $retval may be still undefined, we fill
+    // them each with an empty array to avoid E_ALL errors in PHP.
+    foreach (array('dir', 'name', 'type', 'length') as $key => $index) {
+        if (! isset($retval[$index])) {
+            $retval[$index] = array();
+        }
+    }
+
     return $retval;
 } // end getRoutineParameters()
 
