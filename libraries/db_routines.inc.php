@@ -76,101 +76,63 @@ function getSupportedDatatypes($html = false, $selected = '')
 } // end getSupportedDatatypes()
 
 /**
- * Parses the parameters of a routine given a string
- * This function can handle absolutely horrible, yet perfectly valid, cases like:
- * "IN a INT(10), OUT b DECIMAL(10,5), INOUT c ENUM('1,2,3\\\')(', '2', '3', '4')"
+ * TODO: proper comment
  */
-function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
+function getRoutineParameters($parsed_query, $routine_type)
 {
-    // Setup the stack based parser
-    $len    = strlen($str);
-    $char   = '';
+    $retval = array();
+    $retval['num'] = 0;
+
+    // First get the list of parameters from the query
     $buffer = '';
-    $stack  = array();
     $params = array();
-    // TOKENS
-    $BRAC = 0;
-    $STR1 = 1;
-    $STR2 = 2;
-    // Parse the list of parameters
-    for ($i=0; $i<$len; $i++) {
-	    $char = $str[$i];
-	    switch ($char) {
-	    case ',':
-		    if (count($stack) == 0) {
-			    $params[] = $buffer;
-			    $buffer = '';
-		    } else {
-			    $buffer .= $char;
-		    }
-		    break;
-	    case '(':
-		    if (count($stack) == 0) {
-			    $stack[] = $BRAC;
-		    }
-		    $buffer .= $char;
-		    break;
-	    case ')':
-		    if (end($stack) == $BRAC) {
-			    array_pop($stack);
-		    }
-		    $buffer .= $char;
-		    break;
-	    case '"':
-		    if (end($stack) == $BRAC) {
-			    $stack[] = $STR1;
-		    } else if (end($stack) == $STR1) {
-			    array_pop($stack);
-		    }
-		    $buffer .= $char;
-		    break;
-	    case "'":
-		    if (end($stack) == $BRAC) {
-			    $stack[] = $STR2;
-		    } else if (end($stack) == $STR2) {
-			    array_pop($stack);
-		    }
-		    $buffer .= $char;
-		    break;
-	    case '\\':
-		    if (end($stack) == $STR1 || (end($stack) == $STR2 && $str[$i+1] == "'")) {
-			    // skip escaped character
-                // FIXME: do we need to support escaping a single quote by another single quote?
-			    $buffer .= $char;
-			    $i++;
-			    $buffer .= $str[$i];
-		    } else {
-			    $buffer .= $char;
-		    }
-		    break;
-	    default:
-		    $buffer .= $char;
-		    break;
-	    }
+    $fetching = false;
+    $depth = 0;
+    for ($i=0; $i<$parsed_query['len']; $i++) {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == $routine_type) {
+            $fetching = true;
+        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_open_round') {
+            $depth++;
+            if ($depth > 1) {
+                $buffer .= $parsed_query[$i]['data'] . ' ';
+            }
+        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_close_round') {
+            $depth--;
+            if ($depth > 0) {
+                $buffer .= $parsed_query[$i]['data'] . ' ';
+            } else {
+                break;
+            }
+        } else if ($parsed_query[$i]['type'] == 'punct_listsep' && $depth == 1) {
+            $params[] = $buffer;
+            $retval['num']++;
+            $buffer = '';
+        } else if ($fetching == true && $depth > 0) {
+            $buffer .= $parsed_query[$i]['data'] . ' ';
+        }
     }
     if (! empty($buffer)) {
         $params[] = $buffer;
+        $retval['num']++;
     }
-    array_walk($params, create_function('&$val', '$val = trim($val);'));
-    $num = count($params);
 
     // Now parse each parameter individually
     foreach ($params as $key => $value) {
         $parsed_param = PMA_SQP_parse($value);
         $pos = 0;
         if ($parsed_param[$pos]['data'] == 'IN' ||$parsed_param[$pos]['data'] == 'OUT' || $parsed_param[$pos]['data'] == 'INOUT') {
-            $dir[] = $parsed_param[0]['data'];
+            $retval['dir'][] = $parsed_param[0]['data'];
             $pos++;
         }
         if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
-            $name[] = htmlspecialchars(PMA_unbackquote($parsed_param[$pos]['data']));
+            $retval['name'][] = htmlspecialchars(PMA_unbackquote($parsed_param[$pos]['data']));
             $pos++;
         }
         $depth = 0;
         $param_length = '';
         for ($i=$pos; $i<$parsed_param['len']; $i++) {
             if ($parsed_param[$i]['type'] == 'alpha_columnType' && $depth == 0) {
-                $type[] = $parsed_param[$i]['data'];
+                $retval['type'][] = $parsed_param[$i]['data'];
             } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
                 $depth = 1;
             } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
@@ -179,10 +141,33 @@ function parseListOfParameters($str, &$num, &$dir, &$name, &$type, &$length)
                 $param_length .= $parsed_param[$i]['data'];
             }
         }
-        $length[] = htmlentities($param_length, ENT_QUOTES);
+        $retval['length'][] = htmlentities($param_length, ENT_QUOTES);
         // FIXME: parameter attributes, such as 'UNSIGNED', are currenly silently ignored
     }
-} // end parseListOfParameters()
+    return $retval;
+} // end getRoutineParameters()
+
+/**
+ * TODO: proper comment
+ */
+function getRoutineDefiner($parsed_query)
+{
+    $retval = '';
+    $fetching = false;
+    for ($i=0; $i<$parsed_query['len']; $i++) {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == 'DEFINER') {
+            $fetching = true;
+        } else if ($fetching == true &&
+                  ($parsed_query[$i]['type'] != 'quote_backtick' && substr($parsed_query[$i]['type'], 0, 5) != 'punct')) {
+            break;
+        } else if ($fetching == true && $parsed_query[$i]['type'] == 'quote_backtick') {
+            $retval .= PMA_unbackquote($parsed_query[$i]['data']);
+        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {
+            $retval .= $parsed_query[$i]['data'];
+        }
+    }
+    return $retval;
+} // end getRoutineDefiner()
 
 /**
  * This function will generate the values that are required to complete
@@ -194,14 +179,12 @@ function getFormInputFromRoutineName($db, $name)
 
     $retval = array();
 
-    $routine = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\' AND SPECIFIC_NAME=\'' . PMA_sqlAddslashes($name,true) . '\';');
+    // Build and execute query
+    $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name,true) . "'";
+    $routine = PMA_DBI_fetch_result("SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;");
     $routine = $routine[0];
-
-    // FIXME: should we even fetch the parameters from the mysql db?
-    //        OR is it better to get then from SHOW ROUTINE_TYPE query?
-    $mysql_routine = PMA_DBI_fetch_result('SELECT definer, param_list FROM mysql.proc WHERE db=\'' . PMA_sqlAddslashes($db,true) . '\' AND name=\'' . PMA_sqlAddslashes($name,true) . '\';');
-    $mysql_routine = $mysql_routine[0];
-
+    // Get required data
     $retval['name']            = $routine['SPECIFIC_NAME'];
     $retval['type']            = $routine['ROUTINE_TYPE'];
     if ($retval['type'] == 'FUNCTION') {
@@ -209,21 +192,15 @@ function getFormInputFromRoutineName($db, $name)
     } else {
         $retval['type_toggle'] = 'FUNCTION';
     }
-
-    $retval['num_params']      = 0;
-    $retval['param_dir']       = array();
-    $retval['param_name']      = array();
-    $retval['param_type']      = array();
-    $retval['param_length']    = array();
-    parseListOfParameters($mysql_routine['param_list'],
-                          $retval['num_params'],
-                          $retval['param_dir'],
-                          $retval['param_name'],
-                          $retval['param_type'],
-                          $retval['param_length']);
-
-    $retval['returntype']      = '';
-    $retval['returnlength']    = '';
+    $parsed_query = PMA_SQP_parse(PMA_DBI_get_definition($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME']));
+    $params = getRoutineParameters($parsed_query, $routine['ROUTINE_TYPE']);
+    $retval['num_params']   = $params['num'];
+    $retval['param_dir']    = $params['dir'];
+    $retval['param_name']   = $params['name'];
+    $retval['param_type']   = $params['type'];
+    $retval['param_length'] = $params['length'];
+    $retval['returntype']   = '';
+    $retval['returnlength'] = '';
     if (! empty($routine['DTD_IDENTIFIER'])) {
         $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
         $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
@@ -239,7 +216,7 @@ function getFormInputFromRoutineName($db, $name)
     if ($routine['IS_DETERMINISTIC'] == 'YES') {
         $retval['isdeterministic'] = " checked='checked'";
     }
-    $retval['definer']         = $mysql_routine['definer'];
+    $retval['definer']         = getRoutineDefiner($parsed_query);
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
     if ($routine['SECURITY_TYPE'] == 'DEFINER') {
