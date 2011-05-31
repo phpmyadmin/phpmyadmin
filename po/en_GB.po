@@ -3606,7 +3606,7 @@ msgstr "Recoding engine"
 
 #: libraries/config/messages.inc.php:349
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "When browsing tables, the sorting of each table is remembered"
 
 #: libraries/config/messages.inc.php:350
 #, fuzzy
