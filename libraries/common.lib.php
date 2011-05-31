@@ -1430,10 +1430,11 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 {
+    $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($length === 0) {
         $value = number_format($value, $comma);
-        if(floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$comma));
+        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$comma));
         
         return PMA_localizeNumber($value);
     }
@@ -1498,7 +1499,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
     //number_format is not multibyte safe, str_replace is safe
     $value = PMA_localizeNumber(number_format($value, $comma));
     
-    if(floatval($value) == 0) return ' <'.(1/PMA_pow(10,$comma)).' '.$unit;
+    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$comma)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
