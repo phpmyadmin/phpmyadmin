@@ -204,10 +204,10 @@ $(document).ready(function() {
                          if (url.substring(0, 22) == "server_privileges.php?") {
                               url = url.substring(22);
                          }
-                       	 url = url +"&ajax_request=true";
+                       	 url = url +"&ajax_request=true&db_specific=true";
 
                        	 /* post request for get the updated userForm table */
-                       	 $.post($form.attr('action'),url,function(mydata){
+                       	 $.post($form.attr('action'),url,function(priv_data){
 
                        	     /*Remove the old userForm table*/
                              if($('#userFormDiv').length != 0){
@@ -217,17 +217,17 @@ $(document).ready(function() {
                              }
                              var user_div = $('<div id="userFormDiv"></div>');
                              /*If the jason string pared valiedly*/
-                             if(typeof mydata.success != 'undefined'){
-                                 if(mydata.success == true){
+                             if(typeof priv_data.success != 'undefined'){
+                                 if(priv_data.success == true){
                                      user_div
-                                     .html(mydata.user_form)
+                                     .html(priv_data.user_form)
                                      .insertAfter('#result_query');
                                  }else{
-                                         PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                                         PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+priv_data.error, "7000");
                                  }
                             }else{
                                 /*parse the json string*/
-                                var obj = $.parseJSON(mydata);
+                                var obj = $.parseJSON(priv_data);
                                 user_div
                                 .html(obj.user_form)
                                 .insertAfter('#result_query');
