@@ -10,8 +10,6 @@
 var x = 0;
 var y = 0;
 var scale = 1;
-var shiftX;
-var shiftY;
 var svg;
 
 /**
@@ -64,9 +62,6 @@ function zoomAndPan() {
  * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
-    shiftX = $('#placeholder svg').attr('width') / 6;
-    shiftY = $('#placeholder svg').attr('height') / 6;
-
     $('#placeholder').svg({
         onLoad: function(svg_ref) {
             svg = svg_ref;
@@ -80,18 +75,16 @@ $(document).ready(function() {
         if (delta > 0) {
             //zoom in
             scale *= 1.5;
-            shiftX *= 1.5;
-            shiftY *= 1.5;
-            x -= shiftX;
-            y -= shiftY;
+            // zooming in keeping the position under mouse pointer unmoved.
+            x = event.offsetX - (event.offsetX - x) * 1.5;
+            y = event.offsetY - (event.offsetY - y) * 1.5;
             zoomAndPan();
         } else {
             //zoom out
             scale /= 1.5;
-            x += shiftX;
-            y += shiftY;
-            shiftX /= 1.5;
-            shiftY /= 1.5;
+            // zooming out keeping the position under mouse pointer unmoved.
+            x = event.offsetX - (event.offsetX - x) / 1.5;
+            y = event.offsetY - (event.offsetY - y) / 1.5;
             zoomAndPan();
         }
         return true;
@@ -113,12 +106,11 @@ $(document).ready(function() {
         zoomAndPan();
     });
 
-    $('#placeholder').live('dblclick', function() {
+    $('#placeholder').live('dblclick', function(event) {
         scale *= 1.5;
-        shiftX *= 1.5;
-        shiftY *= 1.5;
-        x -= shiftX;
-        y -= shiftY;
+        // zooming in keeping the position under mouse pointer unmoved.
+        x = event.offsetX - (event.offsetX - x) * 1.5;
+        y = event.offsetY - (event.offsetY - y) * 1.5;
         zoomAndPan();
     });
 
@@ -126,10 +118,12 @@ $(document).ready(function() {
         e.preventDefault();
         //zoom out
         scale /= 1.5;
-        x += shiftX;
-        y += shiftY;
-        shiftX /= 1.5;
-        shiftY /= 1.5;
+
+        width = $('#placeholder svg').attr('width');
+        height = $('#placeholder svg').attr('height');
+        // zooming out keeping the center unmoved.
+        x = width / 2 - (width / 2 - x) / 1.5;
+        y = height / 2 - (height / 2 - y) / 1.5;
         zoomAndPan();
     });
 
