@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
 
 CREATE TABLE IF NOT EXISTS `pma_recent` (
   `username` varchar(64) NOT NULL,
-  `tables` blob NOT NULL,
+  `tables` text NOT NULL,
   PRIMARY KEY (`username`)
 )
   ENGINE=MyISAM COMMENT='Recently accessed tables';
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
   `username` varchar(64) NOT NULL,
   `db_name` varchar(64) NOT NULL,
   `table_name` varchar(64) NOT NULL,
-  `prefs` blob NOT NULL,
+  `prefs` text NOT NULL,
   PRIMARY KEY (`username`,`db_name`,`table_name`)
 )
   ENGINE=MyISAM COMMENT='Tables'' UI preferences';
