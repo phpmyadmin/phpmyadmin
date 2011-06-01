@@ -3958,10 +3958,9 @@ msgstr ""
 "поле пустым. Рекомендуется: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Выводить имя пользователя"
+msgstr "Недавно использованная таблица"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
