@@ -113,7 +113,9 @@ CREATE TABLE IF NOT EXISTS `pma_recent` (
   `username` varchar(64) COLLATE utf8_bin NOT NULL,
   `tables` blob NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+)
+  ENGINE=MyISAM COMMENT='Recently accessed tables'
+  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -127,7 +129,8 @@ CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
   `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
   `prefs` blob NOT NULL,
   PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=MyISAM COMMENT='tables'' UI preferences'
+)
+  ENGINE=MyISAM COMMENT='Tables'' UI preferences'
   DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -217,7 +220,9 @@ CREATE TABLE IF NOT EXISTS `pma_tracking` (
   `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') collate utf8_bin default NULL,
   `tracking_active` int(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
+)
+  ENGINE=MyISAM ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin'
+  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
