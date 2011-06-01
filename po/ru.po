@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-06-01 22:24+0200\n"
+"PO-Revision-Date: 2011-06-01 22:25+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -6315,7 +6315,7 @@ msgstr "Недавно использованные таблицы"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Настройки интерфейса часто используемых таблиц"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
