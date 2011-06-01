@@ -25,12 +25,31 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
  * Display the export for a trigger. This is for when JS is disabled.
  */
 if (! empty($_GET['exporttrigger']) && ! empty($_GET['triggername'])) {
+    $success = false;
     foreach ($triggers as $trigger) {
         if ($trigger['name'] === $_GET['triggername']) {
-            echo '<fieldset>' . "\n"
-               . ' <legend>' . sprintf(__('Export for trigger "%s"'), $trigger['name']) . '</legend>' . "\n"
-               . '<textarea cols="40" rows="15" style="width: 100%;">' . $trigger['create'] . '</textarea>' . "\n"
-               . '</fieldset>';
+            $success = true;
+            $trigger_name = htmlspecialchars(PMA_backquote($_GET['triggername']));
+            $create_trig = '<textarea cols="40" rows="15" style="width: 100%;">' . $trigger['create'] . '</textarea>';
+            if (! empty($_REQUEST['ajax_request'])) {
+                $extra_data = array('title' => sprintf(__('Export of trigger %s'), $trigger_name));
+                PMA_ajaxResponse($create_trig, true, $extra_data);
+            } else {
+                echo '<fieldset>' . "\n"
+                   . ' <legend>' . sprintf(__('Export of trigger "%s"'), $trigger_name) . '</legend>' . "\n"
+                   . $create_trig
+                   . '</fieldset>';
+            }
+        }
+    }
+    if (! $success) {
+        $response = __('Error in Processing Request') . ' : '
+                  . sprintf(__('No trigger with name %s found'), $event_name);
+        $response = PMA_message::error($response);
+        if (! empty($_REQUEST['ajax_request'])) {
+            PMA_ajaxResponse($response, false);
+        } else {
+            $response->display();
         }
     }
 }

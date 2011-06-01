@@ -23,11 +23,28 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
  * Display the export for a event. This is for when JS is disabled.
  */
 if (! empty($_GET['exportevent']) && ! empty($_GET['eventname'])) {
+    $event_name = htmlspecialchars(PMA_backquote($_GET['eventname']));
     if ($create_event = PMA_DBI_get_definition($db, 'EVENT', $_GET['eventname'])) {
-        echo '<fieldset>' . "\n"
-           . ' <legend>' . sprintf(__('Export for event "%s"'), $_GET['eventname']) . '</legend>' . "\n"
-           . '<textarea cols="40" rows="15" style="width: 100%;">' . $create_event . '</textarea>' . "\n"
-           . '</fieldset>';
+        $create_event = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_event . '</textarea>';
+        if (! empty($_REQUEST['ajax_request'])) {
+            $extra_data = array('title' => sprintf(__('Export of event %s'), $event_name));
+            PMA_ajaxResponse($create_event, true, $extra_data);
+        } else {
+            echo '<fieldset>' . "\n"
+               . ' <legend>' . sprintf(__('Export of event "%s"'), $event_name) . '</legend>' . "\n"
+               . $create_event
+               . '</fieldset>';
+        }
+    } else {
+        $response = __('Error in Processing Request') . ' : '
+                  . sprintf(__('No event with name %s found in database %s'),
+                            $event_name, htmlspecialchars(PMA_backquote($db)));
+        $response = PMA_message::error($response);
+        if (! empty($_REQUEST['ajax_request'])) {
+            PMA_ajaxResponse($response, false);
+        } else {
+            $response->display();
+        }
     }
 }
 

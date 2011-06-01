@@ -2330,3 +2330,38 @@ $(document).ready(function() {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 }) // end of $(document).ready() for Drop Table
+
+/**
+ * Attach Ajax event handlers for Export of Routines, Triggers and Events.
+ *
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    PMA_ajaxRemoveMessage()
+ *
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.export_routine_anchor, .export_event_anchor, .export_trigger_anchor').live('click', function(event) {
+        event.preventDefault();
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+                /**
+                 * @var button_options  Object containing options for jQueryUI dialog buttons
+                 */
+                var button_options = {};
+                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
+                /**
+                 * Display the dialog to the user
+                 */
+                $('<div>'+data.message+'</div>').dialog({
+                            width: 450,
+                            buttons: button_options,
+                            title: data.title
+                        }).find('textarea').width('100%');
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
+    }); // end Export Procedure
+}); // end of $(document).ready() for Export of Routines, Triggers and Events.

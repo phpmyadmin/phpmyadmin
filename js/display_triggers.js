@@ -43,29 +43,4 @@ $(document).ready(function() {
             }) // end $.get()
         }) // end $.PMA_confirm()
     }) // end $().live()
-
-    /**
-     * Ajax Event handler for 'Export Trigger'
-     * 
-     * @see     $cfg['AjaxEnable']
-     */
-    $('.export_trigger_anchor').live('click', function(event) {
-        event.preventDefault();
-
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var button_options = {};
-        button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-        /**
-         * @var button_options  The export SQL query to display to the user
-         */
-        var query = $(this).parents('tr').find('.create_sql').html();
-
-        // show dialog
-        $('<div><textarea>'+query+'</textarea></div>').dialog({
-            width: 450,
-            buttons: button_options
-        }).find('textarea').width('100%');
-    }); // end Export Procedure
 }, 'top.frame_content'); //end $(document).ready() for Drop Trigger
