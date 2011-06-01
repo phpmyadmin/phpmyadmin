@@ -633,12 +633,16 @@ $routine_errors = array();
 /**
  * Handle all user requests other than the default of listing routines
  */
-if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name']) && ! empty($_GET['routinetype'])) {
+if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     /**
      * Display the export for a routine.
      */
     $routine_name = htmlspecialchars(PMA_backquote($_GET['routine_name']));
-    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routine_name'])) {
+    $routine_type = PMA_DBI_fetch_value("SELECT ROUTINE_TYPE "
+                                      . "FROM INFORMATION_SCHEMA.ROUTINES "
+                                      . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
+                                      . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($_GET['routine_name']) . "';");
+    if (! empty($routine_type) && $create_proc = PMA_DBI_get_definition($db, $routine_type, $_GET['routine_name'])) {
         $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
         if (! empty($_REQUEST['ajax_request'])) {
             $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
@@ -842,7 +846,6 @@ if (! $routines) {
             $exprlink = '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
                               . '&amp;exportroutine=1'
                               . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                              . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE']) // FIXME: fetch this from the db, no need to pass it in the URL
                               . '">' . $titles['Export'] . '</a>';
         }
         if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
