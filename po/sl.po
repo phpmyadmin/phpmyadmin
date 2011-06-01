@@ -1624,10 +1624,9 @@ msgid "Could not save recent table"
 msgstr "Ne morem shraniti nedavne tabele"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Preštej tabele"
+msgstr "Nedavne tabele"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
