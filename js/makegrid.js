@@ -250,7 +250,7 @@
         $(t).find('th:gt(0)').addClass('draggable');
         
         // register events
-        $(t).find('th').mousedown(function(e) {
+        $(t).find('th:gt(0)').mousedown(function(e) {
             g.dragStartMove(e, this);
         });
         $(document).mousemove(function(e) {
