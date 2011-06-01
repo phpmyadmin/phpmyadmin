@@ -19,7 +19,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
-$param_datatypes     = getSupportedDatatypes(); // TODO: do not cache this here
 $param_directions    = array('IN', 'OUT', 'INOUT');
 $param_sqldataaccess = array('',
                                'NO SQL',
@@ -239,7 +238,7 @@ function getRoutineDefiner($parsed_query)
  */
 function getFormInputFromRoutineName($db, $name)
 {
-    global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
+    global $_REQUEST, $param_directions, $param_sqldataaccess;
 
     $retval  = array();
 
@@ -337,7 +336,7 @@ function getFormInputFromRoutineName($db, $name)
  */
 function getFormInputFromRequest()
 {
-    global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
+    global $_REQUEST, $param_directions, $param_sqldataaccess;
 
     $retval = array();
     $retval['name'] = '';
@@ -395,7 +394,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_type'] = $_REQUEST['routine_param_type'];
         foreach ($retval['param_type'] as $key => $value) {
-            if (! in_array($value, $param_datatypes, true)) {
+            if (! in_array($value, getSupportedDatatypes(), true)) {
                 $retval['param_type'][$key] = '';
             }
             $temp_num_params++;
@@ -414,7 +413,7 @@ function getFormInputFromRequest()
         }
     }
     $retval['returntype'] = '';
-    if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], $param_datatypes, true)) {
+    if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], getSupportedDatatypes(), true)) {
         $retval['returntype'] = $_REQUEST['routine_returntype'];
     }
     $retval['returnlength'] = '';
@@ -477,7 +476,7 @@ function getFormInputFromRequest()
  * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors) {
-    global $db, $table, $url_query, $param_directions, $param_datatypes, $param_sqldataaccess;
+    global $db, $table, $url_query, $param_directions, $param_sqldataaccess;
 
     // Error handling
     $message = '';
