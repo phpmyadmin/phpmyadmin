@@ -174,6 +174,7 @@ $(document).ready(function() {
                 // found results
                 $("#searchresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
+                $("#sqlqueryresults").trigger('makegrid');
 
                 $('#togglesearchresultlink')
                 // always start with the Show message

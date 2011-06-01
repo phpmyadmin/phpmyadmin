@@ -2127,9 +2127,9 @@ fieldset .disabled-field td {
 }
 
 .colborder {
-    border-right: solid 2px #FFFFFF;
+    border-right: 1px solid #FFF;
     cursor: col-resize;
-    margin-left: -2px;
+    margin-left: -1px;
     position: absolute;
     width: 3px;
 }
