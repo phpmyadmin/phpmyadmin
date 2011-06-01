@@ -6045,7 +6045,7 @@ msgstr "Выполнить"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Добавить префикс таблицы"
 
 #: libraries/mult_submits.inc.php:266
 #, fuzzy
