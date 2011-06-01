@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-06-01 22:10+0200\n"
+"PO-Revision-Date: 2011-06-01 22:11+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1636,10 +1636,9 @@ msgid "Could not save recent table"
 msgstr "Не удалось сохранить последнюю таблицу"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Подсчитывать таблицы"
+msgstr "Недавние таблицы"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
