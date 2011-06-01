@@ -3031,7 +3031,8 @@ function PMA_buildActionTitles() {
     $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'), true);
     $titles['Export']     = PMA_getIcon('b_export.png', __('Export'), true);
     $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'), true);
-    $titles['Execute']    = PMA_getIcon('b_execute.png', __('Execute'), true);
+    $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'), true);
+    $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'), true);
     return $titles;
 }
 

@@ -836,8 +836,9 @@ if (! $routines) {
             $sqlDropProc = 'DROP FUNCTION IF EXISTS ' . PMA_backquote($routine['SPECIFIC_NAME']);
         }
 
+        // FIXME: this whole sprintf business is a mess and is hardly readable!
         echo sprintf('<tr class="%s">
-                          <td><span class="drop_sql" style="display:none;">%s</span><strong>%s</strong></td>
+                          <td><span class="drop_sql hide">%s</span><strong>%s</strong></td>
                           <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>
@@ -845,26 +846,32 @@ if (! $routines) {
                           <td>%s</td>
                           <td>%s</td>
                      </tr>',
-                     ($ct%2 == 0) ? 'even' : 'odd',
+                     ($ct % 2 == 0) ? 'even' : 'odd',
                      $sqlDropProc,
                      $routine['ROUTINE_NAME'],
-                     ($routine['ROUTINE_DEFINITION'] === NULL)
-                           ? $titles['NoEdit']
-                           : '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
+                     ($routine['ROUTINE_DEFINITION'] !== NULL
+                      && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
+                      && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db))
+                           ? '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
                                    . '&amp;editroutine=1'
                                    . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                                   . '">' . $titles['Edit'] . '</a>',
-                     ! empty($definition) ? PMA_linkOrButton('#', $titles['Execute']) : '&nbsp;',
-                     ($routine['ROUTINE_DEFINITION'] === NULL)
-                           ? $titles['NoExport']
-                           : '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
+                                   . '">' . $titles['Edit'] . '</a>'
+                           : $titles['NoEdit'],
+                     (PMA_currentUserHasPrivilege('EXECUTE', $db))
+                           ? PMA_linkOrButton('#', $titles['Execute'])
+                           : $titles['NoExecute'],
+                     ($routine['ROUTINE_DEFINITION'] !== NULL)
+                           ? '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
                                    . '&amp;exportroutine=1'
                                    . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
                                    . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE'])
-                                   . '">' . $titles['Export'] . '</a>',
-                     '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
-                           . '&amp;sql_query=' . urlencode($sqlDropProc)
-                           . '" >' . $titles['Drop'] . '</a>',
+                                   . '">' . $titles['Export'] . '</a>'
+                           : $titles['NoExport'],
+                     (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db))
+                           ? '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
+                                   . '&amp;sql_query=' . urlencode($sqlDropProc)
+                                   . '" >' . $titles['Drop'] . '</a>'
+                           : $titles['NoDrop'],
                      $routine['ROUTINE_TYPE'],
                      $routine['DTD_IDENTIFIER']);
         $ct++;
@@ -874,12 +881,19 @@ if (! $routines) {
 echo '</fieldset>' . "\n";
 
 /**
- * Display the form for adding a new routine
+ * Display the form for adding a new routine, if the user has the privileges.
  */
-echo '<fieldset>' . "\n"
-   . '    <a href="db_routines.php?' . $url_query . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
-   . PMA_getIcon('b_routine_add.png') . __('Add a new Routine') . '</a>' . "\n"
-   . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE')
-   . '</fieldset>' . "\n";
-
+echo '<!-- ADD ROUTINE FORM START -->' . "\n";
+echo '<fieldset>' . "\n";
+if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
+    echo '<a href="db_routines.php?' . $url_query . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
+       . PMA_getIcon('b_routine_add.png') . "\n"
+       . __('Add a new Routine') . '</a>' . "\n";
+} else {
+    echo PMA_getIcon('b_routine_add.png') . "\n"
+       . __('You do not have the necessary privileges to create a new Routine') . "\n";
+}
+echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
+echo '</fieldset>' . "\n";
+echo '<!-- ADD ROUTINE FORM END -->' . "\n";
 ?>
