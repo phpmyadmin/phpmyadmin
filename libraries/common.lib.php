@@ -3034,4 +3034,82 @@ function PMA_buildActionTitles() {
     $titles['Execute']    = PMA_getIcon('b_execute.png', __('Execute'), true);
     return $titles;
 }
+
+/**
+ * Checks if the current user has a specific privilege and returns true if the
+ * user indeed has that privilege or false if (s)he doesn't. This function must
+ * only be used for features that are available since MySQL 5, because it
+ * relies on the INFORMATION_SCHEMA database to be present.
+ *
+ * Example:   PMA_currentUserHasPrivilege('CREATE ROUTINE', 'mydb');
+ *            // Checks if the currently logged in user has the global
+ *            // 'CREATE ROUTINE' privilege or, if not, checks if the
+ *            // user has this privilege on database 'mydb'.
+ *
+ * @uses    PMA_DBI_fetch_value()
+ * @uses    explode()
+ * @uses    str_replace()
+ * @uses    sprintf()
+ *
+ * @param   string   $priv   The privilege to check
+ * @param   mixed    $db     null, to only check global privileges
+ *                           string, db name where to also check for privileges
+ * @param   mixed    $tbl    null, to only check global privileges
+ *                           string, db name where to also check for privileges
+ */
+function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
+{
+    // Get the username for the current user in the format
+    // required to use in the information schema database.
+    $user = PMA_DBI_fetch_value("SELECT CURRENT_USER();");
+    $user = explode('@', $user);
+    $username  = "''";
+    $username .= str_replace("'", "''", $user[0]);
+    $username .= "''@''";
+    $username .= str_replace("'", "''", $user[1]);
+    $username .= "''";
+    // Prepage the query
+    $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
+           . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
+    // Check global privileges first.
+    if (PMA_DBI_fetch_value(sprintf($query,
+                                    'USER_PRIVILEGES',
+                                    $username,
+                                    $priv))) {
+        return true;
+    }
+    // If a database name was provided and user does not have the
+    // required global privilege, try database-wise permissions.
+    if ($db !== null) {
+        $query .= " AND TABLE_SCHEMA='%s'";
+        if (PMA_DBI_fetch_value(sprintf($query,
+                                        'SCHEMA_PRIVILEGES',
+                                        $username,
+                                        $priv,
+                                        $db))) {
+            return true;
+        }
+    } else {
+        // There was no database name provided and the user
+        // does not have the correct global privilege.
+        return false;
+    }
+    // If a table name was also provided and we still didn't
+    // find any valid privileges, try table-wise privileges.
+    if ($tbl !== null) {
+        $query .= " AND TABLE_NAME='%s'";
+        if ($retval = PMA_DBI_fetch_value(sprintf($query,
+                                                  'TABLE_PRIVILEGES',
+                                                  $username,
+                                                  $priv,
+                                                  $db,
+                                                  $tbl))) {
+            return true;
+        }
+    }
+    // If we reached this point, the user does not
+    // have even valid table-wise privileges.
+    return false;
+}
+
 ?>
