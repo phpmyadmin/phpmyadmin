@@ -21,26 +21,16 @@ $(function() {
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
-    // Enable table sorting
-    $('#serverstatusvariables')
-		.tablesorter({
-			sortList: [[0,0]],
-			widgets: ['zebra']
-		});
-    $('#serverstatusqueriesdetails')
-		.tablesorter({
-			sortList: [[3,1]],
-			widgets: ['zebra']
-		});
-		
-    $('#serverstatusqueriesdetails tr:first th, #serverstatusvariables tr:first th').append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
-    
     // Load chart asynchronly so the page loads faster
     $.get($('#serverstatusquerieschart a').first().attr('href'),{ajax_request:1}, function(data) {
         $('#serverstatusquerieschart').html(data);
         // Init imagemap again
         imageMap.init();
     });
+    
+    // Table sorting
+    initTableSorter('statustabs_queries');
+    initTableSorter('statustabs_allvars');
     
     // Ajax reload of variables (always the first link)
     $('.statuslinks a:nth-child(1)').click(function() { return refreshHandler(this); });
@@ -114,6 +104,8 @@ $(function() {
                 filterVariables();
                 break;
         }
+        
+        initTableSorter(tab.attr('id'));        
     }
     
     function refreshHandler(element) {
@@ -131,6 +123,32 @@ $(function() {
         tabStatus[tab.attr('id')]='data';
         
         return false;
+    }
+    
+    function initTableSorter(tabid) {
+        switch(tabid) {
+            case 'statustabs_queries':
+                $('#serverstatusqueriesdetails').tablesorter({
+                        sortList: [[3,1]],
+                        widgets: ['zebra']
+                    });
+                    
+                $('#serverstatusqueriesdetails tr:first th')
+                    .append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
+                    
+                break;
+            
+            case 'statustabs_allvars':
+                $('#serverstatusvariables').tablesorter({
+                        sortList: [[0,0]],
+                        widgets: ['zebra']
+                    });
+                    
+                $('#serverstatusvariables tr:first th')
+                    .append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
+                    
+                break;
+        }
     }
     
     function filterVariables() {
