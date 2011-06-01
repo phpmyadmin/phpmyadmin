@@ -3925,10 +3925,9 @@ msgstr ""
 "podatkov; predlagano: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Prikliči uporabniško ime"
+msgstr "Nedavno uporabljena tabela"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
