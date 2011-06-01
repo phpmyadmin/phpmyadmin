@@ -10,14 +10,14 @@
             
             // functions
             dragStartRsz: function(e, obj) {
-                var n = $('div', this.cRsz).index(obj);
+                var n = $(this.cRsz).find('div').index(obj);
                 this.colRsz = {
                     x0: e.screenX,
                     n: n,
                     obj: obj,
                     objLeft: parseInt(obj.style.left),
-                    objWidth: $('tr:first th:eq(' + (1 + n) + ') span,' +
-                                'tr:first td:eq(' + n + ') span', this.t).width()
+                    objWidth: $(this.t).find('tr:first th:eq(' + (1 + n) + ') span,' +
+                                             'tr:first td:eq(' + n + ') span').width()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
@@ -37,8 +37,9 @@
                         nw = this.minColWidth;
                     }
                     var n = this.colRsz.n;
-                    $('tr', this.t).each(function() {
-                        $('th:eq(' + (1 + n) + ') span, td:eq(' + (g.firstColSpan + n) + ') span', this).each(function() {
+                    $(this.t).find('tr').each(function() {
+                        $(this).find('th:eq(' + (1 + n) + ') span,' +
+                                     'td:eq(' + (g.firstColSpan + n) + ') span').each(function() {
                             $(this).css('width', nw + 'px');
                         });
                     });
@@ -51,7 +52,7 @@
                 $(this.t).find('tr:first th:gt(0), tr:first td').each(function() {
                     $this = $(this);
                     var n = $this.index();
-                    $cb = $('div:eq(' + (n - 1) + ')', g.cRsz);   // column border
+                    $cb = $(g.cRsz).find('div:eq(' + (n - 1) + ')');   // column border
                     $cb.css('left', $this.position().left + $this.width());
                 });
             }
@@ -63,7 +64,7 @@
         g.t = t;
         
         // assign the first column (actions) span
-        g.firstColSpan = $('tr:first th:first', t).attr('colspan');
+        g.firstColSpan = $(t).find('tr:first th:first').attr('colspan');
         g.firstColSpan = (g.firstColSpan != undefined) ? parseInt(g.firstColSpan) : 0;  // posibility of vertical display mode
         
         // create column borders
@@ -79,7 +80,7 @@
             $(g.cRsz).append(cb);
         });
         
-        // wrap all cells, except actions cell, with div
+        // wrap all data cells, except actions cell, with span
         $(t).find('th, td:not(:has(span))').each(function() {
             $(this).wrapInner('<span />');
         });
@@ -102,9 +103,9 @@
 
         // some adjustment
         g.cRsz.className = 'cRsz';
-        $(g.cRsz).css('height', $(t).height());
         $(t).removeClass('data');
         $(g.gDiv).addClass('data');
+        $(g.cRsz).css('height', $(t).height());
     };
     
     // document ready checking
