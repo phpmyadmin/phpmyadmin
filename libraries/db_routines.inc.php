@@ -633,12 +633,12 @@ $routine_errors = array();
 /**
  * Handle all user requests other than the default of listing routines
  */
-if (! empty($_GET['exportroutine']) && ! empty($_GET['routinename']) && ! empty($_GET['routinetype'])) {
+if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name']) && ! empty($_GET['routinetype'])) {
     /**
      * Display the export for a routine.
      */
-    $routine_name = htmlspecialchars(PMA_backquote($_GET['routinename']));
-    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routinename'])) {
+    $routine_name = htmlspecialchars(PMA_backquote($_GET['routine_name']));
+    if ($create_proc = PMA_DBI_get_definition($db, $_GET['routinetype'], $_GET['routine_name'])) {
         $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
         if (! empty($_REQUEST['ajax_request'])) {
             $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
@@ -771,114 +771,104 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
  */
 $conditional_class_add    = '';
 $conditional_class_edit   = '';
+$conditional_class_exec   = '';
 $conditional_class_drop   = '';
 $conditional_class_export = '';
 if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class_add    = 'class="add_routine_anchor"';
     $conditional_class_edit   = 'class="edit_routine_anchor"';
+    $conditional_class_exec   = 'class="exec_routine_anchor"';
     $conditional_class_drop   = 'class="drop_routine_anchor"';
     $conditional_class_export = 'class="export_routine_anchor"';
 }
 
 /**
+ * Get the routines.
+ */
+$columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
+$where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
+$routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
+
+/**
  * Display a list of available routines
  */
-
-$routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER,ROUTINE_DEFINITION FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
-
-echo '<fieldset>' . "\n";
-echo ' <legend>' . __('Routines') . '</legend>' . "\n";
-
+echo "\n\n";
+echo "<!-- LIST OF ROUTINES START -->\n";
+echo "<fieldset>\n";
+echo "    <legend>" . __('Routines') . "</legend>\n";
 if (! $routines) {
-    echo __('There are no routines to display.');
+    echo "    " . __('There are no routines to display.') . "\n";
 } else {
-    echo '<div style="display: none;" id="no_routines">' . __('There are no routines to display.') . '</div>';
-    echo '<table class="data" id="routine_list">';
-    echo sprintf('<tr>
-                      <th>%s</th>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
-                      <th>%s</th>
-                      <th>%s</th>
-                </tr>',
-          __('Name'),
-          __('Type'),
-          __('Return type'));
+    echo "    <div class='hide' id='no_routines'>\n";
+    echo "      " . __('There are no routines to display.') . "\n";
+    echo "    </div>\n";
+    echo "    <table class='data' id='routine_list'>\n";
+    echo "        <!-- TABLE HEADERS -->\n";
+    echo "        <tr>\n";
+    echo "            <th>" . __('Name') . "</th>\n";
+    echo "            <th>&nbsp;</th>\n";
+    echo "            <th>&nbsp;</th>\n";
+    echo "            <th>&nbsp;</th>\n";
+    echo "            <th>&nbsp;</th>\n";
+    echo "            <th>" . __('Type') . "</th>\n";
+    echo "            <th>" . __('Return type') . "</th>\n";
+    echo "        </tr>\n";
+    echo "        <!-- TABLE DATA -->\n";
     $ct=0;
-    $delimiter = '//';
+    // Display each routine
     foreach ($routines as $routine) {
-
-        // information_schema (at least in MySQL 5.0.45)
-        // does not return the routine parameters
-        // so we rely on PMA_DBI_get_definition() which
-        // uses SHOW CREATE
-
-        $create_proc = PMA_DBI_get_definition($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME']);
-        $definition = 'DROP ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . $delimiter . "\n"
-            .  $create_proc . "\n";
-
-        //if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
-        //    $sqlUseProc  = 'CALL ' . $routine['SPECIFIC_NAME'] . '()';
-        //} else {
-        //    $sqlUseProc = 'SELECT ' . $routine['SPECIFIC_NAME'] . '()';
-            /* this won't get us far: to really use the function
-               i'd need to know how many parameters the function needs and then create
-               something to ask for them. As i don't see this directly in
-               the table i am afraid that requires parsing the ROUTINE_DEFINITION
-               and i don't really need that now so i simply don't offer
-               a method for running the function*/
-        //}
-        if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
-            $sqlDropProc = 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($routine['SPECIFIC_NAME']);
-        } else {
-            $sqlDropProc = 'DROP FUNCTION IF EXISTS ' . PMA_backquote($routine['SPECIFIC_NAME']);
+        // Do the logic first
+        $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+        $editlink = $titles['NoEdit'];
+        $execlink = $titles['NoExecute'];
+        $exprlink = $titles['NoExport'];
+        $droplink = $titles['NoDrop'];
+        $sql_drop = sprintf('DROP %s IF EXISTS %s',
+                               $routine['ROUTINE_TYPE'],
+                               PMA_backquote($routine['SPECIFIC_NAME']));
+        if ($routine['ROUTINE_DEFINITION'] !== NULL
+            && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
+            && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
+            $editlink = '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
+                              . '&amp;editroutine=1'
+                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                              . '">' . $titles['Edit'] . '</a>';
         }
-
-        // FIXME: this whole sprintf business is a mess and is hardly readable!
-        echo sprintf('<tr class="%s">
-                          <td><span class="drop_sql hide">%s</span><strong>%s</strong></td>
-                          <td>%s</td>
-                          <td>%s</td>
-                          <td>%s</td>
-                          <td>%s</td>
-                          <td>%s</td>
-                          <td>%s</td>
-                     </tr>',
-                     ($ct % 2 == 0) ? 'even' : 'odd',
-                     $sqlDropProc,
-                     $routine['ROUTINE_NAME'],
-                     ($routine['ROUTINE_DEFINITION'] !== NULL
-                      && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
-                      && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db))
-                           ? '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
-                                   . '&amp;editroutine=1'
-                                   . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                                   . '">' . $titles['Edit'] . '</a>'
-                           : $titles['NoEdit'],
-                     (PMA_currentUserHasPrivilege('EXECUTE', $db))
-                           ? PMA_linkOrButton('#', $titles['Execute'])
-                           : $titles['NoExecute'],
-                     ($routine['ROUTINE_DEFINITION'] !== NULL)
-                           ? '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
-                                   . '&amp;exportroutine=1'
-                                   . '&amp;routinename=' . urlencode($routine['SPECIFIC_NAME'])
-                                   . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE'])
-                                   . '">' . $titles['Export'] . '</a>'
-                           : $titles['NoExport'],
-                     (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db))
-                           ? '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
-                                   . '&amp;sql_query=' . urlencode($sqlDropProc)
-                                   . '" >' . $titles['Drop'] . '</a>'
-                           : $titles['NoDrop'],
-                     $routine['ROUTINE_TYPE'],
-                     $routine['DTD_IDENTIFIER']);
+        if (PMA_currentUserHasPrivilege('EXECUTE', $db)) {
+            $execlink = '<a ' . $conditional_class_exec. ' href="#" >'
+                              . $titles['Execute'] . '</a>';
+        }
+        if ($routine['ROUTINE_DEFINITION'] !== NULL) {
+            $exprlink = '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
+                              . '&amp;exportroutine=1'
+                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                              . '&amp;routinetype=' . urlencode($routine['ROUTINE_TYPE']) // FIXME: fetch this from the db, no need to pass it in the URL
+                              . '">' . $titles['Export'] . '</a>';
+        }
+        if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
+            $droplink = '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
+                              . '&amp;sql_query=' . urlencode($sql_drop)
+                              . '" >' . $titles['Drop'] . '</a>';
+        }
+        // Display a row of data
+        echo "        <tr class='$rowclass'>\n";
+        echo "            <td>\n";
+        echo "                <span class='drop_sql hide'>$sql_drop</span>\n";
+        echo "                <strong>{$routine['ROUTINE_NAME']}</strong>\n";
+        echo "            </td>\n";
+        echo "            <td>$editlink</td>\n";
+        echo "            <td>$execlink</td>\n";
+        echo "            <td>$exprlink</td>\n";
+        echo "            <td>$droplink</td>\n";
+        echo "            <td>{$routine['ROUTINE_TYPE']}</td>\n";
+        echo "            <td>{$routine['DTD_IDENTIFIER']}</td>\n";
+        echo "        </tr>\n";
         $ct++;
     }
-    echo '</table>';
+    echo "    </table>\n";
 }
-echo '</fieldset>' . "\n";
+echo "</fieldset>\n";
+echo "<!-- LIST OF ROUTINES END -->\n\n";
 
 /**
  * Display the form for adding a new routine, if the user has the privileges.
@@ -886,7 +876,8 @@ echo '</fieldset>' . "\n";
 echo '<!-- ADD ROUTINE FORM START -->' . "\n";
 echo '<fieldset>' . "\n";
 if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
-    echo '<a href="db_routines.php?' . $url_query . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
+    echo '<a href="db_routines.php?' . $url_query
+       . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
        . PMA_getIcon('b_routine_add.png') . "\n"
        . __('Add a new Routine') . '</a>' . "\n";
 } else {
@@ -895,5 +886,5 @@ if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
 }
 echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
 echo '</fieldset>' . "\n";
-echo '<!-- ADD ROUTINE FORM END -->' . "\n";
+echo '<!-- ADD ROUTINE FORM END -->' . "\n\n";
 ?>
