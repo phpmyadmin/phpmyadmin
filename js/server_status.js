@@ -9,7 +9,7 @@ $(function() {
     // Amount of points the chart should hold
     var numMaxPoints=30;
     // Time between each refresh 
-    var refreshRate=3000;
+    var refreshRate=5000;
     
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
