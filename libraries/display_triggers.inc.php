@@ -62,8 +62,8 @@ echo ' <legend>' . __('Triggers') . '</legend>' . "\n";
 if (! $triggers) {
     echo __('There are no triggers to display.');
 } else {
-    echo '<div style="display: none;" id="no_triggers">' . __('There are no triggers to display.') . '</div>';
-    echo '<table class="data" id="trigger_list">' . "\n";
+    echo '<div class="hide" id="nothing2display">' . __('There are no triggers to display.') . '</div>';
+    echo '<table class="data">' . "\n";
 
     // Print table header
     echo "<tr>\n<th>" . __('Name') . "</th>\n";

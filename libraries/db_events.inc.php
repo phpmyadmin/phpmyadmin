@@ -56,8 +56,8 @@ echo ' <legend>' . __('Events') . '</legend>' . "\n";
 if (! $events) {
     echo __('There are no events to display.');
 } else {
-    echo '<div style="display: none;" id="no_events">' . __('There are no events to display.') . '</div>';
-    echo '<table class="data" id="event_list">';
+    echo '<div class="hide" id="nothing2display">' . __('There are no events to display.') . '</div>';
+    echo '<table class="data">';
     echo sprintf('<tr>
                       <th>%s</th>
                       <th>&nbsp;</th>

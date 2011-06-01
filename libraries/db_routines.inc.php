@@ -799,10 +799,10 @@ echo "    <legend>" . __('Routines') . "</legend>\n";
 if (! $routines) {
     echo "    " . __('There are no routines to display.') . "\n";
 } else {
-    echo "    <div class='hide' id='no_routines'>\n";
+    echo "    <div class='hide' id='nothing2display'>\n";
     echo "      " . __('There are no routines to display.') . "\n";
     echo "    </div>\n";
-    echo "    <table class='data' id='routine_list'>\n";
+    echo "    <table class='data'>\n";
     echo "        <!-- TABLE HEADERS -->\n";
     echo "        <tr>\n";
     echo "            <th>" . __('Name') . "</th>\n";

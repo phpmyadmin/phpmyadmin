@@ -2340,7 +2340,7 @@ $(document).ready(function() {
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    $('.export_routine_anchor, .export_event_anchor, .export_trigger_anchor').live('click', function(event) {
+    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
@@ -2362,6 +2362,51 @@ $(document).ready(function() {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
-    }); // end Export Procedure
+        }) // end $.get()
+    }); // end $.live()
 }); // end of $(document).ready() for Export of Routines, Triggers and Events.
+
+/**
+ * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @see     $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
+        event.preventDefault();
+        /**
+         * @var $curr_row    Object containing reference to the current row
+         */
+        var $curr_row = $(this).parents('tr');
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = $curr_row.children('td').children('.drop_sql').text();
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    /**
+                     * @var $table    Object containing reference to the main list of elements.
+                     */
+                    var $table = $curr_row.parent();
+                    if ($table.find('tr').length == 2) {
+                        $table.hide("slow", function () {
+                            $(this).find('tr.even, tr.odd').remove();
+                            $('#nothing2display').show("slow");
+                        });
+                    } else {
+                        $curr_row.hide("slow", function () {
+                            $(this).remove();
+                        });
+                    }
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            }) // end $.get()
+        }) // end $.PMA_confirm()
+    }); // end $.live()
+}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
