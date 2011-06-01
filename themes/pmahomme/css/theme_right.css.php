@@ -2129,6 +2129,7 @@ fieldset .disabled-field td {
 .colborder {
     border-right: 1px solid #FFF;
     cursor: col-resize;
+    height: 100%;
     margin-left: -1px;
     position: absolute;
     width: 3px;
@@ -2141,4 +2142,20 @@ fieldset .disabled-field td {
 
 .cRsz {
     position: absolute;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.cCpy {
+    background: #333;
+    color: #FFF;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+}
+
+.cCpy a {
+    color: #FFF;
 }
