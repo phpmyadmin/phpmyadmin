@@ -3087,7 +3087,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                         'SCHEMA_PRIVILEGES',
                                         $username,
                                         $priv,
-                                        $db))) {
+                                        PMA_addslashes($db)))) {
             return true;
         }
     } else {
@@ -3103,8 +3103,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                                   'TABLE_PRIVILEGES',
                                                   $username,
                                                   $priv,
-                                                  $db,
-                                                  $tbl))) {
+                                                  PMA_addslashes($db),
+                                                  PMA_addslashes($tbl)))) {
             return true;
         }
     }
