@@ -250,11 +250,17 @@ function getFormInputFromRequest()
 
     $retval = array();
     $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
+    $retval['original_name'] = isset($_REQUEST['routine_original_name'])
+                             ? htmlspecialchars($_REQUEST['routine_original_name']) : '';
     $retval['type']         = 'PROCEDURE';
     $retval['type_toggle']  = 'FUNCTION';
     if (isset($_REQUEST['routine_type']) && $_REQUEST['routine_type'] == 'FUNCTION') {
         $retval['type']         = 'FUNCTION';
         $retval['type_toggle']  = 'PROCEDURE';
+    }
+    $retval['original_type'] = 'PROCEDURE';
+    if (isset($_REQUEST['routine_original_type']) && $_REQUEST['routine_original_type'] == 'FUNCTION') {
+        $retval['original_type'] = 'FUNCTION';
     }
     $retval['num_params']   = 0;
     $retval['param_dir']    = array();
@@ -388,12 +394,10 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     if (! $routine['num_params']) {
         $disable_remove_parameter = " color: gray;' disabled='disabled";
     }
-    $disable_edit_name = '';
+    $original_routine = '';
     if ($mode == 'edit') {
-        // This is read-only, because later, when processing the request, we rely on this
-        // to contain the correct original routine name.
-        // TODO: backup the original name somewhere and allow the user to edit this field.
-        $disable_edit_name = " readonly='readonly' style='background: #ddd;'";
+        $original_routine = "<input name='routine_original_name' type='hidden' value='{$routine['original_name']}'/>\n"
+                          . "<input name='routine_original_type' type='hidden' value='{$routine['original_type']}'/>\n";
     }
 
     // Create the output
@@ -402,13 +406,14 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= $message;
     $retval .= "<form action='db_routines.php?$url_query' method='post'>\n";
     $retval .= "<input name='{$mode}routine' type='hidden' value='1' />\n";
+    $retval .= $original_routine;
     $retval .= PMA_generate_common_hidden_inputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table id='rte_table'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Routine Name') . "</td>\n";
-    $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}'$disable_edit_name /></td>\n";
+    $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
@@ -672,14 +677,9 @@ if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     if (! count($routine_errors)) {
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
-            // We need to know the original type of the routine, as the user may have changed it.
-            // However we will rely on the $_REQUEST['routine_name'] containing the correct
-            // information since that field was disabled in the editor.
-            $original_type = PMA_DBI_fetch_value('SELECT ROUTINE_TYPE FROM information_schema.ROUTINES '
-                                               . 'WHERE ROUTINE_SCHEMA=\'' . PMA_sqlAddslashes($db,true). '\''
-                                               . 'AND ROUTINE_NAME=\'' . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . '\';');
-            $create_routine = PMA_DBI_get_definition($db, $original_type, $_REQUEST['routine_name']);
-            $drop_routine = "DROP $original_type " . PMA_backquote($_REQUEST['routine_name']);
+            // Backup the old routine, in case something goes wrong
+            $create_routine = PMA_DBI_get_definition($db, $_REQUEST['routine_original_type'], $_REQUEST['routine_original_name']);
+            $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']);
             $result = PMA_DBI_try_query($drop_routine);
             if (! $result) {
                 $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
@@ -759,6 +759,8 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         }
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
+            $routine['original_name'] = $routine['name'];
+            $routine['original_type'] = $routine['type'];
         } else {
             $routine = getFormInputFromRequest();
         }
