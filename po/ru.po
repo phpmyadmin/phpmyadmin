@@ -4052,10 +4052,9 @@ msgstr ""
 "поле пустым. Рекомендуется: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Таблица хранения настроек пользователя"
+msgstr "Таблица хранения настроек интерфейса"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
