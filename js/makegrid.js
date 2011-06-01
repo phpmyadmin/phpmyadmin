@@ -147,6 +147,7 @@
 
                     this.colMov = false;
                 }
+                $('body').noSelect(false);
             },
             
             /**
