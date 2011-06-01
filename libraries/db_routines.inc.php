@@ -19,29 +19,44 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
-$param_datatypes       = getSupportedDatatypes();
-$param_directions      = array('IN', 'OUT', 'INOUT');
-$param_sqldataaccess   = array('', 'CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA');
+$param_datatypes     = getSupportedDatatypes(); // TODO: do not cache this here
+$param_directions    = array('IN', 'OUT', 'INOUT');
+$param_sqldataaccess = array('',
+                               'NO SQL',
+                               'CONTAINS SQL',
+                               'READS SQL DATA',
+                               'MODIFIES SQL DATA');
 
 /**
- * This function processes the datatypes supported by the DB, as specified in $cfg['ColumnTypes']
- * and either returns an array (useful for quickly checking if a datatype is supported)
- * or an HTML snippet that creates a drop-down list.
+ * This function processes the datatypes supported by the DB, as specified in
+ * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
+ * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+ *
+ * @param   bool    $html       Whether to generate an html snippet or an array
+ * @param   string  $selected   The value to mark as selected in HTML mode
+ *
+ * @uses    htmlspecialchars()
+ * @uses    in_array()
  */
 function getSupportedDatatypes($html = false, $selected = '')
 {
     global $cfg;
 
     if ($html) {
+        // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
         foreach ($cfg['ColumnTypes'] as $key => $value) {
             if (is_array($value)) {
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subkey => $subvalue) {
                     if ($subvalue == $selected) {
-                        $retval .= "<option selected='selected'>$subvalue</option>";
+                        $retval .= "<option selected='selected'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
                     } else if ($subvalue === '-') {
-                        $retval .= "<option disabled='disabled'>$subvalue</option>";
+                        $retval .= "<option disabled='disabled'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
                     } else {
                         $retval .= "<option>$subvalue</option>";
                     }
@@ -76,10 +91,23 @@ function getSupportedDatatypes($html = false, $selected = '')
 } // end getSupportedDatatypes()
 
 /**
- * TODO: proper comment
+ * This function looks through the contents of a parsed
+ * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
+ * information about the routine's parameters.
+ *
+ * @param   array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
+ * @param   string  $routine_type  Routine type: 'PROCEDURE' or 'FUNCTION'
+ *
+ * @uses    isset()
+ * @uses    PMA_SQP_parse()
+ * @uses    PMA_unQuote()
+ * @uses    htmlspecialchars()
+ * @uses    htmlentities()
  */
 function getRoutineParameters($parsed_query, $routine_type)
 {
+    global $param_directions;
+
     $retval = array();
     $retval['num'] = 0;
 
@@ -120,12 +148,16 @@ function getRoutineParameters($parsed_query, $routine_type)
     foreach ($params as $key => $value) {
         $parsed_param = PMA_SQP_parse($value);
         $pos = 0;
-        if ($parsed_param[$pos]['data'] == 'IN' ||$parsed_param[$pos]['data'] == 'OUT' || $parsed_param[$pos]['data'] == 'INOUT') {
+        if (in_array($parsed_param[$pos]['data'], $param_directions)) {
             $retval['dir'][] = $parsed_param[0]['data'];
             $pos++;
         }
         if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
-            $retval['name'][] = htmlspecialchars(PMA_unQuote($parsed_param[$pos]['data']));
+            $retval['name'][] = htmlspecialchars(
+                                    PMA_unQuote(
+                                        $parsed_param[$pos]['data']
+                                    )
+                                );
             $pos++;
         }
         $depth = 0;
@@ -142,7 +174,7 @@ function getRoutineParameters($parsed_query, $routine_type)
             }
         }
         $retval['length'][] = htmlentities($param_length, ENT_QUOTES);
-        // FIXME: parameter attributes, such as 'UNSIGNED', are currenly silently ignored
+        // FIXME: parameter attributes, such as 'UNSIGNED', are currenly ignored
     }
 
     // Since some indices of $retval may be still undefined, we fill
@@ -157,7 +189,14 @@ function getRoutineParameters($parsed_query, $routine_type)
 } // end getRoutineParameters()
 
 /**
- * TODO: proper comment
+ * This function looks through the contents of a parsed
+ * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
+ * information about the routine's definer.
+ *
+ * @param   array  $parsed_query   Parsed query, returned by by PMA_SQP_parse()
+ *
+ * @uses    substr()
+ * @uses    PMA_unQuote()
  */
 function getRoutineDefiner($parsed_query)
 {
@@ -181,27 +220,54 @@ function getRoutineDefiner($parsed_query)
 /**
  * This function will generate the values that are required to complete
  * the "Edit routine" form given the name of a routine.
+ *
+ * @param   $db     The database that the routine belogs to.
+ * @param   $name   The name of the routine.
+ *
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    PMA_SQP_parse()
+ * @uses    PMA_PMA_DBI_get_definition()
+ * @uses    getRoutineParameters()
+ * @uses    getRoutineDefiner()
+ * @uses    strpos()
+ * @uses    strrpos()
+ * @uses    strtoupper()
+ * @uses    trim()
+ * @uses    substr()
+ * @uses    htmlentities()
  */
 function getFormInputFromRoutineName($db, $name)
 {
     global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
 
-    $retval = array();
+    $retval  = array();
 
     // Build and execute query
-    $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name,true) . "'";
-    $routine = PMA_DBI_fetch_result("SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;");
+    $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
+             . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
+             . "ROUTINE_COMMENT, SECURITY_TYPE";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' "
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name,true) . "'";
+    $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+    $routine = PMA_DBI_fetch_result($query);
     $routine = $routine[0];
+
     // Get required data
-    $retval['name']            = $routine['SPECIFIC_NAME'];
-    $retval['type']            = $routine['ROUTINE_TYPE'];
+    $retval['name'] = $routine['SPECIFIC_NAME'];
+    $retval['type'] = $routine['ROUTINE_TYPE'];
     if ($retval['type'] == 'FUNCTION') {
         $retval['type_toggle'] = 'PROCEDURE';
     } else {
         $retval['type_toggle'] = 'FUNCTION';
     }
-    $parsed_query = PMA_SQP_parse(PMA_DBI_get_definition($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME']));
+    $parsed_query = PMA_SQP_parse(
+                        PMA_DBI_get_definition(
+                            $db,
+                            $routine['ROUTINE_TYPE'],
+                            $routine['SPECIFIC_NAME']
+                        )
+                    );
     $params = getRoutineParameters($parsed_query, $routine['ROUTINE_TYPE']);
     $retval['num_params']   = $params['num'];
     $retval['param_dir']    = $params['dir'];
@@ -214,18 +280,35 @@ function getFormInputFromRoutineName($db, $name)
         $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
         $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
         if ($brac1_pos !== false && $brac2_pos !== false) {
-            $retval['returntype']   = strtoupper(trim(substr($routine['DTD_IDENTIFIER'], 0, $brac1_pos)));
-            $retval['returnlength'] = htmlentities(trim(substr($routine['DTD_IDENTIFIER'], $brac1_pos+1, $brac2_pos-$brac1_pos-1)), ENT_QUOTES);
+            $retval['returntype']   = strtoupper(
+                                          trim(
+                                              substr(
+                                                  $routine['DTD_IDENTIFIER'],
+                                                  0,
+                                                  $brac1_pos
+                                              )
+                                          )
+                                      );
+            $retval['returnlength'] = htmlentities(
+                                          trim(
+                                              substr(
+                                                  $routine['DTD_IDENTIFIER'],
+                                                  $brac1_pos+1,
+                                                  $brac2_pos-$brac1_pos-1
+                                              )
+                                          ),
+                                          ENT_QUOTES
+                                      );
         } else {
             $retval['returntype'] = strtoupper($routine['DTD_IDENTIFIER']);
         }
     }
+    $retval['definer']         = getRoutineDefiner($parsed_query);
     $retval['definition']      = $routine['ROUTINE_DEFINITION'];
     $retval['isdeterministic'] = '';
     if ($routine['IS_DETERMINISTIC'] == 'YES') {
         $retval['isdeterministic'] = " checked='checked'";
     }
-    $retval['definer']         = getRoutineDefiner($parsed_query);
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
     if ($routine['SECURITY_TYPE'] == 'DEFINER') {
@@ -233,8 +316,8 @@ function getFormInputFromRoutineName($db, $name)
     } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
         $retval['securitytype_invoker'] = " selected='selected'";
     }
-    $retval['sqldataaccess']   = $routine['SQL_DATA_ACCESS'];
-    $retval['comment']         = $routine['ROUTINE_COMMENT'];
+    $retval['sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+    $retval['comment']       = $routine['ROUTINE_COMMENT'];
 
     return $retval;
 } // getFormInputFromRoutineName()
@@ -243,15 +326,28 @@ function getFormInputFromRoutineName($db, $name)
  * This function will generate the values that are required to complete the "Add new routine" form
  * It is especially necessary to handle the 'Add another parameter', 'Remove last parameter'
  * and 'Change routine type' functionalities when JS is disabled.
+ *
+ * @uses    htmlspecialchars()
+ * @uses    isset()
+ * @uses    is_array()
+ * @uses    in_array()
+ * @uses    htmlentities()
+ * @uses    htmlspecialchars()
+ * @uses    strtolower()
  */
 function getFormInputFromRequest()
 {
     global $_REQUEST, $param_directions, $param_datatypes, $param_sqldataaccess;
 
     $retval = array();
-    $retval['name'] = isset($_REQUEST['routine_name']) ? htmlspecialchars($_REQUEST['routine_name']) : '';
-    $retval['original_name'] = isset($_REQUEST['routine_original_name'])
-                             ? htmlspecialchars($_REQUEST['routine_original_name']) : '';
+    $retval['name'] = '';
+    if (isset($_REQUEST['routine_name'])) {
+        $retval['name'] = htmlspecialchars($_REQUEST['routine_name']);
+    }
+    $retval['original_name'] = '';
+    if (isset($_REQUEST['routine_original_name'])) {
+         $retval['original_name'] = htmlspecialchars($_REQUEST['routine_original_name']);
+    }
     $retval['type']         = 'PROCEDURE';
     $retval['type_toggle']  = 'FUNCTION';
     if (isset($_REQUEST['routine_type']) && $_REQUEST['routine_type'] == 'FUNCTION') {
@@ -268,9 +364,11 @@ function getFormInputFromRequest()
     $retval['param_type']   = array();
     $retval['param_length'] = array();
     if (isset($_REQUEST['routine_param_name'])
-        && isset($_REQUEST['routine_param_type']) && isset($_REQUEST['routine_param_length'])
+        && isset($_REQUEST['routine_param_type'])
+        && isset($_REQUEST['routine_param_length'])
         && is_array($_REQUEST['routine_param_name'])
-        && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
+        && is_array($_REQUEST['routine_param_type'])
+        && is_array($_REQUEST['routine_param_length'])) {
 
         if ($_REQUEST['routine_type'] == 'PROCEDURE') {
             $temp_num_params = 0;
@@ -319,13 +417,22 @@ function getFormInputFromRequest()
     if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], $param_datatypes, true)) {
         $retval['returntype'] = $_REQUEST['routine_returntype'];
     }
-    $retval['returnlength']    = isset($_REQUEST['routine_returnlength']) ? htmlentities($_REQUEST['routine_returnlength'], ENT_QUOTES) : '';
-    $retval['definition']      = isset($_REQUEST['routine_definition'])   ? htmlspecialchars($_REQUEST['routine_definition']) : '';
+    $retval['returnlength'] = '';
+    if (isset($_REQUEST['routine_returnlength'])) {
+        $retval['returnlength'] = htmlentities($_REQUEST['routine_returnlength'], ENT_QUOTES);
+    }
+    $retval['definition'] = '';
+    if (isset($_REQUEST['routine_definition'])) {
+        $retval['definition'] = htmlspecialchars($_REQUEST['routine_definition']);
+    }
     $retval['isdeterministic'] = '';
     if (isset($_REQUEST['routine_isdeterministic']) && strtolower($_REQUEST['routine_isdeterministic']) == 'on') {
         $retval['isdeterministic'] = " checked='checked'";
     }
-    $retval['definer'] = isset($_REQUEST['routine_definer']) ? htmlentities($_REQUEST['routine_definer'], ENT_QUOTES) : '';
+    $retval['definer'] = '';
+    if (isset($_REQUEST['routine_definer'])) {
+        $retval['definer'] = htmlentities($_REQUEST['routine_definer'], ENT_QUOTES);
+    }
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
     if (isset($_REQUEST['routine_securitytype'])) {
@@ -339,13 +446,35 @@ function getFormInputFromRequest()
     if (isset($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
         $retval['sqldataaccess'] = $_REQUEST['routine_sqldataaccess'];
     }
-    $retval['comment'] = isset($_REQUEST['routine_comment']) ? htmlentities($_REQUEST['routine_comment'], ENT_QUOTES) : '';
+    $retval['comment'] = '';
+    if (isset($_REQUEST['routine_comment'])) {
+        $retval['comment'] = htmlentities($_REQUEST['routine_comment'], ENT_QUOTES);
+    }
 
     return $retval;
 } // end function getFormInputFromRequest()
 
 /**
  * Displays a form used to add/edit a routine
+ *
+ * @param   string   $mode         If the editor will be used edit a routine
+ *                                 or add a new one: 'edit' or 'add'.
+ * @param   string   $operation    If the editor was previously invoked with
+ *                                 JS turned off, this will hold the name of
+ *                                 the current operation: 'add', remove', 'change'
+ * @param   array    $routine      Data for the routine returned by
+ *                                 getFormInputFromRequest() or
+ *                                 getFormInputFromRoutineName()
+ * @param   array    $errors       If the editor was already invoked and there
+ *                                 has been an error while processing the request
+ *                                 this array will hold the errors.
+ *
+ * @uses    PMA_message
+ * @uses    PMA_generate_common_hidden_inputs()
+ * @uses    count()
+ * @uses    strtoupper()
+ * @uses    sprintf()
+ * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors) {
     global $db, $table, $url_query, $param_directions, $param_datatypes, $param_sqldataaccess;
@@ -396,8 +525,10 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     }
     $original_routine = '';
     if ($mode == 'edit') {
-        $original_routine = "<input name='routine_original_name' type='hidden' value='{$routine['original_name']}'/>\n"
-                          . "<input name='routine_original_type' type='hidden' value='{$routine['original_type']}'/>\n";
+        $original_routine = "<input name='routine_original_name' "
+                          . "type='hidden' value='{$routine['original_name']}'/>\n"
+                          . "<input name='routine_original_type' "
+                          . "type='hidden' value='{$routine['original_type']}'/>\n";
     }
 
     // Create the output
@@ -536,7 +667,16 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
 } // displayRoutineEditor()
 
 /**
- * Compose the query necessary to create a routine from an HTTP request.
+ * Composes the query necessary to create a routine from an HTTP request.
+ *
+ * @uses   explode()
+ * @uses   strpos()
+ * @uses   PMA_backquote()
+ * @uses   sprintf()
+ * @uses   htmlspecialchars()
+ * @uses   is_array()
+ * @uses   preg_match()
+ * @uses   count()
  */
 function createQueryFromRequest() {
     global $_REQUEST, $routine_errors, $param_sqldataaccess;
