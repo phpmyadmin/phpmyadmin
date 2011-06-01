@@ -715,7 +715,7 @@ msgstr "Анализ таблицы"
 #: db_structure.php:521
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Добавить префикс таблице"
+msgstr "Добавить префикс таблицы"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #| msgid "Replace table data with file"
