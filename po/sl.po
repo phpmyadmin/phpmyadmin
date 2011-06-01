@@ -1631,7 +1631,7 @@ msgstr "Nedavne tabele"
 #: libraries/RecentTable.class.php:154
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Ni nedavnih tabel"
+msgstr "Ni nobenih nedavnih tabel"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
