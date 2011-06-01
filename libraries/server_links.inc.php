@@ -34,6 +34,7 @@ if (!$GLOBALS['is_ajax_request']) {
 
     /**
      * Displays tab links
+     * Put the links we assume are used less, towards the end
      */
     $tabs = array();
 
@@ -49,11 +50,6 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['status']['link'] = 'server_status.php';
     $tabs['status']['text'] = __('Status');
 
-    if (! empty($binary_logs)) {
-        $tabs['binlog']['icon'] = 's_tbl.png';
-        $tabs['binlog']['link'] = 'server_binlog.php';
-        $tabs['binlog']['text'] = __('Binary log');
-    }
     $tabs['process']['icon'] = 's_process.png';
     $tabs['process']['link'] = 'server_processlist.php';
     $tabs['process']['text'] = __('Processes');
@@ -72,6 +68,28 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['import']['link'] = 'server_import.php';
     $tabs['import']['text'] = __('Import');
 
+    $tabs['settings']['icon'] = 'b_tblops.png';
+    $tabs['settings']['link'] = 'prefs_manage.php';
+    $tabs['settings']['text'] = __('Settings');
+    $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']),
+        array('prefs_forms.php', 'prefs_manage.php'));
+
+    $tabs['synchronize']['icon'] = 's_sync.png';
+    $tabs['synchronize']['link'] = 'server_synchronize.php';
+    $tabs['synchronize']['text'] = __('Synchronize');
+
+    if (! empty($binary_logs)) {
+        $tabs['binlog']['icon'] = 's_tbl.png';
+        $tabs['binlog']['link'] = 'server_binlog.php';
+        $tabs['binlog']['text'] = __('Binary log');
+    }
+
+    if ($is_superuser && !PMA_DRIZZLE) {
+        $tabs['replication']['icon'] = 's_replication.png';
+        $tabs['replication']['link'] = 'server_replication.php';
+        $tabs['replication']['text'] = __('Replication');
+    }
+
     $tabs['vars']['icon'] = 's_vars.png';
     $tabs['vars']['link'] = 'server_variables.php';
     $tabs['vars']['text'] = __('Variables');
@@ -89,22 +107,6 @@ if (!$GLOBALS['is_ajax_request']) {
         $tabs['engine']['link'] = 'server_engines.php';
         $tabs['engine']['text'] = __('Engines');
     }
-
-    if ($is_superuser && !PMA_DRIZZLE) {
-        $tabs['replication']['icon'] = 's_replication.png';
-        $tabs['replication']['link'] = 'server_replication.php';
-        $tabs['replication']['text'] = __('Replication');
-    }
-
-    $tabs['synchronize']['icon'] = 's_sync.png';
-    $tabs['synchronize']['link'] = 'server_synchronize.php';
-    $tabs['synchronize']['text'] = __('Synchronize');
-
-    $tabs['settings']['icon'] = 'b_tblops.png';
-    $tabs['settings']['link'] = 'prefs_manage.php';
-    $tabs['settings']['text'] = __('Settings');
-    $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']),
-        array('prefs_forms.php', 'prefs_manage.php'));
 
     echo PMA_generate_html_tabs($tabs, array());
     unset($tabs);

@@ -18,13 +18,17 @@ require_once './libraries/common.inc.php';
 if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
     echo PMA_includeJS('cross_framing_protection.js');
 }
-// generate title
-$title = PMA_expandUserString(
+// generate title (unless we already have $page_title, from cookie auth)
+if (! isset($page_title)) {
+    $title = PMA_expandUserString(
             !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
             (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
             (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
             $GLOBALS['cfg']['TitleDefault']))
-            );
+        );
+} else {
+    $title = $page_title;
+}
 // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
