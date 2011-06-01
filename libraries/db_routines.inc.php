@@ -125,7 +125,7 @@ function getRoutineParameters($parsed_query, $routine_type)
             $pos++;
         }
         if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
-            $retval['name'][] = htmlspecialchars(PMA_unbackquote($parsed_param[$pos]['data']));
+            $retval['name'][] = htmlspecialchars(PMA_unQuote($parsed_param[$pos]['data']));
             $pos++;
         }
         $depth = 0;
@@ -170,7 +170,7 @@ function getRoutineDefiner($parsed_query)
                   ($parsed_query[$i]['type'] != 'quote_backtick' && substr($parsed_query[$i]['type'], 0, 5) != 'punct')) {
             break;
         } else if ($fetching == true && $parsed_query[$i]['type'] == 'quote_backtick') {
-            $retval .= PMA_unbackquote($parsed_query[$i]['data']);
+            $retval .= PMA_unQuote($parsed_query[$i]['data']);
         } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {
             $retval .= $parsed_query[$i]['data'];
         }

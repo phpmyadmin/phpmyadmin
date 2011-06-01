@@ -842,47 +842,6 @@ function PMA_backquote($a_name, $do_it = true)
 } // end of the 'PMA_backquote()' function
 
 /**
- * Removes backquotes on both sides of a database, table or field name.
- * and the backquotes inside the names that were escaped with another backquote.
- *
- * example:
- * <code>
- * echo PMA_unbackquote('`owner``s db`'); // 'owner`s db'
- *
- * </code>
- *
- * @uses    PMA_unbackquote()
- * @uses    is_array()
- * @uses    strlen()
- * @uses    substr()
- * @uses    trim()
- * @uses    str_replace()
- * @param   mixed    $a_name    the database, table or field name to "backquote"
- *                              or array of it
- * @return  mixed    the database, table or field name(s)
-                     after being stripped of backquotes
- * @access  public
- */
-function PMA_unbackquote($a_name)
-{
-    if (is_array($a_name)) {
-        foreach ($a_name as &$data) {
-            $data = PMA_unbackquote($data);
-        }
-        return $a_name;
-    }
-
-    // '0' is also empty for php :-(
-    if (strlen($a_name) && $a_name !== '*') {
-        if (substr(trim($a_name), 0, 1) == '`' && substr(trim($a_name), -1) == '`') {
-            $a_name = substr(trim($a_name), 1, -1);
-            return str_replace('``', '`', $a_name);
-        }
-    }
-    return $a_name;
-} // end of the 'PMA_unbackquote()' function
-
-/**
  * Defines the <CR><LF> value depending on the user OS.
  *
  * @uses    PMA_USR_OS
