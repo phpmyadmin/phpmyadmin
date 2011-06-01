@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-06-01 22:15+0200\n"
+"PO-Revision-Date: 2011-06-01 22:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3656,7 +3656,7 @@ msgstr "Механизм перекодирования"
 
 #: libraries/config/messages.inc.php:349
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "При просмотре таблиц, запоминается сортировка каждой таблицы"
 
 #: libraries/config/messages.inc.php:350
 #, fuzzy
