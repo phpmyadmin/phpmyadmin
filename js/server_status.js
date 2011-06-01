@@ -5,6 +5,11 @@ $(function() {
     var categoryFilter='';
     var odd_row=false;
     var text=''; // Holds filter text
+    /* Chart configuration */
+    // Amount of points the chart should hold
+    var numMaxPoints=30;
+    // Time between each refresh 
+    var refreshRate=3000;
     
     // Holds the tab contents when realtime charts are being displayed
     var tabCache = new Object();
@@ -34,25 +39,64 @@ $(function() {
     
     // Ajax reload of variables (always the first link)
     $('.statuslinks a:nth-child(1)').click(function() { return refreshHandler(this); });
-    // Realtime charting of variables (always the second link)
+    
+    /** Realtime charting of variables (always the second link) **/
     $('.statuslinks a:nth-child(2)').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         
         if(tabStatus[tab.attr('id')]!='realtime') {
             var series, title;
-            var settings = {container:tab.attr('id')+"_chart_cnt"};
+            var settings = { chart: {renderTo:tab.attr('id')+"_chart_cnt"} }
             
             switch(tab.attr('id')) {
                 case 'statustabs_traffic':
                     break;
                 case 'statustabs_queries':
-                    settings.series = [{name: 'Queries per second',
-                                         data: []
-                                        }];
-                    settings.differentialData = true;
-                    settings.dataType = 'queries';
-                    settings.chartTitle = 'Queries per second';
+                    settings.chart = { 
+                        renderTo:tab.attr('id')+"_chart_cnt", 
+                        defaultSeriesType: 'spline',
+                        events: {
+                            load: function() {
+                                var thisChart = this;
+                                var lastValue=null;
+                                var numLoadedPoints=0;
+                                var otherSum=0;
+                                
+                                var addnewPoint = function() {
+                                    // Stop loading data, if the chart has been removed
+                                    if(tabStatus[tab.attr('id')]!='realtime') return;
+                                    
+                                    $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1, type:'queries'},function(data) {
+                                        var chartData = jQuery.parseJSON(data);
+                                        var pointInfo='';
+                                        var i=0;
+                                        
+                                        chartData.x = parseInt(chartData.x);
+                                        chartData.y = parseInt(chartData.y);
+                                        
+                                        if(lastValue!=null) {
+                                            thisChart.series[0].addPoint({
+                                                x:chartData.x, 
+                                                y:chartData.y-lastValue.y,
+                                                name:sortedQueriesPointInfo(chartData,lastValue)
+                                            }, true, numLoadedPoints >= numMaxPoints);
+                                        }
+                                            
+                                        lastValue = chartData;
+                                        numLoadedPoints++;
+                                        setTimeout(addnewPoint, refreshRate);
+                                    });
+                                }
+                                addnewPoint();
+                            }
+                        }
+                    };
+                    settings.c_differentialData = true;
+                    settings.c_dataType = 'queries';
+                    settings.series = [{name:'Issued queries since last refresh', data:[]}];
+                    settings.title = {text:'Issued queries'};
+                    settings.tooltip = { formatter:function() { return this.point.name; } };
                     break;
 
                 default:
@@ -64,9 +108,13 @@ $(function() {
             tab.find('.tabInnerContent').html('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
             //alert(tab.find('.tabInnerContent #'+tab.attr('id')+'_chart_cnt').length);
             initChart(settings);
+            $(this).html(PMA_messages['strStaticData']);
+            $('.statuslinks a:nth-child(1)').hide();
         } else {
             tab.find('.tabInnerContent').html(tabCache[tab.attr('id')]);
             tabStatus[tab.attr('id')]='data';
+            $(this).html(PMA_messages['strRealtimeChart']);
+            $('.statuslinks a:nth-child(1)').show();
         }
         return false; 
     });
@@ -194,60 +242,14 @@ $(function() {
         });
     }
     
-    function initChart(settings) {
-        if(settings.differentialData == undefined)
-            settings.differentialData = false;
-        if(settings.seriesType == undefined)
-            settings.seriesType = 'spline';
-        if(settings.numPoints == undefined)
-            settings.numPoints=30;
-        
-        var numLoadedPoints=0;
-        
-        chart = new Highcharts.Chart({
+    function initChart(passedSettings) {
+        var settings = {
             chart: {
-                renderTo: settings.container,
-                defaultSeriesType: settings.seriesType,
+                defaultSeriesType: 'spline',
                 marginRight: 10,
-                events: {
-                    load: function() {
-                        var thisChart = this;
-                        // set up the updating of the chart each second
-                        var lastValue=new Array();
-                        
-                        var addnewPoint = function() {
-                            // Stop loading data, if the chart has been removed
-                            if($('#'+settings.container).length==0) return;
-        
-                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1,type:settings.dataType},function(data) {
-                                var splitData = data.split(',');
-                                var x,y;
-                                for(var i=0; i*2<=splitData.length; i++) {
-                                    x=parseFloat(splitData[i*2]);
-                                    y=parseFloat(splitData[i*2+1]);
-                                    
-                                    if(settings.differentialData) {
-                                        if(lastValue[i]!=undefined && thisChart.series[i]!=undefined) {
-                                            thisChart.series[i].addPoint([x,1000*(y-lastValue[i][1])/(x-lastValue[i][0])], true, numLoadedPoints++ >= settings.numPoints);
-                                        }
-                                    } else thisChart.series[i].addPoint([x,y], true, numLoadedPoints++ >= settings.numPoints);
-                                    
-                                    lastValue[i] = [x,y];
-                                }
-                                
-                                setTimeout(addnewPoint, 2000);
-                            });
-                        }
-
-                        addnewPoint();
-                    }
-                }
             },
             credits: {
                 enabled:false
-            },
-            title: {
-                text: settings.chartTitle
             },
             xAxis: {
                 type: 'datetime',
@@ -255,7 +257,7 @@ $(function() {
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Total count'
                 },
                 plotLines: [{
                     value: 0,
@@ -270,13 +272,56 @@ $(function() {
                         Highcharts.numberFormat(this.y, 2);
                 }
             },
-            legend: {
-                enabled: false
-            },
             exporting: {
                 enabled: false
             },
-            series: settings.series
-        });
+            series: []
         }
+        
+        $.extend(true,settings,passedSettings);
+
+        chart = new Highcharts.Chart(settings);
+    }
+    
+    function sortedQueriesPointInfo(queries, lastQueries){
+        var max, maxIdx, num=0;
+        var queryKeys = new Array();
+        var queryValues = new Array();
+        var sumOther=0;
+        var sumTotal=0;
+        
+        // Separate keys and values, then  sort them
+        $.each(queries.pointInfo, function(key,value) {
+            if(value-lastQueries.pointInfo[key] > 0) {
+                queryKeys.push(key);
+                queryValues.push(value-lastQueries.pointInfo[key]);
+                sumTotal+=value-lastQueries.pointInfo[key];
+            }
+        });
+        var numQueries = queryKeys.length;
+        var pointInfo = '<b>' + PMA_messages['strTotal'] + ': ' + sumTotal + '</b><br>';
+        
+        while(queryKeys.length > 0) {
+            max=0;
+            for(var i=0; i<queryKeys.length; i++) {
+                if(queryValues[i] > max) {
+                    max = queryValues[i];
+                    maxIdx = i;
+                }
+            }
+            if(numQueries > 8 && num>=6)
+                sumOther+=queryValues[maxIdx];
+            else pointInfo += queryKeys[maxIdx].substr(4).replace('_',' ') + ': ' + queryValues[maxIdx] + '<br>'; 
+            
+            queryKeys.splice(maxIdx,1);
+            queryValues.splice(maxIdx,1);
+            num++;
+        }
+        
+        if(sumOther>0) 
+            pointInfo += PMA_messages['strOther'] + ': ' + sumOther;
+
+        return pointInfo;
+    }
+    
 });

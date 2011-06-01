@@ -37,10 +37,15 @@ if (isset($_REQUEST['ajax_request'])) {
                 $num_procs = PMA_DBI_num_rows($result);
                 exit((microtime(true)*1000).','.$num_procs);
             case 'queries':
-                $result = PMA_DBI_query('SHOW GLOBAL STATUS LIKE \'Questions\'');
-                $status = PMA_DBI_fetch_result($result);
-        //		print_r($status);
-                exit((microtime(true)*1000).','.$status[0]['Value']);
+                $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" AND Value>0', 0, 1);
+                cleanDeprecated($queries);
+                // admin commands are not queries
+                unset($queries['Com_admin_commands']);
+                
+                $sum=array_sum($queries);
+                
+                $ret = Array('x'=>(microtime(true)*1000),'y'=>$sum,'pointInfo'=>$queries,'numQueries'=>count($queries));
+                exit(json_encode($ret));
         }
     }
 }
@@ -105,22 +110,9 @@ $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
 $server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
 
 /**
- * cleanup some deprecated values
+ * cleanup of some deprecated values
  */
-$deprecated = array(
-    'Com_prepare_sql' => 'Com_stmt_prepare',
-    'Com_execute_sql' => 'Com_stmt_execute',
-    'Com_dealloc_sql' => 'Com_stmt_close',
-);
-
-foreach ($deprecated as $old => $new) {
-    if (isset($server_status[$old])
-      && isset($server_status[$new])) {
-        unset($server_status[$old]);
-    }
-}
-unset($deprecated);
-
+cleanDeprecated($server_status);
 
 /**
  * calculate some values
@@ -497,10 +489,10 @@ function printQueryStatistics() {
         <col class="valuecol" span="3" />
         <thead>
             <tr><th><?php echo __('Query type'); ?></th>
-				<th><?php 
-					/* l10n: # = Amount of queries */
-					echo __('#');
-					?>
+                <th><?php 
+                    /* l10n: # = Amount of queries */
+                    echo __('#');
+                    ?>
                 <th>&oslash; <?php echo __('per hour'); ?></th>
                 <th>%</th>
             </tr>
@@ -1065,6 +1057,24 @@ function createQueryChart($com_vars=FALSE) {
     }
     
     return '';
+}
+
+/**
+ * cleanup of some deprecated values
+ */
+function cleanDeprecated(&$server_status) {
+    $deprecated = array(
+        'Com_prepare_sql' => 'Com_stmt_prepare',
+        'Com_execute_sql' => 'Com_stmt_execute',
+        'Com_dealloc_sql' => 'Com_stmt_close',
+    );
+
+    foreach ($deprecated as $old => $new) {
+        if (isset($server_status[$old])
+          && isset($server_status[$new])) {
+            unset($server_status[$old]);
+        }
+    }
 }
 
 /**
