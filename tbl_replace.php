@@ -65,6 +65,7 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
+$GLOBALS['js_include'][] = 'makegrid.js';
 // Needed for generation of Inline Edit anchors
 $GLOBALS['js_include'][] = 'sql.js';
 

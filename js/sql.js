@@ -583,7 +583,7 @@ $(document).ready(function() {
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
                     }
-                    $this_row_siblings = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").children('span');
+                    $this_row_siblings = $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")");
                     txt = $this_row_siblings.data('original_data');
                     $this_row_siblings.children('span').empty();
                     $this_row_siblings.children('span').append(txt);
