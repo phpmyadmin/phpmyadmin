@@ -11,8 +11,7 @@ $(function() {
     // Time between each refresh 
     var refreshRate=3000;
     
-    // Holds the tab contents when realtime charts are being displayed
-    var tabCache = new Object();
+    // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
     
     // Add tabs
@@ -75,13 +74,13 @@ $(function() {
                                         chartData.x = parseInt(chartData.x);
                                         chartData.y = parseInt(chartData.y);
                                         
-                                        if(lastValue!=null) {
-                                            thisChart.series[0].addPoint({
-                                                x:chartData.x, 
-                                                y:chartData.y-lastValue.y,
-                                                name:sortedQueriesPointInfo(chartData,lastValue)
-                                            }, true, numLoadedPoints >= numMaxPoints);
-                                        }
+                                        if(lastValue==null) lastValue = chartData;
+                                        
+                                        thisChart.series[0].addPoint({
+                                            x:chartData.x, 
+                                            y:chartData.y-lastValue.y,
+                                            name:sortedQueriesPointInfo(chartData,lastValue)
+                                        }, true, numLoadedPoints >= numMaxPoints);
                                             
                                         lastValue = chartData;
                                         numLoadedPoints++;
@@ -104,14 +103,16 @@ $(function() {
             }
             
             tabStatus[tab.attr('id')]='realtime';
-            tabCache[tab.attr('id')]=tab.find('.tabInnerContent').html();
-            tab.find('.tabInnerContent').html('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
-            //alert(tab.find('.tabInnerContent #'+tab.attr('id')+'_chart_cnt').length);
+            tab.find('.tabInnerContent')
+                .hide()
+                .after('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
+            
             initChart(settings);
             $(this).html(PMA_messages['strStaticData']);
             $('.statuslinks a:nth-child(1)').hide();
         } else {
-            tab.find('.tabInnerContent').html(tabCache[tab.attr('id')]);
+            tab.find('.tabInnerContent').show();
+            tab.find('div#'+tab.attr('id')+'_chart_cnt').remove();
             tabStatus[tab.attr('id')]='data';
             $(this).html(PMA_messages['strRealtimeChart']);
             $('.statuslinks a:nth-child(1)').show();
