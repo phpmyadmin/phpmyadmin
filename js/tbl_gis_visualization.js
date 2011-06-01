@@ -76,15 +76,15 @@ $(document).ready(function() {
             //zoom in
             scale *= 1.5;
             // zooming in keeping the position under mouse pointer unmoved.
-            x = event.offsetX - (event.offsetX - x) * 1.5;
-            y = event.offsetY - (event.offsetY - y) * 1.5;
+            x = event.layerX - (event.layerX - x) * 1.5;
+            y = event.layerY - (event.layerY - y) * 1.5;
             zoomAndPan();
         } else {
             //zoom out
             scale /= 1.5;
             // zooming out keeping the position under mouse pointer unmoved.
-            x = event.offsetX - (event.offsetX - x) / 1.5;
-            y = event.offsetY - (event.offsetY - y) / 1.5;
+            x = event.layerX - (event.layerX - x) / 1.5;
+            y = event.layerY - (event.layerY - y) / 1.5;
             zoomAndPan();
         }
         return true;
@@ -109,8 +109,8 @@ $(document).ready(function() {
     $('#placeholder').live('dblclick', function(event) {
         scale *= 1.5;
         // zooming in keeping the position under mouse pointer unmoved.
-        x = event.offsetX - (event.offsetX - x) * 1.5;
-        y = event.offsetY - (event.offsetY - y) * 1.5;
+        x = event.layerX - (event.layerX - x) * 1.5;
+        y = event.layerY - (event.layerY - y) * 1.5;
         zoomAndPan();
     });
 
