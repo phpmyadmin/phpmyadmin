@@ -34,6 +34,8 @@ $param_sqldataaccess = array('',
  * @param   bool    $html       Whether to generate an html snippet or an array
  * @param   string  $selected   The value to mark as selected in HTML mode
  *
+ * @return  mixed   An HTML snippet or an array of datatypes.
+ *
  * @uses    htmlspecialchars()
  * @uses    in_array()
  */
@@ -96,6 +98,8 @@ function getSupportedDatatypes($html = false, $selected = '')
  *
  * @param   array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
  * @param   string  $routine_type  Routine type: 'PROCEDURE' or 'FUNCTION'
+ *
+ * @return  array   Information about the parameteres of a routine.
  *
  * @uses    isset()
  * @uses    PMA_SQP_parse()
@@ -192,7 +196,9 @@ function getRoutineParameters($parsed_query, $routine_type)
  * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
  * information about the routine's definer.
  *
- * @param   array  $parsed_query   Parsed query, returned by by PMA_SQP_parse()
+ * @param   array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
+ *
+ * @return  string  The definer of a routine.
  *
  * @uses    substr()
  * @uses    PMA_unQuote()
@@ -220,8 +226,10 @@ function getRoutineDefiner($parsed_query)
  * This function will generate the values that are required to complete
  * the "Edit routine" form given the name of a routine.
  *
- * @param   $db     The database that the routine belogs to.
- * @param   $name   The name of the routine.
+ * @param   string   $db     The database that the routine belogs to.
+ * @param   string   $name   The name of the routine.
+ *
+ * @return  array    Data necessary to create the routine editor.
  *
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_DBI_fetch_result()
@@ -325,6 +333,8 @@ function getFormInputFromRoutineName($db, $name)
  * This function will generate the values that are required to complete the "Add new routine" form
  * It is especially necessary to handle the 'Add another parameter', 'Remove last parameter'
  * and 'Change routine type' functionalities when JS is disabled.
+ *
+ * @return  array    Data necessary to create the routine editor.
  *
  * @uses    htmlspecialchars()
  * @uses    isset()
@@ -467,6 +477,8 @@ function getFormInputFromRequest()
  * @param   array    $errors       If the editor was already invoked and there
  *                                 has been an error while processing the request
  *                                 this array will hold the errors.
+ *
+ * @return  string   HTML code for the routine editor.
  *
  * @uses    PMA_message
  * @uses    PMA_generate_common_hidden_inputs()
@@ -668,14 +680,16 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
 /**
  * Composes the query necessary to create a routine from an HTTP request.
  *
- * @uses   explode()
- * @uses   strpos()
- * @uses   PMA_backquote()
- * @uses   sprintf()
- * @uses   htmlspecialchars()
- * @uses   is_array()
- * @uses   preg_match()
- * @uses   count()
+ * @return  string    The CREATE [ROUTINE | PROCEDURE] query.
+ *
+ * @uses    explode()
+ * @uses    strpos()
+ * @uses    PMA_backquote()
+ * @uses    sprintf()
+ * @uses    htmlspecialchars()
+ * @uses    is_array()
+ * @uses    preg_match()
+ * @uses    count()
  */
 function createQueryFromRequest() {
     global $_REQUEST, $routine_errors, $param_sqldataaccess;
