@@ -81,9 +81,7 @@
         });
         
         // wrap all data cells, except actions cell, with span
-        $(t).find('th, td:not(:has(span))').each(function() {
-            $(this).wrapInner('<span />');
-        });
+        $(t).find('th, td:not(:has(span))').wrapInner('<span />');
         
         // register events
         $(document).mousemove(function(e) {
