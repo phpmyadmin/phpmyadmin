@@ -80,7 +80,11 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['charset']['link'] = 'server_collations.php';
     $tabs['charset']['text'] = __('Charsets');
 
-    if (!PMA_DRIZZLE) {
+    if (PMA_DRIZZLE) {
+        $tabs['plugins']['icon'] = 'b_engine.png';
+        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['text'] = __('Plugins');
+    } else {
         $tabs['engine']['icon'] = 'b_engine.png';
         $tabs['engine']['link'] = 'server_engines.php';
         $tabs['engine']['text'] = __('Engines');

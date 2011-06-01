@@ -273,11 +273,11 @@ table [class=value] {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
 }
 <?php } ?>
-.value .attention {
+.attention {
     color:              red;
     font-weight:        bold;
 }
-.value .allfine {
+.allfine {
     color:              green;
 }
 
