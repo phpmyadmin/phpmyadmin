@@ -2370,3 +2370,10 @@ $(document).ready(function() {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 }) // end of $(document).ready() for Drop Table
+
+$(document).ready(function() {
+    var elm = $('#sqlquery');
+    if (elm) {
+        var myCodeMirror = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-plsql"});
+    }
+})
