@@ -2103,18 +2103,6 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
-#table_columns input, #table_columns select {
-    width:              14em;
-    box-sizing:         border-box;
-    -ms-box-sizing:     border-box;
-    -moz-box-sizing:    border-box;
-    -webkit-box-sizing: border-box;
-}
-
-#table_columns select {
-    margin:             0 6px;
-}
-
 #rte_table td {
     vertical-align:     middle;
 }
@@ -2126,5 +2114,17 @@ fieldset .disabled-field td {
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
+}
+
+#table_columns input, #table_columns select {
+    width:              14em;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#table_columns select {
+    margin:             0 6px;
 }
 

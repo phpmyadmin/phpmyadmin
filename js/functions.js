@@ -2270,68 +2270,6 @@ $(document).ready(function() {
 }) // end of $(document).ready()
 
 /**
- * Attach Ajax event handlers for Drop Table.
- *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $("#drop_tbl_anchor").live('click', function(event) {
-        event.preventDefault();
-
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP TABLE ' + window.parent.table;
-
-        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
-                window.parent.refreshMain();
-            }) // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end of Drop Table Ajax action
-}) // end of $(document).ready() for Drop Table
-
-/**
- * Attach Ajax event handlers for Truncate Table.
- *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $("#truncate_tbl_anchor").live('click', function(event) {
-        event.preventDefault();
-
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'TRUNCATE TABLE ' + window.parent.table;
-
-        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
-                window.parent.refreshMain();
-            }) // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end of Drop Table Ajax action
-}) // end of $(document).ready() for Drop Table
-
-/**
  * Attach Ajax event handlers for Export of Routines, Triggers and Events.
  *
  * @uses    PMA_ajaxShowMessage()
@@ -2410,3 +2348,65 @@ $(document).ready(function() {
         }) // end $.PMA_confirm()
     }); // end $.live()
 }); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
+
+/**
+ * Attach Ajax event handlers for Drop Table.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $("#drop_tbl_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            }) // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end of Drop Table Ajax action
+}) // end of $(document).ready() for Drop Table
+
+/**
+ * Attach Ajax event handlers for Truncate Table.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $("#truncate_tbl_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'TRUNCATE TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            }) // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end of Drop Table Ajax action
+}) // end of $(document).ready() for Drop Table
