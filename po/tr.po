@@ -3339,10 +3339,9 @@ msgstr ""
 "En fazla son kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "Şu anda açık olan tablo"
+msgstr "Son kullanılan tablolar"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
