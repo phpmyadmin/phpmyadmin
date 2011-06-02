@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-06-02 10:33+0200\n"
+"PO-Revision-Date: 2011-06-02 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6218,10 +6218,9 @@ msgid "SQL history"
 msgstr "SQL historie"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Trvalé připojení"
+msgstr "Trvalé nedávné tabulky"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
