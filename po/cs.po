@@ -1617,7 +1617,7 @@ msgstr[2] "Vloženo %1$d řádek."
 #: libraries/RecentTable.class.php:113
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Nepodařilo se uložit poslední tabulku"
+msgstr "Nepodařilo se uložit nedávnou tabulku"
 
 #: libraries/RecentTable.class.php:148
 #| msgid "Count tables"
