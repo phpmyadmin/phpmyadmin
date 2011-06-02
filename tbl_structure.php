@@ -195,7 +195,7 @@ $i = 0;
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>">#</th>
-    <th id="th<?php echo ++$i; ?>" class="column"><?php echo __('Column'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="column"><?php echo __('Name'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="type"><?php echo __('Type'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="collation"><?php echo __('Collation'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="attributes"><?php echo __('Attributes'); ?></th>

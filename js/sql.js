@@ -365,7 +365,7 @@ $(document).ready(function() {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
             PMA_init_slider();
-            
+
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.post()
     })// end Paginate results table
@@ -388,7 +388,7 @@ $(document).ready(function() {
                 $("#sqlqueryresults").html(data);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox); 
+                PMA_ajaxRemoveMessage($msgbox);
             }) // end $.post()
         } else {
             $the_form.submit();
@@ -456,7 +456,7 @@ $(document).ready(function() {
         $edit_td.removeClass('inline_edit_anchor').addClass('inline_edit_active').parent('tr').addClass('noclick');
 
         // Adding submit and hide buttons to inline edit <td>.
-        // For "hide" button the original data to be restored is 
+        // For "hide" button the original data to be restored is
         //  kept in the jQuery data element 'original_data' inside the <td>.
         // Looping through all columns or rows, to find the required data and then storing it in an array.
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
          */
         var relation_fields = {};
         /**
-         * @var relational_display string 'K' if relational key, 'D' if relational display column 
+         * @var relational_display string 'K' if relational key, 'D' if relational display column
          */
         var relational_display = $("#relational_display_K").attr('checked') ? 'K' : 'D';
         /**
@@ -858,7 +858,7 @@ $(document).ready(function() {
         var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
 
         var need_to_post = false;
-        
+
         var new_clause = '';
         var prev_index = -1;
 
@@ -930,7 +930,7 @@ $(document).ready(function() {
             }
         })
 
-        /*  
+        /*
          * update the where_clause, remove the last appended ' AND '
          * */
 
@@ -1004,10 +1004,10 @@ $(document).ready(function() {
 
 
 /**
- * Visually put back the row in the state it was before entering Inline edit 
+ * Visually put back the row in the state it was before entering Inline edit
  *
  * (when called in the situation where no posting was done, the data
- * parameter is empty) 
+ * parameter is empty)
  */
 function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, data, disp_mode) {
 
