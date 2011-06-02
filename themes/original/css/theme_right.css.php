@@ -1776,16 +1776,41 @@ fieldset .disabled-field td {
 .colborder {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
-    margin-left: 5px;
+    height: 100%;
+    margin-left: -8px;
     position: absolute;
     width: 3px;
 }
 
-.pma_table thead th div, .pma_table tbody td div {
+.pma_table thead th span, .pma_table tbody td span {
     display: block;
     overflow: hidden;
 }
 
 .cRsz {
     position: absolute;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.cCpy {
+    background: #333;
+    color: #FFF;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+}
+
+.cCpy a {
+    color: #FFF;
+}
+
+.cPointer {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
+    height: 20px;       /* if the height changed, also change makegrid.js */
+    margin-left: -5px;  /* must be minus half of its width */
+    position: absolute;
+    width: 10px;
 }

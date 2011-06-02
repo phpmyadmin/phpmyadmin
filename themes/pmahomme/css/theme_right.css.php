@@ -2130,7 +2130,7 @@ fieldset .disabled-field td {
     border-right: 1px solid #FFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -1px;
+    margin-left: -8px;
     position: absolute;
     width: 3px;
 }
@@ -2156,6 +2156,10 @@ fieldset .disabled-field td {
     position: absolute;
 }
 
-.cCpy a {
-    color: #FFF;
+.cPointer {
+    background: url(./themes/pmahomme/img/col_pointer.png);
+    height: 20px;       /* if the height changed, also change makegrid.js */
+    margin-left: -5px;  /* must be minus half of its width */
+    position: absolute;
+    width: 10px;
 }

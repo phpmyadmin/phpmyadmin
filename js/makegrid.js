@@ -18,28 +18,38 @@
                     obj: obj,
                     objLeft: parseInt(obj.style.left),
                     objWidth: this.alignment == 'horizontal' ?
-                              $(this.t).find('tr:first th:eq(' + (1 + n) + ') span').width() :
-                              $(this.t).find('tr:first td:eq(' + n + ') span').width()
+                              $(this.t).find('tr:first th:eq(' + (1 + n) + ') span').outerWidth() :
+                              $(this.t).find('tr:first td:eq(' + n + ') span').outerWidth()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
             },
             
             dragStartMove: function(e, obj) {   // start column move
-                // prepare the cCpy from the dragged column
-                $(this.cCpy).html($(obj).html());
+                // prepare the cCpy and cPointer from the dragged column
+                $(this.cCpy).text($(obj).text());
                 var objPos = $(obj).position();
                 if (this.alignment == 'horizontal') {
                     $(this.cCpy).css({
                         top: objPos.top + 20,
                         left: objPos.left,
+                        height: $(obj).height(),
                         width: $(obj).width()
+                    });
+                    $(this.cPointer).css({
+                        top: objPos.top - 10,
+                        left: objPos.left
                     });
                 } else {    // vertical alignment
                     $(this.cCpy).css({
                         top: objPos.top,
                         left: objPos.left + 30,
+                        height: $(obj).height(),
                         width: $(obj).width()
+                    });
+                    $(this.cPointer).css({
+                        top: objPos.top,
+                        left: objPos.left
                     });
                 }
                 // get the column index
@@ -48,6 +58,7 @@
                     x0: e.pageX,
                     y0: e.pageY,
                     n: n,
+                    newn: n,
                     obj: obj,
                     objTop: parseInt(objPos.top),
                     objLeft: parseInt(objPos.left)
@@ -61,7 +72,7 @@
                     if (this.colRsz.objWidth + dx > this.minColWidth)
                         $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx);
                 } else if (this.colMov) {
-                    // movement animation
+                    // dragged column animation
                     if (this.alignment == 'horizontal') {
                         var dx = e.pageX - this.colMov.x0;
                         $(this.cCpy)
@@ -74,6 +85,35 @@
                             .fadeIn();
                     }
                     $(this.t).stop(true, true).fadeTo('normal', 0.5);
+                    
+                    // pointer animation
+                    var hoveredCol = this.getHoveredCol(e);
+                    if (hoveredCol) {
+                        var newn = $(this.t).find('th:gt(0)').index(hoveredCol);
+                        this.colMov.newn = newn;
+                        if (newn != this.colMov.n) {
+                            // show the column pointer in the right place
+                            var colPos = $(hoveredCol).position();
+                            if (this.alignment == 'horizontal') {
+                                var newleft = newn < this.colMov.n ?
+                                              colPos.left :
+                                              colPos.left + $(hoveredCol).outerWidth();
+                                $(this.cPointer)
+                                    .css('left', newleft)
+                                    .fadeIn();
+                            } else {    // vertical alignment
+                                var newtop = newn < this.colMov.n ?
+                                              colPos.top - 20 :     // 20 here is from col_pointer.png image height
+                                              colPos.top + $(hoveredCol).outerHeight() - 20;
+                                $(this.cPointer)
+                                    .css('top', newtop)
+                                    .fadeIn();
+                            }
+                        } else {
+                            // no movement to other column, hide the column pointer
+                            $(this.cPointer).hide();
+                        }
+                    }
                 }
             },
             
@@ -104,37 +144,14 @@
                 } else if (this.colMov) {
                     $(this.t).stop(true, true).fadeTo('fast', 1.0);
                     
-                    // find current hovered column
-                    var hoveredCol;
-                    $headers = $(this.t).find('th:gt(0)');
-                    if (this.alignment == 'horizontal') {
-                        $headers.each(function() {
-                            var left = $(this).position().left;
-                            var right = left + $(this).width();
-                            if (left <= e.pageX && e.pageX <= right) {
-                                hoveredCol = this;
-                            }
-                        });
-                    } else {    // vertical alignment
-                        $headers.each(function() {
-                            var top = $(this).position().top;
-                            var bottom = top + $(this).height();
-                            if (top <= e.pageY && e.pageY <= bottom) {
-                                hoveredCol = this;
-                            }
-                        });
-                    }
-                    if (hoveredCol) {
-                        // shift columns if new column is hovered
-                        var newn = $(this.t).find('th:gt(0)').index(hoveredCol);
-                        if (newn != this.colMov.n) {
-                            this.shiftCol(this.colMov.n, newn);
-                            // assign new position
-                            var objPos = $(this.colMov.obj).position();
-                            this.colMov.objTop = objPos.top;
-                            this.colMov.objLeft = objPos.left;
-                            this.colMov.n = newn;
-                        }
+                    // shift columns
+                    if (this.colMov.newn != this.colMov.n) {
+                        this.shiftCol(this.colMov.n, this.colMov.newn);
+                        // assign new position
+                        var objPos = $(this.colMov.obj).position();
+                        this.colMov.objTop = objPos.top;
+                        this.colMov.objLeft = objPos.left;
+                        this.colMov.n = this.colMov.newn;
                     }
                     
                     // animate new column position
@@ -144,6 +161,7 @@
                             left: g.colMov.objLeft
                         }, 'fast')
                         .fadeOut();
+                    $(this.cPointer).stop(true, true).hide();
 
                     this.colMov = false;
                 }
@@ -161,7 +179,7 @@
                     $this = $(this);
                     var n = $this.index();
                     $cb = $(g.cRsz).find('div:eq(' + (n - 1) + ')');   // column border
-                    $cb.css('left', $this.position().left + $this.width());
+                    $cb.css('left', $this.position().left + $this.outerWidth());
                 });
             },
             
@@ -203,16 +221,48 @@
                                .after($(this.t).find('tr:eq(' + (g.actionSpan + oldn) + ')'));
                     }
                 }
+            },
+            
+            /**
+             * Find currently hovered table column's header (excluding actions column).
+             * @return the hovered column's th object or undefined if no hovered column found.
+             */
+            getHoveredCol: function(e) {
+                var hoveredCol;
+                $headers = $(this.t).find('th:gt(0)');
+                if (this.alignment == 'horizontal') {
+                    $headers.each(function() {
+                        var left = $(this).position().left;
+                        var right = left + $(this).outerWidth();
+                        if (left <= e.pageX && e.pageX <= right) {
+                            hoveredCol = this;
+                        }
+                    });
+                } else {    // vertical alignment
+                    $headers.each(function() {
+                        var top = $(this).position().top;
+                        var bottom = top + $(this).height();
+                        if (top <= e.pageY && e.pageY <= bottom) {
+                            hoveredCol = this;
+                        }
+                    });
+                }
+                return hoveredCol;
             }
         }
         
-        g.gDiv = document.createElement('div');   // create global div
-        g.cRsz = document.createElement('div');   // column resizer
-        g.cCpy = document.createElement('div');   // column copy, to store copy of dragged column header
+        g.gDiv = document.createElement('div');     // create global div
+        g.cRsz = document.createElement('div');     // column resizer
+        g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
+        g.cPointer = document.createElement('div'); // column pointer, used when reordering column
         
         // adjust g.cCpy
         g.cCpy.className = 'cCpy';
         $(g.cCpy).hide();
+        
+        // adjust g.cPoint
+        g.cPointer.className = 'cPointer';
+        $(g.cPointer).hide();
         
         // chain table and grid together
         t.grid = g;
@@ -235,7 +285,7 @@
         $firstRowCols.each(function() {
             $this = $(this);
             var cb = document.createElement('div'); // column border
-            cb.style.left = $this.position().left + $this.width() + 'px';
+            cb.style.left = $this.position().left + $this.outerWidth() + 'px';
             cb.className = 'colborder';
             $(cb).mousedown(function(e) {
                 g.dragStartRsz(e, this);
@@ -269,6 +319,7 @@
         $(g.gDiv).append(t);
         $(g.gDiv).prepend(g.cRsz);
         $(g.gDiv).append(g.cCpy);
+        $(g.gDiv).append(g.cPointer);
 
         // some adjustment
         g.cRsz.className = 'cRsz';
