@@ -195,7 +195,7 @@ $i = 0;
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>">#</th>
-    <th id="th<?php echo ++$i; ?>" class="column"><?php echo __('Column'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="column"><?php echo __('Name'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="type"><?php echo __('Type'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="collation"><?php echo __('Collation'); ?></th>
     <th id="th<?php echo ++$i; ?>" class="attributes"><?php echo __('Attributes'); ?></th>
@@ -706,6 +706,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
 // BEGIN - Calc Table Space
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
+    echo '<div id="tablestatistics">';
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);
     }
@@ -923,6 +924,9 @@ if ($cfg['ShowStats']) {
     ?>
     </tbody>
     </table>
+
+    <!-- close tablestatistics div -->
+    </div>
 
     <?php
 }

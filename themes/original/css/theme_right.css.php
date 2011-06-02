@@ -833,6 +833,7 @@ div#tablestatistics {
 
 div#tablestatistics table {
     float: <?php echo $left; ?>;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     margin-<?php echo $right; ?>: 0.5em;
 }
