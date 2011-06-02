@@ -2123,6 +2123,7 @@ fieldset .disabled-field td {
 }
 
 .CodeMirror-scroll {
+  overflow: auto;
   height:             <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
 
