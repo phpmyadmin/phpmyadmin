@@ -21,6 +21,11 @@ var only_once_elements = new Array();
 var ajax_message_init = false;
 
 /**
+ * @var codemirror_editor object containing CodeMirror editor
+ */
+var codemirror_editor = false;
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -760,7 +765,11 @@ function insertQuery(queryType) {
         } else if(queryType == "clear") {
             query = "";
         }
-        document.sqlform.sql_query.value = query;
+        if (codemirror_editor) {
+            codemirror_editor.setValue(query);
+        } else {
+            document.sqlform.sql_query.value = query;
+        }
         sql_box_locked = false;
     }
 }
@@ -2375,6 +2384,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     var elm = $('#sqlquery');
     if (elm) {
-        var myCodeMirror = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+        codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
 })
