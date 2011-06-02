@@ -2208,17 +2208,15 @@ msgstr "Obojí"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikde"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Nalevo"
 
 #: libraries/config.values.php:47
-#, fuzzy
-#| msgid "Height"
 msgid "Right"
-msgstr "Výška"
+msgstr "Napravo"
 
 #: libraries/config.values.php:75
 msgid "Open"
