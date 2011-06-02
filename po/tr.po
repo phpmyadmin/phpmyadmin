@@ -1609,10 +1609,9 @@ msgid "Could not save recent table"
 msgstr "Son tablo kaydedilemedi"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tabloları say"
+msgstr "Son tablolar"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
