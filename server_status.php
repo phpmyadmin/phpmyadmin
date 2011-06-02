@@ -67,6 +67,10 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$GLOBALS['js_include'][] = 'canvg/canvg.js';
+$GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
+
 
 /**
  * flush status variables if requested
