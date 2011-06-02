@@ -6383,7 +6383,7 @@ msgstr "一般關聯功能"
 #: libraries/server_links.inc.php:79 server_synchronize.php:1091
 #: server_synchronize.php:1099
 msgid "Synchronize"
-msgstr ""
+msgstr "同步"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
@@ -6659,7 +6659,7 @@ msgstr "儲存引擎"
 
 #: libraries/tbl_properties.inc.php:764
 msgid "PARTITION definition"
-msgstr ""
+msgstr "分區定義"
 
 #: libraries/tbl_properties.inc.php:795
 #, fuzzy
