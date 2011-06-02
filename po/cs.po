@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-05-31 17:53+0200\n"
+"PO-Revision-Date: 2011-06-02 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1615,10 +1615,9 @@ msgstr[1] "Vloženy %1$d řádky."
 msgstr[2] "Vloženo %1$d řádek."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Nepodařilo se uložit nastavení"
+msgstr "Nepodařilo se uložit nedávnou tabulku"
 
 #: libraries/RecentTable.class.php:148
 #| msgid "Count tables"
@@ -1626,10 +1625,9 @@ msgid "Recent tables"
 msgstr "Nedávné tabulky"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Žádné servery nejsou nastaveny"
+msgstr "Nebyly nalezeny žádné nedávné tabulky"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1671,7 +1669,7 @@ msgstr "Tabulka %s byla přejmenována na %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Nepodařilo se uložit nastavení prohlížení tabulky"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -3324,10 +3322,10 @@ msgid "Enable highlighting"
 msgstr "Povolit zvýrazňování"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgstr ""
+"Nejvyšší počet tabulek v seznamu nedávných  tabulek; nastavte 0 pro vypnutí"
 
 #: libraries/config/messages.inc.php:287
 #| msgid "Untracked tables"
@@ -3619,7 +3617,7 @@ msgstr "Nástroje pro konverzi znakových sad"
 
 #: libraries/config/messages.inc.php:349
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Při procházení tabulek se pro každou uloží nastavené řazení"
 
 #: libraries/config/messages.inc.php:350
 #| msgid "Rename table to"
@@ -3902,7 +3900,6 @@ msgid "Server port"
 msgstr "Port serveru"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3910,8 +3907,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma_config[/kbd]"
+"Nechte prázdné pro vypnutí \"trvalého\" ukládání nedávných tabulek, výchozí "
+"nastavení: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:409
 #| msgid "Recall user name"
@@ -3995,7 +3992,6 @@ msgid "Display columns table"
 msgstr "Tabulka s popisem polí"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4003,8 +3999,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma_config[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro \"trvalé\" ukládání nastavení "
+"procházení tabulek, výchozí nastavení: [kbd]pma_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 #| msgid "User preferences storage table"
@@ -6222,14 +6218,13 @@ msgid "SQL history"
 msgstr "SQL historie"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Trvalé připojení"
+msgstr "Trvalé nedávné tabulky"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Trvalé nastavení procházení"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
