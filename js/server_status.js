@@ -1,4 +1,27 @@
 $(function() {
+    jQuery.tablesorter.addParser({
+        id: "fancyNumber",
+        is: function(s) {
+            return /^[0-9]?[0-9,\.]*\s?(k|M|G|T)?$/.test(s);
+        },
+        format: function(s) {
+            var num = jQuery.tablesorter.formatFloat( s.replace(PMA_messages['strThousandsSeperator'],'').replace(PMA_messages['strDecimalSeperator'],'.') );
+            var factor = 1;
+            switch (s.charAt(s.length-1)) {
+                case '%': factor = 0.01; break;
+                // Todo: Please complete this list
+                case 'k': factor = 1000; break;
+                case 'M': factor = 1000*1000; break;
+                case 'G': factor = 1000*1000*1000; break;
+                case 'T': factor = 1000*1000*1000*1000; break;
+            }
+            return num*factor;
+        },
+        type: "numeric"
+    });
+});
+
+$(function() {
     // Filters for status variables
     var textFilter=null;
     var alertFilter = false;
@@ -110,7 +133,7 @@ $(function() {
             tabStatus[tab.attr('id')]='realtime';            
             initChart(settings);
             $(this).html(PMA_messages['strStaticData']);
-            $('.statuslinks a:nth-child(1)').hide();
+            tab.find('.statuslinks a:nth-child(1)').hide();
         } else {
             clearTimeout(activeTimeouts[tab.attr('id')+"_chart_cnt"]);
             activeTimeouts[tab.attr('id')+"_chart_cnt"]=null;
@@ -118,7 +141,7 @@ $(function() {
             tab.find('div#'+tab.attr('id')+'_chart_cnt').remove();
             tabStatus[tab.attr('id')]='data';
             $(this).html(PMA_messages['strRealtimeChart']);
-            $('.statuslinks a:nth-child(1)').show();
+            tab.find('.statuslinks a:nth-child(1)').show();
         }
         return false; 
     });
@@ -182,7 +205,11 @@ $(function() {
             case 'statustabs_queries':
                 $('#serverstatusqueriesdetails').tablesorter({
                         sortList: [[3,1]],
-                        widgets: ['zebra']
+                        widgets: ['zebra'],
+                        headers: {
+                            1: { sorter: 'fancyNumber' },
+                            2: { sorter: 'fancyNumber' }
+                        }
                     });
                     
                 $('#serverstatusqueriesdetails tr:first th')
@@ -193,7 +220,10 @@ $(function() {
             case 'statustabs_allvars':
                 $('#serverstatusvariables').tablesorter({
                         sortList: [[0,0]],
-                        widgets: ['zebra']
+                        widgets: ['zebra'],
+                        headers: {
+                            1: { sorter: 'fancyNumber' }
+                        }
                     });
                     
                 $('#serverstatusvariables tr:first th')
@@ -250,7 +280,7 @@ $(function() {
         var settings = {
             chart: {
                 defaultSeriesType: 'spline',
-                marginRight: 10,
+                marginRight: 10
             },
             credits: {
                 enabled:false

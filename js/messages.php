@@ -64,6 +64,10 @@ $js_messages['strStaticData'] = __('Static data');
 $js_messages['strTotal'] = __('Total');
 /* l10n: Other, small valued, queries */
 $js_messages['strOther'] = __('Other');
+/* l10n: Thousands separator */
+$js_messages['strThousandsSeperator'] = __(',');
+/* l10n: Decimal separator */
+$js_messages['strDecimalSeperator'] = __('.');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
