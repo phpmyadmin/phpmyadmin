@@ -796,8 +796,11 @@ function insertValueQuery() {
             }
         }
 
+        /* CodeMirror support */
+        if (codemirror_editor) {
+            codemirror_editor.replaceSelection(chaineAj);
         //IE support
-        if (document.selection) {
+        } else if (document.selection) {
             myQuery.focus();
             sel = document.selection.createRange();
             sel.text = chaineAj;
