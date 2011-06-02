@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-02 21:21+0200\n"
+"PO-Revision-Date: 2011-06-02 21:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3333,10 +3333,10 @@ msgid "Enable highlighting"
 msgstr "Vurgulamalar etkin"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr ""
+"En fazla son kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın"
 
 #: libraries/config/messages.inc.php:287
 #, fuzzy
