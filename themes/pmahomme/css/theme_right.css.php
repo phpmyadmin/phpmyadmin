@@ -1031,8 +1031,8 @@ div#tablestatistics {
 div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-bottom: 0.5em;
-    margin-<?php echo $right; ?>: 0.5em;
-    width:99%;
+    margin-<?php echo $right; ?>: 1.5em;
+    margin-top: 0.5em;
 }
 
 div#tablestatistics table caption {
