@@ -1,14 +1,14 @@
 # Directory for creating releases
-release
+/release/
 # Configuration files
 config.inc.php
 config.header.inc.php
 config.footer.inc.php
 # Upload/save dirs
-upload
-save
+/upload/
+/save/
 # For setup script
-config
+/config/
 # ctags
 tags
 # Editor files
@@ -22,12 +22,12 @@ phpmyadmin.wpj
 .idea
 *.sw[op]
 # Locales
-locale
+/locale/
 # Backups
 *~
 # Javascript sources
-sources
+/sources/
 # API documentation
-apidoc
+/apidoc/
 # Demo server
 revision-info.php
