@@ -6224,7 +6224,7 @@ msgstr "Trvalé nedávné tabulky"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Trvalé nastavení procházení"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
