@@ -724,15 +724,31 @@ function setSelectOptions(the_form, the_select, do_check)
     return true;
 } // end of the 'setSelectOptions()' function
 
+/**
+ * Sets current value for query box.
+ */
+function setQuery(query) {
+    if (codemirror_editor) {
+        codemirror_editor.setValue(query);
+    } else {
+        document.sqlform.sql_query.value = query;
+    }
+}
+
 
 /**
   * Create quick sql statements.
   *
   */
 function insertQuery(queryType) {
+    if (queryType == "clear") {
+        setQuery('');
+        return;
+    }
+
     var myQuery = document.sqlform.sql_query;
-    var myListBox = document.sqlform.dummy;
     var query = "";
+    var myListBox = document.sqlform.dummy;
     var table = document.sqlform.table.value;
 
     if (myListBox.options.length > 0) {
@@ -762,14 +778,8 @@ function insertQuery(queryType) {
             query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
         } else if(queryType == "delete") {
             query = "DELETE FROM `" + table + "` WHERE 1";
-        } else if(queryType == "clear") {
-            query = "";
         }
-        if (codemirror_editor) {
-            codemirror_editor.setValue(query);
-        } else {
-            document.sqlform.sql_query.value = query;
-        }
+        setQuery(query);
         sql_box_locked = false;
     }
 }
