@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-02 21:45+0200\n"
+"PO-Revision-Date: 2011-06-02 21:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3502,7 +3502,7 @@ msgstr "Bunlar Düzenle, Sıralı düzenle, Kopyala ve Sil bağlantılarıdır"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Tablo satır bağlantılarının nerede gösterileceği"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
