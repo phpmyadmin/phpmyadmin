@@ -6265,10 +6265,9 @@ msgid "SQL history"
 msgstr "SQL geçmişi"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Sürekli bağlantılar"
+msgstr "Sürekli son kullanılan tablolar"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
