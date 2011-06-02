@@ -1625,10 +1625,9 @@ msgid "Recent tables"
 msgstr "Nedávné tabulky"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Žádné servery nejsou nastaveny"
+msgstr "Nebyly nalezeny žádné nedávné tabulky"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
