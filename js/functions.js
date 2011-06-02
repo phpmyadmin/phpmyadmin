@@ -21,6 +21,11 @@ var only_once_elements = new Array();
 var ajax_message_init = false;
 
 /**
+ * @var codemirror_editor object containing CodeMirror editor
+ */
+var codemirror_editor = false;
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -757,8 +762,14 @@ function insertQuery(queryType) {
             query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
         } else if(queryType == "delete") {
             query = "DELETE FROM `" + table + "` WHERE 1";
+        } else if(queryType == "clear") {
+            query = "";
         }
-        document.sqlform.sql_query.value = query;
+        if (codemirror_editor) {
+            codemirror_editor.setValue(query);
+        } else {
+            document.sqlform.sql_query.value = query;
+        }
         sql_box_locked = false;
     }
 }
@@ -785,8 +796,11 @@ function insertValueQuery() {
             }
         }
 
+        /* CodeMirror support */
+        if (codemirror_editor) {
+            codemirror_editor.replaceSelection(chaineAj);
         //IE support
-        if (document.selection) {
+        } else if (document.selection) {
             myQuery.focus();
             sel = document.selection.createRange();
             sel.text = chaineAj;
@@ -1147,11 +1161,7 @@ $(document).ready(function(){
     });
 
     $('.sqlbutton').click(function(evt){
-        if (evt.target.id == 'clear') {
-            $('#sqlquery').val('');
-        } else {
-            insertQuery(evt.target.id);
-        }
+        insertQuery(evt.target.id);
         return false;
     });
 
@@ -2370,3 +2380,13 @@ $(document).ready(function() {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 }) // end of $(document).ready() for Drop Table
+
+/**
+ * Attach CodeMirror2 editor to SQL edit area.
+ */
+$(document).ready(function() {
+    var elm = $('#sqlquery');
+    if (elm) {
+        codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+    }
+})
