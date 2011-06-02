@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-05-31 17:50+0200\n"
-"PO-Revision-Date: 2011-06-02 10:31+0200\n"
+"PO-Revision-Date: 2011-06-02 10:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3617,7 +3617,7 @@ msgstr "Nástroje pro konverzi znakových sad"
 
 #: libraries/config/messages.inc.php:349
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Při procházení tabulek se pro každou uloží nastavené řazení"
 
 #: libraries/config/messages.inc.php:350
 #| msgid "Rename table to"
