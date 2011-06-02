@@ -13,6 +13,8 @@
 + AJAX for Create table in navigation panel
 + rfe #3310562 Wording about Column
 
+3.4.3.0 (not yet released)
+
 3.4.2.0 (not yet released)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
 - bug #3303869 [interface] Unnecessary scrolling on Databases page
